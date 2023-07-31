@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 7/14/2023
 ---
 
 # Configure semantic ranking and return captions in search results
@@ -352,6 +352,9 @@ The response for the above example query returns the following match as the top 
         "Category": "Luxury"
     },
 ```
+
+> [!NOTE]
+> Starting from July 14, 2023, if the initial search results display matches in multiple languages, the semantic ranker will include these results as a part of the semantic response. This is in contrast to the previous behavior, where the semantic ranker would deprioritize results differing from the language specified by the field analyzer.
 
 ## Next steps
 

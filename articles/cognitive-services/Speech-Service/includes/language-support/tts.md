@@ -52,7 +52,7 @@ ms.author: eur
 | `en-PH` | English (Philippines) | `en-PH-RosaNeural` (Female)<br/>`en-PH-JamesNeural` (Male) |
 | `en-SG` | English (Singapore) | `en-SG-LunaNeural` (Female)<br/>`en-SG-WayneNeural` (Male) |
 | `en-TZ` | English (Tanzania) | `en-TZ-ImaniNeural` (Female)<br/>`en-TZ-ElimuNeural` (Male) |
-| `en-US` | English (United States) | `en-US-JennyNeural` (Female)<br/>`en-US-JennyMultilingualNeural`<sup>3</sup> (Female)<br/>`en-US-GuyNeural` (Male)<br/>`en-US-AriaNeural` (Female)<br/>`en-US-DavisNeural` (Male)<br/>`en-US-AmberNeural` (Female)<br/>`en-US-AnaNeural` (Female, Child)<br/>`en-US-AshleyNeural` (Female)<br/>`en-US-BrandonNeural` (Male)<br/>`en-US-ChristopherNeural` (Male)<br/>`en-US-CoraNeural` (Female)<br/>`en-US-ElizabethNeural` (Female)<br/>`en-US-EricNeural` (Male)<br/>`en-US-JacobNeural` (Male)<br/>`en-US-JaneNeural` (Female)<br/>`en-US-JasonNeural` (Male)<br/>`en-US-MichelleNeural` (Female)<br/>`en-US-MonicaNeural` (Female)<br/>`en-US-NancyNeural` (Female)<br/>`en-US-RogerNeural` (Male)<br/>`en-US-SaraNeural` (Female)<br/>`en-US-SteffanNeural` (Male)<br/>`en-US-TonyNeural` (Male)<br/>`en-US-AIGenerate1Neural`<sup>1</sup> (Male)<br/>`en-US-AIGenerate2Neural`<sup>1</sup> (Female) |
+| `en-US` | English (United States) | `en-US-JennyMultilingualNeural`<sup>3</sup> (Female)<br/>`en-US-JennyNeural` (Female)<br/>`en-US-GuyNeural` (Male)<br/>`en-US-AriaNeural` (Female)<br/>`en-US-DavisNeural` (Male)<br/>`en-US-AmberNeural` (Female)<br/>`en-US-AnaNeural` (Female, Child)<br/>`en-US-AshleyNeural` (Female)<br/>`en-US-BrandonNeural` (Male)<br/>`en-US-ChristopherNeural` (Male)<br/>`en-US-CoraNeural` (Female)<br/>`en-US-ElizabethNeural` (Female)<br/>`en-US-EricNeural` (Male)<br/>`en-US-JacobNeural` (Male)<br/>`en-US-JaneNeural` (Female)<br/>`en-US-JasonNeural` (Male)<br/>`en-US-JennyMultilingualV2Neural` (Female)<br/>`en-US-MichelleNeural` (Female)<br/>`en-US-MonicaNeural` (Female)<br/>`en-US-NancyNeural` (Female)<br/>`en-US-RogerNeural` (Male)<br/>`en-US-RyanMultilingualNeural` (Male)<br/>`en-US-SaraNeural` (Female)<br/>`en-US-SteffanNeural` (Male)<br/>`en-US-TonyNeural` (Male)<br/>`en-US-AIGenerate1Neural`<sup>1</sup> (Male)<br/>`en-US-AIGenerate2Neural`<sup>1</sup> (Female)<br/>`en-US-BlueNeural`<sup>1</sup> (Neutral) |
 | `en-ZA` | English (South Africa) | `en-ZA-LeahNeural` (Female)<br/>`en-ZA-LukeNeural` (Male) |
 | `es-AR` | Spanish (Argentina) | `es-AR-ElenaNeural` (Female)<br/>`es-AR-TomasNeural` (Male) |
 | `es-BO` | Spanish (Bolivia) | `es-BO-SofiaNeural` (Female)<br/>`es-BO-MarceloNeural` (Male) |
@@ -128,6 +128,7 @@ ms.author: eur
 | `sl-SI` | Slovenian (Slovenia) | `sl-SI-PetraNeural` (Female)<br/>`sl-SI-RokNeural` (Male) |
 | `so-SO` | Somali (Somalia) | `so-SO-UbaxNeural`<sup>2</sup> (Female)<br/>`so-SO-MuuseNeural`<sup>2</sup> (Male) |
 | `sq-AL` | Albanian (Albania) | `sq-AL-AnilaNeural`<sup>2</sup> (Female)<br/>`sq-AL-IlirNeural`<sup>2</sup> (Male) |
+| `sr-LATN-RS` | Serbian (Latin, Serbia) | `sr-Latn-RS-NicholasNeural`<sup>1,2</sup> (Male)<br/>`sr-Latn-RS-SophieNeural`<sup>1,2</sup> (Female) |
 | `sr-RS` | Serbian (Cyrillic, Serbia) | `sr-RS-SophieNeural`<sup>2</sup> (Female)<br/>`sr-RS-NicholasNeural`<sup>2</sup> (Male) |
 | `su-ID` | Sundanese (Indonesia) | `su-ID-TutiNeural`<sup>2</sup> (Female)<br/>`su-ID-JajangNeural`<sup>2</sup> (Male) |
 | `sv-SE` | Swedish (Sweden) | `sv-SE-SofieNeural` (Female)<br/>`sv-SE-MattiasNeural` (Male)<br/>`sv-SE-HilleviNeural` (Female) |
@@ -159,6 +160,6 @@ ms.author: eur
 
 <sup>1</sup> The neural voice is available in public preview. Voices and styles in public preview are only available in three service [regions](../../regions.md): East US, West Europe, and Southeast Asia. 
 
-<sup>2</sup> [Visemes](../../speech-synthesis-markup-structure.md#viseme-element), [phonemes](../../speech-synthesis-markup-pronunciation.md#phoneme-element), and [custom lexicon](../../speech-synthesis-markup-pronunciation.md#custom-lexicon) are not supported. Visemes are supported for all other voices. However, SVG is only supported for neural voices of the `en-US` locale, and blend shapes is only supported for neural voices of the `en-US` and `zh-CN` locales. For more information, see [Get facial position with viseme](../../how-to-speech-synthesis-viseme.md) and [Viseme element](../../speech-synthesis-markup-structure.md#viseme-element). 
+<sup>2</sup> [Phonemes](../../speech-synthesis-markup-pronunciation.md#phoneme-element), [custom lexicon](../../speech-synthesis-markup-pronunciation.md#custom-lexicon), and [visemes](../../speech-synthesis-markup-structure.md#viseme-element) aren't supported. For details about supported visemes, see [viseme locales](../../language-support.md?tabs=tts#viseme). 
 
 <sup>3</sup> For the multilingual voice the primary default locale is `en-US`. Additional locales are supported [using SSML](../../speech-synthesis-markup-voice.md#adjust-speaking-languages).

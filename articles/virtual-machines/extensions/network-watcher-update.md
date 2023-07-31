@@ -6,7 +6,7 @@ author: halkazwini
 tags: azure-resource-manager
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 05/25/2023
+ms.date: 07/12/2023
 ms.author: halkazwini
 ms.custom: template-concept, devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ---
@@ -46,7 +46,7 @@ az vm extension image list --name 'NetworkWatcherAgentWindows' --publisher 'Micr
 
 ## Update your extension using a PowerShell script
 
-Customers with large deployments who need to update multiple VMs at once. For updating select VMs manually, see the next section. 
+If you have large deployments, use a PowerShell script to update multiple VMs at once. The following PowerShell script updates Network Watcher extension of all Windows VMs in a subscription: 
 
 ```powershell
 <# 
@@ -66,7 +66,7 @@ param(
     [Parameter(Mandatory=$false)] 
     [Switch] $NoUpdate = $false, 
     [Parameter(Mandatory=$false)] 
-    [string] $MinVersion = "1.4.2423.1" 
+    [string] $MinVersion = "1.4.2573.1" 
 )  
 function NeedsUpdate($version) 
 { 
@@ -153,7 +153,6 @@ Information about the extension appears multiple times in the JSON output. The f
 You should see something like the below:
 ![Azure CLI Screenshot](./media/network-watcher/azure-cli-screenshot.png)
 
-
 #### Use PowerShell
 
 Run the following commands from a PowerShell prompt:
@@ -165,7 +164,6 @@ Locate the Azure Network Watcher extension in the output and identify the ve
 
 You should see something like the below:
 ![PowerShell Screenshot](./media/network-watcher/powershell-screenshot.png)
-
 
 ### Update your extension
 

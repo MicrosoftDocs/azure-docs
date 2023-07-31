@@ -5,11 +5,11 @@ description: Learn how to initiate an account failover in the event that the pri
 services: storage
 author: jimmart-dev
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 05/31/2023
 ms.author: jammart
-ms.subservice: common 
+ms.subservice: storage-common-concepts
 ---
 
 # Initiate a storage account failover

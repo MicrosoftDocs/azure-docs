@@ -2,6 +2,7 @@
 title: Azure Functions Scenarios 
 description: Identify key scenarios that use Azure Functions to provide serverless compute resources in aa Azure cloud-based topology. 
 ms.topic: conceptual
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 05/15/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---

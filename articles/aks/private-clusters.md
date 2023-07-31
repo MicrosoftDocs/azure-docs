@@ -2,7 +2,7 @@
 title: Create a private Azure Kubernetes Service (AKS) cluster
 description: Learn how to create a private Azure Kubernetes Service (AKS) cluster
 ms.topic: article
-ms.date: 01/25/2023
+ms.date: 06/29/2023
 ms.custom: references_regions
 ---
 
@@ -110,6 +110,9 @@ You can configure private DNS zones using the following parameters:
   * If your AKS cluster is configured with an Active Directory service principal, AKS doesn't support using a system-assigned managed identity with custom private DNS zone.
   * If you are specifying a `<subzone>` there is a 32 character limit for the `<subzone>` name.
 
+  > [!IMPORTANT]
+  > The **CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID** cannot be changed after the cluster has been created and it can't be deleted. Otherwise, the cluster will have issues performing upgrade operations.
+
 ### Create a private AKS cluster with a private DNS zone
 
 Create a private AKS cluster with a private DNS zone using the [`az aks create`][az-aks-create] command with the following flags:
@@ -137,6 +140,20 @@ Create a private AKS cluster with a custom private DNS zone and subdomain using 
 
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <resourceID> --private-dns-zone <custom private dns zone resourceID> --fqdn-subdomain <subdomain>
 ```
+
+### Update a private cluster from a private DNS zone to public
+
+> [!NOTE]
+> This feature requires the `aks-preview` extension version >= 0.5.97
+
+Update a private cluster from `byo` or `system` to `none` using the [`az aks update`][az-aks-update] command with the following flags:
+
+```azurecli-interactive
+az aks update -n <private-cluster-name> -g <private-cluster-resource-group> --private-dns-zone none
+```
+
+> [!NOTE]
+> You can only update from `byo` or `system` to `none`. No other combination of update values is supported.
 
 ## Options for connecting to the private cluster
 

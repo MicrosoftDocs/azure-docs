@@ -50,13 +50,15 @@ additionalContent:
         # Card
         - title: I want to...
           links:
+            - text: Protect my network from DDos attacks
+              url: ../../ddos-protection/ddos-protection-overview.md
             - text: Protect my outbound network connections
               url: ../../firewall/overview.md
             - text: Protect my inbound web application connections
               url: ../../web-application-firewall/overview.md
             - text: Manage my network firewall
               url: ../../firewall-manager/overview.md
-            - text: See more
+            - text: Learn more about Azure Firewall
               url: ../../firewall/index.yml
         - title: Training
           links:
@@ -82,7 +84,7 @@ additionalContent:
               url: ../../virtual-network/network-security-groups-overview.md
             - text: Secure access to Azure services
               url: ../../virtual-network/virtual-network-service-endpoints-overview.md
-            - text: See more
+            - text: Learn more about Azure Virtual Network
               url: ../../virtual-network/index.yml
         - title: Training
           links:
@@ -111,8 +113,8 @@ additionalContent:
               url: ../../private-link/private-endpoint-overview.md
             - text: Connect a service using a private link 
               url: ../../private-link/private-link-service-overview.md
-            - text: See more
-              url: ../..//ddos-protection/index.yml
+            - text: Learn more about Azure DDoS Protection
+              url: ../../ddos-protection/index.yml
         - title: Training
           links:
             - text: Introduction to Azure DDoS Protection
@@ -134,7 +136,7 @@ additionalContent:
           links:
             - text: Connect to my VMs without a public IP address exposure
               url: ../../bastion/bastion-overview.md
-            - text: See more
+            - text: Learn more about Azure Bastion
               url: ../../bastion/index.yml
         - title: Training
           links:

@@ -85,9 +85,9 @@ The detailed specifications of the available server types are as follows:
 |Standard_E32ads_v5	|	32	|	256	|	38000	|	43691   |   1200    |
 |Standard_E48ds_v4	|	48	|	384	|	48000	|	65536   |   1800    |
 |Standard_E48ads_v5	|	48	|	384	|	48000	|	65536   |   1800    |
-|Standard_E64ds_v4	|	64	|	504	|	48000	|	86016   |   2400    |
-|Standard_E64ads_v5	|	64	|	504	|	48000	|	86016   |   2400    |
-|Standard_E80ids_v4	|	80	|	504	|	48000	|	86016   |   2400    |
+|Standard_E64ds_v4	|	64	|	504	|	64000	|	86016   |   2400    |
+|Standard_E64ads_v5	|	64	|	504	|	64000	|	86016   |   2400    |
+|Standard_E80ids_v4	|	80	|	504	|	72000	|	86016   |   2400    |
 |Standard_E2ds_v5	|	2	|	16	|	5000	|	2731    |   75  |
 |Standard_E4ds_v5	|	4	|	32	|	10000	|	5461    |   150 | 
 |Standard_E8ds_v5	|	8	|	64	|	18000	|	10923   |   300 |
@@ -137,8 +137,6 @@ Remember that storage once auto-scaled up, cannot be scaled down.
 Azure Database for MySQL – Flexible Server supports the provisioning of additional IOPS. This feature enables you to provision additional IOPS above the complimentary IOPS limit. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time. 
 
 The minimum IOPS are 360 across all compute sizes and the maximum IOPS is determined by the selected compute size. To learn more about the maximum IOPS per compute size refer to the [table](#service-tiers-size-and-server-types).
-
-The maximum IOPS are dependent on the maximum available IOPS per compute size. Refer to the column *Max uncached disk throughput: IOPS/MBps* in the [B-series](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md), and [Edsv4-series](../../virtual-machines/edv4-edsv4-series.md)/ [Edsv5-series](../../virtual-machines/edv5-edsv5-series.md)] documentation.
 
 > [!Important]
 > **Complimentary IOPS** are equal to MINIMUM("Max uncached disk throughput: IOPS/MBps" of compute size, 300 + storage provisioned in GiB * 3)<br>

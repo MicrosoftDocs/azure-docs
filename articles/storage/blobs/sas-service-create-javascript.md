@@ -9,7 +9,6 @@ ms.topic: how-to
 ms.date: 01/19/2023
 ms.author: pauljewell
 ms.reviewer: nachakra
-ms.subservice: blobs
 ms.devlang: javascript
 ms.custom: devx-track-javascript, engagement-fy23, devx-track-js
 ---

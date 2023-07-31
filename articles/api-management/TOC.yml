@@ -56,8 +56,8 @@
         href: visual-studio-code-tutorial.md
 - name: Samples
   items:
-      - name: Policies
-        href: ./policies/index.md
+      - name: Policy snippets
+        href: https://github.com/Azure/api-management-policy-snippets
       - name: Azure PowerShell
         href: powershell-samples.md
 - name: Concepts

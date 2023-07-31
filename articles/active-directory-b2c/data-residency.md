@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/06/2023
+ms.date: 06/24/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: references_regions
@@ -78,7 +78,10 @@ At the moment, the following countries/regions have the local data residence opt
 
 #### What do I need to do? 
 
-If you've an existing Azure AD B2C tenant, you need to opt in to start using Go-Local add-on. If you're creating a new Azure AD B2C tenant, you can enable Go-Local add-on when you create it. Learn how to [create your Azure AD B2C](tutorial-create-tenant.md) tenant.
+|Tenant status  | What to do  |
+|-------------|---------|
+| I've an existing tenant | You need to opt in to start using Go-Local add-on by using the steps in [Activate Go-Local ad-on](tutorial-create-tenant.md#activate-azure-ad-b2c-go-local-add-on). |
+| I'm creating a new tenant | You enable Go-Local add-on when you create your new Azure AD B2C tenant. Learn how to [create your Azure AD B2C](tutorial-create-tenant.md) tenant.|
 
 ## EU Data Boundary
 

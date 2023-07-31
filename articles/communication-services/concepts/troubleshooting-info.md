@@ -162,22 +162,22 @@ Console.WriteLine($"Email operation id = {emailSendOperation.Id}");
 # [JavaScript](#tab/javascript)
 
 The Azure Communication Services Calling SDK relies internally on [@azure/logger](https://www.npmjs.com/package/@azure/logger) library to control logging.
-Use the `setLogLevel` method from the `@azure/logger` package to configure the log output:
+Use the `setLogLevel` method from the `@azure/logger` package to configure the log output level. Create a logger and pass it into the CallClient constructor:
 
 ```javascript
-import { setLogLevel } from '@azure/logger';
+import { setLogLevel, createClientLogger, AzureLogger } from '@azure/logger';
 setLogLevel('verbose');
-const callClient = new CallClient();
+let logger = createClientLogger('ACS');
+const callClient = new CallClient({ logger });
 ```
 
 You can use AzureLogger to redirect the logging output from Azure SDKs by overriding the `AzureLogger.log` method:
 This value may be useful if you want to redirect logs to a location other than console.
 
 ```javascript
-import { AzureLogger } from '@azure/logger';
 // redirect log output
 AzureLogger.log = (...args) => {
-  console.log(...args); // to console, file, buffer, REST API..
+  console.log(...args); // to console, file, buffer, REST API, etc...
 };
 ```
 

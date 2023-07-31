@@ -241,7 +241,7 @@ foreach ($userId in $skus.Keys) {
     Write-Host "SKU IDs:"
 
     foreach ($skuId in $skus[$userId].Keys) {
-        $sku = Get-MgSubscribedSku -SkuId $skuId
+        $sku = Get-MgSubscribedSku -SubscribedSkuId $skuId
         Write-Host "- $($sku.DisplayName)"
         Write-Host "  Assigned directly: $($skus[$userId][$skuId].AssignedDirectly)"
         Write-Host "  Assigned through groups: $($skus[$userId][$skuId].AssignedThroughGroups)"

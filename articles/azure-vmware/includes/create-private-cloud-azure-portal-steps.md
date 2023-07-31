@@ -3,6 +3,7 @@ title: Create an Azure VMware Solution private cloud
 description: Steps to create an Azure VMware Solution private cloud using the Azure portal.
 ms.topic: include
 ms.service: azure-vmware
+ms.custom: devx-track-azurecli
 ms.date: 4/7/2023
 author: suzizuber
 ms.author: v-szuber

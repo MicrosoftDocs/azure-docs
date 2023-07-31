@@ -127,7 +127,7 @@ In this section, you test connectivity between a virtual machines and `www.bing.
     | Virtual machine | Select **VM1**. |
     | **Destination** |  |
     | Destination type | Select **Specify manually**. |
-    | Resource group | Enter *www\.bing.com*. |
+    | URI, FQDN or IP address  | Enter *www\.bing.com*. |
     | **Probe Settings** |  |
     | Preferred IP version | Select **IPv4**. |
     | Protocol | Select **TCP**. |

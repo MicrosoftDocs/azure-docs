@@ -11,7 +11,7 @@ ms.custom: template-concept
 #Customer intent: As a developer, I want to understand Dev Box concepts and terminology so that I can set up a Dev Box environment.
 ---
 
-# Key concepts for Microsoft Dev Box Preview
+# Key concepts for Microsoft Dev Box 
 
 This article describes the key concepts and components of Microsoft Dev Box.
 
@@ -26,7 +26,7 @@ As a dev box user, you have control over your own dev boxes. You can create more
 A dev center is a collection of projects that require similar settings. Dev centers enable dev infrastructure managers to:
 
 - Manage the images and SKUs available to the projects by using dev box definitions.
-- Configure the networks that the development teams consume by using network connections.  
+- Configure the networks that the development teams consume by using network connections. 
 
 ## Project
 

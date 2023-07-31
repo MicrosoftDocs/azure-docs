@@ -16,17 +16,33 @@ The Speech SDK depends on the following Linux system libraries:
 - The shared library for ALSA applications (`libasound`)
 - You should also install `ca-certificates` to establish a secure websocket and avoid the `WS_OPEN_ERROR_UNDERLYING_IO_OPEN_FAILED` error.
 
+> [!IMPORTANT]
+> The Speech SDK does not yet support OpenSSL 3.0, which is the default in Ubuntu 22.04 and Debian 12. 
+
+To install OpenSSL 1.x from sources on Debian/Ubuntu based systems that don't have it, do:
+```Bash
+wget -O - https://www.openssl.org/source/openssl-1.1.1u.tar.gz | tar zxf -
+cd openssl-1.1.1u
+./config --prefix=/usr/local
+make -j $(nproc)
+sudo make install_sw install_ssldirs
+sudo ldconfig -v
+export SSL_CERT_DIR=/etc/ssl/certs
+```
+Notes on installation:
+- Check https://www.openssl.org/source/ for the latest OpenSSL 1.x version to use.
+- The setting of `SSL_CERT_DIR` must be in effect systemwide or at least in the console where applications that use the Speech SDK are launched from, otherwise OpenSSL 1.x installed in `/usr/local` may not find certificates.
+- Ensure that the console output from `ldconfig -v` includes `/usr/local/lib` as it should on modern systems by default. If this isn't the case, set `LD_LIBRARY_PATH` (with the same scope as `SSL_CERT_DIR`) to add `/usr/local/lib` to the library path:
+  ```Bash
+  export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+  ```
+
 # [Ubuntu 18.04/20.04/22.04](#tab/ubuntu)
 
 ```Bash
 sudo apt-get update
 sudo apt-get install build-essential libssl-dev ca-certificates libasound2 wget
 ```
-
-> [!IMPORTANT]
-> The Speech SDK does not support OpenSSL 3.0, which is the default in Ubuntu 22.04. 
-
-On Ubuntu 22.04 only, install the latest libssl1.1 either as a [binary package](http://security.ubuntu.com/ubuntu/pool/main/o/openssl/), or by compiling it from sources.
 
 # [Debian 9/10/11](#tab/debian)
 

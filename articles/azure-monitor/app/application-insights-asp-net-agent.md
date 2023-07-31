@@ -12,7 +12,7 @@ Application Insights Agent (formerly named Status Monitor V2) is a PowerShell mo
 It replaces Status Monitor.
 Telemetry is sent to the Azure portal, where you can [monitor](./app-insights-overview.md) your app.
 
-For a complete list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
+For a complete list of supported autoinstrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
 > [!NOTE]
 > The module currently supports codeless instrumentation of ASP.NET and ASP.NET Core web apps hosted with IIS. Use an SDK to instrument Java and Node.js applications.
@@ -977,7 +977,7 @@ Updated the Application Insights .NET/.NET Core SDK to 2.18.1-redfield
 
 ### 2.0.0-beta1
 
-Added the ASP.NET Core auto-instrumentation feature
+Added the ASP.NET Core autoinstrumentation feature
 
 ---
 

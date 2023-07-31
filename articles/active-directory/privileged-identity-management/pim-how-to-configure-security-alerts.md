@@ -3,7 +3,7 @@ title: Security alerts for Azure AD roles in PIM
 description: Configure security alerts for Azure AD roles Privileged Identity Management in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 editor: ''
 
@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 07/29/2022
-ms.author: amsliu
+ms.author: billmath
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -22,6 +22,9 @@ ms.collection: M365-identity-device-management
 Privileged Identity Management (PIM) generates alerts when there's suspicious or unsafe activity in your organization in Azure Active Directory (Azure AD), part of Microsoft Entra. When an alert is triggered, it shows up on the Privileged Identity Management dashboard. Select the alert to see a report that lists the users or roles that triggered the alert.
 
 ![Screenshot that shows the alerts page with a list of alerts and their severity.](./media/pim-how-to-configure-security-alerts/view-alerts.png)
+
+## License requirements
+[!INCLUDE [active-directory-p2-governance-either-license.md](../../../includes/active-directory-p2-governance-either-license.md)]
 
 ## Security alerts
 
@@ -55,14 +58,14 @@ Severity: **Low**
 | **Prevention** | [Require MFA](pim-how-to-change-default-settings.md) for every role.  |
 | **In-portal mitigation action** | Makes multi-factor authentication required for activation of the privileged role. |
 
-### The organization doesn't have Azure AD Premium P2
+### The organization doesn't have Microsoft Entra Premium P2 or Microsoft Entra ID Governance
 
 Severity: **Low**
 
 | | Description |
 | --- | --- |
-| **Why do I get this alert?** | The current Azure AD organization doesn't have Azure AD Premium P2. |
-| **How to fix?** | Review information about [Azure AD editions](../fundamentals/active-directory-whatis.md). Upgrade to Azure AD Premium P2. |
+| **Why do I get this alert?** | The current Azure AD organization doesn't have Microsoft Entra Premium P2 or Microsoft Entra ID Governance. |
+| **How to fix?** | Review information about [Azure AD editions](../fundamentals/active-directory-whatis.md). Upgrade to Microsoft Entra Premium P2 or Microsoft Entra ID Governance. |
 
 ### Potential stale accounts in a privileged role
 

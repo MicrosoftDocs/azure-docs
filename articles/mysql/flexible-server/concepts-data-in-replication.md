@@ -17,7 +17,7 @@ ms.topic: conceptual
 Data-in replication allows you to synchronize data from an external MySQL server into an Azure Database for MySQL flexible server. The external server can be on-premises, in virtual machines, Azure Database for MySQL single server, or a database service hosted by other cloud providers. Data-in replication is based on the binary log (binlog) file position or GTID-based replication. To learn more about binlog replication, see the [MySQL Replication](https://dev.mysql.com/doc/refman/5.7/en/replication-configuration.html).
 
 > [!NOTE]  
-> Configuring Data-in replication for zone-redundant high-availability servers is supported only through GTID-based replication
+> Configuring Data-in replication for servers enabled with high-availability, is supported only through GTID-based replication.
 
 ## When to use Data-in replication
 

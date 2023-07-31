@@ -14,7 +14,7 @@ ms.author: eur
 
 # Speech service encryption of data at rest
 
-Speech Service automatically encrypts your data when it is persisted it to the cloud. Speech service encryption protects your data and to help you to meet your organizational security and compliance commitments.
+Speech service automatically encrypts your data when it is persisted it to the cloud. Speech service encryption protects your data and to help you to meet your organizational security and compliance commitments.
 
 ## About Cognitive Services encryption
 

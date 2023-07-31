@@ -91,7 +91,7 @@ Use the following command to check if your virtual network has any locks.
 az lock list --resource-group $VNET_RG --resource <vnet-name> --resource-type Microsoft.Network/virtualNetworks
 ```
 
-Delete any exisiting locks using the following command.
+Delete any existing locks using the following command.
 
 ```azurecli
 az lock delete --resource-group $VNET_RG --name <lock-name> --resource <vnet-name> --resource-type Microsoft.Network/virtualNetworks

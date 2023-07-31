@@ -74,9 +74,18 @@ There are multiple methods to create transformations depending on the data colle
 While transformations themselves don't incur direct costs, the following scenarios can result in additional charges:
 
 - If a transformation increases the size of the incoming data, such as by adding a calculated column, you'll be charged the standard ingestion rate for the extra data.
-- If a transformation reduces the incoming data by more than 50%, you'll be charged for the amount of filtered data above 50%.
+- If a transformation reduces the ingested data by more than 50%, you'll be charged for the amount of filtered data above 50%.
 
-To calculate the data processing charge resulting from transformations, use the following formula: [GB filtered out by transformations] - ([Total GB ingested] / 2). For example, if you ingest 100 GB of data and your transformations remove 70 GB, you'll be charged for 70 GB - (100 GB / 2), which is 20 GB. This calculation is done per data collection rule and per day basis. To avoid this charge, it's recommended to filter incoming data using alternative methods before applying transformations. By doing so, you can reduce the amount of data processed by transformations and, therefore, minimize any additional costs.
+To calculate the data processing charge resulting from transformations, use the following formula:<br>[GB filtered out by transformations] - ([GB data ingested by pipeline] / 2). The following table shows examples.
+
+| Data ingested by pipeline | Data dropped by transformation | Data ingested by Log Analytics workspace | Data processing charge | Ingestion charge |
+|:---|:-:|:-:|:-:|:-:|
+| 20 GB | 12 GB | 8 GB | 2 GB <sup>1</sup> | 8 GB |
+| 20 GB | 8 GB | 12 GB | 0 GB | 12 GB |
+
+<sup>1</sup> This charge excludes the charge for data ingested by Log Analytics workspace.
+
+To avoid this charge, you should filter ingested data using alternative methods before applying transformations. By doing so, you can reduce the amount of data processed by transformations and, therefore, minimize any additional costs.
 
 See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor) for current charges for ingestion and retention of log data in Azure Monitor.
 

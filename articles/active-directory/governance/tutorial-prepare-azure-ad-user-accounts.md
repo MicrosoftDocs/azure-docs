@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Preparing user accounts for Lifecycle workflows (preview)'
-description: Tutorial for preparing user accounts for Lifecycle workflows (preview).
+title: 'Tutorial: Preparing user accounts for Lifecycle workflows'
+description: Tutorial for preparing user accounts for Lifecycle workflows.
 services: active-directory
 author: owinfreyATL
 manager: amycolannino
@@ -13,7 +13,7 @@ ms.author: owinfrey
 ms.reviewer: krbain
 ms.custom: template-tutorial
 ---
-# Preparing user accounts for Lifecycle workflows tutorials (Preview)
+# Preparing user accounts for Lifecycle workflows tutorials
 
 For the on-boarding and off-boarding tutorials you need accounts for which the workflows are executed. This section helps you prepare these accounts, if you already have test accounts that meet the following requirements, you can proceed directly to the on-boarding and off-boarding tutorials. Two accounts are required for the on-boarding tutorials, one account for the new hire and another account that acts as the manager of the new hire. The new hire account must have the following attributes set:
 
@@ -154,7 +154,7 @@ Once your user(s) has been successfully created in Azure AD, you may proceed to 
 
 ## Additional steps for pre-hire scenario
 
-There are some additional steps that you should be aware of when testing either the [On-boarding users to your organization using Lifecycle workflows with Azure portal (preview)](tutorial-onboard-custom-workflow-portal.md) tutorial or the [On-boarding users to your organization using Lifecycle workflows with Microsoft Graph (preview)](tutorial-onboard-custom-workflow-graph.md) tutorial.
+There are some additional steps that you should be aware of when testing either the [On-boarding users to your organization using Lifecycle workflows with Azure portal](tutorial-onboard-custom-workflow-portal.md) tutorial or the [On-boarding users to your organization using Lifecycle workflows with Microsoft Graph](tutorial-onboard-custom-workflow-graph.md) tutorial.
 
 ### Edit the users attributes using the Azure portal
 Some of the attributes required for the pre-hire onboarding tutorial are exposed through the Azure portal and can be set there. 
@@ -243,7 +243,7 @@ To use this feature, it must be enabled on our Azure AD tenant.  To do this, use
 
 ## Additional steps for leaver scenario
 
-There are some additional steps that you should be aware of when testing either the Off-boarding users from your organization using Lifecycle workflows with Azure portal (preview) tutorial or the Off-boarding users from your organization using Lifecycle workflows with Microsoft Graph (preview) tutorial.
+There are some additional steps that you should be aware of when testing either the Off-boarding users from your organization using Lifecycle workflows with Azure portal tutorial or the Off-boarding users from your organization using Lifecycle workflows with Microsoft Graph tutorial.
 
 ### Set up user with groups and Teams with team membership
 
@@ -251,7 +251,7 @@ A user with groups and Teams memberships is required before you begin the tutori
 
 
 ## Next steps
-- [On-boarding users to your organization using Lifecycle workflows with Azure portal (preview)](tutorial-onboard-custom-workflow-portal.md)
-- [On-boarding users to your organization using Lifecycle workflows with Microsoft Graph (preview)](tutorial-onboard-custom-workflow-graph.md)
-- [Tutorial: Off-boarding users from your organization using Lifecycle workflows with Azure portal (preview)](tutorial-offboard-custom-workflow-portal.md)
-- [Tutorial: Off-boarding users from your organization using Lifecycle workflows with Microsoft Graph (preview)](tutorial-offboard-custom-workflow-graph.md)
+- [On-boarding users to your organization using Lifecycle workflows with Azure portal](tutorial-onboard-custom-workflow-portal.md)
+- [On-boarding users to your organization using Lifecycle workflows with Microsoft Graph](tutorial-onboard-custom-workflow-graph.md)
+- [Tutorial: Off-boarding users from your organization using Lifecycle workflows with Azure portal](tutorial-offboard-custom-workflow-portal.md)
+- [Tutorial: Off-boarding users from your organization using Lifecycle workflows with Microsoft Graph](tutorial-offboard-custom-workflow-graph.md)

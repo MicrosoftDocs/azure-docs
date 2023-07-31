@@ -1,14 +1,13 @@
 ---
 title: Download a blob with TypeScript
 titleSuffix: Azure Storage
-description: Learn how to download a blob with TypeScript in Azure Storage by using the JavaScript client library.
+description: Learn how to download a blob with TypeScript in Azure Storage by using the client library for JavaScript and TypeScript.
 services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 04/21/2023
+ms.date: 06/21/2023
 ms.service: storage
-ms.subservice: blobs
 ms.topic: how-to
 ms.devlang: typescript
 ms.custom: devx-track-ts, devguide-ts, devx-track-js
@@ -16,7 +15,7 @@ ms.custom: devx-track-ts, devguide-ts, devx-track-js
 
 # Download a blob with TypeScript
 
-This article shows how to download a blob using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). You can download blob data to various destinations, including a local file path, stream, or text string.
+This article shows how to download a blob using the [Azure Storage client library for JavaScript and TypeScript](/javascript/api/overview/azure/storage-blob-readme). You can download blob data to various destinations, including a local file path, stream, or text string.
 
 ## Prerequisites
 
@@ -60,11 +59,11 @@ If you're working with JavaScript in the browser, blob data returns in a promise
 
 ## Resources
 
-To learn more about how to download blobs using the Azure Blob Storage client library for JavaScript, see the following resources.
+To learn more about how to download blobs using the Azure Blob Storage client library for JavaScript and TypeScript, see the following resources.
 
 ### REST API operations
 
-The Azure SDK for JavaScript contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar JavaScript paradigms. The client library methods for downloading blobs use the following REST API operation:
+The Azure SDK for JavaScript and TypeScript contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar language paradigms. The client library methods for downloading blobs use the following REST API operation:
 
 - [Get Blob](/rest/api/storageservices/get-blob) (REST API)
 

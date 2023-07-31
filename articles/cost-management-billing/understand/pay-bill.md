@@ -95,7 +95,7 @@ If you want to learn how to change your default payment method to wire transfer,
 
 There are a few countries/regions that don't allow the use of debit cards, however in general, you can use them to pay your Azure bill. Virtual and prepaid debit cards can't be used to pay your Azure bill. 
 
-- Hong Kong and Brazil only support credit cards.
+- Hong Kong Special Administrative Region and Brazil only support credit cards.
 - India supports debit and credit cards through Visa and Mastercard.
 
 ### Wire transfer
@@ -174,7 +174,7 @@ If your default payment method is wire transfer, check your invoice for payment 
 > - [Guyana](/legal/pay/guyana)
 > - [Haiti](/legal/pay/haiti)
 > - [Honduras](/legal/pay/honduras)
-> - [Hong Kong](/legal/pay/hong-kong)
+> - [Hong Kong SAR](/legal/pay/hong-kong)
 > - [Hungary](/legal/pay/hungary)
 > - [Iceland](/legal/pay/iceland)
 > - [India](/legal/pay/india)
@@ -197,7 +197,7 @@ If your default payment method is wire transfer, check your invoice for payment 
 > - [Liechtenstein](/legal/pay/liechtenstein)
 > - [Lithuania](/legal/pay/lithuania)
 > - [Luxembourg](/legal/pay/luxembourg)
-> - [Macao](/legal/pay/macao)
+> - [Macao Special Administrative Region](/legal/pay/macao)
 > - [Macedonia, Former Yugoslav Republic of](/legal/pay/macedonia)
 > - [Malaysia](/legal/pay/malaysia)
 > - [Malta](/legal/pay/malta)

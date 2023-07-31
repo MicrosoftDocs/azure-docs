@@ -9,9 +9,9 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 06/07/2023
+ms.date: 06/19/2023
 ms.author: rolyon
-ms.custom: seohack1, devx-track-azurecli
+ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
 ---
 # Troubleshoot Azure RBAC
 
@@ -313,17 +313,25 @@ $validateRemovedRoles = Get-AzRoleAssignment -Scope /subscriptions/$subId | Wher
 
 ## Custom roles
 
-### Symptom - Unable to update a custom role
+### Symptom - Unable to update or delete a custom role
 
-You're unable to update an existing custom role.
+You're unable to update or delete an existing custom role.
 
-**Cause**
+**Cause 1**
 
-You're currently signed in with a user that doesn't have permission to update custom roles.
+You're currently signed in with a user that doesn't have permission to update or delete custom roles.
 
-**Solution**
+**Solution 1**
 
 Check that you're currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinitions/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
+
+**Cause 2**
+
+The custom role includes a subscription in assignable scopes and that subscription is in a [disabled state](../cost-management-billing/manage/subscription-states.md).
+
+**Solution 2**
+
+Reactivate the disabled subscription and update the custom role as needed. For more information, see [Reactivate a disabled Azure subscription](../cost-management-billing/manage/subscription-disabled.md).
 
 ### Symptom - Unable to create or update a custom role
 

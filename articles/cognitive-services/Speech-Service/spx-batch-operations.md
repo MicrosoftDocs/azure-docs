@@ -15,7 +15,7 @@ ms.custom: mode-api
 
 # Run batch operations with the Speech CLI
 
-Common tasks when using Azure Speech services, are batch operations. In this article, you'll learn how to do batch speech to text (speech recognition), batch text to speech (speech synthesis) with the Speech CLI. Specifically, you'll learn how to:
+Common tasks when using the Speech service, are batch operations. In this article, you'll learn how to do batch speech to text (speech recognition), batch text to speech (speech synthesis) with the Speech CLI. Specifically, you'll learn how to:
 
 * Run batch speech recognition on a directory of audio files
 * Run batch speech synthesis by iterating over a `.tsv` file

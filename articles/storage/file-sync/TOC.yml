@@ -198,15 +198,15 @@
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure File Sync
-      href: file-sync-troubleshoot.md
+      href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json
     - name: Troubleshoot agent installation and server registration
-      href: file-sync-troubleshoot-installation.md
+      href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot-installation?toc=/azure/storage/file-sync/toc.json
     - name: Troubleshoot sync group management
-      href: file-sync-troubleshoot-sync-group-management.md
+      href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-group-management?toc=/azure/storage/file-sync/toc.json
     - name: Troubleshoot sync issues
-      href: file-sync-troubleshoot-sync-errors.md
+      href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json
     - name: Troubleshoot cloud tiering issues
-      href: file-sync-troubleshoot-cloud-tiering.md
+      href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot-cloud-tiering?toc=/azure/storage/file-sync/toc.json
 - name: Reference
   items:
   - name: Azure Files reference

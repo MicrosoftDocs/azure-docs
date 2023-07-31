@@ -51,7 +51,7 @@ To complete this tutorial, you need to:
 
 2. Install the latest Azure CLI for your operating system from the [Azure CLI installation page](/cli/azure/install-azure-cli).
 
-   If the Azure CLI is already installed, check the version by using the `az version` command. The version should be **2.45.0** or later to use the migration CLI commands. If not, [update your Azure CLI version](/cli/azure/update-azure-cli).
+   If the Azure CLI is already installed, check the version by using the `az version` command. The version should be **2.50.0** or later to use the migration CLI commands. If not, [update your Azure CLI version](/cli/azure/update-azure-cli).
 
 3. Run the `az login` command:
    
@@ -96,6 +96,7 @@ az postgres flexible-server migration create [--subscription]
                                             [--resource-group]
                                             [--name] 
                                             [--migration-name] 
+                                            [--migration-mode]
                                             [--properties]
 ```
 
@@ -105,12 +106,13 @@ az postgres flexible-server migration create [--subscription]
 |`resource-group` | Resource group of the Flexible Server target. |
 |`name` | Name of the Flexible Server target. |
 |`migration-name` | Unique identifier to migrations attempted to Flexible Server. This field accepts only alphanumeric characters and does not accept any special characters, except a hyphen (`-`). The name can't start with `-`, and no two migrations to a Flexible Server target can have the same name. |
+|`migration-mode` | This is an optional parameter. Default value: Offline. Offline migration involves copying of your source databases at a point in time, to your target server. |
 |`properties` | Absolute path to a JSON file that has the information about the Single Server source. |
 
 For example:
 
 ```azurecli-interactive
-az postgres flexible-server migration create --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --properties "C:\Users\Administrator\Documents\migrationBody.JSON"
+az postgres flexible-server migration create --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --properties "C:\Users\Administrator\Documents\migrationBody.JSON" --migration-mode offline
 ```
 
 The `migration-name` argument used in the `create` command will be used in other CLI commands, such as `update`, `delete`, and `show.` In all those commands, it uniquely identifies the migration attempt in the corresponding actions.
@@ -122,25 +124,26 @@ The structure of the JSON is:
 ```bash
 {
 "properties": {
- "SourceDBServerResourceId":"/subscriptions/<subscriptionid>/resourceGroups/<src_ rg_name>/providers/Microsoft.DBforPostgreSQL/servers/<source server name>",
+ "sourceDbServerResourceId":"/subscriptions/<subscriptionid>/resourceGroups/<src_ rg_name>/providers/Microsoft.DBforPostgreSQL/servers/<source server name>",
 
-"SecretParameters": {
-    "AdminCredentials": 
+"sourceServerUserName": "<username>@<servername>",
+"targetServerUserName": "<username>",
+"secretParameters": {
+    "adminCredentials": 
     {
-  "SourceServerPassword": "<password>",
-  "TargetServerPassword": "<password>"
+      "sourceServerPassword": "<password>",
+      "targetServerPassword": "<password>"
     }
 },
 
-"DBsToMigrate": 
+"dbsToMigrate": 
    [
    "<db1>","<db2>"
    ],
 
-"OverwriteDBsInTarget":"true"
+"overwriteDbsInTarget":"true"
 
 }
-
 }
 
 ```
@@ -149,10 +152,12 @@ The `create` parameters that go into the json file format are as shown below:
 
 | Parameter | Type | Description |
 | ---- | ---- | ---- |
-| `SourceDBServerResourceId` | Required |  This parameter is the resource ID of the Single Server source and is mandatory. |
-| `SecretParameters` | Required | This parameter lists passwords for admin users for both the Single Server source and the Flexible Server target. These passwords help to authenticate against the source and target servers.
-| `DBsToMigrate` | Required | Specify the list of databases that you want to migrate to Flexible Server. You can include a maximum of eight database names at a time. |
-| `OverwriteDBsinTarget` | Required | When set to true (default), if the target server happens to have an existing database with the same name as the one you're trying to migrate, migration tool automatically overwrites the database. |
+| `sourceDbServerResourceId` | Required |  This parameter is the resource ID of the Single Server source and is mandatory. |
+| `sourceServerUserName` | Required |  This parameter is the user or role on the source single server used for performing the migration. This user should have necessary privileges and ownership on the database objects involved in the migration and should be a member of **azure_pg_admin** role. The default value is the admin user created during the creation of single server and the password provided will be used for authentication against this user. |
+| `targetServerUserName` | Required |  This parameter is the user or role on the target server used for performing the migration. This user should be a member of **azure_pg_admin** role. The default value is the admin user created during the creation of flexible server and the password provided will be used for authentication against this user. |
+| `secretParameters` | Required | This parameter lists passwords for admin users for both the Single Server source and the Flexible Server target. These passwords help to authenticate against the source and target servers.
+| `dbsToMigrate` | Required | Specify the list of databases that you want to migrate to Flexible Server. You can include a maximum of eight database names at a time. |
+| `overwriteDbsInTarget` | Required | When set to true (default), if the target server happens to have an existing database with the same name as the one you're trying to migrate, migration tool automatically overwrites the database. |
 | `SetupLogicalReplicationOnSourceDBIfNeeded` | Optional | You can enable logical replication on the source server automatically by setting this property to `true`. This change in the server settings requires a server restart with a downtime of two to three minutes. |
 | `SourceDBServerFullyQualifiedDomainName` | Optional |  Use it when a custom DNS server is used for name resolution for a virtual network. Provide the FQDN of the Single Server source according to the custom DNS server for this property. |
 | `TargetDBServerFullyQualifiedDomainName` | Optional |  Use it when a custom DNS server is used for name resolution inside a virtual network. Provide the FQDN of the Flexible Server target according to the custom DNS server. <br> `SourceDBServerFullyQualifiedDomainName` and `TargetDBServerFullyQualifiedDomainName` are included as a part of the JSON only in the rare scenario that a custom DNS server is used for name resolution instead of Azure-provided DNS. Otherwise, don't include these parameters as a part of the JSON file. |

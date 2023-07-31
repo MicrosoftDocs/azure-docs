@@ -5,7 +5,7 @@ ms.topic: how-to
 author: dcurwin
 ms.author: dacurwin
 ms.custom: ignite-2022
-ms.date: 05/16/2023
+ms.date: 06/18/2023
 ---
 # Automate responses to Microsoft Defender for Cloud triggers
 
@@ -29,6 +29,9 @@ This article describes the workflow automation feature of Microsoft Defender for
     :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="Screenshot of workflow automation page showing the list of defined automations." lightbox="./media/workflow-automation/list-of-workflow-automations.png":::
 
     From this page you can create new automation rules, enable, disable, or delete existing ones.
+
+    > [!NOTE]
+    > A scope refers to the subscription where the workflow automation is deployed.
 
 1. To define a new workflow, select **Add workflow automation**. The options pane for your new automation opens.
 
@@ -133,16 +136,6 @@ To implement these policies:
 
 To view the raw event schemas of the security alerts or recommendations events passed to the logic app, visit the [Workflow automation data types schemas](https://aka.ms/ASCAutomationSchemas). This can be useful in cases where you aren't using Defender for Cloud's built-in Logic Apps connectors mentioned above, but instead are using the generic HTTP connector - you could use the event JSON schema to manually parse it as you see fit.
 
-## FAQ - Workflow automation
-
-### Does workflow automation support any business continuity or disaster recovery (BCDR) scenarios?
-
-When preparing your environment for BCDR scenarios, where the target resource is experiencing an outage or other disaster, it's the organization's responsibility to prevent data loss by establishing backups according to the guidelines from Azure Event Hubs, Log Analytics workspace, and Logic Apps.
-
-For every active automation, we recommend you create an identical (disabled) automation and store it in a different location. When there's an outage, you can enable these backup automations and maintain normal operations.
-
-Learn more about [Business continuity and disaster recovery for Azure Logic Apps](../logic-apps/business-continuity-disaster-recovery-guidance.md).
-
 ## Next steps
 
 In this article, you learned about creating logic apps, automating their execution in Defender for Cloud, and running them manually. For more information, see the following documentation:
@@ -151,3 +144,4 @@ In this article, you learned about creating logic apps, automating their executi
 - [Security recommendations in Microsoft Defender for Cloud](review-security-recommendations.md)
 - [Security alerts in Microsoft Defender for Cloud](alerts-overview.md)
 - [Workflow automation data types schemas](https://aka.ms/ASCAutomationSchemas)
+- Check out [common questions](faq-general.yml) about Defender for Cloud.

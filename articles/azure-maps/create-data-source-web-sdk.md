@@ -124,7 +124,7 @@ var flowLayer = new atlas.layer.LineLayer(source, null, {
 map.layers.add(flowLayer, 'labels');
 ```
 
-For a complete working sample of how to display data from a vector tile source on the map, see [Vector tile line layer] in the [Azure Maps Samples].
+For a complete working sample of how to display data from a vector tile source on the map, see [Vector tile line layer] in the [Azure Maps Samples]. For the source code for this sample, see [Vector tile line layer sample code].
 
 :::image type="content" source="./media/create-data-source-web-sdk/vector-tile-line-layer.png" alt-text="Screenshot showing a map displaying data from a vector tile source.":::
 
@@ -288,5 +288,6 @@ See the following articles for more code samples to add to your maps:
 <!---------   External Links     --------------->
 [Mapbox Vector Tile Specification]: https://github.com/mapbox/vector-tile-spec
 
-[Vector tile line layer]: https://samples.azuremaps.com/?search=Vector%20tile&sample=vector-tile-line-layer
+[Vector tile line layer]: https://samples.azuremaps.com/vector-tiles/vector-tile-line-layer
+[Vector tile line layer sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Vector%20tiles/Vector%20tile%20line%20layer/Vector%20tile%20line%20layer.html
 [Azure Maps Samples]: https://samples.azuremaps.com

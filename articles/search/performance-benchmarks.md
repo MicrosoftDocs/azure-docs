@@ -213,6 +213,6 @@ You can also see that performance can vary drastically between scenarios. If you
 
 Now that you've seen the performance benchmarks, you can learn more about how to analyze Cognitive Search's performance and key factors that influence performance.
 
-> [!div class="nextstepaction"]
-> [Analyze performance](search-performance-analysis.md)
-> [Tips for better performance](search-performance-tips.md)
++ [Analyze performance](search-performance-analysis.md)
++ [Tips for better performance](search-performance-tips.md)
++ [Case Study: Use Cognitive Search to Support Complex AI Scenarios](https://techcommunity.microsoft.com/t5/azure-ai/case-study-effectively-using-cognitive-search-to-support-complex/ba-p/2804078)

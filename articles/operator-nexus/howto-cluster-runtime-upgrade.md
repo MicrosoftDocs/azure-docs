@@ -102,5 +102,10 @@ If a hardware failure during an upgrade has occurred, the runtime upgrade contin
 
 If a hardware failure occurs, and the runtime upgrade has failed because thresholds weren't met for compute and control nodes, re-execution of the runtime upgrade may be needed depending on when the failure occurred and the state of the individual servers in a rack. If a rack was updated before a failure, then the upgraded runtime version would be used when the nodes are reprovisioned.
 If the rack's spec wasn't updated to the upgraded runtime version before the hardware failure, the machine would be provisioned with the previous runtime version. To upgrade to the new runtime version, submit a new cluster upgrade request and only the nodes with the previous runtime version will upgrade. Hosts that were successful in the previous upgrade action won't.
+
+### After a runtime upgrade the cluster shows "Failed" Provisioning State
+
+During a runtime upgrade the cluster will enter a state of "Upgrading."  In the event of a failure of the runtime upgrade, for reasons related to the resources, the cluster will go into a "Failed" Provisioning state.  This state could be linked to the lifecycle of the components related to the cluster (e.g StorageAppliance) and may be necessary to diagnose the failure with Microsoft support.
+
 <!-- LINKS - External -->
 [installation-instruction]: https://aka.ms/azcli

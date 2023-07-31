@@ -2,7 +2,7 @@
 title: The regulatory compliance dashboard in Microsoft Defender for Cloud
 description: Learn how to add and remove regulatory standards from the regulatory compliance dashboard in Defender for Cloud
 ms.topic: how-to
-ms.date: 03/20/2023
+ms.date: 06/18/2023
 ms.custom: ignite-2022
 ---
 
@@ -11,7 +11,7 @@ ms.custom: ignite-2022
 Microsoft Defender for Cloud continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. The **regulatory compliance dashboard** provides insights into your compliance posture based on how you're meeting specific compliance requirements.
 
 > [!TIP]
-> Learn more about Defender for Cloud's regulatory compliance dashboard in the [frequently asked questions](regulatory-compliance-dashboard.md#faq---regulatory-compliance-dashboard).
+> Learn more about Defender for Cloud's regulatory compliance dashboard in the [common questions](faq-regulatory-compliance.yml).
 
 ## How are regulatory compliance standards represented in Defender for Cloud?
 

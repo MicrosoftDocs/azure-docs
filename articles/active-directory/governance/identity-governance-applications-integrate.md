@@ -3,7 +3,7 @@ title: Integrate your applications for identity governance and establishing a ba
 description: Microsoft Entra Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  You can integrate your existing business critical third party on-premises and cloud-based applications with Azure AD for identity governance scenarios.
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: owinfreyATL
 manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 7/29/2022
-ms.author: amsliu
+ms.author: owinfrey
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ---
@@ -77,7 +77,7 @@ Next, if the application implements a provisioning protocol, then you should con
      |----|-----|
      | Kerberos | Configure Azure AD Connect [group writeback to AD](../hybrid/how-to-connect-group-writeback-v2.md), create groups in Azure AD and [write those groups to AD](../enterprise-users/groups-write-back-portal.md) |
 
-   * Otherwise, if this is an on-premises or IaaS hosted application, and is not integrated with AD, then configure provisioning to that application, either via SCIM or to the underlying database or directory of the application.
+   * Otherwise, if this is an on-premises or IaaS hosted application, and isn't integrated with AD, then configure provisioning to that application, either via SCIM or to the underlying database or directory of the application.
 
      |Application supports| Next steps|
      |----|-----|
@@ -87,20 +87,20 @@ Next, if the application implements a provisioning protocol, then you should con
 
 1. If your application uses Microsoft Graph to query groups from Azure AD, then [consent](../develop/consent-framework.md) to the applications to have the appropriate permissions to read from your tenant.
 
-1. Set that access to **the application is only permitted for users assigned to the application**.  This setting will prevent users from inadvertently seeing the application in MyApps, and attempting to sign into the application, prior to Conditional Access policies being enabled.
+1. Set that access to **the application is only permitted for users assigned to the application**.  This setting prevents users from inadvertently seeing the application in MyApps, and attempting to sign into the application, prior to Conditional Access policies being enabled.
 
 ## Perform an initial access review
 
 If this is a new application your organization hasn't used before, and therefore no one has pre-existing access, or if you've already been performing access reviews for this application, then skip to the [next section](identity-governance-applications-deploy.md).
 
-However, if the application already existed in your environment, then it's possible that users may have gotten access in the past through manual or out-of-band processes, and those users should now be reviewed to have confirmation that their access is still needed and appropriate going forward. We recommend performing an access review of the users who already have access to the application, before enabling policies for more users to be able to request access. This review will set a baseline of all users having been reviewed at least once, to ensure that those users are authorized for continued access.
+However, if the application already existed in your environment, then it's possible that users may have gotten access in the past through manual or out-of-band processes, and those users should now be reviewed to have confirmation that their access is still needed and appropriate going forward. We recommend performing an access review of the users who already have access to the application, before enabling policies for more users to be able to request access. This review sets a baseline of all users having been reviewed at least once, to ensure that those users are authorized for continued access.
 
 1. Follow the steps in [Preparing for an access review of users' access to an application](access-reviews-application-preparation.md).
-1. If the application was not using Azure AD or AD, but does support a provisioning protocol or had an underlying SQL or LDAP database, bring in any [existing users and create application role assignments](identity-governance-applications-existing-users.md) for them.
-1. If the application was not using Azure AD or AD, and does not support a provisioning protocol, then [obtain a list of users from the application and create application role assignments for each of them](identity-governance-applications-not-provisioned-users.md).
-1. If the application was using AD security groups, then you'll need to review the membership of those security groups.
+1. If the application wasn't using Azure AD or AD, but does support a provisioning protocol or had an underlying SQL or LDAP database, bring in any [existing users and create application role assignments](identity-governance-applications-existing-users.md) for them.
+1. If the application wasn't using Azure AD or AD, and doesn't support a provisioning protocol, then [obtain a list of users from the application and create application role assignments for each of them](identity-governance-applications-not-provisioned-users.md).
+1. If the application was using AD security groups, then you need to review the membership of those security groups.
 1. If the application had its own directory or database and wasn't integrated for provisioning, then once the review is complete, you may need to manually update the application's internal database or directory to remove those users who were denied.
-1. If the application was using AD security groups, and those groups were created in AD, then once the review is complete, you'll need to manually update the AD groups to remove memberships of those users who were denied.  Subsequently, to have denied access rights removed automatically, you can either update the application to use an AD group that was created in Azure AD and [written back to Azure AD](../enterprise-users/groups-write-back-portal.md), or move the membership from the AD group to the Azure AD group, and nest the written back group as the only member of the AD group.
+1. If the application was using AD security groups, and those groups were created in AD, then once the review is complete, you need to manually update the AD groups to remove memberships of those users who were denied.  Subsequently, to have denied access rights removed automatically, you can either update the application to use an AD group that was created in Azure AD and [written back to Azure AD](../enterprise-users/groups-write-back-portal.md), or move the membership from the AD group to the Azure AD group, and nest the written back group as the only member of the AD group.
 1. Once the review has been completed and the application access updated, or if no users have access, then continue on to the next steps to deploy conditional access and entitlement management policies for the application.
 
 Now that you have a baseline that ensures existing access has been reviewed, then you can [deploy the organization's policies](identity-governance-applications-deploy.md) for ongoing access and any new access requests.

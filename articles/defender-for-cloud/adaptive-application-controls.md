@@ -4,7 +4,7 @@ description: This document helps you use adaptive application control in Microso
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 02/06/2023
+ms.date: 06/14/2023
 
 ---
 # Use adaptive application controls to reduce your machines' attack surfaces
@@ -208,24 +208,10 @@ Some of the functions available from the REST API include:
    >
    > Remove the following properties before using the JSON in the **Put** request: recommendationStatus, configurationStatus, issues, location, and sourceSystem.
 
-## FAQ - Adaptive application controls
-
-- [Are there any options to enforce the application controls?](#are-there-any-options-to-enforce-the-application-controls)
-- [Why do I see a Qualys app in my recommended applications?](#why-do-i-see-a-qualys-app-in-my-recommended-applications)
-
-### Are there any options to enforce the application controls?
-
-No enforcement options are currently available. Adaptive application controls are intended to provide **security alerts** if any application runs other than the ones you've defined as safe. They have a range of benefits ([What are the benefits of adaptive application controls?](#what-are-the-benefits-of-adaptive-application-controls)) and are customizable as shown on this page.
-
-### Why do I see a Qualys app in my recommended applications?
-
-[Microsoft Defender for Servers](defender-for-servers-introduction.md) includes vulnerability scanning for your machines. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Defender for Cloud. For details of this scanner and instructions for how to deploy it, see [Defender for Cloud's integrated Qualys vulnerability assessment solution](deploy-vulnerability-assessment-vm.md).
-
-To ensure no alerts are generated when Defender for Cloud deploys the scanner, the adaptive application controls recommended allowlist includes the scanner for all machines.
-
 ## Next steps
 
 On this page, you learned how to use adaptive application control in Microsoft Defender for Cloud to define allowlists of applications running on your Azure and non-Azure machines. To learn more about some other cloud workload protection features, see:
 
 - [Understanding just-in-time (JIT) VM access](just-in-time-access-overview.md)
 - [Securing your Azure Kubernetes clusters](defender-for-kubernetes-introduction.md)
+-  View common question about [Adaptive application controls](faq-defender-for-servers.yml)

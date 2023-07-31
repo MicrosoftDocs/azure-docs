@@ -36,7 +36,7 @@ In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>:
 1. If your app already has a certificate for the selected custom domain, you can select it in **Certificate**. If not, you must add a certificate using one of the selections in **Source**.
 
     - **Create App Service Managed Certificate** - Let App Service create a managed certificate for your selected domain. This option is the simplest. For more information, see [Create a free managed certificate](configure-ssl-certificate.md#create-a-free-managed-certificate).
-    - **Import App Service Certificate** - In **App Service Certificate**, choose an App Service certificate you've purchased for your selected domain. To purchase an App Service certificate, see [Import an App Service certificate](configure-ssl-certificate.md#buy-and-import-app-service-certificate).
+    - **Import App Service Certificate** - In **App Service Certificate**, choose an [App Service certificate](configure-ssl-app-service-certificate.md) you've purchased for your selected domain.
     - **Upload certificate (.pfx)** - Follow the workflow at [Upload a private certificate](configure-ssl-certificate.md#upload-a-private-certificate) to upload a PFX certificate from your local machine and specify the certificate password.
     - **Import from Key Vault** - Select **Select key vault certificate** and select the certificate in the dialog.
 

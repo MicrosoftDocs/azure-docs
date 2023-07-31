@@ -27,15 +27,19 @@ The default AI classifiers are sufficient for most content moderation needs. How
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
 * Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select the subscription you entered on the application form, select a resource group, supported region, and supported pricing tier. Then select **Create**.
   * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
-* [cURL](https://curl.haxx.se/) or * [Python 3.x](https://www.python.org/) installed
-  * Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check if you have pip installed by running `pip --version` on the command line. Get pip by installing the latest version of Python.
-  * If you're using the Python SDK, you'll need to install the Azure AI Content Safety client library for Python. Run the command `pip install azure-ai-contentsafety` in your project directory.
+* One of the following installed:
+  * [cURL](https://curl.haxx.se/) for REST API calls.
+  * [Python 3.x](https://www.python.org/) installed
+    * Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check if you have pip installed by running `pip --version` on the command line. Get pip by installing the latest version of Python.
+    * If you're using Python, you'll need to install the Azure AI Content Safety client library for Python. Run the command `pip install azure-ai-contentsafety` in your project directory.
+  * [.NET Runtime](https://dotnet.microsoft.com/download/dotnet/) installed.
+    * [.NET 6.0](https://dotnet.microsoft.com/download/dotnet-core) SDK or above installed.
+    * If you're using .NET, you'll need to install the Azure AI Content Safety client library for .NET. Run the command `dotnet add package Azure.AI.ContentSafety --prerelease` in your project directory.
+
 
 ## Analyze text with a blocklist
 
 You can create blocklists to use with the Text API. The following steps help you get started.
-
-
 
 ### Create or modify a blocklist
 
@@ -60,6 +64,40 @@ curl --location --request PATCH '<endpoint>/contentsafety/text/blocklists/<your_
 
 The response code should be `201`(created a new list) or `200`(updated an existing list).
 
+#### [C#](#tab/csharp)
+
+Create a new C# console app and open it in your preferred editor or IDE. Paste in the following code.
+
+```csharp
+string endpoint = "<endpoint>";
+string key = "<enter_your_key_here>";
+ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(key));
+
+var blocklistName = "<your_list_id>";
+var blocklistDescription = "<description>";
+
+var data = new
+{
+    description = blocklistDescription,
+};
+
+var createResponse = client.CreateOrUpdateTextBlocklist(blocklistName, RequestContent.Create(data));
+if (createResponse.Status == 201)
+{
+    Console.WriteLine("\nBlocklist {0} created.", blocklistName);
+}
+else if (createResponse.Status == 200)
+{
+    Console.WriteLine("\nBlocklist {0} updated.", blocklistName);
+}
+```
+
+1. Replace `<endpoint>` with your endpoint URL.
+1. Replace `<enter_your_key_here>` with your key.
+1. Replace `<your_list_id>` with a custom name for your list. Also replace the last term of the REST URL with the same name. Allowed characters: 0-9, A-Z, a-z, `- . _ ~`.
+1. Optionally replace `<description>` with a custom description.
+1. Run the script.
+
 #### [Python](#tab/python)
 
 Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
@@ -74,7 +112,7 @@ from azure.core.exceptions import HttpResponseError
 endpoint = "<endpoint>"
 key = "<enter_your_key_here>"
   
-# Create an Content Safety client
+# Create a Content Safety client
 client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
 
 def create_or_update_text_blocklist(name, description):
@@ -83,13 +121,13 @@ def create_or_update_text_blocklist(name, description):
             blocklist_name=name, resource=TextBlocklist(description=description)
         )
     except HttpResponseError as e:
-        print("Create or update text blocklist failed. ")
-        print("Error code: {}".format(e.error.code))
-        print("Error message: {}".format(e.error.message))
-        return None
-    except Exception as e:
+        print("\nCreate or update text blocklist failed: ")
+        if e.error:
+            print(f"Error code: {e.error.code}")
+            print(f"Error message: {e.error.message}")
+            raise
         print(e)
-        return None
+        raise
 
 
 if __name__ == "__main__":
@@ -160,6 +198,40 @@ The response code should be `200`.
 }
 ```
 
+#### [C#](#tab/csharp)
+
+Create a new C# console app and open it in your preferred editor or IDE. Paste in the following code.
+
+```csharp
+string endpoint = "<endpoint>";
+string key = "<enter_your_key_here>";
+ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(key));
+
+var blocklistName = "<your_list_id>";
+
+string blockItemText1 = "k*ll";
+string blockItemText2 = "h*te";
+
+var blockItems = new TextBlockItemInfo[] { new TextBlockItemInfo(blockItemText1), new TextBlockItemInfo(blockItemText2) };
+var addedBlockItems = client.AddBlockItems(blocklistName, new AddBlockItemsOptions(blockItems));
+
+if (addedBlockItems != null && addedBlockItems.Value != null)
+{
+    Console.WriteLine("\nBlockItems added:");
+    foreach (var addedBlockItem in addedBlockItems.Value.Value)
+    {
+        Console.WriteLine("BlockItemId: {0}, Text: {1}, Description: {2}", addedBlockItem.BlockItemId, addedBlockItem.Text, addedBlockItem.Description);
+    }
+}
+```
+
+1. Replace `<endpoint>` with your endpoint URL.
+1. Replace `<enter_your_key_here>` with your key.
+1. Replace `<your_list_id>` with the ID value you used in the list creation step.
+1. Replace the value of the `block_item_text_1` field with the item you'd like to add to your blocklist. The maximum length of a blockItem is 128 characters.
+1. Optionally add more blockItem strings to the `blockItems` parameter.
+1. Run the script.
+
 #### [Python](#tab/python)
 
 Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
@@ -171,7 +243,6 @@ from azure.core.credentials import AzureKeyCredential
 from azure.ai.contentsafety.models import TextBlockItemInfo, AddBlockItemsOptions
 from azure.core.exceptions import HttpResponseError
 import time
-
 
 endpoint = "<endpoint>"
 key = "<enter_your_key_here>"
@@ -187,14 +258,13 @@ def add_block_items(name, items):
             body=AddBlockItemsOptions(block_items=block_items),
         )
     except HttpResponseError as e:
-        print("Add block items failed.")
-        print("Error code: {}".format(e.error.code))
-        print("Error message: {}".format(e.error.message))
-        return None
-
-    except Exception as e:
+        print("\nAdd block items failed: ")
+        if e.error:
+            print(f"Error code: {e.error.code}")
+            print(f"Error message: {e.error.message}")
+            raise
         print(e)
-        return None
+        raise
 
     return response.value
 
@@ -269,6 +339,50 @@ The JSON response will contain a `"blocklistMatchResults"` that indicates any ma
 }
 ```
 
+#### [C#](#tab/csharp)
+
+Create a new C# console app and open it in your preferred editor or IDE. Paste in the following code.
+
+```csharp
+string endpoint = "<endpoint>";
+string key = "<enter_your_key_here>";
+ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(key));
+
+var blocklistName = "<your_list_id>";
+
+// After you edit your blocklist, it usually takes effect in 5 minutes, please wait some time before analyzing with blocklist after editing.
+var request = new AnalyzeTextOptions("I h*te you and I want to k*ll you");
+request.BlocklistNames.Add(blocklistName);
+request.BreakByBlocklists = true;
+
+Response<AnalyzeTextResult> response;
+try
+{
+    response = client.AnalyzeText(request);
+}
+catch (RequestFailedException ex)
+{
+    Console.WriteLine("Analyze text failed.\nStatus code: {0}, Error code: {1}, Error message: {2}", ex.Status, ex.ErrorCode, ex.Message);
+    throw;
+}
+
+if (response.Value.BlocklistsMatchResults != null)
+{
+    Console.WriteLine("\nBlocklist match result:");
+    foreach (var matchResult in response.Value.BlocklistsMatchResults)
+    {
+        Console.WriteLine("Blockitem was hit in text: Offset: {0}, Length: {1}", matchResult.Offset, matchResult.Length);
+        Console.WriteLine("BlocklistName: {0}, BlockItemId: {1}, BlockItemText: {2}, ", matchResult.BlocklistName, matchResult.BlockItemId, matchResult.BlockItemText);
+    }
+}
+```
+
+1. Replace `<endpoint>` with your endpoint URL.
+1. Replace `<enter_your_key_here>` with your key.
+1. Replace `<your_list_id>` with the ID value you used in the list creation step.
+1. Replace the `request` input text with whatever text you want to analyze.
+1. Run the script.
+
 #### [Python](#tab/python)
 
 Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
@@ -293,13 +407,13 @@ def analyze_text_with_blocklists(name, text):
             AnalyzeTextOptions(text=text, blocklist_names=[name], break_by_blocklists=False)
         )
     except HttpResponseError as e:
-        print("Analyze text failed.")
-        print("Error code: {}".format(e.error.code))
-        print("Error message: {}".format(e.error.message))
-        return None
-    except Exception as e:
+        print("\nAnalyze text failed: ")
+        if e.error:
+            print(f"Error code: {e.error.code}")
+            print(f"Error message: {e.error.message}")
+            raise
         print(e)
-        return None
+        raise
 
     return response.blocklists_match_results
 
@@ -357,6 +471,30 @@ The status code should be `200` and the response body should look like this:
 }
 ```
 
+#### [C#](#tab/csharp)
+
+Create a new C# console app and open it in your preferred editor or IDE. Paste in the following code.
+
+```csharp
+string endpoint = "<endpoint>";
+string key = "<enter_your_key_here>";
+ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(key));
+
+var blocklistName = "<your_list_id>";
+
+var allBlockitems = client.GetTextBlocklistItems(blocklistName);
+Console.WriteLine("\nList BlockItems:");
+foreach (var blocklistItem in allBlockitems)
+{
+    Console.WriteLine("BlockItemId: {0}, Text: {1}, Description: {2}", blocklistItem.BlockItemId, blocklistItem.Text, blocklistItem.Description);
+}
+```
+
+1. Replace `<endpoint>` with your endpoint URL.
+1. Replace `<enter_your_key_here>` with your key.
+1. Replace `<your_list_id>` with the ID value you used in the list creation step.
+1. Run the script.
+
 #### [Python](#tab/python)
 
 Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
@@ -379,13 +517,13 @@ def list_block_items(name):
         response = client.list_text_blocklist_items(blocklist_name=name)
         return list(response)
     except HttpResponseError as e:
-        print("List block items failed.")
-        print("Error code: {}".format(e.error.code))
-        print("Error message: {}".format(e.error.message))
-        return None
-    except Exception as e:
+        print("\nList block items failed: ")
+        if e.error:
+            print(f"Error code: {e.error.code}")
+            print(f"Error message: {e.error.message}")
+            raise
         print(e)
-        return None
+        raise
 
 
 if __name__ == "__main__":
@@ -400,7 +538,6 @@ if __name__ == "__main__":
 1. Replace `<enter_your_key_here>` with your key.
 1. Replace `<your_list_id>` with the ID value you used in the list creation step.
 1. Run the script.
-
 
 
 ---
@@ -432,6 +569,28 @@ The status code should be `200`. The JSON response looks like this:
 ]
 ```
 
+#### [C#](#tab/csharp)
+
+Create a new C# console app and open it in your preferred editor or IDE. Paste in the following code.
+
+```csharp
+string endpoint = "<endpoint>";
+string key = "<enter_your_key_here>";
+ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(key));
+
+
+var blocklists = client.GetTextBlocklists();
+Console.WriteLine("\nList blocklists:");
+foreach (var blocklist in blocklists)
+{
+    Console.WriteLine("BlocklistName: {0}, Description: {1}", blocklist.BlocklistName, blocklist.Description);
+}
+```
+
+1. Replace `<endpoint>` with your endpoint URL.
+1. Replace `<enter_your_key_here>` with your key.
+1. Run the script.
+
 #### [Python](#tab/python)
 
 Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
@@ -454,13 +613,13 @@ def list_text_blocklists():
     try:
         return client.list_text_blocklists()
     except HttpResponseError as e:
-        print("List text blocklists failed.")
-        print("Error code: {}".format(e.error.code))
-        print("Error message: {}".format(e.error.message))
-        return None
-    except Exception as e:
+        print("\nList text blocklists failed: ")
+        if e.error:
+            print(f"Error code: {e.error.code}")
+            print(f"Error message: {e.error.message}")
+            raise
         print(e)
-        return None
+        raise
 if __name__ == "__main__":
     # list blocklists
     result = list_text_blocklists()
@@ -501,6 +660,29 @@ The status code should be `200`. The JSON response looks like this:
 }
 ```
 
+#### [C#](#tab/csharp)
+
+Create a new C# console app and open it in your preferred editor or IDE. Paste in the following code.
+
+```csharp
+string endpoint = "<endpoint>";
+string key = "<enter_your_key_here>";
+ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(key));
+
+var blocklistName = "<your_list_id>";
+
+var getBlocklist = client.GetTextBlocklist(blocklistName);
+if (getBlocklist != null && getBlocklist.Value != null)
+{
+    Console.WriteLine("\nGet blocklist:");
+    Console.WriteLine("BlocklistName: {0}, Description: {1}", getBlocklist.Value.BlocklistName, getBlocklist.Value.Description);
+}
+```
+1. Replace `<endpoint>` with your endpoint URL.
+1. Replace `<enter_your_key_here>` with your key.
+1. Replace `<your_list_id>` with the ID value you used in the list creation step.
+1. Run the script.
+
 #### [Python](#tab/python)
 
 Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
@@ -522,13 +704,13 @@ def get_text_blocklist(name):
     try:
         return client.get_text_blocklist(blocklist_name=name)
     except HttpResponseError as e:
-        print("Get text blocklist failed.")
-        print("Error code: {}".format(e.error.code))
-        print("Error message: {}".format(e.error.message))
-        return None
-    except Exception as e:
+        print("\nGet text blocklist failed: ")
+        if e.error:
+            print(f"Error code: {e.error.code}")
+            print(f"Error message: {e.error.message}")
+            raise
         print(e)
-        return None
+        raise
 
 if __name__ == "__main__":
     blocklist_name = "<your_list_id>"
@@ -574,6 +756,29 @@ The status code should be `200`. The JSON response looks like this:
     "text": "string"
 }
 ```
+
+#### [C#](#tab/csharp)
+
+Create a new C# console app and open it in your preferred editor or IDE. Paste in the following code.
+
+```csharp
+string endpoint = "<endpoint>";
+string key = "<enter_your_key_here>";
+ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(key));
+
+var blocklistName = "<your_list_id>";
+
+var getBlockItemId = addedBlockItems.Value.Value[0].BlockItemId;
+var getBlockItem = client.GetTextBlocklistItem(blocklistName, getBlockItemId);
+Console.WriteLine("\nGet BlockItem:");
+Console.WriteLine("BlockItemId: {0}, Text: {1}, Description: {2}", getBlockItem.Value.BlockItemId, getBlockItem.Value.Text, getBlockItem.Value.Description);
+```
+
+1. Replace `<endpoint>` with your endpoint URL.
+1. Replace `<enter_your_key_here>` with your key.
+1. Replace `<your_list_id>` with the ID value you used in the list creation step.
+1. Optionally change the value of `getBlockItemId` to the ID of a previously added item. 
+1. Run the script.
 
 #### [Python](#tab/python)
 
@@ -647,6 +852,33 @@ curl --location --request DELETE '<endpoint>/contentsafety/text/blocklists/<your
 
 The response code should be `204`.
 
+#### [C#](#tab/csharp)
+
+Create a new C# console app and open it in your preferred editor or IDE. Paste in the following code.
+
+```csharp
+string endpoint = "<endpoint>";
+string key = "<enter_your_key_here>";
+ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(key));
+
+var blocklistName = "<your_list_id>";
+
+var removeBlockItemId = addedBlockItems.Value.Value[0].BlockItemId;
+var removeBlockItemIds = new List<string> { removeBlockItemId };
+var removeResult = client.RemoveBlockItems(blocklistName, new RemoveBlockItemsOptions(removeBlockItemIds));
+
+if (removeResult != null && removeResult.Status == 204)
+{
+    Console.WriteLine("\nBlockItem removed: {0}.", removeBlockItemId);
+}
+```
+
+1. Replace `<endpoint>` with your endpoint URL.
+1. Replace `<enter_your_key_here>` with your key.
+1. Replace `<your_list_id>` with the ID value you used in the list creation step.
+1. Optionally change the value of `removeBlockItemId` to the ID of a previously added item. 
+1. Run the script.
+
 #### [Python](#tab/python)
 
 Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
@@ -718,6 +950,29 @@ curl --location --request DELETE '<endpoint>/contentsafety/text/blocklists/<your
 ```
 
 The response code should be `204`.
+
+#### [C#](#tab/csharp)
+
+Create a new C# console app and open it in your preferred editor or IDE. Paste in the following code.
+
+```csharp
+string endpoint = "<endpoint>";
+string key = "<enter_your_key_here>";
+ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(key));
+
+var blocklistName = "<your_list_id>";
+
+var deleteResult = client.DeleteTextBlocklist(blocklistName);
+if (deleteResult != null && deleteResult.Status == 204)
+{
+    Console.WriteLine("\nDeleted blocklist.");
+}
+```
+
+1. Replace `<endpoint>` with your endpoint URL.
+1. Replace `<enter_your_key_here>` with your key.
+1. Replace `<your_list_id>` (in the request URL) with the ID value you used in the list creation step.
+1. Run the script.
 
 #### [Python](#tab/python)
 

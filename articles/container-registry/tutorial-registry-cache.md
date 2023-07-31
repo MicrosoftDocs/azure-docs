@@ -38,7 +38,7 @@ Implementing Cache for ACR provides the following benefits:
         
         1. Rule Name - The name of your cache rule. For example, `Hello-World-Cache`.
 
-        2. Source - The name of the Source Registry. Currently, we only support **Docker Hub** and **Microsoft Artifact Registry**. 
+        2. Source - The name of the Source Registry. 
 
         3. Repository Path - The source path of the repository to find and retrieve artifacts you want to cache. For example, `docker.io/library/hello-world`.
 
@@ -49,25 +49,31 @@ Implementing Cache for ACR provides the following benefits:
 
         1. Credentials  - The name of your credentials.
 
-        2. Source registry Login Server - The login server of your source registry. Currently, we only support `docker.io`. 
+        2. Source registry Login Server - The login server of your source registry. 
 
         3. Source Authentication - The key vault locations to store credentials. 
         
         4. Username and Password secrets- The secrets containing the username and password. 
 
+## Upstream support 
+
+Cache for ACR currently supports the following upstream registries:
+
+| Upstream registries         | Support                                                      | Availability            |
+| --------------------------- | ------------------------------------------------------------ | ----------------------- |
+| Docker                      | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
+| Microsoft Artifact Registry | Supports unauthenticated pulls only.                         | Azure CLI, Azure portal |
+| ECR Public                  | Supports unauthenticated pulls only.                         | Azure CLI               |
+| Quay.io                     | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
+| GitHub Container Registry   | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
+
 ## Preview Limitations
 
-- Quarantine functions like signing, scanning, and manual compliance approval are on the roadmap but not included in this release.
-
-- Caching for ACR feature doesn't support Customer managed key (CMK) enabled registries.
+- Cache for ACR feature doesn't support Customer managed key (CMK) enabled registries.
 
 - Cache will only occur after at least one image pull is complete on the available container image. For every new image available, a new image pull must be complete. Cache for ACR doesn't automatically pull new tags of images when a new tag is available. It is on the roadmap but not supported in this release. 
 
--  Cache for ACR only supports Docker Hub and Microsoft Artifact Registry. Multiple other registries  including self-hosted registries are on the roadmap but aren't included in this release.
-
 - Cache for ACR only supports 50 cache rules.
-
-- Cache for ACR is only available by using the Azure portal and Azure CLI.  
 
 ## Next steps
 

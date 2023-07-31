@@ -113,6 +113,11 @@ sections:
           Additionally, if you want to back up the migrated VM, go to Virtual Machine management blade to [enable backup](../backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
           
       - question: |
+          How can I restore backups of classic VMs once Classic VMs and Classic Storage Accounts are retired?
+        answer: |
+          Once classic VMs have been retired, restoring backups of classic VMs require using the `restore disks` restoration type. Classic VM disks may be restored to ARM storage accounts. After restoring the disks, you can [convert them to managed disks](scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md) and [create a new ARM VM with them attached](scripts/create-vm-from-managed-os-disks.md). Alternatively, you can [attach them as data disks to an existing VM](windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).  
+
+      - question: |
           Can I validate my subscription or resources to see if they're capable of migration? 
         answer: |
           Yes. In the platform-supported migration option, the first step in preparing for migration is to validate that the resources are capable of migration. In case the validate operation fails, you receive messages for all the reasons the migration cannot be completed.

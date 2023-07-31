@@ -446,7 +446,7 @@
                   href: create-first-function-cli-python.md
                 - name: Premium plan
                   href: create-premium-plan-function-app-portal.md
-                - name: Linux container (Premiumn)
+                - name: Linux container (Premium)
                   href: functions-deploy-container.md
                   displayName: container, Docker, custom
                 - name: Azure for Students Starter
@@ -503,8 +503,15 @@
           href: functions-continuous-deployment.md
         - name: Deployment slots
           href: functions-deployment-slots.md
-        - name: Work with containers 
-          href: functions-how-to-custom-container.md 
+        - name: Containers
+          items: 
+            - name: Work with containers 
+              href: functions-how-to-custom-container.md 
+            - name: Create functions in containers  
+              href: functions-create-container-registry.md
+            - name: Functions in Kubernetes
+              href: functions-kubernetes-keda.md
+              displayName: keda, container, docker
         - name: Build and deploy using Azure Pipelines
           href: functions-how-to-azure-devops.md
         - name: Build and deploy using GitHub Actions
@@ -513,9 +520,6 @@
           href: deployment-zip-push.md
         - name: Run from package
           href: run-functions-from-deployment-package.md
-        - name: Functions in Kubernetes
-          href: functions-kubernetes-keda.md
-          displayName: keda, container, docker
         - name: Automate resource deployment
           href: functions-infrastructure-as-code.md
         - name: Deploy using the Jenkins plugin

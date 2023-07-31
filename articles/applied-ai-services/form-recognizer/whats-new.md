@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: whats-new
-ms.date: 05/23/2023
+ms.date: 06/23/2023
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 ms.custom: references_regions
@@ -612,7 +612,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## July 2021
 
-* System-assigned managed identity support: You can now enable a system-assigned managed identity to grant Form Recognizer limited access to private storage accounts including accounts protected by a Virtual Network (VNet) or firewall or have enabled bring-your-own-storage (BYOS). *See* [Create and use managed identity for your Form Recognizer resource](managed-identity-byos.md) to learn more.
+* System-assigned managed identity support: You can now enable a system-assigned managed identity to grant Form Recognizer limited access to private storage accounts including accounts protected by a Virtual Network (VNet) or firewall or have enabled bring-your-own-storage (BYOS). _See_ [Create and use managed identity for your Form Recognizer resource](managed-identities.md) to learn more.
 
 ---
 

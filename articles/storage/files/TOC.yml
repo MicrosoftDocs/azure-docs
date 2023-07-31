@@ -29,14 +29,22 @@
     href: storage-files-active-directory-overview.md
   - name: Networking considerations for direct access
     href: storage-files-networking-overview.md
-  - name: Disaster recovery and failover
-    href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/files/toc.json
-  - name: Storage redundancy
-    href: files-redundancy.md
-  - name: Geo-redundancy for large file shares
-    href: geo-redundant-storage-for-large-file-shares.md
-  - name: Azure file share snapshots
-    href: storage-snapshots-files.md
+  - name: Data protection
+    items:
+    - name: Overview
+      href: files-data-protection-overview.md
+    - name: Storage redundancy
+      href: files-redundancy.md
+    - name: Disaster recovery and failover
+      href: files-disaster-recovery.md
+    - name: Back up file shares
+      href: ../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/files/toc.json
+    - name: Share snapshots
+      href: storage-snapshots-files.md
+    - name: Prevent accidental data deletion
+      href: storage-files-prevent-file-share-deletion.md
+    - name: Geo-redundancy for large file shares
+      href: geo-redundant-storage-for-large-file-shares.md
   - name: Performance and scale
     items:
     - name: Understanding performance
@@ -55,10 +63,6 @@
     href: understanding-billing.md
   - name: Windows Server to Azure Files
     href: windows-server-to-azure-files.md    
-  - name: Prevent accidental data deletion
-    href: storage-files-prevent-file-share-deletion.md
-  - name: Back up file shares
-    href: ../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/files/toc.json
   - name: Encryption
     items: 
     - name: Encryption at-rest
@@ -128,9 +132,9 @@
     - name: Use Azure Files with multiple AD DS forests
       href: storage-files-identity-multiple-forests.md
     - name: Enable Azure AD DS authentication and authorization
-      href: storage-files-identity-auth-active-directory-domain-service-enable.md
-    - name: Enable Azure AD Kerberos authentication for hybrid accounts
-      href: storage-files-identity-auth-azure-active-directory-enable.md
+      href: storage-files-identity-auth-domain-services-enable.md
+    - name: Enable Azure AD Kerberos authentication for hybrid identities
+      href: storage-files-identity-auth-hybrid-identities-enable.md
     - name: Enable AD Kerberos authentication for Linux clients (SMB)
       href: storage-files-identity-auth-linux-kerberos-enable.md
   - name: Authorize
@@ -274,19 +278,19 @@
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure Files
-      href: files-troubleshoot.md
+      href: /troubleshoot/azure/azure-storage/files-troubleshoot?toc=/azure/storage/files/toc.json
     - name: Troubleshoot Azure Files connectivity (SMB)
-      href: files-troubleshoot-smb-connectivity.md
+      href: /troubleshoot/azure/azure-storage/files-troubleshoot-smb-connectivity?toc=/azure/storage/files/toc.json
     - name: Troubleshoot Azure Files authentication (SMB)
-      href: files-troubleshoot-smb-authentication.md
+      href: /troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json
     - name: Troubleshoot Azure Files performance
-      href: files-troubleshoot-performance.md
+      href: /troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json
     - name: Troubleshoot general SMB issues on Linux
-      href: files-troubleshoot-linux-smb.md
+      href: /troubleshoot/azure/azure-storage/files-troubleshoot-linux-smb?toc=/azure/storage/files/toc.json
     - name: Troubleshoot general NFS issues on Linux
-      href: files-troubleshoot-linux-nfs.md
+      href: /troubleshoot/azure/azure-storage/files-troubleshoot-linux-nfs?toc=/azure/storage/files/toc.json
     - name: Create file share throttling alerts
-      href: files-troubleshoot-create-alerts.md
+      href: /troubleshoot/azure/azure-storage/files-troubleshoot-create-alerts?toc=/azure/storage/files/toc.json
     - name: Troubleshoot backing up file shares
       href: ../../backup/troubleshoot-azure-files.md?toc=/azure/storage/files/toc.json
 - name: Reference

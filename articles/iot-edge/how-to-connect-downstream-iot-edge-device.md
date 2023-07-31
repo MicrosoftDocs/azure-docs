@@ -558,51 +558,6 @@ You should already have IoT Edge installed on your device. If not, follow the st
     >
     >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
 
-### Verify connectivity from child to parent
-
-01. Verify the TLS/SSL connection from the child to the parent by running the following `openssl` command on the downstream device. Replace `<parent hostname>` with the FQDN or IP address of the parent.
-
-    ```bash
-    openssl s_client -connect <parent hostname>:8883 </dev/null 2>&1 >/dev/null
-    ```
-
-    The command should assert successful validation of the parent certificate chain similar to the following example:
-
-    ```Output
-    azureUser@child-vm:~$ openssl s_client -connect <parent hostname>:8883 </dev/null 2>&1 >/dev/null
-    Can't use SSL_get_servername
-    depth=3 CN = Azure_IoT_Hub_CA_Cert_Test_Only
-    verify return:1
-    depth=2 CN = Azure_IoT_Hub_Intermediate_Cert_Test_Only
-    verify return:1
-    depth=1 CN = gateway.ca
-    verify return:1
-    depth=0 CN = <parent hostname>
-    verify return:1
-    DONE
-    ```
-
-    The "Can't use SSL_get_servername" message can be ignored.
-
-    The `depth=0 CN = ` value should match the **hostname** parameter specified in the parent's `config.toml` configuration file.
-
-    If the command times out, there may be blocked ports between the child and parent devices. Review the network configuration and settings for the devices.
-
-    > [!WARNING]
-    > Not using a full-chain certificate in the gateway's `[edge_ca]` section results in certificate validation errors from the downstream device. For example, the `openssl s_client ...` command above will produce:
-    >
-    > ```
-    > Can't use SSL_get_servername
-    > depth=1 CN = gateway.ca
-    > verify error:num=20:unable to get local issuer certificate
-    > verify return:1
-    > depth=0 CN = <parent hostname>
-    > verify return:1
-    > DONE
-    > ```
-    >
-    > The same issue occurs for TLS-enabled devices that connect to the downstream IoT Edge device if the full-chain device certificate isn't used and configured on the downstream device.
-
 ## Network isolate downstream devices
 
 The steps so far in this article set up IoT Edge devices as either a gateway or a downstream device, and create a trusted connection between them. The gateway device handles interactions between the downstream device and IoT Hub, including authentication and message routing. Modules deployed to downstream IoT Edge devices can still create their own connections to cloud services.
@@ -632,7 +587,7 @@ For each gateway device in a lower layer, network operators need to:
 * Provide a static IP address.
 * Authorize outbound communications from this IP address to the parent gateway's IP address over ports 443 (HTTPS) and 5671 (AMQP).
 
-### Deploy modules to top layer devices
+## Deploy modules to top layer devices
 
 The IoT Edge device at the top layer of a gateway hierarchy has a set of required modules that must be deployed to it, in addition to any workload modules you may run on the device.
 
@@ -829,11 +784,11 @@ The API proxy module was designed to be customized to handle most common gateway
 
 ---
 
-### Deploy modules to lower layer devices
+## Deploy modules to lower layer devices
 
 IoT Edge devices in lower layers of a gateway hierarchy have one required module that must be deployed to them, in addition to any workload modules you may run on the device.
 
-#### Route container image pulls
+### Route container image pulls
 
 Before discussing the required proxy module for IoT Edge devices in gateway hierarchies, it's important to understand how IoT Edge devices in lower layers get their module images.
 
@@ -847,7 +802,7 @@ The API proxy module can only route to one registry module, and each registry mo
 
 If you don't want lower layer devices making module pull requests through a gateway hierarchy, another option is to manage a local registry solution. Or, push the module images onto the devices before creating deployments and then set the **imagePullPolicy** to **never**.
 
-#### Bootstrap the IoT Edge agent
+### Bootstrap the IoT Edge agent
 
 The IoT Edge agent is the first runtime component to start on any IoT Edge device. You need to make sure that any downstream IoT Edge devices can access the edgeAgent module image when they start up, and then they can access deployments and start the rest of the module images.
 
@@ -866,7 +821,7 @@ image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.4"
 
 If you are using a local container registry, or providing the container images manually on the device, update the config file accordingly.
 
-#### Configure runtime and deploy proxy module
+### Configure runtime and deploy proxy module
 
 The **API proxy module** is required for routing all communications between the cloud and any downstream IoT Edge devices. An IoT Edge device in the bottom layer of the hierarchy, with no downstream IoT Edge devices, does not need this module.
 
@@ -934,6 +889,51 @@ The API proxy module was designed to be customized to handle most common gateway
     1. **Value**: `FROM /messages/* INTO $upstream`
 1. Select **Review + create** to go to the final step.
 1. Select **Create** to deploy to your device.
+
+## Verify connectivity from child to parent
+
+01. Verify the TLS/SSL connection from the child to the parent by running the following `openssl` command on the downstream device. Replace `<parent hostname>` with the FQDN or IP address of the parent.
+
+    ```bash
+    openssl s_client -connect <parent hostname>:8883 </dev/null 2>&1 >/dev/null
+    ```
+
+    The command should assert successful validation of the parent certificate chain similar to the following example:
+
+    ```Output
+    azureUser@child-vm:~$ openssl s_client -connect <parent hostname>:8883 </dev/null 2>&1 >/dev/null
+    Can't use SSL_get_servername
+    depth=3 CN = Azure_IoT_Hub_CA_Cert_Test_Only
+    verify return:1
+    depth=2 CN = Azure_IoT_Hub_Intermediate_Cert_Test_Only
+    verify return:1
+    depth=1 CN = gateway.ca
+    verify return:1
+    depth=0 CN = <parent hostname>
+    verify return:1
+    DONE
+    ```
+
+    The "Can't use SSL_get_servername" message can be ignored.
+
+    The `depth=0 CN = ` value should match the **hostname** parameter specified in the parent's `config.toml` configuration file.
+
+    If the command times out, there may be blocked ports between the child and parent devices. Review the network configuration and settings for the devices.
+
+    > [!WARNING]
+    > Not using a full-chain certificate in the gateway's `[edge_ca]` section results in certificate validation errors from the downstream device. For example, the `openssl s_client ...` command above will produce:
+    >
+    > ```
+    > Can't use SSL_get_servername
+    > depth=1 CN = gateway.ca
+    > verify error:num=20:unable to get local issuer certificate
+    > verify return:1
+    > depth=0 CN = <parent hostname>
+    > verify return:1
+    > DONE
+    > ```
+    >
+    > The same issue occurs for TLS-enabled devices that connect to the downstream IoT Edge device if the full-chain device certificate isn't used and configured on the downstream device.
 
 ## Integrate Microsoft Defender for IoT with IoT Edge gateway
 

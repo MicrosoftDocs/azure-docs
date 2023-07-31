@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/05/2022
+ms.date: 07/07/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -75,7 +75,7 @@ The information used to calculate the device platform comes from unverified sour
 
 #### Locations
 
-Location data is provided by IP geolocation data. Administrators can choose to define locations and choose to mark some as trusted like those for their organization's network locations.
+Locations connect IP addresses, geographies, and [Global Secure Access' compliant network](../../global-secure-access/how-to-compliant-network.md) to Conditional Access policy decisions. Administrators can choose to define locations and  mark some as trusted like those for their organization's primary network locations.
 
 #### Client apps
 

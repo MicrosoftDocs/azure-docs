@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 12/12/2022
+ms.date: 07/11/2023
 ---
 
 
@@ -38,7 +38,7 @@ Data lineage is the process of describing what data exists, where it's s
 
 * Data factory's managed identity is used to authenticate lineage push operations in Microsoft Purview account. The data factory's managed identity needs Data Curator role on Microsoft Purview root collection.
 
-* Currently, only 10 data factories can be connected at a time. If you want to add more than 10 data factories, please file a support ticket. 
+* Currently, only 10 data factories can be connected at a time. If you want to add more than 10 data factories, please add 10 new data factory connections at a time using the wizard or use API to connect more than 10 data factories in one operation.
 
 
 ### Azure Data Factory activities  

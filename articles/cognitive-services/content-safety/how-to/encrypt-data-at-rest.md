@@ -5,27 +5,28 @@ titleSuffix: Azure Cognitive Services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: content-safety
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 05/10/2023
+ms.date: 07/04/2023
 ms.author: pafarley
 ---
 
-
 # Azure Content Safety encryption of data at rest
 
-Azure Content Safety automatically encrypts your data when it's persisted to the cloud. The encryption protects your data and helps you meet your organizational security and compliance commitments. This article covers how Azure Content Safety handles encryption of data at rest. 
+Azure Content Safety automatically encrypts your data when it's uploaded to the cloud. The encryption protects your data and helps you meet your organizational security and compliance commitments. This article covers how Azure Content Safety handles encryption of data at rest. 
 
 ## About Cognitive Services encryption
 
 Azure Content Safety is part of Azure Cognitive Services. Cognitive Services data is encrypted and decrypted using [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) compliant [256-bit AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) encryption. Encryption and decryption are transparent, meaning encryption and access are managed for you. Your data is secure by default and you don't need to modify your code or applications to take advantage of encryption.
 
-> [!IMPORTANT]
-> For blocklist name, only MMK encryption is applied by default. Using CMK or not will not change this behavior. All the other data will use either MMK or CMK depending on what you've selected.
 
 ## About encryption key management
 
 By default, your subscription uses Microsoft-managed encryption keys. There's also the option to manage your subscription with your own keys called customer-managed keys (CMK). CMK offers greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
+
+> [!IMPORTANT]
+> For blocklist names, only MMK encryption is applied by default. Using CMK or not will not change this behavior. All the other data will use either MMK or CMK depending on what you've selected.
 
 ## Customer-managed keys with Azure Key Vault
 

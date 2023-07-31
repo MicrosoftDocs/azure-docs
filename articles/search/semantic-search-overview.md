@@ -8,9 +8,10 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/26/2023
+ms.date: 07/07/2023
 ms.custom: references_regions
 ---
+
 # Semantic search in Azure Cognitive Search
 
 > [!IMPORTANT]
@@ -25,6 +26,9 @@ Semantic search is a premium feature that's billed by usage. We recommend this a
 > * [Enable semantic search for semantic ranking](#enable-semantic-search) on your search service.
 > * Create or modify queries to [return semantic captions and highlights](semantic-how-to-query-request.md).
 > * Add a few more query properties to also [return semantic answers](semantic-answers.md).
+
+> [!NOTE]
+> Looking for vector support and similarity search? See [Vector search in Azure Cognitive Search](vector-search-overview.md) for details.
 
 ## What is semantic search?
 
@@ -88,7 +92,7 @@ Semantic search and spell check are available on services that meet the criteria
 
 | Feature | Tier | Region | Sign up | Pricing |
 |---------|------|--------|---------|---------|
-| Semantic search | Standard tier (S1, S2, S3, S3 HD), Storage Optimized tier (L1, L2) | [Region availability](https://azure.microsoft.com/global-infrastructure/services/?products=search)| Required | [Pricing](https://azure.microsoft.com/pricing/details/search/) <sup>1</sup>|
+| Semantic search | Basic and above | [Region availability](https://azure.microsoft.com/global-infrastructure/services/?products=search)| Required | [Pricing](https://azure.microsoft.com/pricing/details/search/) <sup>1</sup>|
 | Spell check | Basic <sup>2</sup> and above  | All | None | None (free) |
 
 <sup>1</sup> On the pricing page, scroll down to view more features that are billed separately. At lower query volumes (under 1000 monthly), semantic search is free. To go above that limit, you can opt in to the semantic search standard pricing plan. The pricing page shows you the semantic query billing rate for different currencies and intervals.
@@ -142,3 +146,4 @@ To re-enable semantic search, rerun the above request, setting "semanticSearch" 
 ## Next steps
 
 [Enable semantic search](#enable-semantic-search) for your search service and follow the steps in [Configure semantic ranking](semantic-how-to-query-request.md) so that you can test out semantic search on your content.
+

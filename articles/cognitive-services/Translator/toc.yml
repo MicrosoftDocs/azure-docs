@@ -233,6 +233,10 @@ items:
     - name: Copy a custom model
       displayName: copy, publish, move, workspace
       href: custom-translator/how-to/copy-model.md
+    - name: Enable private virtual networks
+      displayName: vnet, service endpoints, private network, global, backbone
+      href: custom-translator/how-to/enable-vnet-service-endpoint.md
+
   - name: Concepts
     items:
     - name: Customization

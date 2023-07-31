@@ -4,6 +4,7 @@ description: Learn how to discover software inventory on on-premises servers wit
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 03/06/2023
 ms.custom: engagement-fy23

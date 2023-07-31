@@ -10,7 +10,7 @@ ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](/rest/api/language/2022-05-01/text-analysis-runtime/analyze-text)
+[Reference documentation](/rest/api/language/2023-04-01/text-analysis-runtime/analyze-text)
 
 Use this quickstart to send sentiment analysis requests using the REST API. In the following example, you'll use cURL to identify the sentiment(s) expressed in a text sample, and perform aspect-based sentiment analysis.
 
@@ -237,5 +237,5 @@ curl -X POST $LANGUAGE_ENDPOINT/language/:analyze-text?api-version=2022-05-01 \
 ## Next steps
 
 * [Sentiment analysis and opinion mining language support](../../language-support.md)
-* [How to call the API](../../how-to/call-api.md)  
-* [Reference documentation](/rest/api/language/2022-05-01/text-analysis-runtime/analyze-text)
+* [How to call the API](../../how-to/call-api.md)
+* [Reference documentation](/rest/api/language/2023-04-01/text-analysis-runtime/analyze-text)

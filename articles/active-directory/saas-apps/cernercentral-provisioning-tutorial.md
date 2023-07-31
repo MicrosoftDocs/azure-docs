@@ -24,7 +24,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A Cerner Central tenant
 
 > [!NOTE]
-> Azure Active Directory integrates with Cerner Central using the [SCIM](http://www.simplecloud.info/) protocol.
+> Azure Active Directory integrates with Cerner Central using the SCIM protocol.
 
 ## Assigning users to Cerner Central
 

@@ -3,10 +3,9 @@ title: 'Quickstart: Azure Queue Storage client library for JavaScript'
 description: Learn how to use the Azure Queue Storage client library for JavaScript to create a queue and add messages to it. Then learn how to read and delete messages from the queue. You also learn how to delete a queue.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 05/12/2023
+ms.date: 06/29/2023
 ms.topic: quickstart
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api, passwordless-js
 ---
@@ -23,6 +22,7 @@ Use the Azure Queue Storage client library for JavaScript to:
 - Add messages to a queue
 - Peek at messages in a queue
 - Update a message in a queue
+- Get the queue length
 - Receive messages from a queue
 - Delete messages from a queue
 - Delete a queue
@@ -139,9 +139,9 @@ For example, your app can authenticate using your Azure CLI sign-in credentials 
 
 Azure Queue Storage is a service for storing large numbers of messages. A queue message can be up to 64 KB in size. A queue may contain millions of messages, up to the total capacity limit of a storage account. Queues are commonly used to create a backlog of work to process asynchronously. Queue Storage offers three types of resources:
 
-- The storage account
-- A queue in the storage account
-- Messages within the queue
+- **Storage account**: All access to Azure Storage is done through a storage account. For more information about storage accounts, see [Storage account overview](../common/storage-account-overview.md)
+- **Queue**: A queue contains a set of messages. All messages must be in a queue. Note that the queue name must be all lowercase. For information on naming queues, see [Naming Queues and Metadata](/rest/api/storageservices/Naming-Queues-and-Metadata).
+- **Message**: A message, in any format, of up to 64 KB. A message can remain in the queue for a maximum of 7 days. For version 2017-07-29 or later, the maximum time-to-live can be any positive number, or -1 indicating that the message doesn't expire. If this parameter is omitted, the default time-to-live is seven days.
 
 The following diagram shows the relationship between these resources.
 
@@ -230,6 +230,24 @@ const queueClient = new QueueClient(AZURE_STORAGE_CONNECTION_STRING, queueName);
 ```
 
 ---
+
+> [!NOTE]
+> Messages sent using the [`QueueClient`](/javascript/api/@azure/storage-queue/queueclient) class must be in a format that can be included in an XML request with UTF-8 encoding. To include markup in the message, the contents of the message must either be XML-escaped or Base64-encoded.
+
+Queues messages are stored as strings. If you need to send a different data type, you must serialize that data type into a string when sending the message and deserialize the string format when reading the message.
+
+To convert **JSON** to a string format and back again in Node.js, use the following helper functions:
+
+```javascript
+function jsonToBase64(jsonObj) {
+    const jsonString = JSON.stringify(jsonObj)
+    return  Buffer.from(jsonString).toString('base64')
+}
+function encodeBase64ToJson(base64String) {
+    const jsonString = Buffer.from(base64String,'base64').toString()
+    return JSON.parse(jsonString)
+}
+``` 
 
 ### Create a queue
 

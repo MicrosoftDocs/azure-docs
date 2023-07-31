@@ -5,6 +5,7 @@ author: piyushdhore-microsoft
 ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: how-to
+ms.service: azure-migrate
 ms.date: 10/18/2022
 ms.custom: engagement-fy23
 ---

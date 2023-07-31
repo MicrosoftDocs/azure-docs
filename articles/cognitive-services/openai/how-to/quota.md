@@ -30,7 +30,7 @@ When a deployment is created, the assigned TPM will directly map to the tokens-p
 The flexibility to distribute TPM globally within a subscription and region has allowed Azure OpenAI Service to loosen other restrictions:
 
 - The maximum resources per region are increased to 30.
-- The limit on creating no more than one deployments of the same model in a resource has been removed.
+- The limit on creating no more than one deployment of the same model in a resource has been removed.
 
 ## Assign quota
 

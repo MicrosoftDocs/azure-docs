@@ -71,12 +71,7 @@ When you get results from PII detection, you can stream the results to an applic
     |.NET     | [1.0.0](https://www.nuget.org/packages/Azure.AI.Language.Conversations/1.0.0)        |
     |Python     | [1.0.0](https://pypi.org/project/azure-ai-language-conversations/1.1.0b2)         |
     
-4. After you've installed the client library, use the following samples on GitHub to start calling the API.
-    
-    * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations/samples/Sample8_AnalyzeConversation_ConversationPII_Transcript.md)
-    * [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/cognitivelanguage/azure-ai-language-conversations/samples/sample_conv_pii_transcript_input.py)
-    
-5. See the following reference documentation for more information on the client, and return object:
+4. See the following reference documentation for more information on the client, and return object:
     
     * [C#](/dotnet/api/azure.ai.language.conversations)
     * [Python](/python/api/azure-ai-language-conversations/azure.ai.language.conversations.aio)

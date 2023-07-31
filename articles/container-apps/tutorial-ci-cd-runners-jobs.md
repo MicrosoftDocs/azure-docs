@@ -71,33 +71,67 @@ Refer to [jobs preview limitations](jobs.md#jobs-preview-restrictions) for a lis
 
 1. To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.
 
+    # [Bash](#tab/bash)
     ```bash
     az login
     ```
 
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    az login
+    ```
+
+    ---
+
 1. Ensure you're running the latest version of the CLI via the `upgrade` command.
 
+    # [Bash](#tab/bash)
     ```bash
     az upgrade
     ```
 
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    az upgrade
+    ```
+
+    ---
+
 1. Install the latest version of the Azure Container Apps CLI extension.
 
+    # [Bash](#tab/bash)
     ```bash
     az extension add --name containerapp --upgrade
     ```
 
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    az extension add --name containerapp --upgrade
+    ```
+
+    ---
+
 1. Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces if you haven't already registered them in your Azure subscription.
 
+    # [Bash](#tab/bash)
     ```bash
     az provider register --namespace Microsoft.App
     az provider register --namespace Microsoft.OperationalInsights
     ```
 
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    az provider register --namespace Microsoft.App
+    az provider register --namespace Microsoft.OperationalInsights
+    ```
+
+    ---
+
 1. Define the environment variables that are used throughout this article.
 
     ::: zone pivot="container-apps-jobs-self-hosted-ci-cd-github-actions"
 
+    # [Bash](#tab/bash)
     ```bash
     RESOURCE_GROUP="jobs-sample"
     LOCATION="northcentralus"
@@ -105,10 +139,21 @@ Refer to [jobs preview limitations](jobs.md#jobs-preview-restrictions) for a lis
     JOB_NAME="github-actions-runner-job"
     ```
 
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    $RESOURCE_GROUP="jobs-sample"
+    $LOCATION="northcentralus"
+    $ENVIRONMENT="env-jobs-sample"
+    $JOB_NAME="github-actions-runner-job"
+    ```
+
+    ---
+
     ::: zone-end
 
     ::: zone pivot="container-apps-jobs-self-hosted-ci-cd-azure-pipelines"
 
+    # [Bash](#tab/bash)
     ```bash
     RESOURCE_GROUP="jobs-sample"
     LOCATION="northcentralus"
@@ -117,28 +162,63 @@ Refer to [jobs preview limitations](jobs.md#jobs-preview-restrictions) for a lis
     PLACEHOLDER_JOB_NAME="placeholder-agent-job"
     ```
 
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    $RESOURCE_GROUP="jobs-sample"
+    $LOCATION="northcentralus"
+    $ENVIRONMENT="env-jobs-sample"
+    $JOB_NAME="azure-pipelines-agent-job"
+    $PLACEHOLDER_JOB_NAME="placeholder-agent-job"
+    ```
+
+    ---
+
     ::: zone-end
 
 ## Create a Container Apps environment
 
 The Azure Container Apps environment acts as a secure boundary around container apps and jobs so they can share the same network and communicate with each other.
 
+> [!NOTE]
+> To create a Container Apps environment that's integrated with an existing virtual network, see [Provide a virtual network to an internal Azure Container Apps environment](vnet-custom-internal.md?tabs=bash).
+
 1. Create a resource group using the following command.
 
+    # [Bash](#tab/bash)
     ```bash
     az group create \
         --name "$RESOURCE_GROUP" \
         --location "$LOCATION"
     ```
 
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    az group create `
+        --name "$RESOURCE_GROUP" `
+        --location "$LOCATION"
+    ```
+
+    ---
+
 1. Create the Container Apps environment using the following command.
 
+    # [Bash](#tab/bash)
     ```bash
     az containerapp env create \
         --name "$ENVIRONMENT" \
         --resource-group "$RESOURCE_GROUP" \
         --location "$LOCATION"
     ```
+
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    az containerapp env create `
+        --name "$ENVIRONMENT" `
+        --resource-group "$RESOURCE_GROUP" `
+        --location "$LOCATION"
+    ```
+
+    ---
 
 ::: zone pivot="container-apps-jobs-self-hosted-ci-cd-github-actions"
 
@@ -203,11 +283,21 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
 
 1. Define variables that are used to configure the runner and scale rule later.
 
+    # [Bash](#tab/bash)
     ```bash
     GITHUB_PAT="<GITHUB_PAT>"
     REPO_OWNER="<REPO_OWNER>"
     REPO_NAME="<REPO_NAME>"
     ```
+
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    $GITHUB_PAT="<GITHUB_PAT>"
+    $REPO_OWNER="<REPO_OWNER>"
+    $REPO_NAME="<REPO_NAME>"
+    ```
+
+    ---
 
     Replace the placeholders with the following values:
 
@@ -226,15 +316,25 @@ To create a self-hosted runner, you need to build a container image that execute
 
 1. Define a name for your container image and registry.
 
+    # [Bash](#tab/bash)
     ```bash
     CONTAINER_IMAGE_NAME="github-actions-runner:1.0"
     CONTAINER_REGISTRY_NAME="<CONTAINER_REGISTRY_NAME>"
     ```
 
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    $CONTAINER_IMAGE_NAME="github-actions-runner:1.0"
+    $CONTAINER_REGISTRY_NAME="<CONTAINER_REGISTRY_NAME>"
+    ```
+
+    ---
+
     Replace `<CONTAINER_REGISTRY_NAME>` with a unique name for creating a container registry. Container registry names must be *unique within Azure* and be from 5 to 50 characters in length containing numbers and lowercase letters only.
 
 1. Create a container registry.
 
+    # [Bash](#tab/bash)
     ```bash
     az acr create \
         --name "$CONTAINER_REGISTRY_NAME" \
@@ -244,8 +344,21 @@ To create a self-hosted runner, you need to build a container image that execute
         --admin-enabled true
     ```
 
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    az acr create `
+        --name "$CONTAINER_REGISTRY_NAME" `
+        --resource-group "$RESOURCE_GROUP" `
+        --location "$LOCATION" `
+        --sku Basic `
+        --admin-enabled true
+    ```
+
+    ---
+
 1. The Dockerfile for creating the runner image is available on [GitHub](https://github.com/Azure-Samples/container-apps-ci-cd-runner-tutorial/tree/main/github-actions-runner). Run the following command to clone the repository and build the container image in the cloud using the `az acr build` command.
 
+    # [Bash](#tab/bash)
     ```bash
     az acr build \
         --registry "$CONTAINER_REGISTRY_NAME" \
@@ -253,6 +366,17 @@ To create a self-hosted runner, you need to build a container image that execute
         --file "Dockerfile.github" \
         "https://github.com/Azure-Samples/container-apps-ci-cd-runner-tutorial.git"
     ```
+
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    az acr build `
+        --registry "$CONTAINER_REGISTRY_NAME" `
+        --image "$CONTAINER_IMAGE_NAME" `
+        --file "Dockerfile.github" `
+        "https://github.com/Azure-Samples/container-apps-ci-cd-runner-tutorial.git"
+    ```
+
+    ---
 
     The image is now available in the container registry.
 
@@ -262,11 +386,12 @@ You can now create a job that uses to use the container image. In this section, 
 
 1. Create a job in the Container Apps environment.
 
+    # [Bash](#tab/bash)
     ```bash
     az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" \
         --trigger-type Event \
-        --replica-timeout 300 \
-        --replica-retry-limit 0 \
+        --replica-timeout 1800 \
+        --replica-retry-limit 1 \
         --replica-completion-count 1 \
         --parallelism 1 \
         --image "$CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME" \
@@ -283,6 +408,31 @@ You can now create a job that uses to use the container image. In this section, 
         --env-vars "GITHUB_PAT=secretref:personal-access-token" "REPO_URL=https://github.com/$REPO_OWNER/$REPO_NAME" "REGISTRATION_TOKEN_API_URL=https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/runners/registration-token" \
         --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
     ```
+
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" `
+        --trigger-type Event `
+        --replica-timeout 1800 `
+        --replica-retry-limit 1 `
+        --replica-completion-count 1 `
+        --parallelism 1 `
+        --image "$CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME" `
+        --min-executions 0 `
+        --max-executions 10 `
+        --polling-interval 30 `
+        --scale-rule-name "github-runner" `
+        --scale-rule-type "github-runner" `
+        --scale-rule-metadata "github-runner=https://api.github.com" "owner=$REPO_OWNER" "runnerScope=repo" "repos=$REPO_NAME" "targetWorkflowQueueLength=1" `
+        --scale-rule-auth "personalAccessToken=personal-access-token" `
+        --cpu "2.0" `
+        --memory "4Gi" `
+        --secrets "personal-access-token=$GITHUB_PAT" `
+        --env-vars "GITHUB_PAT=secretref:personal-access-token" "REPO_URL=https://github.com/$REPO_OWNER/$REPO_NAME" "REGISTRATION_TOKEN_API_URL=https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/actions/runners/registration-token" `
+        --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
+    ```
+
+    ---
 
     The following table describes the key parameters used in the command.
 
@@ -335,6 +485,7 @@ To verify the job was configured correctly, you modify the workflow to use a sel
 
 1. List the executions of the job to confirm a job execution was created and completed successfully.
 
+    # [Bash](#tab/bash)
     ```bash
     az containerapp job execution list \
         --name "$JOB_NAME" \
@@ -342,6 +493,17 @@ To verify the job was configured correctly, you modify the workflow to use a sel
         --output table \
         --query '[].{Status: properties.status, Name: name, StartTime: properties.startTime}'
     ```
+
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    az containerapp job execution list `
+        --name "$JOB_NAME" `
+        --resource-group "$RESOURCE_GROUP" `
+        --output table `
+        --query '[].{Status: properties.status, Name: name, StartTime: properties.startTime}'
+    ```
+
+    ---
 
 ::: zone-end
 
@@ -421,11 +583,21 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
 
 1. Define variables that are used to configure the Container Apps jobs later.
 
+    # [Bash](#tab/bash)
     ```bash
     AZP_TOKEN="<AZP_TOKEN>"
     ORGANIZATION_URL="<ORGANIZATION_URL>"
     AZP_POOL="container-apps"
     ```
+
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    $AZP_TOKEN="<AZP_TOKEN>"
+    $ORGANIZATION_URL="<ORGANIZATION_URL>"
+    $AZP_POOL="container-apps"
+    ```
+
+    ---
 
     Replace the placeholders with the following values:
 
@@ -443,10 +615,19 @@ To create a self-hosted agent, you need to build a container image that runs the
 
 1. Back in your terminal, define a name for your container image and registry.
 
+    # [Bash](#tab/bash)
     ```bash
     CONTAINER_IMAGE_NAME="azure-pipelines-agent:1.0"
     CONTAINER_REGISTRY_NAME="<CONTAINER_REGISTRY_NAME>"
     ```
+
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    $CONTAINER_IMAGE_NAME="azure-pipelines-agent:1.0"
+    $CONTAINER_REGISTRY_NAME="<CONTAINER_REGISTRY_NAME>"
+    ```
+
+    ---
 
     Replace `<CONTAINER_REGISTRY_NAME>` with a unique name for creating a container registry.
 
@@ -454,6 +635,7 @@ To create a self-hosted agent, you need to build a container image that runs the
 
 1. Create a container registry.
 
+    # [Bash](#tab/bash)
     ```bash
     az acr create \
         --name "$CONTAINER_REGISTRY_NAME" \
@@ -463,8 +645,21 @@ To create a self-hosted agent, you need to build a container image that runs the
         --admin-enabled true
     ```
 
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    az acr create `
+        --name "$CONTAINER_REGISTRY_NAME" `
+        --resource-group "$RESOURCE_GROUP" `
+        --location "$LOCATION" `
+        --sku Basic `
+        --admin-enabled true
+    ```
+
+    ---
+
 1. The Dockerfile for creating the runner image is available on [GitHub](https://github.com/Azure-Samples/container-apps-ci-cd-runner-tutorial/tree/main/azure-pipelines-agent). Run the following command to clone the repository and build the container image in the cloud using the `az acr build` command.
 
+    # [Bash](#tab/bash)
     ```bash
     az acr build \
         --registry "$CONTAINER_REGISTRY_NAME" \
@@ -473,19 +668,33 @@ To create a self-hosted agent, you need to build a container image that runs the
         "https://github.com/Azure-Samples/container-apps-ci-cd-runner-tutorial.git"
     ```
 
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    az acr build `
+        --registry "$CONTAINER_REGISTRY_NAME" `
+        --image "$CONTAINER_IMAGE_NAME" `
+        --file "Dockerfile.azure-pipelines" `
+        "https://github.com/Azure-Samples/container-apps-ci-cd-runner-tutorial.git"
+    ```
+
+    ---
+
     The image is now available in the container registry.
 
 ## Create a placeholder self-hosted agent
 
-Before you can run a self-hosted agent in your new agent pool, you need to create a placeholder agent. Pipelines that use the agent pool fail when there's no placeholder agent. You can create a placeholder agent by running a job that registers an offline placeholder agent.
+Before you can run a self-hosted agent in your new agent pool, you need to create a placeholder agent. The placeholder agent ensures the agent pool is available. Pipelines that use the agent pool fail when there's no placeholder agent.
+
+You can run a manual job to register an offline placeholder agent. The job runs once and can be deleted. The placeholder agent doesn't consume any resources in Azure Container Apps or Azure DevOps.
 
 1. Create a manual job in the Container Apps environment that creates the placeholder agent.
 
+    # [Bash](#tab/bash)
     ```bash
     az containerapp job create -n "$PLACEHOLDER_JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" \
         --trigger-type Manual \
         --replica-timeout 300 \
-        --replica-retry-limit 0 \
+        --replica-retry-limit 1 \
         --replica-completion-count 1 \
         --parallelism 1 \
         --image "$CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME" \
@@ -495,6 +704,24 @@ Before you can run a self-hosted agent in your new agent pool, you need to creat
         --env-vars "AZP_TOKEN=secretref:personal-access-token" "AZP_URL=secretref:organization-url" "AZP_POOL=$AZP_POOL" "AZP_PLACEHOLDER=1" "AZP_AGENT_NAME=placeholder-agent" \
         --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
     ```
+
+    # [PowerShell](#tab/powershell)
+    ```powershell
+        az containerapp job create -n "$PLACEHOLDER_JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" `
+        --trigger-type Manual `
+        --replica-timeout 300 `
+        --replica-retry-limit 1 `
+        --replica-completion-count 1 `
+        --parallelism 1 `
+        --image "$CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME" `
+        --cpu "2.0" `
+        --memory "4Gi" `
+        --secrets "personal-access-token=$AZP_TOKEN" "organization-url=$ORGANIZATION_URL" `
+        --env-vars "AZP_TOKEN=secretref:personal-access-token" "AZP_URL=secretref:organization-url" "AZP_POOL=$AZP_POOL" "AZP_PLACEHOLDER=1" "AZP_AGENT_NAME=placeholder-agent" `
+        --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
+    ```
+
+    ---
 
     The following table describes the key parameters used in the command.
 
@@ -512,12 +739,21 @@ Before you can run a self-hosted agent in your new agent pool, you need to creat
 
 1. Execute the manual job to create the placeholder agent.
 
+    # [Bash](#tab/bash)
     ```bash
     az containerapp job start -n "$PLACEHOLDER_JOB_NAME" -g "$RESOURCE_GROUP"
     ```
 
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    az containerapp job start -n "$PLACEHOLDER_JOB_NAME" -g "$RESOURCE_GROUP"
+    ```
+
+    ---
+
 1. List the executions of the job to confirm a job execution was created and completed successfully.
 
+    # [Bash](#tab/bash)
     ```bash
     az containerapp job execution list \
         --name "$PLACEHOLDER_JOB_NAME" \
@@ -526,21 +762,47 @@ Before you can run a self-hosted agent in your new agent pool, you need to creat
         --query '[].{Status: properties.status, Name: name, StartTime: properties.startTime}'
     ```
 
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    az containerapp job execution list `
+        --name "$PLACEHOLDER_JOB_NAME" `
+        --resource-group "$RESOURCE_GROUP" `
+        --output table `
+        --query '[].{Status: properties.status, Name: name, StartTime: properties.startTime}'
+    ```
+
+    ---
+
 1. Verify the placeholder agent was created in Azure DevOps.
 
     1. In Azure DevOps, navigate to your project. 
     1. Select **Project settings** > **Agent pools** > **container-apps** > **Agents**.
-    1. Confirm that a placeholder agent named `placeholder-agent` is listed.
+    1. Confirm that a placeholder agent named `placeholder-agent` is listed and its status is offline.
+
+1. The job isn't needed again. You can delete it.
+    
+    # [Bash](#tab/bash)
+    ```bash
+    az containerapp job delete -n "$PLACEHOLDER_JOB_NAME" -g "$RESOURCE_GROUP"
+    ```
+
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    az containerapp job delete -n "$PLACEHOLDER_JOB_NAME" -g "$RESOURCE_GROUP"
+    ```
+
+    ---
 
 ## Create a self-hosted agent as an event-driven job
 
 Now that you have a placeholder agent, you can create a self-hosted agent. In this section, you create an event-driven job that runs a self-hosted agent when a pipeline is triggered.
 
+# [Bash](#tab/bash)
 ```bash
 az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" \
     --trigger-type Event \
-    --replica-timeout 300 \
-    --replica-retry-limit 0 \
+    --replica-timeout 1800 \
+    --replica-retry-limit 1 \
     --replica-completion-count 1 \
     --parallelism 1 \
     --image "$CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME" \
@@ -557,6 +819,31 @@ az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$E
     --env-vars "AZP_TOKEN=secretref:personal-access-token" "AZP_URL=secretref:organization-url" "AZP_POOL=$AZP_POOL" \
     --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
 ```
+
+# [PowerShell](#tab/powershell)
+```powershell
+az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" \
+    --trigger-type Event \
+    --replica-timeout 1800 \
+    --replica-retry-limit 1 \
+    --replica-completion-count 1 \
+    --parallelism 1 \
+    --image "$CONTAINER_REGISTRY_NAME.azurecr.io/$CONTAINER_IMAGE_NAME" \
+    --min-executions 0 \
+    --max-executions 10 \
+    --polling-interval 30 \
+    --scale-rule-name "azure-pipelines" \
+    --scale-rule-type "azure-pipelines" \
+    --scale-rule-metadata "poolName=container-apps" "targetPipelinesQueueLength=1" \
+    --scale-rule-auth "personalAccessToken=personal-access-token" "organizationURL=organization-url" \
+    --cpu "2.0" \
+    --memory "4Gi" \
+    --secrets "personal-access-token=$AZP_TOKEN" "organization-url=$ORGANIZATION_URL" \
+    --env-vars "AZP_TOKEN=secretref:personal-access-token" "AZP_URL=secretref:organization-url" "AZP_POOL=$AZP_POOL" \
+    --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
+```
+
+---
 
 The following table describes the scale rule parameters used in the command.
 
@@ -601,6 +888,7 @@ Now that you've configured a self-hosted agent job, you can run a pipeline and v
 
 1. List the executions of the job to confirm a job execution was created and completed successfully.
 
+    # [Bash](#tab/bash)
     ```bash
     az containerapp job execution list \
         --name "$JOB_NAME" \
@@ -608,6 +896,17 @@ Now that you've configured a self-hosted agent job, you can run a pipeline and v
         --output table \
         --query '[].{Status: properties.status, Name: name, StartTime: properties.startTime}'
     ```
+
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    az containerapp job execution list `
+        --name "$JOB_NAME" `
+        --resource-group "$RESOURCE_GROUP" `
+        --output table `
+        --query '[].{Status: properties.status, Name: name, StartTime: properties.startTime}'
+    ```
+
+    ---
 
 ::: zone-end
 
@@ -621,10 +920,19 @@ Once you're done, run the following command to delete the resource group that co
 >[!CAUTION]
 > The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they will also be deleted.
 
+# [Bash](#tab/bash)
 ```bash
 az group delete \
     --resource-group $RESOURCE_GROUP
 ```
+
+# [PowerShell](#tab/powershell)
+```powershell
+az group delete `
+    --resource-group $RESOURCE_GROUP
+```
+
+---
 
 To delete your GitHub repository, see [Deleting a repository](https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/deleting-a-repository).
 

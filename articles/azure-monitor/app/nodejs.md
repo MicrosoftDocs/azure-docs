@@ -2,7 +2,7 @@
 title: Monitor Node.js services with Application Insights | Microsoft Docs
 description: Monitor performance and diagnose problems in Node.js services with Application Insights.
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 06/23/2023
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
@@ -176,7 +176,7 @@ appInsights.start();
 
 ### Automatic web Instrumentation[Preview]
 
- Automatic web Instrumentation can be enabled for node server via SDK Loader Script injection by configuration.
+ Automatic web Instrumentation can be enabled for node server via JavaScript (Web) SDK Loader Script injection by configuration.
 
 ```javascript
 let appInsights = require("applicationinsights");

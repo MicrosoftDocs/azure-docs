@@ -314,6 +314,7 @@ Your new Front Door Profile will be deleted and your existing profile will remai
 Please wait until the process has finished completely. This may take several minutes.
 Abort succeeded.
 ```
+---
 
 ## Update DNS records
 
