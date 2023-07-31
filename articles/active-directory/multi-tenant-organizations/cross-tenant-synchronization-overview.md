@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: overview
-ms.date: 05/31/2023
+ms.date: 06/16/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -133,6 +133,13 @@ Which clouds can cross-tenant synchronization be used in?
 - Cross-tenant synchronization isn't supported within the Azure China cloud. 
 - Synchronization is only supported between two tenants in the same cloud.
 - Cross-cloud (such as public cloud to Azure Government) isn't currently supported.
+
+#### Existing B2B users
+
+Will cross-tenant synchronization manage existing B2B users?
+
+- Yes. Cross-tenant synchronization uses an internal attribute called the alternativeSecurityIdentifier to uniquely match an internal user in the source tenant with an external / B2B user in the target tenant. Cross-tenant synchronization can update existing B2B users, ensuring that each user has only one account.
+- Cross-tenant synchronization cannot match an internal user in the source tenant with an internal user in the target tenant (both type member and type guest).
 
 #### Synchronization frequency
 

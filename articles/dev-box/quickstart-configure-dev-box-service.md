@@ -12,7 +12,7 @@ ms.date: 04/25/2023
 
 # Quickstart: Configure Microsoft Dev Box 
 
-This quickstart describes how to set up Microsoft Dev Box to enable development teams to self-serve their dev boxes. The setup process involves two distinct phases. In the first phase, dev infra admins configure the necessary Microsoft Dev Box resources through the Azure portal. After this phase is complete, users can proceed to the next phase, creating and managing their dev boxes through the developer portal. This quickstart shows you how to complete the first phase.
+This quickstart describes how to set up Microsoft Dev Box to enable development teams to self-serve their dev boxes. The setup process involves two distinct phases. In the first phase, platform engineers configure the necessary Microsoft Dev Box resources through the Azure portal. After this phase is complete, users can proceed to the next phase, creating and managing their dev boxes through the developer portal. This quickstart shows you how to complete the first phase.
 
 The following graphic shows the steps required to configure Microsoft Dev Box in the Azure portal. 
 

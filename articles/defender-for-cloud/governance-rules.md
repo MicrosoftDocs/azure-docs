@@ -1,5 +1,5 @@
 ---
-title: Driving your organization to remediate security issues with recommendation governance in Microsoft Defender for Cloud
+title: Driving your organization to remediate security issues with recommendation governance
 description: Learn how to assign owners and due dates to security recommendations and create rules to automatically assign owners and due dates
 services: defender-for-cloud
 ms.service: defender-for-cloud

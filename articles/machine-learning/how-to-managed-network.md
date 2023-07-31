@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 06/22/2023
+ms.date: 07/19/2023
 ms.topic: how-to
 ms.custom: build-2023, devx-track-azurecli
 ---
@@ -557,8 +557,8 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 
     Use a YAML file to define the managed VNet configuration and add a private endpoint for the Azure Storage Account. Also set `spark_enabled: true`:
 
-    > [!TIP]
-    > This example is for a managed VNet configured to allow internet traffic. If you want to allow only approved outbound traffic, set `isolation_mode: allow_only_approved_outbound` instead.
+    > [!NOTE]
+    > This example is for a managed VNet configured to allow internet traffic. Currently, serverless Spark does not support `isolation_mode: allow_only_approved_outbound` to allow only approved outbound traffic.
 
     ```yml
     name: myworkspace
@@ -583,8 +583,8 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 
     The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named `myworkspace`. It also adds a private endpoint for the Azure Storage Account and sets `spark_enabled=true`:
 
-    > [!TIP]
-    > The following example is for a managed VNet configured to allow internet traffic. If you want to allow only approved outbound traffic, use `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND` instead.
+    > [!NOTE]
+    > The following example is for a managed VNet configured to allow internet traffic. Currently, serverless Spark does not support `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND` to allow only approved outbound traffic.  
         
     ```python
     # Get the existing workspace
@@ -652,7 +652,7 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 
     # [Azure portal](#tab/portal)
 
-    Create a new compute instance or compute cluster, which also creates the managed virtual network.
+    Use the __Azure CLI__ or __Python SDK__ tabs to learn how to manually provision the managed VNet with serverless spark support.
 
     ---
 

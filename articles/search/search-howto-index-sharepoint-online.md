@@ -2,7 +2,6 @@
 title: SharePoint indexer (preview)
 titleSuffix: Azure Cognitive Search
 description: Set up a SharePoint indexer to automate indexing of document library content in Azure Cognitive Search.
-
 author: gmndrg
 ms.author: gimondra
 manager: liamca
@@ -76,7 +75,7 @@ If your Azure Active Directory organization has [Conditional Access enabled](../
 
 The SharePoint indexer will use this Azure Active Directory (Azure AD) application for authentication.
 
-1. [Sign in to Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for or navigate to **Azure Active Directory**, then select **App registrations**. 
 

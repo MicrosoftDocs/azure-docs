@@ -74,7 +74,7 @@ Other Azure SDKs provide samples in [Python](https://github.com/Azure/azure-sdk-
 
 ### [**Azure portal**](#tab/portal)
 
-1. [Sign in to Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the search service **Overview** page, select the **Indexes** tab.
 
