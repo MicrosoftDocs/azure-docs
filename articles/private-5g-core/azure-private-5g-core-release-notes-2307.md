@@ -23,8 +23,7 @@ Packet core versions are supported until two subsequent versions have been relea
 The UE usage tracking messages in Azure event hub are now encoded in AVRO file container format, which enables the customer to consume these events via Power BI or Azure Stream Analytics(ASA)
 
 ### Unknown User Cause Code Mapping in 4G
-In this release the 4G nas emm cause code for “unknown user” (subscriber not provisioned on AP5GC) changes to “no-suitable-cells-in-ta-15” by default. It provides a specific interop setting(unknownuser-causecode) to customers to switch back to old/standard 3GPP 4G nas emm cause code of "eps-and-non-eps-service-not-allowed-8", if any customer wants that behavior.
-
+In this release the 4G NAS EMM cause code for “unknown user” (subscriber not provisioned on AP5GC) changes to “no-suitable-cells-in-ta-15” by default. This provides better interworking in scenarios where a single PLMN is used for multiple, independent mobile networks.
 
 ## Issues fixed in the AP5GC 2307 release
 
