@@ -38,7 +38,7 @@ Azure Cosmos DB for MongoDB supports the following database commands.
 
 | Command                               | Supported |
 | ------------------------------------- | --------- |
-| `[change streams](change-streams.md)` | Yes       |
+| `change streams`                      | Yes       |
 | `delete`                              | Yes       |
 | `eval`                                | No        |
 | `find`                                | Yes       |
@@ -397,7 +397,7 @@ Azure Cosmos DB for MongoDB supports documents that are encoded in MongoDB BSON 
 
 In an [upgrade scenario](upgrade-version.md), documents that were written prior to the upgrade to version 4.0+ won't benefit from the enhanced performance until they're updated via a write operation through the 4.0+ endpoint.
 
-16-MB document support raises the size limit for your documents from 2 MB to 16 MB. This limit applies only to collections that are created after this feature is enabled. When this feature is enabled for your database account, it can't be disabled. This feature isn't compatible with Azure Synapse Link for Azure Cosmos DB or with continuous backup.
+16-MB document support raises the size limit for your documents from 2 MB to 16 MB. This limit applies only to collections that are created after this feature is enabled. When this feature is enabled for your database account, it can't be disabled.
 
 To enable 16-MB document support, change the setting on the **Features** tab for the resource in the Azure portal or programmatically [add the `EnableMongo16MBDocumentSupport` capability](how-to-configure-capabilities.md).
 

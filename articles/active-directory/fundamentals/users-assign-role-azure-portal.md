@@ -32,7 +32,9 @@ There are two main steps to the role assignment process. First you'll select the
 
 ### Select the role to assign
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using the Privileged Role Administrator role for the directory.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) using the Privileged Role Administrator role for the directory.
 
 1. Go to **Azure Active Directory** > **Users**.
 

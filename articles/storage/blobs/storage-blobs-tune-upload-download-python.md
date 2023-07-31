@@ -7,7 +7,6 @@ ms.author: pauljewell
 ms.service: storage
 ms.topic: how-to
 ms.date: 07/07/2023
-ms.subservice: blobs
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python, devx-track-python
 ---

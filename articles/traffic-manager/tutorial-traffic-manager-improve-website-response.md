@@ -37,7 +37,7 @@ In order to see the Traffic Manager in action, this tutorial requires that you d
 
 ### Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Create websites
 

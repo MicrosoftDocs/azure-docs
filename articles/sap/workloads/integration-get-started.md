@@ -40,7 +40,7 @@ Select an area for resources about how to integrate SAP and Azure in that space.
 | [Microsoft Power Platform](#microsoft-power-platform) | Learn about the available [out-of-the-box SAP applications](/power-automate/sap-integration/solutions) enabling your business users to achieve more with less. |
 | [SAP Fiori](#sap-fiori) | Increase performance and security of your SAP Fiori applications by integrating them with Azure services. |
 | [Azure Active Directory (Azure AD)](#azure-ad) | Ensure end-to-end SAP user authentication and authorization with Azure Active Directory. Single sign-on (SSO) and multi-factor authentication (MFA) are the foundation for a secure and seamless user experience. |
-| [Azure Integration Services](#azure-integration-services) | Connect your SAP workloads with your end users, business partners, and their systems with world-class integration services. Learn about co-development efforts that enable SAP Event Mesh to exchange cloud events with Azure Event Grid, understand how you can achieve high-availability for services like SAP Cloud Integration, automate your SAP invoice processing with Logic Apps and Azure Cognitive Services and more. |
+| [Azure Integration Services](#azure-integration-services) | Connect your SAP workloads with your end users, business partners, and their systems with world-class integration services. Learn about co-development efforts that enable SAP Event Mesh to exchange cloud events with Azure Event Grid, understand how you can achieve high-availability for services like SAP Cloud Integration, automate your SAP invoice processing with Logic Apps and Azure AI services and more. |
 | [App Development in any language including ABAP and DevOps](#app-development-in-any-language-including-abap-and-devops) | Apply best-in-class developer tooling to your SAP app developments and DevOps processes. |
 | [Azure Data Services](#azure-data-services) | Learn how to integrate your SAP data with Data Services like Azure Synapse Analytics, Azure Data Lake Storage, Azure Data Factory, Power BI, Data Warehouse Cloud, Analytics Cloud, which connector to choose, tune performance, efficiently troubleshoot, and more. |
 | [Threat Monitoring with Microsoft Sentinel for SAP](#microsoft-sentinel) | Learn how to best secure your SAP workload with Microsoft Sentinel, prevent incidents from happening and detect and respond to threats in real-time with this [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) solution. |
@@ -48,7 +48,7 @@ Select an area for resources about how to integrate SAP and Azure in that space.
 
 ### Azure OpenAI service
 
-For more information about integration with [Azure OpenAI service](/azure/cognitive-services/openai/overview), see the following Azure documentation:
+For more information about integration with [Azure OpenAI service](/azure/ai-services/openai/overview), see the following Azure documentation:
 
 - [Microsoft AI SDK for SAP](https://microsoft.github.io/aisdkforsapabap/docs/intro)
 - [ABAP SDK for Azure](https://github.com/microsoft/ABAP-SDK-for-Azure)
@@ -160,7 +160,7 @@ Also see the following SAP resources:
 
 - [Event-driven architectures for SAP ERP with Azure](https://blogs.sap.com/2021/12/09/hey-sap-where-is-my-xbox-an-insight-into-capitalizing-on-event-driven-architectures/)
 - [Achieve high availability for SAP Cloud Integration (part of SAP Integration Suite) on Azure](https://blogs.sap.com/2021/09/23/black-friday-will-take-your-cpi-instance-offline-unless/)
-- [Automate SAP invoice processing using Azure Logic Apps and Cognitive Services](https://blogs.sap.com/2021/02/03/your-sap-on-azure-part-26-automate-invoice-processing-using-azure-logic-apps-and-cognitive-services/)
+- [Automate SAP invoice processing using Azure Logic Apps and Azure AI services](https://blogs.sap.com/2021/02/03/your-sap-on-azure-part-26-automate-invoice-processing-using-azure-logic-apps-and-cognitive-services/)
 
 ### App development in any language including ABAP and DevOps
 

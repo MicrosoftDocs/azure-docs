@@ -4,6 +4,7 @@ description: Instructions on how to deploy the InfluxData Telegraf agent on a Li
 services: azure-monitor
 ms.reviewer: priyamishra
 ms.topic: conceptual
+ms.custom: devx-track-linux
 ms.date: 06/16/2022
 ---
 # Collect custom metrics for a Linux VM with the InfluxData Telegraf agent

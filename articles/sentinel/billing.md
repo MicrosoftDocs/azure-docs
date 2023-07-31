@@ -35,7 +35,6 @@ Use the [Microsoft Sentinel pricing calculator](https://azure.microsoft.com/pric
 
 For example, enter the GB of daily data you expect to ingest in Microsoft Sentinel, and the region for your workspace. The calculator provides the aggregate monthly cost across these components:
 
-- Azure Monitor data ingestion: Analytics logs and basic logs
 - Microsoft Sentinel: Analytics logs and basic logs
 - Azure Monitor: Retention
 - Azure Monitor: Data Restore
@@ -241,8 +240,7 @@ For data connectors that include both free and paid data types, select which dat
 
 Learn more about how to [connect data sources](connect-data-sources.md), including free and paid data sources.
 
-
-## Next steps
+## Learn more
 
 - [Monitor costs for Microsoft Sentinel](billing-monitor-costs.md)
 - [Reduce costs for Microsoft Sentinel](billing-reduce-costs.md)
@@ -251,3 +249,10 @@ Learn more about how to [connect data sources](connect-data-sources.md), includi
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
 - For more tips on reducing Log Analytics data volume, see [Azure Monitor best practices - Cost management](../azure-monitor/best-practices-cost.md).
+
+## Next steps
+
+In this article, you learned how to plan costs and understand the billing for Microsoft Sentinel.
+
+> [!div class="nextstepaction"]
+> >[Deploy Microsoft Sentinel](deploy-overview.md)

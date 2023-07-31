@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/04/2023
+ms.date: 07/12/2023
 ms.custom: devx-track-python, devguide-python
 ---
 
@@ -77,9 +77,14 @@ To use a shared access signature (SAS) token, provide the token as a string and 
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-auth.py" id="Snippet_get_service_client_SAS":::
 
-To learn more about generating and managing SAS tokens, see the following article:
+To learn more about generating and managing SAS tokens, see the following articles:
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json)
+- [Create an account SAS with Python](../common/storage-account-sas-create-python.md)
+- [Create a service SAS for a container with Python](sas-service-create-python-container.md)
+- [Create a service SAS for a blob with Python](sas-service-create-python.md)
+- [Create a user delegation SAS for a container with Python](storage-blob-container-user-delegation-sas-create-python.md)
+- [Create a user delegation SAS for a blob with Python](storage-blob-user-delegation-sas-create-python.md)
 
 ## [Account key](#tab/account-key)
 
@@ -100,25 +105,9 @@ For information about how to obtain account keys and best practice guidelines fo
 
 ## Build your application
 
-As you build your application, your code will primarily interact with three types of resources:
+As you build applications to work with data resources in Azure Blob Storage, your code primarily interacts with three resource types: storage accounts, containers, and blobs. To learn more about these resource types, how they relate to one another, and how apps interact with resources, see [Understand how apps interact with Blob Storage data resources](storage-blob-object-model.md).
 
-- The storage account, which is the unique top-level namespace for your Azure Storage data.
-- Containers, which organize the blob data in your storage account.
-- Blobs, which store unstructured data like text and binary data.
-
-The following diagram shows the relationship between these resources.
-
-![Diagram of Blob storage architecture.](./media/storage-blobs-introduction/blob1.png)
-
-Each type of resource is represented by one or more associated Python classes. These are the basic classes:
-
-| Class | Description |
-|---|---|
-| [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) | Represents the Blob Storage endpoint for your storage account. |
-| [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) | Allows you to manipulate Azure Storage containers and their blobs. |
-| [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) | Allows you to manipulate Azure Storage blobs.|
-
-The following guides show you how to use each of these classes to build your application.
+The following guides show you how to work with data resources and perform specific actions using the Azure Storage client library for Python:
 
 | Guide | Description |
 |--|---|
@@ -135,3 +124,4 @@ The following guides show you how to use each of these classes to build your app
 | [Delete and restore](storage-blob-delete-python.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
 | [Find blobs using tags](storage-blob-tags-python.md) | Set and retrieve tags as well as use tags to find blobs. |
 | [Manage properties and metadata (blobs)](storage-blob-properties-metadata-python.md) | Get and set properties and metadata for blobs. |
+| [Set or change a blob's access tier](storage-blob-use-access-tier-python.md) | Set or change the access tier for a block blob. |

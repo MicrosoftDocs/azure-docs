@@ -4,7 +4,7 @@ description: Learn how to process parallel compute workloads on pools of Linux v
 ms.topic: how-to
 ms.date: 05/18/2023
 ms.devlang: csharp, python
-ms.custom: H1Hack27Feb2017, devx-track-python, devx-track-csharp, devx-track-dotnet
+ms.custom: H1Hack27Feb2017, devx-track-python, devx-track-csharp, devx-track-dotnet, devx-track-linux
 zone_pivot_groups: programming-languages-batch-linux-nodes
 ---
 # Provision Linux compute nodes in Batch pools

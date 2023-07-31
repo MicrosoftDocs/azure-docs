@@ -41,7 +41,7 @@ This template works well for deploying storage accounts, but you might want to a
     - **Region**: Select an Azure location from the drop-down menu, such as **Central US**.
     - **Pricing Tier**: To save costs, select **Change size** to change the **SKU and size** to **first Basic (B1)**, under **Dev / Test** for less demanding workloads.
 
-    ![Resource Manager template export template portal](./media/template-tutorial-export-template/resource-manager-template-export.png)
+    :::image type="content" source="./media/template-tutorial-export-template/resource-manager-template-export.png" alt-text="Screenshot of the Create App Service Plan page in the Azure portal.":::
 1. Select **Review and create**.
 1. Select **Create**. It takes a few moments to create the resource.
 
@@ -49,17 +49,17 @@ This template works well for deploying storage accounts, but you might want to a
 
 1. Select **Go to resource**.
 
-    ![Go to resource](./media/template-tutorial-export-template/resource-manager-template-export-go-to-resource.png)
+    :::image type="content" source="./media/template-tutorial-export-template/resource-manager-template-export-go-to-resource.png" alt-text="Screenshot of the Go to resource button in the Azure portal.":::
 
 1. From the left menu, under **Automation**, select **Export template**.
 
-    ![Resource Manager template export template](./media/template-tutorial-export-template/resource-manager-template-export-template.png)
+    :::image type="content" source="./media/template-tutorial-export-template/resource-manager-template-export-template.png" alt-text="Screenshot of the Export template option in the Azure portal.":::
 
    The export template feature takes the current state of a resource and generates a template to deploy it. Exporting a template can be a helpful way of quickly getting the JSON you need to deploy a resource.
 
 1. Look at the `Microsoft.Web/serverfarms` definition and the parameter definition in the exported template. You don't need to copy these sections. You can just use this exported template as an example of how you want to add this resource to your template.
 
-    ![Resource Manager template export template exported template](./media/template-tutorial-export-template/resource-manager-template-exported-template.png)
+    :::image type="content" source="./media/template-tutorial-export-template/resource-manager-template-exported-template.png" alt-text="Screenshot of the exported template JSON code in the Azure portal.":::
 
 > [!IMPORTANT]
 > Typically, the exported template is more verbose than you might want when creating a template. The SKU object, for example, in the exported template has five properties. This template works, but you could just use the `name` property. You can start with the exported template and then modify it as you like to fit your requirements.
