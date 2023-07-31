@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 07/14/2023
+ms.date: 07/28/2023
 ---
 
 # Query vector data in a search index
