@@ -72,7 +72,7 @@ If the index doesn't have a vector configuration, you're prompted to create one 
    + Choose type `Collection(Edm.Single)`.
    + Select "Retrievable" if you want the query to return the vector data in search results. If you have other fields with human readable content that you can return as a proxy for the match, you should set "Retrievable" to false to save space.
    + "Searchable" is mandatory for a vector field and can't be set.
-   + "Dimensions" is the length of the vector returned by the model. Set this value to specify `1536` for **text-embeddding-ada-002**, where the input text that you provide is described numerically using 1536 dimension.
+   + "Dimensions" is the length of the vector returned by the model. Set this value to specify `1536` for **text-embeddding-ada-002**, where the input text that you provide is numerically described using 1536 dimensions.
 
 1. Select or create a vector configuration used for similarity search. Currently, only Hierarchical Navigation Small World (HNSW) is supported. If there's no configuration in the index, select **Create**.
 
@@ -87,7 +87,9 @@ If the index doesn't have a vector configuration, you're prompted to create one 
    + "efSearch default is 500. It's the number of nearest neighbors used during search.
    + "Similarity metric" should be "cosine" if you're using Azure OpenAI, otherwise use the similarity metric of the embedding model. Supported values are `cosine`, `dotProduct`, `euclidean`.
 
-If you're familiar with HNSW parameters, you might be wondering about "k" number of nearest neighbors to return in the result. In Cognitive Search, that value is set on the query request.
+   If you're familiar with HNSW parameters, you might be wondering about "k" number of nearest neighbors to return in the result. In Cognitive Search, that value is set on the query request.
+
+1. Select **Save** to save the vector configuration and the field definition.
 
 ### [**REST API**](#tab/rest-add-field)
 
