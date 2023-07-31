@@ -758,7 +758,7 @@ Making these observations is especially important in build failures, where these
 
 #### Error
 
-When images are stuck in template deletion, the log may show the below error:
+When images are stuck in template deletion, the customization log may show the below error:
 
 ```output
 error deleting resource id /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Network/networkInterfaces/<networkInterfacName>: resources.Client#DeleteByID: Failure sending request: StatusCode=400 -- 
