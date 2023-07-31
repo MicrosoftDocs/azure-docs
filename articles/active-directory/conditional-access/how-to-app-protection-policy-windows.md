@@ -89,7 +89,6 @@ In some circumstances, after getting the "you're all set" page you may still be 
 To resolve these possible scenarios:
 
 - Wait a few minutes and try again in a new tab.
-- Go to **Settings** > **Accounts** > **Access work or school**, then add the account there.
 - Contact your administrator to check that Microsoft Intune MAM policies are applying to your account correctly.
 
 ### Existing account

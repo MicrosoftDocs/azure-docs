@@ -117,7 +117,7 @@ Like a user in your organization, a device is a core identity you want to protec
 
 - Avoiding friction, for example, with MFA, when the device is trusted
 - Blocking access from untrusted devices
-- For Windows 10 devices, provide [single sign-on to on-premises resources seamlessly](../devices/azuread-join-sso.md).
+- For Windows 10 devices, provide [single sign-on to on-premises resources seamlessly](../devices/device-sso-to-on-premises-resources.md).
 
 You can carry out this goal by bringing device identities and managing them in Azure AD by using one of the following methods:
 

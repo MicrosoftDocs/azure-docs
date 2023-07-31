@@ -174,25 +174,25 @@ import { filter, Subject, takeUntil } from 'rxjs';
 
 // In app.component.ts
 export class AppComponent implements OnInit {
-	private readonly _destroying$ = new Subject<void>();
+  private readonly _destroying$ = new Subject<void>();
 
-	constructor(private broadcastService: MsalBroadcastService) { }
+  constructor(private broadcastService: MsalBroadcastService) { }
 
-	ngOnInit() {
-		this.broadcastService.msalSubject$
-		.pipe(
-			filter((msg: EventMessage) => msg.eventType === EventType.ACQUIRE_TOKEN_SUCCESS),
-			takeUntil(this._destroying$)
-		)
-		.subscribe((result: EventMessage) => {
-			// Do something with event payload here
-		});
-	}
+  ngOnInit() {
+    this.broadcastService.msalSubject$
+    .pipe(
+      filter((msg: EventMessage) => msg.eventType === EventType.ACQUIRE_TOKEN_SUCCESS),
+      takeUntil(this._destroying$)
+    )
+    .subscribe((result: EventMessage) => {
+      // Do something with event payload here
+    });
+  }
 
-	ngOnDestroy(): void {
-		this._destroying$.next(undefined);
-		this._destroying$.complete();
-	}
+  ngOnDestroy(): void {
+    this._destroying$.next(undefined);
+    this._destroying$.complete();
+  }
 }
 ```
 

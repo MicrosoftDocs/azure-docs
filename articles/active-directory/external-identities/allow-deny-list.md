@@ -104,12 +104,12 @@ If the module is not installed, or you don't have a required version, do one of 
 
 - If no results are returned, run the following command to install the latest version of the AzureADPreview module:
   
-   ```powershell  
+   ```powershell
    Install-Module AzureADPreview
    ```
 - If only the AzureAD module is shown in the results, run the following commands to install the AzureADPreview module: 
 
-   ```powershell 
+   ```powershell
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
    ```

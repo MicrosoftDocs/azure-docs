@@ -72,7 +72,7 @@ Configure hybrid Azure AD join by using Azure AD Connect for a managed domain:
    1. Select an **Authentication Service**.
    1. Select **Add** to enter the enterprise administrator credentials.
 
-   ![Azure AD Connect SCP configuration managed domain](./media/howto-hybrid-azure-ad-join/azure-ad-connect-scp-configuration-managed.png)
+   ![Azure AD Connect SCP configuration managed domain](./media/how-to-hybrid-join/azure-ad-connect-scp-configuration-managed.png)
 
 1. In **Ready to configure**, select **Configure**.
 1. In **Configuration complete**, select **Exit**.
@@ -105,7 +105,7 @@ Configure hybrid Azure AD join by using Azure AD Connect for a federated environ
    1. Select the authentication service. You must select **AD FS server** unless your organization has exclusively Windows 10 or newer clients and you have configured computer/device sync, or your organization uses seamless SSO.
    1. Select **Add** to enter the enterprise administrator credentials.
    
-   ![Azure AD Connect SCP configuration federated domain](./media/howto-hybrid-azure-ad-join/azure-ad-connect-scp-configuration-federated.png)
+   ![Azure AD Connect SCP configuration federated domain](./media/how-to-hybrid-join/azure-ad-connect-scp-configuration-federated.png)
 
 1. On the **Device operating systems** page, select the operating systems that the devices in your Active Directory environment use, and then select **Next**.
 1. On the **Federation configuration** page, enter the credentials of your AD FS administrator, and then select **Next**.
@@ -142,6 +142,6 @@ If you experience issues with completing hybrid Azure AD join for domain-joined 
 
 ## Next steps
 
-- [Downlevel device enablement](howto-hybrid-join-downlevel.md)
-- [Hybrid Azure AD join verification](howto-hybrid-join-verify.md)
+- [Downlevel device enablement](how-to-hybrid-join-downlevel.md)
+- [Hybrid Azure AD join verification](how-to-hybrid-join-verify.md)
 - [Use Conditional Access to require compliant or hybrid Azure AD joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md)
