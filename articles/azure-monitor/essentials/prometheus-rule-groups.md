@@ -36,7 +36,7 @@ To limit your rule group to a cluster scope, you should add the Azure Resource I
 * Azure Arc-enabled Kubernetes clusters (Microsoft.kubernetes/connectedClusters)
 * Azure connected appliances (Microsoft.ResourceConnector/appliances)
 
-In addition to the cluster Id, you can configure the **clusterName** property of your rule group, to match the `cluster` label that is added to the metrics from a specific cluster during data collection. By default, if you haven't specificed a clusterName, the rule group will use the resource name part of your cluster Id.
+In addition to the cluster Id, you can configure the **clusterName** property of your rule group, to match the `cluster` label that is added to the metrics from a specific cluster during data collection. By default, if you haven't specified a clusterName, the rule group will use the resource name part of your cluster Id.
 
 Here is an example of how a rule group is configured to limit query to a specific cluster:
 
