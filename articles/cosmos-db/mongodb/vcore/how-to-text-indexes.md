@@ -102,10 +102,10 @@ This query will return all documents in the "articles" collection that contain t
 ## Limitations
 
 1. Only one text index can be defined on a collection.
-3. Text indexes support simple text searches and do not provide advanced search capabilities like regular expression searches.
-4. Hint() is not supported in combination with a query using $text expression.
-5. Sort operations cannot leverage the ordering of the text index in MongoDB.
-6. Text indexes can be relatively large, consuming significant storage space compared to other index types.
+2. Text indexes support simple text searches and do not provide advanced search capabilities like regular expression searches.
+3. Hint() is not supported in combination with a query using $text expression.
+4. Sort operations cannot leverage the ordering of the text index in MongoDB.
+5. Text indexes can be relatively large, consuming significant storage space compared to other index types.
 
 
 
