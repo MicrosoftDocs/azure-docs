@@ -73,9 +73,9 @@ In this final example, assume that there's a container with two items with vario
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/select-fields/seed.json" range="1-2,4-12,14-22":::
 
-This final example query uses a combination of a ``SELECT`` clause, the ``VALUE`` keyword, a ``FROM`` clause, a ``WHERE`` clause, and JSON projection to perform a common filtered query with the results transformed to a JSON object for the client to parse.
+This final example query uses a combination of a ``SELECT`` clause, the ``VALUE`` keyword, a ``FROM`` clause, and JSON projection to perform a common query with the results transformed to a JSON object for the client to parse.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/select-fields/query.sql" highlight="1,6,8":::
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/select-fields/query.sql" range="1-7" highlight="1,6":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/select-fields/result.json":::
 
