@@ -264,6 +264,10 @@ For more information, see [ERSPAN ports](best-practices/traffic-mirroring-method
         |**Description**     |  Enter an optional description for the interface. You'll see this later on in the sensor's **System settings > Interface configurations** page, and these descriptions may be helpful in understanding the purpose of each interface.  |
         |**Auto negotiation**     | Relevant for physical machines only. Use this option to determine which sort of communication methods are used, or if the communication methods are automatically defined between components. <br><br>**Important**: We recommend that you change this setting only on the advice of your networking team. |
 
+    For example:
+
+    :::image type="content" source="media/how-to-manage-individual-sensors/configure-erspan.png" alt-text="Screenshot of how to configure ERSPAN on the Interface configurations page.":::
+
 1. Select **Save** to save your changes. Your sensor software restarts to implement your changes.
 
 
