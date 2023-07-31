@@ -4,7 +4,7 @@ description: How to configure networking for Azure Elastic SAN Preview, a servic
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 07/28/2023
+ms.date: 07/31/2023
 ms.author: rogarana
 ms.custom: ignite-2022, devx-track-azurepowershell
 ---
@@ -195,7 +195,29 @@ $EndpointConnection.PrivateLinkServiceConnectionState
 
 # [Azure CLI](#tab/azure-cli)
 
-Use this sample code to create a private endpoint for your Elastic SAN volume group with Azure CLI.
+Deploying a private endpoint for an Elastic SAN Volume group using the Azure CLI involves these steps:
+
+1. Get the private connection resource ID of the Elastic SAN.
+1. Create the private endpoint using inputs:
+    1. Private connection resource ID
+    1. Volume group name
+    1. Resource group name
+    1. Subnet name
+    1. Vnet name
+1. **(Optional** *if you are using the two-step process (creation, then approval))*: The Elastic SAN Network Admin approves the connection.
+
+Use this sample code to create a private endpoint for your Elastic SAN volume group with Azure CLI. Uncomment the `--manual-request` parameter if you are using the two-step process. Replace all placeholder text with your own values:
+
+| Placeholder                      | Description |
+|----------------------------------|-------------|
+| `<ResourceGroupName>`            | The name of the resource group where the resources are deployed. |
+| `<SubnetName>`                   | The name of the subnet from which access to the volume group will be configured. |
+| `<VnetName>`                     | The name of the virtual network that includes the subnet. |
+| `<ElasticSanVolumeGroupName>`    | The name of the Elastic SAN Volume Group to which a connection is to be created. |
+| `<ElasticSanName>`               | The name of the Elastic SAN that the volume group belongs to. |
+| `<PrivateLinkSvcConnectionName>` | The name of the new private link service connection to the volume group. |
+| `<PrivateEndpointName>`          | The name of the new private endpoint. |
+| `<Location>`                     | The region where the new private endpoint will be created. |
 
 ```azurecli
 # Define some variables
@@ -206,6 +228,35 @@ EsanName="<ElasticSanName>"
 EsanVgName="<ElasticSanVolumeGroupName>"
 PeName="<PrivateEndpointName>"
 PLConnName="<PrivateLinkSvcConnectionName>"
+Location="<Location>"
+
+id=$(az elastic-san show \
+    --elastic-san-name $EsanName \
+    --resource-group $RgName \
+    --query '[].[id]' \
+    --output tsv)
+
+# Create private endpoint
+az network private-endpoint create \
+    --connection-name $PLConnName
+    --name $EndpointName \
+    --private-connection-resource-id $id \
+    --resource-group $RgName \
+    --vnet-name $VnetName \
+    --subnet $SubnetName \
+    --group-id $EsanVgName \
+    --type Microsoft.ElasticSan/elasticSans \ # --manual-request
+```
+
+Use this sample code to approve the private link service connection if you are using the two-step process. Use the same variables from the previous example:
+
+```azurecli
+az network private-endpoint-connection approve \
+    --resource-name $EsanName \
+    --resource-group $RgName \
+    --name $PLConnName \
+    --type {resource_type} \
+    --description "{approval_desc}"
 
 id=$(az elastic-san show \
     --elastic-san-name $EsanName \
@@ -221,7 +272,7 @@ az network private-endpoint create \
     --resource-group $RgName \
     --subnet $SubnetName \
     --group-id $EsanVgName \
-    --vnet-name $VnetName 
+    --vnet-name $VnetName # --manual-request
 ```
 ---
 
