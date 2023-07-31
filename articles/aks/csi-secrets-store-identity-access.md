@@ -52,6 +52,7 @@ Azure AD workload identity is supported on both Windows and Linux clusters.
 
     ```azurecli-interactive
     az identity create --name $UAMI --resource-group $RESOURCE_GROUP
+
     export USER_ASSIGNED_CLIENT_ID="$(az identity show -g $RESOURCE_GROUP --name $UAMI --query 'clientId' -o tsv)"
     export IDENTITY_TENANT=$(az aks show --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --query identity.tenantId -o tsv)
     ```
@@ -60,7 +61,8 @@ Azure AD workload identity is supported on both Windows and Linux clusters.
 
     ```azurecli-interactive
     export KEYVAULT_SCOPE=$(az keyvault show --name $KEYVAULT_NAME --query id -o tsv)
-    az role assignment create --role Key Vault Administrator --assignee $USER_ASSIGNED_CLIENT_ID --scope $KEYVAULT_SCOPE
+
+    az role assignment create --role "Key Vault Administrator" --assignee $USER_ASSIGNED_CLIENT_ID --scope $KEYVAULT_SCOPE
     ```
 
 4. Get the AKS cluster OIDC Issuer URL using the [`az aks show`][az-aks-show] command.
@@ -93,6 +95,7 @@ Azure AD workload identity is supported on both Windows and Linux clusters.
 
     ```bash
     export FEDERATED_IDENTITY_NAME="aksfederatedidentity" # can be changed as needed
+
     az identity federated-credential create --name $FEDERATED_IDENTITY_NAME --identity-name $UAMI --resource-group $RESOURCE_GROUP --issuer ${AKS_OIDC_ISSUER} --subject system:serviceaccount:${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}
     ```
 
@@ -133,7 +136,7 @@ Azure AD workload identity is supported on both Windows and Linux clusters.
 
     ```bash
     cat <<EOF | kubectl apply -f -
-    # This is a sample pod definition for using SecretProviderClass and the user-assigned identity to access your key vault
+    # This is a sample pod definition for using SecretProviderClass and workload identity to access your key vault
     kind: Pod
     apiVersion: v1
     metadata:
@@ -180,6 +183,7 @@ Azure AD workload identity is supported on both Windows and Linux clusters.
     ```azurecli-interactive
     export IDENTITY_CLIENT_ID="$(az identity show -g <resource-group> --name <identity-name> --query 'clientId' -o tsv)"
     export KEYVAULT_SCOPE=$(az keyvault show --name <key-vault-name> --query id -o tsv)
+
     az role assignment create --role Key Vault Administrator --assignee <identity-client-id> --scope $KEYVAULT_SCOPE
     ```
 

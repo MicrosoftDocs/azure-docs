@@ -1,5 +1,5 @@
 ---
-title: Use the Azure Key Vault Provider for Secrets Store CSI Driver for Azure Kubernetes Service secrets
+title: Use the Azure Key Vault Provider for Secrets Store CSI Driver for Azure Kubernetes Service (AKS) secrets
 description: Learn how to use the Azure Key Vault Provider for Secrets Store CSI Driver to integrate secrets stores with Azure Kubernetes Service (AKS).
 author: nickomang 
 ms.author: nickoman
@@ -8,13 +8,13 @@ ms.date: 02/10/2023
 ms.custom: template-how-to, devx-track-azurecli, devx-track-linux
 ---
 
-# Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster
+# Use the Azure Key Vault Provider for Secrets Store CSI Driver in an Azure Kubernetes Service (AKS) cluster
 
 The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integration of an Azure key vault as a secret store with an Azure Kubernetes Service (AKS) cluster via a [CSI volume][kube-csi].
 
 ## Features
 
-* Mounts secrets, keys, and certificates to a pod by using a CSI volume
+* Mounts secrets, keys, and certificates to a pod using a CSI volume
 * Supports CSI inline volumes
 * Supports mounting multiple secrets store objects as a single volume
 * Supports pod portability with the `SecretProviderClass` CRD
@@ -43,11 +43,18 @@ A container using subPath volume mount won't receive secret updates when it's ro
 
 2. Create an AKS cluster with Azure Key Vault Provider for Secrets Store CSI Driver capability using the [`az aks create`][az-aks-create] command with the `azure-keyvault-secrets-provider` add-on.
 
+    > [!NOTE]
+    > If you want to use Azure AD workload identity, you must also use the `--enable-oidc-issuer` and `--enable-workload-identity` parameters, such as in the following example:
+    >
+    > ```azurecli-interactive
+    > az aks create -n myAKSCluster -g myResourceGroup --enable-addons azure-keyvault-secrets-provider --enable-oidc-issuer --enable-workload-identity
+    > ```
+
     ```azurecli-interactive
     az aks create -n myAKSCluster -g myResourceGroup --enable-addons azure-keyvault-secrets-provider
     ```
 
-3. A user-assigned managed identity, named `azureKeyvaultSecretsProvider`, is created by the add-on to access Azure resources. The following example uses this identity to connect to the Azure key vault where the secrets will be stored, but you can also use other [identity access methods][identity-access-methods]. Take note of the identity's `clientId` in the output.
+3. The add-on creates a user-assigned managed identity, named `azureKeyvaultSecretsProvider`, to access Azure resources. The following example uses this identity to connect to the Azure key vault where the secrets will be stored, but you can also use other [identity access methods][identity-access-methods]. Take note of the identity's `clientId` in the output.
 
     ```json
     ...,
@@ -71,11 +78,13 @@ A container using subPath volume mount won't receive secret updates when it's ro
 
 ## Verify the Azure Key Vault Provider for Secrets Store CSI Driver installation
 
-1. Verify the installation is finished using the `kubectl get pods` command to list all pods that have the `secrets-store-csi-driver` and `secrets-store-provider-azure` labels in the kube-system namespace, and ensure that your output looks similar to the following output:
+1. Verify the installation is finished using the `kubectl get pods` command, which lists all pods with the `secrets-store-csi-driver` and `secrets-store-provider-azure` labels in the kube-system namespace.
 
     ```bash
     kubectl get pods -n kube-system -l 'app in (secrets-store-csi-driver,secrets-store-provider-azure)'
     ```
+
+    Your output should look similar to the following example output:
 
     ```output
     NAME                                     READY   STATUS    RESTARTS   AGE
@@ -90,8 +99,6 @@ A container using subPath volume mount won't receive secret updates when it's ro
 2. Verify that each node in your cluster's node pool has a Secrets Store CSI Driver pod and a Secrets Store Provider Azure pod running.
 
 ## Create or use an existing Azure key vault
-
-In addition to an AKS cluster, you'll need an Azure key vault resource that stores the secret content.
 
 1. Create an Azure key vault using the [`az keyvault create`][az-keyvault-create] command. The name of the key vault must be globally unique.
 
@@ -116,7 +123,6 @@ In addition to an AKS cluster, you'll need an Azure key vault resource that stor
 
 The Secrets Store CSI Driver allows for the following methods to access an Azure key vault:
 
-* An [Azure Active Directory pod identity][aad-pod-identity] (preview)
 * An [Azure Active Directory workload identity][aad-workload-identity]
 * A user-assigned or system-assigned managed identity
 
