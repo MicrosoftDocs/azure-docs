@@ -61,7 +61,7 @@ Here's an example of how a rule group is configured to limit query to a specific
     }
 }        
 ```
-If cluster ID scope or `clusterName` are specifiednot for a rule group, the rules in the group query data from all the clusters in the workspace from all clusters.
+If both cluster ID scope and `clusterName` are not specified  for a rule group, the rules in the group query data from all the clusters in the workspace from all clusters.
 
 ### Creating Prometheus rule group using Resource Manager template
 
