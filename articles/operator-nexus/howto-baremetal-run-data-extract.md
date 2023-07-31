@@ -3,7 +3,7 @@ title: Troubleshoot bare metal machine issues using the `az networkcloud baremet
 description: Step by step guide on using the `az networkcloud baremetalmachine run-data-extract` to extract data from a bare metal machine for troubleshooting and diagnostic purposes.
 author: eak13
 ms.author: ekarandjeff
-ms.service: azure
+ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 05/15/2023
 ms.custom: template-how-to
