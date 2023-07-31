@@ -12,7 +12,7 @@ ms.date: 07/05/2023
 
 # Use a Public IP address prefix for a Service Fabric managed cluster
 
-Public IP Prefix allows you to reserve a range of [public IP addresses](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses) for your public endpoints in Azure. Public IP prefixes are assigned from a pool of addresses in each Azure region. You create a public IP address prefix in an Azure region and subscription by specifying a name and prefix size, which is the number of addresses available for use. For example, if you would like to configure VM Scale Sets, application gateways, or load balancers to be public facing, you need public IP addresses for them. A public IP prefix enables you to use one prefix to manage all IP addresses effectively.
+Public IP Prefix allows you to reserve a range of [public IP addresses](https://learn.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses) for your public endpoints in Azure. Public IP prefixes are assigned from a pool of addresses in each Azure region. You create a public IP address prefix in an Azure region and subscription by specifying a name and prefix size, which is the number of addresses available for use. For example, if you would like to configure VM Scale Sets, application gateways, or load balancers to be public facing, you need public IP addresses for them. A public IP prefix enables you to use one prefix to manage all IP addresses effectively.
 In regions with Availability Zones, Public IP address prefixes can be created as zone-redundant or associated with a specific availability zone. If public IP prefix is created as zone-redundant, the IPs in the prefix are chosen from the pool that is replicated across SLB servers in all zones.
 
 Here are some of the benefits of using a Public IP Prefix for your managed cluster:
@@ -44,14 +44,14 @@ The following public IP prefix sizes are available:
 
 Prefix size is specified as a Classless Inter-Domain Routing (CIDR) mask size.
 
-There are no limits as to how many prefixes created in a subscription. The number of ranges created can't exceed more static public IP addresses than allowed in your subscription. For more information, see [Azure limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=%2Fazure%2Fvirtual-network%2Ftoc.json#azure-resource-manager-virtual-networking-limits).
+There are no limits as to how many prefixes created in a subscription. The number of ranges created can't exceed more static public IP addresses than allowed in your subscription. For more information, see [Azure limits](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=%2Fazure%2Fvirtual-network%2Ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 
 ## Create a public IP address prefix for Service Fabric Managed Cluster
 
 The following section describes the steps that should be taken to implement public IP prefix for Service Fabric managed cluster:
 
-1.	Follow the steps in the [Create a public IP address prefix](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/create-public-ip-prefix-portal?tabs=create-default).
+1.	Follow the steps in the [Create a public IP address prefix](https://learn.microsoft.com/azure/virtual-network/ip-services/create-public-ip-prefix-portal?tabs=create-default).
 2.  Use a [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-PIPrefix) for public IP prefix configuration as part of the service fabric managed cluster creation.
 3.	You can also modify your existing ARM template and expose new template property `PublicIPPrefixId` under `Microsoft.ServiceFabric/managedClusters` resource that takes the resource ID of the public IP prefix or update via Azure CLI, or PowerShell. Use Service Fabric API version `2023-03-01-Preview` and later.
 
@@ -86,7 +86,7 @@ The following section describes the steps to create a zone redundant, zonal, and
 
 The prefix in the example is * **IPv4** - /28 (16 addresses)
 
-For more information on available prefix sizes, see [Prefix sizes](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-address-prefix#prefix-sizes).
+For more information on available prefix sizes, see [Prefix sizes](https://learn.microsoft.com/azure/virtual-network/ip-services/public-ip-address-prefix#prefix-sizes).
 
 Create a public IP prefix with [az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create) named **myPublicIpPrefix** in the **eastus2** location.
 
@@ -120,7 +120,7 @@ To create a IPv4 public IP prefix, enter **IPv4** in the **`--version`** paramet
 ```
 
 >[!NOTE]
->The above options for zones are only valid selections in regions with [Availability Zones](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview?toc=%2Fazure%2Fvirtual-network%2Ftoc.json#availability-zones).
+>The above options for zones are only valid selections in regions with [Availability Zones](https://learn.microsoft.com/azure/reliability/availability-zones-overview?toc=%2Fazure%2Fvirtual-network%2Ftoc.json#availability-zones).
 
 # [**Non-zonal IPv4 prefix**](#tab/ipv4-non-zonal)
 
@@ -137,7 +137,7 @@ To create a IPv4 public IP prefix, enter **IPv4** in the **`--version`** paramet
 
 The removal of the **`--zone`** parameter in the command is valid in all regions.  
 
-The removal of the **`--zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview?toc=%2Fazure%2Fvirtual-network%2Ftoc.json#availability-zones).
+The removal of the **`--zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](https://learn.microsoft.com/azure/reliability/availability-zones-overview?toc=%2Fazure%2Fvirtual-network%2Ftoc.json#availability-zones).
 
 
 # [**Routing Preference Internet IPv4 prefix**](#tab/ipv4-routing-pref)
@@ -186,7 +186,7 @@ The following section describes the steps to create a zone redundant, zonal, and
 
 The prefix in the example is * **IPv4** - /28 (16 addresses)
 
-For more information on available prefix sizes, see [Prefix sizes](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-address-prefix#prefix-sizes).
+For more information on available prefix sizes, see [Prefix sizes](https://learn.microsoft.com/azure/virtual-network/ip-services/public-ip-address-prefix#prefix-sizes).
 
 Create a public IP prefix with [New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix) named **myPublicIpPrefix** in the **eastus2** location.
 
@@ -224,7 +224,7 @@ New-AzPublicIpPrefix @ipv4
 ```
 
 >[!NOTE]
->The above options for zones are only valid selections in regions with [Availability Zones](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview?toc=%2Fazure%2Fvirtual-network%2Ftoc.json#availability-zones).
+>The above options for zones are only valid selections in regions with [Availability Zones](https://learn.microsoft.com/azure/reliability/availability-zones-overview?toc=%2Fazure%2Fvirtual-network%2Ftoc.json#availability-zones).
 
 # [**Non-zonal IPv4 prefix**](#tab/ipv4-non-zonal-ps)
 
@@ -243,7 +243,7 @@ New-AzPublicIpPrefix @ipv4
 
 The removal of the **`-Zone`** parameter in the command is valid in all regions.  
 
-The removal of the **`-Zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview?toc=%2Fazure%2Fvirtual-network%2Ftoc.json#availability-zones).
+The removal of the **`-Zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](https://learn.microsoft.com/azure/reliability/availability-zones-overview?toc=%2Fazure%2Fvirtual-network%2Ftoc.json#availability-zones).
 
 # [**Routing Preference Internet IPv4 prefix**](#tab/ipv4-routing-pref-ps)
 
@@ -277,15 +277,15 @@ New-AzResourceGroupDeployment -ResourceGroupName "ExampleGroup" -TemplateFile <p
 
 - You can't specify the set of IP addresses for the prefix (though you can specify which IP you want from the prefix). Azure gives the IP addresses for the prefix, based on the size that you specify.  Additionally, all public IP addresses created from the prefix must exist in the same Azure region and subscription as the prefix. Addresses must be assigned to resources in the same region and subscription.
 
-- You can create a prefix of up to 16 IP addresses. Review [Network limits increase requests](https://learn.microsoft.com/en-us/azure/quotas/networking-quota-requests) and [Azure limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=%2Fazure%2Fvirtual-network%2Ftoc.json#azure-resource-manager-virtual-networking-limits) for more information.
+- You can create a prefix of up to 16 IP addresses. Review [Network limits increase requests](https://learn.microsoft.com/azure/quotas/networking-quota-requests) and [Azure limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=%2Fazure%2Fvirtual-network%2Ftoc.json#azure-resource-manager-virtual-networking-limits) for more information.
 
 - The size of the range can't be modified after the prefix has been created.
 
-- Only static public IP addresses created with the standard SKU can be assigned from the prefix's range. To learn more about public IP address SKUs, see [public IP address](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses#public-ip-addresses).
+- Only static public IP addresses created with the standard SKU can be assigned from the prefix's range. To learn more about public IP address SKUs, see [public IP address](https://learn.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#public-ip-addresses).
 
 - Addresses from the range can only be assigned to Azure Resource Manager resources. Addresses can't be assigned to resources in the classic deployment model.
 
-- You can't delete a prefix if any addresses within it are assigned to public IP address resources associated to a resource. Dissociate all public IP address resources that are assigned IP addresses from the prefix first. For more information on disassociating public IP addresses, see [Manage public IP addresses](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address).
+- You can't delete a prefix if any addresses within it are assigned to public IP address resources associated to a resource. Dissociate all public IP address resources that are assigned IP addresses from the prefix first. For more information on disassociating public IP addresses, see [Manage public IP addresses](https://learn.microsoft.com/azure/virtual-network/ip-services/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address).
   
 
 ## Next steps
