@@ -38,7 +38,7 @@ Full multitenant support on the Service Fabric Cluster Resource Manager side req
 During balancing of a cluster per node type, the Service Fabric Cluster Resource Manager calculates the imbalance state for each node type. If at least one node type is imbalanced, the balancing phase will be triggered. Balancing phase will not move replicas on node types that are imbalanced, when balancing is temporarily paused on these node types (e.g. minimal balancing interval hasn't passed since a previous balancing phase). The detection of an imbalanced state uses common mechanisms already available for classical cluster balancing, but improves configuration granularity and flexibility. The mechanisms uses for balancing per node type to detect imbalance are provided in the list below:
 - **Metric balancing thresholds** per node type are values that have a similar role as the globally-defined balancing threshold used in classical balancing. The ratio of minimum and maximum metric load is calculated for each node type. If that ratio of a node type is higher than the defined balancing threshold of the node type, the node type is marked as imbalanced. For more details regarding configuration of metric activity thresholds per node type, please check [here](service-fabric-cluster-resource-manager-balancing-per-node-type#balancing-thresholds-per-node-type).
 - **Metric activity thresholds** per node type are values that have a similar role to the globally-defined activity threshold used in classical balancing. The maximum metric load is calculated for each node type. If the maximum load of a node type is higher than the defined activity threshold for that node type, the node type is marked as imbalanced. For more details regarding configuration of metric activity thresholds per node type, please check [here](service-fabric-cluster-resource-manager-balancing-per-node-type#activity-thresholds-per-node-type).
-- **Minimum balancing interval** per node type has a role similar to the globally-define minimum balancing interval. For each node type, the Cluster Resource Manager preserves the timestamp of the last balancing. Two consecutive balancing phases couldn't be executed on a node type within the defined minimum balancing interval. For more details regarding configuration of minimum balancing interval per node type, please check [here](/service-fabric-cluster-resource-manager-balancing-per-node-type.md#minimum-balancing-interval-per-node-type).
+- **Minimum balancing interval** per node type has a role similar to the globally-define minimum balancing interval. For each node type, the Cluster Resource Manager preserves the timestamp of the last balancing. Two consecutive balancing phases couldn't be executed on a node type within the defined minimum balancing interval. For more details regarding configuration of minimum balancing interval per node type, please check [here](service-fabric-cluster-resource-manager-balancing-per-node-type.md#minimum-balancing-interval-per-node-type).
 
 ## Describing balancing per node type
 
@@ -77,9 +77,9 @@ ClusterConfig.json for Standalone deployments or Template.json for Azure hosted 
 ```
 
 Balancing per node type supports fine-grained configuration for imbalance detection:
-- [Metric balancing thresholds per node type](/service-fabric-cluster-resource-manager-balancing-per-node-type.md#balancing-thresholds-per-node-type)
-- [Metric activity thresholds per node type](/service-fabric-cluster-resource-manager-balancing-per-node-type.md#activity-thresholds-per-node-type)
-- [Minimum balancing interval per node type](/service-fabric-cluster-resource-manager-balancing-per-node-type.md#minimum-balancing-interval-per-node-type)
+- [Metric balancing thresholds per node type](service-fabric-cluster-resource-manager-balancing-per-node-type.md#balancing-thresholds-per-node-type)
+- [Metric activity thresholds per node type](service-fabric-cluster-resource-manager-balancing-per-node-type.md#activity-thresholds-per-node-type)
+- [Minimum balancing interval per node type](service-fabric-cluster-resource-manager-balancing-per-node-type.md#minimum-balancing-interval-per-node-type)
 
 ### Balancing thresholds per node type
 
@@ -110,9 +110,9 @@ Metric activity threshold could be defined per node type in order to increase gr
     <NodeType Name="NodeType1">
         <PlacementAndLoadBalancingOverrides>
             <MetricActivityThresholdsPerNodeType>
-                <ActivityThreshold Name="Metric1" Value="2.5">
-                <ActivityThreshold Name="Metric2" Value="4">
-                <ActivityThreshold Name="Metric3" Value="3.25">
+                <ActivityThreshold Name="Metric1" Value="500">
+                <ActivityThreshold Name="Metric2" Value="40">
+                <ActivityThreshold Name="Metric3" Value="1000">
             </MetricActivityThresholdsPerNodeType>
         </PlacementAndLoadBalancingOverrides>
     </NodeType>
@@ -167,9 +167,9 @@ Maximum load of node type **A** of *600* is lower than defined activity threshol
 
 ## Next steps
 
-* Metrics are how the Service Fabric Cluster Resource Manger manages consumption and capacity in the cluster. To learn more about metrics and how to configure them, check out [this article](service-fabric-cluster-resource-manager-metrics.md)
-* Movement Cost is one way of signaling to the Cluster Resource Manager that certain services are more expensive to move than others. For more about movement cost, refer to [this article](service-fabric-cluster-resource-manager-movement-cost.md)
-* The Cluster Resource Manager has several throttles that you can configure to slow down churn in the cluster. They're not normally necessary, but if you need them you can learn about them [here](service-fabric-cluster-resource-manager-advanced-throttling.md)
+* Metrics are how the Service Fabric Cluster Resource Manger manages consumption and capacity in the cluster. To learn more about metrics and how to configure them, check out [this article](service-fabric-cluster-resource-manager-metrics.md).
+* Movement Cost is one way of signaling to the Cluster Resource Manager that certain services are more expensive to move than others. For more about movement cost, refer to [this article](service-fabric-cluster-resource-manager-movement-cost.md).
+* The Cluster Resource Manager has several throttles that you can configure to slow down churn in the cluster. They're not normally necessary, but if you need them you can learn about them [here](service-fabric-cluster-resource-manager-advanced-throttling.md).
 
 [Example1]:./media/service-fabric-cluster-resource-manager-balancing-per-node-type/example1.png
 [Example2]:./media/service-fabric-cluster-resource-manager-balancing-per-node-type/example2.png
