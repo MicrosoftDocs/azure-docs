@@ -514,7 +514,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
             "id": "{id}",
             "appId": "{appId}",
             "applicationTemplateId": "518e5f48-1fc8-4c48-9387-9fdf28b0dfe7",
-            "createdDateTime": "2023-06-18T23:26:24Z",
+            "createdDateTime": "2023-07-31T23:26:24Z",
             "deletedDateTime": null,
             "displayName": "Fabrikam",
             "description": null,
@@ -910,7 +910,8 @@ For cross-tenant synchronization to work, at least one internal user must be ass
 
     ```Output
     AppRoleId            : <AppRoleId>
-    CreationTimestamp    : 5/20/2023 8:02:19 PM
+    CreatedDateTime      : 7/31/2023 10:27:12 PM
+    DeletedDateTime      :
     Id                   : <Id>
     PrincipalDisplayName : User1
     PrincipalId          : <PrincipalId>
@@ -947,7 +948,7 @@ For cross-tenant synchronization to work, at least one internal user must be ass
         "id": "{keyId}",
         "deletedDateTime": null,
         "appRoleId": "{appRoleId}",
-        "createdDateTime": "2022-11-27T22:23:48.6541804Z",
+        "createdDateTime": "2023-07-31T22:23:48.6541804Z",
         "principalDisplayName": "User1",
         "principalId": "{principalId}",
         "principalType": "User",
@@ -1015,7 +1016,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
     ```Output
     Key                  : Microsoft.Identity.Health.CPP.Common.DataContracts.SyncFabric.StatusInfo
     Value                : [{"provisioningSteps":[{"name":"EntryImport","type":"Import","status":"Success","description":"Retrieved User
-                           'user1@fabrikam.com' from Azure Active Directory","timestamp":"2023-05-20T20:10:07.3900245Z","details":{"objectId":
+                           'user1@fabrikam.com' from Azure Active Directory","timestamp":"2023-07-31T22:31:15.9116590Z","details":{"objectId":
                            "<UserObjectId>","accountEnabled":"True","displayName":"User1","mailNickname":"user1","userPrincipalName":"use
                            ...
     AdditionalProperties : {[@odata.context, https://graph.microsoft.com/v1.0/$metadata#microsoft.graph.stringKeyStringValuePair]}
@@ -1082,7 +1083,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
     {
         "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#microsoft.graph.stringKeyStringValuePair",
         "key": "Microsoft.Identity.Health.CPP.Common.DataContracts.SyncFabric.StatusInfo",
-        "value": "[{\"provisioningSteps\":[{\"name\":\"EntryImport\",\"type\":\"Import\",\"status\":\"Success\",\"description\":\"Retrieved User 'user1@fabrikam.com' from Azure Active Directory\",\"timestamp\":\"2023-06-19T00:00:16.7866324Z\",\"details\":{\"objectId\":\"{userObjectId}\",\"accountEnabled\":\"True\",\"displayName\":\"User1\",\"mailNickname\":\"user1\",\"userPrincipalName\":\"user1@fabrikam.com\",}
+        "value": "[{\"provisioningSteps\":[{\"name\":\"EntryImport\",\"type\":\"Import\",\"status\":\"Success\",\"description\":\"Retrieved User 'user1@fabrikam.com' from Azure Active Directory\",\"timestamp\":\"2023-07-31T00:00:16.7866324Z\",\"details\":{\"objectId\":\"{userObjectId}\",\"accountEnabled\":\"True\",\"displayName\":\"User1\",\"mailNickname\":\"user1\",\"userPrincipalName\":\"user1@fabrikam.com\",}
     
         ...
     ```
@@ -1150,7 +1151,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
     ```
 
     ```Output
-    ActivityDateTime     : 5/21/2023 12:08:17 AM
+    ActivityDateTime     : 7/31/2023 12:08:17 AM
     ActivityDisplayName  : Export
     AdditionalDetails    : {Details, ErrorCode, EventName, ipaddr...}
     Category             : ProvisioningManagement
@@ -1162,10 +1163,9 @@ Now that you have a configuration, you can test on-demand provisioning with one 
     Result               : success
     ResultReason         : User 'user2@fabrikam.com' was created in Azure Active Directory (target tenant)
     TargetResources      : {<ServicePrincipalId>, }
-    UserAgent            :
     AdditionalProperties : {}
     
-    ActivityDateTime     : 5/21/2023 12:08:17 AM
+    ActivityDateTime     : 7/31/2023 12:08:17 AM
     ActivityDisplayName  : Export
     AdditionalDetails    : {Details, ErrorCode, EventName, ipaddr...}
     Category             : ProvisioningManagement
@@ -1177,10 +1177,9 @@ Now that you have a configuration, you can test on-demand provisioning with one 
     Result               : success
     ResultReason         : User 'user2@fabrikam.com' was updated in Azure Active Directory (target tenant)
     TargetResources      : {<ServicePrincipalId>, }
-    UserAgent            :
     AdditionalProperties : {}
     
-    ActivityDateTime     : 5/21/2023 12:08:14 AM
+    ActivityDateTime     : 7/31/2023 12:08:14 AM
     ActivityDisplayName  : Synchronization rule action
     AdditionalDetails    : {Details, ErrorCode, EventName, ipaddr...}
     Category             : ProvisioningManagement
@@ -1193,7 +1192,6 @@ Now that you have a configuration, you can test on-demand provisioning with one 
     ResultReason         : User 'user2@fabrikam.com' will be created in Azure Active Directory (target tenant) (User is active and assigned
                            in Azure Active Directory, but no matching User was found in Azure Active Directory (target tenant))
     TargetResources      : {<ServicePrincipalId>, }
-    UserAgent            :
     AdditionalProperties : {}
     ```
 
@@ -1272,7 +1270,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
     **Request**
     
     ```http
-    GET https://graph.microsoft.com/v1.0/auditLogs/provisioning?$filter=((contains(tolower(servicePrincipal/id), '{servicePrincipalId}') or contains(tolower(servicePrincipal/displayName), '{servicePrincipalId}')) and activityDateTime gt 2022-12-10 and activityDateTime lt 2022-12-11)&$top=500&$orderby=activityDateTime desc
+    GET https://graph.microsoft.com/v1.0/auditLogs/provisioning?$filter=((contains(tolower(servicePrincipal/id), '{servicePrincipalId}') or contains(tolower(servicePrincipal/displayName), '{servicePrincipalId}')) and activityDateTime gt 2023-07-30 and activityDateTime lt 2023-07-31)&$top=500&$orderby=activityDateTime desc
     ```
     
     **Response**
@@ -1288,7 +1286,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
         "value": [
             {
                 "id": "{id}",
-                "activityDateTime": "2022-12-11T00:40:37Z",
+                "activityDateTime": "2023-07-31T00:40:37Z",
                 "tenantId": "{targetTenantId}",
                 "jobId": "{jobId}",
                 "cycleId": "{cycleId}",
