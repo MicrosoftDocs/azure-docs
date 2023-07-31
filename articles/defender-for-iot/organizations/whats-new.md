@@ -20,11 +20,11 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** |[Migrate to site-based licenses](#migrate-to-site-based-licenses) <br><br> **Version 23.1.x**: <br>- [OT sensor installation and setup enhancements](#ot-sensor-installation-and-setup-enhancements) <br>- [Fine-tune your deployment](#fine-tune-your-deployment) <br>- [Simplified privileged users](#simplified-privileged-users) |
+| **OT networks** |[Migrate to site-based licenses](#migrate-to-site-based-licenses) <br><br> **Version 23.1.2**: <br>- [OT sensor installation and setup enhancements](#ot-sensor-installation-and-setup-enhancements) <br>- [Fine-tune your deployment](#fine-tune-your-deployment) <br>- [Simplified privileged users](#simplified-privileged-users) |
 
 ### OT sensor installation and setup enhancements
 
-In version 23.1.x we've updated the OT sensor installation and setup wizards to be quicker and more user-friendly. Updates include:
+In version 23.1.2 we've updated the OT sensor installation and setup wizards to be quicker and more user-friendly. Updates include:
 
 - **Installation wizard**: If you're installing software on your own physical or virtual machines, the Linux installation wizard now goes directly through the installation process without requiring any input or details from you.
 
@@ -58,9 +58,9 @@ For more information, see [Update a sensor's monitoring interfaces (configure ER
 
 ### Simplified privileged users
 
-In new sensor installations of version 23.1.x, only the privileged *support* user is available by default. The *cyberx* and *cyberx_host* users are available, but are disabled by default. If you need to use these users, such as for [Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md) access, [change the user password](manage-users-sensor.md#change-a-sensor-users-password).
+In new sensor installations of version 23.1.2, only the privileged *support* user is available by default. The *cyberx* and *cyberx_host* users are available, but are disabled by default. If you need to use these users, such as for [Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md) access, [change the user password](manage-users-sensor.md#change-a-sensor-users-password).
 
-In sensors that have been updated from previous versions to 23.1.x, the *cyberx* and *cyberx_host* users remain enabled as before.
+In sensors that have been updated from previous versions to 23.1.2, the *cyberx* and *cyberx_host* users remain enabled as before.
 
 
 ### Migrate to site-based licenses
