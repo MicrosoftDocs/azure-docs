@@ -65,7 +65,7 @@ The scope argument has two possible values: `Machine` or `Rack`.
 * Rack: If the scope is set to Rack, the placement hint applies to the rack that the specified virtual machine belongs to. For example, if the placement hint specifies that the VM should be placed on the same rack that the specified virtual machine is currently placed, the scope would be set to Rack.
 
 > [!IMPORTANT]
-> This argument cannot be left blank.
+> This argument can't be left blank.
 
 ### Scheduling execution
 
