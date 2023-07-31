@@ -249,7 +249,7 @@ az feature register --namespace Microsoft.Compute --name EnableVmssFlexRegionalT
 
 You can check the registration status of each feature by using:
 
-az feature show --namespace Microsoft.Compute --name <feature-name>
+az feature show --namespace Microsoft.Compute --name \<feature-name\>
 
 
 ### [Azure Powershell](#tab/powershell)
@@ -265,6 +265,13 @@ You can check the registration status of each feature by using:
 ```azurecli
 Get-AzProviderPreviewFeature -Name <feature-name> -ProviderNamespace Microsoft.Compute
 ```
+
+### Expand scale set to use availability zones
+You can update the scale set to scale out instances to one or more additional availability zones, up to the number of availablity zones supported by the region (for regions that support zones, the minimum number of zones is 3). 
+
+
+> [!IMPORTANT]
+> When you expand the scale set to additionnal zones, the original instances are not migrated or changed. When you scale out, new instances will be created and spread evenly across the selected availability zones. When you scale in the scale set, any regional instances will be priorized for removal first. After that, instances will be removed based on the [scale in policy](virtual-machine-scale-sets-scale-in-policy.md).
 
 ## Next steps
 
