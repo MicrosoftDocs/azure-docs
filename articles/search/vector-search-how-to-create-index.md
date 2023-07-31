@@ -81,7 +81,7 @@ If the index doesn't have a vector configuration, you're prompted to create one 
    **Key points**:
 
    + Name the configuration. The name must be unique within the index.
-   + "hnsw" is the Approximate Nearest Neighbors (ANN) algorithm used to find similar vectors. Currently, only Hierarchical Navigation Small World (HNSW) is supported. 
+   + "hnsw" is the Approximate Nearest Neighbors (ANN) algorithm used to find similar vectors. Currently, only Hierarchical Navigable Small World (HNSW) is supported. 
    + "Bi-directional link count" default is 4. The range is 2 to 100. Lower values (lower recall) should return less noise in the results. 
    + "efConstruction" default is 400. It's the number of nearest neighbors used during indexing.
    + "efSearch default is 500. It's the number of nearest neighbors used during search.
