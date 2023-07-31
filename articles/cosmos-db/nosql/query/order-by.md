@@ -58,7 +58,7 @@ In this next example, the sort order is explicitly specified to be descending.
 
 In this final example, the items are sorted using two fields, in a specific order using explicitly specified ordering. A query that sorts using two or more fields requires a [composite index](../../index-policy.md#composite-indexes).
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/order-by-multiple/query.sql" range="1-6,9-11" highlight="7-9":::
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/order-by-multiple/query.novalidate.sql" range="1-6,9-11" highlight="7-9":::
 
 ## Remarks  
 
