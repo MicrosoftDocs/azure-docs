@@ -131,7 +131,7 @@ To use legacy/non-managed identity authentication to create extension instance o
 If you are using k8s-extension version above 1.3.7, downgrade the version.
 
 ```azurecli
-az extension remove --name k8s-extension
+Install the extension with **amalogs.useAADAuth=false**.
 az extension add --name k8s-extension --version 1.3.7
 ```
 
