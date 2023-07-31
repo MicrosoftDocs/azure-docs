@@ -707,6 +707,30 @@ These error log messages are mostly harmless, because resource deletions are ret
 
 Making these observations is especially important in build failures, where these error messages might lead you to conclude that they're the reason for the failures, even when the actual errors might be elsewhere.
 
+#### Error
+
+When images are stuck in template deletion, the log may show the below error:
+
+```output
+error deleting resource id /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Network/networkInterfaces/<networkInterfacName>: resources.Client#DeleteByID: Failure sending request: StatusCode=400 -- 
+Original Error: Code="NicInUseWithPrivateEndpoint"
+Message="Network interface /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Network/networkInterfaces/<networkInterfacName> cannot be deleted because it is currently in use with an private endpoint (/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Network/privateEndpoints/<pIname>)." Details=[]
+```
+
+#### Cause
+
+The error occurs because the network interface is currently in use with a private endpoint.
+
+#### Solution
+
+To resolve the issue, follow these steps:
+
+1. Check the private endpoint connection. You can find this in the private link service resource by going to the "private endpoint connections" tab on the private link service resource page.
+1. Check the private link service.
+1. Check the network interface and load balancer.
+1. Check the resource group.
+1. Check the image template.
+
 ## DevOps tasks
 
 ### Troubleshoot the task
