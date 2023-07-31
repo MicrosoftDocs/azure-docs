@@ -58,7 +58,7 @@ This section provides the steps to deploy the Bicep file, create a virtual devic
 
 1. Download and unzip the [IoT C# SDK](https://github.com/Azure/azure-iot-sdk-csharp/archive/main.zip).
 
-1. Open a command window and go to the folder where you unzipped the IoT C# SDK. Find the folder with the arm-read-write.csproj file. You create the environment variables in this command window. Log into the [Azure portal](https://portal.azure.com) to get the keys. Select **Resource Groups** then select the resource group used for this quickstart.
+1. Open a command window and go to the folder where you unzipped the IoT C# SDK. Find the folder with the arm-read-write.csproj file. You create the environment variables in this command window. Sign in to the [Azure portal](https://portal.azure.com) to get the keys. Select **Resource Groups** then select the resource group used for this quickstart.
 
    ![Select the resource group](./media/horizontal-arm-route-messages/01-select-resource-group.png)
 
@@ -118,7 +118,7 @@ This section provides the steps to deploy the Bicep file, create a virtual devic
 
 ## Review deployed resources
 
-1. Log in to the [Azure portal](https://portal.azure.com) and select the Resource Group, then select the storage account.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select the Resource Group, then select the storage account.
 
 1. Drill down into the storage account until you find files.
 

@@ -21,7 +21,7 @@ In Azure Cognitive Search, [semantic search](semantic-search-overview.md) is que
 This quickstart walks you through the query modifications that invoke semantic search.
 
 > [!NOTE]
-> Looking for a Cognitive Search solution with Chat-GPT interaction? See [this demo](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/README.md) for details.
+> Looking for a Cognitive Search solution with ChatGPT interaction? See [this demo](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/README.md) for details.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ This quickstart walks you through the query modifications that invoke semantic s
 
 + An API key and search endpoint:
 
-  [Sign in to the Azure portal](https://portal.azure.com/) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+  Sign in to the [Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 
   In **Overview**, copy the URL and save it to Notepad for a later step. An example endpoint might look like `https://mydemo.search.windows.net`.
 

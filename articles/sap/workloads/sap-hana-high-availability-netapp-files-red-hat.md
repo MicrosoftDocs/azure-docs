@@ -12,7 +12,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/11/2023
 ms.author: radeltch
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-linux
 ---
 
 # High availability of SAP HANA Scale-up with Azure NetApp Files on Red Hat Enterprise Linux

@@ -29,7 +29,7 @@ You can configure the Azure AD Connect Health service to send email notification
 >
 
 ### To enable Azure AD Connect Health email notifications
-1. In the Azure Portal, search for Azure AD Connect Health
+1. In the Azure portal, search for Azure AD Connect Health
 2. Select **Sync errors**
 3. Select **Notification Settings**.
 5. At the email notification switch, select **ON**.

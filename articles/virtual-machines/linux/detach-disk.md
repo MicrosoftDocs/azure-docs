@@ -7,8 +7,7 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 01/09/2023
 ms.author: rogarana
-ms.custom: devx-track-azurecli
-
+ms.custom: devx-track-azurecli, devx-track-linux
 ---
 # How to detach a data disk from a Linux virtual machine
 

@@ -43,8 +43,7 @@ To make use of workload identity risk, including the new **Risky workload identi
    - Global Administrator
    - Security Administrator
    - Security Operator
-   - Security Reader
-Users assigned the Conditional Access administrator role can create policies that use risk as a condition.
+   - Security Reader Users assigned the Conditional Access administrator role can create policies that use risk as a condition.
 
 ## Workload identity risk detections
 
@@ -64,7 +63,7 @@ We detect risk on workload identities across sign-in behavior and offline indica
 
 Organizations can find workload identities that have been flagged for risk in one of two locations:
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Security** > **Risky workload identities**.
 1. Or browse to **Azure Active Directory** > **Security** > **Risk detections**.
    1. Select the **Workload identity detections** tab.'
@@ -75,8 +74,8 @@ Organizations can find workload identities that have been flagged for risk in on
 
 You can also query risky workload identities [using the Microsoft Graph API](/graph/use-the-api). There are two new collections in the [Identity Protection APIs](/graph/api/resources/identityprotection-root). 
 
-- riskyServicePrincipals
-- servicePrincipalRiskDetections
+- `riskyServicePrincipals`
+- `servicePrincipalRiskDetections`
 
 ### Export risk data 
 
@@ -107,10 +106,10 @@ Once you determine if the workload identity was compromised, dismiss the account
 
 ## Remediate risky workload identities
 
-1.	Inventory credentials assigned to the risky workload identity, whether for the service principal or application objects.
+1. Inventory credentials assigned to the risky workload identity, whether for the service principal or application objects.
 1. Add a new credential. Microsoft recommends using x509 certificates.
 1. Remove the compromised credentials. If you believe the account is at risk, we recommend removing all existing credentials.
-1.	Remediate any Azure KeyVault secrets that the Service Principal has access to by rotating them. 
+1. Remediate any Azure KeyVault secrets that the Service Principal has access to by rotating them. 
 
 The [Azure AD Toolkit](https://github.com/microsoft/AzureADToolkit) is a PowerShell module that can help you perform some of these actions.
 
@@ -121,5 +120,3 @@ The [Azure AD Toolkit](https://github.com/microsoft/AzureADToolkit) is a PowerSh
 - [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md)
 - [Azure AD sign-in logs](../reports-monitoring/concept-sign-ins.md)
 - [Simulate risk detections](howto-identity-protection-simulate-risk.md)
-
-

@@ -25,9 +25,11 @@ PIM role settings are also known as PIM policies.
 
 ## Open role settings
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To open the settings for an Azure AD role:
 
-1. [Sign in to the Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure AD Privileged Identity Management** > **Azure AD Roles** > **Roles**. This page shows a list of Azure AD roles available in the tenant, including built-in and custom roles.
     :::image type="content" source="media/pim-how-to-change-default-settings/role-settings.png" alt-text="Screenshot that shows the list of Azure AD roles available in the tenant, including built-in and custom roles." lightbox="media/pim-how-to-change-default-settings/role-settings.png":::

@@ -8,7 +8,7 @@ ms.date: 04/11/2023
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
 ms.devlang: azurecli
 ---
 

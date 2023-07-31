@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 07/05/2023
+ms.date: 07/26/2023
 ms.author: rolyon
 ms.reviewer: abhijeetsinha
 ms.custom: generated, it-pro, fasttrack-edit
@@ -2566,7 +2566,7 @@ Assign the Yammer Administrator role to users who need to do the following tasks
 - View announcements in the Message center, but not security announcements
 - View service health
 
-[Learn more](/yammer/manage-yammer-users/manage-yammer-admins)
+[Learn more](/Viva/engage/eac-key-admin-roles-permissions)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

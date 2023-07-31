@@ -98,13 +98,13 @@ TLS versions 1.0 and 1.1 are known to be susceptible to security attacks, and ha
 
 Learn more about [Redis Cache Server - TLSVersion (TLS versions 1.0 and 1.1 are known to be susceptible to security attacks, and have other Common Vulnerabilities and Exposures (CVE) weaknesses.)](https://aka.ms/TLSVersions).
 
-## Cognitive Services
+## Azure AI services
 
 ### Upgrade to the latest version of the Immersive Reader SDK
 
 We have identified resources under this subscription using outdated versions of the Immersive Reader SDK. Using the latest version of the Immersive Reader SDK provides you with updated security, performance and an expanded set of features for customizing and enhancing your integration experience.
 
-Learn more about [Cognitive Service - ImmersiveReaderSDKRecommendation (Upgrade to the latest version of the Immersive Reader SDK)](https://aka.ms/ImmersiveReaderAzureAdvisorSDKLearnMore).
+Learn more about [Azure AI Immersive Reader](/azure/ai-services/immersive-reader/).
 
 ## Compute
 
