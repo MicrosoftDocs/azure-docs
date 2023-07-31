@@ -11,9 +11,6 @@ ms.custom: include file
 ms.author: memontic
 ---
 
-
-## Setup C# Project with Visual Studio
-
 1. Create new C# project   
 In Visual Studio, create new project, then select `Console App (.NET Framework) for C#`.
  
