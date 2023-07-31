@@ -22,7 +22,7 @@ You can specify the number of partitions at the time of creating an event hub. I
 This section shows you how to update partition count of an event hub in different ways (PowerShell, CLI, and so on.).
 
 ### PowerShell
-Use the [Set-AzEventHub](/azure-powershell/src/EventHub/EventHub/help/Set-AzEventHub.md) PowerShell command to update partitions in an event hub. 
+Use the [Set-AzEventHub](/powershell/module/az.eventhub/set-azeventhub) PowerShell command to update partitions in an event hub. 
 
 ```azurepowershell-interactive
 Set-AzEventHub -ResourceGroupName MyResourceGroupName -Namespace MyNamespaceName -Name MyEventHubName -partitionCount 12
