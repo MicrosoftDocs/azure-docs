@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 07/31/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
-ms.custom: engagement-fy23
+ms.custom: engagement
 ---
 
 # Disaster recovery and storage account failover

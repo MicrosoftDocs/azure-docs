@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 07/31/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
-ms.custom: references_regions, engagement-fy23
+ms.custom: references_regions, engagement
 ---
 
 # Azure Storage redundancy
