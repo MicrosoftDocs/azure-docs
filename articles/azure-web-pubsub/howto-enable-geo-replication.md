@@ -27,7 +27,7 @@ Mission critical apps often need to have a robust failover system and serve user
 ### Contoso, a social media company
 Contoso is a social media company with its customer base spread across the US and Canada. Contoso provides a mobile and web app to its users so that they can connect with each other. Contoso application is deployed in Central US. As part of Contoso's architecture, Web PubSub is used to establish persistent WebSocket connections between client apps and the application server. Contoso **likes** that they can offload managing WebSocket connections to Web PubSub, but **doesn't** like reading reports of users in Canada experiencing higher latency. Furthermore, Contoso's development team wants to insure the app against regional outage so that the users can access the app with no interruptions.
 
-![Screenshot of using one Azure WebPubSub instance to handle traffic from two countries. ](./media/howto-enable-geo-replication/webpubsub-single.png  "Single WebPubSub Example")
+![Screenshot of using one Azure WebPubSub instance to handle traffic from two countries. ](./media/howto-enable-geo-replication/web-pubsub-single.png  "Single WebPubSub Example")
 
 Contoso **could** set up another Web PubSub resource in Canada Central which is geographically closer to its users in Canada. However, managing multiple Web PubSub resources brings some challenges:
 1. A cross-region communication mechanism would need to be implemented so that users in Canada and US can interact with each other.
@@ -36,21 +36,21 @@ Contoso **could** set up another Web PubSub resource in Canada Central which is 
 
 All of the above takes engineering resources away from focusing on product innovation.
 
-![Screenshot of using two Azure Web PubSub instances to handle traffic from two countries. ](./media/howto-enable-geo-replication/webpubsub-multiple.png  "Mutiple Web PubSub Example")
+![Screenshot of using two Azure Web PubSub instances to handle traffic from two countries. ](./media/howto-enable-geo-replication/web-pubsub-multiple.png  "Mutiple Web PubSub Example")
 
 ### Harnessing the geo-replication feature
 With the geo-replication feature, Contoso can now establish a replica in Canada Central, effectively overcoming the above-mentioned challenges. The developer team is glad to find out that they don't need to make any code changes. It's as easy as clicking a few buttons on Azure portal. The developer team is also happy to share with the stakeholders that as Contoso plans to enter the European market, they simply need to add another replica in Europe. 
 
-![Screenshot of using one Azure Web PubSub instance with replica to handle traffic from two countries.](./media/howto-enable-geo-replication/webpubsub-replica.png  "Replica Example")
+![Screenshot of using one Azure Web PubSub instance with replica to handle traffic from two countries.](./media/howto-enable-geo-replication/web-pubsub-replica.png  "Replica Example")
 
 ## How to enable geo-replication in a Web PubSub resource
 To create a replica in an Azure region, go to your Web PubSub resource and find the **Replicas** blade on the Azure portal and click **Add** to create a replica. It will be automatically enabled upon creation.
 
-![Screenshot of creating replica for Azure Web PubSub on Portal.](./media/howto-enable-geo-replication/webpubsub-replica-create.png  "Replica create")
+![Screenshot of creating replica for Azure Web PubSub on Portal.](./media/howto-enable-geo-replication/web-pubsub-replica-create.png  "Replica create")
 
 After creation, you would be able to view/edit your replica on the portal by clicking the replica name.
 
-![Screenshot of overview blade of Azure Web PubSub replica resource. ](./media/howto-enable-geo-replication/webpubsub-replica-overview.svg  "Replica Overview")
+![Screenshot of overview blade of Azure Web PubSub replica resource. ](./media/howto-enable-geo-replication/web-pubsub-replica-overview.svg  "Replica Overview")
 
 > [!NOTE]
 > * Geo-replication is a feature available in premium tier.
@@ -76,7 +76,7 @@ To ensure effective failover management, it is recommended to enable [autoscalin
 
 ## Understand how the geo-replication feature works
 
-![Screenshot of the arch of Azure Web PubSub replica. ](./media/howto-enable-geo-replication/webpubsub-replica-arch.png  "Replica Arch")
+![Screenshot of the arch of Azure Web PubSub replica. ](./media/howto-enable-geo-replication/web-pubsub-replica-arch.png  "Replica Arch")
 
 1. The client resolves the Fully Qualified Domain Name (FQDN) `contoso.webpubsub.azure.com` of the Web PubSub service. This FQDN points to a Traffic Manager, which returns the  Canonical Name (CNAME) of the nearest regional Web PubSub instance.
 2. With this CNAME, the client establishes a websocket connection to the regional instance.
