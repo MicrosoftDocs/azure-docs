@@ -90,11 +90,11 @@
               href: howto-disable-local-auth.md
         - name: Custom domain
           href: howto-custom-domain.md
-    - name: Scale and Geo-Replicate
+    - name: Scale and geo-replicate
       items:
         - name: Autoscale
           href: howto-scale-autoscale.md
-        - name: Geo-Replication
+        - name: Geo-replication
           href: howto-enable-geo-replication.md
     - name: Integrate
       items: 
