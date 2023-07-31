@@ -38,7 +38,7 @@ There are no limits as to how many prefixes created in a subscription. The numbe
 The following section describes the steps that should be taken to implement public IP prefix for Service Fabric managed cluster:
 
 1.	Follow the steps in the [Create a public IP address prefix](../../virtual-network/ip-services/create-public-ip-prefix-portal.md?tabs=create-default).
-2.  Use a [template]() for public IP prefix configuration as part of the service fabric managed cluster creation.
+2.  Use a [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-PIPrefix) for public IP prefix configuration as part of the service fabric managed cluster creation.
 3.	You can also modify your existing ARM template and expose new template property `PublicIPPrefixId` under `Microsoft.ServiceFabric/managedClusters` resource that takes the resource Id of the public IP prefix or update via Azure CLI, or Powershell. Use Service Fabric API version `2023-03-01-Preview` and above.
 
 ### ARM Template:
@@ -272,4 +272,9 @@ New-AzResourceGroupDeployment -ResourceGroupName "ExampleGroup" -TemplateFile <p
 - Addresses from the range can only be assigned to Azure Resource Manager resources. Addresses can't be assigned to resources in the classic deployment model.
 
 - You can't delete a prefix if any addresses within it are assigned to public IP address resources associated to a resource. Dissociate all public IP address resources that are assigned IP addresses from the prefix first. For more information on disassociating public IP addresses, see [Manage public IP addresses](virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address).
-```
+  
+
+## Next steps
+
+* Review the [Service Fabric managed cluster networking scenarios](how-to-managed-cluster-networking.md) outlined in this article.
+* Review [Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md).
