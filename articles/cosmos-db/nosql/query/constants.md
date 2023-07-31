@@ -85,7 +85,7 @@ A constant, also known as a literal or a scalar value, is a symbol that represen
     | **``\\``** | reverse solidus (\) | ``U+005C`` |
     | **``\/``** | solidus (/) | ``U+002F`` |
     | **``\b``** | backspace | ``U+0008`` |
-    | **``\f``** | form feed | ``U+000C`` |
+    | **``\f``** | separator feed | ``U+000C`` |
     | **``\n``** | line feed | ``U+000A`` |
     | **``\r``** | carriage return | ``U+000D`` |
     | **``\t``** | tab | ``U+0009`` |
