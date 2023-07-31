@@ -28,11 +28,13 @@ To complete the scenario in this quickstart, you need:
 
 ## Perform a failed sign-in
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 The goal of this step is to create a record of a failed sign-in in the Azure AD sign-ins log.
 
 **To complete this step:**
 
-1. Sign in to your [Azure portal](https://portal.azure.com/) as Isabella Simonsen using an incorrect password.
+1. Sign in to the [Azure portal](https://portal.azure.com) as Isabella Simonsen using an incorrect password.
 
 2. Wait for 5 minutes to ensure that you can find a record of the sign-in in the sign-ins log. For more information, see [Activity reports](reference-reports-latencies.md#activity-reports).
 
@@ -52,19 +54,19 @@ This section provides you with the steps to analyze a failed sign-in:
 
 2. To list only records for Isabella Simonsen:
 
-    a. In the toolbar, select **Add filters**.
+    1. In the toolbar, select **Add filters**.
     
-    ![Add user filter](./media/quickstart-analyze-sign-in/add-filters.png)   
+       ![Add user filter](./media/quickstart-analyze-sign-in/add-filters.png)
 
-    b. In the **Pick a field** list, select **User**, and then select **Apply**.
+    1. In the **Pick a field** list, select **User**, and then select **Apply**.
 
-    c. In the **Username** textbox, type **Isabella Simonsen**, and then select **Apply**.
+    1. In the **Username** textbox, type **Isabella Simonsen**, and then select **Apply**.
 
-    d. In the toolbar, select **Refresh**.
+    1. In the toolbar, select **Refresh**.
 
 3. To analyze the issue, select **Troubleshooting and support**.
 
-    ![Add filter](./media/quickstart-analyze-sign-in/troubleshooting-and-support.png)   
+    ![Add filter](./media/quickstart-analyze-sign-in/troubleshooting-and-support.png)
 
 4. Copy the **Sign-in error code**.
 

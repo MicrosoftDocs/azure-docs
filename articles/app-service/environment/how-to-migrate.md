@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment to App Service En
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 12/5/2022
+ms.date: 7/24/2023
 ms.author: jordanselig
 zone_pivot_groups: app-service-cli-portal
 ---
@@ -71,7 +71,7 @@ az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2021
 
 ## 4. Update dependent resources with new IPs
 
-Using the new IPs, update any of your resources or networking components to ensure your new environment functions as intended once migration is complete. It's your responsibility to make any necessary updates. Don't migrate until you've completed this step.
+Using the new IPs, update any of your resources or networking components to ensure your new environment functions as intended once migration is complete. It's your responsibility to make any necessary updates. This step is also a good time to review the [inbound and outbound network](networking.md#ports-and-network-restrictions) dependency changes when moving to App Service Environment v3 including the port change for the Azure Load Balancer, which now uses port 80. Don't migrate until you've completed this step.
 
 ## 5. Delegate your App Service Environment subnet
 
@@ -212,7 +212,7 @@ Under **Get new IP addresses**, confirm you understand the implications and star
 
 ## 3. Update dependent resources with new IPs
 
-When the previous step finishes, you'll be shown the IP addresses for your new App Service Environment v3. Using the new IPs, update any resources and networking components to ensure your new environment functions as intended once migration is complete. It's your responsibility to make any necessary updates. Don't move on to the next step until you confirm that you have made these updates.
+When the previous step finishes, you'll be shown the IP addresses for your new App Service Environment v3. Using the new IPs, update any resources and networking components to ensure your new environment functions as intended once migration is complete. It's your responsibility to make any necessary updates. This step is also a good time to review the [inbound and outbound network](networking.md#ports-and-network-restrictions) dependency changes when moving to App Service Environment v3 including the port change for the Azure Load Balancer, which now uses port 80. Don't move on to the next step until you confirm that you have made these updates.
 
 :::image type="content" source="./media/migration/ip-sample.png" alt-text="Screenshot that shows sample IPs generated during pre-migration.":::
 

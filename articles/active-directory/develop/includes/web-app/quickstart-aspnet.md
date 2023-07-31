@@ -30,9 +30,13 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 * [.NET Framework 4.7.2+](https://dotnet.microsoft.com/download/visual-studio-sdks)
 
 ## Register and download the app
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You have two options to start building your application: automatic or manual configuration.
 
 ### Automatic configuration
+
 If you want to automatically configure your app and then download the code sample, follow these steps:
 
 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Azure portal page for app registration</a>.
@@ -40,6 +44,7 @@ If you want to automatically configure your app and then download the code sampl
 1. Follow the instructions to download and automatically configure your new application in one click.
 
 ### Manual configuration
+
 If you want to manually configure your application and code sample, use the following procedures.
 
 #### Step 1: Register your application

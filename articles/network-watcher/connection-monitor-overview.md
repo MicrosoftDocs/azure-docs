@@ -118,8 +118,6 @@ To enable the Network Performance Monitor solution for on-premises machines, do 
    
    After you've enabled the solution, the workspace takes a couple of minutes to be displayed.
 
-   :::image type="content" source="./media/connection-monitor/network-performance-monitor-solution-enable.png" alt-text="Screenshot showing how to add the Network Performance Monitor solution in Connection Monitor." lightbox="./media/connection-monitor/network-performance-monitor-solution-enable.png":::
-
 Unlike Log Analytics agents, the Network Performance Monitor solution can be configured to send data only to a single Log Analytics workspace.
 
 If you wish to escape the installation process for enabling the Network Watcher extension, you can proceed with the creation of Connection Monitor and allow auto enablement of monitoring solution on your on-premises machines. 

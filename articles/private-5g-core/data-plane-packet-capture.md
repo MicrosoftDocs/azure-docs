@@ -29,11 +29,15 @@ Data plane packet capture works by mirroring packets to a Linux kernel interface
 
 1. In a command line with kubectl access to the Azure Arc-enabled Kubernetes cluster, enter the UPF-PP troubleshooter pod:
 
-    `kubectl exec -it -n core core-upf-pp-0 -c troubleshooter -- bash`
+    ```azurecli
+    kubectl exec -it -n core core-upf-pp-0 -c troubleshooter -- bash
+    ```
 
 1. View the list of interfaces that can be monitored:
 
-    `upft list`
+    ```azurecli
+    upft list
+    ```
 
 1. Run `upftdump` with any parameters that you would usually pass to tcpdump. In particular, `-i` to specify the interface, and `-w` to specify where to write to. Close the UPFT tool when done by pressing <kbd>Ctrl + C</kbd>. The following examples are common use cases:
     - To run capture packets on all interfaces run `upftdump -i any -w any.pcap`
@@ -43,17 +47,23 @@ Data plane packet capture works by mirroring packets to a Linux kernel interface
     > Packet capture files may be large, particularly when running packet capture on all interfaces. Specify filters when running packet capture to reduce the file size - see the tcpdump documentation for the available filters.
 1. Leave the container:
 
-    `exit`
+    ```azurecli
+    exit
+    ```
 
 1. Copy the output files:
 
-    `kubectl cp -n core core-upf-pp-0: <path to output file> <location to copy to> -c troubleshooter`
+    ```azurecli
+    kubectl cp -n core core-upf-pp-0:<path to output file> <location to copy to> -c troubleshooter
+    ```
 
     The `tcpdump` may have been stopped in the middle of writing a packet, which can cause this step to produce an error stating `unexpected EOF`. However, your file should have copied successfully, but you can check your target output file to confirm.
 
 1. Remove the output files:
 
-    `kubectl exec -it -n core core-upf-pp-0 -c troubleshooter -- rm <path to output file>`
+    ```azurecli
+        kubectl exec -it -n core core-upf-pp-0 -c troubleshooter -- rm <path to output file>`
+    ```
 
 ## Next steps
 

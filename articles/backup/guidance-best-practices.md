@@ -5,8 +5,8 @@ ms.topic: conceptual
 ms.date: 03/01/2023
 ms.reviewer: dapatil
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Backup cloud and on-premises workloads to cloud
