@@ -232,7 +232,7 @@ sections:
     questions:
       - question: How to optout a specific result from a public AI model?
         answer: |
-          Send a detailed explenation of your request to "Video Indexer Customer Support" <visupport@microsoft.com>. Including: AI model you are reffering to, the result you'd like to optput, the reason we should optout the results and an explenation of why you are asking this.
+          Send a detailed explenation of your request to "Video Indexer Customer Support" <visupport@microsoft.com>. Including AI model you are reffering to, the result you'd like to optput, the reason we should optout the results and an explenation of why you are asking this.
 
       - question: How long does it take?
         answer: Processing the request might take few weeks.
