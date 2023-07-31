@@ -71,18 +71,18 @@ If the index doesn't have a vector configuration, you're prompted to create one 
    + Name the field (no spaces).
    + Choose type `Collection(Edm.Single)`.
    + Select "Retrievable" if you want the query to return the vector data in search results. If you have other fields with human readable content that you can return as a proxy for the match, you should set "Retrievable" to false to save space.
-   + "Searchable" is mandatory for a vector field and can't be set.
+   + "Searchable" is mandatory for a vector field and can't be changed.
    + "Dimensions" is the length of the vector returned by the model. Set this value to specify `1536` for **text-embeddding-ada-002**, where the input text that you provide is numerically described using 1536 dimensions.
 
-1. Select or create a vector configuration used for similarity search. Currently, only Hierarchical Navigation Small World (HNSW) is supported. If there's no configuration in the index, select **Create**.
+1. Select or create a vector configuration used for similarity search. If the index doesn't have a vector configuration, you must select **Create**.
 
    :::image type="content" source="media/vector-search-how-to-create-index/portal-add-vector-configuration.png" alt-text="Screenshot of the vector configuration properties." border="true":::
 
    **Key points**:
 
-   + Name the configuration(no spaces). The name must be unique within the index.
-   + "hnsw" is the Approximate Nearest Neighbors (ANN) algorithm used to find similar vectors. 
-   + "Bi-directional link count" default is 4. The range is 2 to 100. Lower values should return less noise in the results. 
+   + Name the configuration. The name must be unique within the index.
+   + "hnsw" is the Approximate Nearest Neighbors (ANN) algorithm used to find similar vectors. Currently, only Hierarchical Navigation Small World (HNSW) is supported. 
+   + "Bi-directional link count" default is 4. The range is 2 to 100. Lower values (lower recall) should return less noise in the results. 
    + "efConstruction" default is 400. It's the number of nearest neighbors used during indexing.
    + "efSearch default is 500. It's the number of nearest neighbors used during search.
    + "Similarity metric" should be "cosine" if you're using Azure OpenAI, otherwise use the similarity metric of the embedding model. Supported values are `cosine`, `dotProduct`, `euclidean`.
