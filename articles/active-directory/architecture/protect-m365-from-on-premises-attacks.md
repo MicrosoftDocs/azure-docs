@@ -152,7 +152,7 @@ Owners of groups that are used for access should be considered privileged identi
 
 Use Azure AD capabilities to securely manage devices.
 
-Deploy Azure AD joined Windows 10 workstations with mobile device management policies. Enable Windows Autopilot for a fully automated provisioning experience. See [Plan your Azure AD join implementation](../devices/azureadjoin-plan.md) and [Windows Autopilot](/mem/autopilot/windows-autopilot).
+Deploy Azure AD joined Windows 10 workstations with mobile device management policies. Enable Windows Autopilot for a fully automated provisioning experience. See [Plan your Azure AD join implementation](../devices/device-join-plan.md) and [Windows Autopilot](/mem/autopilot/windows-autopilot).
 
 - **Use Windows 10 workstations**.
   - Deprecate machines that run Windows 8.1 and earlier.

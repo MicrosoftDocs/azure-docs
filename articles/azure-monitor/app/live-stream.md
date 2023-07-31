@@ -440,9 +440,12 @@ Follow the link to the *Azure status* page and check if there's an activate outa
 
 ### Unexpected large number of requests to livediagnostics.monitor.azure.com
 
-Heavier traffic is expected while the LiveMetrics pane is open. Navigate away from the LiveMetrics pane to restore normal traffic flow of traffic. Application Insights SDKs poll QuickPulse endpoints with REST API calls once every five seconds to check if the LiveMetrics pane is being viewed.
+Application Insights SDKs use a REST API to communicate with QuickPulse endpoints, which provide live metrics for your web application. By default, the SDKs poll the endpoints once every five seconds to check if you are viewing the Live Metrics pane in the Azure portal.
 
-The SDKs send new metrics to QuickPulse every one second while the LiveMetrics pane is open.
+If you open the Live Metrics pane, the SDKs switch to a higher frequency mode and send new metrics to QuickPulse every second. This allows you to monitor and diagnose your live application with 1-second latency, but also generates more network traffic. To restore normal flow of traffic, naviage away from the Live Metrics pane.
+
+> [!NOTE]
+> The REST API calls made by the SDKs to QuickPulse endpoints are not tracked by Application Insights and do not affect your dependency calls or other metrics. However, you may see them in other network monitoring tools.
 
 ## Next steps
 

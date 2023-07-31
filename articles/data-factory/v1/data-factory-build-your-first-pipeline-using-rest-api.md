@@ -52,9 +52,9 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
   3. Run **Get-AzSubscription -SubscriptionName NameOfAzureSubscription | Set-AzContext** to select the subscription that you want to work with. Replace **NameOfAzureSubscription** with the name of your Azure subscription.
 * Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell:
 
-	```powershell
-	New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
-	```
+    ```powershell
+    New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```
 
    Some of the steps in this tutorial assume that you use the resource group named ADFTutorialResourceGroup. If you use a different resource group, you need to use the name of your resource group in place of ADFTutorialResourceGroup in this tutorial.
 
@@ -292,17 +292,17 @@ In this step, you create an Azure Data Factory named **FirstDataFactoryREST**. A
 
     ```powershell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@datafactory.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
-	```
+    ```
 2. Run the command by using **Invoke-Command**.
 
-	```powershell
-	$results = Invoke-Command -scriptblock $cmd;
-	```
+    ```powershell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. View the results. If the data factory has been successfully created, you see the JSON for the data factory in the **results**; otherwise, you see an error message.
 
-	```powershell
-	Write-Host $results
-	```
+    ```powershell
+    Write-Host $results
+    ```
 
 Note the following points:
 
@@ -383,38 +383,38 @@ In this step, you create the input dataset to represent input data stored in the
 
 1. Assign the command to variable named **cmd**.
 
-	```powershell
-	$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
-	```
+    ```powershell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
+    ```
 2. Run the command by using **Invoke-Command**.
 
-	```powershell
-	$results = Invoke-Command -scriptblock $cmd;
-	```
+    ```powershell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.
 
-	```powershell
-	Write-Host $results
-	```
+    ```powershell
+    Write-Host $results
+    ```
 
 ### Create output dataset
 In this step, you create the output dataset to represent output data stored in the Azure Blob storage.
 
 1. Assign the command to variable named **cmd**.
 
-	```powershell
-	$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobOutput?api-version=2015-10-01};
-	```
+    ```powershell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobOutput?api-version=2015-10-01};
+    ```
 2. Run the command by using **Invoke-Command**.
 
-	```powershell
-	$results = Invoke-Command -scriptblock $cmd;
-	```
+    ```powershell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.
 
-	```powershell
-	Write-Host $results
-	```
+    ```powershell
+    Write-Host $results
+    ```
 
 ## Create pipeline
 In this step, you create your first pipeline with a **HDInsightHive** activity. Input slice is available monthly (frequency: Month, interval: 1), output slice is produced monthly, and the scheduler property for the activity is also set to monthly. The settings for the output dataset and the activity scheduler must match. Currently, output dataset is what drives the schedule, so you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset.
@@ -423,19 +423,19 @@ Confirm that you see the **input.log** file in the **adfgetstarted/inputdata** f
 
 1. Assign the command to variable named **cmd**.
 
-	```powershell
-	$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
-	```
+    ```powershell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
+    ```
 2. Run the command by using **Invoke-Command**.
 
-	```powershell
-	$results = Invoke-Command -scriptblock $cmd;
-	```
+    ```powershell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.
 
-	```powershell
-	Write-Host $results
-	```
+    ```powershell
+    Write-Host $results
+    ```
 4. Congratulations, you have successfully created your first pipeline using Azure PowerShell!
 
 ## Monitor pipeline
