@@ -36,18 +36,18 @@ If you must use the same UDF multiple times in a query, you should reference the
 
 The following example registers a UDF under an item container in the Azure Cosmos DB database. The example creates a UDF whose name is `REGEX_MATCH`. It accepts two JSON string values, `input` and `pattern`, and checks if the first matches the pattern specified in the second using JavaScript's `string.match()` function.
 
-```javascript
-       UserDefinedFunction regexMatchUdf = new UserDefinedFunction
-       {
-           Id = "REGEX_MATCH",
-           Body = @"function (input, pattern) {
-                      return input.match(pattern) !== null;
-                   };",
-       };
+```csharp
+var regexMatchUdf = new UserDefinedFunctionProperties
+{
+  Id = "REGEX_MATCH",
+  Body = @"function (input, pattern) {
+    return input.match(pattern) !== null;
+  };",
+};
 
-       UserDefinedFunction createdUdf = client.CreateUserDefinedFunctionAsync(
-           UriFactory.CreateDocumentCollectionUri("myDatabase", "families"),
-           regexMatchUdf).Result;  
+var response = await container.Scripts.CreateUserDefinedFunctionAsync(regexMatchUdf);
+
+Console.WriteLine($"Created UDF [{response.Resource?.Id}]");
 ```
 
 Now, use this UDF in a query projection. You must qualify UDFs with the case-sensitive prefix `udf.` when calling them from within queries.
