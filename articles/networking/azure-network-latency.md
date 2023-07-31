@@ -28,7 +28,7 @@ The monthly Percentile P50 round trip times between Azure regions for a 30-day w
 
 #### [North America / South America](#tab/Americas)
 
-Listing of Western Hemisphere regions including US, Canada, and Brazil.
+Listing of Americas regions including US, Canada, and Brazil.
 
 #### [Europe](#tab/Europe)
 
@@ -673,6 +673,10 @@ Listing of Middle East / Africa regions including UAE, South Africa, and Qatar.
 |West US 3|296|277|
 
 ---
+
+Additionally, you can view all of the data in a single table.
+
+:::image type="content" source="media/azure-network-latency/azure-network-latency.png" alt-text="Screenshot of full region latency table" lightbox="media/azure-network-latency/azure-network-latency-thumb.png":::
 
 ## Next steps
 
