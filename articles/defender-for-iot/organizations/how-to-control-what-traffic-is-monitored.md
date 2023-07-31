@@ -47,11 +47,11 @@ After [onboarding](onboard-sensors.md) a new OT network sensor to Microsoft Defe
 
 1. Wait for the analysis to complete, and then check each interface tab to understand whether the interface is monitoring relevant traffic, or needs further fine-tuning.
 
-If the traffic shown on the **Deployment** page isn't what you expect, [fine-tune your deployment](#fine-tune-your-deployment). If you make any changes and want to analyze the traffic again to see if it's improved, select **Analyze** again to see the updated monitoring state.
+If the traffic shown on the **Deployment** page isn't what you expect, you might need to fine tune your deployment by changing the sensor's location in the network, or verifying that your monitoring interfaces are connected correctly. If you make any changes and want to analyze the traffic again to see if it's improved, select **Analyze** again to see the updated monitoring state.
 
-## Fine-tune your deployment
+## Fine tune your subnet list
 
-After having analyzed the traffic your sensor is monitoring, you may need to fine-tune your deployment. Use this procedure to ensure that all traffic you want to monitor is being detected by your sensor.
+After having analyzed the traffic your sensor is monitoring and fine tuning the deployment, you may need to further fine tune your subnet list. Use this procedure to ensure that your subnets are configured correctly.
 
 While your OT sensor automatically learns your network subnets during the initial deployment, we recommend analyzing the detected traffic and updating them as needed to optimize your map views and device inventory. 
 
