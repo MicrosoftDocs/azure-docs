@@ -1,5 +1,5 @@
 ---
-title: Test the Defender for Storage data security features - Microsoft Defender for Cloud
+title: Test the Defender for Storage data security features
 description: Learn how to test the Malware Scanning, sensitive data threat detection, and activity monitoring provided by Defender for Storage.
 author: dcurwin
 ms.author: dacurwin
@@ -14,10 +14,13 @@ After you [enable Microsoft Defender for Storage](../storage/common/azure-defend
 There are three main components to test:
 
 - Malware Scanning (if enabled)
-
 - Sensitive data threat detection (if enabled)
-
 - Activity monitoring
+
+> [!TIP] 
+> **A hands-on lab to try out Malware Scanning in Defender for Storage**
+> 
+> We recommend you try the [Ninja training instructions](https://aka.ms/DfStorage/NinjaTrainingLab) for detailed step-by-step instructions on how to test Malware Scanning end-to-end with setting up responses to scanning results. This is part of the 'labs' project that helps customers get ramped up with Microsoft Defender for Cloud and provide hands-on practical experience with its capabilities. 
 
 ## Testing Malware Scanning
 
@@ -197,3 +200,6 @@ Learn more about:
 - [Threat response](defender-for-storage-threats-alerts.md)
 - [Customizing data sensitivity settings](defender-for-storage-data-sensitivity.md)
 - [Threat detection and alerts](defender-for-storage-threats-alerts.md)
+
+
+

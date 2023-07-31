@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/07/2023
 ms.author: turao
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
+ms.custom: ignite-2022
 ms.devlang: azurecli
 ---
 

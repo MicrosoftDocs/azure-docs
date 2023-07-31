@@ -21,7 +21,7 @@ In this article, you'll learn how to configure a Virtual Machine Scale Set with 
 
 ## Sign in to the Azure portal
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 
 

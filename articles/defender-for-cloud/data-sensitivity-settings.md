@@ -1,5 +1,5 @@
 ---
-title: Customize data sensitivity settings in Microsoft Defender for Cloud
+title: Customize data sensitivity settings
 description: Learn how to customize data sensitivity settings in Defender for Cloud
 author: dcurwin
 ms.author: dacurwin
@@ -44,7 +44,7 @@ Import as follows (Import only once):
 
 To customize data sensitivity settings that appear in Defender for Cloud, review the [prerequisites](concept-data-security-posture-prepare.md#configuring-data-sensitivity-settings), and then do the following.
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
 1. Select **Data sensitivity**.
 1. Select the info type category that you want to customize:
@@ -65,7 +65,7 @@ If you're using Microsoft Purview sensitivity labels, make sure that:
 -  the label scope is set to "Items"; under which you should configure [auto labeling for files and emails](/microsoft-365/compliance/apply-sensitivity-label-automatically#how-to-configure-auto-labeling-for-office-apps)
 - labels must be [published](/microsoft-365/compliance/create-sensitivity-labels#publish-sensitivity-labels-by-creating-a-label-policy) with a label policy that is in effect. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
 1. Select **Data sensitivity**.
     The current minimum sensitivity threshold is shown.
