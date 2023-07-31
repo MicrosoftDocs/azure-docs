@@ -15,7 +15,7 @@ In this article, you learn how to use hints to guide the placement of virtual ma
 
 Affinity rules allow you to specify that virtual machines should be hosted on the same physical machine or rack. Conversely, anti-affinity rules ensure that virtual machines are hosted on different physical machines or racks.
 
-You can increase the overall resilience of your application by using anti-affinity rules to spread virtual machines across different failure domains (racks, physical machines, etc). You can increase the cost efficiency of your application by using affinity rules to pack virtual machines onto fewer physical machines.
+You can increase the overall resilience of your application by using anti-affinity rules to spread virtual machines across different failure domains (racks, physical machines, etc.). You can increase the cost efficiency of your application by using affinity rules to pack virtual machines onto fewer physical machines.
 
 ## Prerequisites
 
@@ -42,8 +42,8 @@ The `hintType` argument is used in placement hints to specify whether the placem
 
 The hintType argument has two possible values: `Affinity` or `AntiAffinity`.
 
-* Affinity: If the hintType is set to Affinity, the placement hint is used to create an affinity rule between the resource and the referenced resources. As a result, the VM is scheduled on the same bare-metal machine, rack, or close to the virtual machine instance as the referenced resource.
-* AntiAffinity: If the hintType is set to AntiAffinity, the placement hint is used to create an anti-affinity rule between the resource and the referenced resources. As a result, the VM is scheduled on a different bare-metal machine, rack, or virtual machine instance from the referenced resource.
+* Affinity: If the hintType is set to Affinity, the placement hint is used to create an affinity rule between the VM and the referenced resources. As a result, the VM is scheduled on the specific bare-metal machine, rack, or close to the virtual machine instance as the referenced resource.
+* AntiAffinity: If the hintType is set to AntiAffinity, the placement hint is used to create an anti-affinity rule between the VM and the referenced resources. As a result, the VM is scheduled on a different bare-metal machine, rack, or virtual machine instance from the referenced resource.
 
 ### Resource ID
 
@@ -53,21 +53,17 @@ The `resourceId` argument in placement hints specifies the target object against
 * A BareMetalMachine: If the target object is a bare-metal machine, the placement hint is checked against that specific bare-metal machine.
 * A Rack: If the target object is a rack, the placement hint is checked against all the bare-metal machines running on that rack.
 
-The resourceId argument is typically used to create affinity or anti-affinity rules between virtual machines, bare-metal machines, or racks. If you want to ensure that two virtual machines are always placed on the same bare-metal machine, you could specify the bare-metal machine's resourceId in the placement hint.
-
 > [!IMPORTANT]
 > The resourceId argument must be specified in the form of an ARM ID, and it must be a valid resource ID for the target object. If the resourceId is incorrect or invalid, the placement hint will not work correctly, and the VM scheduling may fail.
 
 ### Scope
 
-The `scope` argument is used in placement hints to specify the scope of the virtual machine affinity or anti-affinity placement hint. The scope argument is only applicable when the placement hint targets virtual machines, not non-VM resources like racks or bare-metal machines.
+The `scope` argument is used in placement hints to specify the scope of the virtual machine affinity or anti-affinity placement hint. The scope argument is only applicable when the `resourceId` argument targets a virtual machine.
 
 The scope argument has two possible values: `Machine` or `Rack`.
 
-* Machine: If the scope is set to Machine, the placement hint applies to the specific virtual machine instance. For example, if the placement hint specifies that the VM should be placed on the same machine as another existing VM, the scope would be set to Machine.
-* Rack: If the scope is set to Rack, the placement hint applies to all the virtual machines running on a specific rack. For example, if the placement hint specifies that the VM should be placed on a rack that already has other VMs running, the scope would be set to Rack.
-
-In general, the scope argument helps placement engine in determining the correct level of granularity to apply the placement hint. If the scope is set incorrectly, the VM may not be scheduled to the desired resource, and the scheduling may fail.
+* Machine: If the scope is set to Machine, the placement hint applies to the same bare-metal machine as the specified virtual machine. For example, if the placement hint specifies that the VM should be placed on the same bare-metal machine as specified VM, the scope would be set to Machine.
+* Rack: If the scope is set to Rack, the placement hint applies to the rack that the specified virtual machine belongs to. For example, if the placement hint specifies that the VM should be placed on the same rack that the specified virtual machine is currently placed, the scope would be set to Rack.
 
 > [!IMPORTANT]
 > This argument cannot be left blank.
@@ -216,7 +212,7 @@ In this example, we explore the concepts of soft and hard affinities, particular
 This placement hint uses the `Affinity` hintType to ensure that the virtual machine is only scheduled on the specified bare-metal machine with the given bare-metal machine ID. If the bare-metal machine is unavailable or lacks capacity, the scheduling fails. This placement hint can be useful in situations where you want to ensure that certain virtual machines are placed on specific bare-metal machine for performance, security, or other reasons.
 
 ```bash
---placement-hints '[{"hintType":"Affinity","resourceId":"/subscriptions/<subscription>/resourceGroups/<managed-resource-group>/providers/Microsoft.NetworkCloud/bareMetalMachines/<machine-name>","schedulingExecution":"Hard","scope":"Rack"}]'
+--placement-hints '[{"hintType":"Affinity","resourceId":"/subscriptions/<subscription>/resourceGroups/<managed-resource-group>/providers/Microsoft.NetworkCloud/bareMetalMachines/<machine-name>","schedulingExecution":"Hard","scope":"Machine"}]'
 ```
 
 #### Preferred scheduling (bare-metal machine affinity)
@@ -224,7 +220,7 @@ This placement hint uses the `Affinity` hintType to ensure that the virtual mach
 This placement hint utilizes the `Affinity` hintType to establish an affinity rule between the virtual machine and the designated bare-metal machine. It also employs a `Soft` schedulingExecution to enable the VM to be placed on an alternative bare-metal machine in case the specified bare-metal machine isn't accessible or lacks capacity.
 
 ```bash
---placement-hints '[{"hintType":"Affinity","resourceId":"/subscriptions/<subscription>/resourceGroups/<managed-resource-group>/providers/Microsoft.NetworkCloud/bareMetalMachines/<machine-name>","schedulingExecution":"Soft","scope":"Rack"}]'
+--placement-hints '[{"hintType":"Affinity","resourceId":"/subscriptions/<subscription>/resourceGroups/<managed-resource-group>/providers/Microsoft.NetworkCloud/bareMetalMachines/<machine-name>","schedulingExecution":"Soft","scope":"Machine"}]'
 ```
 
 ### Prevent virtual machine from being placed on a specific bare-metal machine
@@ -236,7 +232,7 @@ In this example, we explore the concepts of soft and hard anti-affinities, parti
 This placement hint uses both the `AntiAffinity` hintType and `Hard` schedulingExecution to prevent the virtual machine from being scheduled on the specified bare-metal machine identified by the bare-metal machine ID. In this configuration, the scheduler strictly follows these placement hints. However, if the bare-metal machine ID is incorrect or there's not enough capacity on other bare-metal machines, the VM placement may fail due to the strict application of the `Hard` scheduling rule
 
 ```bash
---placement-hints '[{"hintType":"AntiAffinity","resourceId":"/subscriptions/<subscription>/resourceGroups/<managed-resource-group>/providers/Microsoft.NetworkCloud/bareMetalMachines/<machine-name>","schedulingExecution":"Hard","scope":"Rack"}]'
+--placement-hints '[{"hintType":"AntiAffinity","resourceId":"/subscriptions/<subscription>/resourceGroups/<managed-resource-group>/providers/Microsoft.NetworkCloud/bareMetalMachines/<machine-name>","schedulingExecution":"Hard","scope":"Machine"}]'
 ```
 
 #### Preferred scheduling (bare-metal machine anti-affinity)
@@ -244,7 +240,7 @@ This placement hint uses both the `AntiAffinity` hintType and `Hard` schedulingE
 This placement hint uses the `AntiAffinity` hintType with the intention of avoiding a specific bare-metal machine for the virtual machine's placement. However, it's important to note that despite this preference, the VM could still be placed on this undesired bare-metal machine if other bare-metal machines don't have enough capacity. This placement happens because the schedulingExecution is set to `Soft`, which allows for the VM to be accommodated on the initially avoided bare-metal machine if other options aren't feasible.
 
 ```bash
---placement-hints '[{"hintType":"AntiAffinity","resourceId":"/subscriptions/<subscription>/resourceGroups/<managed-resource-group>/providers/Microsoft.NetworkCloud/bareMetalMachines/<machine-name>","schedulingExecution":"Soft","scope":"Rack"}]'
+--placement-hints '[{"hintType":"AntiAffinity","resourceId":"/subscriptions/<subscription>/resourceGroups/<managed-resource-group>/providers/Microsoft.NetworkCloud/bareMetalMachines/<machine-name>","schedulingExecution":"Soft","scope":"Machine"}]'
 ```
 
 ## VM to VM affinity and anti-affinity placement hints example
