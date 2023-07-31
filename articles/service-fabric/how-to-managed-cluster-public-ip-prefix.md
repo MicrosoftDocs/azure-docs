@@ -1,3 +1,15 @@
+---
+title: Use a Public IP address prefix for a Service Fabric managed cluster
+description: This article describes how to enable Public IP address prefix for Azure Service Fabric managed clusters.
+ms.topic: how-to
+ms.author: ankurjain
+author: ankurjain
+ms.service: service-fabric
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
+services: service-fabric
+ms.date: 07/05/2023
+---
+
 # Use a Public IP address prefix for a Service Fabric managed cluster
 
 Public IP Prefix allows you to reserve a range of [public IP addresses](public-ip-addresses.md#public-ip-addresses) for your public endpoints in Azure. Public IP prefixes are assigned from a pool of addresses in each Azure region. You create a public IP address prefix in an Azure region and subscription by specifying a name and prefix size, which is the number of addresses available for use. For example, if you would like to configure VM Scale Sets, application gateways, or load balancers to be public facing, you need public IP addresses for them. A public IP prefix enables you to use one prefix to manage all IP addresses effectively.
