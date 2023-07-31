@@ -1,14 +1,13 @@
 ---
 title: 'Troubleshoot an Azure site-to-site VPN connection that can't connect'
 titleSuffix: Azure VPN Gateway
-description: Learn how to troubleshoot a site-to-site VPN connection that suddenly stops working and can't be reconnected. 
+description: Learn how to troubleshoot a site-to-site VPN connection that suddenly stops working and can't be reconnected.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 07/31/2023
-ms.author: cherylmc
+ms.date: 07/28/2023
+ms.author: cherylmc 
 ---
-
 # Troubleshooting: An Azure site-to-site VPN connection can't connect and stops working
 
 After you configure a site-to-site VPN connection between an on-premises network and an Azure virtual network, the VPN connection suddenly stops working and can't be reconnected. This article provides troubleshooting steps to help you resolve this problem.
