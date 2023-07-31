@@ -1,33 +1,36 @@
 ---
-title: Geospatial and GeoJSON location data in Azure Cosmos DB
-description: Understand how to create spatial objects with Azure Cosmos DB and the API for NoSQL.
-author: seesharprun
+title: Geospatial and GeoJSON location data
+titleSuffix: Azure Cosmos DB for NoSQL
+description: Create spatial objects with Azure Cosmos DB for NoSQL, index these objects, and perform queries using them.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 02/17/2022
-ms.author: sidandrews
-ms.reviewer: jucocchi
-ms.custom: ignite-2022
+ms.topic: reference
+ms.date: 07/31/2023
+ms.custom: query-reference
 ---
-# Geospatial and GeoJSON location data in Azure Cosmos DB
+
+# Geospatial and GeoJSON location data in Azure Cosmos DB for NoSQL
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-This article is an introduction to the geospatial functionality in Azure Cosmos DB. After reading our documentation on geospatial indexing you will be able to answer the following questions:
+This article is an introduction to the geospatial functionality in Azure Cosmos DB. After reading our documentation on geospatial indexing, you'll be able to answer the following questions:
 
-* How do I store spatial data in Azure Cosmos DB?
-* How can I query spatial data in Azure Cosmos DB in SQL and LINQ?
-* How do I enable or disable spatial indexing in Azure Cosmos DB?
+- How do I store spatial data in Azure Cosmos DB?
+- How can I query spatial data in Azure Cosmos DB in SQL and LINQ?
+- How do I enable or disable spatial indexing in Azure Cosmos DB?
 
 ## Spatial Data Use Cases
 
 Geospatial data often involve proximity queries, for example, "find all coffee shops near my current location". Common use cases are:
 
-* Geolocation Analytics, driving specific located marketing initiatives.
-* Location based personalization, for multiple industries like Retail and Healthcare.
-* Logistics enhancement, for transport optimization.
-* Risk Analysis, especially for insurance and finance companies.
-* Situational awareness, for alerts and notifications.
+- Geolocation Analytics, driving specific located marketing initiatives.
+- Location based personalization, for multiple industries like Retail and Healthcare.
+- Logistics enhancement, for transport optimization.
+- Risk Analysis, especially for insurance and finance companies.
+- Situational awareness, for alerts and notifications.
 
 ## Introduction to spatial data
 
@@ -138,7 +141,7 @@ A **Polygon** is a boundary of connected points that forms a closed LineString. 
 
 ### MultiPolygons
 
-A **MultiPolygon** is an array of zero or more Polygons. **MultiPolygons** cannot overlap sides or have any common area. They may touch at one or more points.
+A **MultiPolygon** is an array of zero or more Polygons. **MultiPolygons** can't overlap sides or have any common area. They may touch at one or more points.
 
 **MultiPolygons in GeoJSON**
 
@@ -169,7 +172,7 @@ Since the shape of the earth is irregular, coordinates of geography geospatial d
 The most popular CRS in use today is the World Geodetic System  [WGS-84](https://earth-info.nga.mil/GandG/update/index.php). GPS devices, and many mapping services including Google Maps and Bing Maps APIs use WGS-84. Azure Cosmos DB supports indexing and querying of geography geospatial data using the WGS-84 CRS only.
 
 ## Creating documents with spatial data
-When you create documents that contain GeoJSON values, they are automatically indexed with a spatial index in accordance to the indexing policy of the container. If you're working with an Azure Cosmos DB SDK in a dynamically typed language like Python or Node.js, you must create valid GeoJSON.
+When you create documents that contain GeoJSON values, they're automatically indexed with a spatial index in accordance to the indexing policy of the container. If you're working with an Azure Cosmos DB SDK in a dynamically typed language like Python or Node.js, you must create valid GeoJSON.
 
 **Create Document with Geospatial data in Node.js**
 
@@ -216,8 +219,5 @@ If you don't have the latitude and longitude information, but have the physical 
 
 ## Next steps
 
-Now that you have learned how to get started with geospatial support in Azure Cosmos DB, next you can:
-
-* Learn more about [Azure Cosmos DB Query](getting-started.md)
-* Learn more about [Querying spatial data with Azure Cosmos DB](geospatial-query.md)
-* Learn more about [Index spatial data with Azure Cosmos DB](geospatial-index.md)
+- [Objects and arrays](object-array.md)
+- [Index and query GeoJSON location data](../how-to-geospatial-index-query.md)
