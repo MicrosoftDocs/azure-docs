@@ -8,7 +8,7 @@ ms.date: 07/25/2023
 
 ---
 
-# Set-up features for Azure Native Qumulo Scalable File Service
+# Get Started with Azure Native Qumulo Scalable File Service: Key Features and Set-Up Guides
 
 In this article, you learn about the key capabilities of Azure Native Qumulo Scalable File Service.
 
@@ -28,7 +28,7 @@ Key links to get started:
 
 ## Monitoring and auditing
 
-Azure Native Qumulo Scalable File Service provides built-in system and data analytics to provide instant, real-time insight to file system capacity and activity. You can also integrate  Qumulo events using Azure Monitoring Agent and then use Azure Monitor to track Qumulo system operations.
+Azure Native Qumulo Scalable File Service provides built-in system and data analytics that offer instant, real-time insight into file system capacity and activity. Additionally, you can integrate Qumulo events using Azure Monitoring Agent and then use Azure Monitor to track Qumulo system operations.
 
 Key links to get started:
 
@@ -38,14 +38,27 @@ Key links to get started:
 
 ## Authentication
 
-- Azure Native Qumulo Scalable File Service enables you to connect to [Azure Active Directory](https://care.qumulo.com/hc/en-us/articles/115007276068-Join-your-Qumulo-Cluster-to-Active-Directory#in-this-article-0-0) or - [Active Directory Domain Services](https://care.qumulo.com/hc/en-us/articles/1500005254761-Qumulo-on-Azure-Connect-to-Azure-Active-Directory).
+Azure Native Qumulo Scalable File Service enables you to connect to:
+- [Azure Active Directory](https://care.qumulo.com/hc/en-us/articles/115007276068-Join-your-Qumulo-Cluster-to-Active-Directory#in-this-article-0-0), or
+- [Active Directory Domain Services](https://care.qumulo.com/hc/en-us/articles/1500005254761-Qumulo-on-Azure-Connect-to-Azure-Active-Directory).
 
 ## Developer tools
 
-Qumulo provides a rich set of developer tools to enable easier integration and management.
+Qumulo offers a comprehensive suite of developer tools that facilitate seamless integration and streamlined management.
 
 Key links to get started:
 
 - [Qumulo CLI](https://care.qumulo.com/hc/en-us/articles/115013331308-QQ-CLI-Comprehensive-List-of-Commands#in-this-article-0-0)
 - [Qumulo REST API](https://care.qumulo.com/hc/en-us/articles/115007063227-Getting-Started-with-Qumulo-Core-REST-API#in-this-article-0-0)
 - [Qumulo PowerShell Toolkit](https://github.com/Qumulo/PowerShellToolkit)
+
+## Next steps
+
+- For more help with using Azure Native Qumulo Scalable File Service, see the [Qumulo documentation](https://docs.qumulo.com/cloud-guide/azure/).
+- Get started with Azure Native Qumulo Scalable File Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Qumulo.Storage%2FfileSystems)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qumulo1584033880660.qumulo-saas-mpp?tab=Overview)
