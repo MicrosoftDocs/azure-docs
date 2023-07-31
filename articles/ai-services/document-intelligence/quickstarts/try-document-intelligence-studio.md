@@ -55,21 +55,6 @@ Prebuilt models help you add Document Intelligence features to your apps without
 * [**Custom extraction models**](https://formrecognizer.appliedai.azure.com/studio): extract information from forms and documents with custom extraction models. Quickly train a model by labeling as few as five sample documents.
 * [**Custom classification model**](https://formrecognizer.appliedai.azure.com/studio): train a custom classifier to distinguish between the different document types within your applications. Quickly train a model with as few as two classes and five samples per class.
 
-#### Gated preview models
-
-> [!NOTE]
-> To request access for gated preview models in Document Intelligence Studio, complete and submit the [**Document Intelligence private preview request form**](https://aka.ms/form-recognizer/preview/survey).
-
-* [**General document with query fields**](https://formrecognizer.appliedai.azure.com/studio): extract labels, values such as names, dates, and amounts from documents.
-* [**Contract**](https://formrecognizer.appliedai.azure.com/studio): extract the title and signatory party information (including names, references, and addresses) from contracts.
-* [**Vaccination card**](https://formrecognizer.appliedai.azure.com/studio): extract card holder name, health provider, and vaccination records from US COVID-19 vaccination cards.
-* [**US 1098 tax form**](https://formrecognizer.appliedai.azure.com/studio): extract mortgage interest information from US 1098 tax forms.
-* [**US 1098-E tax form**](https://formrecognizer.appliedai.azure.com/studio): extract student loan information from US 1098-E tax forms.
-* [**US 1098-T tax form**](https://formrecognizer.appliedai.azure.com/studio): extract tuition information from US 1098-T forms.
-
-> [!NOTE]
-> To request access for gated preview models in Document Intelligence Studio, complete and submit the [**Document Intelligence private preview request form**](https://aka.ms/form-recognizer/preview/survey).
-
 After you've completed the prerequisites, navigate to [Document Intelligence Studio General Documents](https://formrecognizer.appliedai.azure.com/studio/document).
 
 In the following example, we use the General Documents feature. The steps to use other pretrained features like [W2 tax form](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2), [Read](https://formrecognizer.appliedai.azure.com/studio/read), [Layout](https://formrecognizer.appliedai.azure.com/studio/layout), [Invoice](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice), [Receipt](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt), [Business card](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard), and [ID documents](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument) models are similar.
@@ -161,13 +146,15 @@ To create custom models, you start with configuring your project:
 
 1. Review and submit your settings to create the project.
 
-1. From the labeling view, define the labels and their types that you're interested in extracting.
+1. To quickstart the labeling process, use the auto label feature to label using already trained model or one of our prebuilt models.
+
+1. For manual labeling from scratch, define the labels and their types that you're interested in extracting.
 
 1. Select the text in the document and select the label from the drop-down list or the labels pane.
 
 1. Label four more documents to get at least five documents labeled.
 
-1. Select the Train command and enter model name, select whether you want the custom template (form) or custom neural (document) model to start training your custom model.
+1. Select the Train command and enter model name, select whether you want the neural (recommended) or template model to start training your custom model.
 
 1. Once the model is ready, use the Test command to validate it with your test documents and observe the results.
 
