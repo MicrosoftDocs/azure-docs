@@ -55,7 +55,7 @@ The `resourceId` argument in placement hints specifies the target object against
 The resourceId argument is typically used to create affinity or anti-affinity rules between virtual machines, bare-metal machines, or racks. If you want to ensure that two virtual machines are always placed on the same bare-metal machine, you could specify the bare-metal machine's resourceId in the placement hint.
 
 > [!IMPORTANT]
-> The resourceId argument must be specified in the form of an ARM ID, and it must be a valid resource ID for the target object. If the resourceId is incorrect or invalid, the placement hint may not work correctly, and the VM scheduling may fail.
+> The resourceId argument must be specified in the form of an ARM ID, and it must be a valid resource ID for the target object. If the resourceId is incorrect or invalid, the placement hint will not work correctly, and the VM scheduling may fail.
 
 ### Scope
 
