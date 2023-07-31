@@ -42,7 +42,7 @@ Listing of Middle East / Africa regions including UAE, South Africa, and Qatar.
 
 #### [US](#tab/US/Americas)
 
-| Source              | East US | East US 2 | North Central US | Central US | South Central US | West Central US | West US | West US 2 | West US 3 |
+| Source              | East US | East US 2 | North</br>Central US | Central US | South</br>Central US | West</br>Central US | West US | West US 2 | West US 3 |
 |---------------------|---------|-----------|------------------|-------------|----------------------|------------------|----------|------------|------------|
 | Australia Central     | 213     | 208       | 193              | 180         | 175                  | 167              | 144      | 164        | 158        |
 | Australia Central 2   | 213     | 209       | 193              | 181         | 176                  | 167              | 144      | 164        | 158        |
@@ -59,24 +59,24 @@ Listing of Middle East / Africa regions including UAE, South Africa, and Qatar.
 | France Central        | 82      | 85        | 97               | 104         | 112                  | 120              | 142      | 142        | 130        |
 | France South          | 92      | 96        | 108              | 113         | 122                  | 128              | 151      | 149        | 140        |
 | Germany North         | 94      | 98        | 111              | 116         | 125                  | 131              | 155      | 152        | 143        |
-| Germany West Central  | 87      | 91        | 103              | 109         | 117                  | 124              | 147      | 145        | 135        |
+| Germany</br>West Central  | 87      | 91        | 103              | 109         | 117                  | 124              | 147      | 145        | 135        |
 | Japan East            | 156     | 151       | 142              | 134         | 125                  | 120              | 106      | 98         | 108        |
 | Japan West            | 163     | 158       | 148              | 141         | 132                  | 127              | 113      | 105        | 115        |
 | Korea Central         | 184     | 184       | 165              | 158         | 152                  | 144              | 130      | 123        | 135        |
 | Korea South           | 181     | 175       | 164              | 153         | 142                  | 138              | 123      | 116        | 125        |
-| North Central US      | 19      | 22        |                  | 9           | 33                   | 26               | 49       | 47         | 51         |
+| North Central</br>US      | 19      | 22        |                  | 9           | 33                   | 26               | 49       | 47         | 51         |
 | North Europe          | 67      | 71        | 85               | 94          | 98                   | 108              | 132      | 130        | 119        |
 | Norway East           | 100     | 104       | 115              | 122         | 130                  | 135              | 160      | 157        | 147        |
 | Norway West           | 96      | 99        | 115              | 127         | 131                  | 141              | 164      | 162        | 150        |
 | Qatar Central         | 195     | 196       | 215              | 227         | 226                  | 240              | 264      | 261        | 250        |
-| South Africa North    | 243     | 248       | 263              | 274         | 275                  | 287              | 312      | 309        | 296        |
-| South Africa West     | 225     | 228       | 245              | 256         | 259                  | 270              | 294      | 291        | 277        |
+| South Africa</br>North    | 243     | 248       | 263              | 274         | 275                  | 287              | 312      | 309        | 296        |
+| South Africa</br>West     | 225     | 228       | 245              | 256         | 259                  | 270              | 294      | 291        | 277        |
 | South Central US      | 33      | 28        | 33               | 26          |                      | 24               | 34       | 45         | 20         |
 | South India           | 235     | 233       | 247              | 230         | 234                  | 216              | 202      | 195        | 217        |
 | Southeast Asia        | 223     | 220       | 205              | 197         | 192                  | 184              | 169      | 162        | 175        |
 | Sweden Central        | 110     | 115       | 126              | 132         | 141                  | 150              | 170      | 168        | 159        |
-| Switzerland North     | 94      | 98        | 109              | 115         | 124                  | 130              | 153      | 151        | 142        |
-| Switzerland West      | 91      | 94        | 106              | 112         | 121                  | 126              | 149      | 148        | 138        |
+| Switzerland</br>North     | 94      | 98        | 109              | 115         | 124                  | 130              | 153      | 151        | 142        |
+| Switzerland</br>West      | 91      | 94        | 106              | 112         | 121                  | 126              | 149      | 148        | 138        |
 | UAE Central           | 189     | 187       | 209              | 221         | 215                  | 234              | 258      | 254        | 238        |
 | UAE North             | 190     | 188       | 210              | 222         | 215                  | 235              | 258      | 256        | 239        |
 | UK South              | 76      | 80        | 91               | 98          | 106                  | 112              | 136      | 134        | 124        |
@@ -475,7 +475,7 @@ Listing of Middle East / Africa regions including UAE, South Africa, and Qatar.
 |West US 3|135|124|
 
 
-#### [India / Asia](#tab/India/AsiaPacific)
+#### [India](#tab/India/AsiaPacific)
 
 |Source|Central India|West India|South India|
 |---|---|---|---|
