@@ -8,9 +8,9 @@ ms.date: 07/25/2023
 
 ---
 
-# Set-up features for Azure Native Qumulo Scalable File Service
+# Get Started with Azure Native Qumulo Scalable File Service: Key Features and Set-Up Guides
 
-In this article we will describe list of key capabilities of Azure Native Qumulo Scalable File Service and links to setup these capabilities. 
+This article outlines the key capabilities of Azure Native Qumulo Scalable File Service and provide links to set up these capabilities.
 
 ## Multiprotocol support 
 Azure Native Qumulo Scalable File Service provide multi file-sharing protocols such as NFS, SMB, FTP, and S3. Qumulo’s permissions model blends POSIX, Windows/NFSv4.1 ACLs, and S3 access levels, enabling the same files or objects to be simultaneously accessed across all our supported protocols.
@@ -39,7 +39,7 @@ Azure Native Qumulo Scalable File Service enables you connect to [Azure Active D
 
 ## Developer Tools 
 
-Qumulo provides a rich set of developer tools to enable easier integration and management. 
+Qumulo offers a comprehensive suite of developer tools that facilitate seamless integration and streamlined management.
 
 Key links to get started:
 1. [Qumulo CLI](https://care.qumulo.com/hc/en-us/articles/115013331308-QQ-CLI-Comprehensive-List-of-Commands#in-this-article-0-0)
