@@ -13,14 +13,15 @@ ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 
 In this article, you learn how to use hints to guide the placement of virtual machines within the Azure Operator Nexus environment. These placement hints can be used to create affinity or anti-affinity between virtual machines, bare-metal machines, or racks. Use placement hints to ensure virtual machines are scheduled in the desired way within the Azure Operator Nexus environment.
 
-Affinity rules allow you to specify that certain virtual machines should be hosted on the same physical machine or rack. On the other hand, anti-affinity rules ensure that certain VMs are hosted on different physical machines or racks, increasing the overall resilience of your application.
+Affinity rules allow you to specify that virtual machines should be hosted on the same physical machine or rack. Conversely, anti-affinity rules ensure that virtual machines are hosted on different physical machines or racks.
+
+You can increase the overall resilience of your application by using anti-affinity rules to spread virtual machines across different failure domains (racks, physical machines, etc). You can increase the cost efficiency of your application by using affinity rules to pack virtual machines onto fewer physical machines.
 
 ## Prerequisites
 
-Before proceeding with this how-to guide, it's recommended that you:
+Before proceeding with this how-to guide, ensure you have completed all steps in the Azure
+Operator Nexus virtual machine [QuickStart guide](./quickstarts-tenant-workload-deployment.md).
 
-* Refer to the Nexus virtual machine [QuickStart guide](./quickstarts-tenant-workload-deployment.md) for a comprehensive overview and steps involved.
-* Ensure that you meet the outlined prerequisites to ensure smooth implementation of the guide.
 
 ## Placement hints configuration
 
