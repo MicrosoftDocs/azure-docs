@@ -12,7 +12,7 @@ ms.topic: how-to
 # Geo-replication (Preview) in Azure Web PubSub 
 
 ## What is geo-replication feature?
-Mission critial apps often need to have a robust failover system and serve users closer to where they are. Before the release of the geo-replication feature, developers needed to deploy multiple Web PubSub resources and write custom code to orchestrate communcation across resources. Now, with quick configuration through Azure portal, you can easily enable this feature. 
+Mission critical apps often need to have a robust failover system and serve users closer to where they are. Before the release of the geo-replication feature, developers needed to deploy multiple Web PubSub resources and write custom code to orchestrate communication across resources. Now, with quick configuration through Azure portal, you can easily enable this feature. 
 
 ## Benefits of using geo-replication
 * **More resilient to regional outage:** If a regional outage happens, clients will be automatically routed to a healthy replica.
@@ -65,12 +65,12 @@ To delete a replica in the Azure portal:
 2. Click Delete button on the replica overview blade.
 
 ## Impact on performance after enabling geo-replication feature
-After creating a replica, your clients will be distributed across selected Azure regions based on their geographical locations. Web PubSub service handles synchronizing data across these replicas automatically and this synchronization incurs a low level of cost. The cost is negligible if your use case primarily involves `sendToGroup()` where the group has more than 100 connections. However, the cost may become more apparent when sending to smaller groups (connection count < 10) or a single user. 
+After a replica is created, your clients will be distributed across selected Azure regions based on their geographical locations. Web PubSub service handles synchronizing data across these replicas automatically and this synchronization incurs a low level of cost. The cost is negligible if your use case primarily involves `sendToGroup()` where the group has more than 100 connections. However, the cost may become more apparent when sending to smaller groups (connection count < 10) or a single user. 
 
 For more performance evaluation, refer to [Performance](concept-performance.md).
 
 ## Best practices
-To ensure effective failover management, it is recommended to enable [autoscaling](howto-scale-autoscale.md) for the resource and its replicas. If there are two replias in a Web PubSub resource and one of the replicas is not available due to an outage, the available replica will receive all the traffic and handle all the WebSocket connections. Auto-scaling can scale up to meet the demand automatically.
+To ensure effective failover management, it is recommended to enable [autoscaling](howto-scale-autoscale.md) for the resource and its replicas. If there are two replicas in a Web PubSub resource and one of the replicas is not available due to an outage, the available replica will receive all the traffic and handle all the WebSocket connections. Auto-scaling can scale up to meet the demand automatically.
 > [!NOTE]
 > * Autoscaling for replica is configured on its own resource level. Scaling primary resource won't change the unit size of the replica.
 
