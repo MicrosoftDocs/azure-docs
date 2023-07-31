@@ -77,7 +77,7 @@ Update the configuration of the VNet in each location (region) where the API Man
 
 #### Prerequisites
 
-* A new subnet in the current virtual network. (Alternatively, set up a subnet in a different virtual network in the same region and subscription as your API Management instance). A network security group must be attached to the subnet, and [NSG rules](api-management-using-with-vnet.ms#configure-nsg-rules) for API Management must be configured.
+* A new subnet in the current virtual network. (Alternatively, set up a subnet in a different virtual network in the same region and subscription as your API Management instance). A network security group must be attached to the subnet, and [NSG rules](api-management-using-with-vnet.md#configure-nsg-rules) for API Management must be configured.
 
 * A Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region and subscription as your API Management instance.
 
@@ -101,11 +101,11 @@ The virtual network configuration is updated, and the instance is migrated to th
 
 ### (Optional) Migrate back to original VNet and subnet
 
-You may optionally reuse the original VNet and subnet in each region you used before migration to the `stv2` platform. To do so, update the VNet configuration again, this time specifying the original VNet and subnet. As in the preceding migration, expect a long-running operation, and expect the VIP address to change.
+You may optionally migrate back to the original VNet and subnet you used in each region before migration to the `stv2` platform. To do so, update the VNet configuration again, this time specifying the original VNet and subnet. As in the preceding migration, expect a long-running operation, and expect the VIP address to change.
 
 #### Prerequisites
 
-* The original subnet and VNet. A network security group must be attached to the subnet, and [NSG rules](api-management-using-with-vnet.ms#configure-nsg-rules) for API Management must be configured.
+* The original subnet and VNet. A network security group must be attached to the subnet, and [NSG rules](api-management-using-with-vnet.md#configure-nsg-rules) for API Management must be configured.
 
 * A new Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region and subscription as your API Management instance.
 
