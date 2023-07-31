@@ -16,7 +16,7 @@ As seen in the diagram below, a service fabric managed cluster with three node t
 ![Diagram depicting a managed cluster using a public IP prefix.](media/how-to-managed-cluster-public-ip-prefix/public-ip-prefix-scenario-diagram.png)
 
 >[!NOTE] 
-> The public IP address prefix in Service Fabric managed cluster only supports IPv4 addresses as of now. But we plan to enable support for IPv6 addresses in near future.
+> The public IP address prefix in Service Fabric managed cluster only supports IPv4 addresses as of now. The support for IPv6 addresses will be enabled in near future.
 
 ## Prefix sizes
 
