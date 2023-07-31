@@ -51,7 +51,7 @@ Audit log data is only kept for 30 days by default, which may not be long enough
 
 - [Stream activity logs to an event hub](/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub) to integrate with other tools, like Azure Monitor or Splunk.
 - [Export activity logs for storage](/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account).
-- [Monitor activity in real-time with Microsoft Sentinel](/azure/sentinel/quickstart-onboard.md).
+- [Monitor activity in real-time with Microsoft Sentinel](/azure/sentinel/quickstart-onboard).
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
