@@ -21,7 +21,7 @@ In Azure Cognitive Search, vector data is represented in fields in a [search ind
 
 + Azure Cognitive Search, in any region and on any tier. 
 
-  Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
+  Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields fails on creation. In this situation, a new service must be created.
 
 + Pre-existing vector embeddings in your source documents. Cognitive Search doesn't generate vectors. We recommend [Azure OpenAI embedding models](/azure/ai-services/openai/concepts/models#embeddings-models) but you can use any model for vectorization. 
 
@@ -54,7 +54,7 @@ The schema must include fields for the document key, vector fields, and any othe
 
 ### [**Azure portal**](#tab/portal-add-field)
 
-If the index doesn't have a vector configuration, you are prompted to create one when you add your first vector field to the index.
+If the index doesn't have a vector configuration, you're prompted to create one when you add your first vector field to the index.
 
 1. [Sign in to Azure portal](https://portal.azure.com) and open your search service page in a browser.
 
@@ -72,9 +72,9 @@ If the index doesn't have a vector configuration, you are prompted to create one
    + Choose type `Collection(Edm.Single)`.
    + Select "Retrievable" if you want the query to return the vector data in search results. If you have other fields with human readable content that you can return as a proxy for the match, you should set "Retrievable" to false to save space.
    + "Searchable" is mandatory for a vector field and can't be set.
-   + "Dimensions" is the length of the vector returned by the model. Set this value to specify `1536` for **text-embeddding-ada-002**, where the input text you provide is described numerically using 1536 dimension.
+   + "Dimensions" is the length of the vector returned by the model. Set this value to specify `1536` for **text-embeddding-ada-002**, where the input text that you provide is described numerically using 1536 dimension.
 
-1. Select or create a vector configuration used for similarity search. Currently, only Hierarchical Navigation Small World (HNSW) is supported. If there is no configuration in the index, select **Create**.
+1. Select or create a vector configuration used for similarity search. Currently, only Hierarchical Navigation Small World (HNSW) is supported. If there's no configuration in the index, select **Create**.
 
    :::image type="content" source="media/vector-search-how-to-create-index/portal-add-vector-configuration.png" alt-text="Screenshot of the vector configuration properties." border="true":::
 
