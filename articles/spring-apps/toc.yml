@@ -150,17 +150,17 @@ items:
     - name: Provisioning
       items:
       - name: Provision using Bicep
-        href: quickstart-deploy-infrastructure-vnet-bicep.md
+        href: quickstart-deploy-infrastructure-vnet-bicep.md?tabs=azure-spring-apps-standard
       - name: Provision using an ARM template
-        href: quickstart-deploy-infrastructure-vnet.md
+        href: quickstart-deploy-infrastructure-vnet.md?tabs=azure-spring-apps-standard
       - name: Provision using Azure CLI
-        href: quickstart-deploy-infrastructure-vnet-azure-cli.md
+        href: quickstart-deploy-infrastructure-vnet-azure-cli.md?tabs=azure-spring-apps-standard
       - name: Provision using Terraform
-        href: quickstart-deploy-infrastructure-vnet-terraform.md
+        href: quickstart-deploy-infrastructure-vnet-terraform.md?tabs=azure-spring-apps-standard
     - name: Develop
       items:
       - name: Prepare a Java Spring app for deployment
-        href: how-to-prepare-app-deployment.md
+        href: how-to-prepare-app-deployment.md?tabs=basic-standard-plan
       - name: Set up a Config Server
         href: how-to-config-server.md
       - name: Enable Service Registration
@@ -282,9 +282,9 @@ items:
       - name: Use managed identities for applications in Azure Spring Apps
         href: how-to-use-managed-identities.md
       - name: Enable system-assigned managed identity
-        href: how-to-enable-system-assigned-managed-identity.md
+        href: how-to-enable-system-assigned-managed-identity.md?pivots=sc-standard
       - name: Manage user-assigned managed identities
-        href: how-to-manage-user-assigned-managed-identities.md
+        href: how-to-manage-user-assigned-managed-identities.md?pivots=sc-standard
       - name: Create roles and permissions
         href: how-to-permissions.md
       - name: Use TLS/SSL certificates
@@ -338,17 +338,17 @@ items:
     - name: Provisioning
       items:
       - name: Provision using Bicep
-        href: quickstart-deploy-infrastructure-vnet-bicep.md
+        href: quickstart-deploy-infrastructure-vnet-bicep.md?tabs=azure-spring-apps-enterprise
       - name: Provision using an ARM template
-        href: quickstart-deploy-infrastructure-vnet.md
+        href: quickstart-deploy-infrastructure-vnet.md?tabs=azure-spring-apps-enterprise
       - name: Provision using Azure CLI
-        href: quickstart-deploy-infrastructure-vnet-azure-cli.md
+        href: quickstart-deploy-infrastructure-vnet-azure-cli.md?tabs=azure-spring-apps-enterprise
       - name: Provision using Terraform
-        href: quickstart-deploy-infrastructure-vnet-terraform.md
+        href: quickstart-deploy-infrastructure-vnet-terraform.md?tabs=azure-spring-apps-enterprise
     - name: Develop
       items:
       - name: Prepare a Java Spring app for deployment
-        href: how-to-prepare-app-deployment.md
+        href: how-to-prepare-app-deployment.md?tabs=enterprise-plan
       - name: Use Application Configuration Service
         href: how-to-enterprise-application-configuration-service.md
       - name: Use Build Service
@@ -488,9 +488,9 @@ items:
       - name: Use managed identities for applications in Azure Spring Apps
         href: how-to-use-managed-identities.md
       - name: Enable system-assigned managed identity
-        href: how-to-enable-system-assigned-managed-identity.md
+        href: how-to-enable-system-assigned-managed-identity.md?pivots=sc-enterprise
       - name: Manage user-assigned managed identities
-        href: how-to-manage-user-assigned-managed-identities.md
+        href: how-to-manage-user-assigned-managed-identities.md?pivots=sc-enterprise
       - name: Create roles and permissions
         href: how-to-permissions.md
       - name: Use TLS/SSL certificates

@@ -29,11 +29,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- [.NET 7.0](https://dotnet.microsoft.com/download/dotnet/7.0) or later. 
-
-- [Visual Studio 2022](https://code.visualstudio.com/download) or another code editor.
-
-- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
+Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
 
 ## Register the browserless app
 
