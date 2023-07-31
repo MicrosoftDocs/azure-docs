@@ -193,9 +193,9 @@ $req = New-MgEntitlementManagementAccessPackageAssignmentRequest -AccessPackageI
 
 Entitlement management also allows you to get visibility into state of a guest user's lifecycle through the following viewpoints: 
 
-- **Governed** - The user is set to be governed.  
-- **Ungoverned** - The user is set to not be governed.
-- **Blank** - The lifecycle for the user is not determined. This happens when a user had an access package assigned before managing user lifecycle was possible.
+- **Governed** - The guest user is set to be governed.  
+- **Ungoverned** - The guest user is set to not be governed.
+- **Blank** - The lifecycle for the guest user is not determined. This happens when the guest user had an access package assigned before managing user lifecycle was possible.
 
 > [!NOTE]
 > When a guest user is set as **Governed**, based on ELM tenant settings their account will be deleted or disabled in specified days after their last access package assignment expires.  Learn more about ELM settings here: [Manage external access with Azure Active Directory entitlement management](../fundamentals/6-secure-access-entitlement-managment.md).

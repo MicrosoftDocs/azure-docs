@@ -172,7 +172,7 @@
         href: entitlement-management-access-package-requests.md
       - name: Reprocess requests
         href: entitlement-management-reprocess-access-package-requests.md
-      - name: View, add, and remove assignments
+      - name: View, add, convert, and remove assignments
         href: entitlement-management-access-package-assignments.md
       - name: Reprocess assignments
         href: entitlement-management-reprocess-access-package-assignments.md
