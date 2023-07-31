@@ -136,6 +136,8 @@ def predict(input_df):
   return output_df
 ```
 
+For more examples on how to use the Python SDK for inference data logging, please see []().
+
 ### Update your dependencies
 
 Before you create your deployment with the updated scoring script, you'll create your environment with the base image `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04` and the appropriate conda dependencies, then you'll build the environment using the specification in the following YAML.
@@ -168,7 +170,7 @@ data_collector:
       enabled: 'True'
 ```
 
-The following code is an example of a comprehensive deployment YAML for a managed online endpoint deployment. You should update the deployment YAML according to your scenario.
+The following code is an example of a comprehensive deployment YAML for a managed online endpoint deployment. You should update the deployment YAML according to your scenario. For more examples on how to format your deployment YAML for inference data logging, see [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/data-collector](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/data-collector).
 
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
