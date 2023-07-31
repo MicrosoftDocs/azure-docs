@@ -104,6 +104,185 @@ To minimize issues related to rate limits, it's a good idea to use the following
 - Avoid sharp changes in the workload. Increase the workload gradually.
 - Test different load increase patterns.
 
+## Automate deployment
+
+This section contains brief example templates to help get you started programmatically managing quota, and deploying resources. With the introduction of quota you must use API version `2023-05-01` for resource management related activities. This API version is only for managing your resources, and does not impact the API version used for inferencing calls like completions, chat completions, embedding, image generation etc.
+
+# [REST](#tab/rest)
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/deployments/{deploymentName}?api-version=2023-05-01
+```
+
+**Path parameters**
+
+| Parameter | Type | Required? |  Description |
+|--|--|--|--|
+| ```acountname``` | string |  Required | The name of your Azure OpenAI Resource. |
+| ```deploymentName``` | string | Required | The deployment name you chose when you deployed an existing model or the name you would like a new model deployment to have.   |
+| ```resourceGroupName``` | string |  Required | The name of the associated resource group for this model deployment. |
+| ```subscriptionId``` | string |  Required | Subscription ID for the associated subscription. |
+| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format. |
+
+**Supported versions**
+
+- `2023-05-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/1e71ad94aeb8843559d59d863c895770560d7c93/specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2023-05-01/cognitiveservices.json)
+
+**Request body**
+
+This is only a subset of the available request body parameters. For the full list of the parameters, you can refer to the [REST API reference documentation](https://learn.microsoft.com/en-us/rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP).
+
+|Parameter|Type| Description |
+|--|--|--|
+|sku | Sku | The resource model definition representing SKU.|
+|capacity|integer|This represents the amount of [quota](../how-to/quota.md) you are assigning to this deployment. A value of 1 equals 1,000 Tokens per Minute (TPM). A value of 10 equals 10k Tokens per Minute (TPM).|
+
+#### Example request
+
+```Bash
+curl -X PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-temp/providers/Microsoft.CognitiveServices/accounts/docs-openai-test-001/deployments/gpt-35-turbo-test-deployment?api-version=2023-05-01 \
+  -H "Content-Type: application/json" \
+  -H 'Authorization: Bearer YOUR_AUTH_TOKEN' \
+  -d '{"sku":{"name":"Standard","capacity":10},"properties": {"model": {"format": "OpenAI","name": "gpt-35-turbo","version": "0613"}}}'
+```
+
+> [!NOTE]
+> There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from the [Azure portal](https://portal.azure.com). Then run [`az account get-access-token`](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token&preserve-view=true). You can use this token as your temporary authorization token for API testing.
+
+# [Azure Resource Manager](#tab/arm)
+
+```json
+//
+// This Azure Resource Manager template shows how to use the new schema introduced in the 2023-05-01 API version to 
+// create deployments that set the model version and the TPM limits for standard deployments.
+//
+{
+    "type": "Microsoft.CognitiveServices/accounts/deployments",
+    "apiVersion": "2023-05-01",
+    "name": "arm-je-aoai-test-resource/arm-je-std-deployment",    // Update reference to parent Azure OpenAI resource
+    "dependsOn": [
+        "[resourceId('Microsoft.CognitiveServices/accounts', 'arm-je-aoai-test-resource')]"  // Update reference to parent Azure OpenAI resource
+    ],
+    "sku": {
+        "name": "Standard",      
+        "capacity": 10            // The deployment will be created with a 10K TPM limit
+    },
+    "properties": {
+        "model": {
+            "format": "OpenAI",
+            "name": "gpt-35-turbo",
+            "version": "0613"        // Version 0613 of gpt-35-turbo will be used
+        }
+    }
+}
+```
+
+For more details, consult the [full Azure Resource Manager reference documentation](/azure/templates/microsoft.cognitiveservices/accounts/deployments?pivots=deployment-language-arm-template).
+
+# [Bicep](#tab/bicep)
+
+```bicep
+//
+// This Bicep template shows how to use the new schema introduced in the 2023-05-01 API version to 
+// create deployments that set the model version and the TPM limits for standard deployments.
+//
+resource arm_je_std_deployment 'Microsoft.CognitiveServices/accounts/deployments@2023-05-01' = {
+  parent: arm_je_aoai_resource   // Replace this with a reference to the parent Azure OpenAI resource
+  name: 'arm-je-std-deployment'
+  sku: {
+    name: 'Standard'            
+    capacity: 10                 // The deployment will be created with a 10K TPM limit
+  }
+  properties: {
+    model: {
+      format: 'OpenAI'
+      name: 'gpt-35-turbo'
+      version: '0613'           // gpt-35-turbo version 0613 will be used
+    }
+  }
+}
+```
+
+For more details consult the [full Bicep reference documentation](/azure/templates/microsoft.cognitiveservices/accounts/deployments?pivots=deployment-language-bicep).
+
+# [Terraform](#tab/terraform)
+
+```terraform
+# This Terraform template shows how to use the new schema introduced in the 2023-05-01 API version to 
+# create deployments that set the model version and the TPM limits for standard deployments.
+# 
+# The new schema is not yet available in the AzureRM provider (target v4.0), so this template uses the AzAPI
+# provider, which provides a Terraform-compatible interface to the underlying ARM structures.
+# 
+# For more details on these providers:
+#     AzureRM: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
+#     AzAPI: https://registry.terraform.io/providers/azure/azapi/latest/docs
+#
+
+# 
+terraform {
+  required_providers {
+    azapi   = { source  = "Azure/azapi" }
+    azurerm = { source  = "hashicorp/azurerm" }
+  }
+}
+
+provider "azapi" {
+  # Insert auth info here as necessary
+}
+
+provider "azurerm" {
+    # Insert auth info here as necessary  
+    features {
+    }
+}
+
+# 
+# To create a complete example, AzureRM is used to create a new resource group and Azure OpenAI Resource
+# 
+resource "azurerm_resource_group" "TERRAFORM-AOAI-TEST-GROUP" {
+  name     = "TERRAFORM-AOAI-TEST-GROUP"
+  location = "canadaeast"
+}
+
+resource "azurerm_cognitive_account" "TERRAFORM-AOAI-TEST-ACCOUNT" {
+  name                  = "terraform-aoai-test-account"
+  location              = "canadaeast"
+  resource_group_name   = azurerm_resource_group.TERRAFORM-AOAI-TEST-GROUP.name
+  kind                  = "OpenAI"
+  sku_name              = "S0"
+  custom_subdomain_name = "terraform-test-account-"
+  }
+
+
+# 
+# AzAPI is used to create the deployment so that the TPM limit and model versions can be set
+#
+resource "azapi_resource" "TERRAFORM-AOAI-STD-DEPLOYMENT" {
+  type      = "Microsoft.CognitiveServices/accounts/deployments@2023-05-01"
+  name      = "TERRAFORM-AOAI-STD-DEPLOYMENT"
+  parent_id = azurerm_cognitive_account.TERRAFORM-AOAI-TEST-ACCOUNT.id
+
+  body = jsonencode({
+    sku = {                            # The sku object specifies the deployment type and limit in 2023-05-01
+        name = "Standard",             
+        capacity = 10                  # This deployment will be set with a 10K TPM limit
+    },
+    properties = {
+        model = {
+            format = "OpenAI",
+            name = "gpt-35-turbo",
+            version = "0613"           # Deploy gpt-35-turbo version 0613
+        }
+    }
+  })
+}
+```
+
+For more details consult the [full Terraform reference documentation](/azure/templates/microsoft.cognitiveservices/accounts/deployments?pivots=deployment-language-terraform).
+
+---
+
 ## Resource deletion
 
 When an attempt to delete an Azure OpenAI resource is made from the Azure portal if any deployments are still present deletion is blocked until the associated deployments are deleted. Deleting the deployments first allows quota allocations to be properly freed up so they can be used on new deployments.
