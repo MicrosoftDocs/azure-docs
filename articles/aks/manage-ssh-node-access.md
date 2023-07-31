@@ -157,7 +157,6 @@ To help troubleshoot any issues with SSH connectivity to your clusters nodes, yo
 [network-security-group-rules-overview]: concepts-security.md#azure-network-security-groups
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-update]: /cli/azure/aks#az-aks-update
-[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool#az-aks-nodepool-update
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-show]: /cli/azure/feature#az-feature-show

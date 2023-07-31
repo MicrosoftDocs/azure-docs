@@ -223,3 +223,4 @@ kubectl delete pod node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx
 [ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
 [ssh-linux-kubectl-debug]: #create-an-interactive-shell-connection-to-a-linux-node
+[manage-ssh-node-access]: manage-ssh-node-access.md
