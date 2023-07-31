@@ -16,7 +16,7 @@ This how-to describes how you can manage your Layer 2 and Layer 3 isolation-doma
 
 ## Prerequisites
 
-1. Ensure Network fabric Controller and Network fabric have been created.
+1. Ensure Network Fabric Controller (NFC) and Network Fabric have been created.
 1. Install latest version of the
 [necessary CLI extensions](./howto-install-cli-extensions.md).
 
