@@ -7,7 +7,7 @@ manager: martinco
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: fundamentals
-ms.date: 06/03/2022
+ms.date: 07/27/2023
 ms.author: jricketts
 ms.custom: references_regions
 ---
@@ -27,7 +27,7 @@ You can enrich user attributes in Azure AD to make more user attributes availabl
 
 * App provisioning: The data source of app provisioning is Azure AD, and necessary user attributes must be in there.
 
-* Application authorization: A token that Azure AD issues can include claims generated from user attributes so that applications can make authorization decisions based on the claims in the token.
+* Application authorization: A token that Azure AD issues can include claims generated from user attributes so that applications can make authorization decisions based on the claims in the token. It can also contain attributes coming from external data sources through a [custom claims provider](../develop/custom-claims-provider-overview.md).
 
 * Group membership population and maintenance: Dynamic groups enable dynamic population of group membership based on user attributes, such as department information.
 
@@ -37,7 +37,7 @@ These two links provide guidance on making schema changes:
 
 * [Attributes synchronized by Azure AD Connect](../hybrid/reference-connect-sync-attributes-synchronized.md)
 
-These links provide more information on this topic but are not specific to changing the schema:
+These links provide more information on this topic but aren't specific to changing the schema:
 
 * [Use Azure AD schema extension attributes in claims - Microsoft identity platform](../develop/active-directory-schema-extensions.md)
 
@@ -59,7 +59,7 @@ These links provide more information about groups:
 
 * [Restrict guest access permissions in Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md)
 
-You and your team might feel compelled to change your current employee provisioning to use cloud-only accounts at this stage. The effort is non-trivial but doesn't provide enough business value. We recommend that you plan this transition at a different phase of your transformation.
+You and your team might feel compelled to change your current employee provisioning to use cloud-only accounts at this stage. The effort is nontrivial but doesn't provide enough business value. We recommend that you plan this transition at a different phase of your transformation.
 
 ## Devices
 
@@ -70,6 +70,8 @@ Client workstations are traditionally joined to Active Directory and managed via
 * Manage workstations from the cloud by using unified endpoint management (UEM) solutions such as [Intune](/mem/intune/fundamentals/what-is-intune).
 
 [Windows Autopilot](/mem/autopilot/windows-autopilot) can help you establish a streamlined onboarding and device provisioning, which can enforce these directives.
+
+[Windows Local Administrator Password Solution](../devices/howto-manage-local-admin-passwords.md) (LAPS) enables a cloud-first solution to manage the passwords of local administrator accounts.
 
 For more information, see [Learn more about cloud-native endpoints](/mem/cloud-native-endpoints-overview).
 

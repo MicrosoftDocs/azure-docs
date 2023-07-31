@@ -77,14 +77,12 @@ This section outlines variations and considerations when using Azure Container A
 |---------|--------|------------|
 | Azure Monitor| The Azure Monitor integration is not supported in Azure China |
 
-### Microsoft Cost Management + Billing
-
-This section outlines variations and considerations when using Microsoft Cost Management + Billing features and APIs.
-
-
 ### Azure China Commercial Marketplace
  
 To learn which commercial marketplace features are available for Azure China Marketplace operated by 21Vianet, as compared to the Azure global commercial marketplace, see [Feature availability for Azure China Commercial Marketplace operated by 21Vianet](/partner-center/marketplace/azure-in-china-feature-availability).
+### Microsoft Cost Management + Billing
+
+This section outlines variations and considerations when using Microsoft Cost Management + Billing features and APIs.
 
 #### Azure Retail Rates API for China
 

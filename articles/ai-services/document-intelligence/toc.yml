@@ -225,15 +225,15 @@ items:
     expanded: true
     items:
     - name:  Custom
-      href: /ai-builder/create-form-processing-model?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json
+      href: /ai-builder/create-form-processing-model?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
     - name:  Invoice
-      href: /ai-builder/flow-invoice-processing?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json
+      href: /ai-builder/flow-invoice-processing?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
     - name: Receipt
-      href: /ai-builder/flow-receipt-processing?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json
+      href: /ai-builder/flow-receipt-processing?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
     - name: ID document
-      href: /ai-builder/id-reader?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/applied-ai-services/breadcrumb/toc.json
+      href: /ai-builder/id-reader?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/applied-ai-services/breadcrumb/toc.json
     - name: Business card
-      href: /ai-builder/flow-business-card-reader?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json
+      href: /ai-builder/flow-business-card-reader?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
   - name: Use Azure AI Document Intelligence with Cognitive Search
     href: ../../search/cognitive-search-custom-skill-form.md
   - name: Use Azure AI Document Intelligence with Azure Functions

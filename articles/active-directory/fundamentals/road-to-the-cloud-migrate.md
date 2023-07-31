@@ -7,7 +7,7 @@ manager: martinco
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: fundamentals
-ms.date: 06/03/2022
+ms.date: 07/27/2023
 ms.author: jricketts
 ms.custom: references_regions
 ---
@@ -53,7 +53,7 @@ To transform groups and distribution lists:
 
 * For self-managed group capabilities provided by Microsoft Identity Manager, replace the capability with self-service group management.
 
-* You can [convert distribution lists to Microsoft 365 groups](/microsoft-365/admin/manage/upgrade-distribution-lists) in Outlook. This is a great way to give your organization's distribution lists all the features and functionality of Microsoft 365 groups. 
+* You can [convert distribution lists to Microsoft 365 groups](/microsoft-365/admin/manage/upgrade-distribution-lists) in Outlook. This approach is a great way to give your organization's distribution lists all the features and functionality of Microsoft 365 groups. 
 
 * Upgrade your [distribution lists to Microsoft 365 groups in Outlook](https://support.microsoft.com/office/7fb3d880-593b-4909-aafa-950dd50ce188) and [decommission your on-premises Exchange server](/exchange/decommission-on-premises-exchange).
 
@@ -79,11 +79,15 @@ You can reduce your on-premises footprint by moving the HR provisioning workflow
 
 Azure AD cloud HR provisioning can also manage Active Directory accounts for existing employees. For more information, see [Plan cloud HR application to Azure Active Directory user provisioning](../app-provisioning/plan-cloud-hr-provision.md) and [Plan the deployment project](../app-provisioning/plan-auto-user-provisioning.md).
 
+### Move lifecycle workflows
+
+Evaluate your existing joiner/mover/leaver workflows and processes for applicability and relevance to your Azure AD cloud environment. You can then simplify these workflows and [create new ones](../governance/create-lifecycle-workflow.md) using [lifecycle workflows](../governance/what-are-lifecycle-workflows.md).
+
 ### Move external identity management
 
 If your organization provisions accounts in Active Directory or other on-premises directories for external identities such as vendors, contractors, or consultants, you can simplify your environment by managing those third-party user objects natively in the cloud. Here are some possibilities:
 
-* For new external users, use [Azure AD External Identities](../external-identities/external-identities-overview.md), which will stop the Active Directory footprint of users.
+* For new external users, use [Azure AD External Identities](../external-identities/external-identities-overview.md), which stops the Active Directory footprint of users.
 
 * For existing Active Directory accounts that you provision for external identities, you can remove the overhead of managing local credentials (for example, passwords) by configuring them for business-to-business (B2B) collaboration. Follow the steps in [Invite internal users to B2B collaboration](../external-identities/invite-internal-users.md).
 
@@ -161,7 +165,7 @@ There are three main ways to categorize your apps:
 
 * **Legacy apps**: These applications use legacy protocols such as Kerberos, LDAP, Radius, Remote Desktop, and NTLM (not recommended).
 
-Azure AD can be used with each type of application to provide levels of functionality that will result in different migration strategies, complexity, and trade-offs. Some organizations have an application inventory that can be used as a discovery baseline. (It's common that this inventory isn't complete or updated.) 
+Azure AD can be used with each type of application to provide levels of functionality that results in different migration strategies, complexity, and trade-offs. Some organizations have an application inventory that can be used as a discovery baseline. (It's common that this inventory isn't complete or updated.) 
 
 To discover modern authentication apps:
 
@@ -217,13 +221,13 @@ Use the following table to determine what Azure-based tools you can use to repla
 
 Here's more information that you can use for application server management:
 
-* [Azure Arc](https://azure.microsoft.com/services/azure-arc/) enables Azure features for non-Azure VMs. For example, you can use it to get Azure features for Windows Server when it's used on-premises or on Amazon Web Services.
+* [Azure Arc](https://azure.microsoft.com/services/azure-arc/) enables Azure features for non-Azure VMs. For example, you can use it to get Azure features for Windows Server when it's used on-premises or on Amazon Web Services, or [authenticate to Linux machines with SSH](/azure/azure-arc/servers/ssh-arc-overview?tabs=azure-cli).
 
 * [Manage and secure your Azure VM environment](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/).
 
 * If you must wait to migrate or perform a partial migration, you can use GPOs with [Azure AD DS](https://azure.microsoft.com/services/active-directory-ds/).
 
-If you require management of application servers with Microsoft Configuration Manager, you can't achieve this by using Azure AD DS. Microsoft Configuration Manager isn't supported to run in an Azure AD DS environment. Instead, you'll need to extend your on-premises Active Directory instance to a domain controller running on an Azure VM. Or, you'll need to deploy a new Active Directory instance to an Azure IaaS virtual network.
+If you require management of application servers with Microsoft Configuration Manager, you can't achieve this requirement by using Azure AD DS. Microsoft Configuration Manager isn't supported to run in an Azure AD DS environment. Instead, you need to extend your on-premises Active Directory instance to a domain controller running on an Azure VM. Or, you need to deploy a new Active Directory instance to an Azure IaaS virtual network.
 
 ### Define the migration strategy for legacy applications
 
@@ -241,7 +245,7 @@ To reduce or eliminate those dependencies, you have three main approaches.
 
 In the most preferred approach, you undertake projects to migrate from legacy applications to SaaS alternatives that use modern authentication. Have the SaaS alternatives authenticate to Azure AD directly:
 
-1. Deploy Azure AD DS into an Azure virtual network.
+1. Deploy Azure AD DS into an Azure virtual network and [extend the schema](/azure/active-directory-domain-services/concepts-custom-attributes) to incorporate additional attributes needed by the applications.
 
 2. Lift and shift legacy apps to VMs on the Azure virtual network that are domain-joined to Azure AD DS.
 
@@ -313,9 +317,9 @@ Here are key points about usage of Azure AD for VPN authentication:
 
 ### Move remote access to internal applications
 
-To simplify your environment, you can use [Azure AD Application Proxy](../app-proxy/application-proxy.md) or [secure hybrid access](../manage-apps/secure-hybrid-access.md) partners to provide remote access. This will allow you to remove the dependency on on-premises reverse proxy solutions.
+To simplify your environment, you can use [Azure AD Application Proxy](../app-proxy/application-proxy.md) or [secure hybrid access](../manage-apps/secure-hybrid-access.md) partners to provide remote access. This allows you to remove the dependency on on-premises reverse proxy solutions.
 
-It's important to mention that enabling remote access to an application by using the preceding technologies is an interim step. You'll need to do more work to completely decouple the application from Active Directory. 
+It's important to mention that enabling remote access to an application by using the preceding technologies is an interim step. You need to do more work to completely decouple the application from Active Directory. 
 
 Azure AD DS allows you to migrate application servers to the cloud IaaS and decouple from Active Directory, while using Azure AD Application Proxy to enable remote access. To learn more about this scenario, check [Deploy Azure AD Application Proxy for Azure Active Directory Domain Services](../../active-directory-domain-services/deploy-azure-app-proxy.md).
 

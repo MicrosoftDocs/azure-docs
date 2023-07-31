@@ -710,6 +710,8 @@ items:
         href: concepts/ui-library/ui-library-use-cases.md
       - name: Design with UI Library Design Kit
         href: quickstarts/ui-library/get-started-ui-kit.md  
+    - name: User experience
+      href: concepts/voice-video-calling/user-experience.md
     - name: Known issues
       href: concepts/known-issues.md
   - name: Chat

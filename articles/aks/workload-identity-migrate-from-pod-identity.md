@@ -150,6 +150,7 @@ metadata:
   name: httpbin-pod
   labels:
     app: httpbin
+    azure.workload.identity/use: "true"
 spec:
   serviceAccountName: workload-identity-sa
   initContainers:

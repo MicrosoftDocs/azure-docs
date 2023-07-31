@@ -10,9 +10,8 @@ ms.author: williamzhao
 ms.date: 06/07/2023
 ms.topic: how-to
 ms.service: azure-communication-services
-ms.custom: template-how-to, devx-track-extended-java, devx-track-js
+ms.custom: template-how-to, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python
-
 #Customer intent: As a developer, I want to create a scheduled job
 ---
 
