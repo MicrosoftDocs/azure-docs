@@ -21,7 +21,7 @@ There are two types of Prometheus rules as described in the following table.
 | Recording |[Recording rules](https://aka.ms/azureprometheus-promio-recrules) allow you to precompute frequently needed or computationally extensive expressions and store their result as a new set of time series. Time series created by recording rules are ingested back to your Azure Monitor workspace as new Prometheus metrics. |
 
 ## Create Prometheus rules
-Azure Managed Prometheus rule groups, recording rules and alert rules can be created and configured using The Azure resource type **Microsoft.AlertsManagement/prometheusRuleGroups**, where the alert rules and recording rules are defined as part of the rule group properties.Prometheus rule groups are defined with a scope of a specific [Azure Monitor workspace](azure-monitor-workspace-overview.md).  Prometheus rule groups can be created using Azure Resource Manager (ARM) templates, API, Azure CLI, or PowerShell. 
+Azure Managed Prometheus rule groups, recording rules and alert rules can be created and configured using The Azure resource type **Microsoft.AlertsManagement/prometheusRuleGroups**, where the alert rules and recording rules are defined as part of the rule group properties. Prometheus rule groups are defined with a scope of a specific [Azure Monitor workspace](azure-monitor-workspace-overview.md).  Prometheus rule groups can be created using Azure Resource Manager (ARM) templates, API, Azure CLI, or PowerShell. 
 
 > [!NOTE]
 > For your AKS or ARC Kubernetes clusters, you can use some of the recommended alerts rules. See pre-defined alert rules [here](../containers/container-insights-metric-alerts.md#enable-prometheus-alert-rules).
@@ -31,14 +31,14 @@ Azure Managed Prometheus rule groups, recording rules and alert rules can be cre
 You can optionally limit the rules in a rule group to query data originating from a specific cluster, by adding a cluster scope to your rule group, and by using the rule group `clusterName` property.
 You should limit rules to a single cluster if your Azure Monitor workspace contains a large amount of data from multiple clusters. In such a case, there's a concern that running a single set of rules on all the data may cause performance or throttling issues. By using the cluster scope, you can create multiple rule groups, each configured with the same rules, with each group covering a different cluster. 
 
-To limit your rule group to a cluster scope, you should add the Azure Resource Id of your cluster to the rule group **scopes[]** list. Note that the **scopes** list must still include the Azure Monitor workspace resource Id. The following cluster resource types are supported as a cluster scope:
+To limit your rule group to a cluster scope, you should add the Azure Resource ID of your cluster to the rule group **scopes[]** list. **The scopes list must still include the Azure Monitor workspace resource ID**. The following cluster resource types are supported as a cluster scope:
 * Azure Kubernetes Service clusters (AKS) (Microsoft.ContainerService/managedClusters)
 * Azure Arc-enabled Kubernetes clusters (Microsoft.kubernetes/connectedClusters)
 * Azure connected appliances (Microsoft.ResourceConnector/appliances)
 
-In addition to the cluster Id, you can configure the **clusterName** property of your rule group, to match the `cluster` label that is added to the metrics from a specific cluster during data collection. By default, if you haven't specified a clusterName, the rule group will use the resource name part of your cluster Id.
+In addition to the cluster ID, you can configure the **clusterName** property of your rule group, to match the `cluster` label that is added to the metrics from a specific cluster during data collection. By default, if you haven't specified a clusterName, the rule group uses the resource name part of your cluster ID.
 
-Here is an example of how a rule group is configured to limit query to a specific cluster:
+Here's an example of how a rule group is configured to limit query to a specific cluster:
 
 ``` json
 {
@@ -61,7 +61,7 @@ Here is an example of how a rule group is configured to limit query to a specifi
     }
 }        
 ```
-If neither cluster Id scope nor `clusterName` are specified for a rule group, the rules in the group will query data from all the clusters in the workspace from all clusters.
+If cluster ID scope or `clusterName` are specifiednot for a rule group, the rules in the group query data from all the clusters in the workspace from all clusters.
 
 ### Creating Prometheus rule group using Resource Manager template
 
@@ -182,7 +182,7 @@ The `rules` section contains the following properties for alerting rules.
 
 If you have a [Prometheus rules configuration file](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/#configuring-rules) (in YAML format), you can now convert it to an Azure Prometheus rule group ARM template, using the [az-prom-rules-converter utility](https://github.com/Azure/prometheus-collector/tree/main/tools/az-prom-rules-converter#az-prom-rules-converter). The rules file can contain definition of one or more rule groups.
 
-In addition to the rules file, you can provide the utility with additional properties that are needed to create the Azure Prometheus rule groups, including: subscription, resource group, location, target Azure Monitor workspace, target cluster name, and action groups (used for alert rules). The utility creates a template file that can be deployed directly or within a deployment pipe providing some of these properties as parameters. Note that properties provided to the utility are used for all the rule groups in the template, e.g., all rule groups in the file will be created in the same subscription/resource group/location, using the same Azure Monitor workspace, etc. If an action group is provided as a parameter to the utility, the same action group will be used in all the alert rules in the template. If you want to change this default configuration (e.g., use different action groups in different rules) you can edit the resulting template according to your needs, before deploying it.
+In addition to the rules file, you can provide the utility with more properties that are needed to create the Azure Prometheus rule groups, including: subscription, resource group, location, target Azure Monitor workspace, target cluster name, and action groups (used for alert rules). The utility creates a template file that can be deployed directly or within a deployment pipe providing some of these properties as parameters. Note that properties provided to the utility are used for all the rule groups in the template, for example, all rule groups in the file are created in the same subscription/resource group/location, using the same Azure Monitor workspace, etc. If an action group is provided as a parameter to the utility, the same action group is used in all the alert rules in the template. If you want to change this default configuration (for example, use different action groups in different rules) you can edit the resulting template according to your needs, before deploying it.
 
 > [!NOTE] 
 > !The az-prom-convert-utility is provided as a courtesy tool. We recommend that you review the resulting template and verify it matches your intended configuration.
