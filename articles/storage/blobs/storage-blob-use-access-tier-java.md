@@ -9,9 +9,8 @@ ms.author: pauljewell
 ms.service: storage
 ms.topic: how-to
 ms.date: 07/11/2023
-ms.subservice: blobs
 ms.devlang: java
-ms.custom: devx-track-java, devguide-java
+ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 ---
 
 # Set or change a block blob's access tier with Java

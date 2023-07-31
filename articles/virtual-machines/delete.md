@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/09/2022
 ms.author: cynthn
-ms.custom: template-how-to, devx-track-azurecli
+ms.custom: template-how-to, devx-track-azurecli, devx-track-linux, devx-track-azurepowershell
 ---
 
 # Delete a VM and attached resources

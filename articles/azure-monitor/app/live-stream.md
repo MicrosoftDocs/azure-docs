@@ -2,7 +2,7 @@
 title: Diagnose with Live Metrics - Application Insights - Azure Monitor
 description: Monitor your web app in real time with custom metrics, and diagnose issues with a live feed of failures, traces, and events.
 ms.topic: conceptual
-ms.date: 06/23/2023
+ms.date: 07/27/2023
 ms.reviewer: sdash
 ms.devlang: csharp
 ---
@@ -289,7 +289,7 @@ Live Metrics custom filters allow you to control which of your application's tel
 > [!NOTE]
 > On September 30, 2025, API keys used to stream Live Metrics telemetry into Application Insights will be retired. After that date, applications that use API keys won't be able to send Live Metrics data to your Application Insights resource. Authenticated telemetry ingestion for Live Metrics streaming to Application Insights will need to be done with [Azure AD authentication for Application Insights](./azure-ad-authentication.md).
 
-It's possible to try custom filters without having to set up an authenticated channel. Select any of the filter icons and authorize the connected servers. If you choose this option, you'll have to authorize the connected servers once every new session or whenever a new server comes online.
+It's possible to try custom filters without having to set up an authenticated channel. Select any of the filter icons and authorize the connected servers. If you choose this option, you have to authorize the connected servers once every new session or whenever a new server comes online.
 
 > [!WARNING]
 > We strongly discourage the use of unsecured channels and will disable this option six months after you start using it. The **Authorize connected servers** dialog displays the date after which this option will be disabled.
@@ -395,6 +395,7 @@ Create an API key from within your Application Insights resource and go to **Set
 | Azure Functions v2               | Supported           | Supported           | Supported           | Supported           | **Not supported**    |
 | Java                             | Supported (V2.0.0+) | Supported (V2.0.0+) | **Not supported**   | Supported (V3.2.0+) | **Not supported**    |
 | Node.js                          | Supported (V1.3.0+) | Supported (V1.3.0+) | **Not supported**   | Supported (V1.3.0+) | **Not supported**    |
+| Python                           | **Not supported**   | **Not supported**   | **Not supported**   | **Not supported**   | **Not supported**    |
 
 Basic metrics include request, dependency, and exception rate. Performance metrics (performance counters) include memory and CPU. Sample telemetry shows a stream of detailed information for failed requests and dependencies, exceptions, events, and traces.
 
@@ -408,7 +409,7 @@ Basic metrics include request, dependency, and exception rate. Performance metri
 
 Live Metrics uses different IP addresses than other Application Insights telemetry. Make sure [those IP addresses](./ip-addresses.md) are open in your firewall. Also check that [outgoing ports for Live Metrics](./ip-addresses.md#outgoing-ports) are open in the firewall of your servers.
 
-As described in the [Azure TLS 1.2 migration announcement](https://azure.microsoft.com/updates/azuretls12/), Live Metrics now only supports TLS 1.2. If you're using an older version of TLS, Live Metrics won't display any data. For applications based on .NET Framework 4.5.1, see [Enable Transport Layer Security (TLS) 1.2 on clients - Configuration Manager](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client#bkmk_net) to support the newer TLS version.
+As described in the [Azure TLS 1.2 migration announcement](https://azure.microsoft.com/updates/azuretls12/), Live Metrics now only supports TLS 1.2. If you're using an older version of TLS, Live Metrics doesn't display any data. For applications based on .NET Framework 4.5.1, see [Enable Transport Layer Security (TLS) 1.2 on clients - Configuration Manager](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client#bkmk_net) to support the newer TLS version.
 
 ### Missing configuration for .NET
 
@@ -435,13 +436,16 @@ As described in the [Azure TLS 1.2 migration announcement](https://azure.microso
 
 When navigating to Live Metrics, you may see a banner with the status message: "Data is temporarily inaccessible. The updates on our status are posted here https://aka.ms/aistatus "
 
-Follow the link to the *Azure status* page and check if there's an activate outage affecting Application Insights. If there's no outage, verify if any firewalls or browser extensions are blocking access to Live Metrics. For example, some popular ad-blocker extensions block connections to `*.monitor.azure.com`. In order to use the full capabilities of Live Metrics, either disable the ad-blocker extension or add an exclusion rule for the domain `*.livediagnostics.monitor.azure.com` to your ad-blocker, firewall, etc.
+Follow the link to the *Azure status* page and check if there's an activate outage affecting Application Insights. Verify that firewalls and browser extensions aren't blocking access to Live Metrics if an outage isn't occurring. For example, some popular ad-blocker extensions block connections to `*.monitor.azure.com`. In order to use the full capabilities of Live Metrics, either disable the ad-blocker extension or add an exclusion rule for the domain `*.livediagnostics.monitor.azure.com` to your ad-blocker, firewall, etc.
 
 ### Unexpected large number of requests to livediagnostics.monitor.azure.com
 
-Heavier traffic is expected while the LiveMetrics pane is open. Navigate away from the LiveMetrics pane to restore normal traffic flow of traffic. Application Insights SDKs poll QuickPulse endpoints with REST API calls once every five seconds to check if the LiveMetrics pane is being viewed.
+Application Insights SDKs use a REST API to communicate with QuickPulse endpoints, which provide live metrics for your web application. By default, the SDKs poll the endpoints once every five seconds to check if you are viewing the Live Metrics pane in the Azure portal.
 
-The SDKs will send new metrics to QuickPulse every one second while the LiveMetrics pane is open.
+If you open the Live Metrics pane, the SDKs switch to a higher frequency mode and send new metrics to QuickPulse every second. This allows you to monitor and diagnose your live application with 1-second latency, but also generates more network traffic. To restore normal flow of traffic, naviage away from the Live Metrics pane.
+
+> [!NOTE]
+> The REST API calls made by the SDKs to QuickPulse endpoints are not tracked by Application Insights and do not affect your dependency calls or other metrics. However, you may see them in other network monitoring tools.
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Use an Azure Resource Manager (ARM) template to create a lab that h
 ms.topic: quickstart
 ms.author: rosemalcolm
 author: RoseHJM
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template, UpdateFrequency2
 ms.date: 01/03/2022
 ---
 

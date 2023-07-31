@@ -358,7 +358,7 @@ Note the following points:
 ## Monitor pipeline
 Navigate to the home page for your data factory:
 
-1. Log in to [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **More services** on the left menu, and click **Data factories**.
 
   :::image type="content" source="media/data-factory-copy-activity-tutorial-using-visual-studio/browse-data-factories.png" alt-text="Browse data factories":::
