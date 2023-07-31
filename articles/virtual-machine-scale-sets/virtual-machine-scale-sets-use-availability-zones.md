@@ -229,6 +229,43 @@ If you create a public IP address or a load balancer, specify the *"sku": { "nam
 
 For a complete example of a zone-redundant scale set and network resources, see [this sample Resource Manager template](https://github.com/Azure/vm-scale-sets/blob/master/z_deprecated/preview/zones/multizone.json)
 
+## Update to add availability zones
+You can modify a scale to expand the set of zones over which to spread VM instances. This allows you to take advantage of higher zonal availability SLA (99.99%) vs regional availability SLA (99.95%), or expand your scale set to take advantage of new availability zones that were not available when the scale set was created.
+
+> [!IMPORTANT]
+> Update virtual machine scale sets to add availability zones is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
+
+### Enable your subscription to use zonal expansion feature
+You must register for four feature flags on your subscription:
+
+### [Azure CLI](#tab/cli)
+
+```azurecli
+az feature register --namespace Microsoft.Compute --name VmssAllowRegionalToZonalMigration
+az feature register --namespace Microsoft.Compute --name VmssAllowExpansionOfAvailabilityZones
+az feature register --namespace Microsoft.Compute --name EnableVmssFlexExpansionOfAvailabilityZones
+az feature register --namespace Microsoft.Compute --name EnableVmssFlexRegionalToZonalMigration
+```
+
+You can check the registration status of each feature by using:
+
+az feature show --namespace Microsoft.Compute --name <feature-name>
+
+
+### [Azure Powershell](#tab/powershell)
+```powershell
+Register-AzProviderPreviewFeature -Name VmssAllowRegionalToZonalMigration -ProviderNamespace Microsoft.Compute
+Register-AzProviderPreviewFeature -Name VmssAllowExpansionOfAvailabilityZones -ProviderNamespace Microsoft.Compute
+Register-AzProviderPreviewFeature -Name EnableVmssFlexExpansionOfAvailabilityZones -ProviderNamespace Microsoft.Compute
+Register-AzProviderPreviewFeature -Name EnableVmssFlexRegionalToZonalMigration -ProviderNamespace Microsoft.Compute
+```
+
+You can check the registration status of each feature by using:
+
+```azurecli
+Get-AzProviderPreviewFeature -Name <feature-name> -ProviderNamespace Microsoft.Compute
+```
+
 ## Next steps
 
 Now that you have created a scale set in an Availability Zone, you can learn how to [Deploy applications on Virtual Machine Scale Sets](tutorial-install-apps-cli.md) or [Use autoscale with Virtual Machine Scale Sets](tutorial-autoscale-cli.md).
