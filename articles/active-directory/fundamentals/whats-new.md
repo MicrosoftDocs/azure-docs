@@ -197,8 +197,8 @@ Announcing API support (beta) for managing PIM security alerts for Azure AD role
 
 The Azure mobile app has been enhanced to empower admins with specific permissions to conveniently reset their users' passwords. Self Service Password Reset will not be supported at this time. However, users can still more efficiently control and streamline their own sign-in and auth methods. The mobile app can be downloaded for each platform here:
 
-Android: https://aka.ms/AzureAndroidWhatsNew
-IOS: https://aka.ms/ReferAzureIOSWhatsNew
+- Android: https://aka.ms/AzureAndroidWhatsNew
+- IOS: https://aka.ms/ReferAzureIOSWhatsNew
 
 ---
 
