@@ -2,7 +2,7 @@
 title: Redact faces with Azure Video Indexer API 
 description: This article shows how to use Azure Video Indexer face redaction feature using API.
 ms.topic: how-to
-ms.date: 06/26/2023
+ms.date: 07/03/2023
 ---
 
 # Redact faces with Azure Video Indexer API
@@ -25,7 +25,7 @@ Face service access is limited based on eligibility and usage criteria in order 
 
 ## Redactor terminology and hierarchy 
 
-The Face Redactor in Video Indexer relies on the output of the existing Video Indexer Face Detection results provided in our Video Standard and Advanced Analysis presets. In order to redact a video, you must first upload a video to Video Indexer and perform an analysis using the **standard** or **Advanced** video presets. This can be done using the [Azure Video Indexer website](https://www.videoindexer.ai/media/library) or [API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video). You can then use the Redactor API to reference this video using the `videoId` and we create a new video with the redacted faces.
+The Face Redactor in Video Indexer relies on the output of the existing Video Indexer Face Detection results provided in our Video Standard and Advanced Analysis presets. In order to redact a video, you must first upload a video to Video Indexer and perform an analysis using the **standard** or **Advanced** video presets. This can be done using the [Azure Video Indexer website](https://www.videoindexer.ai/media/library) or [API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video). You can then use the Redactor API to reference this video using the `videoId` and we create a new video with the redacted faces. Both the Video Analysis and Face Redaction are separate billable jobs. See our [pricing page](https://azure.microsoft.com/pricing/details/video-indexer/) for more information.
 
 ## Blurring kinds
 
@@ -184,6 +184,7 @@ This will redirect to the mp4 stored on the Azure Storage Account.
 |Can I play back the redacted video using the Video Indexer [website](https://www.videoindexer.ai/)?|Yes, the redacted video is visible in the Video Indexer like any other indexed video, however it doesn't contain any insights. |
 |How do I delete a redacted video? |You can use the [Delete Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Video) API and provide the `Videoid` of the redacted video. |
 |Do I need to pass Facial Identification gating to use Redactor? |Unless you're a US Police Department, no, even when you’re gated we continue to offer Face Detection. We don't offer Face Identification when gated. You can however redact all faces in a video with just the Face Detection. |
+|Will the Face Redaction overwrite my original video? |No, the Redaction job will create a new video output file. |
 |Not all faces are properly redacted. What can I do? |Redaction relies on the initial Face Detection and tracking output of the Analysis pipeline. While we detect all faces most of the time there can be circumstances where we haven't detected a face. This can have several reasons like face angle, number of frames the face was present and quality of the source video. See our [Face insights](face-detection.md) documentation for more information. |
 |Can I redact other objects than faces? |No, currently we only have face redaction. If you have the need for other objects, provide feedback to our product in the [Azure User Voice](https://feedback.azure.com/d365community/forum/8952b9e3-e03b-ec11-8c62-00224825aadf) channel. |
 |How Long is a SAS URL valid to download the redacted video? |<!--The SAS URL is valid for xxxx. -->To download the redacted video after the SAS url expired, you need to call the initial Job status URL. It's best to keep these `Jobstatus` URLs in a database in your backend for future reference. |

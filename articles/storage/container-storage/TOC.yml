@@ -17,6 +17,8 @@
     href: use-container-storage-with-local-disk.md
   - name: Use with Azure Elastic SAN
     href: use-container-storage-with-elastic-san.md
+  - name: Use volume snapshot and restore
+    href: volume-snapshot-restore.md
   - name: Remove Azure Container Storage
     href: remove-container-storage.md
 - name: Concepts

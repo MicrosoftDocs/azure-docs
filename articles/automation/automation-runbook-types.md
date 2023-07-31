@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/18/2023
+ms.date: 07/04/2023
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-python
 ---
@@ -66,6 +66,8 @@ The following are the current limitations and known issues with PowerShell runbo
 - Runbooks can't use [checkpoints](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) to resume runbook if there's an error.
 - You can include only PowerShell, PowerShell Workflow runbooks, and graphical runbooks as child runbooks by using the [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) cmdlet, which creates a new job.
 - Runbooks can't use the PowerShell [#Requires](/powershell/module/microsoft.powershell.core/about/about_requires) statement, it isn't supported in Azure sandbox or on Hybrid Runbook Workers and might cause the job to fail.
+- Azure runbook doesn't support `Start-Job` with `-credential`. 
+- Azure doesn't support all PowerShell input parameters. [Learn more](runbook-input-parameters.md).
 
 **Known issues**
 
@@ -103,6 +105,8 @@ The following are the current limitations and known issues with PowerShell runbo
 - Source control integration doesn't support PowerShell 7.1 (preview) Also, PowerShell 7.1 (preview) runbooks in source control gets created in Automation account as Runtime 5.1.
 - PowerShell 7.1 module management isn't supported through `Get-AzAutomationModule` cmdlets.
 - Runbook fails with no log trace if the input value contains the character '.
+- Azure runbook doesn't support `Start-Job` with `-credential`. 
+- Azure doesn't support all PowerShell input parameters. [Learn more](runbook-input-parameters.md).
 
 **Known issues**
 
@@ -142,7 +146,9 @@ The following are the current limitations and known issues with PowerShell runbo
 - Currently, PowerShell 7.2 (preview) runbooks are only supported from Azure portal. Rest API and PowerShell aren't supported.
 - Az module 8.3.0 is installed by default and can't be managed at the automation account level. Use custom modules to override the Az module to the desired version.
 - The imported PowerShell 7.2 (preview) module would be validated during job execution. Ensure that all dependencies for the selected module are also imported for successful job execution.
-- PowerShell 7.2 module management is not supported through `Get-AzAutomationModule`  cmdlets. 
+- PowerShell 7.2 module management is not supported through `Get-AzAutomationModule` cmdlets.
+- Azure runbook doesn't support `Start-Job` with `-credential`. 
+- Azure doesn't support all PowerShell input parameters. [Learn more](runbook-input-parameters.md).
 
 **Known issues**
 

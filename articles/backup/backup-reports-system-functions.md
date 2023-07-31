@@ -3,8 +3,8 @@ title: System functions on Azure Monitor Logs
 description: Write custom queries on Azure Monitor Logs using system functions
 ms.topic: conceptual
 ms.date: 04/18/2023
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # System functions on Azure Monitor Logs

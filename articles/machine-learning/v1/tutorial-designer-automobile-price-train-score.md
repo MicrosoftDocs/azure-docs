@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 05/10/2022
-ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022, build-2023
+ms.custom: UpdateFrequency5, designer, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022, build-2023
 ---
 
 # Tutorial: Designer - train a no-code regression model
@@ -46,7 +46,7 @@ In [part two](tutorial-designer-automobile-price-deploy.md) of the tutorial, you
 >
 >To find it, go to the designer in your workspace. In the **New pipeline** section, select **Sample 1 - Regression: Automobile Price Prediction(Basic)**.
 
-[!INCLUDE [machine-learning-missing-ui](../../../includes/machine-learning-missing-ui.md)]
+[!INCLUDE [machine-learning-missing-ui](../includes/machine-learning-missing-ui.md)]
 
 ## Create a new pipeline
 
@@ -355,7 +355,7 @@ For each of the error statistics, smaller is better. A smaller value indicates t
 
 Skip this section if you want to continue on with part 2 of the tutorial, [deploying models](tutorial-designer-automobile-price-deploy.md).
 
-[!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
+[!INCLUDE [aml-ui-cleanup](../includes/aml-ui-cleanup.md)]
 
 ## Next steps
 

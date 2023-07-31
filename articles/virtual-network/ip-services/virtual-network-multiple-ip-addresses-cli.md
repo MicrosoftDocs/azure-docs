@@ -9,7 +9,7 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 04/19/2023
 ms.author: allensu
-ms.custom: template-how-to, engagement-fy23, devx-track-azurecli
+ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, devx-track-linux
 ---
 # Assign multiple IP addresses to virtual machines using the Azure CLI
 

@@ -1,9 +1,9 @@
 ---
 title: Manage Cloud NGFW by Palo Alto Networks resource through the Azure portal
-description: This article describes management functions for Cloud NGFW by Palo Alto Networks on the Azure portal. 
+description: This article describes management functions for Cloud NGFW (Next-Generation Firewall) by Palo Alto Networks on the Azure portal. 
 
 ms.topic: conceptual
-ms.date: 04/25/2023
+ms.date: 07/10/2023
 
 ---
 
@@ -84,3 +84,11 @@ After the account is deleted, logs are no longer sent to Cloud NGFW by Palo Alto
 ## Next steps
 
 - For help with troubleshooting, see [Troubleshooting Palo Alto integration with Azure](palo-alto-troubleshoot.md).
+
+- Get Started with Cloud Next-Generation Firewall by Palo Alto Networks - an Azure Native ISV Service on
+
+  > [!div class="nextstepaction"]
+  > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/PaloAltoNetworks.Cloudngfw%2Ffirewalls)
+
+  > [!div class="nextstepaction"]
+  > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.pan_swfw_cloud_ngfw?tab=Overview)

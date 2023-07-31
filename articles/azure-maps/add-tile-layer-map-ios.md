@@ -101,7 +101,7 @@ map.layers.insertLayer(
 )
 ```
 
-The following screenshot shows the above code overlaying a web-mapping tile service of imagery from the [U.S. Geological Survey (USGS) National Map](https://viewer.nationalmap.gov/services/) on top of a map, below the roads and labels.
+The following screenshot shows the above code overlaying a web-mapping tile service of imagery from the U.S. Geological Survey (USGS) National Map on top of a map, below the roads and labels.
 
 :::image type="content" source="./media/ios-sdk/Add-tile-layer-to-map-ios/wmts.png" alt-text="This image shows the above code overlaying a web-mapping tile service of imagery from the U.S. Geological Survey (USGS) National Map on top of a map, below the roads and labels.":::
 

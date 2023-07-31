@@ -1,14 +1,15 @@
 ---
-title: Protect your key vault with the Defender for Key Vault plan - Microsoft Defender for Cloud
-titleSuffix: Microsoft Defender for Cloud
+title: Protect your key vaults with the Defender for Key Vault plan
 description: Learn how to enable the Defender for Key Vault plan on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/29/2023
 ---
 
-# Protect your key vault with Defender for Key Vault
+# Protect your key vaults with Defender for Key Vault
 
-Defender for Key Vault in Microsoft Defender for Cloud is a cloud service that safeguards encryption keys and secrets like certificates, connection strings, and passwords.
+Azure Key Vault is a cloud service that safeguards encryption keys and secrets like certificates, connection strings, and passwords.
+
+Enable Microsoft Defender for Key Vault for Azure-native, advanced threat protection for Azure Key Vault, providing an additional layer of security intelligence.
 
 Learn more about [Microsoft Defender for Key Vault](defender-for-key-vault-introduction.md).
 

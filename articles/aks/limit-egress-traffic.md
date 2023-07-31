@@ -2,7 +2,7 @@
 title: Control egress traffic using Azure Firewall in Azure Kubernetes Service (AKS)
 description: Learn how to control egress traffic using Azure Firewall in Azure Kubernetes Service (AKS)
 ms.subservice: aks-networking
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.topic: how-to
 ms.author: allensu
 ms.date: 03/10/2023

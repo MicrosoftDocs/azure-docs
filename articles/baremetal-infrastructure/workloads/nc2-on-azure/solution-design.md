@@ -1,5 +1,7 @@
 ---
 title: Solution design
+author: jjaygbay1
+ms.author: jacobjaygbay
 description: Learn about topologies and constraints for NC2 on Azure. 
 ms.topic: conceptual
 ms.subservice: baremetal-nutanix

@@ -31,6 +31,8 @@ This article is for customers using Azure AD Pass-through Authentication through
 
 ### Step 1: Check where your Authentication Agents are installed
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Follow these steps to check where your Authentication Agents are installed:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with the Global Administrator credentials for your tenant.
@@ -55,7 +57,7 @@ To check the versions of your Authentication Agents, on each server identified i
 Before upgrading, ensure that you have the following items in place:
 
 1. **Create cloud-only Global Administrator account**: Don’t upgrade without having a cloud-only Global Administrator account to use in emergency situations where your Pass-through Authentication Agents are not working properly. Learn about [adding a cloud-only Global Administrator account](../../fundamentals/add-users-azure-active-directory.md). Doing this step is critical and ensures that you don't get locked out of your tenant.
-2.	**Ensure high availability**: If not completed previously, install a second standalone Authentication Agent to provide high availability for sign-in requests, using these [instructions](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+2. **Ensure high availability**: If not completed previously, install a second standalone Authentication Agent to provide high availability for sign-in requests, using these [instructions](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
 ## Upgrading the Authentication Agent on your Azure AD Connect server
 

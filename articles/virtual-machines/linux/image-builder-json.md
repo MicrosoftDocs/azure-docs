@@ -4,11 +4,11 @@ description: Learn how to create a Bicep file or ARM template JSON template to u
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: erd
-ms.date: 06/12/2023
+ms.date: 07/17/2023
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: references_regions, devx-track-bicep, devx-track-arm-template
+ms.custom: references_regions, devx-track-bicep, devx-track-arm-template, devx-track-linux
 ---
 
 # Create an Azure Image Builder Bicep or ARM template JSON template
@@ -893,6 +893,10 @@ an Azure Compute Gallery is made up of:
 - **Image versions** - an image type used for deploying a VM or scale set. Image versions can be replicated to other regions where VMs need to be deployed.
 
 Before you can distribute to the gallery, you must create a gallery and an image definition, see [Create a gallery](../create-gallery.md).
+
+> [!NOTE]
+> The image version ID needs to be distinct or different from any image versions that are in the existing Azure Compute Gallery.
+
 
 # [JSON](#tab/json)
 
