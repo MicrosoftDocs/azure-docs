@@ -4,7 +4,7 @@ description: This article helps you troubleshoot common problems and errors you 
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: erd
-ms.date: 05/17/2023
+ms.date: 07/31/2023
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: image-builder
