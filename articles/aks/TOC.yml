@@ -261,7 +261,7 @@
           href: trusted-access-feature.md
         - name: Connect to cluster nodes
           items:
-            - name: Connect to nodes with SSH
+            - name: Connect to nodes using SSH
               href: node-access.md
             - name: Manage SSH access to nodes
               href: manage-ssh-node-access.md
