@@ -5,7 +5,7 @@ ms.service:  azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/07/2023
+ms.date: 07/31/2023
 ---
 
 # Monitor Kubernetes clusters using Azure services and cloud native tools
@@ -38,44 +38,28 @@ Your choice of which tools to deploy and their configuration will depend on the 
 
 Monitoring a complex environment such as Kubernetes involves collecting a significant amount of telemetry, much of which incurs a cost. You should collect just enough data to meet your requirements. This includes the amount of data collected, the frequency of collection, and the retention period. If you're  very cost conscious, you may choose to implement a subset of the full functionality in order to reduce your monitoring spend.
 
+## Network engineer
+The *Network Engineer* is responsible for traffic between workloads and any ingress/egress with the cluster. They analyze network traffic and perform threat analysis.
 
-## Developer
+:::image type="content" source="media/monitor-kubernetes/layers-network-engineer.png" alt-text="Diagram of layers of Kubernetes environment for network engineer." lightbox="media/monitor-kubernetes/layers-network-engineer.png"  border="false":::
 
-In addition to developing the application, the *developer* maintains the application running on the cluster. They're responsible for application specific traffic including application performance and failures and maintain reliability of the application according to company-defined SLAs.
-
-:::image type="content" source="media/monitor-kubernetes/layers-developer.png" alt-text="Diagram of layers of Kubernetes environment for developer." lightbox="media/monitor-kubernetes/layers-developer.png"  border="false":::
-
-### Azure services for developer
+### Azure services for network administrator
 
 The following table lists the services that are commonly used by the network engineer to monitor the health and performance of the Kubernetes cluster and its components.  
 
 
 | Service | Description |
 |:---|:---|
-| [Application insights](../app/app-insights-overview.md) |  Feature of Azure Monitor that provides application performance monitoring (APM) to monitor applications running on your Kubernetes cluster from development, through test, and into production. Quickly identify and mitigate latency and reliability issues using distributed traces. Supports [OpenTelemetry](../app/opentelemetry-overview.md#opentelemetry) for vendor-neutral instrumentation. |
+| [Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) | Suite of tools in Azure to monitor the virtual networks used by your Kubernetes clusters and diagnose detected issues. |
+| [Network insights](../../network-watcher/network-insights-overview.md) | Feature of Azure Monitor that includes a visual representation of the performance and health of different network components and provides access to the network monitoring tools that are part of Network Watcher. |
 
+### Monitor level 1 - Network
 
-See [Data Collection Basics of Azure Monitor Application Insights](../app/opentelemetry-overview.md) for options on configuring data collection from the application running on your cluster and decision criteria on the best method for your particular requirements. 
+[Network insights](../../network-watcher/network-insights-overview.md) is enabled by default and requires no configuration. Network Watcher is also typically [enabled by default in each Azure region](../../network-watcher/network-watcher-create.md). 
 
-### Monitor level 1 - Application
+Create [flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) to log information about the IP traffic flowing through network security groups used by your cluster and then use [traffic analytics](../../network-watcher/traffic-analytics.md) to analyze and provide insights on this data. You'll most likely use the same Log Analytics workspace for traffic analytics that you use for Container insights and your control plane logs.
 
-**Application performance**<br>
-- Use the **Performance** view in Application insights to view the performance of different operations in your application.
-- Use [Profiler](../profiler/profiler-overview.md) to capture and view performance traces for your application.
-- Use [Application Map](../app/app-map.md) to view the dependencies between your application components and identify any bottlenecks.
-- Enable [distributed tracing](../app/distributed-tracing-telemetry-correlation.md), which provides a performance profiler that works like call stacks for cloud and microservices architectures, to gain better observability into the interaction between services.
-
-**Application failures**<br>
-- Use the **Failures** tab of Application insights to view the number of failed requests and the most common exceptions.
-- Ensure that alerts for [failure anomalies](../alerts/proactive-failure-diagnostics.md) identified with [smart detection](../alerts/proactive-diagnostics.md) are configured properly.
-
-**Health monitoring**<br>
-- Create an [Availability test](../app/availability-overview.md) in Application insights to create a recurring test to monitor the availability and responsiveness of your application.
-- Use the [SLA report](../app/sla-report.md) to calculate and report SLA for web tests.
-- Use [annotations](../app/annotations.md) to identify when a new build is deployed so that you can visually inspect any change in performance after the update.
-
-**Application logs**<br>
-- Container insights sends stdout/stderr logs to a Log Analytics workspace. See [Resource logs](../../aks/monitor-aks-reference.md#resource-logs) for a description of the different logs and [Kubernetes Services](/azure/azure-monitor/reference/tables/tables-resourcetype#kubernetes-services) for a list of the tables each is sent to.
+Using traffic analytics, you can determine if any traffic is flowing to either to or from any unexpected ports used by the cluster and also if any traffic is flowing over public IPs that shouldn't be exposed. Use this information to determine whether your network rules need modification.
 
 
 ## Platform engineer
@@ -280,29 +264,45 @@ The following table describes the different types of custom alert rules that you
 #### Recommended alerts
 Start with a set of recommended Prometheus alerts from [Metric alert rules in Container insights (preview)](container-insights-metric-alerts.md#prometheus-alert-rules) which include the most common alerting conditions for a Kubernetes cluster. You can add more alert rules later as you identify additional alerting conditions.
 
+## Developer
 
-## Network engineer
-The *Network Engineer* is responsible for traffic between workloads and any ingress/egress with the cluster. They analyze network traffic and perform threat analysis.
+In addition to developing the application, the *developer* maintains the application running on the cluster. They're responsible for application specific traffic including application performance and failures and maintain reliability of the application according to company-defined SLAs.
 
-:::image type="content" source="media/monitor-kubernetes/layers-network-engineer.png" alt-text="Diagram of layers of Kubernetes environment for network engineer." lightbox="media/monitor-kubernetes/layers-network-engineer.png"  border="false":::
+:::image type="content" source="media/monitor-kubernetes/layers-developer.png" alt-text="Diagram of layers of Kubernetes environment for developer." lightbox="media/monitor-kubernetes/layers-developer.png"  border="false":::
 
-### Azure services for network administrator
+### Azure services for developer
 
 The following table lists the services that are commonly used by the network engineer to monitor the health and performance of the Kubernetes cluster and its components.  
 
 
 | Service | Description |
 |:---|:---|
-| [Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) | Suite of tools in Azure to monitor the virtual networks used by your Kubernetes clusters and diagnose detected issues. |
-| [Network insights](../../network-watcher/network-insights-overview.md) | Feature of Azure Monitor that includes a visual representation of the performance and health of different network components and provides access to the network monitoring tools that are part of Network Watcher. |
+| [Application insights](../app/app-insights-overview.md) |  Feature of Azure Monitor that provides application performance monitoring (APM) to monitor applications running on your Kubernetes cluster from development, through test, and into production. Quickly identify and mitigate latency and reliability issues using distributed traces. Supports [OpenTelemetry](../app/opentelemetry-overview.md#opentelemetry) for vendor-neutral instrumentation. |
 
-### Monitor level 5 - Network
 
-[Network insights](../../network-watcher/network-insights-overview.md) is enabled by default and requires no configuration. Network Watcher is also typically [enabled by default in each Azure region](../../network-watcher/network-watcher-create.md). 
+See [Data Collection Basics of Azure Monitor Application Insights](../app/opentelemetry-overview.md) for options on configuring data collection from the application running on your cluster and decision criteria on the best method for your particular requirements. 
 
-Create [flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) to log information about the IP traffic flowing through network security groups used by your cluster and then use [traffic analytics](../../network-watcher/traffic-analytics.md) to analyze and provide insights on this data. You'll most likely use the same Log Analytics workspace for traffic analytics that you use for Container insights and your control plane logs.
+### Monitor level 5 - Application
 
-Using traffic analytics, you can determine if any traffic is flowing to either to or from any unexpected ports used by the cluster and also if any traffic is flowing over public IPs that shouldn't be exposed. Use this information to determine whether your network rules need modification.
+**Application performance**<br>
+- Use the **Performance** view in Application insights to view the performance of different operations in your application.
+- Use [Profiler](../profiler/profiler-overview.md) to capture and view performance traces for your application.
+- Use [Application Map](../app/app-map.md) to view the dependencies between your application components and identify any bottlenecks.
+- Enable [distributed tracing](../app/distributed-tracing-telemetry-correlation.md), which provides a performance profiler that works like call stacks for cloud and microservices architectures, to gain better observability into the interaction between services.
+
+**Application failures**<br>
+- Use the **Failures** tab of Application insights to view the number of failed requests and the most common exceptions.
+- Ensure that alerts for [failure anomalies](../alerts/proactive-failure-diagnostics.md) identified with [smart detection](../alerts/proactive-diagnostics.md) are configured properly.
+
+**Health monitoring**<br>
+- Create an [Availability test](../app/availability-overview.md) in Application insights to create a recurring test to monitor the availability and responsiveness of your application.
+- Use the [SLA report](../app/sla-report.md) to calculate and report SLA for web tests.
+- Use [annotations](../app/annotations.md) to identify when a new build is deployed so that you can visually inspect any change in performance after the update.
+
+**Application logs**<br>
+- Container insights sends stdout/stderr logs to a Log Analytics workspace. See [Resource logs](../../aks/monitor-aks-reference.md#resource-logs) for a description of the different logs and [Kubernetes Services](/azure/azure-monitor/reference/tables/tables-resourcetype#kubernetes-services) for a list of the tables each is sent to.
+
+
 
 
 ## See also
