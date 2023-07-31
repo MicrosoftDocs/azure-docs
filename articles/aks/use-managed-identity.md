@@ -22,7 +22,7 @@ AKS doesn't automatically create a [service principal](kubernetes-service-princi
 
 * To [use a pre-created kubelet managed identity][use-a-pre-created-kubelet-managed-identity], you need Azure CLI version 2.26.0 or later installed.
 
-* To [update control plane managed identity on an existing cluster][update-control-plane-identity-on-an-existing-cluster], you need Azure CLI version 2.49.0 or later installed.
+* To [update managed identity on an existing cluster][update-managed-identity-on-an-existing-cluster], you need Azure CLI version 2.49.0 or later installed.
 
 ## Limitations
 
@@ -184,7 +184,7 @@ A custom user-assigned managed identity for the control plane enables access to 
 > [!NOTE]
 > It may take up to 60 minutes for the permissions granted to your cluster's managed identity to populate.
 
-* Before creating the cluster, [add the role assignment for control plane managed identity][add-role-assignment-for-control-plane-identity] using the [`az role assignment create`][az-role-assignment-create] command.
+* Before creating the cluster, [add the role assignment for managed identity][add-role-assignment-for-managed-identity] using the [`az role assignment create`][az-role-assignment-create] command.
 
 * Create the cluster with user-assigned managed identity.
 
@@ -475,9 +475,9 @@ Use [Azure Resource Manager templates][aks-arm-template] to create a managed ide
 [az-identity-create]: /cli/azure/identity#az_identity_create
 [az-identity-show]: /cli/azure/identity#az_identity_show
 [managed-identity-resources-overview]: ../active-directory/managed-identities-azure-resources/overview.md
-[bring-your-own-control-plane-managed-identity]: use-managed-identity.md#bring-your-own-control-plane-managed-identity
+[bring-your-own-control-plane-managed-identity]: use-managed-identity.md#bring-your-own-managed-identity
 [use-a-pre-created-kubelet-managed-identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
-[update-control-plane-identity-on-an-existing-cluster]: use-managed-identity.md#update-control-plane-identity-on-an-existing-cluster
+[update-managed-identity-on-an-existing-cluster]: use-managed-identity.md#update-managed-identity-on-an-existing-cluster
 [workload-identity-overview]: workload-identity-overview.md
 [aad-pod-identity]: use-azure-ad-pod-identity.md
 [add-role-assignment-for-control-plane-identity]: use-managed-identity.md#add-role-assignment-for-control-plane-identity

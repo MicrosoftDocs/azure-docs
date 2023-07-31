@@ -297,4 +297,4 @@ This article showed you how to deploy your AKS cluster into your existing virtua
 [network-comparisons]: concepts-network.md#compare-network-models
 [custom-route-table]: ../virtual-network/manage-route-table.md
 [Create an AKS cluster with user-assigned managed identities]: configure-kubenet.md#create-an-aks-cluster-with-user-assigned-managed-identities
-[bring-your-own-control-plane-managed-identity]: ../aks/use-managed-identity.md#bring-your-own-control-plane-managed-identity
+[bring-your-own-control-plane-managed-identity]: ../aks/use-managed-identity.md#bring-your-own-managed-identity
