@@ -19,9 +19,9 @@ ms.collection: M365-identity-device-management
 
 # Authentication methods in Azure Active Directory - phone options
 
-For direct authentication using text message, you can [Configure and enable users for SMS-based authentication](howto-authentication-sms-signin.md). SMS-based sign-in is great for Frontline workers. With SMS-based sign-in, users don't need to know a username and password to access applications and services. The user instead enters their registered mobile phone number, receives a text message with a verification code, and enters that in the sign-in interface.
+Microsoft recommends users move away from using SMS or voice calls for multifactor authentication (MFA). Modern authentication methods like [Microsoft Authenticator](concept-authentication-authenticator-app.md) are a recommended alternative. For more information, see [It's Time to Hang Up on Phone Transports for Authentication](https://aka.ms/hangup). Users can still verify themselves using a mobile phone or office phone as secondary form of authentication used for multifactor authentication (MFA) or self-service password reset (SSPR).
 
-Users can also verify themselves using a mobile phone or office phone as secondary form of authentication used during Azure AD Multi-Factor Authentication or self-service password reset (SSPR). Azure AD Multi-Factor Authentication and SSPR support phone extensions only for office phones.
+You can [configure and enable users for SMS-based authentication](howto-authentication-sms-signin.md) for direct authentication using text message. SMS-based sign-in is convenient for Frontline workers. With SMS-based sign-in, users don't need to know a username and password to access applications and services. The user instead enters their registered mobile phone number, receives a text message with a verification code, and enters that in the sign-in interface.
 
 >[!NOTE]
 >Phone call verification isn't available for Azure AD tenants with trial subscriptions. For example, if you sign up for a trial license Microsoft Enterprise Mobility and Security (EMS), phone call verification isn't available. Phone numbers must be provided in the format *+CountryCode PhoneNumber*, for example, *+1 4251234567*. There must be a space between the country/region code and the phone number.
@@ -30,9 +30,12 @@ Users can also verify themselves using a mobile phone or office phone as seconda
 
 For Azure AD Multi-Factor Authentication or SSPR, users can choose to receive an SMS message with a verification code to enter in the sign-in interface, or receive a phone call.
 
-If users don't want their mobile phone number to be visible in the directory but want to use it for password reset, administrators shouldn't populate the phone number in the directory. Instead, users should populate their **Authentication Phone** attribute via the combined security info registration at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo). Administrators can see this information in the user's profile, but it's not published elsewhere.
+If users don't want their mobile phone number to be visible in the directory but want to use it for password reset, administrators shouldn't populate the phone number in the directory. Instead, users should populate their **Authentication Phone** at [My Sign-Ins](https://aka.ms/setupsecurityinfo). Administrators can see this information in the user's profile, but it's not published elsewhere.
 
 :::image type="content" source="media/concept-authentication-methods/user-authentication-methods.png" alt-text="Screenshot of the Azure portal that shows authentication methods with a phone number populated":::
+
+> [!NOTE]
+> Phone extensions are supported only for office phones.
 
 Microsoft doesn't guarantee consistent SMS or voice-based Azure AD Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, we may add or remove short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft doesn't support short codes for countries/regions besides the United States and Canada.
 

@@ -8,7 +8,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 04/25/2023
 ms.topic: how-to
-#Customer intent: As a dev infrastructure manager, I want to be able to manage network connections so that I can enable dev boxes to connect to my existing networks and deploy them in the desired region.
+#Customer intent: As a platform engineer, I want to be able to manage network connections so that I can enable dev boxes to connect to my existing networks and deploy them in the desired region.
 ---
 
 # Connect dev boxes to resources by configuring network connections 

@@ -72,7 +72,7 @@ When the storage pool is created, Azure Container Storage will create a storage 
 
 Next, you must assign the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) Azure RBAC built-in role to the AKS managed identity on your Azure Elastic SAN Preview subscription. You'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role for your Azure subscription in order to do this. If you don't have sufficient permissions, ask your admin to perform these steps.
 
-1. Sign into the [Azure portal](https://portal.azure.com?azure-portal=true).
+1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
 1. Select **Subscriptions**, and locate and select the subscription associated with the Azure Elastic SAN Preview resource that Azure Container Storage created on your behalf. This will likely be the same subscription as the AKS cluster that Azure Container Storage is installed on. You can verify this by locating the Elastic SAN resource in the resource group that AKS created (`MC_YourResourceGroup_YourAKSClusterName_Region`).
 1. Select **Access control (IAM)** from the left pane.
 1. Select **Add > Add role assignment**.

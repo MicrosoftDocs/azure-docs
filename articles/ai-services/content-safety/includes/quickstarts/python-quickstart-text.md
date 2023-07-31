@@ -20,7 +20,7 @@ ms.author: pafarley
 * [Python 3.x](https://www.python.org/)
   * Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check if you have pip installed by running `pip --version` on the command line. Get pip by installing the latest version of Python.
 
-[!INCLUDE [Create environment variavles](../env-vars.md)]
+[!INCLUDE [Create environment variables](../env-vars.md)]
 
 
 ## Analyze text content
@@ -40,17 +40,19 @@ The following section walks through a sample request with the Python SDK.
     import os
     from azure.ai.contentsafety import ContentSafetyClient
     from azure.core.credentials import AzureKeyCredential
-    from azure.ai.contentsafety.models import AnalyzeTextOptions, TextCategory
+    from azure.core.exceptions import HttpResponseError
+    from azure.ai.contentsafety.models import AnalyzeTextOptions
     
     
     def analyze_text():
-        endpoint = os.environ.get('CONTENT_SAFETY_ENDPOINT')
-        key = os.environ.get('CONTENT_SAFETY_KEY')
+        # analyze text
+        key = os.environ["CONTENT_SAFETY_KEY"]
+        endpoint = os.environ["CONTENT_SAFETY_ENDPOINT"]
     
         # Create an Content Safety client
         client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
     
-        # Build request
+        # Contruct request
         request = AnalyzeTextOptions(text="Your input text")
     
         # Analyze text
@@ -64,15 +66,15 @@ The following section walks through a sample request with the Python SDK.
                 raise
             print(e)
             raise
-    
-        if response.hate_result is not None:
-            print("Hate severity: {}".format(response.hate_result.severity))
-        if response.self_harm_result is not None:
-            print("SelfHarm severity: {}".format(response.self_harm_result.severity))
-        if response.sexual_result is not None:
-            print("Sexual severity: {}".format(response.self_harm_result.severity))
-        if response.violence_result is not None:
-            print("Violence severity: {}".format(response.self_harm_result.severity))
+
+        if response.hate_result:
+            print(f"Hate severity: {response.hate_result.severity}")
+        if response.self_harm_result:
+            print(f"SelfHarm severity: {response.self_harm_result.severity}")
+        if response.sexual_result:
+            print(f"Sexual severity: {response.sexual_result.severity}")
+        if response.violence_result:
+            print(f"Violence severity: {response.violence_result.severity}")
     
     
     if __name__ == "__main__":

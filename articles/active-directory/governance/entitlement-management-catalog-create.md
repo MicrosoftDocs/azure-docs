@@ -131,7 +131,7 @@ To require attributes for access requests:
 
     ![Screenshot that shows selecting Require attributes](./media/entitlement-management-catalog-create/resources-require-attributes.png)
  
-1.	Select the attribute type:
+1. Select the attribute type:
 
     1. **Built-in** includes Azure AD user profile attributes.
     1. **Directory schema extension** provides a way to store more data in Azure AD on user objects and other directory objects. This includes groups, tenant details, and service principals. Only extension attributes on user objects can be used to send out claims to applications.
@@ -140,9 +140,9 @@ To require attributes for access requests:
     > [!NOTE]
     > The User.mobilePhone attribute is a sensitive property that can be updated only by some administrators. Learn more at [Who can update sensitive user attributes?](/graph/api/resources/users#who-can-update-sensitive-attributes).
 
-1.	Select the answer format you want requestors to use for their answer. Answer formats include **short text**, **multiple choice**, and **long text**.
+1. Select the answer format you want requestors to use for their answer. Answer formats include **short text**, **multiple choice**, and **long text**.
 
-1.	If you select multiple choice, select **Edit and localize** to configure the answer options. 
+1. If you select multiple choice, select **Edit and localize** to configure the answer options. 
     1. In the **View/edit question** pane that appears, enter the response options you want to give the requestor when they answer the question in the **Answer values** boxes.
     1. Select the language for the response option. You can localize response options if you choose more languages.
     1. Enter as many responses as you need, and then select **Save**.
@@ -156,7 +156,7 @@ To require attributes for access requests:
  
     ![Screenshot that shows adding localizations.](./media/entitlement-management-catalog-create/add-attributes-questions.png)
 
-1.	If you want to add localization, select **Add localization**.
+1. If you want to add localization, select **Add localization**.
 
     1. In the **Add localizations for question** pane, select the language code for the language in which you want to localize the question related to the selected attribute.
     1. In the language you configured, enter the question in the **Localized Text** box.
@@ -164,7 +164,7 @@ To require attributes for access requests:
 
        ![Screenshot that shows saving the localizations.](./media/entitlement-management-catalog-create/attributes-add-localization.png)
 
-1.	After all attribute information is completed on the **Require attributes** page, select **Save**.
+1. After all attribute information is completed on the **Require attributes** page, select **Save**.
 
 ### Add a Multi-Geo SharePoint site
 

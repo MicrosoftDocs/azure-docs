@@ -96,7 +96,7 @@ This quickstart uses the Gradle dependency manager. You can find the client libr
         mavenCentral()
     }
     dependencies {
-        implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "4.0.0")
+        implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "4.1.0-beta.2")
     }
     ```
 

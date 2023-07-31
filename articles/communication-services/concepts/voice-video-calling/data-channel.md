@@ -22,7 +22,7 @@ ms.subservice: calling
 > Throughout this document, we use terms *Data Channel API* or *API* to denote the Data Channel API within the SDK.
 > When referring to the Data Channel API in WebRTC, we explicitly use the term *WebRTC Data Channel API* for clarity and precision.
 
-The Data Channel API enables real-time messaging during audio and video calls. With this API, you can now easily integrate chat and data exchange functionalities into the applications, providing a seamless communication experience for users. Key features include:
+The Data Channel API enables real-time messaging during audio and video calls. With this API, you can now easily integrate data exchange functionalities into the applications, providing a seamless communication experience for users. Key features include:
 
 * Real-time Messaging: The Data Channel API enables users to instantly send and receive messages during an ongoing audio or video call, promoting smooth and efficient communication. In group call scenarios, messages can be sent to a single participant, a specific set of participants, or all participants within the call. This flexibility enhances communication and collaboration among users during group interactions.
 * Unidirectional Communication: Unlike bidirectional communication, the Data Channel API is designed for unidirectional communication. It employs distinct objects for sending and receiving messages: the DataChannelSender object for sending and the DataChannelReceiver object for receiving. This separation simplifies message management in group calls, leading to a more streamlined user experience.
@@ -37,9 +37,12 @@ These are two common use cases:
 ### Messaging between participants in a call
 
 The Data Channel API enables the transmission of binary type messages among call participants.
-With appropriate serialization in the application, it can deliver various message types, extending beyond mere chat texts.
-Although other messaging libraries may offer similar functionality, the Data Channel API offers the advantage of low-latency communication.
-Moreover, by removing the need for maintaining a separate participant list, user management is simplified.
+With appropriate serialization in the application, it can deliver various message types for different purposes.
+There are also other liberies or services providing the messaging functionalities.
+Each of them has its advantages and disadvantages. You should choose the suitable one for your usage scenario.
+For example, the Data Channel API offers the advantage of low-latency communication, and simplifies user management as there is no need to maintain a separate participant list.
+However, the data channel feature doesn't provide message persistence and doesn't guarantee that message won't be lost in an end-to-end manner.
+If you need the stateful messaging or guaranteed delivery, you may want to consider alternative solutions.
 
 ### File sharing
 
@@ -62,7 +65,7 @@ The decoupling of sender and receiver objects simplifies message handling in gro
 ### Channel
 Every Data Channel message is associated with a specific channel identified by `channelId`.
 It's important to clarify that this channelId isn't related to the `id` property in the WebRTC Data Channel.
-This channelId can be utilized to differentiate various application uses, such as using 100 for chat messages and 101 for image transfers.
+This channelId can be utilized to differentiate various application uses, such as using 1000 for control messages and 1001 for image transfers.
 
 The channelId is assigned during the creation of a DataChannelSender object,
 and can be either user-specified or determined by the SDK if left unspecified.

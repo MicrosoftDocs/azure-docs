@@ -28,7 +28,7 @@ You complete the following tasks:
 ## Prerequisites
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) or higher. This guide uses Visual Studio 2019
-> * An Azure AI services Speech resource key and region: Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a multi-service resource](../multi-service-resource.md?pivots=azportal).
+> * An Azure AI Speech resource key and region: Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a multi-service resource](../multi-service-resource.md?pivots=azportal).
 > * A previously [created Custom Commands app](quickstart-custom-commands-application.md)
 > * A Speech SDK enabled client app:
 [How-to: Integrate with a client application using Speech SDK](./how-to-custom-commands-setup-speech-sdk.md)

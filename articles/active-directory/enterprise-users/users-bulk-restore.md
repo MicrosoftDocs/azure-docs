@@ -42,7 +42,9 @@ The rows in a downloaded CSV template are as follows:
 
 ## To bulk restore users
 
-1. [Sign in to the Azure portal](https://portal.azure.com) with an account that is a User Administrator in the Azure AD organization.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a User Administrator in the Azure AD organization.
 1. Browse to **Azure Active Directory** > **Users** > **Deleted**.
 1. On the **Deleted users** page, select **Bulk restore** to upload a valid CSV file of properties of the users to restore.
 
@@ -69,7 +71,7 @@ Next, you can check to see that the users you restored exist in the Azure AD org
 
 ## View restored users in the Azure portal
 
-1. [Sign in to the Azure portal](https://portal.azure.com) with an account that is a User Administrator in the organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a User Administrator in the organization.
 1. In the navigation pane, select **Azure Active Directory**.
 1. Under **Manage**, select **Users**.
 1. Under **Show**, select **All users** and verify that the users you restored are listed.

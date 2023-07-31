@@ -1015,7 +1015,13 @@
       "url": "https://github.com/Azure/actions-workflow-samples",
       "branch": "master",
       "branch_mapping": {}
-    }  
+    },
+    {
+      "path_to_root": "azure-proactive-resiliency-library",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library",
+      "branch": "main",
+      "branch_mapping": {}
+    }
   ],
   "branch_target_mapping": {
     "live": ["Publish", "PDF"],
@@ -1060,6 +1066,7 @@
   ".openpublishing.redirection.sql-database.json",
   ".openpublishing.redirection.virtual-desktop.json",
   ".openpublishing.redirection.devops-project.json",
+  ".openpublishing.redirection.sentinel.json",
   "articles/ai-services/.openpublishing.redirection.ai-services-from-applied.json",
   "articles/ai-services/.openpublishing.redirection.ai-services-from-cog.json",
   "articles/ai-services/.openpublishing.redirection.applied-ai-old.json",

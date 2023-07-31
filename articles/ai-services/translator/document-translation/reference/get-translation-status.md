@@ -14,13 +14,18 @@ ms.date: 07/18/2023
 
 # Get translation status
 
-The Get translation status method returns the status for a document translation request. The status includes the overall request status and the status for documents that are being translated as part of that request.
+Reference</br>
+Service: **Azure AI Document Translation**</br>
+API Version: **v1.1**</br>
+
+The Get translation status method returns the status for a document translation request. The status includes the overall request status and the status for documents that are being translated as part of that request. 
 
 ## Request URL
 
 Send a `GET` request to:
+
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches/{id}
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/batches/{id}
 ```
 
 Learn how to find your [custom domain name](../quickstarts/document-translation-rest-api.md).
@@ -30,14 +35,13 @@ Learn how to find your [custom domain name](../quickstarts/document-translation-
 > * **All API requests to the Document Translation service require a custom domain endpoint**.
 > * You can't use the endpoint found on your Azure portal resource _Keys and Endpoint_ page nor the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
 
-
 ## Request parameters
 
 Request parameters passed on the query string are:
 
 |Query parameter|Required|Description|
 |--- |--- |--- |
-|id|True|The operation ID.|
+|`id`|True|The operation ID.|
 
 ## Request headers
 
@@ -55,7 +59,7 @@ The following are the possible HTTP status codes that a request returns.
 |--- |--- |
 |200|OK. Successful request and returns the status of the batch translation operation. HeadersRetry-After: integerETag: string|
 |401|Unauthorized. Check your credentials.|
-|404|Resource is not found.|
+|404|Resource isn't found.|
 |500|Internal Server Error.|
 |Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
@@ -67,11 +71,11 @@ The following information is returned in a successful response.
 
 |Name|Type|Description|
 |--- |--- |--- |
-|id|string|ID of the operation.|
+|`id`|string|ID of the operation.|
 |createdDateTimeUtc|string|Operation created date time.|
 |lastActionDateTimeUtc|string|Date time in which the operation's status has been updated.|
 |status|String|List of possible statuses for job or document: <ul><li>Canceled</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>Running</li><li>Succeeded</li><li>ValidationFailed</li></ul>|
-|summary|StatusSummary|Summary containing the details listed below.|
+|summary|StatusSummary|Summary containing the listed details.|
 |summary.total|integer|Total count.|
 |summary.failed|integer|Failed count.|
 |summary.success|integer|Number of successful.|
@@ -86,11 +90,11 @@ The following information is returned in a successful response.
 |--- |--- |--- |
 |code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
 |message|string|Gets high-level error message.|
-|target|string|Gets the source of the error. For example, it would be "documents" or "document id" for an invalid document.|
-|innerError|InnerTranslationError|New Inner Error format which conforms to Azure AI services API Guidelines. This contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error(this can be nested).|
+|target|string|Gets the source of the error. For example, it would be `documents` or `document id` for an invalid document.|
+|innerError|InnerTranslationError|New Inner Error format that conforms to Azure AI services API Guidelines. This error message contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error(it can be nested).|
 |innerError.code|string|Gets code error string.|
 |innerError.message|string|Gets high-level error message.|
-|innerError.target|string|Gets the source of the error. For example it would be "documents" or "document id" in case of invalid document.|
+|innerError.target|string|Gets the source of the error. For example, it would be `documents` or `document id` for invalid document.|
 
 ## Examples
 

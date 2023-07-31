@@ -27,7 +27,7 @@ productDirectory:
       summary: Catch up on past sessions at your own pace
       url: https://learn.microsoft.com/shows/learn-live/?terms=fasttrack
     # Card
-    - title: AskFTA
+    - title: Ask an Azure Engineer
       imageSrc: ./media/interact.png
       summary: Get your technical questions answered directly from an Azure engineer
       url: https://learn.microsoft.com/answers/tags/351/azure-fasttrack

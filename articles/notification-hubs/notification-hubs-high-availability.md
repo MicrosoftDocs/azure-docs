@@ -46,11 +46,11 @@ Notification Hubs provides metadata disaster recovery coverage through cross-reg
 
 Cross-region disaster recovery options can be modified at any time.
 
-Use the [Azure portal][] to edit an existing namespace.
+Use the [Azure portal] to edit an existing namespace.
 
 #### Existing namespaces
 
-1. Sign in to the [Azure portal][].
+1. Sign in to the [Azure portal].
 1. Select **All services** on the left menu.
 1. Select **Notification Hub Namespaces** in the **Internet of Things** section.
 1. On the **Notification Hub Namespaces** page, select the namespace for which you want to modify the disaster recovery settings.
@@ -119,11 +119,11 @@ Use the [Azure portal quickstart][] procedure to set up a new namespace with ava
 - [Azure availability zones](/azure/availability-zones/az-overview)
 - [Azure services that support availability zones](/azure/availability-zones/az-region)
 
-  [Azure Notification Hubs]: notification-hubs-push-notification-overview.md
-  [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/notification-hubs/
-  [Azure paired regions]: /azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies
-  [availability zones]: /azure/availability-zones/az-overview
-  [Notification Hubs Pricing]: https://azure.microsoft.com/pricing/details/notification-hubs/
-  [Azure portal]: https://portal.azure.com/
-  [Azure portal quickstart]: create-notification-hub-portal.md
-  [sample code]: https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/RedundantHubSample
+[Azure Notification Hubs]: notification-hubs-push-notification-overview.md
+[Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/notification-hubs/
+[Azure paired regions]: /azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies
+[availability zones]: /azure/availability-zones/az-overview
+[Notification Hubs Pricing]: https://azure.microsoft.com/pricing/details/notification-hubs/
+[Azure portal]: https://portal.azure.com/
+[Azure portal quickstart]: create-notification-hub-portal.md
+[sample code]: https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/RedundantHubSample

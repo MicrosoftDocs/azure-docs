@@ -67,7 +67,7 @@ To publish Windows Sandbox to your host pool using PowerShell:
 1. Connect to Azure using one of the following methods:
 
    - Open a PowerShell prompt on your local device. Run the `Connect-AzAccount` cmdlet to sign in to your Azure account. For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
-   - Sign in to [the Azure portal](https://portal.azure.com/) and open [Azure Cloud Shell](../cloud-shell/overview.md) with PowerShell as the shell type.
+   - Sign in to the [Azure portal](https://portal.azure.com) and open [Azure Cloud Shell](../cloud-shell/overview.md) with PowerShell as the shell type.
 
 1. Run the following cmdlet to get a list of all the Azure tenants your account has access to:
 

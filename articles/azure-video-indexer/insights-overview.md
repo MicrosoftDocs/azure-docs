@@ -13,6 +13,7 @@ When a video is indexed, Azure AI Video Indexer analyzes the video and audio con
 Read details about the following insights here:
 
 - [Audio effects detection](audio-effects-detection-overview.md)
+- [Emotion detection](emotions-detection.md)
 - [Faces detection](face-detection.md)
 - [OCR](ocr.md)
 - [Keywords extraction](keywords.md)
