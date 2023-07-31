@@ -73,14 +73,12 @@ When licenses required for Conditional Access expire, policies aren't automatica
 [Security defaults](../fundamentals/concept-fundamentals-security-defaults.md) help protect against identity-related attacks and are available for all customers.  
 
 
-## Features in preview
-
-Licensing information for any features currently in preview is included here when applicable. For more information about preview features, see [Microsoft Entra ID preview features](../fundamentals/whats-new.md).
-
 
 ## Hybrid
 
+### Azure AD connect
 
+### What else?
 
 
 ## Identity protection
@@ -135,8 +133,17 @@ Using built-in roles in Azure AD is free. Using custom roles require an Azure AD
 
 ## Reports and monitoring
 
+The required roles and licenses may vary based on the report. Global Administrator can access all reports, but we recommend using a role with least privilege access to align with the [Zero Trust guidance](/security/zero-trust/zero-trust-overview).
 
+| Log / Report | Roles | Licenses |
+|--|--|--|
+| Audit | Report Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Azure AD |
+| Sign-ins | Report Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Azure AD |
+| Provisioning | Same as audit and sign-ins, plus<br>Security Operator<br>Application Administrator<br>Cloud App Administrator<br>A custom role with `provisioningLogs` permission | Premium P1/P2 |
+| Usage and insights | Security Reader<br>Reports Reader<br> Security Administrator | Premium P1/P2 |
+| Identity Protection* | Security Administrator<br>Security Operator<br>Security Reader<br>Global Reader | Azure AD Free/Microsoft 365 Apps<br>Azure AD Premium P1/P2 |
 
+*The level of access and capabilities for Identity Protection varies with the role and license. For more information, see the [license requirements for Identity Protection](../identity-protection/overview-identity-protection.md#license-requirements).
 
 ## Roles
 
@@ -203,6 +210,11 @@ pricing](https://www.microsoft.com/security/business/identity-access/microsoft-e
 |Access reviews for service provider-assigned privileged roles  |   Closely monitor workload identities with impactful permissions |    |  Yes |
 |**Identity Protection**  |  | |
 |Identity Protection for workload identities  | Detect and remediate compromised workload identities | | Yes |                                                                            
+
+
+## Features in preview
+
+Licensing information for any features currently in preview is included here when applicable. For more information about preview features, see [Microsoft Entra ID preview features](../fundamentals/whats-new.md).
 
 ## Next steps
 
