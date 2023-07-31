@@ -84,7 +84,7 @@ Here's the initial set of permissions:
 
 If an application or service attempts to perform a protection action, it must be able to handle the required Conditional Access policy. In some cases, a user might need to intervene and satisfy the policy. For example, they may be required to complete multi-factor authentication. In this preview, the following applications support step-up authentication for protected actions:
 
-- Azure Active Directory administrator experiences for the actions in the [Entra admin center](https://entra.microsoft.com) or [Azure portal](https://portal.azure.com)
+- Azure Active Directory administrator experiences for the actions in the [Entra admin center](https://entra.microsoft.com) or the [Azure portal](https://portal.azure.com)
 - [Microsoft Graph PowerShell](/powershell/microsoftgraph/overview?branch=main)
 - [Microsoft Graph Explorer](/graph/graph-explorer/graph-explorer-overview?branch=main)
 

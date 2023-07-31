@@ -20,6 +20,37 @@ The primary [What's new in sovereign clouds release notes](whats-new-sovereign-c
 
 ---
 
+## December 2022
+
+### General Availability - Risk-based Conditional Access for workload identities
+
+**Type:** New feature  
+**Service category:** Conditional Access          
+**Product capability:** Identity Security & Protection     
+
+Customers can now bring one of the most powerful forms of access control in the industry to workload identities. Conditional Access supports risk-based policies for workload identities. Organizations can block sign-in attempts when Identity Protection detects compromised apps or services. For more information, see: [Create a risk-based Conditional Access policy](../conditional-access/workload-identity.md#create-a-risk-based-conditional-access-policy).
+
+---
+
+### General Availability - API to recover accidentally deleted Service Principals
+
+**Type:** New feature  
+**Service category:** Enterprise Apps        
+**Product capability:** Identity Lifecycle Management     
+
+Restore a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items. If an item was accidentally deleted, you can fully restore the item. This isn't applicable to security groups, which are deleted permanently. A recently deleted item remains available for up to 30 days. After 30 days, the item is permanently deleted. For more information, see: [servicePrincipal resource type](/graph/api/resources/serviceprincipal).
+
+---
+
+### General Availability - Using Staged rollout to test Cert Based Authentication (CBA)
+
+**Type:** New feature  
+**Service category:** Authentications (Logins)     
+**Product capability:** Identity Security & Protection   
+
+We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Azure Active Directory (AD) Connect synchronization wait times. For more information, see: [Migrate to cloud authentication using Staged Rollout](../hybrid/how-to-connect-staged-rollout.md).
+
+---
 
 ## November 2022
 

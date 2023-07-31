@@ -2,7 +2,6 @@
 title: Analyze performance
 titleSuffix: Azure Cognitive Search
 description: TBD
-
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search

@@ -10,7 +10,7 @@ ms.reviewer: lgayhardt
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2021
-ms.custom: designer
+ms.custom: UpdateFrequency5, designer
 ---
 
 # Example pipelines & datasets for Azure Machine Learning designer

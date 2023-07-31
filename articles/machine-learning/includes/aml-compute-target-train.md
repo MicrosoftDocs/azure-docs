@@ -19,6 +19,7 @@ You can use any of the following resources for a training compute target for mos
 |----|:----:|:----:|:----:|
 |[Local computer](~/articles/machine-learning/v1/how-to-train-model.md#local-computer)| Yes | &nbsp; | &nbsp; |
 |[Azure Machine Learning compute cluster](~/articles/machine-learning/how-to-create-attach-compute-cluster.md)| Yes | Yes | Yes |
+|[Azure Machine Learning serverless compute](~/articles/machine-learning/how-to-use-serverless-compute.md)| Yes | Yes | Yes |
 |[Azure Machine Learning compute instance](~/articles/machine-learning/how-to-create-compute-instance.md) | Yes (through SDK)  | Yes | Yes |
 |[Azure Machine Learning Kubernetes](~/articles/machine-learning/how-to-attach-kubernetes-anywhere.md) | | Yes | Yes |
 |[Remote VM](~/articles/machine-learning/v1/how-to-train-model.md#remote-virtual-machines) | Yes  | Yes | &nbsp; |

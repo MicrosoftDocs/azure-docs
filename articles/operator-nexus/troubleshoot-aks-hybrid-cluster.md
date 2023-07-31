@@ -112,14 +112,14 @@ At a high level, the steps to create isolation domains are:
 1. Enable the L3 isolation domain by using the following command:
 
    ~~~bash
-   az nf l3domain update-admin-state --resource-group "RESOURCE_GROUP_NAME" --resource-name "L3ISOLATIONDOMAIN_NAME" --state "Enable"
+   az networkfabric l3domain update-admin-state --resource-group "RESOURCE_GROUP_NAME" --resource-name "L3ISOLATIONDOMAIN_NAME" --state "Enable"
    ~~~
 
 It's important to check that the fabric resources achieve an `administrativeState` value of `Enabled`, and that the `provisioningState` value is `Succeeded`. If the `update-admin-state` step is skipped or unsuccessful, the networks can't operate. You can use `show` commands to check the values. For example:
 
 ~~~bash
-az nf l3domain show -g "example-rg" --resource-name "l2domainname" -o table
-az nf l2domain show -g "example-rg" --resource-name "l3domainname" -o table
+az networkfabric l3domain show -g "example-rg" --resource-name "l2domainname" -o table
+az networkfabric l2domain show -g "example-rg" --resource-name "l3domainname" -o table
 ~~~
 
 ### Network cloud network status is Failed

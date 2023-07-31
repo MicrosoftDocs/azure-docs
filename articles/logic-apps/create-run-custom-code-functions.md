@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, kewear, azla
 ms.topic: how-to
-ms.date: 05/22/2023
+ms.custom: devx-track-dotnet
+ms.date: 07/21/2023
 # Customer intent: As a logic app workflow developer, I want to write and run my own .NET Framework code to perform custom integration tasks.
 ---
 
@@ -67,9 +68,9 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
 
 1. Open Visual Studio Code. On the Activity Bar, select the **Azure** icon. (Keyboard: Shift+Alt+A)
 
-1. In the **Azure** window that opens, on the **Workspace** toolbar, select **Create new logic app workspace**. 
+1. In the **Azure** window that opens, on the **Workspace** section toolbar, from the **Azure Logic Apps** menu, select **Create new logic app workspace**. 
 
-   :::image type="content" source="media/create-run-custom-code-functions/create-workspace.png" alt-text="Screenshot shows Visual Studio Code, Azure window, and selected option for Create new logic app workspace.":::
+   :::image type="content" source="media/create-run-custom-code-functions/create-workspace.png" alt-text="Screenshot shows Visual Studio Code, Azure window, Workspace section toolbar, and selected option for Create new logic app workspace.":::
 
 1. In the **Create new logic app workspace** prompt that appears, find and select the local folder that you created for your project.
 

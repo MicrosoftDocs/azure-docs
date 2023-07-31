@@ -11,8 +11,7 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: sample
 ms.date: 06/23/2023
-ms.custom: developer
-
+ms.custom: developer, devx-track-js
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample web app to sign in and sign out users with my CIAM tenant
 ---
 

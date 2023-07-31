@@ -40,7 +40,7 @@ To use Start VM on Connect, make sure you follow these guidelines:
 
 ## Assign the Desktop Virtualization Power On Contributor role with the Azure portal
 
-Before you can configure Start VM on Connect, you'll need to assign the *Desktop Virtualization Power On Contributor* role-based access control (RBAC) role with your Azure subscription as the assignable scope. Assigning this role at any level lower than your subscription, such as the resource group, host pool, or VM, will prevent Start VM on Connect from working properly.
+Before you can configure Start VM on Connect, you'll need to assign the *Desktop Virtualization Power On Contributor* role-based access control (RBAC) role to the Azure Virtual Desktop service principal with your Azure subscription as the assignable scope. Assigning this role at any level lower than your subscription, such as the resource group, host pool, or VM, will prevent Start VM on Connect from working properly.
 
 You'll need to add each Azure subscription as an assignable scope that contains host pools and session host VMs you want to use with Start VM on Connect. This role and assignment will allow Azure Virtual Desktop to power on VMs, check their status, and report diagnostic information in those subscriptions.
 
@@ -112,7 +112,7 @@ If you run into any issues with Start VM On Connect, we recommend you use the Az
 If the session host VM doesn't turn on, you'll need to check the health of the VM you tried to turn on as a first step.
 
 > [!NOTE]
-> Connecting to a session host outside of Azure Virtual Desktop that is powered off, such as using the MSTSC client, won't start the VM.
+> Connecting to a session host outside of Azure Virtual Desktop that is powered off, such as by using the MSTSC client, won't start the VM.
 
 For other questions, check out the [Start VM on Connect FAQ](start-virtual-machine-connect-faq.md).
 
