@@ -96,6 +96,8 @@ There are two ways to enable Azure AD login for your Windows VM:
 
 ### Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You can enable Azure AD login for VM images in Windows Server 2019 Datacenter or Windows 10 1809 and later. 
 
 To create a Windows Server 2019 Datacenter VM in Azure with Azure AD login: 
@@ -464,7 +466,7 @@ Share your feedback about this feature or report problems with using it on the [
 
 If the Azure Windows VM Sign-In application is missing from Conditional Access, make sure that the application is in the tenant:
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Enterprise applications**.
 1. Remove the filters to see all applications, and search for **VM**. If you don't see **Azure Windows VM Sign-In** as a result, the service principal is missing from the tenant.
 

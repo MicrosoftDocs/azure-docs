@@ -15,30 +15,55 @@ ms.reviewer: cmmdesai
 
 # API-driven inbound provisioning with PowerShell script (Public preview)
 
-This tutorial describes how to use a PowerShell script to implement Microsoft Entra ID [API-driven inbound provisioning](inbound-provisioning-api-concepts.md). Using the steps in this tutorial, you can convert a CSV file containing HR data into a bulk request payload and send it to the Microsoft Entra ID provisioning [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint. 
+This tutorial describes how to use a PowerShell script to implement Microsoft Entra ID [API-driven inbound provisioning](inbound-provisioning-api-concepts.md). Using the steps in this tutorial, you can convert a CSV file containing HR data into a bulk request payload and send it to the Microsoft Entra ID provisioning [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint. The article also provides guidance on how the same integration pattern can be used with any system of record. 
 
-## How to use this tutorial
+## Integration scenario
 
-This tutorial addresses the following integration scenario: 
-* Your system of record generates periodic CSV file exports containing worker data. 
-* You want to use an unattended PowerShell script to automatically provision records from the CSV file to your target directory (on-premises Active Directory or Microsoft Entra ID). 
-* The PowerShell script simply reads data from the CSV file and uploads it to the provisioning API endpoint. The API-driven inbound provisioning app configured in Microsoft Entra ID performs the task of applying your IT managed provisioning rules to create/update/enable/disable accounts in the target directory.
+### Business requirement
+
+Your system of record periodically generates CSV file exports containing worker data. You want to implement an integration that reads data from the CSV file and automatically provisions user accounts in your target directory (on-premises Active Directory for hybrid users and Microsoft Entra ID for cloud-only users).
+
+### Implementation requirement
+
+From an implementation perspective:
+
+* You want to use an unattended PowerShell script to read data from the CSV file exports and send it to the inbound provisioning API endpoint. 
+* In your PowerShell script, you don't want to implement the complex logic of comparing identity data between your system of record and target directory. 
+* You want to use Microsoft Entra ID provisioning service to apply your IT managed provisioning rules to automatically create/update/enable/disable accounts in the target directory (on-premises Active Directory or Microsoft Entra ID).
 
 :::image type="content" source="media/inbound-provisioning-api-powershell/powershell-integration-overview.png" alt-text="Graphic of PowerShell-based integration." lightbox="media/inbound-provisioning-api-powershell/powershell-integration-overview.png":::
 
-Here is a list of automation tasks associated with this integration scenario and how you can implement it by customizing the sample script published in the [Microsoft Entra ID inbound provisioning GitHub repository](https://github.com/AzureAD/entra-id-inbound-provisioning/tree/main/PowerShell/CSV2SCIM). 
+### Integration scenario variations
+
+While this tutorial uses a CSV file as a system of record, you can customize the sample PowerShell script to read data from any system of record. Here's a list of enterprise integration scenario variations, where API-driven inbound provisioning can be implemented with a PowerShell script.
+
+|#  |System of record  |Integration guidance on using PowerShell to read source data |
+|---------|---------|---------|
+|1     |  Database table  | If you're using an Azure SQL database or an on-premises SQL Server, you can use the [Read-SqlTableData](/powershell/module/sqlserver/read-sqltabledata) cmdlet to read data stored in a table of a SQL database. You can use the [Invoke-SqlCmd](/powershell/module/sqlserver/invoke-sqlcmd) cmdlet to run Transact-SQL or XQuery scripts. <br> If you're using an Oracle / MySQL / Postgres database, you can find a PowerShell module either published by the vendor or available in the [PowerShell Gallery](https://www.powershellgallery.com/). Use the module to read data from your database table.   |
+|2     |  LDAP server  | Use the `System.DirectoryServices.Protocols` .NET API or one of the LDAP modules available in the [PowerShell Gallery](https://www.powershellgallery.com/packages?q=ldap) to query your LDAP server. Understand the LDAP schema and hierarchy to retrieve user data from the LDAP server. |
+|3     |  Any system that exposes REST APIs   | To read data from a REST API endpoint using PowerShell, you can use the [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) cmdlet from the `Microsoft.PowerShell.Utility` module. Check the documentation of your REST API and find out what parameters and headers it expects, what format it returns, and what authentication method it uses. You can then adjust your `Invoke-RestMethod` command accordingly.    |
+|4     |  Any system that exposes SOAP APIs   | To read data from a SOAP API endpoint using PowerShell, you can use the [New-WebServiceProxy](/powershell/module/microsoft.powershell.management/new-webserviceproxy) cmdlet from the `Microsoft.PowerShell.Management` module. Check the documentation of your SOAP API and find out what parameters and headers it expects, what format it returns, and what authentication method it uses. You can then adjust your `New-WebServiceProxy` command accordingly.  |
+
+After reading the source data, apply your pre-processing rules and convert the output from your system of record into a bulk request that can be sent to the Microsoft Entra ID provisioning [bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint.
+
+> [!IMPORTANT]
+> If you'd like to share your PowerShell integration script with the community, publish it on [PowerShell Gallery](https://www.powershellgallery.com/) and notify us on the GitHub repository [Entra-ID-Inbound-Provisioning](https://github.com/AzureAD/entra-id-inbound-provisioning), so we can add a reference it. 
+
+## How to use this tutorial
+
+The PowerShell sample script published in the [Microsoft Entra ID inbound provisioning GitHub repository](https://github.com/AzureAD/entra-id-inbound-provisioning/tree/main/PowerShell/CSV2SCIM) automates several tasks. It has logic for handling large CSV files and chunking the bulk request to send 50 records in each request. Here's how you can test it and customize it per your integration requirements. 
 
 > [!NOTE]
 > The sample PowerShell script is provided "as-is" for implementation reference. If you have questions related to the script or if you'd like to enhance it, please use the [GitHub project repository](https://github.com/AzureAD/entra-id-inbound-provisioning).
 
 |# | Automation task | Implementation guidance |
 |---------|---------|---------|
-|1 | Read worker data from the CSV file. | [Download the PowerShell script](#download-the-powershell-script). It has out-of-the-box logic to read data from any CSV file. Refer to [CSV2SCIM PowerShell usage details](#csv2scim-powershell-usage-details) to get familiar with the different execution modes of this script. |
+|1 | Read worker data from the CSV file. | [Download the PowerShell script](#download-the-powershell-script). It has out-of-the-box logic to read data from any CSV file. Refer to [CSV2SCIM PowerShell usage details](#csv2scim-powershell-usage-details) to get familiar with the different execution modes of this script. <br> If your system of record is different, check guidance provided in the section [Integration scenario variations](#integration-scenario-variations) on how you can customize the PowerShell script. |
 |2 | Pre-process and convert data to SCIM format.  | By default, the PowerShell script converts each record in the CSV file to a SCIM Core User + Enterprise User representation. Follow the steps in the section [Generate bulk request payload with standard schema](#generate-bulk-request-payload-with-standard-schema) to get familiar with this process. If your CSV file has different fields, tweak the [AttributeMapping.psd file](#attributemappingpsd-file) to generate a valid SCIM user. You can also [generate bulk request with custom SCIM schema](#generate-bulk-request-with-custom-scim-schema). Update the PowerShell script to include any custom CSV data validation logic. |
 |3 | Use a certificate for authentication to Entra ID. | [Create a service principal that can access](inbound-provisioning-api-grant-access.md) the inbound provisioning API. Refer to steps in the section [Configure client certificate for service principal authentication](#configure-client-certificate-for-service-principal-authentication) to learn how to use client certificate for authentication. If you'd like to use managed identity instead of a service principal for authentication, then review the use of `Connect-MgGraph` in the sample script and update it to use [managed identities](/powershell/microsoftgraph/authentication-commands#using-managed-identity).  |
 |4 | Provision accounts in on-premises Active Directory or Microsoft Entra ID.  | Configure [API-driven inbound provisioning app](inbound-provisioning-api-configure-app.md). This will generate a unique [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint. Refer to the steps in the section [Generate and upload bulk request payload as admin user](#generate-and-upload-bulk-request-payload-as-admin-user) to learn how to upload data to this endpoint. Once the data is uploaded, the provisioning service applies the attribute mapping rules to automatically provision accounts in your target directory. If you plan to [use bulk request with custom SCIM schema](#generate-bulk-request-with-custom-scim-schema), then [extend the provisioning app schema](#extending-provisioning-job-schema) to include your custom SCIM schema elements. Validate the attribute flow and customize the attribute mappings per your integration requirements. To run the script using a service principal with certificate-based authentication, refer to the steps in the section [Upload bulk request payload using client certificate authentication](#upload-bulk-request-payload-using-client-certificate-authentication) |
 |5 | Scan the provisioning logs and retry provisioning for failed records.  |  Refer to the steps in the section [Get provisioning logs of the latest sync cycles](#get-provisioning-logs-of-the-latest-sync-cycles)  to learn how to fetch and analyze provisioning log data. Identify failed user records and include them in the next upload cycle.   |
-|6 | Deploy your PowerShell based automation to production.  |  Once you have verified your API-driven provisioning flow and customized the PowerShell script to meet your requirements, you can deploy the automation as a [PowerShell Workflow runbook in Azure Automation](../../automation/learn/automation-tutorial-runbook-textual.md). |
+|6 | Deploy your PowerShell based automation to production.  |  Once you have verified your API-driven provisioning flow and customized the PowerShell script to meet your requirements, you can deploy the automation as a [PowerShell Workflow runbook in Azure Automation](../../automation/learn/automation-tutorial-runbook-textual.md) or as a server process [scheduled to run on a Windows server](/troubleshoot/windows-server/system-management-components/schedule-server-process). |
 
 
 ## Download the PowerShell script
@@ -57,8 +82,8 @@ Here is a list of automation tasks associated with this integration scenario and
      - Test-ScriptCommands.ps1 (sample usage commands)
      - UseClientCertificate.ps1 (script to generate self-signed certificate and upload it as service principal credential for use in OAuth flow)
      - `Sample1` (folder with more examples of how CSV file columns can be mapped to SCIM standard attributes. If you get different CSV files for employees, contractors, interns, you can create a separate AttributeMapping.psd1 file for each entity.)
-1. Download and install the latest version of PowerShell. 
-1. Run the command to enable execution of remote signed scripts: 
+1. Download and install the latest version of PowerShell.
+1. Run the command to enable execution of remote signed scripts:
     ```powershell
     set-executionpolicy remotesigned
     ```
@@ -76,6 +101,46 @@ To illustrate the procedure, let's use the CSV file `Samples/csv-with-2-records.
     :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/columns.png" alt-text="Screenshot of columns in Excel." lightbox="./media/inbound-provisioning-api-powershell/columns.png":::
 
 1. In Notepad++ or a source code editor like Visual Studio Code, open the PowerShell data file `Samples/AttributeMapping.psd1` that enables mapping of CSV file columns to SCIM standard schema attributes. The file that's shipped out-of-the-box already has pre-configured mapping of CSV file columns to corresponding SCIM schema attributes. 
+    ```powershell
+        @{
+        externalId   = 'WorkerID'
+        name         = @{
+            familyName = 'LastName'
+            givenName  = 'FirstName'
+        }
+        active       = { $_.'WorkerStatus' -eq 'Active' }
+        userName     = 'UserID'
+        displayName  = 'FullName'
+        nickName     = 'UserID'
+        userType     = 'WorkerType'
+        title        = 'JobTitle'
+        addresses    = @(
+            @{
+                type          = { 'work' }
+                streetAddress = 'StreetAddress'
+                locality      = 'City'
+                postalCode    = 'ZipCode'
+                country       = 'CountryCode'
+            }
+        )
+        phoneNumbers = @(
+            @{
+                type  = { 'work' }
+                value = 'OfficePhone'
+            }
+        )
+        "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" = @{
+            employeeNumber = 'WorkerID'
+            costCenter     = 'CostCenter'
+            organization   = 'Company'
+            division       = 'Division'
+            department     = 'Department'
+            manager        = @{
+                value = 'ManagerID'
+            }
+        }
+    }
+    ```
 1. Open PowerShell and change to the directory **CSV2SCIM\src**.
 1. Run the following command to initialize the `AttributeMapping` variable. 
 

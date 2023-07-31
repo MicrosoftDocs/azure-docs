@@ -145,6 +145,8 @@
     - name: Defender for Containers support matrices
       displayName: Containers, features availability, environment information
       href: support-matrix-defender-for-containers.md
+    - name: Defender for Containers CSPM support matrices
+      href: support-agentless-containers-posture.md
   - name: Protect multicloud resources
     items:
     - name: The Defender for Cloud multicloud solution
@@ -221,10 +223,8 @@
       href: concept-data-security-posture-prepare.md
   - name: Improve your container security posture
     items:
-    - name: Agentless Container Posture (Preview)
+    - name: Agentless container posture
       href: concept-agentless-containers.md
-    - name: Support and prerequisites
-      href: support-agentless-containers-posture.md
   - name: Security recommendations
     items:
     - name: Reference list of Azure recommendations
@@ -300,14 +300,6 @@
     items:
     - name: Onboard agentless containers for CSPM
       href: how-to-enable-agentless-containers.md
-    - name: View and remediate vulnerability assessment findings for registry images 
-      href: view-and-remediate-vulnerability-assessment-findings.md
-    - name: How to test the attack path and security explorer using a vulnerable container image
-      href: how-to-test-attack-path-and-security-explorer-with-vulnerable-container-image.md  
-    - name: View and remediate vulnerabilities for images running on your AKS clusters 
-      href: view-and-remediate-vulnerabilities-for-images-running-on-aks.md
-    - name: Disable vulnerability assessment findings on Container registry images
-      href: disable-vulnerability-findings-containers.md  
   - name: Security recommendations
     items:
     - name: Create custom Azure security initiatives and policies
@@ -337,7 +329,7 @@
     - name: Disable a recommendation
       displayName: recommendation, disable, security, policy, 
       href: tutorial-security-policy.md#disable-a-security-recommendation
-    - name: Exempt recommendations per resource, subscription, or management group
+    - name: Exempt recommendations
       displayName: disable, resource, exempt, recommendation
       href: exempt-resource.md
   - name: Built-in security protections
@@ -558,10 +550,22 @@
     - name: Enable Defender for Containers
       displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
       href: defender-for-containers-enable.md
-    - name: Vulnerability assessment for Azure Container Registry
+    - name: Vulnerability assessment for Azure powered by Qualys
       displayName: ACR, registry, images, qualys
       href: defender-for-containers-vulnerability-assessment-azure.md
-    - name: Vulnerability assessment for Amazon Elastic Container Registry
+    - name: Vulnerability assessments for Azure powered by MDVM
+      items:
+      - name: Overview
+        href: agentless-container-registry-vulnerability-assessment.md
+      - name: Enable vulnerability assessment
+        href: enable-vulnerability-assessment.md
+      - name: View and remediate vulnerabilities for registry images 
+        href: view-and-remediate-vulnerability-assessment-findings.md
+      - name: View and remediate vulnerabilities for running images
+        href: view-and-remediate-vulnerabilities-for-images-running-on-aks.md
+      - name: Disable vulnerabilities on images
+        href: disable-vulnerability-findings-containers.md  
+    - name: Vulnerability assessment for AWS
       displayName: AWS, ECR, registry, images, qualys
       href: defender-for-containers-vulnerability-assessment-elastic.md
     - name: Kubernetes data plane hardening

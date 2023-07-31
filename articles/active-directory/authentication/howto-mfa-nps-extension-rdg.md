@@ -121,6 +121,8 @@ This section provides instructions for configuring RDS infrastructure to use Azu
 
 ### Acquire Azure Active Directory tenant ID
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 As part of the configuration of the NPS extension, you need to supply admin credentials and the Azure AD ID for your Azure AD tenant. To get the tenant ID, complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of the Azure tenant.

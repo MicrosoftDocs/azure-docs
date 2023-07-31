@@ -1689,6 +1689,15 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | secrets | **Yes** | **Yes** | No |
 > | volumes | **Yes** | **Yes** | No |
 
+## Microsoft.ServiceNetworking
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | trafficcontrollers | No | No | No |
+> | associations | No | No | No |
+> | frontends | No | No | No |
+
 ## Microsoft.Services
 
 > [!div class="mx-tableFixed"]
