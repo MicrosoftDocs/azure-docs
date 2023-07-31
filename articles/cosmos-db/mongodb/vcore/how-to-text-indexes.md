@@ -8,7 +8,7 @@ ms.reviewer: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.custom: build-2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/26/2023
 ---
 
