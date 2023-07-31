@@ -51,15 +51,17 @@ To help protect organizations, we're always working to improve the security of M
 
 After this setting is enabled, all users in the organization will need to register for multifactor authentication. To avoid confusion, refer to the email you received and alternatively you can [disable security defaults](#disabling-security-defaults) after it's enabled.
 
-To enable security defaults in your directory:
+To configure security defaults in your directory, you must be assigned at least the Security Administrator role. By default the first account in any directory is assigned a higher privileged role known as Global Administrator. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Security Administrator, Conditional Access Administrator, or Global Administrator.
-1. Browse to **Azure Active Directory** > **Properties**.
-1. Select **Manage security defaults**.
+To enable security defaults:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. Browse to **Microsoft Entra ID (Azure AD)** > **Properties**.
+   1. Select **Manage security defaults**.
 1. Set **Security defaults** to **Enabled**.
 1. Select **Save**.
 
-![Screenshot of the Azure portal with the toggle to enable security defaults](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
+:::image type="content" source="media/security-defaults/security-defaults-entra-admin-center.png" alt-text="Screenshot of the Microsoft Entra admin center with the toggle to enable security defaults" lightbox="media/security-defaults/security-defaults-entra-admin-center.png":::
 
 ### Revoking active tokens
 
@@ -176,15 +178,13 @@ The credentials for these emergency access accounts should be stored offline in 
 
 To create an emergency access account: 
 
-1. Sign in to the **Azure portal** as an existing Global Administrator.
-1. Browse to **Azure Active Directory** > **Users**.
-1. Select **New user**.
-1. Select **Create user**.
-1. Give the account a **User name**.
-1. Give the account a **Name**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as an existing Global Administrator.
+1. Browse to **Microsoft Entra ID (Azure AD)** > **Users** > **All users**.
+1. Select **New user** > **Create user**.
+1. Set the **User principal name** and **Display name** for this account.
 1. Create a long and complex password for the account.
-1. Under **Roles**, assign the **Global Administrator** role.
-1. Under **Usage location**, select the appropriate location.
+1. Under **Properties**, set **Usage location** to the appropriate location.
+1. Under **Assignments** > **Add role**, assign the **Global Administrator** role.
 1. Select **Create**.
 
 You may choose to [disable password expiration](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) for these accounts using Azure AD PowerShell.
@@ -203,7 +203,7 @@ If your organization is a previous user of per-user based Azure AD Multifactor A
 
 You can use Conditional Access to configure policies similar to security defaults, but with more granularity. Conditional Access policies allow selecting other authentication methods and the ability to exclude users, which aren't available in security defaults. If you're using Conditional Access in your environment today, security defaults aren't available to you. 
 
-![Warning message that you can have security defaults or Conditional Access not both](./media/concept-fundamentals-security-defaults/security-defaults-conditional-access.png)
+:::image type="content" source="media/security-defaults/security-defaults-conditional-access.png" alt-text="Screenshot showing the warning message that you can have security defaults or Conditional Access not both" lightbox="media/security-defaults/security-defaults-conditional-access.png":::
 
 If you want to enable Conditional Access to configure a set of policies, which form a good starting point for protecting your identities:
 
@@ -216,13 +216,11 @@ If you want to enable Conditional Access to configure a set of policies, which f
 
 Organizations that choose to implement Conditional Access policies that replace security defaults must disable security defaults. 
 
-![Warning message disable security defaults to enable Conditional Access](./media/concept-fundamentals-security-defaults/security-defaults-disable-before-conditional-access.png)
-
 To disable security defaults in your directory:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Security Administrator, Conditional Access Administrator, or Global Administrator.
-1. Browse to **Azure Active Directory** > **Properties**.
-1. Select **Manage security defaults**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. Browse to **Microsoft Entra ID (Azure AD)** > **Properties**.
+   1. Select **Manage security defaults**.
 1. Set **Security defaults** to **Disabled (not recommended)**.
 1. Select **Save**.
 
