@@ -28,11 +28,11 @@ Deploy a Foundation Model:
 
 Set up a custom connection to the provisioned resources in Prompt flow with the following key-value pairs.
 
-| Key              | Value                     | Description                                                                        |
-| ---------------- | ------------------------- | ---------------------------------------------------------------------------------- |
-| endpoint_api_key | Key/Token                 | The API Key/Token provided by the endpoint                                         |
-| endpoint_url     | REST endpont URL          | The REST endpoint URL provided by the endpoint                                     |
-| model_family     | LLAMA, GP2, DOLLY, FALCON | Family name of model being used. Allowed values are LLAMA, GPT2, DOLLY, and FALCON |
+| Key              | Value                       | Description                                                                         |
+| ---------------- | --------------------------- | ----------------------------------------------------------------------------------- |
+| endpoint_api_key | Key/Token                   | The API Key/Token provided by the endpoint                                          |
+| endpoint_url     | REST endpont URL            | The REST endpoint URL provided by the endpoint                                      |
+| model_family     | LLAMA, GPT-2, DOLLY, FALCON | Family name of model being used. Allowed values are LLAMA, GPT-2, DOLLY, and FALCON |
 
 ## Inputs
 
