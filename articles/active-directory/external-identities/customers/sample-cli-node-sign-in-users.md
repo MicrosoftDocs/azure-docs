@@ -1,6 +1,6 @@
 ---
-title: Sign in users in an Azure AD for customers tenant using a sample Node CLI application. 
-description: Learn how to authenticate users in an Azure Active Directory (Azure AD) for customers tenant using a sample Node CLI application
+title: Sign in users in an Azure AD for customers tenant using a sample Node.js CLI application. 
+description: Learn how to authenticate users in an Azure Active Directory (Azure AD) for customers tenant using a sample Node.js CLI application
 services: active-directory
 author: Dickson-Mwendia
 manager: mwongerapk
@@ -13,16 +13,16 @@ ms.topic: sample
 ms.date: 07/28/2023
 ms.custom: developer
 
-#Customer intent: As a dev, devops, I want to learn how to authenticate users in an Azure Active Directory (Azure AD) for customers tenant using a sample Node CLI application
+#Customer intent: As a dev, devops, I want to learn how to authenticate users in an Azure Active Directory (Azure AD) for customers tenant using a sample Node.js CLI application
 ---
 
-# Sign in users in a sample Node CLI application. 
+# Sign in users in a sample Node.js CLI application. 
 
 This how-to guide uses a sample Node Command Line Interface (CLI) application to sign in users in an Azure Active Directory (Azure AD) for customers tenant. The sample application uses the [Microsoft Authentication Library for Node](/javascript/api/%40azure/msal-node) (MSAL Node) to handle authentication.
 
 In this article, you complete the following tasks:
 
-- Register and configure a client Node CLI application in the Microsoft Entra admin center.
+- Register and configure a client Node.js CLI application in the Microsoft Entra admin center.
 
 - Create a sign-up and sign-in user flow in the Microsoft Entra admin center, and then associate the CLI application with it.
 
@@ -35,13 +35,11 @@ In this article, you complete the following tasks:
 
 - [Node.js](https://nodejs.org).
 
-- [.NET 7.0](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install) or later. 
-
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
 - An Azure AD for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
 
-## Register the Node CLI app
+## Register the Node.js CLI app
 
 [!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)] 
 
@@ -62,22 +60,22 @@ Since this app signs in users, add delegated permissions. These permissions allo
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/create-sign-in-sign-out-user-flow.md)] 
 
-## Associate the Node CLI application with the user flow
+## Associate the Node.js CLI application with the user flow
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/add-app-user-flow.md)]
 
 
-## Clone or download the sample Node CLI application
+## Clone or download the sample Node.js CLI application
 
-To get the sample Node CLI app, you can either [download the sample apps .zip file](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/archive/refs/heads/main.zip) or clone the sample CLI app from GitHub by running the following command:
+To get the sample Node.js CLI app, you can either [download the sample apps .zip file](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/archive/refs/heads/main.zip) or clone the sample CLI app from GitHub by running the following command:
 
 ```powershell
 git clone https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial.git
 ```
 
-## Configure the sample Node CLI application 
+## Configure the sample Node.js CLI application 
 
-To configure the client application (Node CLI app) to use your Microsoft Entra app registration details, open the project in your IDE and follow these steps:
+To configure the client application (Node.js CLI app) to use your Microsoft Entra app registration details, open the project in your IDE and follow these steps:
 
 1. Open the `App\authConfig.js` file.
 1. Find the placeholder:
@@ -85,7 +83,7 @@ To configure the client application (Node CLI app) to use your Microsoft Entra a
     -  `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `node-cli-app` application copied from the Microsoft Entra admin center.
     - `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is *contoso.onmicrosoft.com*, use *contoso*.
 
-## Run and test the sample Node CLI application
+## Run and test the sample Node.js CLI application
 
 You can now test the sample Node.js CLI application.
 
@@ -112,7 +110,7 @@ You can now test the sample Node.js CLI application.
 
 Learn how to: 
 
-- Sign in users in your own Node CLI application. By completing these steps, you build a Node CLI application similar to the sample you've run. 
+- Sign in users in your own Node.js CLI application. By completing these steps, you build a Node.js CLI application similar to the sample you've run. 
 - [Enable password reset](how-to-enable-password-reset-customers.md).
 - [Customize the default branding](how-to-customize-branding-customers.md).
 - [Configure sign-in with Google](how-to-google-federation-customers.md).
