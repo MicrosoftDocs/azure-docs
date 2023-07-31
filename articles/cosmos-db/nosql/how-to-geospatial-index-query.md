@@ -16,4 +16,25 @@ ms.custom: query-reference
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-> TODO
+TODO
+
+## Prerequisites
+
+- TODO
+
+## Task 1
+
+TODO
+
+## Task 2
+
+TODO
+
+> [!TIP]
+> Entity Framework does not currently spatial data in Azure Cosmos DB for NoSQL. Use one of the Azure Cosmos DB for NoSQL SDKs for strongly-typed GeoJSON support.
+
+TODO
+
+## Next steps
+
+- [TODO](about:blank)
