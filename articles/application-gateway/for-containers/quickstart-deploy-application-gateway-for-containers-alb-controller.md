@@ -46,8 +46,10 @@ You need to complete the following tasks prior to deploying Application Gateway 
     > [!NOTE]
     > The AKS cluster needs to be in a [region where Application Gateway for Containers is available](overview.md#supported-regions)
     > AKS cluster should use [Azure CNI](../../aks/configure-azure-cni.md).
-    > AKS cluster should have the workload identity feature enabled. [Learn how](../../aks/workload-identity-deploy-cluster.md#update-an-existing-aks-cluster) to enable and use an existing AKS cluster section. 
+    > AKS cluster should have the workload identity feature enabled.
 
+    ### Existing cluster
+   
     If using an existing cluster, ensure you enable Workload Identity support on your AKS cluster.  Workload identities can be enabled via the following:
     
     ```azurecli-interactive
@@ -56,6 +58,8 @@ You need to complete the following tasks prior to deploying Application Gateway 
     az aks update -g $RESOURCE_GROUP -n $AKS_NAME --enable-oidc-issuer --enable-workload-identity --no-wait
     ```
 
+    ### New cluster
+   
     If you don't have an existing cluster, use the following commands to create a new AKS cluster with Azure CNI and workload identity enabled.
  
     ```azurecli-interactive
@@ -76,7 +80,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
         --generate-ssh-key
     ```
 
-3. Install Helm
+4. Install Helm
 
     [Helm](https://github.com/helm/helm) is an open-source packaging tool that is used to install ALB controller. 
 
@@ -166,18 +170,39 @@ You need to complete the following tasks prior to deploying Application Gateway 
     kubectl get pods -n azure-alb-system
     ```
     You should see the following:
-   
-    | NAME                                     | READY | STATUS  | RESTARTS | AGE  |
-    | ---------------------------------------- | ----- | ------- | -------- | ---- |
-    | alb-controller-bootstrap-6648c5d5c-hrmpc | 1/1   | Running | 0        | 4d6h |
-    | alb-controller-6648c5d5c-au234           | 1/1   | Running | 0        | 4d6h |
 
-2. Verify GatewayClass `azure-application-lb` is installed on your cluster:
+    ```output
+    NAME                                        READY   STATUS    RESTARTS   AGE
+    alb-controller-7c6dd8c4d6-kz7dl             1/1     Running   0          3m40s
+    alb-controller-bootstrap-5c6c59c7b8-cll86   1/1     Running   0          3m40s
+    ```
+
+1. Verify GatewayClass `azure-application-lb` is installed on your cluster:
 
     ```azurecli-interactive
     kubectl get gatewayclass azure-alb-external -o yaml
     ```
     You should see that the GatewayClass has a condition that reads **Valid GatewayClass** . This indicates that a default GatewayClass has been set up and that any gateway resources that reference this GatewayClass is managed by ALB Controller automatically.
+   ```output
+   apiVersion: gateway.networking.k8s.io/v1beta1
+   kind: GatewayClass
+   metadata:
+     creationTimestamp: "2023-07-31T13:07:00Z"
+     generation: 1
+     name: azure-alb-external
+     resourceVersion: "64270"
+     uid: 6c1443af-63e6-4b79-952f-6c3af1f1c41e
+   spec:
+     controllerName: alb.networking.azure.io/alb-controller
+   status:
+     conditions:
+     - lastTransitionTime: "2023-07-31T13:07:23Z"
+       message: Valid GatewayClass
+       observedGeneration: 1
+       reason: Accepted
+       status: "True"
+       type: Accepted
+   ```
 
 ## Next Steps 
 
