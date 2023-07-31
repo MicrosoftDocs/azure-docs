@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Configure hybrid Azure Active Directory join manually
 
-If using Azure AD Connect is an option for you, see the guidance in [Configure hybrid Azure AD join](howto-hybrid-azure-ad-join.md). Using the automation in Azure AD Connect, will significantly simplify the configuration of hybrid Azure AD join.
+If using Azure AD Connect is an option for you, see the guidance in [Configure hybrid Azure AD join](how-to-hybrid-join.md). Using the automation in Azure AD Connect, will significantly simplify the configuration of hybrid Azure AD join.
 
 This article covers the manual configuration of requirements for hybrid Azure AD join including steps for managed and federated domains.
 
@@ -60,7 +60,7 @@ You can configure hybrid Azure AD joined devices for various types of Windows de
 - For managed and federated domains, you must [configure a service connection point or SCP](#configure-a-service-connection-point).
 - For federated domains, you must ensure that your [federation service is configured to issue the appropriate claims](#set-up-issuance-of-claims).
 
-After these configurations are complete, follow the guidance to [verify registration](howto-hybrid-join-verify.md) and [enable downlevel operating systems](howto-hybrid-join-downlevel.md) where necessary.
+After these configurations are complete, follow the guidance to [verify registration](how-to-hybrid-join-verify.md) and [enable downlevel operating systems](how-to-hybrid-join-downlevel.md) where necessary.
 
 ### Configure a service connection point
 
@@ -460,7 +460,7 @@ If you experience issues completing hybrid Azure AD join for domain-joined Windo
 
 ## Next steps
 
-- [Hybrid Azure AD join verification](howto-hybrid-join-verify.md)
-- [Downlevel device enablement](howto-hybrid-join-downlevel.md)
+- [Hybrid Azure AD join verification](how-to-hybrid-join-verify.md)
+- [Downlevel device enablement](how-to-hybrid-join-downlevel.md)
 - [Plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)
 - [Use Conditional Access to require compliant or hybrid Azure AD joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md)

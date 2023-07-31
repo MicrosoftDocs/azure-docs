@@ -119,7 +119,7 @@ The group you just created is used in other articles in the Azure AD Fundamental
 
 1. On the **Groups - All groups** page, search for the **MDM policy - West** group.
 
-1.	Select the **MDM policy - West** group.
+1. Select the **MDM policy - West** group.
 
     The **MDM policy - West Overview** page appears.
 

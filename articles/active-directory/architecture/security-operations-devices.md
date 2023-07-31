@@ -24,7 +24,7 @@ Devices aren't commonly targeted in identity-based attacks, but *can* be used to
 
 * [Azure AD joined](../devices/concept-azure-ad-join.md)
 
-* [Hybrid Azure AD joined](../devices/concept-azure-ad-join-hybrid.md)
+* [Hybrid Azure AD joined](../devices/concept-hybrid-join.md)
 
 Registered and joined devices are issued a [Primary Refresh Token (PRT),](../devices/concept-primary-refresh-token.md) which can be used as a primary authentication artifact, and in some cases as a multifactor authentication artifact. Attackers may try to register their own devices, use PRTs on legitimate devices to access business data, steal PRT-based tokens from legitimate user devices, or find misconfigurations in device-based controls in Azure Active Directory. With Hybrid Azure AD joined devices, the join process is initiated and controlled by administrators, reducing the available attack methods.
 
