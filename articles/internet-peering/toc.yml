@@ -6,8 +6,6 @@
     href: overview.md
   - name: Internet peering vs. Peering Service
     href: overview-peering-service.md
-  - name: Azure Peering Service partner overview
-    href: maps-partner-overview.md
 - name: Concepts
   items:
   - name: Peering policy
@@ -16,6 +14,8 @@
     href: prerequisites.md
   - name: Internet peering FAQ
     href: faqs.md
+  - name: Azure Peering Service partner overview
+    href: maps-partner-overview.md
   - name: Peering registered prefix requirements
     href: peering-registered-prefix-requirements.md
 - name: How-to guides

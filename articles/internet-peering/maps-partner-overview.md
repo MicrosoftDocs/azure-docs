@@ -4,7 +4,7 @@ description: Learn about MAPS and how to become a partner.
 services: internet-peering
 author: jsaraco
 ms.service: internet-peering
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 04/07/2023
 ms.author: jsaraco
 ms.custom: template-overview, engagement-fy23
