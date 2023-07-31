@@ -153,7 +153,7 @@ status:
       kind: HTTPRoute
 ```
 
-Once the gateway has been created, create two HTTPRoute resources for `contoso.com` and `fabrikam.com` domain names.  Each domain will forward traffic to a different backend service.
+Once the gateway has been created, create two HTTPRoute resources for `contoso.com` and `fabrikam.com` domain names.  Each domain forwards traffic to a different backend service.
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: gateway.networking.k8s.io/v1beta1
@@ -188,7 +188,7 @@ spec:
 EOF
 ```
 
-Once the HTTPRoute resource has been created, ensure the both route resources show _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
+Once the HTTPRoute resource has been created, ensure both HTTPRoute resources show _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
 ```bash
 kubectl get httproute contoso-route -n test-infra -o yaml
 kubectl get httproute fabrikam-route -n test-infra -o yaml
