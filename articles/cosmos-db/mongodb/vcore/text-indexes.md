@@ -118,5 +118,5 @@ db.articles.dropIndex({ title: "text" })
 ```
 or
 ```
-db.articles.createIndex("title_text")
+db.articles.dropIndex("title_text")
 ```
