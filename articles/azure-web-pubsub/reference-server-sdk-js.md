@@ -318,7 +318,7 @@ const express = require("express");
 
 const { WebPubSubEventHandler } = require("@azure/web-pubsub-express");
 const handler = new WebPubSubEventHandler("chat", {
-  path: "customPath1"
+  path: "/customPath1"
 });
 
 const app = express();
