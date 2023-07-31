@@ -8,10 +8,10 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/31/2023
 
-author: justinha
+author: aloom3
 ms.author: justinha
 manager: amycolannino
-ms.reviewer: 
+ms.reviewer: aloom3
 
 ms.collection: M365-identity-device-management
 ---
@@ -21,7 +21,7 @@ As a protection for our customers, Microsoft doesn't automatically support telep
 
 ## Why this protection is needed  
 
-In today’s digital world, telecommunication services have become ingrained into our lives. But advancements come with a risk of fraudulent activities. International Revenue Share Fraud (IRSF) is a threat with severe financial implications that also makes using services more difucult. Let's look at IRSF fraud more in-depth.  
+In today's digital world, telecommunication services have become ingrained into our lives. But advancements come with a risk of fraudulent activities. International Revenue Share Fraud (IRSF) is a threat with severe financial implications that also makes using services more difucult. Let's look at IRSF fraud more in-depth.  
 
 IRSF is a type of telephony fraud where criminals exploit the billing system of telecommunication services providers to make profit for themselves. Bad actors gain unauthorized access to a telecommunication network and divert traffic to those networks to skim profit for every transaction that is sent to that network. To divert traffic, bad actors steal existing usernames and passwords, create new usernames and passwords, or try a host of other things to send SMS messages and voice calls through their telecommunication network. Bad actors do this by taking advantage of multifactor authentication screens, which require an SMS or voice call before a user can access their account. This activity causes exorbitant charges and makes services unreliable for our customers, causing downtime, and system errors.  
 
@@ -35,7 +35,7 @@ The most common way to conduct an IRSF attack is through some end-user experienc
 
 IRSF fraud poses a significant threat to online businesses and can result in substantial financial losses and reputational damage. By understanding IRSF, one becomes more aware of the problem and can engage in implementing preventive measures such as regional restrictions, rate limiting, and phone number verification.  
 
-### SMS verification
+## SMS verification
 
 For SMS verification, the following region codes require an opt-in.
 
@@ -44,7 +44,7 @@ For SMS verification, the following region codes require an opt-in.
 | 222         |  Mauritania                                    |
 | 998         |  Uzbek                                         |
 
-### Voice verification
+## Voice verification
 For Voice verification, the following region codes require an opt-in.
 
 | Region Code | Region Name                                    |
