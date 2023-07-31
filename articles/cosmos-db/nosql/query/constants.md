@@ -65,6 +65,7 @@ A constant, also known as a literal or a scalar value, is a symbol that represen
 ## Remarks
 
 - Here's a list of the supported scalar data types:
+
     | | Values order |
     | --- | --- |
     | **Undefined** | Single value: ``undefined`` |
@@ -74,7 +75,9 @@ A constant, also known as a literal or a scalar value, is a symbol that represen
     | **String** | A sequence of zero or more Unicode characters. Strings must be enclosed in single or double quotes.|
     | **Array** | A sequence of zero or more elements. Each element can be a value of any scalar data type, except **undefined**.|
     | **Object** | An unordered set of zero or more name/value pairs. Name is a Unicode string, value can be of any scalar data type, except **undefined**. |
+
 - Here's a list of escape sequences that are allowed for string literals:
+
     | | Description | Unicode character |
     | --- | --- | --- |
     | **``\'``** | apostrophe (') | ``U+0027`` |
