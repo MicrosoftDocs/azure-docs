@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps Creator
 description: Learn about services and capabilities in Microsoft Azure Maps Creator and how to use them in your applications.
 author: brendansco
 ms.author: Brendanc
-ms.date: 07/28/2023
+ms.date: 07/31/2023
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
@@ -12,12 +12,8 @@ services: azure-maps
 
 # What is Azure Maps Creator?
 
-Azure Maps Creator is a geospatial platform that enables you to create
-and render maps, based on indoor map data, on top of the outdoor map in
-your web and mobile applications. Being a first party Azure service provides
-the core infrastructure that enables you to focus on developing your
-application rather than worrying about data storage, security, and
-scaling.
+Azure Maps Creator is a first party geospatial platform that enables you to create and render maps, based on indoor map data, on top of the outdoor map in
+your web and mobile applications.
 
 ## Services in Azure Maps Creator
 
@@ -25,56 +21,42 @@ Creator is a platform for building indoor mapping solutions for all your needs. 
 
 ### Conversion
 
-An [onboarding tool] is provided to prepare your facility's DWGs by
-identifying the data to use and positioning your building on the map.
-The conversion service then converts the geometry and data from
-your DWG files into a digital indoor map.
+An [onboarding tool] is provided to prepare your facility's DWGs by identifying the data to use and positioning your building on the map.
+The conversion service then converts the geometry and data from your DWG files into a digital indoor map.
 
-The first step in creating your indoor map is to upload a drawing
-package into your Azure Maps account. A drawing package contains one or
-more CAD (computer-aided design) drawings of your facility along with a
-manifest describing the drawings. The drawings define the elements of
-the facility while the manifest tells the Azure Maps [Conversion service]
-how to read the facility drawing files and metadata. For more
-information about manifest properties, see [Manifest file requirements]
-and for more information on creating and uploading a drawing package,
+The first step in creating your indoor map is to upload a drawing package into your Azure Maps account. A drawing package contains one or
+more CAD (computer-aided design) drawings of your facility along with a manifest describing the drawings. The drawings define the elements of
+the facility while the manifest tells the Azure Maps [Conversion service] how to read the facility drawing files and metadata. For more
+information about manifest properties, see [Manifest file requirements] and for more information on creating and uploading a drawing package,
 see the [Drawing package guide].
 
 ### Dataset
 
-A collection of the indoor map [features] of a facility. Update your facility dataset
-through a visual editor and query for features real time using the [Feature State]
-service. For more information, see [Work with datasets using the QGIS plugin].
+A collection of the indoor map [features] of a facility. Update your facility dataset through a visual editor and query for features real time using the [Feature State] service. For more information, see [Work with datasets using the QGIS plugin].
 
 > [!TIP]
 > You can search for features in a dataset using the [Features API].
 
 ### Rendering
 
-[Tilesets], created from your data, are used to render maps on mobile devices
-or in the browser.
+[Tilesets], created from your data, are used to render maps on mobile devices or in the browser.
 
 ### Styling
 
-Customize the visual appearance of a map using [custom styling].
-A style is a JSON document that defines the visual appearance of a map.
-When you define how your data should be styled in the [visual style editor], this
-information is stored in a JSON document that conforms to the [Mapbox Style Specification].
+Customize the visual appearance of a map using [custom styling]. A style is a JSON document that defines the visual appearance of a map.
+When you define how your data should be styled in the [visual style editor], this information is stored in a JSON document that conforms to the [Mapbox Style Specification].
 
 ### Wayfinding
 
-[Wayfinding] provides your customers with the shortest path between two points within
-a facility using the [Wayfinding service].
+[Wayfinding] provides your customers with the shortest path between two points within a facility using the [Wayfinding service].
 
 ### SDK
 
-Use the Azure Maps Web SDK to develop applications that provide a
-customized indoor map experience.
+Use the Azure Maps Web SDK to develop applications that provide a customized indoor map experience.
 
 ## The indoor maps workflow
 
-This section provides a high-level overview of the indoor map creation
-workflow.
+This section provides a high-level overview of the indoor map creation workflow.
 
 1. **Create**. You first must create a drawing package containing one or more CAD
     (computer-aided design) drawings of your facility along with a [manifest]
