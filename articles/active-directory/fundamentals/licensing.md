@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/28/2023
+ms.date: 07/31/2023
 ms.subservice: hybrid
 ms.author: barclayn
 ---
@@ -83,6 +83,9 @@ Place holder
 
 ## Multi tenant organizations
 
+In the source tenant: Using this feature requires Azure AD Premium P1 licenses. Each user who is synchronized with cross-tenant synchronization must have a P1 license in their home/source tenant. To find the right license for your requirements, see [Compare generally available features of Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+
+In the target tenant: Cross-tenant sync relies on the Azure AD External Identities billing model. To understand the external identities licensing model, see [MAU billing model for Azure AD External Identities](../external-identities/external-identities-pricing.md). You will also need at least one Azure AD Premium P1 license in the target tenant to enable auto-redemption.
 
 
 ## Privileged identity management
@@ -115,7 +118,9 @@ If a Microsoft Azure AD Premuim P2, Microsoft Entra ID Governance, or trial lice
 - Privileged Identity Management will no longer send emails on role assignment changes.
 
 
+## Role based access control
 
+Using built-in roles in Azure AD is free. Using custom roles require an Azure AD Premium P1 license for every user with a custom role assignment. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Reports and monitoring
 
@@ -124,6 +129,13 @@ If a Microsoft Azure AD Premuim P2, Microsoft Entra ID Governance, or trial lice
 
 ## Roles
 
+### Administrative units
+
+Using administrative units requires an Azure AD Premium P1 license for each administrative unit administrator who is assigned directory roles over the scope of the administrative unit, and an Azure AD Free license for each administrative unit member. Creating administrative units is available with an Azure AD Free license. If you are using dynamic membership rules for administrative units, each administrative unit member requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+
+### Restricted management administrative units
+
+Restricted management administrative units require an Azure AD Premium P1 license for each administrative unit administrator, and Azure AD Free licenses for administrative unit members. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 
 
