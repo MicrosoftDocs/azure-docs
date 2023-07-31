@@ -229,6 +229,7 @@ EsanVgName="<ElasticSanVolumeGroupName>"
 PeName="<PrivateEndpointName>"
 PLConnName="<PrivateLinkSvcConnectionName>"
 Location="<Location>"
+ApprovalDesc="<ApprovalDesc>"
 
 id=$(az elastic-san show \
     --elastic-san-name $EsanName \
@@ -256,7 +257,7 @@ az network private-endpoint-connection approve \
     --resource-group $RgName \
     --name $PLConnName \
     --type {resource_type} \
-    --description "{approval_desc}"
+    --description $ApprovalDesc
 
 id=$(az elastic-san show \
     --elastic-san-name $EsanName \
