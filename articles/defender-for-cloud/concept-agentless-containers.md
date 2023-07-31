@@ -1,15 +1,15 @@
 ---
-title: Agentless Container Posture
-description: Learn how Agentless Container Posture offers discovery, visibility, and vulnerability assessment for Containers without installing an agent on your machines.
+title: Agentless container posture for Microsoft Defender for Cloud
+description: Learn how agentless container posture offers discovery, visibility, and vulnerability assessment for Containers without installing an agent on your machines.
 ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 07/03/2023
 ms.custom: template-concept
 ---
 
-# Agentless Container Posture (Preview)
+# Agentless container posture
 
-Agentless Container Posture provides a holistic approach to improving your container posture within Defender CSPM (Cloud Security Posture Management). You can visualize and hunt for risks and threats to Kubernetes environments with attack path analysis and the cloud security explorer, and leverage agentless discovery and visibility within Kubernetes components.
+Agentless container posture provides a holistic approach to improving your container posture within Defender CSPM (Cloud Security Posture Management). You can visualize and hunt for risks and threats to Kubernetes environments with attack path analysis and the cloud security explorer, and leverage agentless discovery and visibility within Kubernetes components.
 
 Learn more about [CSPM](concept-cloud-security-posture-management.md).
 
@@ -17,7 +17,7 @@ Learn more about [CSPM](concept-cloud-security-posture-management.md).
 
 For support and prerequisites for agentless containers posture, see [Support and prerequisites for agentless containers posture](support-agentless-containers-posture.md).
 
-Agentless Container Posture provides the following capabilities:
+Agentless container Posture provides the following capabilities:
 
 - [Agentless discovery and visibility](#agentless-discovery-and-visibility-within-kubernetes-components) within Kubernetes components.
 - [Container registry vulnerability assessment](agentless-container-registry-vulnerability-assessment.md) provides vulnerability assessment for all container images, with near real-time scan of new images and daily refresh of results for maximum visibility to current and emerging vulnerabilities, enriched with exploitability insights, and added to Defender CSPM security graph for contextual risk assessment and calculation of attack paths.
@@ -30,13 +30,13 @@ All of these capabilities are available as part of the [Defender Cloud Security 
 
 Agentless discovery for Kubernetes provides API-based discovery of information about Kubernetes cluster architecture, workload objects, and setup.
 
-### How does Agentless Discovery for Kubernetes work?
+### How does agentless discovery for Kubernetes work?
 
 The discovery process is based on snapshots taken at intervals:
 
 :::image type="content" source="media/concept-agentless-containers/diagram-permissions-architecture.png" alt-text="Diagram of the permissions architecture." lightbox="media/concept-agentless-containers/diagram-permissions-architecture.png":::
 
-When you enable the Agentless discovery for Kubernetes extension, the following process occurs:
+When you enable the agentless discovery for Kubernetes extension, the following process occurs:
 
 - **Create**: MDC (Microsoft Defender for Cloud) creates an identity in customer environments called CloudPosture/securityOperator/DefenderCSPMSecurityOperator.
 
