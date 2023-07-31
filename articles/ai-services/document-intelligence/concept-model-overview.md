@@ -54,6 +54,14 @@ monikerRange: '<=doc-intel-3.1.0'
 | [Custom classification model](#custom-classifier)| The **Custom classification model** can classify each page in an input file to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.
 | [Composed models](#composed-models) | Combine several custom models into a single model to automate processing of diverse document types with a single composed model.
 
+For all of the models above except Business card model, Document Intelligence now supports add-on capabilities to allow for more sophisticated analysis. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. There are four add-on capabilities available for the `2023-07-31` (GA) API version:
+
+* [`ocr.highResolution`](concept-add-on-capabilities.md#high-resolution-extraction)
+* [`ocr.formula`](concept-add-on-capabilities.md#formula-extraction)
+* [`ocr.font`](concept-add-on-capabilities.md#font-property-extraction)
+* [`ocr.barcode`](concept-add-on-capabilities.md#barcode-extraction)
+
+
 ### Read OCR
 
 :::image type="icon" source="media/studio/read-card.png" :::
