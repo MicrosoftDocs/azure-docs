@@ -35,6 +35,8 @@
       items:
         - name: Use the Azure CLI
           href: quickstarts-tenant-workload-deployment.md
+        - name: Use ARM template
+          href: quickstarts-virtual-machine-deployment-arm.md
 - name: How-To Guides
   items:
     - name: Operator Nexus Instance Deployment and Upgrade
