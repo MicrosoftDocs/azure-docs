@@ -9,7 +9,7 @@ ms.date: 07/28/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 ---
 
-# Working with placement hints in Operator Nexus virtual machine
+# Working with placement hints in Azure Operator Nexus virtual machine
 
 In this article, you learn how to use hints to guide the placement of virtual machines within the Azure Operator Nexus environment. These placement hints can be used to create affinity or anti-affinity between virtual machines, bare-metal machines, or racks. Use placement hints to ensure virtual machines are scheduled in the desired way within the Azure Operator Nexus environment.
 
@@ -19,8 +19,7 @@ You can increase the overall resilience of your application by using anti-affini
 
 ## Prerequisites
 
-Before proceeding with this how-to guide, ensure you have completed all steps in the Azure
-Operator Nexus virtual machine [QuickStart guide](./quickstarts-tenant-workload-deployment.md).
+Before proceeding with this how-to guide, ensure you have completed all steps in the Azure Operator Nexus virtual machine [QuickStart guide](./quickstarts-tenant-workload-deployment.md).
 
 
 ## Placement hints configuration
@@ -314,4 +313,4 @@ In this example, setting the scope to `Rack` ensures VMs aren't placed within th
 
 ## Next steps
 
-While the examples provided in this article demonstrate some common use cases, the API can be used to implement a wide range of placement scenarios, making it a flexible and adaptable solution for managing virtual machine placement. Adjust the `scope`, `schedulingExecution`, and `hintType` parameters in different combinations to understand how they affect VM placements. Proper usage of placement hints can improve the availability and resilience of applications and services running in the Nexus instance.
+While the examples provided in this article demonstrate some common use cases, the API can be used to implement a wide range of placement scenarios, making it a flexible and adaptable solution for managing virtual machine placement. Adjust the `scope`, `schedulingExecution`, and `hintType` parameters in different combinations to understand how they affect VM placements. Proper usage of placement hints can improve the availability and resilience of applications and services running in the Azure Operator Nexus instance.
