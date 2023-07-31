@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 08/18/2022
+ms.date: 07/31/2023
 ms.author: anfdocs
 ---
 # Manage backup policies for Azure NetApp Files 
@@ -34,12 +34,12 @@ To modify the backup policy settings:
 
 2. Select **Backup Policies** then select the three dots (`…`) to the right of a backup policy. Select **Edit**.
 
-    ![Screenshot that shows context sensitive menu of Backup Policies.](../media/azure-netapp-files/backup-policies-edit.png)
+    :::image type="content" source="../media/azure-netapp-files/backup-policies-edit.png" alt-text="Screenshot that shows context sensitive menu of Backup Policies." lightbox="../media/azure-netapp-files/backup-policies-edit.png":::
 
 3. In the Modify Backup Policy window, update the number of backups you want to keep for daily, weekly, and monthly backups. Enter the backup policy name to confirm the action. Click **Save**.  
 
-    ![Screenshot that shows the Modify Backup Policy window.](../media/azure-netapp-files/backup-modify-policy.png)
-
+    :::image type="content" source="../media/azure-netapp-files/backup-modify-policy.png" alt-text="Screenshot showing the Modify Backup Policy window." lightbox="../media/azure-netapp-files/backup-modify-policy.png":::
+    
     > [!NOTE] 
     > After backups are enabled and have taken effect for the scheduled frequency, you cannot change the backup retention count to `0`. A minimum number of `1` retention is required for the backup policy. See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) for details.  
 
