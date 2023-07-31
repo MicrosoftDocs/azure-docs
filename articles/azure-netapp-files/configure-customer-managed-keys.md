@@ -157,7 +157,7 @@ For more information about Azure Key Vault and Azure Private Endpoint, refer to:
 
 You can use an Azure Key Vault that is configured to use Azure role-based access control. To configure customer-managed keys through Azure portal, you need to provide a user-assigned identity.
 
-1. In your Azure account, navigate **Key vaults** to the **Access policies** menu.
+1. In your Azure account, navigate to **Key vaults** then **Access policies**.
 1. To create an access policy, under **Permission model**, select **Azure role-based access-control**.
     :::image type="content" source="../media/azure-netapp-files/rbac-permission.png" alt-text="Screenshot of access configuration menu." lightbox="../media/azure-netapp-files/rbac-permission.png":::
 1. When creating the user-assigned role, there are three permissions required for customer-managed keys:
