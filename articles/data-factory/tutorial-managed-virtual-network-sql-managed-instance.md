@@ -11,6 +11,9 @@ ms.date: 09/26/2022
 
 # Tutorial: How to access SQL Managed Instance from Data Factory Managed VNET using Private Endpoint
 
+> [!IMPORTANT]
+> SQL Managed Instance now has native support for private endpoints. Instead of implementing the solution in this document, we recommend creating a private endpoint directly to the SQL Managed Instance resource as described in [Managed private endpoints](managed-virtual-network-private-endpoint.md#managed-private-endpoints).
+
 This tutorial provides steps for using the Azure portal to setup Private Link Service and 
 access SQL Managed Instance from Managed VNET using Private Endpoint.
 
