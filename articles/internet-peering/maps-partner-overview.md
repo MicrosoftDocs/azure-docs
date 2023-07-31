@@ -12,15 +12,6 @@ ms.custom: template-overview, engagement-fy23
 
 # Azure Peering Service partner overview
 
-Azure Peering Service (MAPS) is a networking service that enhances the connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. Microsoft can partner with internet service providers (ISPs), internet exchange partners (IXPs), and software-defined cloud interconnect (SDCI) providers worldwide to provide reliable and high-performing public connectivity with optimal routing from you to the Microsoft network.
-
-With Peering Service, partners can configure local and geo-redundancy with their links. This achieves optimal and reliable routing to the Microsoft cloud over the public network. Public connectivity is optimized for high reliability and minimal latency from cloud services to the end-user location.
-
-:::image type="content" source="./media/maps-partner-overview/peering-service-what.png" alt-text="Diagram showing distributed connectivity to Microsoft cloud."::: 
-
-> [!NOTE]
-> This article is intended for network architects in charge of enterprise connectivity to the cloud and to the internet.
-
 ## Background
 
 For an overview of the Azure Peering Service product, see [MAPS Overview](../peering-service/about.md)
@@ -53,19 +44,9 @@ To become a MAPS partner, you must request a direct peering interconnect with Mi
 
 ### Monitoring platform
 
-   Service monitoring is offered to analyze user traffic and routing. The following metrics are available in the Azure portal to track the performance and availability of your MAPS peering: 
+Service monitoring is offered to analyze user traffic and routing. Metrics are available in the Azure portal to track the performance and availability of your MAPS peering, and they are described here: [MAPS Monitoring Platform](../peering-service/about.md#monitoring-platform)
 
-- **Ingress and egress traffic rates**
-
-- **BGP session availability**
-
-- **Packet drops**
-
-- **Flap events**
-
-- **Latency**
-
-- **Received routes**
+In addition, MAPS partners are able to see received routes reported in the Azure portal.
 
 :::image type="content" source="./media/maps-partner-overview/maps-partner-latency-report.png" alt-text="Diagram showing monitoring platform for MAPS.":::
 
