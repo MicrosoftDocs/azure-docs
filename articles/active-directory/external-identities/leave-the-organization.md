@@ -8,7 +8,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 07/04/2023
+ms.date: 07/27/2023
 
 ms.author: cmulligan 
 author: csmulligan 
@@ -57,7 +57,7 @@ If your organization allows users to remove themselves from external organizatio
 
 1. Under **Other organizations you collaborate with** (or **Organizations** if you don't have a home organization), find the organization that you want to leave, and then select **Leave**.
 
-   ![Screenshot showing Leave organization option in the user interface.](media/leave-the-organization/leave-org.png)
+   :::image type="content" source="media/leave-the-organization/leave-org.png" alt-text="Screenshot showing Leave organization option in the user interface." lightbox="media/leave-the-organization/leave-org.png":::
 
 1. When asked to confirm, select **Leave**.
 1. If you select **Leave** for an organization but you see the following message, it means you’ll need to contact the organization's admin, or privacy contact and ask them to remove you from their organization.
