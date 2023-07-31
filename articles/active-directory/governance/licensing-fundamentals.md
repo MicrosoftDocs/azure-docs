@@ -61,7 +61,7 @@ The following table shows what features are available with each license type.
 |Lifecycle Workflows (LCW) J/M/L||||x|
 |LCW + Custom Extensions (Logic Apps)||||x|   
 |Identity governance dashboard - Public Preview||x|x|x|
-|Guest Report - Public Preview||||x| 
+|Insights and reporting - Inactive guest accounts (Preview)||||x| 
 
 ## Next steps
 - [What is Microsoft Entra ID Governance?](identity-governance-overview.md)
