@@ -11,21 +11,29 @@ ms.custom: mvc, devx-track-azurepowershell
 ---
 # Configure Application Gateway with a frontend private IPv6 address using Azure PowerShell
 
-Application gateway is used to manage and secure web traffic to servers that you maintain. You can use Azure PowerShell to create an [application gateway](overview.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/overview.md) for backend servers to manage web traffic. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
+Azure Application gateway now supports dual stack frontend connections. Application Gateway can now handle client traffic from both IPv4 and IPv6 addresses, providing greater flexibility and connectivity for our users. Due to the exhaustion of public IPv4 addresses, new networks for mobility and Internet of Things (IoT) are often built on IPv6. Dual stack IPv4/IPv6 connectivity enables Azure-hosted services to traverse this technology gap with globally available, dual-stacked services that readily connect with both the existing IPv4 and these new IPv6 devices and networks.
+If you are currently using Application Gateway with IPv4 addresses, you can continue to do so without any changes. However, if you want to take advantage of the benefits of IPv6 addressing, you can now do so by configuring your gateway to use IPv6 addresses. Currently we do not support connectivity to IPv6 backends. To support IPv6 connectivity, you must create a dual-stack VNET. This dual-stack VNET will have subnets for both IPv4 and IPv6.
+
+Limitations
+•    Supported for Application Gateway Standard V2 only.
+•    No support  for upgrading the existing gateways to Ipv6
+•    No support  for IPv6 private address.
+•    No support for IPv6 backend
+•    No IPv6 Private Link Support
+
+In this article, you use the Azure portal to create an IPv6 [Azure Application Gateway](overview.md) and test it to ensure it works correctly.Application gateway is used to manage and secure web traffic to servers that you maintain. You can use Azure PowerShell to create an [application gateway](overview.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/overview.md) for backend servers to manage web traffic. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
 
 In this article, you learn how to:
 
-* Set up the network
-* Create an application gateway
+* Set up the dual stack network
+* Create an application gateway with IPv6 frontend
 * Create a virtual machine scale set with the default backend pool
 
-If you prefer, you can complete this procedure using [Azure CLI](tutorial-manage-web-traffic-cli.md).
+
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. To find the version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
 
@@ -37,64 +45,101 @@ A resource group is a logical container into which Azure resources are deployed 
 New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 ```
 
-## Create network resources 
+## Create dual stack network resources 
 
-Configure the subnets named *myBackendSubnet* and *myAGSubnet* using [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Create the virtual network *myVNet* using [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) with the subnet configurations. And finally, create the public IP address named *myAGPublicIPAddress* using [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). These resources are used to provide network connectivity to the application gateway and its associated resources.
+Configure the subnets named *myBackendSubnet* and *myAGSubnet*  using [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Create the virtual network *myVNet* using [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) with the subnet configurations. 
+
+
+## Create a dual stack subnet
 
 ```azurepowershell-interactive
-$backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
-  -Name myBackendSubnet `
-  -AddressPrefix 10.0.1.0/24
 
-$agSubnetConfig = New-AzVirtualNetworkSubnetConfig `
-  -Name myAGSubnet `
-  -AddressPrefix 10.0.2.0/24
+$AppGwSubnetPrefix = @("10.0.0.0/24", "ace:cab:deca::/64")
 
-$vnet = New-AzVirtualNetwork `
-  -ResourceGroupName myResourceGroupAG `
-  -Location eastus `
-  -Name myVNet `
-  -AddressPrefix 10.0.0.0/16 `
-  -Subnet $backendSubnetConfig, $agSubnetConfig
+$appgwSubnet = New-AzVirtualNetworkSubnetConfig `
+-Name myAGSubnet ` 
+-AddressPrefix $AppGwSubnetPrefix
 
-$pip = New-AzPublicIpAddress `
-  -ResourceGroupName myResourceGroupAG `
-  -Location eastus `
-  -Name myAGPublicIPAddress `
-  -AllocationMethod Static `
-  -Sku Standard
+$backendSubnet = New-AzVirtualNetworkSubnetConfig `
+-Name myBackendSubnet `
+-AddressPrefix  10.0.1.0/24
 ```
 
-## Create an application gateway
+
+## Create a dual stack virtual network
+
+```azurepowershell-interactive
+
+$VnetPrefix = @("10.0.0.0/16", "ace:cab:deca::/48")
+
+$vnet = New-AzVirtualNetwork `
+-Name myVNet `
+-ResourceGroupName myResourceGroupAG `
+-Location eastus `   
+-AddressPrefix $VnetPrefix `    
+-Subnet @($appgwSubnet, $backendSubnet)
+```
+
+## Create Application Gateway Frontend public IP addresses
+
+```azurepowershell-interactive
+
+$pipv4 = New-AzPublicIpAddress `   
+-Name myAGPublicIPAddress `  
+-ResourceGroupName myResourceGroupAG `   
+-Location eastus `   
+-Sku 'Standard' `  
+-AllocationMethod 'Static' `    
+-IpAddressVersion 'IPv4'  
+-Force
+
+$pipv6 = New-AzPublicIpAddress `    
+-Name $myAGPublicIPAddress `   
+-ResourceGroupName myResourceGroupAG `
+-Location eastus `
+-Sku 'Standard' `   
+-AllocationMethod 'Static' `   
+-IpAddressVersion 'IPv6' `    
+-Force
+```
+
+## Create an Application Gateway
 
 In this section you create resources that support the application gateway, and then finally create it. The resources that you create include:
 
-- *IP configurations and frontend port* - Associates the subnet that you previously created to the application gateway and assigns a port to use to access it.
+- *IP configurations (IPv4 and IPv6) and frontend port* - Associates the subnet that you previously created to the application gateway and assigns a port to use to access it.
 - *Default pool* - All application gateways must have at least one backend pool of servers.
 - *Default listener and rule* - The default listener listens for traffic on the port that was assigned and the default rule sends traffic to the default pool.
 
-### Create the IP configurations and frontend port
+### Create the IP configurations, ports and listeners
 
 Associate *myAGSubnet* that you previously created to the application gateway using [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Assign *myAGPublicIPAddress* to the application gateway using [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig).
 
 ```azurepowershell-interactive
-$vnet = Get-AzVirtualNetwork `
-  -ResourceGroupName myResourceGroupAG `
-  -Name myVNet
+$vnet   = Get-AzVirtualNetwork ` 
+-ResourceGroupName myResourceGroupAG `  
+-Name myVNet
 
-$subnet=$vnet.Subnets[1]
+$subnet = Get-AzVirtualNetworkSubnetConfig `
+-VirtualNetwork $vnet `
+-Name myAGSubnet
 
-$gipconfig = New-AzApplicationGatewayIPConfiguration `
-  -Name myAGIPConfig `
-  -Subnet $subnet
+$gipconfig = New-AzApplicationGatewayIPConfiguration `   
+-Name myAGIPConfig `  
+-Subnet $subnet
 
-$fipconfig = New-AzApplicationGatewayFrontendIPConfig `
-  -Name myAGFrontendIPConfig `
-  -PublicIPAddress $pip
+$fipconfig = New-AzApplicationGatewayFrontendIPConfig `    
+-Name myAGFrontendIPv4Config `  
+-PublicIPAddress $pipv4
 
-$frontendport = New-AzApplicationGatewayFrontendPort `
-  -Name myFrontendPort `
-  -Port 80
+$fipconfigv6 = New-AzApplicationGatewayFrontendIPConfig `   
+-Name myAGFrontendIPv6Config `  
+-PublicIPAddress $pipv6
+
+$frontendport = New-AzApplicationGatewayFrontendPort `  
+-Name myAGFrontendIPv6Config `
+-Port 80
+
 ```
 
 ### Create the backend pool and settings
@@ -102,15 +147,14 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 Create the backend pool named *appGatewayBackendPool* for the application gateway using [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configure the settings for the backend address pools using [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
 
 ```azurepowershell-interactive
-$defaultPool = New-AzApplicationGatewayBackendAddressPool `
-  -Name appGatewayBackendPool
-
-$poolSettings = New-AzApplicationGatewayBackendHttpSettings `
-  -Name myPoolSettings `
-  -Port 80 `
-  -Protocol Http `
-  -CookieBasedAffinity Enabled `
-  -RequestTimeout 120
+$backendPool = New-AzApplicationGatewayBackendAddressPool `   
+-Name myAGBackendPool
+$poolSettings = New-AzApplicationGatewayBackendHttpSetting `   
+-Name myPoolSettings `   
+-Port 80 `
+-Protocol Http `   
+-CookieBasedAffinity Enabled `  
+-RequestTimeout 30
 ```
 
 ### Create the default listener and rule
@@ -120,18 +164,35 @@ A listener is required to enable the application gateway to route traffic approp
 Create a listener named *mydefaultListener* using [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) with the frontend configuration and frontend port that you previously created. A rule is required for the listener to know which backend pool to use for incoming traffic. Create a basic rule named *rule1* using [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
-$defaultlistener = New-AzApplicationGatewayHttpListener `
-  -Name mydefaultListener `
-  -Protocol Http `
-  -FrontendIPConfiguration $fipconfig `
-  -FrontendPort $frontendport
+$listener = New-AzApplicationGatewayHttpListener `    
+-Name myAGListner ` 
+-Protocol Http `  
+-FrontendIPConfiguration $fipconfig `  
+-FrontendPort $frontendport
 
-$frontendRule = New-AzApplicationGatewayRequestRoutingRule `
-  -Name rule1 `
-  -RuleType Basic `
-  -HttpListener $defaultlistener `
-  -BackendAddressPool $defaultPool `
-  -BackendHttpSettings $poolSettings
+$listenerv6 = New-AzApplicationGatewayHttpListener `
+-Name myAGListneripv6 `    
+-Protocol Http `    
+-FrontendIPConfiguration $fipconfigv6 `
+-FrontendPort $frontendport
+
+$frontendRule = New-AzApplicationGatewayRequestRoutingRule `   
+-Name ruleIPv4 ` 
+-RuleType Basic `   
+-Priority 10 `  
+-HttpListener $listener `
+-BackendAddressPool $backendPool `   
+-BackendHttpSettings $poolSettings 
+ 
+ 
+$frontendRulev6 = New-AzApplicationGatewayRequestRoutingRule `  
+-Name ruleIPv6 ` 
+-RuleType Basic `
+-Priority 1 `  
+-HttpListener $listenerv6 `  
+-BackendAddressPool $backendPool `   
+-BackendHttpSettings $poolsettings
+
 ```
 
 ### Create the application gateway
@@ -144,18 +205,25 @@ $sku = New-AzApplicationGatewaySku `
   -Tier Standard_v2 `
   -Capacity 2
 
-$appgw = New-AzApplicationGateway `
-  -Name myAppGateway `
-  -ResourceGroupName myResourceGroupAG `
-  -Location eastus `
-  -BackendAddressPools $defaultPool `
-  -BackendHttpSettingsCollection $poolSettings `
-  -FrontendIpConfigurations $fipconfig `
-  -GatewayIpConfigurations $gipconfig `
-  -FrontendPorts $frontendport `
-  -HttpListeners $defaultlistener `
-  -RequestRoutingRules $frontendRule `
-  -Sku $sku
+$autoscale = New-AzApplicationGatewayAutoscaleConfiguration `  
+-MinCapacity 0 `  
+-MaxCapacity 2 
+
+New-AzApplicationGateway `   
+-Name myipv6AppGW `  
+-ResourceGroupName myResourceGroupAG1 `  
+-Location eastus `  
+-BackendAddressPools $backendPool `  
+-BackendHttpSettingsCollection $poolsettings `  
+-FrontendIpConfigurations @($fipconfig, $fipconfigv6) `  
+-GatewayIpConfigurations $gipconfig `  
+-FrontendPorts $frontendport `  
+-HttpListeners @($listener, $listenerv6) `   
+-RequestRoutingRules @($frontendRule, $frontendRulev6) `
+-Sku $sku `   
+-Tag @{"DisableNetworkIsolation" = "True" } `  
+-AutoscaleConfiguration $autoscale ` 
+-Force
 ```
 
 ## Create a virtual machine scale set
@@ -233,7 +301,7 @@ Update-AzVmss `
 
 ## Test the application gateway
 
-Use [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) to get the public IP address of the application gateway. Copy the public IP address, and then paste it into the address bar of your browser.
+Use [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) to get the public IP address of the application gateway. Update the DNS with  public IP4 and IPv6 address, and then use the browser to test the Application Gateway
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
