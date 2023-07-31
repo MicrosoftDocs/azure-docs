@@ -94,7 +94,7 @@ To restore your OT sensor from the latest backup file via CLI:
 1. Run:
 
     ```bash
-    $ sudo cyberx-management-system-restore
+    $ sudo cyberx-management-system-restore -b <file path/file name>
     ```
 
 ## Next steps
