@@ -52,9 +52,9 @@ const wpsOptions = {
 const io = await require('socket.io')(server).useAzureSocketIO(wpsOptions);
 ```
 >[!IMPORTANT]
-> `useAzureSocketIO` is an asynchorouns method. Here we `await` ... So you need to wrap it and related code in an asynchrouns function.
+> `useAzureSocketIO` is an asynchronous method. Here we `await`. So you need to wrap it and related code in an asynchronous function.
 
-5. Following server APIs are asynchronous now, add `async` before using them
+5. If you use the following server APIs, add `async` before using them as they are asynchronous with Web PubSub for Socket.IO.
 - [server.socketsJoin](https://socket.io/docs/v4/server-api/#serversocketsjoinrooms)
 - [server.socketsLeave](https://socket.io/docs/v4/server-api/#serversocketsleaverooms)
 - [socket.join](https://socket.io/docs/v4/server-api/#socketjoinroom)
@@ -69,29 +69,15 @@ you should update it to:
 io.on("connection", async (socket) => { await socket.join("room abc"); });
 ```
 
-In this chat example, none of them are used. So no change is needed.
+In this chat example, none of them are used. So no changes are needed.
 
 ### Client Side
-In client-side code `./public/main.js`
+In client-side code found in `./public/main.js`
 
-1. Find where Socket.IO client is created. Then replace its endpoint with Azure Socket.IO endpoint and add add an `path` option.
+1. Find where Socket.IO client is created. Then replace its endpoint with Azure Socket.IO endpoint and add add an `path` option. You can find the endpoint to your resource on Azure portal. {...Screenshot missing!!!!}
 Here is an example:
 ```javascript
-var socket = io("https://socketio.webpubsubdev.azure.com", {
+var socket = io("<Replace with the endpoint to your Web PubSub for Socket.IO resrouce>", {
     path: "/clients/socketio/hubs/eio_hub",
 });
 ```
-
-
-## Server APIs supported by Web PubSub for Socket.IO
-
-Socket.IO library provides a set of [server API](https://socket.io/docs/v4/server-api/). 
-The following server APIs are partially supported or unsupported by Web PubSub for Socket.IO.
-
-| Server API                                                                                                   | Support     |
-|--------------------------------------------------------------------------------------------------------------|-------------|
-| [fetchSockets](https://socket.io/docs/v4/server-api/#serverfetchsockets)                                     | Local only  |
-| [serverSideEmit](https://socket.io/docs/v4/server-api/#serverserversideemiteventname-args)                   | Unsupported  |
-| [serverSideEmitWithAck](https://socket.io/docs/v4/server-api/#serverserversideemitwithackeventname-args)     | Unsupported |
-
-Apart from the mentioned server APIs, all other server APIs are fully supported.
