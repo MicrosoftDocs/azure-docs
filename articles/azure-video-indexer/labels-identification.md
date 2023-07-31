@@ -122,11 +122,11 @@ When used responsibly and carefully, Azure AI Video Indexer is a valuable tool f
 
 ## Learn more about labels identification
 
-•	[Transparency note](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note)
-•	[Use cases](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note)
-•	[Capabilities and limitations](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note)  
-•	[Evaluation of image analysis](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note)
-•	[Data, privacy and security](/legal/cognitive-services/computer-vision/ocr-data-privacy-security)
+- [Transparency note](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note)
+- [Use cases](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note)
+- [Capabilities and limitations](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note)  
+- [Evaluation of image analysis](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note)
+- [Data, privacy and security](/legal/cognitive-services/computer-vision/ocr-data-privacy-security)
 
 ## Next steps
 
