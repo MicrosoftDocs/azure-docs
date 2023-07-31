@@ -19,7 +19,7 @@ Azure Cosmos DB for NoSQL's query language includes a set of reserved keywords t
 
 ## BETWEEN
 
-The ``BETWEEN`` keyword evalutes to a boolean indicating whether the target value is between two specified values, inclusive.
+The ``BETWEEN`` keyword evaluates to a boolean indicating whether the target value is between two specified values, inclusive.
 
 You can use the ``BETWEEN`` keyword with a ``WHERE`` clause to express queries that filters results against ranges of string or numerical values. For example, the following query returns all items in which the price is between ``17.25`` and ``25.50``, again inclusive.
 
@@ -66,9 +66,9 @@ FROM
 
 ## DISTINCT
 
-The ``DISTINCT`` keyword eliminates duplicates in the projeted query results.
+The ``DISTINCT`` keyword eliminates duplicates in the projected query results.
 
-In this example, the query projects values for each product category. If two categories are equivalent, only a single occurence will be returned in the results.
+In this example, the query projects values for each product category. If two categories are equivalent, only a single occurrence returns in the results.
 
 ```sql
 SELECT DISTINCT VALUE
@@ -84,7 +84,7 @@ FROM
 ]
 ```
 
-You can also project values even if the target field doesn't exist. In this case, the field does not exist in one of the items, so the query returns an empty object for that specific unique value.
+You can also project values even if the target field doesn't exist. In this case, the field doesn't exist in one of the items, so the query returns an empty object for that specific unique value.
 
 ```sql
 SELECT DISTINCT
