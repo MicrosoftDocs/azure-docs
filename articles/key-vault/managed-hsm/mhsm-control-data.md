@@ -11,7 +11,7 @@ ms.date: 06/13/2022
 
 # Control your data in the cloud by using Azure Key Vault Managed HSM
 
-Microsoft values, protects, and defends privacy. We believe in transparency, so that people and organizations can control their data and have meaningful choices in how it's used. We empower and defend the privacy choices of every person who uses our products and services. In this blog, we will take a deep dive on Microsoft [Azure Key Vault Managed HSM](./overview.md) security controls for encryption and how it provides additional safeguards and technical measures to help our customers meet compliance. Encryption is one of the key technical measures to achieve sole control of your data.
+Microsoft values, protects, and defends privacy. We believe in transparency, so that people and organizations can control their data and have meaningful choices in how it's used. We empower and defend the privacy choices of every person who uses our products and services. In this blog, we'll take a deep dive on Microsoft [Azure Key Vault Managed HSM](./overview.md) security controls for encryption and how it provides additional safeguards and technical measures to help our customers meet compliance. Encryption is one of the key technical measures to achieve sole control of your data.
 
 Microsoft Azure fortifies your data through state-of-the-art encryption technologies both for data at rest and for data in transit. Our encryption products erect barriers against unauthorized access to the data, including two or more independent encryption layers to protect against compromises of any single layer. In addition, Azure has clearly defined, well-established responses, policies and processes, strong contractual commitments, and strict physical, operational, and infrastructure security controls to provide our customers the ultimate control of their data in the cloud. The fundamental premise of Azure’s key management strategy is to give our customers more control over their data. We use a [zero trust](https://www.microsoft.com/security/business/zero-trust) posture with advanced enclave technologies, hardware security modules, and identity isolation that reduces Microsoft access to customer keys and data.
 
@@ -23,7 +23,7 @@ Microsoft Azure fortifies your data through state-of-the-art encryption technolo
 
 Azure Key Vault services provide encryption and key management solutions that safeguard cryptographic keys, certificates, and other secrets that cloud applications and services use to protect and control data that's encrypted at rest.
 
-Secure key management is essential to protect and control data in the cloud. Azure offers various solutions that you can use to manage and control access to encryption keys so that you choice and flexibility to meet stringent data protection and compliance needs.
+Secure key management is essential to protect and control data in the cloud. Azure offers various solutions that you can use to manage and control access to encryption keys so that your choice and flexibility to meet stringent data protection and compliance needs.
 
 - **Azure platform encryption** is a *platform-managed* encryption solution that encrypts by using host-level encryption. Platform-managed keys are encryption keys that are generated, stored, and managed entirely by Azure.
 - **Customer-managed keys** are keys that are created, read, deleted, updated, and administered entirely by the customer. Customer-managed keys can be stored in a cloud key management service like Azure Key Vault.
@@ -68,11 +68,11 @@ Azure Key Vault Managed HSM uses a defense in depth and [zero trust](https://www
 
 Azure Key Vault and Azure Key Vault Managed HSM are designed, deployed, and operated so that *Microsoft and its agents are precluded from accessing, using, or extracting any data that's stored in the service, including cryptographic keys*.
 
-Customer keys that are securely created in or securely imported to the HSM devices, unless set otherwise by the customer, are not extractable and are never visible in plaintext to Microsoft systems, employees, or agents.
+Customer keys that are securely created in or securely imported to the HSM devices, unless set otherwise by the customer, aren't extractable and are never visible in plaintext to Microsoft systems, employees, or agents.
 
-The Key Vault team explicitly does not have operating procedures for granting this kind of access to Microsoft and its agents, even if authorized by a customer.
+The Key Vault team explicitly doesn't have operating procedures for granting this kind of access to Microsoft and its agents, even if authorized by a customer.
 
-We will not attempt to defeat customer-controlled encryption features like Azure Key Vault or Azure Key Vault Managed HSM. If faced with a legal demand to do so, we would challenge such a demand on any lawful basis, consistent with our [customer commitments](https://blogs.microsoft.com/on-the-issues/2020/11/19/defending-your-data-edpb-gdpr/).
+We won't attempt to defeat customer-controlled encryption features like Azure Key Vault or Azure Key Vault Managed HSM. If faced with a legal demand to do so, we would challenge such a demand on any lawful basis, consistent with our [customer commitments](https://blogs.microsoft.com/on-the-issues/2020/11/19/defending-your-data-edpb-gdpr/).
 
 Next, we take a detailed look at how these security controls are implemented.
 
@@ -94,11 +94,11 @@ Microsoft designs, builds, and operates datacenters in a way that strictly contr
 
 Several layers of technical controls in Managed HSM further protect your key material. But most importantly, they prevent Microsoft from accessing the key material.
 
-- **Confidentiality**: The Managed HSM service runs inside a trusted execution environment that's built on Intel Software Guard Extensions (Intel SGX). Intel SGX offers enhanced protection from internal and external attackers by using hardware isolation in enclaves that protecs data in use.
+- **Confidentiality**: The Managed HSM service runs inside a trusted execution environment that's built on Intel Software Guard Extensions (Intel SGX). Intel SGX offers enhanced protection from internal and external attackers by using hardware isolation in enclaves that protects data in use.
 
-  Enclaves are secured portions of the hardware's processor and memory. You cannot view data or code inside the enclave, even with a debugger. If untrusted code tries to change content in enclave memory, Intel SGX disables the environment and denies the operation.
+  Enclaves are secured portions of the hardware's processor and memory. You can't view data or code inside the enclave, even with a debugger. If untrusted code tries to change content in enclave memory, Intel SGX disables the environment and denies the operation.
 
-  These unique capabilities help you protect your cryptographic key material from being accessible or vislble as clear text. Also, [Azure confidential computing](../../confidential-computing/overview.md) offers solutions to enable the isolation of your sensitive data while it is being processed in the cloud.
+  These unique capabilities help you protect your cryptographic key material from being accessible or visible as clear text. Also, [Azure confidential computing](../../confidential-computing/overview.md) offers solutions to enable the isolation of your sensitive data while it's being processed in the cloud.
 
 - **Security domain**: A [security domain](./security-domain.md) is an encrypted blob that contains extremely sensitive cryptographic information. The security domain contains artifacts like the HSM backup, user credentials, the signing key, and the data encryption key that's unique to your managed HSM.
 
@@ -114,22 +114,22 @@ Several layers of technical controls in Managed HSM further protect your key mat
 
   Both planes use Azure Active Directory for authentication. For authorization, they use different systems:
 
-  - The management plane uses Azure role-based access control -- Azure RBAC (role-based access control) -- an authorization system built on Azure Resource Manager
-  - The data plane uses a managed HSM-level RBAC (Managed HSM local RBAC) -- an authorization system implemented and enforced at the managed HSM level. The local RBAC control model allows designated HSM administrators to have complete control over their HSM pool that even the management group, subscription, or resource group administrators cannot override.
+  - The management plane uses Azure role-based access control (Azure RBAC), an authorization system that's built on Azure Resource Manager.
+  - The data plane uses a managed HSM-level RBAC (Managed HSM local RBAC), an authorization system that's implemented and enforced at the managed HSM level. The local RBAC control model allows designated HSM administrators to have complete control over their HSM pool that even the management group, subscription, or resource group administrators can't override.
   - **Encryption in transit**: All traffic to and from the Managed HSM is always encrypted with TLS (Transport Layer Security versions 1.3 and 1.2 are supported) to protect against data tampering and eavesdropping where the TLS termination happens inside the SGX enclave and not in the untrusted host
   - **Firewalls**: Managed HSM can be configured to restrict who can reach the service in the first place, which further shrinks the attack surface. We allow you to configure Managed HSM to deny access from the public internet and only allow traffic from trusted Azure services (such as Azure Storage)
-  - **Private endpoints**: By enabling a private endpoint, you are bringing the Managed HSM service into your virtual network allowing you to isolate that service only to trusted endpoints like your virtual network and Azure services. All traffic to and from your managed HSM will travel along the secure Microsoft backbone network without having to traverse the public internet.
-  - **Monitoring and logging**: The outermost layer of protection is the monitoring and logging capabilities of Managed HSM. With Azure Monitor service, you can check your logs for analytics and alerts to ensure that access patterns conform with your expectations. This allows members of your security team to have visibility into what is happening within the Managed HSM service. If something does not look right, you can always roll your keys or revoke permissions.
+  - **Private endpoints**: By enabling a private endpoint, you're bringing the Managed HSM service into your virtual network allowing you to isolate that service only to trusted endpoints like your virtual network and Azure services. All traffic to and from your managed HSM will travel along the secure Microsoft backbone network without having to traverse the public internet.
+  - **Monitoring and logging**: The outermost layer of protection is the monitoring and logging capabilities of Managed HSM. With Azure Monitor service, you can check your logs for analytics and alerts to ensure that access patterns conform with your expectations. This allows members of your security team to have visibility into what is happening within the Managed HSM service. If something doesn't look right, you can always roll your keys or revoke permissions.
   - **Bring your own key (BYOK)**: BYOK enables Azure customers to use any supported on-premises HSMs to generate keys, and then import them to the managed HSM. Some customers prefer to use on-premises HSMs to generate keys to meet regulatory and compliance requirements. Then, they use BYOK to securely transfer an HSM-protected key to the managed HSM. The key to be transferred never exists outside of an HSM in plaintext form. During the import process, the key material is protected with a key that's held in the managed HSM.
-  - **External HSM**: Some customers have asked us if they can explore the option of having the HSM outside the Azure cloud to keep the data and keys segregated with an external HSM, either on a third-party cloud or on-premises. Although using a third-party HSM outside of Azure seems to give customers more control over keys, it introduces several concerns, such as latency that causes performance issues, SLA slip that's caused by issues with the thirdparty HSM, and maintenance and training costs.Also, a third-party HSM can't use key Azure features like soft delete and purge protection. We'll continue to evaluate this technical option with our customers to help them navigate the complex security and compliance landscape.
+  - **External HSM**: Some customers have asked us if they can explore the option of having the HSM outside the Azure cloud to keep the data and keys segregated with an external HSM, either on a third-party cloud or on-premises. Although using a third-party HSM outside of Azure seems to give customers more control over keys, it introduces several concerns, such as latency that causes performance issues, SLA slip that's caused by issues with the third-party HSM, and maintenance and training costs. Also, a third-party HSM can't use key Azure features like soft delete and purge protection. We continue to evaluate this technical option with our customers to help them navigate the complex security and compliance landscape.
 
 #### Administrative security controls
 
 These administrative security controls are in place in Azure Key Vault Managed HSM:
 
 - **Data defense**. You have Microsoft’s strong commitment to challenge government requests and to [defend your data](https://blogs.microsoft.com/on-the-issues/2020/11/19/defending-your-data-edpb-gdpr/).
-- **Contractual obligations**. It offers contral obligations for security and customer data protection as discussed in [Microsoft Trust Center](https://www.microsoft.com/trust-center?rtc=1).
-- **[Cross-region replication](../../availability-zones/cross-region-replication-azure.md)**. Soon, you can use georeplication in Managed HSM to deploy HSMs in a secondary region.
+- **Contractual obligations**. It offers control obligations for security and customer data protection as discussed in [Microsoft Trust Center](https://www.microsoft.com/trust-center?rtc=1).
+- **[Cross-region replication](../../availability-zones/cross-region-replication-azure.md)**. Soon, you can use geo replication in Managed HSM to deploy HSMs in a secondary region.
 - **Disaster recovery**. Azure offers an end-to-end backup and disaster recovery solution that is simple, secure, scalable, and cost-effective:
   - [Business continuity management program](../../availability-zones/business-continuity-management-program.md)
   - [Azure Site Recovery](../../site-recovery/index.yml)
@@ -142,6 +142,6 @@ These administrative security controls are in place in Azure Key Vault Managed H
 - **[Audit reports](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3)**. Resources to help information security and compliance professionals understand cloud features, and to verify technical compliance and control requirements
 - **Assume breach philosophy**. We assume that any component could be compromised at any time, and we design and test appropriately. We do regular Red Team/Blue Team exercises ([attack simulation](/compliance/assurance/assurance-monitoring-and-testing)).
 
-Azure Key Vault Managed HSM offers robust physical, technical, and administrative security controls. Managed HSM gives you sole control of your key material for a scalable, centralized cloud key management solution that helps satisfy growing compliance, security, and privacy needs. Most importantly it provides encryption safeguards that are required for compliance. Our customers can be assured that we are committed to ensuring that their data is protected with transparency about our practices as we progress toward the implementation of the Microsoft EU Data Boundary.
+Azure Key Vault Managed HSM offers robust physical, technical, and administrative security controls. Managed HSM gives you sole control of your key material for a scalable, centralized cloud key management solution that helps satisfy growing compliance, security, and privacy needs. Most importantly it provides encryption safeguards that are required for compliance. Our customers can be assured that we're committed to ensuring that their data is protected with transparency about our practices as we progress toward the implementation of the Microsoft EU Data Boundary.
 
 For more information, reach out to your Azure account team to facilitate a discussion with the Azure Key Management product team.
