@@ -3,7 +3,7 @@ title: Manage SSH access on Azure Kubernetes Service cluster nodes
 titleSuffix: Azure Kubernetes Service
 description: Learn how to configure SSH on Azure Kubernetes Service (AKS) cluster nodes.
 ms.topic: article
-ms.date: 07/24/2023
+ms.date: 07/31/2023
 ---
 
 # Manage SSH for secure access to Azure Kubernetes Service (AKS) nodes
@@ -144,6 +144,10 @@ The following are examples of this command:
 
 > [!IMPORTANT]
 > During this operation, all Virtual Machine Scale Set instances are upgraded and reimaged to use the new SSH public key.
+
+## Next steps
+
+To help troubleshoot any issues with SSH connectivity to your clusters nodes, you can [view the kubelet logs][view-kubelet-logs] or [view the Kubernetes master node logs][view-master-logs].
 
 <!-- LINKS - external -->
 
