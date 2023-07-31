@@ -544,7 +544,7 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
    > [!NOTE]
    >
    > If your project is NuGet package-based (.NET), not extension bundle-based (Node.js), 
-   > `"FUNCTIONS_WORKER_RUNTIME"` is set to `"dotnet"`. However, to use **Inline Code Operations**, 
+   > `"FUNCTIONS_WORKER_RUNTIME"` is set to `"dotnet"`. For features like XSLT + .NET, new Data Mapper and upcoming .NET custom code feature the `"FUNCTIONS_WORKER_RUNTIME"` is changed to `"dotnet-isolated"`. However, to use **Inline Code Operations**, 
    > you must have `"FUNCTIONS_WORKER_RUNTIME"` set to `"node"`
 
 The first time when you start a local debugging session or run the workflow without debugging, the Azure Logic Apps runtime registers the workflow with the service endpoint and subscribes to that endpoint for notifying the webhook operations. The next time that your workflow runs, the runtime won't register or resubscribe because the subscription registration already exists in local storage.
