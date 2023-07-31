@@ -21,13 +21,9 @@ Review the requirements on this page before setting up [agentless containers pos
 | Clouds:    | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Commercial clouds<br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected GCP accounts         |
 | Permissions | You need to have access as a:<br><br> - Subscription Owner, **or** <br> - User Access Admin and Security Admin permissions for the Azure subscription used for onboarding |
 
-## Registries and images
+## Registries and images - powered by MDVM
 
-| Aspect | Details |
-|--|--|
-| Registries and images | **Supported**<br> • ACR registries <br> • [ACR registries protected with Azure Private Link](../container-registry/container-registry-private-link.md) (Private registries requires access to Trusted Services) <br> • Container images in Docker V2 format <br>  **Unsupported**<br>   • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images<br> • "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS<br> is currently unsupported <br> • Images in [Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/main/spec.md) <br> • Windows images<br>|
-| OS Packages | **Supported** <br> • Alpine Linux 3.12-3.16 <br> • Red Hat Enterprise Linux 6-9 <br> • CentOS 6-9<br> • Oracle Linux 6-9 <br> • Amazon Linux 1, 2 <br> • openSUSE Leap, openSUSE Tumbleweed <br> • SUSE Enterprise Linux 11-15 <br> • Debian GNU/Linux 7-12 <br> • Ubuntu 12.04-22.04 <br>  • Fedora 31-37<br> • Mariner 1-2|
-| Language specific packages <br><br>  | **Supported** <br> • Python <br> • Node.js <br> • .NET <br> • JAVA <br> • Go |
+[!INCLUDE [Registries and images support powered by MDVM](./includes/registries-images-mdvm.md)]
 
 ## Prerequisites
 
@@ -41,9 +37,8 @@ Learn more about [supported Kubernetes versions in Azure Kubernetes Service (AKS
 
 ### Are attack paths triggered on workloads that are running on Azure Container Instances?
 
-Attack paths are currently not triggered for workloads running on[ Azure Container Instances](/azure/container-instances/).
+Attack paths are currently not triggered for workloads running on [Azure Container Instances](/azure/container-instances/).
 
 ## Next steps
 
 Learn how to [enable agentless containers](how-to-enable-agentless-containers.md).
-
