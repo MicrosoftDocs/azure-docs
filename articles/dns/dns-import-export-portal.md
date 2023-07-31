@@ -57,7 +57,10 @@ The following notes provide more technical details about the zone import process
 * During Public Preview, Azure DNS supports only single-string TXT records. Multistring TXT records are to be concatenated and truncated to 255 characters.
 
 
-```
+## Import a zone file
+
+1. If you don't have a resource group in Azure, create a resource group using Azure portal or Azure CLI. For example: **myresourcegroup**. 
+2. To import the zone contoso.com from the file contoso.com.txt into your new DNS zone newDNSzone.com in the resource group myresourcegroup, you'll need to perform the following actions. 
 
 ## Next steps
 
