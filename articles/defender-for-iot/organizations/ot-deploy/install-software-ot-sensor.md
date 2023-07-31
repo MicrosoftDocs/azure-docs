@@ -112,9 +112,9 @@ This procedure describes how to install the Defender for IoT software you'd down
     When the installation is complete, you're shown the following a set of default networking details. While the default IP, subnet, and gateway addresses will be identical with each installation, the UID is unique for each appliance. For example:
 
     ```bash
-    IP: 172.23.41.83,
-    SUBNET: 255.255.255.0,
-    GATEWAY: 172.23.41.1,
+    IP: 192.168.0.101, 
+    SUBNET: 255.255.255.0, 
+    GATEWAY: 192.168.0.1,
     UID: 91F14D56-C1E4-966F-726F-006A527C61D
     ```
 

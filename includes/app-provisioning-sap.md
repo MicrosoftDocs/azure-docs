@@ -67,7 +67,7 @@ If you have already downloaded the provisioning agent and configured it for anot
  
 ## 4. Configure the On-premises ECMA app
 
- 1. Back in the portal, on the **On-Premises Connectivity** section, select the agent that you deployed and select **Assign Agent(s)**.
+ 1. In the portal, on the **On-Premises Connectivity** section, select the agent that you deployed and select **Assign Agent(s)**.
 
       ![Screenshot that shows how to select and assign an agent.](.\\media\app-provisioning-sql\configure-7a.png)
 

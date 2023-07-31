@@ -26,7 +26,9 @@ Once the review has been created, follow the steps in this article to complete t
 
 ## Complete access reviews
 
-1. Login to the [Azure portal](https://portal.azure.com/). For **Azure resources**, navigate to **Privileged Identity Management** and select **Azure resources** under **Manage** from the dashboard. For **Azure AD roles**, select **Azure AD roles** from the same dashboard.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com). For **Azure resources**, navigate to **Privileged Identity Management** and select **Azure resources** under **Manage** from the dashboard. For **Azure AD roles**, select **Azure AD roles** from the same dashboard.
 
 2. For **Azure resources**, select your resource under **Azure resources** and then select **Access reviews** from the dashboard. For **Azure AD roles**, proceed directly to the **Access reviews** on the dashboard.
 

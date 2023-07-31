@@ -19,7 +19,9 @@ When setting up a sensor for the first time, sign in the *support* user, create 
 
 For more information, see [Install and set up your OT sensor](how-to-install-software.md) and [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
-Sensor versions earlier than 23.1.x also include the *cyberx* and *cyberx_host* privileged users. In versions 23.1.x and higher, these users are installed, but not enabled by default. To enable the *cyberx* and *cyberx_host* users in versions 23.1.x and higher, such as to use them with the [Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md), reset the password. For more information, see [Change a sensor user's password](#change-a-sensor-users-password).
+Sensor versions earlier than 23.1.x also include the *cyberx* and *cyberx_host* privileged users. In versions 23.1.x and higher, these users are installed, but not enabled by default.
+
+To enable the *cyberx* and *cyberx_host* users in versions 23.1.x and higher, such as to use them with the [Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md), reset the password. For more information, see [Change a sensor user's password](#change-a-sensor-users-password).
 
 ## Configure an Active Directory connection
 

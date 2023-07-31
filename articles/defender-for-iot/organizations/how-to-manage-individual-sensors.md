@@ -260,7 +260,7 @@ For more information, see [ERSPAN ports](best-practices/traffic-mirroring-method
 
         |Name  |Description  |
         |---------|---------|
-        |**Mode**     | Select **SPAN Traffic (no encapsulation)** to use the default SPAN port mirroring.  Select **ERSPAN** if you're using ERSPAN mirroring. For more information, see [Choose a traffic mirroring method for OT sensors](best-practices/traffic-mirroring-methods.md).       |
+        |**Mode**     | Select one of the following: <br><br>- **SPAN Traffic (no encapsulation)** to use the default SPAN port mirroring. <br>- **ERSPAN** if you're using ERSPAN mirroring. <br><br>For more information, see [Choose a traffic mirroring method for OT sensors](best-practices/traffic-mirroring-methods.md).       |
         |**Description**     |  Enter an optional description for the interface. You'll see this later on in the sensor's **System settings > Interface configurations** page, and these descriptions may be helpful in understanding the purpose of each interface.  |
         |**Auto negotiation**     | Relevant for physical machines only. Use this option to determine which sort of communication methods are used, or if the communication methods are automatically defined between components. <br><br>**Important**: We recommend that you change this setting only on the advice of your networking team. |
 

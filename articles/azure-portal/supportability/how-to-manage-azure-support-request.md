@@ -96,6 +96,10 @@ To reopen a closed support request, select **Reopen request** near the top of th
 
 To cancel a support plan, see [Cancel a support plan](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-subscription-in-the-azure-portal).
 
+## Get Help with a support request
+
+To get more help with managing the support request, go to the Azure portal and create a case for the Issue type, "Technical", choose "All Services", Service type, "Portal" and Problem type "Issue with Support Ticket Experience".
+
 ## Next steps
 
 - Review the process to [create an Azure support request](how-to-create-azure-support-request.md).

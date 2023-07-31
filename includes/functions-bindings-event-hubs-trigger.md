@@ -503,7 +503,7 @@ The following table explains the trigger configuration properties that you set i
 
 ::: zone-end
 
-[!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
+[!INCLUDE [app settings to local.settings.json](./functions-app-settings-local.md)]
 
 ## Usage
 
@@ -534,7 +534,7 @@ In-process C# class library functions supports the following types:
 
 # [Extension v5.x+](#tab/extensionv5/isolated-process)
 
-Requires you to define a custom type, or use a string. 
+[!INCLUDE [functions-bindings-event-hubs-trigger-dotnet-isolated-types](./functions-bindings-event-hubs-trigger-dotnet-isolated-types.md)]
 
 # [Extension v3.x+](#tab/extensionv3/isolated-process)
 

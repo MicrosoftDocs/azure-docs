@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom: devx-track-dotnet, devx-track-python
 ms.topic: conceptual
-ms.date: 01/04/2023
+ms.date: 07/27/2023
 ---
 
 # Python samples for Azure Cognitive Search
@@ -38,6 +38,7 @@ Code samples from the Azure SDK development team demonstrate API usage. You can 
 | [Simple query](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/samples/sample_simple_query.py) | Demonstrates how to set up a [basic query](search-query-overview.md). |
 | [Filter query](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/samples/sample_filter_query.py) | Demonstrates setting up a [filter expression](search-filters.md). |
 | [Facet query](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/samples/sample_facet_query.py) | Demonstrates working with [facets](search-faceted-navigation.md). |
+| [Vector search](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/samples/sample_vector_search.py) | Demonstrates how to get embeddings from a description field and then send vector queries against the data. |
 
 ## Doc samples
 
@@ -46,8 +47,17 @@ Code samples from the Cognitive Search team demonstrate features and workflows. 
 | Samples | Article |
 |---------|---------|
 | [quickstart](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Quickstart/v11) | Source code for the Python portion of [Quickstart: Full text search using the Azure SDKs](search-get-started-text.md). This article covers the basic workflow for creating, loading, and querying a search index using sample data. |
-| [search-website](https://github.com/Azure-Samples/azure-search-python-samples/tree/main/search-website-functions-v4) | Source code for [Tutorial: Add search to web apps](tutorial-python-overview.md). Demonstrates an end-to-end search app that includes a rich client plus components for hosting the app and handling search requests.|
+| [search-website-functions-v4](https://github.com/Azure-Samples/azure-search-python-samples/tree/main/search-website-functions-v4) | Source code for [Tutorial: Add search to web apps](tutorial-python-overview.md). Demonstrates an end-to-end search app that includes a rich client plus components for hosting the app and handling search requests.|
 | [tutorial-ai-enrichment](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment)  | Source code for [Tutorial: Use Python and AI to generate searchable content from Azure blobs](cognitive-search-tutorial-blob-python.md). This article shows how to create a blob indexer with a cognitive skillset, where the skillset creates and transforms raw content to make it searchable or consumable. |
+
+## Demos
+
+A demo repo provides proof-of-concept source code for examples or scenarios shown in demonstrations. Demo solutions aren't designed for adaptation by customers.
+
+| Repository | Description |
+|------------|-------------|
+| [**ChatGPT + Enterprise data with Azure OpenAI and Cognitive Search**](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/README.md) | Python code showing how to use Cognitive Search with the large language models in Azure OpenAI. For background, see this Tech Community blog post: [Revolutionize your Enterprise Data with ChatGPT](https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/revolutionize-your-enterprise-data-with-chatgpt-next-gen-apps-w/ba-p/3762087). |
+
 
 > [!TIP]
 > Try the [Samples browser](/samples/browse/?languages=python&products=azure-cognitive-search) to search for Microsoft code samples in GitHub, filtered by product, service, and language.

@@ -64,7 +64,7 @@ This article uses the following terms:
 | Resources| Link and Description |
 | - | - |
 | On-demand webinars| [Manage your Enterprise Applications with Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>‎Learn how Azure AD can help you achieve SSO to your enterprise SaaS applications and best practices for controlling access. |
-| Videos| [What is user provisioning in Active Azure Directory?](https://youtu.be/_ZjARPpI6NI) <br> [How to deploy user provisioning in Active Azure Directory?](https://youtu.be/pKzyts6kfrw) <br> [Integrating Salesforce with Azure AD: How to automate User Provisioning](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
+| Videos| [What is user provisioning in Active Azure Directory?](https://youtu.be/_ZjARPpI6NI) <br> [How to deploy user provisioning in Active Azure Directory?](https://youtu.be/pKzyts6kfrw) <br> [Integrating Salesforce with Azure AD: How to automate User Provisioning](https://youtu.be/MAy8s5WSe3A) 
 | Online courses| SkillUp Online:  [Managing Identities](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/) <br> Learn how to integrate Azure AD with many SaaS applications and to secure user access to those applications. |
 | Books| [Modern Authentication with Azure Active Directory for Web Applications (Developer Reference) 1st Edition](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> ‎This is an authoritative, deep-dive guide to building Active Directory authentication solutions for these new environments. |
 | Tutorials| See the [list of tutorials on how to integrate SaaS apps with Azure AD](../saas-apps/tutorial-list.md). |
@@ -110,13 +110,13 @@ In this example, the users and or groups are created in a cloud HR application l
 
 ![Picture 2](./media/plan-auto-user-provisioning/workdayprovisioning.png)
 
-1.	**HR team** performs the transactions in the cloud HR app tenant.
-2.	**Azure AD provisioning service** runs the scheduled cycles from the cloud HR app tenant and identifies changes that need to be processed for sync with AD.
-3.	**Azure AD provisioning service** invokes the Azure AD Connect provisioning agent with a request payload containing AD account create/update/enable/disable operations.
-4.	**Azure AD Connect provisioning agent** uses a service account to manage AD account data.
-5.	**Azure AD Connect** runs delta sync to pull updates in AD.
-6.	**AD** updates are synced with Azure AD. 
-7.	**Azure AD provisioning service** writebacks email attribute and username from Azure AD to the cloud HR app tenant.
+1. **HR team** performs the transactions in the cloud HR app tenant.
+2. **Azure AD provisioning service** runs the scheduled cycles from the cloud HR app tenant and identifies changes that need to be processed for sync with AD.
+3. **Azure AD provisioning service** invokes the Azure AD Connect provisioning agent with a request payload containing AD account create/update/enable/disable operations.
+4. **Azure AD Connect provisioning agent** uses a service account to manage AD account data.
+5. **Azure AD Connect** runs delta sync to pull updates in AD.
+6. **AD** updates are synced with Azure AD. 
+7. **Azure AD provisioning service** writebacks email attribute and username from Azure AD to the cloud HR app tenant.
 
 ## Plan the deployment project
 
