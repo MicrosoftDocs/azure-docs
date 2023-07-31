@@ -54,5 +54,5 @@ The following example converts the date and time **May 19, 2015 12:00 UTC** to a
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`DateTimeToTicks`](datetimetoticks.md)

@@ -25,7 +25,7 @@ In part one of the series, you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial, you need an Azure subscription.  If you don't already have an account, go to the [Azure portal](https://portal.azure.com) to create one.
+To complete this tutorial, you need an Azure subscription.  If you don't already have an account, create an account using the [Azure portal](https://portal.azure.com).
 
 ## Create Azure Virtual Machine instances
 

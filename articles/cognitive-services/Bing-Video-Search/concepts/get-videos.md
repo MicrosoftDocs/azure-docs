@@ -1,6 +1,6 @@
 ---
 title: "Search for videos using the Bing Video Search API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: The Bing Video Search APIfinds and returns relevant videos from the web, it provides several features for intelligent and focused video retrieval on the web.
 services: cognitive-services
 author: aahill

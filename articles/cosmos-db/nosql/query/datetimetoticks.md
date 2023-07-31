@@ -55,5 +55,5 @@ The following example measures the ticks since the date and time **May 19, 2015 
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`DateTimeToTimestamp`](datetimetotimestamp.md)

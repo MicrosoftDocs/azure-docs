@@ -157,7 +157,7 @@ We should get a [RouterWorkerOfferIssued][offer_issued_event] from our [Event Gr
 However, we could also wait a few seconds and then query the worker directly against the JobRouter API to see if an offer was issued to it.
 
 ```python
-time.sleep(3)
+time.sleep(10)
 worker = router_client.get_worker(worker_id = worker.id)
 for offer in worker.offers:
     print(f"Worker {worker.id} has an active offer for job {offer.job_id}")

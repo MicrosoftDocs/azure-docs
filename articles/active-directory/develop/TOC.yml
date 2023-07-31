@@ -89,7 +89,7 @@
         - name: Custom claims provider
           href: custom-claims-provider-overview.md
     - name: Security
-      displayName: least privilege, secure app configuration, conditional access
+      displayName: least privilege, secure app configuration, Conditional Access
       items:
         - name: Application security
           href: security-best-practices-for-app-registration.md

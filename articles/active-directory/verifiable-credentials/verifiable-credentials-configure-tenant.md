@@ -53,7 +53,11 @@ After you create your key vault, Verifiable Credentials generates a set of keys 
 
 ### Set access policies for the Verified ID Admin user
 
-1. In the [Azure portal](https://portal.azure.com/), go to the key vault you use for this tutorial.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Go to the key vault you use for this tutorial.
 
 1. Under **Settings**, select **Access policies**.
 
@@ -71,7 +75,9 @@ After you create your key vault, Verifiable Credentials generates a set of keys 
 
 To set up Verified ID, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com/), search for *Verified ID*. Then, select **Verified ID**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Search for *Verified ID*. Then, select **Verified ID**.
 
 1. From the left menu, select **Setup**.
 
@@ -113,7 +119,7 @@ If you ever are in need of manually resetting the permissions, the access policy
 
 Your application needs to get access tokens when it wants to call into Microsoft Entra Verified ID so it can issue or verify credentials. To get access tokens, you have to register an application and grant API permission for the Verified ID Request Service. For example, use the following steps for a web application:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with your administrative account.
+1. Sign in to the [Azure portal](https://portal.azure.com) with your administrative account.
 
 1. If you have access to multiple tenants, select the **Directory + subscription**. Then, search for and select your **Azure Active Directory**.
 
