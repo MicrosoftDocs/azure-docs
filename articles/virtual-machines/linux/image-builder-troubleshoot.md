@@ -772,13 +772,13 @@ The error occurs because the network interface is currently in use with a privat
 
 #### Solution
 
-To resolve the issue, follow these steps:
+To resolve the issue, delete the below resources one by one in the specific order:
 
-1. Check the private endpoint connection. You can find this in the private link service resource by going to the "private endpoint connections" tab on the private link service resource page.
-1. Check the private link service.
-1. Check the network interface and load balancer.
-1. Check the resource group.
-1. Check the image template.
+1. Private endpoint connection. You can find this in the private link service resource by going to the "private endpoint connections" tab on the private link service resource page.
+1. Private link service.
+1. Network interface and load balancer.
+1. Resource Group.
+1. Image template.
 
 ## DevOps tasks
 
