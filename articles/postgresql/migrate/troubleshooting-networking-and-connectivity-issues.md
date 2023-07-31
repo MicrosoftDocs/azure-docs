@@ -48,9 +48,8 @@ This network configuration is not supported by Single to Flex migration tooling.
 
 ## Public access in source and private access in target
 There are two possible configurations for your source server in this scenario.
-
-    - Public access in source without private end points
-    - Public access in source with private end points
+- Public access in source without private end points.
+- Public access in source with private end points.
 
 Let us look into the details of setting network connectivity between the target and source in the above scenarios.
 
