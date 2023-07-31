@@ -48,7 +48,7 @@ However, if you plan to have users who are external (users who aren't part of th
 
 You can also identify whether or not a user is external by looking at the user's "User Principal Name." External users have **#EXT** in their "User Principal Name."
 
-:::image type="content" source="./media/virtual-wan-user-groups-about/groups.png" alt-text="Screenshot of an Azure Active Directory group." lightbox="./media/user-groups-about/groups.png":::
+:::image type="content" source="./media/virtual-wan-user-groups-about/groups.png" alt-text="Screenshot of an Azure Active Directory group." lightbox="./media/virtual-wan-user-groups-about/groups.png":::
 
 #### Azure Certificate (OpenVPN and IKEv2)
 
