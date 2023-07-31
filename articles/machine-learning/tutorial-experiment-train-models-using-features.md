@@ -26,7 +26,7 @@ This tutorial shows how to experiment with features as a way to improve model pe
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Prototype a new `accounts` feature set specification, by using existing precomputed values as features. Then, register the local feature set specification as a feature set in the feature store. This process differs from the first tutorial, where we created a feature set that had custom transformations.
+> * Prototype a new `accounts` feature set specification, by using existing precomputed values as features. Then, register the local feature set specification as a feature set in the feature store. This process differs from the first tutorial, where you created a feature set that had custom transformations.
 > * Select features for the model from the `transactions` and `accounts` feature sets, and save them as a feature retrieval specification.
 > * Run a training pipeline that uses the feature retrieval specification to train a new model. This pipeline uses the built-in feature retrieval component to generate the training data.
 
@@ -110,7 +110,7 @@ In the first tutorial, you created a `transactions` feature set that had custom 
 
 To onboard precomputed features, you can create a feature set specification without writing any transformation code. You use a feature set specification to develop and test a feature set in a fully local development environment.
 
-You don't need to connect to a feature store. In this step, you create the feature set specification locally, and then sample the values from it. For capabilities of managed feature store, you must use a feature asset definition to register the feature set specification with a feature store. Later steps in this tutorial provide more details.
+You don't need to connect to a feature store. In this procedure, you create the feature set specification locally, and then sample the values from it. For capabilities of managed feature store, you must use a feature asset definition to register the feature set specification with a feature store. Later steps in this tutorial provide more details.
 
 1. Explore the source data for the accounts.
 
@@ -129,7 +129,7 @@ You don't need to connect to a feature store. In this step, you create the featu
 
    To register the feature set specification with the feature store, you must save the feature set specification in a specific format.
 
-   After you run the next cell, inspect the generated `accounts` feature set specification. To see the specification, open the *featurestore/featuresets/accounts/spec/FeatureSetSpec.yaml* file from the file tree to see the specification.
+   After you run the next cell, inspect the generated `accounts` feature set specification. To see the specification, open the *featurestore/featuresets/accounts/spec/FeatureSetSpec.yaml* file from the file tree.
 
    The specification has these important elements:
 
@@ -139,7 +139,7 @@ You don't need to connect to a feature store. In this step, you create the featu
 
    - `index_columns`: The join keys required to access values from the feature set.
 
-   To learn more, see [Understanding top-level entities in managed feature store](./concept-top-level-entities-in-managed-feature-store.md) and the [feature set specification's YAML reference](./reference-yaml-featureset-spec.md).
+   To learn more, see [Understanding top-level entities in managed feature store](./concept-top-level-entities-in-managed-feature-store.md) and the [CLI (v2) feature set specification YAML schema](./reference-yaml-featureset-spec.md).
 
    As an extra benefit, persisting supports source control.
 
@@ -173,15 +173,15 @@ As you develop features, you might want to locally test and validate them before
 
 ## Run a training experiment
 
-In these steps, you select a list of features, run a training pipeline, and register the model. You can repeat these steps until the model performs as you want.
+In the following steps, you select a list of features, run a training pipeline, and register the model. You can repeat these steps until the model performs as you want.
 
 1. Optionally, discover features from the feature store UI.
 
    The first tutorial covered this step, when you registered the `transactions` feature set. Because you also have an `accounts` feature set, you can browse through the available features:
 
-   * Go to the [Azure Machine Learning global landing page](https://ml.azure.com/home?flight=FeatureStores).
-   * On the left pane, select **Feature stores**.
-   * In the list of feature stores, select the feature store that you created earlier.
+   1. Go to the [Azure Machine Learning global landing page](https://ml.azure.com/home?flight=FeatureStores).
+   1. On the left pane, select **Feature stores**.
+   1. In the list of feature stores, select the feature store that you created earlier.
 
    The UI shows the feature sets and entity that you created. Select the feature sets to browse through the feature definitions. You can use the global search box to search for feature sets across feature stores.
 

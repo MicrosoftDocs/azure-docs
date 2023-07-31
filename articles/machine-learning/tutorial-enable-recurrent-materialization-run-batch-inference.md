@@ -78,7 +78,7 @@ Before you proceed with the following procedures, be sure to complete the first,
 
          [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/4. Enable recurrent materialization and run batch inference.ipynb?name=set-default-subs-cli)]
 
----
+      ---
 
 1. Initialize the project workspace CRUD (create, read, update, and delete) client.
 
