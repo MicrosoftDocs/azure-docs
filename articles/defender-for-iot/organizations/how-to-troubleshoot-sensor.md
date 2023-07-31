@@ -263,6 +263,9 @@ For more information, see:
 
 You can configure a standalone sensor and a management console, with the sensors related to it, to connect to NTP.
 
+> [!TIP]
+> When you're ready to start managing your OT sensor settings at scale, define NTP settings from the Azure portal. Once you apply settings from the Azure portal, settings on the sensor console are read-only. For more information, see [Configure OT sensor settings from the Azure portal (Public preview)](configure-sensor-settings-portal.md).
+
 To connect a standalone sensor to NTP:
 
 - [See the CLI documentation](./references-work-with-defender-for-iot-cli-commands.md).

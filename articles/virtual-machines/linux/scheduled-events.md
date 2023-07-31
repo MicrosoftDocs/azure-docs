@@ -7,10 +7,10 @@ ms.subservice: scheduled-events
 ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure-services
+ms.custom: devx-track-python
 ms.date: 01/25/2023
 ms.author: ericrad
 ms.reviewer: mimckitt
-
 ---
 
 # Azure Metadata Service: Scheduled Events for Linux VMs
@@ -20,6 +20,8 @@ ms.reviewer: mimckitt
 Scheduled Events is an Azure Metadata Service that gives your application time to prepare for virtual machine (VM) maintenance. It provides information about upcoming maintenance events (for example, reboot) so that your application can prepare for them and limit disruption. It's available for all Azure Virtual Machines types, including PaaS and IaaS on both Windows and Linux. 
 
 For information about Scheduled Events on Windows, see [Scheduled Events for Windows VMs](../windows/scheduled-events.md).
+
+Scheduled events provide proactive notifications about upcoming events, for reactive information about events that have already happened see [VM availability information in Azure Resource Graph](../resource-graph-availability.md) and [Create availability alert rule for Azure virtual machine](../../azure-monitor/vm/tutorial-monitor-vm-alert-availability.md). 
 
 > [!Note] 
 > Scheduled Events is generally available in all Azure Regions. See [Version and Region Availability](#version-and-region-availability) for latest release information.

@@ -7,6 +7,7 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
+ms.custom: devx-track-js, devx-track-linux
 ms.topic: how-to
 ms.date: 07/07/2022
 ms.author: kengaderdus
@@ -73,7 +74,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-i
 
 Extract the sample file to a folder. You'll get a web app with the following directory structure:
 
-```text
+```output
 active-directory-b2c-msal-node-sign-in-sign-out-webapp/
 ├── index.js
 └── package.json

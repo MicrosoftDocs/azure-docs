@@ -1,7 +1,7 @@
 ---
 title: Resources for Azure Spring Apps | Microsoft Docs
 description: Azure Spring Apps resource list
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: reference
 ms.date: 09/08/2020
@@ -16,7 +16,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 As a developer, you might find the following Azure Spring Apps resources useful:
 

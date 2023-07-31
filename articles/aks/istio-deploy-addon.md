@@ -116,7 +116,7 @@ Confirm the `istiod` pod has a status of `Running`. For example:
 
 ```
 NAME                               READY   STATUS    RESTARTS   AGE
-istiod-asm-1-17-74f7f7c46c-xfdtl   2/2     Running   0          2m
+istiod-asm-1-17-74f7f7c46c-xfdtl   1/1     Running   0          2m
 ```
 
 ## Enable sidecar injection

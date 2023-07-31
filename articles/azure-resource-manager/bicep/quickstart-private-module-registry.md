@@ -15,7 +15,7 @@ Learn how to publish Bicep modules to private modules registry, and how to call 
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-To work with module registries, you must have [Bicep CLI](./install.md) version **0.4.1008** or later. To use with [Azure CLI](/cli/azure/install-azure-cli), you must also have Azure CLI version **2.31.0** or later; to use with [Azure PowerShell](/powershell/azure/install-az-ps), you must also have Azure PowerShell version **7.0.0** or later.
+To work with module registries, you must have [Bicep CLI](./install.md) version **0.4.1008** or later. To use with [Azure CLI](/cli/azure/install-azure-cli), you must also have Azure CLI version **2.31.0** or later; to use with [Azure PowerShell](/powershell/azure/install-azure-powershell), you must also have Azure PowerShell version **7.0.0** or later.
 
 A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-registry/container-registry-intro.md). To create one, see [Quickstart: Create a container registry by using a Bicep file](../../container-registry/container-registry-get-started-bicep.md).
 

@@ -32,7 +32,6 @@ This section lists all the automatically collected metrics collected for Azure C
 | Active Calls | Count | Count of the total number of active calls. |
 | Active Emergency Calls | Count | Count of the total number of active emergency calls.|
 
-For more information, see a list of [all metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
 ## Metric Dimensions
 

@@ -11,16 +11,16 @@ ms.author: alehughes
 ms.date: 04/25/2023
 ms.reviewer: mopeakande
 reviewer: msakande
-ms.custom: devplatv2
+ms.custom: devplatv2, build-2023
 ---
 
 # Collect production data from models deployed for real-time inferencing (preview)
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 In this article, you'll learn how to collect production inference data from a model deployed to an Azure Machine Learning managed online endpoint or Kubernetes online endpoint.
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 Azure Machine Learning **Data collector** logs inference data in Azure blob storage. You can enable data collection for new or existing online endpoint deployments.
 
@@ -33,15 +33,15 @@ If you're interested in collecting production inference data for a MLFlow model 
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [basic prereqs cli](../../includes/machine-learning-cli-prereqs.md)]
+[!INCLUDE [basic prereqs cli](includes/machine-learning-cli-prereqs.md)]
 
 * Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
 # [Python](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-[!INCLUDE [basic prereqs sdk](../../includes/machine-learning-sdk-v2-prereqs.md)]
+[!INCLUDE [basic prereqs sdk](includes/machine-learning-sdk-v2-prereqs.md)]
 
 * Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
@@ -57,12 +57,12 @@ Data collection with custom logging allows you to log pandas DataFrames directly
 
 ### Update your scoring script with custom logging code
 
-First, you'll need to add custom logging code to your scoring script (`score.py`). For custom logging, you'll need the `azure-ai-monitoring` package. For more information, see the comprehensive [PyPI page for the data collector SDK](https://pypi.org/project/azureml-ai-monitoring/).
+First, you'll need to add custom logging code to your scoring script (`score.py`). For custom logging, you'll need the `azureml-ai-monitoring` package. For more information, see the comprehensive [PyPI page for the data collector SDK](https://pypi.org/project/azureml-ai-monitoring/).
 
-1. Import the `azure-ai-monitoring` package by adding the following line to the top of the scoring script:
+1. Import the `azureml-ai-monitoring` package by adding the following line to the top of the scoring script:
 
     ```python
-    from azure.ai.monitoring import Collector
+    from azureml.ai.monitoring import Collector
     ```
 
 1. Declare your data collection variables (up to five of them) in your `init()` function:
@@ -74,6 +74,7 @@ First, you'll need to add custom logging code to your scoring script (`score.py`
     global inputs_collector, outputs_collector
     inputs_collector = Collector(name='model_inputs')          
     outputs_collector = Collector(name='model_outputs')
+    inputs_outputs_collector = Collector(name='model_inputs_outputs')
     ```
 
     By default, Azure Machine Learning raises an exception if there's a failure during data collection. Optionally, you can use the `on_error` parameter to specify a function to run if logging failure happens. For instance, using the `on_error` parameter in the following code, Azure Machine Learning logs the error rather than throwing an exception:
@@ -106,6 +107,7 @@ def init():
   # instantiate collectors with appropriate names, make sure align with deployment spec
   inputs_collector = Collector(name='model_inputs')                    
   outputs_collector = Collector(name='model_outputs')
+  inputs_outputs_collector = Collector(name='model_inputs_outputs') #note: this is used to enable Feature Attribution Drift
 
 def run(data): 
   # json data: { "data" : {  "col1": [1,2,3], "col2": [2,3,4] } }
@@ -122,6 +124,13 @@ def run(data):
 
   # collect outputs data, pass in correlation_context so inputs and outputs data can be correlated later
   outputs_collector.collect(output_df, context)
+
+  # create a dataframe with inputs/outputs joined - this creates a URI folder (not mltable) 
+  # input_output_df = input_df.merge(output_df, context)
+  input_output_df = input_df.join(output_df)
+
+  # collect both your inputs and output  
+  inputs_outputs_collector.collect(input_output_df, context)
   
   return output_df.to_dict()
   
@@ -147,12 +156,9 @@ channels:
   - conda-forge
 dependencies:
   - python=3.8
-  - numpy=1.23.5
-  - pandas=1.5.2
   - pip=22.3.1
   - pip:
       - azureml-defaults==1.38.0
-      - requests==2.28.1
       - azureml-ai-monitoring~=0.1.0b1
 name: model-env
 ```
@@ -207,7 +213,7 @@ If you need to collect your production inference data to a custom Blob storage c
 
 To use the data collector with a custom Blob storage container, connect the storage container to an Azure Machine Learning datastore. To learn how to do so, see [create datastores](how-to-datastore.md).
 
-Next, ensure that your Azure Machine Learning endpoint has the necessary permissions to write to the datastore destination. The data collector supports both system assigned managed identities (SAMIs) and user assigned managed identities (UAMIs). Add the identity to your endpoint. Assign the role `Storage Blob Data Contributor` to this identity with the Blob storage container which will be used as the data destination. To learn how to use managed identities in Azure, see [assign Azure roles to a managed identity](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal-managed-identity).
+Next, ensure that your Azure Machine Learning endpoint has the necessary permissions to write to the datastore destination. The data collector supports both system assigned managed identities (SAMIs) and user assigned managed identities (UAMIs). Add the identity to your endpoint. Assign the role `Storage Blob Data Contributor` to this identity with the Blob storage container which will be used as the data destination. To learn how to use managed identities in Azure, see [assign Azure roles to a managed identity](/azure/role-based-access-control/role-assignments-portal-managed-identity).
 
 Then, update your deployment YAML to include the `data` property within each collection. The `data.name` is a required parameter used to specify the name of the data asset to be registered with the collected data. The `data.path` is a required parameter used to specify the fully-formed Azure Machine Learning datastore path, which is connected to your Azure Blob storage container. The `data.version` is an optional parameter used to specify the version of the data asset (defaults to 1).
 

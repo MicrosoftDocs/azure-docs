@@ -34,7 +34,7 @@ You learn how to:
 
 Create an Azure AD application for the API and give it the appropriate permissions for the requests that you want to call.
 
-1. Sign into the [Azure portal](https://portal.azure.com/) with an account with sufficient permissions in the tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account with sufficient permissions in the tenant.
 1. Under **Azure Services**, search for **Azure Active Directory**.
 1. On the left menu, select **App registrations**, and then select **+ New registration**. 
     :::image type="content" source="media/authorizations-how-to-azure-ad/create-registration.png" alt-text="Screenshot of creating an Azure AD app registration in the portal.":::
@@ -91,7 +91,7 @@ Create an Azure AD application for the API and give it the appropriate permissio
 1. On the confirmation page, select **Allow access**.
 1. After successful authorization, the browser is redirected to API Management and the window is closed. In API Management, select **Next**.
 1. On the **Access policy** page, create an access policy so that API Management has access to use the authorization. Ensure that a managed identity is configured for API Management. [Learn more about managed identities in API Management](api-management-howto-use-managed-service-identity.md#create-a-system-assigned-managed-identity).
-1. For this example, select **API Management service `<service name>`**.
+1. For this example, select **API Management service `<service name>`**, and then click "+ Add members". You should see your access policy in the Members table below.
 
     :::image type="content" source="media/authorizations-how-to-azure-ad/create-access-policy.png" alt-text="Screenshot of selecting a managed identity to use the authorization."::: 
  

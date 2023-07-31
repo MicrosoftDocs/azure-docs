@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 03/27/2023
 ms.author: gasinh
 ms.collection: M365-identity-device-management
+ms.custom: not-enterprise-apps
 ---
 
 # Tutorial: Configure F5 BIG-IP Easy Button for header-based SSO
@@ -27,7 +28,7 @@ Integrating a BIG-IP with Azure AD provides many benefits, including:
 
 Learn more:
 
-* [Integrate F5 BIG-IP with Azure AD](./f5-aad-integration.md)
+* [Integrate F5 BIG-IP with Azure AD](./f5-integration.md)
 * [Enable SSO for an enterprise application](add-application-portal-setup-sso.md)
 
 ## Scenario description
@@ -88,13 +89,15 @@ This tutorial uses Guided Configuration v16.1 with an Easy button template. With
 
 ## Register Easy Button
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Before a client or service accesses Microsoft Graph, the Microsoft identity platform must trust it.
 
 Learn more: [Quickstart: Register an application with the Microsoft identity platform](../develop/quickstart-register-app.md)
 
 Create a tenant app registration to authorize the Easy Button access to Graph. With these permissions, the BIG-IP pushes the configurations to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
 
-1. Sign-in to the [Azure portal](https://portal.azure.com/) with Application Administrative permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com) with Application Administrative permissions.
 2. In the left navigation, select **Azure Active Directory**.
 3. Under **Manage**, select **App registrations > New registration**.
 4. Enter an application **Name**.
@@ -164,23 +167,23 @@ In Service Provider settings, define SAML SP instance settings for the SHA-prote
 
 3. (Optional) In Security Settings, select **Enable Encryption Assertion** to enable Azure AD to encrypt issued SAML assertions. Azure AD and BIG-IP APM encryption assertions help assure content tokens aren't intercepted, nor personal or corporate data compromised.
 
-4.	In **Security Settings**, from the **Assertion Decryption Private Key** list, select **Create New**.
+4. In **Security Settings**, from the **Assertion Decryption Private Key** list, select **Create New**.
  
    ![Screenshot of the Create New option in the Assertion Decryption Private Key list.](./media/f5-big-ip-oracle/configure-security-create-new.png)
 
-5.	Select **OK**. 
-6.	The **Import SSL Certificate and Keys** dialog appears. 
-7.	For **Import Type**, select **PKCS 12 (IIS)**. This action imports the certificate and private key. 
-8.	For **Certificate and Key Name**, select **New** and enter the input.
-9.	Enter the **Password**.
-10.	Select **Import**.
-11.	Close the browser tab to return to the main tab.
+5. Select **OK**. 
+6. The **Import SSL Certificate and Keys** dialog appears. 
+7. For **Import Type**, select **PKCS 12 (IIS)**. This action imports the certificate and private key. 
+8. For **Certificate and Key Name**, select **New** and enter the input.
+9. Enter the **Password**.
+10. Select **Import**.
+11. Close the browser tab to return to the main tab.
 
    ![Screenshot of selections and entries for SSL Certificate Key Source.](./media/f5-big-ip-oracle/import-ssl-certificates-and-keys.png)
 
-12.	Check the box for **Enable Encrypted Assertion**.
-13.	If you enabled encryption, from the **Assertion Decryption Private Key** list, select the certificate. BIG-IP APM uses this certificate private key to decrypt Azure AD assertions.
-14.	If you enabled encryption, from the **Assertion Decryption Certificate** list, select the certificate. BIG-IP uploads this certificate to Azure AD to encrypt the issued SAML assertions.
+12. Check the box for **Enable Encrypted Assertion**.
+13. If you enabled encryption, from the **Assertion Decryption Private Key** list, select the certificate. BIG-IP APM uses this certificate private key to decrypt Azure AD assertions.
+14. If you enabled encryption, from the **Assertion Decryption Certificate** list, select the certificate. BIG-IP uploads this certificate to Azure AD to encrypt the issued SAML assertions.
    
    ![Screenshot of two entries and one option for Security Settings.](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
 
@@ -244,8 +247,8 @@ Conditional Access policies control access based on device, application, locatio
 
 To select a policy to be applied to the application being published:
 
-1.	On the **Conditional Access Policy** tab, in the **Available Policies** list, select a policy. 
-2.	Select the **right arrow** and move it to the **Selected Policies** list.
+1. On the **Conditional Access Policy** tab, in the **Available Policies** list, select a policy. 
+2. Select the **right arrow** and move it to the **Selected Policies** list.
 
   > [!NOTE]
   > You can select the **Include** or **Exclude** option for a policy. If both options are selected, the policy is unenforced.
@@ -291,7 +294,7 @@ With SSO, users access BIG-IP published services without entering credentials. T
 5. For **Header Name**, use **employeeid**.
 6. For **Header Value**,use **%{session.saml.last.attr.name.employeeid}**.
 
-   ![Screenshot of entries and selctions for SSO Headers.](./media/f5-big-ip-easy-button-header/sso-http-headers.png)
+   ![Screenshot of entries and selections for SSO Headers.](./media/f5-big-ip-easy-button-header/sso-http-headers.png)
 
    >[!NOTE]
    >APM session variables in curly brackets are case-sensitive. Inconsistencies cause attribute mapping failures.

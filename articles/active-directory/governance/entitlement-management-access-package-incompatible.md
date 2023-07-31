@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 01/25/2023
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -42,22 +42,24 @@ If you’ve been using Microsoft Identity Manager or other on-premises identity 
 
 To use entitlement management and assign users to access packages, you must have one of the following licenses:
 
-- Azure AD Premium P2
+- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
 - Enterprise Mobility + Security (EMS) E5 license
 
 ## Configure another access package or group membership as incompatible for requesting access to an access package
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 **Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner or Access package manager
 
 Follow these steps to change the list of incompatible groups or other access packages for an existing access package:
 
-1.	Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1.  Select **Azure Active Directory**, and then select **Identity Governance**.
 
-1.	In the left menu, select **Access packages** and then open the access package which users will request.
+1. In the left menu, select **Access packages** and then open the access package which users will request.
 
-1.	In the left menu, select **Separation of duties**.
+1. In the left menu, select **Separation of duties**.
 
 1.  If you wish to prevent users who have another access package assignment already from requesting this access package, select on **Add access package** and select the access package that the user would already be assigned.
 
@@ -96,13 +98,13 @@ New-MgEntitlementManagementAccessPackageIncompatibleAccessPackageByRef -AccessPa
 
 Follow these steps to view the list of other access packages that have indicated that they're incompatible with an existing access package:
 
-1.	Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1.  Select **Azure Active Directory**, and then select **Identity Governance**.
 
-1.	In the left menu, select **Access packages** and then open the access package.
+1. In the left menu, select **Access packages** and then open the access package.
 
-1.	In the left menu, select **Separation of duties**.
+1. In the left menu, select **Separation of duties**.
 
 1. Select on **Incompatible With**.
 
@@ -114,13 +116,13 @@ If you've configured incompatible access settings on an access package that alre
 
 Follow these steps to view the list of users who have assignments to two access packages.
 
-1.	Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1.  Select **Azure Active Directory**, and then select **Identity Governance**.
 
-1.	In the left menu, select **Access packages** and then open the access package where you've configured another access package as incompatible.
+1. In the left menu, select **Access packages** and then open the access package where you've configured another access package as incompatible.
 
-1.	In the left menu, select **Separation of duties**.
+1. In the left menu, select **Separation of duties**.
 
 1.  In the table, if there is a non-zero value in the Additional access column for the second access package, then that indicates there are one or more users with assignments.
 
@@ -138,13 +140,13 @@ If you're configuring incompatible access settings on an access package that alr
 
 Follow these steps to view the list of users who have assignments to two access packages.
 
-1.	Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1.  Select **Azure Active Directory**, and then select **Identity Governance**.
 
-1.	In the left menu, select **Access packages** and then open the access package where you'll be configuring incompatible assignments.
+1. In the left menu, select **Access packages** and then open the access package where you'll be configuring incompatible assignments.
 
-1.	In the left menu, select **Assignments**.
+1. In the left menu, select **Assignments**.
 
 1.  In the **Status** field, ensure that **Delivered** status is selected.
 
@@ -152,9 +154,9 @@ Follow these steps to view the list of users who have assignments to two access 
 
 1.  In the navigation bar, select **Identity Governance**.
 
-1.	In the left menu, select **Access packages** and then open the access package that you plan to indicate as incompatible.
+1. In the left menu, select **Access packages** and then open the access package that you plan to indicate as incompatible.
 
-1.	In the left menu, select **Assignments**.
+1. In the left menu, select **Assignments**.
 
 1.  In the **Status** field, ensure that the **Delivered** status is selected.
 

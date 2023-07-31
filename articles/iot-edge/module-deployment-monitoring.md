@@ -4,7 +4,7 @@ description: Use automatic deployments in Azure IoT Edge to manage groups of dev
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 11/17/2022
+ms.date: 05/09/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -82,11 +82,11 @@ Consider these constraints when you construct a target condition:
 * Double quotes aren't allowed in any portion of the target condition. Use single quotes.
 * Single quotes represent the values of the target condition. Therefore, you must escape the single quote with another single quote if it's part of the device name. For example, to target a device called `operator'sDevice`, write `deviceId='operator''sDevice'`.
 * Numbers, letters, and the following characters are allowed in target condition values: `"()<>@,;:\\"/?={} \t\n\r`.
-* The following characters are not allowed in target condition keys:`/;`.
+* The following characters aren't allowed in target condition keys:`/;`.
 
 ### Priority
 
-A priority defines whether a deployment should be applied to a targeted device relative to other deployments. A deployment priority is a positive integer, with larger numbers denoting higher priority. If an IoT Edge device is targeted by more than one deployment, the deployment with the highest priority applies. Deployments with lower priorities are not applied, nor are they merged. If a device is targeted with two or more deployments with equal priority, the most recently created deployment (determined by the creation timestamp) applies.
+A priority defines whether a deployment should be applied to a targeted device relative to other deployments. A deployment priority is a positive integer within the range from 0 through 2,147,483,647. Larger numbers denote a higher priority. If an IoT Edge device is targeted by more than one deployment, the deployment with the highest priority applies. Deployments with lower priorities aren't applied, nor are they merged. If a device is targeted with two or more deployments with equal priority, the most recently created deployment (determined by the creation timestamp) applies.
 
 ### Labels
 

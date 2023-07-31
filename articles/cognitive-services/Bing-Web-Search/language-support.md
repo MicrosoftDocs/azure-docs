@@ -1,6 +1,6 @@
 ---
 title: Language support - Bing Web Search API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: A list of natural languages, countries and regions that are supported by the Bing Web Search API.
 services: cognitive-services
 author: aahill
@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Language and region support for the Bing Web Search API
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The Bing Web Search API supports over three dozen countries or regions, many with more than one language. Specifying a country or region with a query helps refine search results based on that country or regions interests. The results may include links to Bing, and these links may localize the Bing user experience according to the specified country/region or language.
 

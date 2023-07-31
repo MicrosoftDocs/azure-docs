@@ -1,7 +1,7 @@
 ---
-title: Azure Video Indexer emotions detection overview
-titleSuffix: Azure Video Indexer 
-description: This article gives an overview of an Azure Video Indexer emotions detection.
+title: Azure AI Video Indexer emotions detection overview
+titleSuffix: Azure AI Video Indexer 
+description: This article gives an overview of an Azure AI Video Indexer emotions detection.
 author: juliako
 ms.author: juliako
 manager: femila
@@ -12,20 +12,48 @@ ms.topic: article
 
 # Emotions detection
 
-Emotions detection is an Azure Video Indexer AI feature that automatically detects emotions in video's transcript lines. Each sentence can either be detected as "Anger", "Fear", "Joy", "Sad", or none of the above if no other emotion was detected.
+Emotions detection is an Azure AI Video Indexer AI feature that automatically detects emotions in video's transcript lines. Each sentence can either be detected as: 
+
+- *Anger*,
+- *Fear*,
+- *Joy*, 
+- *Sad*
+
+Or, none of the above if no other emotion was detected.
 
 The model works on text only (labeling emotions in video transcripts.) This model doesn't infer the emotional state of people, may not perform where input is ambiguous or unclear, like sarcastic remarks. Thus, the model shouldn't be used for things like assessing employee performance or the emotional state of a person.  
-
-## Prerequisites  
-
-Review [Transparency Note overview](/legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context)
 
 ## General principles 
 
 There are many things you need to consider when deciding how to use and implement an AI-powered feature: 
 
 - Will this feature perform well in my scenario? Before deploying emotions detection into your scenario, test how it performs using real-life data and make sure it can deliver the accuracy you need. 
-- Are we equipped to identify and respond to errors? AI-powered products and features won't be 100% accurate, so consider how you'll identify and respond to any errors that may occur. 
+- Are we equipped to identify and respond to errors? AI-powered products and features aren't 100% accurate, consider how you identify and respond to any errors that may occur. 
+
+## Transparency Notes
+
+### General 
+
+Review [Transparency Note overview](/legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context)
+
+### Emotion detection specific 
+
+Introduction: This model is designed to help detect emotions in the transcript of a video. However, it isn't suitable for making assessments about an individual's emotional state, their ability, or their overall performance.  
+
+Use cases: This emotion detection model is intended to help determine the sentiment behind sentences in the video’s transcript. However, it only works on the text itself, and may not perform well for sarcastic input or in cases where input may be ambiguous or unclear. It should not be used for assessing employee performance or the emotional state of any other person.  
+
+Information requirements: To increase the accuracy of this model, it is recommended that input data be in a clear and unambiguous format. Users should also note that this model does not have context about input data, which can impact its accuracy.  
+
+Limitations: This model can produce both false positives and false negatives. To reduce the likelihood of either, users are advised to follow best practices for input data and preprocessing, and to interpret outputs in the context of other relevant information. Interpretation: The outputs of this model should not be used to make assessments about an individual's emotional state or other human characteristics. This model is supported in English and may not function properly with non-English inputs. Not English inputs are being translated to English before entering the model, therefore may produce less accurate results. 
+
+## Additional notes for emotion detection instructions
+
+1. Specify examples of intended use cases and specify use cases for which emotion detection isn't designed or tested, including evaluating employee performance, making assessments about a person, their emotional state, or their ability, or monitoring individuals or employees.
+2. Requirements for input data and best practices to increase reliability, and a statement about situations in which the model does not perform well such as for sarcasm.
+3. Best practices to reduce false positive and false negative results.  
+4. Information about how to interpret outputs, emphasizing that output isn't to be used for assessments of people.
+5. Disclosure that the system does not have any context about input data.
+6. Information about supported and unsupported languages, and how the feature functions with non-English inputs.
 
 ## View the insight
 
@@ -52,7 +80,7 @@ To display the instances in a JSON file, do the following:
 
 ```
 
-To download the JSON file via the API, use the [Azure Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
+To download the JSON file via the API, use the [Azure AI Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
 
 > [!NOTE]
 > Emotions detection is language independent, however if the transcript is not in English, it is first being translated to English and only then the model is applied. This may cause a reduced accuracy in emotions detection for non English languages. 
@@ -64,7 +92,7 @@ During the emotions detection procedure, the transcript of the video is processe
 |Component |Definition |
 |---|---|
 |Source language |The user uploads the source file for indexing. |
-|Transcription API |The audio file is sent to Cognitive Services and the translated transcribed output is returned. If a language has been specified, it is processed. |
+|Transcription API |The audio file is sent to Azure AI services and the translated transcribed output is returned. If a language has been specified, it is processed. |
 |Emotions detection  |Each sentence is sent to the emotions detection model. The model produces the confidence level of each emotion. If the confidence level exceeds a specific threshold, and there is no ambiguity between positive and negative emotions, the emotion is detected. In any other case, the sentence is labeled as neutral.|
 |Confidence level |The estimated confidence level of the detected emotions is calculated as a range of 0 to 1. The confidence score represents the certainty in the accuracy of the result. For example, an 82% certainty is represented as an 0.82 score. |
 
@@ -100,7 +128,7 @@ Don't purposely disclose inappropriate media showing young children or family me
 
 `visupport@microsoft.com`  
 
-## Azure Video Indexer insights
+## Azure AI Video Indexer insights
 
 View some other Azure Video Insights:
 

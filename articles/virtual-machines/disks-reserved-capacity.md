@@ -5,8 +5,7 @@ author: roygara
 ms.author: rogarana
 ms.date: 01/25/2023
 ms.topic: how-to
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ---
 
 # Reduce costs with Azure Disks Reservation
@@ -91,7 +90,7 @@ You can cancel, exchange, or refund reservations within certain limitations. For
 
 ## Expiration of a reservation
 
-When a reservation expires, any Azure Disk Storage capacity that you use under that reservation is billed at the pay-as-you-go rate. Reservations don't renew automatically.
+When a reservation expires, any Azure Disk Storage capacity that you use under that reservation is billed at the [pay-as-you-go rate](https://azure.microsoft.com/pricing/details/managed-disks/). Reservations don't renew automatically.
 
 You'll receive an email notification 30 days before the expiration of the reservation and again on the expiration date. To continue taking advantage of the cost savings that a reservation provides, renew it no later than the expiration date.
 

@@ -2,6 +2,7 @@
 title: Use Container Storage Interface (CSI) driver for Azure Files on Azure Kubernetes Service (AKS)
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Files in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
+ms.custom: devx-track-linux
 ms.date: 04/19/2023
 ---
 
@@ -16,9 +17,9 @@ To create an AKS cluster with CSI drivers support, see [Enable CSI drivers on AK
 > [!NOTE]
 > *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code versus the new CSI drivers, which are plug-ins.
 
-## Azure File CSI driver new features
+## Azure Files CSI driver new features
 
-In addition to the original in-tree driver features, Azure File CSI driver supports the following new features:
+In addition to the original in-tree driver features, Azure Files CSI driver supports the following new features:
 
 - Network File System (NFS) version 4.1
 - [Private endpoint][private-endpoint-overview]
@@ -34,7 +35,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 ## Dynamically create Azure Files PVs by using the built-in storage classes
 
-A storage class is used to define how an Azure file share is created. A storage account is automatically created in the [node resource group][node-resource-group] for use with the storage class to hold the Azure Files shares. Choose one of the following [Azure storage redundancy SKUs][storage-skus] for *skuName*:
+A storage class is used to define how an Azure file share is created. A storage account is automatically created in the [node resource group][node-resource-group] for use with the storage class to hold the Azure files share. Choose one of the following [Azure storage redundancy SKUs][storage-skus] for *skuName*:
 
 * **Standard_LRS**: Standard locally redundant storage
 * **Standard_GRS**: Standard geo-redundant storage
@@ -47,14 +48,14 @@ A storage class is used to define how an Azure file share is created. A storage 
 > [!NOTE]
 > Azure Files supports Azure Premium Storage. The minimum premium file share capacity is 100 GiB.
 
-When you use storage CSI drivers on AKS, there are two more built-in `StorageClasses` that uses the Azure File CSI storage drivers. The other CSI storage classes are created with the cluster alongside the in-tree default storage classes.
+When you use storage CSI drivers on AKS, there are two more built-in `StorageClasses` that uses the Azure Files CSI storage drivers. The other CSI storage classes are created with the cluster alongside the in-tree default storage classes.
 
-- `azurefile-csi`: Uses Azure Standard Storage to create an Azure Files share.
-- `azurefile-csi-premium`: Uses Azure Premium Storage to create an Azure Files share.
+- `azurefile-csi`: Uses Azure Standard Storage to create an Azure file share.
+- `azurefile-csi-premium`: Uses Azure Premium Storage to create an Azure file share.
 
-The reclaim policy on both storage classes ensures that the underlying Azure Files share is deleted when the respective PV is deleted. The storage classes also configure the file shares to be expandable, you just need to edit the [persistent volume claim][persistent-volume-claim-overview] (PVC) with the new size.
+The reclaim policy on both storage classes ensures that the underlying Azure files share is deleted when the respective PV is deleted. The storage classes also configure the file shares to be expandable, you just need to edit the [persistent volume claim][persistent-volume-claim-overview] (PVC) with the new size.
 
-To use these storage classes, create a PVC and respective pod that references and uses them. A PVC is used to automatically provision storage based on a storage class. A PVC can use one of the pre-created storage classes or a user-defined storage class to create an Azure Files share for the desired SKU and size. When you create a pod definition, the PVC is specified to request the desired storage.
+To use these storage classes, create a PVC and respective pod that references and uses them. A PVC is used to automatically provision storage based on a storage class. A PVC can use one of the pre-created storage classes or a user-defined storage class to create an Azure files share for the desired SKU and size. When you create a pod definition, the PVC is specified to request the desired storage.
 
 Create an [example PVC and pod that prints the current date into an `outfile`](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) by running the [kubectl apply][kubectl-apply] commands:
 
@@ -65,7 +66,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi
 
 The output of the command resembles the following example:
 
-```bash
+```output
 persistentvolumeclaim/pvc-azurefile created
 pod/nginx-azurefile created
 ```
@@ -78,7 +79,7 @@ kubectl exec nginx-azurefile -- ls -l /mnt/azurefile
 
 The output of the command resembles the following example:
 
-```bash
+```output
 total 29
 -rwxrwxrwx 1 root root 29348 Aug 31 21:59 outfile
 ```
@@ -120,11 +121,11 @@ kubectl apply -f azure-file-sc.yaml
 
 The output of the command resembles the following example:
 
-```bash
+```output
 storageclass.storage.k8s.io/my-azurefile created
 ```
 
-The Azure File CSI driver supports creating [snapshots of persistent volumes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html) and the underlying file shares.
+The Azure Files CSI driver supports creating [snapshots of persistent volumes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html) and the underlying file shares.
 
 > [!NOTE]
 > This driver only supports snapshot creation, restore from snapshot is not supported by this driver. Snapshots can be restored from Azure portal or CLI. For more information about creating and restoring a snapshot, see [Overview of share snapshots for Azure Files][share-snapshots-overview].
@@ -137,7 +138,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi
 
 The output of the command resembles the following example:
 
-```bash
+```output
 volumesnapshotclass.snapshot.storage.k8s.io/csi-azurefile-vsc created
 ```
 
@@ -149,7 +150,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi
 
 The output of the command resembles the following example:
 
-```bash
+```output
 volumesnapshot.snapshot.storage.k8s.io/azurefile-volume-snapshot created
 ```
 
@@ -201,7 +202,7 @@ kubectl exec -it nginx-azurefile -- df -h /mnt/azurefile
 
 The output of the command resembles the following example:
 
-```bash
+```output
 Filesystem                                                                                Size  Used Avail Use% Mounted on
 //f149b5a219bd34caeb07de9.file.core.windows.net/pvc-5e5d9980-da38-492b-8581-17e3cad01770  100G  128K  100G   1% /mnt/azurefile
 ```
@@ -214,7 +215,7 @@ kubectl patch pvc pvc-azurefile --type merge --patch '{"spec": {"resources": {"r
 
 The output of the command resembles the following example:
 
-```bash
+```output
 persistentvolumeclaim/pvc-azurefile patched
 ```
 
@@ -232,7 +233,7 @@ Filesystem                                                                      
 
 ## Use a persistent volume with private Azure Files storage (private endpoint)
 
-If your Azure Files resources are protected with a private endpoint, you must create your own storage class. Make sure that you've [configured your DNS settings to resolve the private endpoint IP address to the FQDN of the connection string][azure-private-endpoint-dns].  that's customized with the following parameters:
+If your Azure Files resources are protected with a private endpoint, you must create your own storage class. Make sure that you've [configured your DNS settings to resolve the private endpoint IP address to the FQDN of the connection string][azure-private-endpoint-dns]. Customize the following parameters:
 
 * `resourceGroup`: The resource group where the storage account is deployed.
 * `storageAccount`: The storage account name.
@@ -266,13 +267,13 @@ mountOptions:
 
 Create the storage class by using the `kubectl apply` command:
 
-```console
+```bash
 kubectl apply -f private-azure-file-sc.yaml
 ```
 
 The output of the command resembles the following example:
 
-```bash
+```output
 storageclass.storage.k8s.io/private-azurefile-csi created
 ```
   
@@ -294,7 +295,7 @@ spec:
   
 Create the PVC by using the [kubectl apply][kubectl-apply] command:
   
-```console
+```bash
 kubectl apply -f private-pvc.yaml
 ```
 
@@ -337,7 +338,7 @@ kubectl apply -f nfs-sc.yaml
 
 The output of the command resembles the following example:
 
-```bash
+```output
 storageclass.storage.k8s.io/azurefile-csi-nfs created
 ```
 
@@ -393,7 +394,7 @@ spec:
 
 The output of the command resembles the following example:
 
-```bash
+```output
 statefulset.apps/statefulset-azurefile created
 ```
 
@@ -405,7 +406,7 @@ kubectl exec -it statefulset-azurefile-0 -- df -h
 
 The output of the command resembles the following example:
 
-```bash
+```output
 Filesystem      Size  Used Avail Use% Mounted on
 ...
 /dev/sda1                                                                                 29G   11G   19G  37% /etc/hosts
@@ -418,7 +419,7 @@ accountname.file.core.windows.net:/accountname/pvc-fa72ec43-ae64-42e4-a8a2-55660
 
 ## Windows containers
 
-The Azure File CSI driver also supports Windows nodes and containers. To use Windows containers, follow the [Windows containers quickstart](./learn/quick-windows-container-deploy-cli.md) to add a Windows node pool.
+The Azure Files CSI driver also supports Windows nodes and containers. To use Windows containers, follow the [Windows containers quickstart](./learn/quick-windows-container-deploy-cli.md) to add a Windows node pool.
 
 After you have a Windows node pool, use the built-in storage classes like `azurefile-csi` or create a custom one. You can deploy an example [Windows-based stateful set](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) that saves timestamps into a file `data.txt` by running the [kubectl apply][kubectl-apply] command:
 
@@ -428,7 +429,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi
 
 The output of the command resembles the following example:
 
-```bash
+```output
 statefulset.apps/busybox-azurefile created
 ```
 
@@ -441,7 +442,7 @@ kubectl exec -it busybox-azurefile-0 -- cat c:\mnt\azurefile\data.txt # on Windo
 
 The output of the commands resembles the following example:
 
-```bash
+```output
 2020-08-27 22:11:01Z
 2020-08-27 22:11:02Z
 2020-08-27 22:11:04Z

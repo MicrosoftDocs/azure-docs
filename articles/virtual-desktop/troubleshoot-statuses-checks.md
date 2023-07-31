@@ -3,7 +3,7 @@ title: Azure Virtual Desktop session host statuses and health checks
 description: How to troubleshoot the failed session host statuses and failed health checks
 author: jakejohnson-21
 ms.topic: troubleshooting
-ms.date: 04/21/2023
+ms.date: 05/03/2023
 ms.author: jakejohnson
 manager: rkiran
 ---
@@ -21,7 +21,7 @@ The following table lists all statuses for session hosts in the Azure portal eac
 | Session host status | Description | How to resolve related issues |
 |---------------------|------|------|  
 |Available| This status means that the session host passed all health checks and is available to accept user connections. If a session host has reached its maximum session limit but has passed health checks, it's still listed as “Available." |N/A| 
-|Needs Assistance|The session host didn't pass one or more of the following non-fatal health checks: the Geneva Monitoring Agent health check, the Azure Instance Metadata Service (IMDS) health check, or the URL health check. You can find which health checks have failed in the session hosts detailed view in the Azure portal. |Follow the directions in [Error: VMs are stuck in "Needs Assistance" state](troubleshoot-agent.md#error-vms-are-stuck-in-the-needs-assistance-state) to resolve the issue.|  
+|Needs Assistance|The session host didn't pass one or more of the following non-fatal health checks: the Geneva Monitoring Agent health check, the Azure Instance Metadata Service (IMDS) health check, or the URL health check. In this state, users can connect to VMs, but their user experience may degrade. You can find which health checks failed in the Azure portal by going to the **Session hosts** tab and selecting the name of your session host. |Follow the directions in [Error: VMs are stuck in "Needs Assistance" state](troubleshoot-agent.md#error-vms-are-stuck-in-the-needs-assistance-state) to resolve the issue.|  
 |Shutdown| The session host has been shut down. If the agent enters a shutdown state before connecting to the broker, its status changes to *Unavailable*. If you've shut down your session host and see an *Unavailable* status, that means the session host shut down before it could update the status, and doesn't indicate an issue. You should use this status with the [VM instance view API](/rest/api/compute/virtual-machines/instance-view?tabs=HTTP#virtualmachineinstanceview) to determine the power state of the VM. |Turn on the session host. | 
 |Unavailable| The session host is either turned off or hasn't passed fatal health checks, which prevents user sessions from connecting to this session host. |If the session host is off, turn it back on. If the session host didn't pass the domain join check or side-by-side stack listener health checks, refer to the table in [Health check](#health-check) for ways to resolve the issue. If the status is still "Unavailable" after following those directions, open a support case.|
 |Upgrade Failed| This status means that the Azure Virtual Desktop Agent couldn't update or upgrade. This status doesn't affect new nor existing user sessions. |Follow the instructions in the [Azure Virtual Desktop Agent troubleshooting article](troubleshoot-agent.md).| 

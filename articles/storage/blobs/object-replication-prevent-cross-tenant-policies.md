@@ -5,11 +5,10 @@ description: Prevent cross-tenant object replication
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 04/06/2023
 ms.author: normesta
-ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 

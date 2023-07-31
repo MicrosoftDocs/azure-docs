@@ -1,10 +1,10 @@
 ---
 title: Hosting multiple sites on Azure Application Gateway
-description: This article provides an overview of the Azure Application Gateway multi-site support. Examples are provided of rule priority and the order of evaluation for rules applied to incoming requests. Conditions and limitations for using wildcard rules are described.
+description: This article provides an overview of the Azure Application Gateway multi-site support. Examples are provided of rule priority and the order of evaluation for rules applied to incoming requests. Application Gateway rule priority evaluation order is described in detail. Conditions and limitations for using wildcard rules are provided.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.date: 04/07/2023
+ms.date: 04/25/2023
 ms.author: greglin
 ms.topic: conceptual
 ---
@@ -108,7 +108,7 @@ Application Gateway relies on HTTP 1.1 host headers to host more than one websit
 ## Next steps
 
 Learn how to configure multiple site hosting in Application Gateway
-* [Using Azure portal](create-multiple-sites-portal.md)
+* [Using the Azure portal](create-multiple-sites-portal.md)
 * [Using Azure PowerShell](tutorial-multiple-sites-powershell.md)
 * [Using Azure CLI](tutorial-multiple-sites-cli.md)
 

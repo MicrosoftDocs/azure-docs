@@ -4,6 +4,7 @@ description: Describes how to create an Azure VM assessment with the Azure Migra
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 10/21/2022
 ms.custom: engagement-fy23

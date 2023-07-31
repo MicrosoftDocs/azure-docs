@@ -8,14 +8,14 @@ ms.author: magoswam
 ms.reviewer: ssalgado 
 ms.service: machine-learning
 ms.subservice: automl
-ms.date: 04/08/2022
+ms.date: 07/20/2023
 ms.topic: how-to
 ms.custom: contperf-fy21q2, automl, event-tier1-build-2022
 ---
 
 # Evaluate automated machine learning experiment results
 
-In this article, learn how to evaluate and compare models trained by your automated machine learning (automated ML) experiment. Over the course of an automated ML experiment, many jobs are created and each job creates a model. For each model, automated ML generates evaluation metrics and charts that help you measure the model's performance. 
+In this article, learn how to evaluate and compare models trained by your automated machine learning (automated ML) experiment. Over the course of an automated ML experiment, many jobs are created and each job creates a model. For each model, automated ML generates evaluation metrics and charts that help you measure the model's performance. You can further generate a Responsible AI dashboard to do a holistic assessment and debugging of the recommended best model by default. This includes insights such as model explanations, fairness and performance explorer, data explorer, model error analysis. Learn more about how you can generate a [Responsible AI dashboard.](how-to-responsible-ai-insights-ui.md)
 
 For example, automated ML generates the following charts based on experiment type.
 
@@ -49,7 +49,7 @@ After your automated ML experiment completes, a history of the jobs can be found
 The following steps and video, show you how to view the run history and model evaluation metrics and charts in the studio:
 
 1. [Sign into the studio](https://ml.azure.com/) and navigate to your workspace.
-1. In the left menu, select **Runs**.
+1. In the left menu, select **Jobs**.
 1. Select your experiment from the list of experiments.
 1. In the table at the bottom of the page, select an automated ML job.
 1. In the **Models** tab, select the **Algorithm name** for the model you want to evaluate.
@@ -88,12 +88,12 @@ weighted_accuracy|Weighted accuracy is accuracy where each sample is weighted by
 
 ### Binary vs. multiclass classification metrics
 
-Automated ML automatically detects if the data is binary and also allows users to activate binary classification metrics even if the data is multiclass by specifying a `true` class. Multiclass classification metrics will be reported no matter if a dataset has two classes or more than two classes. Binary classification metrics will only be reported when the data is binary, or the users activate the option. 
+Automated ML automatically detects if the data is binary and also allows users to activate binary classification metrics even if the data is multiclass by specifying a `true` class. Multiclass classification metrics is reported no matter if a dataset has two classes or more than two classes. Binary classification metrics is only reported when the data is binary, or the users activate the option. 
 
 > [!Note]
 > When a binary classification task is detected, we use `numpy.unique` to find the set of labels and the later label will be used as the `true` class. Since there is a sorting procedure in `numpy.unique`, the choice of `true` class will be stable.
 
-Note that multiclass classification metrics are intended for multiclass classification. When applied to a binary dataset, these metrics won't treat any class as the `true` class, as you might expect. Metrics that are clearly meant for multiclass are suffixed with `micro`, `macro`, or `weighted`. Examples include `average_precision_score`, `f1_score`, `precision_score`, `recall_score`, and `AUC`. For example, instead of calculating recall as `tp / (tp + fn)`, the multiclass averaged recall (`micro`, `macro`, or `weighted`) averages over both classes of a binary classification dataset. This is equivalent to calculating the recall for the `true` class and the `false` class separately, and then taking the average of the two.
+Note, multiclass classification metrics are intended for multiclass classification. When applied to a binary dataset, these metrics don't treat any class as the `true` class, as you might expect. Metrics that are clearly meant for multiclass are suffixed with `micro`, `macro`, or `weighted`. Examples include `average_precision_score`, `f1_score`, `precision_score`, `recall_score`, and `AUC`. For example, instead of calculating recall as `tp / (tp + fn)`, the multiclass averaged recall (`micro`, `macro`, or `weighted`) averages over both classes of a binary classification dataset. This is equivalent to calculating the recall for the `true` class and the `false` class separately, and then taking the average of the two.
 
 Besides, although automatic detection of binary classification is supported, it is still recommended to always specify the `true` class manually to make sure the binary classification metrics are calculated for the correct class.
 
@@ -309,11 +309,22 @@ The mAP, precision and recall values are logged at an epoch-level for image obje
 
 ![Epoch-level charts for object detection](./media/how-to-understand-automated-ml/image-object-detection-map.png)
 
+## Responsible AI dashboard for best recommended AutoML model (preview)
+
+The Azure Machine Learning Responsible AI dashboard provides a single interface to help you implement Responsible AI in practice effectively and efficiently.  Responsible AI dashboard is only supported using tabular data and is only supported on classification and regression models. It brings together several mature Responsible AI tools in the areas of: 
+
+* Model performance and fairness assessment 
+* Data exploration 
+* Machine learning interpretability 
+* Error analysis 
+
+While model evaluation metrics and charts are good for measuring the general quality of a model, operations such as inspecting you model’s fairness, viewing its explanations (also known as which dataset features a model used to make its predictions), inspecting its errors (what are the blindspots of the model) are essential when practicing responsible AI. That's why automated ML provides a Responsible AI dashboard to help you observe a variety of insights for your model. See how to view the Responsible AI dashboard in the [Azure Machine Learning studio.](how-to-use-automated-ml-for-ml-models.md#responsible-ai-dashboard-preview)
+
+See how you can generate this [dashboard via the UI or the SDK.](how-to-responsible-ai-insights-sdk-cli.md)
+
 ## Model explanations and feature importances
 
-While model evaluation metrics and charts are good for measuring the general quality of a model, inspecting which dataset features a model used to make its predictions is essential when practicing responsible AI. That's why automated ML provides a model explanations dashboard to measure and report the relative contributions of dataset features. See how to [view the explanations dashboard in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#model-explanations-preview).
-
-For a code first experience, see how to set up [model explanations for automated ML experiments with the Azure Machine Learning Python SDK](how-to-machine-learning-interpretability-automl.md).
+While model evaluation metrics and charts are good for measuring the general quality of a model, inspecting which dataset features a model used to make its predictions is essential when practicing responsible AI. That's why automated ML provides a model explanations dashboard to measure and report the relative contributions of dataset features. See how to [view the explanations dashboard in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#responsible-ai-dashboard-preview).
 
 > [!NOTE]
 > Interpretability, best model explanation, is not available for automated ML forecasting experiments that recommend the following algorithms as the best model or ensemble: 

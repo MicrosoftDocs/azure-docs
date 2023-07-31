@@ -25,7 +25,7 @@ Reliable Collections can be thought of as the natural evolution of the **System.
 * Replicated: State changes are replicated for high availability.
 * Asynchronous: APIs are asynchronous to ensure that threads are not blocked when incurring IO.
 * Transactional: APIs utilize the abstraction of transactions so you can manage multiple Reliable Collections within a service easily.
-* Persisted or Volatile: Data can be persisted to disk for durability against large-scale outages (for example, a datacenter power outage). Some Reliable Collections also support a volatile mode (with [Caveats](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections)) where all data is kept in-memory, such as a replicated in-memory cache.
+* Persisted or Volatile: Data can be persisted to disk for durability against large-scale outages (for example, a datacenter power outage). Some Reliable Collections also support a volatile mode (with [Caveats](service-fabric-reliable-services-reliable-collections-guidelines.md#additional-guidelines-for-volatile-reliable-collections)) where all data is kept in-memory, such as a replicated in-memory cache.
 
 Reliable Collections provide strong consistency guarantees out of the box to make reasoning about application state easier.
 Strong consistency is achieved by ensuring transaction commits finish only after the entire transaction has been logged on a majority quorum of replicas, including the primary.

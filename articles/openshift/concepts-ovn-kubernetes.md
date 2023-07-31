@@ -27,6 +27,8 @@ The OVN-Kubernetes CNI cluster network provider offers the following features:
 
 > [!NOTE]
 > As of ARO 4.11, OVN-Kubernetes is the CNI for all ARO clusters. In already existing clusters, migrating from the previous SDN standard to OVN is not supported.
+> 
+> If your cluster uses any part of the 100.64.0.0/16 IP address range, you cannot migrate to OVN-Kubernetes because it uses this IP address range internally.
 
 For more information about OVN-Kubernetes CNI network provider, see [About the OVN-Kubernetes default Container Network Interface (CNI) network provider](https://docs.openshift.com/container-platform/latest/networking/ovn_kubernetes_network_provider/about-ovn-kubernetes.html).
 

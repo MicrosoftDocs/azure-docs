@@ -2,11 +2,10 @@
 title: Understand Azure File Sync cloud tiering
 description: Understand cloud tiering, an optional Azure File Sync feature. Frequently accessed files are cached locally on the server; others are tiered to Azure Files.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 04/13/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Cloud tiering overview
@@ -61,8 +60,6 @@ For example, a globally distributed company has branch offices in the US and Ind
 If files recalled to the server aren't needed locally, then the unnecessary recall can increase your egress traffic and costs. Therefore, only enable proactive recalling when you know that pre-populating a server's cache with recent changes from the cloud will have a positive effect on users or applications using the files on that server.
 
 Enabling proactive recalling might also result in increased bandwidth usage on the server and could cause other relatively new content on the local server to be aggressively tiered due to the increase in files being recalled. In turn, tiering too soon might lead to more recalls if the files being tiered are considered hot by servers.
-
-:::image type="content" source="media/storage-sync-files-deployment-guide/proactive-download.png" alt-text="An image showing the Azure file share download behavior for a server endpoint currently in effect and a button to open a menu that allows to change it.":::
 
 For more information on proactive recall, see [Deploy Azure File Sync](file-sync-deployment-guide.md#optional-proactively-recall-new-and-changed-files-from-an-azure-file-share).
 

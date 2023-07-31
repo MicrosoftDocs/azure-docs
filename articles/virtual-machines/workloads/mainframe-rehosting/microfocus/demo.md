@@ -9,6 +9,7 @@ ms.date: 03/30/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
+ms.custom: devx-track-dotnet
 ---
 
 # Set up Micro Focus CICS BankDemo for Micro Focus Enterprise Developer 4.0 on Azure

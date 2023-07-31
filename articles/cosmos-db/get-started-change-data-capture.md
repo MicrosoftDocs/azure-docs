@@ -105,7 +105,7 @@ Now create and configure a source to flow data from the Azure Cosmos DB account'
 | Capture intermediate updates | Enable this option if you would like to capture the history of changes to items including the intermediate changes between change data capture reads. |
 | Capture Deletes | Enable this option to capture user-deleted records and apply them on the Sink. Deletes can't be applied on Azure Data Explorer and Azure Cosmos DB Sinks. |
 | Capture Transactional store TTLs | Enable this option to capture Azure Cosmos DB transactional store (time-to-live) TTL deleted records and apply on the Sink. TTL-deletes can't be applied on Azure Data Explorer and Azure Cosmos DB sinks. |
-| Batchsize in bytes | Specify the size in bytes if you would like to batch the change data capture feeds |
+| Batchsize in bytes | This setting is in fact **gigabytes**. Specify the size in gigabytes if you would like to batch the change data capture feeds |
 | Extra Configs | Extra Azure Cosmos DB analytical store configs and their values. (ex: `spark.cosmos.allowWhiteSpaceInFieldNames -> true`) |
 
 ### Working with source options
@@ -120,6 +120,9 @@ When you check any of the `Capture intermediate updates`, `Capture Deltes`, and 
 | 4 | TTL_DELETE |  Capture Transactional store TTLs|
   
 If you have to differentiate the TTL deleted records from documents deleted by users or applications, you have check both `Capture intermediate updates` and `Capture Transactional store TTLs` options. Then you have to adapt your CDC processes or applications or queries to use `__usr_opType` according to what is necessary for your business needs.
+
+>[!TIP]
+> If there is a need for the downstream consumers to restore the order of updates with the “capture intermediate updates” option checked,  the system timestamp `_ts` field can be used as the ordering field.
   
   
 ## Create and configure sink settings for update and delete operations
@@ -201,6 +204,11 @@ After a data flow has been published, you can add a new pipeline to move and tra
 
     > [!NOTE]
     > The initial cluster startup time may take up to three minutes. To avoid cluster startup time in the subsequent change data capture executions, configure the Dataflow cluster **Time to live** value. For more information about the itegration runtime and TTL, see [integration runtime in Azure Data Factory](../data-factory/concepts-integration-runtime.md).
+
+## Concurrent jobs
+
+The batch size in the source options, or situations when the sink is slow to ingest the stream of changes, may cause the execution of multiple jobs at the same time. To avoid this situation, set the **Concurrency** option to 1 in the Pipeline settings, to make sure that new executions are not triggered until the current execution completes.
+
 
 ## Next steps
 

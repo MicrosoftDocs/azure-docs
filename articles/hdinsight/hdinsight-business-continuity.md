@@ -4,7 +4,7 @@ description: This article gives an overview of best practices, single region ava
 keywords: hadoop high availability
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/27/2022
+ms.date: 06/08/2023
 ---
 
 # Azure HDInsight business continuity

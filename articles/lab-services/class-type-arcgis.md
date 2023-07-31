@@ -23,13 +23,13 @@ One type of licensing that ArcGIS Desktop offers is [concurrent use licenses](ht
 The license server is located in either your on-premises network or hosted on an Azure virtual machine within an Azure virtual network.  After your license server is set up, you'll need to [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) with your lab plan.
 
 > [!IMPORTANT]
-> [Advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) must be enabled during the creation of your lab plan. It can't be added later.
+> [Advanced networking](how-to-connect-vnet-injection.md) must be enabled during the creation of your lab plan. It can't be added later.
 
 For more information, see [Set up a license server as a shared resource](how-to-create-a-lab-with-shared-resource.md).
 
 ## Lab configuration
 
-When you get an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./quick-create-resources.md). If you're using a ArcGIS License Manager on a license server, enable [advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) when creating your lab plan. You can also use an existing lab plan.
+When you get an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./quick-create-resources.md). If you're using a ArcGIS License Manager on a license server, enable [advanced networking](how-to-connect-vnet-injection.md) when creating your lab plan. You can also use an existing lab plan.
 
 ### Lab plan settings
 
@@ -73,7 +73,7 @@ The steps in this section show how to set up the template VM:
 
 3. Set up external backup storage for students.  Students can save files directly to their assigned VM since all changes that they make are saved across sessions. However, we recommend that students back up their work to storage that is external from their VM for a few reasons:
     - To enable students to access their work after the class and lab ends.  
-    - In case the student gets their VM into a bad state and their image needs to be [reset](how-to-manage-vm-pool.md#reset-vms).
+    - In case the student gets their VM into a bad state and their image needs to be [reset](how-to-manage-vm-pool.md#reset-lab-vms).
 
     With ArcGIS, each student should back up the following files at the end of each work session:
 
@@ -87,7 +87,7 @@ The steps in this section show how to set up the template VM:
 
 Let's cover a possible cost estimate for this class. This estimate doesn't include the cost of running the license server. We'll use a class of 25 students. There are 20 hours of scheduled class time. Also, each student gets 10 hours quota for homework or assignments outside scheduled class time. The virtual machine size we selected was **Medium**, which is 42 lab units.
 
-25 students \* (20 scheduled hours + 10 quota hours) \* 42 Lab Units * 0.01 USD per hour = 315.00 USD
+25 lab users \* (20 scheduled hours + 10 quota hours) \* 42 Lab Units * 0.01 USD per hour = 315.00 USD
 
 > [!IMPORTANT]
 > Cost estimate is for example purposes only.  For current details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).  

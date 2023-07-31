@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 04/26/2021
 ms.author: cwerner
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, devx-track-js
 #Customer intent: As an application developer, I want to learn how to change the code in my Node.js application from using ADAL as its authentication library to MSAL.
 ---
 

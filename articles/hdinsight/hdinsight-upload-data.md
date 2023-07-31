@@ -4,7 +4,7 @@ description: Learn how to upload and access data for Apache Hadoop jobs in HDIns
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdiseo17may2017, seoapr2020, devx-track-azurepowershell
-ms.date: 04/27/2020
+ms.date: 04/25/2023
 ---
 
 # Upload data for Apache Hadoop jobs in HDInsight

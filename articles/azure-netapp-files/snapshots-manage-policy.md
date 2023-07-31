@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/06/2023
+ms.date: 05/18/2023
 ms.author: anfdocs
 ---
 
@@ -23,7 +23,10 @@ ms.author: anfdocs
 ## Create a snapshot policy 
 
 A snapshot policy enables you to specify the snapshot creation frequency in hourly, daily, weekly, or monthly cycles. You also need to specify the maximum number of snapshots to retain for the volume.  
-
+   
+> [!NOTE] 
+> In case of a service maintenance event, Azure NetApp Files might sporadically skip the creation of a scheduled snapshot.
+       
 1.	From the NetApp Account view, select **Snapshot policy**.
 
     ![Screenshot that shows how to navigate to Snapshot Policy.](../media/azure-netapp-files/snapshot-policy-navigation.png)

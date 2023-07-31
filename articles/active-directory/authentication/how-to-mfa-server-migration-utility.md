@@ -6,11 +6,11 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/05/2023
+ms.date: 06/29/2023
 
 ms.author: justinha
 author: justinha
-manager: martinco
+manager: amycolannino
 ms.reviewer: jpettere
 
 ms.collection: M365-identity-device-management
@@ -24,6 +24,12 @@ This topic covers how to migrate MFA settings for Azure Active Directory (Azure 
 The MFA Server Migration Utility helps synchronize multifactor authentication data stored in the on-premises Azure MFA Server directly to Azure AD MFA. 
 After the authentication data is migrated to Azure AD, users can perform cloud-based MFA seamlessly without having to register again or confirm authentication methods. 
 Admins can use the MFA Server Migration Utility to target single users or groups of users for testing and controlled rollout without having to make any tenant-wide changes.
+
+## Video: How to use the MFA Server Migration Utility
+
+Take a look at our video for an overview of the MFA Server Migration Utility and how it works.
+
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RW11N1N]
 
 ## Limitations and requirements
 
@@ -211,7 +217,13 @@ The **Settings** option allows you to change the settings for the migration proc
 
 :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/settings.png" alt-text="Screenshot of settings.":::
 
-- Migrate – This setting allows you to specify which method(s) should be migrated for the selection of users
+- Migrate – there are three options for migrating the user's default authentication method:
+  - Always migrate
+  - Only migrate if not already set in Azure AD
+  - Set to the most secure method available if not already set in Azure AD
+  
+  These options provide flexibility when you migrate the default method. In addition, the Authentication methods policy is checked during migration. If the default method being migrated isn't allowed by policy, it's set to the most secure method available instead.
+
 - User Match – Allows you to specify a different on-premises Active Directory attribute for matching Azure AD UPN instead of the default match to userPrincipalName:
   - The migration utility tries direct matching to UPN before using the on-premises Active Directory attribute.  
   - If no match is found, it calls a Windows API to find the Azure AD UPN and get the SID, which it uses to search the MFA Server user list. 
@@ -409,7 +421,7 @@ If the upgrade had issues, follow these steps to roll back:
    >[!NOTE]
    >Any changes since the backup was made will be lost, but should be minimal if backup was made right before upgrade and upgrade was unsuccessful.
 
-1.	Run the installer for your previous version (for example, 8.0.x.x).
+1. Run the installer for your previous version (for example, 8.0.x.x).
 1. Configure Azure AD to accept MFA requests to your on-premises federation server. Use Graph PowerShell to set [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-1.0#federatedidpmfabehavior-values&preserve-view=true) to `enforceMfaByFederatedIdp`, as shown in the following example.
 
    **Request**

@@ -69,10 +69,11 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure App Configuration | Microsoft.Appconfiguration/configurationStores | configurationStores |
 | Azure Automation | Microsoft.Automation/automationAccounts | Webhook, DSCAndHybridWorker |
 | Azure Cosmos DB | Microsoft.AzureCosmosDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, Table |
+| Azure Cosmos DB for PostgreSQL | Microsoft.DBforPostgreSQL/serverGroupsv2 | coordinator |
 | Azure Batch | Microsoft.Batch/batchAccounts | batchAccount, nodeManagement |
 | Azure Cache for Redis | Microsoft.Cache/Redis | redisCache |
 | Azure Cache for Redis Enterprise | Microsoft.Cache/redisEnterprise | redisEnterprise |
-| Azure Cognitive Services | Microsoft.CognitiveServices/accounts | account |
+| Azure AI services | Microsoft.CognitiveServices/accounts | account |
 | Azure Managed Disks | Microsoft.Compute/diskAccesses | managed disk |
 | Azure Container Registry | Microsoft.ContainerRegistry/registries | registry |
 | Azure Kubernetes Service - Kubernetes API | Microsoft.ContainerService/managedClusters | management |

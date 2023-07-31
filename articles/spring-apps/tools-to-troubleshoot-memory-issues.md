@@ -2,12 +2,12 @@
 title: Tools to troubleshoot memory issues
 titleSuffix: Azure Spring Apps
 description: Provides a list of tools for troubleshooting Java memory issues.
-author: karlerickson
+author: KarlErickson
 ms.author: kaiqianyang
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 07/15/2022
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Tools to troubleshoot memory issues

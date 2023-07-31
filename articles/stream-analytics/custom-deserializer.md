@@ -4,6 +4,7 @@ description: This doc demonstrates how to create a custom .NET deserializer for 
 author: ahartoon
 ms.author: anboisve
 ms.service: stream-analytics
+ms.custom: devx-track-dotnet
 ms.topic: tutorial
 ms.date: 01/12/2023
 ---

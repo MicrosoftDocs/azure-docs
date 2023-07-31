@@ -44,6 +44,8 @@
       href: tutorial-load-balancer-port-forwarding-portal.md
     - name: Create a multiple VMs inbound NAT rule
       href: tutorial-nat-rule-multi-instance-portal.md
+    - name: Migrate Inbound NAT Pools to NAT Rules
+      href: load-balancer-nat-pool-migration.md
   - name: Scaling and availability
     items:
     - name: Load balance a VM within a specific availability zone
@@ -80,24 +82,6 @@
       href: tutorial-load-balancer-ip-backend-portal.md
   - name: Deploy public load balancer with DDoS protection
     href: tutorial-protect-load-balancer.md
-- name: Samples
-  items:
-  - name: Azure CLI
-    items:
-    - name: Overview
-      href: cli-samples.md
-    - name: Load balance traffic to VMs for high availability
-      href: ./scripts/load-balancer-linux-cli-sample-nlb.md
-    - name: Load balance VMs across availability zones
-      href: ./scripts/load-balancer-linux-cli-sample-zone-redundant-frontend.md
-    - name: Load balance VMs within a specific availability zone
-      href: ./scripts/load-balancer-linux-cli-sample-zonal-frontend.md
-    - name: Load balance multiple websites on VMs
-      href: ./scripts/load-balancer-linux-cli-load-balance-multiple-websites-vm.md
-  - name: Azure PowerShell
-    href: powershell-samples.md
-  - name: Python
-    href: python-samples.md
 - name: Concepts
   items:
   - name: What's new?
@@ -160,12 +144,16 @@
       href: /security/benchmark/azure/baselines/azure-load-balancer-security-baseline?toc=/azure/load-balancer/TOC.json
 - name: How-to
   items:
-  - name: Manage health probes
-    href: manage-probes-how-to.md
   - name: Backend Pool management
     href: backend-pool-management.md
   - name: Retrieve metadata using the Azure IMDS
     href: howto-load-balancer-imds.md
+  - name: Health probes
+    items:
+    - name: Manage health probes
+      href: manage-probes-how-to.md
+    - name: Create a custom HTTP/HTTPS health probe
+      href: create-custom-http-health-probe-howto.md
   - name: Load Balancer metrics
     items:
     - name: Get Load Balancer metrics with Azure Monitor CLI
@@ -258,6 +246,8 @@
     items:
     - name: Troubleshoot Azure Load Balancer
       href: load-balancer-troubleshoot.md
+    - name: Testing inbound frontend IP address reachability
+      href: load-balancer-test-frontend-reachability.md
     - name: Health Probe status
       href: load-balancer-troubleshoot-health-probe-status.md
     - name: Backend pool (VM) traffic
@@ -275,7 +265,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=load-balancer
   - name: Azure PowerShell
-    href: /powershell/module/az.network
+    href: /powershell/module/az.network#load-balancer
   - name: Azure CLI
     href: /cli/azure/network/lb
   - name: .NET

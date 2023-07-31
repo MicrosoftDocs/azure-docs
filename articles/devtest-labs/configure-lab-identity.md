@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 08/20/2020
+ms.custom: UpdateFrequency2
 ---
 
 # Configure a lab identity

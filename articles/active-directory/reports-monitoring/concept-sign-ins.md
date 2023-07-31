@@ -86,10 +86,10 @@ There are several filter options to choose from:
 - **User:** The *user principal name* (UPN) of the user in question.
 - **Status:** Options are *Success*, *Failure*, and *Interrupted*.
 - **Resource:** The name of the service used for the sign-in.
-- **Conditional access:** The status of the Conditional Access (CA) policy. Options are: 
+- **Conditional Access:** The status of the Conditional Access policy. Options are: 
     - *Not applied:* No policy applied to the user and application during sign-in.
-    - *Success:* One or more CA policies applied to the user and application (but not necessarily the other conditions) during sign-in.
-    - *Failure:* The sign-in satisfied the user and application condition of at least one CA policy and grant controls are either not satisfied or set to block access.
+    - *Success:* One or more Conditional Access policies applied to or were evaluated for the user and application (but not necessarily the other conditions) during sign-in. Even though a Conditional Access policy might not apply, if it was evaluated, the Conditional Access status will show 'Success'.
+    - *Failure:* The sign-in satisfied the user and application condition of at least one Conditional Access policy and grant controls are either not satisfied or set to block access.
 - **IP addresses:** There's no definitive connection between an IP address and where the computer with that address is physically located. Mobile providers and VPNs issue IP addresses from central pools that are often far from where the client device is actually used. Currently, converting IP address to a physical location is a best effort based on traces, registry data, reverse lookups and other information.
 
 The following table provides the options and descriptions for the **Client app** filter option.
@@ -126,7 +126,7 @@ If a sign-in failed, you can get more information about the reason in the **Basi
 
 ![Screenshot of a sign-in error code.](./media/concept-sign-ins/error-code.png)
 
-For a list of error codes related to Azure AD authentication and authorization, see the [Azure AD authentication and authorization error codes](../develop/reference-aadsts-error-codes.md) article. In some cases, the [sign-in error lookup tool](https://login.microsoftonline.com/error) may provide remediation steps. Enter the **Error code** provided in the sign-in log details into the tool and select the **Submit** button. 
+For a list of error codes related to Azure AD authentication and authorization, see the [Azure AD authentication and authorization error codes](../develop/reference-error-codes.md) article. In some cases, the [sign-in error lookup tool](https://login.microsoftonline.com/error) may provide remediation steps. Enter the **Error code** provided in the sign-in log details into the tool and select the **Submit** button. 
 
 ![Screenshot of the error code lookup tool.](./media/concept-sign-ins/error-code-lookup-tool.png)
 

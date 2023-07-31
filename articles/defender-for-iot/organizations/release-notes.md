@@ -2,7 +2,7 @@
 title: OT monitoring software versions - Microsoft Defender for IoT
 description: This article lists Microsoft Defender for IoT on-premises OT monitoring software versions, including release and support dates and highlights for new features.
 ms.topic: release-notes
-ms.date: 1/02/2023
+ms.date: 07/03/2023
 ---
 
 # OT monitoring software versions
@@ -38,6 +38,8 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
 | **22.3** | | | |
+|22.3.10|07/2023|Patch|06/2024|
+| 22.3.9 | 05/2023 | Patch | 04/2024 |
 | 22.3.8 | 04/2023 | Patch | 03/2024 |
 | 22.3.7 | 03/2023 | Patch | 02/2024 |
 | 22.3.6 | 03/2023 | Patch | 02/2024 |
@@ -96,13 +98,32 @@ To understand whether a feature is supported in your sensor version, check the r
 
 ## Versions 22.3.x
 
+### 22.3.10
+
+**Release date**: 07/2023
+
+**Supported until**: 06/2024
+
+This version includes bug fixes for stability improvements.
+
+### 22.3.9
+
+**Release date**: 05/2023
+
+**Supported until**: 04/2024
+
+This version includes:
+
+- [Improved monitoring and support for OT sensor logs](whats-new.md#improved-monitoring-and-support-for-ot-sensor-logs)
+- Bug fixes for stability improvements.
+
 ### 22.3.8
 
 **Release date**: 04/2023
 
 **Supported until**: 03/2024
 
-- [Download WMI script from OT sensor console](detect-windows-endpoints-script.md#download-and-run-the-script)
+- [Enrich Windows workstation and server data with a local script (Public preview)](detect-windows-endpoints-script.md)
 - [Automatically resolved notifications for operating system changes and device type changes](how-to-work-with-the-sensor-device-map.md#device-notification-responses)
 - [UI enhancements when uploading SSL/TLS certificates](how-to-deploy-certificates.md#deploy-a-certificate-on-an-ot-sensor)
 
@@ -126,6 +147,7 @@ Version 22.3.7 includes the same features as 22.3.6. If you have version 22.3.6 
 - [Activation files for locally managed sensors no longer expire](how-to-manage-individual-sensors.md#upload-a-new-activation-file)
 - Severity for all [**Suspicion of Malicious Activity**](alert-engine-messages.md#malware-engine-alerts) alerts is now **Critical**
 - [Allow internet connections on an OT network in bulk](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network)
+- [Security recommendations for OT networks for insecure or missing passwords](recommendations.md#supported-security-recommendations)
 
 ### 22.3.5
 
@@ -142,6 +164,7 @@ This version includes bug fixes for stability improvements.
 **Supported until**: 12/2023
 
 - [Azure connectivity status shown on OT sensors](how-to-manage-individual-sensors.md#validate-connectivity-status)
+- [Configure Active Directory and NTP settings in the Azure portal](configure-sensor-settings-portal.md#active-directory)
 
 ## Versions 22.2.x
 
@@ -385,3 +408,4 @@ This version includes the following new updates and fixes:
 ## Next steps
 
 For more information about the features listed in this article, see [What's new in Microsoft Defender for IoT?](whats-new.md) and [What's new archive for in Microsoft Defender for IoT for organizations](release-notes-archive.md).
+

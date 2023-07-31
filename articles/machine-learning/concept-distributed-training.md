@@ -8,6 +8,7 @@ author: rtanase
 ms.author: ratanase
 ms.reviewer: sgilley
 ms.subservice: training
+ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 03/27/2020
 ---

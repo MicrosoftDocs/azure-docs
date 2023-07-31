@@ -38,6 +38,9 @@ The PowerShell module performs the following functions:
 >[!NOTE]
 > If the Virtual Machine Scale Set in the Load Balancer backend pool has Public IP Addresses in its network configuration, the Public IP Addresses will change during migration (the Public IPs must be removed prior to the migration, then added back post migration with a Standard SKU configuration)
 
+>[!NOTE]
+> If the Virtual Machine Scale Set behind the Load Balancer is a **Service Fabric Cluster**, migration with this script will take more time. In testing, a 5-node Bronze cluster was unavailable for about 30 minutes and a 5-node Silver cluster was unavailable for about 45 minutes. For Service Fabric clusters that require minimal / no connectivity downtime, adding a new nodetype with Standard Load Balancer and IP resources is a better solution.
+
 ### Unsupported Scenarios
 
 - Basic Load Balancers with a Virtual Machine Scale Set backend pool member that is also a member of a backend pool on a different load balancer
@@ -52,7 +55,7 @@ The PowerShell module performs the following functions:
 
 - Install the latest version of [PowerShell](/powershell/scripting/install/installing-powershell)
 - Determine whether you have the latest Az PowerShell module installed (8.2.0)
-  - Install the latest [Az PowerShell module](/powershell/azure/install-az-ps)
+  - Install the latest [Az PowerShell module](/powershell/azure/install-azure-powershell)
 
 ## Install the 'AzureBasicLoadBalancerUpgrade' module
 
@@ -113,6 +116,10 @@ PS C:\> Start-AzBasicLoadBalancerUpgrade -FailedMigrationRetryFilePathLB C:\Reco
 
 ## Common Questions
 
+### Will this migration cause downtime to my application? 
+
+Yes, because the Basic Load Balancer needs to be removed before the new Standard Load Balancer can be created, there will be downtime to your application. See [How long does the Upgrade take?](#how-long-does-the-upgrade-take)
+
 ### Will the module migrate my frontend IP address to the new Standard Load Balancer?
 
 Yes, for both public and internal load balancers, the module ensures that front end IP addresses are maintained. For public IPs, the IP is converted to a static IP prior to migration (if necessary). For internal front ends, the module attempts to reassign the same IP address freed up when the Basic Load Balancer was deleted; if the private IP isn't available the script fails (see [What happens if my upgrade fails mid-migration?](#what-happens-if-my-upgrade-fails-mid-migration)).
@@ -122,7 +129,9 @@ Yes, for both public and internal load balancers, the module ensures that front 
 The upgrade normally takes a few minutes for the script to finish. The following factors may lead to longer upgrade times:
 - Complexity of your load balancer configuration
 - Number of backend pool members
-- Instance count of associated Virtual Machine Scale Sets.
+- Instance count of associated Virtual Machine Scale Sets
+- Service Fabric Cluster: Upgrades for Service Fabric Clusters take up to an hour in testing.
+
 Keep the downtime in mind and plan for failover if necessary.
 
 ### Does the script migrate my backend pool members from my Basic Load Balancer to the newly created Standard Load Balancer?

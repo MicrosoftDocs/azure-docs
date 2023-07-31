@@ -6,12 +6,11 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 04/10/2023
-ms.subservice: blobs
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devguide-csharp
+ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
 # Create and manage container leases with .NET

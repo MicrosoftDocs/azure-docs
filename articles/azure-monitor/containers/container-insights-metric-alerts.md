@@ -19,12 +19,12 @@ There are two types of metric rules used by Container insights based on either P
 
 | Alert rule type | Description |
 |:---|:---|
-| [Prometheus rules](#prometheus-alert-rules) | Alert rules that use metrics stored in [Azure Monitor managed service for Prometheus (preview)](../essentials/prometheus-metrics-overview.md). There are two sets of Prometheus alert rules that you can choose to enable.<br><br>- *Community alerts* are handpicked alert rules from the Prometheus community. Use this set of alert rules if you don't have any other alert rules enabled.<br>- *Recommended alerts* are the equivalent of the custom metric alert rules. Use this set if you're migrating from custom metrics to Prometheus metrics and want to retain identical functionality.
+| [Prometheus rules](#prometheus-alert-rules) | Alert rules that use metrics stored in [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). There are two sets of Prometheus alert rules that you can choose to enable.<br><br>- *Community alerts* are handpicked alert rules from the Prometheus community. Use this set of alert rules if you don't have any other alert rules enabled.<br>- *Recommended alerts* are the equivalent of the custom metric alert rules. Use this set if you're migrating from custom metrics to Prometheus metrics and want to retain identical functionality.
 | [Metric rules](#metric-alert-rules) | Alert rules that use [custom metrics collected for your Kubernetes cluster](container-insights-custom-metrics.md). Use these alert rules if you're not ready to move to Prometheus metrics yet or if you want to manage your alert rules in the Azure portal. Metric rules will be retired on March 14, 2026. |
 
 ## Prometheus alert rules
 
-[Prometheus alert rules](../alerts/alerts-types.md#prometheus-alerts-preview) use metric data from your Kubernetes cluster sent to [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md).
+[Prometheus alert rules](../alerts/alerts-types.md#prometheus-alerts) use metric data from your Kubernetes cluster sent to [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md).
 
 ### Prerequisites
 
@@ -158,11 +158,11 @@ To disable custom alert rules, use the same ARM template to create the rule, but
 ---
 
 
-## Migrate from metric rules to Prometheus rules (preview) 
+## Migrate from metric rules to Prometheus rules (preview)
 If you're using metric alert rules to monitor your Kubernetes cluster, you should transition to Prometheus recommended alert rules (preview) before March 14, 2026 when metric alerts are retired.
 
-1. Follow the steps at [Enable Prometheus alert rules](#enable-prometheus-alert-rules) to configure Prometheus recommended alert rules (preview). 
-2. Follow the steps at [Disable metric alert rules](#disable-metric-alert-rules) to remove metric alert rules from your clusters. 
+1. Follow the steps at [Enable Prometheus alert rules](#enable-prometheus-alert-rules) to configure Prometheus recommended alert rules (preview).
+2. Follow the steps at [Disable metric alert rules](#disable-metric-alert-rules) to remove metric alert rules from your clusters.
 
 ## Alert rule details
 
@@ -207,7 +207,7 @@ Source code for the recommended alerts can be found in [GitHub](https://github.c
 | Average Persistent Volume Usage % | Average Persistent Volume Usage % | Calculates average persistent volume usage per pod. | 80% |
 | Average Working set memory % | Average Working set memory % | Calculates average Working set memory for a node. | 80% |
 | Restarting container count | Restarting container count | Calculates number of restarting containers. | 0 |
-| Failed Pod Counts | Failed Pod Counts | Calculates number of restarting containers. | 0 |
+| Failed Pod Counts | Failed Pod Counts | Calculates number of pods in failed state. | 0 |
 | Node NotReady status | Node NotReady status | Calculates if any node is in NotReady state. | 0 |
 | OOM Killed Containers | OOM Killed Containers | Calculates number of OOM killed containers. | 0 |
 | Pods ready % | Pods ready % | Calculates the average ready state of pods. | 80% |

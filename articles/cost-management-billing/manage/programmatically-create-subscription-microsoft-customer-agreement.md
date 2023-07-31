@@ -5,15 +5,15 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/27/2023
+ms.date: 05/17/2023
 ms.reviewer: sgautam
-ms.author: banders 
+ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-bicep
 ---
 
 # Programmatically create Azure subscriptions for a Microsoft Customer Agreement with the latest APIs
 
-This article helps you programmatically create Azure subscriptions for a Microsoft Customer Agreement using the most recent API versions. If you are still using the older preview version, see [Programmatically create Azure subscriptions with legacy APIs](programmatically-create-subscription-preview.md). 
+This article helps you programmatically create Azure subscriptions for a Microsoft Customer Agreement using the most recent API versions. If you are still using the older preview version, see [Programmatically create Azure subscriptions with legacy APIs](programmatically-create-subscription-preview.md).
 
 In this article, you learn how to create subscriptions programmatically using Azure Resource Manager.
 
@@ -27,7 +27,7 @@ When you create an Azure subscription programmatically, that subscription is gov
 
 You must have an owner, contributor, or Azure subscription creator role on an invoice section or owner or contributor role on a billing profile or a billing account to create subscriptions. You can also give the same role to a service principal name (SPN). For more information about roles and assigning permission to them, see [Subscription billing roles and tasks](understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
-If you're using an SPN to create subscriptions, use the ObjectId of the Azure AD Enterprise application as the Principal ID using [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true) or [Azure CLI](/cli/azure/ad/sp#az-ad-sp-list).
+If you're using an SPN to create subscriptions, use the ObjectId of the Azure AD Enterprise application as the Principal ID using [Microsoft Graph PowerShell](/powershell/module/microsoft.graph.applications/get-mgserviceprincipal) or [Azure CLI](/cli/azure/ad/sp#az-ad-sp-list).
 
 > [!NOTE]
 > Permissions differ between the legacy API (api-version=2018-03-01-preview) and the latest API (api-version=2020-05-01). Although you may have a role sufficient to use the legacy API, you might need an EA admin to delegate you a role to use the latest API.
@@ -75,7 +75,7 @@ Use the `displayName` property to identify the billing account for which you wan
 ```azurepowershell
 Get-AzBillingAccount
 ```
-You will get back a list of all billing accounts that you have access to 
+You will get back a list of all billing accounts that you have access to
 
 ```json
 Name          : 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
@@ -93,7 +93,7 @@ Use the `displayName` property to identify the billing account for which you wan
 ```azurecli
 az billing account list
 ```
-You will get back a list of all billing accounts that you have access to 
+You will get back a list of all billing accounts that you have access to
 
 ```json
 [
@@ -208,7 +208,7 @@ GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/5e9
 }
 ```
 
-Use the `id` property to identify the invoice section for which you want to create subscriptions. Copy the entire string. For example, `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
+Use the `id` property to identify the invoice section for which you want to create subscriptions. Copy the entire string. For example, `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -231,7 +231,7 @@ HasReadAccess     : True
 BillTo            :
 CompanyName       : Contoso
 AddressLine1      : One Microsoft Way
-AddressLine2      : 
+AddressLine2      :
 City              : Redmond
 Region            : WA
 Country           : US
@@ -329,7 +329,7 @@ Use the `id` property under the invoice section object to identify the invoice s
 
 ## Create a subscription for an invoice section
 
-The following example creates a subscription named *Dev Team subscription* for the *Development* invoice section. The subscription is billed to the *Contoso Billing Profile* billing profile and appears on the *Development* section of its invoice. You use the copied billing scope from the previous step: `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
+The following example creates a subscription named *Dev Team subscription* for the *Development* invoice section. The subscription is billed to the *Contoso Billing Profile* billing profile and appears on the *Development* section of its invoice. You use the copied billing scope from the previous step: `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`.
 
 ### [REST](#tab/rest)
 
@@ -343,9 +343,9 @@ PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/sampl
 {
   "properties":
     {
-	    "billingScope": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx",
-	    "DisplayName": "Dev Team subscription",
-	    "Workload": "Production"
+        "billingScope": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx",
+        "DisplayName": "Dev Team subscription",
+        "Workload": "Production"
     }
 }
 ```
@@ -390,9 +390,9 @@ An in-progress status is returned as an `Accepted` state under `provisioningStat
 
 ### [PowerShell](#tab/azure-powershell)
 
-To install the latest version of the module that contains the `New-AzSubscriptionAlias` cmdlet, run `Install-Module Az.Subscription`. To install a recent version of PowerShellGet, see [Get PowerShellGet Module](/powershell/scripting/gallery/installing-psget).
+To install the latest version of the module that contains the `New-AzSubscriptionAlias` cmdlet, run `Install-Module Az.Subscription`. To install a recent version of PowerShellGet, see [Get PowerShellGet Module](/powershell/gallery/powershellget/install-powershellget).
 
-Run the following [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscriptionalias) command and the billing scope `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`. 
+Run the following [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscriptionalias) command and the billing scope `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`.
 
 ```azurepowershell
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" -Workload "Production"
@@ -464,7 +464,7 @@ The following template creates a subscription. For `billingScope`, provide the i
     },
     "resources": [
         {
-            "scope": "/", 
+            "scope": "/",
             "name": "[parameters('subscriptionAliasName')]",
             "type": "Microsoft.Subscription/aliases",
             "apiVersion": "2021-10-01",

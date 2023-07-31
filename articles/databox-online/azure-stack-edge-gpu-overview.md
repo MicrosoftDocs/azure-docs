@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 02/07/2023
+ms.date: 05/22/2023
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro GPU is and how it works so I can use it to process and transform data before sending it to Azure.
 ---
@@ -22,7 +22,7 @@ Azure Stack Edge Pro with GPU is a Hardware-as-a-Service solution. Microsoft shi
 Here are the various scenarios where Azure Stack Edge Pro GPU can be used for rapid Machine Learning (ML) inferencing at the edge and preprocessing data before sending it to Azure.
 
 - **Inference with Azure Machine Learning** - With Azure Stack Edge Pro GPU, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your ML models. For more information, see how to use 
-[Deploy Azure ML hardware accelerated models on Azure Stack Edge Pro GPU](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
+[Deploy Azure Machine Learning hardware accelerated models on Azure Stack Edge Pro GPU](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
 
 - **Preprocess data** - Transform data before sending it to Azure via compute options such as containerized workloads and Virtual Machines to create a more actionable dataset. Preprocessing can be used to: 
 
@@ -88,6 +88,8 @@ Azure Stack Edge Pro GPU physical device, Azure resource, and target storage acc
 Azure Stack Edge service is a non-regional service. For more information, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md). Azure Stack Edge service doesn’t have dependency on a specific Azure region, making it resilient to zone-wide outages and region-wide outages.
 
 For a discussion of considerations for choosing a region for the Azure Stack Edge service, device, and data storage, see [Choosing a region for Azure Stack Edge](azure-stack-edge-gpu-regions.md).
+
+[!INCLUDE [azure-stack-edge-use-case-parameters](../../includes/azure-stack-edge-use-case-parameters.md)]
 
 ## Billing model
 

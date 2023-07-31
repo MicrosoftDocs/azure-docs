@@ -1,9 +1,9 @@
 ---
-title: Detect threats to sensitive data - Microsoft Defender for Cloud
+title: Detect threats to sensitive data
 description: Learn about using security alerts to protect your sensitive data from exposure.
 ms.date: 03/16/2023
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
 ---
 

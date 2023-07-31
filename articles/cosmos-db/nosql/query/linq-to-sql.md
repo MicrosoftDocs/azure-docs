@@ -41,7 +41,7 @@ The query provider supports the following scalar expressions:
     family.children[n].grade;
     ```
   
-- Arithmetic expressions, including common arithmetic expressions on numerical and Boolean values. For the complete list, see the [Azure Cosmos DB SQL specification](aggregate-functions.md).
+- Arithmetic expressions, including common arithmetic expressions on numerical and Boolean values.
   
     ```csharp
     2 * family.children[0].grade;
@@ -99,12 +99,12 @@ The LINQ provider included with the SQL .NET SDK supports the following operator
 - **Where**: Filters translate to [WHERE](where.md), and support translation between `&&`, `||`, and `!` to the SQL operators
 - **SelectMany**: Allows unwinding of arrays to the [JOIN](join.md) clause. Use to chain or nest expressions to filter on array elements.
 - **OrderBy** and **OrderByDescending**: Translate to [ORDER BY](order-by.md) with ASC or DESC.
-- **Count**, **Sum**, **Min**, **Max**, and **Average** operators for [aggregation](aggregate-functions.md), and their async equivalents **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, and **AverageAsync**.
+- **Count**, **Sum**, **Min**, **Max**, and **Average** operators for aggregation, and their async equivalents **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, and **AverageAsync**.
 - **CompareTo**: Translates to range comparisons. This operator is commonly used for strings, since they're not comparable in .NET.
 - **Skip** and **Take**: Translates to [OFFSET and LIMIT](offset-limit.md) for limiting results from a query and doing pagination.
-- **Math functions**: Supports translation from .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan`, and `Truncate` to the equivalent [built-in mathematical functions](mathematical-functions.md).
-- **String functions**: Supports translation from .NET `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`, and `TrimStart` to the equivalent [built-in string functions](string-functions.md).
-- **Array functions**: Supports translation from .NET `Concat`, `Contains`, and `Count` to the equivalent [built-in array functions](array-functions.md).
+- **Math functions**: Supports translation from .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan`, and `Truncate` to the equivalent [built-in mathematical functions](system-functions.yml).
+- **String functions**: Supports translation from .NET `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`, and `TrimStart` to the equivalent [built-in string functions](system-functions.yml).
+- **Array functions**: Supports translation from .NET `Concat`, `Contains`, and `Count` to the equivalent [built-in array functions](system-functions.yml).
 - **Geospatial Extension functions**: Supports translation from stub methods `Distance`, `IsValid`, `IsValidDetailed`, and `Within` to the equivalent [built-in geospatial functions](geospatial-query.md).
 - **User-Defined Function Extension function**: Supports translation from the stub method [CosmosLinq.InvokeUserDefinedFunction](/dotnet/api/microsoft.azure.cosmos.linq.cosmoslinq.invokeuserdefinedfunction?view=azure-dotnet&preserve-view=true) to the corresponding [user-defined function](udfs.md).
 - **Miscellaneous**: Supports translation of `Coalesce` and [conditional operators](logical-operators.md). Can translate `Contains` to String CONTAINS, ARRAY_CONTAINS, or IN, depending on context.

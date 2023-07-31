@@ -167,6 +167,8 @@
         href: ../files/storage-files-migration-storsimple-8000.md?toc=/azure/storage/file-sync/toc.json
       - name: StorSimple 1200 migration guide
         href: ../files/storage-files-migration-storsimple-1200.md?toc=/azure/storage/file-sync/toc.json
+    - name: Migrate from one Azure file share to another
+      href: file-sync-share-to-share-migration.md
   - name: Enable large file shares
     href: ../files/storage-how-to-create-file-share.md?toc=/azure/storage/file-sync/toc.json
   - name: Secure
@@ -178,7 +180,7 @@
       - name: Configure encryption with customer-managed keys
         items:
         - name: Store customer-managed keys in a key vault
-          href: ../common/customer-managed-keys-configure-key-vault.md?toc=/azure/storage/file-sync/toc.json
+          href: ../common/customer-managed-keys-configure-existing-account.md
         - name: Store customer-managed keys in a managed HSM
           href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=/azure/storage/file-sync/toc.json
     - name: Enable infrastructure encryption for the account
@@ -198,19 +200,19 @@
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure File Sync
-      href: file-sync-troubleshoot.md
+      href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json
     - name: Troubleshoot agent installation and server registration
-      href: file-sync-troubleshoot-installation.md
+      href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot-installation?toc=/azure/storage/file-sync/toc.json
     - name: Troubleshoot sync group management
-      href: file-sync-troubleshoot-sync-group-management.md
+      href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-group-management?toc=/azure/storage/file-sync/toc.json
     - name: Troubleshoot sync issues
-      href: file-sync-troubleshoot-sync-errors.md
+      href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json
     - name: Troubleshoot cloud tiering issues
-      href: file-sync-troubleshoot-cloud-tiering.md
+      href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot-cloud-tiering?toc=/azure/storage/file-sync/toc.json
 - name: Reference
   items:
   - name: Azure Files reference
-    href: ../files/reference.md?toc=/azure/storage/file-sync/toc.json
+    href: ../files/storage-files-introduction.md
   - name: Monitoring Azure Files reference
     href: ../files/storage-files-monitoring-reference.md?toc=/azure/storage/file-sync/toc.json
   - name: Resource Manager template

@@ -31,7 +31,7 @@ Organizations with compliance requirements or risk management plans will have se
 
 To use Azure AD for an access review of access to an application, you must have one of the following licenses in your tenant:
 
-* Azure AD Premium P2
+* Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
 * Enterprise Mobility + Security (EMS) E5 license
 
 While using the access reviews feature does not require users to have those licenses assigned to them to use the feature, you'll need to have at least as many licenses in your tenant as the number of member (non-guest) users who will be configured as reviewers.
@@ -141,7 +141,7 @@ Once the reviews have started, you can monitor their progress, and update the ap
 
 1. If you wish, you can also download a [review history report](access-reviews-downloadable-review-history.md) of completed reviews.
 
-1. How long a user who has been denied continued access is able to continue to use a federated application will depend upon the application's own session lifetime, and on the access token lifetime. If the applications used Kerberos, since Kerberos caches the group memberships of a user when they sign into a domain, the users may continue to have access until their Kerberos tickets expire.  To learn more about controlling the lifetime of access tokens, see [configurable token lifetimes](../develop/active-directory-configurable-token-lifetimes.md).
+1. How long a user who has been denied continued access is able to continue to use a federated application will depend upon the application's own session lifetime, and on the access token lifetime. If the applications used Kerberos, since Kerberos caches the group memberships of a user when they sign into a domain, the users may continue to have access until their Kerberos tickets expire.  To learn more about controlling the lifetime of access tokens, see [configurable token lifetimes](../develop/configurable-token-lifetimes.md).
 
 ## Next steps
 

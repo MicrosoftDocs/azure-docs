@@ -11,7 +11,7 @@ ms.topic: troubleshooting
 ms.date: 02/01/2022
 ms.author: jomondi
 ms.reviewer: lenalepa
-ms.custom: contperf-fy21q2
+ms.custom: contperf-fy21q2, enterprise-apps
 ---
 
 # Troubleshoot application sign-in
@@ -63,6 +63,8 @@ Access to My Apps can be blocked due to a problem with the user’s account. Fol
 - [Check if a user has more than 999 app role assignments](#check-if-a-user-has-more-than-999-app-role-assignments)
 - [Check a user’s assigned licenses](#check-a-users-assigned-licenses)
 - [Assign a user a license](#assign-a-user-a-license)
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ### Check if a user account exists in Azure Active Directory
 

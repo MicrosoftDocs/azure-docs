@@ -51,15 +51,15 @@ An Azure PowerShell script is available that does the following procedures:
 The following are the recommended steps to change the allocation method.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
- 
+
 2. Select **All resources** in. the left menu. Select the **basic public IP address associated with the basic load balancer** from the resource list.
-   
+
 3. In the **Settings** of the basic public IP address, select **Configurations**.
-   
+
 4. In **Assignment**, select **Static**.
-    
+
 5. Select **Save**.
-    
+
 >[!NOTE]
 >For virtual machines which have public IPs, you must create standard IP addresses first. The same IP address is not guaranteed. Disassociate the VMs from the basic IPs and associate them with the newly created standard IP addresses. You'll then be able to follow the instructions to add VMs into the backend pool of the Standard Azure Load Balancer.
 
@@ -75,7 +75,7 @@ Download the migration script from the [PowerShell Gallery](https://www.powershe
 
 There are two options depending on your local PowerShell environment setup and preferences:
 
-* If you don’t have the Az PowerShell module installed, or don’t mind uninstalling the Az PowerShell module, use the `Install-Script` option to run the script.
+* If you don't have the Az PowerShell module installed, or don't mind uninstalling the Az PowerShell module, use the `Install-Script` option to run the script.
 
 * If you need to keep the Az PowerShell module, download the script and run it directly.
 
@@ -84,17 +84,17 @@ To determine if you have the Az PowerShell module installed, run `Get-InstalledM
 ### Install with Install-Script
 
 To use this option, don't have the Az PowerShell module installed on your computer. If they're installed, the following command displays an error. Uninstall the Az PowerShell module, or use the other option to download the script manually and run it.
-  
+
 Run the script with the following command:
 
 ```azurepowershell
 Install-Script -Name AzurePublicLBUpgrade
 ```
-This command also installs the required Az PowerShell module.  
+This command also installs the required Az PowerShell module.
 
 ### Install with the script directly
 
-If you do have Az PowerShell module installed and can't uninstall it, or don't want to uninstall it,you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw **nupkg** file. To install the script from this **nupkg** file, see [Manual Package Download](/powershell/gallery/gallery/how-to/working-with-packages/manual-download)
+If you do have Az PowerShell module installed and can't uninstall it, or don't want to uninstall it,you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw **nupkg** file. To install the script from this **nupkg** file, see [Manual Package Download](/powershell/gallery/how-to/working-with-packages/manual-download)
 
 To run the script:
 
@@ -105,9 +105,9 @@ To run the script:
 3. Examine the required parameters:
 
     * **oldRgName: [String]: Required** – This parameter is the resource group for your existing basic load balancer you want to upgrade. To find this string value, navigate to the Azure portal, select your basic load balancer source, and select the **Overview** for the load balancer. The resource group is located on that page
-   
+
     * **oldLBName: [String]: Required** – This parameter is the name of your existing the basic load balancer you want to upgrade.
-   
+
     * **newLBName: [String]: Required** – This parameter is the name for the standard load balancer to be created
 
 4. Run the script using the appropriate parameters. It may take five to seven minutes to finish.
@@ -120,7 +120,7 @@ To run the script:
 
 ### Create a NAT gateway for outbound access
 
-The script creates an outbound rule that enables outbound connectivity. Azure Virtual Network NAT is the recommended service for outbound connectivity. For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md). 
+The script creates an outbound rule that enables outbound connectivity. Azure Virtual Network NAT is the recommended service for outbound connectivity. For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md).
 
 To create a NAT gateway resource and associate it with a subnet of your virtual network see, [Create NAT gateway](quickstart-load-balancer-standard-public-portal.md#create-nat-gateway).
 

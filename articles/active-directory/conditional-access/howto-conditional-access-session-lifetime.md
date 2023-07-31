@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 07/18/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -118,7 +118,7 @@ In persistent browsers, cookies stay stored in the user’s device even after a 
 Conditional Access is an Azure AD Premium capability and requires a premium license. If you would like to learn more about Conditional Access, see [What is Conditional Access in Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
-> If you are using the [configurable token lifetime](../develop/active-directory-configurable-token-lifetimes.md) feature currently in public preview, please note that we don’t support creating two different policies for the same user or app combination: one with this feature and another one with configurable token lifetime feature. Microsoft retired the configurable token lifetime feature for refresh and session token lifetimes on January 30, 2021 and replaced it with the Conditional Access authentication session management feature.  
+> If you are using the [configurable token lifetime](../develop/configurable-token-lifetimes.md) feature currently in public preview, please note that we don’t support creating two different policies for the same user or app combination: one with this feature and another one with configurable token lifetime feature. Microsoft retired the configurable token lifetime feature for refresh and session token lifetimes on January 30, 2021 and replaced it with the Conditional Access authentication session management feature.  
 >
 > Before enabling Sign-in Frequency, make sure other reauthentication settings are disabled in your tenant. If "Remember MFA on trusted devices" is enabled, be sure to disable it before using Sign-in frequency, as using these two settings together may lead to prompting users unexpectedly. To learn more about reauthentication prompts and session lifetime, see the article, [Optimize reauthentication prompts and understand session lifetime for Azure AD Multifactor Authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
@@ -128,9 +128,9 @@ To make sure that your policy works as expected, the recommended best practice i
 
 ### Policy 1: Sign-in frequency control
 
-1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
-1. Select **New policy**.
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Choose all required conditions for customer’s environment, including the target cloud apps.
 
@@ -146,9 +146,9 @@ To make sure that your policy works as expected, the recommended best practice i
 
 ### Policy 2: Persistent browser session
 
-1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
-1. Select **New policy**.
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Choose all required conditions.
 
@@ -166,15 +166,15 @@ To make sure that your policy works as expected, the recommended best practice i
 
 ### Policy 3: Sign-in frequency control every time risky user
 
-1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
-1. Select **New policy**.
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose your organization's [emergency access or break-glass accounts](../roles/security-emergency-access.md). 
    1. Select **Done**.
-1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
+1. Under **Target resources** > **Cloud apps** > **Include**, select **All cloud apps**.
 1. Under **Conditions** > **User risk**, set **Configure** to **Yes**. Under **Configure user risk levels needed for policy to be enforced** select **High**, then select **Done**.
 1. Under **Access controls** > **Grant**, select **Grant access**, **Require password change**, and select **Select**.
 1. Under **Session controls** > **Sign-in frequency**, select **Every time**.
@@ -189,7 +189,7 @@ Use the [What If tool](what-if-tool.md) to simulate a sign-in from the user to t
 
 ## Prompt tolerance
 
-We factor for five minutes of clock skew, so that we don’t prompt users more often than once every five minutes. If the user has done MFA in the last 5 minutes, and they hit another Conditional Access policy that requires reauthentication, we won't prompt the user. Over-promoting users for reauthentication can impact their productivity and increase the risk of users approving MFA requests they didn’t initiate. Use “Sign-in frequency – every time” only for specific business needs. 
+We factor for five minutes of clock skew, so that we don’t prompt users more often than once every five minutes. If the user has done MFA in the last 5 minutes, and they hit another Conditional Access policy that requires reauthentication, we won't prompt the user. Over-prompting users for reauthentication can impact their productivity and increase the risk of users approving MFA requests they didn’t initiate. Use “Sign-in frequency – every time” only for specific business needs. 
 
 ## Known issues
 

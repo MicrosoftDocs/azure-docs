@@ -30,6 +30,7 @@ FHIR service of Azure Health Data Services provides the following roles:
 * **FHIR Data Reader**: Can read (and search) FHIR data.
 * **FHIR Data Writer**: Can read, write, and soft delete FHIR data.
 * **FHIR Data Exporter**: Can read and export ($export operator) data.
+* **FHIR Data Importer**: Can read and import ($import operator) data.
 * **FHIR Data Contributor**: Can perform all data plane operations.
 * **FHIR Data Converter**: Can use the converter to perform data conversion.
 * **FHIR SMART User**: Role allows user to read and write FHIR data according to the [SMART IG V1.0.0 specifications](http://hl7.org/fhir/smart-app-launch/1.0.0/).
@@ -77,7 +78,7 @@ Azure Health Data Services typically expect a [JSON Web Token](https://en.wikipe
 
 * Header
 * Payload (the claims)
-* Signature, as shown in the image below. For more information, see [Azure access tokens](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
+* Signature, as shown in the image below. For more information, see [Azure access tokens](../active-directory/develop/configurable-token-lifetimes.md).
 
 [ ![JASON web token signature.](media/azure-access-token.png) ](media/azure-access-token.png#lightbox)
 

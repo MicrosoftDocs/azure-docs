@@ -6,6 +6,7 @@ author: mattmcinnes
 ms.service: virtual-machines
 ms.collection: linux
 ms.workload: infrastructure-services
+ms.custom: devx-track-linux
 ms.topic: how-to
 ms.date: 03/28/2023
 ms.author: mattmcinnes
@@ -15,7 +16,7 @@ ms.author: mattmcinnes
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
-When new to Linux, or for quick troubleshooting scenarios, the use of remote desktop may be easier than Secure Shell (SSH) access. This article details how to install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](http://xrdp.org)) for your Linux VM running Ubuntu.
+When new to Linux, or for quick troubleshooting scenarios, the use of remote desktop may be easier than Secure Shell (SSH) access. This article details how to install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](http://www.xrdp.org/)) for your Linux VM running Ubuntu.
 
 The article was written and tested using an Ubuntu 18.04 VM.
 
@@ -52,7 +53,7 @@ sudo apt install xfce4-session
 ```
 
 ## Install and configure a remote desktop server
-Now that you have a desktop environment installed, configure a remote desktop service to listen for incoming remote access connections. [xrdp](http://xrdp.org) is an open source Remote Desktop Protocol (RDP) server that is available on most Linux distributions and works well with xfce. Install xrdp on your Ubuntu VM as follows:
+Now that you have a desktop environment installed, configure a remote desktop service to listen for incoming remote access connections. [xrdp](http://www.xrdp.org/) is an open source Remote Desktop Protocol (RDP) server that is available on most Linux distributions and works well with xfce. Install xrdp on your Ubuntu VM as follows:
 
 ```bash
 sudo apt-get -y install xrdp
@@ -189,4 +190,3 @@ If you don't receive any response in your remote desktop client and don't see an
 For more information about creating and using SSH keys with Linux VMs, see [Create SSH keys for Linux VMs in Azure](mac-create-ssh-keys.md).
 
 For information on using SSH from Windows, see [How to use SSH keys with Windows](ssh-from-windows.md).
-

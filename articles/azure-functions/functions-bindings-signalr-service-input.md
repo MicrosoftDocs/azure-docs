@@ -4,7 +4,7 @@ description: Learn to return a SignalR service endpoint URL and access token in 
 author: Y-Sindo
 ms.topic: reference
 ms.devlang: csharp, java, javascript, python
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 01/13/2022
 ms.author: zityang
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -22,7 +22,7 @@ For information on setup and configuration details, see the [overview](functions
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+[!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
 # [In-process](#tab/in-process)
 

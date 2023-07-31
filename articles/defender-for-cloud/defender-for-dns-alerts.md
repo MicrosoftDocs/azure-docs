@@ -1,10 +1,10 @@
 ---
-title: Respond to Microsoft Defender for DNS alerts - Microsoft Defender for Cloud
+title: Respond to Microsoft Defender for DNS alerts
 description: Learn best practices for responding to alerts that indicate security risks in DNS services.
 ms.date: 6/21/2022
 ms.topic: how-to
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ---
 
 # Respond to Microsoft Defender for DNS alerts

@@ -9,7 +9,7 @@ ms.workload: integration
 ms.topic: tutorial
 ms.date: 03/31/2023
 ms.author: barclayn
-ms.custom: ep-miar, ignite-2022, devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
+ms.custom: ep-miar, ignite-2022, devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-linux
 ms.tool: azure-cli, azure-powershell
 ms.devlang: azurecli
 #Customer intent: As an administrator, I want to know how to access Azure Cosmos DB from a virtual machine using a managed identity
@@ -170,7 +170,7 @@ The user assigned managed identity should be specified using its [resourceID](./
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az vm create --resource-group <MyResourceGroup> --name <myVM> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME>
+az vm create --resource-group <MyResourceGroup> --name <myVM> --image <SKU Linux Image> --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME>
 ```
 
 [Configure managed identities for Azure resources on a VM using the Azure CLI](qs-configure-cli-windows-vm.md#user-assigned-managed-identity)
@@ -416,9 +416,13 @@ Then read and write data as described in [these samples](../../cosmos-db/sql/sql
 
 ## Clean up steps
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 # [Portal](#tab/azure-portal)
 
-1. In the [portal](https://portal.azure.com), select the resource you want to delete.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Select the resource you want to delete.
 
 1. Select **Delete**.
 

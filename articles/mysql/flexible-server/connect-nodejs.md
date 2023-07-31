@@ -1,19 +1,14 @@
 ---
 title: "Quickstart: Connect using Node.js - Azure Database for MySQL - Flexible Server"
 description: This quickstart provides several Node.js code samples you can use to connect and query data from Azure Database for MySQL - Flexible Server.
-author: code-sidd
-ms.author: sisawant
+author: shreyaaithal
+ms.author: shaithal
 ms.reviewer: maghan
-ms.date: 04/18/2023
+ms.date: 06/19/2023
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
-ms.custom:
-  - mvc
-  - seo-javascript-september2019
-  - seo-javascript-october2019
-  - devx-track-js
-  - mode-api
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-api, devx-track-linux
 ms.devlang: javascript
 ---
 
@@ -21,7 +16,7 @@ ms.devlang: javascript
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-In this quickstart, you connect to an Azure Database for MySQL - Flexible Server by using Node.js. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Ubuntu Linux, and Windows platforms.
+In this quickstart, you connect to an Azure Database for MySQL - Flexible Server by using Node.js. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Linux, and Windows platforms.
 
 This article assumes that you're familiar with developing using Node.js, but you're new to working with Azure Database for MySQL - Flexible Server.
 
@@ -37,62 +32,111 @@ This quickstart uses the resources created in either of these guides as a starti
 
 ## Install Node.js and the MySQL connector
 
-Depending on your platform, follow the instructions in the appropriate section to install [Node.js](https://nodejs.org). Use npm to install the [mysql](https://www.npmjs.com/package/mysql) package and its dependencies into your project folder.
+Depending on your platform, follow the instructions in the appropriate section to install [Node.js](https://nodejs.org). Use npm to install the [mysql2](https://www.npmjs.com/package/mysql2) package and its dependencies into your project folder. 
 
-### Windows
+### [Windows](#tab/windows)
 
 1. Visit the [Node.js downloads page](https://nodejs.org/en/download/), and then select your desired Windows installer option.
 1. Make a local project folder such as `nodejsmysql`.
 1. Open the command prompt, and then change directory into the project folder, such as `cd c:\nodejsmysql\`
-1. Run the NPM tool to install the mysql library into the project folder.
+1. Run the NPM tool to install mysql2 library into the project folder.
 
     ```cmd
     cd c:\nodejsmysql\
-    "C:\Program Files\nodejs\npm" install mysql
+    "C:\Program Files\nodejs\npm" install mysql2
     "C:\Program Files\nodejs\npm" list
     ```
 
 1. Verify the installation by checking the `npm list` output text. The version number may vary as new patches are released.
 
-### Linux (Ubuntu)
+### [Linux (Ubuntu/Debian)](#tab/ubuntu)
 
 1. Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
 
    ```bash
     # Using Ubuntu
-    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    sudo curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
     sudo apt-get install -y nodejs
 
     # Using Debian, as root
-    curl -sL https://deb.nodesource.com/setup_14.x | bash -
-    apt-get install -y nodejs
+    sudo curl -sL https://deb.nodesource.com/setup_14.x | bash -
+    sudo apt-get install -y nodejs
    ```
 
-1. Run the following commands to create a project folder `mysqlnodejs` and install the mysql package into that folder.
+1. Run the following commands to create a project folder `mysqlnodejs` and install the mysql2 package into that folder.
 
    ```bash
    mkdir nodejsmysql
    cd nodejsmysql
-   npm install --save mysql
+   npm install --save mysql2
    npm list
    ```
 
 1. Verify the installation by checking npm list output text. The version number may vary as new patches are released.
 
-### macOS
+### [Linux (RHEL/CentOS)](#tab/rhel)
 
-1. Visit the [Node.js downloads page](https://nodejs.org/en/download/), and then select your macOS installer.
+1. Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
 
-1. Run the following commands to create a project folder `mysqlnodejs` and install the mysql package into that folder.
+    **RHEL/CentOS 7.x**
+
+    ```bash
+    sudo yum install -y rh-nodejs8
+    scl enable rh-nodejs8 bash
+   ```
+
+    **RHEL/CentOS 8.x**
+
+   ```bash
+    sudo yum install -y nodejs
+   ```
+
+1. Run the following commands to create a project folder `mysqlnodejs` and install the mysql2 package into that folder.
 
    ```bash
    mkdir nodejsmysql
    cd nodejsmysql
-   npm install --save mysql
+   npm install --save mysql2
+   npm list
+   ```
+
+1. Verify the installation by checking npm list output text. The version number may vary as new patches are released.
+
+### [Linux (SUSE)](#tab/sles)
+
+1. Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
+
+   ```bash
+    sudo zypper install nodejs
+   ```
+
+1. Run the following commands to create a project folder `mysqlnodejs` and install the mysql2 package into that folder.
+
+   ```bash
+   mkdir nodejsmysql
+   cd nodejsmysql
+   npm install --save mysql2
+   npm list
+   ```
+
+1. Verify the installation by checking npm list output text. The version number may vary as new patches are released.
+
+### [macOS](#tab/mac)
+
+1. Visit the [Node.js downloads page](https://nodejs.org/en/download/), and then select your macOS installer.
+
+1. Run the following commands to create a project folder `mysqlnodejs` and install the mysql2 package into that folder.
+
+   ```bash
+   mkdir nodejsmysql
+   cd nodejsmysql
+   npm install --save mysql2
    npm list
    ```
 
 1. Verify the installation by checking the `npm list` output text. The version number may vary as new patches are released.
+
+---
 
 ## Get connection information
 
@@ -121,10 +165,10 @@ Save the certificate file to your preferred location.
 
 Use the following code to connect and load the data by using **CREATE TABLE** and  **INSERT INTO** SQL statements.
 
-The [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) method is used to interface with the MySQL server. The [connect()](https://github.com/mysqljs/mysql#establishing-connections) function is used to establish the connection to the server. The [query()](https://github.com/mysqljs/mysql#performing-queries) function is used to execute the SQL query against MySQL database.
+The [mysql.createConnection()](https://github.com/sidorares/node-mysql2#first-query) method is used to interface with the MySQL server. The [connect()](https://github.com/sidorares/node-mysql2#first-query) function is used to establish the connection to the server. The [query()](https://github.com/sidorares/node-mysql2#first-query) function is used to execute the SQL query against MySQL database.
 
 ```javascript
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const fs = require('fs');
 
 var config =
@@ -195,10 +239,10 @@ function queryDatabase()
 
 Use the following code to connect and read the data by using a **SELECT** SQL statement.
 
-The [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) method is used to interface with the MySQL server. The [connect()](https://github.com/mysqljs/mysql#establishing-connections) method is used to establish the connection to the server. The [query()](https://github.com/mysqljs/mysql#performing-queries) method is used to execute the SQL query against MySQL database. The results array is used to hold the results of the query.
+The [mysql.createConnection()](https://github.com/sidorares/node-mysql2#first-query) method is used to interface with the MySQL server. The [connect()](https://github.com/sidorares/node-mysql2#first-query) method is used to establish the connection to the server. The [query()](https://github.com/sidorares/node-mysql2#first-query) method is used to execute the SQL query against MySQL database. The results array is used to hold the results of the query.
 
 ```javascript
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const fs = require('fs');
 
 var config =
@@ -247,10 +291,10 @@ function readData(){
 
 Use the following code to connect and update the data by using an **UPDATE** SQL statement.
 
-The [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) method is used to interface with the MySQL server. The [connect()](https://github.com/mysqljs/mysql#establishing-connections) method is used to establish the connection to the server. The [query()](https://github.com/mysqljs/mysql#performing-queries) method is used to execute the SQL query against MySQL database.
+The [mysql.createConnection()](https://github.com/sidorares/node-mysql2#first-query) method is used to interface with the MySQL server. The [connect()](https://github.com/sidorares/node-mysql2#first-query) method is used to establish the connection to the server. The [query()](https://github.com/sidorares/node-mysql2#first-query) method is used to execute the SQL query against MySQL database.
 
 ```javascript
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const fs = require('fs');
 
 var config =
@@ -295,10 +339,10 @@ function updateData(){
 
 Use the following code to connect and delete data by using a **DELETE** SQL statement.
 
-The [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) method is used to interface with the MySQL server. The [connect()](https://github.com/mysqljs/mysql#establishing-connections) method is used to establish the connection to the server. The [query()](https://github.com/mysqljs/mysql#performing-queries) method is used to execute the SQL query against MySQL database.
+The [mysql.createConnection()](https://github.com/sidorares/node-mysql2#first-query) method is used to interface with the MySQL server. The [connect()](https://github.com/sidorares/node-mysql2#first-query) method is used to establish the connection to the server. The [query()](https://github.com/sidorares/node-mysql2#first-query) method is used to execute the SQL query against MySQL database.
 
 ```javascript
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const fs = require('fs');
 
 var config =
@@ -343,7 +387,7 @@ function deleteData(){
 
 To clean up all resources used during this quickstart, delete the resource group using the following command:
 
-```azurecli
+```azurecli-interactive
 az group delete \
     --name $AZ_RESOURCE_GROUP \
     --yes
@@ -354,4 +398,4 @@ az group delete \
 - [Encrypted connectivity using Transport Layer Security (TLS 1.2) in Azure Database for MySQL - Flexible Server](./how-to-connect-tls-ssl.md).
 - Learn more about [Networking in Azure Database for MySQL - Flexible Server](./concepts-networking.md).
 - [Create and manage Azure Database for MySQL - Flexible Server firewall rules using the Azure portal](./how-to-manage-firewall-portal.md).
-- [Create and manage Azure Database for MySQL - Flexible Server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md).
+- [Create and manage Azure Database for MySQL - Flexible Server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md). 

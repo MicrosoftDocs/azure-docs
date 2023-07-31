@@ -66,7 +66,7 @@ WHERE
   STARTSWITH(p.tags[2].slug, "color-group-")
 ```
 
-This technique can become untenable quickly. The complexity of length of the query syntax is increased by the number of potential items in the array. Also, this query isn't flexible enough to handle future products, which may have more than three tags.
+This technique can become untenable quickly. The complexity or length of the query syntax is increased by the number of potential items in the array. Also, this query isn't flexible enough to handle future products, which may have more than three tags.
 
 In a traditional relational database, the tags would be separated into a separate table and a cross-table join is performed with a filter applied to the results. In the API for NoSQL, we can perform a self-join operation within the item using the `JOIN` keyword.
 
