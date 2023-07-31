@@ -52,12 +52,14 @@ Spring Cloud Gateway OSS includes several `GatewayFilter` factories used to crea
 
 ### AddRequestHeader
 
-The `AddRequestHeader` `GatewayFilter` factory accepts the following configuration parameters:
+The `AddRequestHeader` factory adds a header to the downstream request's headers for all matching requests.
+
+This factory accepts the following configuration parameters:
 
 - `name`
 - `value` 
 
-The following example configures an `AddRequestHeader` `GatewayFilter` factory that adds the header `X-Request-red:blue` to the downstream request’s headers for all matching requests:
+The following example configures an `AddRequestHeader` factory that adds the header `X-Request-red:blue` to the downstream request’s headers for all matching requests:
 
 ```json
 [
@@ -72,9 +74,9 @@ The following example configures an `AddRequestHeader` `GatewayFilter` factory t
 ]
 ```
 
-`AddRequestHeader` `GatewayFilter` factory has access to the URI variables used to match a path or host. You can use URI variables in the value, and the variables are expanded at runtime. 
+The `AddRequestHeader` factory has access to the URI variables used to match a path or host. You can use URI variables in the value, and the variables are expanded at runtime. 
 
-The following example configures an `AddRequestHeader` `GatewayFilter` factory that uses a variable:
+The following example configures an `AddRequestHeader` factory that uses a variable:
 
 ```json
 [
@@ -95,7 +97,7 @@ The `AddRequestHeadersIfNotPresent` `GatewayFilter` factory adds headers if they
 
 This factory accepts the following configuration parameters:
 
-- `headers`: comma-separated list of key-value pairs (header name, header value).
+- `headers`: A comma-separated list of key-value pairs (header name, header value).
 
 The following example configures an `AddRequestHeadersIfNotPresent` `GatewayFilter` factory:
 
