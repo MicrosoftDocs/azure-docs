@@ -1,21 +1,20 @@
 ---
-title: Path, header, and query string routing with Application Gateway for Containers - Gateway API (preview)
-description: Learn how to configure Application Gateway for Containers with support with path, header, and query string routing.
+title: Multiple site hosting with Application Gateway for Containers - Gateway API (preview)
+description: Learn how to host multiple sites with Application Gateway for Containers using the Gateway API.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 07/30/2023
+ms.date: 07/31/2023
 ms.author: greglin
 ---
 
-# Path, header, and query string routing with Application Gateway for Containers - Gateway API (preview)
+# Multiple site hosting with Application Gateway for Containers - Gateway API (preview)
 
-This document helps you set up an example application that uses the resources from Gateway API to demonstrate traffic routing based on URL path, query string, and header. Steps are provided to:
-- Create a [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) resource with one HTTPS listener.
-- Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) resource that references a backend service.
-- Use [HTTPRouteMatch](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPRouteMatch) to perform `matches` that route based on path, header, and query string.
+This document helps you set up an example application that uses the resources from Gateway API to demonstrate hosting multiple sites on the same Kubernetes Gateway resource / Application Gateway for Containers frontend. Steps are provided to:
+- Create a [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) resource with one HTTP listener.
+- Create two [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) resources that each reference a unique backend service.
 
 ## Prerequisites
 
@@ -23,8 +22,8 @@ This document helps you set up an example application that uses the resources fr
 > Application Gateway for Containers is currently in PREVIEW.<br>
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+1. If you follow the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
+2. If you follow the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTP application
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate path, query, and header based routing.  
   ```bash
@@ -40,8 +39,7 @@ This document helps you set up an example application that uses the resources fr
 
 # [ALB managed deployment](#tab/alb-managed)
 
-Create a gateway:
-
+1. Create a Gateway
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: gateway.networking.k8s.io/v1beta1
@@ -66,6 +64,7 @@ EOF
 
 
 # [Bring your own (BYO) deployment](#tab/byo)
+
 1. Set the following environment variables
 
 ```bash
@@ -154,60 +153,48 @@ status:
       kind: HTTPRoute
 ```
 
-Once the gateway has been created, create an HTTPRoute to define two different matches and a default service to route traffic to.
-
-The way the following rules read are as follows:
-1) If the path is **/bar**, traffic is routed to backend-v2 service on port 8080 OR
-2) If the request contains an HTTP header with the name **magic** and the value **foo**, the URL contains a query string defining the name great with a value of example, AND the path is **/some/thing**, the request is sent to backend-v2 on port 8080.
-3) Otherwise, all other requests are routed to backend-v1 service on port 8080.
-
+Once the gateway has been created, create two HTTPRoute resources for `contoso.com` and `fabrikam.com` domain names.  Each domain forwards traffic to a different backend service.
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: gateway.networking.k8s.io/v1beta1
 kind: HTTPRoute
 metadata:
-  name: http-route
+  name: contoso-route
   namespace: test-infra
 spec:
   parentRefs:
   - name: gateway-01
-    namespace: test-infra
+  hostnames:
+  - "contoso.com"
   rules:
-  - matches:
-    - path:
-        type: PathPrefix
-        value: /bar
-    backendRefs:
-    - name: backend-v2
-      port: 8080
-  - matches:
-    - headers:
-      - type: Exact
-        name: magic
-        value: foo
-      queryParams:
-      - type: Exact
-        name: great
-        value: example
-      path:
-        type: PathPrefix
-        value: /some/thing
-      method: GET
-    backendRefs:
-    - name: backend-v2
-      port: 8080
   - backendRefs:
     - name: backend-v1
+      port: 8080
+---
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: HTTPRoute
+metadata:
+  name: fabrikam-route
+  namespace: test-infra
+spec:
+  parentRefs:
+  - name: gateway-01
+  hostnames:
+  - "fabrikam.com"
+  rules:
+  - backendRefs:
+    - name: backend-v2
       port: 8080
 EOF
 ```
 
-Once the HTTPRoute resource has been created, ensure the route has been _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
+Once the HTTPRoute resource has been created, ensure both HTTPRoute resources show _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
 ```bash
-kubectl get httproute http-route -n test-infra -o yaml
+kubectl get httproute contoso-route -n test-infra -o yaml
+kubectl get httproute fabrikam-route -n test-infra -o yaml
 ```
 
-Verify the status of the Application Gateway for Containers resource has been successfully updated.
+Verify the status of the Application Gateway for Containers resource has been successfully updated for each HTTPRoute.
 
 ```yaml
 status:
@@ -247,36 +234,80 @@ Now we're ready to send some traffic to our sample application, via the FQDN ass
 fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addresses[0].value}')
 ```
 
-By using the curl command, we can validate three different scenarios:
+Specifying server name indicator using the curl command, `contoso.com` for the frontend FQDN should return a response from the backend-v1 service.
 
-### Path based routing
-In this scenario, the client request sent to http://frontend-fqdn/bar is routed to backend-v2 service.
-
-Run the following command:
 ```bash
-curl http://$fqdn/bar
+fqdnIp=$(dig +short $fqdn)
+curl -k --resolve contoso.com:80:$fqdnIp http://contoso.com
 ```
 
-Notice the container serving the request is backend-v2.
-
-### Query string + header + path routing
-In this scenario, the client request sent to http://frontend-fqdn/some/thing?great=example with a header key/value part of "magic: foo" is routed to backend-v2 service.
-
-Run the following command:
-```bash
-curl http://$fqdn/some/thing?great=example -H "magic: foo"
+Via the response we should see:
+```json
+{
+ "path": "/",
+ "host": "contoso.com",
+ "method": "GET",
+ "proto": "HTTP/1.1",
+ "headers": {
+  "Accept": [
+   "*/*"
+  ],
+  "User-Agent": [
+   "curl/7.81.0"
+  ],
+  "X-Forwarded-For": [
+   "xxx.xxx.xxx.xxx"
+  ],
+  "X-Forwarded-Proto": [
+   "http"
+  ],
+  "X-Request-Id": [
+   "dcd4bcad-ea43-4fb6-948e-a906380dcd6d"
+  ]
+ },
+ "namespace": "test-infra",
+ "ingress": "",
+ "service": "",
+ "pod": "backend-v1-5b8fd96959-f59mm"
+}
 ```
 
-Notice the container serving the request is backend-v2.
+Specifying server name indicator using the curl command, `contoso.com` for the frontend FQDN should return a response from the backend-v1 service.
 
-### Default route
-If neither of the first two scenarios are satisfied, Application Gateway for Containers routes all other requests to the backend-v1 service.
-
-Run the following command:
 ```bash
-curl http://$fqdn/
+fqdnIp=$(dig +short $fqdn)
+curl -k --resolve fabrikam.com:80:$fqdnIp http://fabrikam.com
 ```
 
-Notice the container serving the request is backend-v1.
+Via the response we should see:
+```json
+{
+ "path": "/",
+ "host": "fabrikam.com",
+ "method": "GET",
+ "proto": "HTTP/1.1",
+ "headers": {
+  "Accept": [
+   "*/*"
+  ],
+  "User-Agent": [
+   "curl/7.81.0"
+  ],
+  "X-Forwarded-For": [
+   "xxx.xxx.xxx.xxx"
+  ],
+  "X-Forwarded-Proto": [
+   "http"
+  ],
+  "X-Request-Id": [
+   "adae8cc1-8030-4d95-9e05-237dd4e3941b"
+  ]
+ },
+ "namespace": "test-infra",
+ "ingress": "",
+ "service": "",
+ "pod": "backend-v2-594bd59865-ppv9w"
+}
+```
 
-Congratulations, you have installed ALB Controller, deployed a backend application and routed traffic to the application via Gateway API on Application Gateway for Containers.
+Congratulations, you have installed ALB Controller, deployed a backend application and routed traffic to two different backend services via different hostnames via Gateway API on Application Gateway for Containers.
