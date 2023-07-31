@@ -19,7 +19,7 @@ This article explains how to restore all backed-up files in an entire volume usi
 >[!TIP]
 >The **Volume** option recovers all backed up data in a specified volume. This option provides faster transfer speeds (up to 40 Mbps), and is recommended for recovering large-sized data or entire volumes.
 >
->The **Individual files and folders option** allows for quick access to the recovery point data. It's suitable for recovering individual files, and is recommended for a total size of less than 80 GB. It offers transfer or copy speeds of up to 6 Mbps during recovery.
+>The **Individual files and folders option** allows for quick access to the recovery point data. It's suitable for recovering individual files, and is recommended for a total size of less than 80 GB. It offers transfer or copy speeds of up to 6 MBps during recovery.
 
 ## Volume level restore to the same machine
 
