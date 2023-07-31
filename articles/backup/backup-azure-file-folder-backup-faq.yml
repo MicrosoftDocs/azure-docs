@@ -25,8 +25,8 @@ sections:
         answer: |
           In the Azure portal, go to **Properties** for your vault. Under **Backup Credentials**, select **Download**.
 
-          - If you want to register your MARS agent or restore data from the primary region, select **Primary Region**, *confirm* that you are using the latest Recovery Services Agent, and then select **Download**.
-          - If you're performing an alternate server restore from the backup data in the secondary region using Cross Region Restore, then select **Secondary Region** to download the vault credentials.
+          - If you want to register your MARS agent or restore data from the primary region, select **Primary Region**, *confirm* that you're using the latest Recovery Services Agent, and then select **Download**.
+          - If you're doing an alternate server restore from the backup data in the secondary region using Cross Region Restore, then select **Secondary Region** to download the vault credentials.
           
           :::image type="content" source="./media/backup-azure-file-folder-backup-faq/download-vault-credentials.png" alt-text="Screenshot shows how to initiate downloading vault credential file.":::
 

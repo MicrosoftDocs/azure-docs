@@ -33,11 +33,11 @@ Using the MARS agent you can:
 
 ## Cross Region Restore (preview)
 
-Cross Region Restore (CRR) allows you to restore MARS backup data from a secondary region, which is an Azure paired region. This enables you to conduct drills for audit and compliance, and to recover data during the unavailability of the primary region in Azure due to a disaster. 
+Cross Region Restore (CRR) allows you to restore MARS backup data from a secondary region, which is an Azure paired region. This enables you to conduct drills for audit and compliance, and recover data during the unavailability of the primary region in Azure in the case of a disaster. 
 
 To use the feature:
 
-1. [Turn on Cross Region Restore in your Recovery Services Vault](backup-create-rs-vault.md#set-cross-region-restore). Once Cross Region Restore is enabled, you can't disable it.
+1. [Turn on Cross Region Restore in your Recovery Services vault](backup-create-rs-vault.md#set-cross-region-restore). Once Cross Region Restore is enabled, you can't disable it.
 2. After you turn on the feature, it can take up to *48 hours* for the backup items to be available in the secondary region. Currently, the secondary region RPO is *36 hours*, because the RPO in the primary region is *24 hours*, and it can take up to *12 hours* to replicate the backup data from the primary to secondary region.
 3. To restore the backup data for the original machine, you can directly select **Secondary Region** as the source of the backup data in the wizard.
 
@@ -55,5 +55,5 @@ To use the feature:
 
 ## Next steps
 
-- For more frequently asked questions, see [MARS agent FAQs](backup-azure-file-folder-backup-faq.yml).
+- For additional frequently asked questions, see [MARS agent FAQs](backup-azure-file-folder-backup-faq.yml).
 - For information about supported scenarios and limitations, see [Support Matrix for the backup with the MARS agent](backup-support-matrix-mars-agent.md).

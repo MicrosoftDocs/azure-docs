@@ -708,7 +708,7 @@ Start-OBRecoveryMount -RecoverableItem $RP -RecoveryOption $RO -EncryptionPassph
 
 ```
 
-## Uninstalling the Azure Backup agent
+## Uninstall the Azure Backup agent
 
 Uninstalling the Azure Backup agent can be done by using the following command:
 
