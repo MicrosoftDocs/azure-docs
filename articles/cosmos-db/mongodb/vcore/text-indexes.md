@@ -1,7 +1,7 @@
 ---
 title: Text Indexes in Azure Cosmos DB for MongoDB vCore
 titleSuffix: Azure Cosmos DB for MongoDB vCore
-description: Text indexes in Azure Cosmos DB for MongoDB vCore.
+description: How to configure and use text indexes in Azure Cosmos DB for MongoDB vCore
 author: sudhanshu-vishodia
 ms.author: suvishod
 ms.reviewer: gahllevy
