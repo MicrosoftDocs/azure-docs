@@ -20,13 +20,13 @@ This article explains how to deploy and configure the [InfluxData](https://www.i
 
 [Telegraf](https://docs.influxdata.com/telegraf/) is a plug-in-driven agent that enables the collection of metrics from over 150 different sources. Depending on what workloads run on your VM, you can configure the agent to use specialized input plug-ins to collect metrics. Examples are MySQL, NGINX, and Apache. By using output plug-ins, the agent can then write to destinations that you choose. The Telegraf agent has integrated directly with the Azure Monitor custom metrics REST API. It supports an Azure Monitor output plug-in. Using this plug-in, the agent can collect workload-specific metrics on your Linux VM and submit them as custom metrics to Azure Monitor.  
 
-:::image type="content" source="./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png" alt-text="Telegraph agent overview diagram." lightbox="./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png":::
+:::image type="content" source="./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png" alt-text="A diagram showing the Telegraph agent overview." lightbox="./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png":::
 
 ## Connect to the VM
 
-Create an SSH connection to the VM where you want to install Telegraf. Select the **Connect** button on the overview page for your VM. 
+Create an SSH connection to the VM where you want to install Telegraf. Select the **Connect** button on the overview page for your virtual machine. 
 
-![Telegraf VM overview page](./media/collect-custom-metrics-linux-telegraf/connect-VM-button2.png)
+:::image source="./media/collect-custom-metrics-linux-telegraf/connect-to-virtual-machine.png" alt-text="A screenshot of the a Virtual machine overview page with the connect button highlighted." lightbox="./media/collect-custom-metrics-linux-telegraf/connect-to-virtual-machine.png":::
 
 In the **Connect to virtual machine** page, keep the default options to connect by DNS name over port 22. In **Login using VM local account**, a connection command is shown. Select the button to copy the command. The following example shows what the SSH connection command looks like:  
 
