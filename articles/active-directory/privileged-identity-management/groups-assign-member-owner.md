@@ -66,11 +66,11 @@ Follow these steps to make a user eligible member or owner of a group. You will 
     > For groups used for elevating into Azure AD roles, Microsoft recommends that you require an approval process for eligible member assignments. Assignments that can be activated without approval can leave you vulnerable to a security risk from another administrator with permission to reset an eligible user's passwords.
     - Active assignments don't require the member to perform any activations to use the role. Members or owners assigned as active have the privileges assigned to the role at all times.
 
-1.	If the assignment should be permanent (permanently eligible or permanently assigned), select the **Permanently** checkbox. Depending on the group's settings, the check box might not appear or might not be editable. For more information, check out the [Configure PIM for Groups settings in Privileged Identity Management](groups-role-settings.md#assignment-duration) article.
+1. If the assignment should be permanent (permanently eligible or permanently assigned), select the **Permanently** checkbox. Depending on the group's settings, the check box might not appear or might not be editable. For more information, check out the [Configure PIM for Groups settings in Privileged Identity Management](groups-role-settings.md#assignment-duration) article.
 
     :::image type="content" source="media/pim-for-groups/pim-group-5.png" alt-text="Screenshot of where to configure the setting for add assignments." lightbox="media/pim-for-groups/pim-group-5.png":::
 
-1.	Select **Assign**.
+1. Select **Assign**.
 
 ## Update or remove an existing role assignment
 
@@ -93,7 +93,7 @@ Follow these steps to update or remove an existing role assignment. You will nee
 
     :::image type="content" source="media/pim-for-groups/pim-group-3.png" alt-text="Screenshot of where to review existing membership or ownership assignments for selected group." lightbox="media/pim-for-groups/pim-group-3.png":::
 
-1.	Select **Update** or **Remove** to update or remove the membership or ownership assignment.
+1. Select **Update** or **Remove** to update or remove the membership or ownership assignment.
 
 ## Next steps
 

@@ -12,6 +12,7 @@ ms.author: greglin
 | Frontends | 5 per gateway | 
 
 Kubernetes Ingress and Gateway API configuration limits
+
 | Resource | Limit | 
 | --- | --- | 
 | Total Rules | 200 per cluster |

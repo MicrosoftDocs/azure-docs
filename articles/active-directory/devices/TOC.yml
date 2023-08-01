@@ -8,7 +8,7 @@
   expanded: false
   items:
   - name: Azure AD join a new Windows device
-    href: azuread-joined-devices-frx.md
+    href: device-join-out-of-box.md
 - name: Concepts
   expanded: true
   items:
@@ -17,11 +17,11 @@
   - name: Azure AD joined devices 
     href: concept-azure-ad-join.md
   - name: Hybrid Azure AD joined devices
-    href: concept-azure-ad-join-hybrid.md
+    href: concept-hybrid-join.md
   - name: Device registration flows
     href: device-registration-how-it-works.md
   - name: SSO to on-premises resources
-    href: azuread-join-sso.md
+    href: device-sso-to-on-premises-resources.md
   - name: Primary Refresh Tokens
     href: concept-primary-refresh-token.md
 - name: How-to guides
@@ -33,7 +33,7 @@
     expanded: false
     items:
     - name: Plan your Azure AD join implementation
-      href: azureadjoin-plan.md
+      href: device-join-plan.md
     - name: Assign local admins to Azure AD joined devices
       href: assign-local-admin.md
   - name: Hybrid Azure AD join
@@ -44,9 +44,9 @@
     - name: Targeted hybrid Azure AD join deployment
       href: hybrid-azuread-join-control.md 
     - name: Configure hybrid Azure AD join
-      href: howto-hybrid-azure-ad-join.md
+      href: how-to-hybrid-join.md
     - name: Verifying hybrid Azure AD join
-      href: howto-hybrid-join-verify.md
+      href: how-to-hybrid-join-verify.md
     - name: Troubleshoot hybrid Azure AD join
       expanded: false
       items:
@@ -96,7 +96,7 @@
     - name: Configure hybrid Azure AD join manually
       href: hybrid-azuread-join-manual.md
     - name: Enable older operating systems
-      href: howto-hybrid-join-downlevel.md
+      href: how-to-hybrid-join-downlevel.md
   - name: Enforce TLS 1.2
     href: reference-device-registration-tls-1-2.md
   - name: Microsoft Graph APIs
