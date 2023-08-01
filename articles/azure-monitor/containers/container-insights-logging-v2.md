@@ -43,19 +43,19 @@ Follow the instructions to configure an existing ConfigMap or to use a new one.
 
 1. In the Insights section of your Kubernetes cluster, select the **Monitoring Settings** button from the top toolbar
 
-![Screenshot that shows monitoring settings](./media/container-insights-logging-v2/container-insights-v2-monitoring-settings.png)
+![Screenshot that shows monitoring settings.](./media/container-insights-logging-v2/container-insights-v2-monitoring-settings.png)
 
 2. Select **Edit collection settings** to open the advanced settings
 
-![Screenshot that shows advanced collection settings](./media/container-insights-logging-v2/container-insights-v2-monitoring-settings-open.png)
+![Screenshot that shows advanced collection settings.](./media/container-insights-logging-v2/container-insights-v2-monitoring-settings-open.png)
 
 3. Select the checkbox with **Enable ContainerLogV2** and choose the **Save** button below
 
-![Screenshot that shows ContainerLogV2 checkbox](./media/container-insights-logging-v2/container-insights-v2-collection-settings.png)
+![Screenshot that shows ContainerLogV2 checkbox.](./media/container-insights-logging-v2/container-insights-v2-collection-settings.png)
 
 4. The summary section should display the message "ContainerLogV2 enabled", click the **Configure** button to complete your configuration change
 
-![Screenshot that shows ContainerLogV2 enabled](./media/container-insights-logging-v2/container-insights-v2-monitoring-settings-configured.png)
+![Screenshot that shows ContainerLogV2 enabled.](./media/container-insights-logging-v2/container-insights-v2-monitoring-settings-configured.png)
 
 
 ### Configure an existing ConfigMap
@@ -95,7 +95,7 @@ Additionally, the feature also adds support for .NET and Go stack traces, which 
 
 ### Pre-requisites 
 
-Customers must enable *ContainerLogV2* for multi-line logging to work.  Go here to [enable ContainerLogV2](./container-insights-logging-v2.md#enable-the-containerlogv2-schema) in Container Insights. 
+Customers must [enable ContainerLogV2](./container-insights-logging-v2.md#enable-the-containerlogv2-schema) for multi-line logging to work.
 
 ### How to enable - This is currently a preview feature
 Multi-line logging can be enabled by setting *enable_multiline_logs* flag to “true” in [the config map](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml#L49) 
