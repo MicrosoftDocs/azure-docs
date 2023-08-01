@@ -154,8 +154,6 @@
   # end v1
   - name: Azure Machine Learning CLI and Python SDK
     href: concept-v2.md
-  - name: CLI and Python SDK v2 expressions
-    href: concept-expressions.md
   - name: Manage environments with SDK and CLI (v2)
     displayName: environment
     href: how-to-manage-environments-v2.md
@@ -498,6 +496,8 @@
     href: how-to-train-model.md
   - name: Training with UI
     href: how-to-train-with-ui.md
+  - name: CLI and Python SDK v2 expressions
+    href: concept-expressions.md
   - name: Using secrets in training 
     href: how-to-use-secrets-in-runs.md
   - name: Custom Training
