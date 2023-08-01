@@ -50,7 +50,7 @@ You'll create isolation-domains to enable layer 2 and layer 3 connectivity betwe
 |nf-Id	|network fabric ID|"/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFresourcegroupname/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFname"| True
 |Vlan-id | VLAN identifier value. VLANs 1-500 are reserved and can't be used. The VLAN identifier value can't be changed once specified. The isolation-domain must be deleted and recreated if the VLAN identifier value needs to be modified. The range is between 501-4095|501| True
 |mtu | maximum transmission unit is 1500 by default, if not specified|1500||
-|administrativeState|	Enable/Disable indicate the administrative state of the isolationDomain|Enable|
+|administrativeState|	Enable/Disable indicate the administrative state of the isolationDomain|Enable||
 | subscriptionId      | Your Azure subscriptionId for your Operator Nexus instance. |
 | provisioningState   | Indicates provisioning state |
 
