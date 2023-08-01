@@ -53,7 +53,7 @@ The following table provides a list of the features that are available in the va
 | Trusted IPs | | | | ● | ● |
 | Remember MFA for trusted devices | | ● | ● | ● | ● |
 | MFA for on-premises applications | | | | ● | ● |
-| Conditional access | | | | ● | ● |
+| Conditional Access | | | | ● | ● |
 | Risk-based Conditional Access | | | | | ● |
 
 ## Compare multi-factor authentication policies
