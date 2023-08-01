@@ -14,7 +14,7 @@ ms.author: greglin
 
 We announced the deprecation of Application Gateway V1 SKU (Standard and WAF) on April 28, 2023 and subsequently this SKU retires on April 28, 2026. Learn more about the V1 retirement [here](./v1-retirement.md).
 
-[Azure Application Gateway and Web Application Firewall (WAF) V2](application-gateway-autoscaling-zone-redundant.md) now offer additional features such as autoscaling, availability, zone redundancy, higher performance, faster operations and improved throughput compared to V1. Also, all new features are released for V2 SKU. It's highly recommend for you to create a migration plan now. 
+[Azure Application Gateway and Web Application Firewall (WAF) V2](application-gateway-autoscaling-zone-redundant.md) now offer additional features such as autoscaling, availability, zone redundancy, higher performance, faster operations and improved throughput compared to V1. Also, all new features are released for V2 SKU. It's highly recommended for you to create a migration plan now. 
 
 V1 gateways aren't automatically upgraded to V2. Use this migration guide to help you plan and carry out the migrations. 
 
@@ -161,7 +161,7 @@ To run the script:
    * **privateIpAddress: [String]: Optional**. A specific private IP address that you want to associate to your new V2 gateway.  This must be from the same VNet that you allocate for your new V2 gateway. If this isn't specified, the script allocates a private IP address for your V2 gateway.
    * **publicIpResourceId: [String]: Optional**. The resourceId of existing public IP address (standard SKU) resource in your subscription that you want to allocate to the new V2 gateway. If this isn't specified, the script allocates a new public IP in the same resource group. The name is the V2 gateway's name with *-IP* appended.
    * **validateMigration: [switch]: Optional**. Use this parameter if you want the script to do some basic configuration comparison validations after the V2 gateway creation and the configuration copy. By default, no validation is done.
-   * **enableAutoScale: [switch]: Optional**. Use this parameter if you want the script to enable AutoScaling on the new V2 gateway after it's created. By default, AutoScaling is disabled. You can always manually enable it later on the newly created V2 gateway.
+   * **enableAutoScale: [switch]: Optional**. Use this parameter if you want the script to enable autoscaling on the new V2 gateway after it's created. By default, autoscaling is disabled. You can always manually enable it later on the newly created V2 gateway.
 
 1. Run the script using the appropriate parameters. It may take five to seven minutes to finish.
 
@@ -189,7 +189,7 @@ To run the script:
 * To  migrate a TLS/SSL configuration, you must specify all the TLS/SSL certs used in your V1 gateway.
 * If you have FIPS mode enabled for your V1 gateway, it won't be migrated to your new V2 gateway. FIPS mode isn't supported in V2.
 * If you have a Private IP only V1 gateway, the script generates a private and public IP address for the new V2 gateway. The Private IP only V2 gateway is currently in public preview. Once it becomes generally available, customers can utilize the script to transfer their private IP only V1 gateway to a private IP only V2 gateway.
-* NTLM and Kerberos authentication is not supported by Application Gateway V2. The script is unable to detect if the gateway is serving this type of traffic and may pose as a breaking change from V1 to V2 gateways if run.
+* NTLM and Kerberos authentication isn't supported by Application Gateway V2. The script is unable to detect if the gateway is serving this type of traffic and may pose as a breaking change from V1 to V2 gateways if run.
 
 ## Traffic migration
 
@@ -222,7 +222,7 @@ The pricing models are different for the Application Gateway V1 and V2 SKUs. V2 
 
 The V2 SKU comes with a range of advantages such as a performance boost of 5x, improved security with Key Vault integration, faster updates of security rules in WAF_V2, WAF Custom rules, Policy associations, and Bot protection. It also offers high scalability, optimized traffic routing, and seamless integration with Azure services. These features can improve the overall user experience, prevent slowdowns during times of heavy traffic, and avoid expensive data breaches.
 
-There are 5 variants available in V1 SKU based on the Tier and Size - Standard_Small, Standard_Medium, Standard_Large, WAF_Medium and WAF_Large.
+There are five variants available in V1 SKU based on the Tier and Size - Standard_Small, Standard_Medium, Standard_Large, WAF_Medium and WAF_Large.
 
 
 | SKU      | V1 Fixed Price/mo          | V2 Fixed Price/mo | Recommendation|
