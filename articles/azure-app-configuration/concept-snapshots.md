@@ -10,63 +10,65 @@ ms.date: 05/16/2023
 
 # Snapshots (preview)
 
-A snapshot is a named, immutable subset of an App Configuration store's key-values. Snapshots are created by selecting which key-values should be included in the snapshot at the time of creation, by using key and label filters. Once created, snapshots are guaranteed to remain unchanged, which means they can't be modified, deleted, or purged.
+A snapshot is a named, immutable subset of an App Configuration store's key-values. The key-values that make up a snapshot are chosen during creation time through the usage of key and label filters. Once a snapshot is created, the key-values within are guaranteed to remain unchanged.
 
 ## Deploy safely with snapshots
 
-Snapshots are designed to help deployment the Configuration changes in a safe manner. The goal of safe deployment is to minimize the risk of service disruptions, data loss, or other issues that can arise from deploying new code and configuration changes. In safe deployments, updates are deployed in a stage-by-stage manner, progressively verifying the rollout along the way. The idea is to catch any issues before the update is fully rolled out to all users.
+Snapshots are designed to safely deploy configuration changes. Deploying faulty configuration changes into a running environment can cause issues such as service disruption and data loss. In order to avoid such issues, it's important to be able to vet configuration changes before moving into production environments. If such an issue does occur, it's important to be able to roll back any faulty configuration changes in order to restore service. Snapshots are created for managing these scenarios.
 
-To deploy the configuration settings safely, they should be deployed in a controlled, consistent way, and there should be a way to roll back easily to the previous version of the configuration, if necessary. Developers can implement Safe deployment of Configuration changes by providing an immutable configuration with Snapshots. Additionally, snapshots allow for easy rollback to a Last Known Good (LKG) configuration if there was misconfiguration during deployment. Snapshots provide developers with a powerful tool for managing their configuration key-values and ensuring consistency across their deployments.
+Configuration changes should be deployed in a controlled, consistent way. Developers can use snapshots to perform controlled rollout. The only change needed in an application to begin a controlled rollout is to update the name of the snapshot the application is referencing. As the application moves into production, there's a guarantee that the configuration in the referenced snapshot remains unchanged. This guarantee against any change in a snapshot protects against unexpected settings making their way into production. The immutability and ease-of-reference of snapshots make it simple to ensure that the right set of configuration changes are rolled out safely.
 
 ## Scenarios for using snapshots
 
-* **Safe deployment practices/LKG**: Snapshots can be used to support Safe Deployment Practices for Configuration. With snapshots, developers can ensure that a Last known Good (LKG) configuration is available for rollback if there was any issue during deployment.
+* **Controlled rollout**: Snapshots are an excellent tool for supporting controlled rollout due to their immutable nature. When developers utilize snapshots for configuration, they can be confident that the configuration remains unchanged as the release progresses through different phases of the rollout.
+
+* **Last Known Good (LKG) configuration**: Snapshots can be used to support Safe Deployment Practices for Configuration. With snapshots, developers can ensure that a Last known Good (LKG) configuration is available for rollback if there was any issue during deployment.
 
 * **Configuration versioning**: Snapshots can be used to create a version history of configuration settings to sync with release versions. Settings captured in each snapshot can be compared to identify changes between versions.
 
 * **Auditing**: Snapshots can be used for auditing and compliance purposes. Developers can maintain a record of configuration changes in between releases by using the snapshots for the releases.
 
-* **Testing and staging environments**: Snapshots can be used to create consistent testing and staging environments. Developers can ensure that the same configuration is used across different environments, by using the same snapshot, which can help with debugging and testing.
+* **Testing and Staging environments**: Snapshots can be used to create consistent testing and staging environments. Developers can ensure that the same configuration is used across different environments, by using the same snapshot, which can help with debugging and testing.
 
-* **Simplified Client Config composition**: Usually the clients of App Config need a subset of the key-values from the App Configuration instance. To get the set of required key-values, they need to have query logic written in code. As Snapshots support providing filters during creation time, it helps simplify client composition because clients can now refer to the set of key-values they require by referencing an already created snapshot.
+* **Simplified Client Configuration composition**: Usually, the clients of App Configuration need a subset of the key-values from the App Configuration instance. To get the set of required key-values, they need to have query logic written in code. As Snapshots support providing filters during creation time, it helps simplify client composition because clients can now refer to the set of key-values they require by name.
 
 ## Snapshot operations
 
 As snapshots are immutable entities, snapshots can only be created and archived. No deleting, purging or editing is possible.  
 
-* **Create Snapshot**: Snapshots can be created by defining the key and label filters to capture the required key-values from App Configuration instance. The filtered key-values are stored as a snapshot with the name provided during creation.  
+* **Create snapshot**: Snapshots can be created by defining the key and label filters to capture the required key-values from App Configuration instance. The filtered key-values are stored as a snapshot with the name provided during creation.  
 
-* **Archive snapshot**: Archiving a snapshot means the snapshot is stored in archival for the set retention period. After the retention period has elapsed, the archived snapshot will be deleted automatically. Archival operation is for phasing out the snapshot, which is no longer in active usage.
+* **Archive snapshot**: Archiving a snapshot puts it in an archived state. While a snapshot is archived, it's still fully functional. When the snapshot is archived, an expiration time is set based on the retention period configured during the snapshot's creation. If the snapshot remains in the archived state up until the expiration time, then it automatically disappears from the system when the expiration time passes. Archival is used for phasing out snapshots that are no longer in use.
 
 * **Recover snapshot**: Recover snapshot resets a snapshot back to the active state. At this point, the snapshot is no longer subject to expiration based on its configured retention period. Recovery is only possible in the retention period after archival.
 
 > [!NOTE]
-> Retention period can only be set at the creation of snapshot. By default, the value for retention period is 30 days in Standard sku and 7 days in Free sku.
+> The retention period can only be set during the creation of a snapshot. The default value for retention period is 30 days for Standard stores and 7 days for Free stores.
 
 ## Permissions
 
 ### Create a snapshot
 
-To create a snapshot, the following permissions are needed. The App Configuration Data Owner role and read-write access keys already have these permissions.
-
+To create a snapshot, the following permissions are needed. The App Configuration Data Owner role already has these permissions.
 - `Microsoft.AppConfiguration/configurationStores/keyvalues/read`
 - `Microsoft.AppConfiguration/configurationStores/snapshots/write`
+Snapshots can be created with read-write access keys too.
 
 ### Archive and recover a snapshot
 
-To archive and recover a snapshot, the following permission is needed. The App Configuration Data Owner role and read-write access keys already have this permission.
-
+To archive and recover a snapshot, the following permission is needed. The App Configuration Data Owner role already has this permission.
 - `Microsoft.AppConfiguration/configurationStores/snapshots/archive/action`
+Snapshots can be archived or recovered with read-write access keys too.
 
 ### Read and list a snapshot
 
-To  list all snapshots, or get an individual snapshot by name the following permission is needed. The built-in "DataOwner", "DataReader", read-write access keys and read-only access keys already have this permission.
-
+To  list all snapshots, or get an individual snapshot by name the following permission is needed. The built-in Data Owner and Data Reader roles already have this permission.
 - `Microsoft.AppConfiguration/configurationStores/snapshots/read`
+To read and list the snapshots, the read-write access keys and read-only access keys also work.
 
-## Billing considerations
+## Billing considerations and limits
 
-Snapshots have a separate storage quota from the “storage per resource” for key-values. There is no extra charge for snapshots before the included snapshot storage quota is exhausted. Check the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration/) for details.
+Snapshots have their storage quota as detailed here in the  [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration/), refer to “storage per resource." There's no extra charge for snapshots before the included snapshot storage quota is exhausted.
 
 App Configuration has two tiers, Free and standard, check the details of snapshots quota and charge in each tier.
 
