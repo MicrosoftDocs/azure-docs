@@ -36,7 +36,7 @@ In this article, the last of a three-part tutorial, you'll:
 
 ## Import MSAL and the configuration
 
-The CLI application we're building uses the Microsoft Authentication Library for Node to authenticate users. To import the `MSAL Node` package and the `msalConfig` and `loginRequest` configurations defined in the previous tutorial, add the following code to *index.js*
+The CLI application we're building uses the Microsoft Authentication Library for Node to authenticate users. To import the `MSAL Node` package and the `msalConfig` and `loginRequest` configurations defined in the previous tutorial, add the following code to *index.js*:
 
 ```javascript
 const { PublicClientApplication, InteractionRequiredAuthError } = require('@azure/msal-node');
@@ -68,7 +68,7 @@ const openBrowser = async (url) => {
 
 ## Create a token request object
 
-Next, create a `tokenRequest` object by combining properties in the `loginRequest` (imported from `authConfig.js`) and the `openBrowser` function by adding the following code to *index.js*
+Next, create a `tokenRequest` object by combining properties in the `loginRequest` (imported from *authConfig.js*) and the `openBrowser` function by adding the following code to *index.js*:
 
 ```javascript
 const tokenRequest = {
@@ -137,8 +137,8 @@ To run and test your Node.js CLI application, ensure you've replaced the placeho
 1. In your terminal, run the following command:
 
     ```powershell
-       cd 1-Authentication\6-sign-in-node-cli-app\App
-       npm start
+   cd 1-Authentication\6-sign-in-node-cli-app\App
+    npm start
     ```
 
 1. The browser opens up automatically and you should see a page similar to the following:

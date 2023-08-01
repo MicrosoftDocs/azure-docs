@@ -77,10 +77,10 @@ git clone https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial.
 
 To configure the client application (Node.js CLI app) to use your Microsoft Entra app registration details, open the project in your IDE and follow these steps:
 
-1. Open the `App\authConfig.js` file.
+1. Open the *App\authConfig.js* file.
 1. Find the placeholder:
 
-    -  `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `node-cli-app` application copied from the Microsoft Entra admin center.
+    - `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `node-cli-app` application copied from the Microsoft Entra admin center.
     - `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is *contoso.onmicrosoft.com*, use *contoso*.
 
 ## Run and test the sample Node.js CLI application
@@ -90,8 +90,8 @@ You can now test the sample Node.js CLI application.
 1. In your terminal, run the following command:
 
     ```powershell
-       cd 1-Authentication\6-sign-in-node-cli-app\App
-       npm start
+   cd 1-Authentication\6-sign-in-node-cli-app\App
+   npm start
     ```
 
 1. The browser opens up automatically and you should see a page similar to the following:

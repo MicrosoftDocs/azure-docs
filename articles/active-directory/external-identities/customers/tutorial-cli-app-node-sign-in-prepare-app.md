@@ -45,7 +45,7 @@ To build the Node.js CLI application from scratch, follow these steps:
 1. Create a folder to host your application and give it a name, such as *ciam-sign-in-node-cli-app*.
 
 1. In your terminal, navigate to your project directory, such as `cd ciam-sign-in-node-cli-app` and initialize your project using `npm init` 
- This creates a `package.json` file in your project folder, which contains references to all npm packages. 
+ This creates a *package.json* file in your project folder, which contains references to all npm packages. 
 
 1. In your project root directory, create two files named *authConfig.js* and *index.js*. The *authConfig.js* file contains the authentication configuration parameters while *index.js* holds the app's authentication logic. 
 
@@ -60,10 +60,10 @@ To build the Node.js CLI application from scratch, follow these steps:
 
 ## Install app dependencies
 
-The application you build uses MSAL Node to sign in users. To install the MSAL Node package as a dependency in your project, open the terminal in your project  directory and run the following command. 
+The application you build uses MSAL Node to sign in users. To install the MSAL Node package as a dependency in your project, open the terminal in your project directory and run the following command. 
 
 ```powershell
-    npm install @azure/msal-node   
+npm install @azure/msal-node   
 ```
 
 You'll also install the `open` package that allows your Node.js app to open URLs in the web browser. 
@@ -115,7 +115,7 @@ const loginRequest = {
 };
 ```
 
-In `authcConfig.js`, export the `msalConfig` and `loginRequest` objects to make them accessible when required by adding the following code:
+In *authcConfig.js*, export the `msalConfig` and `loginRequest` objects to make them accessible when required by adding the following code:
 
 ```javascript
 module.exports = {
