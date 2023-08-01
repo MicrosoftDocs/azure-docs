@@ -43,19 +43,19 @@ Follow the instructions to configure an existing ConfigMap or to use a new one.
 
 1. In the Insights section of your Kubernetes cluster, select the **Monitoring Settings** button from the top toolbar
 
-![Screenshot that shows monitoring settings](./media/container-insights-v2-monitoring-settings.png)
+![Screenshot that shows monitoring settings](./media/container-insights-logging-v2/container-insights-v2-monitoring-settings.png)
 
 2. Select **Edit collection settings** to open the advanced settings
 
-![Screenshot that shows advanced collection settings](./media/container-insights-v2-monitoring-settings-open.png)
+![Screenshot that shows advanced collection settings](./media/container-insights-logging-v2/container-insights-v2-monitoring-settings-open.png)
 
 3. Select the checkbox with **Enable ContainerLogV2** and choose the **Save** button below
 
-![Screenshot that shows ContainerLogV2 checkbox](./media/container-insights-v2-collection-settings.png)
+![Screenshot that shows ContainerLogV2 checkbox](./media/container-insights-logging-v2/container-insights-v2-collection-settings.png)
 
 4. The summary section should display the message "ContainerLogV2 enabled", click the **Configure** button to complete your configuration change
 
-![Screenshot that shows ContainerLogV2 enabled](./media/container-insights-v2-monitoring-settings-configured.png)
+![Screenshot that shows ContainerLogV2 enabled](./media/container-insights-logging-v2/container-insights-v2-monitoring-settings-configured.png)
 
 
 ### Configure an existing ConfigMap
