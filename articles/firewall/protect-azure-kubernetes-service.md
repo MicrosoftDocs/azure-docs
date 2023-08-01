@@ -3,7 +3,7 @@ title: Use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters
 description: Learn how to use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters
 author: vhorne
 ms.service: firewall
-ms.custom: devx-track-azurecli, build-2023
+ms.custom: devx-track-azurecli, build-2023, devx-track-linux
 services: firewall
 ms.topic: how-to
 ms.date: 10/27/2022
@@ -236,9 +236,9 @@ az aks create -g $RG -n $AKSNAME -l $LOC \
 ```
 
 > [!NOTE]
-> To create and use your own VNet and route table with `kubenet` network plugin, you need to use [user-assigned control plane identity][bring-your-own-control-plane-managed-identity]. For system-assigned control plane identity, we cannot get the identity ID before creating cluster, which causes delay for role assignment to take effect.
-> 
-> To create and use your own VNet and route table with `azure` network plugin, both system-assigned and user-assigned managed identities are supported. 
+> To create and use your own VNet and route table with `kubenet` network plugin, you need to use a [user-assigned managed identity][bring-your-own-managed-identity]. For system-assigned managed identity, we cannot get the identity ID before creating cluster, which causes delay for role assignment to take effect.
+>
+> To create and use your own VNet and route table with `azure` network plugin, both system-assigned and user-assigned managed identities are supported.
 
 ### Enable developer access to the API server
 
@@ -546,4 +546,4 @@ az group delete -g $RG
 - Learn more about Azure Kubernetes Service, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)](../aks/concepts-clusters-workloads.md).
 
 <!-- LINKS - Internal -->
-[bring-your-own-control-plane-managed-identity]: ../aks/use-managed-identity.md#bring-your-own-control-plane-managed-identity
+[bring-your-own-managed-identity]: ../aks/use-managed-identity.md#bring-your-own-managed-identity

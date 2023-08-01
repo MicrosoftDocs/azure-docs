@@ -2,8 +2,8 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: t-siddiquim
-manager: alexo
+author: mrayyan
+manager: alexokun
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
@@ -85,7 +85,7 @@ Go to the /src/main/java/com/communication/quickstart directory and open the `Ap
 
 ```java
 
-package com.communication.quickstart;
+package com.communication.rooms.quickstart;
 
 import com.azure.communication.common.*;
 import com.azure.communication.identity.*;
@@ -282,15 +282,19 @@ Retrieve all active `rooms` under your ACS resource.
 
 ```java
 try {
-    PagedIterable<CommunicationRoom> rooms = roomsClient.listRooms();
+    Iterable<PagedResponse<CommunicationRoom>> roomPages = roomsClient.listRooms().iterableByPage();
+
+    System.out.println("Listing all the rooms IDs in the first two pages of the list of rooms:");
+
     int count = 0;
+    for (PagedResponse<CommunicationRoom> page : roomPages) {
+        for (CommunicationRoom room : page.getElements()) {
+            System.out.println("\n" + room.getRoomId());
+        }
 
-    for (CommunicationRoom room : rooms) {
-        System.out.println("\nFirst two room ID's in the list of rooms: " + room.getRoomId());
         count++;
-
         if (count >= 2) {
-                break;
+            break;
         }
     }
 } catch (Exception ex) {
@@ -332,9 +336,7 @@ mvn package
 Execute the app
 
 ```console
-
-mvn exec:java -Dexec.mainClass="com.communication.quickstart.App" -Dexec.cleanupDaemonThreads=false
-
+mvn exec:java -D"exec.mainClass"="com.communication.rooms.quickstart" -D"exec.cleanupDaemonThreads"="false"
 ```
 
 The expected output describes each completed action:
@@ -357,7 +359,10 @@ Participants:
 
 Participant(s) removed
 
-First room ID in the list of rooms: 99445276259151407
+Listing all the rooms IDs in the first two pages of the list of rooms: 
+99445276259151407
+99445276259151408
+99445276259151409
 
 Deleted the room with ID:  99445276259151407
 

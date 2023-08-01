@@ -102,7 +102,7 @@ You can monitor your I/O consumption in the Azure portal or by using Azure CLI c
 
 ### Maximum IOPS for your configuration
 
-|SKU Name                               |Storage Size in GiB                       |32 |64 |128 |256 |512  |1,024|2,048|4,096|8,192 |16,384|32768 |
+|SKU Name                               |Storage Size in GiB                       |32 |64 |128 |256 |512  |1,024|2,048|4,096|8,192 |16,384|32767 |
 |---------------------------------------|------------------------------------------|---|---|----|----|-----|-----|-----|-----|------|------|
 |                                       |Maximum IOPS                              |120|240|500 |1100|2300 |5000 |7500 |7500 |16000 |18000 |20000 |
 |**Burstable**                          |                                          |   |   |    |    |     |     |     |     |      |      |      |
@@ -143,7 +143,7 @@ When marked with a \*, IOPS are limited by the VM type you selected. Otherwise I
 
 ### Maximum I/O bandwidth (MiB/sec) for your configuration
 
-|SKU Name                         |Storage Size, GiB                             |32    |64     |128    |256   |512    |1,024  |2,048 |4,096 |8,192 |16,384|37,768|
+|SKU Name                         |Storage Size, GiB                             |32    |64     |128    |256   |512    |1,024  |2,048 |4,096 |8,192 |16,384|32,767|
 |---------------------------------|----------------------------------------------|---   |---    |----   |----  |-----  |-----  |----- |----- |------|------|
 |                                 |**Storage Bandwidth, MiB/sec**                |25    |50     |100    |125   |150    |200    |250   |250   |500   |750   |900   |
 |**Burstable**                    |                                              |      |       |       |      |       |       |      |      |      |      |      |
@@ -215,8 +215,14 @@ Remember that storage can only be scaled up, not down.
 
 ## Limitations 
 
-1. During preview, storage auto-grow cannot be configured for HA / Read replica-enabled servers and we are going to support this very soon.
-2. Storage Autogrow does not trigger when there is a high WAL usage to avoid unnecessary autogrow events. 
+1. Disk scaling operations are always online except in specific scenarios involving the 4096 GiB boundary. These scenarios include reaching, starting at, or crossing the 4096 GiB limit, such as when scaling from 2048 GiB to 8192 GiB etc. This limitation is due to the underlying Azure Managed disk V1 which needs a manual disk scaling operation. You will receive an informational message in the portal when you approach this limit.
+
+2. Storage auto-grow currently does not work for HA / Read replica-enabled servers; we will support this very soon.
+
+3. Storage Autogrow does not trigger when there is high WAL usage.
+
+> [!NOTE]
+> Storage auto-grow never triggers offline increase.
 
 
 ## Backup

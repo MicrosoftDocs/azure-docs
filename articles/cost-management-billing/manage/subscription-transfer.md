@@ -179,7 +179,7 @@ If you have an Azure support plan and you transfer all of your Azure subscriptio
 
 Use your account administrator credentials for your old account if the credentials differ from the ones used to access your new Microsoft Customer Agreement account.
 
-1.	Sign in to the Azure portal at https://portal.azure.com.
+1.	Sign in to the [Azure portal](https://portal.azure.com).
 1.	Navigate to **Cost Management + Billing**.
 1.	Select **Billing Scopes** in the left pane.
 1.	Select the billing account associated with your Microsoft support plan.

@@ -2,7 +2,7 @@
 title: What's new with Azure Connected Machine agent
 description: This article has release notes for Azure Connected Machine agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 06/20/2023
+ms.date: 07/11/2023
 ms.custom: references_regions
 ---
 
@@ -15,6 +15,20 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 - Bug fixes
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Connected Machine agent](agent-release-notes-archive.md).
+
+## Version 1.32 - July 2023
+
+Download for [Windows](https://download.microsoft.com/download/7/e/5/7e51205f-a02e-4fbe-94fe-f36219be048c/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### New features
+
+- Added support for the Debian 12 operating system
+- [azcmagent show](azcmagent-show.md) now reflects the "Expired" status when a machine has been disconnected long enough for the managed identity to expire. Previously, the agent only showed "Disconnected" while the Azure portal and API showed the correct state, "Expired."
+
+### Fixed
+
+- Fixed an issue that could result in high CPU usage if the agent was unable to send telemetry to Azure.
+- Improved local logging when there are network communication errors
 
 ## Version 1.31 - June 2023
 
@@ -78,19 +92,6 @@ Download for [Windows](https://download.microsoft.com/download/2/7/0/27063536-94
 - Removed "sudo" calls in internal install script that could be blocked if SELinux is enabled
 - Reduced how long network checks wait before determining a network endpoint is unreachable
 - Stopped writing error messages in "himds.log" referring to a missing certificate key file for the ATS agent, an inactive component reserved for future use.
-
-## Version 1.28 - March 2023
-
-Download for [Windows](https://download.microsoft.com/download/5/9/7/59789af8-5833-4c91-8dc5-91c46ad4b54f/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
-
-### Fixed
-
-- Improved reliability of delete requests for extensions
-- More frequent reporting of VM UUID (system firmware identifier) changes
-- Improved reliability when writing changes to agent configuration files
-- JSON output for `azcmagent connect` now includes Azure portal URL for the server
-- Linux installation script now installs the `gnupg` package if it's missing on Debian operating systems
-- Removed weekly restarts for the extension and guest configuration services
 
 ## Next steps
 

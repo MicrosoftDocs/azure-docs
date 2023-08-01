@@ -163,7 +163,7 @@ View the container logs to confirm the IP address is the same as the public IP a
 
 ```azurecli
 az container logs \
-  --resource-group $RESOURCE_GROUP_NAME \
+  --sed 's/$RESOURCE_GROUP_NAME/$resourceGroup/g'
   --name testegress 
 ```
 

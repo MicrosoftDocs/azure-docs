@@ -1,11 +1,11 @@
 - name: Bing Spell Check API Documentation
-  href: ../Bing-Web-Search/index.yml
+  href: ../bing-web-search/index.yml
 - name: Overview
   items:
   - name: What is the Bing Spell Check API?
     href: overview.md
   - name: Compare the Bing Search APIs
-    href: ../Bing-Web-Search/bing-api-comparison.md
+    href: ../bing-web-search/bing-api-comparison.md
     maintainContext: true
 - name: Quickstarts
   items:
@@ -65,7 +65,7 @@
     - name: Java
       href: /java/api/overview/azure/cognitiveservices/client/bingspellcheck
   - name: Use and display requirements
-    href: ../Bing-Web-Search/use-display-requirements.md
+    href: ../bing-web-search/use-display-requirements.md
     maintainContext: true
 - name: Resources
   items:

@@ -4,7 +4,7 @@ description: How to create a trusted connection between an IoT Edge gateway and 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 01/17/2023
+ms.date: 07/17/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -34,9 +34,10 @@ All the steps in this article build on [Configure an IoT Edge device to act as a
 
 * A free or standard IoT hub.
 * At least two **IoT Edge devices**, one to be the top layer device and one or more lower layer devices. If you don't have IoT Edge devices available, you can [Run Azure IoT Edge on Ubuntu virtual machines](how-to-install-iot-edge-ubuntuvm.md).
-* If you use the Azure CLI to create and manage devices, have Azure CLI v2.3.1 with the Azure IoT extension v0.10.6 or higher installed.
+* If you use the [Azure CLI](/cli/azure/install-azure-cli) to create and manage devices, install the [Azure IoT extension](https://github.com/Azure/azure-iot-cli-extension).
 
-This article provides detailed steps and options to help you create the right gateway hierarchy for your scenario. For a guided tutorial, see [Create a hierarchy of IoT Edge devices using gateways](tutorial-nested-iot-edge.md).
+> [TIP]
+> This article provides detailed steps and options to help you create the right gateway hierarchy for your scenario. For a guided tutorial, see [Create a hierarchy of IoT Edge devices using gateways](tutorial-nested-iot-edge.md).
 
 ## Create a gateway hierarchy
 
@@ -125,7 +126,7 @@ For example, the following commands create a root CA certificate, a parent devic
     ```
     
     > [!WARNING]
-    > Do not use certificates created by the test scripts for production. They contain hard-coded passwords and expire by default after 30 days. The test CA certificates are provided for demonstration purposes to help you quickly understand CA Certificates. Use your own security best practices for certification creation and lifetime management in production.
+    > Don't use certificates created by the test scripts for production. They contain hard-coded passwords and expire by default after 30 days. The test CA certificates are provided for demonstration purposes to help you understand CA Certificates. Use your own security best practices for certification creation and lifetime management in production.
 
     For more information about creating test certificates, see [create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md). 
 
@@ -272,7 +273,7 @@ You should already have IoT Edge installed on your device. If not, follow the st
     parent. In a hierarchical scenario where a single IoT Edge device is both a parent and a child
     device, it needs both parameters.
 
-    The *hostname*, *local_gateway_hostname*, and *trust_bundle_cert* parameters, must be at the beginning of the configuration file before any sections. Adding the parameter before defined sections, ensures it's applied correctly.
+    The *hostname* and *trust_bundle_cert* parameters, must be at the beginning of the configuration file before any sections. Adding the parameter before defined sections, ensures it's applied correctly.
 
     Use a hostname shorter than 64 characters, which is the character limit for a server certificate
     common name.

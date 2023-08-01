@@ -3,8 +3,8 @@ title: About the Azure Virtual Machine restore process
 description: Learn how the Azure Backup service restores Azure virtual machines
 ms.topic: conceptual
 ms.date: 12/24/2021
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # About Azure VM restore

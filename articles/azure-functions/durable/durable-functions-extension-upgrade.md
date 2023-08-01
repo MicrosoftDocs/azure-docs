@@ -53,11 +53,11 @@ func extensions install
 However, if you **only** wish to install the latest Durable Functions extension release, you would run the following command: 
 
 ```console
-func extensions install Microsoft.Azure.WebJobs.Extensions.DurableTask -v <version>
+func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v <version>
 ```
 
 For example:
 
 ```console
-func extensions install Microsoft.Azure.WebJobs.Extensions.DurableTask -v 2.9.1
+func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 2.9.1
 ```

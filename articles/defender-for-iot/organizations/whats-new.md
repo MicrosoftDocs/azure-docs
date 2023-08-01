@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 05/17/2023
+ms.date: 06/26/2023
 ms.custom: enterprise-iot
 ---
 
@@ -15,6 +15,27 @@ Features released earlier than nine months ago are described in the [What's new 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+
+## July 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | [Migrate to site-based licenses](#migrate-to-site-based-licenses) |
+
+
+### Migrate to site-based licenses
+
+Existing customers can now migrate their legacy Defender for IoT purchasing plans to a **Microsoft 365** plan, based on site-based, Microsoft 365 licenses.
+
+On the **Plans and pricing** page, edit your plan and select the **Microsoft 365** plan instead of your current monthly or annual plan. For example:
+
+:::image type="content" source="media/release-notes/migrate-to-365.png" alt-text="Screenshot of updating your pricing plan to Microsoft 365."  lightbox="media/release-notes/migrate-to-365.png":::
+
+Make sure to edit any relevant sites to match your newly licensed site sizes. For example:
+
+:::image type="content" source="media/release-notes/edit-site-size.png" alt-text="Screenshot of editing a site size on the Azure portal."  lightbox="media/release-notes/edit-site-size.png":::
+
+For more information, see [Migrate from a legacy OT plan](how-to-manage-subscriptions.md#migrate-from-a-legacy-ot-plan) and [Defender for IoT subscription billing](billing.md).
 
 ## June 2023
 
@@ -87,7 +108,7 @@ For more information, see [Sensor setting reference](configure-sensor-settings-p
 |Service area  |Updates  |
 |---------|---------|
 | **Documentation** | [End-to-end deployment guides](#end-to-end-deployment-guides) |
-| **OT networks** | **Sensor version 22.3.8**: <br>- [Proxy support for client SSL/TLS certificates](#proxy-support-for-client-ssltls-certificates) <br>- [Download WMI script from OT sensor console](#download-wmi-script-from-ot-sensor-console) <br>- [Automatically resolved OS notifications](#automatically-resolved-os-notifications) <br>- [UI enhancement when uploading SSL/TLS certificates](#ui-enhancement-when-uploading-ssltls-certificates) |
+| **OT networks** | **Sensor version 22.3.8**: <br>- [Proxy support for client SSL/TLS certificates](#proxy-support-for-client-ssltls-certificates) <br>- [Enrich Windows workstation and server data with a local script (Public preview)](#enrich-windows-workstation-and-server-data-with-a-local-script-public-preview) <br>- [Automatically resolved OS notifications](#automatically-resolved-os-notifications) <br>- [UI enhancement when uploading SSL/TLS certificates](#ui-enhancement-when-uploading-ssltls-certificates) |
 
 ### End-to-end deployment guides
 
@@ -113,11 +134,11 @@ A client SSL/TLS certificate is required for proxy servers that inspect SSL/TLS 
 
 For more information, see [Configure a proxy](connect-sensors.md#configure-proxy-settings-on-an-ot-sensor).
 
-### Download WMI script from OT sensor console
+### Enrich Windows workstation and server data with a local script (Public preview)
 
-The script used to configure OT sensors to detect Microsoft Windows workstations and servers is now available for download from the OT sensor itself. 
-
-For more information, see [Download the script](detect-windows-endpoints-script.md#download-and-run-the-script)
+Use a local script, available from the OT sensor UI, to enrich Microsoft Windows workstation and server data on your OT sensor. The script runs as a utility to detect devices and enrich data, and can be run manually or using standard automation tools.
+ 
+For more information, see [Enrich Windows workstation and server data with a local script](detect-windows-endpoints-script.md).
 
 ### Automatically resolved OS notifications
 

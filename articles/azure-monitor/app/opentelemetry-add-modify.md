@@ -102,7 +102,7 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 * [Azure Event Grid](/java/api/overview/azure/messaging-eventgrid-readme) 4.0.0+
 * [Azure Event Hubs](/java/api/overview/azure/messaging-eventhubs-readme) 5.6.0+
 * [Azure Event Hubs - Azure Blob Storage Checkpoint Store](/java/api/overview/azure/messaging-eventhubs-checkpointstore-blob-readme) 1.5.1+
-* [Azure Form Recognizer](/java/api/overview/azure/ai-formrecognizer-readme) 3.0.6+
+* [Azure AI Document Intelligence](/java/api/overview/azure/ai-formrecognizer-readme) 3.0.6+
 * [Azure Identity](/java/api/overview/azure/identity-readme) 1.2.4+
 * [Azure Key Vault - Certificates](/java/api/overview/azure/security-keyvault-certificates-readme) 4.1.6+
 * [Azure Key Vault - Keys](/java/api/overview/azure/security-keyvault-keys-readme) 4.2.6+
@@ -139,7 +139,7 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 
 #### [Node.js](#tab/nodejs)
 
-The following OpenTelemetry Instrumentation libraries are included as part of Azure Monitor Application Insights Distro.
+The following OpenTelemetry Instrumentation libraries are included as part of the Azure Monitor Application Insights Distro. See [this](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry#officially-supported-instrumentations) for more details.
 
 Requests
 - [HTTP/HTTPS](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http) <sup>[2](#FOOTNOTETWO)</sup>
@@ -176,13 +176,15 @@ Logs
 
 Examples of using the Python logging library can be found on [GitHub](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry/samples/logging).
 
+Telemetry emitted by Azure SDKS is automatically [collected](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry#azure-core-distributed-tracing) by default.
+
 ---
 
 **Footnotes**
 - <a name="FOOTNOTEONE">1</a>: Supports automatic reporting of *unhandled/uncaught* exceptions
 - <a name="FOOTNOTETWO">2</a>: Supports OpenTelemetry Metrics
 - <a name="FOOTNOTETHREE">3</a>: By default, logging is only collected at INFO level or higher. To change this setting, see the [configuration options](./java-standalone-config.md#autocollected-logging).
-- <a name="FOOTNOTEFOUR">4</a>: By default, logging is only collected at WARNING level or higher.
+- <a name="FOOTNOTEFOUR">4</a>: By default, logging is only collected when that logging is performed at the WARNING level or higher.
 
 > [!NOTE]
 > The Azure Monitor OpenTelemetry Distros include custom mapping and logic to automatically emit [Application Insights standard metrics](standard-metrics.md).
@@ -244,7 +246,33 @@ Other OpenTelemetry Instrumentations are available [here](https://github.com/ope
 ```
 
 ### [Python](#tab/python)
-Currently unavailable.
+
+To add a community instrumentation library (not officially supported/included in Azure Monitor distro), you can instrument directly with the instrumentations. The list of community instrumentation libraries can be found [here](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation).
+
+> [!NOTE]
+> Instrumenting a [supported instrumentation library](.\opentelemetry-add-modify.md?tabs=python#included-instrumentation-libraries) manually with `instrument()` in conjunction with the distro `configure_azure_monitor()` is not recommended. This is not a supported scenario and you may get undesired behavior for your telemetry.
+
+```python
+from azure.monitor.opentelemetry import configure_azure_monitor
+from opentelemetry.instrumentation.sqlalchemy import SQLAlchemyInstrumentor
+from sqlalchemy import create_engine, text
+
+configure_azure_monitor()
+
+engine = create_engine("sqlite:///:memory:")
+# SQLAlchemy instrumentation is not officially supported by this package
+# However, you can use the OpenTelemetry instrument() method manually in
+# conjunction with configure_azure_monitor
+SQLAlchemyInstrumentor().instrument(
+    engine=engine,
+)
+
+# Database calls using the SqlAlchemy library will be automatically captured
+with engine.connect() as conn:
+    result = conn.execute(text("select 'hello world'"))
+    print(result.all())
+
+```
 
 ---
 
@@ -264,7 +292,7 @@ The following table represents the currently supported custom telemetry types:
 |-------------------------------------------|---------------|----------------|--------------|------------|------------|----------|--------|
 | **ASP.NET Core**                          |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
-| &nbsp;&nbsp;&nbsp;iLogger API             |               |                |              |            |            |          | Yes    |
+| &nbsp;&nbsp;&nbsp;ILogger API             |               |                |              |            |            |          | Yes    |
 | &nbsp;&nbsp;&nbsp;AI Classic API          |               |                |              |            |            |          |        |
 |                                           |               |                |              |            |            |          |        |
 | **Java**                                  |               |                |              |            |            |          |        |
@@ -1560,7 +1588,7 @@ logHandler.trackEvent({
 
 #### [Python](#tab/python)
   
-The Python [logging](https://docs.python.org/3/howto/logging.html) library is [autoinstrumented](#logs). You can attach custom dimensions to your logs by passing a dictionary into the `extra` argument of your logs.
+The Python [logging](https://docs.python.org/3/howto/logging.html) library is [autoinstrumented](.\opentelemetry-add-modify.md?tabs=python#included-instrumentation-libraries). You can attach custom dimensions to your logs by passing a dictionary into the `extra` argument of your logs.
 
 ```python
 ...
