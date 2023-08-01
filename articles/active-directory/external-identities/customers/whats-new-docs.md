@@ -32,11 +32,9 @@ Welcome to what's new in Azure Active Directory for customers documentation. Thi
 ### Updated articles
 
 - [Enable self-service password reset](how-to-enable-password-reset-customers.md) - New section about the password reset link
-- [Tutorial: Prepare your customer tenant to authorize a .NET daemon application](tutorial-daemon-dotnet-call-api-prepare-tenant.md)
-  - .NET daemon browserless app update
+- [Tutorial: Prepare your customer tenant to authorize a .NET daemon application](tutorial-daemon-dotnet-call-api-prepare-tenant.md) - .NET daemon browserless app update
 - [Test your protected API](tutorial-protect-web-api-dotnet-core-test-api.md) - Editorial review
-- [Register your app in the customer tenant](how-to-register-ciam-app.md)
-  - Editorial review 
+- [Register your app in the customer tenant](how-to-register-ciam-app.md) - Editorial review 
 - [Tutorial: Prepare a Node.js web application for authentication](tutorial-web-app-node-sign-in-prepare-app.md) - Editorial review
 - [Tutorial: Prepare your customer tenant to sign in users in a Node.js web app](tutorial-web-app-node-sign-in-prepare-tenant.md) - Editorial review 
 - [Tutorial: Add add sign-in and sign-out in your Node.js web application](tutorial-web-app-node-sign-in-sign-out.md) - Editorial review
