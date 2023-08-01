@@ -117,7 +117,7 @@ You now need a network connection to associate the virtual network and subnet wi
 - To determine which type of join is appropriate for your dev boxes, refer to:
    
    - [Azure AD joined devices](/azure/active-directory/devices/concept-directory-join).
-   - [Hybrid Azure AD joined devices](/azure/active-directory/devices/concept-directory-join-hybrid).
+   - [Hybrid Azure AD joined devices](/azure/active-directory/devices/concept-hybrid-join).
 
 To create the network connection, complete the steps on the relevant tab.
 
