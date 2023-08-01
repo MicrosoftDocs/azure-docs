@@ -58,6 +58,7 @@ curl  -L https://aka.ms/enable-monitoring-msi-bicep-parameters -o existingCluste
  - **workspaceResourceId**: Use the resource ID of your Log Analytics workspace.
  - **workspaceRegion**: Use the location of your Log Analytics workspace.
  - **resourceTagValues**: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will match `MSCI-<clusterName>-<clusterRegion>` and this resource is created in the same resource group as the AKS clusters. For first time onboarding, you can set the arbitrary tag values.
+ - **enabledContainerLogV2**: Set this parameter value to be true to use the default recommended ContainerLogV2 schema
  - Other parameters are for cost optimization, refer to [this guide](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-cost-config?tabs=create-CLI#data-collection-parameters)
 
 3.	Onboard with the following commands:
@@ -84,6 +85,7 @@ az deployment group create --resource-group <ClusterResourceGroupName> --templat
 - **workspaceResourceId**: Use the resource ID of your Log Analytics workspace.
 - **workspaceRegion**: Use the location of your Log Analytics workspace.
 - **resourceTagValues**: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name match `MSCI-<clusterName>-<clusterRegion>` and this resource is created in the same resource group as the AKS clusters. For first time onboarding, you can set the arbitrary tag values.
+- - **enabledContainerLogV2**: Set this parameter value to be true to use the default recommended ContainerLogV2 
 
 3.	Onboarding with the following commands:
 
@@ -111,6 +113,7 @@ https://aka.ms/enable-monitoring-msi-terraform
  - **workspace_resource_id**: Use the resource ID of your Log Analytics workspace.
  - **workspace_region**: Use the location of your Log Analytics workspace.
  - **resource_tag_values**: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name match `MSCI-<clusterName>-<clusterRegion>` and this resource is created in the same resource group as the AKS clusters. For first time onboarding, you can set the arbitrary tag values.
+ - - **enabledContainerLogV2**: Set this parameter value to be true to use the default recommended ContainerLogV2 
  - Other parameters are for cluster settings or cost optimization, refer to [this guide](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-cost-config?tabs=create-CLI#data-collection-parameters)
 4.	Run `terraform init -upgrade` to initialize the Terraform deployment.
 5.	Run `terraform plan -out main.tfplan` to initialize the Terraform deployment.
