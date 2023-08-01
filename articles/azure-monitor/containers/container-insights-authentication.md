@@ -2,13 +2,16 @@
 title: Configure agent authentication for the Container Insights agent | Microsoft Docs
 description: This article describes how to configure authentication for the containerized agent used by Container insights.
 ms.topic: conceptual
-ms.date: 06/13/2023
-ms.reviewer: damendo
+ms.date: 07/31/2023
+ms.reviewer: aul
 ---
 
 # Authentication for Container Insights 
 
 Container Insights now defaults to managed identity authentication. This secure and simplified authentication model has a monitoring agent that uses the cluster's managed identity to send data to Azure Monitor. It replaces the existing legacy certificate-based local authentication and removes the requirement of adding a Monitoring Metrics Publisher role to the cluster.
+
+> [!Note] 
+> [ContainerLogV2](container-insights-logging-v2.md) will be default schema for customers who will be onboarding container insights with Managed Identity Auth using ARM, Bicep, Terraform, Policy and Portal onboarding. ContainerLogV2 can be explicitly enabled through CLI version 2.51.0 or higher using Data collection settings.
 
 ## How to enable
 
