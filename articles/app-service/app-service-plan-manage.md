@@ -60,7 +60,7 @@ You can move an app to another App Service plan, as long as the source plan and 
 
 2. From the left menu, under **App Service Plan**, select **Change App Service plan**.
 
-    :::image type="content" source="./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png" alt-text="App Service Plan selector.":::
+    :::image type="content" source="./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png" alt-text="Screenshot of App Service Plan selector.":::
 
 3. In the **App Service plan** dropdown, select an existing plan to move the app to. The dropdown shows only plans that are in the same resource group and geographical region as the current App Service plan. If no such plan exists, it lets you create a plan by default. You can also create a new plan manually by selecting **Create new**.
 
