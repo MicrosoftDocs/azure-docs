@@ -101,6 +101,46 @@ Scheduled events are disabled by default for [VMSS Guest OS upgrades or reimages
 
 ## Use the API
 
+### High level overview
+
+There are two major components to handling Scheduled Events, preparation and recovery. All current events impacting the customer will be available via the IMDS Scheduled Events endpoint. When the event has reached a terminal state, it will be removed from the list of events. The following diagram shows the various state transitions that a single scheduled events can experience: 
+
+![State diagram showing the various transitions a scheduled event can take](media/scheduled-events/scheduled-events-states.png)
+
+For events in the EventStatus:"Scheduled" state, you'll need to take steps to prepare your workload. Once the preperation is complete, you should then approve the event using the scheduled event API. Otherwise, the event will be automatically approved when the NotBefore time is reached. In the case of a VM on shared infrastructure, the system will then wait for all other tenants on the same hardware to also approve the job or timeout. Once approvals are gathered from all impacted VMs or the NotBefore time is reached then Azure generates a new scheduled event payload with EventStatus:"Started" and triggers the start of the maintenance event.
+
+Below is psudeo code demonstrating a process for how to read and manage scheduled events in your application: 
+```
+current_list_of_scheduled_events = get_latest_from_se_endpoint()
+#prepare for new events
+for each event in current_list_of_scheduled_events:
+  if event not in previous_list_of_scheduled_events:
+    prepare_for_event(event)
+#recover from completed events
+for each event in previous_list_of_scheduled_events:
+  if event not in current_list_of_scheduled_events:
+    receover_from_event(event)
+#prepare for future jobs
+previous_list_of_scheduled_events = current_list_of_scheduled_events
+```
+As scheduled events are often used for applications with high availability requirements, there are a few exceptional cases that should be considered:
+
+1. Once a scheduled event is completed and removed from the array there will be no further impacts without a new event including another EventStatus:"Scheduled" event
+2. Azure  monitors maintenance operations across the entire fleet and in rare circumstances determines that a maintenance operation too high risk to apply. In that case the scheduled event will go directly from “Scheduled” to being removed from the events array
+3. In the case of hardware failure, Azure will bypass the “Scheduled” state and immediately move to the EventStatus:"Started" state. 
+4. While the event is still in EventStatus:"Started" start, there may be additional impacts of a shorter durnation than what was advertised in the scheduled event.
+
+As part of Azure’s availability guarantee, VMs in different fault domains will not be impacted by routine maintenance operations at the same time. However, they may have operations serialized one after another. VMs in one fault domain can receive scheduled events with EventStatus:"Scheduled" shortly after another fault domain’s maintenance is completed. Regardless of what architecture you chose, always keep checking for new events pending against your VMs.
+
+While the exact timings of events vary, the following diagram provides is a rough guideline for a typical maintenance operation:
+
+- EventStatus:"Scheduled" to Approval Timeout: 15 minutes
+- Impact Duration: 7 seconds
+- EventStatus:"Started" to Completed (event removed from Events array): 10 minutes
+
+![Timeline showing the flow of a scheduled event as outlined above](media/scheduled-events/scheduled-events-timeline.png)
+
+
 ### Headers
 When you query Metadata Service, you must provide the header `Metadata:true` to ensure the request wasn't unintentionally redirected. The `Metadata:true` header is required for all scheduled events requests. Failure to include the header in the request results in a "Bad Request" response from Metadata Service.
 
