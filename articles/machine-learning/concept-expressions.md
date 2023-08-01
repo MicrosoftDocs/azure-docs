@@ -27,7 +27,7 @@ The format for an expression is `${{ <expression> }}`. Some expressions are eval
 | Expression | Description | Scope |
 | ---- | ---- | ---- |
 | `${{inputs.<input_name>}}` | References to an input data asset or model. | Works for all jobs. |
-| `${{outputs.<output_name>}}` | References to an output data asset. | Works for all jobs. |
+| `${{outputs.<output_name>}}` | References to an output data asset or model. | Works for all jobs. |
 | `${{search_space.<hyperparameter>}}` | References the hyperparameters to use in a sweep job. The hyperparameter values for each trial are selected based on the `search_space`. | Sweep jobs only. |
 | `${{parent.inputs.<input_name>}}` | Binds the inputs of a child job (pipeline step) in a pipeline to the inputs of the top-level parent pipeline job. | Pipeline jobs only. |
 | `${{parent.outputs.<output_name>}}` | Binds the outputs of a child job (pipeline step) in a pipeline to the outputs of the top-level parent pipeline job. | Pipeline jobs only. |
