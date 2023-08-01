@@ -351,7 +351,7 @@ Console.WriteLine(connectionString);
 While Azure Synapse Analytics supports a variety of linked service connections (from pipelines and other Azure products), not all of them are supported from the Spark runtime. Here is the list of supported linked services:
 
  - Azure Blob Storage
- - Azure Cognitive Services
+ - Azure AI services
  - Azure Cosmos DB
  - Azure Data Explorer
  - Azure Database for MySQL

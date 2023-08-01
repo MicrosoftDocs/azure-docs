@@ -120,11 +120,13 @@ There are two ways to enable Azure AD login for your Linux VM:
 
 ### Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You can enable Azure AD login for any of the [supported Linux distributions](#supported-linux-distributions-and-azure-regions) by using the Azure portal.
 
 For example, to create an Ubuntu Server 18.04 Long Term Support (LTS) VM in Azure with Azure AD login:
 
-1. Sign in to the Azure portal by using an account that has access to create VMs, and then select **+ Create a resource**.
+1. Sign in to the [Azure portal](https://portal.azure.com) by using an account that has access to create VMs, and then select **+ Create a resource**.
 1. Select **Create** under **Ubuntu Server 18.04 LTS** in the **Popular** view.
 1. On the **Management** tab: 
    1. Select the **Login with Azure Active Directory** checkbox.
@@ -265,7 +267,7 @@ The application that appears in the Conditional Access policy is called *Azure L
 
 If the Azure Linux VM Sign-In application is missing from Conditional Access, make sure the application isn't in the tenant:
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Enterprise applications**.
 1. Remove the filters to see all applications, and search for **Virtual Machine**. If you don't see Microsoft Azure Linux Virtual Machine Sign-In as a result, the service principal is missing from the tenant.
 
@@ -454,7 +456,7 @@ To uninstall old packages:
 1. If the command fails, try the low-level tools with scripts disabled:
    1. For Ubuntu/Debian, run `sudo dpkg --purge aadlogin`. If it's still failing because of the script, delete the `/var/lib/dpkg/info/aadlogin.prerm` file and try again.
    1. For everything else, run `rpm -e --noscripts aadogin`.
-1.	Repeat steps 3-4 for package `aadlogin-selinux`.
+1. Repeat steps 3-4 for package `aadlogin-selinux`.
 
 ### Extension installation errors
 

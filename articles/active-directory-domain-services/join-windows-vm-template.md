@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.custom: devx-track-arm-template
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 08/01/2023
 ms.author: justinha
 ---
 
@@ -31,7 +31,7 @@ To complete this tutorial, you need the following resources and privileges:
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
     * If needed, the first tutorial [creates and configures an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
-* A user account that's a part of the managed domain.
+* A user account that's a part of the *AAD DC administrators* group.
 
 ## Azure Resource Manager template overview
 

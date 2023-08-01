@@ -23,7 +23,7 @@ Metrics Advisor supports four different types of hooks: email, Teams, webhook, a
 ### Email hook
 
 > [!Note]
-> Metrics Advisor resource administrators need to configure the Email settings, and input **SMTP related information** into Metrics Advisor before anomaly alerts can be sent. The resource group admin or subscription admin needs to assign at least one *Azure AI Metrics Advisor Administrator* role in the Access control tab of the Metrics Advisor resource. [Learn more about e-mail settings configuration](../faq.yml#how-to-set-up-email-settings-and-enable-alerting-by-email-). 
+> Metrics Advisor resource administrators need to configure the Email settings, and input **SMTP related information** into Metrics Advisor before anomaly alerts can be sent. The resource group admin or subscription admin needs to assign at least one *Cognitive Services Metrics Advisor Administrator* role in the Access control tab of the Metrics Advisor resource. [Learn more about e-mail settings configuration](../faq.yml#how-to-set-up-email-settings-and-enable-alerting-by-email-). 
 
 
 An email hook is the channel for anomaly alerts to be sent to email addresses specified in the **Email to** section. Two types of alert emails will be sent: **Data feed not available** alerts, and **Incident reports**, which contain one or multiple anomalies. 

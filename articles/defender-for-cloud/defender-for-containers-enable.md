@@ -97,7 +97,7 @@ A full list of supported alerts is available in the [reference table of all Defe
 [!INCLUDE [Remove the profile](./includes/defender-for-containers-remove-profile.md)]
 ::: zone-end
 
-## Learn More
+## Learn more
 
 You can check out the following blogs:
 

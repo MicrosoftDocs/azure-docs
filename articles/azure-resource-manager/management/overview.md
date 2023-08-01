@@ -17,7 +17,7 @@ When you send a request through any of the Azure APIs, tools, or SDKs, Resource 
 
 The following image shows the role Azure Resource Manager plays in handling Azure requests.
 
-![Resource Manager request model](./media/overview/consistent-management-layer.png)
+:::image type="content" source="./media/overview/consistent-management-layer.png" alt-text="Diagram that shows the role of Azure Resource Manager in handling Azure requests." border="false":::
 
 All capabilities that are available in the portal are also available through PowerShell, Azure CLI, REST APIs, and client SDKs. Functionality initially released through APIs will be represented in the portal within 180 days of initial release.
 
@@ -59,7 +59,7 @@ With Resource Manager, you can:
 
 Azure provides four levels of scope: [management groups](../../governance/management-groups/overview.md), subscriptions, [resource groups](#resource-groups), and resources. The following image shows an example of these layers.
 
-![Management levels](./media/overview/scope-levels.png)
+:::image type="content" source="./media/overview/scope-levels.png" alt-text="Diagram that illustrates the four levels of scope in Azure: management groups, subscriptions, resource groups, and resources." border="false":::
 
 You apply management settings at any of these levels of scope. The level you select determines how widely the setting is applied. Lower levels inherit settings from higher levels. For example, when you apply a [policy](../../governance/policy/overview.md) to the subscription, the policy is applied to all resource groups and resources in your subscription. When you apply a policy on the resource group, that policy is applied to the resource group and all its resources. However, another resource group doesn't have that policy assignment.
 
@@ -89,7 +89,7 @@ There are some important factors to consider when defining your resource group:
 
   To ensure state consistency for the resource group, all [control plane operations](./control-plane-and-data-plane.md) are routed through the resource group's location. When selecting a resource group location, we recommend that you select a location close to where your control operations originate. Typically, this location is the one closest to your current location. This routing requirement only applies to control plane operations for the resource group. It doesn't affect requests that are sent to your applications.
   
-  If a resource group's region is temporarily unavailable, you can't update resources in the resource group because the metadata is unavailable. The resources in other regions will still function as expected, but you can't update them. This condition doesn't apply to global resources like Azure Content Delivery Network, Azure DNS, Azure DNS Private Zones, Azure Traffic Manager, and Azure Front Door.
+  If a resource group's region is temporarily unavailable, you can't update resources in the resource group because the metadata is unavailable. The resources in other regions will still function as expected, but you can't update them. 
    
   For more information about building reliable applications, see [Designing reliable Azure applications](/azure/architecture/checklist/resiliency-per-service).
 
