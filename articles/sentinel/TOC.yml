@@ -379,6 +379,8 @@
         href: data-connectors/cisco-firepower-estreamer.md
       - name: Cisco Identity Services Engine
         href: data-connectors/cisco-identity-services-engine.md
+      - name: Cisco Meraki
+        href: data-connectors/cisco-meraki.md
       - name: Cisco Secure Email Gateway
         href: data-connectors/cisco-secure-email-gateway.md
       - name: Cisco Secure Endpoint (AMP) (using Azure Functions)
