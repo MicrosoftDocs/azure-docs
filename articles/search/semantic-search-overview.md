@@ -122,7 +122,7 @@ Alternatively, you can also enable semantic search using the REST API that's des
 To enable Semantic Search using the REST API, you can use the [Create or Update Service API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch).
 
 > [!NOTE]
-> Create or Update supports two HTTP methods: PUT and PATCH. PUT replaces all properties in the service with their defaults if they are not specified in the request. PATCH only replaces properties that are specified in the request. It's possible to accidentally introduce an unexpected scaling or configuration change if PUT is used. It's recommended to use PATCH when enabling semantic search.
+> Create or Update supports two HTTP methods: PUT and PATCH. Both PUT and PATCH can be used to update existing services, but only PUT can be used to create a new service. If PUT is used to update an existing service, it replaces all properties in the service with their defaults if they are not specified in the request. When PATCH is used to update an existing service, it only replaces properties that are specified in the request. When using PUT to update an existing service, it's possible to accidentally introduce an unexpected scaling or configuration change. When enabling semantic search on an existing service, it's recommended to use PATCH instead of PUT.
 
 * Management REST API version 2021-04-01-Preview provides the semantic search property
 
@@ -136,7 +136,6 @@ PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegrou
       }
     }
 ```
-
 
 ## Disable semantic search
 
