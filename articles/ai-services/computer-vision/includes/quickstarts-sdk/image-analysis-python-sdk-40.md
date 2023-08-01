@@ -44,6 +44,8 @@ Use the Image Analysis client SDK for Python to analyze a remote image to read t
     python -m pip install azure-ai-vision
     ```
 
+    For more information, see the [SDK installation guide](../../how-to/install-sdk.md).
+
 1. Copy the following code into *quickstart.py*:
 
 > [!TIP]

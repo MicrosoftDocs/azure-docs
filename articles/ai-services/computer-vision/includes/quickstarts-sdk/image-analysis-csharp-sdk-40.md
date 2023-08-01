@@ -41,7 +41,7 @@ Open Visual Studio, and under **Get started** select **Create a new project**. S
 
 ### Install the client SDK 
 
-Once you've created a new project, install the client SDK by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.Vision.ImageAnalysis`. Select **Install**.
+Once you've created a new project, install the client SDK by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.Vision.ImageAnalysis`. Select **Install**. For more information, see the [SDK installation guide](../../how-to/install-sdk.md).
 
 #### [CLI](#tab/cli)
 
@@ -74,6 +74,8 @@ Within the application directory, install the Azure AI Vision client SDK for .NE
 ```dotnet
 dotnet add package  Azure.AI.Vision.ImageAnalysis --prerelease
 ```
+
+For more information, see the [SDK installation guide](../../how-to/install-sdk.md).
     
 ---
 
