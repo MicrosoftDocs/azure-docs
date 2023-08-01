@@ -191,6 +191,12 @@ Microsoft Defender for Servers Plan 2 provides unique detections and alerts, in 
 |**Unusual user SSH key reset in your virtual machine**<br>(VM_VMAccessUnusualSSHReset)                                                                           | An unusual user SSH key reset was detected in your virtual machine by analyzing the Azure Resource Manager operations in your subscription.<br>While this action may be legitimate, attackers can try utilizing VM Access extension to reset SSH key of a user account in your virtual machine and compromise it.                                                                                                                        | Credential Access                     | Medium   |
 |**Suspicious installation of GPU extension in your virtual machine (Preview)** <br> (VM_GPUDriverExtensionUnusualExecution)                                                                             | Suspicious installation of a GPU extension was detected in your virtual machine by analyzing the Azure Resource Manager operations in your subscription. Attackers may use the GPU driver extension to install GPU drivers on your virtual machine via the Azure Resource Manager to perform cryptojacking.                                                                                                                        | Impact                     | Low   
 
+## Control plane alerts - Defender for Servers
+|Alert (alert type)|Description|MITRE tactics<br>([Learn more](#intentions))|Severity|
+|----|----|:----:|--|
+
+
+
 ## <a name="alerts-azureappserv"></a>Alerts for Azure App Service
 
 [Further details and notes](defender-for-app-service-introduction.md)
