@@ -15,15 +15,41 @@ ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell, devx-track
 
 Azure availability zones are fault-isolated locations within an Azure region that provide redundant power, cooling, and networking. They allow you to run applications with high availability and fault tolerance to data center failures. Azure regions that support Availability Zones have a minimum of three separate zones. Each availability zone consists of one or more data centers equipped with independent infrastructure power, network and cooling. Availability zones are connected by a high-performance network with a round-trip latency of less than 2ms. For more information, see [Overview of Availability Zones](../availability-zones/az-overview.md).
 
-To protect your Virtual Machine Scale Sets from datacenter-level failures, you can create a scale set across Availability Zones. , each with their own independent power source, network, and cooling. 
+To protect your Virtual Machine Scale Sets from datacenter-level failures, you can create a scale set across Availability Zones. 
 
-## Availability considerations
+## Design considerations for availability zones
 
-When you deploy a regional (non-zonal) scale set into one or more zones as of API version *2017-12-01*, you have the following availability options:
+
+Virtual machine scale sets supports 3 zonal deployment models:
+
+- Zone redundant or zone spanning (recommended)
+
+- Zonal or zone aligned (single zone)
+
+- Regional
+
+### Zone redundant or zone spanning 
+
+A zone redundant or zone spanning scale set will spread instances across all selected zones `"zones": ["1","2","3"]`. By default the scale set will perform a best effort approach to evenly spread instances across selected zones, however you can specify that you want strict zone balance by specifying `"zoneBalance": "true"` in your deployment. Each VM and its disks are zonal, so they will be pinned to a specific zone. Instances between zones are connected by high-performance network with low latency. In the event of a zonal outage or connectivity issue, connectivity to instances within the affected zone may be compromised, while instances in other availability zones should be unaffected. You may add capacity to the scale set during a zonal outage, and the scale set will add additonal instances to the unaffected zones. When the zone is restored, you many need to scale down your scale set to the original capacity (or set up autoscale rules to do this automatically based on metrics). 
+
+Spreading instances across availability zones meets the 99.99% SLA for instances spread across availability zones, and is recommended for most workloads in Azure.
+
+### Zonal or zone aligned (single zone)
+
+A zonal or zone aligned scale set will place instances in a single availability zone `"zones": ['1']`. Each VM and its disks are zonal, so they will be pinned to a specific zone. This configuration is primarily used when you need lower latency between instances.
+
+### Regional
+
+A regional VMSS is when the zone assignment is not explicitly set (zones=[] or zones=null). In this configuration, the scale set will create Regional (not-zone pinned) instances and will implicitly place instances throughout the region. There is no guarantee for balance or spread across zones, or that instances will land in the same availability zone. Disk colocation is guaranteed for Ultra and Premium v2 disks, best effort for Premium V1 disks, and not guaranteed for Standard sku (SSD or HDD) disks. 
+
+In the rare case of a full zonal outage, any or all instances within the scale set may be impacted.
+
+### Fault domains and availability zones
+A fault domain a a fault isolation group within an availability zone or datacenter of hardware nodes that share the same power, networking, cooling and platform maintenance schedule. VM instances that are on different fault domains are not likely to be impacted by the same planned or unplanned outage. You can specify how instances are spread across fault domains within a region or zone.
 
 - Max spreading (platformFaultDomainCount = 1)
 - Static fixed spreading (platformFaultDomainCount = 5)
-- Spreading aligned with storage disk fault domains (platformFaultDomainCount = 2 or 3)
+- Spreading aligned with storage disk fault domains (platformFaultDomainCount = 2 or 3, for regional deployments only)
 
 With max spreading, the scale set spreads your VMs across as many fault domains as possible within each zone. This spreading could be across greater or fewer than five fault domains per zone. With static fixed spreading, the scale set spreads your VMs across exactly five fault domains per zone. If the scale set cannot find five distinct fault domains per zone to satisfy the allocation request, the request fails.
 
@@ -35,9 +61,11 @@ With max spreading, the scale set spreads your VMs across as many fault domains 
 ### Placement groups
 
 > [!IMPORTANT]
-> Placement groups only apply to Virtual Machine Scale Sets running in Uniform orchestration mode.
+> Placement groups only apply to Virtual Machine Scale Sets running in Uniform orchestration mode. 
 
 When you deploy a scale set, you also have the option to deploy with a single [placement group](./virtual-machine-scale-sets-placement-groups.md) per Availability Zone, or with multiple per zone. For regional (non-zonal) scale sets, the choice is to have a single placement group in the region or to have multiple in the region. If the scale set property called `singlePlacementGroup` is set to false, the scale set can be composed of multiple placement groups and has a range of 0-1,000 VMs. When set to the default value of true, the scale set is composed of a single placement group, and has a range of 0-100 VMs. For most workloads, we recommend multiple placement groups, which allows for greater scale. In API version *2017-12-01*, scale sets default to multiple placement groups for single-zone and cross-zone scale sets, but they default to single placement group for regional (non-zonal) scale sets.
+
+
 
 > [!NOTE]
 > If you use max spreading, you must use multiple placement groups.
@@ -236,6 +264,9 @@ You can modify a scale to expand the set of zones over which to spread VM instan
 > [!IMPORTANT]
 > Update virtual machine scale sets to add availability zones is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 
+> [!IMPORTANT]
+> Scale sets used with **Service Fabric or Azure Kubernetes Services are not supported for zonal expansion**.
+
 This feature can be used with API version 2023-03-01 or greater.
 
 ### Enable your subscription to use zonal expansion feature
@@ -271,16 +302,13 @@ You can check the registration status of each feature by using:
 ```powershell
 Get-AzProviderPreviewFeature -Name <feature-name> -ProviderNamespace Microsoft.Compute
 ```
+---
 
 ### Expand scale set to use availability zones
 You can update the scale set to scale out instances to one or more additional availability zones, up to the number of availablity zones supported by the region (for regions that support zones, the minimum number of zones is 3). 
 
 > [!IMPORTANT]
 > When you expand the scale set to additionnal zones, the original instances are not migrated or changed. When you scale out, new instances will be created and spread evenly across the selected availability zones. When you scale in the scale set, any regional instances will be priorized for removal first. After that, instances will be removed based on the [scale in policy](virtual-machine-scale-sets-scale-in-policy.md). 
-
-### Expand scale set to use availability zones
-
-You can update the scale set to scale out instances to one or more additional availability zones, up to the number of availablity zones supported by the region (for regions that support zones, the minimum number of zones is 3). 
 
 Expanding to a zonal scale set is done in 3 steps:
 
@@ -294,14 +322,18 @@ Expanding to a zonal scale set is done in 3 steps:
 >This preview allows you to add zones to the scale set. You cannot remove zones once they have been added, or go back to a regional scale set.
 
 In order to prepare for zonal expansion:
-* Ensure that you have enough quota for the VM size in the selected region to handle additional instances. Learn more about [checking and requesting additional quota if needed.](../virtual-machines/quotas.md)
-* Ensure that the VM size and disk types you are using are available in all the desired zones. You can use the [Compute Resources SKUs API](/rest/api/compute/resource-skus/list?tabs=HTTP) to determine which sizes are available in which zones. 
+* Check that you have enough quota for the VM size in the selected region to handle additional instances. Learn more about [checking and requesting additional quota if needed.](../virtual-machines/quotas.md)
+* Check that the VM size and disk types you are using are available in all the desired zones. You can use the [Compute Resources SKUs API](/rest/api/compute/resource-skus/list?tabs=HTTP) to determine which sizes are available in which zones. 
+* Validate that the scale set configuration is valid for zonal scale sets:
+    * platformFaultDomainCount must be set to 1 or 5 (fixed spreading with 2 or 3 fault domains is not supported for zonal deployments)
+    * Capacity reservations are not supported during zone expansion. Once the scale set is fully zonal (no more regional instances), you can add a capacity reservation group to the scale set
+    * Azure Dedicated Host deployments are not supported
 
 #### Update the zones parameter on the scale set
 
 Update the scale set to change the zones parameter.
 
-### [Azure Portal](#tab/portal)
+### [Azure Portal](#tab/portal2)
 
 1. Navigate to the scale set you want to update
 1. On the Properties tab of the scale set landing page, find the Availability zone property and press **Edit**
@@ -340,7 +372,29 @@ PATCH /subscriptions/subscriptionid/resourceGroups/resourcegroupo/providers/Micr
   ]
 }
 ```
+---
 
+#### Add new zonal instances and remove original instances
+
+##### Manually scale out and in
+[Update the capacity](virtual-machine-scale-sets-autoscale-overview.md) of the scale set to add additional instances. The new capacity should be set to the original capacity plus the number of new instances. For example, if your scale set had 5 regional instances, and you would like to scale out so that you have 3 instances in each of 3 zones, you should set the capacity to 14. 
+
+You can update the zones parameter and the scale set capacity in the same ARM template or REST API call.
+
+When you are satisfied that the new instances are ready, scale in your scale set to remove the original regional instances. You can either manually delete the specific regional instances, or scale in by reducing the scale set capacity. When scaling in via reducing scale set capacity, the platform will always prefer removing the regional instances, then follow the scale in policy.
+
+##### Automate with Rolling upgrades + Maxsurge
+With [Rolling upgrades + MaxSurge](virtual-machine-scale-sets-upgrade-policy.md) , new zonal instances are created and brought up-to-date with the latest scale model in batches. Once a batch of new instances are added to the scale set and report as healthy, a batch of old instances are automated removed from the scale set. This continues until all instances are brought up-to-date. 
+
+> [!IMPORTANT]
+> Rolling upgrades with maxsurge is currently under Public Preview. It is only available for VMSS Uniform Orchestration Mode.
+
+#### Preview Known Issues / Limitations
+
+* You cannot remove or replace zones, only add zones
+* platformFaultDomainCount must be set to 1 or 5 (fixed spreading with 2 or 3 fault domains is not supported for zonal deployments)
+* Capacity reservations are not supported during zone expansion. Once the scale set is fully zonal (no more regional instances), you can add a capacity reservation group to the scale set
+* Azure Dedicated Host deployments are not supported  
 
 
 ## Next steps
