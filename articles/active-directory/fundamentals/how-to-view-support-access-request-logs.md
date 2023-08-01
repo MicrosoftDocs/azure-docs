@@ -27,11 +27,9 @@ To access the audit logs for a tenant, you must have one of the following roles:
 - Security Administrator
 - Global Administrator
 
-Only certain Azure Active Directory (Azure AD) roles are authorized to manage Microsoft Support access requests. To manage Microsoft Support access requests, a role must have the permission `microsoft.azure.supportTickets/allEntities/allTasks`. To see which Azure AD roles have this permission, search the [Azure AD built-in roles](../roles/permissions-reference.md) for the required permission.
-
 ## How to access the logs
 
-You can access a filtered view of audit logs for your tenant from the Microsoft Support access requests area. Select **Audit logs** from the side menu to view the logs with the category pre-selected.
+You can access a filtered view of audit logs for your tenant from the Microsoft Support access requests area. Select **Audit logs** from the side menu to view the audit logs with the category pre-selected.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) and navigate to **Diagnose and solve problems**.
 
@@ -45,36 +43,22 @@ You can also access these logs from the Microsoft Entra ID Audit logs. Select **
 
 There are some details associated with support access request audit logs that are helpful to understand. Knowing the difference between the types of request may help when exploring the logs.
 
-Activity logs for Microsoft Support access requests fall into three categories: user-initiated requests, automated requests, and cross-tenant support requests.
+Activity logs for Microsoft Support access requests fall into two categories: user-initiated activities, and automated activities.
 
-### User-initiated requests
+### User-initiated activities
 
-There are three activities that can be associated with a user-initiated Microsoft Support access request:
+There are three user-initiated activities that you can see in your Azure AD audit logs. These are actions requested by administrators of your tenant.
 
-- Approval
-- Rejection
+- Approval of a Microsoft Support access request
+- Rejection of a Microsoft Support access request
 - Manual removal of Microsoft Support access before your support request is closed
 
 ### Automated requests
 
 There are three activities that can be associated with an automated or system-initiated Microsoft Support access request:
 
-- Creation of a support access *request*
-- Creation of a support access *approval*
-- Removal of Microsoft Support access upon closure of your support request
-
-### Cross-tenant requests
-
-There are three activities that can be associated with cross-tenant Microsoft Support access request:
-
-**Support request tenant**:
-- Creation
-- Approval
-- Rejection
-
-**Resource tenant**:
-- Creation of a support access approval
-- Manual removal of Microsoft Support access before your support request is closed
+- Creation of a Microsoft Support access *request* in the support request tenant
+- Creation of a Microsoft Support access *approval* in the resource tenant. This is done automatically after a Microsoft Support access request is approved by a user who is an administrator of both the support request tenant, and the resource tenant
 - Removal of Microsoft Support access upon closure of your support request
 
 ## Next steps
