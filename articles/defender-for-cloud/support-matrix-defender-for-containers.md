@@ -19,9 +19,8 @@ This article summarizes support information for the [Defender for Containers pla
 
 | Feature | Supported Resources | Linux release state | Windows release state   | Agentless/Agent-based | Pricing Tier | Azure clouds availability |
 |--|--|--|--|--|--|--|
-
-| Compliance-Docker CIS | VM, Virtual Machine Scale Set | GA | - | Log Analytics agent | Defender for Servers Plan 2 | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
-| [Vulnerability assessment](defender-for-containers-vulnerability-assessment-azure.md) (powered by Qualys) - registry scan [OS packages](#registries-and-images-support-for-aks---powered-by-qualys) | ACR, Private ACR | GA | Preview | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Microsoft Azure operated by 21Vianet |
+| Compliance-Docker CIS | VM, Virtual Machine Scale Set | GA | - | Log Analytics agent | Defender for Servers Plan 2 | Commercial clouds<br><br> National clouds: Azure Government, Microsoft Azure operated by 21Vianet  |
+| [Vulnerability assessment](defender-for-containers-vulnerability-assessment-azure.md) (powered by Qualys) - registry scan [OS packages](#registries-and-images-support-for-aks---powered-by-qualys) | ACR, Private ACR | GA | Preview | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
 | [Vulnerability assessment](defender-for-containers-vulnerability-assessment-azure.md) (powered by Qualys) -registry scan [language packages](#registries-and-images-support-for-aks---powered-by-qualys) | ACR, Private ACR | Preview | - | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
 | [Vulnerability assessment (powered by Qualys) - running images](defender-for-containers-vulnerability-assessment-azure.md#view-vulnerabilities-for-images-running-on-your-aks-clusters) | AKS | GA | Preview | Defender profile | Defender for Containers | Commercial clouds |
 | [Vulnerability assessment](agentless-container-registry-vulnerability-assessment.md) powered by MDVM - registry scan | ACR, Private ACR | Preview |  | Agentless | Defender for Containers | Commercial clouds |
