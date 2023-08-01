@@ -23,10 +23,10 @@ A direct peering type conversion for a peering connection can only be requested 
 -  Connections must be fully provisioned (Connection State should be set to "Active")
 -  No connection in the peering can be in the process of decommission or device migration
 -  Peering must be represented as an Azure Resource with a valid Subscription
--  Bandwidth updates cannot be requested to other connections in the peering during the conversion
+-  Bandwidth updates can't be requested to other connections in the peering during the conversion
 -  No adding or removing of connections can occur during the conversion
 -  The type conversion will run during the business hours of Pacific Daylight Time.
--  For Voice conversions you will need to be ready to set up BFD as soon as notified as well as configuring the new ip addresses provided through email
+-  For Voice conversions you'll need to be ready to set up BFD as soon as notified as well as configuring the new ip addresses provided through email
 
 > [!NOTE]
 > IF your peering is not currently an Azure Resource please refer to the [legacy subscription conversion document](./howto-legacy-direct-portal.md).
@@ -67,21 +67,21 @@ Connections will go through the TypeChangeRequested state until the type change 
 **A.** We do our absolute best and take various steps to prevent any interruption to service. These steps include:
 -  Guaranteeing a redundant connection with equivalent bandwidth is up at time of conversion.
 -  Performing any conversions one connection at a time.
--  Only bringing down old connections if it is necessary.
+-  Only bringing down old connections if it's necessary.
 -  Only bringing down old connections once the new connection is established 
 -  Only bringing down old connections once the traffic has ceased.
 -  Only preforming conversions at times were engineers are online and capable of assisting in any unlikely issues.  
 
 **Q.** Will I get any emails to follow along with the process?
 
-**A.**You will be kept up to date through emails at the following steps:
+**A.** You'll be kept up to date through emails at the following steps:
 -  Request Received
 -  Request Approved
 -  Session Address Changes (if any)
 -  Conversion complete
 -  Peering Azure Resource removal (if any)
 
-In the case of a request rejection or any action needed by you from our team you will also receive an email
+In the case of a request rejection or any action needed by you from our team you'll also receive an email
 
 **Q.** I have more questions what is a good place to contact you at?
 
