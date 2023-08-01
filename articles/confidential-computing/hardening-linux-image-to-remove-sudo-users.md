@@ -40,8 +40,8 @@ The proposed solution results in a Linux image without sudo users.
 
 Steps to create a generalized image that removes the sudo users are as follows:
 
-1. Download an Ubuntu image from the Marketplace.
-[Azure supported Ubuntu images](/azure/virtual-machines/linux/create-upload-ubuntu)
+1. Download an Ubuntu image.
+[Create a custom image for Azure confidential VM](/azure/confidential-computing/how-to-create-custom-image-confidential-vm)
 
 2. Mount the image.
 
