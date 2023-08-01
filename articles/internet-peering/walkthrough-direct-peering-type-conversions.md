@@ -30,12 +30,8 @@ A direct peering type conversion for a peering connection can only be requested 
 
 > [!NOTE]
 > IF your peering is not currently an Azure Resource please refer to the [legacy subscription conversion document](./howto-legacy-direct-portal.md).
-## Finding the type conversions page
 
-Select the "Configuration" Page under the Settings section of your Peering's Page
-:::image type="content" source="./media/walkthrough-type-conversion/conversionstab.png" alt-text="Screenshot shows how to view Conversions tab in the Azure portal." lightbox="./media/walkthrough-type-conversion/conversionstab.png":::
-
-
+### 1. Configure the new direct peering type
 ## Converting from PNI to Voice
 PNI or MAPS to Voice will be done to all connections as it is done at a peering level.
 
@@ -50,15 +46,34 @@ Select Save
 ## Enabling Peering Service on a Connection
 PNI to MAPS can be done on a connection basis.
 
-Navigate to the Connection tab in order to request conversions to Peering Service on a connection basis
-:::image type="content" source="./media/walkthrough-type-conversion/conversionselection.png" alt-text="Screenshot shows how to select within the Conversions tab in the Azure portal." lightbox="./media/walkthrough-type-conversion/conversionselection.png":::
+Navigate to the Connection tab under settings and click edit on a connection
+:::image type="content" source="./media/walkthrough-type-conversion/viewconnection.png" alt-text="Screenshot shows how to select within the Connections tab in the Azure portal." lightbox="./media/walkthrough-type-conversion/viewconnection.png":::
 
-## What Happens Next
+Then edit the "Use for Peering Service" section to enabled and click Save
+:::image type="content" source="./media/walkthrough-type-conversion/editconnection.png" alt-text="Screenshot shows how to edit a connection." lightbox="./media/walkthrough-type-conversion/editconnection.png":::
+
+### 2. Conversion approval
 Your request will  be approved by a member of our team.
 
 After approval connections will be processed one at a time making sure to keep redundant connection(s) open.
 
-Connections will go through the TypeChangeRequested state until the type change is completed at which point it will return to active
+Connections will go through the TypeChangeRequested state until the type change is approved at which point it will go to TypeChangeInProgress.
+You can see this in the Connection tab in the same location where you selected to edit the connection.
+
+
+### 3. Monitoring the conversion
+While you connection is undergoing conversion its state will be labelled as TypeChangeInProgress.
+
+You'll be kept up to date through emails at the following steps:
+-  Request Received
+-  Request Approved
+-  Session Address Changes (if any)
+-  Conversion complete
+-  Peering Azure Resource removal (if any)
+
+In the case of a request rejection or any action needed by you from our team you'll also receive an email
+
+Once the connection is completed its state will return to Active.
 
 ## FAQ
 
@@ -71,17 +86,6 @@ Connections will go through the TypeChangeRequested state until the type change 
 -  Only bringing down old connections once the new connection is established 
 -  Only bringing down old connections once the traffic has ceased.
 -  Only preforming conversions at times were engineers are online and capable of assisting in any unlikely issues.  
-
-**Q.** Will I get any emails to follow along with the process?
-
-**A.** You'll be kept up to date through emails at the following steps:
--  Request Received
--  Request Approved
--  Session Address Changes (if any)
--  Conversion complete
--  Peering Azure Resource removal (if any)
-
-In the case of a request rejection or any action needed by you from our team you'll also receive an email
 
 **Q.** I have more questions what is a good place to contact you at?
 
