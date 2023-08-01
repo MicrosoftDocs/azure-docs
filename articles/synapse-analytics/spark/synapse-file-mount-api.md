@@ -163,7 +163,7 @@ f.close()
 ``` 
 --->
 
-## Access files under the mount point by using the mssparktutils fs API 
+## Access files under the mount point by using the mssparkutils fs API 
 
 The main purpose of the mount operation is to let customers access the data stored in a remote storage account by using a local file system API. You can also access the data by using the `mssparkutils fs` API with a mounted path as a parameter. The path format used here is a little different. 
 
