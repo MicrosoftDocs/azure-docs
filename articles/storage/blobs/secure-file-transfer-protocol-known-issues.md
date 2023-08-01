@@ -8,7 +8,7 @@ ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 10/20/2022
 ms.author: normesta
-ms.reviewer: ylunagaria
+ms.reviewer: michawil
 
 ---
 
@@ -54,7 +54,8 @@ To transfer files to or from Azure Blob Storage via SFTP clients, see the follow
 | Extensions | Unsupported extensions include but aren't limited to: fsync@openssh.com, limits@openssh.com, lsetstat@openssh.com, statvfs@openssh.com |
 | SSH Commands | SFTP is the only supported subsystem. Shell requests after the completion of key exchange will fail. |
 | Multi-protocol writes | Random writes and appends (`PutBlock`,`PutBlockList`, `GetBlockList`, `AppendBlock`, `AppendFile`)  aren't allowed from other protocols (NFS, Blob REST, Data Lake Storage Gen2 REST) on blobs that are created by using SFTP. Full overwrites are allowed.|
-| Rename Operations | Rename operations where the target file name already exists is a protocol violation. Attempting such an operation will return an error. See [Removing and Renaming Files](https://datatracker.ietf.org/doc/html/draft-ietf-secsh-filexfer-02#section-6.5) for more information.
+| Rename Operations | Rename operations where the target file name already exists is a protocol violation. Attempting such an operation will return an error. See [Removing and Renaming Files](https://datatracker.ietf.org/doc/html/draft-ietf-secsh-filexfer-02#section-6.5) for more information.|
+| Cross Container Operations | Traversing between containers or performing operations on multiple containers from the same connection are unsupported.
 
 ## Authentication and authorization
   
