@@ -502,7 +502,7 @@ Azure Active Directory domain join is now generally available. This service lets
 
 ### Microsoft Azure operated by 21Vianet
 
-Azure Virtual Desktop is now generally available in the Microsoft Azure operated by 21Vianet cloud. For more information, see [our blog post](https://azure.microsoft.com/updates/general-availability-azure-virtual-desktop-is-now-available-in-the-azure-china-cloud/).
+Azure Virtual Desktop is now generally available in the Azure operated by 21Vianet cloud. For more information, see [our blog post](https://azure.microsoft.com/updates/general-availability-azure-virtual-desktop-is-now-available-in-the-azure-china-cloud/).
 
 ### Automatic migration module tool
 
