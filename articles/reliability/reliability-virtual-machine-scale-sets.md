@@ -148,7 +148,7 @@ Virtual machine scale sets supports both zonal and zone-redundant deployments wi
 
 1. To use availability zones, your scale set must be created in a [supported Azure region](./availability-zones-service-support.md).
 
-1. All VMs -even single instance VMs - should be deployed into a scale set using [flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) mode to future-proof your application for scaling and availability. 
+1. All VMs, including single instance VMs, should be deployed into a scale set using [flexible orchestration mode](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) to future-proof your application for scaling and availability. 
 
 
 ### SLA improvements
