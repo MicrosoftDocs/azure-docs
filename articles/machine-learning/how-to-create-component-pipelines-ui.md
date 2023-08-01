@@ -104,7 +104,7 @@ This example uses `train.yml` [in the directory](https://github.com/Azure/azurem
     
 4. Connect the data and components by dragging connections in the canvas.
   
-     :::image type="content" source="./media/how-to-create-component-pipelines-ui/connect.gif" alt-text="Screenshot showing connecting the pipeline." lightbox ="./media/how-to-create-component-pipelines-ui/connect.gif":::
+     :::image type="content" source="./media/how-to-create-component-pipelines-ui/connect.gif" alt-text="Gif showing connecting the pipeline." lightbox ="./media/how-to-create-component-pipelines-ui/connect.gif":::
 
 
 5. Double click one component, you'll see a right pane where you can configure the component.
