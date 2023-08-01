@@ -19,7 +19,7 @@ Welcome to what's new in Azure Active Directory (Azure AD) application managemen
 
 ### New articles
 
-- [Restore revoked permissions granted to applications](restore-permissions.md) - New how-to guide on how to restore previously revoked permissions
+- [Restore revoked permissions granted to applications](restore-permissions.md) - New how-to guide on how to restore previously revoked permissions.
 
 ### Updated articles
 
