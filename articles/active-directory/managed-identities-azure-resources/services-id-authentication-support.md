@@ -4,7 +4,7 @@ description: List of services that support Azure AD authentication
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 02/01/2022
+ms.date: 08/01/2023
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
