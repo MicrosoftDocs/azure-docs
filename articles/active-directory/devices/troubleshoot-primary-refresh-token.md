@@ -128,7 +128,7 @@ STATUS_WRONG_PASSWORD (-1073741718&nbsp;/&nbsp;0xc000006a)</summary>
 - The device received a `400 Bad Request` HTTP error response from one of the following sources:
 
   - The Azure AD authentication service
-  - An endpoint for the [WS-Trust protocol][WS-Trust] (which is required for federated authentication)
+  - An endpoint for the [WS-Trust protocol][WS-Trust] (required for federated authentication)
 
 ##### Solution
 
@@ -136,7 +136,7 @@ STATUS_WRONG_PASSWORD (-1073741718&nbsp;/&nbsp;0xc000006a)</summary>
 
 - Get the server error code and error description, and then go to the [Common server error codes ("AADSTS" prefix)][server-errors] section to find the cause of that server error code and the solution details.
 
-  In the Azure AD operational logs, Event ID 1081 contains the server error code and error description if the error occurs in the Azure AD authentication service. If the error occurs in a WS-Trust endpoint, the server error code and error description are found in Event ID 1088. In the Azure AD analytic logs, the first instance of Event ID 1022 contains the URL that's being accessed.
+  In the Azure AD operational logs, Event ID 1081 contains the server error code and error description if the error occurs in the Azure AD authentication service. If the error occurs in a WS-Trust endpoint, the server error code and error description are found in Event ID 1088. In the Azure AD analytic logs, the first instance of Event ID 1022 (that precedes operational Event IDs 1081 and 1088) contains the URL that's being accessed.
 
   To view Event IDs in the Azure AD operational and analytic logs, refer to the [Method 2: Use Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
 </details>
@@ -149,7 +149,7 @@ STATUS_WRONG_PASSWORD (-1073741718&nbsp;/&nbsp;0xc000006a)</summary>
 The device received a `400 Bad Request` HTTP error response from one of the following sources:
 
 - The Azure AD authentication service
-- An endpoint for the [WS-Trust protocol][WS-Trust] (which is required for federated authentication)
+- An endpoint for the [WS-Trust protocol][WS-Trust] (required for federated authentication)
 
 ##### Solution
 
@@ -170,8 +170,8 @@ STATUS_UNEXPECTED_NETWORK_ERROR (-1073741628&nbsp;/&nbsp;0xc00000c4)</summary>
 - The device received a `4xx` HTTP error response from one of the following sources:
 
   - The Azure AD authentication service
-  - An endpoint for the [WS-Trust protocol][WS-Trust] (which is required for federated authentication)
-- There's a network connectivity issue to a required endpoint.
+  - An endpoint for the [WS-Trust protocol][WS-Trust] (required for federated authentication)
+- A network connectivity issue to a required endpoint exists.
 
 ##### Solution
 
@@ -189,7 +189,7 @@ To view Event IDs in the Azure AD operational and analytic logs, refer to the [M
 
 ##### Cause
 
-The user realm discovery failed, because the Azure AD authentication service can't find the user's domain.
+The user realm discovery failed because the Azure AD authentication service can't find the user's domain.
 
 ##### Solution
 
@@ -197,7 +197,7 @@ The user realm discovery failed, because the Azure AD authentication service can
 
   To view Event IDs in the Azure AD analytic logs, refer to the [Method 2: Use Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
 
-- If the on-premises domain name can't be routed (for example, if the UPN is something like `jdoe@contoso.local`), [configure the Alternate Login ID][alt-login-id] (AltID). (To view the prerequisites, see [Plan your hybrid Azure Active Directory join implementation][hybrid-azure-ad-join-plan].)
+- If the on-premises domain name can't be routed (for example, if the UPN is something such as `jdoe@contoso.local`), [configure the Alternate Login ID][alt-login-id] (AltID). (To view the prerequisites, see [Plan your hybrid Azure Active Directory join implementation][hybrid-azure-ad-join-plan].)
 </details>
 
 #### Common CloudAP plug-in error codes ("AAD_CLOUDAP_E_" prefix, codes that begin with "0xc004")
@@ -228,7 +228,7 @@ The UPN for the user isn't in the expected format. The UPN value varies accordin
 
   If Active Directory is configured with the correct UPN, [collect time travel traces](#time-travel-traces) for the Local Security Authority Subsystem Service (LSASS or *lsass.exe*).
 
-- If the on-premises domain name can't be routed (for example, if the UPN is something like `jdoe@contoso.local`), [configure the Alternate Login ID][alt-login-id] (AltID). (To view the prerequisites, see [Plan your hybrid Azure Active Directory join implementation][hybrid-azure-ad-join-plan].)
+- If the on-premises domain name can't be routed (for example, if the UPN is something such as `jdoe@contoso.local`), [configure the Alternate Login ID][alt-login-id] (AltID). (To view the prerequisites, see [Plan your hybrid Azure Active Directory join implementation][hybrid-azure-ad-join-plan].)
 </details>
 
 <details>
@@ -248,7 +248,7 @@ Make sure that the network proxy doesn't interfere with or modify the server res
 
 ##### Cause
 
-You received an error from the [WS-Trust protocol][WS-Trust] endpoint (which is required for federated authentication).
+You received an error from the [WS-Trust protocol][WS-Trust] endpoint (required for federated authentication).
 
 ##### Solution
 
@@ -270,7 +270,7 @@ The Metadata Exchange (MEX) endpoint is configured incorrectly. The MEX response
 
 - Make sure that the network proxy doesn't interfere with or modify the server response.
 
-- Fix the MEX configuration to return valid URLs in response.
+- Fix the MEX configuration to return valid URLs in the response.
 </details>
 
 <details>
@@ -284,7 +284,7 @@ The Metadata Exchange (MEX) endpoint is configured incorrectly. The MEX response
 
 - Make sure that the network proxy doesn't interfere with or modify the server response.
 
-- Fix the MEX configuration in the identity provider to return valid certificate URLs in response.
+- Fix the MEX configuration in the identity provider to return valid certificate URLs in the response.
 </details>
 
 #### Common XML error codes (codes that begin with "0xc00c")
@@ -294,7 +294,7 @@ The Metadata Exchange (MEX) endpoint is configured incorrectly. The MEX response
 
 ##### Cause
 
-The XML response from the [WS-Trust protocol][WS-Trust] endpoint (which is required for federated authentication) included a document type definition (DTD). The DTD isn't expected in the XML response, and response parsing fails if the DTD is included.
+The XML response from the [WS-Trust protocol][WS-Trust] endpoint (required for federated authentication) included a document type definition (DTD). The DTD isn't expected in the XML response, and response parsing fails if the DTD is included.
 
 ##### Solution
 
@@ -307,7 +307,7 @@ The XML response from the [WS-Trust protocol][WS-Trust] endpoint (which is requi
 
 #### Common server error codes ("AADSTS" prefix)
 
-You can find the full list and description of server error codes in [Azure AD authentication and authorization error codes](../develop/reference-error-codes.md).
+You can find a full list and description of server error codes in [Azure AD authentication and authorization error codes](../develop/reference-error-codes.md).
 
 <details>
 <summary>AADSTS50155: Device authentication failed</summary>
@@ -344,21 +344,21 @@ Azure AD can't find the user account in the tenant.
 
 ##### Cause
 
-- The user entered an incorrect user name or password in the sign-in UI.
+- The user entered an incorrect username or password in the sign-in UI.
 - The password hasn't been synchronized to Azure AD because of the following scenario:
 
   - The tenant has enabled [password hash synchronization](../hybrid/connect/whatis-phs.md).
   - The device is a hybrid Azure AD-joined device.
-  - The user just changed the password.
+  - The user recently changed the password.
 
 ##### Solution
 
-To acquire a fresh PRT that has the new credentials, wait for the Azure AD synchronization to complete.
+To acquire a fresh PRT that has the new credentials, wait for the Azure AD synchronization to finish.
 </details>
 
 #### Common network error codes ("ERROR_WINHTTP_" prefix)
 
-You can find the full list and description of network error codes in [Error messages (Winhttp.h)](/windows/win32/winhttp/error-messages).
+You can find a full list and description of network error codes in [Error messages (Winhttp.h)](/windows/win32/winhttp/error-messages).
 
 <details>
 <summary>ERROR_WINHTTP_TIMEOUT (12002),<br/>
@@ -378,7 +378,7 @@ Common general network-related issues.
 
 - If the on-premises environment requires an outbound proxy, make sure that the computer account of the device can discover and silently authenticate to the outbound proxy.
 
-- Collect network traces by taking the following steps:
+- Collect network traces by following these steps:
 
   > [!IMPORTANT]  
   > Don't use Fiddler during this procedure.
@@ -390,7 +390,7 @@ Common general network-related issues.
      ```
 
   1. Lock the device.
-  1. If the device is a hybrid Azure AD-joined device, wait at least 60 seconds to let the PRT acquisition task complete.
+  1. If the device is a hybrid Azure AD-joined device, wait at least 60 seconds to let the PRT acquisition task finish.
   1. Unlock the device.
   1. Run the following [netsh trace stop](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj129382(v=ws.11)#stop) command:
 
