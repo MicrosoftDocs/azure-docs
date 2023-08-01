@@ -76,17 +76,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
 	a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-	`https://sso.hornbill.com/<INSTANCE_NAME>/live`
-	a.1. If you are deploying the Hornbill Mobile Catalog to your organization, you will need to add an additional identifier URL, as so:
-	`https://sso.hornbill.com/hornbill/mcatalog`
+`https://sso.hornbill.com/<INSTANCE_NAME>/live`
+
+	_NOTE_: If you are deploying the Hornbill Mobile Catalog to your organization, you will need to add an additional identifier URL, as so:
+`https://sso.hornbill.com/hornbill/mcatalog`
     
-	b. In the ** Reply URL (Assertion Consumer Service URL)** section, add the following:
-	`https://<API_SUBDOMAIN>.hornbill.com/<INSTANCE_NAME>/xmlmc/sso/saml2/authorize/user/live`
-   	b.1. If you are deploying the Hornbill Mobile Catalog to your organization, you will need to add an additional identifier URL, as so:
-   	`https://<API_SUBDOMAIN>.hornbill.com/hornbill/xmlmc/sso/saml2/authorize/user/mcatalog`
+	b. In the **Reply URL (Assertion Consumer Service URL)** section, add the following:
+`https://<API_SUBDOMAIN>.hornbill.com/<INSTANCE_NAME>/xmlmc/sso/saml2/authorize/user/live`
+
+	_NOTE_: If you are deploying the Hornbill Mobile Catalog to your organization, you will need to add an additional identifier URL, as so:
+`https://<API_SUBDOMAIN>.hornbill.com/hornbill/xmlmc/sso/saml2/authorize/user/mcatalog`
    
 	c. In the **Sign on URL** text box, type a URL using the following pattern:
-    	`https://live.hornbill.com/<INSTANCE_NAME>/`
+`https://live.hornbill.com/<INSTANCE_NAME>/`
 
 	> [!NOTE]
 	> These values are not real. Update the <INSTANCE_NAME> and <API_SUBDOMAIN> values with the actual values in the Identifier(s), Reply URL(s) and Sign on URL. These values can be retrieved from the Hornbill Solution Center in your Hornbill instance, under **_Your usage > Support_**.  Contact [Hornbill Support](https://www.hornbill.com/support) for assistance in getting these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
