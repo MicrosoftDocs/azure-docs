@@ -81,7 +81,7 @@ OpenCensus Python provided some [configuration](https://github.com/census-instru
 
 In order to provide distributed tracing capabilities for Python applications that call other Python applications within an Azure function, the package [opencensus-extension-azure-functions](https://pypi.org/project/opencensus-extension-azure-functions/) was provided to allow for a connected distributed graph.
 
-Currently, the OpenTelemetry solutions for Azure Monitor don't support this scenario. As a workaround, you can enable the above scenario by manually propagating the trace context in your Azure functions application as shown in the following example.
+Currently, the OpenTelemetry solutions for Azure Monitor don't support this scenario. As a workaround, you can manually propagate the trace context in your Azure functions application as shown in the following example.
 
 ```python
 from opentelemetry.context import attach, detach
