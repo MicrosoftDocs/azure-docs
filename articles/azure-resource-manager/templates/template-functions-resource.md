@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 05/22/2023
+ms.date: 07/31/2023
 ms.custom: ignite-2022, devx-track-arm-template
 ---
 
@@ -603,6 +603,236 @@ The full object is in the following format:
 The following example template references a storage account that isn't deployed in this template. The storage account already exists within the same subscription.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/reference.json":::
+
+
+
+
+
+
+
+
+## references
+
+`reference(symbolic name of the resource collection, [apiVersion], ['Full'])`
+
+Returns an object representing a resource's runtime state.
+
+Bicep provide the reference function, but in most cases, the reference function isn't required. It's recommended to use the symbolic name for the resource instead. See [reference](../bicep/bicep-functions-resource.md#reference).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| Symbolic name of a resource collection |Yes |string |Name or unique identifier of a resource. When referencing a resource in the current template, provide only the resource name as a parameter. When referencing a previously deployed resource or when the name of the resource is ambiguous, provide the resource ID. |
+| 'Full' |No |string |Value that specifies whether to return the full resource object. If you don't specify `'Full'`, only the properties object of the resource is returned. The full object includes values such as the resource ID and location. |
+
+### Return value
+
+Every resource type returns different properties for the reference function. The function doesn't return a single, predefined format. Also, the returned value differs based on the value of the `'Full'` argument. To see the properties for a resource type, return the object in the outputs section as shown in the example.
+
+### Remarks
+
+The reference function retrieves the runtime state of either a previously deployed resource or a resource deployed in the current template. This article shows examples for both scenarios.
+
+Typically, you use the `reference` function to return a particular value from an object, such as the blob endpoint URI or fully qualified domain name.
+
+```json
+"outputs": {
+  "BlobUri": {
+    "type": "string",
+    "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))).primaryEndpoints.blob]"
+  },
+  "FQDN": {
+    "type": "string",
+    "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName'))).dnsSettings.fqdn]"
+  }
+}
+```
+
+Use `'Full'` when you need resource values that aren't part of the properties schema. For example, to set key vault access policies, get the identity properties for a virtual machine.
+
+```json
+{
+  "type": "Microsoft.KeyVault/vaults",
+  "apiVersion": "2019-09-01",
+  "name": "vaultName",
+  "properties": {
+    "tenantId": "[subscription().tenantId]",
+    "accessPolicies": [
+      {
+        "tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')), '2019-03-01', 'Full').identity.tenantId]",
+        "objectId": "[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')), '2019-03-01', 'Full').identity.principalId]",
+        "permissions": {
+          "keys": [
+            "all"
+          ],
+          "secrets": [
+            "all"
+          ]
+        }
+      }
+    ],
+    ...
+```
+
+### Valid uses
+
+The `reference` function can only be used in the outputs section of a template or deployment and properties object of a resource definition. It cannot be used for resource properties such as `type`, `name`, `location` and other top level properties of the resource definition. When used with [property iteration](copy-properties.md), you can use the `reference` function for `input` because the expression is assigned to the resource property.
+
+You can't use the `reference` function to set the value of the `count` property in a copy loop. You can use to set other properties in the loop. Reference is blocked for the count property because that property must be determined before the `reference` function is resolved.
+
+To use the `reference` function or any `list*` function in the outputs section of a nested template, you must set the `expressionEvaluationOptions` to use [inner scope](linked-templates.md#expression-evaluation-scope-in-nested-templates) evaluation or use a linked instead of a nested template.
+
+If you use the `reference` function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed.  You get an error if the `reference` function refers to a resource that doesn't exist. Use the `if` function to make sure the function is only evaluated when the resource is being deployed. See the [if function](template-functions-logical.md#if) for a sample template that uses `if` and `reference` with a conditionally deployed resource.
+
+### Implicit dependency
+
+By using the `reference` function, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template and you refer to the resource by its name (not resource ID). You don't need to also use the `dependsOn` property. The function isn't evaluated until the referenced resource has completed deployment.
+
+### Resource name or identifier
+
+When referencing a resource that is deployed in the same template, provide the name of the resource.
+
+```json
+"value": "[reference(parameters('storageAccountName'))]"
+```
+
+When referencing a resource that isn't deployed in the same template, provide the resource ID and `apiVersion`.
+
+```json
+"value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
+```
+
+To avoid ambiguity about which resource you're referencing, you can provide a fully qualified resource identifier.
+
+```json
+"value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName')))]"
+```
+
+When constructing a fully qualified reference to a resource, the order to combine segments from the type and name isn't simply a concatenation of the two. Instead, after the namespace, use a sequence of *type/name* pairs from least specific to most specific:
+
+`{resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]`
+
+For example:
+
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` is correct
+`Microsoft.Compute/virtualMachines/extensions/myVM/myExt` is not correct
+
+To simplify the creation of any resource ID, use the `resourceId()` functions described in this document instead of the `concat()` function.
+
+### Get managed identity
+
+[Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md) are [extension resource types](../management/extension-resource-types.md) that are created implicitly for some resources. Because the managed identity isn't explicitly defined in the template, you must reference the resource that the identity is applied to. Use `Full` to get all of the properties, including the implicitly created identity.
+
+The pattern is:
+
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>), <API-version>, 'Full').Identity.propertyName]"`
+
+For example, to get the principal ID for a managed identity that is applied to a virtual machine, use:
+
+```json
+"[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')),'2019-12-01', 'Full').identity.principalId]",
+```
+
+Or, to get the tenant ID for a managed identity that is applied to a virtual machine scale set, use:
+
+```json
+"[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
+```
+
+### Reference example
+
+The following example deploys a resource, and references that resource.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/referencewithstorage.json":::
+
+The preceding example returns the two objects. The properties object is in the following format:
+
+```json
+{
+   "creationTime": "2017-10-09T18:55:40.5863736Z",
+   "primaryEndpoints": {
+     "blob": "https://examplestorage.blob.core.windows.net/",
+     "file": "https://examplestorage.file.core.windows.net/",
+     "queue": "https://examplestorage.queue.core.windows.net/",
+     "table": "https://examplestorage.table.core.windows.net/"
+   },
+   "primaryLocation": "southcentralus",
+   "provisioningState": "Succeeded",
+   "statusOfPrimary": "available",
+   "supportsHttpsTrafficOnly": false
+}
+```
+
+The full object is in the following format:
+
+```json
+{
+  "apiVersion":"2022-09-01",
+  "location":"southcentralus",
+  "sku": {
+    "name":"Standard_LRS",
+    "tier":"Standard"
+  },
+  "tags":{},
+  "kind":"Storage",
+  "properties": {
+    "creationTime":"2021-10-09T18:55:40.5863736Z",
+    "primaryEndpoints": {
+      "blob":"https://examplestorage.blob.core.windows.net/",
+      "file":"https://examplestorage.file.core.windows.net/",
+      "queue":"https://examplestorage.queue.core.windows.net/",
+      "table":"https://examplestorage.table.core.windows.net/"
+    },
+    "primaryLocation":"southcentralus",
+    "provisioningState":"Succeeded",
+    "statusOfPrimary":"available",
+    "supportsHttpsTrafficOnly":false
+  },
+  "subscriptionId":"<subscription-id>",
+  "resourceGroupName":"functionexamplegroup",
+  "resourceId":"Microsoft.Storage/storageAccounts/examplestorage",
+  "referenceApiVersion":"2021-04-01",
+  "condition":true,
+  "isConditionTrue":true,
+  "isTemplateResource":false,
+  "isAction":false,
+  "provisioningOperation":"Read"
+}
+```
+
+The following example template references a storage account that isn't deployed in this template. The storage account already exists within the same subscription.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/reference.json":::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## resourceGroup
 
