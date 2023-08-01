@@ -32,13 +32,19 @@ This section walks you through preparing a project to work with the Azure Blob S
 
 ### Install the packages
 
-The `vcpkg install` command will install the Azure Storage Blobs SDK for C++ and necessary dependencies:
+Use the `vcpkg install` command to install the Azure Blob Storage library for C++ and necessary dependencies:
 
 ```console
-vcpkg.exe install azure-storage-blobs-cpp:x64-windows
+vcpkg.exe install azure-storage-blobs-cpp
 ```
 
-For more information, visit GitHub to acquire and build the [Azure SDK for C++](https://github.com/Azure/azure-sdk-for-cpp/).
+The Azure Identity library is needed for passwordless connections to Azure services:
+
+```console
+vcpkg.exe install azure-identity-cpp
+```
+
+For more information on project setup and working with the Azure SDK for C++, see the [Azure SDK for C++ readme](https://github.com/Azure/azure-sdk-for-cpp#azure-sdk-for-c).
 
 ### Create the project
 
@@ -72,7 +78,7 @@ Use these C++ classes to interact with these resources:
 These example code snippets show you how to do the following tasks with the Azure Blob Storage client library for C++:
 
 - [Add include files](#add-include-files)
-- [Get the connection string](#get-the-connection-string)
+- [Authenticate to Azure and authorize access to blob data](#authenticate-to-azure-and-authorize-access-to-blob-data)
 - [Create a container](#create-a-container)
 - [Upload blobs to a container](#upload-blobs-to-a-container)
 - [List the blobs in a container](#list-the-blobs-in-a-container)
@@ -90,13 +96,90 @@ From the project directory:
 
 :::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" ID="Snippet_Includes":::
 
-### Get the connection string
+### Authenticate to Azure and authorize access to blob data
 
-The code below retrieves the connection string for your storage account from the environment variable created in [Configure your storage connection string](#configure-your-storage-connection-string).
+[!INCLUDE [storage-quickstart-passwordless-auth-intro](../../../includes/storage-quickstart-passwordless-auth-intro.md)]
 
-Add this code inside `main()`:
+### [Passwordless (Recommended)](#tab/managed-identity)
+
+`DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
+
+The order and locations in which `DefaultAzureCredential` looks for credentials can be found in the [Azure Identity library overview](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/README.md#defaultazurecredential).
+
+For example, your app can authenticate using your Azure CLI sign-in credentials with when developing locally. Your app can then use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) once it has been deployed to Azure. No code changes are required for this transition.
+
+#### Assign roles to your Azure AD user account
+
+[!INCLUDE [assign-roles](../../../includes/assign-roles.md)]
+
+#### Sign in and connect your app code to Azure using DefaultAzureCredential
+
+You can authorize access to data in your storage account using the following steps:
+
+1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your storage account. You can authenticate via Azure CLI.
+
+    #### [Azure CLI](#tab/sign-in-azure-cli)
+
+    Sign-in to Azure through the Azure CLI using the following command:
+
+    ```azurecli
+    az login
+    ```
+
+2. To use `DefaultAzureCredential`, make sure that the **azure-identity-cpp** package is [installed](#install-the-packages) and the following `#include` is added:
+
+    ```cpp
+    #include <azure/identity/default_azure_credential.hpp>
+    ```
+
+3. Add this code to the end of `main()`. When the code runs on your local workstation, `DefaultAzureCredential` uses the developer credentials of the prioritized tool you're logged into to authenticate to Azure. Examples of these tools include Azure CLI or Visual Studio Code.
+
+    :::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/blob-quickstart.py" id="Snippet_CreateServiceClientDAC":::
+
+4. Make sure to update the storage account name in the URI of your `BlobServiceClient` object. The storage account name can be found on the overview page of the Azure portal.
+
+    :::image type="content" source="./media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="A screenshot showing how to find the storage account name.":::
+
+    > [!NOTE]
+    > When deployed to Azure, this same code can be used to authorize requests to Azure Storage from an application running in Azure. However, you'll need to enable managed identity on your app in Azure. Then configure your storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/azure/developer/python/sdk/authentication-azure-hosted-apps) tutorial.
+
+### [Connection String](#tab/connection-string)
+
+A connection string includes the storage account access key and uses it to authorize requests. Always be careful to never expose the keys in an unsecure location.
+
+> [!NOTE]
+> To authorize data access with the storage account access key, you'll need permissions for the following Azure RBAC action: [Microsoft.Storage/storageAccounts/listkeys/action](../../role-based-access-control/resource-provider-operations.md#microsoftstorage). The least privileged built-in role with permissions for this action is [Reader and Data Access](../../role-based-access-control/built-in-roles.md#reader-and-data-access), but any role which includes this action will work.
+
+[!INCLUDE [retrieve credentials](../../../includes/retrieve-credentials.md)]
+
+#### Configure your storage connection string
+
+After you copy the connection string, write it to a new environment variable on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `<yourconnectionstring>` with your actual connection string.
+
+**Windows**:
+
+```cmd
+setx AZURE_STORAGE_CONNECTION_STRING "<yourconnectionstring>"
+```
+
+After you add the environment variable in Windows, you must start a new instance of the command window.
+
+**Linux**:
+
+```bash
+export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
+```
+
+The following code example retrieves the connection string for the storage account from the environment variable created earlier, and uses the connection string to construct a service client object.
+
+Add this code to the end of `main()`:
 
 :::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" ID="Snippet_ConnectionString":::
+
+> [!IMPORTANT]
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
+
+---
 
 ### Create a container
 
@@ -113,7 +196,7 @@ Add this code to the end of `main()`:
 
 The following code snippet:
 
-1. Declares a string containing "Hello Azure!".
+1. Declares a string containing "Hello Azure!"
 1. Gets a reference to a [BlockBlobClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_block_blob_client.html) object by calling [GetBlockBlobClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html#acd8c68e3f37268fde0010dd478ff048f) on the container from the [Create a container](#create-a-container) section.
 1. Uploads the string to the blob by calling the [​Upload​From](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_block_blob_client.html#af93af7e37f8806e39481596ef253f93d) function. This function creates the blob if it doesn't already exist, or updates it if it does.
 
