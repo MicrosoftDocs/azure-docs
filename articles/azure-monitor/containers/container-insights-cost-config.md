@@ -124,7 +124,7 @@ Container insights Collected Data can be customized through the Azure portal, us
 | Workloads, Deployments, and HPAs | InsightsMetrics, KubePodInventory, KubeEvents, ContainerInventory, ContainerNodeInventory, KubeNodeInventory, KubeServices | |
 | Persistent Volumes | InsightsMetrics, KubePVInventory | |
 
-[![Screenshot that shows the collected data options.](media/container-insights-cost-config/cost-profiles-options.png)](media/container-insights-cost-config/collected-data-options.png#lightbox)
+[![Screenshot that shows the collected data options.](media/container-insights-cost-config/collected-data-options.png)](media/container-insights-cost-config/collected-data-options.png#lightbox)
 
 ## Configuring AKS data collection settings using Azure CLI
 
