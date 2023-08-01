@@ -72,7 +72,7 @@ You also need the following to use Document Intelligence containers:
 |**Azure CLI (command-line interface)** | The [Azure CLI](/cli/azure/install-azure-cli) enables you to use a set of online commands to create and manage Azure resources. It's available to install in Windows, macOS, and Linux environments and can be run in a Docker container and Azure Cloud Shell. |
 
 :::moniker range="doc-intel-2.1.0"
-You also need a **Azure AI Vision API resource to process business cards, ID documents, or Receipts**.
+You also need an **Azure AI Vision API resource to process business cards, ID documents, or Receipts**.
 
 * You can access the Recognize Text feature as either an Azure resource (the REST API or SDK) or a **cognitive-services-recognize-text** [container](../../../ai-services/Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image).
 
@@ -90,7 +90,7 @@ You also need a **Azure AI Vision API resource to process business cards, ID doc
 
 ## Request approval to run container
 
-Complete and submit the [**Azure AI services Application for Gated Services**](https://aka.ms/csgate) to request access to the container.
+Complete and submit the [**Azure AI services application for Gated Services**](https://aka.ms/csgate) to request access to the container.
 
 [!INCLUDE [Request access to public preview](../../../../includes/cognitive-services-containers-request-access.md)]
 

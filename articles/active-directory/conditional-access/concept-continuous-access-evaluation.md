@@ -154,8 +154,8 @@ Customers who have configured CAE settings under Security before have to migrate
 :::image type="content" source="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png" alt-text="Portal view showing the option to migrate continuous access evaluation to a Conditional Access policy." lightbox="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png":::
 
 1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator. 
-1.	Browse to **Azure Active Directory** > **Security** > **Continuous access evaluation**. 
-1.	You have the option to **Migrate** your policy. This action is the only one that you have access to at this point.
+1. Browse to **Azure Active Directory** > **Security** > **Continuous access evaluation**. 
+1. You have the option to **Migrate** your policy. This action is the only one that you have access to at this point.
 1. Browse to **Conditional Access** and you find a new policy named **Conditional Access policy created from CAE settings** with your settings configured. Administrators can choose to customize this policy or create their own to replace it.
 
 The following table describes the migration experience of each customer group based on previously configured CAE settings. 
@@ -202,11 +202,11 @@ Networks where egress IP addresses may change frequently or are shared may affec
 
 The following table summarizes Conditional Access and CAE feature behaviors and recommendations for different types of network deployments: 
 
-| Network Type | Example | IPs seen by Azure AD | IPs seen by RP | Applicable CA Configuration (Trusted Named Location) | CAE enforcement | CAE access token | Recommendations |
+| Network Type | Example | IPs seen by Azure AD | IPs seen by RP | Applicable Conditional Access Configuration (Trusted Named Location) | CAE enforcement | CAE access token | Recommendations |
 |---|---|---|---|---|---|---|---|
-| 1. Egress IPs are dedicated and enumerable for both Azure AD and all RPs traffic | All to network traffic to Azure AD and RPs egresses through 1.1.1.1 and/or 2.2.2.2 | 1.1.1.1 | 2.2.2.2 | 1.1.1.1 <br> 2.2.2.2 | Critical Events <br> IP location Changes | Long lived – up to 28 hours | If CA Named Locations are defined, ensure that they contain all possible egress IPs (seen by Azure AD and all RPs) |
+| 1. Egress IPs are dedicated and enumerable for both Azure AD and all RPs traffic | All to network traffic to Azure AD and RPs egresses through 1.1.1.1 and/or 2.2.2.2 | 1.1.1.1 | 2.2.2.2 | 1.1.1.1 <br> 2.2.2.2 | Critical Events <br> IP location Changes | Long lived – up to 28 hours | If Conditional Access Named Locations are defined, ensure that they contain all possible egress IPs (seen by Azure AD and all RPs) |
 | 2. Egress IPs are dedicated and enumerable for Azure AD, but not for RPs traffic | Network traffic to Azure AD egresses through 1.1.1.1. RP traffic egresses through x.x.x.x | 1.1.1.1 | x.x.x.x | 1.1.1.1 | Critical Events | Default access token lifetime – 1 hour | Don't add non dedicated or nonenumerable egress IPs (x.x.x.x) into Trusted Named Location Conditional Access rules as it can weaken security |
-| 3. Egress IPs are non-dedicated/shared or not enumerable for both Azure AD and RPs traffic | Network traffic to Azure AD egresses through y.y.y.y. RP traffic egresses through x.x.x.x | y.y.y.y | x.x.x.x | N/A -no IP CA policies/Trusted Locations configured | Critical Events | Long lived – up to 28 hours | Don't add non dedicated or nonenumerable egress IPs (x.x.x.x/y.y.y.y) into Trusted Named Location CA rules as it can weaken security |
+| 3. Egress IPs are non-dedicated/shared or not enumerable for both Azure AD and RPs traffic | Network traffic to Azure AD egresses through y.y.y.y. RP traffic egresses through x.x.x.x | y.y.y.y | x.x.x.x | N/A -no IP Conditional Access policies/Trusted Locations configured | Critical Events | Long lived – up to 28 hours | Don't add non dedicated or nonenumerable egress IPs (x.x.x.x/y.y.y.y) into Trusted Named Location Conditional Access rules as it can weaken security |
 
 Networks and network services used by clients connecting to identity and resource providers continue to evolve and change in response to modern trends. These changes may affect Conditional Access and CAE configurations that rely on the underlying IP addresses. When deciding on these configurations, factor in future changes in technology and upkeep of the defined list of addresses in your plan.
 

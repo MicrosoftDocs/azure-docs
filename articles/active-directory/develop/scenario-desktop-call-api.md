@@ -85,7 +85,7 @@ let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) { (data: D
 task.resume()
 ```
 
-## Call several APIs: Incremental consent and conditional access
+## Call several APIs: Incremental consent and Conditional Access
 
 To call several APIs for the same user, after you get a token for the first API, call `AcquireTokenSilent`. You'll get a token for the other APIs silently most of the time.
 

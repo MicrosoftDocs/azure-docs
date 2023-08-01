@@ -118,7 +118,7 @@ Locate the installer files for the server’s operating system using the followi
 
    ```cmd
 
-    .\UnifiedAgentInstaller.exe /Platform vmware /Silent /Role MS /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery"
+    .\UnifiedAgentInstaller.exe /Platform vmware /Silent /Role MS /CSType CSPrime /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery"
    ```
     Once the installation is complete, copy the string that is generated alongside the parameter *Agent Config Input*. This string is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file).
 
