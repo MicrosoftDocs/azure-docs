@@ -18,7 +18,9 @@ ms.custom: developer, devx-track-js
 
 # Sign in users in a Node.js CLI application - Prepare app
 
-In this article, you learn how to add sign-in functionality to a Node.js CLI application that signs in users. The client application you build uses the [OAuth 2.0 Authorization Code Flow](../../v2-oauth2-auth-code-flow.md) with Proof Key for Code Exchange (PKCE) for secure user authentication.
+In this article, you create a Node.js CLI application that signs in users. The client application you build uses the [OAuth 2.0 Authorization Code Flow](../../develop/v2-oauth2-auth-code-flow.md) with Proof Key for Code Exchange (PKCE) for secure user authentication.
+
+In this tutorial, you'll: 
 
 > [!div class="checklist"]
 >
@@ -26,7 +28,7 @@ In this article, you learn how to add sign-in functionality to a Node.js CLI app
 > - Install app dependencies
 > - Create the MSAL configuration object
 
-Here, you build a new Node.js CLI app from scratch. If you prefer using a completed code sample for learning, download the [sample Node.js browserless application](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/archive/refs/heads/main.zip) from GitHub.
+Here, you build a new Node.js CLI app from scratch. If you prefer using a completed code sample for learning, download the [sample Node.js CLI application](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/archive/refs/heads/main.zip) from GitHub.
 
 ## Prerequisites
 
@@ -45,7 +47,7 @@ To build the Node.js CLI application from scratch, follow these steps:
 1. In your terminal, navigate to your project directory, such as `cd ciam-sign-in-node-cli-app` and initialize your project using `npm init` 
  This creates a `package.json` file in your project folder, which contains references to all npm packages. 
 
-1. In your project root directory, create two files named *authConfig.js* and *index.js*. The *authConfig.js* file contains the authentication configuration parameters while *index.js* holds the application authentication logic. 
+1. In your project root directory, create two files named *authConfig.js* and *index.js*. The *authConfig.js* file contains the authentication configuration parameters while *index.js* holds the app's authentication logic. 
 
  After creating the files, you should achieve the following project structure:
 
@@ -62,6 +64,12 @@ The application you build uses MSAL Node to sign in users. To install the MSAL N
 
 ```powershell
     npm install @azure/msal-node   
+```
+
+You'll also install the `open` package that allows your Node.js app to open URLs in the web browser. 
+
+```powershell
+npm install open
 ```
 
 ## Create the MSAL configuration object

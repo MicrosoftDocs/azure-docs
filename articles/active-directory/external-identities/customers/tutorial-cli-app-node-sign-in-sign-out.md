@@ -18,8 +18,9 @@ ms.custom: developer, devx-track-js
 
 # Authenticate users in a Node.js CLI application - Build app 
 
-To sign in users in a Node.js browserless application, you implement the authorization code flow by following these steps:
+To sign in users in a Node.js CLI application, you implement the authorization code flow by following these steps:
 
+In this article, the last of a three-part tutorial, you'll: 
 
 > [!div class="checklist"]
 >
@@ -129,19 +130,9 @@ acquireToken()
 
 If the call to `acquireToken()` is successful, the response, which contains an access token, is logged to the console. If there's an error during authentication, the error is logged, and the process exits with an error code.
 
-## Configure the Node.js CLI application 
-
-To configure the client application you built to use your Microsoft Entra app registration details, follow these steps:
-
-1. Open the `App\authConfig.js` file.
-1. Find the placeholder:
-
-    -  `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `node-cli-app` application copied from the Microsoft Entra admin center.
-    - `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is *contoso.onmicrosoft.com*, use *contoso*.
-
 ## Run and test the sample Node.js CLI application
 
-You can now test the Node.js CLI application you completed building.
+To run and test your Node.js CLI application, ensure you've replaced the placeholder values in the *authConfig.js* file with your Microsoft Entra app registration details. You can now test the application you built by following these steps:
 
 1. In your terminal, run the following command:
 
@@ -162,10 +153,9 @@ You can now test the Node.js CLI application you completed building.
 
 1. Move back to the terminal and see your authentication information including the ID token claims returned by Microsoft Entra.
 
-
 ## Next steps 
 
 Learn how to: 
 
-- [Enable password reset](how-to-enable-password-reset-customers.md).
+- [Enable password reset](how-to-enable-password-reset-customers.md)
 - [Customize branding for your sign-in experience](./how-to-customize-branding-customers.md)
