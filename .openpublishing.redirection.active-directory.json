@@ -256,6 +256,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/fundamentals/concept-fundamentals-security-defaults.md",
+      "redirect_url": "/azure/active-directory/fundamentals/security-defaults",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/fundamentals/10-secure-local-guest.md",
       "redirect_url": "/azure/active-directory/architecture/10-secure-local-guest",
       "redirect_document_id": true

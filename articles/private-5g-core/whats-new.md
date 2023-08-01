@@ -1,11 +1,11 @@
 ---
 title: What's new in Azure Private 5G Core?
 description: Discover what's new in Azure Private 5G Core
-author: robswain
-ms.author: robswain
+author: paulcarter
+ms.author: paulcarter
 ms.service: private-5g-core
 ms.topic: how-to 
-ms.date: 05/31/2023
+ms.date: 07/31/2023
 ---
 
 # What's new in Azure Private 5G Core?
