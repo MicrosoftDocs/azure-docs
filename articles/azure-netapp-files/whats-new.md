@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.custom: devx-track-linux
 ms.topic: overview
-ms.date: 07/26/2023
+ms.date: 08/01/2023
 ms.author: anfdocs
 ---
 
@@ -21,7 +21,7 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-## July 2023 
+## August 2023 
 
 * [Moving volumes from *manual* QoS capacity pool to *auto* QoS capacity pool](dynamic-change-volume-service-level.md)   
 
