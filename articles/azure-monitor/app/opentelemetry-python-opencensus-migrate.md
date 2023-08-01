@@ -9,19 +9,21 @@ ms.reviewer: mmcc
 ---
 # Migrating from OpenCensus Python SDK and Azure Monitor OpenCensus exporter for Python to Azure Monitor OpenTelemetry Python Distro
 
+[OpenCensus is deprecated](https://opentelemetry.io/blog/2023/sunsetting-opencensus) and the repositories are archived.
+
 Follow these steps to migrate Python applications to the [Azure Monitor](../overview.md) [Application Insights](./app-insights-overview.md) [OpenTelemetry Distro](./opentelemetry-enable.md?tabs=python).
 
 > [!WARNING]
 > - The [OpenCensus "How to Migrate to OpenTelemetry" blog](https://opentelemetry.io/blog/2023/sunsetting-opencensus/#how-to-migrate-to-opentelemetry) is not applicable to Azure Monitor users.
-> - The [OpenTelemetry OpenCensus shim](https://pypi.org/project/opentelemetry-opencensus-shim/) is not supported by Microsoft.
+> - The [OpenTelemetry OpenCensus shim](https://pypi.org/project/opentelemetry-opencensus-shim/) is not recommended or supported by Microsoft.
+> - The following outlines the only migration plan for Azure Monitor customers.
 
 ## Step 1: Uninstall OpenCensus libraries
 
 Uninstall all libraries related to OpenCensus, including all Pypi packages that start with `opencensus-*`.
 
 ```
-pip freeze | grep opencensus- | xargs pip uninstall -y
-...
+pip freeze | grep opencensus | xargs pip uninstall -y
 ```
 
 ## Step 2: Remove OpenCensus from your code
@@ -44,17 +46,20 @@ from opencensus.trace.tracer import Tracer
 from opencensus.ext.azure.log_exporter import AzureLogHandler
 ```
 
-## Step 3: Set up the Azure Monitor OpenTelemetry Distro
-
-Follow the [getting started](./opentelemetry-enable.md?tabs=python#get-started)
-page to onboard onto the Azure Monitor OpenTelemetry Distro.
-
-## Step 4: Familiarize yourself with OpenTelemetry Python APIs/SDKs
+## Step 3: Familiarize yourself with OpenTelemetry Python APIs/SDKs
 
 The following documentation provides prerequisite knowledge of the OpenTelemetry Python APIs/SDKs.
 
  - OpenTelemetry Python [documentation](https://opentelemetry-python.readthedocs.io/en/stable/)
  - Azure Monitor Distro documentation on [configuration](./opentelemetry-configuration.md?tabs=python) and [telemetry](./opentelemetry-add-modify.md?tabs=python)
+
+> [!NOTE]
+> OpenTelemetry Python and OpenCensus Python have different API surfaces, autocollection capabilities, and onboarding instructions.
+
+## Step 4: Set up the Azure Monitor OpenTelemetry Distro
+
+Follow the [getting started](./opentelemetry-enable.md?tabs=python#get-started)
+page to onboard onto the Azure Monitor OpenTelemetry Distro.
 
 ## Changes and limitations
 
