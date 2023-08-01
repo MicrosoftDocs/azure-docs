@@ -96,10 +96,12 @@
           href: howto-client-certificate.md
         - name: Custom domain
           href: howto-custom-domain.md
-    - name: Scale
+    - name: Scale and geo-replicate
       items:
         - name: Autoscale
           href: howto-scale-autoscale.md
+        - name: Geo-replication
+          href: howto-enable-geo-replication.md
     - name: Integrate
       items: 
         - name: App Service

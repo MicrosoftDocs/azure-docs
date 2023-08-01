@@ -343,7 +343,7 @@ This procedure shows how to create a new workbook using the quickstart template.
 
 ## Add a query to a workbook template
 
-This procedure shows how to add a query to an existing workbook template. The example is based on a query that shows the distribution of conditional access success to failures.
+This procedure shows how to add a query to an existing workbook template. The example is based on a query that shows the distribution of Conditional Access success to failures.
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
@@ -356,7 +356,7 @@ This procedure shows how to add a query to an existing workbook template. The ex
 
     ![Screenshot shows Monitoring in the menu with Workbooks selected.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
-4. In the **conditional access** section, click **Conditional Access Insights and Reporting**.
+4. In the **Conditional Access** section, click **Conditional Access Insights and Reporting**.
 
     ![Screenshot shows the Conditional Access Insights and Reporting option.](./media/tutorial-log-analytics-wizard/conditional-access-template.png)
 
