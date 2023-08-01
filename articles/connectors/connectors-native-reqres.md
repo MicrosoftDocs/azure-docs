@@ -350,8 +350,6 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
    >
    > If you want to include the hash or pound symbol (**#**) in the URI
    > when making a call to the Request trigger, use this encoded version instead: `%25%23`
-
-   > [!NOTE]
    >
    > The URL for the Request trigger is associated with your workflow's storage account. This URL 
    > changes if the storage account changes. For example, with Standard logic apps, if you manually 
