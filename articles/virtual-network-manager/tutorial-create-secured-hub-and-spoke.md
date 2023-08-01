@@ -5,8 +5,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: tutorial
-ms.date: 04/14/2023
-ms.custom: FY23 content-maintenance, engagement-FY23
+ms.date: 08/01/2023
+ms.custom: FY23 content-maintenance, engagement-FY24
 ---
 
 # Tutorial: Create a secured hub and spoke network
