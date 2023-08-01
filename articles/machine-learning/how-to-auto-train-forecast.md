@@ -466,7 +466,7 @@ The table shows resulting feature engineering that occurs when window aggregatio
 
 ![target rolling window](./media/how-to-auto-train-forecast/target-roll.svg)
 
-You can enable lag and rolling window aggregation features by setting the rolling window size, which was three in the previous example, and the lag orders you wish to create. In the following sample, we set both of these settings to `auto` so that AutoML will automatically determine these values by analyzing the correlation structure of your data:
+You can enable lag and rolling window aggregation features for the target by setting the rolling window size, which was three in the previous example, and the lag orders you want to create. You can also enable lags for features with the `feature_lags` setting. In the following sample, we set all of these settings to `auto` so that AutoML will automatically determine settings by analyzing the correlation structure of your data:
 
 # [Python SDK](#tab/python)
 
@@ -474,7 +474,8 @@ You can enable lag and rolling window aggregation features by setting the rollin
 forecasting_job.set_forecast_settings(
     ...,  # other settings
     target_lags='auto', 
-    target_rolling_window_size='auto'
+    target_rolling_window_size='auto',
+    feature_lags='auto'
 )
 ```
 
@@ -486,6 +487,7 @@ forecasting_job.set_forecast_settings(
 forecasting:
     target_lags: auto
     target_rolling_window_size: auto
+    feature_lags: auto
     # other settings
 ```
 
@@ -500,7 +502,7 @@ AutoML has several actions it can take for short series. These actions are confi
 |Setting|Description
 |---|---
 |`auto`| The default value for short series handling. <br> - _If all series are short_, pad the data. <br> - _If not all series are short_, drop the short series. 
-|`pad`| If `short_series_handling_config = pad`, then automated ML adds random values to each short series found. The following lists the column types and what they're padded with: <br> - Object columns with NaNs <br> - Numeric columns  with 0 <br> - Boolean/logic columns with False <br> - The target column is padded with random values with mean of zero and standard deviation of 1. 
+|`pad`| If `short_series_handling_config = pad`, then automated ML adds random values to each short series found. The following lists the column types and what they're padded with: <br> - Object columns with NaNs <br> - Numeric columns  with 0 <br> - Boolean/logic columns with False <br> - The target column is padded with white noise. 
 |`drop`| If `short_series_handling_config = drop`, then automated ML drops the short series, and it will not be used for training or prediction. Predictions for these series will return NaN's.
 |`None`| No series is padded or dropped
 
@@ -528,7 +530,7 @@ forecasting:
 ---
 
 >[!WARNING]
->Padding may impact the accuracy of the resulting model, since we are introducing artificial data just to get past training without failures. If many of the series are short, then you may also see some impact in explainability results
+>Padding may impact the accuracy of the resulting model, since we are introducing artificial data to avoid training failures. If many of the series are short, then you may also see some impact in explainability results
 
 #### Frequency & target data aggregation
 
@@ -792,7 +794,7 @@ ml_client_metrics_registry = MLClient(
 
 # Get an inference component from the registry
 inference_component = ml_client_registry.components.get(
-    name="forecasting_model_inference",
+    name="automl_forecasting_inference",
     label="latest"
 )
 
@@ -968,7 +970,7 @@ jobs:
     # Configure the inference node to make rolling forecasts on the test set
     inference_node:
         type: command
-        component: azureml://registries/azureml-preview/components/automl_forecasting_inference@latest
+        component: azureml://registries/azureml-preview/components/automl_forecasting_inference
         inputs:
             target_column_name: ${{parent.inputs.target_column_name}}
             forecast_mode: rolling
@@ -983,7 +985,7 @@ jobs:
     # Configure the metrics calculation node
     compute_metrics:
         type: command
-        component: azureml://registries/azureml/compute_metrics@latest
+        component: azureml://registries/azureml/compute_metrics
         inputs:
             task: "tabular-forecasting"
             ground_truth: ${{parent.jobs.inference_node.outputs.inference_output_file}}
@@ -998,7 +1000,7 @@ Note that AutoML requires training data in [MLTable format](#training-and-valida
 Now, you launch the pipeline run using the following command, assuming the pipeline configuration is at the path `./automl-forecasting-pipeline.yml`:
 
 ```azurecli
-run_id=$(az ml job create --file automl-forecasting-pipeline.yml)
+run_id=$(az ml job create --file automl-forecasting-pipeline.yml -w <Workspace> -g <Resource Group> --subscription <Subscription>)
 ```
 
 ---
@@ -1083,12 +1085,12 @@ Next, we define a factory function that creates pipelines for orchestration of m
 
 Parameter|Description
 --|--
-**instance_count** | Number of compute nodes to use in the training job 
-**max_concurrency_per_instance** | Number of AutoML processes to run on each node. Hence, the total concurrency of a many models jobs is `instance_count * max_concurrency_per_instance`. 
-**prs_step_timeout_in_seconds** | Many models component timeout given in number of seconds.
-**enable_event_logger** | Flag to enable event logging.
+**max_nodes** | Number of compute nodes to use in the training job 
+**max_concurrency_per_node** | Number of AutoML processes to run on each node. Hence, the total concurrency of a many models jobs is `max_nodes * max_concurrency_per_node`. 
+**parallel_step_timeout_in_seconds** | Many models component timeout given in number of seconds.
 **retrain_failed_models** | Flag to enable re-training for failed models. This is useful if you've done previous many models runs that resulted in failed AutoML jobs on some data partitions. When this flag is enabled, many models will only launch training jobs for previously failed partitions.
-**forecast_mode** | Inference mode for model evaluation. Valid values are `"recursive"` and "`rolling`". See the [model evaluation article](concept-automl-forecasting-evaluation.md) for more information.   
+**forecast_mode** | Inference mode for model evaluation. Valid values are `"recursive"` and "`rolling`". See the [model evaluation article](concept-automl-forecasting-evaluation.md) for more information.
+**forecast_step** | Step size for rolling forecast. See the [model evaluation article](concept-automl-forecasting-evaluation.md) for more information.   
 
 The following sample illustrates a factory method for constructing many models training and model evaluation pipelines:
 
@@ -1132,31 +1134,33 @@ def many_models_train_evaluate_factory(
     train_data_input,
     test_data_input,
     automl_config_input,
-    max_concurrency_per_instance=4,
-    prs_step_timeout=3700,
-    instance_count=4,
-    enable_event_logger=True,
+    compute_name,
+    max_concurrency_per_node=4,
+    parallel_step_timeout_in_seconds=3700,
+    max_nodes=4,
     retrain_failed_model=False,
-    forecast_mode="rolling"
+    forecast_mode="rolling",
+    forecast_step=1
 ):
     mm_train_node = mm_train_component(
         raw_data=train_data_input,
         automl_config=automl_config_input,
-        max_concurrency_per_instance=max_concurrency_per_instance,
-        prs_step_timeout_in_seconds=prs_step_timeout,
-        instance_count=instance_count,
-        enable_event_logger=enable_event_logger,
-        retrain_failed_model=retrain_failed_model
+        max_nodes=max_nodes,
+        max_concurrency_per_node=max_concurrency_per_node,
+        parallel_step_timeout_in_seconds=parallel_step_timeout_in_seconds,
+        retrain_failed_model=retrain_failed_model,
+        compute_name=compute_name
     )
 
     mm_inference_node = mm_inference_component(
         raw_data=test_data_input,
-        enable_event_logger=enable_event_logger,
-        instance_count=instance_count,
-        max_concurrency_per_instance=max_concurrency_per_instance,
-        prs_step_timeout=prs_step_timeout,
+        max_nodes=max_nodes,
+        max_concurrency_per_node=max_concurrency_per_node,
+        parallel_step_timeout_in_seconds=parallel_step_timeout_in_seconds,
         optional_train_metadata=mm_train_node.outputs.run_output,
-        forecast_mode=forecast_mode
+        forecast_mode=forecast_mode,
+        forecast_step=forecast_step,
+        compute_name=compute_name
     )
 
     compute_metrics_node = compute_metrics_component(
@@ -1187,9 +1191,10 @@ pipeline_job = many_models_train_evaluate_factory(
     automl_config=Input(
         type="uri_file",
         path="./automl_settings_mm.yml"
-    )
+    ),
+    compute_name="<cluster name>"
 )
-pipeline_job.settings.default_compute = "cluster-name"
+pipeline_job.settings.default_compute = "<cluster name>"
 
 returned_pipeline_job = ml_client.jobs.create_or_update(
     pipeline_job,
@@ -1223,11 +1228,10 @@ inputs:
     automl_config_input:
         type: uri_file
         path: "./automl_settings_mm.yml"
-    max_concurrency_per_instance: 4
-    prs_step_timeout: 3700
-    instance_count: 4
+    max_nodes: 4
+    max_concurrency_per_node: 4
+    parallel_step_timeout_in_seconds: 3700
     forecast_mode: rolling
-    enable_event_logger: True
     retrain_failed_model: False
 
 # pipeline outputs
@@ -1241,30 +1245,29 @@ jobs:
     # Configure AutoML many models training component
     mm_train_node:
         type: command
-        component: azureml://registries/azureml-preview/components/automl_many_models_training@latest
+        component: azureml://registries/azureml-preview/components/automl_many_models_training
         inputs:
             raw_data: ${{parent.inputs.train_data_input}}
             automl_config: ${{parent.inputs.automl_config_input}}
-            instance_count: ${{parent.inputs.instance_count}}
-            max_concurrency_per_instance: ${{parent.inputs.max_concurrency_per_instance}}
-            prs_step_timeout: ${{parent.inputs.prs_step_timeout}}
+            max_nodes: ${{parent.inputs.max_nodes}}
+            max_concurrency_per_node: ${{parent.inputs.max_concurrency_per_node}}
+            parallel_step_timeout_in_seconds: ${{parent.inputs.parallel_step_timeout_in_seconds}}
             retrain_failed_model: ${{parent.inputs.retrain_failed_model}}
         outputs:
             run_output:
                 type: uri_folder
 
-
     # Configure the inference node to make rolling forecasts on the test set
     mm_inference_node:
         type: command
-        component: azureml://registries/azureml-preview/components/automl_many_models_inference@latest
+        component: azureml://registries/azureml-preview/components/automl_many_models_inference
         inputs:
             raw_data: ${{parent.inputs.test_data_input}}
-            max_concurrency_per_instance: ${{parent.inputs.max_concurrency_per_instance}}
-            prs_step_timeout: ${{parent.inputs.prs_step_timeout}}
+            max_concurrency_per_node: ${{parent.inputs.max_concurrency_per_node}}
+            parallel_step_timeout_in_seconds: ${{parent.inputs.parallel_step_timeout_in_seconds}}
             forecast_mode: ${{parent.inputs.forecast_mode}}
             forecast_step: 1
-            instance_count: ${{parent.inputs.instance_count}}
+            max_nodes: ${{parent.inputs.max_nodes}}
             optional_train_metadata: ${{parent.jobs.mm_train_node.outputs.run_output}}
         outputs:
             run_output:
@@ -1277,7 +1280,7 @@ jobs:
     # Configure the metrics calculation node
     compute_metrics:
         type: command
-        component: azureml://registries/azureml/components/compute_metrics@latest
+        component: azureml://registries/azureml/components/compute_metrics
         inputs:
             task: "tabular-forecasting"
             ground_truth: ${{parent.jobs.mm_inference_node.outputs.evaluation_data}}
@@ -1290,7 +1293,7 @@ jobs:
 You launch the pipeline job with the following command, assuming the many models pipeline configuration is at the path `./automl-mm-forecasting-pipeline.yml`:
 
 ```azurecli
-az ml job create --file automl-mm-forecasting-pipeline.yml
+az ml job create --file automl-mm-forecasting-pipeline.yml -w <Workspace> -g <Resource Group> --subscription <Subscription>
 ```
 
 ---
@@ -1359,9 +1362,9 @@ Parameter|Description
 --|--
 **forecast_level** | The level of the hierarchy to retrieve forecasts for
 **allocation_method** | Allocation method to use when forecasts are disaggregated. Valid values are `"proportions_of_historical_average"` and `"average_historical_proportions"`.
-**instance_count** | Number of compute nodes to use in the training job 
-**max_concurrency_per_instance** | Number of AutoML processes to run on each node. Hence, the total concurrency of a HTS job is `instance_count * max_concurrency_per_instance`. 
-**prs_step_timeout_in_seconds** | Many models component timeout given in number of seconds.
+**max_nodes** | Number of compute nodes to use in the training job 
+**max_concurrency_per_node** | Number of AutoML processes to run on each node. Hence, the total concurrency of a HTS job is `max_nodes * max_concurrency_per_node`. 
+**parallel_step_timeout_in_seconds** | Many models component timeout given in number of seconds.
 **forecast_mode** | Inference mode for model evaluation. Valid values are `"recursive"` and "`rolling`". See the [model evaluation article](concept-automl-forecasting-evaluation.md) for more information.
 
 # [Python SDK](#tab/python)
@@ -1404,9 +1407,9 @@ def hts_train_evaluate_factory(
     train_data_input,
     test_data_input,
     automl_config_input,
-    max_concurrency_per_instance=4,
-    prs_step_timeout=3700,
-    instance_count=4,
+    max_concurrency_per_node=4,
+    parallel_step_timeout_in_seconds=3700,
+    max_nodes=4,
     forecast_mode="rolling",
     forecast_level="SKU",
     allocation_method='proportions_of_historical_average'
@@ -1414,15 +1417,15 @@ def hts_train_evaluate_factory(
     hts_train = hts_train_component(
         raw_data=train_data_input,
         automl_config=automl_config_input,
-        max_concurrency_per_instance=max_concurrency_per_instance,
-        prs_step_timeout_in_seconds=prs_step_timeout,
-        instance_count=instance_count
+        max_concurrency_per_node=max_concurrency_per_node,
+        parallel_step_timeout_in_seconds=parallel_step_timeout_in_seconds,
+        max_nodes=max_nodes
     )
     hts_inference = hts_inference_component(
         raw_data=test_data_input,
-        instance_count=instance_count,
-        max_concurrency_per_instance=max_concurrency_per_instance,
-        prs_step_timeout=prs_step_timeout,
+        max_nodes=max_nodes,
+        max_concurrency_per_node=max_concurrency_per_node,
+        parallel_step_timeout_in_seconds=parallel_step_timeout_in_seconds,
         optional_train_metadata=hts_train.outputs.run_output,
         forecast_level=forecast_level,
         allocation_method=allocation_method,
@@ -1492,9 +1495,9 @@ inputs:
     automl_config_input:
         type: uri_file
         path: "./automl_settings_hts.yml"
-    max_concurrency_per_instance: 4
-    prs_step_timeout: 3700
-    instance_count: 4
+    max_concurrency_per_node: 4
+    parallel_step_timeout_in_seconds: 3700
+    max_nodes: 4
     forecast_mode: rolling
     allocation_method: proportions_of_historical_average
     forecast_level: # forecast level
@@ -1510,13 +1513,13 @@ jobs:
     # Configure AutoML many models training component
     hts_train_node:
         type: command
-        component: azureml://registries/azureml-preview/components/automl_hts_training@latest
+        component: azureml://registries/azureml-preview/components/automl_hts_training
         inputs:
             raw_data: ${{parent.inputs.train_data_input}}
             automl_config: ${{parent.inputs.automl_config_input}}
-            instance_count: ${{parent.inputs.instance_count}}
-            max_concurrency_per_instance: ${{parent.inputs.max_concurrency_per_instance}}
-            prs_step_timeout: ${{parent.inputs.prs_step_timeout}}
+            max_nodes: ${{parent.inputs.max_nodes}}
+            max_concurrency_per_node: ${{parent.inputs.max_concurrency_per_node}}
+            parallel_step_timeout_in_seconds: ${{parent.inputs.parallel_step_timeout_in_seconds}}
         outputs:
             run_output:
                 type: uri_folder
@@ -1525,14 +1528,14 @@ jobs:
     # Configure the inference node to make rolling forecasts on the test set
     hts_inference_node:
         type: command
-        component: azureml://registries/azureml-preview/components/automl_hts_inference@latest
+        component: azureml://registries/azureml-preview/components/automl_hts_inference
         inputs:
             raw_data: ${{parent.inputs.test_data_input}}
-            max_concurrency_per_instance: ${{parent.inputs.max_concurrency_per_instance}}
-            prs_step_timeout: ${{parent.inputs.prs_step_timeout}}
+            max_concurrency_per_node: ${{parent.inputs.max_concurrency_per_node}}
+            parallel_step_timeout_in_seconds: ${{parent.inputs.parallel_step_timeout_in_seconds}}
             forecast_mode: ${{parent.inputs.forecast_mode}}
             forecast_step: 1
-            instance_count: ${{parent.inputs.instance_count}}
+            max_nodes: ${{parent.inputs.max_nodes}}
             optional_train_metadata: ${{parent.jobs.hts_train_node.outputs.run_output}}
             forecast_level: ${{parent.inputs.forecast_level}}
             allocation_method: ${{parent.inputs.allocation_method}}
@@ -1547,7 +1550,7 @@ jobs:
     # Configure the metrics calculation node
     compute_metrics:
         type: command
-        component: azureml://registries/azureml/components/compute_metrics@latest
+        component: azureml://registries/azureml/components/compute_metrics
         inputs:
             task: "tabular-forecasting"
             ground_truth: ${{parent.jobs.hts_inference_node.outputs.evaluation_data}}
@@ -1560,7 +1563,7 @@ jobs:
 You launch the pipeline job with the following command, assuming the many models pipeline configuration is at the path `./automl-hts-forecasting-pipeline.yml`:
 
 ```azurecli
-az ml job create --file automl-hts-forecasting-pipeline.yml
+az ml job create --file automl-hts-forecasting-pipeline.yml -w <Workspace> -g <Resource Group> --subscription <Subscription>
 ```
 
 ---

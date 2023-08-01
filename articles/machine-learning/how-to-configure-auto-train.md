@@ -471,7 +471,7 @@ returned_job.services["Studio"].endpoint
 In following CLI command, we assume the job YAML configuration is at the path, `./automl-classification-job.yml`:
 
 ```azurecli
-run_id=$(az ml job create --file automl-classification-job.yml)
+run_id=$(az ml job create --file automl-classification-job.yml -w <Workspace> -g <Resource Group> --subscription <Subscription>)
 ```
 
 You can use the stored run ID to return information about the job. The `--web` parameter opens the Azure Machine Learning studio web UI where you can drill into details on the job:
@@ -629,7 +629,7 @@ jobs:
 Now, you launch the pipeline run using the following command, assuming the pipeline configuration is at the path `./automl-classification-pipeline.yml`:
 
 ```azurecli
-> run_id=$(az ml job create --file automl-classification-pipeline.yml)
+> run_id=$(az ml job create --file automl-classification-pipeline.yml -w <Workspace> -g <Resource Group> --subscription <Subscription>)
 > az ml job show -n $run_id --web
 ```
 
