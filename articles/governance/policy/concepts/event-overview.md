@@ -16,22 +16,38 @@ pushed through [Azure Event Grid](../../../event-grid/index.yml) to subscribers 
 Critically, you only pay for what you use.
 
 Azure Policy events are sent to the Azure Event Grid, which provides reliable delivery services to
-your applications through rich retry policies and dead-letter delivery. To learn more, see
-[Event Grid message delivery and retry](../../../event-grid/delivery-and-retry.md). Event Grid takes 
-care of the proper routing, filtering, and multicasting of the events to destinations via Event Grid Subscriptions. 
+your applications through rich retry policies and dead-letter delivery. Event Grid takes 
+care of the proper routing, filtering, and multicasting of the events to destinations via Event Grid subscriptions.
+To learn more, see [Event Grid message delivery and retry](../../../event-grid/delivery-and-retry.md). 
 
 > [!NOTE]
 > Azure Policy state change events are sent to Event Grid after an
 > [evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers) finishes resource
 > evaluation.
 
-There are two primary entities using Event Grid: 
+## Event Grid Benefits
+Event Grid has a few benefits for customers and services in the Azure ecosystem: 
+- Automation: To stay current with your policy environment, Event Grid offers an automated mechanism to generate
+  alerts and trigger tasks depending on compliance states.
+- Durable delivery:  In order for services and user applications to respond in real-time to policy compliance events,
+  Event Grid seeks to offer policy events with minimum latency. Event Grid retries transmission of an event if a subscriber's
+  endpoint fails to acknowledge receipt of it or if it doesn't, according to a predetermined retry schedule and retry policy.
+- Custom event producer: By utilizing Event Grid, a change in a resource tag can cause an alert, the creation of a
+  remediation task that can be triggered using custom commands through service bus, or the control messaging on who responds
+  to the state change. 
+> To use Event Grid, event producers and consumers do not need to be Azure or Microsoft services. 
+
+See
+[Route policy state change events to Event Grid with Azure CLI](../tutorials/route-state-change-events.md)
+for a full tutorial.
+
+There are two primary entities when using Event Grid: 
 - Events: These can be anything a user may want to react to – includes if a policy compliance state is
-   created, changed, and deleted of a resource such as a VM or a file in storage.
+   created, changed, and deleted of a resource such as a VM or storage accounts.
 - Event Grid Subscriptions: These are user configured entities that direct the proper set of events
-   from a publisher to a subscriber. Subscriptions can filter events based on the resource path the event
-   originated from as well as the type of event.
-  > Can choose scope: Azure subscription and Management group 
+  from a publisher to a subscriber. Event subscriptions can filter events based on the resource path the event
+  originated from as well as the type of event. Additionally, Event subcriptions can also filter by scope between
+  Azure subscription and Management group.
 
 The common Azure Policy event scenario is tracking when the compliance state of a resource changes
 during policy evaluation. Event-based architecture is an efficient way to react to these changes
@@ -43,25 +59,9 @@ non-compliant can be remedied. Learn more about [remediation structure](../conce
   > Remediation requires a managed identity and policies must be in Modify or DeployIfNotExists effect. [Learn more about
 effect types](../concepts/effects.md).
 
-The last scenario to consider is to use event grid as an audit system to enforce configurations to 
-store state changes. This can be helpful to understand to check reason for non-compliancy over time.
+Additionally, event grid is helpful as an audit system to store state changes and understand cause of non-compliancey over 
+time. The scenarios for event grid are endless and based on the motivation, event grid is configurable. 
 
-## Event Grid Benefits
-Event Grid has a few benefits for customers and services in the Azure ecosystem: 
-- Automation: Event Grid provides an automated way to trigger tasks and alerts based on compliance events
-- Latency: Event Grid aims to deliver policy events with sub-second latency meaning services and user
-applications can react to policy compliance events in real-time.
-- Durable delivery: Each message is promptly delivered by Event Grid with a 30 second default delay and 
-  least once for each matching subscription. Event Grid retries transmission of an event if a subscriber's endpoint
-  fails to acknowledge receipt of it or if it doesn't, according to a predetermined retry schedule and retry policy.
-- Custom event producer: Event producers and consumers need not be Azure or Microsoft services. Leveraging Azure
-  Policy Event Grid, a change in a resource tag can trigger an Azure Function or the creation of a new storage blob
-  can trigger custom commands through service bus, or the control messaging on who responds to the state change. 
-  > Any 3rd party service can onboard Policy Event Grid as a publisher of events or can consumer events be pushed to Event grid. 
-
-See
-[Route policy state change events to Event Grid with Azure CLI](../tutorials/route-state-change-events.md)
-for a full tutorial.
 
 :::image type="content" source="../../../event-grid/media/overview/functional-model.png" alt-text="Event Grid model of sources and handlers" lightbox="../../../event-grid/media/overview/functional-model-big.png":::
 
