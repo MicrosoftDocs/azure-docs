@@ -35,7 +35,7 @@ To complete this tutorial, you need to:
 2. All extensions used on the Single Server (source) must be [allow-listed on the Flexible Server (target)](./concepts-single-to-flexible.md#allow-list-required-extensions)
 
 >[!NOTE]
-> If TIMESCALEDB, PG_PARTMAN, POSTGRES_FDW or POSTGIS_TIGER_DECODER extensions are used in your single server database, please raise a support request since the Single to Flex migration tool will not handle these extensions.
+> If TIMESCALEDB, POSTGIS_TOPOLOGY, POSTGIS_TIGER_GEOCODER, POSTGRES_FDW or PG_PARTMAN extensions are used in your single server database, please raise a support request since the Single to Flex migration tool will not handle these extensions.
 
 3. Create the target flexible server. For guided steps, refer to the quickstart [Create an Azure Database for PostgreSQL flexible server using the Portal](../flexible-server/quickstart-create-server-portal.md) or [Create an Azure Database for PostgreSQL flexible server using the CLI](../flexible-server/quickstart-create-server-cli.md)
 
