@@ -1239,7 +1239,7 @@ The `nonce` in the signed document can be compared if you provided a `nonce` par
 |-------|-------------|
 | [All generally available global Azure regions](https://azure.microsoft.com/regions/) | *.metadata.azure.com
 | [Azure Government](https://azure.microsoft.com/overview/clouds/government/) | *.metadata.azure.us
-| [Microsoft Azure operated by 21Vianet](https://azure.microsoft.com/global-infrastructure/china/) | *.metadata.azure.cn
+| [Azure operated by 21Vianet](https://azure.microsoft.com/global-infrastructure/china/) | *.metadata.azure.cn
 | [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/) | *.metadata.microsoftazure.de
 
 > [!NOTE]
