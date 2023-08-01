@@ -1,3 +1,12 @@
+---
+author: PatrickFarley
+manager: nitinme
+ms.service: ai-services
+ms.subservice: computer-vision
+ms.topic: include
+ms.date: 08/01/2023
+ms.author: pafarley
+---
 
 ## Prerequisites
 

@@ -1,3 +1,12 @@
+---
+author: PatrickFarley
+manager: nitinme
+ms.service: ai-services
+ms.subservice: computer-vision
+ms.topic: include
+ms.date: 08/01/2023
+ms.author: pafarley
+---
 
 ## Prerequisites
 
@@ -232,7 +241,7 @@ List of common errors:
 * `400 Bad Request`
   * `InvalidRequest - Image URL is badly formatted or not accessible`. Make sure the image URL is valid and publicly accessible.
   * `InvalidRequest - The image size is not allowed to be zero or larger than 20971520 bytes`. Reduce the size of the image by compressing it and/or resizing, and resubmit your request.
-  * `InvalidRequest - The feature 'Caption' is not supported in this region`. The feature is only support in specific Azure regions. See [Quickstart prerequisites](/azure/cognitive-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40#prerequisites) for the list of supported Azure regions.
+  * `InvalidRequest - The feature 'Caption' is not supported in this region`. The feature is only supported in specific Azure regions. See [Quickstart prerequisites](/azure/cognitive-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40#prerequisites) for the list of supported Azure regions.
   * `InvalidRequest - The provided image content type ... is not supported`. The HTTP header **Content-Type** in the request isn't an allowed type:
     * For an image URL, **Content-Type** should be `application/json`
     * For a binary image data, **Content-Type** should be `application/octet-stream` or `multipart/form-data`
