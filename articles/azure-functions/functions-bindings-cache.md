@@ -68,7 +68,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
 
 ## Install bundle
 
-1. Install the .Net SDK.
+Install the .Net SDK.
 
 ::: zone pivot="programming-language-java"
 
@@ -97,7 +97,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
     <dependency>
       <groupId>com.microsoft.azure.functions</groupId>
       <artifactId>azure-functions-java-library-redis</artifactId>
-      <version>[0.0.0,)</version>
+      <version>${azure.functions.java.library.redis.version}</version>
     </dependency>
     ```
 
@@ -106,6 +106,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
 
 1. Add the extension bundle by adding or replacing the following code in your _host.json_ file:
 
+<!-- I don't see this in the samples.  -->
 ```json
 {
   "version": "2.0",
