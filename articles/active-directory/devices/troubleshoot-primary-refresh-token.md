@@ -407,7 +407,7 @@ Common general network-related issues.
 
 1. Download the [Auth script archive](https://aka.ms/authscripts), and extract the scripts into a local directory. If it's necessary, review the usage instructions in [KB&nbsp;4487175](https://aka.ms/howto-authscripts).
 1. Open an administrative PowerShell session, and change the current directory to the directory in which you saved the Auth scripts.
-1. To begin the error tracing, enter the following command:
+1. To begin the error tracing session, enter the following command:
 
    ```powershell
    .\Start-auth.ps1 -v -acceptEULA
@@ -417,8 +417,8 @@ Common general network-related issues.
 1. Lock the device.
 1. If the device is a hybrid Azure AD-joined device, wait at least 60 seconds to let the PRT acquisition task finish.
 1. Unlock the device.
-1. Switch the Windows user account back to your administrative session that's running the tracing.
-1. After you reproduce the issue, run the following command to end the tracing:
+1. Switch the Windows user account back to your administrative session that's running the tracing session.
+1. After you reproduce the issue, run the following command to end the tracing session:
 
    ```powershell
    .\stop-auth.ps1
