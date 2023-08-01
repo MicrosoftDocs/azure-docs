@@ -163,7 +163,7 @@ az storage container create \
 You need to grant your web app access to the storage account before you can create, read, or delete blobs. In a previous step, you configured the web app running on App Service with a managed identity. Using Azure RBAC, you can give the managed identity access to another resource, just like any security principal. The Storage Blob Data Contributor role gives the web app (represented by the system-assigned managed identity) read, write, and delete access to the blob container and data.
 
 > [!NOTE]
-> Some operations on private blob containers are not supported by Azure RBAC, such as viewing blobs or copying blobs between accounts. A blob container with private access level requires a SAS token for any operation that is not authorized by Azure RBAC.  For more information, see [When to use a shared access signatur](/azure/storage/common/storage-sas-overview#when-to-use-a-shared-access-signature).
+> Some operations on private blob containers are not supported by Azure RBAC, such as viewing blobs or copying blobs between accounts. A blob container with private access level requires a SAS token for any operation that is not authorized by Azure RBAC.  For more information, see [When to use a shared access signature](/azure/storage/common/storage-sas-overview#when-to-use-a-shared-access-signature).
 
 # [Portal](#tab/azure-portal)
 
