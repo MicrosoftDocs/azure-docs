@@ -85,7 +85,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) / amlworkspace | privatelink.api.azureml.ms<br/>privatelink.notebooks.azure.net | api.azureml.ms<br/>notebooks.azure.net<br/>instances.azureml.ms<br/>aznbcontent.net<br/>inference.ml.azure.com |
 | SignalR (Microsoft.SignalRService/SignalR) / signalR | privatelink.service.signalr.net | service.signalr.net |
 | Azure Monitor (Microsoft.Insights/privateLinkScopes) / azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net <br/> privatelink.blob.core.windows.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net <br/> blob.core.windows.net |
-| Cognitive Services (Microsoft.CognitiveServices/accounts) / account | privatelink.cognitiveservices.azure.com <br/> privatelink.openai.azure.com   | cognitiveservices.azure.com <br/> openai.azure.com  |
+| Azure AI services (Microsoft.CognitiveServices/accounts) / account | privatelink.cognitiveservices.azure.com <br/> privatelink.openai.azure.com   | cognitiveservices.azure.com <br/> openai.azure.com  |
 | Azure File Sync (Microsoft.StorageSync/storageSyncServices) / afs | {regionName}.privatelink.afs.azure.net  |  {regionName}.afs.azure.net  |
 | Azure Data Factory (Microsoft.DataFactory/factories) / dataFactory |  privatelink.datafactory.azure.net  |  datafactory.azure.net  |
 | Azure Data Factory (Microsoft.DataFactory/factories) / portal |  privatelink.adf.azure.com  |  adf.azure.com  |
@@ -148,7 +148,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Relay (Microsoft.Relay/namespaces) / namespace | privatelink.servicebus.usgovcloudapi.net  | servicebus.usgovcloudapi.net  |
 | Azure Web Apps (Microsoft.Web/sites) / sites | privatelink.azurewebsites.us </br> scm.privatelink.azurewebsites.us | azurewebsites.us </br> scm.azurewebsites.us
 | Azure Monitor (Microsoft.Insights/privateLinkScopes) / azuremonitor | privatelink.monitor.azure.us <br/> privatelink.adx.monitor.azure.us <br/> privatelink.	oms.opinsights.azure.us <br/> privatelink.ods.opinsights.azure.us <br/> privatelink.agentsvc.azure-automation.us <br/> privatelink.blob.core.usgovcloudapi.net | monitor.azure.us <br/> adx.monitor.azure.us <br/> oms.opinsights.azure.us<br/> ods.opinsights.azure.us<br/> agentsvc.azure-automation.us <br/> blob.core.usgovcloudapi.net |
-| Cognitive Services (Microsoft.CognitiveServices/accounts) / account | privatelink.cognitiveservices.azure.us  | cognitiveservices.azure.us  |
+| Azure AI services (Microsoft.CognitiveServices/accounts) / account | privatelink.cognitiveservices.azure.us  | cognitiveservices.azure.us  |
 | Azure Cache for Redis (Microsoft.Cache/Redis) / redisCache | privatelink.redis.cache.usgovcloudapi.net | redis.cache.usgovcloudapi.net |
 | Azure HDInsight (Microsoft.HDInsight) | privatelink.azurehdinsight.us | azurehdinsight.us |
 | Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) / amlworkspace | privatelink.api.ml.azure.us<br/>privatelink.notebooks.usgovcloudapi.net | api.ml.azure.us<br/>notebooks.usgovcloudapi.net<br/>instances.azureml.us<br/>aznbcontent.net<br/>inference.ml.azure.us |

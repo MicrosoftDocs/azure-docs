@@ -10,6 +10,8 @@ items:
     href: whats-new.md
   - name: Packet core release notes
     items:
+    - name: 2376 - Current
+      href: azure-private-5g-core-release-notes-2307.md  
     - name: 2306 - Current
       href: azure-private-5g-core-release-notes-2306.md  
     - name: 2305
@@ -142,10 +144,6 @@ items:
       href: manage-existing-sims.md
     - name: Manage SIM groups
       href: manage-sim-groups.md
-  - name: Packet capture
-    items:
-    - name: Perform data plane packet capture for a packet core instance
-      href: data-plane-packet-capture.md
   - name: Local monitoring tools
     items:
     - name: Enable Azure Active Directory
@@ -154,6 +152,12 @@ items:
       href: distributed-tracing-share-traces.md
     - name: Modify a packet core instance's local access configuration
       href: modify-local-access-configuration.md
+  - name: Network diagnostic tools
+    items:
+    - name: Perform data plane packet capture on a packet core instance
+      href: data-plane-packet-capture.md
+    - name: Use ping and traceroute on a packet core instance
+      href: ping-traceroute.md
   - name: Gather diagnostics
     href: gather-diagnostics.md
   - name: Manage resources

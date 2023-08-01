@@ -1,6 +1,6 @@
 ---
 title: "Sending requests to the Bing Autosuggest API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: The Bing Autosuggest API returns a list of suggested queries based on the partial query string in the search box. Learn more about sending requests.
 services: cognitive-services
 

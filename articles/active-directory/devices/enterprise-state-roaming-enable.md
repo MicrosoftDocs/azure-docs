@@ -29,9 +29,7 @@ Enterprise State Roaming provides users with a unified experience across their W
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Devices** > **Enterprise State Roaming**.
 1. Select **Users may sync settings and app data across devices**. For more information, see [how to configure device settings](./device-management-azure-portal.md).
-  
-   ![image of device setting labeled Users may sync settings and app data across devices](./media/enterprise-state-roaming-enable/device-settings.png)
-  
+
 For a Windows 10 or newer device to use the Enterprise State Roaming service, the device must authenticate using an Azure AD identity. For devices that are joined to Azure AD, the user’s primary sign-in identity is their Azure AD identity, so no other configuration is required. For devices that use on-premises Active Directory, the IT admin must [Configure hybrid Azure Active Directory joined devices](./hybrid-azuread-join-plan.md). 
 
 ## Data storage
