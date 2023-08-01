@@ -9,9 +9,10 @@ ms.topic: conceptual
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.custom: devplatv2, moe-wsvnet
-ms.date: 04/01/2023
 reviewer: msakande
+ms.custom: devplatv2, moe-wsvnet
+ms.date: 07/12/2023
+
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
@@ -39,11 +40,11 @@ To define an endpoint, you need to specify:
 Azure Machine Learning provides the convenience of using **managed online endpoints** for deploying your ML models in a turnkey manner. This is the _recommended_ way to use online endpoints in Azure Machine Learning. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. These endpoints also take care of serving, scaling, securing, and monitoring your models, to free you from the overhead of setting up and managing the underlying infrastructure. 
 To learn how to deploy to a managed online endpoint, see [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md).
 
-### Why choose managed online endpoints (v2) over ACI/AKS (v1)?
+### Why choose managed online endpoints over ACI or AKS(v1)?
 
-Use of managed online endpoints is the _recommended_ way to use online endpoints in Azure Machine Learning. The following table highlights the key attributes of managed online endpoints in comparison to ACI/AKS (v1).
+Use of managed online endpoints is the _recommended_ way to use online endpoints in Azure Machine Learning. The following table highlights the key attributes of managed online endpoints compared to Azure Machine Learning SDK/CLI v1 solutions (ACI and AKS(v1)).
 
-|Attributes  |Managed online endpoints (v2)  |ACI/AKS (v1)  |
+|Attributes  |Managed online endpoints (v2)  |ACI or AKS(v1)  |
 |---------|---------|---------|
 |Network security/isolation |Easy inbound/outbound control with quick toggle |VNet not supported or requires complex manual configuration |
 |Managed service |- Fully managed compute provisioning/scaling​<br> - Network configuration for data exfiltration prevention​<br> - Host OS upgrade, controlled rollout of in-place updates |- Scaling is limited in v1<br> - Network configuration or upgrade needs to be managed by user |
@@ -55,7 +56,7 @@ Use of managed online endpoints is the _recommended_ way to use online endpoints
 
 Alternatively, if you prefer to use Kubernetes to deploy your models and serve endpoints, and you're comfortable with managing infrastructure requirements, you can use _Kubernetes online endpoints_. These endpoints allow you to deploy models and serve online endpoints at your fully configured and managed [Kubernetes cluster anywhere](./how-to-attach-kubernetes-anywhere.md), with CPUs or GPUs.
 
-### Advantages of managed online endpoints over Kubernetes online endpoints
+### Why choose managed online endpoints over AKS(v2)?
 
 Managed online endpoints can help streamline your deployment process and provide the following benefits over Kubernetes online endpoints:
 - Managed infrastructure
@@ -143,11 +144,12 @@ To learn how to deploy with custom containers, see [Use a custom container to de
 
 The following table highlights key aspects about the online deployment options:
 
-|         |Summary  |Custom code  |Custom dependencies  |Custom base image    |
-|---------|---------|---------|---------|---------|
-|**No-code**  | Uses out-of-box inferencing for popular frameworks such as scikit-learn, TensorFlow, PyTorch, and ONNX via MLflow and Triton. | No | No | No |
-|**Low-code** | Uses secure, publicly published [curated images](/azure/machine-learning/resource-curated-environments) for popular frameworks. You provide scoring script and/or Python dependencies.        |  Yes, bring your scoring script.     |   Yes, bring an Azure Machine Learning environment in which the model runs: either a Docker image with conda dependencies, or a dockerfile​.      |    No     |
-|**BYOC**     | You provide your complete stack via Azure Machine Learning's support for [custom images](/azure/machine-learning/how-to-deploy-custom-container).       |  Yes, bring your scoring script.       |    Yes     |    Yes, bring an accessible container image location (for example, docker.io, Azure Container Registry (ACR), or Microsoft Container Registry (MCR)) or a Dockerfile that you can build/push with ACR​ for your container.    |
+|  | No-code | Low-code | BYOC |
+|--|--|--|--|
+| **Summary** | Uses out-of-box inferencing for popular frameworks such as scikit-learn, TensorFlow, PyTorch, and ONNX via MLflow and Triton. | Uses secure, publicly published [curated images](/azure/machine-learning/resource-curated-environments) for popular frameworks. You provide scoring script and/or Python dependencies. | You provide your complete stack via Azure Machine Learning's support for [custom images](/azure/machine-learning/how-to-deploy-custom-container). |
+| **Custom code** | No | Yes, bring your scoring script. | Yes, bring your scoring script. |
+| **Custom dependencies** | No | Yes, bring an Azure Machine Learning environment in which the model runs: either a Docker image with conda dependencies, or a dockerfile​. | Yes |
+| **Custom base image** | No | No | Yes, bring an accessible container image location (for example, docker.io, Azure Container Registry (ACR), or Microsoft Container Registry (MCR)) or a Dockerfile that you can build/push with ACR​ for your container. |
 
 > [!NOTE]
 > AutoML runs create a scoring script and dependencies automatically for users, so you can deploy any AutoML model without authoring additional code (for no-code deployment) or you can modify auto-generated scripts to your business needs (for low-code deployment).​ To learn how to deploy with AutoML models, see [Deploy an AutoML model with an online endpoint](/azure/machine-learning/how-to-deploy-automl-endpoint).
