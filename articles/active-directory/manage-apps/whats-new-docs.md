@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application management"
 description: "New and updated documentation for the Azure Active Directory application management."
-ms.date: 07/04/2023
+ms.date: 08/01/2023
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -19,16 +19,23 @@ Welcome to what's new in Azure Active Directory (Azure AD) application managemen
 
 ### Updated articles
 
-- [Manage consent to applications and evaluate consent requests](manage-consent-requests.md)
-- [Plan application migration to Azure Active Directory](migrate-adfs-apps-phases-overview.md)
-- [Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Silverfort](silverfort-integration.md)
-- [Tutorial: Migrate your applications from Okta to Azure Active Directory](migrate-applications-from-okta.md)
-- [Tutorial: Configure Datawiza to enable Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle JD Edwards](datawiza-sso-oracle-jde.md)
-- [Tutorial: Configure Datawiza to enable Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle PeopleSoft](datawiza-sso-oracle-peoplesoft.md)
-- [Tutorial: Configure Cloudflare with Azure Active Directory for secure hybrid access](cloudflare-integration.md)
-- [Configure Datawiza for Azure AD Multi-Factor Authentication and single sign-on to Oracle EBS](datawiza-sso-mfa-oracle-ebs.md)
-- [Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication](f5-big-ip-kerberos-advanced.md)
-- [Tutorial: Configure F5 BIG-IP Easy Button for Kerberos single sign-on](f5-big-ip-kerberos-easy-button.md)
+### New articles
+
+- [Restore revoked permissions granted to applications](restore-permissions.md) - New how-to guide on how to restore previously revoked permissions
+
+### Updated articles
+
+- [Review permissions granted to enterprise applications](manage-application-permissions.md) - Added portal UI procedures for revoking permissions.
+- [Debug SAML-based single sign-on to applications](debug-saml-sso-issues.md) - Reviewed the article for freshness.
+- [Configure Azure Active Directory SAML token encryption](howto-saml-token-encryption.md) - Added Microsoft Graph PowerShell examples and removed unnecessary steps.
+
+Updated the following PowerShell samples to use Microsoft Graph PowerShell cmdlets.
+- [Export secrets and certs (app registrations)](scripts/powershell-export-all-app-registrations-secrets-and-certs.md)
+- [Export secrets and certs (enterprise apps)](scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md)
+- [Export expiring secrets and certs (app registrations)](scripts/powershell-export-apps-with-expiring-secrets.md)
+
+Added the following PowerShell sample:
+- [Export expiring secrets and certs (enterprise apps)](scripts/powershell-export-enterprise-apps-with-expiring-secrets.md)
 
 ## May 2023
 
