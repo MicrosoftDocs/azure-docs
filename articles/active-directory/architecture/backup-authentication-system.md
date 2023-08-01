@@ -92,7 +92,7 @@ The backup authentication system is supported in all cloud environments except M
 | Azure Government | Users, managed identities |
 | Azure Government Secret | managed identities |
 | Azure Government Top Secret | managed identities |
-| Microsoft Azure operated by 21Vianet | Not available |
+| Azure operated by 21Vianet | Not available |
 
 ## Appendix
 

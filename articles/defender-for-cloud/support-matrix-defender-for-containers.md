@@ -24,13 +24,13 @@ This article summarizes support information for the [Defender for Containers pla
 | [Vulnerability assessment](defender-for-containers-vulnerability-assessment-azure.md)-registry scan [language packages](#registries-and-images-support-aks) | ACR, Private ACR | Preview | - | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
 | [Vulnerability assessment-running images](defender-for-containers-vulnerability-assessment-azure.md#view-vulnerabilities-for-images-running-on-your-aks-clusters) | AKS | GA | Preview | Defender profile | Defender for Containers | Commercial clouds |
 | [Hardening  (control plane)](defender-for-containers-architecture.md) | ACR, AKS | GA | Preview | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
-| [Hardening (Kubernetes data plane)](kubernetes-workload-protections.md) | AKS | GA | - | Azure Policy | Free | Commercial clouds<br><br> National clouds: Azure Government,  Azure operated by 21Vianet |
-| [Runtime threat detection](defender-for-containers-introduction.md#run-time-protection-for-kubernetes-nodes-and-clusters) (control plane)| AKS | GA | GA | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government,  Azure operated by 21Vianet |
+| [Hardening (Kubernetes data plane)](kubernetes-workload-protections.md) | AKS | GA | - | Azure Policy | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| [Runtime threat detection](defender-for-containers-introduction.md#run-time-protection-for-kubernetes-nodes-and-clusters) (control plane)| AKS | GA | GA | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
 | Runtime threat detection (workload) | AKS | GA | - | Defender profile | Defender for Containers | Commercial clouds |
 | Discovery/provisioning-Unprotected clusters | AKS | GA | GA | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
 | Discovery/provisioning-Collecting control plane threat data | AKS | GA | GA | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
 | Discovery/provisioning-Defender profile auto provisioning | AKS | GA | - | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
-| Discovery/provisioning-Azure policy add-on auto provisioning | AKS | GA | - | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government,  Azure operated by 21Vianet |
+| Discovery/provisioning-Azure policy add-on auto provisioning | AKS | GA | - | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
 
 ### Registries and images support-AKS
 
