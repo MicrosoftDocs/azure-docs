@@ -353,7 +353,10 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
 
    > [!NOTE]
    >
-   > The request trigger URL is tied to the storage account. When the logic app is swicthed to use a different storage account,  
+   > The URL for the Request trigger is associated with your workflow's storage account. This URL 
+   > changes if the storage account changes. For example, with Standard logic apps, if you manually 
+   > change your storage account and copy your workflow to the new storage account, the URL for 
+   > the Request trigger also changes to reflect the new storage account.
    > the same workflow will have a different URL.
 
 ---
