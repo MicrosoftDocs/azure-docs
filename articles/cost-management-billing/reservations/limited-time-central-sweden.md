@@ -25,23 +25,23 @@ These Terms and Conditions (hereinafter referred to as "Terms") govern the Limit
 
 **1. Eligibility**: The Offer is open to individuals who meet the following criteria:
 
-- To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription that's of type Enterprise (MS-AZR-0017P or MS-AZR-0148P) or Pay-As-You-Go (MS-AZR-0003P or MS-AZR-0023P) or Microsoft Customer Agreement. Cloud solution providers can use the Azure portal or [Partner Center](https://learn.microsoft.com/en-us/partner-center/azure-reservations?source=azlto1) to purchase Azure Reservations. You will not be able to purchase a reservation if you have a custom role that mimics owner role or reservation purchaser role on an Azure subscription, you must use built-in owner or built-in reservation purchaser role.
+- To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription that's of type Enterprise (MS-AZR-0017P or MS-AZR-0148P) or Pay-As-You-Go (MS-AZR-0003P or MS-AZR-0023P) or Microsoft Customer Agreement. Cloud solution providers can use the Azure portal or [Partner Center](https://learn.microsoft.com/en-us/partner-center/azure-reservations?source=azlto1) to purchase Azure Reservations. You won't be able to purchase a reservation if you have a custom role that mimics owner role or reservation purchaser role on an Azure subscription, you must use built-in owner or built-in reservation purchaser role.
 - To learn more about who can purchase a reservation visit: [Buy an Azure reservation - Microsoft Cost Management | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/prepare-buy-reservation?source=azlto2)
 
-**2. Offer Details:** Upon successful purchase and payment for the 1-year Azure Reserved VM Instance in Sweden Central for one or more of the qualified VMs during the specified period, the discount will apply automatically to the number of running virtual machines in Sweden Central that match the reservation scope and attributes. You don't need to assign a reservation to a virtual machine to get the discounts. A reserved instance purchase covers only the compute part of your VM usage. To learn more how pay and save with a Azure Reserved VM Instance, visit: [Prepay for Azure virtual machines to save money - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/prepay-reserved-vm-instances?toc=%2Fazure%2Fcost-management-billing%2Freservations%2Ftoc.json?source=azlto3)
+**2. Offer Details:** Upon successful purchase and payment for the 1-year Azure Reserved VM Instance in Sweden Central for one or more of, the qualified VMs during the specified period, the discount applies automatically to the number of running virtual machines in Sweden Central that match the reservation scope and attributes. You don't need to assign a reservation to a virtual machine to get the discounts. A reserved instance purchase covers only the compute part of your VM usage. To learn more how to pay and save with an Azure Reserved VM Instance, visit: [Prepay for Azure virtual machines to save money - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/prepay-reserved-vm-instances?toc=%2Fazure%2Fcost-management-billing%2Freservations%2Ftoc.json?source=azlto3)
 
-- Additional taxes may apply.
-- Payment will be processed using the payment method on file for the selected subscriptions.
+- Other taxes may apply.
+- Payment is processed using the payment method on file for the selected subscriptions.
 - Estimated savings are calculated based on your current on-demand rate
 
 **3. Qualifying Purchase:** To be eligible for the 50% discount, customers must make a purchase of the 1-year Azure Reserved Virtual Machine Instances for the qualified VMs (Dadsv5, Dasv5, Ddsv5, Ddv5, Dsv5, Dv5, Eadsv5, Easv5, Ebdsv5, Ebsv5, Edsv5, Edv5, Esv5, and Ev5) in Sweden Central between September 1, 2023, and March 1, 2024.
 
 **4. Discount Limitations:**
 
-- Discount will apply automatically to the number of running virtual machines in Sweden Central that match the reservation scope and attributes.
-- Discount will apply for 1 year after date of purchase.
+- Discount applies automatically to the number of running virtual machines in Sweden Central that match the reservation scope and attributes.
+- Discount will apply for one year after date of purchase.
 - Discount only applies to resources associated with subscriptions purchased through Enterprise, Cloud Solution Provider (CSP), Microsoft Customer Agreement and individual plans with pay-as-you-go rates.
-- A reservation discount is "use-it-or-lose-it". So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
+- A reservation discount is "use-it-or-lose-it." So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
 - When you deallocate, delete, or scale the number of VMs, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are lost.
 - Stopped VMs are billed and continue to use reservation hours. Deallocate or delete VM resources or scale-in other VMs to use your available reservation hours with other workloads.
 - To learn more about how Azure Reserved VM Instance discounts are applied, visit: [Understand Azure Reserved VM Instances discount - Microsoft Cost Management | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/understand-vm-reservation-charges?source=azlto4)
@@ -73,12 +73,12 @@ These Terms and Conditions (hereinafter referred to as "Terms") govern the Limit
 
 - You can renew reservations to automatically purchase a replacement when an existing reservation expires. 
 - Renewing a reservation creates a new reservation when the existing reservation expires. It doesn't extend the term of the existing reservation.
-- The renewal price **will not be** the Limited Time Offer price, but the price available at time of renewal. When you enable renewal more than 30 days before the reservation expiration, you're sent an email detailing renewal costs 30 days before expiration. The reservation price might change between the time that you lock the renewal price and the renewal time. If so, your renewal will not be processed and you can purchase a new reservation in order to continue getting the benefit. 
+- The renewal price **will not be** the Limited Time Offer price, but the price available at time of renewal. When you enable renewal more than 30 days before the reservation expiration, you're sent an email detailing renewal costs 30 days before expiration. The reservation price might change between the time that you lock the renewal price and the renewal time. If so, your renewal won't be processed and you can purchase a new reservation in order to continue getting the benefit. 
 - To learn more about renewals visit, [Automatically renew Azure reservations - Microsoft Cost Management | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/reservation-renew?source=azlto5)
 
 **8. Termination or Modification:** Microsoft reserves the right to modify, suspend, or terminate the Offer at any time without prior notice. 
 
-If you have purchased the 1-year Azure Reserved Virtual Machine Instances for the qualified VMs in Sweden Central between September 1, 2023, and March 1, 2024 you will continue to get the discount throughout the 1 year term, even if the offer is canceled.
+If you have purchased the one-year Azure Reserved Virtual Machine Instances for the qualified VMs in Sweden Central between September 1, 2023, and March 1, 2024 you'll continue to get the discount throughout the one year term, even if the offer is canceled.
 
 By participating in the Offer, customers agree to be bound by these Terms and the decisions of the Microsoft. Microsoft reserves the right to disqualify any customer who violates these Terms or engages in any fraudulent or harmful activities related to the Offer.
 

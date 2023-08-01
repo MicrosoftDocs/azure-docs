@@ -75,6 +75,10 @@ landingContent:
         url: charge-back-usage.md
       - text: View reservation purchase and refund transactions
         url: view-purchase-refunds.md
+    - linkListType: reference
+      links:
+      - text: Reservation APIs
+        url: reservation-apis.md
 
   # Card (optional)
   - title: Limited-time offers
@@ -86,7 +90,3 @@ landingContent:
       - text: Sweden Central select Linux VMs
         url: limited-time-central-sweden.md
 
-    - linkListType: reference
-      links:
-      - text: Reservation APIs
-        url: reservation-apis.md
