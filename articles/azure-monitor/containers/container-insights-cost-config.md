@@ -3,7 +3,7 @@ title: Configure Container insights cost optimization data collection rules | Mi
 description: This article describes how you can configure the Container insights agent to control data collection for metric counters
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 02/23/2023
+ms.date: 07/31/2023
 ms.reviewer: aul
 ---
 
@@ -25,6 +25,23 @@ The following table describes the supported data collection settings
 | **namespaces** | An array of names i.e. \["kube-system", "default"]  | Array of comma separated Kubernetes namespaces for which inventory and perf data will be included or excluded based on the _namespaceFilteringMode_. For example, **namespaces** = ["kube-system", "default"] with an _Include_ setting collects only these two namespaces. With an _Exclude_ setting, the agent will collect data from all other namespaces except for _kube-system_ and _default_. With an _Off_ setting, the agent collects data from all namespaces including _kube-system_ and _default_. Invalid and unrecognized namespaces are ignored. |
 
 ## Log Analytics data collection
+
+The settings allow you specify which tables you want to collect using streams. The following table indicates the stream to table mapping to be used in the data collection settings.
+
+| Stream | Container insights table |
+| --- | --- |
+| Microsoft-ContainerInventory | ContainerInventory |
+| Microsoft-ContainerNodeInventory | ContainerNodeInventory |
+| Microsoft-Perf | Perf |
+| Microsoft-InsightsMetrics | InsightsMetrics |
+| Microsoft-KubeMonAgentEvents | KubeMonAgentEvents |
+| Microsoft-KubeServices | KubeServices |
+| Microsoft-KubePVInventory | KubePVInventory |
+| Microsoft-KubeNodeInventory | KubeNodeInventory |
+| Microsoft-KubePodInventory | KubePodInventory |
+| Microsoft-KubeEvents | KubeEvents |
+| Microsoft-ContainerLogV2 | ContainerLogV2 |
+| Microsoft-ContainerLog | ContainerLog |
 
 This table outlines the list of the container insights Log Analytics tables for which data collection settings are applicable.
 
@@ -52,7 +69,12 @@ This table outlines the list of the container insights Log Analytics tables for 
 | Insights.container/containers | Yes | Yes | |
 | Insights.container/persistentvolumes | Yes | Yes | |
 
-## Impact on existing alerts and visualizations
+## Impact on default visualizations and existing alerts
+
+The default container insights experience is powered through using all the existing data streams. Removing one or more of the default streams will render the container insights experience unavailable.
+
+![Screenshot that shows custom container insights](./media/container-insights-cost-custom.png)
+
 If you are currently using the above tables for charts or alerts, then modifying your data collection settings may degrade those experiences. If you are excluding namespaces or reducing data collection frequency, review your existing alerts, dashboards, and workbooks using this data.
 
 To scan for alerts that may be referencing these tables, run the following Azure Resource Graph query:
@@ -76,9 +98,9 @@ Reference the [Limitations](./container-insights-cost-config.md#limitations) sec
 - AKS Cluster MUST be using either System or User Assigned Managed Identity
     - If the AKS Cluster is using Service Principal, you must upgrade to [Managed Identity](../../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster)
 
-- Azure CLI: Minimum version required for Azure CLI is 2.45.0. Run az --version to find the version, and run az upgrade to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli]
-    - For AKS clusters, aks-preview version 0.5.125 or higher
-    - For Arc enabled Kubernetes and AKS hybrid, k8s-extension version 1.3.7 or higher
+- Azure CLI: Minimum version required for Azure CLI is 2.51.0. Run az --version to find the version, and run az upgrade to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli]
+    - For AKS clusters, aks-preview version 0.5.147 or higher
+    - For Arc enabled Kubernetes and AKS hybrid, k8s-extension version 1.4.3 or higher
 
 ## Cost presets and collection settings
 Cost presets and collection settings are available for selection in the Azure portal to allow easy configuration. By default, container insights ships with the Standard preset, however, you may choose one of the following to modify your collection settings.
@@ -101,13 +123,17 @@ The default schema for the config file follows this format:
 {
   "interval": "string",
   "namespaceFilteringMode": "string",
-  "namespaces": ["string"]
+  "namespaces": ["string"],
+  "enableContainerLogV2": boolean, 
+  "streams": ["string"]
 }
 ```
 
 * `interval`: The frequency of data collection, the input scheme must be a number between [1, 30] followed by m to denote minutes.
 * `namespaceFilteringMode`: The filtering mode for the namespaces, the input must be either Include, Exclude, or Off.
 * `namespaces`: An array of Kubernetes namespaces as strings for inclusion or exclusion
+* `enableContainerLogV2`: Boolean flag to enable ContainerLogV2 schema. If set to true, the stdout/stderr Logs will be ingested to [ContainerLogV2](container-insights-logging-v2.md) table, else the container logs will be ingested to ContainerLog table, unless otherwise specified in the ConfigMap. When specifying the individual streams, you must include the corresponding table for ContainerLog or ContainerLogV2.
+* `streams`: An array of container insights table streams. See the supported streams above to table mapping.
 
 Example input:
 
@@ -115,15 +141,17 @@ Example input:
 {
   "interval": "1m",
   "namespaceFilteringMode": "Include",
-  "namespaces": ["kube-system"]
+  "namespaces": ["kube-system"],
+  "enableContainerLogV2": true, 
+  "streams": ["Microsoft-Perf", "Microsoft-ContainerLogV2"]
 }
 ```
-Create a file and provide values for _interval_, _namespaceFilteringMode_, and _namespaces_. The following CLI instructions use the name dataCollectionSettings.json.
+Create a file and provide values for _interval_, _namespaceFilteringMode_, _namespaces_, _enableContainerLogV2_, and _streams_. The following CLI instructions use the name dataCollectionSettings.json.
 
 ## Onboarding to a new AKS cluster
 
 > [!NOTE]
-> Minimum Azure CLI version 2.49.0 or higher.
+> Minimum Azure CLI version 2.51.0 or higher.
 
 Use the following command to enable monitoring of your AKS cluster
 
@@ -136,7 +164,7 @@ az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --nod
 ## [Azure CLI](#tab/create-CLI)
 
 > [!NOTE]
-> Minimum Azure CLI version 2.49.0 or higher.
+> Minimum Azure CLI version 2.51.0 or higher.
 
 ### Onboard to a cluster without the monitoring addon
 
