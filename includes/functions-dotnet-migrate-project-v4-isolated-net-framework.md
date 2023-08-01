@@ -1,13 +1,11 @@
 ---
-author: ggailey777
+author: mattchenderson
 ms.service: azure-functions
 ms.topic: include
-ms.date: 10/29/2022
-ms.author: glenga
+ms.date: 07/31/2023
+ms.author: mahender
 ---
 The following changes are required in the .csproj XML project file: 
-
-1. Change the value of `PropertyGroup`.`TargetFramework` to `net7.0`.
 
 1. Change the value of `PropertyGroup`.`AzureFunctionsVersion` to `v4`.
 
@@ -15,29 +13,27 @@ The following changes are required in the .csproj XML project file:
 
     :::code language="xml" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Company.FunctionApp.csproj" range="5-5":::
 
-1. Replace the existing `ItemGroup`.`PackageReference` list with the following `ItemGroup`:
+1. Replace the existing `ItemGroup`.`PackageReference` with the following `ItemGroup`:
 
     :::code language="xml" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Company.FunctionApp.csproj" range="12-15":::
 
 1. Add the following new `ItemGroup`:
 
-    :::code language="xml" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Company.FunctionApp.csproj" range="26-28":::
+    :::code language="xml" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Company.FunctionApp.csproj" range="31-33":::
 
 After you make these changes, your updated project should look like the following example:
 
 ```xml
-
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net48</TargetFramework>
     <AzureFunctionsVersion>v4</AzureFunctionsVersion>
     <RootNamespace>My.Namespace</RootNamespace>
     <OutputType>Exe</OutputType>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.18.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.0.13" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.13.0" />
   </ItemGroup>
   <ItemGroup>
@@ -50,7 +46,7 @@ After you make these changes, your updated project should look like the followin
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Using Include="System.Threading.ExecutionContext" Alias="ExecutionContext"/>
+    <Folder Include="Properties\" />
   </ItemGroup>
 </Project>
 ```
