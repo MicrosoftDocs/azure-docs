@@ -469,7 +469,7 @@ See the following articles for more code samples to add to your maps:
 > [!div class="nextstepaction"]
 > [Add a polygon layer]
 
-[Quickstart: Create an Android app]: quick-android-map.md
-[Create a data source]: create-data-source-android-sdk.md
-[Use data-driven style expressions]: data-driven-style-expressions-android-sdk.md
 [Add a polygon layer]: how-to-add-shapes-to-android-map.md
+[Create a data source]: create-data-source-android-sdk.md
+[Quickstart: Create an Android app]: quick-android-map.md
+[Use data-driven style expressions]: data-driven-style-expressions-android-sdk.md

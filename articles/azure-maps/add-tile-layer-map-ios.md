@@ -111,9 +111,9 @@ See the following article to learn more about ways to overlay imagery on a map.
 
 * [Add an image layer to a map]
 
-[Zoom levels and tile grid]: zoom-levels-and-tile-grid.md
 [Add an image layer to a map]: add-image-layer-map-ios.md
-[web-mapping services (WMS)]: https://www.opengeospatial.org/standards/wms
 [Azure Maps iOS SDK]: how-to-use-ios-map-control-library.md
 [OpenSeaMap project]: https://openseamap.org/index.php
 [U.S. Geological Survey (USGS)]: https://mrdata.usgs.gov
+[web-mapping services (WMS)]: https://www.opengeospatial.org/standards/wms
+[Zoom levels and tile grid]: zoom-levels-and-tile-grid.md

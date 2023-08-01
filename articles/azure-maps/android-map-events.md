@@ -184,8 +184,8 @@ See the following articles for full code examples:
 > [!div class="nextstepaction"]
 > [Add a polygon layer]
 
-[Navigating the map]: how-to-use-android-map-control-library.md#navigating-the-map
-[Add a symbol layer]: how-to-add-symbol-to-android-map.md
 [Add a bubble layer]: map-add-bubble-layer-android.md
 [Add a line layer]: android-map-add-line-layer.md
 [Add a polygon layer]: how-to-add-shapes-to-android-map.md
+[Add a symbol layer]: how-to-add-symbol-to-android-map.md
+[Navigating the map]: how-to-use-android-map-control-library.md#navigating-the-map
