@@ -45,5 +45,5 @@ The following example returns the current time measured in ticks:
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`GetCurrentTicksStatic`](getcurrentticksstatic.md)

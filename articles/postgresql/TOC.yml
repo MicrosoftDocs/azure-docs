@@ -789,7 +789,7 @@
         href: https://aka.ms/postg-intro-vid
       - name: Migrate your PostgreSQL app to Azure
         href: https://aka.ms/postg-migrate-vid
-      - name: Build intelligent apps with Cognitive Services
+      - name: Build intelligent apps with Azure AI services
         href: https://aka.ms/postg-cogsvs-vid
       - name: Connect containers using OSBA
         href: https://aka.ms/postg-osba-vid

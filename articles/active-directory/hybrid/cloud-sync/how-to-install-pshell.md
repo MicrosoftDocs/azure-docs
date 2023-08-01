@@ -29,6 +29,8 @@ The Windows server must have TLS 1.2 enabled before you install the Azure AD Con
 
 ## Install the Azure AD Connect provisioning agent by using PowerShell cmdlets 
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
  1. Sign in to the server you use with enterprise admin permissions.
  2. Sign in to the [Azure portal](https://portal.azure.com), and then go to **Azure Active Directory**.
  3. On the menu on the left, select **Azure AD Connect**.
