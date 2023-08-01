@@ -18,8 +18,8 @@ This article explains how to plan for backup and disaster recovery for Azure man
 ## Azure built-in redundancy options
 
 Azure managed disks have [two built-in redundancy options](disks-redundancy.md) to protect your data against failures:
-1.	Locally redundant storage (LRS) replicates your data three times within a single data center in a particular region. LRS protects your data against server rack and drive failures. 
-2.	Zone-redundant storage (ZRS) provides synchronous replication of data across zones in a region, enabling disks to tolerate zonal failures that may occur due to natural disasters or hardware issues.
+-	Locally redundant storage (LRS) replicates your data three times within a single data center in a particular region. LRS protects your data against server rack and drive failures. 
+-	Zone-redundant storage (ZRS) provides synchronous replication of data across zones in a region, enabling disks to tolerate zonal failures that may occur due to natural disasters or hardware issues.
 
 However, major disasters (such as earthquakes, fires, or hurricanes) can result in outages or inaccessibility of large-scale storage servers, sometimes impacting a whole data center or zone (impacting LRS disks), or an entire region (impacting ZRS disks). In addition to platform failures, problems with an application or data can also occur (such as accidental deletes and ransomware attack). When these happen, you might want to revert the application and the data to a prior version that contains the last known good state. Reverting to a good state requires regular backups. 
 
@@ -80,8 +80,8 @@ Generally, you should use incremental snapshots for backup and disaster recovery
 You can implement backup mechanisms through snapshots. To do this, you need to create consistent snapshots for all disks used by a VM and then replicate them to another region. An option to create consistent backups with snapshot is to shut down the VM and take snapshots of each disk. If applications running on the VM can pause the IOs, you should take advantage of pausing it and then take snapshots of all the disks attached to VMs. Taking offline snapshots is easier than coordinating snapshots of a running VM, but it requires a few minutes of downtime.
 
 You can take a snapshot anytime, but if you’re taking snapshots while the VM is running, keep these things in mind:
-1.	When the VM is running, data is still being streamed to the disks. As a result, snapshots of a running VM might contain partial operations that were in flight.
-1.	If there are several disks involved in a VM, snapshots of different disks might have occurred at different times.
+-	When the VM is running, data is still being streamed to the disks. As a result, snapshots of a running VM might contain partial operations that were in flight.
+-	If there are several disks involved in a VM, snapshots of different disks might have occurred at different times.
 
 In the described scenario, snapshots weren't coordinated. This lack of coordination is a problem for striped volumes whose files might be corrupted if changes were being made during a backup. So the backup process must implement the following steps:
 1.	Freeze all the disks.
@@ -100,8 +100,8 @@ Restore points have three levels of hierarchy – VM Restore Point Collection, V
 -	Level 3: A Disk Restore Point consists of a snapshot of an individual managed disk.
 
 Restore points are incremental. First restore point stores a full copy of all disks attached to the VM, while successive restore point only contains incremental changes to VM disks. With Restore Points, you can:
-1.	Copy VM restore points between regions, restore VMs in a different region than the source VM and track the progress of copy operation. 
-2.	Create disks using disk restore points and get a shared access signature for the disk. These disks can then be used to create a new VM.
+-	Copy VM restore points between regions, restore VMs in a different region than the source VM and track the progress of copy operation. 
+-	Create disks using disk restore points and get a shared access signature for the disk. These disks can then be used to create a new VM.
 
 See the following articles to learn how to [Create VM restore points](virtual-machines-create-restore-points.md) and [Manage VM restore points](manage-restore-points.md).
 
