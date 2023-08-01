@@ -124,7 +124,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
     :::image type="content" source="../../media/logic-apps-tutorial/one-drive-trigger-setup.png" alt-text="Screenshot of the OneDrive trigger setup.":::
 
-1. A new node is added to the Logic App designer view. Search for "Form Recognizer (Document Intelligence forthcoming)" in the **Choose an operation** search bar and select **Analyze Document for Prebuilt or Custom models (v3.0 API)** from the list.
+1. A new node is added to the Logic App designer view. Search for **Form Recognizer** (Document Intelligence forthcoming) in the **Choose an operation** search bar and select **Analyze Document for Prebuilt or Custom models (v3.0 API)** from the list.
 
     :::image type="content" source="../../media/logic-apps-tutorial/analyze-prebuilt-document-action.png" alt-text="Screenshot of the Analyze Document for Prebuilt or Custom models (v3.0 API) selection button.":::
 
@@ -135,7 +135,10 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
       :::image type="content" source="../../media/logic-apps-tutorial/create-logic-app-connector.png" alt-text="Screenshot of the logic app connector dialog window":::
 
-1. You see the selection parameters window for the **Analyze Document for Prebuilt or Custom Models (v3.0 API)** connector.
+    > [!NOTE]
+    > If you already logged in with your credentials, the prior step is skipped.
+
+1. Next, you see the selection parameters window for the **Analyze Document for Prebuilt or Custom Models (v3.0 API)** connector.
 
       :::image type="content" source="../../media/logic-apps-tutorial/prebuilt-model-select-window.png" alt-text="Screenshot of the prebuilt model selection window.":::
 

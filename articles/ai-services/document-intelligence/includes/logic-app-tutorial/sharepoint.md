@@ -125,9 +125,9 @@ At this point, you should have a Document Intelligence resource and a SharePoint
 
 1. Next, we're going to add another new step to the workflow. Select the **➕ New step** button underneath the newly created SharePoint node.
 
-1. A new node is added to the Logic App designer view. Search for "Form Recognizer (Document Intelligence forthcoming)" in the **Choose an operation** search bar and select **Analyze Document for Prebuilt or Custom models (v3.0 API)** from the list.
+1. A new node is added to the Logic App designer view. Search for **Form Recognizer** (Document Intelligence forthcoming) in the **Choose an operation** search bar and select **Analyze Document for Prebuilt or Custom models (v3.0 API)** from the list.
 
-    :::image type="content" source="../../media/logic-apps-tutorial/analyze-invoice-v-2.png" alt-text="Screenshot of Analyze Invoice action.":::
+    :::image type="content" source="../../media/logic-apps-tutorial/analyze-prebuilt-document-action.png" alt-text="Screenshot of the Analyze Document for Prebuilt or Custom models (v3.0 API) selection button.":::
 
 1. Now, you see a window where you can create your connection. Specifically, you're going to connect your Document Intelligence resource to the Logic Apps Designer Studio:
 
@@ -138,11 +138,10 @@ At this point, you should have a Document Intelligence resource and a SharePoint
 
     > [!NOTE]
     > If you already logged in with your credentials, the prior step is skipped.
-    > Continue by completing the **Analyze Invoice** parameters.
 
 1. Next, you see the selection parameters window for the **Analyze Document for Prebuilt or Custom models (v3.0 API)** connector.
 
-    :::image type="content" source="../../media/logic-apps-tutorial/analyze-invoice-parameters.png" alt-text="Screenshot showing the analyze invoice window fields.":::
+    :::image type="content" source="../../media/logic-apps-tutorial/prebuilt-model-select-window.png" alt-text="Screenshot of the prebuilt model selection window.":::
 
 1. Complete the fields as follows:
 

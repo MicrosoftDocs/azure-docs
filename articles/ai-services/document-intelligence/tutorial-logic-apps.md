@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 07/18/2023
+ms.date: 08/01/2023
 ms.author: bemabonsu
 zone_pivot_groups: cloud-location
 monikerRange: '<=doc-intel-3.1.0'
