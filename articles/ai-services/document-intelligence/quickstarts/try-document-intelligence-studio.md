@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: 'doc-intel-3.0.0'
+monikerRange: '>=doc-intel-3.0.0'
 ---
 
 
@@ -17,7 +17,7 @@ monikerRange: 'doc-intel-3.0.0'
 
 # Get started: Document Intelligence Studio
 
-[!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
+[!INCLUDE [applies to v3.1 and v3.0](../includes/applies-to-v3-1-v3-0.md)]
 
 [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Document Intelligence service in your applications. You can get started by exploring the pretrained models with sample or your own documents. You can also create projects to build custom template models and reference the models in your applications using the [Python SDK](get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and other quickstarts.
 
@@ -54,21 +54,6 @@ Prebuilt models help you add Document Intelligence features to your apps without
 
 * [**Custom extraction models**](https://formrecognizer.appliedai.azure.com/studio): extract information from forms and documents with custom extraction models. Quickly train a model by labeling as few as five sample documents.
 * [**Custom classification model**](https://formrecognizer.appliedai.azure.com/studio): train a custom classifier to distinguish between the different document types within your applications. Quickly train a model with as few as two classes and five samples per class.
-
-#### Gated preview models
-
-> [!NOTE]
-> To request access for gated preview models in Document Intelligence Studio, complete and submit the [**Document Intelligence private preview request form**](https://aka.ms/form-recognizer/preview/survey).
-
-* [**General document with query fields**](https://formrecognizer.appliedai.azure.com/studio): extract labels, values such as names, dates, and amounts from documents.
-* [**Contract**](https://formrecognizer.appliedai.azure.com/studio): extract the title and signatory party information (including names, references, and addresses) from contracts.
-* [**Vaccination card**](https://formrecognizer.appliedai.azure.com/studio): extract card holder name, health provider, and vaccination records from US COVID-19 vaccination cards.
-* [**US 1098 tax form**](https://formrecognizer.appliedai.azure.com/studio): extract mortgage interest information from US 1098 tax forms.
-* [**US 1098-E tax form**](https://formrecognizer.appliedai.azure.com/studio): extract student loan information from US 1098-E tax forms.
-* [**US 1098-T tax form**](https://formrecognizer.appliedai.azure.com/studio): extract tuition information from US 1098-T forms.
-
-> [!NOTE]
-> To request access for gated preview models in Document Intelligence Studio, complete and submit the [**Document Intelligence private preview request form**](https://aka.ms/form-recognizer/preview/survey).
 
 After you've completed the prerequisites, navigate to [Document Intelligence Studio General Documents](https://formrecognizer.appliedai.azure.com/studio/document).
 
@@ -161,13 +146,15 @@ To create custom models, you start with configuring your project:
 
 1. Review and submit your settings to create the project.
 
-1. From the labeling view, define the labels and their types that you're interested in extracting.
+1. To quickstart the labeling process, use the auto label feature to label using already trained model or one of our prebuilt models.
+
+1. For manual labeling from scratch, define the labels and their types that you're interested in extracting.
 
 1. Select the text in the document and select the label from the drop-down list or the labels pane.
 
 1. Label four more documents to get at least five documents labeled.
 
-1. Select the Train command and enter model name, select whether you want the custom template (form) or custom neural (document) model to start training your custom model.
+1. Select the Train command and enter model name, select whether you want the neural (recommended) or template model to start training your custom model.
 
 1. Once the model is ready, use the Test command to validate it with your test documents and observe the results.
 
@@ -194,7 +181,7 @@ For custom form models, while creating your custom models, you may need to extra
 
 * Specific collection of values for a given set of fields (columns and/or rows)
 
-**Label as dynamic table**
+##### Label as dynamic table
 
 Use dynamic tables to extract variable count of values (rows) for a given set of fields (columns):
 
@@ -206,7 +193,7 @@ Use dynamic tables to extract variable count of values (rows) for a given set of
 
 :::image border="true" type="content" source="../media/quickstarts/custom-tables-dynamic.gif" alt-text="Document Intelligence labeling as dynamic table example":::
 
-**Label as fixed table**
+##### Label as fixed table
 
 Use fixed tables to extract specific collection of values for a given set of fields (columns and/or rows):
 
