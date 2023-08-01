@@ -156,6 +156,7 @@ Avoid asking long questions and break them down into multiple questions if possi
 
 You can deploy your model to [Power Virtual Agents](/power-virtual-agents/fundamentals-what-is-power-virtual-agents), letting you create a chatbot that will respond using your data, and that you can expand and integrate using Microsoft Power Platform.
 
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RW192hF]
 
 
 
