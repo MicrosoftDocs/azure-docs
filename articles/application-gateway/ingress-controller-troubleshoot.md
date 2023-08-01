@@ -162,7 +162,7 @@ The following conditions must be in place for AGIC to function as expected:
      ```output
      delyan@Azure:~$ kubectl get ingress aspnetapp -o yaml
 
-     apiVersion: extensions/v1beta1
+     apiVersion: networking.k8s.io/v1
      kind: Ingress
      metadata:
        annotations:

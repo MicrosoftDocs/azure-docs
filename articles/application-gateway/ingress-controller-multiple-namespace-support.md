@@ -61,7 +61,7 @@ For example, consider the following duplicate ingress resources defined
 namespaces `staging` and `production` for `www.contoso.com`:
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: websocket-ingress
@@ -79,7 +79,7 @@ spec:
 ```
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: websocket-ingress
