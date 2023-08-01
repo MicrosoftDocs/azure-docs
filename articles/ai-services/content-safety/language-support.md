@@ -15,7 +15,16 @@ ms.author: pafarley
 
 # Language support for Content Safety
 
-| Language name         | Language code | Supported | Specially trained |
+Some capabilities of Azure Content Safety support multiple languages; any capabilities not mentioned here only support English.
+
+The Content Safety text moderation feature supports many languages, but it has been specially trained and tested on a smaller set of languages.
+
+> [!NOTE]
+> **Language auto-detection**
+>
+> You don't need to specify a language code for text moderation; the service automatically detects your input language.
+
+| Language name         | Language code | Text moderation | Specially trained |
 |-----------------------|---------------|--------|--|
 | Afrikaans             | `af`          | ✔️    |  |
 | Albanian              | `sq`          | ✔️    |  |
