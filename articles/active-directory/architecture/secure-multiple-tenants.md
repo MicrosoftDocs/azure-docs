@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 There are specific scenarios when delegating administration in a single tenant boundary doesn't meet your needs. In this section, there are requirements that may drive you to create a multi-tenant architecture. Multi-tenant organizations might span two or more Azure AD tenants. This can result in unique cross-tenant collaboration and management requirements. Multi-tenant architectures increase management overhead and complexity and should be used with caution. We recommend using a single tenant if your needs can be met with that architecture. For more detailed information, see [Multi-tenant user management](multi-tenant-user-management-introduction.md).
 
-A separate tenant creates a new boundary, and therefore decoupled management of Azure AD directory roles, directory objects, conditional access policies, Azure resource groups, Azure management groups, and other controls as described in previous sections.
+A separate tenant creates a new boundary, and therefore decoupled management of Azure AD directory roles, directory objects, Conditional Access policies, Azure resource groups, Azure management groups, and other controls as described in previous sections.
 
 A separate tenant is useful for an organization's IT department to validate tenant-wide changes in Microsoft services such as, Intune, Azure AD Connect, or a hybrid authentication configuration while protecting an organization's users and resources. This includes testing service configurations that might have tenant-wide effects and can't be scoped to a subset of users in the production tenant.
 

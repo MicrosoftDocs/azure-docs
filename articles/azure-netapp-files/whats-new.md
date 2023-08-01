@@ -13,13 +13,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.custom: devx-track-linux
 ms.topic: overview
-ms.date: 06/26/2023
+ms.date: 08/01/2023
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+## August 2023 
+
+* [Moving volumes from *manual* QoS capacity pool to *auto* QoS capacity pool](dynamic-change-volume-service-level.md)   
+
+    You can now move volumes from a manual QoS capacity pool to an auto QoS capacity pool. When you move a volume to an auto QoS capacity pool, the throughput is changed according to the allocated volume size (quota) of the target pool's service level:  `<throughput> = <volume quota> x <Service Level Throughput / TiB>` 
 
 ## June 2023
 
