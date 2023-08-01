@@ -5,7 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 07/27/2023
+ms.date: 08/01/2023
 ms.author: cherylmc
 ---
 
@@ -35,7 +35,7 @@ Forced tunneling is configured using Azure PowerShell. You can't configure force
 
 ## Forced tunneling
 
-The following example shows all traffic being forced through the VPN gateway back to the on-premises location for inspection and auditing. Configure [forced tunneling](site-to-site-tunneling-ps.md) by specifying a default site.
+The following example shows all traffic being forced through the VPN gateway back to the on-premises location for inspection and auditing. Configure [forced tunneling](site-to-site-tunneling.md) by specifying a default site.
 
 **Forced tunneling example**
 
@@ -43,7 +43,7 @@ The following example shows all traffic being forced through the VPN gateway bac
 
 ## Split tunneling
 
-You may want Internet-bound traffic from certain subnets (but not all subnets) to traverse from the Azure network infrastructure directly out to the Internet. This scenario can be configured using a combination of forced tunneling and virtual network custom user-defined routes. For steps, see [Split tunneling](site-to-site-tunneling-ps.md).
+You may want Internet-bound traffic from certain subnets (but not all subnets) to traverse from the Azure network infrastructure directly out to the Internet. This scenario can be configured using a combination of forced tunneling and virtual network custom user-defined routes. For steps, see [Split tunneling](site-to-site-tunneling.md).
 
 **Split tunneling example**
 
@@ -55,6 +55,6 @@ You may want Internet-bound traffic from certain subnets (but not all subnets) t
 
 ## Next steps
 
-* See [How to configure split tunneling and forced tunneling for VPN Gateway S2S connections](site-to-site-tunneling-ps.md).
+* See [How to configure split tunneling and forced tunneling for VPN Gateway S2S connections](site-to-site-tunneling.md).
 
 * For more information about virtual network traffic routing, see [VNet traffic routing](../virtual-network/virtual-networks-udr-overview.md).

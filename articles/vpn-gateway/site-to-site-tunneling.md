@@ -1,11 +1,11 @@
 ---
-title: 'Configure split or forced tunneling for site-to-site connections:PowerShell'
+title: 'Configure split or forced tunneling for site-to-site connections: PowerShell'
 description: Learn how to split or force tunnel traffic for VPN Gateway site-to-site connections using PowerShell.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/27/2023
+ms.date: 08/01/2023
 ms.author: cherylmc
 ---
 # Configure forced tunneling and split tunneling for site-to-site connections
