@@ -9,7 +9,7 @@ ms.reviewer: mmcc
 ---
 # Migrating from OpenCensus Python SDK and Azure Monitor OpenCensus exporter for Python to Azure Monitor OpenTelemetry Python Distro
 
-Follow these steps to migrate your Python applications to use the [Azure Monitor](../overview.md) [Application Insights](./app-insights-overview.md) [OpenTelemetry Distro](./opentelemetry-enable.md?tabs=python).
+Follow these steps to migrate Python applications to the [Azure Monitor](../overview.md) [Application Insights](./app-insights-overview.md) [OpenTelemetry Distro](./opentelemetry-enable.md?tabs=python).
 
 > [!WARNING]
 > - The [OpenCensus "How to Migrate to OpenTelemetry" blog](https://opentelemetry.io/blog/2023/sunsetting-opencensus/#how-to-migrate-to-opentelemetry) is not applicable to Azure Monitor users.
@@ -58,9 +58,7 @@ The following documentation provides prerequisite knowledge of the OpenTelemetry
 
 ## Changes and limitations
 
-The rest of this document describes limitations and changes that you may
-encounter when migrating from OpenCensus solutions to OpenTelemetry solutions,
-and some workarounds that you may find helpful.
+The following changes and limitations may be encountered when migrating from OpenCensus to OpenTelemetry.
 
 ### Python < 3.7 support
 
