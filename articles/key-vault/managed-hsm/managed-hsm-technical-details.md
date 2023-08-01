@@ -92,7 +92,7 @@ Managed HSM removes the need for customers to make tradeoffs between availabilit
 
 ## Related content
 
-- [Azure Key Vault Managed HSM: Control your data in the cloud](mhsm-control-data.md)
+- [Managed HSM: Control your data in the cloud](mhsm-control-data.md)
 - [About the Managed HSM security domain](security-domain.md)
 - [Managed HSM access control](access-control.md)
 - [Local RBAC built-in roles](built-in-roles.md)

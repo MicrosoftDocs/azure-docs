@@ -19,22 +19,22 @@ This article provides best practices for securing your Azure Key Vault Managed H
 
 ## Control access to your managed HSM
 
-Managed HSM is a cloud service that safeguards encryption keys. Because these keys are sensitive and critical to your business, make sure that you secure your managed HSMs by allowing access only by  authorized applications and users. [Managed HSM access control](access-control.md) provides an overview of the access model. It explains authentication, authorization, and role-based access control (RBAC).
+Managed HSM is a cloud service that safeguards cryptographic keys. Because these keys are sensitive and critical to your business, make sure that you secure your managed HSMs by allowing access only by  authorized applications and users. [Managed HSM access control](access-control.md) provides an overview of the access model. It explains authentication, authorization, and role-based access control (RBAC).
 
 To control access to your managed HSM:
 
 - Create an [Azure Active Directory security group](../../active-directory/fundamentals/active-directory-manage-groups.md) for the HSM Administrators (instead of assigning the Administrator role to individuals) to prevent "administration lockout" if an individual account is deleted.
 - Lock down access to your management groups, subscriptions, resource groups, and managed HSMs. Use Azure role-based access control (Azure RBAC) to control access to your management groups, subscriptions, and resource groups.
-- Create per-key role assignments by using [Managed HSM local RBAC](access-control.md#the-data-plane-and-managed-hsm-local-rbac).
+- Create per-key role assignments by using [Managed HSM local RBAC](access-control.md#data-plane-and-managed-hsm-local-rbac).
 - To maintain separation of duties, avoid assigning multiple roles to the same principals.
 - Use the least-privilege access principle to assign roles.
 - Create a custom role definition by using a precise set of permissions.
 
-## Back up
+## Create backups
 
-- Make sure that you make regular backups of your managed HSM.
+- Be sure that you create regular backups of your managed HSM.
 
-   You can make backups at the HSM level and for specific keys.
+   You can create backups at the HSM level and for specific keys.
 
 ## Turn on logging
 
@@ -51,7 +51,7 @@ To control access to your managed HSM:
 
 ## Next steps
 
-- [Azure Key Vault Managed HSM security baseline](/security/benchmark/azure/baselines/key-vault-managed-hsm-security-baseline)
+- [Managed HSM security baseline](/security/benchmark/azure/baselines/key-vault-managed-hsm-security-baseline)
 - [Full backup and restore](backup-restore.md)
 - [Managed HSM logging](logging.md)
 - [Manage your Managed HSM keys](key-management.md)
