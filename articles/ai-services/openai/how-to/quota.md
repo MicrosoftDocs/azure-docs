@@ -149,6 +149,43 @@ curl -X PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-0
 > [!NOTE]
 > There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from the [Azure portal](https://portal.azure.com). Then run [`az account get-access-token`](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token&preserve-view=true). You can use this token as your temporary authorization token for API testing.
 
+# [Azure CLI](#tab/cli)
+
+Install the [Azure CLI](/cli/azure/install-azure-cli). Quota requires `Azure CLI version 2.51.0`. If you already have Azure CLI installed locally run `az upgrade` to update to the latest version.
+
+To check which version of Azure CLI you are running use `az version`. Azure Cloud Shell is currently still running 2.50.0 so in the interim local installation of Azure CLI is required to take advantage of the latest Azure OpenAI features.
+
+### Deployment
+
+```azurecli
+az cognitiveservices account deployment create --model-format
+                                               --model-name
+                                               --model-version
+                                               --name
+                                               --resource-group
+                                               [--capacity]
+                                               [--deployment-name]
+                                               [--scale-capacity]
+                                               [--scale-settings-scale-type {Manual, Standard}]
+                                               [--sku]
+```
+
+To sign into your local installation of the CLI, run the [az login](/cli/azure/reference-index#az-login) command:
+
+```azurecli
+az login
+```
+
+<!--TODO:You can also use the green **Try It** button to run these commands in your browser in the Azure Cloud Shell.-->
+
+By setting sku-capacity to 10 in the command below this deployment will be set with a 10K TPM limit.
+
+```azurecli
+az cognitiveservices account deployment create -g test-resource-group -n test-resource-name --deployment-name test-deployment-name --model-name gpt-35-turbo --model-version "0613" --model-format OpenAI --sku-capacity 10 --sku-name "Standard"
+```
+
+For more details, consult the [full Azure CLI reference documentation](https://learn.microsoft.com/en-us]/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest)
+
 # [Azure Resource Manager](#tab/arm)
 
 ```json
