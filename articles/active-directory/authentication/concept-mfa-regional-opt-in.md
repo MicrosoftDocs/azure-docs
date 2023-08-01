@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/31/2023
+ms.date: 08/01/2023
 
 author: aloom3
 ms.author: justinha
@@ -31,9 +31,9 @@ Here's how an IRSF attack may happen:
 1. A bad actor uses automated scripts to request voice calls or SMS messages. The bad actor is colluding with number providers and the telecommunication network to drive more traffic to those services. The bad actor skims some of the profits of the increased traffic.  
 1. A bad actor will hop around different region codes to continue to drive traffic and make it hard for them to get caught.  
 
-The most common way to conduct an IRSF attack is through some end-user experience that requires a two-factor authentication code. Bad actors add those premium rate phone numbers and pump traffic to them by requesting two-factor authentication codes. This activity results in revenue-skimming, and has led to a $10-billion dollar loss.  
+The most common way to conduct IRSF is through an end-user experience that requires a two-factor authentication code. Bad actors add those premium rate phone numbers and pump traffic to them by requesting two-factor authentication codes. This activity results in revenue-skimming, and can lead to billions of dollars in loss.  
 
-IRSF fraud poses a significant threat to online businesses and can result in substantial financial losses and reputational damage. By understanding IRSF, you can be more aware of the problem and can engage in implementing preventive measures such as regional restrictions, rate limiting, and phone number verification.  
+IRSF poses a significant threat to online businesses and can cause reputational damage. By understanding IRSF, you can be more aware of the problem and can engage in implementing preventive measures such as regional restrictions, rate limiting, and phone number verification.  
 
 ## SMS verification
 
