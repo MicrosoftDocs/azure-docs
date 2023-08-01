@@ -100,6 +100,7 @@ To achieve high availability for applications, [enable automatic instance repair
 
 A grace period can be set using the property `automaticRepairsPolicy.gracePeriod`. The grace period, specified in minutes and in ISO 8601 format, can range between 10 to 90 minutes, and has a default value of 30 minutes.
 
+
 # [Azure Resource Graph](#tab/graph)
 
 :::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machine-scale-sets/code/vmss-4/vmss-4.kql":::
@@ -123,7 +124,11 @@ As your application processes traffic, there can be situations where you want sp
 
 #### :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg"::: **VMSS-3: Enable Virtual Machine Scale Sets Application health monitoring** 
 
-Monitoring your application health is an important signal for managing and upgrading your deployment. Azure Virtual Machine Scale Sets provide support for rolling upgrades, including Automatic OS-Image Upgrades and Automatic VM Guest Patching, which rely on health monitoring of the individual VMs to upgrade your deployment. You can also use [Application Health Extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) to monitor the application health of each instance in your scale set and perform instance repairs using Automatic Instance Repairs.
+Monitoring your application health is an important signal for managing and upgrading your deployment. Azure Virtual Machine Scale Sets provides support for rolling upgrades, including:
+
+- [Automatic OS-Image Upgrades](/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)
+- [Automatic VM Guest Patching](/virtual-machines/automatic-vm-guest-patching), which relies on health monitoring of individual VMs to upgrade your deployment. 
+- [Load Balancer Health Probes](/load-balancer/load-balancer-custom-probe-overview) *or* [Application Health Extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md), which both monitors the application health of each VM in your scale set and [performs instance repairs using Automatic Instance Repairs](/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
 
 
 # [Azure Resource Graph](#tab/graph)
@@ -153,7 +158,7 @@ Virtual machine scale sets supports both zonal and zone-redundant deployments wi
 
 ### SLA improvements
 
-Because availability zones are physically separate and provide distinct power source, network, and cooling, SLAs (Service-level agreements) increase. For more information, see the [SLA for Microsoft Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+Because availability zones are physically separate and provide distinct power sources, network, and cooling - service-level agreements (SLAs) are increased. For more information, see the [SLA for Microsoft Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 #### Create a Virtual Machine Scale Set with availability zones enabled
 
@@ -205,7 +210,7 @@ az vmss create \
     --zones 1 2 3
 ```
 
-It takes a few minutes to create and configure all the scale set resources and VMs in the zone(s) that you specify. For a complete example of a zone-redundant scale set and network resources, see [this sample CLI script](../virtual-machine-scale-sets/scripts/cli-sample-zone-redundant-scale-set.md#sample-script)
+It takes a few minutes to create and configure all the scale set resources and VMs in the zone(s) that you specify. For a complete example of a zone-redundant scale set and network resources, see [our sample CLI script](../virtual-machine-scale-sets/scripts/cli-sample-zone-redundant-scale-set.md#sample-script)
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -291,7 +296,7 @@ The following example creates a Linux single-zone scale set named *myScaleSet* i
 }
 ```
 
-For a complete example of a single-zone scale set and network resources, see [this sample Resource Manager template](https://github.com/Azure/vm-scale-sets/blob/master/z_deprecated/preview/zones/singlezone.json)
+For a complete example of a single-zone scale set and network resources, see [our sample Resource Manager template](https://github.com/Azure/vm-scale-sets/blob/master/z_deprecated/preview/zones/singlezone.json)
 
 ### Zone-redundant scale set
 
@@ -312,7 +317,7 @@ To create a zone-redundant scale set, specify multiple values in the `zones` pro
 ```
 If you create a public IP address or a load balancer, specify the *"sku": { "name": "Standard" }"* property to create zone-redundant network resources. You also need to create a Network Security Group and rules to permit any traffic. For more information, see [Azure Load Balancer Standard overview](../load-balancer/load-balancer-overview.md) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md).
 
-For a complete example of a zone-redundant scale set and network resources, see [this sample Resource Manager template](https://github.com/Azure/vm-scale-sets/blob/master/z_deprecated/preview/zones/multizone.json)
+For a complete example of a zone-redundant scale set and network resources, see [our sample Resource Manager template](https://github.com/Azure/vm-scale-sets/blob/master/z_deprecated/preview/zones/multizone.json)
 
 
 ----
