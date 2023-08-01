@@ -147,13 +147,13 @@ To view events for an access package, you must have access to the underlying Azu
 
 1. In that workbook, select a time range (change to **All** if not sure), and select an access package ID from the drop-down list of all access packages that had activity during that time range. The events related to the access package that occurred during the selected time range will be displayed.
 
-    ![View access package events](./media/entitlement-management-logs-and-reporting/view-events-access-package.png) 
+    [ ![View access package events](./media/entitlement-management-logs-and-reporting/view-events-access-package-sml.png) ](./media/entitlement-management-logs-and-reporting/view-events-access-package-lrg.png#lightbox)
 
     Each row includes the time, access package ID, the name of the operation, the object ID, UPN, and the display name of the user who started the operation.  Additional details are included in JSON.
 
 1. If you would like to see if there have been changes to application role assignments for an application that weren't due to access package assignments, such as by a global administrator directly assigning a user to an application role, then you can select the workbook named *Application role assignment activity*.
 
-    ![View app role assignments](./media/entitlement-management-access-package-incompatible/workbook-ara.png)
+    [ ![View app role assignments](./media/entitlement-management-access-package-incompatible/workbook-ara-sml.png) ] (./media/entitlement-management-access-package-incompatible/workbook-ara-lrg.png#lightbox)
 
 ## Next steps
 
