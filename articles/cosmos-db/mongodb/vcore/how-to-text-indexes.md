@@ -1,5 +1,5 @@
 ---
-title: Text Indexes in Azure Cosmos DB for MongoDB vCore
+title: Text indexes in Azure Cosmos DB for MongoDB vCore
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: How to configure and use text indexes in Azure Cosmos DB for MongoDB vCore
 author: suvishodcitus
@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 07/26/2023
 ---
 
-# Text Indexes in Azure Cosmos DB for MongoDB vCore
+# Text indexes in Azure Cosmos DB for MongoDB vCore
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
@@ -43,7 +43,7 @@ To create a text index in Azure Cosmos DB for MongoDB, you can use the "createIn
 db.articles.createIndex({ title: "text" })
 ```
 
-While we can define only one text index per collection, Azure CosmosDB for MongoDB allows you to create text indexes on multiple fields to enable you to perform text searches across different fields in your documents.
+While we can define only one text index per collection, Azure Cosmos DB for MongoDB allows you to create text indexes on multiple fields to enable you to perform text searches across different fields in your documents.
 
 For example, if we want to perform search on both the "title" and "content" fields, then the text index can be defined as:
 
@@ -101,11 +101,11 @@ This query will return all documents in the "articles" collection that contain t
 
 ## Limitations
 
-1. Only one text index can be defined on a collection.
-2. Text indexes support simple text searches and do not provide advanced search capabilities like regular expression searches.
-3. Hint() is not supported in combination with a query using $text expression.
-4. Sort operations cannot leverage the ordering of the text index in MongoDB.
-5. Text indexes can be relatively large, consuming significant storage space compared to other index types.
+* Only one text index can be defined on a collection.
+* Text indexes support simple text searches and do not provide advanced search capabilities like regular expression searches.
+* Hint() is not supported in combination with a query using $text expression.
+* Sort operations cannot leverage the ordering of the text index in MongoDB.
+* Text indexes can be relatively large, consuming significant storage space compared to other index types.
 
 
 
