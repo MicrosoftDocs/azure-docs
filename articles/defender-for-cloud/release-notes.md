@@ -46,8 +46,8 @@ As a result of such possible abuse, it's important to monitor and detect suspici
 
 Here is a table of the new alerts.
 
-|Alert (alert type)|Description|MITRE tactics<br>([Learn more](#intentions))|Severity|
-|----|----|:----:|--|
+|Alert (alert type)|Description|MITRE tactics|Severity|
+|----|----|----|----|
 | **Suspicious installation of GPU extension in your virtual machine (Preview)**(VM_GPUDriverExtensionUnusualExecution) | Suspicious installation of a GPU extension was detected in your virtual machine by analyzing the Azure Resource Manager operations in your subscription. Attackers may use the GPU driver extension to install GPU drivers on your virtual machine via the Azure Resource Manager to perform cryptojacking. | Impact | Low |
 | **Suspicious failure installing GPU extension in your subscription (Preview)**<br>(VM_GPUExtensionSuspiciousFailure) | Suspicious intent of installing a GPU extension on unsupported VMs. This extension should be installed on virtual machines equipped with a graphic processor, and in this case the virtual machines are not equipped with such. These failures can be seen when malicious adversaries execute multiple installations of such extension for crypto-mining purposes. | Impact | Low |
 | **Suspicious unauthorized Run Command usage was detected in your virtual machine (Preview)**<br>(VM_RunCommandSuspiciousFailure) | Suspicious unauthorized usage of a Run command has failed and was detected in your virtual machine by analyzing the Azure Resource Manager operations in your subscription. Attackers may attempt to use the Run command to execute malicious code with high privileges on your virtual machines via the Azure Resource Manager. This activity is deemed suspicious as it hasn't been commonly seen before. | Execution | Medium | 

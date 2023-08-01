@@ -192,6 +192,7 @@ Microsoft Defender for Servers Plan 2 provides unique detections and alerts, in 
 |**Suspicious installation of GPU extension in your virtual machine (Preview)** <br> (VM_GPUDriverExtensionUnusualExecution)                                                                             | Suspicious installation of a GPU extension was detected in your virtual machine by analyzing the Azure Resource Manager operations in your subscription. Attackers may use the GPU driver extension to install GPU drivers on your virtual machine via the Azure Resource Manager to perform cryptojacking.                                                                                                                        | Impact                     | Low   
 
 ## Control plane alerts - Defender for Servers
+
 |Alert (alert type)|Description|MITRE tactics<br>([Learn more](#intentions))|Severity|
 |----|----|:----:|--|
 | **Suspicious installation of GPU extension in your virtual machine (Preview)**(VM_GPUDriverExtensionUnusualExecution) | Suspicious installation of a GPU extension was detected in your virtual machine by analyzing the Azure Resource Manager operations in your subscription. Attackers may use the GPU driver extension to install GPU drivers on your virtual machine via the Azure Resource Manager to perform cryptojacking. | Impact | Low |
