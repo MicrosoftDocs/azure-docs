@@ -9,7 +9,7 @@ ms.topic: reference
 ms.workload: identity
 ms.date: 7/6/2022
 ms.subservice: hybrid
-ms.author: rodejo
+ms.author: billmath
 ms.custom: has-adal-ref
 ms.collection: M365-identity-device-management
 ---
@@ -47,9 +47,6 @@ Required permissions | For permissions required to apply an update, see [Azure A
 > Currently only builds 2.1.16.0 (release August 8th 2022) or later are supported.
 > 
 > If you are not already using the latest release version of Azure AD Connect Sync, you should upgrade your Azure AD Connect Sync software before that date. 
-> 
-
-Rather than list all the versions which are retired I think its simpler just to list the ones which aren’t retired.
 
 
 If you run a retired version of Azure AD Connect, it might unexpectedly stop working. You also might not have the latest security fixes, performance improvements, troubleshooting and diagnostic tools, and service enhancements. If you require support, we might not be able to provide you with the level of service your organization needs.

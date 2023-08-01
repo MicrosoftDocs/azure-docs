@@ -9,15 +9,15 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.0.0'
+monikerRange: '<=doc-intel-3.1.0'
 ---
 
 <!-- markdownlint-disable MD033 -->
 
 # Document Intelligence invoice model
 
-::: moniker range="doc-intel-3.0.0"
-[!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
+::: moniker range=">=doc-intel-3.0.0"
+[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
@@ -37,7 +37,7 @@ The Document Intelligence invoice model uses powerful Optical Character Recognit
 
 Automated invoice processing is the process of extracting key accounts payable fields from billing account documents. Extracted data includes line items from invoices integrated with your accounts payable (AP) workflows for reviews and payments. Historically, the accounts payable process has been done manually and, hence, very time consuming. Accurate extraction of key data from invoices is typically the first and one of the most critical steps in the invoice automation process.
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 **Sample invoice processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)**:
 
@@ -55,13 +55,13 @@ Automated invoice processing is the process of extracting key accounts payable f
 
 ## Development options
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 Document Intelligence v3.0 supports the following tools:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Invoice model** | <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li></ul>|**prebuilt-invoice**|
+|**Invoice model** | <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li></ul>|**prebuilt-invoice**|
 
 ::: moniker-end
 
@@ -71,13 +71,13 @@ Document Intelligence v2.1 supports the following tools:
 
 | Feature | Resources |
 |----------|-------------------------|
-|**Invoice model**| <ul><li>[**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](./how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&preserve-view=true&tabs=windows&view=doc-intel-2.1.0#analyze-invoices)</li><li>[**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)</li><li>[**Document Intelligence Docker container**](containers/install-run.md?tabs=invoice#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|**Invoice model**| <ul><li>[**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&tabs=windows&view=doc-intel-2.1.0&preserve-view=true)</li><li>[**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)</li><li>[**Document Intelligence Docker container**](containers/install-run.md?tabs=invoice#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
 ::: moniker-end
 
 ## Input requirements
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
@@ -91,19 +91,17 @@ Document Intelligence v2.1 supports the following tools:
 
 ::: moniker-end
 
-## Try invoice data extraction
+## Invoice model data extraction
 
 See how data, including customer information, vendor details, and line items, is extracted from invoices. You need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+* An [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-::: moniker range="doc-intel-3.0.0"
-
-## Document Intelligence Studio
+::: moniker range=">=doc-intel-3.0.0"
 
 1. On the Document Intelligence Studio home page, select **Invoices**
 
@@ -158,7 +156,7 @@ See how data, including customer information, vendor details, and line items, is
 
 ::: moniker-end
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 ## Supported languages and locales
 
@@ -286,7 +284,7 @@ The invoice key-value pairs and line items extracted are in the `documentResults
 
 ### Key-value pairs
 
-The prebuilt invoice **2022-06-30** and later releases support the optional return of key-value pairs. By defualt the return of key-value pairs is disabled. Key-value pairs are specific spans within the invoice that identify a label or key and its associated response or value. In an invoice, these pairs could be the label and the value the user entered for that field or telephone number. The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
+The prebuilt invoice **2022-06-30** and later releases support the optional return of key-value pairs. By default, the return of key-value pairs is disabled. Key-value pairs are specific spans within the invoice that identify a label or key and its associated response or value. In an invoice, these pairs could be the label and the value the user entered for that field or telephone number. The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
 
 Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. key-value pairs are always spans of text contained in the document. For documents where the same value is described in different ways, for example, customer/user, the associated key is either customer or user (based on context).
 
@@ -361,7 +359,7 @@ The JSON output has three parts:
 
 ## Next steps
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 * Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 

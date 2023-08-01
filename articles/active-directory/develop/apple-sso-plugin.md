@@ -118,7 +118,7 @@ The SSO plug-in is installed automatically by devices that have:
 * Downloaded the Authenticator app on iOS or iPadOS, or downloaded the Intune Company Portal app on macOS.
 * MDM-enrolled their device with your organization. 
 
-Your organization likely uses the Authenticator app for scenarios like multifactor authentication (MFA), passwordless authentication, and conditional access. By using an MDM provider, you can turn on the SSO plug-in for your applications. Microsoft has made it easy to configure the plug-in using Microsoft Intune. An allowlist is used to configure these applications to use the SSO plug-in.
+Your organization likely uses the Authenticator app for scenarios like multifactor authentication (MFA), passwordless authentication, and Conditional Access. By using an MDM provider, you can turn on the SSO plug-in for your applications. Microsoft has made it easy to configure the plug-in using Microsoft Intune. An allowlist is used to configure these applications to use the SSO plug-in.
 
 >[!IMPORTANT]
 > The Microsoft Enterprise SSO plug-in supports only apps that use native Apple network technologies or webviews. It doesn't support applications that ship their own network layer implementation.  
@@ -309,7 +309,7 @@ Use the following configuration to enable Just in Time Registration for iOS/iPad
 Learn more about Just in Time Registration [here](https://techcommunity.microsoft.com/t5/intune-customer-success/just-in-time-registration-for-ios-ipados-with-microsoft-intune/ba-p/3660843). 
 
 #### Conditional access policies and password changes
-Microsoft Enterprise SSO plug-in for Apple devices is compatible with various [Azure AD conditional access policies](/azure/active-directory/conditional-access/overview) and password change events. `browser_sso_interaction_enabled` is required to be enabled to achieve compatibility. 
+Microsoft Enterprise SSO plug-in for Apple devices is compatible with various [Azure AD Conditional Access policies](/azure/active-directory/conditional-access/overview) and password change events. `browser_sso_interaction_enabled` is required to be enabled to achieve compatibility. 
 
 Compatible events and policies are documented in the following sections:
 
@@ -379,7 +379,7 @@ You don't need to change the code in those apps as long as the following conditi
 - The application uses standard protocols to communicate with Azure AD. These protocols include, for example, OAuth 2, SAML, and WS-Federation.
 - The application doesn't collect plaintext usernames and passwords in the native UI.
 
-In this case, SSO is provided when the application creates a network request and opens a web browser to sign the user in. When a user is redirected to an Azure AD sign-in URL, the SSO plug-in validates the URL and checks for an SSO credential for that URL. If it finds the credential, the SSO plug-in passes it to Azure AD, which authorizes the application to complete the network request without asking the user to enter credentials. Additionally, if the device is known to Azure AD, the SSO plug-in passes the device certificate to satisfy the device-based conditional access check. 
+In this case, SSO is provided when the application creates a network request and opens a web browser to sign the user in. When a user is redirected to an Azure AD sign-in URL, the SSO plug-in validates the URL and checks for an SSO credential for that URL. If it finds the credential, the SSO plug-in passes it to Azure AD, which authorizes the application to complete the network request without asking the user to enter credentials. Additionally, if the device is known to Azure AD, the SSO plug-in passes the device certificate to satisfy the device-based Conditional Access check. 
 
 To support SSO for non-MSAL apps, the SSO plug-in implements a protocol similar to the Windows browser plug-in described in [What is a primary refresh token?](../devices/concept-primary-refresh-token.md#browser-sso-using-prt). 
 
