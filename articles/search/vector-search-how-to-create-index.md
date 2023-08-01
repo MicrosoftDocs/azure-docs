@@ -15,11 +15,11 @@ ms.date: 07/31/2023
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
-In Azure Cognitive Search, vector data is indexed as fields within a [search index](search-what-is-an-index.md), using a vector configuration to create the embedding space. 
+In Azure Cognitive Search, vector data is indexed as *vector fields* within a [search index](search-what-is-an-index.md), using a *vector configuration* to create the embedding space. 
 
-+ A vector field is of type `Collection(Edm.Single)` so that it can hold  single-precision floating-point values. It also has a "dimensions" property and a "vectorConfiguration" property that identifies which configuration is used to create the embedding space.
++ A vector field is of type `Collection(Edm.Single)` so that it can hold  single-precision floating-point values. It also has a "dimensions" property and a "vectorConfiguration" property.
 
-+ A vector configuration specifies the algorithm used to create the embedding space. You can have multiple configurations within an index, but each vector field can use just one.
++ A vector configuration specifies the algorithm and parameters used during query execution to find the nearest neighbors in a similarity search. You can have multiple configurations within an index, but each vector field is assigned to just one.
 
 ## Prerequisites
 
@@ -91,7 +91,7 @@ Currently, there's no portal support for loading vector data into fields.
 
    + Name the configuration. The name must be unique within the index.
    + "hnsw" is the Approximate Nearest Neighbors (ANN) algorithm used to find similar vectors. Currently, only Hierarchical Navigable Small World (HNSW) is supported. 
-   + "Bi-directional link count" default is 4. The range is 2 to 100. Lower values (lower recall) should return less noise in the results. 
+   + "Bi-directional link count" default is 4. The range is 2 to 100. Lower values should return less noise in the results. 
    + "efConstruction" default is 400. It's the number of nearest neighbors used during indexing.
    + "efSearch default is 500. It's the number of nearest neighbors used during search.
    + "Similarity metric" should be "cosine" if you're using Azure OpenAI, otherwise use the similarity metric of the embedding model. Supported values are `cosine`, `dotProduct`, `euclidean`.
