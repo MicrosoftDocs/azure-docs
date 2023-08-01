@@ -240,7 +240,7 @@ The consumer group for all function instances is the `ID` of the function. For e
 
 ### Output
 
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
+::: zone pivot="programming-language-csharp"
 
 | Output Type                                                                                                                                           | Description                                                                                                                                                                             |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -251,8 +251,14 @@ The consumer group for all function instances is the `ID` of the function. For e
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp"
 
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
+
+| Output Type | Description                                                                                                     |
+|-------------|-----------------------------------------------------------------------------------------------------------------|
+| `byle[]`    | The message from the channel.                                                                                    |
+| `string`    | The message from the channel.                                                                                   |
+| `Custom`    | The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type. |
 <!-- TBD -->
 
 <!--Any usage information specific to isolated worker process, including types. -->
@@ -260,8 +266,6 @@ The consumer group for all function instances is the `ID` of the function. For e
 ::: zone-end
 <!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-java"
-
-<!-- TBD -->
 
 <!--Any usage information from the Java tab in ## Usage. -->
 ::: zone-end

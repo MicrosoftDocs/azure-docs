@@ -401,7 +401,7 @@ Because these events are published on pub/sub channels, the `RedisPubSubTrigger`
 
 ## Output
 
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
+::: zone pivot="programming-language-csharp"
 
 | Output Type | Description|
 |---|---|
@@ -411,9 +411,15 @@ Because these events are published on pub/sub channels, the `RedisPubSubTrigger`
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp"
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
-<!-- TBD -->
+| Output Type | Description                                                                                                     |
+|-------------|-----------------------------------------------------------------------------------------------------------------|
+| `byle[]`    | The message from the channel.                                                                                    |
+| `string`    | The message from the channel.                                                                                   |
+| `Custom`    | The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type. |
+
+<!--Any usage information specific to isolated worker process, including types. -->
 
 <!--Any usage information specific to isolated worker process, including types. -->
 
