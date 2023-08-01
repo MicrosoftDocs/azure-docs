@@ -91,7 +91,7 @@ Follow these steps to restore the controller database from a backup, if the SQL 
 1. Restore the database from backup - after the corrupted `controllerdb` is dropped. For example:
 
    ```sql
-   RESTORE DATABASE test FROM DISK = '/var/opt/mssql-server/backups/<controller backup file>.bak'
+   RESTORE DATABASE test FROM DISK = '/var/opt/backups/mssql/<controller backup file>.bak'
    WITH MOVE 'controller' to '/var/opt/mssql/data/controller.mdf
    ,MOVE 'controller' to '/var/opt/mssql/data/controller_log.ldf' 
    ,RECOVERY;
@@ -207,7 +207,7 @@ Follow these steps to restore the controller database from a backup with new sto
 11. Restore the backup using the `RESTORE` command as follows:
 
    ```sql
-   RESTORE DATABASE [controller] FROM DISK = N'/var/opt/mssql-server/backups/<controller backup file>.bak' WITH FILE = 1
+   RESTORE DATABASE [controller] FROM DISK = N'/var/opt/backups/mssql/<controller backup file>.bak' WITH FILE = 1
    ```
 
 12. Create a `controldb-rw-user` login using the password in the `controller-db-rw-secret` secret `CREATE LOGIN [controldb-rw-user] WITH PASSWORD = '<password-from-secret>'` and associate it with the existing `controldb-rw-user` user in the controller DB `ALTER USER [controldb-rw-user] WITH LOGIN = [controldb-rw-user]`.
