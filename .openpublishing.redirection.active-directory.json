@@ -13470,8 +13470,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/fundamentals/services-azure-active-directory-support.md",
-      "redirect_url": "/azure/active-directory/fundamentals/services-id-authentication-support",
+      "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/services-azure-active-directory-support.md",
+      "redirect_url": "/azure/active-directory/managed-identities-azure-resources/services-id-authentication-support",
       "redirect_document_id": false
     }
   ]
