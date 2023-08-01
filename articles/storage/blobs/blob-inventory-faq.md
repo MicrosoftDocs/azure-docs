@@ -17,9 +17,7 @@ This article provides answers to some of the most common questions about Azure S
 
 ## Multiple inventory file output
 
-### What is the feature that has changed?  What specific change was made?
-
-Blob Inventory report produces three types of files. See [Inventory files](#inventory-files). Existing customers using blob inventory might see a change in the number of inventory files, from one file to multiple files. Today, we already have manifest file which provides the list of files. This behavior remains unchanged so these files will be listed in the manifest file.
+Blob Inventory report produces three types of files. See [Inventory files](blob-inventory.md#inventory-files). Existing customers using blob inventory might see a change in the number of inventory files, from one file to multiple files. Today, we already have manifest file which provides the list of files. This behavior remains unchanged so these files will be listed in the manifest file.
 
 ### Why was the change made?
 
