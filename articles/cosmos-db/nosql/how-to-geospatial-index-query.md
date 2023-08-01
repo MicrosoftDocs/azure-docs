@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 08/01/2023
 ms.custom: query-reference
 ---
 
@@ -37,4 +37,5 @@ TODO
 
 ## Next steps
 
-- [TODO](about:blank)
+> [!div class="nextstepaction"]
+> [Geospatial and GeoJSON location data](query/geospatial.md)
