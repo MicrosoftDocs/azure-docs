@@ -7,12 +7,9 @@ ms.date: 02/23/2023
 ms.reviewer: aul
 ---
 
-# Enable cost optimization settings (preview)
+# Enable cost optimization settings
 
-Cost optimization settings offer users the ability to customize and control the metrics data collected through the container insights agent. This preview supports the data collection settings such as data collection interval and namespaces to exclude for the data collection through [Azure Monitor Data Collection Rules (DCR)](../essentials/data-collection-rule-overview.md). These settings control the volume of ingestion and reduce the monitoring costs of container insights.
-
->[!NOTE]
->This feature is currently in public preview. For more information, see Supplemental Terms of Use for Microsoft Azure Previews.
+Cost optimization settings offer users the ability to customize and control the metrics data collected through the container insights agent. This feature supports the data collection settings for individual table selection, data collection intervals, and namespaces to exclude for the data collection through [Azure Monitor Data Collection Rules (DCR)](../essentials/data-collection-rule-overview.md). These settings control the volume of ingestion and reduce the monitoring costs of container insights.
 
 
 ## Data collection parameters
