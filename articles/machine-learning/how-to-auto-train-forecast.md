@@ -399,7 +399,7 @@ In this case, the forecasting job _only_ searches over Exponential Smoothing and
 ```python
 # Search over all model classes except Prophet
 forecasting_job.set_training(
-    blocked_training_algorithms=["prophet"]
+    blocked_training_algorithms=["Prophet"]
 )
 ```
 
@@ -1234,6 +1234,7 @@ inputs:
     max_concurrency_per_node: 4
     parallel_step_timeout_in_seconds: 3700
     forecast_mode: rolling
+    forecast_step: 1
     retrain_failed_model: False
 
 # pipeline outputs
@@ -1268,7 +1269,7 @@ jobs:
             max_concurrency_per_node: ${{parent.inputs.max_concurrency_per_node}}
             parallel_step_timeout_in_seconds: ${{parent.inputs.parallel_step_timeout_in_seconds}}
             forecast_mode: ${{parent.inputs.forecast_mode}}
-            forecast_step: 1
+            forecast_step: ${{parent.inputs.forecast_step}}
             max_nodes: ${{parent.inputs.max_nodes}}
             optional_train_metadata: ${{parent.jobs.mm_train_node.outputs.run_output}}
         outputs:
@@ -1369,6 +1370,7 @@ Parameter|Description
 **max_concurrency_per_node** | Number of AutoML processes to run on each node. Hence, the total concurrency of a HTS job is `max_nodes * max_concurrency_per_node`. 
 **parallel_step_timeout_in_seconds** | Many models component timeout given in number of seconds.
 **forecast_mode** | Inference mode for model evaluation. Valid values are `"recursive"` and "`rolling`". See the [model evaluation article](concept-automl-forecasting-evaluation.md) for more information.
+**forecast_step** | Step size for rolling forecast. See the [model evaluation article](concept-automl-forecasting-evaluation.md) for more information.   
 
 # [Python SDK](#tab/python)
 
@@ -1414,6 +1416,7 @@ def hts_train_evaluate_factory(
     parallel_step_timeout_in_seconds=3700,
     max_nodes=4,
     forecast_mode="rolling",
+    forecast_step=1,
     forecast_level="SKU",
     allocation_method='proportions_of_historical_average'
 ):
@@ -1432,7 +1435,8 @@ def hts_train_evaluate_factory(
         optional_train_metadata=hts_train.outputs.run_output,
         forecast_level=forecast_level,
         allocation_method=allocation_method,
-        forecast_mode=forecast_mode
+        forecast_mode=forecast_mode,
+        forecast_step=forecast_step
     )
     compute_metrics_node = compute_metrics_component(
         task="tabular-forecasting",
@@ -1502,6 +1506,7 @@ inputs:
     parallel_step_timeout_in_seconds: 3700
     max_nodes: 4
     forecast_mode: rolling
+    forecast_step: 1
     allocation_method: proportions_of_historical_average
     forecast_level: # forecast level
 
@@ -1537,7 +1542,7 @@ jobs:
             max_concurrency_per_node: ${{parent.inputs.max_concurrency_per_node}}
             parallel_step_timeout_in_seconds: ${{parent.inputs.parallel_step_timeout_in_seconds}}
             forecast_mode: ${{parent.inputs.forecast_mode}}
-            forecast_step: 1
+            forecast_step: ${{parent.inputs.forecast_step}}
             max_nodes: ${{parent.inputs.max_nodes}}
             optional_train_metadata: ${{parent.jobs.hts_train_node.outputs.run_output}}
             forecast_level: ${{parent.inputs.forecast_level}}
