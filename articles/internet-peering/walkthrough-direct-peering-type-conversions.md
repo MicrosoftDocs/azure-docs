@@ -62,7 +62,7 @@ You can see this in the Connection tab in the same location where you selected t
 
 
 ### 3. Monitoring the conversion
-While you connection is undergoing conversion its state will be labelled as TypeChangeInProgress.
+While your connection is undergoing conversion its state will be labeled as TypeChangeInProgress.
 
 You'll be kept up to date through emails at the following steps:
 -  Request Received
