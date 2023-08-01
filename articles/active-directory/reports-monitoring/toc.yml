@@ -130,7 +130,7 @@ items:
       items:
       - name: Authentication prompts analysis
         href: workbook-authentication-prompts-analysis.md
-      - name: Conditional access gap analyzer
+      - name: Conditional Access gap analyzer
         href: workbook-conditional-access-gap-analyzer.md
       - name: Cross-tenant access activity 
         href: workbook-cross-tenant-access-activity.md

@@ -121,7 +121,7 @@ connectedk8s             1.3.20
 k8s-extension            1.4.2
 networkcloud             1.0.0b2
 k8s-configuration        1.7.0
-managednetworkfabric     0.1.0.post49
+managednetworkfabric     3.1.0
 customlocation           0.1.3
 hybridaks                0.2.1
 ssh                      2.0.1

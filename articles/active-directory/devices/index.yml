@@ -34,9 +34,9 @@ landingContent:
       - linkListType: concept
         links:
           - text: Azure AD registered devices
-            url: concept-azure-ad-register.md
+            url: concept-device-registration.md
           - text: Azure AD joined devices
-            url: concept-azure-ad-join.md
+            url: concept-directory-join.md
           - text: Hybrid Azure AD joined devices
             url: concept-hybrid-join.md
           - text: SSO to on-premises resources
@@ -62,6 +62,6 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Plan your hybrid Azure AD join implementation
-            url: hybrid-azuread-join-plan.md
+            url: hybrid-join-plan.md
           - text: Troubleshooting hybrid Azure AD joined devices
             url: troubleshoot-hybrid-join-windows-current.md

@@ -6,7 +6,7 @@ author: normesta
 
 ms.author: normesta
 ms.date: 05/30/2023
-ms.service: azure-storage
+ms.service: storage
 ms.topic: conceptual
 ---
 
