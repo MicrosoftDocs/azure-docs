@@ -147,7 +147,7 @@ The following procedures describe how to deploy updated SSL/TLS certificates, su
 
 1. Select **Save** to save your certificate settings.
 
-# [Create and deploy a self-signed certificate](#tab/windows)
+# [Create and deploy a self-signed certificate](#tab/self-signed)
 
 Each OT sensor is installed with a self-signed certificate that we recommend you use only for testing purposes. In production environments, we recommend that you always use a CA-signed certificate.
 
@@ -157,7 +157,7 @@ To create a self-signed certificate, download the certificate file from your OT 
 
 **To create a self-signed certificate**:
 
-1. Go to the OT sensor's IP address in a browser.
+Go to the OT sensor's IP address in a browser, and then:
 
 [!INCLUDE [self-signed-certificate](includes/self-signed-certificate.md)]
 
