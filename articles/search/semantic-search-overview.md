@@ -115,23 +115,36 @@ By default, semantic search is disabled on all services. To enable semantic sear
 
 Semantic Search's free plan is capped at 1,000 queries per month. After the first 1,000 queries in the free plan, you'll receive an error message letting you know you've exhausted your quota whenever you issue a semantic query. When this happens, you need to upgrade to the standard plan to continue using semantic search.
 
-Alternatively, you can also enable semantic search using the [Create or Update Service API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) that's described in the next section.
+Alternatively, you can also enable semantic search using the REST API that's described in the next section.
+
+## Enable semantic search
+
+To enable Semantic Search using the REST API, you can use the [Create or Update Service API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch).
+
+> [!NOTE]
+> Create or Update supports two HTTP methods: PUT and PATCH. PUT replaces all properties in the service with their defaults if they are not specified in the request. PATCH only replaces properties that are specified in the request. It's possible to accidentally introduce an unexpected scaling or configuration change if PUT is used. It's recommended to use PATCH when enabling semantic search.
+
+* Management REST API version 2021-04-01-Preview provides the semantic search property
+
+* Owner or Contributor permissions are required to enable or disable features
+
+```
+PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+    {
+      "properties": {
+        "semanticSearch": "standard"
+      }
+    }
+```
+
 
 ## Disable semantic search
 
 To reverse feature enablement, or for full protection against accidental usage and charges, you can [disable semantic search](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) using the Create or Update Service API on your search service. After the feature is disabled, any requests that include the semantic query type will be rejected.
 
-* Management REST API version 2021-04-01-Preview provides this option
-
-* Owner or Contributor permissions are required to disable features
-
 ```http
-PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
     {
-      "location": "{{region}}",
-      "sku": {
-        "name": "standard"
-      },
       "properties": {
         "semanticSearch": "disabled"
       }
