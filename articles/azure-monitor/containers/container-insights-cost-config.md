@@ -14,7 +14,7 @@ Cost optimization settings offer users the ability to customize and control the 
 
 ## Data collection parameters
 
-The container insights agent periodically checks for the data collection settings, validates, and applies the applicable settings to applicable container insights Log Analytics tables and Custom Metrics. The data collection settings should be applied in the subsequent configured Data collection interval.
+The container insights agent periodically checks for the data collection settings, validates and applies the applicable settings to applicable container insights Log Analytics tables and Custom Metrics. The data collection settings should be applied in the subsequent configured Data collection interval.
 
 The following table describes the supported data collection settings
 
