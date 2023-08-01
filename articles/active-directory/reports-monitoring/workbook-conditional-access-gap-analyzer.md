@@ -1,6 +1,6 @@
 ---
 
-title: Conditional access gap analyzer workbook in  Azure AD
+title: Conditional Access gap analyzer workbook in  Azure AD
 description: Learn how to use the Conditional Access gap analyzer workbook.
 services: active-directory
 author: shlipsey3
@@ -16,7 +16,7 @@ ms.reviewer: sarbar
 ms.collection: M365-identity-device-management
 ---
 
-# Conditional access gap analyzer workbook
+# Conditional Access gap analyzer workbook
 
 In Azure AD, you can protect access to your resources by configuring Conditional Access policies.
 As an IT administrator, you want to ensure that your Conditional Access policies work as expected to ensure that your resources are properly protected. With the Conditional Access gap analyzer workbook, you can detect gaps in your Conditional Access implementation.  
@@ -53,7 +53,7 @@ The workbook has four sections:
 - Number of sign-ins by location that weren't affected by Conditional Access policies 
 
 
-![Conditional access coverage by location](./media/workbook-conditional-access-gap-analyzer/conditianal-access-by-location.png)
+![Conditional Access coverage by location](./media/workbook-conditional-access-gap-analyzer/conditianal-access-by-location.png)
 
 Each of these trends offers a breakdown of sign-ins to the user level, so that you can see which users per scenario are bypassing Conditional Access. 
 
