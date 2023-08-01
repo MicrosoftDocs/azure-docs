@@ -9094,6 +9094,11 @@
             "redirect_document_id": false
         },
         {
+         "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-forced-tunneling-rm.md",
+         "redirect_url": "/azure/vpn-gateway/about-site-to-site-tunneling",
+         "redirect_document_id": false
+     },
+        {
             "source_path_from_root": "/articles/azure-vmware/public-ip-usage.md",
             "redirect_url": "/azure/azure-vmware/enable-public-ip-nsx-edge",
             "redirect_document_id": false
@@ -23850,11 +23855,6 @@
         },       
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/windows-firewall-events-via-ama.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/data-connectors/cisco-meraki.md",
             "redirect_url": "/azure/sentinel/data-connectors-reference",
             "redirect_document_id": false
         },

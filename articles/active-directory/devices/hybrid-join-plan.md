@@ -91,7 +91,7 @@ As a first planning step, you should review your environment and determine wheth
 
 ### Handling devices with Azure AD registered state
 
-If your Windows 10 or newer domain joined devices are [Azure AD registered](concept-azure-ad-register.md) to your tenant, it could lead to a dual state of hybrid Azure AD joined and Azure AD registered device. We recommend upgrading to Windows 10 1803 (with KB4489894 applied) or newer to automatically address this scenario. In pre-1803 releases, you'll need to remove the Azure AD registered state manually before enabling hybrid Azure AD join. In 1803 and above releases, the following changes have been made to avoid this dual state:
+If your Windows 10 or newer domain joined devices are [Azure AD registered](concept-device-registration.md) to your tenant, it could lead to a dual state of hybrid Azure AD joined and Azure AD registered device. We recommend upgrading to Windows 10 1803 (with KB4489894 applied) or newer to automatically address this scenario. In pre-1803 releases, you'll need to remove the Azure AD registered state manually before enabling hybrid Azure AD join. In 1803 and above releases, the following changes have been made to avoid this dual state:
 
 - Any existing Azure AD registered state for a user would be automatically removed <i>after the device is hybrid Azure AD joined and the same user logs in</i>. For example, if User A had an Azure AD registered state on the device, the dual state for User A is cleaned up only when User A logs in to the device. If there are multiple users on the same device, the dual state is cleaned up individually when those users log in. After an admin removes the Azure AD registered state, Windows 10 will unenroll the device from Intune or other MDM, if the enrollment happened as part of the Azure AD registration via auto-enrollment.
 - Azure AD registered state on any local accounts on the device isn’t impacted by this change. Only applicable to domain accounts. Azure AD registered state on local accounts isn't removed automatically even after user logon, since the user isn't a domain user.
@@ -103,7 +103,7 @@ If your Windows 10 or newer domain joined devices are [Azure AD registered](conc
 
 ### Hybrid Azure AD join for single forest, multiple Azure AD tenants
 
-To register devices as hybrid Azure AD join to respective tenants, organizations need to ensure that the  Service Connection Points (SCP) configuration is done on the devices and not in AD. More details on how to accomplish this task can be found in the article [Hybrid Azure AD join targeted deployment](hybrid-azuread-join-control.md). It's important for organizations to understand that certain Azure AD capabilities won't work in a single forest, multiple Azure AD tenants configurations.
+To register devices as hybrid Azure AD join to respective tenants, organizations need to ensure that the  Service Connection Points (SCP) configuration is done on the devices and not in AD. More details on how to accomplish this task can be found in the article [Hybrid Azure AD join targeted deployment](hybrid-join-control.md). It's important for organizations to understand that certain Azure AD capabilities won't work in a single forest, multiple Azure AD tenants configurations.
 
 - [Device writeback](../hybrid/how-to-connect-device-writeback.md) won't work. This configuration affects [Device based Conditional Access for on-premises apps that are federated using ADFS](/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises). This configuration also affects [Windows Hello for Business deployment when using the Hybrid Cert Trust model](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust).
 - [Groups writeback](../hybrid/how-to-connect-group-writeback.md) won't work. This configuration affects writeback of Office 365 Groups to a forest with Exchange installed.
@@ -123,7 +123,7 @@ To register devices as hybrid Azure AD join to respective tenants, organizations
 
 ## Review targeted hybrid Azure AD join
 
-Organizations may want to do a targeted rollout of hybrid Azure AD join before enabling it for their entire organization. Review the article [Hybrid Azure AD join targeted deployment](hybrid-azuread-join-control.md) to understand how to accomplish it.
+Organizations may want to do a targeted rollout of hybrid Azure AD join before enabling it for their entire organization. Review the article [Hybrid Azure AD join targeted deployment](hybrid-join-control.md) to understand how to accomplish it.
 
 > [!WARNING]
 > Organizations should include a sample of users from varying roles and profiles in their pilot group. A targeted rollout will help identify any issues your plan may not have addressed before you enable for the entire organization.
@@ -159,7 +159,7 @@ When you're using AD FS, you need to enable the following WS-Trust endpoints:
 > [!WARNING]
 > Both **adfs/services/trust/2005/windowstransport** or **adfs/services/trust/13/windowstransport** should be enabled as intranet facing endpoints only and must NOT be exposed as extranet facing endpoints through the Web Application Proxy. To learn more on how to disable WS-Trust Windows endpoints, see [Disable WS-Trust Windows endpoints on the proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). You can see what endpoints are enabled through the AD FS management console under **Service** > **Endpoints**.
 
-Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to configure hybrid Azure AD join. The wizard enables you to significantly simplify the configuration process. If installing the required version of Azure AD Connect isn't an option for you, see [how to manually configure device registration](hybrid-azuread-join-manual.md).
+Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to configure hybrid Azure AD join. The wizard enables you to significantly simplify the configuration process. If installing the required version of Azure AD Connect isn't an option for you, see [how to manually configure device registration](hybrid-join-manual.md).
 
 ## Review on-premises AD users UPN support for hybrid Azure AD join
 

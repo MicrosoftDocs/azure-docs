@@ -308,7 +308,7 @@ Use the following configuration to enable Just in Time Registration for iOS/iPad
 
 Learn more about Just in Time Registration [here](https://techcommunity.microsoft.com/t5/intune-customer-success/just-in-time-registration-for-ios-ipados-with-microsoft-intune/ba-p/3660843). 
 
-#### Conditional access policies and password changes
+#### Conditional Access policies and password changes
 Microsoft Enterprise SSO plug-in for Apple devices is compatible with various [Azure AD Conditional Access policies](/azure/active-directory/conditional-access/overview) and password change events. `browser_sso_interaction_enabled` is required to be enabled to achieve compatibility. 
 
 Compatible events and policies are documented in the following sections:
