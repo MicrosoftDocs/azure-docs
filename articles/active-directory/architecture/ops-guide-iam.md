@@ -164,7 +164,7 @@ If you're currently using a tool, such as [Microsoft Identity Manager](/microsof
 Resource owners may believe that the **All users** group contains only **Enterprise Employees** when they may actually contain both **Enterprise Employees** and **Guests**. As a result, you should take special care when using the **All users** group for application assignment and granting access to resources such as SharePoint content or applications.
 
 > [!IMPORTANT]
-> If the **All users** group is enabled and used for conditional access policies, app or resource assignment, make sure to [secure the group](../external-identities/use-dynamic-groups.md) if you don't want it to include guest users. Furthermore, you should fix your licensing assignments by creating and assigning to groups that contain **Enterprise Employees** only. On the other hand, if you find that the **All users** group is enabled but not being used to grant access to resources, make sure your organization's operational guidance is to intentionally use that group (which includes both **Enterprise Employees** and **Guests**).
+> If the **All users** group is enabled and used for Conditional Access policies, app or resource assignment, make sure to [secure the group](../external-identities/use-dynamic-groups.md) if you don't want it to include guest users. Furthermore, you should fix your licensing assignments by creating and assigning to groups that contain **Enterprise Employees** only. On the other hand, if you find that the **All users** group is enabled but not being used to grant access to resources, make sure your organization's operational guidance is to intentionally use that group (which includes both **Enterprise Employees** and **Guests**).
 
 ### Automated user provisioning to apps
 
