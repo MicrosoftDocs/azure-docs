@@ -294,7 +294,7 @@ In *Runtime settings*, you can configure the default datastore and default compu
 
 The *Review + Submit* step is the last step to review all settings before submit. The wizard remembers your last time's configuration if you ever submit the pipeline.
 
-After submitting the pipeline job, there will be a message on the top with a link to the job detail. You can click this link to review the job details.
+After submitting the pipeline job, there will be a message on the top with a link to the job detail. You can select this link to review the job details.
 
   :::image type="content" source="../media/how-to-create-component-pipelines-ui/submit-message.png" alt-text="Screenshot showing submission message." lightbox ="../media/how-to-create-component-pipelines-ui/submit-message.png":::
 
