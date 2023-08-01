@@ -176,7 +176,7 @@ landingContent:
             url: ../virtual-machines/dcv3-series.md
 ## Row 2
 # Card
-  - title: Concepts
+  - title: Secure key release (SKR)
     linkLists:
       - linkListType: concept
         links: 

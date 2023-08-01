@@ -22,6 +22,8 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Prerequisites
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download) (to edit project files)

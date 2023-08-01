@@ -34,7 +34,7 @@ landingContent:
           - text: MQTT Messaging
             url: mqtt-overview.md
  # Card
-  - title: MQTT messaging
+  - title: MQTT messaging (Preview)
     linkLists:
       - linkListType: overview
         links:
@@ -102,7 +102,7 @@ landingContent:
             url: onboard-partner.md
 
  # Card
-  - title: Pull delivery
+  - title: Pull delivery (Preview)
     linkLists:
       - linkListType: concept
         links:

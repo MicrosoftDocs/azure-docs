@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path": "articles/route-server/tutorial-protect-route-server.md",
+            "redirect_URL": "/azure/route-server/tutorial-protect-route-server-ddos",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/route-server/routing-preference.md",
+            "redirect_url": "/azure/route-server/overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cloud-services-extended-support/deploy-visual-studio.md",
             "redirect_url": "/visualstudio/azure/cloud-services-extended-support?context=%2Fazure%2Fcloud-services-extended-support%2Fcontext%2Fcontext",
             "redirect_document_id": false
@@ -858,11 +868,6 @@
         {
             "source_path": "articles/nat-gateway/tutorial-protect-nat-gateway-ddos.md",
             "redirect_url": "/azure/ddos-protection/ddos-protection-sku-comparison#limitations",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/route-server/routing-preference.md",
-            "redirect_url": "/azure/route-server/overview",
             "redirect_document_id": false
         },
         {
@@ -13349,6 +13354,21 @@
           "redirect_document_id": false
         },
         {
+          "source_path_from_root": "/articles/governance/policy/samples/NZ_ISM_Restricted_v3_5.md",
+          "redirect_url": "/azure/governance/policy/samples/nz-ism-restricted-3-5",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/samples/RBI_ITF_Banks_v2016.md",
+          "redirect_url": "/azure/governance/policy/samples/rbi-itf-banks-2016",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/samples/rbi_itf_nbfc_v2017.md",
+          "redirect_url": "/azure/governance/policy/samples/rbi-itf-nbfc-2017",
+          "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-policy/create-manage-policy.md",
             "redirect_url": "/azure/governance/policy/tutorials/create-and-manage",
             "redirect_document_id": false
@@ -23559,11 +23579,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/route-server/tutorial-protect-route-server.md",
-            "redirect_URL": "/azure/route-server/tutorial-protect-route-server-ddos",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/external-attack-surface-management/data-connections-overview.md",
             "redirect_URL": "/azure/external-attack-surface-management/index",
             "redirect_document_id": true
@@ -23844,11 +23859,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/sentinel/data-connectors/cisco-asa-ftd-via-ama.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/networking/scripts/virtual-network-powershell-sample-peer-two-virtual-networks.md",
             "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks-powershell",
             "redirect_document_id": false
@@ -24009,6 +24019,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/image-builder-prefetch.md",
+            "redirect_url": "/azure/virtual-machines/vm-boot-optimization",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/networking/connectivty-interoperability-preface.md",
             "redirect_url": "/azure/networking/manage-apps/connectivity-interoperability-preface",
             "redirect_document_id": false
@@ -24050,7 +24065,12 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/virtual-machines-reliability.md",
-            "redirect_url": "/azure/virtual-machines/reliability-virtual-machines",
+            "redirect_url": "/azure/reliability/reliability-virtual-machines",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/reliability-virtual-machines.md",
+            "redirect_url": "/azure/reliability/reliability-virtual-machines",
             "redirect_document_id": false
         },
         {

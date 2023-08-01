@@ -36,6 +36,8 @@ In order to troubleshoot issues with your custom claims provider REST API endpoi
 
 ## Azure AD sign-in logs
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You can also use [Azure AD sign-in logs](../reports-monitoring/concept-sign-ins.md) in addition to your REST API logs, and hosting environment diagnostics solutions. Using Azure AD sign-in logs, you can find errors, which may affect the users' sign-ins. The Azure AD sign-in logs provide  information about the HTTP status, error code, execution duration, and number of retries that occurred the API was called by Azure AD.
 
 Azure AD sign-in logs also integrate with [Azure Monitor](../../azure-monitor/index.yml). You can set up alerts and monitoring, visualize the data, and integrate with security information and event management (SIEM)  tools. For example, you can set up notifications if the number of errors exceed a certain threshold that you choose.
@@ -87,7 +89,7 @@ Use the following table to diagnose an error code.
 
 Your REST API is protected by Azure AD access token. You can test your API by obtaining an access token with the [application registration](custom-extension-get-started.md#22-grant-admin-consent) associated with the custom extensions. After you acquire an access token, pass it the HTTP `Authorization` header. To obtain an access token, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure administrator account.
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure administrator account.
 1. Select **Azure Active Directory** > **App registrations**.
 1. Select the *Azure Functions authentication events API* app registration [you created previously](custom-extension-get-started.md#step-2-register-a-custom-extension). 
 1. Copy the [application ID](custom-extension-get-started.md#22-grant-admin-consent).

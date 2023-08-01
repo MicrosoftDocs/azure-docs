@@ -8,7 +8,7 @@ ms.subservice: disks
 ms.collection: linux
 ms.topic: quickstart
 ms.date: 01/04/2023
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: devx-track-azurepowershell, mode-api, devx-track-linux
 ---
 
 # Quickstart: Create and encrypt a Linux VM in Azure with Azure PowerShell

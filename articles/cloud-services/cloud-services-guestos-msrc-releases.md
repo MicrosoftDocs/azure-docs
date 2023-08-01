@@ -11,7 +11,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/11/2023
+ms.date: 7/27/2023
 ms.author: gunnarc
 ms.custom: compute-evergreen
 ---
@@ -21,35 +21,32 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 ## July 2023 Guest OS
 
->[!NOTE] 
-
->The July Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the July Guest OS. This list is subject to change. 
 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-|  Rel 23-07 |  [5028168]  |  Latest Cumulative Update(LCU) | 6.60 | Jul 11, 2023 |
-|  Rel 23-07 |  [5028171]  |  Latest Cumulative Update(LCU) | 7.28 | Jul 11, 2023 |
-|  Rel 23-07 |  [5028169]  |  Latest Cumulative Update(LCU) | 5.84 | Jun 11, 2023 |
-|  Rel 23-07 |  [5028871]  |  .NET Framework 3.5 Security and Quality Rollup | 2.140 | Jul 11, 2023 |
-|  Rel 23-07 |  [5028865]  |  .NET Framework 4.7.2 Security and Quality Rollup | 2.140 | Jul 11, 2023 |
-|  Rel 23-07 |  [5028872]  |  .NET Framework 3.5 Security and Quality Rollup LKG | 4.120 | Jul 11, 2023 |
-|  Rel 23-07 |  [5028864]  |  .NET Framework 4.7.2 Cumulative Update LKG  | 4.120 | Ju1 11, 2023 |
-|  Rel 23-07 |  [5028869]  |  .NET Framework 3.5 Security and Quality Rollup LKG | 3.128 | Jul 11, 2023 |
-|  Rel 23-07 |  [5028863]  |  .NET Framework 4.7.2 Cumulative Update LKG | 3.128 | Jul 11, 2023 |
-|  Rel 23-07 |  [5028862]  |  .NET Framework DotNet | 6.60 | Jul 11, 2023 |
-|  Rel 23-07 |  [5028858]  |  .NET Framework 4.8 Security and Quality Rollup LKG | 7.28 | Ju1 11, 2023 |
-|  Rel 23-07 |  [5028240]  |  Monthly Rollup | 2.140 | Jul 11, 2023 |
-|  Rel 23-07 |  [5028232]  |  Monthly Rollup | 3.128 | Jul 11, 2023 |
-|  Rel 23-07 |  [5028228]  |  Monthly Rollup | 4.120 | Jul 11, 2023 |
-|  Rel 23-07 |  [5027575]  |  Servicing Stack Update | 3.128 | Jun 13, 2023 |
-|  Rel 23-07 |  [5027574]  |  Servicing Stack Update LKG | 4.120 | Jun 13, 2023 |
-|  Rel 23-07 |  [4578013]  |  OOB Standalone Security Update | 4.120 | Aug 19, 2023 |
-|  Rel 23-07 |  [5023788]  |  Servicing Stack Update LKG | 5.84 | Mar 14, 2023 |
-|  Rel 23-07 |  [5028264]  |  Servicing Stack Update LKG | 2.140 | Jul 11, 2023 |
-|  Rel 23-07 |  [4494175]  |  Microcode | 5.84 | Sep 1, 2020 |
-|  Rel 23-07 |  [4494174]  |  Microcode | 6.60 | Sep 1, 2020 |
-|  Rel 23-07 |  5028317  |  Servicing Stack Update | 7.28 |  |
-|  Rel 23-07 |  5028316  |  Servicing Stack Update | 6.60 |  |
+|  Rel 23-07 |  [5028168]  |  Latest Cumulative Update(LCU) | [6.60] | Jul 11, 2023 |
+|  Rel 23-07 |  [5028171]  |  Latest Cumulative Update(LCU) | [7.28] | Jul 11, 2023 |
+|  Rel 23-07 |  [5028169]  |  Latest Cumulative Update(LCU) | [5.84] | Jun 11, 2023 |
+|  Rel 23-07 |  [5028871]  |  .NET Framework 3.5 Security and Quality Rollup | [2.140] | Jul 11, 2023 |
+|  Rel 23-07 |  [5028865]  |  .NET Framework 4.7.2 Security and Quality Rollup | [2.140] | Jul 11, 2023 |
+|  Rel 23-07 |  [5028872]  |  .NET Framework 3.5 Security and Quality Rollup LKG | [4.120] | Jul 11, 2023 |
+|  Rel 23-07 |  [5028864]  |  .NET Framework 4.7.2 Cumulative Update LKG  | [4.120] | Ju1 11, 2023 |
+|  Rel 23-07 |  [5028869]  |  .NET Framework 3.5 Security and Quality Rollup LKG | [3.128] | Jul 11, 2023 |
+|  Rel 23-07 |  [5028863]  |  .NET Framework 4.7.2 Cumulative Update LKG | [3.128] | Jul 11, 2023 |
+|  Rel 23-07 |  [5028862]  |  .NET Framework DotNet | [6.60] | Jul 11, 2023 |
+|  Rel 23-07 |  [5028858]  |  .NET Framework 4.8 Security and Quality Rollup LKG | [7.28] | Ju1 11, 2023 |
+|  Rel 23-07 |  [5028240]  |  Monthly Rollup | [2.140] | Jul 11, 2023 |
+|  Rel 23-07 |  [5028232]  |  Monthly Rollup | [3.128] | Jul 11, 2023 |
+|  Rel 23-07 |  [5028228]  |  Monthly Rollup | [4.120] | Jul 11, 2023 |
+|  Rel 23-07 |  [5027575]  |  Servicing Stack Update | [3.128] | Jun 13, 2023 |
+|  Rel 23-07 |  [5027574]  |  Servicing Stack Update LKG | [4.120] | Jun 13, 2023 |
+|  Rel 23-07 |  [4578013]  |  OOB Standalone Security Update | [4.120] | Aug 19, 2023 |
+|  Rel 23-07 |  [5023788]  |  Servicing Stack Update LKG | [5.84] | Mar 14, 2023 |
+|  Rel 23-07 |  [5028264]  |  Servicing Stack Update LKG | [2.140] | Jul 11, 2023 |
+|  Rel 23-07 |  [4494175]  |  Microcode | [5.84] | Sep 1, 2020 |
+|  Rel 23-07 |  [4494174]  |  Microcode | [6.60] | Sep 1, 2020 |
+|  Rel 23-07 |  5028317  |  Servicing Stack Update | [7.28] |  |
+|  Rel 23-07 |  5028316  |  Servicing Stack Update | [6.60] |  |
 
 [5028168]: https://support.microsoft.com/kb/5028168
 [5028171]: https://support.microsoft.com/kb/5028171
@@ -74,6 +71,12 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4494174]: https://support.microsoft.com/kb/4494174
 [5028317]: https://support.microsoft.com/kb/5028317
 [5028316]: https://support.microsoft.com/kb/5028316
+[2.140]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.128]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.120]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.84]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.60]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.28]: ./cloud-services-guestos-update-matrix.md#family-7-releases
 
 ## June 2023 Guest OS
 

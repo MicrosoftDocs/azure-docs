@@ -6,7 +6,7 @@ ms.subservice: managed-hsm
 ms.topic: conceptual
 author: davinune
 ms.author: davinune
-ms.date: 07/19/2023
+ms.date: 07/20/2023
 ---
 
 # Azure Managed HSM: key sovereignty, availability, performance, and scalability
@@ -21,7 +21,7 @@ A customer's Managed HSM pool in any given Azure region is housed in a [secure A
 
 The physical separation of the instances inside the datacenter is critical to ensuring that the loss of a single component (top-of-rack switch, power management unit in a rack, etc.) can't affect all the instances of a pool. These servers are dedicated to the Azure Security HSM team, and are not shared with other Azure teams, and no customer workloads are deployed to these servers. Physical access controls, including locked racks, are used to prevent unauthorized access to the servers. These controls meet FedRAMP-High, PCI, SOC 1/2/3, ISO 270x, and other security and privacy standards, and are regularly independently verified as part of [Azure's compliance program](https://www.microsoft.com/trust-center/compliance/compliance-overview?rtc=1). The HSMs have enhanced physical security, validated to meet FIPS 140-2 Level 3 and the entire Managed HSM service is built on top of the standard [secure Azure platform](../../security/fundamentals/platform.md) including [Trusted Launch](../../virtual-machines/trusted-launch.md), which protects against advanced persistent threats (APTs).
 
-The HSM adapters can support dozens of isolated HSM partitions. Running on each server is a control process, called Node Service (NS), that takes ownership of each adapter and installs the credentials for the adapter owner, in this case Microsoft. The HSM is designed so that ownership of the adapter does not provide Microsoft with access to data stored in customer partitions.It only allows Microsoft to create, resize and delete customer partitions, and it supports taking blind backups of any partition for the customer. A blind backup is one wrapped by a customer provided key that can be restored by the service 
+The HSM adapters can support dozens of isolated HSM partitions. Running on each server is a control process, called Node Service (NS), that takes ownership of each adapter and installs the credentials for the adapter owner, in this case Microsoft. The HSM is designed so that ownership of the adapter does not provide Microsoft with access to data stored in customer partitions. It only allows Microsoft to create, resize and delete customer partitions, and it supports taking blind backups of any partition for the customer. A blind backup is one wrapped by a customer provided key that can be restored by the service 
 code only inside an HSM instance owned by the customer, and whose contents are not readable by Microsoft.
 
 ### Architecture of a Managed HSM Pool
