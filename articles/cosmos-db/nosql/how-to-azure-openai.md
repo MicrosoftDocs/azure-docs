@@ -67,8 +67,6 @@ Adding Azure Cosmos DB vector search capabilities to Azure OpenAI Service enable
 
 Implement RAG (Retrieval-Augmented Generation) with Azure Cosmos DB NoSQL and Azure Cognitive Search. This approach enables powerful integration of your data residing in Azure Cosmos DB NoSQL into your AI-oriented applications. Azure Cognitive Search empowers you to efficiently store, index, and query high-dimensional vector data, which is directly stored in Azure Cosmos DB NoSQL. 
 
- :::image type="content" source="includes/media/use-data-with-openai/RAG-cdb-cs.png" alt-text="RAG architeture with Azure Cosmos DB NoSQL and Azure Cognitive Search":::
-
 #### Code samples
 - [.NET retail chatbot demo](https://github.com/AzureCosmosDB/VectorSearchAiAssistant/tree/cognitive-search-vector-v2)
 - [.NET tutorial - recipe chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/combining-assets/CosmosRecipeGuide_NoSQLwithMongoDBVectorSearch)
@@ -78,8 +76,6 @@ Implement RAG (Retrieval-Augmented Generation) with Azure Cosmos DB NoSQL and Az
 ### Azure Cosmos DB for MongoDB vCore
 Carry out RAG (Retrieval-Augmented Generation) by applying vector search in Azure Cosmos DB for MongoDB vCore, facilitating a smooth merger of your AI-centric applications with your stored data in Azure Cosmos DB. The use of vector search offers an efficient way to store, index, and search high-dimensional vector data directly within Azure Cosmos DB for MongoDB vCore. This approach eradicates the necessity of migrating your data to costlier alternatives for availing vector search functionalities.
 
- :::image type="content" source="includes/media/use-data-with-openai/RAG-cdb-vcore.png" alt-text="RAG architeture with Azure Cosmos DB for MongoDB vCore":::
-
 #### Code samples
 - [.NET retail chatbot demo](https://github.com/AzureCosmosDB/VectorSearchAiAssistant/tree/mongovcorev2)
 - [.NET tutorial - recipe chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/RecipeGuide_CosmosDBMongoVCoreOpenAI)
@@ -87,7 +83,6 @@ Carry out RAG (Retrieval-Augmented Generation) by applying vector search in Azur
 ### Azure Cosmos DB for PostgreSQL
 You can now employ RAG (Retrieval-Augmented Generation) by utilizing vector search within Azure Cosmos DB for PostgreSQL. This strategy provides a seamless integration of your AI-driven applications, including the ones developed using Azure OpenAI embeddings, with your data housed in Azure Cosmos DB. By taking advantage of vector search, you can effectively store, index, and execute queries on high-dimensional vector data directly within Azure Cosmos DB for PostgreSQL. This approach negates the necessity of relocating your data to costlier platforms for harnessing vector search functionalities.
 
- :::image type="content" source="includes/media/use-data-with-openai/RAG-cdb-pg.png" alt-text="RAG architeture with Azure Cosmos DB for PostgreSQL":::
 
 #### Code samples
 - Python: [Python notebook tutorial - food review chatbot ](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/CosmosDB-PostGres-CogSearchVector)
