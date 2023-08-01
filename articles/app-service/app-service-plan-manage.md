@@ -58,7 +58,9 @@ You can move an app to another App Service plan, as long as the source plan and 
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **App services** and select the app that you want to move.
 
-2. From the left menu, unse **App Service Plan**, select **Change App Service plan**.
+2. From the left menu, under **App Service Plan**, select **Change App Service plan**.
+
+    :::image type="content" source="./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png" alt-text="App Service Plan selector.":::
 
 3. In the **App Service plan** dropdown, select an existing plan to move the app to. The dropdown shows only plans that are in the same resource group and geographical region as the current App Service plan. If no such plan exists, it lets you create a plan by default. You can also create a new plan manually by selecting **Create new**.
 
@@ -68,10 +70,9 @@ You can move an app to another App Service plan, as long as the source plan and 
    > If you're moving an app from a higher-tiered plan to a lower-tiered plan, such as from **D1** to **F1**, the app may lose certain capabilities in the target plan. For example, if your app uses TLS/SSL certificates, you might see this error message:
    >
    > `Cannot update the site with hostname '<app_name>' because its current TLS/SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed TLS/SSL configuration is 'Disabled'.`
+   >
 
 5. When finished, select **OK**.
-   
-   ![App Service plan selector.][change] 
 
 ## Move an app to a different region
 
@@ -102,6 +103,5 @@ To avoid unexpected charges, when you delete the last app in an App Service plan
 > [!div class="nextstepaction"]
 > [Scale up an app in Azure](manage-scale-up.md)
 
-[change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 [createResource]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-a-resource.png
