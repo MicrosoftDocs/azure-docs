@@ -45,8 +45,7 @@ Steps to create a generalized image that removes the sudo users are as follows:
 
 2. Mount the image.
 
-    There are several ways to do this, the example uses the loop device to mount the image. It can either be a disk attached or a loop device.
-    [Mount the image](/azure/virtual-machines/linux/attach-disk-portal?tabs=ubuntu#mount-the-disk:~:text=new%20filesystem%20immediately.-,Mount%20the%20disk,-Create%20a%20directory)
+    There are several ways to do this  [Attach the disk](/azure/virtual-machines/linux/attach-disk-portal?tabs=ubuntu#mount-the-disk:~:text=new%20filesystem%20immediately.-,Mount%20the%20disk,-Create%20a%20directory), the example uses the loop device to mount the image. It can either be a disk attached or a loop device [Using loop device](https://linuxhandbook.com/create-virtual-block-device/).
 
     $imagedevice is the root filesystem's partition on the device that contains the image.
     ```
