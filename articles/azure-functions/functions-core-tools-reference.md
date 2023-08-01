@@ -164,7 +164,7 @@ func host start
 | **`--timeout`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
 | **`--useHttps`** | Bind to `https://localhost:{port}` rather than to `http://localhost:{port}`. By default, this option creates a trusted certificate on your computer.|
 
-In version 1.x, you can also use the [`func run` command](#func-run) to run a specific function and pass test data to it. 
+In version 1.x, you can also use the [`func run`](#func-run) command to run a specific function and pass test data to it. 
 
 ---
 
@@ -514,7 +514,7 @@ Deploys a Functions project as a custom docker container to a Kubernetes cluster
 func kubernetes deploy 
 ```
 
-This command builds your project as a custom container and publishes it to a Kubernetes cluster. Custom containers must have a Dockerfile. To create an app with a Dockerfile, use the `--dockerfile` option with the [`func init` command](#func-init). 
+This command builds your project as a custom container and publishes it to a Kubernetes cluster. Custom containers must have a Dockerfile. To create an app with a Dockerfile, use the `--dockerfile` option with the [`func init`](#func-init) command. 
 
 The following Kubernetes deployment options are available:
 

@@ -310,7 +310,7 @@ This example creates a Queue Storage trigger named `MyQueueTrigger`:
 func new --template "Azure Queue Storage Trigger" --name MyQueueTrigger
 ```
 
-To learn more, see the [`func new` command](functions-core-tools-reference.md#func-new).
+To learn more, see the [`func new`](functions-core-tools-reference.md#func-new) command.
 
 ## <a name="start"></a>Run functions locally
 
@@ -468,7 +468,7 @@ If you don't have these tools installed, you need to instead [get a valid access
 ### <a name="project-file-deployment"></a>Deploy project files
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
-To publish your local code to a function app in Azure, use the [`func azure functionapp publish publish` command](./functions-core-tools-reference.md#func-azure-functionapp-publish), as in the following example:
+To publish your local code to a function app in Azure, use the [`func azure functionapp publish publish`](./functions-core-tools-reference.md#func-azure-functionapp-publish) command, as in the following example:
 
 ```
 func azure functionapp publish <FunctionAppName>
@@ -505,7 +505,7 @@ The following considerations apply to this kind of deployment:
 
 ### Azure Container Apps deployment 
 
-Functions lets you deploy a [containerized function app](functions-create-container-registry.md) to an Azure Container Apps environment. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md). Use the following [`func azurecontainerapps deploy` command](./functions-core-tools-reference.md#func-azurecontainerapps-deploy) to deploy an existing container image to a Container Apps environment:
+Functions lets you deploy a [containerized function app](functions-create-container-registry.md) to an Azure Container Apps environment. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md). Use the following [`func azurecontainerapps deploy`](./functions-core-tools-reference.md#func-azurecontainerapps-deploy) command to deploy an existing container image to a Container Apps environment:
 
 ```command
 func azurecontainerapps deploy --name <APP_NAME> --environment <ENVIRONMENT_NAME> --storage-account <STORAGE_CONNECTION> --resource-group <RESOURCE_GROUP> --image-name <IMAGE_NAME> [--registry-password] [--registry-server] [--registry-username]
@@ -554,7 +554,7 @@ Use the following command to install a specific extension package at a specific 
 func extensions install --package Microsoft.Azure.WebJobs.Extensions.Storage --version 5.0.0
 ```
 
-You can use this command to install any compatible NuGet package. To learn more, see the [`func extensions install` command](functions-core-tools-reference.md#func-extensions-install).
+You can use this command to install any compatible NuGet package. To learn more, see the [`func extensions install`](functions-core-tools-reference.md#func-extensions-install) command.
 
 ## Monitoring functions
 
