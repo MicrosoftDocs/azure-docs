@@ -95,6 +95,8 @@ The Microsoft Azure Active Directory Module for Windows PowerShell is also insta
 
 ### Azure Active Directory
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Everyone using the NPS extension must be synced to Azure AD using Azure AD Connect, and must be registered for MFA.
 
 When you install the extension, you need the *Tenant ID* and admin credentials for your Azure AD tenant. To get the tenant ID, complete the following steps:

@@ -1,6 +1,6 @@
 ---
-title: 'About Azure DDoS Protection SKU Comparison'
-description: Learn about the available SKUs for Azure DDoS Protection.
+title: 'About Azure DDoS Protection tier Comparison'
+description: Learn about the available tiers for Azure DDoS Protection.
 author: AbdullahBell
 ms.author: Abell
 ms.service: ddos-protection
@@ -10,7 +10,7 @@ ms.custom: template-concept, ignite-2022
 ---
 
 
-# About Azure DDoS Protection SKU Comparison
+# About Azure DDoS Protection tier Comparison
 
 
 The sections in this article discuss the resources and settings of Azure DDoS Protection.
@@ -23,11 +23,11 @@ Azure DDoS Network Protection, combined with application design best practices, 
 
  DDoS IP Protection is a pay-per-protected IP model. DDoS IP Protection contains the same core engineering features as DDoS Network Protection, but will differ in the following value-added services: DDoS rapid response support, cost protection, and discounts on WAF. For more information about enabling DDoS IP Protection, see [Quickstart: Create and configure Azure DDoS IP Protection using Azure PowerShell](manage-ddos-protection-powershell-ip.md).
 
-## SKUs
+## Tiers
 
-Azure DDoS Protection supports two SKU Types, DDoS IP Protection and DDoS Network Protection. The SKU is configured in the Azure portal during the workflow when you configure Azure DDoS Protection.
+Azure DDoS Protection supports two tier Types, DDoS IP Protection and DDoS Network Protection. The tier is configured in the Azure portal during the workflow when you configure Azure DDoS Protection.
 
-The following table shows features and corresponding SKUs.
+The following table shows features and corresponding tiers.
 
 | Feature | DDoS IP Protection | DDoS Network Protection |
 |---|---|---|
@@ -42,8 +42,8 @@ The following table shows features and corresponding SKUs.
 | Integration with Firewall Manager | Yes | Yes |
 | Microsoft Sentinel data connector and workbook | Yes | Yes |
 | Protection of resources across subscriptions in a tenant   | Yes | Yes |
-| Public IP Standard SKU protection | Yes | Yes |
-| Public IP Basic SKU protection | No | Yes |
+| Public IP Standard tier protection | Yes | Yes |
+| Public IP Basic tier protection | No | Yes |
 | DDoS rapid response support | Not available | Yes |
 | Cost protection | Not available  | Yes |
 | WAF discount | Not available | Yes |
@@ -66,7 +66,7 @@ DDoS Network Protection and DDoS IP Protection have the following limitations:
 
 DDoS IP Protection is similar to Network Protection, but has the following additional limitation:
 
-- Public IP Basic SKU protection isn't supported. 
+- Public IP Basic tier protection isn't supported. 
 
 >[!Note]
 >Scenarios in which a single VM is running behind a public IP is supported, but not recommended. For more information, see [Fundamental best practices](./fundamental-best-practices.md#design-for-scalability).

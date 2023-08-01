@@ -104,8 +104,10 @@
       items:
         - name: Create virtual machine image
           href: howto-virtual-machine-image.md
-        - name: Virtual Machine console service
+        - name: Virtual machine console service
           href: howto-use-vm-console-service.md
+        - name: Virtual machine placement hints
+          href: howto-virtual-machine-placement-hints.md
     - name: Observability
       expanded: false
       items:

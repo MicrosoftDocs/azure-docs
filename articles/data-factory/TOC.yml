@@ -338,6 +338,8 @@ items:
       href: source-control.md
     - name: Author a change data capture resource
       href: how-to-change-data-capture-resource.md
+    - name: Author a change data capture resource with schema evolution
+      href: how-to-change-data-capture-resource-with-schema-evolution.md
     - name: Connect to Azure DevOps in another tenant
       href: cross-tenant-connections-to-azure-devops.md
     - name: Manage your environment with DataOps

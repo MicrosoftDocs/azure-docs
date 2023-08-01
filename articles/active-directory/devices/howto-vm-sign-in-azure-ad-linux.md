@@ -120,6 +120,8 @@ There are two ways to enable Azure AD login for your Linux VM:
 
 ### Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You can enable Azure AD login for any of the [supported Linux distributions](#supported-linux-distributions-and-azure-regions) by using the Azure portal.
 
 For example, to create an Ubuntu Server 18.04 Long Term Support (LTS) VM in Azure with Azure AD login:
@@ -454,7 +456,7 @@ To uninstall old packages:
 1. If the command fails, try the low-level tools with scripts disabled:
    1. For Ubuntu/Debian, run `sudo dpkg --purge aadlogin`. If it's still failing because of the script, delete the `/var/lib/dpkg/info/aadlogin.prerm` file and try again.
    1. For everything else, run `rpm -e --noscripts aadogin`.
-1.	Repeat steps 3-4 for package `aadlogin-selinux`.
+1. Repeat steps 3-4 for package `aadlogin-selinux`.
 
 ### Extension installation errors
 

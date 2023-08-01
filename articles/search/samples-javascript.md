@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom: devx-track-dotnet, devx-track-js
 ms.topic: conceptual
-ms.date: 01/04/2023
+ms.date: 07/27/2023
 ---
 
 # JavaScript samples for Azure Cognitive Search
@@ -36,6 +36,8 @@ Code samples from the Azure SDK development team demonstrate API usage. You can 
 | [indexers](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/search-documents/samples/v11/javascript) |  Demonstrates how to create, update, get, list, reset, and delete [indexers](search-indexer-overview.md).|
 | [skillSet](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/search-documents/samples/v11/javascript) |   Demonstrates how to create, update, get, list, and delete [skillsets](cognitive-search-working-with-skillsets.md) that are attached indexers, and that perform AI-based enrichment during indexing. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/search-documents/samples/v11/javascript) | Demonstrates how to create, update, get, list, and delete [synonym maps](search-synonyms.md).  |
+| [VectorSearch](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/search/search-documents/samples/v12-beta/javascript/vectorSearch.js) | Demonstrates how to generate vectors and send a [vector query](vector-search-how-to-query.md).  |
+
 
 ### TypeScript samples
 
