@@ -13,6 +13,8 @@ ms.reviewer: aul
 # Enable the ContainerLogV2 schema 
 Azure Monitor Container insights offers a schema for container logs, called ContainerLogV2. As part of this schema, there are fields to make common queries to view Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes data. In addition, this schema is compatible with [Basic Logs](../logs/basic-logs-configure.md), which offers a low-cost alternative to standard analytics logs.
 
+ContainerLogV2 will be default schema for customers who will be onboarding container insights with Managed Identity Auth using ARM, Bicep, Terraform, Policy and Portal onboarding . ContainerLogV2 can be explicitly enabled through CLI version 2.51.0 or higher using Data collection settings.
+
 The new fields are:
 * `ContainerName`
 * `PodName`
@@ -39,12 +41,22 @@ Follow the instructions to configure an existing ConfigMap or to use a new one.
 
 ### Configure via an existing Data Collection Rule
 
-## [Azure Portal](#tab/configure-Portal)
-
 1. In the Insights section of your Kubernetes cluster, select the **Monitoring Settings** button from the top toolbar
+
+![Screenshot that shows monitoring settings](./media/container-insights-v2-monitoring-settings.png)
+
 2. Select **Edit collection settings** to open the advanced settings
+
+![Screenshot that shows advanced collection settings](./media/container-insights-v2-monitoring-settings-open.png)
+
 3. Select the checkbox with **Enable ContainerLogV2** and choose the **Save** button below
+
+![Screenshot that shows ContainerLogV2 checkbox](./media/container-insights-v2-collection-settings.png)
+
 4. The summary section should display the message "ContainerLogV2 enabled", click the **Configure** button to complete your configuration change
+
+![Screenshot that shows ContainerLogV2 enabled](./media/container-insights-v2-monitoring-settings-configured.png)
+
 
 ### Configure an existing ConfigMap
 This applies to the scenario where you have already enabled container insights for your AKS cluster and have [configured agent data collection settings](./container-insights-agent-config.md#configure-and-deploy-configmaps) using ConfigMap "_container-azm-ms-agentconfig.yaml_". If this ConfigMap doesn't yet have the `log_collection_settings.schema` field, you'll need to append the following section in this existing ConfigMap .yaml file:
