@@ -46,6 +46,8 @@
         href: a-cloud-guru-tutorial.md
       - name: ACLP
         href: aclp-tutorial.md
+      - name: Acoustic Connect
+        href: acoustic-connect-tutorial.md
       - name: AcquireIO
         href: acquireio-tutorial.md
       - name: Active and Thriving
@@ -538,6 +540,8 @@
         href: newsignature-tutorial.md
       - name: CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME
         href: cloud-attendance-management-system-king-of-time-tutorial.md
+      - name: CloudBees CI
+        href: cloudbees-ci-tutorial.md
       - name: CloudCords
         href: cloudcords-tutorial.md
       - name: CloudKnox Permissions Management Platform
@@ -1413,6 +1417,8 @@
         href: justlogin-tutorial.md
       - name: Kallidus
         href: kallidus-tutorial.md
+      - name: KanbanBOX
+        href: kanbanbox-tutorial.md
       - name: Kanbanize
         href: kanbanize-tutorial.md
       - name: Kantega SSO for Bamboo
