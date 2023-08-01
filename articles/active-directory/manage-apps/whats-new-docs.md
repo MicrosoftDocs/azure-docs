@@ -27,12 +27,12 @@ Welcome to what's new in Azure Active Directory (Azure AD) application managemen
 - [Debug SAML-based single sign-on to applications](debug-saml-sso-issues.md) - Reviewed the article for freshness.
 - [Configure Azure Active Directory SAML token encryption](howto-saml-token-encryption.md) - Added Microsoft Graph PowerShell examples and removed unnecessary steps.
 
-Updated the following PowerShell samples to use Microsoft Graph PowerShell cmdlets.
+The following PowerShell samples were updated to use Microsoft Graph PowerShell cmdlets.
 - [Export secrets and certs (app registrations)](scripts/powershell-export-all-app-registrations-secrets-and-certs.md)
 - [Export secrets and certs (enterprise apps)](scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md)
 - [Export expiring secrets and certs (app registrations)](scripts/powershell-export-apps-with-expiring-secrets.md)
 
-Added the following PowerShell sample:
+The following PowerShell sample was added:
 - [Export expiring secrets and certs (enterprise apps)](scripts/powershell-export-enterprise-apps-with-expiring-secrets.md)
 
 ## June 2023
