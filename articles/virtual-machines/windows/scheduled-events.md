@@ -128,7 +128,7 @@ As scheduled events are often used for applications with high availability requi
 1. Once a scheduled event is completed and removed from the array there will be no further impacts without a new event including another EventStatus:"Scheduled" event
 2. Azure  monitors maintenance operations across the entire fleet and in rare circumstances determines that a maintenance operation too high risk to apply. In that case the scheduled event will go directly from “Scheduled” to being removed from the events array
 3. In the case of hardware failure, Azure will bypass the “Scheduled” state and immediately move to the EventStatus:"Started" state. 
-4. While the event is still in EventStatus:"Started" start, there may be additional impacts of a shorter durnation than what was advertised in the scheduled event.
+4. While the event is still in EventStatus:"Started" state, there may be additional impacts of a shorter duration than what was advertised in the scheduled event.
 
 As part of Azure’s availability guarantee, VMs in different fault domains will not be impacted by routine maintenance operations at the same time. However, they may have operations serialized one after another. VMs in one fault domain can receive scheduled events with EventStatus:"Scheduled" shortly after another fault domain’s maintenance is completed. Regardless of what architecture you chose, always keep checking for new events pending against your VMs.
 
