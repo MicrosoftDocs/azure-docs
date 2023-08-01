@@ -20,9 +20,9 @@ This "how to" shows you steps to remove sudo users from the Linux image and depl
 The objective of this article is to create an admin-less Linux image for confidential VM deployments. Removing the guest admin has immense security value, it reduces admin privileges across OS.
 
 Understanding different types of users in Unix/Linux systems:
-- Admin user (sudoer): Regular users with additional permissions. These users can perform certain tasks that modify system configurations.
+- Admin user (sudoer): Regular users with extra permissions. These users can perform certain tasks that modify system configurations.
 
-- Regular user: Regular users are non-administrative users. They don't have permission to modify system configurations or install system-wide software.
+- Regular user: Regular users are nonadministrative users. They don't have permission to modify system configurations or install system-wide software.
 
 In the context of admin-less Linux images, the aim is to deploy systems without sudo users.
 
@@ -38,7 +38,7 @@ In the context of admin-less Linux images, the aim is to deploy systems without 
 
 The proposed solution results in a Linux image without sudo users.
 
-Steps to create a generalized image which removes the sudo users are as follows:
+Steps to create a generalized image that removes the sudo users are as follows:
 
 1. Download an Ubuntu image from the Marketplace.
 [Azure supported Ubuntu images](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/create-upload-ubuntu)
@@ -84,7 +84,7 @@ If there are any users with sudo privileges, they are listed here,
     umount /mnt/dev/$imagedevice
     ```
 
-The image prepared does not include any sudo users, that can be used for creating the confidential VMs.
+The image prepared does not include any sudo users that can be used for creating the confidential VMs.
 
 Follow the steps [Create a custom image for Azure confidential VM](/azure/confidential-computing/how-to-create-custom-image-confidential-vm) to create an Azure confidential VM.
 Use the admin-less image in step 4 of [Create a custom image for Azure confidential VM](/azure/confidential-computing/how-to-create-custom-image-confidential-vm) while doing azcopy and the rest of the steps remains the same.
