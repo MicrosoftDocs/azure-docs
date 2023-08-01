@@ -7,9 +7,8 @@ ms.author: williamzhao
 ms.service: azure-communication-services
 ms.topic: how-to 
 ms.date: 06/08/2023
-ms.custom: template-how-to, devx-track-extended-java, devx-track-js
+ms.custom: template-how-to, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python
-
 #Customer intent: As a developer, I want to target a specific worker
 ---
 

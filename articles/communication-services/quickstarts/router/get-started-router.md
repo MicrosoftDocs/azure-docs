@@ -9,7 +9,7 @@ ms.author: jassha
 ms.date: 10/18/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.custom: mode-other, devx-track-extended-java, devx-track-js
+ms.custom: mode-other, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 # Quickstart: Submit a job for queuing and routing

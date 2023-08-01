@@ -157,11 +157,11 @@ One or more clients can connect to Azure Event Grid to read messages at their ow
 You can configure **private links** to connect to Azure Event Grid to **publish and read** CloudEvents through a [private endpoint](../private-link/private-endpoint-overview.md) in your virtual network. Traffic between your virtual network and Event Grid travels the Microsoft backbone network.
 
 >[!Important]
-> Private links are available with pull delivery, not with push delivery. This is not a gap. Private links “…[enables you to access Azure PaaS Services](../private-link/private-link-overview.md)…” That is, private links were designed to be used used when you connect to Event Grid for publishing events or receiving events, not when Event Grid is connecting (sending events) to your webhook or Azure Service.
+> Private links are available with pull delivery, not with push delivery. This is not a gap. Private links “…[enables you to access Azure PaaS Services](../private-link/private-link-overview.md)…” That is, private links were designed to be used when you connect to Event Grid for publishing events or receiving events, not when Event Grid is connecting (sending events) to your webhook or Azure Service.
 
 ## How much does Event Grid cost?
 
-Azure Event Grid uses a pay-per-event pricing model. You only pay for what you use. For the push-style delivery that is generally available, the first 100,000 operations per month are free. Examples of operations include event publication, event delivery, delivery attempts, event filter evaluations that refer to event data properties (sometimes referred as Advanced Filters), and events sent to a dead letter location. For details, see the [pricing page](https://azure.microsoft.com/pricing/details/event-grid/).
+Azure Event Grid uses a pay-per-event pricing model. You only pay for what you use. For the push-style delivery that is generally available, the first 100,000 operations per month are free. Examples of operations include event publication, event delivery, delivery attempts, event filter evaluations that refer to event data properties (sometimes referred to as Advanced Filters), and events sent to a dead letter location. For details, see the [pricing page](https://azure.microsoft.com/pricing/details/event-grid/).
 
 Event Grid operations involving Namespaces and its resources, including MQTT and pull HTTP delivery operations, are in public preview and are available at no charge today.
 

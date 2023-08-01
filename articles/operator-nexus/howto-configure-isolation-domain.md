@@ -811,10 +811,12 @@ az nf l3domain update-admin-state --resource-group "ResourceGroupName" --resourc
 ```azurecli
 az nf l2domain create --resource-group "ResourceGroupName" --resource-name "l2HAnetwork" --location "eastus" --nf-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName" --vlan-id 505 --mtu 1500
 ```
+
 ## Enable L2 Isolation Domain
 
 ```azurecli
 az nf l2domain update-administrative-state --resource-group "ResourceGroupName" --resource-name "l2HAnetwork" --state Enable 
 ```
+
 
 

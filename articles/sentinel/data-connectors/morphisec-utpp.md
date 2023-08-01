@@ -3,7 +3,7 @@ title: "Morphisec UTPP connector for Microsoft Sentinel"
 description: "Learn how to install the connector Morphisec UTPP to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 05/22/2023
+ms.date: 07/26/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -19,7 +19,7 @@ Integrate vital insights from your security products with the Morphisec Data Con
 | **Kusto function url** | https://aka.ms/sentinel-morphisecutpp-parser |
 | **Log Analytics table(s)** | CommonSecurityLog (Morphisec)<br/> |
 | **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
-| **Supported by** | [Morphisec](https://support.morphisec.com/hc) |
+| **Supported by** | [Morphisec](https://support.morphisec.com/support/home) |
 
 ## Query samples
 

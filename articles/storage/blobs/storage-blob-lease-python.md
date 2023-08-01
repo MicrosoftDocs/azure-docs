@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 01/25/2023
 ms.devlang: python

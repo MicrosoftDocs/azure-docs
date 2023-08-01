@@ -27,6 +27,8 @@ You can change a group's membership from static to dynamic (or vice-versa) In Az
 
 ## Change the membership type for a group
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a Global Administrator, User Administrator, or Groups Administrator in your Azure AD organization.
 2. Browse to **Azure Active Directory** > **Groups**.
 3. From the **All groups** list, open the group that you want to change.

@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 [Azure AD recommendations](overview-recommendations.md) is a feature that provides you with personalized insights and actionable guidance to align your tenant with recommended best practices.
 
-This article covers the recommendation to switch per-user Multi-factor authentication (MFA) accounts to Conditional Access (CA) MFA accounts. This recommendation is called `switchFromPerUserMFA` in the recommendations API in Microsoft Graph.
+This article covers the recommendation to switch per-user Multi-factor authentication (MFA) accounts to Conditional Access MFA accounts. This recommendation is called `switchFromPerUserMFA` in the recommendations API in Microsoft Graph.
 
 ## Description
 
@@ -31,23 +31,23 @@ In your tenant, you can enable MFA on a per-user basis. In this scenario, your u
 This recommendation shows up if:
 
 - You have per-user MFA configured for at least 5% of your users.
-- Conditional Access policies are active for more than 1% of your users (indicating familiarity with CA policies).
+- Conditional Access policies are active for more than 1% of your users (indicating familiarity with Conditional Access policies).
 
 ## Value 
 
-This recommendation improves your user's productivity and minimizes the sign-in time with fewer MFA prompts. CA and MFA used together help ensure that your most sensitive resources can have the tightest controls, while your least sensitive resources can be more freely accessible.
+This recommendation improves your user's productivity and minimizes the sign-in time with fewer MFA prompts. Conditional Access and MFA used together help ensure that your most sensitive resources can have the tightest controls, while your least sensitive resources can be more freely accessible.
 
 ## Action plan
 
-1. Confirm that there's an existing CA policy with an MFA requirement. Ensure that you're covering all resources and users you would like to secure with MFA.
+1. Confirm that there's an existing Conditional Access policy with an MFA requirement. Ensure that you're covering all resources and users you would like to secure with MFA.
     - Review your [Conditional Access policies](https://portal.azure.com/?Microsoft_AAD_IAM_enableAadvisorFeaturePreview=true&amp%3BMicrosoft_AAD_IAM_enableAadvisorFeature=true#blade/Microsoft_AAD_IAM/PoliciesTemplateBlade).
 
-2.	Require MFA using a Conditional Access policy.
+2. Require MFA using a Conditional Access policy.
     - [Secure user sign-in events with Azure AD Multi-Factor Authentication](../authentication/tutorial-enable-azure-mfa.md).
 
 3. Ensure that the per-user MFA configuration is turned off. 
 
-After all users have been migrated to CA MFA accounts, the recommendation status automatically updates the next time the service runs. Continue to review your CA policies to improve the overall health of your tenant.
+After all users have been migrated to Conditional Access MFA accounts, the recommendation status automatically updates the next time the service runs. Continue to review your Conditional Access policies to improve the overall health of your tenant.
 
 ## Next steps
 
@@ -55,4 +55,4 @@ After all users have been migrated to CA MFA accounts, the recommendation status
 - [Learn how to use Azure AD recommendations](howto-use-recommendations.md)
 - [Explore the Microsoft Graph API properties for recommendations](/graph/api/resources/recommendation)
 - [Learn about requiring MFA for all users using Conditional Access](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
-- [View the MFA CA policy tutorial](../authentication/tutorial-enable-azure-mfa.md)
+- [View the MFA Conditional Access policy tutorial](../authentication/tutorial-enable-azure-mfa.md)
