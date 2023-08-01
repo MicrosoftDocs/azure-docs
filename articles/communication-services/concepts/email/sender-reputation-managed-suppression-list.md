@@ -12,12 +12,10 @@ ms.service: azure-communication-services
 ---
 # Comprehending Sender Reputation and Managed Suppression List within Azure Communication Service Email
 
-This article provides the Email delivery best practices and  how to use the Azure Communication Services Email Logs that help with your email reputation.
+This article provides the Email delivery best practices and how to use the Azure Communication Services Email Logs that help with your email reputation. This comprehensive guide also offers invaluable insights into optimizing email complaint management, fostering healthier email practices, and enhancing your email delivery success, maximizing the chances of reaching recipients' inboxes effectively.
 
 ## Managing Sender Reputation and Email Complaints to enhance Email Delivery in your B2C Communication
-Azure Communication Service Email offers a powerful platform to enrich your customer communications. This document provides valuable insights into various processes that can help you manage email complaints effectively, ensuring healthier email practices that lead to improved results and higher chances of landing your messages in recipients' inboxes.
-
-To proactively identify and avoid significant delivery problems, several reputation checks should be in place, including but not limited to:
+Azure Communication Service Email offers a powerful platform to enrich your customer communications. However, the platform does not guarantee that the email that are sent through the platform lands in the customer's inbox. To proactively identify and avoid significant delivery problems, several reputation checks should be in place, including but not limited to:
 
 * Ensuring a consistent and healthy percentage of successfully delivered emails over time.
 * Analyzing specific details on email delivery failures and bounces.
@@ -26,12 +24,12 @@ To proactively identify and avoid significant delivery problems, several reputat
 * Understanding user engagement and inbox placements.
 * Understanding customer complaints and providing an easy opt-out process for unsubscribing.
 
-This comprehensive guide aims to walk you through the effective management of these practices and how to leverage our email logs to optimize your contact lists, bounce rates, and abuse prevention within Azure Communication Service Email. To enable email logs and monitor your email processes, follow the steps outlined in [Azure Communication Services email logs Communication Service in Azure Communication Service](../../concepts/analytics/logs/email-logs.md).
+To enable email logs and monitor your email delivery, follow the steps outlined in [Azure Communication Services email logs Communication Service in Azure Communication Service](../../concepts/analytics/logs/email-logs.md).
 
 ## Email Bounces: Understanding Delivery Status and Types
 Email bounces indicate issues with the successful delivery of an email. During the email delivery process, the SMTP responses provide the following outcomes:
 
-*  Success (2xx): This indicates that the email has been accepted by the email service provider. However, it does not guarantee that the email will land in the customer's inbox. In our email delivery status, this is represented as "Delivered."
+*  Success (2xx): This indicates that the email has been accepted by the email service provider. However, it does not guarantee that the email lands in the customer's inbox. In our email delivery status, this is represented as "Delivered."
 
 *  Temporary failure (4xx): In this case, the email cannot be accepted at the moment, often referred to as a "soft bounce." It may be caused by various factors such as rate limiting or infrastructure problems.
 
@@ -69,15 +67,15 @@ Sending emails repeatedly to addresses that do not exist can significantly affec
 Azure Communication Services offers a valuable feature known as *Managed Suppression List*, which plays a vital role in protecting and preserving your sender reputation. This suppression list cache diligently keeps track of email addresses that have experienced a "Hard Bounced" status for all emails sent through the Azure Communication Service Platform. Whenever an email fails to deliver with one of the specified error codes, the email address is added to our internally managed Suppression List, which spans across our platform and is maintained globally.
 Here is the lifecycle of email addresses that are suppressed:
 
-*  Initial Suppression: When a hard bounce is encountered with an email address for the first time, it is added to the managed Suppression List for 24 hours.
+*  Initial Suppression: When a hard bounce is encountered with an email address for the first time, it is added to the *Managed Suppression List* for 24 hours.
 
-*  Progressive Suppression: If the same invalid recipient email address appears in any future emails sent to our platform within the initial 24-hour period, it will automatically be suppressed from delivery, and the cache time will increase to 48 hours. Subsequent attempts will further extend the cache time to 96 hours, then 7 days, and finally to a maximum of 14 days.
+*  Progressive Suppression: If the same invalid recipient email address reappear in any subsequent emails sent to our platform within the initial 24-hour period, it will automatically be suppressed from delivery, and the caching time will be extended to 48 hours. For subsequent occurrences, the cache time will progressively increase to 96 hours, then 7 days, and ultimately reach a maximum duration of 14 days.
 
-*  Automatic Removal: Email addresses will be automatically removed from the Global Suppression List if no email send request has been made to the same recipient within the timeframe a "lease" is set to. Once the lease time expires the email is removed from the list and another delivery attempt will be made if email was sent to the same invalid recipient again, and the cycle repeats.
+*  Auto-Removal Process: Email addresses are automatically removed from our *Managed Suppression List* when no email send requests have been made to the same recipient within the designated lease timeframe. Once the lease period expires, the email address is removed from the list, and if any new emails are send to the same invalid recipient, another delivery attempt will be initiated, thereby initiating a new cycle.
 
-*  Drop in Delivery: If an email address is under a lease time, any further mails sent to that recipient address will be dropped until the address lease either expires or is removed from the Managed Suppression List. This is represented as "Suppressed" in our delivery status.
+*  Drop in Delivery: If an email address is under a lease time, any further mails sent to that recipient address will be dropped until the address lease either expires or is removed from the Managed Suppression List. The delivery status for this email request is represented as "Suppressed" in our email logs.
 
-It is essential to note that email addresses can only remain on the Managed Suppression List for a maximum of 14 days ("lease"). This proactive measure ensures that your sender reputation remains intact and shields you from adverse effects caused by repeatedly sending emails to invalid addresses. Nevertheless, it is still crucial that you take action on bounced status and regularly clean your contact list to maintain optimal email delivery performance.
+It is essential to note that email addresses can only remain on the *Managed Suppression List* for a maximum of 14 days. This proactive measure ensures that your sender reputation remains intact and shields you from adverse effects caused by repeatedly sending emails to invalid addresses. Nevertheless, it is still crucial that you take action on bounced status and regularly clean your contact list to maintain optimal email delivery performance.
 
 ### Soft Bounces: Understanding Temporary Mail Delivery Failures
 
@@ -133,6 +131,24 @@ In addition to the SMTP-level bounces, there are cases where bounces occur after
 
 ## Opt-out or Unsubscribe Management: Ensuring Transparent Sender Reputation
 
-Understanding your customers' interest in your email communication and monitoring opt-out or unsubscribe requests when recipients choose not to receive emails from you are crucial aspects of maintaining a positive sender reputation. Whether you have a manual or automated process in place for handling unsubscribes, it is essential to provide an 'unsubscribe' link in the email payload you send. When recipients decide not to receive further emails, they can simply click on the 'unsubscribe' link and remove their email address from your mailing list.
+Understanding your customers' interest in your email communication and monitoring opt-out or unsubscribe requests when recipients choose not to receive emails from you are crucial aspects of maintaining a positive sender reputation. Whether you have a manual or automated process in place for handling unsubscribes, it is important to provide an 'unsubscribe' link in the email payload you send. When recipients decide not to receive further emails, they can simply click on the 'unsubscribe' link and remove their email address from your mailing list.
 
-The functionality of the links and instructions in the email is vital; they must be working correctly and promptly notify the application mailing list to remove the contact from the appropriate list or lists. A proper unsubscribe mechanism should be explicit and transparent from the subscriber's perspective, ensuring they know precisely which messages they are unsubscribing from. Ideally, they should be offered a preferences center that gives them the option to unsubscribe in cases where they are subscribed to multiple lists within your organization. This prevents accidental unsubscribes and allows users to manage their opt-in and opt-out preferences effectively through the unsubscribe management process.
+The functionality of the links and instructions in the email is vital; they must be working correctly and promptly notify the application mailing list to remove the contact from the appropriate list or lists. A proper unsubscribe mechanism should be explicit and transparent from the subscriber's perspective, ensuring they know precisely which messages they are unsubscribing from. Ideally, they should be offered a preferences center that gives them the option to unsubscribe in cases where they are subscribed to multiple lists within your organization. This process prevents accidental unsubscribes and allows users to manage their opt-in and opt-out preferences effectively through the unsubscribe management process.
+
+## Next steps
+
+* [Best practices for implementing DMARC](/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?preserve-view=true&view=o365-worldwide#best-practices-for-implementing-dmarc-in-microsoft-365)
+  
+* [Troubleshoot your DMARC implementation](/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?preserve-view=true&view=o365-worldwide#troubleshooting-your-dmarc-implementation) 
+
+* [Email domains and sender authentication for Azure Communication Services](./email-domain-and-sender-authentication.md)
+
+* [Get started with create and manage Email Communication Service in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
+
+* [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
+
+The following documents may be interesting to you:
+
+- Familiarize yourself with the [Email client library](../email/sdk-features.md)
+- How to send emails with custom verified domains? [Add custom domains](../../quickstarts/email/add-custom-verified-domains.md)
+- How to send emails with Azure Managed Domains? [Add Azure Managed domains](../../quickstarts/email/add-azure-managed-domains.md)
