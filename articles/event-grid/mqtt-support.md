@@ -82,10 +82,10 @@ Event Grid supports the following MQTT features:
 Event Grid supports QoS 0 and 1, which define the guarantee of message delivery on PUBLISH and SUBSCRIBE packets between clients and Event Grid. QoS 0 guarantees at-most-once delivery; messages with QoS 0 aren’t acknowledged by the subscriber nor get retransmitted by the publisher. QoS 1 guarantees at-least-once delivery; messages are acknowledged by the subscriber and get retransmitted by the publisher if they didn’t get acknowledged. QoS enables your clients to control the efficiency and reliability of the communication. 
 ### Persistent sessions
 Event Grid supports persistent sessions for MQTT v3.1.1 such that Event Grid preserves information about a client’s session in case of disconnections to ensure reliability of the communication. This information includes the client’s subscriptions and missed/ unacknowledged QoS 1 messages. Clients can configure a persistent session through setting the cleanSession flag in the CONNECT packet to false. 
-## Clean start and session expiry
+#### Clean start and session expiry
 MQTT v5 has introduced the clean start and session expiry features as an improvement over MQTT v3.1.1 in handling session persistence. Clean Start is a feature that allows a client to start a new session with Event Grid, discarding any previous session data. Session Expiry allows a client to inform Event Grid when an inactive session is considered expired and automatically removed. In the CONNECT packet, a client can set Clean Start flag to true and/or short session expiry interval for security reasons or to avoid any potential data conflicts that may have occurred during the previous session. A client can also set a clean start to false and/or long session expiry interval to ensure the reliability and efficiency of persistent sessions.
 
-## Maximum session expiry interval configuration
+#### Maximum session expiry interval configuration
 You can configure the maximum session expiry interval allowed for all your clients connecting to the Event Grid namespace. For MQTT v3.1.1 clients, the configured limit is applied as the default session expiry interval for all persistent sessions. For MQTT v5 clients, the configured limit is applied as the maximum value for the Session Expiry Interval property in the CONNECT packet; any value that exceeds the limit will be adjusted. The default value for this namespace property is 1 hour and can be extended up to 8 hours. Use the following steps to configure the maximum session expiry interval in the Azure portal:
 - Go to your namespace in the Azure portal.
 - Under **Configuration**, change the value for the **Maximum session expiry interval in hours** to the desired limit.
@@ -93,7 +93,7 @@ You can configure the maximum session expiry interval allowed for all your clien
 
 :::image type="content" source="media/mqtt-support/mqtt-maximum-session-expiry-configuration.png" alt-text="screenshot for the maximum session expiry interval configuration." border="false":::
 
-## Session overflow
+#### Session overflow
 Event Grid maintains a queue of messages for each active MQTT session that isn't connected, until the client connects with Event Grid again to receive the messages in the queue. If a client doesn't connect to receive the queued QOS1 messages, the session queue starts accumulating the messages until it reaches its limit: 100 messages or 1 MB. Once the queue reaches its limit during the lifespan of the session, the session is terminated.
 
 ### User properties 

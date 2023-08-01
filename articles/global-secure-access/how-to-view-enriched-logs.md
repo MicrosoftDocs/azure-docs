@@ -61,14 +61,14 @@ The enriched logs may take up to 72 hours to fully integrate with the service.
 To view the enriched Microsoft 365 logs, you must export or stream the logs to an endpoint, such as a Log Analytics workspace or a SIEM tool. The endpoint must be configured before you can configure Diagnostic settings.
 
 * To integrate logs with Log Analytics, you need a **Log Analytics workspace**.
-    - [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md).
-    - [Integrate logs with Log Analytics](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+    - [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
+    - [Integrate logs with Log Analytics](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 * To stream logs to a SIEM tool, you need to create an Azure event hub and an event hub namespace.
-    - [Set up an Event Hubs namespace and an event hub](../event-hubs/event-hubs-create.md).
-    - [Stream logs to an event hub](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
+    - [Set up an Event Hubs namespace and an event hub](/azure/event-hubs/event-hubs-create).
+    - [Stream logs to an event hub](/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub)
 * To archive logs to a storage account, you need an Azure storage account that you have `ListKeys` permissions for.
-    - [Create an Azure storage account](../storage/common/storage-account-create.md).
-    - [Archive logs to a storage account](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
+    - [Create an Azure storage account](/azure/storage/common/storage-account-create).
+    - [Archive logs to a storage account](/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account)
 
 With your endpoint created, you can configure Diagnostic settings.
 

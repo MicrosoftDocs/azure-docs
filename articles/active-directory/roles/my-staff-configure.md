@@ -65,7 +65,7 @@ We strongly recommend that you protect My Staff using [Azure AD Conditional Acce
 
 You'll see the service principal when you create a Conditional Access policy that applies to the My Staff cloud application.
 
-![Create a conditional access policy for the My Staff app](./media/my-staff-configure/conditional-access.png)
+![Create a Conditional Access policy for the My Staff app](./media/my-staff-configure/conditional-access.png)
 
 ## Using My Staff
 
