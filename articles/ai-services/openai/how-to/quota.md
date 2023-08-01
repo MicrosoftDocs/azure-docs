@@ -19,9 +19,11 @@ Quota provides the flexibility to actively manage the allocation of rate limits 
 ## Prerequisites
 
 > [!IMPORTANT]
-> Viewing quota and deploying models requires the **Cognitive Services Usages Reader** role. This role provides the minimal access necessary to view quota usage across an Azure subscription. This role can be found in the Azure portal under **Subscriptions** > **Access control (IAM)** > **Add role assignment** > search for **Cognitive Services Usages Reader**.This role **must be applied at the subscription level**, it does not exist at the resource level.
+> Viewing quota and deploying models requires the **Cognitive Services Usages Reader** role. This role provides the minimal access necessary to view quota usage across an Azure subscription.
 >
-> If you do not wish to use this role alternatively the Subscription **Reader** role will provide equivalent access, but it will also grant read access beyond the scope of what is needed for quota and model deployment.
+> This role can be found in the Azure portal under **Subscriptions** > **Access control (IAM)** > **Add role assignment** > search for **Cognitive Services Usages Reader**.This role **must be applied at the subscription level**, it does not exist at the resource level.
+>
+> If you do not wish to use this role, the subscription **Reader** role will provide equivalent access, but it will also grant read access beyond the scope of what is needed for viewing quota and model deployment.
 
 ## Introduction to quota
 
@@ -152,6 +154,8 @@ curl -X PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-0
 
 > [!NOTE]
 > There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from the [Azure portal](https://portal.azure.com). Then run [`az account get-access-token`](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token&preserve-view=true). You can use this token as your temporary authorization token for API testing.
+
+For more information, refer to the REST API reference documentation for [usages](/rest/api/cognitiveservices/accountmanagement/usages/list?branch=main&tabs=HTTP) and [deployment](/rest/api/cognitiveservices/accountmanagement/deployments/create-or-update).
 
 ### Usage
 
