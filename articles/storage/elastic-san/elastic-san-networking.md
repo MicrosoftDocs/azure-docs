@@ -4,7 +4,7 @@ description: How to configure networking for Azure Elastic SAN Preview, a servic
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 08/01/2023
 ms.author: rogarana
 ms.custom: ignite-2022, devx-track-azurepowershell
 ---
@@ -15,7 +15,7 @@ Azure Elastic storage area network (SAN) Preview allows you to secure and contro
 
 This article describes how to configure your Elastic SAN to allow access from your Azure virtual network infrastructure.
 
-You can configure your Elastic SAN volume groups to allow access only from endpoints on specific virtual network subnets. The allowed subnets may belong to virtual networks in the same subscription, or those in a different subscription, including subscriptions belonging to a different Azure Active Directory tenant.
+You can configure your Elastic SAN volume groups to allow access only from endpoints on specific virtual network subnets. The allowed subnets may belong to virtual networks in the same subscription, or those in a different subscription, including a subscription belonging to a different Azure Active Directory tenant.
 
 To configure network access to your Elastic SAN:
 
@@ -33,7 +33,7 @@ You can allow access to your Elastic SAN volume groups from two types of Azure v
 
 To decide which type of endpoint works best for you, see [Compare Private Endpoints and Service Endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints).
 
-Each volume group can be configured to allow access from either public storage service endpoints or private endpoints, but not both at the same time.
+Each volume group can be configured to allow access from either public storage service endpoints or private endpoints, but not both at the same time. Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group.
 
 The process for enabling each type of endpoint follows:
 
@@ -82,7 +82,7 @@ $Vnet | Set-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $Subne
 
 # [Azure CLI](#tab/azure-cli)
 
-Use this sample code to create a storage service endpoint for your Elastic SAN volume group with Azure CLI.
+Use this sample code to create a storage service endpoint for your Elastic SAN volume group with the Azure CLI.
 
 ```azurecli
 # Define some variables
@@ -104,7 +104,7 @@ There are two steps involved in configuring a private endpoint connection:
 > - Creating the endpoint and the associated connection.
 > - Approving the connection.
 
-To create a private endpoint, you must have the [Elastic SAN Volume Group Owner](../../role-based-access-control/built-in-roles.md#elastic-san-volume-group-owner) role. To approve a new private endpoint connection, you must have permission to the [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftelasticsan) `Microsoft.ElasticSan/elasticSans/PrivateEndpointConnectionsApproval/action`. Permission for this operation is included in the [Elastic SAN Network Admin](../../role-based-access-control/built-in-roles.md#elastic-san-owner) role, but it can also be granted via a custom Azure role.
+To create a private endpoint for an Elastic SAN volume group, you must have the [Elastic SAN Volume Group Owner](../../role-based-access-control/built-in-roles.md#elastic-san-volume-group-owner) role. To approve a new private endpoint connection, you must have permission to the [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftelasticsan) `Microsoft.ElasticSan/elasticSans/PrivateEndpointConnectionsApproval/action`. Permission for this operation is included in the [Elastic SAN Network Admin](../../role-based-access-control/built-in-roles.md#elastic-san-owner) role, but it can also be granted via a custom Azure role.
 
 If you create the endpoint from a user account that has all of the necessary roles and permissions required for creation and approval, the process can be completed in one step. If not, it will require two separate steps by two different users.
 
@@ -171,7 +171,7 @@ $PeArguments        = @{
 New-AzPrivateEndpoint @PeArguments # -ByManualRequest # (Uncomment the `-ByManualRequest` parameter if you are using the two-step process).
 ```
 
-Use this sample code to approve the private link service connection if you are using the two-step process. Use the same variables from the previous example:
+Use this sample code to approve the private link service connection if you are using the two-step process. Use the same variables from the previous code sample:
 
 ```powershell
 # Get the private endpoint and associated connection.
@@ -195,7 +195,7 @@ $EndpointConnection.PrivateLinkServiceConnectionState
 
 # [Azure CLI](#tab/azure-cli)
 
-Deploying a private endpoint for an Elastic SAN Volume group using the Azure CLI involves these steps:
+Deploying a private endpoint for an Elastic SAN Volume group using the Azure CLI involves three steps:
 
 1. Get the private connection resource ID of the Elastic SAN.
 1. Create the private endpoint using inputs:
@@ -206,7 +206,7 @@ Deploying a private endpoint for an Elastic SAN Volume group using the Azure CLI
     1. Vnet name
 1. **(Optional** *if you are using the two-step process (creation, then approval))*: The Elastic SAN Network Admin approves the connection.
 
-Use this sample code to create a private endpoint for your Elastic SAN volume group with Azure CLI. Uncomment the `--manual-request` parameter if you are using the two-step process. Replace all placeholder text with your own values:
+Use this sample code to create a private endpoint for your Elastic SAN volume group with the Azure CLI. Uncomment the `--manual-request` parameter if you are using the two-step process. Replace all placeholder text with your own values:
 
 | Placeholder                      | Description |
 |----------------------------------|-------------|
@@ -249,7 +249,7 @@ az network private-endpoint create \
     --type Microsoft.ElasticSan/elasticSans \ # --manual-request
 ```
 
-Use this sample code to approve the private link service connection if you are using the two-step process. Use the same variables from the previous example:
+Use this sample code to approve the private link service connection if you are using the two-step process. Use the same variables from the previous code sample:
 
 ```azurecli
 az network private-endpoint-connection approve \

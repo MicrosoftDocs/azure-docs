@@ -4,7 +4,7 @@ description: An overview of Azure Elastic SAN Preview networking options, includ
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 07/25/2023
+ms.date: 08/01/2023
 ms.author: rogarana
 ms.custom: 
 ---
@@ -13,14 +13,16 @@ ms.custom:
 
 Azure Elastic storage area network (SAN) Preview allows you to secure and control the level of access to your Elastic SAN volumes that your applications and enterprise environments require. This article describes the options for allowing users and applications access to Elastic SAN volumes from an [Azure virtual network infrastructure](../../virtual-network/vnet-integration-for-azure-services.md).
 
-You can configure Elastic SAN volume groups to only allow access over specific endpoints on specific virtual network subnets. The allowed subnets may belong to a virtual network in the same subscription, or those in a different subscription, including subscriptions belonging to a different Azure Active Directory tenant. Depending on your configuration, applications on peered virtual networks or on-premises networks can also access volumes in the group. On-premises networks must be connected to the virtual network by a VPN or ExpressRoute. For more details about virtual network configurations, see [Azure virtual network infrastructure](../../virtual-network/vnet-integration-for-azure-services.md).
+You can configure Elastic SAN volume groups to only allow access over specific endpoints on specific virtual network subnets. The allowed subnets may belong to a virtual network in the same subscription, or those in a different subscription, including subscriptions belonging to a different Azure Active Directory tenant. Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group.
+
+Depending on your configuration, applications on peered virtual networks or on-premises networks can also access volumes in the group. On-premises networks must be connected to the virtual network by a VPN or ExpressRoute. For more details about virtual network configurations, see [Azure virtual network infrastructure](../../virtual-network/vnet-integration-for-azure-services.md).
 
 There are two types of virtual network endpoints you can configure to allow access to an Elastic SAN volume group:
 
 - [Storage service endpoints](#storage-service-endpoints)
 - [Private endpoints](#private-endpoints)
 
-To decide which option is best for you, see [Compare Private Endpoints and Service Endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints). Generally, you should use private endpoints instead of service endpoints. Private Link offers better capabilities such as the ability to privately access PaaS services from on-premises, built-in data exfiltration protection and mapping a service to Private IP addresses in your own network. For more information, see [Azure Private Link](../../private-link/private-endpoint-overview.md).  
+To decide which option is best for you, see [Compare Private Endpoints and Service Endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints). Generally, you should use private endpoints instead of service endpoints since Private Link offers better capabilities. For more information, see [Azure Private Link](../../private-link/private-endpoint-overview.md).  
 
 After configuring endpoints, you can configure network rules to further control access to your Elastic SAN volume group. Once the endpoints and network rules have been configured, clients can connect to volumes in the group to process their workloads.
 
@@ -37,10 +39,10 @@ After configuring endpoints, you can configure network rules to further control 
 
 ## Private endpoints
 
-Azure [Private Link](../../private-link/private-link-overview.md) enables you to access an Elastic SAN volume group securely over a [private endpoint](../../private-link/private-endpoint-overview.md) from a virtual network. Private endpoints use a separate set of IP addresses from the virtual network address space for each volume group. Traffic between your virtual network and the service traverses the Microsoft backbone network, eliminating the risk of exposing your service to the public internet.
+Azure [Private Link](../../private-link/private-link-overview.md) enables you to access an Elastic SAN volume group securely over a [private endpoint](../../private-link/private-endpoint-overview.md) from a virtual network subnet. Private endpoints use a separate set of IP addresses from the subnet address space for each volume group. Traffic between your virtual network and the service traverses the Microsoft backbone network, eliminating the risk of exposing your service to the public internet.
 
 > [!NOTE]
-> The maximum number of IP addresses used from the private address space for an Elastic SAN private endpoint is 20.
+> An Elastic SAN private endpoint uses multiple IP addresses from the private address space of the subnet. The maximum number used per endpoint is 20.
 
 Private endpoints have several advantages over service endpoints. For a complete comparison of private endpoints to service endpoints, see [Compare Private Endpoints and Service Endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints).
 
