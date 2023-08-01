@@ -66,7 +66,7 @@ WAF customers can choose to run from one of the actions when a request matches a
 - **Block**: The request is blocked and the WAF sends a response to the client without forwarding the request to the back end.
 - **Log**: The request is logged in the WAF logs and the WAF continues evaluating lower priority rules.
 - **Redirect**: The WAF redirects the request to the specified URI. The URI specified is a policy-level setting. After configuration, all requests that match the **Redirect** action are sent to that URI.
-- **Anomaly score**: This default action is for Default Rule Set 2.0 or later. It isn't applicable for the Bot Manager rule set. The total anomaly score is increased incrementally when a rule with this action is matched.
+- **Anomaly score**: This default action is for Default Rule Set 2.0 or later. It isn't applicable for the Bot Manager Rule Set. The total anomaly score is increased incrementally when a rule with this action is matched.
 
 ## WAF rules
 
@@ -116,7 +116,7 @@ Good bots include validated search engines. Unknown categories include other bot
 
 Unknown bots are classified via published user agents without any other validation. You can set custom actions to block, allow, log, or redirect for different types of bots.
 
-![Screenshot that shows a Bot Protection Rule Set.](../media/afds-overview/botprotect2.png)
+![Screenshot that shows a bot protection rule set.](../media/afds-overview/botprotect2.png)
 
 If bot protection is enabled, incoming requests that match bot rules are logged. You can access WAF logs from a storage account, an event hub, or Log Analytics.
 
