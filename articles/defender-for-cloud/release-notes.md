@@ -58,7 +58,7 @@ Here is a table of the new alerts.
 | **Desired State Configuration (DSC) extension with a suspicious script was detected on your virtual machine (Preview)**<br>(VM_DSCExtensionSuspiciousScript) | Desired State Configuration (DSC) extension with a suspicious script was detected on your virtual machine by analyzing the Azure Resource Manager operations in your subscription. Attackers may use the Desired State Configuration (DSC) extension to deploy malicious configurations, such as persistence mechanisms, malicious scripts, and more, with high privileges, on your virtual machines. | Execution | High | 
 | **Suspicious usage of a DSC extension was detected in your virtual machines (Preview)**<br>(VM_DSCExtensionSuspiciousUsage) | The script is deemed suspicious as certain parts were identified as being potentially malicious. Suspicious usage of a Desired State Configuration extension was detected in your virtual machines by analyzing the Azure Resource Manager operations in your subscription. Attackers may use Desired State Configuration extension to deploy malicious configurations, such as persistence mechanisms, malicious scripts, and more, with high privileges, on your virtual machines. | Impact | Low |
 
- See the [all new extension-based alerts in Defender for Servers](alerts-reference.md#control-plane-alerts--defender-for-servers). 
+ See the [all new extension-based alerts in Defender for Servers](alerts-reference.md#control-plane-alerts---defender-for-servers). 
 
 For a complete list of alerts, see the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md).
 
