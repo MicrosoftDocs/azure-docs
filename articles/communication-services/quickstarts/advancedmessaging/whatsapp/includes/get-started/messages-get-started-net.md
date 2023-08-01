@@ -9,7 +9,7 @@ ms.date: 06/20/2023
 ms.topic: include
 ms.custom: include file
 ms.author: memontic
-zone_pivot_groups: acs-dev-environment-vs-vscode, client-operating-system
+zone_pivot_groups: acs-dev-environment-vs-vscode,client-operating-system
 ---
 
 ## Setting Up
