@@ -49,7 +49,7 @@ Azure AD stores activity logs for a specific period. For more information, see [
 
   > [!NOTE]
    > **Issues downloading large data sets**  
-   > The Azure Portal downloader will time out if you attempt to download large data sets. Generally, data sets smaller than 250,000 records work well with the browser download feature. If you face issues completing large downloads in the browser, you should use the [reporting API](/graph/api/resources/azure-ad-auditlog-overview) to download the data.
+   > The Azure portal downloader will time out if you attempt to download large data sets. Generally, data sets smaller than 250,000 records work well with the browser download feature. If you face issues completing large downloads in the browser, you should use the [reporting API](/graph/api/resources/azure-ad-auditlog-overview) to download the data.
 
 ## How to download activity logs
 

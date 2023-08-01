@@ -135,7 +135,7 @@ The following examples show what changes you can apply to your cluster by modify
         enabled = false
     ```
 
-1. To clean up jobs that are finished, specify the cleanup policy in the job definition by modifying the following code in the ConfigMap file:
+1. To clean up jobs that are finished, specify the cleanup policy in your job definition yaml. Following is example Job definition with clean up policy. For more details, refer to [Kubernetes documentation](https://kubernetes.io/docs/concepts/workloads/controllers/job/#clean-up-finished-jobs-automatically).
 
     ```
     apiVersion: batch/v1

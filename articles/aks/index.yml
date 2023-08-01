@@ -84,6 +84,8 @@ landingContent:
             url: ./learn/quick-kubernetes-deploy-portal.md
           - text: Resource Manager template
             url: ./learn/quick-kubernetes-deploy-rm-template.md
+          - text: Terraform
+            url: ./learn/quick-kubernetes-deploy-terraform.md
 
   # Card
   - title: Develop and debug applications
@@ -100,6 +102,10 @@ landingContent:
             url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
           - text: Use Bridge to Kubernetes with Visual Studio
             url: /visualstudio/containers/bridge-to-kubernetes
+          - text: Run Java Open Liberty
+            url: howto-deploy-java-liberty-app.md
+          - text: Run Java WebLogic Server
+            url: howto-deploy-java-wls-app.md
 
   # Card
   - title: Architecture guidance

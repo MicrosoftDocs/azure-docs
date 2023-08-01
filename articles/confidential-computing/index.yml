@@ -88,6 +88,8 @@ landingContent:
         links:
           - text: Use sample app for guest attestation
             url: guest-attestation-example.md
+          - text: Create a custom image for a confidential VM
+            url: how-to-create-custom-image-confidential-vm.md
       - linkListType: reference
         links:
           - text: AMD confidential VMs FAQ 
@@ -174,7 +176,7 @@ landingContent:
             url: ../virtual-machines/dcv3-series.md
 ## Row 2
 # Card
-  - title: Concepts
+  - title: Secure key release (SKR)
     linkLists:
       - linkListType: concept
         links: 

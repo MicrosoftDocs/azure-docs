@@ -41,7 +41,7 @@ The following table outlines the security considerations for the available authe
 | Microsoft Authenticator        | High     | High      | High         |
 | Authenticator Lite             | High     | High      | High         |
 | FIDO2 security key             | High     | High      | High         |
-| Certificate-based authentication (preview)| High | High | High       |
+| Certificate-based authentication | High | High | High       |
 | OATH hardware tokens (preview) | Medium   | Medium    | High         |
 | OATH software tokens           | Medium   | Medium    | High         |
 | SMS                            | Medium   | High      | Medium       |
@@ -106,6 +106,8 @@ The following additional verification methods can be used in certain scenarios:
 Administrators can view user authentication methods in the Azure portal. Usable methods are listed first, followed by non-usable methods. 
 
 Each authentication method can become non-usable for different reasons. For example, a Temporary Access Pass may expire, or FIDO2 security key may fail attestation. The portal will be updated to provide the reason for why the method is non-usable. 
+
+Authentication methods that are no longer available due to "Require re-register multifactor authentication" are also displayed here.
 
 :::image type="content" border="true" source="media/concept-authentication-methods/non-usable.png" alt-text="Screenshot of non-usable authentication methods." :::
 

@@ -33,9 +33,11 @@ This how-to guide demonstrates the token issuance start event with a REST API ru
 
 ## Step 1. Create an Azure Function app
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 In this step, you create an HTTP trigger function API in the Azure portal. The function API is the source of extra claims for your token. Follow these steps to create an Azure Function:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with your administrator account.
+1. Sign in to the [Azure portal](https://portal.azure.com) with your administrator account.
 1. From the Azure portal menu or the **Home** page, select **Create a resource**.
 1. In the **New** page, select **Compute** > **Function App**.
 1. On the **Basics** page, use the function app settings as specified in the following table:
@@ -63,7 +65,7 @@ After the Azure Function app is created, create an HTTP trigger function. The HT
 1. Within your **Function App**, from the menu select **Functions**.
 1. From the top menu, select **+ Create**.
 1. In the **Create Function** window, leave the **Development environment** property as **Develop in portal**, and then select the **HTTP trigger** template.
-1. Under **Template details**, enter *CustomExtensionsAPI* for the **New Function** property.
+1. Under **Template details**, enter *CustomAuthenticationExtensionsAPI* for the **New Function** property.
 1. For the **Authorization level**, select **Function**.
 1. Select **Create**
 
@@ -157,7 +159,7 @@ In this step, you configure a custom extension, which will be used by Azure AD t
 
 # [Azure portal](#tab/azure-portal)
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Under **Azure services**, select **Azure Active Directory**.
 1. Ensure your user account has the Global Administrator or Application Administrator and Authentication Extensibility Administrator role. Otherwise, learn how to [assign a role](../roles/manage-roles-portal.md).
 1. From the menu, select **Enterprise applications**.
@@ -365,7 +367,7 @@ The following JSON snippet demonstrates how to configure these properties.
 ```
 
 > [!WARNING]
-> Do not set `acceptMappedClaims` property to `true` for multi-tenant apps, which can allow malicious actors to create claims-mapping policies for your app. Instead [configure a custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key).
+> Do not set `acceptMappedClaims` property to `true` for multi-tenant apps, which can allow malicious actors to create claims-mapping policies for your app. Instead [configure a custom signing key](/graph/application-saml-sso-configure-api#option-2-create-a-custom-signing-certificate).
 
 ## Step 4. Assign a custom claims provider to your app
 
@@ -486,7 +488,8 @@ To protect your Azure function, follow these steps to integrate Azure AD authent
 > [!NOTE]
 > If the Azure function app is hosted in a different Azure tenant than the tenant in which your custom extension is registered, skip to [using OpenID Connect identity provider](#51-using-openid-connect-identity-provider) step.
 
-1. In the [Azure portal](https://portal.azure.com), navigate and select the function app you previously published.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Navigate and select the function app you previously published.
 1. Select **Authentication** in the menu on the left.
 1. Select **Add Identity provider**.  
 1. Select **Microsoft** as the identity provider.
@@ -501,7 +504,7 @@ To protect your Azure function, follow these steps to integrate Azure AD authent
 
 If you configured the [Microsoft identity provider](#step-5-protect-your-azure-function), skip this step. Otherwise, if the Azure Function is hosted under a different tenant than the tenant in which your custom extension is registered, follow these steps to protect your function:
 
-1. In the [Azure portal](https://portal.azure.com), navigate and select the function app you previously published.
+1. Sign in to the [Azure portal](https://portal.azure.com), then navigate and select the function app you previously published.
 1. Select **Authentication** in the menu on the left.
 1. Select **Add Identity provider**.  
 1. Select **OpenID Connect** as the identity provider.

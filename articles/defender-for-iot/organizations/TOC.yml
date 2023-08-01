@@ -146,12 +146,6 @@
     - name: Enable Enterprise IoT security
       href: eiot-defender-for-endpoint.md
       displayName: onboard
-    - name: Discover Enterprise IoT devices
-      href: eiot-sensor.md
-      displayName: Enterprise IoT sensor
-    - name: Extra deployment steps and samples
-      href: extra-deploy-enterprise-iot.md
-      displayName: Enterprise IoT sensor
     - name: Enterprise IoT networks FAQ
       href: faqs-eiot.md
 - name: Tutorials

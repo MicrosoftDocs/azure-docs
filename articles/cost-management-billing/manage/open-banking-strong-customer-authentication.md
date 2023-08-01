@@ -29,7 +29,7 @@ The following sections describe how to complete multi-factor authentication in t
 
 You can change the active payment method of your Azure account by following these steps:
 
-1. Sign into the [Azure portal](https://portal.azure.com) as the Account Administrator and navigate to **Cost Management + Billing**.
+1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator and navigate to **Cost Management + Billing**.
 2. In the **Overview** page, select the corresponding subscription from the **My subscriptions** grid.
 3. Under 'Billing', select **Payment methods**. You can add a new credit card or set an existing card as the active payment method for the subscription. If your bank requires multi-factor authentication, you're prompted to complete an authentication challenge during the process.
 
@@ -39,7 +39,7 @@ For more details, see [Add, update, or remove a credit card for Azure](change-cr
 
 If your bank rejects the charges, your Azure account status will change to **Past due** in the Azure portal. You can check the status of your account by following these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as the Account Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
 2. Search on **Cost Management + Billing.**
 3. On the **Cost Management + Billing** **Overview** page, review the status column in the **My subscriptions** grid.
 4. If your subscription is labeled **Past due**, select **Settle balance**. You're prompted to complete multi-factor authentication during the process.
@@ -48,7 +48,7 @@ If your bank rejects the charges, your Azure account status will change to **Pas
 
 Marketplace and reservation purchases are billed separately from Azure services. If your bank rejects the Marketplace or reservation charges, your invoice will become past due and you'll see the option to **Pay now** in the Azure portal. You can pay for past due Marketplace and reservation invoices by following these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as the Account Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
 2. Search on **Cost Management + Billing.**
 3. Under 'Billing', select **Invoices**.
 5. In the subscription drop-down filter, select the subscription associated with your Marketplace or reservation purchase.

@@ -96,22 +96,22 @@ Triggers and bindings can be declared and used in a function in a decorator base
 @app.function_name(name="HttpTrigger1")
 @app.route(route="req")
 def main(req):
-    user = req.params.get('user')
-    return f'Hello, {user}!'
+    user = req.params.get("user")
+    return f"Hello, {user}!"
 ```
 
 You can also explicitly declare the attribute types and return type in the function by using Python type annotations. Doing so helps you use the IntelliSense and autocomplete features that are provided by many Python code editors.
 
 ```python
-import azure.functions
+import azure.functions as func
 
 app = func.FunctionApp()
 
 @app.function_name(name="HttpTrigger1")
 @app.route(route="req")
-def main(req: azure.functions.HttpRequest) -> str:
-    user = req.params.get('user')
-    return f'Hello, {user}!'
+def main(req: func.HttpRequest) -> str:
+    user = req.params.get("user")
+    return f"Hello, {user}!"
 ```
 
 To learn about known limitations with the v2 model and their workarounds, see [Troubleshoot Python errors in Azure Functions](./recover-python-functions.md?pivots=python-mode-decorators). 
@@ -174,7 +174,7 @@ The main project folder, *<project_root>*, can contain the following files:
 * *host.json*: Contains configuration options that affect all functions in a function app instance. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
 * *.vscode/*: (Optional) Contains the stored Visual Studio Code configuration. To learn more, see [Visual Studio Code settings](https://code.visualstudio.com/docs/getstarted/settings).
 * *.venv/*: (Optional) Contains a Python virtual environment used by local development.
-* *Dockerfile*: (Optional) Used when publishing your project in a [custom container](functions-create-function-linux-custom-image.md).
+* *Dockerfile*: (Optional) Used when publishing your project in a [custom container](./functions-how-to-custom-container.md).
 * *tests/*: (Optional) Contains the test cases of your function app.
 * *.funcignore*: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains *.vscode/* to ignore your editor setting, *.venv/* to ignore the local Python virtual environment, *tests/* to ignore test cases, and *local.settings.json* to prevent local app settings from being published.
 
@@ -210,7 +210,7 @@ The main project folder, *<project_root>*, can contain the following files:
 * *host.json*: Contains configuration options that affect all functions in a function app instance. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
 * *local.settings.json*: Used to store app settings and connection strings when it's running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-develop-local.md#local-settings-file).
 * *requirements.txt*: Contains the list of Python packages the system installs when it publishes to Azure.
-* *Dockerfile*: (Optional) Used when publishing your project in a [custom container](functions-create-function-linux-custom-image.md).
+* *Dockerfile*: (Optional) Used when publishing your project in a [custom container](./functions-how-to-custom-container.md).
 ::: zone-end
 
 When you deploy your project to a function app in Azure, the entire contents of the main project folder, *<project_root>*, should be included in the package, but not the folder itself, which means that *host.json* should be in the package root. We recommend that you maintain your tests in a folder along with other functions (in this example, *tests/*). For more information, see [Unit testing](#unit-testing).
@@ -272,6 +272,10 @@ app = func.FunctionApp()
  
 app.register_functions(bp) 
 ```
+
+> [!NOTE]
+> Durable Functions also supports blueprints. To create blueprints for Durable Functions apps, register your orchestration, activity, and entity triggers and client bindings using the [`azure-functions-durable`](https://pypi.org/project/azure-functions-durable) `Blueprint` class, as
+> shown [here](https://github.com/Azure/azure-functions-durable-python/blob/dev/samples-v2/blueprint/durable_blueprints.py). The resulting blueprint can then be registered as normal. See our [sample](https://github.com/Azure/azure-functions-durable-python/tree/dev/samples-v2/blueprint) for an example.
 
 ::: zone-end
 
@@ -710,13 +714,11 @@ Update the Python code file *init.py*, depending on the interface that's used by
 # [ASGI](#tab/asgi)
 
 ```python
-app=fastapi.FastAPI()
+app = fastapi.FastAPI()
 
 @app.get("hello/{name}")
-async def get_name(
-  name: str,):
-  return {
-      "name": name,}
+async def get_name(name: str):
+  return {"name": name}
 
 def main(req: func.HttpRequest, context: func.Context) -> func.HttpResponse:
     return func.AsgiMiddleware(app).handle(req, context)
@@ -726,14 +728,14 @@ For a full example, see [Using FastAPI Framework with Azure Functions](/samples/
 # [WSGI](#tab/wsgi)
 
 ```python
-app=Flask("Test")
+app = Flask("Test")
 
-@app.route("hello/<name>", methods=['GET'])
+@app.route("hello/<name>", methods=["GET"])
 def hello(name: str):
     return f"hello {name}"
 
 def main(req: func.HttpRequest, context) -> func.HttpResponse:
-  logging.info('Python HTTP trigger function processed a request.')
+  logging.info("Python HTTP trigger function processed a request.")
   return func.WsgiMiddleware(app).handle(req, context)
 ```
 For a full example, see [Using Flask Framework with Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app/).
@@ -791,7 +793,7 @@ fast_app = FastAPI()
  
 @fast_app.get("/return_http_no_body") 
 async def return_http_no_body(): 
-    return Response(content='', media_type="text/plain") 
+    return Response(content="", media_type="text/plain") 
  
 app = func.AsgiFunctionApp(app=fast_app, 
                            http_auth_level=func.AuthLevel.ANONYMOUS) 
@@ -805,14 +807,13 @@ app = func.AsgiFunctionApp(app=fast_app,
 # function_app.py
 
 import azure.functions as func 
-from flask import Flask, request, Response, redirect, url_for 
+from flask import Flask, Response 
  
 flask_app = Flask(__name__) 
-logger = logging.getLogger("my-function") 
 
 @flask_app.get("/return_http") 
 def return_http(): 
-    return Response('<h1>Hello World™</h1>', mimetype='text/html') 
+    return Response("<h1>Hello World™</h1>", mimetype="text/html") 
 
 app = func.WsgiFunctionApp(app=flask_app.wsgi_app, 
                            http_auth_level=func.AuthLevel.ANONYMOUS) 
@@ -942,7 +943,7 @@ Azure Functions supports the following Python versions:
 
 | Functions version | Python\* versions |
 | ----- | :-----: |
-| 4.x | 3.10<br/>3.9<br/> 3.8<br/>3.7 |
+| 4.x | 3.11 (preview) <br/>3.10<br/>3.9<br/> 3.8<br/>3.7 |
 | 3.x | 3.9<br/> 3.8<br/>3.7 |
 | 2.x | 3.7 |
 
@@ -1242,10 +1243,10 @@ The Python standard library contains a list of built-in Python modules that are 
 To view the library for your Python version, go to:
 
 
-* [Python 3.7 standard library](https://docs.python.org/3.7/library/)
 * [Python 3.8 standard library](https://docs.python.org/3.8/library/)
 * [Python 3.9 standard library](https://docs.python.org/3.9/library/)
 * [Python 3.10 standard library](https://docs.python.org/3.10/library/)
+* [Python 3.11 standard library](https://docs.python.org/3.11/library/)
 
 ### Azure Functions Python worker dependencies
 

@@ -158,8 +158,7 @@ If it's still slow, different patterns point to different problems. The followin
 | Single to all | `StoreResult` contains `TransportException` | Points to [SNAT port exhaustion](troubleshoot-dotnet-sdk.md#snat), or a lack of resources on the machine to process the request in time. |
 | Single or small percentage (SLA isn't violated) | All | A single or small percentage of slow requests can be caused by several different transient problems, and should be expected. | 
 | All | All | A problem with the infrastructure or networking. |
-| SLA violated | Requests contain multiple failure error codes, like `410` and `IsValid is true`. | Points to a problem with the Azure Cosmos DB service. |
-| SLA violated | Requests contain multiple failure error codes, like `410` and `IsValid is false`. | Points to a problem with the machine. |
+| SLA violated | Requests contain multiple failure error codes, like `410` | Points to a problem with the Azure Cosmos DB service or the client machine. |
 | SLA violated | `StorePhysicalAddress` are the same, with no failure status code. | Likely a problem with Azure Cosmos DB. |
 | SLA violated | `StorePhysicalAddress` have the same partition ID, but different replica IDs, with no failure status code. | Likely a problem with Azure Cosmos DB. |
 | SLA violated | `StorePhysicalAddress` is random, with no failure status code. | Points to a problem with the machine. |

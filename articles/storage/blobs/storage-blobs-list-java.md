@@ -5,11 +5,10 @@ description: Learn how to list blobs in your storage account using the Azure Sto
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 11/16/2022
 ms.author: pauljewell
-ms.subservice: blobs
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 ---

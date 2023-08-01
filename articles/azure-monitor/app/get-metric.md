@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 04/05/2023
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
-ms.reviewer: casocha
+ms.reviewer: mmcc
 ---
 
 # Custom metric collection in .NET and .NET Core

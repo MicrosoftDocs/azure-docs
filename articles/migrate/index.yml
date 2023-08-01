@@ -79,6 +79,8 @@ landingContent:
             url: ./how-to-discover-applications.md
           - text: Add migration tools
             url: ./how-to-migrate.md
+          - text: Upgrade Windows OS
+            url: ./how-to-upgrade-windows.md
           - text: Scale VMware assessment
             url: ./scale-vmware-assessment.md
           - text: Automate and scale migration

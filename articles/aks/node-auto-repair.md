@@ -33,8 +33,6 @@ If AKS identifies an unhealthy node that remains unhealthy for *five* minutes, A
 
 AKS engineers investigate alternative remediations if auto-repair is unsuccessful.
 
-If you want the remediator to reimage the node, you can add the `nodeCondition "customerMarkedAsUnhealthy": true`.
-
 ## Node auto-drain
 
 [Scheduled events][scheduled-events] can occur on the underlying VMs in any of your node pools. For [spot node pools][spot-node-pools], scheduled events may cause a *preempt* node event for the node. Certain node events, such as  *preempt*, cause AKS node auto-drain to attempt a cordon and drain of the affected node. This process enables rescheduling for any affected workloads on that node. You might notice the node receives a taint with `"remediator.aks.microsoft.com/unschedulable"`, because of `"kubernetes.azure.com/scalesetpriority: spot"`.

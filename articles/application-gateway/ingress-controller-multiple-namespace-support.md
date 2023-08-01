@@ -23,16 +23,16 @@ Version 0.7 of AGIC will continue to exclusively observe the `default` namespace
 
 To enable multiple namespace support:
 1. modify the [helm-config.yaml](#sample-helm-config-file) file in one of the following ways:
-   - delete the `watchNamespace` key entirely from [helm-config.yaml](#sample-helm-config-file) - AGIC will observe all namespaces
-   - set `watchNamespace` to an empty string - AGIC will observe all namespaces
-   - add multiple namespaces separated by a comma (`watchNamespace: default,secondNamespace`) - AGIC will observe these namespaces exclusively
+   - delete the `watchNamespace` key entirely from [helm-config.yaml](#sample-helm-config-file) - AGIC observes all namespaces
+   - set `watchNamespace` to an empty string - AGIC observes all namespaces
+   - add multiple namespaces separated by a comma (`watchNamespace: default,secondNamespace`) - AGIC observes these namespaces exclusively
 2. apply  Helm template changes with: `helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure`
 
-Once deployed with the ability to observe multiple namespaces, AGIC will:
-  - list ingress resources from all accessible namespaces
-  - filter to ingress resources annotated with `kubernetes.io/ingress.class: azure/application-gateway`
-  - compose combined [Application Gateway config](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744)
-  - apply the config to the associated Application Gateway via [ARM](../azure-resource-manager/management/overview.md)
+Once deployed with the ability to observe multiple namespaces, AGIC performs the following actions:
+  - lists ingress resources from all accessible namespaces
+  - filters to ingress resources annotated with `kubernetes.io/ingress.class: azure/application-gateway`
+  - composes combined [Application Gateway config](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744)
+  - applies the config to the associated Application Gateway via [ARM](../azure-resource-manager/management/overview.md)
 
 ## Conflicting Configurations
 
@@ -110,20 +110,20 @@ By default AGIC will configure Application Gateway based on annotated Ingress wi
     verbosityLevel: 3
     
     ################################################################################
-    # Specify which application gateway the ingress controller will manage
+    # Specify which application gateway the ingress controller manages
     #
     appgw:
         subscriptionId: <subscriptionId>
         resourceGroup: <resourceGroupName>
         name: <applicationGatewayName>
     
-        # Setting appgw.shared to "true" will create an AzureIngressProhibitedTarget CRD.
+        # Setting appgw.shared to "true" creates an AzureIngressProhibitedTarget CRD.
         # This prohibits AGIC from applying config for any host/path.
         # Use "kubectl get AzureIngressProhibitedTargets" to view and change this.
         shared: false
     
     ################################################################################
-    # Specify which kubernetes namespace the ingress controller will watch
+    # Specify which kubernetes namespace the ingress controller watches
     # Default value is "default"
     # Leaving this variable out or setting it to blank or empty string would
     # result in Ingress Controller observing all acessible namespaces.

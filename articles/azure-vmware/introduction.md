@@ -3,7 +3,7 @@ title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure. Azure VMware Solution SLA guarantees that Azure VMware management tools (vCenter Server and NSX Manager) will be available at least 99.9% of the time.
 ms.topic: overview
 ms.service: azure-vmware
-ms.date: 4/11/2023
+ms.date: 6/20/2023
 ms.custom: engagement-fy23
 ---
 
@@ -90,7 +90,7 @@ Monitoring patterns inside the Azure VMware Solution are similar to Azure VMs wi
 
 Azure VMware Solution implements a shared responsibility model that defines distinct roles and responsibilities of the two parties involved in the offering: Customer and Microsoft. The shared role responsibilities are illustrated in more detail in following two tables.
 
-The shared responsibility matrix table shows the high-level responsibilities between a customer and Microsoft for different aspects of the deployment/management of the private cloud and the customer application workloads.
+The shared responsibility matrix table shows the high-level responsibilities between a customer and Microsoft for different aspects of the deployment and management of the private cloud and the customer application workloads.
 
 :::image type="content" source="media/azure-introduction-shared-responsibility-matrix.png" alt-text="screenshot shows the high-level shared responsibility matrix." lightbox="media/azure-introduction-shared-responsibility-matrix.png":::
 

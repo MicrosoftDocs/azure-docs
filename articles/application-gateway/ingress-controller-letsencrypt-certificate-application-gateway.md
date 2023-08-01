@@ -4,6 +4,7 @@ description: This article provides information on how to obtain a certificate fr
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
+ms.custom: devx-track-linux
 ms.topic: how-to
 ms.date: 08/01/2023
 ms.author: greglin
@@ -12,6 +13,9 @@ ms.author: greglin
 # Use certificates with LetsEncrypt.org on Application Gateway for AKS clusters
 
 This section configures your AKS to use [LetsEncrypt.org](https://letsencrypt.org/) and automatically obtain a TLS/SSL certificate for your domain. The certificate is installed on Application Gateway, which performs SSL/TLS termination for your AKS cluster. The setup described here uses the [cert-manager](https://github.com/jetstack/cert-manager) Kubernetes add-on, which automates the creation and management of certificates.
+
+> [!TIP]
+> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
 
 Use the following steps to install [cert-manager](https://docs.cert-manager.io) on your existing AKS cluster.
 
@@ -49,8 +53,8 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
       --version v1.10.1 \
       # --set installCRDs=true
      
-    #To automatically install and manage the CRDs as part of your Helm release, 
-    #   you must add the --set installCRDs=true flag to your Helm installation command.
+    # To automatically install and manage the CRDs as part of your Helm release, 
+    # you must add the --set installCRDs=true flag to your Helm installation command.
     ```
 
 2. ClusterIssuer Resource
@@ -99,14 +103,10 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
 
     Create an Ingress resource to Expose the `guestbook` application using the Application Gateway with the Lets Encrypt Certificate.
 
-    Ensure your Application Gateway has a public Frontend IP configuration with a DNS name (either using the
-    default `azure.com` domain, or provision a `Azure DNS Zone` service, and assign your own custom domain).
-    Note the annotation `certmanager.k8s.io/cluster-issuer: letsencrypt-staging`, which tells cert-manager to process the
-    tagged Ingress resource.
+    Ensure your Application Gateway has a public Frontend IP configuration with a DNS name (either using the default `azure.com` domain, or provision a `Azure DNS Zone` service, and assign your own custom domain). The annotation `certmanager.k8s.io/cluster-issuer: letsencrypt-staging`, which tells cert-manager to process the tagged Ingress resource.
 
     > [!IMPORTANT] 
-    > Update `<PLACEHOLDERS.COM>` in the following YAML with your own domain (or the Application Gateway one, for example
-    'kh-aks-ingress.westeurope.cloudapp.azure.com')
+    > Update `<PLACEHOLDERS.COM>` in the following YAML with your own domain (or the Application Gateway one, for example 'kh-aks-ingress.westeurope.cloudapp.azure.com')
 
     ```bash
     kubectl apply -f - <<EOF
@@ -137,9 +137,9 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
 
 4. Production Certificate
 
-    Once your staging certificate is set up successfully you can switch to a production ACME server:
+    Once your staging certificate is set up successfully, you can switch to a production ACME server:
     1. Replace the staging annotation on your Ingress resource with: `certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
-    1. Delete the existing staging `ClusterIssuer` you created in the previous step and create a new one by replacing the ACME server from the ClusterIssuer YAML above with `https://acme-v02.api.letsencrypt.org/directory`
+    1. Delete the existing staging `ClusterIssuer` you created in the previous step and create a new one by replacing the ACME server from the previous ClusterIssuer YAML with `https://acme-v02.api.letsencrypt.org/directory`
 
 5. Certificate Expiration and Renewal
 

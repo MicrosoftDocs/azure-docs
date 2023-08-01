@@ -3,7 +3,7 @@ title: Mount a virtual file system on a pool
 description: Learn how to mount different kinds of virtual file systems on Batch pool nodes, and how to troubleshoot mounting issues.
 ms.topic: how-to
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurepowershell
+ms.custom: devx-track-csharp, devx-track-azurepowershell, devx-track-linux
 ms.date: 04/28/2023
 ---
 
@@ -479,6 +479,8 @@ new PoolAddParameter
     }
 }
 ```
+> [!NOTE]
+> Looking for an example using PowerShell rather than C#? You can find another great example here: [Mount Azure File to Azure Batch Pool](https://techcommunity.microsoft.com/t5/azure-paas-blog/mount-azure-file-share-to-azure-batch-pool-via-azure-powershell/ba-p/2243992).
 
 ## Next steps
 

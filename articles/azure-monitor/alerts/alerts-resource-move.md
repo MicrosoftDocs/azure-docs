@@ -16,7 +16,7 @@ Alert rules and alert processing rules reference other Azure resources. Examples
 
 There are two main reasons why your rules might stop working after moving the target resources:
 
-- The scope of your rule is explicitly referring the old resource.
+- The scope of your rule is explicitly referring to the old resource.
 - Your alert rule is based on metrics.
 
 ## Rule scope explicitly refers to the old resource

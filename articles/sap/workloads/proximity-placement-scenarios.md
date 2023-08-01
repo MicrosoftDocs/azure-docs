@@ -5,6 +5,7 @@ author: msjuergent
 manager: bburns
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
+ms.custom: devx-track-azurepowershell
 ms.topic: article
 ms.date: 12/18/2022
 ms.author: juergent

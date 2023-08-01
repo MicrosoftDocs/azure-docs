@@ -23,7 +23,7 @@ This article covers the recommendation to migrate from the Azure Active Director
 
 ## Description
 
-The Azure Active Directory Authentication Library (ADAL) is [currently slated for end-of-support](../fundamentals/whats-new.md#adal-end-of-support-announcement) on June 30, 2023. We recommend that customers migrate to Microsoft Authentication Libraries (MSAL), which replaces ADAL. 
+The Azure Active Directory Authentication Library (ADAL) is currently slated for end-of-support on June 30, 2023. We recommend that customers migrate to Microsoft Authentication Libraries (MSAL), which replaces ADAL. 
 
 This recommendation shows up if your tenant has applications that still use ADAL.
 

@@ -4,8 +4,8 @@ description: Monitor Azure Backup workloads and create custom alerts by using Az
 ms.topic: conceptual
 ms.date: 04/18/2023
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Monitor at scale by using Azure Monitor
@@ -171,18 +171,18 @@ Recovery Services vaults and Backup vaults send data to a common set of tables t
     AddonAzureBackupJobs
     | where JobOperation == "Restore"
     | summarize arg_max(TimeGenerated,*) by JobUniqueId
-	| where DatasourceType == "Microsoft.Compute/disks"
-    | where JobStatus=="Completed"	
+    | where DatasourceType == "Microsoft.Compute/disks"
+    | where JobStatus=="Completed"
     ````
 
 - Backup Storage Consumed per Backup Item
 
     ````Kusto
     CoreAzureBackup
-	| where OperationName == "BackupItem"
-	| summarize arg_max(TimeGenerated, *) by BackupItemUniqueId
-	| project BackupItemUniqueId, BackupItemFriendlyName, StorageConsumedInMBs
-	````
+    | where OperationName == "BackupItem"
+    | summarize arg_max(TimeGenerated, *) by BackupItemUniqueId
+    | project BackupItemUniqueId, BackupItemFriendlyName, StorageConsumedInMBs
+    ````
 
 ### Diagnostic data update frequency
 

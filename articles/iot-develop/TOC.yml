@@ -11,7 +11,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Device application development
+    - name: General device development
       items: 
       - name: Send telemetry to IoT Hub
         href: quickstart-send-telemetry-iot-hub.md
