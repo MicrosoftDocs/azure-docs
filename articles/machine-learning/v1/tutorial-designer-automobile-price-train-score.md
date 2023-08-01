@@ -292,7 +292,7 @@ In *Inputs & Outputs* step, you can assign value to the Inputs/Outputs that are 
 
 In *Runtime settings*, you can configure the default datastore and default compute to the pipeline. It's the default datastore/compute to all components in the pipeline. But note if you set a different compute or datastore for a component explicitly, the system respects the component level setting. Otherwise, it uses the default. 
 
-The *Review + Submit* step is the last step to review all settings before submit. The wizard remembers your last time's configuration if you ever submit the pipeline.
+The *Review + Submit* step is the last step to review all settings before submit. The wizard will remember your last configuration if you ever submit the pipeline.
 
 After submitting the pipeline job, there will be a message on the top with a link to the job detail. You can select this link to review the job details.
 
