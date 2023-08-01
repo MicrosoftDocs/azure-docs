@@ -229,13 +229,17 @@ If you create a public IP address or a load balancer, specify the *"sku": { "nam
 
 For a complete example of a zone-redundant scale set and network resources, see [this sample Resource Manager template](https://github.com/Azure/vm-scale-sets/blob/master/z_deprecated/preview/zones/multizone.json)
 
-## Update to add availability zones
+## Update scale set to add availability zones
+
 You can modify a scale to expand the set of zones over which to spread VM instances. This allows you to take advantage of higher zonal availability SLA (99.99%) vs regional availability SLA (99.95%), or expand your scale set to take advantage of new availability zones that were not available when the scale set was created.
 
 > [!IMPORTANT]
 > Update virtual machine scale sets to add availability zones is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 
+This feature can be used with API version 2023-03-01 or greater.
+
 ### Enable your subscription to use zonal expansion feature
+
 You must register for four feature flags on your subscription:
 
 ### [Azure CLI](#tab/cli)
@@ -249,10 +253,12 @@ az feature register --namespace Microsoft.Compute --name EnableVmssFlexRegionalT
 
 You can check the registration status of each feature by using:
 
+```azurecli
 az feature show --namespace Microsoft.Compute --name \<feature-name\>
+```
 
+### [Azure PowerShell](#tab/powershell)
 
-### [Azure Powershell](#tab/powershell)
 ```powershell
 Register-AzProviderPreviewFeature -Name VmssAllowRegionalToZonalMigration -ProviderNamespace Microsoft.Compute
 Register-AzProviderPreviewFeature -Name VmssAllowExpansionOfAvailabilityZones -ProviderNamespace Microsoft.Compute
@@ -262,16 +268,80 @@ Register-AzProviderPreviewFeature -Name EnableVmssFlexRegionalToZonalMigration -
 
 You can check the registration status of each feature by using:
 
-```azurecli
+```powershell
 Get-AzProviderPreviewFeature -Name <feature-name> -ProviderNamespace Microsoft.Compute
 ```
 
 ### Expand scale set to use availability zones
 You can update the scale set to scale out instances to one or more additional availability zones, up to the number of availablity zones supported by the region (for regions that support zones, the minimum number of zones is 3). 
 
-
 > [!IMPORTANT]
-> When you expand the scale set to additionnal zones, the original instances are not migrated or changed. When you scale out, new instances will be created and spread evenly across the selected availability zones. When you scale in the scale set, any regional instances will be priorized for removal first. After that, instances will be removed based on the [scale in policy](virtual-machine-scale-sets-scale-in-policy.md).
+> When you expand the scale set to additionnal zones, the original instances are not migrated or changed. When you scale out, new instances will be created and spread evenly across the selected availability zones. When you scale in the scale set, any regional instances will be priorized for removal first. After that, instances will be removed based on the [scale in policy](virtual-machine-scale-sets-scale-in-policy.md). 
+
+### Expand scale set to use availability zones
+
+You can update the scale set to scale out instances to one or more additional availability zones, up to the number of availablity zones supported by the region (for regions that support zones, the minimum number of zones is 3). 
+
+Expanding to a zonal scale set is done in 3 steps:
+
+1. Prepare for zonal expansion
+2. Update zones parameter on the scale set
+3. Add new zonal instances and remove original instances
+
+#### Prepare for zonal expansion
+
+> [!WARNING]
+>This preview allows you to add zones to the scale set. You cannot remove zones once they have been added, or go back to a regional scale set.
+
+In order to prepare for zonal expansion:
+* Ensure that you have enough quota for the VM size in the selected region to handle additional instances. Learn more about [checking and requesting additional quota if needed.](../virtual-machines/quotas.md)
+* Ensure that the VM size and disk types you are using are available in all the desired zones. You can use the [Compute Resources SKUs API](/rest/api/compute/resource-skus/list?tabs=HTTP) to determine which sizes are available in which zones. 
+
+#### Update the zones parameter on the scale set
+
+Update the scale set to change the zones parameter.
+
+### [Azure Portal](#tab/portal)
+
+1. Navigate to the scale set you want to update
+1. On the Properties tab of the scale set landing page, find the Availability zone property and press **Edit**
+1. On the Edit Location dialog box which appears, select the desired zone(s)
+1. Select **Apply**.
+
+### [Azure CLI](#tab/cli2)
+
+```azurecli
+az vmss update --set zones=["1","2","3"] -n *myscaleset* -g *myResourceGroup*
+```
+
+### [Azure PowerShell](#tab/powershell2)
+
+```azurepowershell
+# Get the VMSS object
+$vmss = Get-AzVmss -ResourceGroupName *resource-group-name* -VMScaleSetName *vmss-name*
+
+# Update the zones parameter
+$vmss.Zones = @("1", "2", "3")
+
+# Apply the changes
+Update-AzVmss -ResourceGroupName *resource-group-name* -VMScaleSetName *vmss-name* -VirtualMachineScaleSet $vmss
+```
+
+### [REST API](#tab/template2)
+
+PATCH /subscriptions/subscriptionid/resourceGroups/resourcegroupo/providers/Microsoft.Compute/virtualMachineScaleSets/myscaleset?api-version=2023-03-01
+
+```javascript
+{
+  "zones": [
+    "1", 
+    "2",
+    "3"
+  ]
+}
+```
+
+
 
 ## Next steps
 
