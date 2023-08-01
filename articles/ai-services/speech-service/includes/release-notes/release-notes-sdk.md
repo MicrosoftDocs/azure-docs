@@ -23,6 +23,7 @@ ms.author: eur
             * This is a new API that is similar to the previous version of ConversationTranscriber API with some naming changes
             * This API supports adding and removing participants to a meeting
             * Speaker identification is supported by using voice signatures that can be provided with the meeting participants
+            * Use of single channel audio input is currently under private preview, please contact diarizationrequest@microsoft.com for more details on getting started with that feature. 
 
 #### New Features
 
