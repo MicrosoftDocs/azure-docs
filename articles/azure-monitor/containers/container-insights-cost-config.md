@@ -3,16 +3,13 @@ title: Configure Container insights cost optimization data collection rules | Mi
 description: This article describes how you can configure the Container insights agent to control data collection for metric counters
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 02/23/2023
+ms.date: 07/31/2023
 ms.reviewer: aul
 ---
 
-# Enable cost optimization settings (preview)
+# Enable cost optimization settings
 
-Cost optimization settings offer users the ability to customize and control the metrics data collected through the container insights agent. This preview supports the data collection settings such as data collection interval and namespaces to exclude for the data collection through [Azure Monitor Data Collection Rules (DCR)](../essentials/data-collection-rule-overview.md). These settings control the volume of ingestion and reduce the monitoring costs of container insights.
-
->[!NOTE]
->This feature is currently in public preview. For more information, see Supplemental Terms of Use for Microsoft Azure Previews.
+Cost optimization settings offer users the ability to customize and control the metrics data collected through the container insights agent. This feature supports the data collection settings for individual table selection, data collection intervals, and namespaces to exclude for the data collection through [Azure Monitor Data Collection Rules (DCR)](../essentials/data-collection-rule-overview.md). These settings control the volume of ingestion and reduce the monitoring costs of container insights.
 
 
 ## Data collection parameters
@@ -25,9 +22,26 @@ The following table describes the supported data collection settings
 | -- | --- | -- |
 | **interval**  | \[1m, 30m] in 1m intervals | This value determines how often the agent collects data. The default value is 1m, where m denotes the minutes. If the value is outside the allowed range, then this value defaults to _1 m_ (60 seconds). |
 | **namespaceFilteringMode** | Include, Exclude, or Off | Choosing Include collects only data from the values in the namespaces field. Choosing Exclude collects data from all namespaces except for the values in the namespaces field. Off ignores any namespace selections and collect data on all namespaces.
-| **namespaces** | An array of names i.e. \["kube-system", "default"]  | Array of comma separated Kubernetes namespaces for which inventory and perf data will be included or excluded based on the _namespaceFilteringMode_. For example, **namespaces** = ["kube-system", "default"] with an _Include_ setting collects only these two namespaces. With an _Exclude_ setting, the agent will collect data from all other namespaces except for _kube-system_ and _default_. With an _Off_ setting, the agent collects data from all namespaces including _kube-system_ and _default_. Invalid and unrecognized namespaces are ignored. |
+| **namespaces** | An array of names that is, \["kube-system", "default"]  | Array of comma separated Kubernetes namespaces for which inventory and perf data are included or excluded based on the _namespaceFilteringMode_. For example, **namespaces** = ["kube-system", "default"] with an _Include_ setting collects only these two namespaces. With an _Exclude_ setting, the agent collects data from all other namespaces except for _kube-system_ and _default_. With an _Off_ setting, the agent collects data from all namespaces including _kube-system_ and _default_. Invalid and unrecognized namespaces are ignored. |
 
 ## Log Analytics data collection
+
+The settings allow you specify which tables you want to collect using streams. The following table indicates the stream to table mapping to be used in the data collection settings.
+
+| Stream | Container insights table |
+| --- | --- |
+| Microsoft-ContainerInventory | ContainerInventory |
+| Microsoft-ContainerNodeInventory | ContainerNodeInventory |
+| Microsoft-Perf | Perf |
+| Microsoft-InsightsMetrics | InsightsMetrics |
+| Microsoft-KubeMonAgentEvents | KubeMonAgentEvents |
+| Microsoft-KubeServices | KubeServices |
+| Microsoft-KubePVInventory | KubePVInventory |
+| Microsoft-KubeNodeInventory | KubeNodeInventory |
+| Microsoft-KubePodInventory | KubePodInventory |
+| Microsoft-KubeEvents | KubeEvents |
+| Microsoft-ContainerLogV2 | ContainerLogV2 |
+| Microsoft-ContainerLog | ContainerLog |
 
 This table outlines the list of the container insights Log Analytics tables for which data collection settings are applicable.
 
@@ -55,8 +69,13 @@ This table outlines the list of the container insights Log Analytics tables for 
 | Insights.container/containers | Yes | Yes | |
 | Insights.container/persistentvolumes | Yes | Yes | |
 
-## Impact on existing alerts and visualizations
-If you are currently using the above tables for charts or alerts, then modifying your data collection settings may degrade those experiences. If you are excluding namespaces or reducing data collection frequency, review your existing alerts, dashboards, and workbooks using this data.
+## Impact on default visualizations and existing alerts
+
+The default container insights experience is powered through using all the existing data streams. Removing one or more of the default streams renders the container insights experience unavailable.
+
+[![Screenshot that shows the custom experience.](media/container-insights-cost-config/container-insights-cost-custom.png)](media/container-insights-cost-config/container-insights-cost-custom.png#lightbox)
+
+If you are currently using the above tables for other custom alerts or charts, then modifying your data collection settings may degrade those experiences. If you are excluding namespaces or reducing data collection frequency, review your existing alerts, dashboards, and workbooks using this data.
 
 To scan for alerts that may be referencing these tables, run the following Azure Resource Graph query:
 
@@ -79,9 +98,9 @@ Reference the [Limitations](./container-insights-cost-config.md#limitations) sec
 - AKS Cluster MUST be using either System or User Assigned Managed Identity
     - If the AKS Cluster is using Service Principal, you must upgrade to [Managed Identity](../../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster)
 
-- Azure CLI: Minimum version required for Azure CLI is 2.45.0. Run az --version to find the version, and run az upgrade to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli]
-    - For AKS clusters, aks-preview version 0.5.125 or higher
-    - For Arc enabled Kubernetes and AKS hybrid, k8s-extension version 1.3.7 or higher
+- Azure CLI: Minimum version required for Azure CLI is 2.51.0. Run az --version to find the version, and run az upgrade to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli]
+    - For AKS clusters, aks-preview version 0.5.147 or higher
+    - For Arc enabled Kubernetes and AKS hybrid, k8s-extension version 1.4.3 or higher
 
 ## Cost presets and collection settings
 Cost presets and collection settings are available for selection in the Azure portal to allow easy configuration. By default, container insights ships with the Standard preset, however, you may choose one of the following to modify your collection settings.
@@ -94,6 +113,19 @@ Cost presets and collection settings are available for selection in the Azure po
 
 [![Screenshot that shows the cost presets.](media/container-insights-cost-config/cost-profiles-options.png)](media/container-insights-cost-config/cost-profiles-options.png#lightbox)
 
+## Custom data collection
+Container insights Collected Data can be customized through the Azure portal, using the following options. Selecting any options other than **All (Default)** leads to the container insights experience becoming unavailable.
+
+| Grouping | Tables | Notes |
+| --- | --- | --- |
+| All (Default) | All standard container insights tables | Required for enabling the default container insights visualizations |
+| Performance | Perf, Insights Metrics | |
+| Logs and events | ContainerLog or ContainerLogV2, KubeEvents, KubePodInventory | Recommended if you have enabled managed Prometheus metrics |
+| Workloads, Deployments, and HPAs | InsightsMetrics, KubePodInventory, KubeEvents, ContainerInventory, ContainerNodeInventory, KubeNodeInventory, KubeServices | |
+| Persistent Volumes | InsightsMetrics, KubePVInventory | |
+
+[![Screenshot that shows the collected data options.](media/container-insights-cost-config/collected-data-options.png)](media/container-insights-cost-config/collected-data-options.png#lightbox)
+
 ## Configuring AKS data collection settings using Azure CLI
 
 Using the CLI to enable monitoring for your AKS requires passing in configuration as a JSON file.
@@ -104,13 +136,17 @@ The default schema for the config file follows this format:
 {
   "interval": "string",
   "namespaceFilteringMode": "string",
-  "namespaces": ["string"]
+  "namespaces": ["string"],
+  "enableContainerLogV2": boolean, 
+  "streams": ["string"]
 }
 ```
 
 * `interval`: The frequency of data collection, the input scheme must be a number between [1, 30] followed by m to denote minutes.
 * `namespaceFilteringMode`: The filtering mode for the namespaces, the input must be either Include, Exclude, or Off.
 * `namespaces`: An array of Kubernetes namespaces as strings for inclusion or exclusion
+* `enableContainerLogV2`: Boolean flag to enable ContainerLogV2 schema. If set to true, the stdout/stderr Logs are ingested to [ContainerLogV2](container-insights-logging-v2.md) table, else the container logs are ingested to ContainerLog table, unless otherwise specified in the ConfigMap. When specifying the individual streams, you must include the corresponding table for ContainerLog or ContainerLogV2.
+* `streams`: An array of container insights table streams. See the supported streams above to table mapping.
 
 Example input:
 
@@ -118,15 +154,17 @@ Example input:
 {
   "interval": "1m",
   "namespaceFilteringMode": "Include",
-  "namespaces": ["kube-system"]
+  "namespaces": ["kube-system"],
+  "enableContainerLogV2": true, 
+  "streams": ["Microsoft-Perf", "Microsoft-ContainerLogV2"]
 }
 ```
-Create a file and provide values for _interval_, _namespaceFilteringMode_, and _namespaces_. The following CLI instructions use the name dataCollectionSettings.json.
+Create a file and provide values for _interval_, _namespaceFilteringMode_, _namespaces_, _enableContainerLogV2_, and _streams_. The following CLI instructions use the name dataCollectionSettings.json.
 
 ## Onboarding to a new AKS cluster
 
 > [!NOTE]
-> Minimum Azure CLI version 2.49.0 or higher.
+> Minimum Azure CLI version 2.51.0 or higher.
 
 Use the following command to enable monitoring of your AKS cluster
 
@@ -139,7 +177,7 @@ az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --nod
 ## [Azure CLI](#tab/create-CLI)
 
 > [!NOTE]
-> Minimum Azure CLI version 2.49.0 or higher.
+> Minimum Azure CLI version 2.51.0 or higher.
 
 ### Onboard to a cluster without the monitoring addon
 
@@ -192,6 +230,8 @@ curl -L https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-paramet
 - For _dataCollectionInterval_, specify the interval to use for the data collection interval. Allowed values are 1 m, 2 m … 30 m where m suffix indicates the minutes.
 - For _namespaceFilteringModeForDataCollection_, specify if the namespace array is to be included or excluded for collection. If set to off, the agent ignores the namespaces field.
 - For _namespacesForDataCollection_, specify array of the namespaces to exclude or include for the Data collection. For example, to exclude "kube-system" and "default" namespaces, you can specify the value as ["kube-system", "default"] with an Exclude value for namespaceFilteringMode.
+- For _enableContainerLogV2_, specify this parameter to be true or false. By default, this parameter is set to true.
+- For _streams_, select the container insights tables you want to collect. Refer to the above mapping for more details.
 
 3. Deploy the ARM template
 
@@ -210,7 +250,7 @@ az deployment group create --resource-group <ClusterResourceGroupName> --templat
 ## [Azure CLI](#tab/create-CLI)
 
 ```azcli
-az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=true dataCollectionSettings='{"interval":"1m","namespaceFilteringMode":"Include", "namespaces": ["kube-system"]}'
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=true dataCollectionSettings='{"interval":"1m","namespaceFilteringMode":"Include", "namespaces": ["kube-system"],"enableContainerLogV2": true,"streams": ["<streams to be collected>"]}'
 ```
 
 >[!NOTE]
@@ -221,6 +261,8 @@ The collection settings can be modified through the input of the `dataCollection
 * `interval`: The frequency of data collection, the input scheme must be a number between [1, 30] followed by m to denote minutes.
 * `namespaceFilteringMode`: The filtering mode for the namespaces, the input must be either Include, Exclude, or Off.
 * `namespaces`: An array of Kubernetes namespaces as strings, to be included or excluded
+* `enableContainerLogV2`: Boolean flag to enable ContainerLogV2 schema. If set to true, the stdout/stderr Logs are ingested to [ContainerLogV2](container-insights-logging-v2.md) table, else the container logs are ingested to ContainerLog table, unless otherwise specified in the ConfigMap. When specifying the individual streams, you must include the corresponding table for ContainerLog or ContainerLogV2.
+* `streams`: An array of container insights table streams. See the supported streams above to table mapping.
 
 ## [Azure portal](#tab/create-portal)
 1. In the Azure portal, select the AKS hybrid cluster that you wish to monitor
@@ -255,6 +297,9 @@ curl -L https://aka.ms/existingClusterParam.json -o existingClusterParam.json
 - For _dataCollectionInterval_, specify the interval to use for the data collection interval. Allowed values are 1 m, 2 m … 30 m where m suffix indicates the minutes.
 - For _namespaceFilteringModeForDataCollection_, specify if the namespace array is to be included or excluded for collection. If set to off, the agent ignores the namespaces field.
 - For _namespacesForDataCollection_, specify array of the namespaces to exclude or include for the Data collection. For example, to exclude "kube-system" and "default" namespaces, you can specify the value as ["kube-system", "default"] with an Exclude value for namespaceFilteringMode.
+- For _enableContainerLogV2_, specify this parameter to be true or false. By default, this parameter is set to true.
+- For _streams_, select the container insights tables you want to collect. Refer to the above mapping for more details.
+
 
 3. Deploy the ARM template
 
@@ -273,7 +318,7 @@ az deployment group create --resource-group <ClusterResourceGroupName> --templat
 ## [Azure CLI](#tab/create-CLI)
 
 ```azcli
-az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=true dataCollectionSettings='{"interval":"1m","namespaceFilteringMode": "Include", "namespaces": [ "kube-system"]}'
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=true dataCollectionSettings='{"interval":"1m","namespaceFilteringMode": "Include", "namespaces": [ "kube-system"],"enableContainerLogV2": true,"streams": ["<streams to be collected>"]}'
 ```
 
 >[!NOTE]
@@ -284,6 +329,8 @@ The collection settings can be modified through the input of the `dataCollection
 * `interval`: The frequency of data collection, the input scheme must be a number between [1, 30] followed by m to denote minutes.
 * `namespaceFilteringMode`: The filtering mode for the namespaces, the input must be either Include, Exclude, or Off.
 * `namespaces`: An array of Kubernetes namespaces as strings, to be included or excluded
+* `enableContainerLogV2`: Boolean flag to enable ContainerLogV2 schema. If set to true, the stdout/stderr Logs are ingested to [ContainerLogV2](container-insights-logging-v2.md) table, else the container logs are ingested to ContainerLog table, unless otherwise specified in the ConfigMap. When specifying the individual streams, you must include the corresponding table for ContainerLog or ContainerLogV2.
+* `streams`: An array of container insights table streams. See the supported streams above to table mapping.
 
 ## [Azure portal](#tab/create-portal)
 1. In the Azure portal, select the Arc cluster that you wish to monitor
@@ -317,6 +364,8 @@ curl -L https://aka.ms/arc-k8s-enable-monitoring-costopt-onboarding-template-par
 - For _dataCollectionInterval_, specify the interval to use for the data collection interval. Allowed values are 1 m, 2 m … 30 m where m suffix indicates the minutes.
 - For _namespaceFilteringModeForDataCollection_, specify if the namespace array is to be included or excluded for collection. If set to off, the agent ignores the namespaces field.
 - For _namespacesForDataCollection_, specify array of the namespaces to exclude or include for the Data collection. For example, to exclude "kube-system" and "default" namespaces, you can specify the value as ["kube-system", "default"] with an Exclude value for namespaceFilteringMode.
+- For _enableContainerLogV2_, specify this parameter to be true or false. By default, this parameter is set to true.
+- For _streams_, select the container insights tables you want to collect. Refer to the above mapping for more details.
 
 3. Deploy the ARM template
 

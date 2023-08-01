@@ -69,6 +69,8 @@ items:
               href: how-to-desktop-app-electron-sample-sign-in.md
             - name: .NET MAUI - sign in users
               href: how-to-desktop-app-maui-sample-sign-in.md
+            - name: .NET WPF - sign in users
+              href: sample-desktop-wpf-dotnet-sign-in.md
         - name: Mobile app
           items:
             - name: Android (.NET MAUI) - sign in users
@@ -110,14 +112,12 @@ items:
             items:
               - name: Sign in users
                 items:
-                  - name: Overview
-                    href: how-to-web-app-node-sign-in-overview.md
                   - name: Prepare tenant 
-                    href: how-to-web-app-node-sign-in-prepare-tenant.md
+                    href: tutorial-web-app-node-sign-in-prepare-tenant.md
                   - name: Prepare app 
-                    href: how-to-web-app-node-sign-in-prepare-app.md
+                    href: tutorial-web-app-node-sign-in-prepare-app.md
                   - name: Add sign-in and sign-out
-                    href: how-to-web-app-node-sign-in-sign-in-out.md
+                    href: tutorial-web-app-node-sign-in-sign-out.md
                   - name: Use client certificate
                     href: how-to-web-app-node-use-certificate.md 
                   - name: Use role-based access control
@@ -198,6 +198,13 @@ items:
                 href: tutorial-desktop-app-maui-sign-in-prepare-app.md
               - name: Sign in and sign out
                 href: tutorial-desktop-app-maui-sign-in-sign-out.md
+          - name: .NET WPF
+            items:
+              - name: Prepare tenant
+                href: tutorial-desktop-wpf-dotnet-sign-in-prepare-tenant.md
+              - name: Sign in and sign out
+                href: tutorial-desktop-wpf-dotnet-sign-in-build-app.md
+                displayName: Windows Presentation Form
       - name: Mobile
         items: 
         - name: .NET MAUI

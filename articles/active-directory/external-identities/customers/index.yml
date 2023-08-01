@@ -89,7 +89,7 @@ landingContent:
           - text: React SPA
             url: how-to-single-page-application-react-prepare-tenant.md
           - text: Node.js web app
-            url: how-to-web-app-node-sign-in-overview.md
+            url: tutorial-web-app-node-sign-in-prepare-tenant.md
           - text: ASP.NET web app
             url: how-to-web-app-dotnet-sign-in-prepare-tenant.md
           - text: Secure an ASP.NET web API

@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
     - Directory (tenant) ID of the Web API is registered
     - Directory (tenant) subdomain of where the Web API is registered. For example, if your [primary domain](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details) is *contoso.onmicrosoft.com*, your Directory (tenant) subdomain is *contoso*.
     - *ToDoList.Read* and *ToDoList.ReadWrite* as the [delegated permissions (scopes) exposed by the Web API](./how-to-register-ciam-app.md?tabs=webapi&preserve-view=true#expose-permissions). 
-    - *ToDoList.Read.All* and *ToDoList.ReadWrite.All* as the [application permissions (app roles) exposed by the Web API](how-to-register-ciam-app.md?tabs=webapi&preserve-view=true#to-add-app-roles-follow-the-steps-below-optional).
+    - *ToDoList.Read.All* and *ToDoList.ReadWrite.All* as the [application permissions (app roles) exposed by the Web API](how-to-register-ciam-app.md?tabs=webapi&preserve-view=true#add-app-roles).
 
 - [.NET 7.0](https://dotnet.microsoft.com/download/dotnet/7.0) or later. 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
