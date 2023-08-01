@@ -463,8 +463,8 @@ groups:
   pivots:
   - id: csharp
     title: C#
-  - id: node
-    title: Node.JS
+  - id: javascript
+    title: JavaScript
   - id: python
     title: Python
   - id: powershell

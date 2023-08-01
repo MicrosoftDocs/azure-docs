@@ -29,11 +29,10 @@ Durable Functions is designed to work with all Azure Functions programming langu
 | PowerShell | Functions 3.0+ | PowerShell 7+ | 2.x bundles |
 | Java | Functions 4.0+ | Java 8+ | 4.x bundles |
 
-::: zone pivot="node"
+::: zone pivot="javascript"
 > [!NOTE]
 > The new programming model for authoring Functions in Node.js (V4) is currently in preview. Compared to the current model, the new experience is designed to be more flexible and intuitive for JavaScript/TypeScript developers. Learn more about the differences between the models in the [Node.js upgrade guide](../functions-node-upgrade-v4.md).
->
-> In the following code snippets, JavaScript (V4 model) denotes programming model V4, the new experience.
+
 ::: zone-end
 
 
@@ -63,7 +62,7 @@ In this example, the values `F1`, `F2`, `F3`, and `F4` are the names of other fu
 
 ::: zone pivot="csharp"
 
-# [C# (InProc)](#tab/csharp-inproc)
+# [C# (InProc)](#tab/in-process)
 
 ```csharp
 [FunctionName("Chaining")]
@@ -86,7 +85,7 @@ public static async Task<object> Run(
 
 You can use the `context` parameter to invoke other functions by name, pass parameters, and return function output. Each time the code calls `await`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `await` call. For more information, see the next section, Pattern #2: Fan out/fan in.
 
-# [C# (Isolated)](#tab/csharp-isolated)
+# [C# (Isolated)](#tab/isolated-process)
 
 ```csharp
 [Function("Chaining")]
@@ -110,9 +109,9 @@ public static async Task<object> Run(
 You can use the `context` parameter to invoke other functions by name, pass parameters, and return function output. Each time the code calls `await`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `await` call. For more information, see the next section, Pattern #2: Fan out/fan in.
 
 ::: zone-end
-::: zone pivot="node"
+::: zone pivot="javascript"
 
-# [JavaScript (V3 model)](#tab/v3-model)
+# [V3 model](#tab/v3-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -134,7 +133,7 @@ You can use the `context.df` object to invoke other functions by name, pass para
 > [!NOTE]
 > The `context` object in JavaScript represents the entire [function context](../functions-reference-node.md#context-object). Access the Durable Functions context using the `df` property on the main context.
 
-# [JavaScript (V4 model)](#tab/v4-model)
+# [V4 model](#tab/v4-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -250,7 +249,7 @@ The Durable Functions extension handles this pattern with relatively simple code
 
 ::: zone pivot="csharp"
 
-# [C# (InProc)](#tab/csharp-inproc)
+# [C# (InProc)](#tab/in-process)
 
 ```csharp
 [FunctionName("FanOutFanIn")]
@@ -279,7 +278,7 @@ The fan-out work is distributed to multiple instances of the `F2` function. The 
 
 The automatic checkpointing that happens at the `await` call on `Task.WhenAll` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
 
-# [C# (Isolated)](#tab/csharp-isolated)
+# [C# (Isolated)](#tab/isolated-process)
 
 ```csharp
 [Function("FanOutFanIn")]
@@ -309,9 +308,9 @@ The fan-out work is distributed to multiple instances of the `F2` function. The 
 The automatic checkpointing that happens at the `await` call on `Task.WhenAll` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
 
 ::: zone-end
-::: zone pivot="node"
+::: zone pivot="javascript"
 
-# [JavaScript (V3 model)](#tab/v3-model)
+# [V3 model](#tab/v3-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -337,7 +336,7 @@ The fan-out work is distributed to multiple instances of the `F2` function. The 
 
 The automatic checkpointing that happens at the `yield` call on `context.df.Task.all` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
 
-# [JavaScript (V4 model)](#tab/v4-model)
+# [V4 model](#tab/v4-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -526,7 +525,7 @@ The following code implements a basic monitor:
 
 ::: zone pivot="csharp"
 
-# [C# (InProc)](#tab/csharp-inproc)
+# [C# (InProc)](#tab/in-process)
 
 ```csharp
 [FunctionName("MonitorJobStatus")]
@@ -556,7 +555,7 @@ public static async Task Run(
 }
 ```
 
-# [C# (Isolated)](#tab/csharp-isolated)
+# [C# (Isolated)](#tab/isolated-process)
 
 ```csharp
 [Function("MonitorJobStatus")]
@@ -586,9 +585,9 @@ public static async Task Run(
 ```
 
 ::: zone-end
-::: zone pivot="node"
+::: zone pivot="javascript"
 
-# [JavaScript (V3 model)](#tab/v3-model)
+# [V3 model](#tab/v3-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -616,7 +615,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-# [JavaScript (V4 model)](#tab/v4-model)
+# [V4 model](#tab/v4-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -791,7 +790,7 @@ These examples create an approval process to demonstrate the human interaction p
 
 ::: zone pivot="csharp"
 
-# [C# (InProc)](#tab/csharp-inproc)
+# [C# (InProc)](#tab/in-process)
 
 ```csharp
 [FunctionName("ApprovalWorkflow")]
@@ -820,7 +819,7 @@ public static async Task Run(
 
 To create the durable timer, call `context.CreateTimer`. The notification is received by `context.WaitForExternalEvent`. Then, `Task.WhenAny` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
 
-# [C# (Isolated)](#tab/csharp-isolated)
+# [C# (Isolated)](#tab/isolated-process)
 
 ```csharp
 [Function("ApprovalWorkflow")]
@@ -850,9 +849,9 @@ public static async Task Run(
 To create the durable timer, call `context.CreateTimer`. The notification is received by `context.WaitForExternalEvent`. Then, `Task.WhenAny` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
 
 ::: zone-end
-::: zone pivot="node"
+::: zone pivot="javascript"
 
-# [JavaScript (V3 model)](#tab/v3-model)
+# [V3 model](#tab/v3-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -877,7 +876,7 @@ module.exports = df.orchestrator(function*(context) {
 
 To create the durable timer, call `context.df.createTimer`. The notification is received by `context.df.waitForExternalEvent`. Then, `context.df.Task.any` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
 
-# [JavaScript (V4 model)](#tab/v4-model)
+# [V4 model](#tab/v4-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -1034,7 +1033,7 @@ An event can also be raised using the durable orchestration client from another 
 
 ::: zone pivot="csharp"
 
-# [C# (InProc)](#tab/csharp-inproc)
+# [C# (InProc)](#tab/in-process)
 
 ```csharp
 [FunctionName("RaiseEventToOrchestration")]
@@ -1047,7 +1046,7 @@ public static async Task Run(
 }
 ```
 
-# [C# (Isolated)](#tab/csharp-isolated)
+# [C# (Isolated)](#tab/isolated-process)
 
 ```csharp
 [Function("RaiseEventToOrchestration")]
@@ -1061,9 +1060,9 @@ public static async Task Run(
 ```
 
 ::: zone-end
-::: zone pivot="node"
+::: zone pivot="javascript"
 
-# [JavaScript (V3 model)](#tab/v3-model)
+# [V3 model](#tab/v3-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -1075,7 +1074,7 @@ module.exports = async function (context) {
 };
 ```
 
-# [JavaScript (V4 model)](#tab/v4-model)
+# [V4 model](#tab/v4-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -1161,7 +1160,7 @@ You can use [Durable entities](durable-functions-entities.md) to easily implemen
 
 ::: zone pivot="csharp"
 
-# [C# (InProc)](#tab/csharp-inproc)
+# [C# (InProc)](#tab/in-process)
 
 ```csharp
 [FunctionName("Counter")]
@@ -1204,14 +1203,14 @@ public class Counter
 }
 ```
 
-# [C# (Isolated)](#tab/csharp-isolated)
+# [C# (Isolated)](#tab/isolated-process)
 
 Durable entities are currently not supported in the .NET-isolated worker.
 
 ::: zone-end
-::: zone pivot="node"
+::: zone pivot="javascript"
 
-# [JavaScript (V3 model)](#tab/v3-model)
+# [V3 model](#tab/v3-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -1233,7 +1232,7 @@ module.exports = df.entity(function(context) {
 });
 ```
 
-# [JavaScript (V4 model)](#tab/v4-model)
+# [V4 model](#tab/v4-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -1326,7 +1325,7 @@ Clients can enqueue *operations* for (also known as "signaling") an entity funct
 
 ::: zone pivot="csharp"
 
-# [C# (InProc)](#tab/csharp-inproc)
+# [C# (InProc)](#tab/in-process)
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -1346,14 +1345,14 @@ public static async Task Run(
 > [!NOTE]
 > Dynamically generated proxies are also available in .NET for signaling entities in a type-safe way. And in addition to signaling, clients can also query for the state of an entity function using [type-safe methods](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) on the orchestration client binding.
 
-# [C# (Isolated)](#tab/csharp-isolated)
+# [C# (Isolated)](#tab/isolated-process)
 
 Durable entities are currently not supported in the .NET-isolated worker.
 
 ::: zone-end
-::: zone pivot="node"
+::: zone pivot="javascript"
 
-# [JavaScript (V3 model)](#tab/v3-model)
+# [V3 model](#tab/v3-model)
 
 ```javascript
 const df = require("durable-functions");
@@ -1366,7 +1365,7 @@ module.exports = async function (context) {
 };
 ```
 
-# [JavaScript (V4 model)](#tab/v4-model)
+# [V4 model](#tab/v4-model)
 
 ```javascript
 const df = require("durable-functions");
