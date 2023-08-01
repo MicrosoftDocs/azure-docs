@@ -29,7 +29,7 @@ This article covers the manual configuration of requirements for hybrid Azure AD
 - Global Administrator credentials for your Azure AD tenant.
 - Enterprise administrator credentials for each of the on-premises Active Directory Domain Services forests.
 - (**For federated domains**) Windows Server 2012 R2 with Active Directory Federation Services installed.
-- Users can register their devices with Azure AD. More information about this setting can be found under the heading **Configure device settings**, in the article, [Configure device settings](device-management-azure-portal.md#configure-device-settings).
+- Users can register their devices with Azure AD. More information about this setting can be found under the heading **Configure device settings**, in the article, [Configure device settings](manage-device-identities.md#configure-device-settings).
 
 Hybrid Azure AD join requires devices to have access to the following Microsoft resources from inside your organization's network:  
 
@@ -254,7 +254,7 @@ For more information about verified domain names, see [Add a custom domain name 
 
 To get a list of your verified company domains, you can use the [Get-MsolDomain](/powershell/module/msonline/get-msoldomain) cmdlet.
 
-![List of company domains](./media/hybrid-azuread-join-manual/01.png)
+![List of company domains](./media/hybrid-join-manual/01.png)
 
 #### Issue ImmutableID for the computer when one for users exists (for example, using mS-DS-ConsistencyGuid as the source for ImmutableID)
 
@@ -462,5 +462,5 @@ If you experience issues completing hybrid Azure AD join for domain-joined Windo
 
 - [Hybrid Azure AD join verification](how-to-hybrid-join-verify.md)
 - [Downlevel device enablement](how-to-hybrid-join-downlevel.md)
-- [Plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)
+- [Plan your hybrid Azure Active Directory join implementation](hybrid-join-plan.md)
 - [Use Conditional Access to require compliant or hybrid Azure AD joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md)
