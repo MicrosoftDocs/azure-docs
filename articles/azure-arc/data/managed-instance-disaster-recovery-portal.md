@@ -15,7 +15,19 @@ ms.topic: conceptual
 
 This article explains how to configure disaster recovery for Azure Arc-enabled SQL Managed Instance with Azure portal. Before you proceed, review the information and prerequisites in [Azure Arc-enabled SQL Managed Instance - disaster recovery](managed-instance-disaster-recovery.md).
 
+[!INCLUDE [failover-group-prerequisites](includes/failover-group-prerequisites.md)]
+
 ## Configure Azure failover group - direct mode
+
+1. In the portal, go to your primary availability group.
+1. Under **Data Management**, select **Failover Groups**.
+
+    Azure portal presents **Create instance failover group**. 
+
+    :::image type="content" source="media/managed-instance-disaster-recovery-portal/create-failover-group.png" alt-text="Screenshot of the Azure portal create instance failover group control.":::
+
+1. Provide the information to define the failover group. 
+  
 
 <!---
 Follow the steps below if the Azure Arc data services  are deployed in `directly` connected mode. 

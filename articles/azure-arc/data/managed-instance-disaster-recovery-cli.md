@@ -16,6 +16,8 @@ ms.topic: conceptual
 
 This article explains how to configure disaster recovery for Azure Arc-enabled SQL Managed Instance with the CLI. Before you proceed, review the information and prerequisites in [Azure Arc-enabled SQL Managed Instance - disaster recovery](managed-instance-disaster-recovery.md).
 
+[!INCLUDE [failover-group-prerequisites](includes/failover-group-prerequisites.md)]
+
 ## Configure Azure failover group - direct mode
 
 Follow the steps below if the Azure Arc data services  are deployed in `directly` connected mode. 
