@@ -5,7 +5,7 @@ services: active-directory
 author: henrymbuguakiarie
 manager: CelesteDG
 
-ms.date: 07/03/2023
+ms.date: 08/01/2023
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
