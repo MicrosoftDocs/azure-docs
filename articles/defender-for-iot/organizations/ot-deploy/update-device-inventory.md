@@ -37,7 +37,7 @@ For each device where you need to edit device properties:
 
 1. Select the device in the grid and then select **Edit** to view the editing pane. For example:
 
-    :::image type="content" source="../media/update-device-inventory/edit-device-details.png" alt-text="Screenshot of editing device details from the OT sensor.":::
+    :::image type="content" source="../media/update-device-inventory/edit-device-details.png" alt-text="Screenshot of editing device details from the OT sensor." lightbox="../media/update-device-inventory/edit-device-details.png":::
 
 1. Edit any of the following device properties as needed:
 

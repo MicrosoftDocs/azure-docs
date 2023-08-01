@@ -234,7 +234,7 @@ Continue with [activating](#activate-your-ot-sensor) and [configuring SSL/TLS ce
 At this point, open a browser to the IP address you'd defined for your sensor and continue the setup in the browser. For more information, see [Activate your OT sensor](#activate-your-ot-sensor).
 
 > [!NOTE]
-> During initial setup, options for ERSPAN monitoring ports is available only in the browser-based procedure.
+> During initial setup, options for ERSPAN monitoring ports are available only in the browser-based procedure.
 >
 > If you're defining your network details via CLI and want to set up ERSPAN monitoring ports, do so afterwards via the sensor's **Settings > Interface connections** page. For more information, see [Update a sensor's monitoring interfaces (configure ERSPAN)](../how-to-manage-individual-sensors.md#update-a-sensors-monitoring-interfaces-configure-erspan).
 >

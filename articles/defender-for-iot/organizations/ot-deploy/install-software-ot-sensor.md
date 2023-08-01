@@ -82,7 +82,7 @@ This procedure describes how to install the Defender for IoT software you'd down
 > [!TIP]
 > While you can run this procedure and watch the installation from a deployment workstation, after you boot your sensor machine from the physical media or virtual mount, the installation can also run automatically on its own.
 >
-> If you choose to do this without a keyboard or screen, note the default IP address listed at the end of this procedure. Use the default IP address to access the sensor from the a browser and [continue the deployment process](activate-deploy-sensor.md) from there.
+> If you choose to do this without a keyboard or screen, note the default IP address listed at the end of this procedure. Use the default IP address to access the sensor from a browser and [continue the deployment process](activate-deploy-sensor.md) from there.
 >
 
 **To install your software**:
@@ -105,7 +105,7 @@ This procedure describes how to install the Defender for IoT software you'd down
     :::image type="content" source="../media/install-software-ot-sensor/initial-install-screen.png" alt-text="Screenshot of the initial installation screen.":::
 
     > [!NOTE]
-    > If you're using a legacy BIOS version, you're prompted to select a language and the installation options are presented at the top left instead of in the center. When prompted, select `English` and then the the **Install iot-sensor-`<version number>`** option to continue.
+    > If you're using a legacy BIOS version, you're prompted to select a language and the installation options are presented at the top left instead of in the center. When prompted, select `English` and then the **Install iot-sensor-`<version number>`** option to continue.
 
     The installation begins, giving you updated status messages as it goes. The entire installation process takes up to 20-30 minutes, and may vary depending on the type of media you're using.
 

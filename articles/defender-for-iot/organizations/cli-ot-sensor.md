@@ -27,7 +27,7 @@ For more information, see [Default privileged users](manage-users-sensor.md#defa
 
 ### Check OT monitoring services health
 
-Use the following commands to verify that the Defender for IoT application on the OT sensor are working correctly, including the web console and traffic analysis processes.
+Use the following commands to verify that the Defender for IoT application on the OT sensor is working correctly, including the web console and traffic analysis processes.
 
 Health checks are also available from the OT sensor console. For more information, see [Troubleshoot the sensor](how-to-troubleshoot-sensor.md).
 
@@ -965,7 +965,7 @@ Supported attributes are defined as follows:
 |`[-dev <DEVICES>]`, `[--devices <DEVICES>]` | Device addresses or address types to exclude, using the following syntax: `ip-x.x.x.x`, `mac-xx:xx:xx:xx:xx:xx`, `subnet:x.x.x.x/x`|
 | `[-a <ALERTS>]`, `--alerts <ALERTS>`|Alert names to exclude, by hex value. For example: `0x00000, 0x000001` |
 
-Use the following command syntax with the **support* user:
+Use the following command syntax with the *support* user:
 
 ```bash
 alerts exclusion-rule-append [-h] -n NAME [-ts TIMES] [-dir DIRECTION]

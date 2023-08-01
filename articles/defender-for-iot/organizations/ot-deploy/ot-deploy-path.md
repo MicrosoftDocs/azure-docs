@@ -38,14 +38,14 @@ Plan basic details about your monitoring system, such as:
 
 - **Sites and zones**: Decide how you'll segment the network you want to monitor using *sites* and *zones* that can represent locations all around the world.
 
-- **Sensor management**: Decide on whether you'll be using cloud-connected or air-gapped, locally-managed OT sensors, or a hybrid system of both. If you're using cloud-connected sensors, select a connection method, such as connecting directly or via a proxy.
+- **Sensor management**: Decide on whether you'll be using cloud-connected or air-gapped, locally managed OT sensors, or a hybrid system of both. If you're using cloud-connected sensors, select a connection method, such as connecting directly or via a proxy.
 
 - **Users and roles**: List of the types of users you'll need on each sensor, and the roles that they'll need for each activity.
 
 For more information, see [Plan your OT monitoring system with Defender for IoT](../best-practices/plan-corporate-monitoring.md).
 
 > [!TIP]
-> If you're using several locally-managed sensors, you may also want to deploy an [on-premises management console](air-gapped-deploy.md) for central visibility and management.
+> If you're using several locally managed sensors, you may also want to deploy an [on-premises management console](air-gapped-deploy.md) for central visibility and management.
 >
 #### Prepare for an OT site deployment
 
