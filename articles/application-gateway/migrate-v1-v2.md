@@ -36,6 +36,9 @@ This article primarily helps with the configuration migration. The traffic migra
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+> [!IMPORTANT]
+>Use a new PowerShell session each time to run the migration script. This applies when the migration fails or if you are using the script to migrate another V1 gateway. This is required because the initialized variables clean up the existing resource group before executing the migration script again.
+
 ## Configuration migration 
 
 An Azure PowerShell script is provided in this document. It performs the following operations to help you with the configuration:
@@ -48,6 +51,9 @@ An Azure PowerShell script is provided in this document. It performs the followi
 You can download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWMigration).
 
 ## Using the script
+
+> [!NOTE]
+>Use a new PowerShell session each time to run the migration script. This applies when the migration fails or if you are using the script to migrate another V1 gateway. This is required because the initialized variables clean up the existing resource group before executing the migration script again.
 
 There are two options for you depending on your local PowerShell environment setup and preferences:
 
