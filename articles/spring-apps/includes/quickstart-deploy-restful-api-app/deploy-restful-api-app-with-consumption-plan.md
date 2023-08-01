@@ -30,6 +30,7 @@ Use the following steps to clone and run the app locally.
 1. If you want to run locally, please complete steps [Expose RESTful APIs](#expose-restful-apis) and [Update the application configuration](#update-the-application-configuration) first and then execute the following command to run the sample application by Maven.
 
    ```bash
+   cd ASA-Samples-Restful-Application
    ./mvnw spring-boot:run
    ```
 
@@ -137,7 +138,7 @@ Use the following steps to connect your service instances:
 
 1. Select **Create** to finish the app creation and select the app to view details.
 
-1. Select **Configuration** from the navigation pane, select **Environment variables** to set environment variables.
+1. Go to the created app, expand **Settings** and select **Configuration** from the navigation pane, select **Environment variables** to set environment variables.
 
 1. Add the following environment variables for the PostgreSQL connection, then select **Save** to finish the app configuration update. Be sure to replace the placeholders with your own values you created in the previous step.
 

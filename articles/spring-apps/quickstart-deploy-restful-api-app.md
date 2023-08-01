@@ -17,7 +17,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview)
 
 This article explains how to deploy a RESTful API application protected by [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) to Azure Spring Apps. 
 The sample project is a simplified version based on the [Simple Todo](https://github.com/Azure-Samples/ASA-Samples-Web-Application) web application , 
@@ -25,7 +25,7 @@ which only provides the backend service and uses Azure AD to protect the RESTful
 These RESTful APIs are protected by applying role-based access control (RBAC), anonymous users are not allowed, with the following three permissions to control access for different users:
 the Anonymous user cant's access any data,
 - Read, with this permission can read the ToDo data.
-- Write, with this permission can write the ToDo data.
+- Write, with this permission can add or update the ToDo data.
 - Delete, with this permission can delete the ToDO data.
 
 The following diagram shows the architecture of the system:
