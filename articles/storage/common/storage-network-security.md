@@ -5,7 +5,7 @@ services: storage
 author: jimmart-dev
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 06/16/2023
+ms.date: 08/01/2023
 ms.author: jammart
 ms.reviewer: santoshc
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement-fy23
@@ -266,17 +266,12 @@ The following restrictions apply to IP address ranges:
 
 - Only IPv4 addresses are supported for configuration of storage firewall rules.
 
-You can't use IP network rules in the following cases:
-
-- To restrict access to clients in same Azure region as the storage account.
-
-  IP network rules have no effect on requests that originate from the same Azure region as the storage account. Use [Virtual network rules](#grant-access-from-a-virtual-network) to allow same-region requests.
-
-- To restrict access to clients in a [paired region](../../availability-zones/cross-region-replication-azure.md) that are in a virtual network that has a service endpoint.
-
-- To restrict access to Azure services deployed in the same region as the storage account.
-
-  Services deployed in the same region as the storage account use private Azure IP addresses for communication. So, you can't restrict access to specific Azure services based on their public outbound IP address range.
+> [!IMPORTANT]
+> You can't use IP network rules in the following cases:
+>
+> - To restrict access to clients in same Azure region as the storage account. IP network rules have no effect on requests that originate from the same Azure region as the storage account. Use [Virtual network rules](#grant-access-from-a-virtual-network) to allow same-region requests.
+> - To restrict access to clients in a [paired region](../../availability-zones/cross-region-replication-azure.md) that are in a virtual network that has a service endpoint.
+> - To restrict access to Azure services deployed in the same region as the storage account. Services deployed in the same region as the storage account use private Azure IP addresses for communication. So, you can't restrict access to specific Azure services based on their public outbound IP address range.
 
 ### Configuring access from on-premises networks
 

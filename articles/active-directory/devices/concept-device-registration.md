@@ -44,7 +44,7 @@ The goal of Azure AD registered - also known as Workplace joined - devices is to
 |   | Conditional Access via App protection policy |
 |   | Enables Phone sign in with Microsoft Authenticator app |
 
-![Azure AD registered devices](./media/concept-azure-ad-register/azure-ad-registered-device.png)
+![Azure AD registered devices](./media/concept-device-registration/azure-ad-registered-device.png)
 
 Azure AD registered devices are signed in to using a local account like a Microsoft account on a Windows 10 or newer device. These devices have an Azure AD account for access to organizational resources. Access to resources in the organization can be limited based on that Azure AD account and Conditional Access policies applied to the device identity.
 
@@ -60,7 +60,7 @@ Another user wants to access their organizational email on their personal Androi
 
 ## Next steps
 
-- [Manage device identities using the Azure portal](device-management-azure-portal.md)
+- [Manage device identities using the Azure portal](manage-device-identities.md)
 - [Manage stale devices in Azure AD](manage-stale-devices.md)
 - [Register your personal device on your work or school network](https://support.microsoft.com/account-billing/register-your-personal-device-on-your-work-or-school-network-8803dd61-a613-45e3-ae6c-bd1ab25bf8a8)
 

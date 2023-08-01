@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) provides a central place to manage device identities and monitor related event information.
 
-[![Screenshot that shows the devices overview in the Azure portal.](./media/device-management-azure-portal/devices-azure-portal.png)](./media/device-management-azure-portal/devices-azure-portal.png#lightbox)
+[![Screenshot that shows the devices overview in the Azure portal.](./media/manage-device-identities/devices-azure-portal.png)](./media/manage-device-identities/devices-azure-portal.png#lightbox)
 
 You can access the devices overview by completing these steps:
 
@@ -43,12 +43,12 @@ From there, you can go to **All devices** to:
 - Review device-related audit logs.
 - Download devices.
 
-[![Screenshot that shows the All devices view in the Azure portal.](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
+[![Screenshot that shows the All devices view in the Azure portal.](./media/manage-device-identities/all-devices-azure-portal.png)](./media/manage-device-identities/all-devices-azure-portal.png#lightbox)
 
 > [!TIP]
 > - Hybrid Azure AD joined Windows 10 or newer devices don't have an owner. If you're looking for a device by owner and don't find it, search by the device ID.
 >
-> - If you see a device that's **Hybrid Azure AD joined** with a state of **Pending** in the **Registered** column, the device has been synchronized from Azure AD connect and is waiting to complete registration from the client. See [How to plan your Hybrid Azure AD join implementation](hybrid-azuread-join-plan.md). For more information, see [Device management frequently asked questions](faq.yml).
+> - If you see a device that's **Hybrid Azure AD joined** with a state of **Pending** in the **Registered** column, the device has been synchronized from Azure AD connect and is waiting to complete registration from the client. See [How to plan your Hybrid Azure AD join implementation](hybrid-join-plan.md). For more information, see [Device management frequently asked questions](faq.yml).
 >
 > - For some iOS devices, device names that contain apostrophes can use different characters that look like apostrophes. So searching for such devices is a little tricky. If don't see correct search results, be sure the search string contains the matching apostrophe character.
 
@@ -90,13 +90,13 @@ If a device is managed by another management authority, like Microsoft Intune, b
 
 You can use a device ID to verify the device ID details on the device or to troubleshoot via PowerShell. To access the copy option, select the device.
 
-![Screenshot that shows a device ID and the copy button.](./media/device-management-azure-portal/device-details.png)
+![Screenshot that shows a device ID and the copy button.](./media/manage-device-identities/device-details.png)
   
 ## View or copy BitLocker keys
 
 You can view and copy BitLocker keys to allow users to recover encrypted drives. These keys are available only for Windows devices that are encrypted and store their keys in Azure AD. You can find these keys when you view a device's details by selecting **Show Recovery Key**. Selecting **Show Recovery Key** will generate an audit log, which you can find in the `KeyManagement` category.
 
-![Screenshot that shows how to view BitLocker keys.](./media/device-management-azure-portal/show-bitlocker-key.png)
+![Screenshot that shows how to view BitLocker keys.](./media/manage-device-identities/show-bitlocker-key.png)
 
 To view or copy BitLocker keys, you need to be the owner of the device or have one of these roles:
 
@@ -161,7 +161,7 @@ You must be assigned one of the following roles to manage device settings in the
 - Global Administrator
 - Cloud Device Administrator
 
-![Screenshot that shows device settings related to Azure AD.](./media/device-management-azure-portal/device-settings-azure-portal.png)
+![Screenshot that shows device settings related to Azure AD.](./media/manage-device-identities/device-settings-azure-portal.png)
 
 - **Users may join devices to Azure AD**: This setting enables you to select the users who can register their devices as Azure AD joined devices. The default is **All**.
 
@@ -206,11 +206,11 @@ The audit log has a default list view that shows:
 - The initiator/actor of an activity.
 - The activity.
 
-:::image type="content" source="./media/device-management-azure-portal/63.png" alt-text="Screenshot that shows a table in the Activity section of the Devices page. The table shows the date, target, actor, and activity for four audit logs." border="false":::
+:::image type="content" source="./media/manage-device-identities/63.png" alt-text="Screenshot that shows a table in the Activity section of the Devices page. The table shows the date, target, actor, and activity for four audit logs." border="false":::
 
 You can customize the list view by selecting **Columns** in the toolbar:
 
-:::image type="content" source="./media/device-management-azure-portal/64.png" alt-text="Screenshot that shows the toolbar of the Devices page." border="false":::
+:::image type="content" source="./media/manage-device-identities/64.png" alt-text="Screenshot that shows the toolbar of the Devices page." border="false":::
 
 To reduce the reported data to a level that works for you, you can filter it by using these fields:
 
@@ -223,7 +223,7 @@ To reduce the reported data to a level that works for you, you can filter it by 
 
 You can also search for specific entries.
 
-:::image type="content" source="./media/device-management-azure-portal/65.png" alt-text="Screenshot that shows audit data filtering controls." border="false":::
+:::image type="content" source="./media/manage-device-identities/65.png" alt-text="Screenshot that shows audit data filtering controls." border="false":::
 
 ## Next steps
 

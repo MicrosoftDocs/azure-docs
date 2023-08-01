@@ -30,15 +30,15 @@ There are three ways to access the Sign-in Diagnostics tool: from the Diagnose a
 
 Conditional Access policies are used to apply the right access controls when needed to keep your organization secure. Because Conditional Access policies can be used to grant or block access to resources, they often show up in the sign-in diagnostic.
 
-- [Blocked by Conditional access](../conditional-access/concept-conditional-access-grant.md#block-access)
+- [Blocked by Conditional Access](../conditional-access/concept-conditional-access-grant.md#block-access)
     - Your Conditional Access policies prevented the user from signing in.
 
-- [Failed Conditional access](../conditional-access/troubleshoot-conditional-access.md#select-all-consequences):
+- [Failed Conditional Access](../conditional-access/troubleshoot-conditional-access.md#select-all-consequences):
     - It's possible your Conditional Access policies are too strict. 
     - Review your configurations for complete sets of users, groups, and apps.
     - Make sure you understand the implications of restricting access from certain types of devices.
 
-- [Multi-factor authentication (MFA) from Conditional access](../conditional-access/concept-conditional-access-grant.md#require-multifactor-authentication):
+- [Multi-factor authentication (MFA) from Conditional Access](../conditional-access/concept-conditional-access-grant.md#require-multifactor-authentication):
     - Your Conditional Access policies triggered the MFA process for the user.
 
 - [B2B blocked sign-in due to Conditional Access](../external-identities/authentication-conditional-access.md#conditional-access-for-external-users):
@@ -93,7 +93,7 @@ Sign-in can fail due to an application configuration issue for the Azure AD side
 
 Sign-in events can be interrupted due to security defaults settings. Security defaults enforce best practice security for your organization. One best practice is to require MFA to be configured and used to prevent password sprays, replay attacks, and phishing attempts from being successful. 
 
-For more information, see [What are security defaults?](../fundamentals/concept-fundamentals-security-defaults.md) 
+For more information, see [What are security defaults?](../fundamentals/security-defaults.md) 
 
 ### Error code insights 
 
@@ -107,7 +107,7 @@ Preventing legacy authentication sign-in is recommended as the best practice for
 
 For more information, see [How to block legacy authentication to Azure AD with Conditional Access](../conditional-access/block-legacy-authentication.md). 
 
-### B2B blocked sign-in due to Conditional access 
+### B2B blocked sign-in due to Conditional Access 
 
 This diagnostic scenario detects a blocked or interrupted sign-in due to the user being from another organization. For example, a B2B sign-in, where a Conditional Access policy requires that the client's device is joined to the resource tenant. 
 
