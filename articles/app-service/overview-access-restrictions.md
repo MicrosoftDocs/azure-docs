@@ -26,6 +26,8 @@ App access allows you to configure if access is available through the default (p
 
 :::image type="content" source="media/overview-access-restrictions/app-access-portal.png" alt-text="Screenshot of app access option in Azure portal.":::
 
+In the Azure Resource Manager API, app access is called `publicNetworkAccess`. In the case of ILB App Service Environment, the default entry point for apps is always internal to the virtual network. Enabling app access (`publicNetworkAccess`) does not grant direct public access to the web application; instead, it allows access from the default entry point, which corresponds to the internal IP address of the App Service Environment. If you disable app access on an ILB App Service Environment, you can only access the apps through private endpoints added to the individual apps.
+
 ## Site access
 
 Site access restrictions let you filter the incoming requests. Site access restrictions allow you to build a list of allow and deny rules that are evaluated in priority order. It's similar to the network security group (NSG) feature in Azure networking.
