@@ -17,6 +17,12 @@ ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 
 This article shows how to create and manage blob leases using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme). You can use the client library to acquire, renew, release, and break blob leases.
 
+## Prerequisites
+
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Java. To learn about setting up your project, including package installation, adding `import` directives, and creating an authorized client object, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md).
+- The authorization mechanism needs appropriate permissions to work with a blob lease. To learn more, see the authorization guidance for the following REST API operation:
+    - [Lease Blob](/rest/api/storageservices/lease-blob)
+
 ## About blob leases
 
 [!INCLUDE [storage-dev-guide-about-blob-lease](../../../includes/storage-dev-guides/storage-dev-guide-about-blob-lease.md)]

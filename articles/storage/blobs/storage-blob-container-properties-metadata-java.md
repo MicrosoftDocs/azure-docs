@@ -17,6 +17,14 @@ ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 
 Blob containers support system properties and user-defined metadata, in addition to the data they contain. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
 
+## Prerequisites
+
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Java. To learn about setting up your project, including package installation, adding `import` directives, and creating an authorized client object, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md).
+- The authorization mechanism needs appropriate permissions to work with container properties or metadata. To learn more, see the authorization guidance for the following REST API operations:
+    - [Get Container Properties](/rest/api/storageservices/get-container-properties#authorization)
+    - [Set Container Metadata](/rest/api/storageservices/set-container-metadata#authorization)
+    - [Get Container Metadata](/rest/api/storageservices/get-container-metadata#authorization)
+
 ## About properties and metadata
 
 - **System properties**: System properties exist on each Blob Storage resource. Some of them can be read or set, while others are read-only. Behind the scenes, some system properties correspond to certain standard HTTP headers. The Azure Storage client library for Java maintains these properties for you.
