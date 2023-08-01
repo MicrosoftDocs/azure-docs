@@ -67,9 +67,9 @@ productDirectory:
       links:
         - url: ../hpc-cache/hpc-cache-overview.md
           text: Azure HPC Cache
-        - url: ../azure-netapp-files/azure-netapp-files-introduction#Overview
+        - url: ../azure-netapp-files/azure-netapp-files-introduction.md#Overview
           text: Azure NetApp Files
-        - url: ../azure-managed-lustre/amlfs-overview.md
+        - url: /azure/azure-managed-lustre/amlfs-overview.md
           text: Azure Managed Lustre
     # Card
     - title: HPC Related Services
@@ -77,13 +77,13 @@ productDirectory:
       links:
         - url: ../batch/batch-technical-overview.md
           text: Azure Batch
-        - url: ../cyclecloud/overview.md
+        - url: /azure/cyclecloud/overview.md
           text: Azure CycleCloud
         - url: ../virtual-machines/sizes.md
           text: Azure VM Sizes          
 
-#Additional Content (No Title)
-conceptualContent:
+# Documentation Content
+how-toContent:
   # Supports up to 3 subsections
   sections:
     - title: HPC Documentation # < 60 chars (Optional; Remove if not applicable.)
@@ -118,8 +118,7 @@ conceptualContent:
               text: Accelerating storage with HPC Cache
             - url: /azure/azure-managed-lustre/blob-integration
               itemType: concept
-              text: Use Azure Blob storage with an Azure Managed Lustre file system
-              
+              text: Use Azure Blob storage with an Azure Managed Lustre file system              
         # Card
         - title: HPC Scenarios & Frameworks 
           links:
@@ -136,9 +135,6 @@ conceptualContent:
               itemType: overview
               text: HPC Deployments
               
-
-# Azure Services
-additionalContent:
   title: Take the Next Step # < 60 chars (optional)
   # summary: # < 160 chars (optional)
   items:
@@ -165,8 +161,7 @@ additionalContent:
           text: Azure FastTrack
 
 
-# Azure Services
-additionalContent:
+# Resources
   title: HPC Resources # < 60 chars (optional)
   # summary: # < 160 chars (optional)
   items:
@@ -201,7 +196,6 @@ additionalContent:
           text: HPC for Innovation in R&D          
         - url: https://idcdocserv.com/US50583623
           text: HPC for Product Modeling
-
 
 
 # Video Playlists and other links
@@ -260,12 +254,7 @@ additionalContent:
             - text: "Want to learn more? Check out the 'HPC Events' playlist!"
               url: https://aka.ms/HPCEvents
 
-
-
-# Conferences and Technology Events
-additionalContent:
-  # Supports up to 4 subsections
-  sections:              
+           
     - title: What’s New at HPC # < 60 chars (optional)
       summary: Learn more about product updates, event information and technology offers and more. # < 160 chars (optional)
       items:
