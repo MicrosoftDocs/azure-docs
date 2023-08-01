@@ -19,8 +19,9 @@ Quota provides the flexibility to actively manage the allocation of rate limits 
 ## Prerequisites
 
 > [!IMPORTANT]
-> Viewing quota and deploying models requires the **Cognitive Services Usages Reader** role. This role provides the minimal access necessary to view quota usage across an Azure subscription. This role can be found in the Azure portal under **Subscriptions** > **Access control (IAM)** > **Add role assignment** > search for **Cognitive Services Usages Reader**.
-> This role **must be applied at the subscription level**, it does not exist at the resource level. If you do not wish to use this role alternatively the Subscription **Reader** role will provide equivalent access, but it will also grant read access beyond the scope of what is needed for quota and model deployment.
+> Viewing quota and deploying models requires the **Cognitive Services Usages Reader** role. This role provides the minimal access necessary to view quota usage across an Azure subscription. This role can be found in the Azure portal under **Subscriptions** > **Access control (IAM)** > **Add role assignment** > search for **Cognitive Services Usages Reader**.This role **must be applied at the subscription level**, it does not exist at the resource level.
+>
+> If you do not wish to use this role alternatively the Subscription **Reader** role will provide equivalent access, but it will also grant read access beyond the scope of what is needed for quota and model deployment.
 
 ## Introduction to quota
 
