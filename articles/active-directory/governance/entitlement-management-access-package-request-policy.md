@@ -230,24 +230,24 @@ Select-MgProfile -Name "beta"
 $apid = "cdd5f06b-752a-4c9f-97a6-82f4eda6c76d"
 
 $pparams = @{
-	AccessPackageId = $apid
-	DisplayName = "direct"
-	Description = "direct assignments by administrator"
-	AccessReviewSettings = $null
-	RequestorSettings = @{
-		ScopeType = "NoSubjects"
-		AcceptRequests = $true
-		AllowedRequestors = @(
-		)
-	}
-	RequestApprovalSettings = @{
-		IsApprovalRequired = $false
-		IsApprovalRequiredForExtension = $false
-		IsRequestorJustificationRequired = $false
-		ApprovalMode = "NoApproval"
-		ApprovalStages = @(
-		)
-	}
+    AccessPackageId = $apid
+    DisplayName = "direct"
+    Description = "direct assignments by administrator"
+    AccessReviewSettings = $null
+    RequestorSettings = @{
+        ScopeType = "NoSubjects"
+        AcceptRequests = $true
+        AllowedRequestors = @(
+        )
+    }
+    RequestApprovalSettings = @{
+        IsApprovalRequired = $false
+        IsApprovalRequiredForExtension = $false
+        IsRequestorJustificationRequired = $false
+        ApprovalMode = "NoApproval"
+        ApprovalStages = @(
+        )
+    }
 }
 New-MgEntitlementManagementAccessPackageAssignmentPolicy -BodyParameter $pparams
 ```

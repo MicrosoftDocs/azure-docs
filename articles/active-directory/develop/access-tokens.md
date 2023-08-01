@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/26/2023
+ms.date: 8/1/2023
 ms.author: davidmu
 ms.custom: aaddev, curation-claims
 ---
@@ -161,11 +161,15 @@ Azure AD also supports multi-tenant applications. These applications support:
 - Accounts in any organizational directory (any Azure AD directory): `https://login.microsoftonline.com/organizations`
 - Accounts in any organizational directory (any Azure AD directory) and personal Microsoft accounts (e.g. Skype, XBox): `https://login.microsoftonline.com/common`
 
-For these applications Azure AD exposes tenant-independent versions of the OIDC document at [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) and [https://login.microsoftonline.com/organizations/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/organizations/v2.0/.well-known/openid-configuration) respectively. These endpoints return an issuer value, which is a template parametrized by the `tenantid`: `https://login.microsoftonline.com/{tenantid}/v2.0`. Applications may use these tenant-independent endpoints to validate tokens from every tenant with the following modifications: instead of expecting the issuer claim in the token to exactly match the issuer value from metadata, the application should replace the `{tenantid}` value in the issuer metadata with the tenant ID that is the target of the current request, and then check the exact match (`tid` claim of the token).
+For these applications Azure AD exposes tenant-independent versions of the OIDC document at [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) and [https://login.microsoftonline.com/organizations/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/organizations/v2.0/.well-known/openid-configuration) respectively. These endpoints return an issuer value, which is a template parametrized by the `tenantid`: `https://login.microsoftonline.com/{tenantid}/v2.0`. Applications may use these tenant-independent endpoints to validate tokens from every tenant with the following stipulations:
+ - Validate the signing key issuer (below)
+ - Instead of expecting the issuer claim in the token to exactly match the issuer value from metadata, the application should replace the `{tenantid}` value in the issuer metadata with the tenant ID that is the target of the current request, and then check the exact match (`tid` claim of the token).
+ - Validate the `tid` claim is a GUID and the `iss` claim is of the form `https://login.microsoftonline.com/{tid}/v2.0` where `{tid}` is the exact `tid` claim. This ties the tenant back to the issuer and back to the scope of the signing key creating a chain of trust.
+ - Use `tid` claim when they locate data associated with the subject of the claim. In other words, the `tid` claim must be part of the key used to access the user's data.
 
 ### Validate the signing key issuer
 
-In addition to the issuer of the token, applications using the v2.0 tenant-independant metadata need to validate the signing key issuer.
+Applications using the v2.0 tenant-independant metadata need to validate the signing key issuer.
 
 #### Keys document and signing key issuer
 
@@ -194,14 +198,12 @@ tenant-independent "common" key endpoint [https://login.microsoftonline.com/comm
 
 The application should use the `issuer` property of the keys document, associated with the key used to sign the token, in order to restrict the scope of keys:
 - Keys that have an issuer value with a GUID like `https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0` should only be used when the `iss` claim in the token matches the value exactly.
-- Keys that have a templated issuer value like `https://login.microsoftonline.com/{tenantid}/v2.0` need to ensure that:
-  - the `tid` claim is a GUID and the `iss` claim is of the form `https://login.microsoftonline.com/{tid}/v2.0` where `{tid}` is the exact `tid` claim. This ties the tenant back to the issuer. back to the scope of the signing key creating a chain of trust.
-  - Multi-tenant applications must use `tid` claim when they locate data associated with the subject of the claim. In other words, the `tid` claim must be part of the key used to access the user's data.
+- Keys that have a templated issuer value like `https://login.microsoftonline.com/{tenantid}/v2.0` should only be used when the `iss` claim in the token matches this value after substituting the `tid` claim in the token for the `{tenantid}` placeholder.
 
 Using tenant-independent metadata is more efficient for applications that accept tokens from many tenants.
+
 > [!NOTE]
 > With Azure AD tenant-independent metadata, claims should be interpreted within the tenant, just as under standard OpenID Connect, claims are interpreted within the issuer. That is, `{"sub":"ABC123","iss":"https://login.microsoftonline.com/{example-tenant-id}/v2.0","tid":"{example-tenant-id}"}` and `{"sub":"ABC123","iss":"https://login.microsoftonline.com/{another-tenand-id}/v2.0","tid":"{another-tenant-id}"}` describe different users, even though the `sub` is the same, because claims like `sub` are interpreted within the context of the issuer/tenant.
-
 
 #### Recap
 
@@ -266,4 +268,3 @@ A *non-password-based* login is one where the user didn't type in a password to 
 ## Next steps
 
 - Learn more about the [security tokens used in Azure AD](security-tokens.md).
-
