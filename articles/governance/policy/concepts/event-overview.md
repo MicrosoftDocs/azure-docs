@@ -51,10 +51,10 @@ There are two primary entities when using Event Grid:
 
 A common Azure Policy event scenario is tracking when the compliance state of a resource changes
 during policy evaluation. Event-based architecture is an efficient way to react to these changes
-instead of scanning the compliance state of resources on a fixed schedule.
+and aids in the event based reaction to compliance state changes.
 
 Another scenario is to automatically trigger remediation tasks without manually ticking off 'create 
-remediation task' on the policy portal page. Event Grid checks for compliance state and resources that are currently 
+remediation task' on the policy page. Event Grid checks for compliance state and resources that are currently 
 non-compliant can be remedied. Learn more about [remediation structure](../concepts/remediation-structure.md).
   > Remediation requires a managed identity and policies must be in Modify or DeployIfNotExists effect. [Learn more about
 effect types](../how-to//remediate-resources.md).
