@@ -476,7 +476,7 @@ Screen capture protection is now supported on the macOS client and the Azure Gov
 
 ### Azure Active Directory domain join 
 
-Azure Active Directory domain join for Azure Virtual Desktop VMs is now available in the Azure Government and Microsoft Azure operated by 21Vianet clouds. Microsoft Intune is currently only supported in the Azure Public cloud. Learn more at [Deploy Azure AD-joined virtual machines in Azure Virtual Desktop](deploy-azure-ad-joined-vm.md).
+Azure Active Directory domain join for Azure Virtual Desktop VMs is now available in the Azure Government and Azure operated by 21Vianet clouds. Microsoft Intune is currently only supported in the Azure Public cloud. Learn more at [Deploy Azure AD-joined virtual machines in Azure Virtual Desktop](deploy-azure-ad-joined-vm.md).
 
 ### Breaking change in Azure Virtual Desktop Azure Resource Manager template
 
