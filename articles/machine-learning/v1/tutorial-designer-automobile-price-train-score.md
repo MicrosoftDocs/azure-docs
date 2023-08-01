@@ -290,7 +290,7 @@ In *Basics* step, you can configure the experiment, job display name, job descri
 
 In *Inputs & Outputs* step, you can assign value to the Inputs/Outputs that are promoted to pipeline level. In this example it will be empty because we didn't promote any input/output to pipeline level.
 
-In *Runtime settings*, you can configure the default datastore and default compute to the pipeline. It's the default datastore/compute to all components in the pipeline. But note if you set a different compute or datastore for a component explicitly, the system respects the component level setting. Otherwise, it uses the default. 
+In *Runtime settings*, you can configure the default datastore and default compute to the pipeline. It's the default datastore/compute to all components in the pipeline. However, if you set a different compute or datastore for a component explicitly, the system respects the component level setting. Otherwise, it uses the default. 
 
 The *Review + Submit* step is the last step to review all settings before submit. The wizard will remember your last configuration if you ever submit the pipeline.
 
