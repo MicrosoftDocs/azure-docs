@@ -96,7 +96,7 @@ This example uses `train.yml` [in the directory](https://github.com/Azure/azurem
 
         :::image type="content" source="./media/how-to-create-component-pipelines-ui/add-data.png" alt-text="Screenshot showing add data." lightbox ="./media/how-to-create-component-pipelines-ui/add-data.png":::
 
-    Then drag and drop the data into canvas. Your pipeline looks like below screenshot now.
+    Then drag and drop the data into the canvas. Your pipeline look should look like the following screenshot now.
     
         :::image type="content" source="./media/how-to-create-component-pipelines-ui/pipeline-with-all-boxs.png" alt-text="Screenshot showing the pipeline draft." lightbox ="./media/how-to-create-component-pipelines-ui/pipeline-with-all-boxs.png":::
 
