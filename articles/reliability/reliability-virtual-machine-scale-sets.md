@@ -362,7 +362,7 @@ With max spreading, the scale set spreads your VMs across as many fault domains 
 
 #### Zone balancing
 
-For scale sets deployed across multiple zones, you also have the option of choosing "best effort zone balance" or "strict zone balance". A scale set is considered "balanced" if each zone has the same number of VMs +\\- 1 on VM as all other zones for the scale set. For example:
+For scale sets deployed across multiple zones, you also have the option of choosing "best effort zone balance" or "strict zone balance". A scale set is considered "balanced" if each zone has the same number of VMs (plus or minus 1 VM) as all other zones in the scale set. For example:
 
 - A scale set with 2 VMs in zone 1, 3 VMs in zone 2, and 3 VMs in zone 3 is considered balanced. There's only one zone with a different VM count and it's only 1 less than the other zones.
 - A scale set with 1 VM in zone 1, 3 VMs in zone 2, and 3 VMs in zone 3 is considered unbalanced. Zone 1 has 2 fewer VMs than zones 2 and 3.
