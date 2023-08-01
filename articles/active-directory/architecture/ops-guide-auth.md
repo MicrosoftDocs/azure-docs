@@ -134,7 +134,7 @@ If you're managing devices with MDM or Microsoft Intune, but not using device co
 
 #### Device trust access policies recommended reading
 
-- [How To: Plan your hybrid Azure Active Directory join implementation](../devices/hybrid-azuread-join-plan.md)
+- [How To: Plan your hybrid Azure Active Directory join implementation](../devices/hybrid-join-plan.md)
 - [Identity and device access configurations](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
 ### Windows Hello for Business
