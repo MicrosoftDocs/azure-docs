@@ -225,8 +225,8 @@
         href: bgp-how-to-cli.md
     - name: BGP diagnostics
       href: bgp-diagnostics.md
-    - name: Configure S2S forced and split tunneling
-      href: site-to-site-tunneling-ps.md
+    - name: Configure site-to-site forced and split tunneling
+      href: site-to-site-tunneling.md
     - name: Configure gateway transit for VNet peering
       href: vpn-gateway-peering-gateway-transit.md
     - name: Connect AWS and Azure using a BGP-enabled VPN Gateway
