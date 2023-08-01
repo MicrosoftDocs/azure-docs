@@ -96,7 +96,7 @@ Only use the *Newest* and *Oldest* policies when your workload requires that the
 
 #### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VMSS-4: Enable automatic repair policy** 
 
-To achieve high availability for applications, [enable automatic instance repairs](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md#requirements-for-using-automatic-instance-repairs) to maintain a set of healthy VMs. When the Application Health extension or Load Balancer health probes find that an instance is unhealthy, automatic instance repairs deletes the unhealthy instance and creates a new one to replace it.
+To achieve high availability for applications, [enable automatic instance repairs](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md#requirements-for-using-automatic-instance-repairs) to maintain a set of healthy VMs. When the [Application Health extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) or [Load Balancer health probes](/load-balancer/load-balancer-custom-probe-overview) find that an instance is unhealthy, automatic instance repairs deletes the unhealthy instance and creates a new one to replace it.
 
 A grace period can be set using the property `automaticRepairsPolicy.gracePeriod`. The grace period, specified in minutes and in ISO 8601 format, can range between 10 to 90 minutes, and has a default value of 30 minutes.
 
@@ -128,7 +128,7 @@ Monitoring your application health is an important signal for managing and upgra
 
 - [Automatic OS-Image Upgrades](/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)
 - [Automatic VM Guest Patching](/virtual-machines/automatic-vm-guest-patching), which relies on health monitoring of individual VMs to upgrade your deployment. 
-- [Load Balancer Health Probes](/load-balancer/load-balancer-custom-probe-overview) *or* [Application Health Extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md), which both monitors the application health of each VM in your scale set and [performs instance repairs using Automatic Instance Repairs](/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
+- [Load Balancer health probes](/load-balancer/load-balancer-custom-probe-overview) *or* [Application Health extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md), which both monitors the application health of each VM in your scale set and [performs instance repairs using Automatic Instance Repairs](/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
 
 
 # [Azure Resource Graph](#tab/graph)
@@ -183,8 +183,8 @@ The following example creates a single-zone scale set named *myScaleSet* in zone
 ```azurecli
 az vmss create \
     --resource-group myResourceGroup \
-    --name myScaleSet \
-    --image <SKU image> \
+    --orchestration-mode flexible \
+    --image <SKU Image> \
     --upgrade-policy-mode automatic \
     --admin-username azureuser \
     --generate-ssh-keys \
@@ -210,7 +210,7 @@ az vmss create \
     --zones 1 2 3
 ```
 
-It takes a few minutes to create and configure all the scale set resources and VMs in the zone(s) that you specify. For a complete example of a zone-redundant scale set and network resources, see [our sample CLI script](../virtual-machine-scale-sets/scripts/cli-sample-zone-redundant-scale-set.md#sample-script)
+It may take a few minutes to create and configure all the scale set resources and VMs in the zone(s) that you specify. For a complete example of a zone-redundant scale set and network resources, see [our sample CLI script](../virtual-machine-scale-sets/scripts/cli-sample-zone-redundant-scale-set.md#sample-script)
 
 # [Azure PowerShell](#tab/powershell)
 
