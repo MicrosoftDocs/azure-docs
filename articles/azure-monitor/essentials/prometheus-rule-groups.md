@@ -36,7 +36,7 @@ To limit your rule group to a cluster scope, you should add the Azure Resource I
 * Azure Arc-enabled Kubernetes clusters (Microsoft.kubernetes/connectedClusters)
 * Azure connected appliances (Microsoft.ResourceConnector/appliances)
 
-In addition to the cluster ID, you can configure the **clusterName** property of your rule group, to match the `cluster` label that is added to the metrics from a specific cluster during data collection. By default, if you haven't specified a clusterName, the rule group uses the resource name part of your cluster ID.
+In addition to the cluster ID, you can configure the **clusterName** property of your rule group. The 'clusterName' property must match the `cluster` label that is added to your metrics when scraped from a specific cluster. By default, this label is set to the last part (resource name) of your cluster ID. If you've changed this label using the ['cluster_alias'](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-scrape-configuration#cluster-alias) setting in your cluster scraping configmap, you must include the updated value in the rule group 'clusterName' property. If your scraping uses the dafault 'cluster' label value, the 'clusterName' property is optional.
 
 Here's an example of how a rule group is configured to limit query to a specific cluster:
 
