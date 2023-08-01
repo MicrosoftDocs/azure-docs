@@ -11,7 +11,7 @@ ms.date: 06/12/2023
 
 # Reliability in Virtual Machine Scale Sets
 
-This article contains [specific reliability recommendations for Virtual Machine Scale Sets](#reliability-recommendations), and information on VMSS regional resiliency with [availability zones](#availability-zone-support) and [cross-region resiliency with disaster recovery](#disaster-recovery-cross-region-failover). 
+This article contains [specific reliability recommendations for Virtual Machine Scale Sets](#reliability-recommendations), and information on Virtual Machine Scale Sets regional resiliency with [availability zones](#availability-zone-support) and [cross-region resiliency with disaster recovery](#disaster-recovery-cross-region-failover). 
 
 For an architectural overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
@@ -30,7 +30,7 @@ This section contains recommendations for achieving resiliency and availability 
 | |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VMSS-5: VMSS Autoscale is set to Manual scale](#-vmss-5-use-autoscale-based-on-custom-metrics-and-schedules) |
 | |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [VMSS-6: VMSS Custom scale-in policies isn't set to default](#-vmss-6-set-the-vmss-custom-scale-in-to-the-default-policy) |
 | [**High Availability**](#high-availability) |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VMSS-4: Automatic repair policy isn't enabled](#-vmss-4-enable-automatic-repair-policy) |
-| [**Disaster Recovery**](#disaster-recovery) |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [VMSS-2: Protection Policy is disabled for all VMSS instances](#-vmss-2-use-vmss-protection-policy-to-treat-specific-vm-instances-differently) |
+| [**Disaster Recovery**](#disaster-recovery) |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [VMSS-2: Protection Policy is disabled for all VMSS instances](#-vmss-2-use-vmss-protection-policy-to-treat-specific-vm-instances-differently) |V
 | [**Monitoring**](#monitoring) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-3: VMSS Application health monitoring isn't enabled](#-vmss-3-enable-vmss-application-health-monitoring) |
 
 
@@ -59,12 +59,12 @@ For more information on when to use scale sets instead of VMs, see [When to use 
 ----
 
 
-#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **VMSS-6: Set the VMSS Custom scale-in to the default policy** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **VMSS-6: Set the Virtual Machine Scale Sets Custom scale-in to the default policy** 
 
 >[!IMPORTANT]
 >Flexible orchestration for Virtual Machine Scale Sets does not currently support scale-in policy.
 
-The [VMSS custom scale-in policy feature](../virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy.md) gives you a way to configure the order in which virtual machines are scaled-in. There are three scale in policy configurations:
+The [Virtual Machine Scale Sets custom scale-in policy feature](../virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy.md) gives you a way to configure the order in which virtual machines are scaled-in. There are three scale in policy configurations:
 
 - [Default](../virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy.md?WT.mc_id=Portal-Microsoft_Azure_Monitoring#default-scale-in-policy)
 - [NewestVM](../virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy.md?WT.mc_id=Portal-Microsoft_Azure_Monitoring#newestvm-scale-in-policy)
@@ -106,9 +106,9 @@ A grace period can be set using the property `automaticRepairsPolicy.gracePeriod
 
 ### Disaster recovery
 
-#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **VMSS-2: Use VMSS Protection Policy to treat specific VM instances differently** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **VMSS-2: Use Virtual Machine Scale Sets Protection Policy to treat specific VM instances differently** 
 
-Use [VMSS Protection Policy](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-protection.md) if you want specific instances to be treated differently from the rest of the scale set instance.
+Use [Virtual Machine Scale Sets Protection Policy](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-protection.md) if you want specific instances to be treated differently from the rest of the scale set instance.
 
 As your application processes traffic, there can be situations where you want specific instances to be treated differently from the rest of the scale set instance. For example, certain instances in the scale set could be performing long-running operations, and you don’t want these instances to be scaled-in until the operations complete. You might also have specialized a few instances in the scale set to perform different tasks than other members of the scale set. You require these special VMs not to be modified with the other instances in the scale set. Instance protection provides the extra controls to enable these and other scenarios for your application.
 
@@ -119,7 +119,7 @@ As your application processes traffic, there can be situations where you want sp
 ----
 ### Monitoring
 
-#### :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg"::: **VMSS-3: Enable VMSS Application health monitoring** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg"::: **VMSS-3: Enable Virtual Machine Scale Sets Application health monitoring** 
 
 Monitoring your application health is an important signal for managing and upgrading your deployment. Azure Virtual Machine Scale Sets provide support for rolling upgrades, including Automatic OS-Image Upgrades and Automatic VM Guest Patching, which rely on health monitoring of the individual instances to upgrade your deployment. You can also use [Application Health Extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) to monitor the application health of each instance in your scale set and perform instance repairs using Automatic Instance Repairs.
 
@@ -325,14 +325,14 @@ For a complete example of a zone-redundant scale set and network resources, see 
 
 ### Low-latency design
 
-It's recommended that you configure VMSS with zone-redundancy. However, if your application has strict low latency requirements, you may need to implement a zonal for your VMSS instances. In the case of zonal VMSS deployment,  it's recommended that you create multiple VMSS instances across more than one zone. For example, you can create one VMSS instance that's pinned to zone 1, as well as one instance pinned to zone 2 or 3. You'll also need to use a load balancer or other application logic to direct traffic to the appropriate VMSS in the case of a zone outage.
+It's recommended that you configure Virtual Machine Scale Sets with zone-redundancy. However, if your application has strict low latency requirements, you may need to implement a zonal for your scale sets instances. In the case of zonal scale sets deployment,  it's recommended that you create multiple scale sets instances across more than one zone. For example, you can create one scale sets instance that's pinned to zone 1, as well as one instance pinned to zone 2 or 3. You'll also need to use a load balancer or other application logic to direct traffic to the appropriate scale sets in the case of a zone outage.
 
 >[!Important]
 >If you opt out of zone-aware deployment, you forego protection from isolation of underlying faults. Opting out from availability zone configuration forces reliance on resources that don't obey zone placement and separation (including underlying dependencies of these resources). These resources shouldn't be expected to survive zone-down scenarios. Solutions that leverage such resources should define a disaster recovery strategy and configure a recovery of the solution in another region.
 
 ### Safe deployment techniques
 
-It's recommended that you deploy zonal VMSS instances over regional instances in order to have more control over where your instances are deployed to. However, zonal instances only provide zone isolation and not zone redundancy. To achieve full zone redundancy with zonal instances, there should be two or more instances across different zones. 
+It's recommended that you deploy zonal scale sets instances over regional instances in order to have more control over where your instances are deployed to. However, zonal instances only provide zone isolation and not zone redundancy. To achieve full zone redundancy with zonal instances, there should be two or more instances across different zones. 
 
 
 #### Spreading options
