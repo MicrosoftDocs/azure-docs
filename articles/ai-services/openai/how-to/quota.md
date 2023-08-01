@@ -124,7 +124,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
-| ```acountname``` | string |  Required | The name of your Azure OpenAI Resource. |
+| ```accountName``` | string |  Required | The name of your Azure OpenAI Resource. |
 | ```deploymentName``` | string | Required | The deployment name you chose when you deployed an existing model or the name you would like a new model deployment to have.   |
 | ```resourceGroupName``` | string |  Required | The name of the associated resource group for this model deployment. |
 | ```subscriptionId``` | string |  Required | Subscription ID for the associated subscription. |
