@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 07/05/2023
+ms.date: 08/01/2023
 ms.author: greglin
 ---
 
@@ -14,16 +14,16 @@ ms.author: greglin
 
 We announced the deprecation of Application Gateway V1 SKU (Standard and WAF) on April 28, 2023 and subsequently this SKU retires on April 28, 2026. Learn more about the V1 retirement [here](./v1-retirement.md).
 
-[Azure Application Gateway and Web Application Firewall (WAF) V2](application-gateway-autoscaling-zone-redundant.md)  now offer additional features such as autoscaling, availability, zone redundancy, higher performance, faster operations and improved throughput compared to V1. Moreover, all new features are released for V2 SKU. Hence, we highly recommend you to start planning your migrations now. 
+[Azure Application Gateway and Web Application Firewall (WAF) V2](application-gateway-autoscaling-zone-redundant.md) now offer additional features such as autoscaling, availability, zone redundancy, higher performance, faster operations and improved throughput compared to V1. Also, all new features are released for V2 SKU. It's highly recommend for you to create a migration plan now. 
 
-The existing V1 gateways aren't automatically upgraded to V2. So here is the guide to help you plan and carry out the migrations by yourself. 
+V1 gateways aren't automatically upgraded to V2. Use this migration guide to help you plan and carry out the migrations. 
 
 There are two stages in a migration:
 
 1. Migrate the configuration
 2. Migrate the client traffic
 
-This article primarily helps with the configuration migration. The traffic migration would vary depending on customer’s needs and environment. But we have included some general recommendations further in this [article](#traffic-migration).
+This article primarily helps with the configuration migration. Client traffic migration varies depending on the environment. Some [general recommendations are provided](#traffic-migration) in this article.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ This article primarily helps with the configuration migration. The traffic migra
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
->Use a new PowerShell session each time to run the migration script. This applies when the migration fails or if you are using the script to migrate another V1 gateway. This is required because the initialized variables clean up the existing resource group before executing the migration script again.
+> Use a new PowerShell session each time to run the migration script. This applies when the migration fails or if you are using the script to migrate another V1 gateway. This is required because the initialized variables clean up the existing resource group before executing the migration script again.
 
 ## Configuration migration 
 
@@ -53,7 +53,7 @@ You can download the migration script from the  [PowerShell Gallery](https://www
 ## Using the script
 
 > [!NOTE]
->Use a new PowerShell session each time to run the migration script. This applies when the migration fails or if you are using the script to migrate another V1 gateway. This is required because the initialized variables clean up the existing resource group before executing the migration script again.
+> Use a new PowerShell session each time to run the migration script. This applies when the migration fails or if you are using the script to migrate another V1 gateway. This is required because the initialized variables clean up the existing resource group before executing the migration script again.
 
 There are two options for you depending on your local PowerShell environment setup and preferences:
 
@@ -74,7 +74,7 @@ This command also installs the required Az modules.
 
 #### Install using the script directly
 
-If you do have some Azure Az modules installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](/powershell/gallery/how-to/working-with-packages/manual-download).
+If you have some Azure Az modules installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](/powershell/gallery/how-to/working-with-packages/manual-download).
 
 To run the script:
 
@@ -126,7 +126,7 @@ To run the script:
 
      You can pass in `$mySslCert1, $mySslCert2` (comma-separated) in the previous example as values for this parameter in the script.
 
-   * **sslCertificates from Keyvault: Optional**.You can download the certificates stored in Azure Key Vault and pass it to migration script.To download the certificate as a PFX file, run following command. These commands access SecretId, and then save the content as a PFX file.
+   * **sslCertificates from Keyvault: Optional**. You can download the certificates stored in Azure Key Vault and pass it to migration script. To download the certificate as a PFX file, run following command. These commands access SecretId, and then save the content as a PFX file.
 
      ```azurepowershell
       $vaultName = ConvertTo-SecureString <kv-name> -AsPlainText -Force
@@ -183,21 +183,21 @@ To run the script:
 ### Caveats\Limitations
 
 * The new V2 gateway has new public and private IP addresses. It isn't possible to move the IP addresses associated with the existing V1 gateway seamlessly to V2. However, you can allocate an existing (unallocated) public or private IP address to the new V2 gateway.
-* You must provide an IP address space for another subnet within your virtual network where your V1 gateway is located. The script can't create the V2 gateway in any existing subnets that already have a V1 gateway. However, if the existing subnet already has a V2 gateway, that may still work provided there's enough IP address space.
+* You must provide an IP address space for another subnet within your virtual network where your V1 gateway is located. The script can't create the V2 gateway in a subnet that already has a V1 gateway. If the subnet already has a V2 gateway the script might still work, provided enough IP address space is available.
 * If you have a network security group or user defined routes associated to the V2 gateway subnet, make sure they adhere to the [NSG requirements](../application-gateway/configuration-infrastructure.md#network-security-groups) and [UDR requirements](../application-gateway/configuration-infrastructure.md#supported-user-defined-routes) for a successful migration
 * [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
 * To  migrate a TLS/SSL configuration, you must specify all the TLS/SSL certs used in your V1 gateway.
 * If you have FIPS mode enabled for your V1 gateway, it won't be migrated to your new V2 gateway. FIPS mode isn't supported in V2.
-* In case of Private IP only V1 gateway, the script generates a private and public IP address for the new V2 gateway. The Private IP only V2 gateway is currently in public preview. Once it becomes generally available, customers can utilize the script to transfer their private IP only V1 gateway to a private IP only V2 gateway.
+* If you have a Private IP only V1 gateway, the script generates a private and public IP address for the new V2 gateway. The Private IP only V2 gateway is currently in public preview. Once it becomes generally available, customers can utilize the script to transfer their private IP only V1 gateway to a private IP only V2 gateway.
 * NTLM and Kerberos authentication is not supported by Application Gateway V2. The script is unable to detect if the gateway is serving this type of traffic and may pose as a breaking change from V1 to V2 gateways if run.
 
 ## Traffic migration
 
 First, double check that the script successfully created a new V2 gateway with the exact configuration migrated over from your V1 gateway. You can verify this from the Azure portal.
 
-Also, send a small amount of traffic through the V2 gateway as a manual test.
+Also send a small amount of traffic through the V2 gateway as a manual test.
 
-Here are a few scenarios where your current application gateway (Standard) may receive client traffic, and our recommendations for each one:
+The following are a few scenarios where your current application gateway (Standard) may receive client traffic, and our recommendations for each one:
 
 * **A custom DNS zone (for example, contoso.com) that points to the frontend IP address (using an A record) associated with your Standard V1 or WAF V1 gateway**.
 
