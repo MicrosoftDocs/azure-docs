@@ -23,20 +23,20 @@ Welcome to what's new in Azure Active Directory External Identities documentatio
 
 ### Updated articles
 
-- [Bulk invite users via PowerShell](bulk-invite-powershell.md) - Editorial and link updates.
-- [Enforce multi-factor authentication for B2B guest users](b2b-tutorial-require-mfa.md) - Text corrections and screenshot updates.
-- [Invite internal users to B2B](invite-internal-users.md) - Text corrections and screenshot updates.
-- [Grant B2B users access to local apps](hybrid-cloud-to-on-premises.md) - Text corrections.
-- [Tenant restrictions V2](tenant-restrictions-v2.md) - Note update.
-- [Leave an organization](leave-the-organization.md) - Screenshot update.
-- [Use audit logs and access reviews](auditing-and-reporting.md) - B2B sponsors feature update.
+- [Bulk invite users via PowerShell](bulk-invite-powershell.md) - Editorial and link updates
+- [Enforce multi-factor authentication for B2B guest users](b2b-tutorial-require-mfa.md) - Text corrections and screenshot updates
+- [Invite internal users to B2B](invite-internal-users.md) - Text corrections and screenshot updates
+- [Grant B2B users access to local apps](hybrid-cloud-to-on-premises.md) - Text corrections
+- [Tenant restrictions V2](tenant-restrictions-v2.md) - Note update
+- [Leave an organization](leave-the-organization.md) - Screenshot update
+- [Use audit logs and access reviews](auditing-and-reporting.md) - B2B sponsors feature update
 
 ## June 2023
 
 ### Updated articles
 
-- [Set up tenant restrictions V2 (Preview)](tenant-restrictions-v2.md) - Microsoft Teams updates.
-- [Invite guest users to an app](add-users-information-worker.md) - Link and structure updates.
+- [Set up tenant restrictions V2 (Preview)](tenant-restrictions-v2.md) - Microsoft Teams updates
+- [Invite guest users to an app](add-users-information-worker.md) - Link and structure updates
 
 ## May 2023
 
@@ -46,7 +46,7 @@ Welcome to what's new in Azure Active Directory External Identities documentatio
 
 ### Updated articles
 
-- [Overview: Cross-tenant access with Azure AD External Identities](cross-tenant-access-overview.md) - Graph API links were updated.
-- [Reset redemption status for a guest user](reset-redemption-status.md) - Screenshots were updated.
+- [Overview: Cross-tenant access with Azure AD External Identities](cross-tenant-access-overview.md) - Graph API links updates
+- [Reset redemption status for a guest user](reset-redemption-status.md) - Screenshot updates
 
 
