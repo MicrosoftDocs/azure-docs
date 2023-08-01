@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Hybrid Azure AD join targeted deployment
 
-You can validate your [planning and prerequisites](hybrid-azuread-join-plan.md) for hybrid Azure AD joining devices using a targeted deployment before enabling it across the entire organization. This article explains how to accomplish a targeted deployment of hybrid Azure AD join.
+You can validate your [planning and prerequisites](hybrid-join-plan.md) for hybrid Azure AD joining devices using a targeted deployment before enabling it across the entire organization. This article explains how to accomplish a targeted deployment of hybrid Azure AD join.
 
 ## Targeted deployment of hybrid Azure AD join on Windows current devices
 
@@ -100,6 +100,6 @@ After you verify that everything works as expected, you can automatically regist
 
 ## Next steps
 
-- [Plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)
+- [Plan your hybrid Azure Active Directory join implementation](hybrid-join-plan.md)
 - [Configure hybrid Azure AD join](how-to-hybrid-join.md)
-- [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual.md)
+- [Configure hybrid Azure Active Directory join manually](hybrid-join-manual.md)

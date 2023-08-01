@@ -3,7 +3,7 @@ title: "include file"
 description: "include file"
 services: storage
 author: normesta
-ms.service: azure-storage
+ms.service: storage
 ms.topic: "include"
 ms.date: 11/04/2021
 ms.author: normesta
