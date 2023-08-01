@@ -30,18 +30,18 @@ The following image shows the landing page for Document Intelligence Studio.
 * Document Intelligence now supports more sophisticated analysis capabilities and the Studio allows one entry point (Analyze options button) for configuring the add-on capabilities with ease.
 * Depending on the document extraction scenario, configure the analysis range, document page range, optional detection, and premium detection features.
 
-    :::image type="content" source="media/studio/analyzeoptions.gif" alt-text="Animated screenshot showing use of the analyze options button to configure options in Studio.":::
+    :::image type="content" source="media/studio/analyze-options.gif" alt-text="Animated screenshot showing use of the analyze options button to configure options in Studio.":::
 
     > [!NOTE]
     > Font extraction is not visualized in Document Intelligence Studio. However, you can check the styles seciton of the JSON output for the font detection results.
 
 ✔️ **Auto labeling documents with prebuilt models or one of your own models**
 
-* In custom extraction model labeling page, you can now auto label your documents using one of Document Intelligent Service prebuilt models or models you have trained before. 
+* In custom extraction model labeling page, you can now auto label your documents using one of Document Intelligent Service prebuilt models or models you have trained before.
 
     :::image type="content" source="media/studio/auto-label.gif" alt-text="Animated screenshot showing auto labeling in Studio.":::
 
-* For some documents, there may be duplicate labels after running auto label. Make sure to modify the labels so that there are no duplicate labels in the labeling page afterwards. 
+* For some documents, there may be duplicate labels after running auto label. Make sure to modify the labels so that there are no duplicate labels in the labeling page afterwards.
 
     :::image type="content" source="media/studio/duplicate-labels.png" alt-text="Screenshot showing duplicate label warning after auto labeling.":::
 
@@ -53,19 +53,19 @@ The following image shows the landing page for Document Intelligence Studio.
 
 ✔️ **Add test files directly to your training dataset**
 
-* Once you have trained a custom extraction model, make use of the test page to improve your model quality by uploading test documents to training dataset if needed. 
+* Once you have trained a custom extraction model, make use of the test page to improve your model quality by uploading test documents to training dataset if needed.
 
-* If a low confidence score is returned for some labels, make sure they're correctly labeled. If not, add them to the training dataset and relabel to improve the model quality. 
+* If a low confidence score is returned for some labels, make sure they're correctly labeled. If not, add them to the training dataset and relabel to improve the model quality.
 
-:::image type="content" source="media/studio/addfromtest.gif" alt-text="Animated screenshot showing how to add test files to training dataset.":::
+:::image type="content" source="media/studio/add-from-test.gif" alt-text="Animated screenshot showing how to add test files to training dataset.":::
 
 ✔️ **Make use of the document list options and filters in custom projects**
 
-* In custom extraction model labeling page, you can now navigate through your training documents with ease by making use of the search, filter and sort by feature. 
+* In custom extraction model labeling page, you can now navigate through your training documents with ease by making use of the search, filter and sort by feature.
 
-* Utilize the grid view to preview documents or use the list view to scroll through the documents more easily. 
+* Utilize the grid view to preview documents or use the list view to scroll through the documents more easily.
 
-    :::image type="content" source="media/studio/documentoptions.png" alt-text="Screenshot: Document list view options and filters.":::
+    :::image type="content" source="media/studio/document-options.png" alt-text="Screenshot: Document list view options and filters.":::
 
 ✔️ **Project sharing**
 

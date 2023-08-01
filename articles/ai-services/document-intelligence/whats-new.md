@@ -60,7 +60,7 @@ The v3.1 API introduces new and updated capabilities:
 * Document Intelligence now supports more sophisticated analysis capabilities and the Studio allows one entry point (Analyze options button) for configuring the add-on capabilities with ease.
 * Depending on the document extraction scenario, configure the analysis range, document page range, optional detection, and premium detection features.
 
-    :::image type="content" source="media/studio/analyzeoptions.gif" alt-text="Animated screenshot showing use of the analyze options button to configure options in Studio.":::
+    :::image type="content" source="media/studio/analyze-options.gif" alt-text="Animated screenshot showing use of the analyze options button to configure options in Studio.":::
 
     > [!NOTE]
     > Font extraction is not visualized in Document Intelligence Studio. However, you can check the styles seciton of the JSON output for the font detection results.
@@ -87,7 +87,7 @@ The v3.1 API introduces new and updated capabilities:
 
 * If a low confidence score is returned for some labels, make sure they are correctly labeled. If not, add them to the training dataset and re-label to improve the model quality. 
 
-:::image type="content" source="media/studio/addfromtest.gif" alt-text="Animated screenshot showing how to add test files to training dataset.":::
+:::image type="content" source="media/studio/add-from-test.gif" alt-text="Animated screenshot showing how to add test files to training dataset.":::
 
 ✔️ **Make use of the document list options and filters in custom projects**
 
@@ -95,7 +95,7 @@ The v3.1 API introduces new and updated capabilities:
 
 * Utilize the grid view to preview documents or use the list view to scroll through the documents more easily. 
 
-    :::image type="content" source="media/studio/documentoptions.png" alt-text="Screenshot: Document list view options and filters.":::
+    :::image type="content" source="media/studio/document-options.png" alt-text="Screenshot showing document list view options and filters.":::
 
 ✔️ **Project sharing**
 
