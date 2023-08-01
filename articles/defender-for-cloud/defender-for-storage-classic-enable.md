@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 This article explains how you can enable and configure Microsoft Defender for Storage (Classic) on your subscriptions by using various templates such as PowerShell, REST API, and others.  
 
-You can also [upgrade to the new Microsoft Defender for Storage plan](defender-for-storage-introduction.md) and use advanced security capabilities, including Malware Scanning and sensitive data threat detection. Benefit from a more predictable and granular pricing structure that charges per storage account, with additional costs for high-volume transactions. This new pricing plan also encompasses all new security features and detections.
+You can also [upgrade to the new Microsoft Defender for Storage plan](defender-for-storage-introduction.md) and use advanced security capabilities, including Malware Scanning and sensitive data threat detection. Benefit from a more predictable and granular pricing structure that charges per storage account, with extra costs for high-volume transactions. This new pricing plan also encompasses all new security features and detections.
 
 > [!NOTE]
 > If you're using Defender for Storage (classic) with per-transaction or per-storage account pricing, you'll need to migrate to the new Defender for Storage plan to access these features and pricing. Learn about [migrating to the new Defender for Storage plan](defender-for-storage-classic-migrate.md).
