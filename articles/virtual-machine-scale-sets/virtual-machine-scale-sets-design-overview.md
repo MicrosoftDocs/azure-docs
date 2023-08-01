@@ -21,7 +21,7 @@ Generally, scale sets are useful for any multi-VM deployment, as it allows you t
 ### Scale set-specific features
 
 - Once you specify the scale set configuration, you can update the *capacity* property to deploy more VMs in parallel. This process is better than writing a script to orchestrate deploying many individual VMs in parallel.
-- You can [use Azure Autoscale to automatically ](./virtual-machine-scale-sets-autoscale-overview.md)add or remove instances based on a predefined schedule, metrics, or predictive AI.
+- You can [use Azure Autoscale to automatically](./virtual-machine-scale-sets-autoscale-overview.md)add or remove instances based on a predefined schedule, metrics, or predictive AI.
 - You can specify an [upgrade policy](./virtual-machine-scale-sets-upgrade-scale-set.md) to make it easy to roll out upgrades across VMs in your scale set. With individual VMs, you must orchestrate updates yourself.
 
 ### VM-specific features
@@ -30,10 +30,6 @@ Some features are currently only available in VMs:
 
 - You can capture an image from a VM in a flexible scale set, but not from a VM in a uniform scale set.
 - You can migrate an individual VM from classic disks to managed disks, but you cannot migrate VM instances in a uniform scale set.
-
-## Design considerations for high availability
-
-
 
 ## Overprovisioning
 
@@ -51,5 +47,3 @@ A scale set built on a Marketplace image (also known as a platform image) or a u
 A scale set configured with user-managed storage accounts is currently limited to 100 VMs (and 5 storage accounts are recommended for this scale).
 
 A scale set built on the legacy managed image can have a capacity of up to 600 VMs when configured with Azure Managed disks. If the scale set is configured with user-managed storage accounts, it must create all OS disk VHDs within one storage account. As a result, the maximum recommended number of VMs in a scale set built on a custom image and user-managed storage is 20. If you turn off overprovisioning, you can go up to 40.
-
-
