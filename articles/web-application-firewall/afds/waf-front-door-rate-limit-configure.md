@@ -96,8 +96,7 @@ You decide to create a rate-limit rule that restricts each source IP address to 
 
 1. For **Action**, select **Log** or **Block**.
 
-   - Rate-limit rules only support `Log` and `Block` actions. `Allow` isn't supported.
-
+   Rate-limit rules only support `Log` and `Block` actions. `Allow` isn't supported.
 
    :::image type="content" source="../media/waf-front-door-rate-limit-configure/custom-rule.png" alt-text="Screenshot that shows the custom rule configuration." :::
 
