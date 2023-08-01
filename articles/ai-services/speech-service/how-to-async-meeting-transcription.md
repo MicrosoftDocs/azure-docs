@@ -1,7 +1,7 @@
 ---
-title: Asynchronous Meeting Transcription - Speech service
+title: Asynchronous meeting transcription - Speech service
 titleSuffix: Azure AI services
-description: Learn how to use asynchronous Meeting Transcription using the Speech service. Available for Java and C# only.
+description: Learn how to use asynchronous meeting transcription using the Speech service. Available for Java and C# only.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -13,9 +13,9 @@ ms.custom: cogserv-non-critical-speech, devx-track-csharp, devx-track-extended-j
 zone_pivot_groups: programming-languages-set-twenty-one
 ---
 
-# Asynchronous Meeting Transcription
+# Asynchronous meeting transcription
 
-In this article, asynchronous Meeting Transcription is demonstrated using the **RemoteMeetingTranscriptionClient** API. If you have configured Meeting Transcription to do asynchronous transcription and have a `meetingId`, you can obtain the transcription associated with that `meetingId` using the **RemoteMeetingTranscriptionClient** API.
+In this article, asynchronous meeting transcription is demonstrated using the **RemoteMeetingTranscriptionClient** API. If you have configured meeting transcription to do asynchronous transcription and have a `meetingId`, you can obtain the transcription associated with that `meetingId` using the **RemoteMeetingTranscriptionClient** API.
 
 ## Asynchronous vs. real-time + asynchronous
 

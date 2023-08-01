@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/06/2023
 ms.author: eur
-ms.custom: cogserv-non-critical-speech, ignite-fall-2021
+ms.custom: cogserv-non-critical-speech, ignite-fall-2021, references_regions
 ---
 
 # What is meeting transcription? (Preview)

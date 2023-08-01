@@ -12,7 +12,7 @@ ms.date: 05/06/2023
 ms.author: eur
 zone_pivot_groups: acs-js-csharp-python
 ms.devlang: csharp, javascript
-ms.custom: cogserv-non-critical-speech, ignite-fall-2021
+ms.custom: cogserv-non-critical-speech, ignite-fall-2021, references_regions
 ---
 
 # Quickstart: Real-time meeting transcription

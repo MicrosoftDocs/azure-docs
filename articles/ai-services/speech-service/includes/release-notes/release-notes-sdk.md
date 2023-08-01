@@ -36,7 +36,7 @@ This table shows the previous and new object names for real-time diarization and
 
 * **C++, C#, Java** - Added support for `DisplayWords` in Embedded Speech Recognition's detailed result.
 * **Objective-C/Swift** - Added support for `ConnectionMessageReceived` event in Objective-C/Swift.
-* **Objective-C/Swift** - Improved keyword-spotting models for iOS. This change has increased the size of the certain packages which contain iOS binaries (like NuGet, XCFramework). We are working on to reduce the size for future releases.
+* **Objective-C/Swift** - Improved keyword-spotting models for iOS. This change has increased the size of the certain packages, which contain iOS binaries (like NuGet, XCFramework). We're working on to reduce the size for future releases.
 
 #### Bug fixes
 
@@ -45,7 +45,7 @@ This table shows the previous and new object names for real-time diarization and
 
 #### Additional notes
 
-* **Java** - Some internally used, `public` Java API methods were changed to package `internal`, `protected` or `private`. This change should not impact developers, as we do not expect applications to be using those. Noted here for transparency.
+* **Java** - Some internally used, `public` Java API methods were changed to package `internal`, `protected` or `private`. This change shouldn't have an affect on developers, as we don't expect applications to be using those. Noted here for transparency.
 
 #### Samples
 
@@ -64,7 +64,7 @@ This table shows the previous and new object names for real-time diarization and
 * **C++, C#, Java** - Preview of Embedded Speech Translation APIs. Now you can do speech translation without cloud connection!
 * **JavaScript** - Continuous Language Identification (LID) now enabled for speech translation.
 * **JavaScript** - Community contribution for adding `LocaleName` property to `VoiceInfo` class. Thank you GitHub user [shivsarthak](https://github.com/shivsarthak) for the pull request. 
-* **C++, C#, Java** - Added support for resampling Embedded Text-to-Speech (TTS) output from 16kHz to 48kHz sample rate.
+* **C++, C#, Java** - Added support for resampling Embedded Text-to-Speech (TTS) output from 16 kHz to 48 kHz sample rate.
 * Added support for `hi-IN` locale in Intent Recognizer with Simple Pattern Matching.
 
 #### Bug fixes
@@ -126,22 +126,22 @@ This table shows the previous and new object names for real-time diarization and
 
 #### Breaking changes
 
-* Bitcode has been disabled in all iOS targets in the following packages: Cocoapod with xcframework, NuGet (for Xamarin and MAUI) and Unity. The change is due to Apple's deprecation of bitcode support from Xcode 14 and onwards. This change also means if you are using Xcode 13 version or you have explicitly enabled the bitcode on your application using the Speech SDK, you may encounter an error saying "framework does not contain bitcode and you must rebuild it". To resolve this issue, make sure your targets have bitcode disabled.
+* Bitcode has been disabled in all iOS targets in the following packages: Cocoapod with xcframework, NuGet (for Xamarin and MAUI) and Unity. The change is due to Apple's deprecation of bitcode support from Xcode 14 and onwards. This change also means if you're using Xcode 13 version or you have explicitly enabled the bitcode on your application using the Speech SDK, you may encounter an error saying "framework doesn't contain bitcode and you must rebuild it". To resolve this issue, make sure your targets have bitcode disabled.
 * Minimum iOS deployment target has been upgraded to 11.0 in this release, which means armv7 HW is no longer supported.
 
 #### New features
 
-* Embedded (on-device) Speech Recognition now supports both 8 and 16 kHz sampling rate input audio (16-bit per sample, mono PCM).
+* Embedded (on-device) Speech Recognition now supports both 8 and 16-kHz sampling rate input audio (16-bit per sample, mono PCM).
 * Speech Synthesis now reports connection, network and service latencies in the result to help end-to-end latency optimization.
-* New tiebreaking rules for [Intent Recognition with simple pattern matching](../../how-to-use-simple-language-pattern-matching.md). The more character bytes that are matched, will win over pattern matches with lower character byte count. Example: Pattern "Select {something} in the top right" will win over "Select {something}"
+* New tie breaking rules for [Intent Recognition with simple pattern matching](../../how-to-use-simple-language-pattern-matching.md). The more character bytes that are matched, will win over pattern matches with lower character byte count. Example: Pattern "Select {something} in the top right" will win over "Select {something}"
 
 #### Bug fixes
 
-* Speech Synthesis: fix a bug where the emoji is not correct in word boundary events.
+* Speech Synthesis: fix a bug where the emoji isn't correct in word boundary events.
 * [Intent Recognition with with Conversational Language Understanding (CLU)](../../get-started-intent-recognition-clu.md):
   * Intents from the CLU Orchestrator Workflow now appear correctly.
   * The JSON result is now available via the property ID `LanguageUnderstandingServiceResponse_JsonResult`.
-* Speech recognition with keyword activation: Fix for missing ~150ms audio after a keyword recognition.
+* Speech recognition with keyword activation: Fix for missing ~150 ms audio after a keyword recognition.
 * Fix for Speech SDK NuGet iOS MAUI Release build, reported by customer ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1835))
 
 #### Samples
@@ -225,7 +225,7 @@ This table shows the previous and new object names for real-time diarization and
   - Approximately 70% reduction in the size of `libMicrosoft.CognitiveServices.Speech.extension.mas.so` for Linux ARM32 and Linux ARM64.
 - **Intent Recognition using pattern matching**:
   - Add orthography support for the languages `fr`, `de`, `es`, `jp`
-  - Added pre-built integer support for language `es`.
+  - Added prebuilt integer support for language `es`.
 
 #### Bug fixes
 
@@ -258,7 +258,7 @@ This table shows the previous and new object names for real-time diarization and
 
 #### New features
 
-- **Java**: IntentRecognitionResult API for getEntities(), applyLanguageModels(), and recognizeOnceAsync(text) added to support the simple pattern matching engine.
+- **Java**: IntentRecognitionResult API for getEntities(), applyLanguageModels(), and recognizeOnceAsync(text) added to support the "simple pattern matching" engine.
 - **Unity**: Added support for Mac M1 (Apple Silicon) for Unity package ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1465))
 - **C#**: Added support for x86_64 for Xamarin Android ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1457))
 - **C#**: .NET framework minimum version updated to v4.6.2 for SDK C# package as v4.6.1 has retired (see [Microsoft .NET Framework Component Lifecycle Policy](/lifecycle/products/microsoft-net-framework))
@@ -301,7 +301,7 @@ This table shows the previous and new object names for real-time diarization and
 - New **Java** samples for Speech Recognition with Language Identification
 - New **Python** and **Java** samples for Conversation Transcription
 - New **Go** sample for Speaker Recognition
-- New **C++ and C#** tool for Windows that enumerates all audio capture and render devices, for the purpose of finding their Device ID. This ID is needed by the Speech SDK if you plan to [capture audio from, or render audio to, a non-default device](../../how-to-select-audio-input-devices.md).
+- New **C++ and C#** tool for Windows that enumerates all audio capture and render devices, for finding their Device ID. This ID is needed by the Speech SDK if you plan to [capture audio from, or render audio to, a non-default device](../../how-to-select-audio-input-devices.md).
 
 
 ### Speech SDK 1.20.0: January 2022 release
@@ -641,7 +641,7 @@ Stay healthy!
 - **C#**: Added support for asynchronous conversation transcription. See documentation [here](../../get-started-stt-diarization.md).
 - **JavaScript**: Added Speaker Recognition support for both [browser](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) and [Node.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
 - **JavaScript**: Added support for Language Identification/language ID. See documentation [here](../../language-identification.md?pivots=programming-language-javascript).
-- **Objective-C**: Added support for [multi-device conversation](../../multi-device-conversation.md) and [conversation transcription](../../conversation-transcription.md).
+- **Objective-C**: Added support for [multi-device conversation](../../multi-device-conversation.md) and conversation transcription.
 - **Python**: Added compressed audio support for Python on Windows and Linux. See documentation [here](../../how-to-use-codec-compressed-audio-input-streams.md).
 
 #### Bug fixes
@@ -925,7 +925,7 @@ This is a bug fix release and only affecting the native/managed SDK. It isn't af
 
 - Keyword spotting (KWS) is now available for Windows and Linux. KWS functionality might work with any microphone type, official KWS support, however, is currently limited to the microphone arrays found in the Azure Kinect DK hardware or the Speech Devices SDK.
 - Phrase hint functionality is available through the SDK. For more information, see [here](../../get-started-speech-to-text.md).
-- Conversation transcription functionality is available through the SDK. See [here](../../conversation-transcription.md).
+- Conversation transcription functionality is available through the SDK. 
 - Add support for Voice Assistants using the Direct Line Speech channel.
 
 #### Samples
