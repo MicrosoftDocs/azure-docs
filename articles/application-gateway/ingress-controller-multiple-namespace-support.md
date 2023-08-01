@@ -15,7 +15,7 @@ ms.author: greglin
 
 [Kubernetes Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) make it possible for a Kubernetes cluster to be partitioned and allocated to subgroups of a larger team. These subteams can then deploy and manage infrastructure with finer controls of resources, security, configuration etc. Kubernetes allows for one or more ingress resources to be defined independently within each namespace.
 
-As of version 0.7 [Azure Application Gateway Kubernetes IngressController](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/master/README.md) (AGIC) can ingest events from and observe multiple namespaces. Should the AKS administrator decide to use [Application Gateway](https://azure.microsoft.com/services/application-gateway/) as an ingress, all namespaces use the same instance of Application Gateway. A single installation of Ingress Controller monitors accessible namespaces and configures the Application Gateway it is associated with.
+As of version 0.7 [Azure Application Gateway Kubernetes IngressController](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/master/README.md) (AGIC) can ingest events from and observe multiple namespaces. Should the AKS administrator decide to use [Application Gateway](https://azure.microsoft.com/services/application-gateway/) as an ingress, all namespaces use the same instance of Application Gateway. A single installation of Ingress Controller monitors accessible namespaces and configures the Application Gateway it's associated with.
 
 Version 0.7 of AGIC continues to exclusively observe the `default` namespace, unless this is explicitly changed to one or more different namespaces in the Helm configuration. See the following section.
 
@@ -80,7 +80,7 @@ spec:
               servicePort: 80
 ```
 
-Despite the two ingress resources demanding traffic for `www.contoso.com` to be routed to the respective Kubernetes namespaces, only one backend can service the traffic. AGIC creates a configuration on a "first come, first served" basis for one of the resources. If two ingresses resources are created at the same time, the one earlier in the alphabet takes precedence. Based on this property, we are only be able to create settings for the `production` ingress. Application Gateway is configured with the following resources:
+Despite the two ingress resources demanding traffic for `www.contoso.com` to be routed to the respective Kubernetes namespaces, only one backend can service the traffic. AGIC creates a configuration based on a "first in, first out" basis for one of the resources. If two ingresses resources are created at the same time, the one earlier in the alphabet takes precedence. Based on this property, settings are created for the `production` ingress. Application Gateway is configured with the following resources:
 
   - Listener: `fl-www.contoso.com-80`
   - Routing Rule: `rr-www.contoso.com-80`
@@ -91,7 +91,7 @@ Despite the two ingress resources demanding traffic for `www.contoso.com` to be 
 > [!NOTE]
 > Except for *listener* and *routing rule*, the Application Gateway resources created include the name of the namespace (`production`) for which they were created.
 
-If the two ingress resources are introduced into the AKS cluster at different points in time, it is likely for AGIC to end up in a scenario where it reconfigures Application Gateway and re-routes traffic from `namespace-B` to `namespace-A`.
+If the two ingress resources are introduced into the AKS cluster at different points in time, it's likely for AGIC to end up in a scenario where it reconfigures Application Gateway and reroutes traffic from `namespace-B` to `namespace-A`.
 
 For example, if you added `staging` first, AGIC configures Application Gateway to route traffic to the staging backend pool. At a later stage, introducing `production` ingress causes AGIC to reprogram Application Gateway, which starts routing traffic to the `production` backend pool.
 
