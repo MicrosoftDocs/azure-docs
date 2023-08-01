@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 08/01/2023
 ms.author: mbullwin
 ---
 
@@ -19,7 +19,8 @@ Quota provides the flexibility to actively manage the allocation of rate limits 
 ## Prerequisites
 
 > [!IMPORTANT]
-> Quota requires the **Cognitive Services Usages Reader** role. This role provides the minimal access necessary to view quota usage across an Azure subscription. This role can be found in the Azure portal under **Subscriptions** > **Access control (IAM)** > **Add role assignment** > search for **Cognitive Services Usages Reader**.
+> Viewing quota and deploying models requires the **Cognitive Services Usages Reader** role. This role provides the minimal access necessary to view quota usage across an Azure subscription. This role can be found in the Azure portal under **Subscriptions** > **Access control (IAM)** > **Add role assignment** > search for **Cognitive Services Usages Reader**.
+> This role **must be applied at the subscription level**, it does not exist at the resource level. If you do not wish to use this role alternatively the Subscription **Reader** role will provide equivalent access, but it will also grant read access beyond the scope of what is needed for quota and model deployment.
 
 ## Introduction to quota
 
@@ -106,9 +107,11 @@ To minimize issues related to rate limits, it's a good idea to use the following
 
 ## Automate deployment
 
-This section contains brief example templates to help get you started programmatically managing quota, and deploying resources. With the introduction of quota you must use API version `2023-05-01` for resource management related activities. This API version is only for managing your resources, and does not impact the API version used for inferencing calls like completions, chat completions, embedding, image generation etc.
+This section contains brief example templates to help get you started programmatically creating deployments that use quota to set TPM rate limits. With the introduction of quota you must use API version `2023-05-01` for resource management related activities. This API version is only for managing your resources, and does not impact the API version used for inferencing calls like completions, chat completions, embedding, image generation etc.
 
 # [REST](#tab/rest)
+
+### Deployment
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/deployments/{deploymentName}?api-version=2023-05-01
@@ -149,6 +152,33 @@ curl -X PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-0
 > [!NOTE]
 > There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from the [Azure portal](https://portal.azure.com). Then run [`az account get-access-token`](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token&preserve-view=true). You can use this token as your temporary authorization token for API testing.
 
+### Usage
+
+To query your quota usage in a given region, for a specific subscription
+
+```html
+GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/{location}/usages?api-version=2023-05-01
+```
+**Path parameters**
+
+| Parameter | Type | Required? |  Description |
+|--|--|--|--|
+| ```subscriptionId``` | string |  Required | Subscription ID for the associated subscription. |
+|```location```        | string | Required | Location to view usage for ex: `eastus` |
+| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format. |
+
+**Supported versions**
+
+- `2023-05-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/1e71ad94aeb8843559d59d863c895770560d7c93/specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2023-05-01/cognitiveservices.json)
+
+#### Example request
+
+```Bash
+curl -X GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CognitiveServices/locations/eastus/usages?api-version=2023-05-01 \
+  -H "Content-Type: application/json" \
+  -H 'Authorization: Bearer YOUR_AUTH_TOKEN' 
+```
+
 # [Azure CLI](#tab/cli)
 
 Install the [Azure CLI](/cli/azure/install-azure-cli). Quota requires `Azure CLI version 2.51.0`. If you already have Azure CLI installed locally run `az upgrade` to update to the latest version.
@@ -184,7 +214,23 @@ By setting sku-capacity to 10 in the command below this deployment will be set w
 az cognitiveservices account deployment create -g test-resource-group -n test-resource-name --deployment-name test-deployment-name --model-name gpt-35-turbo --model-version "0613" --model-format OpenAI --sku-capacity 10 --sku-name "Standard"
 ```
 
-For more details, consult the [full Azure CLI reference documentation](https://learn.microsoft.com/en-us]/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest)
+### Usage
+
+To [query your quota usage](/cli/azure/cognitiveservices/usage?view=azure-cli-latest) in a given region, for a specific subscription
+
+```azurecli
+az cognitiveservices usage list --location
+```
+
+### Example
+
+```azurecli
+az cognitiveservices usage list -l eastus
+```
+
+This command runs in the context of the currently active subscription for Azure CLI. Use `az-account-set --subscription` to [modify the active subscription](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
+
+For more details on `az cognitiveservices account` and `az cognitivesservices usage` consult the [Azure CLI reference documentation](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest)
 
 # [Azure Resource Manager](#tab/arm)
 
