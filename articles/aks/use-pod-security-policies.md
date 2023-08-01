@@ -10,7 +10,7 @@ ms.date: 08/01/2023
 
 > [!IMPORTANT]
 >
-> The pod security policy feature is deprecated on 1st August 2023 and removed since AKS version *1.25* 
+> The pod security policy feature was deprecated on 1st August 2023 and removed since AKS version *1.25* 
 >
 >  We recommend you migrate to [pod security admission controller](use-psa.md) to stay within Azure support. 
 
