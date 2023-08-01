@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 07/20/2023
+ms.date: 08/01/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -19,6 +19,47 @@ This page is updated frequently with the latest updates in Defender for Cloud.
 To learn about *planned* changes that are coming soon to Defender for Cloud, see [Important upcoming changes to Microsoft Defender for Cloud](upcoming-changes.md).
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+
+## August 2023
+
+Updates in August include:
+
+|Date |Update  |
+|----------|----------|
+| August 1 | [New Security alerts in Defender for Servers Plan 2: Detecting Potential Attacks Abusing Azure Virtual Machines Extensions](#new-security-alerts-in-defender-for-servers-plan-2-detecting-potential-attacks-abusing-azure-virtual-machines-extensions)
+
+### New Security alerts in Defender for Servers Plan 2: Detecting Potential Attacks Abusing Azure Virtual Machines Extensions
+
+August 1, 2023
+
+We are announcing the release of new control plane alerts for the Defender for Servers 2 plan.
+This new series of alerts focuses on detecting suspicious activities of Azure virtual machines extensions abuse and provides insights into attackers' attempts to compromise and perform malicious activities on your virtual machines.
+
+Azure virtual machine extensions are small applications that run post-deployment on VMs and provide capabilities such as, configuration, automation, monitoring, security, and more. While extensions are incredible tools for many types of roles and solutions, they can be exploited by threat actors and used with various malicious intents, for instance:
+
+- Data collection and monitoring
+- Code execution and configuration deployment with high privileges
+- Resetting credentials
+- Encrypting disks
+
+As a result of such possible abuse, it's important to monitor and detect suspicious activity and malicious intents, in order to to prevent, disrupt, and remediate the attack, as quick as possible. 
+
+Here is a table of the new alerts.
+
+|Alert (alert type)|Description|MITRE tactics<br>([Learn more](#intentions))|Severity|
+|----|----|:----:|--|
+| **Suspicious installation of GPU extension in your virtual machine (Preview)**(VM_GPUDriverExtensionUnusualExecution) | Suspicious installation of a GPU extension was detected in your virtual machine by analyzing the Azure Resource Manager operations in your subscription. Attackers may use the GPU driver extension to install GPU drivers on your virtual machine via the Azure Resource Manager to perform cryptojacking. | Impact | Low |
+| **Suspicious failure installing GPU extension in your subscription (Preview)**<br>(VM_GPUExtensionSuspiciousFailure) | Suspicious intent of installing a GPU extension on unsupported VMs. This extension should be installed on virtual machines equipped with a graphic processor, and in this case the virtual machines are not equipped with such. These failures can be seen when malicious adversaries execute multiple installations of such extension for crypto-mining purposes. | Impact | Low |
+| **Suspicious unauthorized Run Command usage was detected in your virtual machine (Preview)**<br>(VM_RunCommandSuspiciousFailure) | Suspicious unauthorized usage of a Run command has failed and was detected in your virtual machine by analyzing the Azure Resource Manager operations in your subscription. Attackers may attempt to use the Run command to execute malicious code with high privileges on your virtual machines via the Azure Resource Manager. This activity is deemed suspicious as it hasn't been commonly seen before. | Execution | Medium | 
+| **Run Command with a suspicious script was detected in your virtual machine (Preview)**<br>(VM_RunCommandSuspiciousScript) | A Run command with a suspicious script was detected in your virtual machine by analyzing the Azure Resource Manager operations in your subscription.Attackers may use a Run command to execute malicious code with high privileges on your virtual machine via the Azure Resource Manager. The script is deemed suspicious as certain parts were identified to be potentially malicious. | Execution | High |
+| **Suspicious Run Command usage was detected in your virtual machine (Preview)**<br>(VM_RunCommandSuspiciousUsage) | Suspicious usage of a Run command was detected in your virtual machine by analyzing the Azure Resource Manager operations in your subscription. Attackers may use a Run command to execute malicious code with high privileges on your virtual machines via the Azure Resource Manager. This activity is deemed suspicious as it hasn't been commonly seen before. | Execution | Low |
+| **Suspicious usage of multiple monitoring or data collection extensions (Preview)**<br>(VM_SuspiciousMultiExtensionUsage) | Suspicious usage of multiple monitoring or data collection extensions was detected on your virtual machines by analyzing the Azure Resource Manager operations in your subscription. Attackers may abuse such extensions for data collection, network traffic monitoring, and more, in your subscription. This usage is deemed suspicious as it hasn't been commonly seen before. | Reconnaissance | Medium |
+| **Suspicious installation of disk encryption extensions was detected on your virtual machines (Preview)**<br>(VM_DiskEncryptionSuspiciousUsage) | Suspicious installation of disk encryption extensions was detected on your virtual machines by analyzing the Azure Resource Manager operations in your subscription. Attackers may abuse the disk encryption extension to deploy full disk encryptions on your virtual machines via the Azure Resource Manager in an attempt to perform ransomware. This activity is deemed suspicious as it hasn't been commonly seen before and due to the high number of extension installations. | Impact | Medium |
+| **Suspicious usage of VMAccess extension was detected on your virtual machines (Preview)**<br>(VM_VMAccessSuspiciousUsage) | Suspicious usage of VMAccess extension was detected on your virtual machines. Attackers may abuse the VMAccess extension to gain access and compromise your virtual machines with high privileges by resetting access or managing adminstrative users.This activity is deemed suspicious as the principal's behavior departs from its usual patterns, and due to the high number of the extension installations. | Persistence | Medium |
+| **Desired State Configuration (DSC) extension with a suspicious script was detected on your virtual machine (Preview)**<br>(VM_DSCExtensionSuspiciousScript) | Desired State Configuration (DSC) extension with a suspicious script was detected on your virtual machine by analyzing the Azure Resource Manager operations in your subscription. Attackers may use the Desired State Configuration (DSC) extension to deploy malicious configurations, such as persistence mechanisms, malicious scripts, and more, with high privileges, on your virtual machines. | Execution | High | 
+| **Suspicious usage of a DSC extension was detected in your virtual machines (Preview)** | The script is deemed suspicious as certain parts were identified as being potentially malicious. Suspicious usage of a Desired State Configuration extension was detected in your virtual machines by analyzing the Azure Resource Manager operations in your subscription. Attackers may use Desired State Configuration extension to deploy malicious configurations, such as persistence mechanisms, malicious scripts, and more, with high privileges, on your virtual machines. | Impact | Low |
+
+For a complete list of alerts, see the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md).
 
 ## July 2023
 
