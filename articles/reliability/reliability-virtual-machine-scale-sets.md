@@ -26,19 +26,19 @@ This section contains recommendations for achieving resiliency and availability 
 
 | Category | Priority |Recommendation |  
 |---------------|--------|---|
-| [**Scalability**](#scalability) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-1: Deploy using Flexible scale set instead of simple Virtual Machines](#-vmss-1-deploy-vms-with-flexible-orchestration-mode) |
-| |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VMSS-5: VMSS Autoscale is set to Manual scale](#-vmss-5-use-autoscale-based-on-custom-metrics-and-schedules) |
-| |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [VMSS-6: VMSS Custom scale-in policies isn't set to default](#-vmss-6-set-the-vmss-custom-scale-in-to-the-default-policy) |
-| [**High Availability**](#high-availability) |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VMSS-4: Automatic repair policy isn't enabled](#-vmss-4-enable-automatic-repair-policy) |
-| [**Disaster Recovery**](#disaster-recovery) |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [VMSS-2: Protection Policy is disabled for all VMSS instances](#-vmss-2-use-vmss-protection-policy-to-treat-specific-vm-instances-differently) |V
-| [**Monitoring**](#monitoring) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-3: VMSS Application health monitoring isn't enabled](#-vmss-3-enable-vmss-application-health-monitoring) |
+| [**Scalability**](#scalability) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-1: Deploy using flexible scale set instead of simple Virtual Machines](#vmss-1-deploy-vms-with-flexible-orchestration-mode) |
+| |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VMSS-5: Use autoscale based on custom metrics and schedules*](#-vmss-5-use-autoscale-based-on-custom-metrics-and-schedules) |
+| |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [VMSS-6: Set Virtual Machine Scale Sets custom scale-in policies to the default policy](#-vmss-6-set-the-virtual-machine-scale-sets-custom-scale-in-to-the-default-policy) |
+| [**High Availability**](#high-availability) |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VMSS-4: Enable automatic repair policy](#-vmss-4-enable-automatic-repair-policy) |
+| [**Disaster Recovery**](#disaster-recovery) |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [VMSS-2: Use Virtual Machine Scale Sets Protection Policy to treat specific VM VMs differently](#-vmss-2-use-vmss-protection-policy-to-treat-specific-vm-instances-differently) |V
+| [**Monitoring**](#monitoring) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-3: Enable Virtual Machine Scale Sets Application health monitoring](#-vmss-3-enable-virtual-machine-scale-sets-application-health-monitoring) |
 
 
 ### Scalability
 
 #### :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg"::: **VMSS-1: Deploy VMs with flexible orchestration mode** 
 
-All VMs -even single instance VMs - should be deployed into a scale set using [flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) mode to future-proof your application for scaling and availability. Flexible orchestration offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an availability zone.
+All VMs, including single instance VMs, should be deployed into a scale set using [flexible orchestration mode](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) to future-proof your application for scaling and availability. Flexible orchestration offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an availability zone.
 
 For more information on when to use scale sets instead of VMs, see [When to use scale sets instead of virtual machines?](../virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview.md#when-to-use-scale-sets-instead-of-virtual-machines)
 
@@ -48,9 +48,11 @@ For more information on when to use scale sets instead of VMs, see [When to use 
 
 ----
 
-#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VMSS-5: Use autoscale based on custom metrics and schedules.** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VMSS-5: Use autoscale based on custom metrics and schedules** 
 
-[Autoscale is a built-in feature of Azure Monitor](../azure-monitor/autoscale/autoscale-overview.md) that helps the performance and cost-effectiveness of your resources by adding and removing instances based on demand. In addition, you can choose to scale your resources manually to a specific instance count or in accordance with metric(s) thresholds. You can also schedule instance counts that scale during designated time windows.
+[Autoscale is a built-in feature of Azure Monitor](../azure-monitor/autoscale/autoscale-overview.md) that helps the performance and cost-effectiveness of your resources by adding and removing scale setVM based on demand. In addition, you can choose to scale your resources manually to a specific instance count or in accordance with metrics thresholds. You can also schedule instance counts that scale during designated time windows.
+
+To learn how to enable automatic OS image upgrades, see [Azure Virtual Machine Scale Set automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md).
 
 # [Azure Resource Graph](#tab/graph)
 
@@ -59,7 +61,7 @@ For more information on when to use scale sets instead of VMs, see [When to use 
 ----
 
 
-#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **VMSS-6: Set the Virtual Machine Scale Sets Custom scale-in to the default policy** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **VMSS-6: Set the Virtual Machine Scale Sets custom scale-in to the default policy** 
 
 >[!IMPORTANT]
 >Flexible orchestration for Virtual Machine Scale Sets does not currently support scale-in policy.
@@ -81,7 +83,7 @@ It's not necessary that you specify a scale-in policy if you only want the defau
 Only use the *Newest* and *Oldest* policies when your workload requires that the oldest or newest VMs should be deleted after balancing across availability zones.
 
 >[!NOTE]
->Balancing across availability zones or fault domains doesn't move instances across availability zones or fault domains. The balancing is achieved through the deletion of virtual machines from the unbalanced availability zones or fault domains until the distribution of virtual machines becomes balanced.
+>Balancing across availability zones or fault domains doesn't move VMs across availability zones or fault domains. The balancing is achieved through the deletion of virtual machines from the unbalanced availability zones or fault domains until the distribution of virtual machines becomes balanced.
 
 
 # [Azure Resource Graph](#tab/graph)
@@ -94,7 +96,7 @@ Only use the *Newest* and *Oldest* policies when your workload requires that the
 
 #### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VMSS-4: Enable automatic repair policy** 
 
-To achieve high availability for applications, [enable automatic instance repairs](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md#requirements-for-using-automatic-instance-repairs) to maintain a set of healthy instances. When the Application Health extension or Load Balancer health probes find that an instance is unhealthy, automatic instance repairs deletes the unhealthy instance and creates a new one to replace it.
+To achieve high availability for applications, [enable automatic instance repairs](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md#requirements-for-using-automatic-instance-repairs) to maintain a set of healthy VMs. When the Application Health extension or Load Balancer health probes find that an instance is unhealthy, automatic instance repairs deletes the unhealthy instance and creates a new one to replace it.
 
 A grace period can be set using the property `automaticRepairsPolicy.gracePeriod`. The grace period, specified in minutes and in ISO 8601 format, can range between 10 to 90 minutes, and has a default value of 30 minutes.
 
@@ -106,11 +108,11 @@ A grace period can be set using the property `automaticRepairsPolicy.gracePeriod
 
 ### Disaster recovery
 
-#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **VMSS-2: Use Virtual Machine Scale Sets Protection Policy to treat specific VM instances differently** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **VMSS-2: Use Virtual Machine Scale Sets Protection Policy to treat specific VM VMs differently** 
 
-Use [Virtual Machine Scale Sets Protection Policy](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-protection.md) if you want specific instances to be treated differently from the rest of the scale set instance.
+Use [Virtual Machine Scale Sets Protection Policy](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-protection.md) if you want specific VMs to be treated differently from the rest of the scale set instance.
 
-As your application processes traffic, there can be situations where you want specific instances to be treated differently from the rest of the scale set instance. For example, certain instances in the scale set could be performing long-running operations, and you don’t want these instances to be scaled-in until the operations complete. You might also have specialized a few instances in the scale set to perform different tasks than other members of the scale set. You require these special VMs not to be modified with the other instances in the scale set. Instance protection provides the extra controls to enable these and other scenarios for your application.
+As your application processes traffic, there can be situations where you want specific VMs to be treated differently from the rest of the scale set instance. For example, certain instances in the scale set could be performing long-running operations, and you don’t want these instances to be scaled-in until the operations complete. You might also have specialized a few instances in the scale set to perform different tasks than other members of the scale set. You require these special VMs not to be modified with the other instances in the scale set. Instance protection provides the extra controls to enable these and other scenarios for your application.
 
 # [Azure Resource Graph](#tab/graph)
 
@@ -134,12 +136,12 @@ Monitoring your application health is an important signal for managing and upgra
 
 [!INCLUDE [Availability zone description](./includes/reliability-availability-zone-description-include.md)]
 
-With [Azure virtual machine scale sets](../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets.md), you can create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update many VMs. There's no cost for the scale set itself. You only pay for each VM instance that you create.
+With [Azure virtual machine scale sets](../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets.md), you can create and manage a group of load balanced VMs. The number of VMs can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update many VMs. There's no cost for the scale set itself. You only pay for each VM instance that you create.
 
 Virtual machine scale sets supports both zonal and zone-redundant deployments within a region:
 
-- **Zonal deployment.** When you create a scale set in a single zone, you control which zone all the VM instances of that set run in. The scale set is managed and autoscales only within that zone. 
-- **Zone redundant deployment.**  A zone-redundant scale set lets you create a single scale set that spans multiple zones. By default, as VM instances are created, they're evenly balanced across zones.
+- **Zonal deployment.** When you create a scale set in a single zone, you control which zone all the VM VMs of that set run in. The scale set is managed and autoscales only within that zone. 
+- **Zone redundant deployment.**  A zone-redundant scale set lets you create a single scale set that spans multiple zones. By default, as VMs are created, they're evenly balanced across zones.
 
 
 ### Prerequisites
@@ -153,14 +155,14 @@ Virtual machine scale sets supports both zonal and zone-redundant deployments wi
 
 Because availability zones are physically separate and provide distinct power source, network, and cooling, SLAs (Service-level agreements) increase. For more information, see the [SLA for Microsoft Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
-#### Create a machine scale set with availability zones enabled
+#### Create a Virtual Machine Scale Set with availability zones enabled
 
 You can create a scale set that uses availability zones with one of the following methods:
 
 
 # [Azure portal](#tab/portal)
 
-The process to create a scale set that uses a zonal deployment is the same as detailed in the [getting started article](../virtual-machine-scale-sets/quick-create-portal.md). When you select a supported Azure region, you can create a scale set in one or more available zones, as shown in the following example:
+The process to create a scale set that uses a zonal deployment is the same as detailed in the [getting started article](../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-portal.md). When you select a supported Azure region, you can create a scale set in one or more available zones, as shown in the following example:
 
 ![Create a scale set in a single availability zone](../virtual-machine-scale-sets/media/virtual-machine-scale-sets-use-availability-zones/vmss-az-portal.png)
 
@@ -210,7 +212,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 ### Zonal scale set
 
-The following example creates a single-zone scale set named *myScaleSet* in *East US 2* zone *1*. The Azure network resources for virtual network, public IP address, and load balancer are automatically created. When prompted, provide your own desired administrative credentials for the VM instances in the scale set:
+The following example creates a single-zone scale set named *myScaleSet* in *East US 2* zone *1*. The Azure network resources for virtual network, public IP address, and load balancer are automatically created. When prompted, provide your own desired administrative credentials for the VM VMs in the scale set:
 
 ```powershell
 New-AzVmss `
@@ -227,7 +229,7 @@ New-AzVmss `
 
 ### Zone-redundant scale set
 
-To create a zone-redundant scale set, specify multiple zones with the `-Zone` parameter. The following example creates a zone-redundant scale set named *myScaleSet* across *East US 2* zones *1, 2, 3*. The zone-redundant Azure network resources for virtual network, public IP address, and load balancer are automatically created. When prompted, provide your own desired administrative credentials for the VM instances in the scale set:
+To create a zone-redundant scale set, specify multiple zones with the `-Zone` parameter. The following example creates a zone-redundant scale set named *myScaleSet* across *East US 2* zones *1, 2, 3*. The zone-redundant Azure network resources for virtual network, public IP address, and load balancer are automatically created. When prompted, provide your own desired administrative credentials for the VMs in the scale set:
 
 ```powershell
 New-AzVmss `
@@ -325,14 +327,14 @@ For a complete example of a zone-redundant scale set and network resources, see 
 
 ### Low-latency design
 
-It's recommended that you configure Virtual Machine Scale Sets with zone-redundancy. However, if your application has strict low latency requirements, you may need to implement a zonal for your scale sets instances. In the case of zonal scale sets deployment,  it's recommended that you create multiple scale sets instances across more than one zone. For example, you can create one scale sets instance that's pinned to zone 1, as well as one instance pinned to zone 2 or 3. You'll also need to use a load balancer or other application logic to direct traffic to the appropriate scale sets in the case of a zone outage.
+It's recommended that you configure Virtual Machine Scale Sets with zone-redundancy. However, if your application has strict low latency requirements, you may need to implement a zonal for your scale sets VMs. In the case of zonal scale sets deployment,  it's recommended that you create multiple scale sets instances across more than one zone. For example, you can create one scale sets instance that's pinned to zone 1, as well as one instance pinned to zone 2 or 3. You'll also need to use a load balancer or other application logic to direct traffic to the appropriate scale sets in the case of a zone outage.
 
 >[!Important]
 >If you opt out of zone-aware deployment, you forego protection from isolation of underlying faults. Opting out from availability zone configuration forces reliance on resources that don't obey zone placement and separation (including underlying dependencies of these resources). These resources shouldn't be expected to survive zone-down scenarios. Solutions that leverage such resources should define a disaster recovery strategy and configure a recovery of the solution in another region.
 
 ### Safe deployment techniques
 
-It's recommended that you deploy zonal scale sets instances over regional instances in order to have more control over where your instances are deployed to. However, zonal instances only provide zone isolation and not zone redundancy. To achieve full zone redundancy with zonal instances, there should be two or more instances across different zones. 
+To have more control over where your VMs are deployed, t's recommended that you deploy zonal, instead of regional, scale set VMs. However, zonal VMs only provide zone isolation and not zone redundancy. To achieve full zone redundancy with zonal VMs, there should be two or more VMs across different zones. 
 
 
 #### Spreading options
