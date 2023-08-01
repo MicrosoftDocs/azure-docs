@@ -32,7 +32,7 @@ In the context of admin-less Linux images, the aim is to deploy systems without 
 ## Prerequisites
 
 - If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- An Ubuntu image - you can choose one from the [Azure Marketplace](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/cli-ps-findimage).
+- An Ubuntu image - you can choose one from the [Azure Marketplace](/azure/virtual-machines/linux/cli-ps-findimage).
 
 ### Remove sudo users and prepare a generalized Linux image
 
@@ -41,12 +41,12 @@ The proposed solution results in a Linux image without sudo users.
 Steps to create a generalized image that removes the sudo users are as follows:
 
 1. Download an Ubuntu image from the Marketplace.
-[Azure supported Ubuntu images](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/create-upload-ubuntu)
+[Azure supported Ubuntu images](/azure/virtual-machines/linux/create-upload-ubuntu)
 
 2. Mount the image.
 
     There are several ways to do this, the example uses the loop device to mount the image. It can either be a disk attached or a loop device.
-    [Mount the image](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/attach-disk-portal?tabs=ubuntu#mount-the-disk:~:text=new%20filesystem%20immediately.-,Mount%20the%20disk,-Create%20a%20directory)
+    [Mount the image](/azure/virtual-machines/linux/attach-disk-portal?tabs=ubuntu#mount-the-disk:~:text=new%20filesystem%20immediately.-,Mount%20the%20disk,-Create%20a%20directory)
 
     $imagedevice is the root filesystem's partition on the device that contains the image.
     ```
@@ -79,7 +79,6 @@ If there are any users with sudo privileges, they are listed here,
 6. Repeat step 4 to validate that the user has no sudo privilege on the vhd.
 
 7. Unmount the image.
-
     ```
     umount /mnt/dev/$imagedevice
     ```
