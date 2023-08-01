@@ -104,14 +104,6 @@ items:
       - name: "Container: Translate"
         displayName: textType,text type,preview,POST,parameters,request,
         href: containers/translator-container-supported-parameters.md
-  - name: Tutorials
-    items:
-    - name: Create a Translator workflow
-      href: /ai-builder/flow-text-translation?toc=/azure/ai-services/translator/toc.json&bc=/azure/ai-services/translator/breadcrumb/toc.json
-    - name: Translate text with Translator
-      href: /training/modules/translate-text-with-translator-service?toc=/azure/ai-services/translator/toc.json&bc=/azure/ai-services/translator/breadcrumb/toc.json
-    - name: Build a Translator app with Flask and Python
-      href: /training/modules/python-flask-build-ai-web-app?toc=/azure/ai-services/translator/toc.json&bc=/azure/ai-services/translator/breadcrumb/toc.json
   - name: Reference
     items:
     - name: v3 Translator reference

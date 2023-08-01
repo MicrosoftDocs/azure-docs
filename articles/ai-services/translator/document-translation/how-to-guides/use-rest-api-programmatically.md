@@ -125,7 +125,7 @@ The following headers are included with each Document Translation API request:
 
 ### POST request body properties
 
-* The POST request URL is POST `https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches`
+* The POST request URL is POST `https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/batches`
 * The POST request body is a JSON object named `inputs`.
 * The `inputs` object contains both  `sourceURL` and `targetURL`  container addresses for your source and target language pairs.
 * The `prefix` and `suffix` are case-sensitive strings to filter documents in the source path for translation. The `prefix` field is often used to delineate subfolders for translation. The `suffix` field is most often used for file extensions.
@@ -299,10 +299,10 @@ gradle run
 * Create a new Go project.
 * Add the provided Go code sample.
 * Set your endpoint, key, and container URL values.
-* Save the file with a '.go' extension.
+* Save the file with a `.go` extension.
 * Open a command prompt on a computer with Go installed.
-* Build the file. For example: 'go build example-code.go'.
-* Run the file, for example: 'example-code'.
+* Build the file. For example: `go build example-code.go`.
+* Run the file, for example: `example-code`.
 
  ---
 
@@ -326,7 +326,7 @@ gradle run
 
 |**Response header**|**Result URL**|
 |-----------------------|----------------|
-Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches/9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec</span>
+Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/batches/9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec</span>
 
 * You can also use a **GET Jobs** request to retrieve a Document Translation  job `id` .
 
@@ -349,7 +349,7 @@ Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.a
 
         static readonly string route = "/batches";
 
-        private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
+        private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1";
 
         private static readonly string key = "<YOUR-KEY>";
 
@@ -393,7 +393,7 @@ Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.a
 
 const axios = require('axios').default;
 
-let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
+let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1';
 let route = '/batches';
 let key = '<YOUR-KEY>';
 
@@ -440,7 +440,7 @@ axios(config)
 
 import requests
 
-endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
+endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1"
 key =  '<YOUR-KEY>'
 path = '/batches'
 constructed_url = endpoint + path
@@ -485,7 +485,7 @@ import com.squareup.okhttp.*;
 
 public class DocumentTranslation {
     String key = "<YOUR-KEY>";
-    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
+    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1";
     String path = endpoint + "/batches";
 
     OkHttpClient client = new OkHttpClient();
@@ -527,7 +527,7 @@ import (
 )
 
 func main() {
-endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
+endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1"
 key := "<YOUR-KEY>"
 uri := endpoint + "/batches"
 method := "POST"
@@ -574,7 +574,7 @@ class Program
 {
 
 
-    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
+    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1";
 
     static readonly string route = "/documents/formats";
 
@@ -608,7 +608,7 @@ class Program
 
 const axios = require('axios');
 
-let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
+let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1';
 let key = '<YOUR-KEY>';
 let route = '/documents/formats';
 
@@ -641,7 +641,7 @@ import com.squareup.okhttp.*;
 public class GetFileFormats {
 
     String key = "<YOUR-KEY>";
-    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
+    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1";
     String url = endpoint + "/documents/formats";
     OkHttpClient client = new OkHttpClient();
 
@@ -671,7 +671,7 @@ public class GetFileFormats {
 import http.client
 
 host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
-parameters = '//translator/text/batch/v1.0/documents/formats'
+parameters = '//translator/text/batch/v1.1/documents/formats'
 key =  '<YOUR-KEY>'
 conn = http.client.HTTPSConnection(host)
 payload = ''
@@ -700,7 +700,7 @@ import (
 
 func main() {
 
-  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
+  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1"
   key := "<YOUR-KEY>"
   uri := endpoint + "/documents/formats"
   method := "GET"
@@ -752,7 +752,7 @@ class Program
 {
 
 
-    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
+    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1";
 
     static readonly string route = "/batches/{id}";
 
@@ -787,7 +787,7 @@ class Program
 
 const axios = require('axios');
 
-let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
+let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1';
 let key = '<YOUR-KEY>';
 let route = '/batches/{id}';
 
@@ -821,7 +821,7 @@ import com.squareup.okhttp.*;
 public class GetJobStatus {
 
     String key = "<YOUR-KEY>";
-    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
+    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1";
     String url = endpoint + "/batches/{id}";
     OkHttpClient client = new OkHttpClient();
 
@@ -851,7 +851,7 @@ public class GetJobStatus {
 import http.client
 
 host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
-parameters = '//translator/text/batch/v1.0/batches/{id}'
+parameters = '//translator/text/batch/v1.1/batches/{id}'
 key =  '<YOUR-KEY>'
 conn = http.client.HTTPSConnection(host)
 payload = ''
@@ -880,7 +880,7 @@ import (
 
 func main() {
 
-  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
+  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1"
   key := "<YOUR-KEY>"
   uri := endpoint + "/batches/{id}"
   method := "GET"
@@ -933,7 +933,7 @@ class Program
 {
 
 
-    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
+    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1";
 
     static readonly string route = "/{id}/document/{documentId}";
 
@@ -967,7 +967,7 @@ class Program
 
 const axios = require('axios');
 
-let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
+let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1';
 let key = '<YOUR-KEY>';
 let route = '/{id}/document/{documentId}';
 
@@ -1001,7 +1001,7 @@ import com.squareup.okhttp.*;
 public class GetDocumentStatus {
 
     String key = "<YOUR-KEY>";
-    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
+    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1";
     String url = endpoint + "/{id}/document/{documentId}";
     OkHttpClient client = new OkHttpClient();
 
@@ -1031,7 +1031,7 @@ public class GetDocumentStatus {
 import http.client
 
 host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
-parameters = '//translator/text/batch/v1.0/{id}/document/{documentId}'
+parameters = '//translator/text/batch/v1.1/{id}/document/{documentId}'
 key =  '<YOUR-KEY>'
 conn = http.client.HTTPSConnection(host)
 payload = ''
@@ -1060,7 +1060,7 @@ import (
 
 func main() {
 
-  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
+  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1"
   key := "<YOUR-KEY>"
   uri := endpoint + "/{id}/document/{documentId}"
   method := "GET"
@@ -1113,7 +1113,7 @@ class Program
 {
 
 
-    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
+    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1";
 
     static readonly string route = "/batches/{id}";
 
@@ -1147,7 +1147,7 @@ class Program
 
 const axios = require('axios');
 
-let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
+let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1';
 let key = '<YOUR-KEY>';
 let route = '/batches/{id}';
 
@@ -1181,7 +1181,7 @@ import com.squareup.okhttp.*;
 public class DeleteJob {
 
     String key = "<YOUR-KEY>";
-    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
+    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1";
     String url = endpoint + "/batches/{id}";
     OkHttpClient client = new OkHttpClient();
 
@@ -1211,7 +1211,7 @@ public class DeleteJob {
 import http.client
 
 host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
-parameters = '//translator/text/batch/v1.0/batches/{id}'
+parameters = '//translator/text/batch/v1.1/batches/{id}'
 key =  '<YOUR-KEY>'
 conn = http.client.HTTPSConnection(host)
 payload = ''
@@ -1240,7 +1240,7 @@ import (
 
 func main() {
 
-  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
+  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1"
   key := "<YOUR-KEY>"
   uri := endpoint + "/batches/{id}"
   method := "DELETE"

@@ -2,6 +2,7 @@
 title: Use extensions with Batch pools
 description: Extensions are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes. 
 ms.topic: how-to
+ms.custom: devx-track-linux
 ms.date: 05/26/2023
 ---
 

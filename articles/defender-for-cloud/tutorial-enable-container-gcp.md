@@ -1,6 +1,5 @@
 ---
-title: Protect your Google Cloud Platform (GCP) project containers with Defender for Containers - Microsoft Defender for Cloud
-titleSuffix: Microsoft Defender for Cloud
+title: Protect your Google Cloud Platform (GCP) project containers with Defender for Containers
 description: Learn how to enable the Defender for Containers plan on your Google Cloud Platform (GCP) project for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/29/2023
@@ -74,6 +73,9 @@ There are two dedicated Defender for Cloud recommendations you can use to instal
 
 - `GKE clusters should have Microsoft Defender's extension for Azure Arc installed`
 - `GKE clusters should have the Azure Policy extension installed`
+
+> [!NOTE]
+> When installing Arc extensions, you must verify that the GCP project provided is identical to the one in the relevant connector.
 
 **To deploy the solution to specific clusters**:
 

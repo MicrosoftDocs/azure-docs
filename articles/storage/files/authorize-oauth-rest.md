@@ -4,7 +4,7 @@ description: Authorize access to Azure file shares and directories via the OAuth
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 07/13/2023
+ms.date: 08/01/2023
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 ---
@@ -184,19 +184,19 @@ The storage context with OAuth will only work for operations on files and direct
 
 You'll need an Azure resource group and a storage account within that resource group. The storage account must be assigned an appropriate role that grants explicit permissions to perform data operations against file shares. Make sure that you have the required roles and permissions to access both the management services and data services. For details on the permissions required to call specific File service operations, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
-## Install Az.Storage preview module
+## Install Az.Storage module
 
-This feature is available currently available in the Az.Storage preview module. You can install the preview module using the following steps.
+This feature is available in the latest Az.Storage module. Install the module using the following steps.
 
-1. Install the latest PowerShellGet module (You can skip this step if PowerShellGet is already updated):
+1. Install the latest PowerShellGet module (you can skip this step if PowerShellGet is already updated):
    
-   `Install-Module PowerShellGet –Repository PSGallery –Force`
+   `Install-Module PowerShellGet –Repository PsGallery –Force`
    
    Close and re-open the PowerShell console after you update the module.
 
-2. Install the latest Az.Storage preview module:
+2. Install the latest Az.Storage module:
    
-   `Install-Module Az.Storage -Repository PsGallery -RequiredVersion 5.6.2-preview -AllowClobber -AllowPrerelease -Force`  
+   `Install-Module Az.Storage -Repository PsGallery`  
 
 ## Authorize access to file data
 

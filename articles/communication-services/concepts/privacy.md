@@ -1,7 +1,7 @@
 ---
 title: Region availability and data residency for Azure Communication Services
 description: Learn about data residency, and privacy related matters on Azure Communication Services
-author: chpalm
+author: tophpalmer
 manager: anvalent
 services: azure-communication-services
 

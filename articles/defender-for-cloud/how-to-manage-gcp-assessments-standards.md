@@ -1,6 +1,6 @@
 ---
 title: Manage GCP assessments and standards
-titleSuffix: Defender for Cloud
+
 description: Learn how to create standards for your GCP environment.
 ms.topic: how-to
 ms.date: 03/08/2023

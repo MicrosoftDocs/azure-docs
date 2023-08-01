@@ -10,7 +10,7 @@ ms.reviewer: madsd
 
 # Tutorial: Isolate back-end communication in Azure App Service with Virtual Network integration
 
-In this article you will configure an App Service app with secure, network-isolated communication to backend services. The example scenario used is in [Tutorial: Secure Cognitive Service connection from App Service using Key Vault](tutorial-connect-msi-key-vault.md). When you're finished, you have an App Service app that accesses both Key Vault and Cognitive Services through an [Azure virtual network](../virtual-network/virtual-networks-overview.md), and no other traffic is allowed to access those back-end resources. All traffic will be isolated within your virtual network using [virtual network integration](web-sites-integrate-with-vnet.md) and [private endpoints](../private-link/private-endpoint-overview.md).
+In this article you will configure an App Service app with secure, network-isolated communication to backend services. The example scenario used is in [Tutorial: Secure Cognitive Service connection from App Service using Key Vault](tutorial-connect-msi-key-vault.md). When you're finished, you have an App Service app that accesses both Key Vault and Azure AI services through an [Azure virtual network](../virtual-network/virtual-networks-overview.md), and no other traffic is allowed to access those back-end resources. All traffic will be isolated within your virtual network using [virtual network integration](web-sites-integrate-with-vnet.md) and [private endpoints](../private-link/private-endpoint-overview.md).
 
 As a multi-tenanted service, outbound network traffic from your App Service app to other Azure services shares the same environment with other apps or even other subscriptions. While the traffic itself can be encrypted, certain scenarios may require an extra level of security by isolating back-end communication from other network traffic. These scenarios are typically accessible to large enterprises with a high level of expertise, but App Service puts it within reach with virtual network integration.  
 
@@ -73,9 +73,9 @@ The tutorial continues to use the following environment variables from the previ
 
 ## Create private DNS zones
 
-Because your Key Vault and Cognitive Services resources will sit behind [private endpoints](../private-link/private-endpoint-overview.md), you need to define [private DNS zones](../dns/private-dns-privatednszone.md) for them. These zones are used to host the DNS records for private endpoints and allow the clients to find the back-end services by name. 
+Because your Key Vault and Azure AI services resources will sit behind [private endpoints](../private-link/private-endpoint-overview.md), you need to define [private DNS zones](../dns/private-dns-privatednszone.md) for them. These zones are used to host the DNS records for private endpoints and allow the clients to find the back-end services by name. 
 
-1. Create two private DNS zones, one for your Cognitive Services resource and one for your key vault.
+1. Create two private DNS zones, one for your Azure AI services resource and one for your key vault.
 
     ```azurecli-interactive
     az network private-dns zone create --resource-group $groupName --name privatelink.cognitiveservices.azure.com
@@ -102,13 +102,13 @@ Because your Key Vault and Cognitive Services resources will sit behind [private
     az network private-endpoint create --resource-group $groupName --name securecstext-pe --location $region --connection-name securecstext-pc --private-connection-resource-id $csResourceId --group-id account --vnet-name $vnetName --subnet private-endpoint-subnet
     ```
 
-1. Create a DNS zone group for the Cognitive Services private endpoint. DNS zone group is a link between the private DNS zone and the private endpoint. This link helps you to auto update the private DNS Zone when there is an update to the private endpoint.  
+1. Create a DNS zone group for the Azure AI services private endpoint. DNS zone group is a link between the private DNS zone and the private endpoint. This link helps you to auto update the private DNS Zone when there is an update to the private endpoint.  
 
     ```azurecli-interactive
     az network private-endpoint dns-zone-group create --resource-group $groupName --endpoint-name securecstext-pe --name securecstext-zg --private-dns-zone privatelink.cognitiveservices.azure.com --zone-name privatelink.cognitiveservices.azure.com
     ```
 
-1. Block public traffic to the Cognitive Services resource.
+1. Block public traffic to the Azure AI services resource.
 
     ```azurecli-interactive
     az rest --uri $csResourceId?api-version=2021-04-30 --method PATCH --body '{"properties":{"publicNetworkAccess":"Disabled"}}' --headers 'Content-Type=application/json'
@@ -118,7 +118,7 @@ Because your Key Vault and Cognitive Services resources will sit behind [private
     ```
 
     > [!NOTE]
-    > Make sure the provisioning state of your change is `"Succeeded"`. Then you can observe the behavior change in the sample app. You can still load the app, but if you try click the **Detect** button, you get an `HTTP 500` error. The app has lost its connectivity to the Cognitive Services resource through the shared networking.
+    > Make sure the provisioning state of your change is `"Succeeded"`. Then you can observe the behavior change in the sample app. You can still load the app, but if you try click the **Detect** button, you get an `HTTP 500` error. The app has lost its connectivity to the Azure AI services resource through the shared networking.
 
 1. Repeat the steps above for the key vault.
 
@@ -167,7 +167,7 @@ The two private endpoints are only accessible to clients inside the virtual netw
     
     Virtual network integration allows outbound traffic to flow directly into the virtual network. By default, only local IP traffic defined in [RFC-1918](https://tools.ietf.org/html/rfc1918#section-3) is routed to the virtual network, which is what you need for the private endpoints. To route all your traffic to the virtual network, see [Manage virtual network integration routing](configure-vnet-integration-routing.md). Routing all traffic can also be used if you want to route internet traffic through your virtual network, such as through an [Azure Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) or an [Azure Firewall](../firewall/overview.md).
 
-1. In the browser, navigate to `<app-name>.azurewebsites.net` again and wait for the integration to take effect. If you get an HTTP 500 error, wait a few minutes and try again. If you can load the page and get detection results, then you're connecting to the Cognitive Services endpoint with key vault references.
+1. In the browser, navigate to `<app-name>.azurewebsites.net` again and wait for the integration to take effect. If you get an HTTP 500 error, wait a few minutes and try again. If you can load the page and get detection results, then you're connecting to the Azure AI services endpoint with key vault references.
 
     >[!NOTE]
     > If keep getting HTTP 500 errors after a long time, it may help to force a refetch of the [key vault references](app-service-key-vault-references.md) again, like so:

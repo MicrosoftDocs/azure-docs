@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 07/05/2023
+ms.date: 07/20/2023
 ms.author: banders
 ---
 
@@ -16,7 +16,7 @@ ms.author: banders
 
 If your [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/), [Dedicated Hosts](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/), or [Azure App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) reservations, don't provide the necessary flexibility you need, you can trade them for a savings plan. When you trade-in a reservation and purchase a savings plan, you can select a savings plan term of either one-year to three-year.
 
-Although you can return the above offerings for a savings plan, you can't exchange a savings plan for them or for another savings plan. You can trade in up to 100 reservations as part of a savings plan purchase.
+Although you can return the above offerings for a savings plan, you can't exchange a savings plan for them or for another savings plan. Due to technical limitations, you can only trade in up to 100 reservations at a time as part of a savings plan purchase.
 
 Apart from [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/), [Dedicated Hosts](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/), or [Azure App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) reservations, no other reservations or prepurchase plans are eligible for trade-in.
 

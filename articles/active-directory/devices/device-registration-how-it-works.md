@@ -83,6 +83,6 @@ Device Registration is a prerequisite to cloud-based authentication. Commonly, d
 
 - [Azure AD joined devices](concept-azure-ad-join.md)
 - [Azure AD registered devices](concept-azure-ad-register.md)
-- [Hybrid Azure AD joined devices](concept-azure-ad-join-hybrid.md)
+- [Hybrid Azure AD joined devices](concept-hybrid-join.md)
 - [What is a Primary Refresh Token?](concept-primary-refresh-token.md)
 - [Azure AD Connect: Device options](../hybrid/how-to-connect-device-options.md)

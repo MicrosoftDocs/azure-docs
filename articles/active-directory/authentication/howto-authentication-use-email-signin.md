@@ -60,7 +60,7 @@ In the current preview state, the following limitations apply to email as an alt
     * When a user is signed-in with a non-UPN email, they cannot change their password. Azure AD self-service password reset (SSPR) should work as expected. During SSPR, the user may see their UPN if they verify their identity using a non-UPN email.
 
 * **Unsupported scenarios** - The following scenarios are not supported. Sign-in with non-UPN email for:
-    * [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md)
+    * [Hybrid Azure AD joined devices](../devices/concept-hybrid-join.md)
     * [Azure AD joined devices](../devices/concept-azure-ad-join.md)
     * [Azure AD registered devices](../devices/concept-azure-ad-register.md)
     * [Resource Owner Password Credentials (ROPC)](../develop/v2-oauth-ropc.md)
@@ -139,7 +139,9 @@ During preview, you currently need *Global Administrator* permissions to enable 
 
 ### Azure portal
 
-1. Sign in to the [Azure portal][azure-portal] as a *Global Administrator*.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as a *Global Administrator*.
 1. Search for and select **Azure Active Directory**.
 1. From the navigation menu on the left-hand side of the Azure Active Directory window, select **Azure AD Connect > Email as alternate login ID**.
 
@@ -453,7 +455,6 @@ For more information on hybrid identity operations, see [how password hash sync]
 [sign-in-logs]: ../reports-monitoring/concept-sign-ins.md
 
 <!-- EXTERNAL LINKS -->
-[azure-portal]: https://portal.azure.com
 [Install-Module]: /powershell/module/powershellget/install-module
 [Connect-AzureAD]: /powershell/module/azuread/connect-azuread
 [Get-AzureADPolicy]: /powershell/module/azuread/get-azureadpolicy

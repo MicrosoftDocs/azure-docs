@@ -114,7 +114,7 @@ To assign the *Desktop Virtualization Power On Off Contributor* role with the Az
 
 Now that you've assigned the *Desktop Virtualization Power On Off Contributor* role to the service principal on your subscriptions, you can create a scaling plan. To create a scaling plan:
 
-1. Open the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
 
@@ -266,7 +266,7 @@ Once you're done, go to the **Review + create** tab and select **Create** to dep
 
 To edit an existing scaling plan:
 
-1. Open the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
 

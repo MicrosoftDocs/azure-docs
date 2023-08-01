@@ -41,7 +41,7 @@ The SHA solution for this scenario is made up of:
 
 **Application:** BIG-IP published service to be protected by Azure AD SHA. 
 
-**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SAML based SSO to the BIG-IP. Through SSO, Azure AD provides the BIG-IP with any required session attributes.
+**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access, and SAML based SSO to the BIG-IP. Through SSO, Azure AD provides the BIG-IP with any required session attributes.
 
 **BIG-IP:** Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the backend application.
 
@@ -97,7 +97,7 @@ Before a client or service can access Microsoft Graph, it must be trusted by the
 
 This first step creates a tenant app registration that will be used to authorize the **Easy Button** access to Graph. Through these permissions, the BIG-IP will be allowed to push the configurations required to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
 
-1. Sign-in to the [Azure portal](https://portal.azure.com/) using an account with Application Administrative rights.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using an account with Application Administrative rights.
 2. From the left navigation pane, select the **Azure Active Directory** service.
 3. Under Manage, select **App registrations > New registration**.
 4. Enter a display name for your application. For example, `F5 BIG-IP Easy Button`.
@@ -230,9 +230,9 @@ In the **Additional User Attributes tab**, you can enable session augmentation r
 
 #### Conditional Access Policy
 
-CA policies are enforced post Azure AD pre-authentication, to control access based on device, application, location, and risk signals.
+Conditional Access policies are enforced post Azure AD pre-authentication, to control access based on device, application, location, and risk signals.
 
-The **Available Policies** view, by default, will list all CA policies that do not include user based actions.
+The **Available Policies** view, by default, will list all Conditional Access policies that do not include user based actions.
 
 The **Selected Policies** view, by default, displays all policies targeting All cloud apps. These policies cannot be deselected or moved to the Available Policies list as they are enforced at a tenant level.
 
@@ -243,7 +243,7 @@ To select a policy to be applied to the application being published:
 
 Selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced.
 
-   ![Screenshot for CA policies.](./media/f5-big-ip-headers-easy-button/conditional-access-policy.png)
+   ![Screenshot for Conditional Access policies.](./media/f5-big-ip-headers-easy-button/conditional-access-policy.png)
 
 > [!NOTE]
 > The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed.
@@ -280,13 +280,13 @@ Our backend application sits on HTTP port 80 but obviously switch to 443 if your
 
 Enabling SSO allows users to access BIG-IP published services without having to enter credentials. The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO, the latter of which we’ll enable to configure the following.
 
-* **Header Operation:** Insert
-* **Header Name:** upn
-* **Header Value:** %{session.saml.last.identity}
+* **Header Operation:** `Insert`
+* **Header Name:** `upn`
+* **Header Value:** `%{session.saml.last.identity}`
 
-* **Header Operation:** Insert
-* **Header Name:** employeeid
-* **Header Value:** %{session.saml.last.attr.name.employeeid}
+* **Header Operation:** `Insert`
+* **Header Name:** `employeeid`
+* **Header Value:** `%{session.saml.last.attr.name.employeeid}`
 
    ![Screenshot for SSO and HTTP headers.](./media/f5-big-ip-headers-easy-button/sso-http-headers.png)
 
