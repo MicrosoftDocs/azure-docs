@@ -101,7 +101,7 @@ conceptualContent:
             - url: ../virtual-machines/extensions/enable-infiniband.md
               itemType: concept
               text: Infiniband
-            - url: /azure/expressroute/expressroute-introduction.md
+            - url: /azure/expressroute/expressroute-introduction
               itemType: concept
               text: Azure ExpressRoute       
         # Card
@@ -138,7 +138,7 @@ conceptualContent:
               
 
 # Azure Services
-productDirectory:
+additionalContent:
   title: Take the Next Step # < 60 chars (optional)
   # summary: # < 160 chars (optional)
   items:
@@ -166,7 +166,7 @@ productDirectory:
 
 
 # Azure Services
-productDirectory:
+additionalContent:
   title: HPC Resources # < 60 chars (optional)
   # summary: # < 160 chars (optional)
   items:
