@@ -34,16 +34,16 @@ sections:
           
           - If your account isn't assigned to one of the previously listed roles, it must be assigned to a custom role that is assigned the following actions, at the subscription level.
                       
-              - Microsoft.Network/applicationGateways/read
-              - Microsoft.Network/connections/read
-              - Microsoft.Network/loadBalancers/read 
-              - Microsoft.Network/localNetworkGateways/read 
-              - Microsoft.Network/networkInterfaces/read 
-              - Microsoft.Network/networkSecurityGroups/read 
-              - Microsoft.Network/publicIPAddresses/read
-              - Microsoft.Network/routeTables/read
-              - Microsoft.Network/virtualNetworkGateways/read 
-              - Microsoft.Network/virtualNetworks/read
+              - `Microsoft.Network/applicationGateways/read`
+              - `Microsoft.Network/connections/read`
+              - `Microsoft.Network/loadBalancers/read`
+              - `Microsoft.Network/localNetworkGateways/read`
+              - `Microsoft.Network/networkInterfaces/read`
+              - `Microsoft.Network/networkSecurityGroups/read`
+              - `Microsoft.Network/publicIPAddresses/read`
+              - `Microsoft.Network/routeTables/read`
+              - `Microsoft.Network/virtualNetworkGateways/read`
+              - `Microsoft.Network/virtualNetworks/read`
               - `Microsoft.OperationalInsights/workspaces/*`
     
           To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.md):

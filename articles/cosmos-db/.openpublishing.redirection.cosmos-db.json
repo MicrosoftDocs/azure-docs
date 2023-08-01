@@ -6119,6 +6119,11 @@
       "source_path_from_root": "/articles/cosmos-db/nosql/query/udfs.md",
       "redirect_url": "/azure/cosmos-db/nosql/stored-procedures-triggers-udfs",
       "redirect_document_id": false
+    },
+    {      
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/geospatial-intro.md",
+      "redirect_url": "/azure/cosmos-db/nosql/query/geospatial",
+      "redirect_document_id": true
     }
   ]
 }
