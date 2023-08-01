@@ -22,7 +22,7 @@ The following table describes the supported data collection settings
 | -- | --- | -- |
 | **interval**  | \[1m, 30m] in 1m intervals | This value determines how often the agent collects data. The default value is 1m, where m denotes the minutes. If the value is outside the allowed range, then this value defaults to _1 m_ (60 seconds). |
 | **namespaceFilteringMode** | Include, Exclude, or Off | Choosing Include collects only data from the values in the namespaces field. Choosing Exclude collects data from all namespaces except for the values in the namespaces field. Off ignores any namespace selections and collect data on all namespaces.
-| **namespaces** | An array of names i.e. \["kube-system", "default"]  | Array of comma separated Kubernetes namespaces for which inventory and perf data will be included or excluded based on the _namespaceFilteringMode_. For example, **namespaces** = ["kube-system", "default"] with an _Include_ setting collects only these two namespaces. With an _Exclude_ setting, the agent will collect data from all other namespaces except for _kube-system_ and _default_. With an _Off_ setting, the agent collects data from all namespaces including _kube-system_ and _default_. Invalid and unrecognized namespaces are ignored. |
+| **namespaces** | An array of names that is, \["kube-system", "default"]  | Array of comma separated Kubernetes namespaces for which inventory and perf data are included or excluded based on the _namespaceFilteringMode_. For example, **namespaces** = ["kube-system", "default"] with an _Include_ setting collects only these two namespaces. With an _Exclude_ setting, the agent collects data from all other namespaces except for _kube-system_ and _default_. With an _Off_ setting, the agent collects data from all namespaces including _kube-system_ and _default_. Invalid and unrecognized namespaces are ignored. |
 
 ## Log Analytics data collection
 
@@ -71,7 +71,7 @@ This table outlines the list of the container insights Log Analytics tables for 
 
 ## Impact on default visualizations and existing alerts
 
-The default container insights experience is powered through using all the existing data streams. Removing one or more of the default streams will render the container insights experience unavailable.
+The default container insights experience is powered through using all the existing data streams. Removing one or more of the default streams renders the container insights experience unavailable.
 
 ![Screenshot that shows custom container insights](./media/container-insights-cost-config/container-insights-cost-custom.png)
 
@@ -114,7 +114,7 @@ Cost presets and collection settings are available for selection in the Azure po
 [![Screenshot that shows the cost presets.](media/container-insights-cost-config/cost-profiles-options.png)](media/container-insights-cost-config/cost-profiles-options.png#lightbox)
 
 ## Custom data collection
-Container insights Collected Data can be customized through the Azure portal, using the following options. Selecting any options other than **All (Default)** will lead to the container insights experience becoming unavailable.
+Container insights Collected Data can be customized through the Azure portal, using the following options. Selecting any options other than **All (Default)** leads to the container insights experience becoming unavailable.
 
 | Grouping | Tables | Notes |
 | --- | --- | --- |
@@ -145,7 +145,7 @@ The default schema for the config file follows this format:
 * `interval`: The frequency of data collection, the input scheme must be a number between [1, 30] followed by m to denote minutes.
 * `namespaceFilteringMode`: The filtering mode for the namespaces, the input must be either Include, Exclude, or Off.
 * `namespaces`: An array of Kubernetes namespaces as strings for inclusion or exclusion
-* `enableContainerLogV2`: Boolean flag to enable ContainerLogV2 schema. If set to true, the stdout/stderr Logs will be ingested to [ContainerLogV2](container-insights-logging-v2.md) table, else the container logs will be ingested to ContainerLog table, unless otherwise specified in the ConfigMap. When specifying the individual streams, you must include the corresponding table for ContainerLog or ContainerLogV2.
+* `enableContainerLogV2`: Boolean flag to enable ContainerLogV2 schema. If set to true, the stdout/stderr Logs are ingested to [ContainerLogV2](container-insights-logging-v2.md) table, else the container logs are ingested to ContainerLog table, unless otherwise specified in the ConfigMap. When specifying the individual streams, you must include the corresponding table for ContainerLog or ContainerLogV2.
 * `streams`: An array of container insights table streams. See the supported streams above to table mapping.
 
 Example input:
@@ -261,7 +261,7 @@ The collection settings can be modified through the input of the `dataCollection
 * `interval`: The frequency of data collection, the input scheme must be a number between [1, 30] followed by m to denote minutes.
 * `namespaceFilteringMode`: The filtering mode for the namespaces, the input must be either Include, Exclude, or Off.
 * `namespaces`: An array of Kubernetes namespaces as strings, to be included or excluded
-* `enableContainerLogV2`: Boolean flag to enable ContainerLogV2 schema. If set to true, the stdout/stderr Logs will be ingested to [ContainerLogV2](container-insights-logging-v2.md) table, else the container logs will be ingested to ContainerLog table, unless otherwise specified in the ConfigMap. When specifying the individual streams, you must include the corresponding table for ContainerLog or ContainerLogV2.
+* `enableContainerLogV2`: Boolean flag to enable ContainerLogV2 schema. If set to true, the stdout/stderr Logs are ingested to [ContainerLogV2](container-insights-logging-v2.md) table, else the container logs are ingested to ContainerLog table, unless otherwise specified in the ConfigMap. When specifying the individual streams, you must include the corresponding table for ContainerLog or ContainerLogV2.
 * `streams`: An array of container insights table streams. See the supported streams above to table mapping.
 
 ## [Azure portal](#tab/create-portal)
@@ -329,7 +329,7 @@ The collection settings can be modified through the input of the `dataCollection
 * `interval`: The frequency of data collection, the input scheme must be a number between [1, 30] followed by m to denote minutes.
 * `namespaceFilteringMode`: The filtering mode for the namespaces, the input must be either Include, Exclude, or Off.
 * `namespaces`: An array of Kubernetes namespaces as strings, to be included or excluded
-* `enableContainerLogV2`: Boolean flag to enable ContainerLogV2 schema. If set to true, the stdout/stderr Logs will be ingested to [ContainerLogV2](container-insights-logging-v2.md) table, else the container logs will be ingested to ContainerLog table, unless otherwise specified in the ConfigMap. When specifying the individual streams, you must include the corresponding table for ContainerLog or ContainerLogV2.
+* `enableContainerLogV2`: Boolean flag to enable ContainerLogV2 schema. If set to true, the stdout/stderr Logs are ingested to [ContainerLogV2](container-insights-logging-v2.md) table, else the container logs are ingested to ContainerLog table, unless otherwise specified in the ConfigMap. When specifying the individual streams, you must include the corresponding table for ContainerLog or ContainerLogV2.
 * `streams`: An array of container insights table streams. See the supported streams above to table mapping.
 
 ## [Azure portal](#tab/create-portal)
