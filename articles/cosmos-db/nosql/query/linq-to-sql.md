@@ -16,7 +16,7 @@ ms.custom: query-reference
 
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-The Azure Cosmos DB query provider performs a best effort mapping from a LINQ query into an Azure Cosmos DB SQL query. If you want to get the SQL query that is translated from LINQ, use the `ToString()` method on the generated `IQueryable` object. The following description assumes a basic familiarity with [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries). In addition to LINQ, Azure Cosmos DB also supports [Entity Framework Core](/ef/core/providers/cosmos/?tabs=dotnet-core-cli), which works with API for NoSQL.
+The Azure Cosmos DB query provider performs a best effort mapping from a LINQ query into an Azure Cosmos DB for NoSQL query. If you want to get the NoSQL query that is translated from LINQ, use the `ToString()` method on the generated `IQueryable` object. The following description assumes a basic familiarity with [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries). In addition to LINQ, Azure Cosmos DB also supports [Entity Framework Core](/ef/core/providers/cosmos/?tabs=dotnet-core-cli), which works with API for NoSQL.
 
 > [!NOTE]
 > We recommend using the latest [.NET SDK (`Microsoft.Azure.Cosmos`) version](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)
