@@ -9,17 +9,17 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.0.0'
+monikerRange: '<=doc-intel-3.1.0'
 ---
 
 
 # Build and train a custom model
 
-::: moniker range="doc-intel-3.0.0"
-[!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
+::: moniker range=">=doc-intel-3.0.0"
+[!INCLUDE [applies to v3.1 and v3.0](../includes/applies-to-v3-1-v3-0.md)]
 ::: moniker-end
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 Document Intelligence models require as few as five training documents to get started. If you have at least five documents, you can get started training a custom model. You can train either a [custom template model (custom form)](../concept-custom-template.md) or a [custom neural model (custom document)](../concept-custom-neural.md). The training process is identical for both models and this document walks you through the process of training either model.
 
 ## Custom model input requirements
@@ -28,11 +28,11 @@ First, make sure your training data set follows the input requirements for Docum
 
 ::: moniker-end
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 [!INCLUDE [input requirements](../includes/input-requirements.md)]
 ::: moniker-end
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 ## Training data tips
 
@@ -84,7 +84,7 @@ In your project, your first task is to label your dataset with the fields you wi
 
 The files you uploaded to storage are listed on the left of your screen, with the first file ready to be labeled.
 
-1. To start labeling your dataset, create your first field by selecting the plus (➕) button on the top-right of the screen to select a field type. 
+1. To start labeling your dataset, create your first field by selecting the plus (➕) button on the top-right of the screen to select a field type.
 
     :::image type="content" source="../media/how-to/studio-create-label.png" alt-text="Screenshot: Create a label.":::
 
@@ -126,7 +126,7 @@ Once the model training is complete, you can test your model by selecting the mo
 
 1. The model results are displayed in the main window and the fields extracted are listed in the right navigation bar.
 
-1. Validate your model by evaluating the results for each field. 
+1. Validate your model by evaluating the results for each field.
 
 1. The right navigation bar also has the sample code to invoke your model and the JSON results from the API.
 

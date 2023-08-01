@@ -1,7 +1,7 @@
 ---
-title: "How-to: Migrate your application from Document Intelligence v2.1 to v3.0."
+title: "How-to: Migrate your Document Intelligence to v3.1."
 titleSuffix: Azure AI services
-description: This how-to guide specifies the differences between Document Intelligence API v2.1 and v3.0. You also learn how to move to the newer version of the API.
+description: In this how-to guide, learn the differences between Document Intelligence API v3.0 and v3.1 and how to move to the newer version of the API.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -12,64 +12,135 @@ ms.author: lajanuar
 monikerRange: '<=doc-intel-3.1.0'
 ---
 
-
-# Document Intelligence v3.0 migration
-
-> [!IMPORTANT]
->
-> Document Intelligence REST API v3.0 introduces breaking changes in the REST API request and analyze response JSON.
-
-## Migrating from a v3.0 preview API version
-
-Preview APIs are periodically deprecated. If you're using a preview API version, update your application to target the GA API version. To migrate from the 2021-09-30-preview, 2022-01-30-preview or the 2022-06-30-preview API versions to the `2022-08-31` (GA) API version using the SDK, update to the [current version of the language specific SDK](sdk-overview.md).
+<!-- markdownlint-disable MD004 -->
+# Document Intelligence v3.1 migration
 
 > [!IMPORTANT]
 >
-> Preview API versions 2021-09-30-preview, 2022-01-30-preview and 2022-06-30-preview are being retired July 31st 2023. All analyze requests that use these API versions will fail. Custom neural models trained with any of these API versions will no longer be usable once the API versions are deprecated. All custom neural models trained with preview API versions will need to be retrained with the GA API version.
+> Document Intelligence REST API v3.1 introduces breaking changes in the REST API request and analyze response JSON.
 
-The `2022-08-31` (GA) API has a few updates from the preview API versions:
+## Migrating from v3.1 preview API version
 
-* Field rename:  boundingBox to polygon to support non quadrilateral polygon regions.
-* Field deleted: entities removed from the result of the general document model.
-* Field rename: documentLanguage.languageCode to locale
-* Added support for HEIF format
-* Added paragraph detection, with role classification for layout and general document models.
-* Added support for parsed address fields.
+Preview APIs are periodically deprecated. If you're using a preview API version, update your application to target the GA API version. To migrate from the 2023-02-28-preview API version to the `2023-07-31` (GA) API version using the SDK, update to the [current version of the language specific SDK](sdk-overview.md).
 
-## Migrating from v2.1
+The `2023-07-31` (GA) API has a few updates and changes from the preview API version:
 
-Document Intelligence v3.0  introduces several new features and capabilities:
+- The features that are enabled by default are limited to ones essential to the particular model with the benefit of reduced latency and response size. Added features can be enabled via enum values in `features` parameter.
+- Some layout features from prebuilt-read and keyValuePairs beyond prebuilt-{document,invoice} are no longer supported.
+- Disabling barcodes by default for prebuilt-read and prebuilt-layout, languages for prebuilt-read, and keyValuePairs for prebuilt-invoice.
+- Annotation extraction is removed.
+- Query fields and common names of key-value pairs are removed.
+- Office/HTML files are supported in prebuilt-read model, extracting words and paragraphs without bounding boxes. Embedded images are no longer supported. If add-on features are requested for Office/HTML files, an empty array is returned without errors.
 
-* [Document Intelligence REST API](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) has been redesigned for better usability.
-* [**General document (v3.0)**](concept-general-document.md) model is a new API that extracts text, tables, structure, and key-value pairs, from forms and documents.
-* [**Custom neural model (v3.0)**](concept-custom-neural.md) is a new custom model type to extract fields from structured and unstructured documents.
-* [**Receipt (v3.0)**](concept-receipt.md) model supports single-page hotel receipt processing.
-* [**ID document (v3.0)**](concept-id-document.md) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
-* [**Custom model API (v3.0)**](concept-custom.md) supports signature detection for custom template models.
-* [**Custom model API (v3.0)**](overview.md) supports analysis of all the newly added prebuilt models. For a complete list of prebuilt models, see the [overview](overview.md) page.
+### Analysis features
 
-In this article, we show you the differences between Document Intelligence v2.1 and v3.0 and demonstrate how to move to the newer version of the API.
+| Model ID | Text Extraction | Paragraphs | Paragraph Roles | Selection Marks | Tables | Key-Value Pairs | Languages | Barcodes | Document Analysis | Formulas* | StyleFont* | OCR High Resolution* |
+| --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| prebuilt-read | ✓ | ✓ |  |  |  |  | O | O |  | O | O | O |
+| prebuilt-layout | ✓ | ✓ | ✓ | ✓ | ✓ |  | O | O |  | O | O | O |
+| prebuilt-document | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | O | O |  | O | O | O |
+| prebuilt-businessCard | ✓ |  |  |  |  |  |  |  | ✓ |  |  |  |
+| prebuilt-idDocument | ✓ |  |  |  |  |  | O | O | ✓ | O | O | O |
+| prebuilt-invoice | ✓ |  |  | ✓ | ✓ | O | O | O | ✓ | O | O | O |
+| prebuilt-receipt | ✓ |  |  |  |  |  | O | O | ✓ | O | O | O |
+| prebuilt-healthInsuranceCard.us | ✓ |  |  |  |  |  | O | O | ✓ | O | O | O |
+| prebuilt-tax.us.w2 | ✓ |  |  | ✓ |  |  | O | O | ✓ | O | O | O |
+| prebuilt-tax.us.1098 | ✓ |  |  | ✓ |  |  | O | O | ✓ | O | O | O |
+| prebuilt-tax.us.1098E | ✓ |  |  | ✓ |  |  | O | O | ✓ | O | O | O |
+| prebuilt-tax.us.1098T | ✓ |  |  | ✓ |  |  | O | O | ✓ | O | O | O |
+| prebuilt-contract | ✓ | ✓ | ✓ | ✓ |  |  | O | O | ✓ | O | O | O |
+| { *customModelName* } | ✓ | ✓ | ✓ | ✓ | ✓ |  | O | O | ✓ | O | O | O |
+
+✓ - Enabled
+O - Optional
+Formulas/StyleFont/OCR High Resolution* - Premium features incur added costs
+
+## Migrating from v3.0
+
+Compared with v3.0, Document Intelligence v3.1 introduces several new features and capabilities:
+
+* [Barcode](concept-read.md#barcode-extraction) extraction.
+* [Add-on capabilities](concept-add-on-capabilities.md) including high resolution, formula, and font properties extraction.
+* [Custom classification model](concept-custom-classifier.md) for document splitting and classification.
+* Language expansion and new fields support in [Invoice](concept-invoice.md) and [Receipt](concept-receipt.md) model.
+* New document type support in [ID document](concept-id-document.md) model.
+* New prebuilt [Health insurance card](concept-insurance-card.md) model.
+* Office/HTML files are supported in prebuilt-read model, extracting words and paragraphs without bounding boxes. Embedded images are no longer supported. If add-on features are requested for Office/HTML files, an empty array is returned without errors.
+* Model expiration for custom extraction and classification models - Our new custom models build upon on a large base model that we update periodically for quality improvement. An expiration date is introduced to all custom models to enable the retirement of the corresponding base models.  Once a custom model expires, you need to retrain the model using the latest API version (base model).
+
+```http
+GET /documentModels/{customModelId}?api-version={apiVersion}
+{
+  "modelId": "{customModelId}",
+  "description": "{customModelDescription}",
+  "createdDateTime": "2023-09-24T12:54:35Z",
+  "expirationDateTime": "2025-01-01T00:00:00Z",
+  "apiVersion": "2023-07-31",
+  "docTypes": { ... }
+}
+```
+
+* Custom neural model build quota - The number of neural models each subscription can build per region every month is limited. We expand the result JSON to include the quota and used information to help you understand the current usage as part of the resource information returned by GET /info.
+
+```http
+{
+  "customDocumentModels": { ... },
+  "customNeuralDocumentModelBuilds": {
+    "used": 1,
+    "quota": 10,
+    "quotaResetDateTime": "2023-03-01T00:00:00Z"
+  }
+}
+```
+
+* An optional `features` query parameter to Analyze operations can optionally enable specific features.  Some premium features may incur added billing. Refer to [Analyze feature list](#analysis-features) for details.
+* Extend extracted currency field objects to output a normalized currency code field when possible.  Currently, current fields may return amount (ex. 123.45) and currencySymbol (ex. $).  This feature maps the currency symbol to a canonical ISO 4217 code (ex. USD).  The model may optionally utilize the global document content to disambiguate or infer the currency code.
+
+```http
+{
+  "fields": {
+    "Total": {
+      "type": "currency",
+      "content": "$123.45",
+      "valueCurrency": {
+        "amount": 123.45,
+        "currencySymbol": "$",
+        "currencyCode": "USD"
+      },
+      ...
+    }
+  }
+}
+```
+
+Besides model quality improvement, you're highly recommended to update your application to use v3.1 to benefit from these new capabilities.
+
+## Migrating from v2.1 or v2.0
+
+Document Intelligence v3.1 is the latest GA version with the richest features, most languages and document types coverage, and improved model quality. Refer to [model overview](overview.md) for the features and capabilities available in v3.1.
+
+Starting from v3.0, [Document Intelligence REST API](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true) has been redesigned for better usability. In this section, learn the differences between Document Intelligence v2.0, v2.1 and v3.1 and how to move to the newer version of the API.
 
 > [!CAUTION]
 >
-> * REST API **2022-08-31** release includes a breaking change in the REST API analyze response JSON.
+> * REST API **2023-07-31** release includes a breaking change in the REST API analyze response JSON.
 > * The `boundingBox` property is renamed to `polygon` in each instance.
 
 ## Changes to the REST API endpoints
 
- The v3.0 REST API combines the analysis operations for layout analysis, prebuilt models, and custom models into a single pair of operations by assigning **`documentModels`**  and  **`modelId`** to the layout analysis (prebuilt-layout) and prebuilt models.
+ The v3.1 REST API combines the analysis operations for layout analysis, prebuilt models, and custom models into a single pair of operations by assigning **`documentModels`**  and  **`modelId`** to the layout analysis (prebuilt-layout) and prebuilt models.
 
 ### POST request
 
 ```http
-https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}?api-version=2022-08-31
+https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}?api-version=2023-07-31
 
 ```
 
 ### GET request
 
 ```http
-https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}/AnalyzeResult/{resultId}?api-version=2022-08-31
+https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}/AnalyzeResult/{resultId}?api-version=2023-07-31
 ```
 
 ### Analyze operation
@@ -77,19 +148,21 @@ https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}/
 * The request payload and call pattern remain unchanged.
 * The Analyze operation specifies the input document and content-specific configurations, it returns the analyze result URL via the Operation-Location header in the response.
 * Poll this Analyze Result URL, via a GET request to check the status of the analyze operation (minimum recommended interval between requests is 1 second).
-* Upon success, status is set to succeeded and [analyzeResult](#changes-to-analyze-result) is returned in the response body. If errors are encountered, status is set to `failed`, and an error is returned.
+* Upon success, status is set to succeeded and [analyzeResult](#changes-to-analyze-result) is returned in the response body. If errors are encountered, status sets to `failed`, and an error is returned.
 
-| Model | v2.1 | v3.0 |
-|:--| :--| :--|
-| **Request URL prefix**| **https://{your-form-recognizer-endpoint}/formrecognizer/v2.1**  | **https://{your-form-recognizer-endpoint}/formrecognizer** |
-| **General document**|N/A|`/documentModels/prebuilt-document:analyze` |
-| **Layout**| /layout/analyze |`/documentModels/prebuilt-layout:analyze`|
-|**Custom**| /custom/{modelId}/analyze    |`/documentModels/{modelId}:analyze` |
-| **Invoice** | /prebuilt/invoice/analyze    | `/documentModels/prebuilt-invoice:analyze` |
-| **Receipt** | /prebuilt/receipt/analyze    | `/documentModels/prebuilt-receipt:analyze` |
-| **ID document** | /prebuilt/idDocument/analyze |  `/documentModels/prebuilt-idDocument:analyze` |
-|**Business card**| /prebuilt/businessCard/analyze| `/documentModels/prebuilt-businessCard:analyze`|
-|**W-2**| /prebuilt/w-2/analyze| `/documentModels/prebuilt-w-2:analyze`|
+| Model | v2.0 | v2.1 | v3.1 |
+|:--| :--|:--| :--|
+| **Request URL prefix**| **https://{your-form-recognizer-endpoint}/formrecognizer/v2.0**  |**https://{your-form-recognizer-endpoint}/formrecognizer/v2.1**  | **https://{your-form-recognizer-endpoint}/formrecognizer** |
+| **General document**| N/A |N/A|`/documentModels/prebuilt-document:analyze` |
+| **Layout**| /layout/analyze | /layout/analyze |`/documentModels/prebuilt-layout:analyze`|
+|**Custom**| /custom/models/{modelId}/analyze |/custom/{modelId}/analyze    |`/documentModels/{modelId}:analyze` |
+| **Invoice** | N/A |/prebuilt/invoice/analyze    | `/documentModels/prebuilt-invoice:analyze` |
+| **Receipt** | /prebuilt/receipt/analyze|/prebuilt/receipt/analyze    | `/documentModels/prebuilt-receipt:analyze` |
+| **ID document** |N/A | /prebuilt/idDocument/analyze |  `/documentModels/prebuilt-idDocument:analyze` |
+|**Business card**|N/A | /prebuilt/businessCard/analyze| `/documentModels/prebuilt-businessCard:analyze`|
+|**W-2**| N/A |N/A| `/documentModels/prebuilt-tax.us.w2:analyze`|
+|**Health insurance card**| N/A |N/A| `/documentModels/prebuilt-healthInsuranceCard.us:analyze`|
+|**Contract**| N/A | N/A| `/documentModels/prebuilt-contract:analyze`|
 
 ### Analyze request body
 
@@ -228,7 +301,7 @@ Analyze response has been refactored to the following top-level results to suppo
 },
 "confidence": 0.95 // Extraction confidence
 }, ...
-], 
+],
 "styles": [
 {
 "isHandwritten": true, // Is content in this style handwritten?
@@ -298,7 +371,7 @@ POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:compo
     { "modelId": "{modelId2}" },
   ]
 }
-  
+
 ```
 
 ## Changes to copy model
@@ -376,8 +449,6 @@ GET https://{your-form-recognizer-endpoint}/formrecognizer/info? api-version=202
 ```
 
 ## Next steps
-
-In this migration guide, you've learned how to upgrade your existing Document Intelligence application to use the v3.0 APIs.
 
 * [Review the new REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
 * [What is Document Intelligence?](overview.md)
