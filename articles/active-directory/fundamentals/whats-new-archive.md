@@ -560,7 +560,7 @@ In the Azure portal, the required permissions list is under API Permissions with
 
 ---
 
-### Public Preview - Conditional access Authentication strengths 
+### Public Preview - Conditional Access Authentication strengths 
 
 
 
@@ -572,7 +572,7 @@ We're announcing Public preview of Authentication strength, a Conditional Access
 
 ---
 
-### Public Preview - Conditional access authentication strengths for external identities
+### Public Preview - Conditional Access authentication strengths for external identities
 
 
 **Type:** New feature  
