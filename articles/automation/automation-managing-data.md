@@ -14,7 +14,7 @@ This article contains several topics explaining how data is protected and secure
 
 ## TLS 1.2 or higher for Azure Automation
 
-To ensure the security of data in transit to Azure Automation, we strongly encourage you to configure the use of Transport Layer Security (TLS) 1.2. The following are a list of methods or clients that communicate over HTTPS to the Automation service:
+To ensure the security of data in transit to Azure Automation, we strongly encourage you to configure the use of Transport Layer Security (TLS) 1.2 or higher. The following are a list of methods or clients that communicate over HTTPS to the Automation service:
 
 * Webhook calls
 
