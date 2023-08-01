@@ -207,7 +207,7 @@ Splitting data is a common task in machine learning. You'll split your data into
 
 1. In the **Split Data** details pane, set the **Fraction of rows in the first output dataset** to 0.7.
 
-    This option splits 70 percent of the data to train the model and 30 percent for testing it. The 70 percent dataset will be accessible through the left output port. The remaining data are available through the right output port.
+    This option splits 70 percent of the data to train the model and 30 percent for testing it. The 70 percent dataset will be accessible through the left output port. The remaining data is available through the right output port.
 
 1. In the **Split Data** details pane, expand **Node info**.
 
