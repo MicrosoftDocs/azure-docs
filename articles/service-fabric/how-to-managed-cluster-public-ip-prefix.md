@@ -55,7 +55,7 @@ The following section describes the steps that should be taken to implement publ
 2.  Use a [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-PIPrefix) for public IP prefix configuration as part of the service fabric managed cluster creation.
 3.	You can also modify your existing ARM template and expose new template property `PublicIPPrefixId` under `Microsoft.ServiceFabric/managedClusters` resource that takes the resource ID of the public IP prefix or update via Azure CLI, or PowerShell. Use Service Fabric API version `2023-03-01-Preview` and later.
 
-### ARM Template:
+#### ARM Template:
 
 ```json
 { 
@@ -66,9 +66,9 @@ The following section describes the steps that should be taken to implement publ
 } 
 ```
 
-### Azure CLI:
+#### Azure CLI:
 
-#### Create a resource group
+##### Create a resource group
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
@@ -80,7 +80,7 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
     --location eastus2
 ```
 
-#### Create a public IP address prefix
+##### Create a public IP address prefix
 
 The following section describes the steps to create a zone redundant, zonal, and non-zonal public IP prefix using Azure CLI. 
 
@@ -155,7 +155,7 @@ To create a IPv4 public IP prefix with routing preference Internet, enter **Rout
 ```
 ---
 
-#### Capture the resource ID from the Public IP prefix created and add it to the ARM template and deploy the template
+##### Capture the resource ID from the Public IP prefix created and add it to the ARM template and deploy the template
 
   ```azurecli-interactive
     az deployment group create \
@@ -165,9 +165,9 @@ To create a IPv4 public IP prefix with routing preference Internet, enter **Rout
 ```
 
 
-### Azure PowerShell:
+#### Azure PowerShell:
 
-#### Create a resource group
+##### Create a resource group
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
@@ -181,7 +181,7 @@ $rg =@{
 New-AzResourceGroup @rg
 ```
 
-#### Create a public IP address prefix
+##### Create a public IP address prefix
 
 The following section describes the steps to create a zone redundant, zonal, and non-zonal public IP prefix using Azure PowerShell. 
 
@@ -269,7 +269,7 @@ New-AzPublicIpPrefix @ipv4
 
 ---
 
-#### Capture the resource ID from the Public IP prefix created and add it to the ARM template and deploy the template
+##### Capture the resource ID from the Public IP prefix created and add it to the ARM template and deploy the template
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName "ExampleGroup" -TemplateFile <path-to-template> -TemplateParameterFile <path-to-template-parameter-file>
