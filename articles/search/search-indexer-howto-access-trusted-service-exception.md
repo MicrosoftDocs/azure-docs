@@ -33,7 +33,7 @@ In Azure Cognitive Search, indexers that access Azure blobs can use the [trusted
 
 ## Check service identity
 
-1. [Sign in to Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/).
+1. Sign in to the [Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/).
 
 1. On the **Identity** page, make sure that a [system assigned identity is enabled](search-howto-managed-identities-data-sources.md). Remember that user-assigned managed identities, currently in preview, won't work for a trusted service connection.
 
@@ -41,7 +41,7 @@ In Azure Cognitive Search, indexers that access Azure blobs can use the [trusted
 
 ## Check network settings
 
-1. [Sign in to Azure portal](https://portal.azure.com) and [find your storage account](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/).
+1. Sign in to the [Azure portal](https://portal.azure.com) and [find your storage account](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/).
 
 1. In the left navigation pane under **Security + networking**, select **Networking**.
 

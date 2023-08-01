@@ -50,5 +50,5 @@ The following example checks if the string `abc` ends with `b` or `bC`.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`STARTSWITH`](startswith.md)

@@ -109,6 +109,8 @@ To view or copy BitLocker keys, you need to be the owner of the device or have o
 
 ## View and filter your devices (preview)
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 In this preview, you have the ability to infinitely scroll, reorder columns, and select all devices. You can filter the device list by these device attributes:
 
 - Enabled state

@@ -23,7 +23,7 @@ Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefi
 * Improved governance: See, [Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) and learn more about Azure AD pre-authentication. 
 * Enforce organizational policies. See [What is Conditional Access?](../conditional-access/overview.md).
 * Full SSO between Azure AD and BIG-IP published services
-* Manage identities and access from a single control plane, the [Azure portal](https://portal.azure.com/)
+* Manage identities and access from a single control plane, the [Azure portal](https://portal.azure.com)
 
 To learn more about benefits, see the article on [F5 BIG-IP and Azure AD integration](./f5-integration.md).
 
@@ -43,7 +43,7 @@ A BIG-IP in front of the application enables overlay of the service with Azure A
 The secure hybrid access (SHA) solution for this scenario has the following components:
 
 * **Application:** BIG-IP published service to be protected by Azure AD SHA. The application host is domain-joined, therefore is integrated with Active Directory (AD).
-* **Azure AD:** Security Assertion Markup Language (SAML) identity provider (IdP) that verifies user credentials, Conditional Access (CA), and SAML-based SSO to the BIG-IP. Through SSO, Azure AD provides BIG-IP with required session attributes.
+* **Azure AD:** Security Assertion Markup Language (SAML) identity provider (IdP) that verifies user credentials, Conditional Access, and SAML-based SSO to the BIG-IP. Through SSO, Azure AD provides BIG-IP with required session attributes.
 * **KDC:** Key Distribution Center (KDC) role on a Domain Controller (DC), issuing Kerberos tickets
 * **BIG-IP:** Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing Kerberos-based SSO to the back-end application.
 
@@ -84,9 +84,11 @@ This tutorial covers the latest Guided Configuration 16.1 with an Easy Button te
 
 ## Register Easy Button
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Before a client or service can access Microsoft Graph, it must be trusted by the [Microsoft identity platform.](../develop/quickstart-register-app.md). This action creates a tenant app registration to authorize Easy Button access to Graph. Through these permissions, the BIG-IP pushes the configurations to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using an account with Application Admin permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com) using an account with Application Admin permissions.
 2. From the left navigation pane, select the **Azure Active Directory** service.
 3. Under Manage, select **App registrations > New registration**.
 4. Enter a display name for your application. For example, F5 BIG-IP Easy Button.
@@ -211,9 +213,9 @@ The **Additional User Attributes** tab supports various distributed systems requ
 
 #### Conditional Access Policy
 
-CA policies are enforced after Azure AD pre-authentication to control access based on device, application, location, and risk signals.
+Conditional Access policies are enforced after Azure AD pre-authentication to control access based on device, application, location, and risk signals.
 
-The **Available Policies** view shows CA policies without user-based actions.
+The **Available Policies** view shows Conditional Access policies without user-based actions.
 
 The **Selected Policies** view shows policies targeting cloud apps. You can't deselect policies or move them to the Available Policies list because they're enforced at a tenant level.
 

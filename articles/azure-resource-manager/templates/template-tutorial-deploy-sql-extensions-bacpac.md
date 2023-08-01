@@ -87,11 +87,12 @@ The BACPAC file must be stored in an Azure Storage account before it can be impo
                              -Blob $bacpacFileName `
                              -Context $storageAccount.Context
 
-    Write-Host "The project name:        $projectName`
-    	The location:            $location`
-    	The storage account key: $storageAccountKey`
-    	The BACPAC file URL:     https://$storageAccountName.blob.core.windows.net/$containerName/$bacpacFileName`
-    	"
+    Write-Host "The project name:        $projectName `
+      The location:            $location `
+      The storage account key: $storageAccountKey `
+      The BACPAC file URL:     https://$storageAccountName.blob.core.windows.net/$containerName/$bacpacFileName `
+      "
+
     Write-Host "Press [ENTER] to continue ..."
     ```
 
