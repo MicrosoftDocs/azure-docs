@@ -155,7 +155,9 @@ To create a IPv4 public IP prefix with routing preference Internet, enter **Rout
 ```
 ---
 
-##### Capture the resource ID from the Public IP prefix created and add it to the ARM template and deploy the template
+##### Deploy the ARM template
+
+Capture the resource ID from the Public IP prefix created into the ARM template and deploy the template.
 
   ```azurecli-interactive
     az deployment group create \
@@ -269,7 +271,9 @@ New-AzPublicIpPrefix @ipv4
 
 ---
 
-##### Capture the resource ID from the Public IP prefix created and add it to the ARM template and deploy the template
+##### Deploy the ARM template
+
+Capture the resource ID from the Public IP prefix created into the ARM template and deploy the template.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName "ExampleGroup" -TemplateFile <path-to-template> -TemplateParameterFile <path-to-template-parameter-file>
