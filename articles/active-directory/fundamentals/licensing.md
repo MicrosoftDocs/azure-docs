@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/31/2023
+ms.date: 08/01/2023
 ms.subservice: hybrid
 ms.author: barclayn
 ---
