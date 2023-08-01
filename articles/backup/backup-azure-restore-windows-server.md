@@ -12,7 +12,7 @@ This article explains how to restore data from a backup vault. To restore data, 
 
 * Restore data to the same machine from which the backups were taken.
 * Restore data to an alternate machine.
-* If you've Cross Region Restore enabled on your vault, you can restore the backup data from the secondary region.
+* If you have Cross Region Restore enabled on your vault, you can restore the backup data from the secondary region.
 
 Use the Instant Restore feature to mount a writeable recovery point snapshot as a recovery volume. You can then explore the recovery volume and copy files to a local computer, thus selectively restoring files.
 

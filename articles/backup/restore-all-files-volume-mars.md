@@ -91,7 +91,7 @@ These steps include the following terminology:
 
 1. On the **Getting Started** page, select **Another server**.
 
-   ![Screenshot of Recover Data Wizard Getting Started page (restore to alternate machine)](./media/backup-azure-restore-windows-server/alternatemachine_gettingstarted_instantrestore.png)
+   ![Screenshot of Recover Data Wizard Getting Started page (restore to alternate machine).](./media/backup-azure-restore-windows-server/alternatemachine_gettingstarted_instantrestore.png)
 
 1. Provide the vault credential file that corresponds to the sample vault.
 

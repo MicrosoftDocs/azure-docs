@@ -131,7 +131,7 @@ $CredsPath = "C:\downloads"
 $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 -Path $CredsPath
 ```
 
-### Registering using the PS Az module
+### Register using the PowerShell Az module
 
 > [!NOTE]
 > A bug with generation of vault certificate is fixed in Az 3.5.0 release. Use Az 3.5.0 release version or greater to download a vault certificate.
@@ -228,9 +228,9 @@ Server properties updated successfully
 
 All backups from Windows Servers and clients to Azure Backup are governed by a policy. The policy includes three parts:
 
-1. A **backup schedule** that specifies when backups need to be taken and synchronized with the service.
-2. A **retention schedule** that specifies how long to retain the recovery points in Azure.
-3. A **file inclusion/exclusion specification** that dictates what should be backed up.
+- A **backup schedule** that specifies when backups need to be taken and synchronized with the service.
+- A **retention schedule** that specifies how long to retain the recovery points in Azure.
+- A **file inclusion/exclusion specification** that dictates what should be backed up.
 
 In this document, since we're automating backup, we'll assume nothing has been configured. We begin by creating a new backup policy using the [New-OBPolicy](/powershell/module/msonlinebackup/new-obpolicy) cmdlet.
 
@@ -678,7 +678,9 @@ The recovery operation completed successfully.
 
 ## Cross Region Restore
 
-### Original Server Restore
+Cross Region Restore (CRR) allows you to restore MARS backup data from a secondary region, which is an Azure paired region. This enables you to conduct drills for audit and compliance, and recover data during the unavailability of the primary region in Azure in the case of a disaster.
+
+### Original server restore
 
 If you're performing restore for the original server from the secondary region (Cross Region Restore), you need to use the flag `UseSecondaryRegion` while getting the `OBRecoverableSource` object. 
 
@@ -690,7 +692,7 @@ Start-OBRecovery -RecoverableItem $RP -RecoveryOption $RO -Async | ConvertTo-Jso
 
 ```
 
-### Alternate Server Restore:
+### Alternate server restore
 
 If you're performing restore for an alternate server from the secondary region (Cross Region Restore), you need to download the *secondary region vault credential file* from the Azure portal and pass the secondary region vault credential for restore.
 

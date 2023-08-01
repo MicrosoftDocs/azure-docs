@@ -14,7 +14,7 @@ This article explains how to restore Windows Server System State backups from an
 1. Restore System State as files from Azure Backup. When restoring System State as files from Azure Backup, you can either:
    * Restore System State to the same server where the backups were taken, or
    * Restore System State file to an alternate server.
-   * If you've Cross Region Restore enabled in your vault, you can restore the backup data from a secondary region.
+   * If you have Cross Region Restore enabled in your vault, you can restore the backup data from a secondary region.
 
 2. Apply the restored System State files to a Windows Server using the Windows Server Backup utility.
 

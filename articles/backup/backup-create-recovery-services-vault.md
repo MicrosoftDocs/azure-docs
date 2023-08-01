@@ -28,7 +28,7 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
 
 1. For **Storage replication type**, select **Geo-redundant**, **Locally-redundant**, or **Zone-redundant**. Then select **Save**.
 
-   ![Set the storage configuration for new vault](./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png)
+   :::image type="content" source="./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png" alt-text="Screenshot shows how to set the storage configuration for a new vault." lightbox="./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png":::
 
    Here are our recommendations for choosing a storage replication type:
    
