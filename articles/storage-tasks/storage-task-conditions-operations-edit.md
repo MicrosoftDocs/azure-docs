@@ -64,14 +64,14 @@ Conditions that include a date and time property can reference a value from the 
 
 In your storage account, you can add a key to the metadata of a container or to the index tags of a blob. The value of that key must be a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)-formatted time interval. For example, you might add a key named `retainfor` along with a string value of `PT5M` which represents an interval of five minutes.
 
-To reference a key, select the **Edit** link that appears in the **Property value** column. Then, in the **Select a value** dialog box, select **Container metadata** or **Blob Index tags**. 
+To reference a key, select the **Edit** link that appears in the **Property value** column. Then, in the **Select a value** dialog box, select **Container metadata** or **Blob Index tags**.
 
 The following example adds the **Creation time** property, the **Earlier than** operator, and references a key named `retainFor` in the index tags of each blob that is evaluated.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of specifying a key in container metadata as part of the condition definition.](./media/storage-task-conditions-operations-edit/parameterized-query.png)
 
-This condition tests whether the creation time of a blob is earlier than the current time minus the time interval retrieved from the `retainFor` tag.
+This condition tests whether a blob was created earlier than a certain time duration relative to now (the current date and time). For example, if the value retrieved from the `retainFor` tag is five minutes, then this condition checks if the blob was created more than 5 minutes ago.
 
 > [!NOTE]
 > In the **Code** tab, you'll see the logic of this example represented in a slightly different way. The generated code tests whether the current time is greater than creation time plus the time interval. Both representations yield the same result.
