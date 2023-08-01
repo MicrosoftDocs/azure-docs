@@ -17,13 +17,13 @@ This article explains how to plan for backup and disaster recovery for Azure man
 
 ## Azure built-in redundancy options
 
-Azure managed disks have [two built-in redundancy options](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-redundancy) to protect your data against failures:
+Azure managed disks have [two built-in redundancy options](disks-redundancy.md) to protect your data against failures:
 1.	Locally redundant storage (LRS) replicates your data three times within a single data center in a particular region. LRS protects your data against server rack and drive failures. 
 2.	Zone-redundant storage (ZRS) provides synchronous replication of data across zones in a region, enabling disks to tolerate zonal failures which may occur due to natural disasters or hardware issues.
 
 However, major disasters (such as earthquakes, fires, or hurricanes) can result in outages or inaccessibility of large-scale storage servers, sometimes impacting a whole data center or zone (impacting LRS disks), or an entire region (impacting ZRS disks). In addition to platform failures, problems with an application or data can also occur (such as accidental deletes and ransomware attack). When these happen, you might want to revert the application and the data to a prior version that contains the last known good state. Reverting to a good state requires regular backups. 
 
-To protect your IaaS workloads from outages, plan for redundancy, and create regular backups. To protect IaaS workloads from regional disasters, create backups in a different geographic location than your primary site. This ensures your backups aren’t affected by the same events that affected your other resources. For more information, see [Disaster Recovery for Azure Applications](https://learn.microsoft.com/en-us/azure/well-architected/resiliency/backup-and-recovery).
+To protect your IaaS workloads from outages, plan for redundancy, and create regular backups. To protect IaaS workloads from regional disasters, create backups in a different geographic location than your primary site. This ensures your backups aren’t affected by the same events that affected your other resources. For more information, see [Disaster Recovery for Azure Applications](/azure/well-architected/resiliency/backup-and-recovery).
 
 ## Backup and Disaster Recovery Scenarios
 
@@ -73,26 +73,26 @@ Let's now dive into the solution on Azure for backup and disaster recovery. You 
 
 ### Snapshots
 
-A [snapshot](https://learn.microsoft.com/en-us/azure/virtual-machines/snapshot-copy-managed-disk?tabs=portal) is a read-only point in time copy of the disk. You can take a snapshot at anytime. Snapshots exist independently of the source disk and can only be used to create new managed disks. You can't use them to change the state of an existing disk. You can also use [incremental snapshots](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-incremental-snapshots?tabs=azure-cli#cross-region-snapshot-copy-preview) snapshots for periodic incremental backup of your managed disks. 
+A snapshot is a read-only point in time copy of the disk. You can take a snapshot at anytime. Snapshots exist independently of the source disk and can only be used to create new managed disks. You can't use them to change the state of an existing disk. You can also use [incremental snapshots](disks-incremental-snapshots.md) for periodic incremental backup of your managed disks. 
 
-Generally, you should use incremental snapshots for backup and disaster recovery purposes since they'll lower your costs and offer a faster recovery time. Incremental snapshots are point-in-time backups for managed disks that, when taken, consist only of the changes since the last snapshot. The first [incremental snapshot](https://azure.microsoft.com/en-us/blog/announcing-general-availability-of-incremental-snapshots-of-managed-disks/) is a full copy of the disk. Any incremental snapshots after the first one consists only of the changes to a disk since the last snapshot. When you create a disk from a snapshot, the system reconstructs the full disk which represents the point in time backup of the disk when the incremental snapshot was taken. You can also [copy snapshots into a different region](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-copy-incremental-snapshot-across-regions?tabs=azure-cli) for disaster recovery. 
+Generally, you should use incremental snapshots for backup and disaster recovery purposes since they'll lower your costs and offer a faster recovery time. Incremental snapshots are point-in-time backups for managed disks that, when taken, consist only of the changes since the last snapshot. The first [incremental snapshot](https://azure.microsoft.com/en-us/blog/announcing-general-availability-of-incremental-snapshots-of-managed-disks/) is a full copy of the disk. Any incremental snapshots after the first one consists only of the changes to a disk since the last snapshot. When you create a disk from a snapshot, the system reconstructs the full disk which represents the point in time backup of the disk when the incremental snapshot was taken. You can also [Copy an incremental snapshot to a new region](disks-copy-incremental-snapshot-across-regions.md) for disaster recovery. 
 
 You can implement backup mechanisms through snapshots. To do this, you need to create consistent snapshots for all disks used by a VM and then replicate them to another region. An option to create consistent backups with snapshot is to shut down the VM and take snapshots of each disk. If applications running on the VM can pause the IOs, you should take advantage of pausing it and then take snapshots of all the disks attached to VMs. Taking offline snapshots is easier than coordinating snapshots of a running VM, but it requires a few minutes of downtime.
 
 You can take a snapshot anytime, but if you’re taking snapshots while the VM is running, keep these things in mind:
 1.	When the VM is running, data is still being streamed to the disks. As a result, snapshots of a running VM might contain partial operations that were in flight.
-2.	If there are several disks involved in a VM, snapshots of different disks might have occurred at different times.
+1.	If there are several disks involved in a VM, snapshots of different disks might have occurred at different times.
 
 In the described scenario, snapshots weren't coordinated. This lack of coordination is a problem for striped volumes whose files might be corrupted if changes were being made during a backup. So the backup process must implement the following steps:
 1.	Freeze all the disks.
 1.	Flush all the pending writes.
-1.	[Create an incremental snapshot for managed disks](https://learn.microsoft.com/azure/virtual-machines/disks-incremental-snapshots?tabs=azure-cli) for all the disks.
+1.	[Create an incremental snapshot for managed disks](disks-incremental-snapshots.md) for all the disks.
 
-Some Windows applications, like SQL Server, provide a coordinated backup mechanism through a volume shadow service to create application-consistent backups. On Linux, you can use a tool like fsfreeze to coordinate disks (this tool provides file-consistent backups, not application-consistent snapshots). This backup procedure is very complex, so you should consider [Azure Disk Backup](https://learn.microsoft.com/en-us/azure/backup/disk-backup-overview) or a third-party backup solution that already implements this procedure. This would result a collection of coordinated snapshots for all the VM disks, representing a specific point-in-time view of the VM - in other words, a backup restore point for the VM. You can repeat the process at scheduled intervals to create periodic backups. 
+Some Windows applications, like SQL Server, provide a coordinated backup mechanism through a volume shadow service to create application-consistent backups. On Linux, you can use a tool like fsfreeze to coordinate disks (this tool provides file-consistent backups, not application-consistent snapshots). This backup procedure is very complex, so you should consider [Overview of Azure Disk Backup](../backup/disk-backup-overview.md) or a third-party backup solution that already implements this procedure. This would result a collection of coordinated snapshots for all the VM disks, representing a specific point-in-time view of the VM - in other words, a backup restore point for the VM. You can repeat the process at scheduled intervals to create periodic backups. 
 
 ### Restore Points
 
-[Azure VM Restore Points](https://learn.microsoft.com/en-us/azure/virtual-machines/virtual-machines-create-restore-points) can be used to implement granular backup and retention policies of all disks attached to your virtual machine. Individual VM restore point is a resource that stores VM configuration and point-in-time application consistent snapshots of all the managed disks attached to the VM. You can use VM Restore Points to easily capture multi-disk consistent backups of all disks attached to your VM.
+[Azure VM Restore Points](virtual-machines-create-restore-points.md) can be used to implement granular backup and retention policies of all disks attached to your virtual machine. Individual VM restore point is a resource that stores VM configuration and point-in-time application consistent snapshots of all the managed disks attached to the VM. You can use VM Restore Points to easily capture multi-disk consistent backups of all disks attached to your VM.
 
 Restore points have three levels of hierarchy – VM Restore Point Collection, VM Restore Points, and Disk Restore Points:
 -	Level 1: VM Restore Points are organized into Restore Point Collections. A Restore Point collection is an Azure Resource Management (ARM) resource that contains the restore points for a specific VM.
@@ -103,27 +103,27 @@ Restore points are incremental. First restore point stores a full copy of all di
 1.	Copy VM restore points between regions, restore VMs in a different region than the source VM and track the progress of copy operation. 
 2.	Create disks using disk restore points and get a shared access signature for the disk. These disks can then be used to create a new VM.
 
-See the following articles to learn how to [Create VM restore points](https://learn.microsoft.com/azure/virtual-machines/create-restore-points) and [Manage VM restore points](https://learn.microsoft.com/azure/virtual-machines/manage-restore-points).
+See the following articles to learn how to [Create VM restore points](virtual-machines-create-restore-points.md) and [Manage VM restore points](manage-restore-points.md).
 
 
 
 ### Azure Backup
 
-[Azure Backup](https://learn.microsoft.com/en-us/azure/backup/backup-overview) provides simple, secure, and cost-effective solutions to backup your data and recover it from Azure. [Azure Disk Backup](https://learn.microsoft.com/en-us/azure/backup/disk-backup-overview) is a native, cloud-based backup solution that protects your data in managed disks. It's a simple, secure, and cost-effective solution that enables you to configure protection for managed disks in a few steps. It ensures your data is protected in the event of a disaster.
+[Azure Backup](../backup/backup-overview.md) provides simple, secure, and cost-effective solutions to backup your data and recover it from Azure. [Azure Disk Backup](../backup/disk-backup-overview.md) is a native, cloud-based backup solution that protects your data in managed disks. It's a simple, secure, and cost-effective solution that enables you to configure protection for managed disks in a few steps. It ensures your data is protected in the event of a disaster.
 
-[Azure Disk Backup](https://learn.microsoft.com/en-us/azure/backup/disk-backup-overview) offers a turnkey solution that provides snapshot lifecycle management for managed disks by automating periodic creation of snapshots and retaining it for however long you specify, using backup policy. You can manage disk snapshots, with no infrastructure costs, without the need for custom scripting, or any management overhead.
+[Azure Disk Backup](../backup/disk-backup-overview.md) offers a turnkey solution that provides snapshot lifecycle management for managed disks by automating periodic creation of snapshots and retaining it for however long you specify, using backup policy. You can manage disk snapshots, with no infrastructure costs, without the need for custom scripting, or any management overhead.
 
-Azure Disk Backup is a crash-consistent backup solution that takes point-in-time backup of a managed disk using [incremental snapshots](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-incremental-snapshots?tabs=azure-cli) and supports multiple backups per day. It's also an agent-less solution, and doesn't impact production application performance. It supports backup and restore of both OS and data disks (including shared disks), whether they're currently attached to a running Azure VM or not. 
+Azure Disk Backup is a crash-consistent backup solution that takes point-in-time backup of a managed disk using incremental snapshots and supports multiple backups per day. It's also an agent-less solution, and doesn't impact production application performance. It supports backup and restore of both OS and data disks (including shared disks), whether they're currently attached to a running Azure VM or not. 
 
-Azure Disk Backup is integrated into Backup Center, which provides a single unified management experience in Azure for enterprises to govern, monitor, operate, and analyze backups at scale. If you need an application-consistent backup of virtual machine including the data disks, or an option to restore an entire virtual machine from backup, restore a file or folder, or restore to a secondary region, use the [Azure VM Backup](https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction) solution. If you are unable to use Azure Backup, you can implement your own backup mechanism by using snapshots. But creating consistent snapshots for all the disks used by a VM, replicating those snapshots to another region, and continually managing this process is complicated and time consuming.
+Azure Disk Backup is integrated into Backup Center, which provides a single unified management experience in Azure for enterprises to govern, monitor, operate, and analyze backups at scale. If you need an application-consistent backup of virtual machine including the data disks, or an option to restore an entire virtual machine from backup, restore a file or folder, or restore to a secondary region, use the [Azure VM backup](../backup/backup-azure-vms-introduction.md) solution. If you are unable to use Azure Backup, you can implement your own backup mechanism by using snapshots. But creating consistent snapshots for all the disks used by a VM, replicating those snapshots to another region, and continually managing this process is complicated and time consuming.
 
 ### Azure Site Recovery
 
-[Azure Site Recovery](https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview) helps ensure your organization’s business continuity by keeping apps and workloads running during outages. It is a paid, fully managed service to help you achieve your business continuity and disaster recovery (BCDR) strategy.
+[Azure Site Recovery](../site-recovery/site-recovery-overview.md) helps ensure your organization’s business continuity by keeping apps and workloads running during outages. It is a paid, fully managed service to help you achieve your business continuity and disaster recovery (BCDR) strategy.
 
 Azure Site Recovery replicates workloads running on physical and virtual machines from a primary site to a secondary location. When an outage occurs at your primary site, your workload failover to a secondary location and can be accessed from there. After the primary location is running again, your workloads can fail back to it. 
 
-You can easily set up [disaster recovery to a secondary Azure region](https://learn.microsoft.com/azure/site-recovery/azure-to-azure-quickstart) with a few steps. Azure Site recovery enables many disaster recovery scenarios – Azure to Azure, VMware to Azure, Physical to Azure, Azure Stack VM, Hyper-V to Azure, DR for apps, DR to a secondary site. For a full list of benefits that Azure Site Recovery provides, refer to [About Site Recovery](https://learn.microsoft.com/azure/site-recovery/site-recovery-overview).
+You can easily set up [disaster recovery to a secondary Azure region](../site-recovery/azure-to-azure-quickstart.md) with a few steps. Azure Site recovery enables many disaster recovery scenarios – Azure to Azure, VMware to Azure, Physical to Azure, Azure Stack VM, Hyper-V to Azure, DR for apps, DR to a secondary site. For a full list of benefits that Azure Site Recovery provides, refer to [About Site Recovery](../site-recovery/site-recovery-overview.md).
 
 ### Other options
 
@@ -132,8 +132,8 @@ SQL Server running in a VM has its own built-in capabilities to back up your SQL
 ## Next steps
 
 Explore your options:
-- [Create an Incremental Snapshot for Managed Disk](https://learn.microsoft.com/azure/virtual-machines/disks-incremental-snapshots?tabs=azure-cli)
-- [Copy an Incremental Snapshot to a New Region](https://learn.microsoft.com/azure/virtual-machines/disks-copy-incremental-snapshot-across-regions?tabs=azure-cli)
-- [Restore Points](https://learn.microsoft.com/azure/virtual-machines/virtual-machines-create-restore-points)
-- [Azure Disk Backup](https://learn.microsoft.com/azure/backup/disk-backup-overview?toc=%2Fazure%2Fvirtual-machines%2Ftoc.json)
-- [Azure Site Recovery](https://learn.microsoft.com/azure/site-recovery/site-recovery-overview)
+- [Create an incremental snapshot for managed disks](disks-incremental-snapshots.md)
+- [Copy an incremental snapshot to a new region](disks-copy-incremental-snapshot-across-regions.md)
+- [Overview of VM restore points](virtual-machines-create-restore-points.md)
+- [Overview of Azure Disk Backup](../backup/disk-backup-overview.md)
+- [About Site Recovery](../site-recovery/site-recovery-overview.md)
