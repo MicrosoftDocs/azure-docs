@@ -295,7 +295,7 @@ Select the '+' button and choose the hook that you created, fill in other fields
 
 This section will share the practice of using an SMTP server to send email notifications on anomalies that are detected. Make sure you have a usable SMTP server and have sufficient permission to get parameters like account name and password.
 
-**Step 1.** Assign your account as the 'Cognitive Service Metrics Advisor Administrator' role  
+**Step 1.** Assign your account as the 'Cognitive Services Metrics Advisor Administrator' role
 
 - A user with the subscription administrator or resource group administrator privileges needs to navigate to the Metrics Advisor resource that was created in the Azure portal, and select the Access control (IAM) tab.
 - Select 'Add role assignments'.

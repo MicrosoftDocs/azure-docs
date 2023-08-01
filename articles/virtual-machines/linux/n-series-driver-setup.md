@@ -82,82 +82,121 @@ sudo reboot
 
 With Secure Boot enabled, all Linux kernel modules are required to be signed by the key trusted by the system.
 
-1. Find latest nvidia driver version
+1. Find latest NVIDIA driver version compatible with Azure
+   
+   ```
+   sudo apt-get update
+   ```
 
-```
-sudo apt-get update
-NVIDIA_DRIVER_VERSION=$(sudo apt-cache search 'linux-modules-nvidia-[0-9]+-azure$' | awk '{print $1}' | sort | tail -n 1 | head -n 1 | awk -F"-" '{print $4}')
-```
+   ```
+   NVIDIA_DRIVER_VERSION=$(sudo apt-cache search 'linux-modules-nvidia-[0-9]+-azure$' | awk '{print $1}' | sort | tail -n 1 | head -n 1 | awk -F"-" '{print $4}')
+   ```
 
-2. Install pre-built azure linux kernel based nvidia modules and driver
+2. Install pre-built Azure Linux kernel based NVIDIA modules and driver
 
-```
-sudo apt install -y linux-modules-nvidia-${NVIDIA_DRIVER_VERSION}-azure nvidia-driver-${NVIDIA_DRIVER_VERSION}
-```
+   ```
+   sudo apt install -y linux-modules-nvidia-${NVIDIA_DRIVER_VERSION}-azure nvidia-driver-${NVIDIA_DRIVER_VERSION}
+   ```
 
-3. Change preference of nvidia packages to prefer NVIDIA repos
+3. Change preference of NVIDIA packages to prefer NVIDIA repository
 
-```
-sudo tee /etc/apt/preferences.d/cuda-repository-pin-600 > /dev/null <<EOL
-Package: nsight-compute
-Pin: origin *ubuntu.com*
-Pin-Priority: -1
-Package: nsight-systems
-Pin: origin *ubuntu.com*
-Pin-Priority: -1
-Package: nvidia-modprobe
-Pin: release l=NVIDIA CUDA
-Pin-Priority: 600
-Package: nvidia-settings
-Pin: release l=NVIDIA CUDA
-Pin-Priority: 600
-Package: *
-Pin: release l=NVIDIA CUDA
-Pin-Priority: 100
-EOL
-```
+   ```
+   sudo tee /etc/apt/preferences.d/cuda-repository-pin-600 > /dev/null <<EOL
+   Package: nsight-compute
+   Pin: origin *ubuntu.com*
+   Pin-Priority: -1
+   Package: nsight-systems
+   Pin: origin *ubuntu.com*
+   Pin-Priority: -1
+   Package: nvidia-modprobe
+   Pin: release l=NVIDIA CUDA
+   Pin-Priority: 600
+   Package: nvidia-settings
+   Pin: release l=NVIDIA CUDA
+   Pin-Priority: 600
+   Package: *
+   Pin: release l=NVIDIA CUDA
+   Pin-Priority: 100
+   EOL
+   ```
 
 4. Add CUDA repository
 
-```
-sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/3bf863cc.pub
-sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /"
-```
+   ```
+   sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/$distro/$arch/3bf863cc.pub
+   ```
 
-5. Find appropriate CUDA driver version
+   ```
+   sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/$distro/$arch/ /"
+   ```
+   
+   where `$distro/$arch` should be replaced by one of the following:
 
-```
-CUDA_DRIVER_VERSION=$(apt-cache madison cuda-drivers | awk '{print $3}' | sort -r | while read line; do
-   if dpkg --compare-versions $(dpkg-query -f='${Version}\n' -W nvidia-driver-${NVIDIA_DRIVER_VERSION}) ge $line ; then
-       echo "$line"
-       break
-   fi
-done)
-NVIDIA_DRIVER_MAPPING=$(echo $CUDA_DRIVER_VERSION | awk -F"." '{print $1}')
-```
+   ```
+   ubuntu2004/arm64
+   ubuntu2004/x86_64
+   ubuntu2204/arm64
+   ubuntu2204/x86_64
+   ```
+   
+   If `add-apt-repository` command is not found, run `sudo apt-get install software-properties-common` to install it.
 
-6. Install CUDA driver
+5. Install the kernel headers and development packages, and remove outdated signing key
 
-```
-sudo apt install -y cuda-drivers-${NVIDIA_DRIVER_MAPPING}=${CUDA_DRIVER_VERSION} cuda-drivers=${CUDA_DRIVER_VERSION}
-```
+   ```
+   sudo apt-get install linux-headers-$(uname -r)
+   sudo apt-key del 7fa2af80
+   ```
 
-7. Find CUDA toolkit and runtime version
+6. Install the new cuda-keyring package
 
-```
-CUDA_VERSION=$(apt-cache showpkg cuda-drivers | grep -o 'cuda-runtime-[0-9][0-9]-[0-9],cuda-drivers [0-9\.]*' | while read line; do
-   if dpkg --compare-versions ${CUDA_DRIVER_VERSION} ge $(echo $line | grep -Eo '[[:digit:]]+\.[[:digit:]]+') ; then
-       echo $(echo $line | grep -Eo '[[:digit:]]+-[[:digit:]]')
-       break
-   fi
-done)
-```
+   ```
+   wget https://developer.download.nvidia.com/compute/cuda/repos/$distro/$arch/cuda-keyring_1.1-1_all.deb
+   sudo dpkg -i cuda-keyring_1.1-1_all.deb
+   ```
 
-8. Install CUDA toolkit and runtime
+   Note: When prompt on different versions of cuda-keyring, select `Y or I  : install the package maintainer's version` to proceed.
 
-```
-sudo apt install -y cuda-${CUDA_VERSION}
-```
+7. Update the APT repository cache
+
+   ```
+   sudo apt-get update
+   ```
+   
+8. Install CUDA toolkit and driver
+
+   ```
+   sudo apt-get install -y cuda
+   sudo apt-get install -y nvidia-gds
+   ```
+
+   Note that during the installation you will be prompted for password when configuring secure boot, a password of your choice needs to be provided and then proceed.
+
+   ![Secure Boot Password Configuration](./media/n-series-driver-setup/secure-boot-passwd.png)
+
+9. Reboot the VM
+
+   ```
+   sudo reboot
+   ```
+
+10. Verify the installation
+    
+    a. Verify NVIDIA driver is installed and loaded
+    
+    ```
+    dpkg -l | grep -i nvidia
+    nvidia-smi
+    ```
+
+    b. Verify CUDA toolkit is installed and loaded
+
+    ```
+    dpkg -l | grep -i cuda
+    export PATH=/usr/local/cuda/bin:$PATH
+    export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+    nvcc --version
+    ```
 
 
 ### CentOS or Red Hat Enterprise Linux
@@ -174,16 +213,17 @@ sudo apt install -y cuda-${CUDA_VERSION}
    LIS is applicable to Red Hat Enterprise Linux, CentOS, and the Oracle Linux Red Hat Compatible Kernel 5.2-5.11, 6.0-6.10, and 7.0-7.7. Refer to the [Linux Integration Services documentation](https://www.microsoft.com/en-us/download/details.aspx?id=55106) for more details. 
    Skip this step if you plan to use CentOS/RHEL 7.8 (or higher versions) as LIS is no longer required for these versions.
 
-      ```bash
-      wget https://aka.ms/lis
-      tar xvzf lis
-      cd LISISO
+   ```bash
+   wget https://aka.ms/lis
+   tar xvzf lis
+   cd LISISO
 
-      sudo ./install.sh
-      sudo reboot
-      ```
+   sudo ./install.sh
+   sudo reboot
+   ```
 
 3. Reconnect to the VM and continue installation with the following commands:
+   
    ```bash
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
    sudo yum-config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-rhel7.repo
@@ -193,7 +233,7 @@ sudo apt install -y cuda-${CUDA_VERSION}
 
    The installation can take several minutes. 
    
-    > [!NOTE]
+   > [!NOTE]
    >  Visit [Fedora](https://dl.fedoraproject.org/pub/epel/) and [Nvidia CUDA repo](https://developer.download.nvidia.com/compute/cuda/repos/) to pick the correct package for the CentOS or RHEL version you want to use.
    >  
 
@@ -311,16 +351,17 @@ To install NVIDIA GRID drivers on NV or NVv3-series VMs, make an SSH connection 
    EnableUI=FALSE
    ```
    
-9. Remove the following from `/etc/nvidia/gridd.conf` if its present:
+9. Remove the following from `/etc/nvidia/gridd.conf` if it is present:
  
    ```
    FeatureType=0
    ```
+   
 10. Reboot the VM and proceed to verify the installation.
 
 #### Install GRID driver on Ubuntu with Secure Boot enabled
 
-The GRID driver installation process does not offer any options to skip kernel module build and installation, so secure boot has to be disabled in Linux VMs in order to use them with GRID, after installing signed kernel modules.
+The GRID driver installation process does not offer any options to skip kernel module build and installation and select a different source of signed kernel modules, so secure boot has to be disabled in Linux VMs in order to use them with GRID, after installing signed kernel modules.
 
 
 ### CentOS or Red Hat Enterprise Linux 
@@ -346,15 +387,15 @@ The GRID driver installation process does not offer any options to skip kernel m
 
    Skip this step if you plan to use CentOS/RHEL 7.8 (or higher versions) as LIS is no longer required for these versions.
 
-      ```bash
-      wget https://aka.ms/lis
-      tar xvzf lis
-      cd LISISO
+   ```bash
+   wget https://aka.ms/lis
+   tar xvzf lis
+   cd LISISO
 
-      sudo ./install.sh
-      sudo reboot
+   sudo ./install.sh
+   sudo reboot
 
-      ```
+   ```
  
 4. Reconnect to the VM and run the `lspci` command. Verify that the NVIDIA M60 card or cards are visible as PCI devices.
  
@@ -365,7 +406,8 @@ The GRID driver installation process does not offer any options to skip kernel m
    chmod +x NVIDIA-Linux-x86_64-grid.run
 
    sudo ./NVIDIA-Linux-x86_64-grid.run
-   ``` 
+   ```
+   
 6. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, select **Yes**.
 
 7. After installation completes, copy /etc/nvidia/gridd.conf.template to a new file gridd.conf at location /etc/nvidia/
@@ -380,11 +422,13 @@ The GRID driver installation process does not offer any options to skip kernel m
    IgnoreSP=FALSE
    EnableUI=FALSE 
    ```
+   
 9. Remove one line from `/etc/nvidia/gridd.conf` if it is present:
  
    ```
    FeatureType=0
    ```
+   
 10. Reboot the VM and proceed to verify the installation.
 
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 10/26/2021
+ms.date: 07/27/2023
 ms.author: alkohli
 
 ---
@@ -17,7 +17,7 @@ ms.author: alkohli
 
 
 > [!IMPORTANT]
-> Remote support is in public preview and applies to Azure Stack Edge version 2110 or later.
+> Remote support applies to Azure Stack Edge version 2110 or later.
 
 On your Azure Stack Edge device, you can enable remote support to allow Microsoft Engineers to diagnose and remediate issues by accessing your device remotely. When you enable this feature, you provide consent for the level of access and the duration of access. 
 

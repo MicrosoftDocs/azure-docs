@@ -1,11 +1,11 @@
 ---
 title: How to configure Quick Access for Global Secure Access
-description: Learn how to configure Quick Access for Microsoft Entra Private Access.
+description: Learn how to specify the internal resources to secure with Microsoft Entra Private Access using a Quick Access app.
 author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 07/27/2023
 ms.service: network-access
 ms.custom: 
 ms.reviewer: katabish
@@ -37,7 +37,7 @@ To manage App Proxy connector groups, which is required for Quick Access, you mu
 
 Configuring your Quick Access settings is a major component to utilizing Microsoft Entra Private Access. When you configure Quick Access for the first time, Private Access creates a new enterprise application. The properties of this new app are automatically configured to work with Private Access. 
 
-To configure Quick Access, you need to have a connector group with at least one active [Microsoft Entra ID Application Proxy](../active-directory/app-proxy/application-proxy.md) connector. The connector group handles the traffic to this new application. Once you have Quick Access and an App proxy connector group configured, you need to grant access to the app.
+To configure Quick Access, you need to have a connector group with at least one active [Microsoft Entra ID Application Proxy](/azure/active-directory/app-proxy/application-proxy) connector. The connector group handles the traffic to this new application. Once you have Quick Access and an App proxy connector group configured, you need to grant access to the app.
 
 To summarize, the overall process is as follows:
 
@@ -125,7 +125,7 @@ You can view the properties from **Quick Access** or navigate to **Enterprise ap
 1. Select **Users and groups** from the side menu.
 
 1. Add users and groups as needed.
-    - For more information, see [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md).
+    - For more information, see [Assign users and groups to an application](/azure/active-directory/manage-apps/assign-user-or-group-access-portal).
 
 > [!NOTE]
 > Users must be directly assigned to the app or to the group assigned to the app. Nested groups are not supported.
