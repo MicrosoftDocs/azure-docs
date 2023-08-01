@@ -215,7 +215,7 @@ items:
         href: 5-secure-access-b2b.md
       - name: 6 Secure access with Entitlement Management
         href: 6-secure-access-entitlement-managment.md
-      - name: 7 Secure access with conditional access
+      - name: 7 Secure access with Conditional Access
         href: 7-secure-access-conditional-access.md
       - name: 8 Secure access with sensitivity labels
         href: 8-secure-access-sensitivity-labels.md

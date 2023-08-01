@@ -29,7 +29,7 @@ Managing Azure Active Directory requires the continuous execution of key operati
 | Task | Owner |
 | :- | :- |
 | Manage lifecycle of single sign-on (SSO) configuration in Azure AD | IAM Operations Team |
-| Design conditional access policies for Azure AD applications | InfoSec Architecture Team |
+| Design Conditional Access policies for Azure AD applications | InfoSec Architecture Team |
 | Archive sign-in activity in a SIEM system | InfoSec Operations Team |
 | Archive risk events in a SIEM system | InfoSec Operations Team |
 | Triage and investigate security reports | InfoSec Operations Team |
@@ -121,16 +121,16 @@ Like a user in your organization, a device is a core identity you want to protec
 
 You can carry out this goal by bringing device identities and managing them in Azure AD by using one of the following methods:
 
-- Organizations can use [Microsoft Intune](/intune/what-is-intune) to manage the device and enforce compliance policies, attest device health, and set conditional access policies based on whether the device is compliant. Microsoft Intune can manage iOS devices, Mac desktops (Via JAMF integration), Windows desktops (natively using Mobile Device Management for Windows 10, and co-management with Microsoft Configuration Manager) and Android mobile devices.
+- Organizations can use [Microsoft Intune](/intune/what-is-intune) to manage the device and enforce compliance policies, attest device health, and set Conditional Access policies based on whether the device is compliant. Microsoft Intune can manage iOS devices, Mac desktops (Via JAMF integration), Windows desktops (natively using Mobile Device Management for Windows 10, and co-management with Microsoft Configuration Manager) and Android mobile devices.
 - [Hybrid Azure AD join](../devices/hybrid-azuread-join-managed-domains.md) provides management with Group Policies or Microsoft Configuration Manager in an environment with Active Directory domain-joined computers devices. Organizations can deploy a managed environment either through PHS or PTA with Seamless SSO. Bringing your devices to Azure AD maximizes user productivity through SSO across your cloud and on-premises resources while enabling you to secure access to your cloud and on-premises resources with [Conditional Access](../conditional-access/overview.md) at the same time.
 
-If you have domain-joined Windows devices that aren't registered in the cloud, or domain-joined Windows devices that are registered in the cloud but without conditional access policies, then you should register the unregistered devices and, in either case, [use Hybrid Azure AD join as a control](../conditional-access/require-managed-devices.md) in your conditional access policies.
+If you have domain-joined Windows devices that aren't registered in the cloud, or domain-joined Windows devices that are registered in the cloud but without Conditional Access policies, then you should register the unregistered devices and, in either case, [use Hybrid Azure AD join as a control](../conditional-access/require-managed-devices.md) in your Conditional Access policies.
 
-![A screenshot of grant in conditional access policy requiring hybrid device](./media/ops-guide-auth/ops-img6.png)
+![A screenshot of grant in Conditional Access policy requiring hybrid device](./media/ops-guide-auth/ops-img6.png)
 
-If you're managing devices with MDM or Microsoft Intune, but not using device controls in your conditional access policies, then we recommend using [Require device to be marked as compliant](../conditional-access/require-managed-devices.md#require-device-to-be-marked-as-compliant) as a control in those policies.
+If you're managing devices with MDM or Microsoft Intune, but not using device controls in your Conditional Access policies, then we recommend using [Require device to be marked as compliant](../conditional-access/require-managed-devices.md#require-device-to-be-marked-as-compliant) as a control in those policies.
 
-![A screenshot of grant in conditional access policy requiring device compliance](./media/ops-guide-auth/ops-img7.png)
+![A screenshot of grant in Conditional Access policy requiring device compliance](./media/ops-guide-auth/ops-img7.png)
 
 #### Device trust access policies recommended reading
 
@@ -203,7 +203,7 @@ Based on priority, use the table below to find the recommended solution that bes
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | 1 | If you use PHS or PTA and named locations haven't been defined | Define named locations to improve detection of risk events |
 | 2 | If you're federated and don't use "insideCorporateNetwork" claim and named locations haven't been defined | Define named locations to improve detection of risk events |
-| 3 | If you don't use named locations in conditional access policies and there's no risk or device controls in conditional access policies | Configure the conditional access policy to include named locations |
+| 3 | If you don't use named locations in Conditional Access policies and there's no risk or device controls in Conditional Access policies | Configure the Conditional Access policy to include named locations |
 | 4 | If you're federated and do use "insideCorporateNetwork" claim and named locations haven't been defined | Define named locations to improve detection of risk events |
 | 5 | If you're using trusted IP addresses with MFA rather than named locations and marking them as trusted | Define named locations and mark them as trusted to improve detection of risk events |
 
@@ -222,9 +222,9 @@ If you already own Azure AD Premium P2 licenses that support using risk in acces
 
 ### Client application access policies
 
-Microsoft Intune Application Management (MAM) provides the ability to push data protection controls such as storage encryption, PIN, remote storage cleanup, etc. to compatible client mobile applications such as Outlook Mobile. In addition, conditional access policies can be created to [restrict access](../conditional-access/app-based-conditional-access.md) to cloud services such as Exchange Online from approved or compatible apps.
+Microsoft Intune Application Management (MAM) provides the ability to push data protection controls such as storage encryption, PIN, remote storage cleanup, etc. to compatible client mobile applications such as Outlook Mobile. In addition, Conditional Access policies can be created to [restrict access](../conditional-access/app-based-conditional-access.md) to cloud services such as Exchange Online from approved or compatible apps.
 
-If your employees install MAM-capable applications such as Office mobile apps to access corporate resources such as Exchange Online or SharePoint Online, and you also support BYOD (bring your own device), we recommend you deploy application MAM policies to manage the application configuration in personally owned devices without MDM enrollment and then update your conditional access policies to only allow access from MAM-capable clients.
+If your employees install MAM-capable applications such as Office mobile apps to access corporate resources such as Exchange Online or SharePoint Online, and you also support BYOD (bring your own device), we recommend you deploy application MAM policies to manage the application configuration in personally owned devices without MDM enrollment and then update your Conditional Access policies to only allow access from MAM-capable clients.
 
 ![Conditional Access Grant control](./media/ops-guide-auth/ops-img12.png)
 
@@ -278,7 +278,7 @@ If legacy authentication is widely used in your environment, you should plan to 
    c. Identify what legacy applications have a hard dependency on legacy authentication. See step 3 below.
 
 2. Disable legacy protocols at the source (for example Exchange Mailbox) for users who aren't using legacy auth to avoid more exposure.
-3. For the remaining accounts (ideally non-human identities such as service accounts), use [conditional access to restrict legacy protocols](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417) post-authentication.
+3. For the remaining accounts (ideally non-human identities such as service accounts), use [Conditional Access to restrict legacy protocols](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417) post-authentication.
 
 #### Legacy authentication recommended reading
 
@@ -346,7 +346,7 @@ Below are the user and group settings that can be locked down if there isn't an 
 
 ### Traffic from unexpected locations
 
-Attackers originate from various parts of the world. Manage this risk by using conditional access policies with location as the condition. The [location condition](../conditional-access/location-condition.md) of a Conditional Access policy enables you to block access for locations from where there's no business reason to sign in from.
+Attackers originate from various parts of the world. Manage this risk by using Conditional Access policies with location as the condition. The [location condition](../conditional-access/location-condition.md) of a Conditional Access policy enables you to block access for locations from where there's no business reason to sign in from.
 
 ![Create a new named location](./media/ops-guide-auth/ops-img14.png)
 
