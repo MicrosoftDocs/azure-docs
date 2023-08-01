@@ -42,7 +42,7 @@ Azure virtual machine extensions are small applications that run post-deployment
 - Resetting credentials
 - Encrypting disks
 
-As a result of such possible abuse, it's important to monitor and detect suspicious activity and malicious intents, in order to to prevent, disrupt, and remediate the attack, as quick as possible. 
+As a result of such possible abuse, it's important to monitor and detect suspicious activity and malicious intents, in order to to prevent, disrupt, and remediate the attack, as quickly as possible. 
 
 Here is a table of the new alerts.
 
@@ -58,6 +58,8 @@ Here is a table of the new alerts.
 | **Suspicious usage of VMAccess extension was detected on your virtual machines (Preview)**<br>(VM_VMAccessSuspiciousUsage) | Suspicious usage of VMAccess extension was detected on your virtual machines. Attackers may abuse the VMAccess extension to gain access and compromise your virtual machines with high privileges by resetting access or managing adminstrative users.This activity is deemed suspicious as the principal's behavior departs from its usual patterns, and due to the high number of the extension installations. | Persistence | Medium |
 | **Desired State Configuration (DSC) extension with a suspicious script was detected on your virtual machine (Preview)**<br>(VM_DSCExtensionSuspiciousScript) | Desired State Configuration (DSC) extension with a suspicious script was detected on your virtual machine by analyzing the Azure Resource Manager operations in your subscription. Attackers may use the Desired State Configuration (DSC) extension to deploy malicious configurations, such as persistence mechanisms, malicious scripts, and more, with high privileges, on your virtual machines. | Execution | High | 
 | **Suspicious usage of a DSC extension was detected in your virtual machines (Preview)** | The script is deemed suspicious as certain parts were identified as being potentially malicious. Suspicious usage of a Desired State Configuration extension was detected in your virtual machines by analyzing the Azure Resource Manager operations in your subscription. Attackers may use Desired State Configuration extension to deploy malicious configurations, such as persistence mechanisms, malicious scripts, and more, with high privileges, on your virtual machines. | Impact | Low |
+
+ See the [all new extension-based alerts in Defender for Servers](alerts-reference.md#control-plane-alerts--defender-for-servers). 
 
 For a complete list of alerts, see the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md).
 
