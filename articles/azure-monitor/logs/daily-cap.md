@@ -14,10 +14,6 @@ A daily cap on a Log Analytics workspace allows you to avoid unexpected increase
 > 
 > For strategies to reduce your Azure Monitor costs, see [Cost optimization and Azure Monitor](../best-practices-cost.md).
 
-## Prerequisites
-
-The procedure in this article to set a daily cap assumes you have a Log Analytics workspace or classic Application Insights resource.
-
 ## Permissions required
 
 | Action | Permissions or role needed |
