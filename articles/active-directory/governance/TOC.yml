@@ -45,7 +45,9 @@
       - name: Migrate an organizational role model
         href: identity-governance-organizational-roles.md
       - name: Automated ServiceNow Ticket Creation Integration
-        href: entitlement-management-ticketed-provisioning.md  
+        href: entitlement-management-ticketed-provisioning.md
+      - name: Automated Teams Messaging Integration
+        href: entitlement-management-custom-teams-extension.md      
     - name: Access Reviews
       items:
       - name: Review access to Microsoft 365 groups - Microsoft Graph
@@ -259,6 +261,8 @@
   items:
   - name: Identity Governance Dashboard
     href: governance-dashboard.md
+  - name: Licensing fundamentals
+    href: licensing-fundamentals.md
   - name: Services and integration partners
     href: services-and-integration-partners.md
   - name: Identity Governance - PowerShell

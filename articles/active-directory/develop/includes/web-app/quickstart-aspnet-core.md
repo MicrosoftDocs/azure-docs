@@ -30,7 +30,10 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 ## Register and download your quickstart application
 
 ### Step 1: Register your application
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.

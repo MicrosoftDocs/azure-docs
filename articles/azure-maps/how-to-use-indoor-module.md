@@ -83,6 +83,8 @@ To use the globally hosted Azure Content Delivery Network version of the *Azure 
       };
       ```
 
+      To learn more, see [How to use the Azure Maps map control npm package].
+
 ## Set the domain and instantiate the Map object
 
 Set the map domain with a prefix matching the location of your Creator resource, `US` or `EU`, for example:
@@ -329,3 +331,4 @@ Learn more about how to add more data to your map:
 [Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
 [visual style editor]: https://azure.github.io/Azure-Maps-Style-Editor
 [Webpack]: https://webpack.js.org
+[How to use the Azure Maps map control npm package]: how-to-use-npm-package.md

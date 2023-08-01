@@ -18,6 +18,8 @@ For an architectural overview of reliability in Azure, see [Azure reliability](/
 
 ## Reliability recommendations
 
+This section contains recommendations for achieving resiliency and availability for your Azure Virtual Machine Scale Sets.  
+
 [!INCLUDE [Reliability recommendations](includes/reliability-recommendations-include.md)]
 
 ### Reliability recommendations summary
@@ -343,6 +345,9 @@ When you deploy a regional (non-zonal) scale set into one or more zones as of AP
 
 With max spreading, the scale set spreads your VMs across as many fault domains as possible within each zone. This spreading could be across greater or fewer than five fault domains per zone. With static fixed spreading, the scale set spreads your VMs across exactly five fault domains per zone. If the scale set can't find five distinct fault domains per zone to satisfy the allocation request, the request fails.
 
+>[!NOTE]
+> The `zoneBalance` property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
+
 #### Zone balancing
 
 For scale sets deployed across multiple zones, you also have the option of choosing "best effort zone balance" or "strict zone balance". A scale set is considered "balanced" if each zone has the same number of VMs +\\- 1 on VM as all other zones for the scale set. For example:
@@ -357,8 +362,6 @@ With best-effort zone balance, the scale set attempts to scale in and out while 
 To use best-effort zone balance, set *zoneBalance* to *false*. This setting is the default in API version *2017-12-01*. To use strict zone balance, set *zoneBalance* to *true*.
 
 
->[!NOTE]
-> The `zoneBalance` property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
 
 
 **We recommend deploying with max spreading for most workloads**, as this approach provides the best spreading in most cases. If you need replicas to be spread across distinct hardware isolation units, we recommend spreading across Availability Zones and utilize max spreading within each zone.

@@ -148,7 +148,7 @@ The most urgent items that you need to take care of right away. If you don't add
 
 ## Time to connect
 
-Time to connect is the time between when a user opens a resource to start their session and when their desktop has loaded and is ready to use. For example, for RemoteApps, this is the time it takes to launch the application.
+Time to connect is the time between when a user opens a resource to start their session and when their desktop has loaded and is ready to use. For example, for a RemoteApp, this is the time it takes to launch the application.
 
 Time to connect has two stages:
 
@@ -157,16 +157,16 @@ Time to connect has two stages:
 
 When monitoring time to connect, keep in mind the following things:
 
-- Time to connect is measured with the following checkpoints from Azure Virtual Desktop service diagnostics data. The checkpoints Insights uses to determine when the connection is established are different for a desktop versus a remote application scenario.
+- Time to connect is measured with the following checkpoints from Azure Virtual Desktop service diagnostics data. The checkpoints Insights uses to determine when the connection is established are different for a desktop versus a RemoteApp scenario.
 
   - Begins: [WVDConnection](/azure/azure-monitor/reference/tables/wvdconnections) state = started
 
   - Ends: [WVDCheckpoints](/azure/azure-monitor/reference/tables/wvdcheckpoints) Name = ShellReady (desktops); Name = RdpShellAppExecuted (RemoteApp. For timing, consider the first app launch only)
 
-For example, Insights measures the time for a desktop experience to launch based on how long it takes to launch Windows Explorer. Insights also measures the time for a remote application to launch based on the time taken to launch the first instance of the shell app for a connection.
+For example, Insights measures the time for a desktop experience to launch based on how long it takes to launch Windows Explorer. Insights also measures the time for a RemoteApp to launch based on the time taken to launch the first instance of the shell app for a connection.
   
 >[!NOTE]
->If a user launches more than one remote application, sometimes the shell app can execute multiple times during a single connection. For an accurate measurement of time to connect, you should only use the first execution checkpoint for each connection.
+>If a user launches more than one RemoteApp, sometimes the shell app can execute multiple times during a single connection. For an accurate measurement of time to connect, you should only use the first execution checkpoint for each connection.
 
 - Establishing new sessions usually takes longer than reestablishing connections to existing sessions due to differences in the "logon" process for new and established connections. 
 

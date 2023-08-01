@@ -2,14 +2,14 @@
 title: LINQ to SQL translation
 titleSuffix: Azure Cosmos DB for NoSQL
 description: Learn the LINQ operators supported and how the LINQ queries are mapped to SQL queries in Azure Cosmos DB.
-author: seesharprun
-ms.author: sidandrews
-ms.reviewer: jucocchi
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 03/22/2023
-ms.custom: ignite-2022
+ms.topic: reference
+ms.date: 07/31/2023
+ms.custom: query-reference
 ---
 
 # LINQ to SQL translation in Azure Cosmos DB for NoSQL
@@ -41,7 +41,7 @@ The query provider supports the following scalar expressions:
     family.children[n].grade;
     ```
   
-- Arithmetic expressions, including common arithmetic expressions on numerical and Boolean values. For the complete list, see the [Azure Cosmos DB SQL specification](aggregate-functions.md).
+- Arithmetic expressions, including common arithmetic expressions on numerical and Boolean values.
   
     ```csharp
     2 * family.children[0].grade;
@@ -99,7 +99,7 @@ The LINQ provider included with the SQL .NET SDK supports the following operator
 - **Where**: Filters translate to [WHERE](where.md), and support translation between `&&`, `||`, and `!` to the SQL operators
 - **SelectMany**: Allows unwinding of arrays to the [JOIN](join.md) clause. Use to chain or nest expressions to filter on array elements.
 - **OrderBy** and **OrderByDescending**: Translate to [ORDER BY](order-by.md) with ASC or DESC.
-- **Count**, **Sum**, **Min**, **Max**, and **Average** operators for [aggregation](aggregate-functions.md), and their async equivalents **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, and **AverageAsync**.
+- **Count**, **Sum**, **Min**, **Max**, and **Average** operators for aggregation, and their async equivalents **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, and **AverageAsync**.
 - **CompareTo**: Translates to range comparisons. This operator is commonly used for strings, since they're not comparable in .NET.
 - **Skip** and **Take**: Translates to [OFFSET and LIMIT](offset-limit.md) for limiting results from a query and doing pagination.
 - **Math functions**: Supports translation from .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan`, and `Truncate` to the equivalent [built-in mathematical functions](system-functions.yml).
