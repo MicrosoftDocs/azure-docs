@@ -126,7 +126,7 @@ This example uses `train.yml` [in the directory](https://github.com/Azure/azurem
 
 ## Submit pipeline
 
-1. Click Configure & Submit on the right top corner to submit the pipeline.
+1. Select **Configure & Submit** on the right top corner to submit the pipeline.
 
     :::image type="content" source="./media/how-to-create-component-pipelines-ui/configure&submit.png" alt-text="Screenshot showing configure and submit button." lightbox ="./media/how-to-create-component-pipelines-ui/configure&submit.png":::
 
