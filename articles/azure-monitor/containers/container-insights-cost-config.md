@@ -73,7 +73,7 @@ This table outlines the list of the container insights Log Analytics tables for 
 
 The default container insights experience is powered through using all the existing data streams. Removing one or more of the default streams renders the container insights experience unavailable.
 
-![Screenshot that shows custom container insights](./media/container-insights-cost-config/container-insights-cost-custom.png)
+[![Screenshot that shows the cost presets.](media/container-insights-cost-config/container-insights-cost-custom.png)](media/container-insights-cost-config/container-insights-cost-custom.png#lightbox)
 
 If you are currently using the above tables for other custom alerts or charts, then modifying your data collection settings may degrade those experiences. If you are excluding namespaces or reducing data collection frequency, review your existing alerts, dashboards, and workbooks using this data.
 
