@@ -48,90 +48,62 @@ highlightedContent:
 
 # Azure Services
 productDirectory:
-  title: HPC Components # < 60 chars (optional)
+  title: HPC Components and Services # < 60 chars (optional)
   # summary: # < 160 chars (optional)
   items:
     # Card
     - title: HPC Compute VM Sizes
       imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
       links:
-        - url: ../virtual-machines/sizes.md
-          text: What are VM sizes?
         - url: ../virtual-machines/sizes-hpc.md
-          text: HPC VM sizes
+          text: High Performance VMs 
+        - url: ../virtual-machines/sizes-gpu.md
+          text: GPU Accelarated VMs
+        - url: ../virtual-machines/hx-series.md
+          text: Memory Optimized VMs
     # Card
-    - title: Virtual Machines
+    - title: HPC Storage
       imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
       links:
-        - url: ../virtual-machines/overview.md
-          text: Linux and Windows VMs on Azure
-        - url: ../virtual-machines/whats-new.md
-          text: What's New for Azure VMs?
+        - url: ../hpc-cache/hpc-cache-overview.md
+          text: Azure HPC Cache
+        - url: ../azure-netapp-files/azure-netapp-files-introduction#Overview
+          text: Azure NetApp Files
+        - url: ../azure-managed-lustre/amlfs-overview.md
+          text: Azure Managed Lustre
     # Card
-    - title: Virtual Desktop Infrastructure (VDI)
-      imageSrc: https://static.docs.com/ui/media/product/azure/virtual-desktop.svg
-      links:
-        - url: ../virtual-desktop/overview.md
-          text: What is Azure VDI?
-        - url: ../virtual-desktop/getting-started-feature.md
-          text: Getting Started with VDI
-    # Card
-    - title: Azure Batch
+    - title: HPC Related Services
       imageSrc: ../high-performance-computing/media/azure-batch.svg
       links:
         - url: ../batch/batch-technical-overview.md
-          text: What is Azure Batch?
-        - url: ../batch/quick-create-cli.md
-          text: Getting Started with Batch
-    # Card
-    - title: HPC Cache
-      imageSrc: ../high-performance-computing/media/azure-hpc-cache.svg
-      links:
-        - url: ../hpc-cache/hpc-cache-overview.md
-          text: What is Azure HPC Cache?
-        - url: ../hpc-cache/hpc-cache-create.md?tabs=azure-portal%2f
-          text: Create an Azure HPC Cache
-    # Card
-    - title: Azure Managed Lustre
-      imageSrc: ../high-performance-computing/media/azure-managed-lustre.svg
-      links:
-        - url: /azure/azure-managed-lustre/amlfs-overview
-          text: What is Azure Managed Lustre?
-        - url: /azure/azure-managed-lustre/create-file-system-portal
-          text: Create an Azure Managed Lustre File System
+          text: Azure Batch
+        - url: ../cyclecloud/overview.md
+          text: Azure CycleCloud
+        - url: ../virtual-machines/sizes.md
+          text: Azure VM Sizes          
 
 #Additional Content (No Title)
 conceptualContent:
   # Supports up to 3 subsections
   sections:
     - title: HPC Documentation # < 60 chars (Optional; Remove if not applicable.)
-      #summary: Learn more about Azure HPC with various video content and events # < 160 chars (Optional; Remove if not applicable.)
+      #summary: See Azure HPC solutions, tutorials, guides and resources # < 160 chars (Optional; Remove if not applicable.)
       items:
         # Card
-        - title: HPC Compute
+        - title: HPC Infra
           links:
-            - url: ../virtual-machines/sizes-hpc.md
+            - url: ../virtual-machines/overview.md
               itemType: concept
-              text: CPU Optimized VMs
-            - url: ../virtual-machines/sizes-gpu.md
-              itemType: concept
-              text: GPU Optimized VMs
-            - url: ../virtual-machines/hx-series.md
-              itemType: concept
-              text: Memory Optimized VMs
-            - url: ../virtual-machines/whats-new.md
-              itemType: whats-new
-              text: What is new for Azure VMs             
-            - url: ../virtual-machines/configure.md#ubuntu-hpc-vm-images
+              text: Linux and Windows VMs
+            - url: ../virtual-machines/configure.md#vm-images
               itemType: concept
               text: HPC VM Images
             - url: ../virtual-machines/extensions/enable-infiniband.md
               itemType: concept
-              text: Enable Infiniband
-            - url: /azure/expressroute/
-              itemType: overview
-              text: Azure ExpressRoute
-              
+              text: Infiniband
+            - url: /azure/expressroute/expressroute-introduction.md
+              itemType: concept
+              text: Azure ExpressRoute       
         # Card
         - title: Storage
           links:
@@ -149,7 +121,7 @@ conceptualContent:
               text: Use Azure Blob storage with an Azure Managed Lustre file system
               
         # Card
-        - title: Scenarios & Frameworks 
+        - title: HPC Scenarios & Frameworks 
           links:
             - url: /azure/architecture/example-scenario/infrastructure/video-rendering/
               itemType: overview
@@ -160,15 +132,76 @@ conceptualContent:
             - url: /azure/architecture/example-scenario/infrastructure/image-modeling/
               itemType: overview
               text: Digital image-based modeling on Azure
-            - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/
-              itemType: overview
-              text: Cloud Adoption Framework
             - url: /azure/architecture/guide/hpc/hpc-deployments/
               itemType: overview
               text: HPC Deployments
-            - url: /azure/architecture/browse/?terms=HPC
-              itemType: overview
-              text: HPC Architectures                    
+              
+
+# Azure Services
+productDirectory:
+  title: Take the Next Step # < 60 chars (optional)
+  # summary: # < 160 chars (optional)
+  items:
+    # Card
+    - title: Landing Zone Accelarators
+      links:
+        - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/azure-hpc-landing-zone-accelerator
+          text: Infra Landing Zone 
+        - url: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-landing-zone
+          text: Data Landing Zone
+        - url: https://azure.github.io/az-hop/
+          text: HPC OnDemand Platform Zone
+    # Card
+    - title: Cloud Adoption
+      links:
+        - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/
+          text: Cloud Adoption Scenarios
+        - url: https://gearup.microsoft.com/download/ca8b9d10-bbe2-4cfb-993b-39f3b2a272e6
+          text: Cloud Migration Overview          
+    # Card
+    - title: HPC FastTrack
+      links:
+        - url: https://gearup.microsoft.com/program/fasttrack?tab=overview&subtab=fasttrack-for-azure
+          text: Azure FastTrack
+
+
+# Azure Services
+productDirectory:
+  title: HPC Resources # < 60 chars (optional)
+  # summary: # < 160 chars (optional)
+  items:
+    # Card
+    - title: Microsoft HPC Channels
+      links:
+        - url: https://azure.microsoft.com/en-us/blog/tag/high-performance-computing/?s=HPC
+          text: HPC Blog Posts on Azure.com
+        - url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
+          text: HPC TechCommunity Blog Reads
+    # Card
+    - title: Microsoft HPC on Solution Channels
+      links:
+        - url: https://www.aka.ms/Microsoft-NVIDIA/HPCwire
+          text: Microsoft - NVIDIA
+        - url: https://www.aka.ms/VentureBeat/MakeAIYourReality
+          text: Microsoft - NVIDIA 
+        - url: https://insidehpc.com/2023/03/manufacturing-repatriation-how-hpc-class-technologies-from-microsoft-azure-and-amd-support-manufacturers-reshoring-strategies/
+          text: Microsoft - AMD
+        - url: https://insidehpc.com/2022/10/staying-at-the-cutting-edge-of-automotive-design-technology-with-azure-cloud-platform-and-amd/
+          text: Azure Cloud and AMD for Manufacturing
+        - url: https://insidehpc.com/2023/03/azure-amd-and-the-power-of-cloud-based-hpc-for-sustainability-rd-projects/
+          text: Azure and AMD for Sustainability    
+    # Card
+    - title: Explore MarketPlace
+      links:
+        - url: https://www.aka.ms/hpc-saves-the-day
+          text: HPC saves the day!
+        - url: https://busenq.com/article/microsoft-azure/
+          text: HPC Powers Word-Record Simulation
+        - url: https://www.bigcompute.org/blog/high-performance-computing-for-randd
+          text: HPC for Innovation in R&D          
+        - url: https://idcdocserv.com/US50583623
+          text: HPC for Product Modeling
+
 
 
 # Video Playlists and other links
@@ -227,12 +260,17 @@ additionalContent:
             - text: "Want to learn more? Check out the 'HPC Events' playlist!"
               url: https://aka.ms/HPCEvents
 
-              
-    - title: HPC Conferences # < 60 chars (optional)
-      summary: See where you can find HPC at various tech conferences. # < 160 chars (optional)
+
+
+# Conferences and Technology Events
+additionalContent:
+  # Supports up to 4 subsections
+  sections:              
+    - title: What’s New at HPC # < 60 chars (optional)
+      summary: Learn more about product updates, event information and technology offers and more. # < 160 chars (optional)
       items:
         # Card
-        - title: SC22 (Supercomputing) 
+        - title: Microsoft HPC at Supercomputing 2022
           links:
             - text: Microsoft at at SC22!
               url: https://www.aka.ms/SC22
