@@ -164,5 +164,5 @@ Remove-AzResourceGroup -Name $resourceGroup
 - [Persisting user logins across PowerShell sessions](/powershell/azure/context-persistence)
 - [Azure Government storage](../../azure-government/compare-azure-government-global-azure.md)
 - [Microsoft Azure Government Developer Guide](../../azure-government/documentation-government-developer-guide.md)
-- [Developer Notes for Azure operated by 21Vianet Applications](https://msdn.microsoft.com/library/azure/dn578439.aspx)
+- [Application Developer Notes for Azure operated by 21Vianet](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 - [Azure Germany Documentation](../../germany/germany-welcome.md)
