@@ -183,6 +183,7 @@ The following example creates a single-zone scale set named *myScaleSet* in zone
 ```azurecli
 az vmss create \
     --resource-group myResourceGroup \
+    --name myScaleSet \
     --orchestration-mode flexible \
     --image <SKU Image> \
     --upgrade-policy-mode automatic \
@@ -203,6 +204,7 @@ To create a zone-redundant scale set, specify multiple zones with the `--zones` 
 az vmss create \
     --resource-group myResourceGroup \
     --name myScaleSet \
+    --orchestration-mode flexible \
     --image <SKU Image> \
     --upgrade-policy-mode automatic \
     --admin-username azureuser \
@@ -224,6 +226,7 @@ The following example creates a single-zone scale set named *myScaleSet* in *Eas
 New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS2" `
+  -OrchestrationMode "flexible" ``
   -VMScaleSetName "myScaleSet" `
   -VirtualNetworkName "myVnet" `
   -SubnetName "mySubnet" `
@@ -241,6 +244,7 @@ To create a zone-redundant scale set, specify multiple zones with the `-Zone` pa
 New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS2" `
+  -OrchestrationMode "Flexible" ``
   -VMScaleSetName "myScaleSet" `
   -VirtualNetworkName "myVnet" `
   -SubnetName "mySubnet" `
