@@ -366,17 +366,11 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and workflow in the designer.
 
-1. Under the trigger or action where you want to add the action, select **New step**.
-
-   Or, to add an action between steps, move your pointer over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
-
-1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **azure service bus**. From the actions list, select the action that you want.
+1. In the designer, [follow these general steps to add the Azure Service Bus action that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
    This example continues with the **Send message** action.
-
-   ![Screenshot showing Azure portal, Consumption workflow designer, and Service Bus connector action selected.](./media/connectors-create-api-azure-service-bus/select-action-consumption.png)
 
 1. If prompted, provide the following information for your connection. When you're done, select **Create**.
 
@@ -421,19 +415,11 @@ The steps to add and use a Service Bus action differ based on whether you want t
 
 The built-in Service Bus connector is a stateless connector, by default. To run this connector's operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](enable-stateful-affinity-built-in-connectors.md).
 
-1. In the [Azure portal](https://portal.azure.com), and open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), and open your Standard logic app resource and workflow in the designer.
 
-1. Under the trigger or action where you want to add the action, select the plus sign (**+**), and then select **Add an action**.
-
-   Or, to add an action between existing steps, select the plus sign (**+**) on the connecting arrow, and then select **Add an action**.
-
-1. On the **Add an action** pane, under the search box, select **Built-in**. In the search box, enter **service bus**.
-
-1. From the actions list, select the action that you want.
+1. In the designer, [follow these general steps to add the Azure Service Bus built-in action that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
    This example continues with the action named **Send message**.
-
-   ![Screenshot showing Azure portal, Standard workflow designer, and Service Bus built-in action selected.](./media/connectors-create-api-azure-service-bus/select-action-built-in-standard.png)
 
 1. If prompted, provide the following information for your connection. When you're done, select **Create**.
 
@@ -466,15 +452,9 @@ The built-in Service Bus connector is a stateless connector, by default. To run 
 
 #### Managed connector action
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow in the designer.
 
-1. Under the trigger or action where you want to add the action, select **New step**.
-
-   Or, to add an action between steps, move your pointer over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
-
-1. Under the **Choose an operation** search box, select **Azure**. In the search box, enter **azure service bus**.
-
-1. From the actions list, select the action that you want.
+1. In the designer, [follow these general steps to add the Azure Service Bus managed action that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
    This example continues with the action named **Send message**.
 
