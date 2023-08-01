@@ -6,7 +6,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: conceptual
-ms.date: 07/24/2023
+ms.date: 08/01/2023
 ---
 
 # What's new in the Azure Storage Mover service
@@ -68,6 +68,11 @@ Azure Storage mover can migrate your SMB share to Azure Files shares (in public 
 ### Agent
 
 - Handling credentials via Azure Key Vault.
+
+### Limitations
+
+- Folder ACLs are not updated after migration sync.
+- Last modified dates on folders are not preserved.
 
 ## 2023 June 14
 
