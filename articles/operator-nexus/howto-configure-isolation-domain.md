@@ -49,7 +49,7 @@ You'll create isolation-domains to enable layer 2 and layer 3 connectivity betwe
 |location|AODS Azure Region used during NFC Creation|eastus| True
 |nf-Id	|network fabric ID|"/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFresourcegroupname/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFname"| True
 |Vlan-id | VLAN identifier value. VLANs 1-500 are reserved and can't be used. The VLAN identifier value can't be changed once specified. The isolation-domain must be deleted and recreated if the VLAN identifier value needs to be modified. The range is between 501-4095|501| True
-|mtu | maximum transmission unit is 1500 by default, if not specified|1500|
+|mtu | maximum transmission unit is 1500 by default, if not specified|1500||
 |administrativeState|	Enable/Disable indicate the administrative state of the isolationDomain|Enable|
 | subscriptionId      | Your Azure subscriptionId for your Operator Nexus instance. |
 | provisioningState   | Indicates provisioning state |
@@ -99,7 +99,7 @@ Expected output:
 
 ### Show L2 isolation-domains
 
-This command shows L2 isolation-domain details and administrative state of isolation-domain.
+This command shows L2 isolation-domain details and the administrative state of the isolation-domain in the specified resource group.
 
 ```azurecli
 az networkfabric l2domain show --resource-group "ResourceGroupName" --resource-name "example-l2domain"
