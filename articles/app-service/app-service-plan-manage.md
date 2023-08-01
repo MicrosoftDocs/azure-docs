@@ -34,6 +34,15 @@ You can create an empty App Service plan, or you can create a plan as part of ap
 
 6. Select **Review + create** to create the App Service Plan.
 
+> [!IMPORTANT]
+> When creating an new App Service Plan in an existing Resource Group, certain conditions with existing apps can trigger these errors:
+> - `The pricing tier is not allowed in this resource group`
+> - `<SKU_NAME> workers are not available in resource group <RESOURCE_GROUP_NAME>`
+> 
+> This can happen due to incompatibilities with pricing tiers, regions, operating systems, Availability Zones, existing Function apps, or existing web apps. If this error occurs, create your App Service Plan in a **new** Resource Group.
+>
+
+
 <a name="move"></a>
 
 ## Move an app to another App Service plan
@@ -49,7 +58,7 @@ You can move an app to another App Service plan, as long as the source plan and 
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **App services** and select the app that you want to move.
 
-2. From the left menu, select **Change App Service plan**.
+2. From the left menu, unse **App Service Plan**, select **Change App Service plan**.
 
 3. In the **App Service plan** dropdown, select an existing plan to move the app to. The dropdown shows only plans that are in the same resource group and geographical region as the current App Service plan. If no such plan exists, it lets you create a plan by default. You can also create a new plan manually by selecting **Create new**.
 
