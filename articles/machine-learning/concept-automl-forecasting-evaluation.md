@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: conceptual
 ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv2, event-tier1-build-2022
-ms.date: 05/17/2023
+ms.date: 08/01/2023
 show_latex: true
 ---
 
@@ -31,7 +31,7 @@ The diagram shows two important inference parameters:
 * The **context length**, or the amount of history that the model requires to make a forecast,
 * The **forecast horizon**, which is how far ahead in time the forecaster is trained to predict.
 
-Forecasting models generally use some amount of historical information, the context, to make predictions ahead in time up to the forecast horizon. **When the context is part of the training data, AutoML saves what it needs to make forecasts**, so there is no need to explicitly provide it.
+Forecasting models usually use some historical information, the context, to make predictions ahead in time up to the forecast horizon. **When the context is part of the training data, AutoML saves what it needs to make forecasts**, so there is no need to explicitly provide it.
 
 There are two other inference scenarios that are more complicated: 
 

@@ -8,7 +8,7 @@ ms.reviewer: ssalgado
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.date: 06/19/2023
+ms.date: 08/01/2023
 ms.topic: how-to
 ms.custom: devx-track-python, automl, sdkv2, event-tier1-build-2022, ignite-2022
 show_latex: true
@@ -667,7 +667,7 @@ from azure.ai.ml.constants import TabularTrainingMode
 
 # Set the training mode to distributed
 classification_job.set_training(
-    allowed_training_algorithms=["light_gbm"],
+    allowed_training_algorithms=["LightGBM"],
     training_mode=TabularTrainingMode.DISTRIBUTED
 )
 
@@ -683,7 +683,7 @@ classification_job.set_limits(
 ```yml
 # Set the training mode to distributed
 training:
-    allowed_training_algorithms: ["light_gbm"]
+    allowed_training_algorithms: ["LightGBM"]
     training_mode: distributed
 
 # Distribute training across 4 nodes for each trial
@@ -717,7 +717,7 @@ from azure.ai.ml.constants import TabularTrainingMode
 # Set the training mode to distributed
 forecasting_job.set_training(
     enable_dnn_training=True,
-    allowed_training_algorithms=["tcn_forecaster"],
+    allowed_training_algorithms=["TCNForecaster"],
     training_mode=TabularTrainingMode.DISTRIBUTED
 )
 
@@ -735,7 +735,7 @@ forecasting_job.set_limits(
 ```yml
 # Set the training mode to distributed
 training:
-    allowed_training_algorithms: ["tcn_forecaster"]
+    allowed_training_algorithms: ["TCNForecaster"]
     training_mode: distributed
 
 # Distribute training across 4 nodes

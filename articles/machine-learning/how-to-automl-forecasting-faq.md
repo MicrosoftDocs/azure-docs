@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: faq
 ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv2, event-tier1-build-2022
-ms.date: 01/27/2023
+ms.date: 08/01/2023
 ---
 
 # Frequently asked questions about forecasting in AutoML

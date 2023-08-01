@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv2, event-tier1-build-2022, build-2023, devx-track-python
-ms.date: 06/19/2023
+ms.date: 08/01/2023
 show_latex: true
 ---
 
@@ -203,7 +203,7 @@ forecasting_job = automl.forecasting(
     experiment_name="sdk-v2-automl-forecasting-job",
     training_data=my_training_data_input,
     target_column_name=target_column_name,
-    primary_metric="NormalizedRootMeanSquaredError",
+    primary_metric="normalized_root_mean_squared_error",
     n_cross_validations="auto",
 )
 
@@ -259,7 +259,7 @@ Forecasting tasks have many settings that are specific to forecasting. The most 
 
 # [Python SDK](#tab/python)
 
-Use the [set_forecast_settings()](/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob#azure-ai-ml-automl-forecastingjob-set-forecast-settings) method of a ForecastingJob to configure these settings:
+Use the [ForecastingJob](/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob#azure-ai-ml-automl-forecastingjob-set-forecast-settings) methods to configure these settings:
 
 ```python
 # Forecasting specific configuration
@@ -350,7 +350,7 @@ There are two optional settings that control the model space where AutoML search
 ```python
 # Only search ExponentialSmoothing and ElasticNet models
 forecasting_job.set_training(
-    allowed_training_algorithms=["exponential_smoothing", "elastic_net"]
+    allowed_training_algorithms=["ExponentialSmoothing", "ElasticNet"]
 )
 ```
 
@@ -386,7 +386,7 @@ forecasting:
 # training settings
 # Only search ExponentialSmoothing and ElasticNet models
 training:
-    allowed_training_algorithms: ["exponential_smoothing", "elastic_net"]
+    allowed_training_algorithms: ["ExponentialSmoothing", "ElasticNet"]
     # other training settings
 ```
 
@@ -409,13 +409,13 @@ forecasting_job.set_training(
 # training settings
 # Search over all model classes except Prophet
 training:
-    blocked_training_algorithms: ["prophet"]
+    blocked_training_algorithms: ["Prophet"]
     # other training settings
 ```
 
 ---
 
-Now, the job searches over all model classes _except_ Prophet. For a list of forecasting model names that are accepted in `allowed_training_algorithms` and `blocked_training_algorithms`, see the [training properties](reference-automated-ml-forecasting.md#training) reference documentation.  
+Now, the job searches over all model classes _except_ Prophet. For a list of forecasting model names that are accepted in `allowed_training_algorithms` and `blocked_training_algorithms`, see the [training properties](reference-automated-ml-forecasting.md#training) reference documentation. Either, but not both, of `allowed_training_algorithms` and `blocked_training_algorithms` can be applied to a training run.
 
 #### Enable deep learning
 
@@ -442,7 +442,7 @@ forecasting_job.set_training(
 # training settings
 # Include TCNForecaster models in the model search
 training:
-    enable_dnn_training: True
+    enable_dnn_training: true
     # other training settings
 ```
 
@@ -741,7 +741,7 @@ returned_job.services["Studio"].endpoint
 
 # [Azure CLI](#tab/cli)
 
-In following CLI command, we assume the job YAML configuration is at the path, `./automl-forecasting-job.yml`:
+In following CLI command, we assume the job YAML configuration is in the current working directory at the path, `./automl-forecasting-job.yml`. If you run the command from a different directory, you will need to change the path accordingly.
 
 ```azurecli
 run_id=$(az ml job create --file automl-forecasting-job.yml)
@@ -819,7 +819,7 @@ def forecasting_train_and_evaluate_factory(
     target_column_name,
     time_column_name,
     forecast_horizon,
-    primary_metric='NormalizedRootMeanSquaredError',
+    primary_metric='normalized_root_mean_squared_error',
     cv_folds='auto'
 ):
     # Configure the training node of the pipeline
@@ -1039,11 +1039,12 @@ The many models components in AutoML enable you to train and manage millions of 
 
 ### Many models training configuration
 
-The many models training component accepts a YAML format configuration file of AutoML training settings. The component applies these settings to each AutoML instance it launches. This YAML file has the same specification as the [Forecasting Job](reference-automated-ml-forecasting.md) plus one additional parameter named `partition_column_names`.
+The many models training component accepts a YAML format configuration file of AutoML training settings. The component applies these settings to each AutoML instance it launches. This YAML file has the same specification as the [Forecasting Job](reference-automated-ml-forecasting.md) plus additional parameters `partition_column_names` and `allow_multi_partitions`.
 
 Parameter|Description
 --|--
 | **partition_column_names** | Column names in the data that, when grouped, define the data partitions. Many models launches an independent training job on each partition.
+| **allow_multi_partitions** | An optional flag that allows training one model per partition when each partition contains more than one unique time series. The default value is False.
 
 The following sample provides a configuration template:
 ```yml
@@ -1063,7 +1064,7 @@ forecasting:
   forecast_horizon: 28
 
 training:
-  blocked_training_algorithms: ["extreme_random_trees"]
+  blocked_training_algorithms: ["ExtremeRandomTrees"]
 
 limits:
   timeout_minutes: 15
@@ -1074,6 +1075,7 @@ limits:
   enable_early_termination: true
   
 partition_column_names: ["state", "store"]
+allow_multi_partitions: false
 ```
 
 In subsequent examples, we assume that the configuration is stored at the path, `./automl_settings_mm.yml`. 
@@ -1337,7 +1339,7 @@ forecasting:
   forecast_horizon: 28
 
 training:
-  blocked_training_algorithms: ["extreme_random_trees"]
+  blocked_training_algorithms: ["ExtremeRandomTrees"]
 
 limits:
   timeout_minutes: 15
