@@ -29,10 +29,10 @@ A direct peering type conversion for a peering connection can only be requested 
 -  For Voice conversions you'll need to be ready to set up BFD as soon as notified as well as configuring the new ip addresses provided through email
 
 > [!NOTE]
-> IF your peering is not currently an Azure Resource please refer to the [legacy subscription conversion document](./howto-legacy-direct-portal.md).
+> If your peering is not currently an Azure Resource please refer to the [legacy subscription conversion document](./howto-legacy-direct-portal.md).
 
-### 1. Configure the new direct peering type
-## Converting from PNI to Voice
+## 1. Configure the new direct peering type
+### Converting from PNI to Voice
 PNI or MAPS to Voice will be done to all connections as it is done at a peering level.
 
 Select the "Configuration" Page under the Settings section of your Peering's Page
@@ -43,7 +43,7 @@ Select the "(with Voice)"" option
 Select Save
 :::image type="content" source="./media/walkthrough-type-conversion/savepage.png" alt-text="Screenshot shows how to save the changes within the  Conversions tab in the Azure portal." lightbox="./media/walkthrough-type-conversion/savepage.png":::
 
-## Enabling Peering Service on a Connection
+### Enabling Peering Service on a Connection
 PNI to MAPS can be done on a connection basis.
 
 Navigate to the Connection tab under settings and click edit on a connection
@@ -52,7 +52,7 @@ Navigate to the Connection tab under settings and click edit on a connection
 Then edit the "Use for Peering Service" section to enabled and click Save
 :::image type="content" source="./media/walkthrough-type-conversion/editconnection.png" alt-text="Screenshot shows how to edit a connection." lightbox="./media/walkthrough-type-conversion/editconnection.png":::
 
-### 2. Conversion approval
+## 2. Conversion approval
 Your request will  be approved by a member of our team.
 
 After approval connections will be processed one at a time making sure to keep redundant connection(s) open.
@@ -61,7 +61,7 @@ Connections will go through the TypeChangeRequested state until the type change 
 You can see this in the Connection tab in the same location where you selected to edit the connection.
 
 
-### 3. Monitoring the conversion
+## 3. Monitoring the conversion
 While your connection is undergoing conversion its state will be labeled as TypeChangeInProgress.
 
 You'll be kept up to date through emails at the following steps:
