@@ -77,7 +77,7 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
 
      ### [Azure Stack Edge Pro GPU](#tab/gpu)
 
-     Here's example output for Azure Stack Edge Pro GPU:
+     Here's sample output for Azure Stack Edge Pro GPU:
 
      ```azurepowershell
      Hardware:
@@ -104,7 +104,7 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
 
      ### [Azure Stack Edge Pro 2](#tab/pro2)
 
-     Here's example output for Azure Stack Edge Pro 2:
+     Here's sample output for Azure Stack Edge Pro 2:
 
      ```azurepowershell
      Hardware:
