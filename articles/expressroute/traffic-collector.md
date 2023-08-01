@@ -1,22 +1,18 @@
 ---
-title: Enable flow logging using Azure ExpressRoute Traffic Collector (Preview)
+title: Enable flow logging using Azure ExpressRoute Traffic Collector
 description: Learn about ExpressRoute Traffic Collector and the different use cases where this feature will be helpful.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/02/2022
+ms.date: 07/31/2023
 ms.author: duau
 ms.custom: references_regions
 ---
 
-# Enable flow logging using ExpressRoute Traffic Collector (Preview)
+# Enable flow logging using ExpressRoute Traffic Collector
 
 ExpressRoute Traffic Collector enables sampling of network flows sent over your ExpressRoute Direct circuits. Flow logs get sent to a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md) where you can create your own log queries for further analysis, export the data to any visualization tool or SIEM (Security Information and Event Management) of your choice. Flow logging can be enabled for both private peering and Microsoft peering with ExpressRoute Traffic Collector.
-
-> [!IMPORTANT]
-> ExpressRoute Traffic Collector is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 :::image type="content" source="./media/traffic-collector/main-diagram.png" alt-text="Diagram of ExpressRoute traffic collector in an Azure environment.":::
 

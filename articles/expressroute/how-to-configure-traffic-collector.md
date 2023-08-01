@@ -1,21 +1,17 @@
 ---
-title: 'Configure ExpressRoute Traffic Collector for ExpressRoute Direct using the Azure portal (Preview)'
+title: Configure ExpressRoute Traffic Collector for ExpressRoute Direct using the Azure portal
 description: Learn how to create an ExpressRoute Traffic Collector resource to import logs into a Log Analytics workspace.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 07/15/2022
+ms.date: 07/31/2023
 ms.author: duau
 ---
 
-# Configure ExpressRoute Traffic Collector for ExpressRoute Direct using the Azure portal (Preview)
+# Configure ExpressRoute Traffic Collector for ExpressRoute Direct using the Azure portal
 
 This article will help you deploy an ExpressRoute Traffic Collector using the Azure portal. You'll learn how to add and remove an ExpressRoute Traffic Collector, associate it to an ExpressRoute Direct circuit and Log Analytics workspace. Once the ExpressRoute Traffic Collector is deployed, sampled flow logs will get imported into a Log Analytics workspace. For more information, see [About ExpressRoute Traffic Collector](traffic-collector.md).
-
-> [!IMPORTANT]
-> ExpressRoute Traffic Collector is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Limitations
 
@@ -93,4 +89,4 @@ Once all circuits have been removed from the ExpressRoute Traffic Collector, sel
 
 ## Next steps
 
-- [ExpressRoute Traffic Collector Metrics](expressroute-monitoring-metrics-alerts.md#expressroute-traffic-collector-metrics)
+- [ExpressRoute Traffic Collector metrics](expressroute-monitoring-metrics-alerts.md#expressroute-traffic-collector-metrics)
