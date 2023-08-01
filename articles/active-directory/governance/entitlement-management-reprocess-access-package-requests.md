@@ -37,21 +37,23 @@ To use entitlement management and assign users to access packages, you must have
 
 ## Open an existing access package and reprocess user requests
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 **Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
 If you have a set of users whose requests are in the "Partially Delivered" or "Failed" state, you might need to reprocess some of those requests. Follow these steps to reprocess requests for an existing access package:
 
-1.	Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1.  Click **Azure Active Directory**, and then click **Identity Governance**.
 
-1.	In the left menu, click **Access packages** and then open the access package.
+1. In the left menu, click **Access packages** and then open the access package.
 
-1.	Underneath **Manage** on the left side, click **Requests**.
+1. Underneath **Manage** on the left side, click **Requests**.
 
-1.	Select all users whose requests you wish to reprocess.
+1. Select all users whose requests you wish to reprocess.
 
-1.	Click **Reprocess**.
+1. Click **Reprocess**.
 
 ## Next steps
 

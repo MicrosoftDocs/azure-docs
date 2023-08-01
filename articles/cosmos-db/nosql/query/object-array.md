@@ -1,163 +1,102 @@
 ---
-title: Working with arrays and objects in Azure Cosmos DB
-description: Learn the SQL syntax to create arrays and objects in Azure Cosmos DB. This article also provides some examples to perform operations on array objects 
-author: seesharprun
+title: Work with arrays and objects
+titleSuffix: Azure Cosmos DB for NoSQL
+description: Create arrays and objects and perform actions on them using the array syntax in Azure Cosmos DB for NoSQL.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
-ms.topic: conceptual
-ms.date: 02/02/2021
-ms.author: sidandrews
-ms.reviewer: jucocchi
+ms.topic: reference
+ms.date: 07/31/2023
+ms.custom: query-reference
 ---
-# Working with arrays and objects in Azure Cosmos DB
+
+# Work with arrays and objects in Azure Cosmos DB for NoSQL
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-A key feature of the Azure Cosmos DB for NoSQL is array and object creation. This document uses examples that can be recreated using the [Family dataset](getting-started.md#upload-sample-data).
-
-Here's an example item in this dataset:
+Here's an item that's used in examples throughout this article.
 
 ```json
 {
-  "id": "AndersenFamily",
-  "lastName": "Andersen",
-  "parents": [
-     { "firstName": "Thomas" },
-     { "firstName": "Mary Kay"}
+  "name": "Sondon Fins",
+  "categories": [
+     { "name": "swim" },
+     { "name": "gear"}
   ],
-  "children": [
-     {
-         "firstName": "Henriette Thaulow",
-         "gender": "female",
-         "grade": 5,
-         "pets": [{ "givenName": "Fluffy" }]
-     }
-  ],
-  "address": { "state": "WA", "county": "King", "city": "Seattle" },
-  "creationDate": 1431620472,
-  "isRegistered": true
+  "metadata": {
+    "sku": "73310",
+    "manufacturer": "AdventureWorks"
+  },
+  "priceInUSD": 132.35,
+  "priceInCAD": 174.50
 }
 ```
 
 ## Arrays
 
-You can construct arrays, as shown in the following example:
+You can construct arrays using static values, as shown in the following example.
 
 ```sql
-SELECT [f.address.city, f.address.state] AS CityState
-FROM Families f
+SELECT
+  [p.priceInUSD, p.priceInCAD] AS priceData
+FROM products p
 ```
-
-The results are:
 
 ```json
 [
   {
-    "CityState": [
-      "Seattle",
-      "WA"
-    ]
-  },
-  {
-    "CityState": [
-      "NY", 
-      "NY"
+    "priceData": [
+      132.35,
+      174.5
     ]
   }
 ]
 ```
 
-You can also use the [ARRAY expression](subquery.md#array-expression) to construct an array from [subquery's](subquery.md) results. This query gets all the distinct given names of children in an array.
+You can also use the [``ARRAY`` expression](subquery.md#array-expression) to construct an array from a [subquery's](subquery.md) results. This query gets all the distinct categories.
 
 ```sql
-SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
-FROM f
+SELECT
+    p.id,
+    ARRAY (SELECT DISTINCT VALUE c.name FROM c IN p.categories) AS categoryNames
+FROM
+    products p
 ```
-
-The results are:
 
 ```json
 [
-    {
-        "id": "AndersenFamily",
-        "ChildNames": []
-    },
-    {
-        "id": "WakefieldFamily",
-        "ChildNames": [
-            "Jesse",
-            "Lisa"
-        ]
-    }
+  {
+    "id": "a0151c77-ffc3-4fa6-a495-7b53d936faa6",
+    "categoryNames": [
+      "swim",
+      "gear"
+    ]
+  }
 ]
 ```
 
-## <a id="Iteration"></a>Iteration
+## Iteration
 
-The API for NoSQL provides support for iterating over JSON arrays, with the [IN keyword](keywords.md#in) in the FROM source. In the following example:
+The API for NoSQL provides support for iterating over JSON arrays, with the [``IN`` keyword](keywords.md#in) in the ``FROM`` source. 
 
-```sql
-SELECT *
-FROM Families.children
-```
-
-The results are:
-
-```json
-[
-  [
-    {
-      "firstName": "Henriette Thaulow",
-      "gender": "female",
-      "grade": 5,
-      "pets": [{ "givenName": "Fluffy"}]
-    }
-  ], 
-  [
-    {
-      "familyName": "Merriam",
-      "givenName": "Jesse",
-      "gender": "female",
-      "grade": 1
-    }, 
-    {
-      "familyName": "Miller",
-      "givenName": "Lisa",
-      "gender": "female",
-      "grade": 8
-    }
-  ]
-]
-```
-
-The next query performs iteration over `children` in the `Families` container. The output array is different from the preceding query. This example splits `children`, and flattens the results into a single array:  
+As an example, the next query performs iteration over ``tags`` for each item in the container. The output splits the array value and flattens the results into a single array.
 
 ```sql
-SELECT *
-FROM c IN Families.children
+SELECT
+    *
+FROM 
+  products IN products.categories
 ```
-
-The results are:
 
 ```json
 [
   {
-      "firstName": "Henriette Thaulow",
-      "gender": "female",
-      "grade": 5,
-      "pets": [{ "givenName": "Fluffy" }]
+    "name": "swim"
   },
   {
-      "familyName": "Merriam",
-      "givenName": "Jesse",
-      "gender": "female",
-      "grade": 1
-  },
-  {
-      "familyName": "Miller",
-      "givenName": "Lisa",
-      "gender": "female",
-      "grade": 8
+    "name": "gear"
   }
 ]
 ```
@@ -165,43 +104,44 @@ The results are:
 You can filter further on each individual entry of the array, as shown in the following example:
 
 ```sql
-SELECT c.givenName
-FROM c IN Families.children
-WHERE c.grade = 8
-```
-
-The results are:
-
-```json
-[{
-  "givenName": "Lisa"
-}]
-```
-
-You can also aggregate over the result of an array iteration. For example, the following query counts the number of children among all families:
-
-```sql
-SELECT COUNT(1) AS Count
-FROM child IN Families.children
+SELECT VALUE
+    p.name
+FROM
+    p IN p.categories
+WHERE
+    p.name LIKE "ge%"
 ```
 
 The results are:
 
 ```json
 [
-  {
-    "Count": 3
-  }
+  "gear"
+]
+```
+
+You can also aggregate over the result of an array iteration. For example, the following query counts the number of tags:
+
+```sql
+SELECT VALUE
+    COUNT(1)
+FROM
+    p IN p.categories
+```
+
+The results are:
+
+```json
+[
+  2
 ]
 ```
 
 > [!NOTE]
-> When using the IN keyword for iteration, you cannot filter or project any properties outside of the array. Instead, you should use [JOINs](join.md).
-
-For additional examples, read our [blog post on working with arrays in Azure Cosmos DB](https://devblogs.microsoft.com/cosmosdb/understanding-how-to-query-arrays-in-azure-cosmos-db/).
+> When using the ``IN`` keyword for iteration, you cannot filter or project any properties outside of the array. Instead, you should use [self-joins](join.md).
 
 ## Next steps
 
-- [Getting started](getting-started.md)
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Joins](join.md)
+- [Self-joins](join.md)
+- [Keywords](keywords.md)
+- [Subqueries](subquery.md)

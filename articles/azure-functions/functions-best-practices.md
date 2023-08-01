@@ -33,7 +33,7 @@ The hosting plan you choose determines the following behaviors:
 
 To learn more about choosing the correct hosting plan and for a detailed comparison between the plans, see [Azure Functions hosting options](functions-scale.md).
 
-It's important that you choose the correct plan when you create your function app. Functions provides a limited ability to switch your hosting plan, primarily between Consumption and Elastic Premium plans. To learn more, see [Plan migration](functions-how-to-use-azure-function-app-settings.md?tabs=portal#plan-migration). 
+It's important that you choose the correct plan when you create your function app. Functions provide a limited ability to switch your hosting plan, primarily between Consumption and Elastic Premium plans. To learn more, see [Plan migration](functions-how-to-use-azure-function-app-settings.md?tabs=portal#plan-migration). 
 
 ## Configure storage correctly
 
