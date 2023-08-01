@@ -15,9 +15,7 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory (Azure AD) application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure AD](../fundamentals/whats-new.md).
 
-## June 2023
-
-### Updated articles
+## July 2023
 
 ### New articles
 
@@ -37,6 +35,20 @@ Updated the following PowerShell samples to use Microsoft Graph PowerShell cmdle
 Added the following PowerShell sample:
 - [Export expiring secrets and certs (enterprise apps)](scripts/powershell-export-enterprise-apps-with-expiring-secrets.md)
 
+## June 2023
+
+### Updated articles
+
+- [Manage consent to applications and evaluate consent requests](manage-consent-requests.md)
+- [Plan application migration to Azure Active Directory](migrate-adfs-apps-phases-overview.md)
+- [Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Silverfort](silverfort-integration.md)
+- [Tutorial: Migrate your applications from Okta to Azure Active Directory](migrate-applications-from-okta.md)
+- [Tutorial: Configure Datawiza to enable Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle JD Edwards](datawiza-sso-oracle-jde.md)
+- [Tutorial: Configure Datawiza to enable Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle PeopleSoft](datawiza-sso-oracle-peoplesoft.md)
+- [Tutorial: Configure Cloudflare with Azure Active Directory for secure hybrid access](cloudflare-integration.md)
+- [Configure Datawiza for Azure AD Multi-Factor Authentication and single sign-on to Oracle EBS](datawiza-sso-mfa-oracle-ebs.md)
+- [Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication](f5-big-ip-kerberos-advanced.md)
+- [Tutorial: Configure F5 BIG-IP Easy Button for Kerberos single sign-on](f5-big-ip-kerberos-easy-button.md)
 ## May 2023
 
 ### New articles
@@ -60,13 +72,3 @@ Added the following PowerShell sample:
 - [Tutorial: Configure Cloudflare with Azure Active Directory for secure hybrid access](cloudflare-azure-ad-integration.md)
 - [Tutorial: Configure F5 BIG-IP Easy Button for SSO to SAP ERP](f5-big-ip-sap-erp-easy-button.md)
 - [Tutorial: Migrate Okta federation to Azure Active Directory-managed authentication](migrate-okta-federation.md)
-
-## April 2023
-### Updated articles
-
-- [Configure permission classifications](configure-permission-classifications.md)
-- [Migrate application authentication to Azure Active Directory](migrate-application-authentication-to-azure-active-directory.md)
-- [Tutorial: Configure F5 BIG-IP Easy Button for header-based SSO](f5-big-ip-headers-easy-button.md)
-- [Configure F5 BIG-IP Access Policy Manager for form-based SSO](f5-big-ip-forms-advanced.md)
-- [Tutorial: Configure F5 BIG-IP Easy Button for SSO to Oracle EBS](f5-big-ip-oracle-enterprise-business-suite-easy-button.md)
-- [Tutorial: Configure F5 BIG-IP Access Policy Manager for header-based single sign-on](f5-big-ip-header-advanced.md)
