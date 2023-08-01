@@ -219,11 +219,11 @@ items:
             - name: Node.js - sign in users
               items:
                - name: Prepare tenant
-                 href: tutorial-cli-ap-node-sign-in-prepare-tenant
+                 href: tutorial-cli-ap-node-sign-in-prepare-tenant.md
                - name: Prepare app
-                 href: tutorial-cli-ap-node-sign-in-prepare-app
+                 href: tutorial-cli-ap-node-sign-in-prepare-app.md
                - name: Sign in users
-                 href: tutorial-cli-ap-node-sign-in-sign-out
+                 href: tutorial-cli-ap-node-sign-in-sign-out.md
 - name: Concepts
   items: 
     - name: Planning for customer identity and access

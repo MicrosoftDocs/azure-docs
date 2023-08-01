@@ -18,7 +18,7 @@ ms.custom: developer, devx-track-js
 
 # Sign in users in a Node.js CLI application - Prepare app
 
-In this article, you learn how to add sign-in functionality to a Node.js CLI application that signs in users. The client application you build uses the [OAuth 2.0 Authorization Code Flow](../../v2-oauth2-auth-code-flow) with Proof Key for Code Exchange (PKCE) for secure user authentication.
+In this article, you learn how to add sign-in functionality to a Node.js CLI application that signs in users. The client application you build uses the [OAuth 2.0 Authorization Code Flow](../../v2-oauth2-auth-code-flow.md) with Proof Key for Code Exchange (PKCE) for secure user authentication.
 
 > [!div class="checklist"]
 >
