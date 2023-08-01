@@ -64,7 +64,7 @@ At this point, you should have a Document Intelligence resource and a SharePoint
 
     :::image type="content" source="../../media/logic-apps-tutorial/create-logic-app.png" alt-text="Screenshot of the Create Logic App page.":::
 
-1. Next, you're going to fill out the **Create Logic App** fields with the following values:
+1. Next, you're going to complete the **Create Logic App** fields with the following values:
 
    * **Subscription**. Select your current subscription.
    * **Resource group**. The [Azure resource group](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) that contains your resource. Choose the same resource group you have for your Document Intelligence resource.
@@ -111,7 +111,7 @@ At this point, you should have a Document Intelligence resource and a SharePoint
     > Select the arrow at the end of each listed folder to traverse to the next folder in the path:
       :::image type="content" source="../../media/logic-apps-tutorial/folder-traverse-tip.png" alt-text="Screenshot of how to traverse the folder path.":::
 
-::: moniker range=">=doc-intel-3.1.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 4. Search for and select **SharePoint** from the search bar once more. Then, select the **Get file content** action.
 
@@ -241,7 +241,7 @@ At this point, you should have a Document Intelligence resource and a SharePoint
 > * This current version only returns a single invoice per PDF.
 > * The "For each loop" is required around the send email action to enable an output format that may return more than one invoice from PDFs in the future.
 
-:::moniker-end -->
+:::moniker-end
 
 :::moniker range="doc-intel-2.1.0"
 

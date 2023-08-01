@@ -118,7 +118,7 @@ Now that you have the Logic App connector resource set up and configured, let's 
 
     :::image type="content" source="../../media/logic-apps-tutorial/when-file-created.png" alt-text="Screenshot of the When a file is created window.":::
 
-:::moniker range=">=doc-intel-3.1.0"
+:::moniker range=">=doc-intel-3.0.0"
 
 4. Next, we're going to add a new step to the workflow. Select the **➕ New step** button underneath the newly created OneDrive node.
 
