@@ -47,7 +47,7 @@ Prefix size is specified as a Classless Inter-Domain Routing (CIDR) mask size.
 There are no limits as to how many prefixes created in a subscription. The number of ranges created can't exceed more static public IP addresses than allowed in your subscription. For more information, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
 
-## Create a public IP address prefix for Service Fabric Managed Cluster
+## Set up a public IP prefix for Service Fabric managed cluster
 
 The following section describes the steps that should be taken to implement public IP prefix for Service Fabric managed cluster:
 
