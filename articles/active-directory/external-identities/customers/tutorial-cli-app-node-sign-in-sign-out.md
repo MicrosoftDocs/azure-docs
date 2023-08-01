@@ -18,7 +18,7 @@ ms.custom: developer, devx-track-js
 
 # Authenticate users in a Node.js CLI application - Build app 
 
-To sign in users in a Node.js browserless application, you implement the device code flow by following these steps:
+To sign in users in a Node.js browserless application, you implement the authorization code flow by following these steps:
 
 
 > [!div class="checklist"]
@@ -43,7 +43,7 @@ const open = require('open');
 const { msalConfig, loginRequest } = require('./authConfig');
 ```
 
-In this code snippet, you import the the `PublicClientApplication` and `InteractionRequiredAuthError` classes from the `@azure/msal-node` package. You also import the `open` package that's enables the app to open a browser window for user interaction. 
+In this code snippet, you import the `PublicClientApplication` and `InteractionRequiredAuthError` classes from the `@azure/msal-node` package. You also import the `open` package that's enables the app to open a browser window for user interaction. 
 
 ## Create an instance of a PublicClientApplication object
 
@@ -67,7 +67,7 @@ const openBrowser = async (url) => {
 
 ## Create a token request object
 
-Next, create the `tokenRequest` object by combining properties in the `loginRequest` (imported from `authConfig.js`) and the `openBrowser`` function by adding the following code to *index.js*
+Next, create a `tokenRequest` object by combining properties in the `loginRequest` (imported from `authConfig.js`) and the `openBrowser` function by adding the following code to *index.js*
 
 ```javascript
 const tokenRequest = {
@@ -81,6 +81,8 @@ const tokenRequest = {
 The `successTemplate` and `errorTemplate` are HTML templates used for displaying messages after authentication.
 
 ## Define function to acquire tokens
+
+To create the `acquireToken` function that the application uses to obtain an access token for the user, add the following code to *index.js*:
 
 ```javascript
 const acquireToken = async () => {
@@ -108,9 +110,11 @@ const acquireToken = async () => {
     }
 };
 ```
-The `acquireToken` function is defined to acquire an access token for the user. It first retrieves all accounts from the token cache using `pca.getTokenCache().getAllAccounts()`. If only one account is found, it tries to acquire the token silently for that account. If the silent acquisition fails due to an `InteractionRequiredAuthError`, it falls back to interactive authentication using `pca.acquireTokenInteractive(tokenRequest)`. If multiple accounts are found, it prompts the user to select an account, and if no account is found, it uses interactive authentication.
+The `acquireToken` function first attempts to retrieve all accounts from the token cache using `pca.getTokenCache().getAllAccounts()`. If only one account is found, it tries to acquire a token silently for that account. If the silent acquisition fails due to an `InteractionRequiredAuthError`, it falls back to interactive authentication using `pca.acquireTokenInteractive(tokenRequest)`. If multiple accounts are found, it prompts the user to select an account to sign in and if no account is found, it uses interactive authentication.
 
 ## Initiate the authentication flow
+
+Finally, call the `acquireToken()` function to initiate the authentication flow by adding the following code to *index.js*:
 
 ```javascript
 acquireToken()
@@ -122,9 +126,8 @@ acquireToken()
         process.exit(1);
     });
 ```
-The `acquireToken()` function is called to initiate the authentication flow. If successful, the response (containing the access token) is logged to the console. If there's an error during authentication, the error is logged, and the process exits with an error code.
 
-By following these main steps, your Node.js CLI app will be able to authenticate users using the Microsoft Identity Platform securely. Remember to replace the values in `authConfig.js` with your application's specific settings. Happy coding!
+If the call to `acquireToken()` is successful, the response, which contains an access token, is logged to the console. If there's an error during authentication, the error is logged, and the process exits with an error code.
 
 ## Configure the Node.js CLI application 
 

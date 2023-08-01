@@ -18,14 +18,13 @@ ms.custom: developer, devx-track-js
 
 # Sign in users in a Node.js CLI application - Prepare app
 
-In this article, you learn how to add sign-in functionality to a Node.js CLI application that signs in users. The client application you build uses the OAuth 2.0 Authorization Code Flow with Proof Key for Code Exchange (PKCE) for secure user authentication.
+In this article, you learn how to add sign-in functionality to a Node.js CLI application that signs in users. The client application you build uses the [OAuth 2.0 Authorization Code Flow](../../v2-oauth2-auth-code-flow) with Proof Key for Code Exchange (PKCE) for secure user authentication.
 
 > [!div class="checklist"]
 >
 > - Create a new Node.js application project
 > - Install app dependencies
 > - Create the MSAL configuration object
-> -
 
 Here, you build a new Node.js CLI app from scratch. If you prefer using a completed code sample for learning, download the [sample Node.js browserless application](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/archive/refs/heads/main.zip) from GitHub.
 
