@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 07/31/2023
 ---
 
-# Index from a SQL managed instance through a public endpoint in Azure Cognitive Search
+# Indexer connections to Azure SQL Managed Instance through a public endpoint
 
-Indexers in Azure Cognitive Search connect to external data sources over a public endpoint. If you're setting up an [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) for a connection to SQL managed instance, follow the steps in this article to ensure the public endpoint is set up correctly. 
+Indexers in Azure Cognitive Search connect to external data sources over a public endpoint. If you're setting up an [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) for a connection to a SQL managed instance, follow the steps in this article to ensure the public endpoint is set up correctly. 
 
-Alternatively, if the managed instance is accessed through a private endpoint, [create a shared private link](search-indexer-how-to-access-private-sql.md) instead.
+Alternatively, if the managed instance is behind a firewall, [create a shared private link](search-indexer-how-to-access-private-sql.md) instead.
 
 > [!NOTE]
 > [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns are not currently supported by Cognitive Search indexers.
 
 ## Enable a public endpoint
 
-This article highlights just the steps and information necessary for an indexer connection. For more information, see [Configure public endpoint in Azure SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure) instead.
+This article highlights just the steps for an indexer connection in Cognitive Search. If you want more background, see [Configure public endpoint in Azure SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure) instead.
 
 1. For a new SQL Managed Instance, create the resource with the **Enable public endpoint** option selected.
 
@@ -56,4 +56,4 @@ Copy the connection string to use in the search indexer's data source connection
 
 ## Next steps
 
-With configuration out of the way, you can now specify a SQL Managed Instance as an indexer data source using the basic instructions for [setting up an Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md).
+With configuration out of the way, you can now specify a SQL managed instance as an indexer data source using the basic instructions for [setting up an Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md).
