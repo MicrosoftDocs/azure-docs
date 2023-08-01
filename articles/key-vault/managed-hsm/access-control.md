@@ -73,7 +73,7 @@ The following table shows the endpoints for the management plane and data plane.
 | Access plane | Access endpoints | Operations | Access control mechanism |
 | --- | --- | --- | --- |
 | Management plane | **Global:**<br/> `management.azure.com:443`<br/> | Create, read, update, delete, and move managed HSMs<br/><br/>Set managed HSM tags | Azure RBAC |
-| Data plane | **Global:**<br/> `<hsm-name>.managedhsm.azure.net:443`<br/> | **Keys**: Decrypt, encrypt,<br/> unwrap, wrap, verify, sign, get, list, update, create, import, delete, backup, restore, purge<br/><br/> **Data plane role-management (Managed HSM local RBAC)**: List role definitions, assign roles, delete role assignments, define custom roles<br/><br/>**Backup and restore**: Backup, restore, check the status of backup and restore operations <br/><br/>**Security domain**: Download and upload the security domain | Managed HSM local RBAC |
+| Data plane | **Global:**<br/> `<hsm-name>.managedhsm.azure.net:443`<br/> | **Keys**: Decrypt, encrypt,<br/> unwrap, wrap, verify, sign, get, list, update, create, import, delete, back up, restore, purge<br/><br/> **Data plane role-management (Managed HSM local RBAC)**: List role definitions, assign roles, delete role assignments, define custom roles<br/><br/>**Backup and restore**: Back up, restore, check the status of backup and restore operations <br/><br/>**Security domain**: Download and upload the security domain | Managed HSM local RBAC |
 |||||
 
 ## The management plane and Azure RBAC
