@@ -90,15 +90,15 @@ This example uses `train.yml` [in the directory](https://github.com/Azure/azurem
 
     Find the *train*, *score* and *eval* components registered in previous section then drag-and-drop them on the canvas. By default it uses the default version of the component, and you can change to a specific version in the right pane of component. The component right pane is invoked by double click on the component.
     
-        :::image type="content" source="./media/how-to-create-component-pipelines-ui/change-component-version.png" alt-text="Screenshot showing changing version of component." lightbox ="./media/how-to-create-component-pipelines-ui/change-component-version.png":::
+    :::image type="content" source="./media/how-to-create-component-pipelines-ui/change-component-version.png" alt-text="Screenshot showing changing version of component." lightbox ="./media/how-to-create-component-pipelines-ui/change-component-version.png":::
     
     In this example, we'll use the sample data under [this path](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/data). Register the data into your workspace by clicking the add icon in designer asset library -> data tab, set Type = Folder(uri_folder) then follow the wizard to register the data. The data type need to be uri_folder to align with the [train component definition](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/train.yml).
 
-        :::image type="content" source="./media/how-to-create-component-pipelines-ui/add-data.png" alt-text="Screenshot showing add data." lightbox ="./media/how-to-create-component-pipelines-ui/add-data.png":::
+    :::image type="content" source="./media/how-to-create-component-pipelines-ui/add-data.png" alt-text="Screenshot showing add data." lightbox ="./media/how-to-create-component-pipelines-ui/add-data.png":::
 
     Then drag and drop the data into the canvas. Your pipeline look should look like the following screenshot now.
     
-        :::image type="content" source="./media/how-to-create-component-pipelines-ui/pipeline-with-all-boxs.png" alt-text="Screenshot showing the pipeline draft." lightbox ="./media/how-to-create-component-pipelines-ui/pipeline-with-all-boxs.png":::
+    :::image type="content" source="./media/how-to-create-component-pipelines-ui/pipeline-with-all-boxs.png" alt-text="Screenshot showing the pipeline draft." lightbox ="./media/how-to-create-component-pipelines-ui/pipeline-with-all-boxs.png":::
 
 
     
