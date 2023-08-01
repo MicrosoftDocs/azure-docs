@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 08/02/2023
+ms.date: 08/01/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
