@@ -29,7 +29,7 @@ In Azure Cognitive Search, vector data is indexed as *vector fields* within a [s
 
 + Pre-existing vector embeddings in your source documents. Cognitive Search doesn't generate vectors. We recommend [Azure OpenAI embedding models](/azure/ai-services/openai/concepts/models#embeddings-models) but you can use any model for vectorization. 
 
-+ You should know the dimensions limit of the model used to create the embeddings and how similarity is computed. For **text-embedding-ada-002**, the length of the numerical vector is 1546. Similarity is computed using `cosine`.
++ You should know the dimensions limit of the model used to create the embeddings and how similarity is computed. For **text-embedding-ada-002**, the length of the numerical vector is 1536. Similarity is computed using `cosine`.
 
 A short example of a documents payload that includes vector and non-vector fields is in the [load vector data](#load-vector-data-for-indexing) section of this article.
 
