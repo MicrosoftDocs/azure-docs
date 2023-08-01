@@ -214,7 +214,7 @@ items:
             href: tutorial-mobile-app-maui-sign-in-prepare-app.md
           - name: Sign in and sign out
             href: tutorial-mobile-app-maui-sign-in-sign-out.md
-      - name: Command-line Interface (CLI) app
+      - name: Command-line interface (CLI) app
         items:
           - name: Node.js - sign in users
             items:

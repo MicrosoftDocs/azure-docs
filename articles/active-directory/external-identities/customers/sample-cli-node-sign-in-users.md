@@ -110,7 +110,7 @@ You can now test the sample Node.js CLI application.
 
 Learn how to: 
 
-- Sign in users in your own Node.js CLI application. By completing these steps, you build a Node.js CLI application similar to the sample you've run. 
+- [Sign in users in your own Node.js CLI application](tutorial-cli-app-node-sign-in-prepare-tenant.md). By completing these steps, you build a Node.js CLI application similar to the sample you've run. 
 - [Enable password reset](how-to-enable-password-reset-customers.md).
 - [Customize the default branding](how-to-customize-branding-customers.md).
 - [Configure sign-in with Google](how-to-google-federation-customers.md).
