@@ -22,7 +22,7 @@ and AGIC installation. Launch your shell from [shell.azure.com](https://shell.az
 
 ## Test with a simple Kubernetes app
 
-The steps below assume:
+The following steps assume:
   - You have an AKS cluster, with Advanced Networking enabled
   - AGIC has been installed on the AKS cluster
   - You already have an Application Gateway on a VNET shared with your AKS cluster
@@ -112,7 +112,7 @@ Application Gateway has the following configuration applied:
 ![routing_rule](./media/application-gateway-ingress-controller-troubleshooting/tsg--rule.png)
 
 - Backend Pool:
-  - There is one IP address in the backend address pool and it matches the IP address of the Pod we observed earlier with `kubectl get pods -o wide`
+  - There's one IP address in the backend address pool and it matches the IP address of the Pod we observed earlier with `kubectl get pods -o wide`
 ![backend_pool](./media/application-gateway-ingress-controller-troubleshooting/tsg--backendpools.png)
 
 
@@ -152,7 +152,7 @@ The following conditions must be in place for AGIC to function as expected:
      aspnetapp           ClusterIP   10.2.63.254    <none>        80/TCP    17h   app=aspnetapp   <none>     
      ```
 
-  3. **Ingress**, annotated with `kubernetes.io/ingress.class: azure/application-gateway`, referencing the the service
+  3. **Ingress**, annotated with `kubernetes.io/ingress.class: azure/application-gateway`, referencing the previous service. 
      Verify this configuration from [Cloud Shell](https://shell.azure.com/) with `kubectl get ingress -o wide --show-labels`
      ```output
      delyan@Azure:~$ kubectl get ingress -o wide --show-labels
