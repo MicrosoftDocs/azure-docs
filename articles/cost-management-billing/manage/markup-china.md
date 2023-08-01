@@ -24,7 +24,7 @@ This feature provides estimated prices and accumulated costs to your end custome
 ## Prerequisites
 
 >[!IMPORTANT]
-> Configuring markup is currently available only for partner use with customers on the Microsoft Customer Agreement (MCA) with Microsoft Azure operated by 21Vianet (Microsoft Azure operated by 21Vianet).
+> Configuring markup is currently available only for partner use with customers on the Microsoft Customer Agreement (MCA) with Microsoft Azure operated by 21Vianet.
 
 If you're a billing account or billing profile admin, you can create and manage markup rules for the customers linked to your billing profile. Only one markup rule can be set up per customer billing profile for a defined time period. The markup rule applies to the customer billing profile only for first party Azure prices and charges. 
 
