@@ -41,7 +41,7 @@ All containers include a default indexing policy that will successfully index ge
 
 1. Create a shell variable for the name of your Azure Cosmos DB for NoSQL account and resource group.
 
-    ```azurecli
+    ```azurecli-interactive
     # Variable for resource group name
     resourceGroupName="<name-of-your-resource-group>"
 
@@ -51,7 +51,7 @@ All containers include a default indexing policy that will successfully index ge
 
 1. Create a new database named ``cosmicworks`` using [``az cosmosdb sql database create``](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create).
 
-    ```azurecli
+    ```azurecli-interactive
     az cosmosdb sql database create \
         --resource-group $resourceGroupName \
         --account-name $accountName \
@@ -89,7 +89,7 @@ All containers include a default indexing policy that will successfully index ge
 
 1. Use [``az cosmosdb sql container create``](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) to create a new container named ``locations`` with a partition key path of ``/region``.
 
-    ```azurecli
+    ```azurecli-interactive
     az cosmosdb sql container create \
         --resource-group $resourceGroupName \
         --account-name $accountName \
@@ -101,7 +101,7 @@ All containers include a default indexing policy that will successfully index ge
 
 1. Retrieve the primary connection string for the account using [``az cosmosdb keys list``](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list).
 
-    ```azurecli
+    ```azurecli-interactive
     az cosmosdb keys list \
         --resource-group $resourceGroupName \
         --name $accountName \
@@ -180,10 +180,10 @@ The .NET SDK includes multiple types in the [``Microsoft.Azure.Cosmos.Spatial``]
 
     | | Type | Description | Default value |
     | --- | --- | --- | --- |
-    | **``id``** | ``string`` | Unique identifier | |
-    | **``name``** | ``string`` | Name of the office | |
-    | **``location``** | ``Point`` | GeoJSON geographical point | |
-    | **``category``** | ``string`` | Partition key value | ``business-office`` |
+    | **id** | ``string`` | Unique identifier | |
+    | **name** | ``string`` | Name of the office | |
+    | **location** | ``Point`` | GeoJSON geographical point | |
+    | **category** | ``string`` | Partition key value | ``business-office`` |
 
     ```csharp
     using Microsoft.Azure.Cosmos.Spatial;
@@ -203,10 +203,10 @@ The .NET SDK includes multiple types in the [``Microsoft.Azure.Cosmos.Spatial``]
 
     | | Type | Description | Default value |
     | --- | --- | --- | --- |
-    | **``id``** | ``string`` | Unique identifier | |
-    | **``name``** | ``string`` | Name of the office | |
-    | **``location``** | ``Polygon`` | GeoJSON geographical shape | |
-    | **``category``** | ``string`` | Partition key value | ``business-region`` |
+    | **id** | ``string`` | Unique identifier | |
+    | **name** | ``string`` | Name of the office | |
+    | **location** | ``Polygon`` | GeoJSON geographical shape | |
+    | **category** | ``string`` | Partition key value | ``business-region`` |
 
     ```csharp
     using Microsoft.Azure.Cosmos.Spatial;
@@ -226,8 +226,8 @@ The .NET SDK includes multiple types in the [``Microsoft.Azure.Cosmos.Spatial``]
 
     | | Type | Description |
     | --- | --- | --- |
-    | **``name``** | ``string`` | Name of the matched result |
-    | **``distanceKilometers``** | ``decimal`` | Distance in kilometers |
+    | **name** | ``string`` | Name of the matched result |
+    | **distanceKilometers** | ``decimal`` | Distance in kilometers |
 
     ```csharp
     public record Result(
@@ -346,9 +346,9 @@ The types in the ``Microsoft.Azure.Cosmos.Spatial`` namespace can be used as inp
 
     | | Value |
     | --- | --- |
-    | **``@maxDistance``** | ``2000`` |
-    | **``@partitionKey``** | ``"business-office"`` |
-    | **``@compareLocation``** | ``new Point(-122.11758, 47.66901)`` |
+    | **@maxDistance** | ``2000`` |
+    | **@partitionKey** | ``"business-office"`` |
+    | **@compareLocation** | ``new Point(-122.11758, 47.66901)`` |
 
     ```csharp
     var query = new QueryDefinition(nosqlString)
@@ -405,7 +405,6 @@ The [LINQ to NoSQL](query/linq-to-sql.md) functionality in the .NET SDK supports
 
     ```csharp
     Region region = await container.ReadItemAsync<Region>("1000", new PartitionKey("business-region"));
-
     ```
 
 1. Use the [``Container.GetItemLinqQueryable<>``](/dotnet/api/microsoft.azure.cosmos.container.getitemlinqqueryable) method to get a LINQ queryable, and the build the LINQ query fluently by performing these three actions:
@@ -457,7 +456,7 @@ Remove your database after you complete this guide.
 
 1. Open a terminal and create a shell variable for the name of your account and resource group.
 
-    ```azurecli
+    ```azurecli-interactive
     # Variable for resource group name
     resourceGroupName="<name-of-your-resource-group>"
 
@@ -467,7 +466,7 @@ Remove your database after you complete this guide.
 
 1. Use [``az cosmosdb sql database delete``](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-delete) to remove the database.
 
-    ```azurecli
+    ```azurecli-interactive
     az cosmosdb sql database delete \
         --resource-group $resourceGroupName \
         --account-name $accountName \
