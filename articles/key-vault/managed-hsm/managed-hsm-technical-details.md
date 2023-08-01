@@ -9,7 +9,7 @@ ms.author: davinune
 ms.date: 07/20/2023
 ---
 
-# Key sovereignty, availability, performance, and scalability in Azure Key Vault Managed HSM
+# Key sovereignty, availability, performance, and scalability in Managed HSM
 
 Cryptographic keys are the root of trust for securing modern computer systems, whether on-premises or in the cloud. So, controlling who has authority over those keys is critical to building secure and compliant applications.
 

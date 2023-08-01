@@ -9,7 +9,7 @@ ms.author: mbaldwin
 ms.date: 03/28/2022
 ---
 
-# Security domain in Azure Key Vault Managed HSM overview
+# Security domain in Managed HSM overview
 
 A managed HSM is a single-tenant, [Federal Information Processing Standards (FIPS) 140-2 validated](https://csrc.nist.gov/publications/detail/fips/140/2/final), highly available, hardware security module (HSM) that has a customer-controlled security domain.  
 

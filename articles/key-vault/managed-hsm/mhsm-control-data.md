@@ -9,7 +9,7 @@ ms.author: nkondamudi
 ms.date: 06/13/2022
 ---
 
-# Control data in the cloud by using Azure Key Vault Managed HSM
+# Control your data in the cloud by using Managed HSM
 
 Microsoft values, protects, and defends privacy. We believe in transparency so that people and organizations can control their data and have meaningful choices in how it's used. We empower and defend the privacy choices of every person who uses our products and services.
 

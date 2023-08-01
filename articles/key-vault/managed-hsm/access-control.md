@@ -14,7 +14,7 @@ ms.author: mbaldwin
 # Customer intent: As the admin for managed HSMs, I want to set access policies and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for these managed HSMs.
 ---
 
-# Access control for Azure Key Vault Managed HSM
+# Access control for Managed HSM
 
 Azure Key Vault Managed HSM is a cloud service that safeguards encryption keys. Because this data is sensitive and critical to your business, you need to secure your managed hardware security modules (HSMs) by allowing only authorized applications and users to access the data.
 
@@ -23,7 +23,7 @@ This article provides an overview of the Managed HSM access control model. It ex
 > [!NOTE]
 > The Azure Key Vault resource provider supports two resource types: *vaults* and *managed HSMs*. Access control that's described in this article applies only to *managed HSMs*. To learn more about access control for Managed HSM, see [Provide access to Key Vault keys, certificates, and secrets with Azure role-based access control](../general/rbac-guide.md).
 
-## The access control model
+## Access control model
 
 Access to a managed HSM is controlled through two interfaces:
 
@@ -76,7 +76,7 @@ The following table shows the endpoints for the management plane and data plane.
 | Data plane | **Global:**<br/> `<hsm-name>.managedhsm.azure.net:443`<br/> | **Keys**: Decrypt, encrypt,<br/> unwrap, wrap, verify, sign, get, list, update, create, import, delete, back up, restore, purge<br/><br/> **Data plane role-management (Managed HSM local RBAC)**: List role definitions, assign roles, delete role assignments, define custom roles<br/><br/>**Backup and restore**: Back up, restore, check the status of backup and restore operations <br/><br/>**Security domain**: Download and upload the security domain | Managed HSM local RBAC |
 |||||
 
-## The management plane and Azure RBAC
+## Management plane and Azure RBAC
 
 In the management plane, you use Azure RBAC to authorize the operations that a caller can execute. In the Azure RBAC model, each Azure subscription has an instance of Azure Active Directory. You grant access to users, groups, and applications from this directory. Access is granted to manage subscription resources that use the Azure Resource Manager deployment model. To grant access, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](/cli/azure/install-classic-cli), [Azure PowerShell](/powershell/azureps-cmdlets-docs), or [Azure Resource Manager REST APIs](/rest/api/authorization/role-assignments).
 
@@ -89,7 +89,7 @@ You create a key vault in a resource group and manage access by using Azure Acti
 
 Several roles are predefined. If a predefined role doesn't fit your needs, you can define your own role. For more information, see [Azure RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md).
 
-## The data plane and Managed HSM local RBAC
+## Data plane and Managed HSM local RBAC
 
 You grant a security principal access to execute specific key operations by assigning a role. For each role assignment, you must specify a role and scope for which that assignment applies. For Managed HSM local RBAC, two scopes are available:
 

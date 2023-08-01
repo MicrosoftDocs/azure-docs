@@ -13,7 +13,7 @@ ms.author: mbaldwin
 
 # Customer intent: As a developer using Managed HSM, I want to know best practices for securing my managed HSM, so that I can implement them.
 ---
-# Best practices for securing Azure Key Vault Managed HSM
+# Best practices for securing Managed HSM
 
 This article provides best practices for securing your Azure Key Vault Managed HSM key management system. For a full list of security recommendations, see the [Azure Managed HSM security baseline](/security/benchmark/azure/baselines/key-vault-managed-hsm-security-baseline).
 
@@ -30,7 +30,7 @@ To control access to your managed HSM:
 - Use the least-privilege access principle to assign roles.
 - Create a custom role definition by using a precise set of permissions.
 
-## Backup
+## Back up
 
 - Make sure that you make regular backups of your managed HSM.
 
