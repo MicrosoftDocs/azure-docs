@@ -482,7 +482,7 @@ az ml job show -n $run_id --web
 
 ---
 
-### Multiple child runs on a cluster
+### Multiple child runs on clusters
 
 Automated ML experiment child runs can be performed on a cluster that is already running another experiment. However, the timing depends on how many nodes the cluster has, and if those nodes are available to run a different experiment.
 
