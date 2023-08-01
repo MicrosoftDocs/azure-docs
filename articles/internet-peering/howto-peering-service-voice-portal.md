@@ -1,5 +1,5 @@
 ---
-title: Enable Azure Peering Service for Voice on a Direct peering - Azure portal
+title: Enable Azure Peering Service Voice on a Direct peering - Azure portal
 description: Learn how to enable Azure Peering Service for voice on a Direct peering using the Azure portal.
 services: internet-peering
 author: halkazwini
@@ -9,9 +9,9 @@ ms.topic: how-to
 ms.date: 08/01/2023
 ---
 
-# Enable Azure Peering Service for Voice on a Direct peering by using the Azure portal
+# Enable Azure Peering Service Voice on a Direct peering by using the Azure portal
 
-This article shows you how to enable [Azure Peering Service](../peering-service/about.md) for voice on a Direct peering using the Azure portal.
+This article shows you how to enable Azure Peering Service for voice on a Direct peering using the Azure portal. Fore more information, see [Peering Service](../peering-service/about.md).
 
 ## Prerequisites
 

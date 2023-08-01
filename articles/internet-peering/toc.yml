@@ -42,7 +42,7 @@
       href: howto-peering-service-portal.md
     - name: PowerShell
       href: howto-peering-service-powershell.md
-  - name: Enable Peering Service for voice on a Direct peering
+  - name: Enable Peering Service Voice on a Direct peering
     href: howto-peering-service-voice-portal.md
   - name: Create or modify a Direct peering
     items:
