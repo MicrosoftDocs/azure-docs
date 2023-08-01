@@ -13,9 +13,9 @@
   expanded: true
   items:
   - name: Azure AD registered devices
-    href: concept-azure-ad-register.md
+    href: concept-device-registration.md
   - name: Azure AD joined devices 
-    href: concept-azure-ad-join.md
+    href: concept-directory-join.md
   - name: Hybrid Azure AD joined devices
     href: concept-hybrid-join.md
   - name: Device registration flows
@@ -40,9 +40,9 @@
     expanded: false
     items:
     - name: Plan your hybrid Azure AD join implementation
-      href: hybrid-azuread-join-plan.md
+      href: hybrid-join-plan.md
     - name: Targeted hybrid Azure AD join deployment
-      href: hybrid-azuread-join-control.md 
+      href: hybrid-join-control.md 
     - name: Configure hybrid Azure AD join
       href: how-to-hybrid-join.md
     - name: Verifying hybrid Azure AD join
@@ -61,7 +61,7 @@
   - name: Local Administrator Password Solution
     href: howto-manage-local-admin-passwords.md
   - name: Manage device identities
-    href: device-management-azure-portal.md
+    href: manage-device-identities.md
   - name: Troubleshooting Windows devices
     href: troubleshoot-device-windows-joined.md
   - name: Manage stale devices
@@ -94,7 +94,7 @@
     expanded: false
     items:
     - name: Configure hybrid Azure AD join manually
-      href: hybrid-azuread-join-manual.md
+      href: hybrid-join-manual.md
     - name: Enable older operating systems
       href: how-to-hybrid-join-downlevel.md
   - name: Enforce TLS 1.2
