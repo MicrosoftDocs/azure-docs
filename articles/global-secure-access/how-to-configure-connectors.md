@@ -12,7 +12,7 @@ ms.reviewer: katabish
 ---
 # How to configure App Proxy connectors for Microsoft Entra Private Access
 
-Connectors are lightweight agents that sit on-premises and facilitate the outbound connection to the Global Secure Access service. Connectors must be installed on a Windows Server that has access to the backend application. You can organize connectors into connector groups, with each group handling traffic to specific applications. To learn more about connectors, see [Understand Azure AD Application Proxy connectors](../active-directory/app-proxy/application-proxy-connectors.md).
+Connectors are lightweight agents that sit on-premises and facilitate the outbound connection to the Global Secure Access service. Connectors must be installed on a Windows Server that has access to the backend application. You can organize connectors into connector groups, with each group handling traffic to specific applications. To learn more about connectors, see [Understand Azure AD Application Proxy connectors](/azure/active-directory/app-proxy/application-proxy-connectors).
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ For high availability in your environment, we recommend having more than one Win
 Start by enabling communication to Azure data centers to prepare your environment for Azure AD Application Proxy. If there's a firewall in the path, make sure it's open. An open firewall allows the connector to make HTTPS (TCP) requests to the Application Proxy.
 
 > [!IMPORTANT]
-> If you are installing the connector for Azure Government cloud follow the [prerequisites](../active-directory/hybrid/connect/reference-connect-government-cloud.md#allow-access-to-urls) and [installation steps](../active-directory/hybrid/connect/reference-connect-government-cloud.md). This requires enabling access to a different set of URLs and an additional parameter to run the installation.
+> If you are installing the connector for Azure Government cloud follow the [prerequisites](/azure/active-directory/hybrid/connect/reference-connect-government-cloud#allow-access-to-urls) and [installation steps](/azure/active-directory/hybrid/connect/reference-connect-government-cloud). This requires enabling access to a different set of URLs and an additional parameter to run the installation.
 
 #### Open ports
 
@@ -88,11 +88,11 @@ To use Private Access, install a connector on each Windows server you're using f
 
 ## Things to know
 
-If you've previously installed a connector, reinstall it to get the latest version. When upgrading, uninstall the existing connector and delete any related folders. To see information about previously released versions and what changes they include, see [Application Proxy: Version Release History](../active-directory/app-proxy/application-proxy-release-version-history.md).
+If you've previously installed a connector, reinstall it to get the latest version. When upgrading, uninstall the existing connector and delete any related folders. To see information about previously released versions and what changes they include, see [Application Proxy: Version Release History](/azure/active-directory/app-proxy/application-proxy-release-version-history).
 
-If you choose to have more than one Windows server for your on-premises applications, you need to install and register the connector on each server. You can organize the connectors into connector groups. For more information, see [Connector groups](../active-directory/app-proxy/application-proxy-connector-groups.md).
+If you choose to have more than one Windows server for your on-premises applications, you need to install and register the connector on each server. You can organize the connectors into connector groups. For more information, see [Connector groups](/azure/active-directory/app-proxy/application-proxy-connector-groups).
 
-If you have installed connectors in different regions, you can optimize traffic by selecting the closest Application Proxy cloud service region to use with each connector group, see [Optimize traffic flow with Azure Active Directory Application Proxy](../active-directory/app-proxy/application-proxy-network-topology.md).
+If you have installed connectors in different regions, you can optimize traffic by selecting the closest Application Proxy cloud service region to use with each connector group, see [Optimize traffic flow with Azure Active Directory Application Proxy](/azure/active-directory/app-proxy/application-proxy-network-topology).
 
 ## Verify the installation and registration
 
@@ -111,7 +111,7 @@ To confirm the connector installed and registered correctly:
 
     ![Screenshot of the connector groups and connector group details.](media/how-to-configure-connectors/app-proxy-connectors-status.png)
 
-For more help with installing a connector, see [Problem installing the Application Proxy Connector](../active-directory/app-proxy/application-proxy-connector-installation-problem.md).
+For more help with installing a connector, see [Problem installing the Application Proxy Connector](/azure/active-directory/app-proxy/application-proxy-connector-installation-problem).
 
 ### Verify the installation through your Windows server
 
@@ -135,7 +135,7 @@ To create as many connector groups as you want:
 1. Give your new connector group a name, then use the dropdown menu to select which connectors belong in this group.
 1. Select **Save**.
 
-To learn more about connector groups, see [Publish applications on separate networks and locations using connector groups](../active-directory/app-proxy/application-proxy-connector-groups.md).
+To learn more about connector groups, see [Publish applications on separate networks and locations using connector groups](/azure/active-directory/app-proxy/application-proxy-connector-groups).
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 

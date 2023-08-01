@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 10/26/2022
+ms.date: 07/18/2023
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
@@ -8,7 +8,7 @@ ms.service: cognitive-search
 
 Deploy the search-enabled website as an Azure Static Web Apps site. This deployment includes both the React app and the Function app.  
 
-The Static Web app pulls the information and files for deployment from GitHub using your fork of the samples repository.  
+The static web app pulls the information and files for deployment from GitHub using your fork of the samples repository.  
 
 ## Create a Static Web App in Visual Studio Code
 
@@ -66,12 +66,12 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
 ## Get Cognitive Search query key in Visual Studio Code
 
-1. In Visual Studio Code, open a new PowerShell terminal window.
+1. In Visual Studio Code, open a new terminal window.
 
-1. Get the Query Key with this PowerShell command:
+1. Get the Query Key with this Azure CLI command:
 
-    ```powershell
-    Get-AzSearchQueryKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name>
+    ```azurecli
+    az search query-key list --resource-group cognitive-search-demo-rg --service-name my-cog-search-demo-svc
     ```
 
 1. Keep this query key, you'll need to use it in the next section. The query key is able to query your Index. 

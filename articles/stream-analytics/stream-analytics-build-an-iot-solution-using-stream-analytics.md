@@ -134,7 +134,7 @@ There are several resources that can easily be deployed in a resource group toge
 
 ### Review the Azure Stream Analytics TollApp resources
 
-1. Sign in to the Azure portal
+1. Sign in to the Azure portal.
 
 2. Locate the Resource Group that you named in the previous section.
 

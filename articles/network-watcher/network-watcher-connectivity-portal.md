@@ -7,7 +7,7 @@ author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 03/22/2023
+ms.date: 07/17/2023
 ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 ---
@@ -19,7 +19,7 @@ In this article, you learn how to use [Azure Network Watcher connection troubles
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Virtual machines (VMs) to troubleshoot connections with.
+- A virtual machine with inbound TCP connectivity from 168.63.129.16 over the port being tested.
 
 > [!IMPORTANT]
 > Connection troubleshoot requires that the virtual machine you troubleshoot from has the `AzureNetworkWatcherExtension` extension installed. The extension is not required on the destination virtual machine.

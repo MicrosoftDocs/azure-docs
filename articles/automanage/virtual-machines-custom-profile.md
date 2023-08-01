@@ -1,13 +1,13 @@
 ---
 title: Create a custom profile in Azure Automanage for VMs
 description: Learn how to create a custom profile in Azure Automanage and select your services and settings.
-author: ju-shim
+author: johnmarco
 ms.service: automanage
 ms.workload: infrastructure
 ms.custom: devx-track-arm-template
 ms.topic: how-to
-ms.date: 08/01/2022
-ms.author: jushiman
+ms.date: 07/01/2023
+ms.author: johnmarc
 ---
 
 
@@ -48,12 +48,12 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
     :::image type="content" source="media\virtual-machine-custom-profile\create-custom-profile.png" alt-text="Fill out custom profile details.":::
 
-5. Adjust the profile with the desired services and settings and click **Create**.
+5. Adjust the profile with the desired services and settings and select **Create**.
 
 
 ## Create a custom profile using Azure Resource Manager Templates
 
-The following ARM template will create an Automanage custom profile. Details on the ARM template and steps on how to deploy are located in the ARM template deployment [section](#arm-template-deployment).
+The following ARM template creates an Automanage custom profile. Details on the ARM template and steps on how to deploy are located in the ARM template deployment [section](#arm-template-deployment).
 
 > [!NOTE]
 > If you want to use a specific log analytics workspace, specify the ID of the workspace like this: "/subscriptions/**subscriptionId**/resourceGroups/**resourceGroupName**/providers/Microsoft.OperationalInsights/workspaces/**workspaceName**"
@@ -93,16 +93,15 @@ The following ARM template will create an Automanage custom profile. Details on 
         "location": "[parameters('location')]",
         "properties": {
             "configuration": {
-              "Antimalware/Enable": "true",
-              "Antimalware/EnableRealTimeProtection": "true",
-              "Antimalware/RunScheduledScan": "true",
+              "Antimalware/Enable": true,
+              "Antimalware/EnableRealTimeProtection": true,
+              "Antimalware/RunScheduledScan": true,
               "Antimalware/ScanType": "Quick",
               "Antimalware/ScanDay": "7",
               "Antimalware/ScanTimeInMinutes": "120",
               "AzureSecurityBaseline/Enable": true,
               "AzureSecurityBaseline/AssignmentType": "[parameters('azureSecurityBaselineAssignmentType')]",
-              "AzureSecurityCenter/Enable": true,
-              "Backup/Enable": "true",
+              "Backup/Enable": true,
               "Backup/PolicyName": "dailyBackupPolicy",
               "Backup/TimeZone": "UTC",
               "Backup/InstantRpRetentionRangeInDays": "2",
@@ -119,11 +118,13 @@ The following ARM template will create an Automanage custom profile. Details on 
               "Backup/RetentionPolicy/DailySchedule/RetentionDuration/DurationType": "Days",
               "BootDiagnostics/Enable": true,
               "ChangeTrackingAndInventory/Enable": true,
+              "DefenderForCloud/Enable": true,
               "LogAnalytics/Enable": true,
               "LogAnalytics/Reprovision": "[parameters('LogAnalyticsBehavior')]",
               "LogAnalytics/Workspace": "[parameters('logAnalyticsWorkspace')]",
               "UpdateManagement/Enable": true,
               "VMInsights/Enable": true,
+              "WindowsAdminCenter/Enable": true,
               "Tags/ResourceGroup": {
                 "foo": "rg"
               },
@@ -144,7 +145,7 @@ The following ARM template will create an Automanage custom profile. Details on 
 ```
 
 ### ARM template deployment
-This ARM template will create a custom configuration profile that you can assign to your specified machine.
+This ARM template creates a custom configuration profile that you can assign to your specified machine.
 
 The `customProfileName` value is the name of the custom configuration profile that you would like to create.
 
@@ -152,14 +153,14 @@ The `location` value is the region where you would like to store this custom con
 
 The `azureSecurityBaselineAssignmentType` is the audit mode that you can choose for the Azure server security baseline. Your options are
 
-* ApplyAndAutoCorrect : This setting will apply the Azure security baseline through the Guest Configuration extension, and if any setting within the baseline drifts, we'll auto-remediate the setting so it stays compliant.
-* ApplyAndMonitor : This setting will apply the Azure security baseline through the Guest Configuration extention when you first assign this profile to each machine. After it's applied, the Guest Configuration service will monitor the server baseline and report any drift from the desired state. However, it will not auto-remdiate.
-* Audit : This setting will install the Azure security baseline using the Guest Configuration extension. You'll be able to see where your machine is out of compliance with the baseline, but noncompliance won't be automatically remediated.
+* ApplyAndAutoCorrect : This setting applies the Azure security baseline through the Guest Configuration extension, and if any setting within the baseline drifts, we'll auto-remediate the setting so it stays compliant.
+* ApplyAndMonitor : This setting applies the Azure security baseline through the Guest Configuration extention when you first assign this profile to each machine. After it's applied, the Guest Configuration service will monitor the server baseline and report any drift from the desired state. However, it will not auto-remdiate.
+* Audit : This setting installs the Azure security baseline using the Guest Configuration extension. You're able to see where your machine is out of compliance with the baseline, but noncompliance isn't automatically remediated.
 
 You can also specify an existing log analytics workspace by adding this setting to the configuration section of properties below:
 * "LogAnalytics/Workspace": "/subscriptions/**subscriptionId**/resourceGroups/**resourceGroupName**/providers/Microsoft.OperationalInsights/workspaces/**workspaceName**"
 * "LogAnalytics/Reprovision": false
-Specify your existing workspace in the `LogAnalytics/Workspace` line. Set the `LogAnalytics/Reprovision` setting to true if you would like this log analytics workspace to be used in all cases. This means that any machine with this custom profile will use this workspace, even it is already connected to one. By default, the `LogAnalytics/Reprovision` is set to false. If your machine is already connected to a workspace, then that workspace will continue to be used. If it's not connected to a workspace, then the workspace specified in `LogAnalytics\Workspace` will be used.
+Specify your existing workspace in the `LogAnalytics/Workspace` line. Set the `LogAnalytics/Reprovision` setting to true if you would like this log analytics workspace to be used in all cases. Any machine with this custom profile then uses this workspace, even it's already connected to one. By default, the `LogAnalytics/Reprovision` is set to false. If your machine is already connected to a workspace, then that workspace is still used. If it's not connected to a workspace, then the workspace specified in `LogAnalytics\Workspace` will be used.
 
 Also, you can add tags to resources specified in the custom profile like below:
 
@@ -181,7 +182,7 @@ Also, you can add tags to resources specified in the custom profile like below:
 },
 "Tags/RecoveryVault/Behavior": "Preserve"
 ```
-The `Tags/Behavior` can be set either to Preserve or Replace. If the resource you are tagging already has the same tag key in the key/value pair, you can replace that key with the specified value in the configuration profile by using the *Replace* behavior. By default, the behavior is set to *Preserve*, meaning that the tag key that is already associated with that resource will be retained and not overwritten by the key/value pair specified in the configuration profile.
+The `Tags/Behavior` can be set either to Preserve or Replace. If the resource you're tagging already has the same tag key in the key/value pair, you can replace that key with the specified value in the configuration profile by using the *Replace* behavior. By default, the behavior is set to *Preserve*, meaning that the tag key that is already associated with that resource is retained and not overwritten by the key/value pair specified in the configuration profile.
 
 Follow these steps to deploy the ARM template:
 1. Save this ARM template as `azuredeploy.json`

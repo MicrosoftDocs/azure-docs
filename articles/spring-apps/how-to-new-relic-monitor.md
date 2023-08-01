@@ -48,7 +48,7 @@ Use the following procedure to access the agent:
    ```azurecli
    az spring app create \
        --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-instance-name> 
+       --service <Azure-Spring-Apps-instance-name> \
        --name <app-name> \
        --is-public true \
    ```

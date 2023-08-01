@@ -2,7 +2,6 @@
 title: Reliability in Azure Cognitive Search
 titleSuffix: Azure Cognitive Search
 description: Find out about reliability in Azure Cognitive Search.
-
 author: mattmsft
 ms.author: magottei
 ms.service: cognitive-search
@@ -173,7 +172,7 @@ If you don't use indexers, you would use your application code to push objects a
 
 ## Back up and restore alternatives
 
-A business continuity strategy for the data layer usually includes a restore-from-backup step. Because Azure Cognitive Search isn't a primary data storage solution, Microsoft doesn't provide a formal mechanism for self-service backup and restore. However, you can use the **index-backup-restore** sample code in this [Azure Cognitive Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples) to back up your index definition and snapshot to a series of JSON files, and then use these files to restore the index, if needed. This tool can also move indexes between service tiers.
+A business continuity strategy for the data layer usually includes a restore-from-backup step. Because Azure Cognitive Search isn't a primary data storage solution, Microsoft doesn't provide a formal mechanism for self-service backup and restore. However, you can use the **index-backup-restore** sample code in this [Azure Cognitive Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-utilities) to back up your index definition and snapshot to a series of JSON files, and then use these files to restore the index, if needed. This tool can also move indexes between service tiers.
 
 Otherwise, your application code used for creating and populating an index is the de facto restore option if you delete an index by mistake. To rebuild an index, you would delete it (assuming it exists), recreate the index in the service, and reload by retrieving data from your primary data store.
 

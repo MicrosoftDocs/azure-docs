@@ -54,7 +54,7 @@ To create a personal host pool, workspace, application group, and session host V
    | Host pool name | Enter a name for the host pool, for example *aad-hp01*. |
    | Location | Select the Azure region from the list where the host pool, workspace, and application group will be deployed. |
    | Validation environment | Select **No**. This setting enables your host pool to receive service updates before all other production host pools, but isn't needed for this tutorial.|
-   | Preferred app group type | Select **Desktop**. This setting designates what type of resource users see in their feed if they're assigned both *Desktop* and *Remote App* application groups in the same host pool.|
+   | Preferred app group type | Select **Desktop**. This setting designates what type of resource users see in their feed if they're assigned both *Desktop* and *RemoteApp* application groups in the same host pool.|
    | **Host pool type** |  |
    | Host pool type | Select **Personal**. This means that end users have a dedicated assigned session host that they'll always connect to. Selecting **Personal** shows a new option for **Assignment type**. |
    | Assignment type | Select **Automatic**. Automatic assignment means that a user will automatically get assigned the first available session host when they first sign in, which will then be dedicated to that user. |

@@ -286,7 +286,7 @@ For a list of samples showing how to integrate Azure AD with Azure Maps, see:
 [Authentication with Azure Maps]: azure-maps-authentication.md
 [Azure Maps & Azure Active Directory Samples]: https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Azure Maps community - Open-source projects]: open-source-projects.md#third-part-map-control-plugins
+[Azure Maps community - Open-source projects]: open-source-projects.md#third-party-map-control-plugins
 [Azure Maps React Component]: https://github.com/WiredSolutions/react-azure-maps
 [AzureMapsControl.Components]: https://github.com/arnaudleclerc/AzureMapsControl.Components
 [azure-maps-control]: https://www.npmjs.com/package/azure-maps-control

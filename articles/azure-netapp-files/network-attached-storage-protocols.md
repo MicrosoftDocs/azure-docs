@@ -103,3 +103,4 @@ For frequently asked questions regarding SMB in Azure NetApp Files, see the [Azu
 ## Next steps 
 * [Azure NetApp Files NFS FAQ](faq-nfs.md)
 * [Azure NetApp Files SMB FAQ](faq-smb.md)
+* [Understand file locking and lock types in Azure NetApp Files](understand-file-locks.md)

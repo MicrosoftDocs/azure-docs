@@ -4,6 +4,7 @@ description: Create and use an Apache Kafka service for development
 services: container-apps
 author: ahmelsayed
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 06/16/2023
 ms.author: ahmels

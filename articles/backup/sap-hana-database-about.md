@@ -5,8 +5,8 @@ ms.topic: conceptual
 ms.date: 06/25/2023
 ms.service: backup
 ms.custom: ignite-2022
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # About SAP HANA database backup on Azure VMs
