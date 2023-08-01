@@ -88,7 +88,7 @@ The sign-in logs are used to review how policy is enforced for service principal
 1. Browse to **Azure Active Directory** > **Sign-in logs** > **Service principal sign-ins**.
 1. Select a log entry and choose the **Conditional Access** tab to view evaluation information.
 
-Failure reason when Service Principal is blocked by Conditional Access: “Access has been blocked due to conditional access policies.” 
+Failure reason when Service Principal is blocked by Conditional Access: “Access has been blocked due to Conditional Access policies.” 
 
 #### Report-only mode
 

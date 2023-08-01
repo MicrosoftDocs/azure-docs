@@ -27,7 +27,7 @@ MSAL offers the following benefits:
 
 - Because it uses the newer Microsoft identity platform, you can authenticate a broader set of Microsoft identities such as Azure AD identities, Microsoft accounts, and social and local accounts through Azure AD Business to Consumer (B2C).
 - Your users will get the best single-sign-on experience.
-- Your application can enable incremental consent, and supporting conditional access is easier.
+- Your application can enable incremental consent, and supporting Conditional Access is easier.
 
 MSAL for Java is the auth library we recommend you use with the Microsoft identity platform. No new features will be implemented on ADAL4J. All efforts going forward are focused on improving MSAL.
 

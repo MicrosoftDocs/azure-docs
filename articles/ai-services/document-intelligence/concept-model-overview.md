@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.0.0'
+monikerRange: '<=doc-intel-3.1.0'
 ---
 
 
@@ -19,8 +19,8 @@ monikerRange: '<=doc-intel-3.0.0'
 
 # Document processing models
 
-::: moniker range="doc-intel-3.0.0"
-[!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
+::: moniker range=">=doc-intel-3.0.0"
+[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
@@ -33,7 +33,7 @@ monikerRange: '<=doc-intel-3.0.0'
 
 ## Model overview
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 | **Model**   | **Description**   |
 | --- | --- |
@@ -53,6 +53,14 @@ monikerRange: '<=doc-intel-3.0.0'
 | [Custom extraction models](#custom-extraction)| &#9679; **Custom template models** use layout cues to extract values from documents and are suitable to extract fields from highly structured documents with defined visual templates.</br>&#9679; **Custom neural models** are  trained on various document types to extract fields from structured, semi-structured and unstructured documents.|
 | [Custom classification model](#custom-classifier)| The **Custom classification model** can classify each page in an input file to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.
 | [Composed models](#composed-models) | Combine several custom models into a single model to automate processing of diverse document types with a single composed model.
+
+For all of the models above except Business card model, Document Intelligence now supports add-on capabilities to allow for more sophisticated analysis. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. There are four add-on capabilities available for the `2023-07-31` (GA) API version:
+
+* [`ocr.highResolution`](concept-add-on-capabilities.md#high-resolution-extraction)
+* [`ocr.formula`](concept-add-on-capabilities.md#formula-extraction)
+* [`ocr.font`](concept-add-on-capabilities.md#font-property-extraction)
+* [`ocr.barcode`](concept-add-on-capabilities.md#barcode-extraction)
+
 
 ### Read OCR
 
@@ -227,7 +235,7 @@ A composed model is created by taking a collection of custom models and assignin
 
 | **Model ID** | **Text extraction** | **Language detection** | **Selection Marks** | **Tables** | **Paragraphs** | **Structure** | **Key-Value pairs** | **Fields** |
 |:-----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-| [prebuilt-read](concept-read.md#data-extraction) | ✓ | ✓ |  |  | ✓ |   |  |   |
+| [prebuilt-read](concept-read.md#data-detection-and-extraction) | ✓ | ✓ |  |  | ✓ |   |  |   |
 | [prebuilt-healthInsuranceCard.us](concept-insurance-card.md#field-extraction) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
 | [prebuilt-tax.us.w2](concept-w2.md#field-extraction) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
 | [prebuilt-document](concept-general-document.md#data-extraction)| ✓  |   |  ✓ | ✓ | ✓  |    | ✓  |  |
@@ -374,7 +382,7 @@ A composed model is created by taking a collection of custom models and assignin
 
 ## Next steps
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 * Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 

@@ -323,6 +323,8 @@
           href: backup-configure-policy-based.md
         - name: Configure manual backups 
           href: backup-configure-manual.md
+      - name: Manage a backup vault
+        href: backup-vault-manage.md
       - name: Manage backup policies
         href: backup-manage-policies.md 
       - name: Search backups
