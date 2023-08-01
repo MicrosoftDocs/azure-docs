@@ -65,7 +65,7 @@ The following image shows the landing page for Document Intelligence Studio.
 
 * Utilize the grid view to preview documents or use the list view to scroll through the documents more easily.
 
-    :::image type="content" source="media/studio/document-options.png" alt-text="Screenshot: Document list view options and filters.":::
+    :::image type="content" source="media/studio/document-options.png" alt-text="Screenshot of document list view options and filters.":::
 
 ✔️ **Project sharing**
 
