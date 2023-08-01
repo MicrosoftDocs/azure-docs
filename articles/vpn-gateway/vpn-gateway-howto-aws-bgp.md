@@ -108,7 +108,7 @@ Create a VPN gateway using the following values:
 
    :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/public-ip.png" alt-text="Screenshot shows PIP setting." lightbox="./media/vpn-gateway-howto-aws-bgp/public-ip.png" :::
 
-1. Configure BGP
+1. Configure BGP.
 
     :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/create-gw-bgp.png" alt-text="Screenshot shows BGP setting." lightbox="./media/vpn-gateway-howto-aws-bgp/create-gw-bgp.png" :::
 
@@ -208,7 +208,7 @@ For **Inside IPv4 CIDR for Tunnel 1** and **Inside IPv4 CIDR for Tunnel 2** for 
 Next, you connect your AWS tunnels to Azure. For each of the four tunnels, you'll have both a local network gateway and a site-to-site connection.
 
 > [!IMPORTANT]
-> Repeat the following sections for **each of your four AWS tunnels**, using their respective **outside IP address**
+> Repeat the following sections for **each of your four AWS tunnels**, using their respective **outside IP address**.
 
 ### <a name="create-local-network-gateways"></a> Create local network gateways
 
@@ -221,14 +221,14 @@ Repeat these instructions to create each local network gateway.
 1. For **IP Address**, enter the **Outside IP Address** (from AWS) for the tunnel you're creating.
 1. Leave **Address Space** as blank and select **Advanced**.
 
-   :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/create-lng.png" alt-text="Values for your local network gateway" :::
+   :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/create-lng.png" alt-text="Screenshot shows local network gateway basics page." :::
 1. On the **Advanced** tab, configure the following settings:
 
    * Select **Yes** for **Configure BGP settings**.
    * For **Autonomous system number (ASN)**, enter the ASN for your AWS Virtual Private Network. Use the ASN **64512** if you left your ASN as the AWS default value.
    * For **BGP peer IP address**, enter the AWS BGP Peer IP Address based on the [APIPA configuration you chose](#apipa-config).
 
-   :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/lng-bgp.png" alt-text="Values for your local network gateway BGP settings" :::
+   :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/lng-bgp.png" alt-text="Screenshot shows values for your local network gateway BGP settings." :::
 
 ### <a name ="create-azure-connections"></a> Create connections
 
@@ -247,7 +247,7 @@ Repeat these steps to create each of the required connections.
    * Enter the **Shared key (PSK)** that matches the preshared key you entered when making the AWS connections.
    * **Enable BGP**: Select to enable.
    * **Enable Custom BGP Addresses**: Select to enable.
-1. Under **Custom BGP Addresses**
+1. Under **Custom BGP Addresses**:
 
      * Enter the Custom BGP Address based on the [APIPA configuration you chose](#apipa-config).
      * The **Custom BGP Address** (Inside IPv4 CIDR in AWS) must match with the **IP Address** (Outside IP Address in AWS) that you specified in the local network gateway you're using for this connection.
@@ -283,14 +283,14 @@ Repeat these steps to create each of the required connections.
 1. Open the page for your **virtual network gateway**, navigate to the **Connections** page.
 1. Verify that all 4 connections show as **Connected**.
 
-   :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/verify-connections.png" alt-text="Verify Azure connections" :::
+   :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/verify-connections.png" alt-text="Screenshot shows verify connections." :::
 
 ### <a name ="verify-bgp-peers"></a> Check your BGP peers status on Azure
 
 1. Open the page for your **virtual network gateway**, navigate to the **BGP Peers** page.
 1. In the **BGP Peers** table, verify that all of the connections with the **Peer address** you specified show as **Connected** and are exchanging routes.
 
-   :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/verify-bgp-peers.png" alt-text="Verify BGP Peers" :::
+   :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/verify-bgp-peers.png" alt-text="Screenshot shows verify BGP Peers." :::
 
 ### <a name ="verify-aws-status"></a> Check your connections status on AWS
 
