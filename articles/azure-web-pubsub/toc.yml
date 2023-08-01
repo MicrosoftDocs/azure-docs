@@ -138,15 +138,17 @@
       - name: Overview
         href: socketio-overview.md
       - name: Tutorials
+        href: build_test.md
       - name: How-to guides
         items:
           - name: Easily migrate a self-hosted Socket.IO app 
             href: socketio-migrate-from-self-hosted.md
-      - name: Concept
+      - name: Concepts
         items:
-          - name: Self-hosted vs fully-managed
-            href: socketio-concept-difference-between-selfhosted-and-fully-managed.md
-
+          - name: How does Web PubSub support Socket.IO library
+            href: socketio-service-internal.md
+          - name: Supported Socket.IO server APIs
+            href: socketio-supported-server-apis.md
 - name: Concepts
   expanded: false
   items:
