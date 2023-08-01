@@ -29,7 +29,7 @@ Default template implementations for many common scenarios can be found on the [
 In addition to testing templates on an instance of the service, a [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) is available.  The extension can be used to modify templates and test them with sample data payloads.  There are also several existing test scenarios in the [FHIR Converter GitHub repository](https://github.com/microsoft/FHIR-Converter/tree/main/src/Microsoft.Health.Fhir.Liquid.Converter.FunctionalTests) that can be used as a reference.
  
 ## Next steps
-In this article, you learn how to troubleshoot `$convert-data`.
+In this article, you learned how to troubleshoot `$convert-data`.
 
 For an overview of `$convert-data`, see 
 
