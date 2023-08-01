@@ -121,7 +121,7 @@ AccountKey=myAccountKey;
 EndpointSuffix=mySuffix;
 ```
 
-Here's an example connection string for storage services in Microsoft Azure operated by 21Vianet:
+Here's an example connection string for storage services in Azure operated by 21Vianet:
 
 ```
 DefaultEndpointsProtocol=https;
