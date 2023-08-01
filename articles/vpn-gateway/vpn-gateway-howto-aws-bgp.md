@@ -54,8 +54,8 @@ You can also set up your own custom APIPA addresses. AWS requires a /30 **Inside
 For example, if you set your AWS **Inside IPv4 CIDR** to be **169.254.21.0/30**, AWS will use the BGP IP address **169.254.21.1** and Azure will use the IP address **169.254.21.2**.
 
    > [!IMPORTANT]
-   > 1. Your APIPA addresses must not overlap between the on-premises VPN devices and all connected Azure VPN gateways.
-   > 1. If you choose to configure multiple APIPA BGP peer addresses on the VPN gateway, you must also configure all Connection objects with their corresponding IP address of your choice. If you fail to do so, all connections use the first APIPA IP address in the list no matter how many IPs are present.
+   > * Your APIPA addresses must not overlap between the on-premises VPN devices and all connected Azure VPN gateways.
+   > * If you choose to configure multiple APIPA BGP peer addresses on the VPN gateway, you must also configure all Connection objects with their corresponding IP address of your choice. If you fail to do so, all connections use the first APIPA IP address in the list no matter how many IPs are present.
 
 ## Prerequisites
 
@@ -106,11 +106,11 @@ Create a VPN gateway using the following values:
   
 1. Configure both Public IP addresses and enable active-active mode. The public IP address objects created here are associated to the VPN gateway. The public IP address is dynamically assigned to the object when the VPN gateway is created.
 
-   :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/public-ip.png" alt-text="Screenshot shows top part of the virtual network gateway screen." lightbox="./media/vpn-gateway-howto-aws-bgp/public-ip.png" :::
+   :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/public-ip.png" alt-text="Screenshot shows PIP setting." lightbox="./media/vpn-gateway-howto-aws-bgp/public-ip.png" :::
 
 1. Configure BGP
 
-    :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/create-gw-bgp.png" alt-text="BGP for creating gateway" :::
+    :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/create-gw-bgp.png" alt-text="Screenshot shows BGP setting." lightbox="./media/vpn-gateway-howto-aws-bgp/create-gw-bgp.png" :::
 
     * Select **Enabled** for **Configure BGP** to show the BGP configuration section.
     * Fill in a **ASN (Autonomous System Number)**. This ASN must be different than the ASN used by AWS.
@@ -207,10 +207,12 @@ For **Inside IPv4 CIDR for Tunnel 1** and **Inside IPv4 CIDR for Tunnel 2** for 
 
 Next, you connect your AWS tunnels to Azure. For each of the four tunnels, you'll have both a local network gateway and a site-to-site connection.
 
-   > [!IMPORTANT]
-   > Repeat the following sections for **each of your four AWS tunnels**, using their respective **outside IP address**
+> [!IMPORTANT]
+> Repeat the following sections for **each of your four AWS tunnels**, using their respective **outside IP address**
 
 ### <a name="create-local-network-gateways"></a> Create local network gateways
+
+Repeat these instructions to create each local network gateway.
 
 1. In the Azure portal, navigate to the **Local network gateway** resource from the Marketplace, and select **Create**.
 1. Select the same **Subscription**, **Resource Group**, and **Region** you used to create your virtual network gateway.
@@ -220,21 +222,33 @@ Next, you connect your AWS tunnels to Azure. For each of the four tunnels, you'l
 1. Leave **Address Space** as blank and select **Advanced**.
 
    :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/create-lng.png" alt-text="Values for your local network gateway" :::
-1. Select **Yes** for **Configure BGP settings**.
-1. For **Autonomous system number (ASN)**, enter the ASN for your AWS Virtual Private Network. Use the ASN **64512** if you left your ASN as the AWS default value.
-1. For **BGP peer IP address**, enter the AWS BGP Peer IP Address based on the [APIPA configuration you chose](#apipa-config).
+1. On the **Advanced** tab, configure the following settings:
+
+   * Select **Yes** for **Configure BGP settings**.
+   * For **Autonomous system number (ASN)**, enter the ASN for your AWS Virtual Private Network. Use the ASN **64512** if you left your ASN as the AWS default value.
+   * For **BGP peer IP address**, enter the AWS BGP Peer IP Address based on the [APIPA configuration you chose](#apipa-config).
 
    :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/lng-bgp.png" alt-text="Values for your local network gateway BGP settings" :::
 
 ### <a name ="create-azure-connections"></a> Create connections
 
-1. Open the page for your **virtual network gateway**, navigate to the **connections** page, then select **Add**.
-1. Enter a name for your connection.
-1. Select **Site-to-Site** as the **Connection type**.
-1. Select the **local network gateway** you created.
-1. Enter the **Shared key (PSK)** that matches the preshared key you entered when making the AWS connections.
-1. Select **Enable BGP**, then **Enable Custom BGP Addresses**.
+Repeat these steps to create each of the required connections.
+
+1. Open the page for your **virtual network gateway**, navigate to the **Connections** page.
+1. On the **Connections page**, select **+ Add**.
+1. On the **Basics** page, complete the following values:
+
+   * **Connection type**: Site-to-site (IPsec)
+   * **Name**: Enter a name for your connection. Example: AWSTunnel1toAzureInstance0.
+1. On the **Settings** page, complete the following values:
+
+   * **Virtual network gateway**: Select the VPN gateway.
+   * **Local network gateway**: Select the local network gateway you created.
+   * Enter the **Shared key (PSK)** that matches the preshared key you entered when making the AWS connections.
+   * **Enable BGP**: Select to enable.
+   * **Enable Custom BGP Addresses**: Select to enable.
 1. Under **Custom BGP Addresses**
+
      * Enter the Custom BGP Address based on the [APIPA configuration you chose](#apipa-config).
      * The **Custom BGP Address** (Inside IPv4 CIDR in AWS) must match with the **IP Address** (Outside IP Address in AWS) that you specified in the local network gateway you're using for this connection.
      * Only one of the two custom BGP addresses will be used, depending on the tunnel you're specifying it for.
@@ -250,16 +264,17 @@ Next, you connect your AWS tunnels to Azure. For each of the four tunnels, you'l
     | AWS Tunnel 2 to Azure Instance 0 | 169.254.22.2                   | Not used (select 169.254.21.6)|
     | AWS Tunnel 1 to Azure Instance 1 | Not used (select 169.254.21.2) | 169.254.21.6                  |
     | AWS Tunnel 2 to Azure Instance 1 | Not used (select 169.254.21.2) | 169.254.22.6                  |
-1. Leave the rest of the fields as their default values and select **Ok**.
 
-   :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/create-connection.png" alt-text="Modifying connection" :::
-
-1. From the **Connections** page for your VPN gateway, select the connection you created and navigate to the **Configuration** page.
-1. You can select any of the available options (Default, Initiator Only, Responder Only) for **Connection Mode**, then select **Save**.
-
-   :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/responder-only.png" alt-text="Specify connection mode." :::
-
-Verify that you have a **local network gateway** and **connection** for **each of your four AWS tunnels**. 
+1. Configure the following settings:
+ 
+   * **FastPath**: leave the default (deselected)
+   * **IPsec / IKE policy**: Default
+   * **Use policy based traffic selector**: Disable
+   * **DPD timeout in seconds**: leave the default
+   * **Connection Mode**: You can select any of the available options (Default, Initiator Only, Responder Only) for **Connection Mode**, then select **Save**.
+1. **Review + create** to create the connection.
+1. Repeat these steps to create additional connections.
+1. Before continuing to the next section, verify that you have a **local network gateway** and **connection** for **each of your four AWS tunnels**.
 
 ## <a name ="part-4"></a> Part 4: (Optional) Check the status of your connections
 
@@ -287,4 +302,4 @@ Verify that you have a **local network gateway** and **connection** for **each o
 
 ## Next steps
 
-For more information about VPN Gateway see the [FAQ](vpn-gateway-vpn-faq.md).
+For more information about VPN Gateway, see the [FAQ](vpn-gateway-vpn-faq.md).
