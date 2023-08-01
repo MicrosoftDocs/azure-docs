@@ -22,7 +22,7 @@ You can create an empty App Service plan, or you can create a plan as part of ap
 
 1. To start creating an App Service Plan, browse to [https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate](https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate).
 
-   :::image type="content" source="./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png" alt-text="Create an App Service Plan in the Azure portal":::
+   :::image type="content" source="./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png" alt-text="Create an App Service Plan in the Azure portal.":::
 
 2. Configure the **Project Details** section before configuring the App Service plan. 
   
@@ -38,7 +38,7 @@ You can create an empty App Service plan, or you can create a plan as part of ap
 
 ## Move an app to another App Service plan
 
-You can move an app to another App Service plan, as long as the source plan and the target plan are in the _same resource group, geographical region,and of the same OS type_. Any change in type such as Windows to Linux or any type that is different from the originating type is not supported.
+You can move an app to another App Service plan, as long as the source plan and the target plan are in the _same resource group, geographical region, and of the same OS type_. Any change in type such as Windows to Linux or any type that is different from the originating type is not supported.
 
 
 > [!NOTE]
