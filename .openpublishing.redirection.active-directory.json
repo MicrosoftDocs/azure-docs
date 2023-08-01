@@ -256,6 +256,41 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/fundamentals/concept-fundamentals-security-defaults.md",
+      "redirect_url": "/azure/active-directory/fundamentals/security-defaults",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/devices/hybrid-azuread-join-control.md",
+      "redirect_url": "/azure/active-directory/devices/hybrid-join-control",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/devices/hybrid-azuread-join-manual.md",
+      "redirect_url": "/azure/active-directory/devices/hybrid-join-manual",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/devices/hybrid-azuread-join-plan.md",
+      "redirect_url": "/azure/active-directory/devices/hybrid-join-plan",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/devices/device-management-azure-portal.md",
+      "redirect_url": "/azure/active-directory/devices/manage-device-identities",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/devices/concept-azure-ad-register.md",
+      "redirect_url": "/azure/active-directory/devices/concept-device-registration",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/devices/concept-azure-ad-join.md",
+      "redirect_url": "/azure/active-directory/devices/concept-directory-join",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/fundamentals/10-secure-local-guest.md",
       "redirect_url": "/azure/active-directory/architecture/10-secure-local-guest",
       "redirect_document_id": true

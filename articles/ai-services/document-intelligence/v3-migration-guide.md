@@ -1,7 +1,7 @@
 ---
 title: "How-to: Migrate your application from Document Intelligence v2.1 to v3.0."
 titleSuffix: Azure AI services
-description: In this how-to guide, you'll learn the differences between Document Intelligence API v2.1 and v3.0. You'll also learn the changes you need to move to the newer version of the API.
+description: This how-to guide specifies the differences between Document Intelligence API v2.1 and v3.0. You also learn how to move to the newer version of the API.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.0.0'
+monikerRange: '<=doc-intel-3.1.0'
 ---
 
 
@@ -21,7 +21,7 @@ monikerRange: '<=doc-intel-3.0.0'
 
 ## Migrating from a v3.0 preview API version
 
-Preview APIs are periodically deprecated. If you're using a preview API version, please update your application to target the GA API version. To migrate from the 2021-09-30-preview, 2022-01-30-preview or the 2022-06-30-preview API versions to the `2022-08-31` (GA) API version using the SDK, update to the [current version of the language specific SDK](sdk-overview.md).
+Preview APIs are periodically deprecated. If you're using a preview API version, update your application to target the GA API version. To migrate from the 2021-09-30-preview, 2022-01-30-preview or the 2022-06-30-preview API versions to the `2022-08-31` (GA) API version using the SDK, update to the [current version of the language specific SDK](sdk-overview.md).
 
 > [!IMPORTANT]
 >
@@ -29,7 +29,7 @@ Preview APIs are periodically deprecated. If you're using a preview API version,
 
 The `2022-08-31` (GA) API has a few updates from the preview API versions:
 
-* Field rename:  boundingBox to polygon to support non-quadrilateral polygon regions.
+* Field rename:  boundingBox to polygon to support non quadrilateral polygon regions.
 * Field deleted: entities removed from the result of the general document model.
 * Field rename: documentLanguage.languageCode to locale
 * Added support for HEIF format
@@ -48,7 +48,7 @@ Document Intelligence v3.0  introduces several new features and capabilities:
 * [**Custom model API (v3.0)**](concept-custom.md) supports signature detection for custom template models.
 * [**Custom model API (v3.0)**](overview.md) supports analysis of all the newly added prebuilt models. For a complete list of prebuilt models, see the [overview](overview.md) page.
 
-In this article, you'll learn the differences between Document Intelligence v2.1 and v3.0 and how to move to the newer version of the API.
+In this article, we show you the differences between Document Intelligence v2.1 and v3.0 and demonstrate how to move to the newer version of the API.
 
 > [!CAUTION]
 >
@@ -77,7 +77,7 @@ https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}/
 * The request payload and call pattern remain unchanged.
 * The Analyze operation specifies the input document and content-specific configurations, it returns the analyze result URL via the Operation-Location header in the response.
 * Poll this Analyze Result URL, via a GET request to check the status of the analyze operation (minimum recommended interval between requests is 1 second).
-* Upon success, status is set to succeeded and [analyzeResult](#changes-to-analyze-result) is returned in the response body. If errors are encountered, status will be set to `failed`, and an error will be returned.
+* Upon success, status is set to succeeded and [analyzeResult](#changes-to-analyze-result) is returned in the response body. If errors are encountered, status is set to `failed`, and an error is returned.
 
 | Model | v2.1 | v3.0 |
 |:--| :--| :--|
@@ -103,7 +103,7 @@ The content to be analyzed is provided via the request body. Either the URL or b
   }
   ```
 
-Base64 encoding is also supported in Document Intelligence v3.0:
+Base 64 encoding is also supported in Document Intelligence v3.0:
 
 ```json
 {
@@ -116,7 +116,7 @@ Base64 encoding is also supported in Document Intelligence v3.0:
 Parameters that continue to be supported:
 
 * `pages` : Analyze only a specific subset of pages in the document. List of page numbers indexed from the number `1` to analyze. Ex. "1-3,5,7-9"
-* `locale` : Locale hint for text recognition and document analysis. Value may contain only the language code (ex. "en", "fr") or BCP 47 language tag (ex. "en-US").
+* `locale` : Locale hint for text recognition and document analysis. Value may contain only the language code (ex. `en`, `fr`) or BCP 47 language tag (ex. "en-US").
 
 Parameters no longer supported:
 
@@ -350,7 +350,7 @@ GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels?api-ve
 
 ## Change to get model
 
-As get model now includes prebuilt models, the get operation returns a ```docTypes``` dictionary. Each document type is described by its name, optional description, field schema, and optional field confidence. The field schema describes the list of fields potentially returned with the document type.
+As get model now includes prebuilt models, the get operation returns a ```docTypes``` dictionary. Each document type description includes name, optional description, field schema, and optional field confidence. The field schema describes the list of fields potentially returned with the document type.
 
 ```json
 GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}?api-version=2022-08-31
@@ -379,6 +379,6 @@ GET https://{your-form-recognizer-endpoint}/formrecognizer/info? api-version=202
 
 In this migration guide, you've learned how to upgrade your existing Document Intelligence application to use the v3.0 APIs.
 
-* [Review the new REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
+* [Review the new REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
 * [What is Document Intelligence?](overview.md)
 * [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md)

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/12/2023
+ms.date: 07/31/2023
 ms.author: jeedes
 
 ---
@@ -31,10 +31,10 @@ You configure and test Azure AD single sign-on for CITI Program in a test enviro
 
 To integrate Azure Active Directory with CITI Program, you need:
 
+* CITI Program Single Sign-On (SSO) enabled subscription. Note that [SSO is a paid service with CITI Program](https://support.citiprogram.org/s/article/single-sign-on-sso-and-shibboleth-technical-specs#General).
 * An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* CITI Program single sign-on (SSO) enabled subscription.
 
 ## Add application and assign a test user
 
@@ -78,7 +78,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 	![Screenshot shows the image of attributes configuration.](common/default-attributes.png "Default Attributes")
 
-1. CITI Program application expects urn:oid named attributes to be passed back in the SAML response, which are shown below. These attributes are also pre-populated but you can review them as per your requirements. These are all required.
+1. CITI Program application expects urn: oid named attributes to be passed back in the SAML response, which are shown below. These attributes are also pre-populated but you can review them as per your requirements. These are all required.
 
 	| Name |  Source Attribute|
 	| ---------------|  --------- |
@@ -93,6 +93,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	| ---------------|  --------- |
 	| urn:oid:2.16.840.1.113730.3.1.241 | user.displayname |
 	| urn:oid:2.16.840.1.113730.3.1.3 | user.employeeid |
+	| urn:oid:1.3.6.1.4.1.22704.1.1.1.8 | [other user attribute] |
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 

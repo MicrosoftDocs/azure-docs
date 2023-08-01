@@ -9,25 +9,20 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: nitinme
-monikerRange: 'doc-intel-3.0.0'
+monikerRange: '>=doc-intel-3.0.0'
 ---
 
 <!-- markdownlint-disable MD033 -->
 
-# Document Intelligence query field extraction (preview)
+# Document Intelligence query field extraction
 
-**This article applies to:** ![Document Intelligence checkmark](media/yes-icon.png) **The latest [public preview SDK](sdk-preview.md) supported by Document Intelligence REST API version [2023-02-28-preview](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)**.
-
-> [!IMPORTANT]
->
-> * The Document Intelligence Studio query fields extraction feature is currently in gated preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback.
-> * Complete and submit the [**Document Intelligence private preview request form**](https://aka.ms/form-recognizer/preview/survey) to request access.
+[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
 
 Document Intelligence now supports query field extractions using Azure OpenAI capabilities. With query field extraction, you can add fields to the extraction process using a query request without the need for added training.
 
 > [!NOTE]
 >
-> Document Intelligence Studio query field extraction is currently available with the general document model for the `2023-02-28-preview` release.
+> Document Intelligence Studio query field extraction is currently available with the general document model for the `2023-07-31` (GA) release.
 
 ## Select query fields
 

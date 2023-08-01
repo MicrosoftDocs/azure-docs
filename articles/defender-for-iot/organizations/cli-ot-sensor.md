@@ -311,6 +311,10 @@ In this command:
 - `--pass`: A passphrase used to encrypt the certificate. Optional.
 - `--passphrase-set`: Unused and set to *False* by default. Set to *True* to use passphrase supplied with the previous certificate. Optional.
 
+> [!TIP]
+> The following characters can be used when importing a key or certificate with a passphrase:
+> ASCII characters (a-z, A-Z, 0-9) are supported, as well as the following symbols ! #  % ( ) + , - . /  :  =  ?  @  [  \  ]  ^  _  {  }  ~
+
 For example, for the *cyberx* user:
 
 ```bash
