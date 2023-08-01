@@ -63,8 +63,6 @@ Backup vaults are organizational units to manage backups. You must create a back
 >[!IMPORTANT]
 >If you have existing backups on Azure NetApp Files, you must migrate the backups to a backup vault before you can perform any operation with the backup. To learn how to migrate, see [Manage backup vaults](backup-vault-manage.md#migrate-backups-to-a-backup-vault).
 
-<!-- You can have multiple backup vaults in an Azure NetApp Files subscription. Most deployments, however, will only require one backup vault. -->
-
 ## Cost model for Azure NetApp Files backup
 
 Pricing for Azure NetApp Files backup is based on the total amount of storage consumed by the backup. There are no setup charges or minimum usage fees. 
