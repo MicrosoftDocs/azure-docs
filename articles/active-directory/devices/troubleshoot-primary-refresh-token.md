@@ -138,7 +138,7 @@ STATUS_WRONG_PASSWORD (-1073741718&nbsp;/&nbsp;0xc000006a)</summary>
 
   In the Azure AD operational logs, Event ID 1081 contains the server error code and error description if the error occurs in the Azure AD authentication service. If the error occurs in a WS-Trust endpoint, the server error code and error description are found in Event ID 1088. In the Azure AD analytic logs, the first instance of Event ID 1022 contains the URL that's being accessed.
 
-  To view Event IDs in the Azure AD operational and analytic logs, refer to the [Method 2: Use the Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
+  To view Event IDs in the Azure AD operational and analytic logs, refer to the [Method 2: Use Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
 </details>
 
 <details>
@@ -157,7 +157,7 @@ Get the server error code and error description, and then go to the [Common serv
 
 In the Azure AD operational logs, Event ID 1081 contains the server error code and error description if the error occurs in the Azure AD authentication service. If the error occurs in a WS-Trust endpoint, the server error code and error description are found in Event ID 1088. In the Azure AD analytic logs, the first instance of Event ID 1022 (that precedes operational Event IDs 1081 and 1088) contains the URL that's being accessed.
 
-To view Event IDs in the Azure AD operational and analytic logs, refer to the [Method 2: Use the Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
+To view Event IDs in the Azure AD operational and analytic logs, refer to the [Method 2: Use Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
 </details>
 
 <details>
@@ -181,7 +181,7 @@ STATUS_UNEXPECTED_NETWORK_ERROR (-1073741628&nbsp;/&nbsp;0xc00000c4)</summary>
 
 - For a network connectivity issue, get the URL that's being accessed and the suberror code from the network stack. Event ID 1022 in the Azure AD analytic logs contains the URL that's being accessed. Event ID 1084 in the Azure AD operational logs contains the suberror code from the network stack.
 
-To view Event IDs in the Azure AD operational and analytic logs, refer to the [Method 2: Use the Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
+To view Event IDs in the Azure AD operational and analytic logs, refer to the [Method 2: Use Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
 </details>
 
 <details>
@@ -195,7 +195,7 @@ The user realm discovery failed, because the Azure AD authentication service can
 
 - Add the domain of the user principal name (UPN) of the user as a custom domain in Azure AD. To find the provided UPN, look for Event ID 1144 in the Azure AD analytic logs.
 
-  To view Event IDs in the Azure AD analytic logs, refer to the [Method 2: Use the Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
+  To view Event IDs in the Azure AD analytic logs, refer to the [Method 2: Use Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
 
 - If the on-premises domain name can't be routed (for example, if the UPN is something like `jdoe@contoso.local`), [configure the Alternate Login ID][alt-login-id] (AltID). (To view the prerequisites, see [Plan your hybrid Azure Active Directory join implementation][hybrid-azure-ad-join-plan].)
 </details>
@@ -218,7 +218,7 @@ The UPN for the user isn't in the expected format. The UPN value varies accordin
 
 - Set the UPN of the user to an internet-style sign-in name, based on internet standard [RFC 822](https://www.ietf.org/rfc/rfc0822.txt). To find the current UPN, look for event ID 1144 in the Azure AD analytic logs.
 
-  To view Event IDs in the Azure AD analytic logs, refer to the [Method 2: Use the Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
+  To view Event IDs in the Azure AD analytic logs, refer to the [Method 2: Use Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
 
 - For hybrid Azure AD-joined devices, make sure that you configured the domain controller to return the UPN in the correct format. To display the configured UPN in the domain controller, run the following [whoami](/windows-server/administration/windows-commands/whoami) command:
 
@@ -256,7 +256,7 @@ You received an error from the [WS-Trust protocol][WS-Trust] endpoint (which is 
 
 - Get the server error code and error description from Event ID 1088 in the Azure AD operational logs. Then, go to the [Common server error codes ("AADSTS" prefix)][server-errors] section to find the cause of that server error code and the solution details.
 
-  To view Event IDs in the Azure AD operational logs, refer to the [Method 2: Use the Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
+  To view Event IDs in the Azure AD operational logs, refer to the [Method 2: Use Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
 </details>
 
 <details>
@@ -302,7 +302,7 @@ The XML response from the [WS-Trust protocol][WS-Trust] endpoint (which is requi
 
 - Get the URL that's being accessed from Event ID 1022 in the Azure AD analytic logs.
 
-  To view Event IDs in the Azure AD analytic logs, refer to the [Method 2: Use the Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
+  To view Event IDs in the Azure AD analytic logs, refer to the [Method 2: Use Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
 </details>
 
 #### Common server error codes ("AADSTS" prefix)
@@ -336,7 +336,7 @@ Azure AD can't find the user account in the tenant.
 - Make sure that the on-premises user account is being synchronized to Azure AD.
 - Get the provided UPN by looking for Event ID 1144 in the Azure AD analytic logs.
 
-  To view Event IDs in the Azure AD analytic logs, refer to the [Method 2: Use the Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
+  To view Event IDs in the Azure AD analytic logs, refer to the [Method 2: Use Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
 </details>
 
 <details>
@@ -374,7 +374,7 @@ Common general network-related issues.
 
 - Get the URL that's being accessed. You can find the URL in Event ID 1084 of the Azure AD operational log or Event ID 1022 of the Azure AD analytic log.
 
-  To view Event IDs in the Azure AD operational and analytic logs, refer to the [Method 2: Use the Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
+  To view Event IDs in the Azure AD operational and analytic logs, refer to the [Method 2: Use Event Viewer to examine Azure AD analytic and operational logs][view-event-ids] section.
 
 - If the on-premises environment requires an outbound proxy, make sure that the computer account of the device can discover and silently authenticate to the outbound proxy.
 
@@ -465,6 +465,6 @@ The following procedure describes how to capture traces by using the [Time Trave
 
 [WS-Trust]: http://docs.oasis-open.org/ws-sx/ws-trust/v1.4/ws-trust.html
 [server-errors]: #common-server-error-codes-aadsts-prefix
-[view-event-ids]: #method-2-use-the-event-viewer-to-examine-azure-ad-analytic-and-operational-logs
+[view-event-ids]: #method-2-use-event-viewer-to-examine-azure-ad-analytic-and-operational-logs
 [alt-login-id]: /windows-server/identity/ad-fs/operations/configuring-alternate-login-id
 [hybrid-azure-ad-join-plan]: ./hybrid-azuread-join-plan.md
