@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: tutorial
-ms.date: 07/28/2023
+ms.date: 08/04/2023
 ms.custom: developer, devx-track-js
 
 #Customer intent: As a dev, devops, I want to learn how to register and configure a Node.js CLI application to signs in users in an Azure AD for customers tenant

@@ -1,5 +1,5 @@
 ---
-title: Sign in users in an Azure AD for customers tenant using a sample Node.js CLI application. 
+title: Authenticate users in an Azure AD for customers tenant using a sample Node.js CLI application. 
 description: Learn how to authenticate users in an Azure Active Directory (Azure AD) for customers tenant using a sample Node.js CLI application
 services: active-directory
 author: Dickson-Mwendia
@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: sample
-ms.date: 07/28/2023
+ms.date: 08/04/2023
 ms.custom: developer
 
 #Customer intent: As a dev, devops, I want to learn how to authenticate users in an Azure Active Directory (Azure AD) for customers tenant using a sample Node.js CLI application

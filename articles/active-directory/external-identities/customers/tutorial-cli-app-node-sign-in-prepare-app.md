@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Sign in users in a Node.js CLI application- Build app"
+title: "Tutorial: Sign in users in a Node.js CLI application- Prepare app"
 description: Learn how to build a Node.js CLI application that signs in users in an Azure AD for customers tenant
 services: active-directory
 author: Dickson-Mwendia
@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: tutorial
-ms.date: 07/28/2023
+ms.date: 08/04/2023
 ms.custom: developer, devx-track-js
 
 #Customer intent: As a dev, devops, I want to learn how to build a Node.js CLI application that signs in users in an Azure AD for customers tenant.
