@@ -277,7 +277,7 @@ For validation purposes, you can query the index using Search Explorer in Azure 
 
 ### [**Azure portal**](#tab/portal-add-field)
 
-You can use Search Explorer to query an index that contains vector fields. However, the query string in Search Explorer is plain text and isn't converted to a vector, so you can't use Search Explorer to test vector queries, but you can verify that data import occurred and that vector fields are populated with the expected numeric values.
+You can use [Search Explorer](search-explorer.md) to query an index that contains vector fields. However, the query string in Search Explorer is plain text and isn't converted to a vector, so you can't use Search Explorer to test vector queries, but you can verify that data import occurred and that vector fields are populated with the expected numeric values.
 
 Fields must be attributed as "retrievable" to be included in the results.
 
