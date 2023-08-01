@@ -41,6 +41,7 @@ According to the RFCs, a hard bounce (permanent failure) specifically refers to 
 
 ### Hard Bounces
 A hard bounce occurs when an email cannot be delivered because the recipient's address does not exist. The list of SMTP codes that can be used to describe hard bounces is as follows:
+
 | Error code | Description | Possible cause | Additional information |
 | --- | --- | --- | --- |
 | 521 5.2.1 | Server Does Not Accept Mail | The SMTP server is unable to accept the mail. | The SMTP server encountered an issue that prevents it from accepting the incoming mail. |
@@ -61,7 +62,6 @@ A hard bounce occurs when an email cannot be delivered because the recipient's a
 | 550 5.4.4 | Unable to Route | The message cannot be routed to the destination. | There is an issue with routing the message to the recipient's server. Verify the recipient's email domain and server settings. |
 | 550 5.4.6 | Routing Loop Detected | A routing loop has been detected. | The email server has encountered a routing loop while attempting to deliver the message. Contact the system administrator to resolve the loop. |
 | 550 5.4.310 | DNS Domain Does Not Exist | The DNS domain specified in the email address does not exist. | The recipient's email domain does not exist or has DNS configuration issues. Verify the domain's DNS settings. |
-
 
 Sending emails repeatedly to addresses that do not exist can significantly affect your sending reputation. It is crucial to take action by promptly removing those addresses from your contact list and diligently managing a healthy contact list.
 
