@@ -185,7 +185,7 @@
     - name: Recovery Services vault
       items:
       - name: Create
-        href: backup-create-rs-vault.md
+        href: backup-create-recovery-services-vault.md
       - name: Delete
         href: backup-azure-delete-vault.md
       - name: Move

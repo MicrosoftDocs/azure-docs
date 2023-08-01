@@ -52,8 +52,7 @@ Before you begin, consider the following information:
 - SQL Server or SAP HANA databases hosted on Azure VMs are supported. You can restore databases or their files.
 - MARS Agent is supported for vaults without private endpoint (preview).
 - Review the [support matrix](backup-support-matrix.md#cross-region-restore) for a list of supported managed types and regions.
-- Using Cross Region Restore will incur additional charges. [Learn more](https://azure.microsoft.com/pricing/details/backup/).
-- After you opt in, it might take up to 48 hours for the backup items to be available in secondary regions.
+- Using Cross Region Restore will incur additional charges. Once you enable Cross Region restore, it might take up to 48 hours for the backup items to be available in secondary regions. [Learn more about pricing](https://azure.microsoft.com/pricing/details/backup/).
 - Cross Region Restore currently can't be reverted to GRS or LRS after the protection starts for the first time.
 - Currently, secondary region RPO is 36 hours. This is because the RPO in the primary region is 24 hours and can take up to 12 hours to replicate the backup data from the primary to the secondary region.
 - Review the [permissions required to use Cross Region Restore](backup-rbac-rs-vault.md#minimum-role-requirements-for-azure-vm-backup).

@@ -682,7 +682,7 @@ Cross Region Restore (CRR) allows you to restore MARS backup data from a seconda
 
 ### Original server restore
 
-If you're performing restore for the original server from the secondary region (Cross Region Restore), you need to use the flag `UseSecondaryRegion` while getting the `OBRecoverableSource` object. 
+If you're performing restore for the original server from the secondary region (Cross Region Restore), use the flag `UseSecondaryRegion` while getting the `OBRecoverableSource` object. 
 
 ```azurepowershell
 $sources = Get-OBRecoverableSource -UseSecondaryRegion
@@ -694,7 +694,7 @@ Start-OBRecovery -RecoverableItem $RP -RecoveryOption $RO -Async | ConvertTo-Jso
 
 ### Alternate server restore
 
-If you're performing restore for an alternate server from the secondary region (Cross Region Restore), you need to download the *secondary region vault credential file* from the Azure portal and pass the secondary region vault credential for restore.
+If you're performing restore for an alternate server from the secondary region (Cross Region Restore), download the *secondary region vault credential file* from the Azure portal and pass the secondary region vault credential for restore.
 
 ```azurepowershell
 $serverName = ‘myserver.mycompany.com’
