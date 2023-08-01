@@ -38,9 +38,9 @@ import { Server } from "socket.io";
 const io = await (new Server(3000) as any).useAzureSocketIO(wpsOptions);
 ```
 
-## Client side: 404 Not Found in client side with endpoint
+## Client side: 404 Not Found in client side with AWPS endpoint
 ### Possible Error
- `GET <endpoint>/socket.io/?EIO=4&transport=polling&t=OcmE4Ni`
+ `GET <web-pubsub-endpoint>/socket.io/?EIO=4&transport=polling&t=OcmE4Ni` 404 Not Found
 
 ### Root cause
 Client is created without a correct `path` option.
@@ -56,10 +56,9 @@ var socket = io(endpoint, {
 });
 ```
 
-## Client side: The first poll request hangs in the client side
+## Client side: 404 Not Found in client side with non-AWPS endpoint
 ### Possible Error
-The first poll request hangs in the client side and no any more requests will be sent.
-:::image type="content" source="./media/socketio-troubleshooting/first-poll-hang.png" alt-text="Screenshot of a case where the first poll request hangs in the client side":::
+ `GET <non-web-pubsub-endpoint>/socket.io/?EIO=4&transport=polling&t=OcmE4Ni` 404 Not Found
 
 ### Root cause
 Client is created without correct Azure Web PubSub Service endpoint. For example, it's created with the original Socket.IO server endpoint:
