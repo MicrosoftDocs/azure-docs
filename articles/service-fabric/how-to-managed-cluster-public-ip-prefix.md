@@ -153,6 +153,7 @@ To create a IPv4 public IP prefix with routing preference Internet, enter **Rout
     --version IPv4
     --iptags 'RoutingPreference=Internet'
 ```
+---
 
 #### Capture the resource ID from the Public IP prefix created and add it to the ARM template and deploy the template
 
@@ -266,6 +267,7 @@ $ipv4 =@{
 New-AzPublicIpPrefix @ipv4
 ```
 
+---
 
 #### Capture the resource ID from the Public IP prefix created and add it to the ARM template and deploy the template
 
