@@ -35,6 +35,10 @@ When you start the load test, Azure Load Testing service injects the following A
 
 These resources are ephemeral and exist only during the load test run. If you restrict access to your virtual network, you need to [configure your virtual network](#configure-virtual-network) to enable communication between these Azure Load Testing and the injected VMs.
 
+> [!NOTE]
+> Virtual network support for Azure Load Testing is available in the following Azure regions: Australia East, East Asia, East US, East US 2, North Europe, South Central US, Sweden Central, UK South, West Europe, West US 2 and West US 3.
+> 
+
 ## Prerequisites
 
 - Your Azure account has the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role, or a parent of this role, on the virtual network. See [Check access for a user to Azure resources](/azure/role-based-access-control/check-access) to verify your permissions.
@@ -63,7 +67,7 @@ If you plan to further restrict access to your virtual network with a network se
 
 To configure outbound access for Azure Load Testing: 
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Go to your network security group.
 

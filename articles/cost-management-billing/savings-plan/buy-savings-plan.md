@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 06/20/2023
+ms.date: 07/20/2023
 ms.author: banders
 ---
 
@@ -19,6 +19,9 @@ Azure savings plans help you save money by committing to an hourly spend for one
 ## Who can buy a savings plan
 
 Savings plan discounts only apply to resources associated with subscriptions purchased through an Enterprise Agreement (EA), Microsoft Customer Agreement (MCA), or Microsoft Partner Agreement (MPA). You can buy a savings plan for an Azure subscription that's of type EA (MS-AZR-0017P or MS-AZR-0148P), MCA or MPA. To determine if you're eligible to buy a plan, [check your billing type](../manage/view-all-accounts.md#check-the-type-of-your-account).
+
+>[!NOTE]
+> Azure savings plan isn't supported for the China legacy Online Service Premium Agreement (OSPA) platform.
 
 ### Enterprise Agreement customers
 

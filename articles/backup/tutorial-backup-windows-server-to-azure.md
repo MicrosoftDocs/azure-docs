@@ -5,8 +5,8 @@ ms.topic: tutorial
 ms.date: 12/15/2022
 ms.custom: mvc, engagement-fy23
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Back up Windows Server to Azure
 

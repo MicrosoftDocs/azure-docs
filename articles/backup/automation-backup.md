@@ -3,10 +3,10 @@ title: Automation in Azure Backup
 description: Provides a summary of automation capabilities offered by Azure Backup.
 ms.topic: conceptual
 ms.date: 09/15/2022
-author: jyothisuri
-ms.author: jsuri
 ms.service: backup
 ms.custom: engagement-fy23
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Automation in Azure Backup

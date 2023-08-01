@@ -14,7 +14,7 @@ ms.date: 06/03/2023
 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-[Azure Cosmos DB for MongoDB](../introduction.md) provides a powerful fully managed MongoDB compatible database while seamlessly integrating with the Azure ecosystem. This allows developers to reap the benefits of Cosmos DB's robust features such as global distribution, 99.999% high availability SLA, and strong security measures, while retaining the ability to use their familiar MongoDB tools and applications. Developers can remain vendor agnostic, without needing to adapt to a new set of tools or drastically change their current operations. This ensures a smooth transition and operation for MongoDB developers, making Cosmos DB for MongoDB a compelling choice for a scalable, secure, and efficient database solution for their MongoDB workloads.
+[Azure Cosmos DB for MongoDB](../introduction.md) provides a powerful fully managed MongoDB compatible database while seamlessly integrating with the Azure ecosystem. This allows developers to reap the benefits of Azure Cosmos DB's robust features such as global distribution, 99.999% high availability SLA, and strong security measures, while retaining the ability to use their familiar MongoDB tools and applications. Developers can remain vendor agnostic, without needing to adapt to a new set of tools or drastically change their current operations. This ensures a smooth transition and operation for MongoDB developers, making Azure Cosmos DB for MongoDB a compelling choice for a scalable, secure, and efficient database solution for their MongoDB workloads.
 
 > [!TIP]
 > Want to try the Azure Cosmos DB for MongoDB with no commitment? Create an Azure Cosmos DB account using [Try Azure Cosmos DB](../try-free.md) for free.
@@ -26,10 +26,11 @@ ms.date: 06/03/2023
 | MongoDB wire protocol | Yes | Yes |
 | Compatible with MongoDB tools and drivers | Yes | Yes |
 | Global Distribution | Yes, [globally distributed](../distribute-data-globally.md) with automatic and fast data replication across any number of Azure regions | Yes, globally distributed with manual and scheduled data replication across any number of cloud providers or regions |
+| SLA covers cloud platform | Yes | "Services, hardware, or software provided by a third party, such as cloud platform services on which MongoDB Atlas runs are not covered" |
 | 99.999% availability SLA | [Yes](../high-availability.md) | No |
 | Instantaneous Scaling | Yes, [database instantaneously scales](../provision-throughput-autoscale.md) with zero performance impact on your applications | No, requires 1+ hours to vertically scale up and 24+ hours to vertically scale down. Performance impact during scale up may be noticeable |
 | True active-active clusters | Yes, with [multi-primary writes](./how-to-configure-multi-region-write.md). Data for the same shard can be written to multiple regions  | No |
-| Vector Search for AI applications | Yes, with [Azure Cosmos DB for MongoDB vCore Vector Search](./vcore/vector-search.md) | No |
+| Vector Search for AI applications | Yes, with [Azure Cosmos DB for MongoDB vCore Vector Search](./vcore/vector-search.md) | Yes |
 | Integrated text search, geospatial processing | Yes | Yes |
 | Free tier | [1,000 request units (RUs) and 25 GB storage forever](../try-free.md). Prevents you from exceeding limits if you want | Yes, with 512 MB storage |
 | Live migration | Yes | Yes |

@@ -5,7 +5,7 @@ services: networking
 author: asudbring
 ms.service: virtual-network
 ms.topic: article
-ms.date: 05/28/2023
+ms.date: 07/14/2023
 ms.author: allensu
 ---
 
@@ -15,7 +15,7 @@ Azure continuously monitors the latency (speed) of core areas of its network usi
 
 ## How are the measurements collected?
 
-The latency measurements are collected from ThousandEyes agents, hosted in Azure cloud regions worldwide, that continuously sends network probes between themselves in 1-minute intervals. The monthly latency statistics are derived from averaging the collected samples for the month.
+The latency measurements are collected from Azure cloud regions worldwide, and continuously measured in 1-minute intervals by network probes. The monthly latency statistics are derived from averaging the collected samples for the month.
 
 ## Round-trip latency figures
 

@@ -8,9 +8,11 @@ author: veyaddan
 ms.author: veyaddan
 ---
 
-# Quickstart: Publish and subscribe to MQTT messages on Event Grid Namespace with Azure CLI
+# Quickstart: Publish and subscribe to MQTT messages on Event Grid Namespace with Azure CLI (Preview)
 
 Azure Event Grid supports messaging using the MQTT protocol.  Clients (both devices and cloud applications) can publish and subscribe MQTT messages over flexible hierarchical topics for scenarios such as high scale broadcast, and command & control.
+
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
 
 In this article, you use the Azure CLI to do the following tasks:
 1. Create an Event Grid namespace and enable MQTT
@@ -32,21 +34,23 @@ In this article, you use the Azure CLI to do the following tasks:
 - You need an X.509 client certificate to generate the thumbprint and authenticate the client connection.
 
 ## Generate sample client certificate and thumbprint
-If you don't already have a certificate, you can create a sample certificate using the [step CLI](https://smallstep.com/docs/step-cli/installation/). Consider installing manually for Windows. After a successful installation of Step, you should open a command prompt in your user profile folder (Win+R type %USERPROFILE%).
+If you don't already have a certificate, you can create a sample certificate using the [step CLI](https://smallstep.com/docs/step-cli/installation/). Consider installing manually for Windows. 
 
-To create root and intermediate certificates, run the following command:
+After a successful installation of Step, you should open a command prompt in your user profile folder (Win+R type %USERPROFILE%).
+
+1. To create root and intermediate certificates, run the following command.  Remember the password, which needs to be used in the next step.
 
 ```powershell
 step ca init --deployment-type standalone --name MqttAppSamplesCA --dns localhost --address 127.0.0.1:443 --provisioner MqttAppSamplesCAProvisioner
 ```
 
-Using the CA files generated to create certificate for the client.
+2. Using the CA files generated to create certificate for the client.  Ensure to use the correct path for the cert and secrets files in the command.
 
 ```powershell
 step certificate create client1-authnID client1-authnID.pem client1-authnID.key --ca .step/certs/intermediate_ca.crt --ca-key .step/secrets/intermediate_ca_key --no-password --insecure --not-after 2400h
 ```
 
-To view the thumbprint, run the Step command.
+3. To view the thumbprint, run the Step command.
 
 ```powershell
 step certificate fingerprint client1-authnID.pem

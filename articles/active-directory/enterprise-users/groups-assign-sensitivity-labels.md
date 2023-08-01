@@ -81,6 +81,8 @@ You will also need to synchronize your sensitivity labels to Azure AD. For instr
 
 ## Assign a label to a new group in Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Groups**, and then select **New group**.
 1. On the **New Group** page, select **Office 365**, and then fill out the required information for the new group and select a sensitivity label from the list.

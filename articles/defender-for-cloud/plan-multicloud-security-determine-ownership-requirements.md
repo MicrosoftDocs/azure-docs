@@ -1,5 +1,5 @@
 ---
-title: Defender for Cloud Planning multicloud security determine ownership requirements security functions team alignment best practices guidance
+title: Planning multicloud security determine ownership requirements security functions team alignment best practices guidance
 description: Learn about determining ownership requirements when planning multicloud deployment with Microsoft Defender for Cloud.
 ms.topic: how-to
 author: dcurwin

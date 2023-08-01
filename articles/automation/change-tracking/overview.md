@@ -4,6 +4,7 @@ description: This article describes the Change Tracking and Inventory feature, w
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 08/01/2023
+ms.custom: devx-track-linux
 ms.topic: conceptual
 ---
 
