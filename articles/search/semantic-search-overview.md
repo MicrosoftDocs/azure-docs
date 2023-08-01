@@ -117,7 +117,7 @@ Semantic Search's free plan is capped at 1,000 queries per month. After the firs
 
 Alternatively, you can also enable semantic search using the REST API that's described in the next section.
 
-## Enable semantic search
+## Enable semantic search using the REST API
 
 To enable Semantic Search using the REST API, you can use the [Create or Update Service API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch).
 
@@ -137,7 +137,7 @@ PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegrou
     }
 ```
 
-## Disable semantic search
+## Disable semantic search using the REST API
 
 To reverse feature enablement, or for full protection against accidental usage and charges, you can [disable semantic search](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) using the Create or Update Service API on your search service. After the feature is disabled, any requests that include the semantic query type will be rejected.
 
