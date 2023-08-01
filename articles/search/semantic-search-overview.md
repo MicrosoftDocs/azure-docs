@@ -38,7 +38,7 @@ Semantic search is a collection of features that improve the quality of an initi
 
 * Second, it extracts and returns captions and answers in the response, which you can render on a search page to improve the user's search experience.
 
-Although semantic search and vector search are closely related, this particular feature in Cognitie Search doesn't perform similarity search.
+Although semantic search and vector search are closely related, this particular feature in Cognitive Search doesn't perform similarity search.
 
 | Feature | Description |
 |---------|-------------|
