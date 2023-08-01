@@ -20,7 +20,7 @@ The FROM (``FROM <from_specification>``) clause is optional, unless the source i
 
 The ``FROM`` clause enforces the following rules per query:
 
-- The container can be aliased, such as ``SELECT p.id FROM products AS p`` or simply ``SELECT p.id FROM products p``. Here, ``p`` is the alias for the container. The container doesn't necessarily need to be named ``products`` or ``p``. ``AS`` is an optional keyword to [alias](working-with-json.md#aliasing) the identifier.  
+- The container can be aliased, such as ``SELECT p.id FROM products AS p`` or simply ``SELECT p.id FROM products p``. Here, ``p`` is the alias for the container. The container doesn't necessarily need to be named ``products`` or ``p``. ``AS`` is an optional keyword to [alias](working-with-json.md#alias-values) the identifier.  
 - Once aliased, the original source name can't be bound. For example, ``SELECT products.id FROM products p`` is syntactically invalid because the identifier ``products`` has been aliased and can't be resolved anymore.  
 - All referenced properties must be fully qualified, to avoid any ambiguous bindings in the absence of strict schema adherence. For example, ``SELECT id FROM products p`` is syntactically invalid because the property ``id`` isn't bound. The query should instead reference the property ``id`` using ``p.id`` (or ``<alias>.<property-name>``).
 
