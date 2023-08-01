@@ -17,6 +17,8 @@ ms.author: pafarley
 
 Some capabilities of Azure Content Safety support multiple languages; any capabilities not mentioned here only support English.
 
+## Text moderation
+
 The Content Safety text moderation feature supports many languages, but it has been specially trained and tested on a smaller set of languages.
 
 > [!NOTE]
