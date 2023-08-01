@@ -24,7 +24,7 @@ Storage Explorer makes requests to various endpoints while in use. The following
   - `management.usgovcloudapi.net` (Azure US Government)
 - Login endpoints:
   - `login.microsoftonline.com` (global Azure)
-  - `login.chinacloudapi.cn` (Microsoft Azure operated by 21Vianet)
+  - `login.chinacloudapi.cn` (Azure operated by 21Vianet)
   - `login.microsoftonline.de` (Azure Germany)
   - `login.microsoftonline.us` (Azure US Government)
 - Graph endpoints:
