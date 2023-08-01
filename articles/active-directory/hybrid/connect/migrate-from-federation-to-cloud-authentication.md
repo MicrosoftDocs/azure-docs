@@ -180,7 +180,7 @@ The members in a group are automatically enabled for staged rollout. Nested and 
 
 The version of SSO that you use is dependent on your device OS and join state.
 
-- **For Windows 10, Windows Server 2016 and later versions**, we recommend using SSO via [Primary Refresh Token (PRT)](../../devices/concept-primary-refresh-token.md) with [Azure AD joined devices](../../devices/concept-azure-ad-join.md), [hybrid Azure AD joined devices](../../devices/concept-hybrid-join.md) and [Azure AD registered devices](../../devices/concept-azure-ad-register.md). 
+- **For Windows 10, Windows Server 2016 and later versions**, we recommend using SSO via [Primary Refresh Token (PRT)](../../devices/concept-primary-refresh-token.md) with [Azure AD joined devices](../../devices/concept-directory-join.md), [hybrid Azure AD joined devices](../../devices/concept-hybrid-join.md) and [Azure AD registered devices](../../devices/concept-device-registration.md). 
 
 - **For macOS and iOS devices**, we recommend using SSO via the [Microsoft Enterprise SSO plug-in for Apple devices](../../develop/apple-sso-plugin.md). This feature requires that your Apple devices are managed by an MDM. If you use Intune as your MDM then follow the [Microsoft Enterprise SSO plug-in for Apple Intune deployment guide](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-macos). If you use another MDM then follow the [Jamf Pro / generic MDM deployment guide](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-macos-with-jamf-pro). 
 
