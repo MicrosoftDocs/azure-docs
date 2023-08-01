@@ -458,8 +458,6 @@ The built-in Service Bus connector is a stateless connector, by default. To run 
 
    This example continues with the action named **Send message**.
 
-   ![Screenshot showing Azure portal, Standard workflow designer, and Service Bus managed action selected.](./media/connectors-create-api-azure-service-bus/select-action-managed-standard.png)
-
 1. If prompted, provide the following information for your connection. When you're done, select **Create**.
 
    | Property | Required | Description |
