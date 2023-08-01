@@ -1043,7 +1043,7 @@ The many models training component accepts a YAML format configuration file of A
 
 Parameter|Description
 --|--
-| **partition_column_names** | Column names in the data that, when grouped, define the data partitions. Many models launches an independent training job on each partition.
+| **partition_column_names** | Column names in the data that, when grouped, define the data partitions. The many models training component launches an independent training job on each partition.
 | **allow_multi_partitions** | An optional flag that allows training one model per partition when each partition contains more than one unique time series. The default value is False.
 
 The following sample provides a configuration template:
@@ -1367,7 +1367,7 @@ Parameter|Description
 **forecast_level** | The level of the hierarchy to retrieve forecasts for
 **allocation_method** | Allocation method to use when forecasts are disaggregated. Valid values are `"proportions_of_historical_average"` and `"average_historical_proportions"`.
 **max_nodes** | Number of compute nodes to use in the training job 
-**max_concurrency_per_node** | Number of AutoML processes to run on each node. Hence, the total concurrency of a HTS job is `max_nodes * max_concurrency_per_node`. 
+**max_concurrency_per_node** | Number of AutoML processes to run on each node. Hence, the total concurrency of an HTS job is `max_nodes * max_concurrency_per_node`. 
 **parallel_step_timeout_in_seconds** | Many models component timeout given in number of seconds.
 **forecast_mode** | Inference mode for model evaluation. Valid values are `"recursive"` and "`rolling`". See the [model evaluation article](concept-automl-forecasting-evaluation.md) for more information.
 **forecast_step** | Step size for rolling forecast. See the [model evaluation article](concept-automl-forecasting-evaluation.md) for more information.   

@@ -88,10 +88,7 @@ weighted_accuracy|Weighted accuracy is accuracy where each sample is weighted by
 
 ### Binary vs. multiclass classification metrics
 
-Automated ML automatically detects if the data is binary and also allows users to activate binary classification metrics even if the data is multiclass by specifying a `true` class. Multiclass classification metrics is reported no matter if a dataset has two classes or more than two classes. Binary classification metrics is only reported when the data is binary, or the users activate the option. 
-
-> [!Note]
-> When a binary classification task is detected, we use `numpy.unique` to find the set of labels and the later label will be used as the `true` class. Since there is a sorting procedure in `numpy.unique`, the choice of `true` class will be stable.
+Automated ML automatically detects if the data is binary and also allows users to activate binary classification metrics even if the data is multiclass by specifying a `true` class. Multiclass classification metrics are reported if a dataset has two or more classes. Binary classification metrics are reported only when the data is binary.
 
 Note, multiclass classification metrics are intended for multiclass classification. When applied to a binary dataset, these metrics don't treat any class as the `true` class, as you might expect. Metrics that are clearly meant for multiclass are suffixed with `micro`, `macro`, or `weighted`. Examples include `average_precision_score`, `f1_score`, `precision_score`, `recall_score`, and `AUC`. For example, instead of calculating recall as `tp / (tp + fn)`, the multiclass averaged recall (`micro`, `macro`, or `weighted`) averages over both classes of a binary classification dataset. This is equivalent to calculating the recall for the `true` class and the `false` class separately, and then taking the average of the two.
 
@@ -336,13 +333,13 @@ The Azure Machine Learning Responsible AI dashboard provides a single interface 
 * Machine learning interpretability 
 * Error analysis 
 
-While model evaluation metrics and charts are good for measuring the general quality of a model, operations such as inspecting you model’s fairness, viewing its explanations (also known as which dataset features a model used to make its predictions), inspecting its errors (what are the blindspots of the model) are essential when practicing responsible AI. That's why automated ML provides a Responsible AI dashboard to help you observe a variety of insights for your model. See how to view the Responsible AI dashboard in the [Azure Machine Learning studio.](how-to-use-automated-ml-for-ml-models.md#responsible-ai-dashboard-preview)
+While model evaluation metrics and charts are good for measuring the general quality of a model, operations such as inspecting the model’s fairness, viewing its explanations (also known as which dataset features a model used to make its predictions), inspecting its errors and potential blind spots are essential when practicing responsible AI. That's why automated ML provides a Responsible AI dashboard to help you observe a variety of insights for your model. See how to view the Responsible AI dashboard in the [Azure Machine Learning studio.](how-to-use-automated-ml-for-ml-models.md#responsible-ai-dashboard-preview)
 
 See how you can generate this [dashboard via the UI or the SDK.](how-to-responsible-ai-insights-sdk-cli.md)
 
 ## Model explanations and feature importances
 
-While model evaluation metrics and charts are good for measuring the general quality of a model, inspecting which dataset features a model used to make its predictions is essential when practicing responsible AI. That's why automated ML provides a model explanations dashboard to measure and report the relative contributions of dataset features. See how to [view the explanations dashboard in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#responsible-ai-dashboard-preview).
+While model evaluation metrics and charts are good for measuring the general quality of a model, inspecting which dataset features a model uses to make predictions is essential when practicing responsible AI. That's why automated ML provides a model explanations dashboard to measure and report the relative contributions of dataset features. See how to [view the explanations dashboard in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#responsible-ai-dashboard-preview).
 
 > [!NOTE]
 > Interpretability, best model explanation, is not available for automated ML forecasting experiments that recommend the following algorithms as the best model or ensemble: 

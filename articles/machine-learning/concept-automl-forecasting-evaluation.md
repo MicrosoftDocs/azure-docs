@@ -75,7 +75,7 @@ Evaluation is the process of generating predictions on a test set held-out from 
 
 The following diagram shows a simple example with three forecasting windows:
 
-:::image type="content" source="media/concept-automl-forecasting-evaluation/rolling-eval-diagram.png" alt-text="Diagram demonstrating a rolling forecast on a test set.":::
+:::image type="content" source="media/concept-automl-forecasting-evaluation/rolling-evaluation-diagram.png" alt-text="Diagram demonstrating a rolling forecast on a test set.":::
 
 The diagram illustrates three rolling evaluation parameters:
 
@@ -85,7 +85,7 @@ The diagram illustrates three rolling evaluation parameters:
 
 Importantly, the context advances along with the forecasting window. This means that actual values from the test set are used to make forecasts when they fall within the current context window. The latest date of actual values used for a given forecast window is called the **origin time** of the window. The following table shows an example output from the three-window rolling forecast with a horizon of three days and a step size of one day:
 
-:::image type="content" source="media/concept-automl-forecasting-evaluation/rolling-eval-table.png" alt-text="Example output table from a rolling forecast.":::
+:::image type="content" source="media/concept-automl-forecasting-evaluation/rolling-evaluation-table.png" alt-text="Example output table from a rolling forecast.":::
 
 With a table like this, we can visualize the forecasts vs. the actuals and compute desired evaluation metrics. AutoML pipelines can generate rolling forecasts on a test set with an [inference component](how-to-auto-train-forecast.md#orchestrating-training-inference-and-evaluation-with-components-and-pipelines).
 
@@ -99,7 +99,7 @@ The choice of evaluation summary or metric is usually driven by the specific bus
 * Plots of observed target values vs. forecasted values to check that certain dynamics of the data are captured by the model,
 * MAPE (mean absolute percentage error) between actual and forecasted values,
 * RMSE (root mean squared error), possibly with a normalization, between actual and forecasted values,
-* MAE (mean absolute error) , possibly with a normalization, between actual and forecasted values.
+* MAE (mean absolute error), possibly with a normalization, between actual and forecasted values.
 
 There are many other possibilities, depending on the business scenario. You may need to create your own post-processing utilities for computing evaluation metrics from inference results or rolling forecasts. For more information on metrics, see our [regression and forecasting metrics](how-to-understand-automated-ml.md#regressionforecasting-metrics) article section. 
 
