@@ -155,7 +155,7 @@ additionalContent:
           summary: cardsummary2
           url: https://github.com/microsoft/azure-health-data-services-toolkit
         # Card
-        - title: Open source FHIR server
+        - title: Some other tool
           summary: cardsummary3
           url: https://github.com/microsoft/fhir-server/
     # Card
