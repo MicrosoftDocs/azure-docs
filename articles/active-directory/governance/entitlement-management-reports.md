@@ -153,7 +153,7 @@ To view events for an access package, you must have access to the underlying Azu
 
 1. If you would like to see if there have been changes to application role assignments for an application that weren't due to access package assignments, such as by a global administrator directly assigning a user to an application role, then you can select the workbook named *Application role assignment activity*.
 
-    [ ![View app role assignments](./media/entitlement-management-access-package-incompatible/workbook-ara-sml.png) ] (./media/entitlement-management-access-package-incompatible/workbook-ara-lrg.png#lightbox)
+    [ ![View app role assignments](./media/entitlement-management-access-package-incompatible/workbook-ara-sml.png) ](./media/entitlement-management-access-package-incompatible/workbook-ara-lrg.png#lightbox)
 
 ## Next steps
 
