@@ -14,7 +14,7 @@ Service Connector configures connection information, such as Database connection
 
 There are multiple ways to get connection configurations of a service connection. You can get configuration names for specific target service type from the following articles [Integrate Azure Database for PostgreSQL with Service Connector](./how-to-integrate-postgres.md).
 
-Or you can get connection configurations programmatically in below ways.
+Or you can get connection configurations programmatically in the following ways.
 
 ## [Azure CLI](#tab/azure-cli)
 You can run the following commands in Azure CLI(/cli/azure) to list configurations of a service connection.
@@ -52,6 +52,7 @@ For more information, see the following articles in Azure PowerShell reference d
 
 
 
-
+---
 ## Next steps
-[Explore connection configurations for specific target service type](./how-to-integrate-sql-database.md)
+> [!div class="nextstepaction"]
+> [Explore connection configurations for specific target service type](./how-to-integrate-sql-database.md)
