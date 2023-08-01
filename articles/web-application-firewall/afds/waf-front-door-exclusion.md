@@ -9,7 +9,7 @@ ms.author: victorh
 ms.topic: conceptual
 ---
 
-# Web Application Firewall with Front Door exclusion lists
+# Web Application Firewall with Azure Front Door exclusion lists
 
 Sometimes Azure Web Application Firewall in Azure Front Door might block a legitimate request. As part of tuning your web application firewall (WAF), you can configure the WAF to allow the request for your application. WAF exclusion lists allow you to omit specific request attributes from a WAF evaluation. The rest of the request is evaluated as normal.
 
