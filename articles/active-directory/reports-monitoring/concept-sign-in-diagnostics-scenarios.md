@@ -93,7 +93,7 @@ Sign-in can fail due to an application configuration issue for the Azure AD side
 
 Sign-in events can be interrupted due to security defaults settings. Security defaults enforce best practice security for your organization. One best practice is to require MFA to be configured and used to prevent password sprays, replay attacks, and phishing attempts from being successful. 
 
-For more information, see [What are security defaults?](../fundamentals/concept-fundamentals-security-defaults.md) 
+For more information, see [What are security defaults?](../fundamentals/security-defaults.md) 
 
 ### Error code insights 
 
