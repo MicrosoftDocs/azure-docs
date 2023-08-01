@@ -21,6 +21,14 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## August 2023
+
+* [SMB Continuous Availability (CA) shares](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) is now generally available (GA).
+
+To enhance resiliency during storage service maintenance operations, SMB volumes used by Citrix App Layering, FSLogix user profile containers and Microsoft SQL Server on Microsoft Windows Server can be enabled with Continuous Availability. Continuous Availability enables SMB Transparent Failover to eliminate disruptions as a result of service maintenance events and improves reliability and user experience. This feature is now Generally Available.
+
+To learn more about Continuous Availability, see the [application resiliency FAQ](faq-application-resilience.md#do-i-need-to-take-special-precautions-for-smb-based-applications)and follow the instructions to enable it on new and existing SMB volumes.
+
 ## June 2023
 
 * [Cloud Backup for Virtual Machines on Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/install-cloud-backup-virtual-machines.md) (Preview)
