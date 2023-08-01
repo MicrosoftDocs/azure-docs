@@ -25,7 +25,7 @@ This article explains how to back up the controller database.
 
 ## Back up data controller database
 
-As part of built-in capabilities, the Data controller database `controller` is automatically backed up whenever there is an update - this update includes creating, deleting or updating an existing custom resource such as an Arc SQL managed instance.
+As part of built-in capabilities, the Data controller database `controller` is automatically backed up every 5 minutes.
 
 The `.bak` files for the `controller` database are stored in the same storage class specified for the data and logs via the `--storage-class` parameter.
 
@@ -91,7 +91,7 @@ Follow these steps to restore the controller database from a backup, if the SQL 
 1. Restore the database from backup - after the corrupted `controllerdb` is dropped. For example:
 
    ```sql
-   RESTORE DATABASE test FROM DISK = '/backups/<controller backup file>.bak'
+   RESTORE DATABASE test FROM DISK = '/var/opt/mssql-server/backups/<controller backup file>.bak'
    WITH MOVE 'controller' to '/var/opt/mssql/data/controller.mdf
    ,MOVE 'controller' to '/var/opt/mssql/data/controller_log.ldf' 
    ,RECOVERY;
@@ -204,10 +204,10 @@ Follow these steps to restore the controller database from a backup with new sto
    ALTER SERVER ROLE sysadmin ADD MEMBER [system]
    ```
 
-11. Restore the backup, then delete the backup file from the data volume once successful using the `RESTORE` command as follows:
+11. Restore the backup using the `RESTORE` command as follows:
 
    ```sql
-   RESTORE DATABASE [controller] FROM DISK = N'/var/opt/mssql/data/controller.bak' WITH FILE = 1
+   RESTORE DATABASE [controller] FROM DISK = N'/var/opt/mssql-server/backups/<controller backup file>.bak' WITH FILE = 1
    ```
 
 12. Create a `controldb-rw-user` login using the password in the `controller-db-rw-secret` secret `CREATE LOGIN [controldb-rw-user] WITH PASSWORD = '<password-from-secret>'` and associate it with the existing `controldb-rw-user` user in the controller DB `ALTER USER [controldb-rw-user] WITH LOGIN = [controldb-rw-user]`.
