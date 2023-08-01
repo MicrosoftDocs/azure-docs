@@ -43,6 +43,8 @@
     href: vpn-gateway-about-point-to-site-routing.md
   - name: About NAT and VPN Gateway
     href: nat-overview.md
+  - name: About site-to-site forced and split tunneling
+    href: about-site-to-site-tunneling.md
   - name: About zone-redundant gateways for Availability Zones
     href: about-zone-redundant-vnet-gateways.md
   - name: Security
@@ -51,8 +53,14 @@
         href: /security/benchmark/azure/baselines/vpn-gateway-security-baseline?toc=/azure/vpn-gateway/TOC.json
   - name: Backend Connectivity Interoperability
     items:
+    - name: Preface and Test Setup
+      href: ../networking/connectivty-interoperability-preface.md?toc=/azure/vpn-gateway/toc.json
+    - name: Test Setup Configuration
+      href: ../networking/connectivty-interoperability-configuration.md?toc=/azure/vpn-gateway/toc.json 
     - name: Control Plane Analysis
-      href: ../networking/connectivty-interoperability-control-plane.md?toc=/azure/vpn-gateway/toc.json  
+      href: ../networking/connectivty-interoperability-control-plane.md?toc=/azure/vpn-gateway/toc.json 
+    - name: Data Plane Analysis
+      href: ../networking/connectivty-interoperability-data-plane.md?toc=/azure/vpn-gateway/toc.json    
 - name: How-to guides
   items:
   - name: Create and manage a VPN gateway
@@ -217,8 +225,8 @@
         href: bgp-how-to-cli.md
     - name: BGP diagnostics
       href: bgp-diagnostics.md
-    - name: Configure forced tunneling
-      href: vpn-gateway-forced-tunneling-rm.md
+    - name: Configure site-to-site forced and split tunneling
+      href: site-to-site-tunneling.md
     - name: Configure gateway transit for VNet peering
       href: vpn-gateway-peering-gateway-transit.md
     - name: Connect AWS and Azure using a BGP-enabled VPN Gateway
@@ -299,8 +307,6 @@
       href: vpn-gateway-howto-point-to-site-classic-azure-portal.md
     - name: Configure a VNet-to-VNet connection
       href: vpn-gateway-howto-vnet-vnet-portal-classic.md
-    - name: Configure forced tunneling
-      href: vpn-gateway-about-forced-tunneling.md
     - name: Delete a VPN gateway
       href: vpn-gateway-delete-vnet-gateway-classic-powershell.md
     - name: Configure multiple S2S connections
