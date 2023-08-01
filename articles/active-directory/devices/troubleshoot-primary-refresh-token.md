@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 7/26/2023
+ms.date: 8/1/2023
 
 ms.author: gudlapreethi
 author: GudlaPreethi
@@ -15,13 +15,13 @@ ms.reviewer: gudlapreethi, bemey, filuz, robgarcia, v-leedennis
 ---
 # Troubleshoot primary refresh token issues on Windows devices
 
-This article discusses how to troubleshoot issues that involve the [primary refresh token](/azure/active-directory/devices/concept-primary-refresh-token) (PRT) when you authenticate onto a Microsoft Azure Active Directory (Azure AD)-joined Windows device by using your Azure AD credentials.
+This article discusses how to troubleshoot issues that involve the [primary refresh token](/azure/active-directory/devices/concept-primary-refresh-token) (PRT) when you authenticate on a Microsoft Azure Active Directory (Azure AD)-joined Windows device by using your Azure AD credentials.
 
-On devices that are joined to Microsoft Azure Active Directory (Azure AD) or joined to hybrid Azure AD, the main artifact of authentication is the PRT. You obtain this token by signing in to Windows 10 by using Azure AD credentials on an Azure AD-joined device for the first time. The PRT is cached on that device. For subsequent sign-ins, the cached token is used to let you use the desktop.
+On devices that are joined to Azure AD or hybrid Azure AD, the main component of authentication is the PRT. You obtain this token by signing in to Windows 10 by using Azure AD credentials on an Azure AD-joined device for the first time. The PRT is cached on that device. For subsequent sign-ins, the cached token is used to let you use the desktop.
 
-Once every four hours, as part of locking and unlocking the device or signing in again to Windows, a background network authentication is tried to refresh the PRT. If there are problems in refreshing the token, the PRT eventually expires. Expiration affects single sign-on (SSO) to Azure AD resources. It also causes sign-in prompts to be shown.
+As part of the process of locking and unlocking the device or signing in again to Windows, a background network authentication attempt is made one time every four hours to refresh the PRT. If problems occur that prevent refreshing the token, the PRT eventually expires. Expiration affects single sign-on (SSO) to Azure AD resources. It also causes sign-in prompts to be shown.
 
-If you suspect that there's a PRT problem, first collect Azure AD logs and follow the steps outlined in the troubleshooting checklist. We recommend that you collect Azure AD logs for any Azure AD client issue first, ideally within a repro session. Complete this process before you contact the PG or file an ICM.
+If you suspect that a PRT problem exists, we recommend that you first collect Azure AD logs, and follow the steps that are outlined in the troubleshooting checklist. Do this for any Azure AD client issue first, ideally within a repro session. Complete this process before you file a support request.
 
 ## Troubleshooting checklist
 
@@ -29,9 +29,9 @@ If you suspect that there's a PRT problem, first collect Azure AD logs and follo
 
 1. Sign in to Windows under the user account in which you experience PRT issues.
 
-1. On the Windows **Start** menu, search for and select **Command Prompt**.
+1. Select **Start**, and then search for and select **Command Prompt**.
 
-1. Enter `dsregcmd /status` to run the device registration command ([dsregcmd](./troubleshoot-device-dsregcmd.md)).
+1. To run the device registration command ([dsregcmd](./troubleshoot-device-dsregcmd.md)), enter `dsregcmd /status`.
 
 1. Locate the [SSO state](./troubleshoot-device-dsregcmd.md#sso-state) section of the device registration command's output. The following text shows an example of this section:
 
@@ -52,20 +52,20 @@ If you suspect that there's a PRT problem, first collect Azure AD logs and follo
    +----------------------------------------------------------------------+
    ```
 
-1. Check the value of the `AzureAdPrt` field. If it's set to `NO`, there was an error acquiring the PRT status from Azure AD.
+1. Check the value of the `AzureAdPrt` field. If it's set to `NO`, an error occurred when you tried to acquire the PRT status from Azure AD.
 
-1. Check the value of the `AzureAdPrtUpdateTime` field. If the value of the `AzureAdPrtUpdateTime` field is more than four hours, there's probably an issue that's preventing the PRT from refreshing. Lock and unlock the device to force PRT refresh, and then check whether the time is updated.
+1. Check the value of the `AzureAdPrtUpdateTime` field. If the value of the `AzureAdPrtUpdateTime` field is more than four hours, a problem is likely preventing the PRT from refreshing. Lock and unlock the device to force a PRT refresh, and then check whether the time is updated.
 
 ### Step 2: Get the error code
 
-The next step is to get the error code that causes the PRT error. The quickest way to get the PRT error code is to examine the device registration command output. However, this method requires Windows 10 May 2021 update (version 21H1) or a later version. The other method is to find the error code in Azure AD analytic and operational logs.
+The next step is to get the error code that causes the PRT error. The quickest way to get the PRT error code is to examine the device registration command output. However, this method requires the Windows 10 May 2021 update (version 21H1) or a later version. The other method is to find the error code in Azure AD analytic and operational logs.
 
 #### Method 1: Examine the device registration command output
 
 > [!NOTE]  
-> This method is available only if you're using Windows 10 May 2021 update (version 21H1) or a later version of Windows.
+> This method is available only if you're using the Windows 10 May 2021 update (version 21H1) or a later version of Windows.
 
-To get the PRT error code, run the `dsregcmd` command, and then locate the `SSO State` section. Under the `AzureAdPrt` field, the `Attempt Status` field contains the error code. In the following example, the error code is `0xc000006d`.
+To get the PRT error code, run the `dsregcmd` command, and then locate the `SSO State` section. In the `AzureAdPrt` field, the `Attempt Status` field contains the error code. In the following example, the error code is `0xc000006d`.
 
 ```output
                 AzureAdPrt : NO
@@ -84,19 +84,19 @@ To get the PRT error code, run the `dsregcmd` command, and then locate the `SSO 
   Server Error Description : AADSTS50126: Error validating credentials due to invalid username or password.
 ```
 
-#### Method 2: Use the Event Viewer to examine Azure AD analytic and operational logs
+#### Method 2: Use Event Viewer to examine Azure AD analytic and operational logs
 
-1. On the Windows **Start** menu, search for and select **Event Viewer**.
-1. In the **Event Viewer** window, if the console tree isn't showing, select the **Show/Hide Console Tree** icon to make the console tree visible.
-1. In the console tree, select **Event Viewer (Local)**. If there aren't child nodes showing underneath that item, double-click your selection to show them.
-1. Select the **View** menu. If there isn't a check mark next to **Show Analytic and Debug Logs**, select that menu item to enable that feature.
-1. In the console tree, expand **Applications and Services Logs**. Expand **Microsoft**. Expand **Windows**. Expand **AAD**. The **Operational** and **Analytic** child nodes appear. 
+1. Select **Start**, and then search for and select **Event Viewer**.
+1. If the console tree doesn't appear in the **Event Viewer** window, select the **Show/Hide Console Tree** icon to make the console tree visible.
+1. In the console tree, select **Event Viewer (Local)**. If child nodes don't appear underneath this item, double-click your selection to show them.
+1. Select the **View** menu. If a check mark isn't displayed next to **Show Analytic and Debug Logs**, select that menu item to enable that feature.
+1. In the console tree, expand **Applications and Services Logs** > **Microsoft** > **Windows** > **AAD**. The **Operational** and **Analytic** child nodes appear. 
 
    > [!NOTE]  
-   > In the Azure AD Cloud Authentication Provider (CloudAP) plug-in, **Error** events are written to the **Operational** event logs, and information events are written to the **Analytic** event logs. You need to examine both the **Operational** and **Analytic** event logs to troubleshoot PRT issues.
+   > In the Azure AD Cloud Authentication Provider (CloudAP) plug-in, **Error** events are written to the **Operational** event logs, and information events are written to the **Analytic** event logs. You have to examine both the **Operational** and **Analytic** event logs to troubleshoot PRT issues.
 
 1. In the console tree, select the **Analytic** node to view Azure AD-related analytic events.
-1. In the list of analytic events, search for Event ID 1006 and 1007. Event ID 1006 denotes the beginning of the PRT acquisition flow, and Event ID 1007 denotes the end of the PRT acquisition flow. All events in the **AAD** logs (both **Analytic** and **Operational**) that occurred between when Event ID 1006 and Event ID 1007 occurred are logged as part of the PRT acquisition flow. The following table shows an example event listing.
+1. In the list of analytic events, search for Event IDs 1006 and 1007. Event ID 1006 denotes the beginning of the PRT acquisition flow, and Event ID 1007 denotes the end of the PRT acquisition flow. All events in the **AAD** logs (both **Analytic** and **Operational**) that occurred between Event ID 1006 and Event ID 1007 are logged as part of the PRT acquisition flow. The following table shows an example event listing.
 
    | Level           | Date and Time            | Source  | Event ID | Task Category                  |
    |-----------------|--------------------------|---------|----------|--------------------------------|
@@ -111,8 +111,8 @@ To get the PRT error code, run the `dsregcmd` command, and then locate the `SSO 
    | Information     | 6/24/2020 3:35:35 AM     | AAD     | 1157     | AadCloudAPPlugin Operation     |
    | Information     | 6/24/2020 3:35:35 AM     | AAD     | 1158     | AadCloudAPPlugin Operation     |
 
-1. Double-click the row that has Event ID 1007. The **Event Properties** dialog box for this event appears.
-1. In the **General** tab's description box, copy the error code. The error code is a 10-character string that begins with `0x`, followed by an 8-digit hexadecimal number.
+1. Double-click the row that contains Event ID 1007. The **Event Properties** dialog box for this event appears.
+1. In the description box on the **General** tab, copy the error code. The error code is a 10-character string that begins with `0x`, followed by an 8-digit hexadecimal number.
 
 ### Step 3: Get troubleshooting instructions for certain error codes
 
@@ -405,9 +405,9 @@ Common general network-related issues.
 
 #### Regular logs
 
-1. Download the [Auth script archive](https://aka.ms/authscripts) and extract the scripts onto a local directory. If necessary, review the usage instructions in [KB4487175](https://aka.ms/howto-authscripts).
-1. Open an administrative PowerShell session, and then change the current directory to the directory in which you saved the Auth scripts.
-1. Enter the following command to begin the error tracing:
+1. Download the [Auth script archive](https://aka.ms/authscripts), and extract the scripts into a local directory. If it's necessary, review the usage instructions in [KB&nbsp;4487175](https://aka.ms/howto-authscripts).
+1. Open an administrative PowerShell session, and change the current directory to the directory in which you saved the Auth scripts.
+1. To begin the error tracing, enter the following command:
 
    ```powershell
    .\Start-auth.ps1 -v -acceptEULA
@@ -415,7 +415,7 @@ Common general network-related issues.
 
 1. Switch the Windows user account to go to your problem user's session.
 1. Lock the device.
-1. If the device is a hybrid Azure AD-joined device, wait at least 60 seconds to let the PRT acquisition task complete.
+1. If the device is a hybrid Azure AD-joined device, wait at least 60 seconds to let the PRT acquisition task finish.
 1. Unlock the device.
 1. Switch the Windows user account back to your administrative session that's running the tracing.
 1. After you reproduce the issue, run the following command to end the tracing:
@@ -433,8 +433,8 @@ The following procedure describes how to capture traces by using the [Time Trave
 > [!WARNING]  
 > Time travel traces contain personal data. In addition, Local Security Authority Subsystem Service (LSASS or *lsass.exe*) traces contain extremely sensitive information. When you handle these traces, make sure that you use best practices for the storage and sharing of this type of information.
 
-1. On the Windows **Start** menu, search for **Command Prompt**, and then select **Run as administrator**.
-1. In the command prompt console, create a temporary directory:
+1. Select **Start**, enter *cmd*, locate and right-click **Command Prompt** in the search results, and then select **Run as administrator**.
+1. At the command prompt, create a temporary directory:
 
    ```cmd
    mkdir c:\temp
@@ -447,7 +447,7 @@ The following procedure describes how to capture traces by using the [Time Trave
    ```
 
 1. In the `tasklist` command output, find the process identifier (`PID`) of *lsass.exe*.
-1. Run the following time travel debugging command (*[TTD.exe](/windows-hardware/drivers/debugger/time-travel-debugging-ttd-exe-command-line-util)*) to begin a tracing session of the *lsass.exe* process:
+1. To begin a tracing session of the *lsass.exe* process, run the following time travel debugging command (*[TTD.exe](/windows-hardware/drivers/debugger/time-travel-debugging-ttd-exe-command-line-util)*):
 
    ```cmd
    TTD.exe -attach <lsass-pid> -out c:\temp
@@ -455,7 +455,7 @@ The following procedure describes how to capture traces by using the [Time Trave
 
 1. Lock the device that's signed in under the domain account.
 1. Unlock the device.
-1. Run the following TTD command to end the time travel tracing session:
+1. To end the time travel tracing session, run the following TTD command:
 
    ```cmd
    TTD.exe -stop all
