@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 07/24/2023
+ms.date: 08/01/2023
 ms.author: cshoe
 ---
 
@@ -159,7 +159,10 @@ ARM64 based clusters aren't supported at this time.
  - Fix Revisions List not returning init containers
  - Default allow headers added for cors policy
 
-### Container Apps extension v1.15.x (July 2023)
+### Container Apps extension v1.12.9 (August 2023)
+
+ - Minor updates to EasyAuth sidecar containers
+ - Update of Extension Monitoring Agents
 
 ## Next steps
 
