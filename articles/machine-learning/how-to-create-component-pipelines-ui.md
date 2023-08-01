@@ -84,7 +84,7 @@ This example uses `train.yml` [in the directory](https://github.com/Azure/azurem
 
     :::image type="content" source="./media/how-to-create-component-pipelines-ui/rename-pipeline.png" alt-text="Screenshot showing rename the pipeline." lightbox ="./media/how-to-create-component-pipelines-ui/new-pipeline.png":::
 
-3. In designer asset library, you can see **Data**, **Model** and **Components** tabs. Switch to **Components** tab, you can see the components registered from previous section. If there are too many components, you can search with the component name.
+3. In designer asset library, you can see **Data**, **Model** and **Components** tabs. Switch to the **Components** tab, you can see the components registered from previous section. If there are too many components, you can search with the component name.
 
     :::image type="content" source="./media/how-to-create-component-pipelines-ui/asset-library.png" alt-text="Screenshot showing registered component in asset library." lightbox ="./media/how-to-create-component-pipelines-ui/asset-library.png":::
 
