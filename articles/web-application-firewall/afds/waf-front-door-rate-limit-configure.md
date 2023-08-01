@@ -147,7 +147,7 @@ Connect-AzAccount
 
 #### Install PowerShellGet
 
-Ensure that the current version of `PowerShellGet` is installed. Run the following command:
+Ensure that the current version of [PowerShellGet](/powershell/gallery/powershellget/overview) is installed. Run the following command:
 
 ```azurepowershell
 Install-Module PowerShellGet -Force -AllowClobber
