@@ -24,7 +24,7 @@ Devices aren't commonly targeted in identity-based attacks, but *can* be used to
 
 * [Azure AD joined](../devices/concept-azure-ad-join.md)
 
-* [Hybrid Azure AD joined](../devices/concept-azure-ad-join-hybrid.md)
+* [Hybrid Azure AD joined](../devices/concept-hybrid-join.md)
 
 Registered and joined devices are issued a [Primary Refresh Token (PRT),](../devices/concept-primary-refresh-token.md) which can be used as a primary authentication artifact, and in some cases as a multifactor authentication artifact. Attackers may try to register their own devices, use PRTs on legitimate devices to access business data, steal PRT-based tokens from legitimate user devices, or find misconfigurations in device-based controls in Azure Active Directory. With Hybrid Azure AD joined devices, the join process is initiated and controlled by administrators, reducing the available attack methods.
 
@@ -80,7 +80,7 @@ Azure AD registered and Azure AD joined devices possess primary refresh tokens (
 | - |- |- |- |- |
 | Device registration or join completed without MFA| Medium| Sign-in logs| Activity: successful authentication to Device Registration Service. <br>And<br>No MFA required| Alert when: Any device registered or joined without MFA<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SigninLogs/SuspiciousSignintoPrivilegedAccount.yaml)<br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 | Changes to the Device Registration MFA toggle in Azure AD| High| Audit log| Activity: Set device registration policies| Look for: The toggle being set to off. There isn't audit log entry. Schedule periodic checks.<br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
-| Changes to Conditional Access policies requiring domain joined or compliant device.| High| Audit log| Changes to CA policies<br>| Alert when: Change to any policy requiring domain joined or compliant, changes to trusted locations, or accounts or devices added to MFA policy exceptions. |
+| Changes to Conditional Access policies requiring domain joined or compliant device.| High| Audit log| Changes to Conditional Access policies<br>| Alert when: Change to any policy requiring domain joined or compliant, changes to trusted locations, or accounts or devices added to MFA policy exceptions. |
 
 You can create an alert that notifies appropriate administrators when a device is registered or joined without MFA by using Microsoft Sentinel.
 ~~~

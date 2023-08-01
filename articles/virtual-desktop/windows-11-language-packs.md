@@ -116,29 +116,29 @@ You can create a custom image by following these steps:
     "Language.TextToSpeech~~~$sourceLanguage~0.0.1.0"
     )
 
-	##Install all FODs or fonts from the CSV file###
+    ##Install all FODs or fonts from the CSV file###
     Dism /Online /Add-Package /PackagePath:$LIPContent\Microsoft-Windows-Client-Language-Pack_x64_$sourceLanguage.cab
     Dism /Online /Add-Package /PackagePath:$LIPContent\Microsoft-Windows-Lip-Language-Pack_x64_$sourceLanguage.cab
     foreach($capability in $additionalCapabilityList){
        Dism /Online /Add-Capability /CapabilityName:$capability /Source:$LIPContent
-	}
+    }
 
-	foreach($feature in $additionalFODList){
+    foreach($feature in $additionalFODList){
     Dism /Online /Add-Package /PackagePath:$feature
     }
 
-	if($langGroup){
+    if($langGroup){
     Dism /Online /Add-Capability /CapabilityName:Language.Fonts.$langGroup~~~und-$langGroup~0.0.1.0 
     }
 
-	##Add installed language to language list##
-	$LanguageList = Get-WinUserLanguageList
-	$LanguageList.Add("$targetlanguage")
-	Set-WinUserLanguageList $LanguageList -force
-	```
+    ##Add installed language to language list##
+    $LanguageList = Get-WinUserLanguageList
+    $LanguageList.Add("$targetlanguage")
+    Set-WinUserLanguageList $LanguageList -force
+    ```
 
     >[!NOTE]
-	>This example script uses the Spanish (es-es) language code. To automatically install the appropriate files for a different language change the *$targetLanguage* parameter to the correct language code. For a list of language codes, see [Available language packs for Windows](/windows-hardware/manufacture/desktop/available-language-packs-for-windows).
+    >This example script uses the Spanish (es-es) language code. To automatically install the appropriate files for a different language change the *$targetLanguage* parameter to the correct language code. For a list of language codes, see [Available language packs for Windows](/windows-hardware/manufacture/desktop/available-language-packs-for-windows).
 
     The script might take a while to finish depending on the number of languages you need to install. You can also install additional languages after initial setup by running the script again with a different *$targetLanguage* parameter.
 

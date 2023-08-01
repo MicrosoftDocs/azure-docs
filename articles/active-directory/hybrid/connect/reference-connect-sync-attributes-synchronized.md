@@ -124,7 +124,7 @@ In this case, start with the list of attributes in this topic and identify those
 | msExchRecipientTypeDetails |X |X |X | |
 | msExchRemoteRecipientType |X | | | |
 | msExchRequireAuthToSendTo |X |X |X | |
-| msExchResourceCapacity |X | | | |
+| msExchResourceCapacity |X| | |This attribute is currently not consumed by Exchange Online. |
 | msExchResourceDisplay |X | | | |
 | msExchResourceMetaData |X | | | |
 | msExchResourceSearchProperties |X | | | |

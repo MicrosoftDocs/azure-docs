@@ -326,7 +326,7 @@ The number of features and capabilities that we're adding to Microsoft Authentic
 - Support for Azure AD B2C accounts 
 - Handling throttling 
 - Proactive token refresh and token revocation based on policy or critical events for Microsoft Graph and other APIs that support [Continuous Access Evaluation (CAE)](../develop/app-resilience-continuous-access-evaluation.md)
-- Auth broker support with device-based conditional access policies 
+- Auth broker support with device-based Conditional Access policies 
 - Azure AD hardware-based certificate authentication (CBA) on mobile  
 - System browsers on mobile devices 
 And more. For an up-to-date list, refer to our [migration guide](../develop/msal-migration.md#how-to-migrate-to-msal). 
@@ -568,7 +568,7 @@ In the Azure portal, the required permissions list is under API Permissions with
 **Service category:** Conditional Access   
 **Product capability:** User Authentication  
 
-We're announcing Public preview of Authentication strength, a Conditional Access control that allows administrators to specify which authentication methods can be used to access a resource.  For more information, see: [Conditional Access authentication strength (preview)](../authentication/concept-authentication-strengths.md). You can use custom authentication strengths to restrict access by requiring specific FIDO2 keys using the Authenticator Attestation GUIDs (AAGUIDs), and apply this through conditional access policies. For more information, see: [FIDO2 security key advanced options](../authentication/concept-authentication-strengths.md#fido2-security-key-advanced-options).
+We're announcing Public preview of Authentication strength, a Conditional Access control that allows administrators to specify which authentication methods can be used to access a resource.  For more information, see: [Conditional Access authentication strength (preview)](../authentication/concept-authentication-strengths.md). You can use custom authentication strengths to restrict access by requiring specific FIDO2 keys using the Authenticator Attestation GUIDs (AAGUIDs), and apply this through Conditional Access policies. For more information, see: [FIDO2 security key advanced options](../authentication/concept-authentication-strengths.md#fido2-security-key-advanced-options).
 
 ---
 
@@ -596,7 +596,7 @@ We're excited to announce the general availability of hybrid cloud Kerberos trus
 
 ---
 
-### General Availability - Device-based conditional access on Linux Desktops
+### General Availability - Device-based Conditional Access on Linux Desktops
 
 
 
@@ -607,7 +607,7 @@ We're excited to announce the general availability of hybrid cloud Kerberos trus
 This feature empowers users on Linux clients to register their devices with Azure AD, enroll into Intune management, and satisfy device-based Conditional Access policies when accessing their corporate resources.
 
 - Users can register their Linux devices with Azure AD
-- Users can enroll in Mobile Device Management (Intune), which can be used to provide compliance decisions based upon policy definitions to allow device based conditional access on Linux Desktops 
+- Users can enroll in Mobile Device Management (Intune), which can be used to provide compliance decisions based upon policy definitions to allow device based Conditional Access on Linux Desktops 
 - If compliant, users can use Microsoft Edge Browser to enable Single-Sign on to M365/Azure resources and satisfy device-based Conditional Access policies.
 
 
@@ -763,7 +763,7 @@ Azure AD Connect Cloud Sync Password writeback now provides customers the abilit
 
 ---
 
-### General Availability - Device-based conditional access on Linux Desktops
+### General Availability - Device-based Conditional Access on Linux Desktops
 
 
 
@@ -776,7 +776,7 @@ Azure AD Connect Cloud Sync Password writeback now provides customers the abilit
 This feature empowers users on Linux clients to register their devices with Azure AD, enroll into Intune management, and satisfy device-based Conditional Access policies when accessing their corporate resources.
 
 - Users can register their Linux devices with Azure AD.
-- Users can enroll in Mobile Device Management (Intune), which can be used to provide compliance decisions based upon policy definitions to allow device based conditional access on Linux Desktops.
+- Users can enroll in Mobile Device Management (Intune), which can be used to provide compliance decisions based upon policy definitions to allow device based Conditional Access on Linux Desktops.
 - If compliant, users can use Microsoft Edge Browser to enable Single-Sign on to M365/Azure resources and satisfy device-based Conditional Access policies.
 
 For more information, see:
