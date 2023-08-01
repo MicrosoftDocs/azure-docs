@@ -112,7 +112,7 @@ Learn more: [What is a device identity?](../../devices/overview.md)
 
 Azure AD joined devices are joined to Azure AD. Users sign in to the device using their organization identity.
 
-Learn more: [Azure AD joined devices](../../devices/concept-azure-ad-join.md)
+Learn more: [Azure AD joined devices](../../devices/concept-directory-join.md)
 
 ### Known issues and resolution
 

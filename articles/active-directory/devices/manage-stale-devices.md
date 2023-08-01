@@ -213,4 +213,4 @@ Any authentication where a device is being used to authenticate to Azure AD are 
 
 Devices managed with Intune can be retired or wiped, for more information see the article [Remove devices by using wipe, retire, or manually unenrolling the device](/mem/intune/remote-actions/devices-wipe).
 
-To get an overview of how to manage device in the Azure portal, see [managing devices using the Azure portal](device-management-azure-portal.md)
+To get an overview of how to manage device in the Azure portal, see [managing devices using the Azure portal](manage-device-identities.md)

@@ -216,7 +216,7 @@ Choose your deployment approach or approaches by reviewing the previous table an
 
 ## Configure your device settings
 
-The Azure portal allows you to control the deployment of Azure AD joined devices in your organization. To configure the related settings, on the **Azure Active Directory page**, select `Devices > Device settings`. [Learn more](device-management-azure-portal.md)
+The Azure portal allows you to control the deployment of Azure AD joined devices in your organization. To configure the related settings, on the **Azure Active Directory page**, select `Devices > Device settings`. [Learn more](manage-device-identities.md)
 
 ### Users may join devices to Azure AD
 

@@ -74,7 +74,7 @@ The goal of Azure AD joined devices is to simplify:
 - Cloud-based management of work-owned devices
 - Users to sign in to their devices with their Azure AD or synced Active Directory work or school accounts.
 
-![Azure AD joined devices](./media/concept-azure-ad-join/azure-ad-joined-device.png)
+![Azure AD joined devices](./media/concept-directory-join/azure-ad-joined-device.png)
 
 Azure AD Join can be deployed by using any of the following methods:
 
@@ -87,5 +87,5 @@ Azure AD Join can be deployed by using any of the following methods:
 - [Plan your Azure AD join implementation](device-join-plan.md)
 - [Co-management using Configuration Manager and Microsoft Intune](/mem/configmgr/comanage/overview)
 - [How to manage the local administrators group on Azure AD joined devices](assign-local-admin.md)
-- [Manage device identities using the Azure portal](device-management-azure-portal.md)
+- [Manage device identities using the Azure portal](manage-device-identities.md)
 - [Manage stale devices in Azure AD](manage-stale-devices.md)
