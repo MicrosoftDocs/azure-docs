@@ -11,7 +11,7 @@ This article is one in a series of articles describing the [deployment path](../
 
 :::image type="content" source="../media/deployment-paths/progress-network-level-deployment.png" alt-text="Diagram of a progress bar with Network level deployment highlighted." border="false" lightbox="../media/deployment-paths/progress-network-level-deployment.png":::
 
-This article provides high-level guidance for configuring [traffic mirroring with ERSPAN](../best-practices/traffic-mirroring-methods.md#erspan-ports). Specific implementation details will vary depending on your equipment vendor.
+This article provides high-level guidance for configuring [traffic mirroring with ERSPAN](../best-practices/traffic-mirroring-methods.md#erspan-ports). Specific implementation details vary depending on your equipment vendor.
 
 We recommend using your receiving router as the generic routing encapsulation (GRE) tunnel destination.
 

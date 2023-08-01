@@ -192,7 +192,7 @@ For more information, see [Data retention across Microsoft Defender for IoT](ref
 
     :::image type="content" source="media/tutorial-install-components/system-sanity-screen.png" alt-text="Screenshot that shows the system sanity command.":::
 
-For any other issues, contact [Microsoft Support](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
+For any other issues, contact [Microsoft Support](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
 ## Investigate password failure at initial sign-in
 
@@ -279,7 +279,7 @@ To connect a sensor controlled by the management console to NTP:
 Sometimes ICS devices are configured with external IP addresses. These ICS devices aren't shown on the map. Instead of the devices, an internet cloud appears on the map. The IP addresses of these devices are included in the cloud image. Another indication of the same problem is when multiple internet-related alerts appear. Fix the issue as follows:
 
 1. Right-click the cloud icon on the device map and select **Export IP Addresses**.
-1. Copy the public ranges that are private, and add them to the subnet list. For more information, see [Fine-tune your deployment](how-to-control-what-traffic-is-monitored.md#fine-tune-your-deployment).
+1. Copy the public ranges that are private, and add them to the subnet list. For more information, see [Fine tune your subnet list](how-to-control-what-traffic-is-monitored.md#fine-tune-your-subnet-list).
 1. Generate a new data-mining report for internet connections.
 1. In the data-mining report, enter the administrator mode and delete the IP addresses of your ICS devices.
 

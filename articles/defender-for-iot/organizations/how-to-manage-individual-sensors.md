@@ -21,7 +21,7 @@ Before performing the procedures in this article, make sure that you have:
 
 - Access to the OT sensor as an **Admin** user. Selected procedures and CLI access also requires a privileged user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-- To download software for OT sensors, you'll need access to the Azure portal as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user.
+- To download software for OT sensors, you need access to the Azure portal as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user.
 
 - An [SSL/TLS certificate prepared](ot-deploy/create-ssl-certificates.md) if you need to update your sensor's certificate.
 
@@ -79,7 +79,7 @@ For more information, see [Update Defender for IoT OT monitoring software](updat
 
 Each OT sensor is onboarded as a cloud-connected or locally managed OT sensor and activated using a unique activation file. For cloud-connected sensors, the activation file is used to ensure the connection between the sensor and Azure.
 
-You'll need to upload a new activation file to your sensor if you want to switch sensor management modes, such as moving from a locally managed sensor to a cloud-connected sensor, or if you're [updating from a legacy software version](update-legacy-ot-software.md#update-legacy-ot-sensor-software). Uploading a new activation file to your sensor includes deleting your sensor from the Azure portal and onboarding it again.
+You need to upload a new activation file to your sensor if you want to switch sensor management modes, such as moving from a locally managed sensor to a cloud-connected sensor, or if you're [updating from a legacy software version](update-legacy-ot-software.md#update-legacy-ot-sensor-software). Uploading a new activation file to your sensor includes deleting your sensor from the Azure portal and onboarding it again.
 
 **To add a new activation file:**
 
@@ -251,7 +251,7 @@ For more information, see [ERSPAN ports](best-practices/traffic-mirroring-method
 
     - Select the **Enable/Disable** toggle for any interfaces you want the sensor to monitor. You must have at least one interface enabled for each sensor.
 
-        If you're not sure which interface to use, select the :::image type="icon" source="media/install-software-ot-sensor/blink-interface.png" border="false"::: **Blink physical interface LED** button to have the selected port blink on your machine. 
+        If you're not sure about which interface to use, select the :::image type="icon" source="media/install-software-ot-sensor/blink-interface.png" border="false"::: **Blink physical interface LED** button to have the selected port blink on your machine. 
 
         > [!TIP]
         > We recommend that you optimize performance on your sensor by configuring your settings to monitor only the interfaces that are actively in use. 
@@ -299,7 +299,7 @@ Time zones are used in [alerts](how-to-view-alerts.md), [trends and statistics w
 
 Define SMTP mail server settings on your OT sensor so that you configure the OT sensor to send data to other servers and partner services.
 
-You'll need an SMTP mail server configured to enable email alerts about disconnected sensors, failed sensor backup retrievals, and SPAN monitoring port failures from the on-premises management console, and to set up mail forwarding and configure [forwarding alert rules](how-to-forward-alert-information-to-partners.md).
+You need an SMTP mail server configured to enable email alerts about disconnected sensors, failed sensor backup retrievals, and SPAN monitoring port failures from the on-premises management console, and to set up mail forwarding and configure [forwarding alert rules](how-to-forward-alert-information-to-partners.md).
 
 **Prerequisites**:
 
@@ -385,7 +385,7 @@ While we recommend that you keep all analytics engines on, you may want to turn 
 
 1. Sign into your on-premises management console and select **System Settings**.
 
-1. In the **Sensor Engine Configuration** section, select one or more OT sensors you want to apply settings for, and clear any of the following options:
+1. In the **Sensor Engine Configuration** section, select one or more OT sensors where you want to apply settings, and clear any of the following options:
 
     - **Protocol Violation**
     - **Policy Violation**

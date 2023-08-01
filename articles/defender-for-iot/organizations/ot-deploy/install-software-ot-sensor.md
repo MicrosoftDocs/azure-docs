@@ -1,6 +1,6 @@
 ---
 title: Install OT network monitoring software on OT sensors - Microsoft Defender for IoT
-description: Learn how to install agentless monitoring software for an OT sensor for Microsoft Defender for IoT. Use this article if you've chosen to install software on your own appliances or when reinstalling software on a pre-configured appliance.
+description: Learn how to install agentless monitoring software for an OT sensor for Microsoft Defender for IoT. Use this article if you've chosen to install software on your own appliances or when reinstalling software on a preconfigured appliance.
 ms.date: 06/26/2023
 ms.topic: install-set-up-deploy
 ---
@@ -11,7 +11,7 @@ This article is one in a series of articles describing the [deployment path](../
 
 :::image type="content" source="../media/deployment-paths/progress-deploy-your-sensors.png" alt-text="Diagram of a progress bar with Deploy your sensors highlighted." border="false" lightbox="../media/deployment-paths/progress-deploy-your-sensors.png":::
 
-Use the procedures in this article when installing Microsoft Defender for IoT software on your own appliances. You might be reinstalling software on a [pre-configured appliance](../ot-pre-configured-appliances.md), or you may be installing software on your own appliance. If you're using a new pre-configured appliance, skip this step and continue directly with [configuring and activating your sensor](activate-deploy-sensor.md) instead.
+Use the procedures in this article when installing Microsoft Defender for IoT software on your own appliances. You might be reinstalling software on a [preconfigured appliance](../ot-pre-configured-appliances.md), or you may be installing software on your own appliance. If you're using a new preconfigured appliance, skip this step and continue directly with [configuring and activating your sensor](activate-deploy-sensor.md) instead.
 
 [!INCLUDE [caution do not use manual configurations](../includes/caution-manual-configurations.md)]
 
@@ -20,7 +20,7 @@ Use the procedures in this article when installing Microsoft Defender for IoT so
 
 Before installing, configuring, and activating your OT sensor, make sure that you have:
 
-- A [plan](../best-practices/plan-prepare-deploy.md) for your OT site deployment with Defender for IoT, including the appliance you'll be using for your OT sensor.
+- A [plan](../best-practices/plan-prepare-deploy.md) for your OT site deployment with Defender for IoT, including the appliance you're using for your OT sensor.
 
 - Access to the Azure portal as a [Security Reader](../../../role-based-access-control/built-in-roles.md#security-reader), [Security Admin](../../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../../role-based-access-control/built-in-roles.md#owner) user.
 
@@ -34,7 +34,7 @@ Before installing, configuring, and activating your OT sensor, make sure that yo
     - [Which appliances do I need?](../ot-appliance-sizing.md)
     - [OT monitoring with virtual appliances](../ot-virtual-appliances.md)
 
-- Access to the physical or virtual appliance where you'll be installing your sensor. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md)
+- Access to the physical or virtual appliance where you're installing your sensor. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md)
 
 This step is performed by your deployment teams.
 
@@ -109,7 +109,7 @@ This procedure describes how to install the Defender for IoT software you'd down
 
     The installation begins, giving you updated status messages as it goes. The entire installation process takes up to 20-30 minutes, and may vary depending on the type of media you're using.
 
-    When the installation is complete, you're shown the following a set of default networking details. While the default IP, subnet, and gateway addresses will be identical with each installation, the UID is unique for each appliance. For example:
+    When the installation is complete, you're shown the following a set of default networking details. While the default IP, subnet, and gateway addresses are identical with each installation, the UID is unique for each appliance. For example:
 
     ```bash
     IP: 192.168.0.101, 
@@ -118,7 +118,7 @@ This procedure describes how to install the Defender for IoT software you'd down
     UID: 91F14D56-C1E4-966F-726F-006A527C61D
     ```
 
-You'll use the default IP address provided to access your sensor for [initial setup and activation](activate-deploy-sensor.md).
+Use the default IP address provided to access your sensor for [initial setup and activation](activate-deploy-sensor.md).
 
 
 ## Next steps

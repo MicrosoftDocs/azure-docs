@@ -28,11 +28,11 @@ To perform the procedures in this article, you need:
 
     [!INCLUDE [root-of-trust](../includes/root-of-trust.md)]
 
-- OT sensor software installed on your appliance. Make sure that you've either [installed](install-software-ot-sensor.md) the software yourself or or [purchased](../ot-pre-configured-appliances.md) a pre-configured appliance.
+- OT sensor software installed on your appliance. Make sure that you've either [installed](install-software-ot-sensor.md) the software yourself or [purchased](../ot-pre-configured-appliances.md) a preconfigured appliance.
 
 - A SSL/TLS certificate. We recommend using a CA-signed certificate, and not a self-signed certificate. For more information, see [Create SSL/TLS certificates for OT appliances](create-ssl-certificates.md).
 
-- Access to the physical or virtual appliance where you'll be installing your sensor. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md)
+- Access to the physical or virtual appliance where you're installing your sensor. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md)
 
 This step is performed by your deployment teams.
 
@@ -80,7 +80,7 @@ In the **Management interface** tab, use the following fields to define network 
 |Name  |Description  |
 |---------|---------|
 |**Management interface**     |  Select the interface you want to use as the management interface, to connect to either the Azure portal or an on-premises management console.<br><br>To identify a physical interface on your machine, select an interface and then select **Blink physical interface LED**. The port that matches the selected interface lights up so that you can connect your cable correctly.        |
-|<a name="ip"></a>**IP Address**     |  Enter the IP address you want to use for your sensor. This is the IP address your team will use to connect to the sensor via the browser or CLI. |
+|<a name="ip"></a>**IP Address**     |  Enter the IP address you want to use for your sensor. This is the IP address your team uses to connect to the sensor via the browser or CLI. |
 |**Subnet Mask**     | Enter the address you want to use as the sensor's subnet mask.        |
 |**Default Gateway**     | Enter the address you want to use as the sensor's default gateway.        |
 |**DNS**     |   Enter the sensor's DNS server IP address.      |
@@ -101,7 +101,7 @@ In the **Interface configurations** tab, do the following to configure settings 
 
 1. Select the **Enable/Disable** toggle for any interfaces you want the sensor to monitor. You must select at least one interface to continue.
 
-    If you're not sure which interface to use, select the :::image type="icon" source="../media/install-software-ot-sensor/blink-interface.png" border="false"::: **Blink physical interface LED** button to have the selected port blink on your machine. Select any of the interfaces that you've connected to your switch.
+    If you're not sure about which interface to use, select the :::image type="icon" source="../media/install-software-ot-sensor/blink-interface.png" border="false"::: **Blink physical interface LED** button to have the selected port blink on your machine. Select any of the interfaces that you've connected to your switch.
 
 1. (Optional) For each interface you select to monitor, select the :::image type="icon" source="../media/install-software-ot-sensor/advanced-settings-icon.png" border="false"::: **Advanced settings**  button to modify any of the following settings:
 
@@ -161,7 +161,7 @@ Use this procedure to configure the following initial setup settings via CLI:
 - Defining network details for your sensor
 - Defining the interfaces you want to monitor
 
-You'll continue with [activating](#activate-your-ot-sensor) and [configuring SSL/TLS certificate settings](#define-ssltls-certificate-settings) in the browser.
+Continue with [activating](#activate-your-ot-sensor) and [configuring SSL/TLS certificate settings](#define-ssltls-certificate-settings) in the browser.
 
 **To configure initial setup settings via CLI**:
 
@@ -199,7 +199,7 @@ You'll continue with [activating](#activate-your-ot-sensor) and [configuring SSL
 
     :::image type="content" source="../media/install-software-ot-sensor/select-management-interface.png" alt-text="Screenshot of the Select management interface screen.":::
 
-1. In the `Enter sensor IP address` screen, enter the IP address you want to use for this sensor. You'll use this IP address to connect to the sensor via CLI or the browser. For example:
+1. In the `Enter sensor IP address` screen, enter the IP address you want to use for this sensor. Use this IP address to connect to the sensor via CLI or the browser. For example:
 
     :::image type="content" source="../media/install-software-ot-sensor/enter-sensor-ip-address.png" alt-text="Screenshot of the Enter sensor IP address screen.":::
 

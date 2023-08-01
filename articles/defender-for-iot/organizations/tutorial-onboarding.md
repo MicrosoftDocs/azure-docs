@@ -91,7 +91,7 @@ Your VM is now prepared for your Defender for IoT software installation. You'll 
 
 ## Onboard the virtual sensor
 
-Before you can start using your Defender for IoT sensor, you'll need to onboard your new virtual sensor to your Azure subscription.
+Before you can start using your Defender for IoT sensor, you need to onboard your new virtual sensor to your Azure subscription.
 
 **To onboard the virtual sensor:**
 
@@ -126,14 +126,14 @@ Before you can start using your Defender for IoT sensor, you'll need to onboard 
 
 1. In the **Add outbound allow rules** box, select the **Download endpoint details** link to download a JSON list of the endpoints you must configure as secure endpoints from your sensor.
 
-    Save the downloaded file locally. You'll use the endpoints listed in the downloaded file to [later in this tutorial](#provision-for-cloud-management) to ensure that your new sensor can successfully connect to Azure.
+    Save the downloaded file locally. Use the endpoints listed in the downloaded file to [later in this tutorial](#provision-for-cloud-management) to ensure that your new sensor can successfully connect to Azure.
 
     > [!TIP]
     > You can also access the list of required endpoints from the **Sites and sensors** page. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
  
 1. At the bottom left of the page, select **Finish**. You can now see your new sensor listed on the Defender for IoT **Sites and sensors** page.
 
-    Until you activate your sensor, the sensor's status will show as **Pending Activation**.
+    Until you activate your sensor, the sensor's status shows as **Pending Activation**.
 
 For more information, see [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md).
 
@@ -159,9 +159,9 @@ This procedure describes how to configure a SPAN port using a workaround with VM
 
 1. Select **Add** to close the vSwitch properties.
 
-1. Highlight the vSwitch you have just created, and select **Add uplink**.
+1. Highlight the vSwitch you've created, and select **Add uplink**.
 
-1. Select the physical NIC you will use for the SPAN traffic, change the MTU to **4096**, then select **Save**.
+1. Select the physical NIC you'll use for the SPAN traffic, change the MTU to **4096**, then select **Save**.
 
 1. Open the **Port Group** properties page and select **Add Port Group**.
 
@@ -202,7 +202,7 @@ This section describes how to download and install the sensor software on your o
 
 1. In the **Purchase an appliance and install software** box, ensure that the default option is selected for the latest and recommended software version, and then select **Download**.
 
-1. Save the downloaded software in a location that will be accessible from your VM.
+1. Save the downloaded software in a location that's accessible from your VM.
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
@@ -215,7 +215,7 @@ This procedure describes how to install the sensor software on your VM.
 
 **To install the software on the virtual sensor**:
 
-1. If you had closed your VM, sign into the ESXi again and open your VM settings.
+1. If you closed your VM, sign into the ESXi again and open your VM settings.
 
 1. For **CD/DVD Drive 1**, select **Datastore ISO file** and select the Defender for IoT software you'd [downloaded earlier](#download-software-for-your-virtual-sensor).
 
@@ -241,7 +241,7 @@ This procedure describes how to install the sensor software on your VM.
     UID: 91F14D56-C1E4-966F-726F-006A527C61D
     ```
 
-You'll use the default IP address provided to access your sensor for [initial setup and activation](ot-deploy/activate-deploy-sensor.md).
+Use the default IP address provided to access your sensor for [initial setup and activation](ot-deploy/activate-deploy-sensor.md).
 
 ### Post-installation validation
 
@@ -327,7 +327,7 @@ In the **Interface configurations** tab, do the following to configure settings 
 
 1. Select the **Enable/Disable** toggle for any interfaces you want the sensor to monitor. You must select at least one interface to continue.
 
-    If you're not sure which interface to use, select the :::image type="icon" source="media/install-software-ot-sensor/blink-interface.png" border="false"::: **Blink physical interface LED** button to have the selected port blink on your machine. Select any of the interfaces that you've connected to your switch.
+    If you're not sure about which interface to use, select the :::image type="icon" source="media/install-software-ot-sensor/blink-interface.png" border="false"::: **Blink physical interface LED** button to have the selected port blink on your machine. Select any of the interfaces that you've connected to your switch.
 
 1. For the sake of this tutorial, skip any advanced settings and select **Next: Reboot >** to continue.
 
@@ -347,7 +347,7 @@ This procedure describes how to activate your new OT sensor.
 
 ### Define SSL/TLS certificate settings
 
-Use the **Certificates** tab to deploy an SSL/TLS certificate on your OT sensor. While we recommend that you use a [CA-signed certificate](ot-deploy/create-ssl-certificates.md) for all production environments, for the sake of this tutorial, you'll select to use a self-signed certificate. 
+Use the **Certificates** tab to deploy an SSL/TLS certificate on your OT sensor. While we recommend that you use a [CA-signed certificate](ot-deploy/create-ssl-certificates.md) for all production environments, for the sake of this tutorial, select to use a self-signed certificate. 
 
 **To define SSL/TLS certificate settings**:
 

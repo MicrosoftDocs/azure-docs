@@ -84,7 +84,7 @@ Earlier versions use a legacy support model, with support dates [detailed for ea
 
 The OT network sensor and the on-premises management console are designed as a *locked-down* security appliance with a hardened attack surface. Appliance access and control are allowed only through the [management port](best-practices/understand-network-architecture.md), via HTTP for web access and SSH for the support shell.
 
-Defender for IoT adheres to the [Microsoft Security Development Lifecycle](https://www.microsoft.com/securityengineering/sdl/) throughout the entire development lifecycle, including activities like training, compliance, code reviews, threat modeling, design requirements, component governance, and pen testing. All appliances are locked down according to industry best practices and should not be modified.
+Defender for IoT adheres to the [Microsoft Security Development Lifecycle](https://www.microsoft.com/securityengineering/sdl/) throughout the entire development lifecycle, including activities like training, compliance, code reviews, threat modeling, design requirements, component governance, and pen testing. All appliances are locked down according to industry best practices and shouldn't be modified.
 
 Maintain your sensors and on-premises management consoles, for activities like backups, log exports, or health monitoring, via the web interface, or the Defender for IoT [CLI commands](references-work-with-defender-for-iot-cli-commands.md).
 
@@ -112,7 +112,7 @@ This version includes the following updates and enhancements:
 - [A new sensor setup wizard from the UI](ot-deploy/activate-deploy-sensor.md)
 - [Analyze sensor connectivity](how-to-manage-individual-sensors.md)
 - [UI enhancements for downloading PCAP files from the sensor](how-to-view-alerts.md#access-alert-pcap-data)
-- [*cyberx* and *cyberx_host* users are not enabled by default](roles-on-premises.md#default-privileged-on-premises-users)
+- [*cyberx* and *cyberx_host* users aren't enabled by default](roles-on-premises.md#default-privileged-on-premises-users)
 
 ## Versions 22.3.x
 
@@ -156,7 +156,7 @@ This version includes:
 Version 22.3.7 includes the same features as 22.3.6. If you have version 22.3.6 installed, we strongly recommend that you update to version 22.3.7, which also includes important bug fixes.
 
 - [Support for transient devices](device-inventory.md#supported-devices)
-- [Auto-resolved notifications](how-to-work-with-the-sensor-device-map.md#device-notification-responses)
+- [Autoresolved notifications](how-to-work-with-the-sensor-device-map.md#device-notification-responses)
 - [Device data retention updated to 90 days](references-data-retention.md#device-data-retention-periods)
 - [Merging](how-to-investigate-sensor-detections-in-a-device-inventory.md#merge-devices) and [deleting](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) devices on OT sensors now include confirmation messages when the action has completed
 - Support for [deleting multiple devices](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) on OT sensors

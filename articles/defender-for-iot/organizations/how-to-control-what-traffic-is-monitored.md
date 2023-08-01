@@ -58,7 +58,7 @@ While your OT sensor automatically learns your network subnets during the initia
 Also use this procedure to also define subnet settings, determining how devices are displayed in the sensor's [device map](how-to-work-with-the-sensor-device-map.md) and the [Azure device inventory](device-inventory.md).
 
 - **In the device map**, IT devices are automatically aggregated by subnet, where you can expand and collapse each subnet view to drill down as needed.
-- **In the Azure device inventory**, once the subnets have been configured, use the *Network location* (Public preview) filter to view *local* or *routed* devices as defined in your subnets list. All of the devices associated with the listed subnets will be displayed as *local*, while devices associated with detected subnets not included in the list will be displayed as *routed*.
+- **In the Azure device inventory**, once the subnets have been configured, use the *Network location* (Public preview) filter to view *local* or *routed* devices as defined in your subnets list. All of the devices associated with the listed subnets are displayed as *local*, while devices associated with detected subnets not included in the list will be displayed as *routed*.
 
 While the OT network sensor automatically learns the subnets in your network, we recommend confirming the learned settings and updating them as needed to optimize your map views and device inventory. Any subnets not listed as subnets are treated as external networks.
 
@@ -75,7 +75,7 @@ While the OT network sensor automatically learns the subnets in your network, we
 
     |Name  |Description  |
     |---------|---------|
-    |**Import subnets**     | Import a .CSV file of subnet definitions. The subnet information is updated with the information that you imported. If you import an empty field, you'll lose the data in that field.       |
+    |**Import subnets**     | Import a .CSV file of subnet definitions. The subnet information is updated with the information that you imported. If you import an empty field, you lose the data in that field.       |
     |**Export subnets**     |  Export the currently listed subnets to a .CSV file.       |
     |**Clear all**     |  Clear all currently defined subnets.      |
     |**Auto subnet learning**     |  Selected by default. Clear this option to prevent the sensor from detecting your subnets automatically. |
@@ -86,7 +86,7 @@ While the OT network sensor automatically learns the subnets in your network, we
     |**Segregated**     |   Select to show this subnet separately when displaying the device map according to Purdue level.  |
     | **Remove subnet** | Select to remove any subnets that aren't related to your IoT/OT network scope.| 
 
-    In the subnet grid, subnets marked as **ICS subnet** are recognized as OT activity or protocols. This option is read-only in this grid, but you can [manually define a subnet as ICS](#manually-define-a-subnet-as-ics) if there is an OT subnet not being recognized correctly.
+    In the subnet grid, subnets marked as **ICS subnet** are recognized as OT activity or protocols. This option is read-only in this grid, but you can [manually define a subnet as ICS](#manually-define-a-subnet-as-ics) if there's an OT subnet not being recognized correctly.
 
 1. When you're done, select **Save** to save your updates.
 
@@ -96,7 +96,7 @@ While the OT network sensor automatically learns the subnets in your network, we
 
 ### Manually define a subnet as ICS
 
-If you have an OT subnet that is not being marked automatically as an ICS subnet by the sensor, edit the device type for any of the devices in the relevant subnet to an ICS or IoT device type. The subnet will then be automatically marked by the sensor as an ICS subnet.
+If you have an OT subnet that isn't being marked automatically as an ICS subnet by the sensor, edit the device type for any of the devices in the relevant subnet to an ICS or IoT device type. The subnet will then be automatically marked by the sensor as an ICS subnet.
 
 > [!NOTE]
 > To manually change the subnet to be marked as ICS, the device type must be changed in device inventory in the OT sensor, and not from the Azure portal.
@@ -117,7 +117,7 @@ For more information, see [Edit device details](how-to-investigate-sensor-detect
 
 Use the following procedures to enrich the device data shown in Defender for IoT by customizing port and VLAN names on your OT network sensors.
 
-For example, you might want to assign a name to a non-reserved port that shows unusually high activity in order to call it out, or to assign a name to a VLAN number in order to identify it quicker.
+For example, you might want to assign a name to a nonreserved port that shows unusually high activity in order to call it out, or to assign a name to a VLAN number in order to identify it quicker.
 
 > [!NOTE]
 > For cloud-connected sensors, you may eventually start configuring OT sensor settings from the Azure portal. Once you start configuring settings from the Azure portal, the **VLANs** and **Port naming** panes on the OT sensors are read-only. For more information, see [Configure OT sensor settings from the Azure portal](configure-sensor-settings-portal.md).
@@ -166,7 +166,7 @@ Your OT network might consist of both static and dynamic IP addresses.
 - **Static addresses** are typically found on OT networks through historians, controllers, and network infrastructure devices such as switches and routers.
 - **Dynamic IP allocation** is typically implemented on guest networks with laptops, PCs, smartphones, and other portable equipment, using Wi-Fi or LAN physical connections in different locations.
 
-If you're working with dynamic networks, you'll need to handle IP addresses changes as they occur, by defining DHCP address ranges on each OT network sensor. When an IP address is defined as a DHCP address, Defender for IoT identifies any activity happening on the same device, regardless of IP address changes.
+If you're working with dynamic networks, you need to handle IP addresses changes as they occur, by defining DHCP address ranges on each OT network sensor. When an IP address is defined as a DHCP address, Defender for IoT identifies any activity happening on the same device, regardless of IP address changes.
 
 **To define DHCP address ranges**:
 
