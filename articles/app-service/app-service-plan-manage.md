@@ -5,8 +5,8 @@ keywords: app service, azure app service, scale, app service plan, change, creat
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
 ms.author: msangapu
-ms.date: 06/29/2023
-ms.custom: seodec18
+ms.date: 07/31/2023
+ms.custom: "UpdateFrequency3"
 
 ---
 # Manage an App Service plan in Azure
@@ -20,27 +20,25 @@ An [Azure App Service plan](overview-hosting-plans.md) provides the resources th
 
 You can create an empty App Service plan, or you can create a plan as part of app creation.
 
-1. In the [Azure portal](https://portal.azure.com), select **Create a resource**.
+1. To start creating an App Service Plan, browse to [https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate](https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate).
 
-   ![Create a resource in the Azure portal.][createResource] 
+   :::image type="content" source="./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png" alt-text="Create an App Service Plan in the Azure portal.":::
 
-1. Select **New** > **Web App** or another kind of App service app.
+2. Configure the **Project Details** section before configuring the App Service plan. 
+  
+3. In the **App Service Plan details** section, name the App Service Plan, then select the **Operating System** and **Region**. Region determines where your App Service plan is created.
 
-   ![Create an app in the Azure portal.][createWebApp] 
+4. When creating a plan, you can select the pricing tier of the new plan. In **Pricing Tier**, select a **Pricing plan** or select **Explore pricing plans** to view additional details. 
 
-2. Configure the **Instance Details** section before configuring the App Service plan. Settings such as **Publish** and **Operating Systems** can change the available pricing tiers for your App Service plan. **Region** determines where your App Service plan is created. 
-   
-3. In the **App Service Plan** section, select an existing plan, or create a plan by selecting **Create new**.
+5. In the **Zone redundancy** section, select whether the App Service Plan zone redundancy should be enabled or disabled.
 
-   ![Create an App Service plan.][createASP] 
-
-4. When creating a plan, you can select the pricing tier of the new plan. In **Sku and size**, select **Change size** to change the pricing tier. 
+6. Select **Review + create** to create the App Service Plan.
 
 <a name="move"></a>
 
 ## Move an app to another App Service plan
 
-You can move an app to another App Service plan, as long as the source plan and the target plan are in the _same resource group, geographical region,and of the same OS type_. Any change in type such as Windows to Linux or any type that is different from the originating type is not supported.
+You can move an app to another App Service plan, as long as the source plan and the target plan are in the _same resource group, geographical region, and of the same OS type_. Any change in type such as Windows to Linux or any type that is different from the originating type is not supported.
 
 
 > [!NOTE]
@@ -96,6 +94,5 @@ To avoid unexpected charges, when you delete the last app in an App Service plan
 > [Scale up an app in Azure](manage-scale-up.md)
 
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
-[createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 [createResource]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-a-resource.png
