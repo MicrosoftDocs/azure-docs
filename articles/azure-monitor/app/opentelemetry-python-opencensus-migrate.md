@@ -51,7 +51,10 @@ page to onboard onto the Azure Monitor OpenTelemetry Distro.
 
 ## Step 4: Familiarize yourself with OpenTelemetry Python APIs/SDKs
 
-Read through the official OpenTelemetry Python [documentation](https://opentelemetry-python.readthedocs.io/en/stable/), Azure Monitor Distro documentation on [configuration](./opentelemetry-configuration.md?tabs=python) and [telemetry](./opentelemetry-add-modify.md?tabs=python).
+The following documentation provides prerequisite knowledge of the OpenTelemetry Python APIs/SDKs.
+
+ - OpenTelemetry Python [documentation](https://opentelemetry-python.readthedocs.io/en/stable/)
+ - Azure Monitor Distro documentation on [configuration](./opentelemetry-configuration.md?tabs=python) and [telemetry](./opentelemetry-add-modify.md?tabs=python)
 
 ## Changes and limitations
 
