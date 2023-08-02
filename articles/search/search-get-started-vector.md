@@ -39,7 +39,7 @@ Sample data consists of text and vector descriptions of 108 Azure services, gene
 
 + Vector data (text embeddings) is used for vector search. Currently, Cognitive Search doesn't generate vectors for you. For this quickstart, vector data was generated previously and copied into the "Upload Documents" request and into the query requests.
 
-  For documents, we generated vector data using demo code that calls Azure OpenAI for the embeddings. Demo code is currently using beta versions of the Azure SDKs and are available in [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet), and [JavaScript](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript).
+  For documents, we generated vector data using demo code that calls Azure OpenAI for the embeddings. Samples are currently using beta versions of the Azure SDKs and are available in [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet), and [JavaScript](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript).
 
   For queries, we used the "Create Query Embeddings" request that calls Azure OpenAI and outputs embeddings for a search string. If you want to formulate your own vector queries against the sample data of 108 Azure services, provide your Azure OpenAI connection information in the Postman collection variables. Your Azure OpenAI service must have a deployment of an embedding model that's identical to the one used to generate embeddings in your search corpus. For this quickstart, the following parameters were used: 
   
