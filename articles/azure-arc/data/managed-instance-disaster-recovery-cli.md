@@ -221,7 +221,7 @@ Once you perform a failover from primary site to secondary site, either with or 
 - Update the connection string for your applications to connect to the newly promoted primary Arc SQL managed instance
 - If you plan to continue running the production workload off of the secondary site, update the `--license-type` to either `BasePrice` or `LicenseIncluded` to initiate billing for the vCores consumed.
 
-
 ## Next steps
 
-[Overview: Azure Arc-enabled SQL Managed Instance business continuity](managed-instance-business-continuity-overview.md)
+- [Overview: Azure Arc-enabled SQL Managed Instance business continuity](managed-instance-business-continuity-overview.md)
+- [Configure failover group - portal](managed-instance-disaster-recovery-portal.md)

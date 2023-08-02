@@ -79,4 +79,5 @@ To set the synchronization mode:
 
 ## Next steps
 
-[Overview: Azure Arc-enabled SQL Managed Instance business continuity](managed-instance-business-continuity-overview.md)
+- [Overview: Azure Arc-enabled SQL Managed Instance business continuity](managed-instance-business-continuity-overview.md)
+- [Configure failover group - CLI](managed-instance-disaster-recovery-cli.md)
