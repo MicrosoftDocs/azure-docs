@@ -139,7 +139,7 @@
     - name: Image hardening techniques for deployment
       items:
       - name: Remove sudo users from Linux image
-        href: hardening-linux-image-to-remove-sudo-users.md
+        href: harden-the-linux-image-to-remove-sudo-users.md
     - name: Secure Key Release (SKR) with Azure Key Vault
       items:
       - name: SKR with Azure Confidential Computing Concept
