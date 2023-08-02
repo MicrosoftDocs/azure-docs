@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with CoLab
 
-In this article, you learn how to integrate CoLab with Azure Active Directory (Azure AD). CoLab is a collaboration tool for engineering teams and their supply chains that drives effective communication throughout the product development process so you can deliver better products, faster. When you integrate CoLab with Azure AD, you can:
+In this article, you learn how to integrate CoLab with Azure Active Directory (Azure AD). CoLab is a collaboration tool for engineering teams and their supply chains that drive effective communication throughout the product development process so you can deliver better products, faster. When you integrate CoLab with Azure AD, you can:
 
 * Control in Azure AD who has access to CoLab.
 * Enable your users to be automatically signed-in to CoLab with their Azure AD accounts.
