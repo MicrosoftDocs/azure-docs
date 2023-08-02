@@ -8,7 +8,13 @@ ms.author: eur
 
 ### Speech SDK 1.31.0: August 2023 release
 
-### Breaking changes
+#### New Features
+
+* Support for real-time diarization is available in public preview with the Speech SDK 1.31.0. This feature is available in the following SDKs: C#, C++, Java, JavaScript, and Python.
+
+* Synchronized speech synthesis word boundary and viseme events with audio playback
+
+#### Breaking changes
 
 * The former "conversation transcription" scenario is renamed to "meeting transcription". For example, use `MeetingTranscriber` instead of `ConversationTranscriber`, and use `CreateMeetingAsync` instead of `CreateConversationAsync`. Although the names of SDK objects and methods have changed, there are no changes to the feature itself. Use meeting transcription objects for transcription of meetings with user profiles and voice signatures. See [Meeting transcription](../../meeting-transcription.md) for more information.
 
@@ -32,10 +38,6 @@ This table shows the previous and new object names for real-time diarization and
 <sup>1</sup> The `Participant`, `ParticipantChangedReason`, and `User` objects are applicable to both meeting transcription and meeting translation scenarios.
 
 <sup>2</sup> The `Meeting` object is new and is used with the `MeetingTranscriber` object.
-
-#### New Features
-
-* Synchronized speech synthesis word boundary and viseme events with audio playback
 
 #### Bug fixes
 
