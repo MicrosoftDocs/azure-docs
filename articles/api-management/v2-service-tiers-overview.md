@@ -1,5 +1,5 @@
 ---
-title: Azure API Management - v2 service tiers
+title: Azure API Management - v2 service tiers (preview)
 description: Introduction to key scenarios, capabilities, and concepts of the v2 tiers of the Azure API Management service.
 services: api-management
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.date: 08/01/2023
 ms.author: danlep
 ---
 
-# Welcome to the v2 service tiers of API Management
+# Welcome to the v2 service tiers of API Management (preview)
 
 We're introducing a new set of service tiers for Azure API Management that we've named *v2 service tiers*. The v2 tiers of Azure API Management are designed to meet the needs of customers with today's demanding API management workloads. Built on a new platform that provides enhanced performance, reliability, and scale, the v2 tiers off a range of features and flexible options for many scenarios. 
 
@@ -28,7 +28,7 @@ Currently in preview, the following v2 tiers are available:
 
 * **Improved performance** - The v2 tiers are built on a platform that provides enhanced performance, reliability, and scale.
 
-* **Simplified networking** - All v2 tiers support [networking options](#networking-options) to isolate the network traffic to and from you API Management instance. Most networking configurations and dependencies can be managed automatically by the service.
+* **Simplified networking** - All v2 tiers support [networking options](#networking-options) to isolate the network traffic to and from your API Management instance. Most networking configurations and dependencies can be managed automatically by the service.
 
 * **Built-in analytics** - All v2 tiers include built-in analytics based on Azure Log Analytics workbooks.
 
@@ -73,10 +73,10 @@ In preview, the v2 service tiers are available in the following regions:
 
 ### Feature availability
 
-The following API Management capabilities that are available in the v1 service tiers are not supported in the v2 tiers:
+The following API Management capabilities that are available in the v1 service tiers aren't supported in the v2 tiers:
 
 * API Management service configuration using Git
-* Backup and restore
+* Back up and restore
 * Enabling Azure DDoS Protection
 
 ### Preview limitations
@@ -94,3 +94,6 @@ During preview, the following API Management capabilities are currently not avai
 > Currently, pricing details for the v2 service tiers aren't available.
 
 
+## Next steps
+
+[TBD...]

@@ -253,7 +253,7 @@
                   href: import-api-from-odata.md
                 - name: Import SAP OData metadata
                   href: sap-api.md
-                - name: Configure API for SSEgit 
+                - name: Configure API for SSE 
                   href: how-to-server-sent-events.md
                 - name: API import restrictions
                   href: api-management-api-import-restrictions.md
