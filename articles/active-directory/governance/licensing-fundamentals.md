@@ -42,7 +42,7 @@ The [product names and service plan identifiers for licensing](../enterprise-use
 >[!NOTE]
 >A subscription to a prerequisite for an Microsoft Entra ID Governance product must be active in the tenant. If a prerequisite is not present, or the subscription expires, then Microsoft Entra ID Governance scenarios may not function as expected.  
 
-To check if the prerequisite products for a Microsoft Entra ID Governance product are present in a tenant, you can use the Entra portal or the Microsoft 365 admin center to view the list of products.
+To check if the prerequisite products for a Microsoft Entra ID Governance product are present in a tenant, you can use the Microsoft Entra admin center or the Microsoft 365 admin center to view the list of products.
 
 1. Sign into the [Microsoft Entra admin center](https://entra.microsoft.com) as a global administrator.
 
