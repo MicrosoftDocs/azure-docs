@@ -2,8 +2,8 @@
 title: Statement of compliance
 titleSuffix: Azure Private 5G Core
 description: Information on Azure Private 5G Core's compliance with specifications. 
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: conceptual 
 ms.date: 01/20/2022

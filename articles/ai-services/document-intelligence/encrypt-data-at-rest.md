@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: egeaney
 ms.custom: applied-ai-non-critical-form
-monikerRange: '<=doc-intel-3.0.0'
+monikerRange: '<=doc-intel-3.1.0'
 ---
 
 
 # Document Intelligence encryption of data at rest
 
-[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-v2-1.md)]
+[!INCLUDE [applies to v3.1, v3.0, and v2.1](includes/applies-to-v3-1-v3-0-v2-1.md)]
 
 Azure AI Document Intelligence automatically encrypts your data when persisting it to the cloud. Document Intelligence encryption protects your data to help you to meet your organizational security and compliance commitments.
 

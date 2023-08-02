@@ -6124,6 +6124,16 @@
       "source_path_from_root": "/articles/cosmos-db/nosql/query/geospatial-intro.md",
       "redirect_url": "/azure/cosmos-db/nosql/query/geospatial",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/geospatial-index.md",
+      "redirect_url": "/azure/cosmos-db/nosql/how-to-geospatial-index-query",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/geospatial-query.md",
+      "redirect_url": "/azure/cosmos-db/nosql/how-to-geospatial-index-query",
+      "redirect_document_id": false
     }
   ]
 }
