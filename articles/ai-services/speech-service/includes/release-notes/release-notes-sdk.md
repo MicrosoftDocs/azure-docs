@@ -45,7 +45,7 @@ This table shows the previous and new object names for real-time diarization and
 
 #### Additional notes
 
-* **Java** - Some internally used, `public` Java API methods were changed to package `internal`, `protected` or `private`. This change shouldn't have an affect on developers, as we don't expect applications to be using those. Noted here for transparency.
+* **Java** - Some internally used, `public` Java API methods were changed to package `internal`, `protected` or `private`. This change shouldn't have an effect on developers, as we don't expect applications to be using those. Noted here for transparency.
 
 #### Samples
 
