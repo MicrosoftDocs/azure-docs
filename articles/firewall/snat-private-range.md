@@ -177,7 +177,7 @@ You can use the Azure portal to specify private IP address ranges for the firewa
 
 ## Auto-learn SNAT routes (preview)
 
-You can configure Azure Firewall to auto-learn both registered and private ranges every 30 minutes. These learned address ranges are considered to be internal to the network and hence traffic to destinations in the learned ranges aren't SNATed. To configure auto-learn SNAT ranges requires Azure Route Server to be deployed in the same VNet as the Azure Firewall. The Firewall must be associated with Azure Firewall Policy. You can currently use JSON, Azure PowerShell, or the Azure portal to configure auto-learn SNAT routes.
+You can configure Azure Firewall to auto-learn both registered and private ranges every 30 minutes. These learned address ranges are considered to be internal to the network and hence traffic to destinations in the learned ranges aren't SNATed. Configure auto-learn SNAT ranges requires Azure Route Server to be deployed in the same VNet as the Azure Firewall. The Firewall must be associated with the Azure Route Server and configured to auto-learn SNAT ranges in the Azure Firewall Policy. You can currently use JSON, Azure PowerShell, or the Azure portal to configure auto-learn SNAT routes.
 
 ### Configure using JSON
 
