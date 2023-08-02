@@ -2,7 +2,7 @@
 title: 'Quickstart: Scale your container app'
 description: Scale your Azure Container Apps application using the Azure CLI.
 services: container-apps
-author: v-wellsjason
+author: v-jaswel
 ms.service: container-apps
 ms.topic: quickstart
 ms.date: 08/02/2023
@@ -144,7 +144,7 @@ az containerapp up `
 
 By setting `--ingress` to `external`, you make the container app available to public requests.
 
-The `up` command returns the fully qualified domain name for the container app. Copy this location to a text file. You'll use it in the [Send requests](#Send-requests) section.
+The `up` command returns the fully qualified domain name for the container app. Copy this location to a text file. You'll use it in the [Send requests](#send-requests) section.
 
 ## Add scale rule
 
@@ -232,11 +232,11 @@ az containerapp logs show `
 
 ---
 
-This command tells Azure to show the system logs for your container app in real time. For more information, see [az containerapp logs show](https://learn.microsoft.com/cli/azure/containerapp/logs?view=azure-cli-latest#az-containerapp-logs-show).
+This command tells Azure to show the system logs for your container app in real time. For more information, see [az containerapp logs](/cli/azure/containerapp/logs).
 
 ## Send requests
 
-Open a new bash shell using Windows Subsystem for Linux or Azure Cloud Shell. Run the following command, replacing `YOUR_CONTAINER_APP_FQDN` with the fully qualified domain name for your container app that you saved from the [Create and deploy the container app](#Create-and-deploy-the-container-app) section.
+Open a new bash shell using Windows Subsystem for Linux or Azure Cloud Shell. Run the following command, replacing `YOUR_CONTAINER_APP_FQDN` with the fully qualified domain name for your container app that you saved from the [Create and deploy the container app](#create-and-deploy-the-container-app) section.
 
 ```bash
 seq 1 4 | xargs -Iname -P4 curl "YOUR_CONTAINER_APP_FQDN/albums"
