@@ -7,7 +7,7 @@ metadata:
   ms.service: applied-ai-services
   ms.subservice: forms-recognizer
   ms.topic: faq
-  ms.date: 07/18/2023
+  ms.date: 08/02/2023
   ms.author: lajanuar
   monikerRange: '<=doc-intel-3.1.0'
 
@@ -461,10 +461,10 @@ sections:
           - Switching subscriptions or resources can be done under Settings -> Resource tab.
 
       - question: |
-          Why am I receiving an AuthorizationFailure error on Auto Label or OCR Upgrade when my Storage Account is configured with a firewall?
+          Why am I receiving an AuthorizationFailure error on Project Sharing, Auto Label, or OCR Upgrade when my Document Intelligence or Storage Account resource is configured with a firewall?
         answer: |
 
-          Add our website IP address, 20.3.165.95, to the allowlist of firewall. The IP address is Document Intelligence Studio's dedicated IP address and can be safely allowed.
+          Add our website IP address, 20.3.165.95, to the firewall allowlist for both Document Intelligence and Storage Account resources. This is Document Intelligence Studio's dedicated IP address and can be safely allowed.
 
       - question: |
           Can I reuse or customize the labeling experience from Studio and build it into my own application?
