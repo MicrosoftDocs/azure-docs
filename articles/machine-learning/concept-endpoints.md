@@ -117,7 +117,7 @@ The following table shows a summary of the different features available to onlin
 
 <sup>2</sup> *Autoscaling* is the ability to dynamically scale up or scale down the deployment's allocated resources based on its load. Online and batch deployments use different strategies for autoscaling. While online deployments scale up and down based on the resource utilization (like CPU, memory, requests, etc.), batch endpoints scale up or down based on the number of jobs created.
 
-<sup>3</sup> Online and Batch deployments charge by the resources consumed. In online deployments, resources are provisioned at deployment time. However, in batch deployment, no resources are consumed at deployment time. They are consumed when the job runs and hence there is no cost associated with the deployment itself. Notice that queued jobs do not consume resources either.
+<sup>3</sup> Both online and batch deployments charge by the resources consumed. In online deployments, resources are provisioned at deployment time. However, in batch deployment, no resources are consumed at deployment time but when the job runs. Hence, there is no cost associated with the deployment itself. Notice that queued jobs do not consume resources either.
 
 ## Developer interfaces
 
