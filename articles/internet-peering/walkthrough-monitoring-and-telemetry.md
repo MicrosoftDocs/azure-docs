@@ -22,7 +22,7 @@ All peering partners (direct or exchange) can view the routes they have announce
 
 ## View peering metrics
 
-All peering partners can view the following metrics for their peering under **Connections** tab under the **Settings** section  of their Peering's page. 
+All peering partners can view the following metrics for their peering under **Connections** tab under the **Settings** section  of their Peering's page:
 
 -  Session availability
 -  Ingress traffic rate 
