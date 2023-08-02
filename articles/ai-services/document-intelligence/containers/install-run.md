@@ -222,7 +222,7 @@ services:
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
       - apiKey={FORM_RECOGNIZER_KEY}
     ports:
-      - "5000:5000"
+      - "5000:5050"
     networks:
       - ocrvnet
 networks:
@@ -252,7 +252,7 @@ services:
         - apiKey={FORM_RECOGNIZER_KEY}
         - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
     ports:
-      - "5000:5000"
+      - "5000:5050"
   azure-cognitive-service-layout:
      container_name: azure-cognitive-service-layout
      image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0
@@ -285,7 +285,7 @@ services:
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
       - apiKey={FORM_RECOGNIZER_KEY}
     ports:
-      - "5000:5000"
+      - "5000:5050"
     networks:
       - ocrvnet
 networks:
@@ -315,7 +315,7 @@ services:
         - apiKey={FORM_RECOGNIZER_KEY}
         - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
     ports:
-      - "5000:5000"
+      - "5000:5050"
   azure-cognitive-service-layout:
     container_name: azure-cognitive-service-layout
     image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0
@@ -347,7 +347,7 @@ services:
         - apiKey={FORM_RECOGNIZER_KEY}
         - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
     ports:
-          - "5000:5000"
+          - "5000:5050"
     azure-cognitive-service-read:
       container_name: azure-cognitive-service-read
       image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/read-3.0
@@ -379,7 +379,7 @@ services:
           - apiKey={FORM_RECOGNIZER_KEY}
           - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
       ports:
-          - "5000:5000"
+          - "5000:5050"
   azure-cognitive-service-read:
       container_name: azure-cognitive-service-read
       image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/read-3.0
@@ -409,7 +409,7 @@ services:
         - apiKey={FORM_RECOGNIZER_KEY}
         - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
     ports:
-      - "5000:5000"
+      - "5000:5050"
   azure-cognitive-service-layout:
     container_name: azure-cognitive-service-layout
     image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0
@@ -581,7 +581,7 @@ services:
   volumes:
     - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf
   ports:
-    - "5000:5000"
+    - "5000:5050"
  layout:
   container_name: azure-cognitive-service-layout
   image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0:latest
@@ -782,7 +782,7 @@ services:
       - apiKey={FORM_RECOGNIZER_KEY}
       - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
     ports:
-      - "5000:5000"
+      - "5000:5050"
     networks:
       - ocrvnet
   azure-cognitive-service-layout:
@@ -822,7 +822,7 @@ services:
       - apiKey={FORM_RECOGNIZER_KEY}
       - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
     ports:
-      - "5000:5000"
+      - "5000:5050"
     networks:
       - ocrvnet
   azure-cognitive-service-read:
@@ -862,7 +862,7 @@ services:
       - apiKey={FORM_RECOGNIZER_KEY}
       - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
     ports:
-      - "5000:5000"
+      - "5000:5050"
     networks:
       - ocrvnet
   azure-cognitive-service-read:
@@ -902,7 +902,7 @@ services:
       - apiKey={FORM_RECOGNIZER_KEY}
       - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
     ports:
-      - "5000:5000"
+      - "5000:5050"
     networks:
       - ocrvnet
   azure-cognitive-service-read:
@@ -1059,7 +1059,7 @@ services:
   volumes:
     - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf
   ports:
-    - "5000:5000"
+    - "5000:5050"
  rabbitmq:
   container_name: ${RABBITMQ_HOSTNAME}
   image: rabbitmq:3
