@@ -10,7 +10,7 @@ ms.author: eur
 
 #### New Features
 
-* Support for real-time diarization is available in public preview with the Speech SDK 1.31.0. This feature is available in the following SDKs: C#, C++, Java, JavaScript, and Python.
+* Support for [real-time diarization](../../get-started-stt-diarization.md) is available in public preview with the Speech SDK 1.31.0. This feature is available in the following SDKs: C#, C++, Java, JavaScript, and Python. 
 
 * Synchronized speech synthesis word boundary and viseme events with audio playback
 
@@ -18,14 +18,10 @@ ms.author: eur
 
 * The former "conversation transcription" scenario is renamed to "meeting transcription". For example, use `MeetingTranscriber` instead of `ConversationTranscriber`, and use `CreateMeetingAsync` instead of `CreateConversationAsync`. Although the names of SDK objects and methods have changed, there are no changes to the feature itself. Use meeting transcription objects for transcription of meetings with user profiles and voice signatures. See [Meeting transcription](../../meeting-transcription.md) for more information.
 
-Support for [real-time diarization](../../get-started-stt-diarization.md) is available in public preview with the Speech SDK 1.31.0. This feature is available in the following SDKs: C#, C++, Java, JavaScript, and Python. 
-
-The following changes related to real-time diarization, conversation transcription, and meeting transcription were released in parallel: 
 - For real-time diarization, a new `ConversationTranscriber` object is introduced. The new "conversation transcription" object model and call patterns are similar to continuous recognition with the `SpeechRecognizer` object. A key difference is that the `ConversationTranscriber` object is designed to be used in a conversation scenario where you want to differentiate multiple speakers (diarization). User profiles and voice signatures aren't applicable. See the [real-time diarization quickstart](../../get-started-stt-diarization.md) for more information.
 
 > [!NOTE]<br>
-> The "conversation translation" objects and methods are not affected by these changes. You can still use the `ConversationTranslator` object and its methods for meeting translation scenarios. <br><br> 
-Use of single channel audio input is currently under private preview, please contact diarizationrequest@microsoft.com for more details on getting started with single channel input. 
+> The "conversation translation" objects and methods are not affected by these changes. You can still use the `ConversationTranslator` object and its methods for meeting translation scenarios.
 
 <br>
 This table shows the previous and new object names for real-time diarization and meeting transcription. The scenario name is in the first column, the previous object names are in the second column, and the new object names are in the third column. 
