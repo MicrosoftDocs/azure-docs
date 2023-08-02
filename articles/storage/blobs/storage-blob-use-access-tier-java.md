@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 07/11/2023
+ms.date: 08/02/2023
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 ---

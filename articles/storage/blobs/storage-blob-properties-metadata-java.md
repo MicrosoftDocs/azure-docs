@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 12/22/2022
+ms.date: 08/02/2023
 ms.service: azure-storage
 ms.topic: how-to
 ms.devlang: java
