@@ -7,6 +7,7 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 07/21/2023
 ms.author: mbender
+ms.custom: references_regions
 ---
 
 # Azure network round-trip latency statistics
