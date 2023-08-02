@@ -3,12 +3,14 @@ title: Vertical Pod Autoscaling in Azure Kubernetes Service (AKS)
 description: Learn how to vertically autoscale your pod on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 07/24/2023
+ms.date: 08/02/2023
 ---
 
 # Vertical Pod Autoscaling in Azure Kubernetes Service (AKS)
 
-This article provides an overview of Vertical Pod Autoscaler (VPA) in Azure Kubernetes Service (AKS), which is based on the open source [Kubernetes](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) version. When configured, it automatically sets resource requests and limits on containers per workload based on past usage. VPA makes certain pods are scheduled onto nodes that have the required CPU and memory resources.  
+This article provides an overview of Vertical Pod Autoscaler (VPA) in Azure Kubernetes Service (AKS), which is based on the open source [Kubernetes](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) version. When configured, it automatically sets resource requests and limits on containers per workload based on past usage. VPA makes certain pods are scheduled onto nodes that have the required CPU and memory resources.
+
+Vertical Pod autoscaling provides recommendations for resource usage over time. To manage sudden increases in resource usage, use the [Horizontal Pod Autoscaler][horizontal-pod-autoscaling].
 
 ## Benefits
 
@@ -46,7 +48,21 @@ For high availability, AKS supports two admission controller replicas.
 
 ## API Object
 
-The Vertical Pod Autoscaler is an API resource in the Kubernetes autoscaling API group. The version supported is x.xx can be found in the [Kubernetes autoscaler repo][github-autoscaler-repo-v011].
+The Vertical Pod Autoscaler is an API resource in the Kubernetes autoscaling API group. The version supported is 0.11 can be found in the [Kubernetes autoscaler repo][github-autoscaler-repo-v011].
+
+## Deployment pattern for new users
+
+A common deployment pattern recommended for you if you're unfamiliar with VPA is to:
+
+1. Set `updateMode = off` in your production cluster and run VPA in recommendation mode so you can test and gain familiarity with VPA. This can avoid introducing a misconfiguration that can cause an outage.
+
+2. Establish observability first by collecting actual resource utilization telemetry over a given period of time. This will help you understand the behavior and signs of symptoms or issues from container and pod resources influenced by the workloads running on them.
+
+4. Set the desired request/limits accordingly and then (in the next deployment/upgrade)
+
+(4) use updateMode = auto/recreate/initial after that, depending on your needs.
+
+
 
 ## Deploy, upgrade, or disable VPA on a cluster
 
