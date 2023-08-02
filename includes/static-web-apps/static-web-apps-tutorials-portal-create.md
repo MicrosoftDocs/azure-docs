@@ -2,7 +2,7 @@
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  include
-ms.date: 07/21/2023
+ms.date: 08/02/2023
 ms.author: cshoe
 ---
 
@@ -18,7 +18,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
 In the _Basics_ section, begin by configuring your new app and linking it to a GitHub repository.
 
-:::image type="content" source="../../articles/static-web-apps/media/getting-started-portal/quickstart-portal-basics.png" alt-text="Basics section":::
+:::image type="content" source="../../articles/static-web-apps/media/getting-started-portal/quickstart-portal-basics.png" alt-text="Screenshot of the basics section in the Azure portal.":::
 
 | Setting | Value |
 |--|--|
@@ -39,7 +39,7 @@ After you sign in with GitHub, enter the repository information.
 | Repository| Select **my-first-web-static-app**. |
 | Branch | Select **main**. |
 
-:::image type="content" source="../../articles/static-web-apps/media/getting-started-portal/quickstart-portal-source-control.png" alt-text="Repository details":::
+:::image type="content" source="../../articles/static-web-apps/media/getting-started-portal/quickstart-portal-source-control.png" alt-text="Screenshot of repository details in the Azure portal.":::
 
 > [!NOTE]
 > If you don't see any repositories:

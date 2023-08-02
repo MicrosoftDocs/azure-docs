@@ -2,7 +2,7 @@
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  include
-ms.date: 07/21/2023
+ms.date: 08/02/2023
 ms.author: cshoe
 ---
 
@@ -14,7 +14,7 @@ The Static Web Apps *Overview* window displays a series of links that help you i
 
 ::: zone pivot="github"
 
-:::image type="content" source="../../articles/static-web-apps/media/getting-started/overview-window.png" alt-text="The Azure Static Web Apps overview window.":::
+:::image type="content" source="../../articles/static-web-apps/media/getting-started/overview-window.png" alt-text="Screenshot of Azure Static Web Apps overview window.":::
 
 1. Selecting on the banner that says, _Select here to check the status of your GitHub Actions runs_ takes you to the GitHub Actions running against your repository. Once you verify the deployment job is complete, then you can go to your website via the generated URL.
 

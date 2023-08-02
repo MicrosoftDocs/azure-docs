@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  how-to
-ms.date: 07/28/2023
+ms.date: 08/02/2023
 ms.author: cshoe
 zone_pivot_groups: devops-or-github
 ---
@@ -90,11 +90,11 @@ Select **Review + create**.
 
 Select **Create**.
 
-:::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Create your Azure Static Web Apps instance.":::
+:::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Screenshot of the Create button.":::
 
 Select **Go to resource**.
 
-:::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Proceed to go to the newly created resource.":::
+:::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Screenshot of the Go to Resource button.":::
 
 ## View the website
 

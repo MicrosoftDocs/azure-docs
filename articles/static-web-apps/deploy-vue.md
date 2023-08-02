@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  how-to
-ms.date: 07/28/2023
+ms.date: 08/02/2023
 ms.author: cshoe
 zone_pivot_groups: devops-or-github
 ---
@@ -79,7 +79,7 @@ In the _Build Details_ section, add configuration details specific to your prefe
 
 Select **Review + create**.
 
-:::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Review and create your Azure Static Web Apps instance.":::
+:::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Screenshot of the create button.":::
 
 ::: zone pivot="github"
 
@@ -90,11 +90,11 @@ Select **Review + create**.
 
 Select **Create**.
 
-:::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Create your Azure Static Web Apps instance.":::
+:::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Screenshot of create button.":::
 
 Select **Go to resource**.
 
-:::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Proceed to go to the newly created resource.":::
+:::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Screenshot of the go to resource button.":::
 
 ## View the website
 
