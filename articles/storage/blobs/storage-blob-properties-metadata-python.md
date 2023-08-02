@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 01/25/2023
+ms.date: 08/02/2023
 ms.service: azure-storage
 ms.topic: how-to
 ms.devlang: python
@@ -16,6 +16,15 @@ ms.custom: devx-track-python, devguide-python
 # Manage blob properties and metadata with Python
 
 In addition to the data they contain, blobs support system properties and user-defined metadata. This article shows how to manage system properties and user-defined metadata using the [Azure Storage client library for Python](/python/api/overview/azure/storage).
+
+## Prerequisites
+
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Python. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to work with blob properties or metadata. To learn more, see the authorization guidance for the following REST API operations:
+    - [Set Blob Properties](/rest/api/storageservices/set-blob-properties#authorization)
+    - [Get Blob Properties](/rest/api/storageservices/get-blob-properties#authorization)
+    - [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata#authorization)
+    - [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata#authorization)
 
 ## About properties and metadata
 
