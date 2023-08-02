@@ -83,10 +83,13 @@ productDirectory:
 
 # Documentation Content
 conceptualContent:
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  # Supports up to 3 subsections
+  sections:
       title: HPC Documentation # < 60 chars (optional)
       summary: See Azure HPC solutions, tutorials, guides and resources # < 160 chars (Optional; Remove if not applicable.)
-      items:
+    - items:
+        # Card
         - title: HPC Infra
           links:
             - url: ../virtual-machines/overview.md
@@ -101,6 +104,7 @@ conceptualContent:
             - url: /azure/expressroute/expressroute-introduction
               itemType: concept
               text: Azure ExpressRoute       
+        # Card
         - title: Storage
           links:
             - url: ../hpc-cache/hpc-cache-netapp.md
@@ -115,6 +119,7 @@ conceptualContent:
             - url: /azure/azure-managed-lustre/blob-integration
               itemType: concept
               text: Use Azure Blob storage with an Azure Managed Lustre file system              
+        # Card
         - title: HPC Scenarios & Frameworks 
           links:
             - url: /azure/architecture/example-scenario/infrastructure/video-rendering/
