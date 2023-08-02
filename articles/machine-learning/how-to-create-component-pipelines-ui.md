@@ -117,7 +117,7 @@ This example uses `train.yml` [in the directory](https://github.com/Azure/azurem
 
     Now let's promote the *max_epocs* input of the *train* component to pipeline level input. Doing so, you can assign a different value to this input every time before submitting the pipeline.
 
-     :::image type="content" source="./media/how-to-create-component-pipelines-ui/prompte-pipeline-input.png" alt-text="Screenshot showing how to promote component input to pipeline input." lightbox ="./media/how-to-create-component-pipelines-ui/prompte-pipeline-input.png":::
+     :::image type="content" source="./media/how-to-create-component-pipelines-ui/promote-pipeline-input.png" alt-text="Screenshot showing how to promote component input to pipeline input." lightbox ="./media/how-to-create-component-pipelines-ui/promote-pipeline-input.png":::
 
 
 
