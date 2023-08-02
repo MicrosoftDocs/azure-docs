@@ -5,7 +5,7 @@ items:
   expanded: true
   items:
   - name: What is Azure Active Directory?
-    href: active-directory-whatis.md
+    href: whatis.md
   - name: New name for Azure AD
     href: new-name.md
   - name: Identity fundamentals

@@ -485,7 +485,7 @@ items:
   - name: Monitor containers
     items:
     - name: Monitor Azure Kubernetes Service (AKS)
-      href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
+      href: containers/monitor-kubernetes.md
     - name: Container insights
       items:
       - name: Overview
@@ -522,7 +522,7 @@ items:
           href: containers/container-insights-agent-config.md
         - name: Enable ContainerLogv2
           href: containers/container-insights-logging-v2.md
-        - name: Enable cost optimization settings (preview)
+        - name: Enable cost optimization settings
           href: containers/container-insights-cost-config.md
         - name: Authentication
           href: containers/container-insights-authentication.md
