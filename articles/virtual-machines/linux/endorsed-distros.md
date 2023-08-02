@@ -22,7 +22,8 @@ In this article we will cover the following -
 - Image Update Cadence 
 - Azure-tuned Kernels 
 
-There are several different sources of Linux VM images for Azure. Each source provides a different expectation for quality, utility and support. This document will summarize each source (marketplace images, platform images, custom images, and community gallery images). It will further provide more details about platform images which are images provided in partnership between Microsoft and several mainstream Linux publishers such as RHEL, Canonical, SUSE etc. 
+There are several different sources of Linux VM images for Azure. Each source provides a different expectation for quality, utility and support. This document will summarize each source (marketplace images, platform images, custom images, and community gallery images). It will further provide more details about platform images which are images provided in partnership between Microsoft and several mainstream Linux publishers such as Red Hat, Canonical, and SUSE. 
+
 
 Microsoft’s Linux distribution partners provide a multitude of Linux images in the Azure Marketplace. For distributions that are not available from the Marketplace, you can always  provide a custom built Linux image by following the guidelines at [Create and upload a virtual hard disk that contains the Linux operating system](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/create-upload-generic). For older versions see [Linux Kernel Requirements](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/create-upload-generic#linux-kernel-requirements).
 
