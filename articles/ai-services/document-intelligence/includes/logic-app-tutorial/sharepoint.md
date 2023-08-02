@@ -42,7 +42,7 @@ Before we jump into creating the Logic App, we have to set up a Sharepoint folde
 
     :::image type="content" source="../../media/logic-apps-tutorial/create-folder.png" alt-text="Screenshot of create and name folder window.":::
 
-1. You new folder is located in your site library.
+1. Your new folder is located in your site library.
 
     :::image type="content" source="../../media/logic-apps-tutorial/sharepoint-site-library.png" alt-text="Screenshot of the newly created folder.":::
 
@@ -154,7 +154,7 @@ At this point, you should have a Document Intelligence resource and a SharePoint
 
 1. *Control* and select the **Control** tile.
 
-    :::image type="content" source="../../media/logic-apps-tutorial/select-control-tile.png" alt-text="Screenshot of the control tile from the Choo. In the **Choose an operation** search bar, entese an Operation menu.":::
+    :::image type="content" source="../../media/logic-apps-tutorial/select-control-tile.png" alt-text="Screenshot of the control tile from the Choo. In the **Choose an operation** search bar, enter an Operation menu.":::
 
 1. Scroll down and select the **For each Control** tile from the **Control** list.
 
