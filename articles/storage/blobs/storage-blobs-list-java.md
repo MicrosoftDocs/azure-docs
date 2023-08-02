@@ -21,7 +21,7 @@ This article shows how to list blobs with the [Azure Storage client library for 
 
 - This article assumes you already have a project set up to work with the Azure Blob Storage client library for Java. To learn about setting up your project, including package installation, adding `import` directives, and creating an authorized client object, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md).
 - The [authorization mechanism](../common/authorize-data-access.md) must have permissions to list blobs. To learn more, see the authorization guidance for the following REST API operation:
-    - [List Blobs](/rest/api/storageservices/list-blobs)
+    - [List Blobs](/rest/api/storageservices/list-blobs#authorization)
 
 ## About blob listing options
 

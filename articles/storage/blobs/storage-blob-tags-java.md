@@ -21,9 +21,9 @@ This article shows how to use blob index tags to manage and find data using the 
 
 - This article assumes you already have a project set up to work with the Azure Blob Storage client library for Java. To learn about setting up your project, including package installation, adding `import` directives, and creating an authorized client object, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md).
 - The [authorization mechanism](../common/authorize-data-access.md) must have permissions to work with blob index tags. To learn more, see the authorization guidance for the following REST API operations:
-    - [Get Blob Tags](/rest/api/storageservices/get-blob-tags)
-    - [Set Blob Tags](/rest/api/storageservices/set-blob-tags)
-    - [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags)
+    - [Get Blob Tags](/rest/api/storageservices/get-blob-tags#authorization)
+    - [Set Blob Tags](/rest/api/storageservices/set-blob-tags#authorization)
+    - [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags#authorization)
 
 ## About blob index tags
 

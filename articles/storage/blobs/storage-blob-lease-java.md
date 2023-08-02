@@ -21,7 +21,7 @@ This article shows how to create and manage blob leases using the [Azure Storage
 
 - This article assumes you already have a project set up to work with the Azure Blob Storage client library for Java. To learn about setting up your project, including package installation, adding `import` directives, and creating an authorized client object, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md).
 - The [authorization mechanism](../common/authorize-data-access.md) must have permissions to work with a blob lease. To learn more, see the authorization guidance for the following REST API operation:
-    - [Lease Blob](/rest/api/storageservices/lease-blob)
+    - [Lease Blob](/rest/api/storageservices/lease-blob#authorization)
 
 ## About blob leases
 
