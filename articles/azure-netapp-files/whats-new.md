@@ -20,9 +20,13 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-## July 2023
+## August 2023
 
-* [Set NFSv4.1 domain](azure-netapp-files-configure-nfsv41-domain.md) (Preview)
+* [Configure NFSv4.1 ID domain for non-LDAP volumes](azure-netapp-files-configure-nfsv41-domain.md) (Preview)
+
+    To harmonize the authentication ID Domain settings in your NFSv4.1 environment, you can now configure a custom NFSv4.1 ID Domain in Azure NetApp Files for non-LDAP volumes. The ID Domain is set for all non-LDAP volumes in the same region and subscription, and can co-exist in environments with LDAP-enabled volumes. Once the ID Domain on Azure NetApp Files matches your NFSv4.1 clients, ‘root’ and non-root users will no longer be squashed to ‘nobody’. This setting helps either prepare for a future implementation of LDAP with Active Directory in the future by enabling the use of the same authentication ID Domain across all NFSv4.1 clients, or just ensures scripts and software installation routines that use ‘root’ can modify files on NFSv4.1 volumes correctly.
+
+    For details on registering the feature and setting NFSv4.1 ID Domain in Azure NetApp Files, see [Configure NFSv4.1 ID Domain](azure-netapp-files-configure-nfsv41-domain.md).
 
 ## June 2023
 
