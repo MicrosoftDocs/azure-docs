@@ -79,7 +79,7 @@ In the _Build Details_ section, add configuration details specific to your prefe
 
 Select **Review + create**.
 
-:::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Review and create your Azure Static Web Apps instance.":::
+:::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Screenshot of the create button.":::
 
 ::: zone pivot="github"
 
