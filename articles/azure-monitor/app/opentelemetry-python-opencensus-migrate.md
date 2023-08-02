@@ -111,7 +111,7 @@ The OpenCensus SDK offered ways to collect and export telemetry through OpenCens
 
 As for the other OpenTelemetry Python [instrumentations](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation) that aren't included in this list, users may still manually instrument with them. However, it's important to note that stability and behavior aren't guaranteed or supported in those cases. Therefore, use them at your own discretion.
 
- If you would like an instrumentation to be included in the distro and officially supported, open up a feature request in [GitHub](https://github.com/microsoft/ApplicationInsights-Python/issues). For exporters, the Azure Monitor OpenTelemetry distro comes bundled with the [Azure Monitor OpenTelemetry exporter](https://pypi.org/project/azure-monitor-opentelemetry-exporter/). If you would like to use other exporters as well, you can use them with the distro, like in this [example](./opentelemetry-configuration.md?tabs=python#enable-the-otlp-exporter).
+ If you would like to suggest a community instrumentation library us to include in our distro, post or up-vote an idea in our [feedback community](https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0). For exporters, the Azure Monitor OpenTelemetry distro comes bundled with the [Azure Monitor OpenTelemetry exporter](https://pypi.org/project/azure-monitor-opentelemetry-exporter/). If you would like to use other exporters as well, you can use them with the distro, like in this [example](./opentelemetry-configuration.md?tabs=python#enable-the-otlp-exporter).
 
 ### TelemetryProcessors
 
