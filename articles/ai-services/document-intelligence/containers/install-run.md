@@ -222,7 +222,7 @@ services:
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
       - apiKey={FORM_RECOGNIZER_KEY}
     ports:
-      - "5000:5050"
+      - "5000:5000"
     networks:
       - ocrvnet
 networks:
@@ -285,7 +285,7 @@ services:
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
       - apiKey={FORM_RECOGNIZER_KEY}
     ports:
-      - "5000:5050"
+      - "5000:5000"
     networks:
       - ocrvnet
 networks:
@@ -581,7 +581,7 @@ services:
   volumes:
     - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf
   ports:
-    - "5000:5050"
+    - "5000:5000"
  layout:
   container_name: azure-cognitive-service-layout
   image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0:latest

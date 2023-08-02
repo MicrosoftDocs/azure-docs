@@ -81,13 +81,13 @@ Not all applications should validate tokens. Only in specific scenarios should a
 - Web APIs must validate access tokens sent to them by a client. They must only accept tokens containing one of their AppId URIs as the `aud` claim.
 - Web apps must validate ID tokens sent to them by using the user's browser in the hybrid flow, before allowing access to a user's data or establishing a session.
 
-If none of the above scenarios apply, there's no need to validate the token, and this may present a security and reliability risk when basing decisions on the validity of the token. Public clients like native, desktop or single-page applications don't benefit from validating ID tokens because the application communicates directly with the IDP where SSL protection ensures the ID tokens are valid. They shouldn't validate the access tokens, as these are for the web API to validate, not the client.
+If none of the above scenarios apply, there's no need to validate the token, and this may present a security and reliability risk when basing decisions on the validity of the token. Public clients like native, desktop or single-page applications don't benefit from validating ID tokens because the application communicates directly with the IDP where SSL protection ensures the ID tokens are valid. They shouldn't validate the access tokens, as they are for the web API to validate, not the client.
 
 APIs and web applications must only validate tokens that have an `aud` claim that matches the application. Other resources may have custom token validation rules. For example, you can't validate tokens for Microsoft Graph according to these rules due to their proprietary format. Validating and accepting tokens meant for another resource is an example of the [confused deputy](https://cwe.mitre.org/data/definitions/441.html) problem.
 
 If the application needs to validate an ID token or an access token, it should first validate the signature of the token and the issuer against the values in the OpenID discovery document.
 
-The Azure AD middleware has built-in capabilities for validating access tokens, see [samples](sample-v2-code.md) to find one in the appropriate language. There are also several third-party open-source libraries available for JWT validation. For more information about Azure AD authentication libraries and code samples, see the [authentication libraries](reference-v2-libraries.md). If you web app or web API is on ASP.NET or ASP.NET Core, use Microsoft.Identity.Web which handles the validation for you. 
+The Azure AD middleware has built-in capabilities for validating access tokens, see [samples](sample-v2-code.md) to find one in the appropriate language. There are also several third-party open-source libraries available for JWT validation. For more information about Azure AD authentication libraries and code samples, see the [authentication libraries](reference-v2-libraries.md). If your web app or web API is on ASP.NET or ASP.NET Core, use Microsoft.Identity.Web, which handles the validation for you. 
 
 
 ### v1.0 and v2.0 tokens
@@ -150,7 +150,7 @@ Web apps validating ID tokens, and web APIs validating access tokens need to val
 
 [OpenID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation) says "The Issuer Identifier \[...\] MUST exactly match the value of the `iss` (issuer) Claim." For applications that use a tenant-specific metadata endpoint (like [https://login.microsoftonline.com/{example-tenant-id}/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/{example-tenant-id}/v2.0/.well-known/openid-configuration) or [https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration)), this is all that is needed.
 
-This applies to applications which support:
+Single tenant applications are applications that support:
 - Accounts in one organizational directory (**example-tenant-id** only): `https://login.microsoftonline.com/{example-tenant-id}`
 - Personal Microsoft accounts only: `https://login.microsoftonline.com/consumers` (**consumers** being a nickname for the tenant 9188040d-6c67-4c5b-b112-36a304b66dad)
 
@@ -159,9 +159,9 @@ This applies to applications which support:
 
 Azure AD also supports multi-tenant applications. These applications support:
 - Accounts in any organizational directory (any Azure AD directory): `https://login.microsoftonline.com/organizations`
-- Accounts in any organizational directory (any Azure AD directory) and personal Microsoft accounts (e.g. Skype, XBox): `https://login.microsoftonline.com/common`
+- Accounts in any organizational directory (any Azure AD directory) and personal Microsoft accounts (for example, Skype, XBox): `https://login.microsoftonline.com/common`
 
-For these applications Azure AD exposes tenant-independent versions of the OIDC document at [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) and [https://login.microsoftonline.com/organizations/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/organizations/v2.0/.well-known/openid-configuration) respectively. These endpoints return an issuer value, which is a template parametrized by the `tenantid`: `https://login.microsoftonline.com/{tenantid}/v2.0`. Applications may use these tenant-independent endpoints to validate tokens from every tenant with the following stipulations:
+For these applications, Azure AD exposes tenant-independent versions of the OIDC document at [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) and [https://login.microsoftonline.com/organizations/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/organizations/v2.0/.well-known/openid-configuration) respectively. These endpoints return an issuer value, which is a template parametrized by the `tenantid`: `https://login.microsoftonline.com/{tenantid}/v2.0`. Applications may use these tenant-independent endpoints to validate tokens from every tenant with the following stipulations:
  - Validate the signing key issuer (below)
  - Instead of expecting the issuer claim in the token to exactly match the issuer value from metadata, the application should replace the `{tenantid}` value in the issuer metadata with the tenant ID that is the target of the current request, and then check the exact match (`tid` claim of the token).
  - Validate the `tid` claim is a GUID and the `iss` claim is of the form `https://login.microsoftonline.com/{tid}/v2.0` where `{tid}` is the exact `tid` claim. This ties the tenant back to the issuer and back to the scope of the signing key creating a chain of trust.
@@ -207,7 +207,7 @@ Using tenant-independent metadata is more efficient for applications that accept
 
 #### Recap
 
-Here is some pseudo code that recapitulates how to validate issuer and signing key issuer:
+Here's some pseudo code that recapitulates how to validate issuer and signing key issuer:
 
 1. Fetch keys from configured metadata URL
 1. Check token if signed with one of the published keys, fail if not
