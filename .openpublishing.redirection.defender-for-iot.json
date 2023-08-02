@@ -17,7 +17,7 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-deploy-certificates.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/ot-deploy/how-to-manage-individual-sensors#manage-ssl-tls-certificates",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-manage-individual-sensors#manage-ssltls-certificates",
             "redirect_document_id": false
         },
         {
