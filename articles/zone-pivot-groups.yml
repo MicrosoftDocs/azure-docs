@@ -100,15 +100,15 @@ groups:
     title: "JavaScript: Node.js"
   - id: programming-language-python
     title: Python
-- id: programming-languages-document-sdk
+- id: cloud-location
   # Owner: lajanuar
-  title: Programming languages
-  prompt: Choose a programming language
+  title: Workflow
+  prompt: Choose a workflow
   pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-python
-    title: Python
+  - id: workflow-onedrive
+    title: OneDrive
+  - id: workflow-sharepoint
+    title: SharePoint
 - id: programming-languages-set-two
 # Owner: erhopf
   title: Programming languages
@@ -926,6 +926,18 @@ groups:
     title: C#
   - id: programming-language-java
     title: Java
+- id: programming-languages-set-twenty-two
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-spark-all-minus-sql
 # Owner: midesa
   title: Programming languages

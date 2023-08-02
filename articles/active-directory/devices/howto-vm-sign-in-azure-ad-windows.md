@@ -33,9 +33,9 @@ There are many security benefits of using Azure AD-based authentication to log i
    - When employees leave your organization and their user accounts are disabled or removed from Azure AD, they no longer have access to your resources.
 - Configure Conditional Access policies to "phishing resistant MFA" using require authentication strength (preview) grant control or require multifactor authentication (MFA) and other signals, such as user sign-in risk, before you can RDP into Windows VMs. 
 - Use Azure Policy to deploy and audit policies to require Azure AD login for Windows VMs and to flag the use of unapproved local accounts on the VMs.
-- Use Intune to automate and scale Azure AD join with mobile device management (MDM) auto-enrollment of Azure Windows VMs that are part of your virtual desktop infrastructure (VDI) deployments. 
+- Use Intune to automate and scale Azure AD join with mobile device management (MDM) autoenrollment of Azure Windows VMs that are part of your virtual desktop infrastructure (VDI) deployments. 
   
-  MDM auto-enrollment requires Azure AD Premium P1 licenses. Windows Server VMs don't support MDM enrollment.
+  MDM autoenrollment requires Azure AD Premium P1 licenses. Windows Server VMs don't support MDM enrollment.
 
 > [!NOTE]
 > After you enable this capability, your Windows VMs in Azure will be Azure AD joined. You cannot join them to another domain, like on-premises Active Directory or Azure Active Directory Domain Services. If you need to do so, disconnect the VM from Azure AD by uninstalling the extension.
@@ -80,7 +80,7 @@ Azure China 21Vianet:
 
 ### Authentication requirements
 
-[Azure AD Guest accounts](/azure/active-directory/external-identities/what-is-b2b) cannot connect to Azure Bastion via Azure AD authentication.
+[Azure AD Guest accounts](/azure/active-directory/external-identities/what-is-b2b) can't connect to Azure Bastion via Azure AD authentication.
 
 ## Enable Azure AD login for a Windows VM in Azure
 
@@ -93,6 +93,9 @@ There are two ways to enable Azure AD login for your Windows VM:
 
 - The Azure portal, when you're creating a Windows VM.
 - Azure Cloud Shell, when you're creating a Windows VM or using an existing Windows VM.
+
+> [!NOTE]
+> If a device object with the same displayMame as the hostname of a VM where an extension is installed exists, the VM fails to join Azure AD with a hostname duplication error. Avoid duplication by [modifying the hostname](../../virtual-network/virtual-networks-viewing-and-modifying-hostnames.md#modify-a-hostname).
 
 ### Azure portal
 
@@ -110,7 +113,7 @@ To create a Windows Server 2019 Datacenter VM in Azure with Azure AD login:
 
    ![Screenshot that shows the Management tab on the Azure portal page for creating a virtual machine.](./media/howto-vm-sign-in-azure-ad-windows/azure-portal-login-with-azure-ad.png)
 1. Make sure that **System assigned managed identity** in the **Identity** section is selected. This action should happen automatically after you enable login with Azure AD.
-1. Go through the rest of the experience of creating a virtual machine. You'll have to create an administrator username and password for the VM.
+1. Go through the rest of the experience of creating a virtual machine. You have to create an administrator username and password for the VM.
 
 > [!NOTE]
 > To log in to the VM by using your Azure AD credentials, you first need to [configure role assignments](#configure-role-assignments-for-the-vm) for the VM.
@@ -174,7 +177,7 @@ To allow a user to log in to the VM over RDP, you must assign the Virtual Machin
 > [!NOTE]
 > Manually elevating a user to become a local administrator on the VM by adding the user to a member of the local administrators group or by running `net localgroup administrators /add "AzureAD\UserUpn"` command is not supported. You need to use Azure roles above to authorize VM login.
 
-An Azure user who has the Owner or Contributor role assigned for a VM does not automatically have privileges to log in to the VM over RDP. The reason is to provide audited separation between the set of people who control virtual machines and the set of people who can access virtual machines.
+An Azure user who has the Owner or Contributor role assigned for a VM doesn't automatically have privileges to log in to the VM over RDP. The reason is to provide audited separation between the set of people who control virtual machines and the set of people who can access virtual machines.
 
 There are two ways to configure role assignments for a VM:
 
@@ -230,8 +233,9 @@ For more information about how to use Azure RBAC to manage access to your Azure 
 
 ## Log in by using Azure AD credentials to a Windows VM
 
-You can do this over RDP using one of two methods:
-1. Passwordless using any of the supported Azure AD credential (recommended)
+You can sign in over RDP using one of two methods:
+
+1. Passwordless using any of the supported Azure AD credentials (recommended)
 1. Password/limited passwordless using Windows Hello for Business deployed using certificate trust model
 
 ### Log in using passwordless authentication with Azure AD
@@ -435,7 +439,7 @@ You might see the following error message when you initiate a remote desktop con
 
 ![Screenshot of the message that says the sign-in method you're trying to use isn't allowed.](./media/howto-vm-sign-in-azure-ad-windows/mfa-sign-in-method-required.png)
 
-If you've configured a Conditional Access policy that requires MFA or legacy per-user Enabled/Enforced Azure AD MFA before you can access the resource, you need to ensure that the Windows 10 or later PC that's initiating the remote desktop connection to your VM signs in by using a strong authentication method such as Windows Hello. If you don't use a strong authentication method for your remote desktop connection, you'll see the error.
+If you've configured a Conditional Access policy that requires MFA or legacy per-user Enabled/Enforced Azure AD MFA before you can access the resource, you need to ensure that the Windows 10 or later PC that's initiating the remote desktop connection to your VM signs in by using a strong authentication method such as Windows Hello. If you don't use a strong authentication method for your remote desktop connection, you see the error.
 
 Another MFA-related error message is the one described previously: "Your credentials did not work."
 
@@ -480,7 +484,7 @@ Another way to verify it is via Graph PowerShell:
    - If this command results in no output and returns you to the PowerShell prompt, you can create the service principal with the following Graph PowerShell command:
    
       `New-MgServicePrincipal -AppId 372140e0-b3b7-4226-8ef9-d57986796201`
-   - Successful output will show that the Azure Windows VM Sign-In app and its ID were created.
+   - Successful output shows that the Azure Windows VM Sign-In app and its ID were created.
 1. Sign out of Graph PowerShell by using the `Disconnect-MgGraph` command.
 
 ## Next steps
