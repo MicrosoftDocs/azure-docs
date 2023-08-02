@@ -279,12 +279,12 @@ Use the **Evaluate Model** component to evaluate how well your model scored the 
 
 1. Select **Configure & Submit** on the right top corner to submit the pipeline.
 
-:::image type="content" source="../media/how-to-create-component-pipelines-ui/configure&submit.png" alt-text="Screenshot showing configure and submit button." lightbox ="../media/how-to-create-component-pipelines-ui/configure&submit.png":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/configure-submit.png" alt-text="Screenshot showing configure and submit button." border="false":::
 
 
 1. Then you'll see a step-by-step wizard, follow the wizard to submit the pipeline job.
 
-  :::image type="content" source="../media/how-to-create-component-pipelines-ui/submission-wizard.png" alt-text="Screenshot showing submission wizard." lightbox ="../media/how-to-create-component-pipelines-ui/submission-wizard.png":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/submission-wizard.png" alt-text="Screenshot showing submission wizard." lightbox ="./media/tutorial-designer-automobile-price-train-score/submission-wizard.png":::
 
 In *Basics* step, you can configure the experiment, job display name, job description etc.
 
@@ -296,7 +296,7 @@ The *Review + Submit* step is the last step to review all settings before submit
 
 After submitting the pipeline job, there will be a message on the top with a link to the job detail. You can select this link to review the job details.
 
-  :::image type="content" source="../media/how-to-create-component-pipelines-ui/submit-message.png" alt-text="Screenshot showing submission message." lightbox ="../media/how-to-create-component-pipelines-ui/submit-message.png":::
+  :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/submit-message.png" alt-text="Screenshot showing submission message." lightbox ="./media/tutorial-designer-automobile-price-train-score/submit-message.png":::
 
 ### View scored labels
 
