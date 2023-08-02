@@ -14,7 +14,7 @@ metadata:
   author: padmalathas
   ms.author: padmalathas
   ms.reviewer: mattmcinnes
-  ms.date: 05/03/2023
+  ms.date: 08/03/2023
 
 # Main Items (Icons)
 # Maximum of 8 items
@@ -67,9 +67,9 @@ productDirectory:
       links:
         - url: ../hpc-cache/hpc-cache-overview.md
           text: Azure HPC Cache
-        - url: ../azure-netapp-files/azure-netapp-files-introduction.md#Overview
+        - url: ../azure-netapp-files/azure-netapp-files-introduction.md
           text: Azure NetApp Files
-        - url: ../azure-managed-lustre/amlfs-overview.md
+        - url: /azure/azure-managed-lustre/amlfs-overview
           text: Azure Managed Lustre
     # Card
     - title: HPC Related Services
@@ -77,7 +77,7 @@ productDirectory:
       links:
         - url: ../batch/batch-technical-overview.md
           text: Azure Batch
-        - url: ../cyclecloud/overview.md
+        - url: /azure/cyclecloud/overview
           text: Azure CycleCloud
         - url: ../virtual-machines/sizes.md
           text: Azure VM Sizes          
@@ -167,40 +167,42 @@ additionalContent:
 
 # Azure Services
 tools:
-  title: HPC Resources # < 60 chars (optional)
-  # summary: # < 160 chars (optional)
-  items:
-    # Card
-    - title: Microsoft HPC Channels
-      links:
-        - url: https://azure.microsoft.com/en-us/blog/tag/high-performance-computing/?s=HPC
-          text: HPC Blog Posts on Azure.com
-        - url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
-          text: HPC TechCommunity Blog Reads
-    # Card
-    - title: Microsoft HPC on Solution Channels
-      links:
-        - url: https://www.aka.ms/Microsoft-NVIDIA/HPCwire
-          text: Microsoft - NVIDIA
-        - url: https://www.aka.ms/VentureBeat/MakeAIYourReality
-          text: Microsoft - NVIDIA 
-        - url: https://insidehpc.com/2023/03/manufacturing-repatriation-how-hpc-class-technologies-from-microsoft-azure-and-amd-support-manufacturers-reshoring-strategies/
-          text: Microsoft - AMD
-        - url: https://insidehpc.com/2022/10/staying-at-the-cutting-edge-of-automotive-design-technology-with-azure-cloud-platform-and-amd/
-          text: Azure Cloud and AMD for Manufacturing
-        - url: https://insidehpc.com/2023/03/azure-amd-and-the-power-of-cloud-based-hpc-for-sustainability-rd-projects/
-          text: Azure and AMD for Sustainability    
-    # Card
-    - title: Explore MarketPlace
-      links:
-        - url: https://www.aka.ms/hpc-saves-the-day
-          text: HPC saves the day!
-        - url: https://busenq.com/article/microsoft-azure/
-          text: HPC Powers Word-Record Simulation
-        - url: https://www.bigcompute.org/blog/high-performance-computing-for-randd
-          text: HPC for Innovation in R&D          
-        - url: https://idcdocserv.com/US50583623
-          text: HPC for Product Modeling
+  # Supports up to 3 subsections
+  sections:
+    - title: HPC Resources # < 60 chars (optional)
+      # summary: # < 160 chars (optional)
+      items:
+        # Card
+        - title: Microsoft HPC Channels
+          links:
+            - url: https://azure.microsoft.com/en-us/blog/tag/high-performance-computing/?s=HPC
+              text: HPC Blog Posts on Azure.com
+            - url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
+              text: HPC TechCommunity Blog Reads
+        # Card
+        - title: Microsoft HPC on Solution Channels
+          links:
+            - url: https://www.aka.ms/Microsoft-NVIDIA/HPCwire
+              text: Microsoft - NVIDIA
+            - url: https://www.aka.ms/VentureBeat/MakeAIYourReality
+              text: Microsoft - NVIDIA 
+            - url: https://insidehpc.com/2023/03/manufacturing-repatriation-how-hpc-class-technologies-from-microsoft-azure-and-amd-support-manufacturers-reshoring-strategies/
+              text: Microsoft - AMD
+            - url: https://insidehpc.com/2022/10/staying-at-the-cutting-edge-of-automotive-design-technology-with-azure-cloud-platform-and-amd/
+              text: Azure Cloud and AMD for Manufacturing
+            - url: https://insidehpc.com/2023/03/azure-amd-and-the-power-of-cloud-based-hpc-for-sustainability-rd-projects/
+              text: Azure and AMD for Sustainability    
+        # Card
+        - title: Explore MarketPlace
+          links:
+            - url: https://www.aka.ms/hpc-saves-the-day
+              text: HPC saves the day!
+            - url: https://busenq.com/article/microsoft-azure/
+              text: HPC Powers Word-Record Simulation
+            - url: https://www.bigcompute.org/blog/high-performance-computing-for-randd
+              text: HPC for Innovation in R&D          
+            - url: https://idcdocserv.com/US50583623
+              text: HPC for Product Modeling
 
 
 
@@ -260,12 +262,7 @@ additionalContent:
             - text: "Want to learn more? Check out the 'HPC Events' playlist!"
               url: https://aka.ms/HPCEvents
 
-
-
-# Conferences and Technology Events
-additionalContent:
-  # Supports up to 4 subsections
-  sections:              
+              
     - title: What’s New at HPC # < 60 chars (optional)
       summary: Learn more about product updates, event information and technology offers and more. # < 160 chars (optional)
       items:
