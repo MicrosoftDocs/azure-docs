@@ -107,7 +107,7 @@ Create and deploy your container app with the `containerapp up` command. This co
 - Create the Log Analytics workspace
 - Create and deploy the container app using a public container image
 
-Note that if any of these resources already exist, the command will use them instead of creating new ones.
+If any of these resources already exist, the command uses them instead of creating new ones.
 
 # [Bash](#tab/bash)
 
@@ -144,7 +144,7 @@ az containerapp up `
 
 By setting `--ingress` to `external`, you make the container app available to public requests.
 
-The `up` command returns the fully qualified domain name for the container app. Copy this location to a text file. We will use it in the [Send requests](#Send-requests) section.
+The `up` command returns the fully qualified domain name for the container app. Copy this location to a text file. You'll use it in the [Send requests](#Send-requests) section.
 
 ## Add scale rule
 
@@ -172,7 +172,7 @@ az containerapp update `
 
 ---
 
-This command adds to your container app an http scale rule with the name `my-http-scale-rule` and a concurrency setting of `1`. This means that if your container app receives more than one HTTP request at a time, it will scale. That is, Azure will create new replicas of your container app, as needed, to handle the concurrent HTTP requests.
+This command adds to your container app an http scale rule with the name `my-http-scale-rule` and a concurrency setting of `1`. This means that if your container app receives more than one HTTP request at a time, Azure creates replicas of your container app to handle the concurrent HTTP requests.
 
 This command outputs the following to show the http scale rule has been added to your container app.
 
@@ -232,7 +232,7 @@ az containerapp logs show `
 
 ---
 
-This command tells Azure to show the system logs for your container app in real time. For more information see [az containerapp logs show](https://learn.microsoft.com/cli/azure/containerapp/logs?view=azure-cli-latest#az-containerapp-logs-show).
+This command tells Azure to show the system logs for your container app in real time. For more information, see [az containerapp logs show](https://learn.microsoft.com/cli/azure/containerapp/logs?view=azure-cli-latest#az-containerapp-logs-show).
 
 ## Send requests
 
@@ -244,7 +244,7 @@ seq 1 4 | xargs -Iname -P4 curl "YOUR_CONTAINER_APP_FQDN/albums"
 
 This command sends four simultaneous requests to the `/albums` endpoint of your container app. For more information, see the manual pages for [seq](https://www.man7.org/linux/man-pages/man1/seq.1.html), [xargs](https://www.man7.org/linux/man-pages/man1/xargs.1.html), and [curl](https://www.man7.org/linux/man-pages/man1/curl.1.html).
 
-In the first shell, where you ran the `az containerapp logs show` command, you will see one or more log entries like the following.
+In the first shell, where you ran the `az containerapp logs show` command, the output now contains one or more log entries like the following.
 
 ```json
 {"TimeStamp":"2023-08-01 18:09:52 +0000 UTC","Type":"Normal","ContainerAppName":"my-container-app","RevisionName":"my-container-app--9uj51l6","ReplicaName":"my-container-app--9uj51l6-5f96557ffb-f795d","Msg":"Replica 'my-container-app--9uj51l6-5f96557ffb-f795d' has been scheduled to run on a node.","Reason":"AssigningReplica","EventSource":"ContainerAppController","Count":0}
