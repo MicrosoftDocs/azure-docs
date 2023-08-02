@@ -613,20 +613,21 @@ The following example template references a storage account that isn't deployed 
 
 ## references
 
-`reference(symbolic name of the resource collection, [apiVersion], ['Full'])`
+`reference(symbolic name of the resource collection, ['Full'])`
 
-Returns an object representing a resource's runtime state.
+Returns an array of objects representing a collection of resource's runtime states.
 
-Bicep provide the reference function, but in most cases, the reference function isn't required. It's recommended to use the symbolic name for the resource instead. See [reference](../bicep/bicep-functions-resource.md#reference).
+In Bicep, use the [references](../bicep/bicep-functions-resource.md#references).
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| Symbolic name of a resource collection |Yes |string |Name or unique identifier of a resource. When referencing a resource in the current template, provide only the resource name as a parameter. When referencing a previously deployed resource or when the name of the resource is ambiguous, provide the resource ID. |
-| 'Full' |No |string |Value that specifies whether to return the full resource object. If you don't specify `'Full'`, only the properties object of the resource is returned. The full object includes values such as the resource ID and location. |
+| Symbolic name of a resource collection |Yes |string |Symbolic name of a resource collection. |
+| 'Full' |No |string |Value that specifies whether to return an array of the full resource objects. The default value is `'Full'`. If you don't specify `'Full'`, only the properties objects of the resources are returned. The full object includes values such as the resource ID and location. |
 
 ### Return value
+
 
 Every resource type returns different properties for the reference function. The function doesn't return a single, predefined format. Also, the returned value differs based on the value of the `'Full'` argument. To see the properties for a resource type, return the object in the outputs section as shown in the example.
 
