@@ -107,6 +107,10 @@ You'll receive an error message if the activation file couldn't be uploaded. The
 
 - **The activation file is valid but Defender for IoT rejected it:** If you can't resolve this problem, you can download another activation from the **Sites and sensors** page in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). If this doesn't work, contact Microsoft Support.
 
+> [!NOTE]
+> Activation files are valid for 14 days after creation. New activation files must be created if yours are expired.
+>
+
 ## Manage SSL/TLS certificates
 
 If you're working with a production environment, you'd [deployed a CA-signed SSL/TLS certificate](ot-deploy/activate-deploy-sensor.md#deploy-an-ssltls-certificate) as part of your OT sensor deployment. We recommend using self-signed certificates only for testing purposes.
