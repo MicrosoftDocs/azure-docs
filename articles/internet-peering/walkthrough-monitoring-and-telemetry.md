@@ -18,7 +18,7 @@ In this article, you learn how to use the Azure portal to view various metrics a
 
 All peering partners (direct or exchange) can view the routes they have announced to Microsoft through their peering sessions under **Received Routes** tab under the **Settings** section  of their Peering's page. 
 
-:::image type="content" source="./media/walkthrough-monitoring-and-telemetry/peering-recieved-routes.png" alt-text="Screenshot shows how to view recieved routes in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/peering-recieved-routes.png":::
+:::image type="content" source="./media/walkthrough-monitoring-and-telemetry/peering-received-routes.png" alt-text="Screenshot shows how to view received routes in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/peering-received-routes.png":::
 
 ## View peering metrics
 
