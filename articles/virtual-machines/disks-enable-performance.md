@@ -4,7 +4,7 @@ description: Increase the performance of Azure Premium SSDs and Standard SSD/HDD
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 03/14/2023
+ms.date: 08/01/2023
 ms.author: rogarana
 ms.custom: devx-track-azurepowershell
 ---

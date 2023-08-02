@@ -1,7 +1,7 @@
 ---
 title: CLI command reference from OT network sensors- Microsoft Defender for IoT
 description: Learn about the CLI commands available from Microsoft Defender for IoT OT network sensors.
-ms.date: 12/29/2022
+ms.date: 07/04/2023
 ms.topic: reference
 ---
 
@@ -13,20 +13,21 @@ This article lists the CLI commands available from Defender for IoT OT network s
 
 ## Prerequisites
 
-Before you can run any of the following CLI commands, you'll need access to the CLI on your OT network sensor as a privileged user.
-
-Each activity listed in this article is accessible by a different set of privileged users, including the *cyberx*, *support*, or *cyber_x_host* users. Command syntax is listed only for the users supported for a specific activity.
-
->[!IMPORTANT]
-> We recommend that customers using the Defender for IoT CLI use the *support* user whenever possible.
+Before you can run any of the following CLI commands, you'll need access to the CLI on your OT network sensor as a *support* user.
 
 For more information, see [Access the CLI](../references-work-with-defender-for-iot-cli-commands.md#access-the-cli) and [Privileged user access for OT monitoring](../references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring).
+
+OT sensor versions earlier than 23.1.x also include the *cyberx* and *cyberx_host* privileged users. In versions 23.1.x and higher, these users are installed, but not enabled by default.
+
+While this article lists the command syntax for each user, we recommend using the *support* user for all CLI commands where the *support* user is supported.
+
+For more information, see [Default privileged users](manage-users-sensor.md#default-privileged-users).
 
 ## Appliance maintenance
 
 ### Check OT monitoring services health
 
-Use the following commands to verify that the Defender for IoT application on the OT sensor are working correctly, including the web console and traffic analysis processes.
+Use the following commands to verify that the Defender for IoT application on the OT sensor is working correctly, including the web console and traffic analysis processes.
 
 Health checks are also available from the OT sensor console. For more information, see [Troubleshoot the sensor](how-to-troubleshoot-sensor.md).
 
@@ -59,6 +60,7 @@ System is UP! (medium)
 
 
 ### Restart and shutdown
+
 #### Restart an appliance
 
 Use the following commands to restart the OT sensor appliance.
@@ -401,13 +403,13 @@ For more information, see [Define maximum number of failed sign-ins](manage-user
 ## Network configuration
 
 ### Network settings
+
 #### Change networking configuration or reassign network interface roles
 
 Use the following command to rerun the OT monitoring software configuration wizard, which helps you define or reconfigure the following OT sensor settings:
 
 - Enable/disable SPAN monitoring interfaces
 - Configure network settings for the management interface (IP, subnet, default gateway, DNS)
-- Setting up for [ERSPAN monitoring](traffic-mirroring/configure-mirror-erspan.md)
 - Assigning a backup directory
 
 |User  |Command  |Full command syntax   |
@@ -963,7 +965,7 @@ Supported attributes are defined as follows:
 |`[-dev <DEVICES>]`, `[--devices <DEVICES>]` | Device addresses or address types to exclude, using the following syntax: `ip-x.x.x.x`, `mac-xx:xx:xx:xx:xx:xx`, `subnet:x.x.x.x/x`|
 | `[-a <ALERTS>]`, `--alerts <ALERTS>`|Alert names to exclude, by hex value. For example: `0x00000, 0x000001` |
 
-Use the following command syntax with the **support* user:
+Use the following command syntax with the *support* user:
 
 ```bash
 alerts exclusion-rule-append [-h] -n NAME [-ts TIMES] [-dir DIRECTION]

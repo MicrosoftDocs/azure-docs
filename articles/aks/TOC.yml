@@ -555,8 +555,6 @@
       items:
         - name: Monitor AKS
           href: monitor-aks.md
-        - name: Monitor kube-audit events
-          href: monitor-apiserver.md
         - name: Monitor reference
           href: monitor-aks-reference.md
         - name: View the kubelet logs
