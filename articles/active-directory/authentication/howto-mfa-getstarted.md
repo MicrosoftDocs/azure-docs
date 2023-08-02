@@ -169,7 +169,7 @@ If you use Azure AD Identity Protection, [configure the Azure AD MFA registratio
 
 If you don't have licenses that enable Azure AD Identity Protection, users are prompted to register the next time that MFA is required at sign-in. 
 To require users to use MFA, you can use Conditional Access policies and target frequently used applications like HR systems. 
-If a user's password is compromised, it could be used to register for MFA, taking control of their account. We therefore recommend [securing the security registration process with conditional access policies](../conditional-access/howto-conditional-access-policy-registration.md) requiring trusted devices and locations. 
+If a user's password is compromised, it could be used to register for MFA, taking control of their account. We therefore recommend [securing the security registration process with Conditional Access policies](../conditional-access/howto-conditional-access-policy-registration.md) requiring trusted devices and locations. 
 You can further secure the process by also requiring a [Temporary Access Pass](howto-authentication-temporary-access-pass.md). A time-limited passcode issued by an admin that satisfies strong authentication requirements and can be used to onboard other authentication methods, including Passwordless ones.
 
 ### Increase the security of registered users

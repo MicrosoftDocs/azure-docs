@@ -974,6 +974,7 @@ sections:
         answer: |
           There are several advantages to using the Azure Monitor OpenTelemetry Distro over native OpenTelemetry from the community:
           - Reduces enablement effort
+          - Supported by Microsoft
           - Brings in Azure Specific features such as:
               - Preserves traces with service components using Application Insights SDKs
               - [Azure Active Directory (Azure AD) Authentication](app/azure-ad-authentication.md)

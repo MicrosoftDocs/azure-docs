@@ -3,7 +3,7 @@
  description: include file
  services: storage
  author: roygara
- ms.service: storage
+ ms.service: azure-storage
  ms.topic: include
  ms.date: 03/16/2023
  ms.author: rogarana
@@ -12,9 +12,12 @@
 Currently only available in the following regions:
 - South Africa North (Three availability zones)
 - Southeast Asia (Two availability zones)
+- East Asia (Three availability zones)
+- Brazil South (Two availability zones)
 - Canada Central (Three availability zones)
 - North Europe (Three availability zones)
 - West Europe (Three availability zones)
+- Central India (Three availability zones)
 - Japan East (Two availability zones)
 - Korea Central (Two availability zones)
 - Sweden Central (Three availability zones)
