@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps Creator
 description: Learn about services and capabilities in Microsoft Azure Maps Creator and how to use them in your applications.
 author: brendansco
 ms.author: Brendanc
-ms.date: 08/04/2023
+ms.date: 08/03/2023
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
