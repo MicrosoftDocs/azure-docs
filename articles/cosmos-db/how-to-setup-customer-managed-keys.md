@@ -566,9 +566,6 @@ Use the Azure CLI to restore a continuous account that is already configured usi
     # Variable for location
     location="<azure-region>"
 
-    # Variable for key URI in the key vault
-    keyVaultKeyUri="https://<key-vault-name>.vault.azure.net/keys/<key-name>"
-    
     # Variables for identities
     identityId="<identity-resource-id>"
     
