@@ -26,7 +26,7 @@ This functionality pairs well with mobile device management platforms like [Micr
 To Azure AD join a Windows device, the device registration service must be configured to enable you to register devices. For more information about prerequisites, see the article [How to: Plan your Azure AD join implementation](device-join-plan.md).
 
 > [!TIP]
-> Windows Home Editions do not support Azure AD join. These editions can still access many of the benefits by using [Azure AD registration](concept-azure-ad-register.md). 
+> Windows Home Editions do not support Azure AD join. These editions can still access many of the benefits by using [Azure AD registration](concept-device-registration.md). 
 > 
 > For information about how complete Azure AD registration on a Windows device see the support article [Register your personal device on your work or school network](https://support.microsoft.com/account-billing/register-your-personal-device-on-your-work-or-school-network-8803dd61-a613-45e3-ae6c-bd1ab25bf8a8).
 
@@ -57,7 +57,7 @@ To verify whether a device is joined to your Azure AD, review the **Access work 
 
 ## Next steps
 
-- For more information about managing devices in the Azure portal, see [managing devices using the Azure portal](device-management-azure-portal.md).
+- For more information about managing devices in the Azure portal, see [managing devices using the Azure portal](manage-device-identities.md).
 - [What is Microsoft Intune?](/mem/intune/fundamentals/what-is-intune)
 - [Overview of Windows Autopilot](/mem/autopilot/windows-autopilot)
 - [Passwordless authentication options for Azure Active Directory](../authentication/concept-authentication-passwordless.md)

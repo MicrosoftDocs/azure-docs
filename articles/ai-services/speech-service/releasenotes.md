@@ -1,7 +1,7 @@
 ---
 title: What's new - Speech service
 titleSuffix: Azure AI services
-description: Find out about new releases and features for the Azure AI service for Speech.
+description: Find out about new releases and features for Azure AI Speech.
 services: cognitive-services
 manager: nitinme
 author: eric-urban
@@ -9,7 +9,7 @@ ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: release-notes
-ms.date: 03/16/2023
+ms.date: 7/27/2023
 ms.custom: ignite-fall-2021, references_regions
 ---
 
