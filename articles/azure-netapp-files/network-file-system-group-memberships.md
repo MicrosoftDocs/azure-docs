@@ -28,7 +28,7 @@ For Azure NetApp Files to be able to authenticate a user properly, LDAP users mu
 
 Secondary, supplemental, and auxiliary groups are groups that a user is a member of outside of their primary GID. In Azure NetApp Files, LDAP is implemented using Microsoft Active Directory and supplemental groups are controlled using standard Windows group membership logic. 
 
-When a user is added to a Windows group, the LDAP schema attribute `Member` is populated on the group with the distinguished name (DN) of the user that is a member of that group. When a user’s group membership is queried by Azure NetApp Files, an LDAP search is done for the user’s DN on all groups’ `Member` attribute. All groups with a UNIX `gidNumber` and the user’s DN will get returned in the search and populated as the user’s supplemental group memberships.
+When a user is added to a Windows group, the LDAP schema attribute `Member` is populated on the group with the distinguished name (DN) of the user that is a member of that group. When a user’s group membership is queried by Azure NetApp Files, an LDAP search is done for the user’s DN on all groups’ `Member` attribute. All groups with a UNIX `gidNumber` and the user’s DN are returned in the search and populated as the user’s supplemental group memberships.
 
 The following example shows the output from Active Directory with a user’s DN populated in the `Member` field of a group and a subsequent LDAP search done using [`ldp.exe`](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc771022(v=ws.11)). 
 
@@ -46,7 +46,7 @@ You can also query group memberships for a user in Azure NetApp Files by selecti
 
 ## Group limits in NFS 
 
-Remote Procedure Call (RPC) in NFS has a specific limitation for the maximum number of auxiliary GIDs that can be honored in a single NFS request. The maximum for [`AUTH_SYS/AUTH_UNIX` is 16](http://tools.ietf.org/html/rfc5531), and for AUTH_GSS (Kerberos), it is 32. This protocol limitation affects all NFS servers - not just Azure NetApp Files. However, many modern NFS servers and clients include ways to work around these limitations.
+Remote Procedure Call (RPC) in NFS has a specific limitation for the maximum number of auxiliary GIDs that can be honored in a single NFS request. The maximum for [`AUTH_SYS/AUTH_UNIX` is 16](http://tools.ietf.org/html/rfc5531), and for AUTH_GSS (Kerberos), it's 32. This protocol limitation affects all NFS servers - not just Azure NetApp Files. However, many modern NFS servers and clients include ways to work around these limitations.
 
 To work around this NFS limitation in Azure NetApp Files, see [Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes](configure-ldap-extended-groups.md).
 
