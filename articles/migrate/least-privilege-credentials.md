@@ -17,8 +17,8 @@ This article describes how to create a custom account with minimal permissions f
 In preparation for discovery, the Azure Migrate appliance needs to be configured with the accounts for establishing connections with the SQL Server instances. If you prefer not to use an account with sysadmin privileges on the SQL instance for this purpose, the least privileged account provisioning utility can help create a custom account with the [minimal set of permissions](migrate-support-matrix-vmware.md#configure-the-custom-login-for-sql-server-discovery) required to obtain the necessary metadata for discovery and assessment. Once the custom account has been provisioned, add this account in the Appliance configuration for SQL Discovery and Assessment.
 
 ## Prerequisites
-1.	Prepare a CSV with the list of SQL Server instances. Ensure all SQL Servers listed have [TCP/IP protocol enabled](https://learn.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol?view=sql-server-ver16). 
-2.	An account with sysadmin permissions on all the SQL Server instances listed in the CSV. 
+- A prepared CSV with the list of SQL Server instances. Ensure all SQL Servers listed have [TCP/IP protocol enabled](https://learn.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol?view=sql-server-ver16). 
+- An account with sysadmin permissions on all the SQL Server instances listed in the CSV. 
 
    > [!Note]
    > - This account is used only to provision the least privileged account. Once the least privileged account is created, it can be provided in the Appliance configuration for the actual discovery and assessment. 
