@@ -58,13 +58,12 @@ information, see the following articles:
 - [Use Azure CLI to create a virtual network][04]
 
 > [!NOTE]
-> When setting the Container subnet address prefix for the Cloud Shell subnet in the Virtual
-> network, It's important to consider the number of Cloud Shell sessions you will need to run
-> concurrently. If the number of Cloud Shell sessions exceeds the available IP addresses in the
-> subnet that the containers are being provisioned into, Cloud Shell will not be able to connect.
-> Increase the container subnet range to accommodate your specific needs. For more information about
-> Virtual Network subnets, see
-> https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-subnet?tabs=azure-portal#change-subnet-settings
+> When setting the Container subnet address prefix for the Cloud Shell subnet it's important to
+> consider the number of Cloud Shell sessions you need to run concurrently. If the number of Cloud
+> Shell sessions exceeds the available IP addresses in the container subnet, users of those sessions
+> can't connect to Cloud Shell. Increase the container subnet range to accommodate your specific
+> needs. For more information, see the _Change Network Settings_ section of
+> [Add, change, or delete a virtual network subnet][07]
 
 ### Register the resource provider
 
@@ -248,5 +247,7 @@ private Cloud Shell instance.
 [04]: /azure/virtual-network/quick-create-cli
 [05]: /azure/virtual-network/quick-create-portal
 [06]: /azure/virtual-network/quick-create-powershell
-[07]: https://aka.ms/cloudshell/docs/vnet/template
-[08]: https://azure.microsoft.com/resources/templates/cloud-shell-vnet-storage/
+[07]: /azure/virtual-network/virtual-network-manage-subnet?tabs=azure-portal#change-subnet-settings
+[08]: https://aka.ms/cloudshell/docs/vnet/template
+[09]: https://azure.microsoft.com/resources/templates/cloud-shell-vnet-storage/
+[10]: media/quickstart-deploy-vnet/setup-cloud-shell-storage.png
