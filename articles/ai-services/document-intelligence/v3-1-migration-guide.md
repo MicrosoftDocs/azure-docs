@@ -15,6 +15,10 @@ monikerRange: '<=doc-intel-3.1.0'
 <!-- markdownlint-disable MD004 -->
 # Document Intelligence v3.1 migration
 
+::: moniker range="<=doc-intel-3.1.0"
+[!INCLUDE [applies to v3.1, v3.0, and v2.1](includes/applies-to-v3-1-v3-0-v2-1.md)]
+::: moniker-end
+
 > [!IMPORTANT]
 >
 > Document Intelligence REST API v3.1 introduces breaking changes in the REST API request and analyze response JSON.
