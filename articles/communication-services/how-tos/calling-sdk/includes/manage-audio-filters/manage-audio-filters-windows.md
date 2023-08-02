@@ -97,7 +97,7 @@ var call = await this.callAgent.StartCallAsync( new [] { new UserCallIdentifier(
 return call;
 ```
 ### Noise suppression
-This feature allows users to change the noise suppression mode on outgoing audio. The currently available modes are `Off`, `Auto`, `Low`, and `High`. By default, this features is set to `Auto` mode. 
+This feature allows users to change the noise suppression mode on outgoing audio. The currently available modes are `Off`, `Auto`, `Low`, and `High`. By default, this feature is set to `Auto` mode. 
 
 ### Automatic gain control
 This feature allows users to enable or disable automatic gain control on outgoing audio. By default, this feature is enabled.
