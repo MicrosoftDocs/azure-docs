@@ -31,7 +31,7 @@ landingContent:
           - text: Components
             url: application-gateway-for-containers-components.md
           - text: TLS policy
-            url: tls-policy-gateway-api.md
+            url: tls-policy.md
           - text: Backend health and metrics
             url: alb-controller-backend-health-metrics.md
           - text: Frequently asked questions
