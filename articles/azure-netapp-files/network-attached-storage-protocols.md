@@ -1,6 +1,6 @@
 ---
 title: Understand NAS protocols in Azure NetApp Files | Microsoft Docs
-description: Learn how SMB and NFS operate in Azure NetApp Files.  
+description: Learn how SMB, NFS, and dual protocols operate in Azure NetApp Files.  
 services: azure-netapp-files
 documentationcenter: ''
 author: whyistheinternetbroken
@@ -161,7 +161,7 @@ In this instance, `user1` gets full control on their own folder (`user1-dir`) an
 
 :::image type="content" source="../media/azure-netapp-files/user1-dual-protocol-example.png" alt-text="Example of user accessing a dual-protocol volume with Azure NetApp Files." lightbox="../media/azure-netapp-files/user1-dual-protocol-example.png":::
 
-### Dual-protocol volume considerations in Azure NetApp Files
+### Considerations for Azure NetApp Files dual-protocol volumes
 
 When you use Azure NetApp Files volumes for both SMB and NFS access, some considerations apply:
 
@@ -178,7 +178,7 @@ When you use Azure NetApp Files volumes for both SMB and NFS access, some consid
 
 * [Understand file locking and lock types in Azure NetApp Files](understand-file-locks.md)
 * [Understand dual-protocol security style and permission behaviors in Azure NetApp Files](understand-dual-protocol-permission-behaviors.md)
-<!-- * [Understand the use of LDAP with Azure NetApp Files](understand-ldap.md) --> 
-<!-- * [Understand NFS group memberships and supplemental groups](understand-nfs-group-memberships.md) -->
+* [Understand the use of LDAP with Azure NetApp Files](lightweight-directory-access-protocol.md) 
+* [Understand NFS Group memberships and supplemental groups](network-file-system-group-memberships.md)
 * [Azure NetApp Files NFS FAQ](faq-nfs.md)
 * [Azure NetApp Files SMB FAQ](faq-smb.md)
