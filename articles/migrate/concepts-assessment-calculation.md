@@ -195,14 +195,14 @@ Assessments also determine readiness of the recommended target for Microsoft Def
 - Minimum 1 GB RAM (4 GB preferred)
 - 2 GB of disk space
 - Runs any of the following Operating Systems:
-   - Windows Server – 2008 R2, 2012 R2, 2016, 2019, 2022
-   - Red Hat Enterprise Linux Server – 7.2+, 8+, 9+
-   - Ubuntu – 16.04, 18.04, 20.04, 22.04
-   - SUSE Linux Enterprise Server – 12, 15+
-   - Debian – 9, 10, 11
-   - Oracle Linux – 7.2+, 8
-   - CentOS Linux – 7.2+
-   - Amazon Linux – 2
+   - Windows Server 2008 R2, 2012 R2, 2016, 2019, 2022
+   - Red Hat Enterprise Linux Server 7.2+, 8+, 9+
+   - Ubuntu 16.04, 18.04, 20.04, 22.04
+   - SUSE Linux Enterprise Server 12, 15+
+   - Debian 9, 10, 11
+   - Oracle Linux 7.2+, 8
+   - CentOS Linux 7.2+
+   - Amazon Linux 2
 - For other operating systems, it is marked as **Ready with Conditions**.
 If a server is not ready to be migrated to Azure, it is marked as **Not Ready for Microsoft Defender for Servers**.
 
@@ -355,6 +355,9 @@ Cost is calculated using the following logic:
 - The Ultra disk VM reservation fee is not added in the total cost. [Learn More](https://azure.microsoft.com/pricing/details/managed-disks/)
 
 Assessment calculates the total monthly storage costs by aggregating the storage costs of all servers. Currently, the calculation doesn't consider offers specified in the assessment settings.
+
+### Security Cost
+For servers recommended for Azure VM, if they're ready to run Defender for Server, the Defender for Server cost (Plan 2) per server for that region is added. The assessment aggregates the cost across all servers to calculate the total monthly security cost.
 
 Costs are displayed in the currency specified in the assessment settings.
 
