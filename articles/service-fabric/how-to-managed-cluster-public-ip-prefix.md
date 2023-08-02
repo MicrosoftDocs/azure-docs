@@ -12,7 +12,7 @@ ms.date: 07/05/2023
 
 # Use a Public IP address prefix for a Service Fabric managed cluster
 
-Public IP Prefix allows you to reserve a range of [public IP addresses](../virtual-network/ip-services/public-ip-addresses.md) for your public endpoints in Azure. Public IP prefixes are assigned from a pool of addresses in each Azure region. You create a public IP address prefix in an Azure region and subscription by specifying a name and prefix size, which is the number of addresses available for use. For example, if you would like to configure virtual machine scale sets, application gateways, or load balancers to be public facing, you need public IP addresses for them. A public IP prefix enables you to use one prefix to manage all IP addresses effectively.
+[Public IP Prefix](../virtual-network/ip-services/public-ip-address-prefix.md) allows you to reserve a range of [public IP addresses](../virtual-network/ip-services/public-ip-addresses.md) for your public endpoints in Azure. Public IP prefixes are assigned from a pool of addresses in each Azure region. You can create a public IP address prefix in an Azure region and subscription by specifying a name and [prefix size](../virtual-network/ip-services/public-ip-address-prefix#prefix-sizes), which is the number of addresses available for use. For example, if you would like to configure virtual machine scale sets, application gateways, or load balancers to be public facing, you need public IP addresses for them. A public IP prefix enables you to use one prefix to manage all IP addresses effectively.
 In regions with Availability Zones, Public IP address prefixes can be created as zone-redundant or associated with a specific availability zone. If public IP prefix is created as zone-redundant, the IPs in the prefix are chosen from the pool that is replicated across SLB servers in all zones.
 
 Here are some of the benefits of using a Public IP Prefix for your managed cluster:
@@ -30,21 +30,6 @@ As seen in the diagram, a service fabric managed cluster with three node types h
 >[!NOTE] 
 > The public IP address prefix in Service Fabric managed cluster only supports IPv4 addresses as of now. The support for IPv6 addresses will be enabled in near future.
 
-## Prefix sizes
-
-The following public IP prefix sizes are available:
-
--  /28 (IPv4) = 16 addresses
-
--  /29 (IPv4) = 8 addresses
-
--  /30 (IPv4) = 4 addresses
-
--  /31 (IPv4) = 2 addresses
-
-Prefix size is specified as a Classless Inter-Domain Routing (CIDR) mask size.
-
-There are no limits as to how many prefixes created in a subscription. The number of ranges created can't exceed more static public IP addresses than allowed in your subscription. For more information, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
 
 ## Set up a public IP prefix for Service Fabric managed cluster
@@ -53,7 +38,7 @@ The following section describes the steps that should be taken to implement publ
 
 1.	Follow the steps in the [Create a public IP address prefix](../virtual-network/ip-services/create-public-ip-prefix-portal.md).
 2.  Use a [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-PIPrefix) for public IP prefix configuration as part of the service fabric managed cluster creation.
-3.	You can also modify your existing ARM template and expose new template property `PublicIPPrefixId` under `Microsoft.ServiceFabric/managedClusters` resource that takes the resource ID of the public IP prefix or update via Azure CLI, or PowerShell. Use Service Fabric API version `2023-03-01-Preview` or later.
+3.	You can also modify your existing ARM template and add new property `PublicIPPrefixId` under `Microsoft.ServiceFabric/managedClusters` resource that takes the resource ID of the public IP prefix or update via Azure CLI, or PowerShell. Use Service Fabric API version `2023-03-01-Preview` or later.
 
 #### ARM Template:
 
@@ -278,20 +263,6 @@ Capture the resource ID from the newly created Public IP prefix into the ARM tem
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName "ExampleGroup" -TemplateFile <path-to-template> -TemplateParameterFile <path-to-template-parameter-file>
 ```
-
-## Limitations
-
-- You can't specify the set of IP addresses for the prefix (though you can specify which IP you want from the prefix). Azure gives the IP addresses for the prefix, based on the size that you specify.  Additionally, all public IP addresses created from the prefix must exist in the same Azure region and subscription as the prefix. Addresses must be assigned to resources in the same region and subscription.
-
-- You can create a prefix of up to 16 IP addresses. Review [Network limits increase requests](../quotas/networking-quota-requests.md) and [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits) for more information.
-
-- The size of the range can't be modified after the prefix has been created.
-
-- Only static public IP addresses created with the standard SKU can be assigned from the prefix's range. To learn more about public IP address SKUs, see [public IP address](../virtual-network/ip-services/public-ip-addresses.md#public-ip-addresses).
-
-- Addresses from the range can only be assigned to Azure Resource Manager resources. Addresses can't be assigned to resources in the classic deployment model.
-
-- You can't delete a prefix if any addresses within it are assigned to public IP address resources associated to a resource. Dissociate all public IP address resources that are assigned IP addresses from the prefix first. For more information on disassociating public IP addresses, see [Manage public IP addresses](../virtual-network/ip-services/virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address).
   
 
 ## Next steps
