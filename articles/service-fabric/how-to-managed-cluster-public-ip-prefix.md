@@ -34,12 +34,15 @@ As seen in the diagram, a service fabric managed cluster with three node types h
 
 ## Use a public IP prefix in a Service Fabric managed cluster
 
+### Requirements
+- Use Service Fabric API version `2023-03-01-Preview` or later.
+
+### Steps
 The following section describes the steps that should be taken to implement public IP prefix in a Service Fabric managed cluster:
 
 1.	Follow the steps in the [Create a public IP address prefix](../virtual-network/ip-services/create-public-ip-prefix-portal.md).
 2.  Use a [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-PIPrefix) for public IP prefix configuration as part of the service fabric managed cluster creation.
-3.	You can also modify your existing ARM template and add new property `PublicIPPrefixId` under `Microsoft.ServiceFabric/managedClusters` resource that takes the resource ID of the public IP prefix or update via Azure CLI, or PowerShell. Use Service Fabric API version `2023-03-01-Preview` or later.
-
+3.	You can also modify your existing ARM template and add new property `PublicIPPrefixId` under `Microsoft.ServiceFabric/managedClusters` resource that takes the resource ID of the public IP prefix.
 #### ARM Template:
 
 ```json
