@@ -541,6 +541,8 @@
           href: legacy-proxies.md  
     - name: Migrate
       items:
+        - name: Migrate .NET apps to the isolated model
+          href: migrate-dotnet-to-isolated-model.md
         - name: Migrate v3.x to v4.x
           href: migrate-version-3-version-4.md
         - name: Migrate v1.x to v4.x
