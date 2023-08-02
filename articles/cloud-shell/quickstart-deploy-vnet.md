@@ -57,6 +57,15 @@ information, see the following articles:
 - [Use Azure PowerShell to create a virtual network][06]
 - [Use Azure CLI to create a virtual network][04]
 
+> [!NOTE]
+> When setting the Container subnet address prefix for the Cloud Shell subnet in the Virtual
+> network, It's important to consider the number of Cloud Shell sessions you will need to run
+> concurrently. If the number of Cloud Shell sessions exceeds the available IP addresses in the
+> subnet that the containers are being provisioned into, Cloud Shell will not be able to connect.
+> Increase the container subnet range to accommodate your specific needs. For more information about
+> Virtual Network subnets, see
+> https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-subnet?tabs=azure-portal#change-subnet-settings
+
 ### Register the resource provider
 
 Azure Cloud Shell runs in a container. The **Microsoft.ContainerInstances** resource provider needs
@@ -146,7 +155,7 @@ Fill out the form with the following information:
 | Relay Namespace Name            | Create a name that you want to assign to the Relay resource created by the template.<br>For this example, we're using `arn-cloudshell-eastus`. |
 | Azure Container Instance OID    | Fill in the value from the prerequisite information you gathered.<br>For this example, we're using `8fe7fd25-33fe-4f89-ade3-0e705fcf4370`.     |
 | Container Subnet Name           | Defaults to `cloudshellsubnet`. Enter the name of the subnet for your container.                                                               |
-| Container Subnet Address Prefix | For this example, we use `10.0.1.0/24`.                                                                                                        |
+| Container Subnet Address Prefix | For this example, we use `10.1.0.0/16`, which provides 65,543 available ip addresses for Cloud Shell.                                                                                                        |
 | Relay Subnet Name               | Defaults to `relaysubnet`. Enter the name of the subnet containing your relay.                                                                 |
 | Relay Subnet Address Prefix     | For this example, we use `10.0.2.0/24`.                                                                                                        |
 | Storage Subnet Name             | Defaults to `storagesubnet`. Enter the name of the subnet containing your storage.                                                             |
