@@ -42,7 +42,7 @@ BYOS-associated Storage account stores the following data:
 
 **Custom Speech**
 - Source files of datasets for model training and testing (optional)
-- All data and metadata related to Custom models hosted by the BYOS-enabled Speech resource
+- All data and metadata related to Custom models hosted by the BYOS-enabled Speech resource (including copies of datasets for model training and testing)
 
 ## Batch transcription
 
@@ -57,7 +57,16 @@ Perform these steps to execute Batch transcription with BYOS-enabled Speech reso
     >
     > If you use `destinationContainerUrl` parameter, it will work, but provide significantly less security for your data, because of ad hoc SAS usage. See details [here](batch-transcription-create.md#destination-container-url).
 
-1. When transcription is complete, get transcription results according to [this guide](batch-transcription-get.md) or directly in the `TranscriptionData` folder of `customspeech-artifacts` Blob container in the BYOS-associated Storage account.
+1. When transcription is complete, get transcription results according to [this guide](batch-transcription-get.md). Consider using `sasValidityInSeconds` parameter (see the following section).  
+
+Speech service uses `customspeech-artifacts` Blob container in the BYOS-associated Storage account for storing intermediate and final transcription results.
+ 
+> [!CAUTION]
+> Speech service relies on pre-defined Blob container paths and file names for Batch transcription module to correctly function. Don't move, rename or in any way alter the contents of `customspeech-artifacts` container.
+>
+> Failure to do so very likely will result in hard to debug 4xx and 5xx Service errors.
+>
+> Use standard tools to interact with Batch transcription. See detail in [Batch transcription section](batch-transcription.md).
 
 ### Get Batch transcription results via REST API
 
