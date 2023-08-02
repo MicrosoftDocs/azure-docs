@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with RoleMapper
 
-In this article, you'll learn how to integrate RoleMapper with Azure Active Directory (Azure AD). RoleMapper's AI-driven, modular solution will ease the pain of creating, managing and updating your job architecture and job catalogue. When you integrate RoleMapper with Azure AD, you can:
+In this article, you'll learn how to integrate RoleMapper with Azure Active Directory (Azure AD). RoleMapper's AI-driven, modular solution will ease the pain of creating, managing and updating your job architecture and job catalog. When you integrate RoleMapper with Azure AD, you can:
 
 * Control in Azure AD who has access to RoleMapper.
 * Enable your users to be automatically signed-in to RoleMapper with their Azure AD accounts.
