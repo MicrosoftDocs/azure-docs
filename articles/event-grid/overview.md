@@ -157,9 +157,6 @@ One or more clients can connect to Azure Event Grid to read messages at their ow
 You can configure **private links** to connect to Azure Event Grid to **publish and read** CloudEvents through a [private endpoint](../private-link/private-endpoint-overview.md) in your virtual network. Traffic between your virtual network and Event Grid travels the Microsoft backbone network.
 
 >[!Important]
-> Private links are available with pull delivery, not with push delivery. Private links “…[enables you to access Azure PaaS Services](../private-link/private-link-overview.md)…” That is, private links were designed to be used when you connect to Event Grid for publishing events or receiving events, not when Event Grid is connecting (sending events) to your webhook or Azure Service.
-
->[!Important]
 > [Private links](../private-link/private-link-overview.md) are available with pull delivery, not with push delivery. You can use private links when your application connects to Event Grid to publish events or receive events, not when Event Grid connects to your webhook or Azure service to deliver events. 
 
 ## How much does Event Grid cost?
