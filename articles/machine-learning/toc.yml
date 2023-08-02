@@ -797,7 +797,7 @@
           href: concept-endpoints-online.md
         - name: Deploy an ML model with an online endpoint
           href: how-to-deploy-online-endpoints.md
-        - name: Roll out models with safe deployment strategies
+        - name: Deploy models with safe rollout strategy
           href: how-to-safely-rollout-online-endpoints.md
         - name: Autoscale online endpoints
           href: how-to-autoscale-endpoints.md
