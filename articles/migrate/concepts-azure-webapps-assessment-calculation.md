@@ -78,7 +78,7 @@ Azure App Service readiness for web apps is based on feature compatibility check
 1. If there are any compatibility issues that may block the migration to a specific target deployment type, the readiness is marked as **Not ready** with **issue** details and recommended remediation guidance.
 1. If the discovery is still in progress or there are any discovery issues for a web app, the readiness is marked as **Unknown** as the assessment couldn't compute the readiness for that web app.
 
-### Security Readiness
+### Security readiness
 If the web app is marked as **Ready** or **Ready with conditions** for Azure App Service, it is marked as **Ready** for Microsoft Defender for App Service.
 
 
@@ -117,7 +117,7 @@ P1v3  | 16
 > [!NOTE]
 > Your App Service plan can be scaled up and down at any time. [Learn more](../app-service/overview-hosting-plans.md#what-if-my-app-needs-more-capabilities-or-features).
 
-### Security Cost
+### Security cost
 For web apps that have been recommended to App Service plans, the security cost is calculated per App Service plan that has been recommended.
 
 

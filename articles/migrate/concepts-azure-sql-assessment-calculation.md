@@ -139,12 +139,12 @@ If you select the target deployment type as **Recommended** in the Azure SQL ass
 > [!NOTE]
 > In the recommended deployment strategy, if the source SQL Server is good fit for all three deployment targets- SQL Server on Azure VM, Azure SQL Managed Instance and Azure SQL Database, the assessment recommends a specific option that optimizes your cost and fits within the size and performance boundaries.
 
-### Security Readiness
+### Security readiness
 
-If the database/instance is marked as Ready for the target deployment type Azure SQL DB/MI, it is automatically considered Ready for Microsoft Defender for SQL. 
-If the database/instance is marked as Ready for the target deployment type SQL Server on Azure VM, it is considered Ready for Microsoft Defender for SQL if it is running any of these versions -  
+If the database/instance is marked as **Ready** for the target deployment type Azure SQL DB/MI, it is automatically considered **Ready** for Microsoft Defender for SQL. 
+If the database/instance is marked as **Ready** for the target deployment type SQL Server on Azure VM, it is considered **Ready** for Microsoft Defender for SQL if it is running any of these versions:
 - SQL Server versions 2012, 2014, 2016, 2017, 2019, 2022
-- For all other versions, it is marked as Ready with Conditions
+- For all other versions, it is marked as **Ready with Conditions**.
 
 
 ## Calculate sizing
@@ -256,6 +256,7 @@ This section provides guidance to configure the target resource and steps to mig
 
 ## Calculate monthly costs
 After sizing recommendations are complete, Azure SQL assessment calculates the compute and storage costs for the recommended Azure SQL configurations using an internal pricing API. It aggregates the compute and storage cost across all instances to calculate the total monthly compute cost. 
+
 ### Compute cost
 - To calculate the compute cost for an Azure SQL configuration, the assessment considers the following properties:
     - Azure Hybrid Benefit for SQL and Windows licenses
@@ -279,7 +280,8 @@ After sizing recommendations are complete, Azure SQL assessment calculates the c
 - **Azure SQL Managed Instance**
     - There's no storage cost added for the first 32 GB/instance/month storage and additional storage cost is added for storage in 32 GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
-### Security Cost
+### Security cost
+
 For SQL Server instances and DBs recommended for SQL Server on Azure VM, Azure SQL MI or Azure SQL DB, if they're ready to run Defender for SQL, the Defender for SQL per SQL Server instance for that region is added. For DBs recommended to Azure SQL DB, cost is rolled up at instance level.
 
         
