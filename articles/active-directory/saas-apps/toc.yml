@@ -2161,6 +2161,8 @@
         href: rstudio-connect-tutorial.md
       - name: RStudio Server Pro SAML Authentication
         href: rstudio-server-pro-tutorial.md
+      - name: RoleMapper
+        href: rolemapper-tutorial.md
       - name: RolePoint
         href: rolepoint-tutorial.md
       - name: Rollbar
