@@ -549,7 +549,7 @@ Azure AI Video Indexer detects business and product brand names in the speech-to
 | `CorrespondenceCount` | The number of correspondences in the video. |
 | `SpeakerWordCount` | The number of words per speaker. |
 | `SpeakerNumberOfFragments` | The number of fragments that the speaker has in a video. |
-| `SpeakerLongestMonolog` | The speaker's longest monolog. If the speaker has silence inside the monolog, it's included. Silence at the beginning and the end of the monolog is removed. |  |
+| `SpeakerLongestMonolog` | The speaker's longest monolog. If the speaker has silence inside the monolog, it's included. Silence at the beginning and the end of the monolog is removed. |
 | `SpeakerTalkToListenRatio` | The calculation is based on the time spent on the speaker's monolog (without the silence in between) divided by the total time of the video. The time is rounded to the third decimal point. |
 
 #### audioEffects (preview)
@@ -634,7 +634,7 @@ Sentiments get aggregated by their `sentimentType` field (`Positive`, `Neutral`,
 
 The `visualContentModeration` transcript contains time ranges that Azure AI Video Indexer found to potentially have adult content. If `visualContentModeration` is empty, no adult content was identified.
 
-Videos that contain adult or racy content might be available for private view only. Users can submit a request for a human review of the content. In that case, the `IsAdult` attribute will contain the result of the human review.
+Videos that contain adult or racy content might be available for private view only. Users can submit a request for a human review of the content. In that case, the `IsAdult` attribute contains the result of the human review.
 
 | Name | Description |
 |--|--|
@@ -789,7 +789,7 @@ Azure AI Video Indexer makes an inference of main topics from transcripts. When 
 | `confidence` | The confidence score in the range `0`-`1`. Higher is more confident. |
 | `language` | The language used in the topic. |
 | `iptcName` | The IPTC media code name, if detected. |
-| `instances` | Currently, Azure AI Video Indexer does not index a topic to time intervals. The whole video is used as the interval. |
+| `instances` | Currently, Azure AI Video Indexer doesn't index a topic to time intervals. The whole video is used as the interval. |
 
 ```json
 "topics": [{
