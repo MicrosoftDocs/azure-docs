@@ -90,7 +90,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.DocumentDB | [Azure Cosmos DB](../../cosmos-db/index.yml) |
 | Microsoft.DomainRegistration | [App Service](../../app-service/index.yml) |
 | Microsoft.DynamicsLcs | [Lifecycle Services](https://lcs.dynamics.com/Logon/Index ) |
-| Microsoft.ElasticSan | [Elastic SAN](../../storage/elastic-san/index.yml) |
+| Microsoft.ElasticSan | [Elastic SAN Preview](../../storage/elastic-san/index.yml) |
 | Microsoft.EnterpriseKnowledgeGraph | Enterprise Knowledge Graph |
 | Microsoft.EventGrid | [Event Grid](../../event-grid/index.yml) |
 | Microsoft.EventHub | [Event Hubs](../../event-hubs/index.yml) |
