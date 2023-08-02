@@ -107,14 +107,6 @@ The following maximum resources are available to a container group deployed with
 | V100 | 1 | 6 | 112 | 50 | 
 | V100 | 2 | 12 | 224 | 50 | 
 | V100 | 4 | 24 | 448 | 50 | 
-<!---
-| K80 | 1 | 6 | 56 | 50 | 
-| K80 | 2 | 12 | 112 | 50 | 
-| K80 | 4 | 24 | 224 | 50 | 
-| P100, V100 | 1 | 6 | 112 | 50 | 
-| P100, V100 | 2 | 12 | 224 | 50 | 
-| P100, V100 | 4 | 24 | 448 | 50 | 
---->
 
 ## Next steps 
 
