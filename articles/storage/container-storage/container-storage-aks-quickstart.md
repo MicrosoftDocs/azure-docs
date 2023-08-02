@@ -4,7 +4,7 @@ description: Learn how to install Azure Container Storage Preview for use with A
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 07/24/2023
+ms.date: 08/01/2023
 ms.author: kendownie
 ms.custom: devx-track-azurecli
 ---
@@ -21,6 +21,9 @@ ms.custom: devx-track-azurecli
 - Sign up for the public preview by completing the [onboarding survey](https://aka.ms/AzureContainerStoragePreviewSignUp).
 
 - This quickstart requires version 2.0.64 or later of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using the Bash environment in Azure Cloud Shell, the latest version is already installed. If you plan to run the commands in this quickstart locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges. For more information, see [Quickstart for Bash in Azure Cloud Shell](../../cloud-shell/quickstart.md).
+
+> [!NOTE]
+> Instead of following the steps below, you can install Azure Container Storage Preview using [this shell script](https://github.com/Azure-Samples/azure-container-storage-samples/blob/main/acstor-install.sh).
 
 ## Getting started
 

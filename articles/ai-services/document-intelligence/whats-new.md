@@ -32,7 +32,9 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 > [!NOTE]
 > Form Recognizer is now Azure AI Document Intelligence!
 >
-> As of July 2023, Azure AI services encompass all of what were previously known as Cognitive Services and Azure Applied AI Services. There are no changes to pricing. The names *Cognitive Services* and *Azure Applied AI* continue to be used in Azure billing, cost analysis, price list, and price APIs. There are no breaking changes to application programming interfaces (APIs) or SDKs.
+> As of July 2023, Azure AI services encompass all of what were previously known as Cognitive Services and Azure Applied AI Services. There are no changes to pricing. The names _Cognitive Services_ and _Azure Applied AI_ continue to be used in Azure billing, cost analysis, price list, and price APIs. There are no breaking changes to application programming interfaces (APIs) or SDKs.
+
+**Document Intelligence v3.1 (GA)**
 
 The Document Intelligence version 3.1 API is now generally available (GA)! The API version corresponds to ```2023-07-31```.
 The v3.1 API introduces new and updated capabilities:
@@ -51,7 +53,57 @@ The v3.1 API introduces new and updated capabilities:
 * Prebuilt invoice locale expansion
 * Prebuilt receipt updates
 
+**Document Intelligence Studio UX Updates**
 
+✔️ **Analyze Options**</br>
+
+* Document Intelligence now supports more sophisticated analysis capabilities and the Studio allows one entry point (Analyze options button) for configuring the add-on capabilities with ease.
+* Depending on the document extraction scenario, configure the analysis range, document page range, optional detection, and premium detection features.
+
+    :::image type="content" source="media/studio/analyze-options.gif" alt-text="Animated screenshot showing use of the analyze options button to configure options in Studio.":::
+
+    > [!NOTE]
+    > Font extraction is not visualized in Document Intelligence Studio. However, you can check the styles seciton of the JSON output for the font detection results.
+
+✔️ **Auto labeling documents with prebuilt models or one of your own models**
+
+* In custom extraction model labeling page, you can now auto label your documents using one of Document Intelligent Service prebuilt models or models you have trained before. 
+
+    :::image type="content" source="media/studio/auto-label.gif" alt-text="Animated screenshot showing auto labeling in Studio.":::
+
+* For some documents, there may be duplicate labels after running auto label. Make sure to modify the labels so that there are no duplicate labels in the labeling page afterwards. 
+
+    :::image type="content" source="media/studio/duplicate-labels.png" alt-text="Screenshot showing duplicate label warning after auto labeling.":::
+
+✔️ **Auto labeling tables**
+
+* In custom extraction model labeling page, you can now auto label the tables in the document without having to label the tables manually.
+
+    :::image type="content" source="media/studio/auto-table-label.gif" alt-text="Animated screenshot showing auto table labeling in Studio.":::
+
+✔️ **Add test files directly to your training dataset**
+
+* Once you have trained a custom extraction model, make use of the test page to improve your model quality by uploading test documents to training dataset if needed. 
+
+* If a low confidence score is returned for some labels, make sure they are correctly labeled. If not, add them to the training dataset and re-label to improve the model quality. 
+
+:::image type="content" source="media/studio/add-from-test.gif" alt-text="Animated screenshot showing how to add test files to training dataset.":::
+
+✔️ **Make use of the document list options and filters in custom projects**
+
+* In custom extraction model labeling page, you can now navigate through your training documents with ease by making use of the search, filter and sort by feature. 
+
+* Utilize the grid view to preview documents or use the list view to scroll through the documents more easily. 
+
+    :::image type="content" source="media/studio/document-options.png" alt-text="Screenshot showing document list view options and filters.":::
+
+✔️ **Project sharing**
+
+* Share custom extraction projects with ease. For more information, see [Project sharing with custom models](how-to-guides/project-share-custom-models.md).
+
+✔️ **Query fields**
+
+* With Document Intelligence [General documents](concept-general-document.md) model, utilize the query fields feature to add fields to the extraction process without the need for added training. For more information, see [Document Intelligence query field extraction](concept-query-fields.md).
 
 ## May 2023
 
