@@ -37,14 +37,24 @@ The Microsoft Entra ID Governance capabilities are currently available in two pr
 - A subscription to **Microsoft Entra ID Governance** requires that the tenant also have an active subscription to another product, one that contains the `AAD_PREMIUM` or `AAD_PREMIUM_P2` service plan. Examples of products meeting this prerequisite include **Microsoft Azure Active Directory Premium P1** or **Microsoft 365 E3**.
 - A subscription to **Microsoft Entra ID Governance Step Up for Microsoft Entra ID P2** requires that the tenant also have an active subscription to another product, one that contains the `AAD_PREMIUM_P2` service plan.  Examples of products meeting this prerequisite include **Microsoft Azure Active Directory Premium P2** or **Microsoft 365 E5**.
 
-The [product names and service plan identifiers for licensing](../enterprise-users/licensing-service-plan-reference.md) lists additional products which include the prerequisite service plans.
+The [product names and service plan identifiers for licensing](../enterprise-users/licensing-service-plan-reference.md) lists additional products that include the prerequisite service plans.
 
 >[!NOTE]
 >A subscription to a prerequisite for an Microsoft Entra ID Governance product must be active in the tenant. If a prerequisite is not present, or the subscription expires, then Microsoft Entra ID Governance scenarios may not function as expected.  
 
+To check if the prerequisite products for a Microsoft Entra ID Governance product are present in a tenant, you can use the Entra portal or the Microsoft 365 admin center to view the list of products.
+
+1. Sign into the [Microsoft Entra admin center](https://entra.microsoft.com) as a global administrator.
+
+1. In the **Identity** menu, expand **Billing** and select **Licenses**.
+
+1. In the **Manage** menu, select **Licensed features**.  The information bar will indicate the current Azure AD license plan.
+
+1. To view the existing products in the tenant, in the **Manage** menu, select **All products**.
+
 ## Starting a trial
 
-A global administrator in a tenant which has the appropriate prerequisites, and is not already using or has previously trialed Microsoft Entra ID Governance, may request a trial in their tenant.
+A global administrator in a tenant that has an appropriate prerequisite product already purchased, and is not already using or has previously trialed Microsoft Entra ID Governance, may request a trial of Microsoft Entra ID Governance in their tenant.
 
 1. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com/AdminPortal/Home) as a global administrator.
 
@@ -58,7 +68,7 @@ A global administrator in a tenant which has the appropriate prerequisites, and 
 
 
 ## Features by license type
-The following table shows what features are available with each license type.  Note that not all features are available in all clouds.
+The following table shows what features are available with each license type.  Note that not all features are available in all clouds; see [Azure Active Directory feature availability](../authentication/feature-availability.md) for Azure Government.
 
 |Feature|Free|Microsoft Entra ID P1|Microsoft Entra ID P2|Microsoft Entra ID Governance|
 |-----|:-----:|:-----:|:-----:|:-----:| 
