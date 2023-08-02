@@ -139,37 +139,38 @@ conceptualContent:
 
 # Azure Services
 additionalContent:
-  title: Take the Next Step # < 60 chars (optional)
-  # summary: # < 160 chars (optional)
-  items:
-    # Card
-    - title: Landing Zone Accelarators
-      links:
-        - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/azure-hpc-landing-zone-accelerator
-          text: Infra Landing Zone 
-        - url: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-landing-zone
-          text: Data Landing Zone
-        - url: https://azure.github.io/az-hop/
-          text: HPC OnDemand Platform Zone
-    # Card
-    - title: Cloud Adoption
-      links:
-        - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/
-          text: Cloud Adoption Scenarios
-        - url: https://gearup.microsoft.com/download/ca8b9d10-bbe2-4cfb-993b-39f3b2a272e6
-          text: Cloud Migration Overview          
-    # Card
-    - title: HPC FastTrack
-      links:
-        - url: https://gearup.microsoft.com/program/fasttrack?tab=overview&subtab=fasttrack-for-azure
-          text: Azure FastTrack
+  # Supports up to 4 subsections
+  sections:
+    - title: Take the Next Step # < 60 chars (Optional; Remove if not applicable.)
+      # summary: subsectionsummary1 # < 160 chars (Optional; Remove if not applicable.)
+      items:
+      # Card
+      - title: Landing Zone Accelarators
+        links:
+          - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/azure-hpc-landing-zone-accelerator
+            text: Infra Landing Zone 
+          - url: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-landing-zone
+            text: Data Landing Zone
+          - url: https://azure.github.io/az-hop/
+            text: HPC OnDemand Platform Zone
+      # Card
+      - title: Cloud Adoption
+        links:
+          - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/
+            text: Cloud Adoption Scenarios
+          - url: https://gearup.microsoft.com/download/ca8b9d10-bbe2-4cfb-993b-39f3b2a272e6
+            text: Cloud Migration Overview          
+      # Card
+      - title: HPC FastTrack
+        links:
+          - url: https://gearup.microsoft.com/program/fasttrack?tab=overview&subtab=fasttrack-for-azure
+            text: Azure FastTrack
 
 
 # Azure Services
 tools:
   # Supports up to 3 subsections
-  sections:
-    - title: HPC Resources # < 60 chars (optional)
+      title: HPC Resources # < 60 chars (optional)
       # summary: # < 160 chars (optional)
       items:
         # Card
@@ -203,7 +204,6 @@ tools:
               text: HPC for Innovation in R&D          
             - url: https://idcdocserv.com/US50583623
               text: HPC for Product Modeling
-
 
 
 # Video Playlists and other links
