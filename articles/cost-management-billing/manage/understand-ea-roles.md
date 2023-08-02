@@ -192,7 +192,7 @@ Enterprise administrators have the most privileges when managing an Azure EA enr
 When new Account Owners (AO) are added to an Azure EA enrollment for the first time, their status appears as _pending_. When a new account owner receives the activation welcome email, they can sign in to activate their account. 
 
 > [!NOTE]
-> If the Account Owner is a service account and doesn't have an email, use an In-Private session to log into the Azure portal and navigate to Cost Management to be prompted to accept the activation welcome email.  
+> If the Account Owner is a service account and doesn't have an email, use an In-Private session to sign in to the Azure portal and navigate to Cost Management to be prompted to accept the activation welcome email.  
 
 Once they activate their account, the account status is updated from _pending_ to _active_. The account owner needs to read the 'Warning' message and select **Continue**. New users might get prompted to enter their first and last name to create a Commerce Account. If so, they must add the required information to continue and then the account is activated.  
 

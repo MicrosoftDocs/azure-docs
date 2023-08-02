@@ -199,7 +199,7 @@ Restore-AzCosmosDBAccount `
 ```
 ### To restore a continuous account that is configured with managed identity using CLI
 
-To restore Customer Managed Key (CMK) continuous account please refer to the steps provided [here](./how-to-setup-customer-managed-keys.md)
+To restore Customer Managed Key (CMK) continuous account, please refer to the steps provided [here](./how-to-setup-customer-managed-keys.md)
 
 ### <a id="get-the-restore-details-powershell"></a>Get the restore details from the restored account
 
@@ -412,6 +412,7 @@ The simplest way to trigger a restore is by issuing the restore command with nam
 #### Create a new Azure Cosmos DB account by restoring from an existing account
 
 
+
 ```azurecli-interactive
 
 az cosmosdb restore \
@@ -428,6 +429,8 @@ If `--enable-public-network` is not set, restored account is accessible from pub
 
  > [!NOTE]
  > For restoring with public network access disabled, you'll need to install the cosmosdb-preview 0.23.0 of CLI extension   by executing `az extension update --name cosmosdb-preview `. You would also require version 2.17.1 of the CLI.
+
+
 
 
 
@@ -742,12 +745,14 @@ az cosmosdb gremlin restorable-resource list \
 ```
 ```
 [   { 
-    "databaseName": "db1", 
-    "graphNames": [ 
-      "graph1", 
-      "graph3", 
-      "graph2" 
-    ] 
+```
+"databaseName": "db1", 
+"graphNames": [ 
+  "graph1", 
+  "graph3", 
+  "graph2" 
+] 
+```
   } 
 ] 
 ```
@@ -765,27 +770,31 @@ az cosmosdb table restorable-table list \
 ```
 ```
 [   { 
-    "id": "/subscriptions/23587e98-b6ac-4328-a753-03bcd3c8e744/providers/Microsoft.DocumentDB/locations/WestUS/restorableDatabaseAccounts/7e4d666a-c6ba-4e1f-a4b9-e92017c5e8df/restorableTables/59781d91-682b-4cc2-93a3-c25d03fab159", 
-    "name": "59781d91-682b-4cc2-93a3-c25d03fab159", 
-    "resource": { 
-      "eventTimestamp": "2022-02-09T17:09:54Z", 
-      "operationType": "Create", 
-      "ownerId": "table1", 
-      "ownerResourceId": "tOdDAKYiBhQ=", 
-      "rid": "9pvDGwAAAA==" 
-    }, 
-    "type": "Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restorableTables" 
+```
+"id": "/subscriptions/23587e98-b6ac-4328-a753-03bcd3c8e744/providers/Microsoft.DocumentDB/locations/WestUS/restorableDatabaseAccounts/7e4d666a-c6ba-4e1f-a4b9-e92017c5e8df/restorableTables/59781d91-682b-4cc2-93a3-c25d03fab159", 
+"name": "59781d91-682b-4cc2-93a3-c25d03fab159", 
+"resource": { 
+  "eventTimestamp": "2022-02-09T17:09:54Z", 
+  "operationType": "Create", 
+  "ownerId": "table1", 
+  "ownerResourceId": "tOdDAKYiBhQ=", 
+  "rid": "9pvDGwAAAA==" 
+}, 
+"type": "Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restorableTables" 
+```
   }, 
-    {"id": "/subscriptions/23587e98-b6ac-4328-a753-03bcd3c8e744/providers/Microsoft.DocumentDB/locations/eastus2euap/restorableDatabaseAccounts/7e4d666a-c6ba-4e1f-a4b9-e92017c5e8df/restorableTables/2c9f35eb-a14c-4ab5-a7e0-6326c4f6b785", 
-    "name": "2c9f35eb-a14c-4ab5-a7e0-6326c4f6b785", 
-    "resource": { 
-      "eventTimestamp": "2022-02-09T20:47:53Z", 
-      "operationType": "Create", 
-      "ownerId": "table3", 
-      "ownerResourceId": "tOdDALBwexw=", 
-      "rid": "01DtkgAAAA==" 
-    }, 
-    "type": "Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restorableTables" 
+```
+{"id": "/subscriptions/23587e98-b6ac-4328-a753-03bcd3c8e744/providers/Microsoft.DocumentDB/locations/eastus2euap/restorableDatabaseAccounts/7e4d666a-c6ba-4e1f-a4b9-e92017c5e8df/restorableTables/2c9f35eb-a14c-4ab5-a7e0-6326c4f6b785", 
+"name": "2c9f35eb-a14c-4ab5-a7e0-6326c4f6b785", 
+"resource": { 
+  "eventTimestamp": "2022-02-09T20:47:53Z", 
+  "operationType": "Create", 
+  "ownerId": "table3", 
+  "ownerResourceId": "tOdDALBwexw=", 
+  "rid": "01DtkgAAAA==" 
+}, 
+"type": "Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restorableTables" 
+```
   }, 
 ] 
 ```
@@ -802,9 +811,11 @@ az cosmosdb table restorable-resource list \
 ```
 {   
   "tableNames": [ 
-    "table1", 
-    "table3", 
-    "table2" 
+```
+"table1", 
+"table3", 
+"table2" 
+```
   ] 
 } 
 ```
@@ -939,3 +950,4 @@ az deployment group create -g <ResourceGroup> --template-file <RestoreTemplateFi
 * [How to migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Continuous backup mode resource model.](continuous-backup-restore-resource-model.md)
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.
+

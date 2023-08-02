@@ -33,7 +33,7 @@ You must be a member of the following administrative roles:
 
 ## Configure multi-factor authentication (MFA)
 
-If you're using Azure Active Directory Premium P1 or P2, we guide you through a setup process that's tailored to your needs. Our customized conditional access policies include the most common and least intrusive security standards we recommend. If you're not subscribed to a premium license, we help you keep your account secure with our one-click security defaults enabled to give you a baseline protection policy.
+If you're using Azure Active Directory Premium P1 or P2, we guide you through a setup process that's tailored to your needs. Our customized Conditional Access policies include the most common and least intrusive security standards we recommend. If you're not subscribed to a premium license, we help you keep your account secure with our one-click security defaults enabled to give you a baseline protection policy.
 
 ## Next steps
 

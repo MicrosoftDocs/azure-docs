@@ -43,9 +43,11 @@ To manually configure your application and code sample, use the following proced
 
 #### Step 1: Register your application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To register the application and add the registration information to the solution manually, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.

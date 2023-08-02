@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 07/20/2023
+  ms.date: 07/24/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -87,13 +87,13 @@ landingContent:
         links:
           - text: Deployment errors
             url: troubleshoot-errors-deployment.md
-          - text: Error logs
+          - text: Service log errors
             url: troubleshoot-errors-logs.md
 
   - title: MedTech service and Azure IoT Hub 
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Received device messages through Azure IoT Hub
+          - text: Receive device messages through Azure IoT Hub
             url: device-messages-through-iot-hub.md
             

@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn how to create a service shared access signature (SAS) for a blob using the Azure Blob Storage client library for Python.
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 06/09/2023
 ms.author: pauljewell

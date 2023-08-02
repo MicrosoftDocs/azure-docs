@@ -71,20 +71,10 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. Under the Azure NetApp Files subscription, select **NFSv4.1 ID Domain**.
 1. Select **Configure**.
 1. To use the default domain `defaultv4iddomain.com`, select the box next to **Use Default NFSv4 ID Domain**. To use another domain, uncheck the text box and provide the name of the NFSv4.1 ID domain.
+
   :::image type="content" source="../media/azure-netapp-files/nfsv4-id-domain.png" alt-text="Screenshot with field to set NFSv4 domain." lightbox="../media/azure-netapp-files/nfsv4-id-domain.png":::
 
 1. Select **Save**.
-
-<!-- 
-#### Edit the NFSv4 domain
-
-1. Under the Azure NetApp Files subscription, select **NFSv4 ID Domain**.
-1. Choose the domain name you want to edit. Select the the three dots `...` next to the name and choose **Edit.**
- :::image type="content" source="../media/azure-netapp-files/nfsv4-edit-domain.png" alt-text="Screenshot with field to set NFSv4 domain." lightbox="../media/azure-netapp-files/nfsv4-edit-domain.png":::
-1. Check or uncheck the box next to **Use Default NFSv4 ID Domain**. In the text box, provide the name of the NFSv4 domain.
-  :::image type="content" source="../media/azure-netapp-files/nfsv4-id-domain.png" alt-text="Screenshot with field to set NFSv4 domain." lightbox="../media/azure-netapp-files/nfsv4-id-domain.png":::
-1. Select **Save**.
--->
 
 ### Configure NFSv4.1 ID domain in NFS clients
 
