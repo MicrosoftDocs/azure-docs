@@ -50,7 +50,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
     >[!NOTE]
     >It's _not_ recommended nor required to add the Azure NetApp Files AD admin account to the AD domain groups listed above. Nor is it recommended or required to grant `msDS-SupportedEncryptionTypes` write permission to the Azure NetApp Files AD admin account.  
 
-    If you set both AES-128 and AES-256 Kerberos encryption on the admin account of the AD connection, the highest level of encryption supported by your AD DS will be used.
+    If you set both AES-128 and AES-256 Kerberos encryption on the admin account of the AD connection, the Windows client negotiates the highest level of encryption supported by your AD DS. For example, if both AES-128 and AES-256 are supported, and the client supports AES-256, then AES-256 will be used.
 
 * To enable AES encryption support for the admin account in the AD connection, run the following Active Directory PowerShell commands:
 
@@ -143,14 +143,14 @@ Several features of Azure NetApp Files require that you have an Active Directory
         ![Screenshot of the LDAP signing checkbox.](../media/azure-netapp-files/active-directory-ldap-signing.png) 
 
     * **Allow local NFS users with LDAP**
-        This option enables local NFS client users to access to NFS volumes. Setting this option disables extended groups for NFS volumes. It also limits the number of groups to 16. For more information, see [Allow local NFS users with LDAP to access a dual-protocol volume](create-volumes-dual-protocol.md#allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume). 
+        This option enables local NFS client users to access to NFS volumes. Setting this option disables extended groups for NFS volumes, which limits the number of supported groups for a user to 16. When enabled, groups beyond the 16 group limit aren't honored in access permissions. For more information, see [Allow local NFS users with LDAP to access a dual-protocol volume](create-volumes-dual-protocol.md#allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume). 
 
     * **LDAP over TLS**   
 
         This option enables LDAP over TLS for secure communication between an Azure NetApp Files volume and the Active Directory LDAP server. You can enable LDAP over TLS for NFS, SMB, and dual-protocol volumes of Azure NetApp Files. 
         
         >[!NOTE]
-        >LDAP over TLS must not be enabled if you're using Azure Active Directory Domain Services (Azure AD DS). Azure AD DS uses LDAPS (port 636) to secure LDAP traffic instead of LDAP over TLS (port 389). 
+        >LDAP over TLS must not be enabled if you're using Azure Active Directory Domain Services (Azure AD DS). Azure AD DS uses LDAPS (port 636) to secure LDAP traffic instead of LDAP over TLS (port 389). LDAP over TLS can only use port 389 for communication.
         
         For more information, see [Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md).
 
@@ -164,7 +164,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
         The [**LDAP search scope**](/windows/win32/ad/search-scope) option optimizes Azure NetApp Files storage LDAP queries for use with large AD DS topologies and LDAP with extended groups or Unix security style with an Azure NetApp Files dual-protocol volume. 
         
-        The **User DN** and **Group DN** options allow you to set the search base in AD DS LDAP.  
+        The **User DN** and **Group DN** options allow you to set the search base in AD DS LDAP. These options limit the search areas for LDAP queries, reducing the search time and helping to reduce LDAP query timeouts. 
          
         The **Group Membership Filter** option allows you to create a custom search filter for users who are members of specific AD DS groups. 
 
@@ -236,6 +236,9 @@ Several features of Azure NetApp Files require that you have an Active Directory
         This option grants additional security privileges to AD DS domain users or groups that require elevated privileges to access the Azure NetApp Files volumes. The specified accounts will have elevated permissions at the file or folder level.
 
         ![Screenshot that shows the Administrators box of Active Directory connections window.](../media/azure-netapp-files/active-directory-administrators.png) 
+
+        >[!NOTE]
+        >This privilege is useful for data migrations. 
 
         The following privileges apply when you use the **Administrators privilege users** setting:
 
