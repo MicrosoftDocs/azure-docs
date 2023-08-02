@@ -124,7 +124,7 @@ conceptualContent:
           url: web-api-tutorial-01-register-app.md
           itemType: quickstart
         - text: Call an API from a non-interactive app or script
-          url: console-app-quickstart.md
+          url: quickstart-web-api-aspnet-protect-api.md
           itemType: quickstart
     ## CARD 3 ######################
     - title: Test and deploy apps

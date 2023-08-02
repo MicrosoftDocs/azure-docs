@@ -123,12 +123,12 @@
       href: index-spa.yml
     - name: Quickstart
       items: 
+        - name: React
+          href: quickstart-single-page-app-react-sign-in.md
         - name: Angular
           href: quickstart-single-page-app-angular-sign-in.md
         - name: JavaScript
           href: quickstart-single-page-app-javascript-sign-in.md
-        - name: React
-          href: quickstart-single-page-app-react-sign-in.md
     - name: Tutorials
       items:
         - name: React
@@ -174,10 +174,10 @@
       href: index-web-app.yml
     - name: Quickstart
       items: 
-        - name: ASP.NET Core
-          href: quickstart-web-app-aspnet-core-sign-in.md
         - name: ASP.NET 
           href: quickstart-web-app-aspnet-sign-in.md
+        - name: ASP.NET Core
+          href: quickstart-web-app-aspnet-core-sign-in.md
         - name: Node.js - MSAL
           href: quickstart-web-app-nodejs-msal-sign-in.md
         - name: Java
@@ -310,12 +310,12 @@
       href: index-desktop.yml
     - name: Quickstart
       items:
+        - name: Node.js Electron
+          href: quickstart-desktop-app-nodejs-electron-sign-in.md
         - name: Universal Windows Platform
           href: quickstart-desktop-app-uwp-sign-in.md
         - name: Windows Presentation Foundation
           href: quickstart-desktop-app-wpf-sign-in.md
-        - name: Node.js Electron
-          href: quickstart-desktop-app-nodejs-electron-sign-in.md
     - name: Tutorials
       items:
         - name: Universal Windows Platform (UWP)
