@@ -14,7 +14,7 @@ ms.author: normesta
 
 # What is Azure Storage Tasks?
 
-Put something here.
+Use Azure Storage tasks to perform operations on containers and blobs in Azure Storage accounts based on a set of conditions that you define. Other summary information goes here.
 
 > [!IMPORTANT]
 > Azure Storage Tasks is currently in PREVIEW and is available in the following regions: \<List regions here\>.
@@ -23,38 +23,45 @@ Put something here.
 
 ## When to use
 
-Give customers some example of tasks they might accomplish by using tasks. For example:
+Include some scenarios here.
+
+Common actions include:
 
 - Move data to different tiers
+
 - Set tags on blobs
+
 - Parameterized queries so that account owners can set up metadata that task creators can leverage in condition design.
 
 ## Key capabilities
 
-- Capability 1
-- Capability 2
-- Capability 3
+- Define conditions and operations by using a visual designer.
+
+- Assign a task to one or more storage accounts. Add filters to narrow the scope of objects to target and specify when and how often a task should run against that account.
+
+- Monitor task runs by using metrics, visual charts, and execution reports. You can drill into this data in the Azure portal from either the Storage Task or the assigned storage account.
 
 ## How it works
 
-Storage task creator and storage account owner are separate roles in this process.
+Anyone can create a storage task, but only storage account owners can assign one.
 
-Storage task creator
+### Creating tasks
 
-- Storage task creator designs and creates the conditions of a task.
-- A system-assigned managed identity is created automatically for the storage task when the task is created. That system identity becomes important at assignment time.
-- Storage task creator gives access permission to the each storage account owner who wants to assign the task to their account. Permission is AAD (standard experience).
+You or someone in your organization creates a Storage task. See [Create a storage task]( storage-task-create.md). You must define at least one condition and one operation to create a task. A system-assigned managed identity is created automatically for the storage task when the task is created. That system identity becomes important at assignment time. If need to define more conditions and operations or change the ones that you added when you created the task, you can do so by using a visual designer. See [Define storage task conditions and operations]( storage-task-conditions-operations-edit.md).
 
-Storage task owner
+### Assigning tasks
 
-- Storage account owner is responsible for opening a task and assigning that task to the account that they own. The task assigner must be the account owner.
-- Storage account owner selects the Azure role to assign the system identity of the storage task. This auto adds the system identity to the AIM of the storage account with the assigned role.
+You can assign the task to any storage accounts that you own and that you'd like task to target. As part of that assignment, you assign the system-assigned managed identity of the task the role required for the operations in that task to run. This auto adds the system identity to the AIM of the storage account with the assigned role. See [Create and manage a storage task assignment](storage-task-assignment-create.md).
 
-Task runs
+If the task that you define is useful to owners of other storage accounts, you can make your task available to them by assigning their user identities a role which provides them with access to the task. See [Storage task authorization](storage-task-authorization.md). Then, that user can open the assignment pane of the task and assign that task to a storage account that they own.
+
+### Monitoring task execution
 
 - Tasks run asynchronously. The task authorizes access to the storage account by using the task's system identity and the role assigned to that identity in the assignment phase.
+
 - Account owners can check the results of a run by using an execution report. They can also monitor task activity in the overview page of the task.
-- Storage tasks are versioned. When you save a task, the previous version of that task is saved for future.
+
+- Storage tasks are versioned. When you save a task, the previous version of that task is saved for the future.
 
 ## Supported Regions
 
