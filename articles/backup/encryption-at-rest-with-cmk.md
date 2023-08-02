@@ -489,7 +489,7 @@ To specify the Disk Encryption Set under Encryption Settings in the restore pane
 2. From the dropdown, select the DES you wish to use for the restored disk(s). **Ensure you have access to the DES.**
 
 >[!NOTE]
->The ability to choose a `DES`` while restore is now supported if you're doing Cross Region Restore. However, it's not suppported if you're restoring a VM that uses Azure Disk Encryption.
+>The ability to choose a `DES`` while restore is now supported if you're doing Cross Region Restore. However, it's currently not suppported if you're restoring a VM that uses Azure Disk Encryption.
 
 ![Encrypt disk using your key](./media/encryption-at-rest-with-cmk/encrypt-disk-using-your-key.png)
 
