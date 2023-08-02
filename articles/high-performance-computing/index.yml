@@ -87,7 +87,7 @@ conceptualContent:
   # Supports up to 3 subsections
   sections:
     - title: HPC Documentation # < 60 chars (Optional; Remove if not applicable.)
-      #summary: See Azure HPC solutions, tutorials, guides and resources # < 160 chars (Optional; Remove if not applicable.)
+      summary: See Azure HPC solutions, tutorials, guides and resources # < 160 chars (Optional; Remove if not applicable.)
       items:
         # Card
         - title: HPC Infra
@@ -142,7 +142,7 @@ additionalContent:
   # Supports up to 4 subsections
   sections:
     - title: Take the Next Step # < 60 chars (Optional; Remove if not applicable.)
-      # summary: subsectionsummary1 # < 160 chars (Optional; Remove if not applicable.)
+      summary: Tell us what you’re solving for. An Azure HPC expert will help you find the best solution. # < 160 chars (Optional; Remove if not applicable.)
       items:
       # Card
       - title: Landing Zone Accelarators
@@ -169,7 +169,7 @@ additionalContent:
 
 # HPC Resourcess
     - title: HPC Resources # < 60 chars (optional)
-      # summary: # < 160 chars (optional)
+      summary: Explore our marketplace, innovate with our partners to accelarate your HPC workloads with cloud flexibility, capability, and scalability. # < 160 chars (optional)
       items:
         # Card
         - title: Microsoft HPC Channels
