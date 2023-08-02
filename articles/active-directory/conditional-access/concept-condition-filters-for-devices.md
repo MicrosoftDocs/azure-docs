@@ -80,6 +80,9 @@ Policy 2: All users with the directory role of Global Administrator, accessing t
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
 
+> [!WARNING]
+> Policies that require compliant devices may prompt users on Mac, iOS, and Android to select a device certificate during policy evaluation, even though device compliance is not enforced. These prompts may repeat until the device is made compliant.
+
 ### Setting attribute values
 
 Setting extension attributes is made possible through the Graph API. For more information about setting device attributes, see the article [Update device](/graph/api/device-update?tabs=http#example-2--write-extensionattributes-on-a-device).
