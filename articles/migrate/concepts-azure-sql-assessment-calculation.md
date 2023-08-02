@@ -278,6 +278,10 @@ After sizing recommendations are complete, Azure SQL assessment calculates the c
     - A minimum of 5 GB storage cost is added in the cost estimate and additional storage cost is added for storage in 1 GB increments. [Learn More](https://azure.microsoft.com/pricing/details/sql-database/single/).
 - **Azure SQL Managed Instance**
     - There's no storage cost added for the first 32 GB/instance/month storage and additional storage cost is added for storage in 32 GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+
+### Security Cost
+For SQL Server instances and DBs recommended for SQL Server on Azure VM, Azure SQL MI or Azure SQL DB, if they're ready to run Defender for SQL, the Defender for SQL per SQL Server instance for that region is added. For DBs recommended to Azure SQL DB, cost is rolled up at instance level.
+
         
 ## Next steps
 - [Review](best-practices-assessment.md) best practices for creating assessments. 
