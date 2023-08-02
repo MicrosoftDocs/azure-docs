@@ -66,7 +66,7 @@ Speech service uses `customspeech-artifacts` Blob container in the BYOS-associat
 >
 > Failure to do so very likely will result in hard to debug 4xx and 5xx Service errors.
 >
-> Use standard tools to interact with Batch transcription. See detail in [Batch transcription section](batch-transcription.md).
+> Use standard tools to interact with Batch transcription. See details in [Batch transcription section](batch-transcription.md).
 
 ### Get Batch transcription results via REST API
 
@@ -138,7 +138,7 @@ There's nothing specific about how you use Custom Speech with BYOS-enabled Speec
 >
 > Failure to do so very likely will result in hard to debug errors and may lead to the necessity of custom model retraining.
 >
-> Use standard tools, like REST API and Speech Studio to interact with the Custom Speech related data. See detail in [Custom Speech section](custom-speech-overview.md).
+> Use standard tools, like REST API and Speech Studio to interact with the Custom Speech related data. See details in [Custom Speech section](custom-speech-overview.md).
 
 ### Use of REST API with Custom Speech
 
