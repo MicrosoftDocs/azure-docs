@@ -1,6 +1,6 @@
 ---
-title: Use a Public IP address prefix for a Service Fabric managed cluster
-description: This article describes how to enable Public IP address prefix for Azure Service Fabric managed clusters.
+title: Use a Public IP address prefix in a Service Fabric managed cluster
+description: This article describes how to enable Public IP address prefix in a Service Fabric managed cluster.
 ms.topic: how-to
 ms.author: ankurjain
 author: ankurjain
@@ -10,7 +10,7 @@ services: service-fabric
 ms.date: 07/05/2023
 ---
 
-# Use a Public IP address prefix for a Service Fabric managed cluster
+# Use a Public IP address prefix in a Service Fabric managed cluster
 
 A public IP address prefix allows you to reserve a range of [public IP addresses](../virtual-network/ip-services/public-ip-addresses.md) for your public endpoints in Azure. Service Fabric managed cluster supports using IP addresses from [Azure Public IP prefix](../virtual-network/ip-services/public-ip-address-prefix.md). Public IP prefixes are assigned from a pool of addresses in each Azure region. You can create a public IP address prefix in an Azure region and subscription by specifying a name and [prefix size](../virtual-network/ip-services/public-ip-address-prefix.md#prefix-sizes), which is the number of addresses available for use. For example, if you would like to configure virtual machine scale sets, application gateways, or load balancers to be public facing, you need public IP addresses for them. A public IP prefix enables you to use one prefix to manage all IP addresses effectively.
 In regions with Availability Zones, Public IP address prefixes can be created as zone-redundant or associated with a specific availability zone. If public IP prefix is created as zone-redundant, the IPs in the prefix are chosen from the pool that is replicated across SLB servers in all zones.
@@ -32,9 +32,9 @@ As seen in the diagram, a service fabric managed cluster with three node types h
 
 
 
-## Use a public IP prefix for Service Fabric managed cluster
+## Use a public IP prefix in a SFMC cluster
 
-The following section describes the steps that should be taken to implement public IP prefix for Service Fabric managed cluster:
+The following section describes the steps that should be taken to implement public IP prefix in a Service Fabric managed cluster:
 
 1.	Follow the steps in the [Create a public IP address prefix](../virtual-network/ip-services/create-public-ip-prefix-portal.md).
 2.  Use a [sample ARM deployment template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-PIPrefix) for public IP prefix configuration as part of the service fabric managed cluster creation.
@@ -54,7 +54,7 @@ The following section describes the steps that should be taken to implement publ
 #### Azure CLI:
 
 1. Create a resource group and a public IP address prefix as outlined in the [Create public IP prefix - Azure CLI](../virtual-network/ip-services/create-public-ip-prefix-cli.md)
-2. Capture the resource ID from the newly created Public IP prefix into the ARM template and deploy the ARM template.
+2. Pass the prefix's resource ID to the `PublicIPPrefixId` property under `Microsoft.ServiceFabric/managedClusters` resource in the ARM template and deploy the template.
 
   ```azurecli-interactive
     az deployment group create \
@@ -67,7 +67,7 @@ The following section describes the steps that should be taken to implement publ
 #### Azure PowerShell:
 
 1. Create a resource group and a public IP address prefix as outlined in the [Create public IP prefix - PowerShell](../virtual-network/ip-services/create-public-ip-prefix-powershell.md)
-2. Capture the resource ID from the newly created Public IP prefix into the ARM template and deploy the ARM template.
+2. Pass the prefix's resource ID to the `PublicIPPrefixId` property under `Microsoft.ServiceFabric/managedClusters` resource in the ARM template and deploy the template.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName "ExampleGroup" -TemplateFile <path-to-template> -TemplateParameterFile <path-to-template-parameter-file>
