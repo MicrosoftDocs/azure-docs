@@ -12,7 +12,7 @@ ms.date: 07/11/2022
 
 # Configure network settings for Service Fabric managed clusters
 
-Service Fabric managed clusters are created with a default networking configuration. This configuration consists of an [Azure Load Balancer](../load-balancer/load-balancer-overview.md) with a public ip, a VNet with one subnet allocated, and a NSG configured for essential cluster functionality. There are also optional NSG rules applied such as allowing all outbound traffic by default that is intended to make customer configuration easier. This document walks through how to modify the following networking configuration options and more:
+Service Fabric managed clusters are created with a default networking configuration. This configuration consists of an [Azure Load Balancer](../load-balancer/load-balancer-overview.md) with a public ip, a VNet with one subnet allocated, and an NSG configured for essential cluster functionality. There are also optional NSG rules applied such as allowing all outbound traffic by default that is intended to make customer configuration easier. This document walks through how to modify the following networking configuration options and more:
 
 - [Manage NSG Rules](#nsgrules)
 - [Manage RDP access](#rdp)
@@ -32,7 +32,7 @@ Service Fabric managed clusters are created with a default networking configurat
 
 Be aware of these considerations when creating new NSG rules for your managed cluster.
 
-* Service Fabric managed clusters reserve the NSG rule priority range 0 to 999 for essential functionality. You cannot create custom NSG rules with a priority value of less than 1000.
+* Service Fabric managed clusters reserve the NSG rule priority range 0 to 999 for essential functionality. You can't create custom NSG rules with a priority value of less than 1000.
 * Service Fabric managed clusters reserve the priority range 3001 to 4000 for creating optional NSG rules. These rules are added automatically to make configurations quick and easy. You can override these rules by adding custom NSG rules in priority range 1000 to 3000.
 * Custom NSG rules should have a priority within the range 1000 to 3000.
 
@@ -106,14 +106,14 @@ Use the [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedc
 A default NSG rule is added to allow the Service Fabric resource provider to access the cluster's clientConnectionPort and httpGatewayConnectionPort. This rule allows access to the ports through the service tag 'ServiceFabric'.
 
 >[!NOTE]
->This rule is always added and cannot be overridden.
+>This rule is always added and can't be overridden.
 
 ```json
 {
     "name": "SFMC_AllowServiceFabricGatewayToSFRP",
     "type": "Microsoft.Network/networkSecurityGroups/securityRules",
     "properties": {
-        "description": "This is required rule to allow SFRP to connect to the cluster. This rule cannot be overridden.",
+        "description": "This is required rule to allow SFRP to connect to the cluster. This rule can't be overridden.",
         "protocol": "TCP",
         "sourcePortRange": "*",
         "sourceAddressPrefix": "ServiceFabric",
@@ -134,8 +134,8 @@ A default NSG rule is added to allow the Service Fabric resource provider to acc
 
 This optional rule enables customers to access SFX, connect to the cluster using PowerShell, and use Service Fabric cluster API endpoints from the internet by opening LB ports for clientConnectionPort and httpGatewayPort.
 
->[!NOTE]
->This rule will not be added if there is a custom rule with the same access, direction, and protocol values for the same port. You can override this rule with custom NSG rules.
+> [!NOTE]
+> This rule will not be added if there's a custom rule with the same access, direction, and protocol values for the same port. You can override this rule with custom NSG rules.
 
 ```json
 {
@@ -162,7 +162,7 @@ This optional rule enables customers to access SFX, connect to the cluster using
 <a id="rdp"></a>
 ## Enable access to RDP ports from internet
 
-Service Fabric managed clusters do not enable inbound access to the RDP ports from the internet by default. You can open inbound access to the RDP ports from the internet by setting the following property on a Service Fabric managed cluster resource.
+Service Fabric managed clusters don't enable inbound access to the RDP ports from the internet by default. You can open inbound access to the RDP ports from the internet by setting the following property on a Service Fabric managed cluster resource.
 
 ```json
 "allowRDPAccess": true
@@ -353,10 +353,10 @@ The following steps describe enable public IP on your node.
 
 <a id="ipv6"></a>
 ## Enable IPv6
-Managed clusters do not enable IPv6 by default. This feature will enable full dual stack IPv4/IPv6 capability from the Load Balancer frontend to the backend resources. Any changes you make to the managed cluster load balancer config or NSG rules will affect both the IPv4 and IPv6 routing.
+Managed clusters don't enable IPv6 by default. This feature will enable full dual stack IPv4/IPv6 capability from the Load Balancer frontend to the backend resources. Any changes you make to the managed cluster load balancer config or NSG rules will affect both the IPv4 and IPv6 routing.
 
 > [!NOTE]
-> This setting is not available in portal and cannot be changed once the cluster is created.
+> This setting is not available in portal and can't be changed once the cluster is created.
 
 * The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
 
@@ -391,7 +391,7 @@ This feature allows customers to use an existing virtual network by specifying a
 > When using BYOVNET, managed cluster resources will be deployed in one subnet.
 
 > [!NOTE]
-> This setting cannot be changed once the cluster is created and the managed cluster will assign an NSG to the provided subnet. Do not override the NSG assignment or traffic may break.
+> This setting can't be changed once the cluster is created and the managed cluster will assign an NSG to the provided subnet. Don't override the NSG assignment or traffic may break.
 
 **To bring your own virtual network:**
 
@@ -465,7 +465,7 @@ This feature allows customers to use an existing virtual network by specifying a
    > [!NOTE]
    > VNetRoleAssignmentID has to be a [GUID](../azure-resource-manager/templates/template-functions-string.md#examples-16). If you deploy a template again including this role assignment, make sure the GUID is the same as the one originally used. We suggest you run this isolated or remove this resource from the cluster template post-deployment as it just needs to be created once.
 
-   Here is a full sample [Azure Resource Manager (ARM) template that creates a VNet subnet and does role assignment](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOVNET/createVNet-assign-role.json) you can use for this step.
+   Here's a full sample [Azure Resource Manager (ARM) template that creates a VNet subnet and does role assignment](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOVNET/createVNet-assign-role.json) you can use for this step.
 
 3. Configure the `subnetId` property for the cluster deployment after the role is set up as shown below:
 
@@ -494,14 +494,14 @@ This feature allows customers to use an existing virtual network by specifying a
     New-AzResourceGroupDeployment -Name deployment -ResourceGroupName MyResourceGroup -TemplateFile AzureDeploy.json
    ```
 
-   When you bring your own VNet subnet the public endpoint is still created and managed by the resource provider, but in the configured subnet. The feature does not allow you to specify the public ip/re-use static ip on the Azure Load Balancer. You can [bring your own Azure Load Balancer](#byolb) in concert with this feature or by itself if you require those or other load balancer scenarios that aren't natively supported.
+   When you bring your own VNet subnet the public endpoint is still created and managed by the resource provider, but in the configured subnet. The feature doesn't allow you to specify the public ip/re-use static ip on the Azure Load Balancer. You can [bring your own Azure Load Balancer](#byolb) in concert with this feature or by itself if you require those or other load balancer scenarios that aren't natively supported.
 
 <a id="byolb"></a>
 ## Bring your own Azure Load Balancer
 
 Managed clusters create an Azure public Standard Load Balancer and fully qualified domain name with a static public IP for both the primary and secondary node types. Bring your own load balancer allows you to use an existing Azure Load Balancer for secondary node types for both inbound and outbound traffic. When you bring your own Azure Load Balancer, you can:
 
-* Use a pre-configured Load Balancer static IP address for either private or public traffic
+* Use a preconfigured Load Balancer static IP address for either private or public traffic
 * Map a Load Balancer to a specific node type
 * Configure network security group rules per node type because each node type is deployed in its own subnet
 * Maintain existing policies and controls you may have in place
@@ -651,7 +651,7 @@ To configure with your own load balancer:
 
 <a id="accelnet"></a>
 ## Enable Accelerated Networking
-Accelerated networking enables single root I/O virtualization (SR-IOV) to a virtual machine scale set VM that is the underlying resource for node types. This high-performance path bypasses the host from the data path, which reduces latency, jitter, and CPU utilization for the most demanding network workloads. Service Fabric managed cluster node types can be provisioned with Accelerated Networking on [supported VM SKUs](../virtual-machines/sizes.md). Reference this [limitations and constraints](../virtual-network/accelerated-networking-overview.md#limitations-and-constraints) for additional considerations. 
+Accelerated networking enables single root I/O virtualization (SR-IOV) to a virtual machine scale set VM that is the underlying resource for node types. This high-performance path bypasses the host from the data path, which reduces latency, jitter, and CPU utilization for the most demanding network workloads. Service Fabric managed cluster node types can be provisioned with Accelerated Networking on [supported VM SKUs](../virtual-machines/sizes.md). Reference these [limitations and constraints](../virtual-network/accelerated-networking-overview.md#limitations-and-constraints) for additional considerations. 
 
 * Note that Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs. On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs.
 
