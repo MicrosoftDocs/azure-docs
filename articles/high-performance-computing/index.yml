@@ -49,7 +49,6 @@ highlightedContent:
 # Azure Services
 productDirectory:
   title: HPC Components and Services # < 60 chars (optional)
-  # summary: # < 160 chars (optional)
   items:
     # Card
     - title: HPC Compute VM Sizes
@@ -69,7 +68,7 @@ productDirectory:
           text: Azure HPC Cache
         - url: ../azure-netapp-files/azure-netapp-files-introduction.md#Overview
           text: Azure NetApp Files
-        - url: /azure/azure-managed-lustre/amlfs-overview.md
+        - url: /azure/azure-managed-lustre/amlfs-overview
           text: Azure Managed Lustre
     # Card
     - title: HPC Related Services
@@ -77,19 +76,17 @@ productDirectory:
       links:
         - url: ../batch/batch-technical-overview.md
           text: Azure Batch
-        - url: /azure/cyclecloud/overview.md
+        - url: /azure/cyclecloud/overview
           text: Azure CycleCloud
         - url: ../virtual-machines/sizes.md
           text: Azure VM Sizes          
 
 # Documentation Content
-how-toContent:
-  # Supports up to 3 subsections
-  sections:
-    - title: HPC Documentation # < 60 chars (Optional; Remove if not applicable.)
-      #summary: See Azure HPC solutions, tutorials, guides and resources # < 160 chars (Optional; Remove if not applicable.)
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+    - title: HPC Documentation # < 60 chars (optional)
+      summary: See Azure HPC solutions, tutorials, guides and resources # < 160 chars (Optional; Remove if not applicable.)
       items:
-        # Card
         - title: HPC Infra
           links:
             - url: ../virtual-machines/overview.md
@@ -104,7 +101,6 @@ how-toContent:
             - url: /azure/expressroute/expressroute-introduction
               itemType: concept
               text: Azure ExpressRoute       
-        # Card
         - title: Storage
           links:
             - url: ../hpc-cache/hpc-cache-netapp.md
@@ -119,7 +115,6 @@ how-toContent:
             - url: /azure/azure-managed-lustre/blob-integration
               itemType: concept
               text: Use Azure Blob storage with an Azure Managed Lustre file system              
-        # Card
         - title: HPC Scenarios & Frameworks 
           links:
             - url: /azure/architecture/example-scenario/infrastructure/video-rendering/
@@ -135,8 +130,8 @@ how-toContent:
               itemType: overview
               text: HPC Deployments
               
-  title: Take the Next Step # < 60 chars (optional)
-  # summary: # < 160 chars (optional)
+ - title: Take the Next Step # < 60 chars (optional)
+   summary: Prepare your organization with Cloud Adoption Framework. # < 160 chars (optional)
   items:
     # Card
     - title: Landing Zone Accelarators
@@ -148,7 +143,7 @@ how-toContent:
         - url: https://azure.github.io/az-hop/
           text: HPC OnDemand Platform Zone
     # Card
-    - title: Cloud Adoption
+    - title: Cloud Adoption Framework
       links:
         - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/
           text: Cloud Adoption Scenarios
@@ -161,9 +156,8 @@ how-toContent:
           text: Azure FastTrack
 
 
-# Resources
+tools:
   title: HPC Resources # < 60 chars (optional)
-  # summary: # < 160 chars (optional)
   items:
     # Card
     - title: Microsoft HPC Channels
@@ -200,14 +194,12 @@ how-toContent:
 
 # Video Playlists and other links
 additionalContent:
-  # Supports up to 4 subsections
   sections:
     - title: HPC Video Content # < 60 chars (Optional; Remove if not applicable.)
       summary: Learn more about Azure HPC with various video content and events # < 160 chars (Optional; Remove if not applicable.)
       items:
         # Card
         - title: HPC Business Strategy
-          #summary:
           links:
             - text: "Azure HPC+AI Platform Overview"
               url: https://www.youtube.com/watch?v=V0-laXwBI7I
@@ -219,7 +211,6 @@ additionalContent:
               url: https://aka.ms/HPCBusinessStrategy
         # Card
         - title: HPC Deep Dives
-          #summary:
           links:
             - text: "Comparing cloud platform performance for HPC+AI workloads"
               url: https://www.youtube.com/watch?v=4-0TYA7Po2A
@@ -229,9 +220,8 @@ additionalContent:
               url: https://www.youtube.com/watch?v=L4aGCOEvRJQ
             - text: "Want to learn more? Check out the 'HPC Deep Dives' playlist!"
               url: https://aka.ms/HPCDeepDives
-          # Card
+        # Card
         - title: HPC Partners
-          #summary:
           links:
             - text: "Deploying, Benchmarking & Visualising Workflows in a AMD HPC cluster in Azure"
               url: https://www.youtube.com/watch?v=qUQFWbVnbsU
@@ -241,9 +231,8 @@ additionalContent:
               url: https://www.youtube.com/watch?v=1GjWhGrPI_A
             - text: "Want to learn more? Check out the 'HPC Partners' playlist!"
               url: https://aka.ms/HPCPartners
-          # Card
+        # Card
         - title: HPC Events
-          #summary:
           links:
             - text: "Azure HPC+Al Day Keynote"
               url: https://www.youtube.com/watch?v=YeCHFabuBMo
