@@ -41,15 +41,15 @@ Follow these instructions to install Azure Container Storage using an installati
 1. Navigate to the directory where the file is saved using the `cd` command. For example, `cd C:\Users\Username\Downloads`.
 
 1. Change any parameters in the script that you need to. Only the resource group name is required. All other parameters are optional and will default to the values from your configuration.
-
+   
    | **Flag** | **Parameter**      | **Description** |
    |------|----------------|-------------|
    | -s   | --subscription | The subscription identifier. Defaults to the current subscription. |
-   | -g   | --resource-group (required) | The resource group name. |
+   | -g   | --resource-group | The resource group name (required). |
    | -c   | --cluster-name | The name of the cluster where ACStor is to be installed. |
    | -n   | --nodepool-name | The name of the nodepool. Defaults to the first nodepool in the cluster. |
    | -r   | --release-train | The release train for the installation. Defaults to prod. |
-
+   
 1. Run the following command to change the file permissions:
 
    ```bash
