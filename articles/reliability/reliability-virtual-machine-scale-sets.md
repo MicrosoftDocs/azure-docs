@@ -181,6 +181,7 @@ The scale set and supporting resources, such as the Azure load balancer and publ
 The following example creates a single-zone scale set named *myScaleSet* in zone *1*:
 
 ```azurecli
+
 az vmss create \
     --resource-group myResourceGroup \
     --name myScaleSet \
