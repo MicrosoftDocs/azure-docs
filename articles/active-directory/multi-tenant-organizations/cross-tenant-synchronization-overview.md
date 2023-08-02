@@ -52,6 +52,10 @@ With cross-tenant synchronization, you can do the following:
 
 Users created by cross-tenant synchronization will have the same experience when accessing Microsoft Teams and other Microsoft 365 services as B2B collaboration users created through a manual invitation. Microsoft Teams currently does not support the userType `member` with shared channels. If your organization uses shared channels, please create users with type `guest`. Please see the [known issues](../app-provisioning/known-issues.md) document for additional details. Over time, the `member` userType will be used by the various Microsoft 365 services to provide differentiated end user experiences for users in a multi-tenant organization.
 
+## Power BI
+
+Support for UserType Member in Power BI is currently in preview. For more information, see [Distribute Power BI content to external guest users with Azure AD B2B](/power-bi/enterprise/service-admin-azure-ad-b2b). 
+
 ## Properties
 
 When you configure cross-tenant synchronization, you define a trust relationship between a source tenant and a target tenant. Cross-tenant synchronization has the following properties:
