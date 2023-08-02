@@ -34,7 +34,7 @@ The following steps explain how to roll back your Windows Server configuration t
 
     ![Choose this server option to restore the data to the same machine](./media/backup-azure-restore-system-state/samemachine.png)
 
-   If you've enabled Cross Region Restore (preview) and want to restore from the secondary region, select **Secondary Region**. Else, select **Primary Region**.
+   If you have enabled Cross Region Restore (preview) and want to restore from the secondary region, select **Secondary Region**. Else, select **Primary Region**.
 
    :::image type="content" source="./media/backup-azure-restore-windows-server/select-source-region-for-restore.png" alt-text="Screenshot shows the selection of the source region of recovery point.":::
 

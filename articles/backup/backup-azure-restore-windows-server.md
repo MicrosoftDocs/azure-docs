@@ -40,7 +40,7 @@ If you accidentally deleted a file and want to restore it to the same machine (f
 
     ![Screenshot of Recover Data Wizard Getting Started page (restore to same machine)](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-   If you've enabled Cross Region Restore (preview) and want to restore from the secondary region, select **Secondary Region**. Otherwise, select **Primary Region**.
+   If you have enabled Cross Region Restore (preview) and want to restore from the secondary region, select **Secondary Region**. Else, select **Primary Region**.
 
    :::image type="content" source="./media/backup-azure-restore-windows-server/select-source-region-for-restore.png" alt-text="Screenshot shows the selection of the source region of recovery point.":::
 

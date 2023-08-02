@@ -13,7 +13,7 @@ This article explains how to restore all backed-up files in an entire volume usi
 
 - Restore all backed-up files in a volume to the same machine from which the backups were taken.
 - Restore all backed-up files in a volume to an alternate machine.
-- If you've Cross Region Restore enabled in your vault, you can restore the backup data from the secondary region.
+- If you have Cross Region Restore enabled in your vault, you can restore the backup data from the secondary region.
 - If you want to use Cross Region Restore to restore the backup data from the secondary region, you need to download the Secondary Region vault credential file from the Azure portal, and then pass the file in the MARS agent.
 
 >[!TIP]
@@ -35,7 +35,7 @@ The following steps will help you recover all backed-up files in a volume:
 
     ![Getting started page](./media/restore-all-files-volume-mars/same-machine-instant-restore.png)
 
-   If you've enabled Cross Region Restore (preview) and want to restore from the secondary region, select **Secondary Region**. Otherwise, select **Primary Region**.
+   If you have enabled Cross Region Restore (preview) and want to restore from the secondary region, select **Secondary Region**. Otherwise, select **Primary Region**.
 
    :::image type="content" source="./media/backup-azure-restore-windows-server/select-source-region-for-restore.png" alt-text="Screenshot shows the selection of the source region of recovery point.":::
 
