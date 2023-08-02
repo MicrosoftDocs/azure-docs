@@ -42,7 +42,7 @@ After you roll out passwordless credentials to your users, consider reducing the
 
 You can configure hybrid Azure AD join for existing Active Directory-joined Windows clients to benefit from cloud-based security features such as [co-management](/mem/configmgr/comanage/overview), Conditional Access, and Windows Hello for Business. New devices should be Azure AD joined and not hybrid Azure AD joined.
 
-To learn more, check [Plan your hybrid Azure Active Directory join implementation](../devices/hybrid-azuread-join-plan.md).
+To learn more, check [Plan your hybrid Azure Active Directory join implementation](../devices/hybrid-join-plan.md).
 
 ## Next steps
 

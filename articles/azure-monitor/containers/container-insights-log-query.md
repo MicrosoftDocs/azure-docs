@@ -622,22 +622,9 @@ The required tables for this chart include KubeNodeInventory, KubePodInventory, 
 
 ## Resource logs
 
-Resource logs for AKS are stored in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table. You can distinguish different logs with the **Category** column. For a description of each category, see [AKS reference resource logs](../../aks/monitor-aks-reference.md). The following examples require a diagnostic extension to send resource logs for an AKS cluster to a Log Analytics workspace. For more information, see [Configure monitoring](../../aks/monitor-aks.md#configure-monitoring).
+For details on resource logs for AKS clusters, see [Collect control plane logs](../../aks/monitor-aks.md#resource-logs).
 
-### API server logs
 
-```kusto
-AzureDiagnostics 
-| where Category == "kube-apiserver"
-```
-
-### Count logs for each category
-
-```kusto
-AzureDiagnostics
-| where ResourceType == "MANAGEDCLUSTERS"
-| summarize count() by Category
-```
 
 ## Prometheus metrics
 

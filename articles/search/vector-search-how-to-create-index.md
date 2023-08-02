@@ -19,7 +19,9 @@ In Azure Cognitive Search, vector data is indexed as *vector fields* within a [s
 
 + A vector field is of type `Collection(Edm.Single)` so that it can hold  single-precision floating-point values. It also has a "dimensions" property and a "vectorConfiguration" property.
 
-+ A vector configuration specifies the algorithm and parameters used during query execution to find the nearest neighbors in a similarity search. You can have multiple configurations within an index, but each vector field is assigned to just one.
++ A vector configuration specifies the algorithm and parameters used during indexing to create the proximity graph. The supported algorithm is Hierarchical Navigable Small World (HNSW).
+
+During indexing, HNSW determines how closely the vectors match and stores the neighborhood information among vectors in the index. You can have multiple configurations within an index if you want different parameter combinations. As long as the vector fields contain embeddings from the same model, having a different vector configuration per field is insignificant at query time.
 
 ## Prerequisites
 
@@ -29,9 +31,7 @@ In Azure Cognitive Search, vector data is indexed as *vector fields* within a [s
 
 + Pre-existing vector embeddings in your source documents. Cognitive Search doesn't generate vectors. We recommend [Azure OpenAI embedding models](/azure/ai-services/openai/concepts/models#embeddings-models) but you can use any model for vectorization. 
 
-+ You should know the dimensions limit of the model used to create the embeddings and how similarity is computed. For **text-embedding-ada-002**, the length of the numerical vector is 1546. Similarity is computed using `cosine`.
-
-A short example of a documents payload that includes vector and non-vector fields is in the [load vector data](#load-vector-data-for-indexing) section of this article.
++ You should know the dimensions limit of the model used to create the embeddings and how similarity is computed. For **text-embedding-ada-002**, the length of the numerical vector is 1536. Similarity is computed using `cosine`.
 
 > [!NOTE]
 > During query execution, your workflow must call an embedding model that converts the user's query string into a vector. Be sure to use the same embedding model for both queries and indexing. For more information, see [Create and use embeddings for search queries and documents](vector-search-how-to-generate-embeddings.md).
@@ -52,18 +52,17 @@ Make sure your documents:
 
 Your search index should include fields and content for all of the query scenarios you want to support. Suppose you want to search or filter over product names, versions, metadata, or addresses. In this case, similarity search isn't especially helpful. Keyword search, geo-search, or filters would be a better choice. A search index that includes a comprehensive field collection of vector and non-vector data provides maximum flexibility for query construction and response composition.
 
+A short example of a documents payload that includes vector and non-vector fields is in the [load vector data](#load-vector-data-for-indexing) section of this article.
+
 ## Add a vector field to the fields collection
 
 The schema must include fields for the document key, vector fields, and any other fields that you require for hybrid search scenarios. 
-
-> [!NOTE]
-> Vectors are added to fields in a search index. Internally, a *vector index* is created for each vector field, but those indexes are considered internal. In Cognitive Search, indexing and query workloads target the fields in a search index, and not the vector indexes directly.
 
 ### [**Azure portal**](#tab/portal-add-field)
 
 You can use the index designer in the Azure portal to add vector field definitions. If the index doesn't have a vector configuration, you're prompted to create one when you add your first vector field to the index.
 
-Currently, there's no portal support for loading vector data into fields.
+Although you can add a field definition, there's no portal support for loading vectors into fields. Use the REST APIs or an SDK for data import.
 
 1. [Sign in to Azure portal](https://portal.azure.com) and open your search service page in a browser.
 
@@ -90,7 +89,7 @@ Currently, there's no portal support for loading vector data into fields.
    **Key points**:
 
    + Name the configuration. The name must be unique within the index.
-   + "hnsw" is the Approximate Nearest Neighbors (ANN) algorithm used to find similar vectors. Currently, only Hierarchical Navigable Small World (HNSW) is supported. 
+   + "hnsw" is the Approximate Nearest Neighbors (ANN) algorithm used to create the proximity graph during indexing. Currently, only Hierarchical Navigable Small World (HNSW) is supported. 
    + "Bi-directional link count" default is 4. The range is 2 to 100. Lower values should return less noise in the results. 
    + "efConstruction" default is 400. It's the number of nearest neighbors used during indexing.
    + "efSearch default is 500. It's the number of nearest neighbors used during search.
@@ -134,11 +133,11 @@ Updating an existing index with vector fields requires `allowIndexDowntime` quer
    + Provide the name of the vector search algorithm configuration.
    + Provide the number of dimensions generated by the embedding model.
    + "searchable" must be "true".
-   + "retrievable" set to "true" allows you to display the raw vectors (for example, as a verification step), but doing so will increase storage. Set to "false" if you don't need to return raw vectors. You don't need to return vectors for a query, but if you're passing a vector result to a downstream app then set "retrievable" to "true".
+   + "retrievable" set to "true" allows you to display the raw vectors (for example, as a verification step), but doing so increases storage. Set to "false" if you don't need to return raw vectors. You don't need to return vectors for a query, but if you're passing a vector result to a downstream app then set "retrievable" to "true".
 
 1. Add other fields that define the substance and structure of the textual content you're indexing. At a minimum, you need a document key. 
 
-   You should also add fields that are useful in the query or in its response. The example below shows vector fields for title and content ("titleVector", "contentVector") that are equivalent to vectors. It also provides fields for equivalent textual content ("title", "content") useful for sorting, filtering, and reading in a search result.
+   You should also add fields that are useful in the query or in its response. The following example shows vector fields for title and content ("titleVector", "contentVector") that are equivalent to vectors. It also provides fields for equivalent textual content ("title", "content") useful for sorting, filtering, and reading in a search result.
 
    An index definition with the described elements looks like this:
 
@@ -280,7 +279,11 @@ For validation purposes, you can query the index using Search Explorer in Azure 
 
 ### [**Azure portal**](#tab/portal-add-field)
 
-Use Search Explorer and an empty search (`search=*`) on the search index containing vector fields to return vectors in plain text. Search Explorer can't convert vectors to human readable content, but it's useful if you want to quickly confirm that your vector data is loaded.
+You can use [Search Explorer](search-explorer.md) to query an index that contains vector fields. However, the query string in Search Explorer is plain text and isn't converted to a vector, so you can't use Search Explorer to test vector queries, but you can verify that data import occurred and that vector fields are populated with the expected numeric values.
+
+Fields must be attributed as "retrievable" to be included in the results.
+
+You can issue an empty search (`search=*`) to return all fields, including vector fields. You can also `$select` specific fields for the result set.
 
 ### [**REST API**](#tab/rest-add-field)
 

@@ -35,7 +35,7 @@ Organizations with compliance requirements or risk management plans have sensiti
 
 In this section, you'll write down the organizational policies you plan to use to determine access to the application. You can record this as a table in a spreadsheet, for example
 
-|App Role|Prerequisite for access|Approvers|Default duration of access|Separation of duties constraints|Conditional access policies|
+|App Role|Prerequisite for access|Approvers|Default duration of access|Separation of duties constraints|Conditional Access policies|
 |:--|-|-|-|-|-|
 |*Western Sales*|Member of sales team|user's manager|Yearly review|Cannot have *Eastern Sales* access|Multifactor authentication (MFA) and registered device required for access|
 |*Western Sales*|Any employee outside of sales|head of Sales department|90 days|N/A|MFA and registered device required for access|
