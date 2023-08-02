@@ -1,5 +1,5 @@
 ---
-title: Enable and Configure the Defender for Storage plan at scale using REST API
+title: Enable and Configure the Microsoft Defender for Storage plan at scale using REST API
 description: Learn how to enable the Defender for Storage on your Azure subscription for Microsoft Defender for Cloud using REST API.
 ms.topic: install-set-up-deploy
 ms.date: 08/01/2023
