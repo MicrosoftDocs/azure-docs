@@ -84,7 +84,7 @@ productDirectory:
 # Documentation Content
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
-    - title: HPC Documentation # < 60 chars (optional)
+      title: HPC Documentation # < 60 chars (optional)
       summary: See Azure HPC solutions, tutorials, guides and resources # < 160 chars (Optional; Remove if not applicable.)
       items:
         - title: HPC Infra
@@ -130,8 +130,8 @@ conceptualContent:
               itemType: overview
               text: HPC Deployments
               
- - title: Take the Next Step # < 60 chars (optional)
-   summary: Prepare your organization with Cloud Adoption Framework. # < 160 chars (optional)
+  title: Take the Next Step # < 60 chars (optional)
+  summary: Prepare your organization with Cloud Adoption Framework. # < 160 chars (optional)
   items:
     # Card
     - title: Landing Zone Accelarators
