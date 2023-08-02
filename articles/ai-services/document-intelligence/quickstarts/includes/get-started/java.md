@@ -166,7 +166,7 @@ public static void main(String[] args) {FormRecognizerClient recognizerClient = 
 
 ## **Try it**: Prebuilt model
 
-This sample demonstrates how to analyze data from certain types of common documents with pre-trained models, using an invoice as an example.
+This sample demonstrates how to analyze data from certain types of common documents with pretrained models, using an invoice as an example.
 
 > [!div class="checklist"]
 >

@@ -102,7 +102,7 @@ You receive a `200 (success)` response with JSON content.
 See the following invoice image and its corresponding JSON output.
 
 * The `"readResults"` node contains every line of text with its respective bounding box placement on the page.
-* The `selectionMarks` node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
+* The `selectionMarks` node shows every selection mark (checkbox, radio mark) and whether its status is `selected` or `unselected`.
 * The `"pageResults"` section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
 
 :::image type="content" source="../../../media/contoso-invoice.png" alt-text="Contoso project statement document with a table.":::
