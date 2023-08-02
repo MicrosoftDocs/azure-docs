@@ -131,7 +131,8 @@ There's nothing specific about how you use Custom Speech with BYOS-enabled Speec
 
 - `customspeech-models` - Location of Custom Speech models
 - `customspeech-artifacts` - Location of all other Custom Speech related data 
-  - Custom Speech data is located in all subfolders of the container, except for `TranscriptionData`. This subfolder contains Batch transcription results.
+
+Note that the Blob container structure is provided for your information only and subject to change without a notice.
 
 > [!CAUTION]
 > Speech service relies on pre-defined Blob container paths and file names for Custom Speech module to correctly function. Don't move, rename or in any way alter the contents of `customspeech-models` container and Custom Speech related folders of `customspeech-artifacts` container.
