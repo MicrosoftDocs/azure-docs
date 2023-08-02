@@ -33,6 +33,8 @@ Each level provides availability and performance tradeoffs. The following image 
 
 :::image type="content" source="./media/consistency-levels/five-consistency-levels.png" alt-text="Diagram of consistency as a spectrum starting with Strong and going to higher availability & throughput along with lower latency with Eventual." border="false" :::
 
+As account consistency changes in Cosmos DB, developers should be prepared to redeploy the applications and make necessary code modifications to apply these changes.
+
 ## Consistency levels and Azure Cosmos DB APIs
 
 Azure Cosmos DB provides native support for wire protocol-compatible APIs for popular databases. These include MongoDB, Apache Cassandra, Apache Gremlin, and Azure Table Storage. In API for Gremlin or Table, the default consistency level configured on the Azure Cosmos DB account is used. For details on consistency level mapping between Apache Cassandra and Azure Cosmos DB, see [API for Cassandra consistency mapping](cassandra/consistency-mapping.md). For details on consistency level mapping between MongoDB and Azure Cosmos DB, see [API for MongoDB consistency mapping](mongodb/consistency-mapping.md).
@@ -95,6 +97,8 @@ The following graphic illustrates the bounded staleness consistency with musical
 ### Session consistency
 
 In session consistency, within a single client session, reads are guaranteed to honor the read-your-writes, and write-follows-reads guarantees. This guarantee assumes a single “writer” session or sharing the session token for multiple writers.
+
+Session Tokens in Cosmos DB are container-bound, meaning they are exclusively associated with the container they are generated for. Avoid using Session Tokens from one container on another.
 
 Like all consistency levels weaker than Strong, writes are replicated to a minimum of three replicas (in a four replica set) in the local region, with asynchronous replication to all other regions.
 
