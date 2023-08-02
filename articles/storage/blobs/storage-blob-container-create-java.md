@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 08/02/2023
 ms.author: pauljewell
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
@@ -16,6 +16,12 @@ ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 # Create a blob container with Java
 
 Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create containers with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
+
+## Prerequisites
+
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Java. To learn about setting up your project, including package installation, adding `import` directives, and creating an authorized client object, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to create a blob container. To learn more, see the authorization guidance for the following REST API operation:
+    - [Create Container](/rest/api/storageservices/create-container#authorization)
 
 ## Name a container
 

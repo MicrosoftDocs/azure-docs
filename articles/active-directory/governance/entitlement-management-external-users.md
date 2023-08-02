@@ -31,7 +31,9 @@ This article describes the settings you can specify to govern access for externa
 
 When using the [Azure AD B2B](../external-identities/what-is-b2b.md) invite experience, you must already know the email addresses of the external guest users you want to bring into your resource directory and work with. Directly inviting each user works great when you're working on a smaller or short-term project and you already know all the participants, but this process is harder to manage if you have lots of users you want to work with, or if the participants change over time.  For example, you might be working with another organization and have one point of contact with that organization, but over time additional users from that organization will also need access.
 
-With entitlement management, you can define a policy that allows users from organizations you specify to be able to self-request an access package. That policy includes whether approval is required, whether access reviews are required, and an expiration date for the access. If approval is required, you might consider inviting one or more users from the external organization to your directory, designating them as sponsors, and configuring that sponsors are approvers - since they're likely to know which external users from their organization need access. Once you've configured the access package, obtain the access package's request link so you can send that link to your contact person (sponsor) at the external organization. That contact can share with other users in their external organization, and they can use this link to request the access package. Users from that organization who have already been invited into your directory can also use that link.
+With entitlement management, you can define a policy that allows users from organizations you specify to be able to self-request an access package. That policy includes whether approval is required, whether access reviews are required, and an expiration date for the access. In most cases, you will want to require approval, in order to have appropriate oversight over which users are brought into your directory. If approval is required, then for major external organization partners, you might consider inviting one or more users from the external organization to your directory, designating them as sponsors, and configuring that sponsors are approvers - since they're likely to know which external users from their organization need access. Once you've configured the access package, obtain the access package's request link so you can send that link to your contact person (sponsor) at the external organization. That contact can share with other users in their external organization, and they can use this link to request the access package. Users from that organization who have already been invited into your directory can also use that link.
+
+You can also use entitlement management for bringing in users from organizations that do not have their own Azure AD directory.  You can configure a federated identity provider for their domain, or use email-based authentication.  You can also bring in users from social identity providers, including those with Microsoft accounts.
 
 Typically, when a request is approved, entitlement management provisions the user with the necessary access. If the user isn't already in your directory, entitlement management will first invite the user. When the user is invited, Azure AD will automatically create a B2B guest account for them but won't send the user an email. An administrator may have previously limited which organizations are allowed for collaboration, by setting a [B2B allow or blocklist](../external-identities/allow-deny-list.md) to allow or block invites to other organization's domains.  If the user's domain isn't allowed by those lists, then they won't be invited and can't be assigned access until the lists are updated.
 
@@ -43,15 +45,15 @@ The following diagram and steps provide an overview of how external users are gr
 
 ![Diagram showing the lifecycle of external users](./media/entitlement-management-external-users/external-users-lifecycle.png)
 
-1. You [add a connected organization](entitlement-management-organization.md) for the Azure AD directory or domain you want to collaborate with.
+1. You [add a connected organization](entitlement-management-organization.md) for the Azure AD directory or domain you want to collaborate with.  You can also configure a connected organization for a social identity provider.
 
-1. You create an access package in your directory that includes a policy [For users not in your directory](entitlement-management-access-package-create.md#allow-users-in-your-directory-to-request-the-access-package).
+1. You create an access package in your directory that includes a policy [For users not in your directory](entitlement-management-access-package-create.md#allow-users-in-your-directory-to-request-the-access-package) and specifies the approver and lifecycle settings.
 
 1. You send a [My Access portal link](entitlement-management-access-package-settings.md) to your contact at the external organization that they can share with their users to request the access package.
 
 1. An external user (**Requestor A** in this example) uses the My Access portal link to [request access](entitlement-management-request-access.md) to the access package. How the user signs in depends on the authentication type of the directory or domain that's defined in the connected organization and in the external users settings.
 
-1. An approver [approves the request](entitlement-management-request-approve.md) (or the request is autoapproved).
+1. An approver [approves the request](entitlement-management-request-approve.md) (assuming the policy requires approval).
 
 1. The request goes into the [delivering state](entitlement-management-process.md).
 
