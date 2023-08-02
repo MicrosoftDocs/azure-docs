@@ -310,7 +310,7 @@ Service Fabric managed clusters automatically creates load balancer probes for f
 > [!NOTE]
 > Currently, only public IPv4 is supported.
 
-Service Fabric managed cluster nodes don't require their own public IP addresses for communication. However, some scenarios may require a node to have its own public IP address. For example:
+Service Fabric managed cluster nodes don't require their own public IP addresses for communication. However, some scenarios may require a node to have its own public IP address to communicate with the internet and public-facing Azure services. For example:
 
 * Gaming, where a console needs to make a direct connection to a cloud virtual machine that is doing game physics processing.
 * Virtual machines that need to make external connections to one another across regions in a distributed database.
@@ -318,6 +318,8 @@ Service Fabric managed cluster nodes don't require their own public IP addresses
 For more information about outbound connections in Azure, see [Understand outbound connections](../load-balancer/load-balancer-outbound-connections.md).
 
 Public IP can only be enabled on secondary node types, because primary node types are reserved for Service Fabric system services. Follow the steps in the [Bring your own load balancer section of this article](#bring-your-own-azure-load-balancer) to create a secondary node type for your managed cluster.
+
+Azure dynamically assigns available IP addresses.
 
 > [!NOTE]
 > Enabling public IP is only supported via ARM template.
