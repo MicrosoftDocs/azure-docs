@@ -100,7 +100,7 @@ SMB has the following characteristics:
 
 For frequently asked questions regarding SMB in Azure NetApp Files, see the [Azure NetApp Files SMB FAQ](faq-smb.md). 
 
-## Dual protocol
+## Dual protocols
 
 Some organizations have pure Windows or pure UNIX environments (homogenous) in which all data is accessed using only one of the following approaches:
 
@@ -165,7 +165,7 @@ In this instance, `user1` gets full control on their own folder (`user1-dir`) an
 
 When you use Azure NetApp Files volumes for both SMB and NFS access, some considerations apply:
 
-* You need an Active Directory connection. As such, you need to meet the [Requirements for Active Directory connections](create-active-directory-connections.md#requirements-for-active-directory-connections.md).
+* You need an Active Directory connection. As such, you need to meet the [Requirements for Active Directory connections](create-active-directory-connections.md#requirements-for-active-directory-connections).
 * Dual-protocol volumes require a reverse lookup zone in DNS with an associated pointer (PTR) record of the AD host machine to prevent dual-protocol volume creation failures.
 * Your NFS client and associated packages (such as `nfs-utils`) should be up to date for the best security, reliability and feature support.
 * Dual-protocol volumes support both Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (AADDS).
