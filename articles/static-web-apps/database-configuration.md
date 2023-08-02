@@ -126,7 +126,7 @@ The following code shows you how to use a folder named *db-config* for the datab
 app_location: "/src"
 api_location: "api"
 output_location: "/dist"
-data_api_location: "db-config" # Folder holding the staticwebapps.database.config.json file
+data_api_location: "db-config" # Folder holding the staticwebapp.database.config.json file
 ```
 
 

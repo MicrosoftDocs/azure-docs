@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.0.0'
+monikerRange: '<=doc-intel-3.1.0'
 ---
 
 
@@ -18,7 +18,7 @@ monikerRange: '<=doc-intel-3.0.0'
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD051 -->
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 [!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
 ::: moniker-end
 
@@ -28,10 +28,10 @@ monikerRange: '<=doc-intel-3.0.0'
 
 Azure AI Document Intelligence is an Azure AI service that lets you build automated data processing software using machine-learning technology. Document Intelligence enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your form documents. The results are delivered as structured data that includes the relationships in the original file.
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 In this article you learn how to download, install, and run Document Intelligence containers. Containers enable you to run the Document Intelligence service in your own environment. Containers are great for specific security and data governance requirements.
 
-* **Read**, **Layout**, **General Document**, **ID Document**,  **Receipt**, **Invoice**, and **Custom** models are supported by Document Intelligence v3.0 containers.
+* **Read**, **Layout**, **General Document**, **ID Document**,  **Receipt**, **Invoice**, **Business Card**, and **Custom** models are supported by Document Intelligence v3.0 containers.
 
 * **Business Card** model is currently only supported in the [v2.1 containers](install-run.md?view=doc-intel-2.1.0&preserve-view=true).
 
@@ -72,7 +72,7 @@ You also need the following to use Document Intelligence containers:
 |**Azure CLI (command-line interface)** | The [Azure CLI](/cli/azure/install-azure-cli) enables you to use a set of online commands to create and manage Azure resources. It's available to install in Windows, macOS, and Linux environments and can be run in a Docker container and Azure Cloud Shell. |
 
 :::moniker range="doc-intel-2.1.0"
-You also need a **Azure AI Vision API resource to process business cards, ID documents, or Receipts**.
+You also need an **Azure AI Vision API resource to process business cards, ID documents, or Receipts**.
 
 * You can access the Recognize Text feature as either an Azure resource (the REST API or SDK) or a **cognitive-services-recognize-text** [container](../../../ai-services/Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image).
 
@@ -90,7 +90,7 @@ You also need a **Azure AI Vision API resource to process business cards, ID doc
 
 ## Request approval to run container
 
-Complete and submit the [**Azure AI services Application for Gated Services**](https://aka.ms/csgate) to request access to the container.
+Complete and submit the [**Azure AI services application for Gated Services**](https://aka.ms/csgate) to request access to the container.
 
 [!INCLUDE [Request access to public preview](../../../../includes/cognitive-services-containers-request-access.md)]
 
@@ -119,16 +119,17 @@ The following table lists the supporting container(s) for each Document Intellig
 | **Custom** | **Custom API**, **Custom Supervised**, **Lay&#8203;out**|
 :::moniker-end
 
-:::moniker range="doc-intel-3.0.0"
+:::moniker range=">=doc-intel-3.0.0"
 Feature container | Supporting container(s) |
 |---------|-----------|
 | **Read** | Not required |
 | **Layout** | Not required|
-| **General Document** | **Lay&#8203;out** |
-| **Invoice** | **Lay&#8203;out**|
-| **Receipt** | **Read** |
+| **Business Card** | **Read**|
+| **General Document** | **Layout** |
+| **Invoice** | **Layout**|
+| **Receipt** | **Read** or **Layout** |
 | **ID Document** | **Read**|
-| **Custom Template** | **Lay&#8203;out** |
+| **Custom Template** | **Layout** |
 
 :::moniker-end
 
@@ -138,7 +139,7 @@ Feature container | Supporting container(s) |
 >
 > The minimum and recommended values are based on Docker limits and *not* the host machine resources.
 
-:::moniker range="doc-intel-3.0.0"
+:::moniker range=">=doc-intel-3.0.0"
 
 ##### Document Intelligence containers
 
@@ -146,6 +147,7 @@ Feature container | Supporting container(s) |
 |-----------|---------|-------------|
 | `Read` | `8` cores, 10-GB memory | `8` cores, 24-GB memory|
 | `Layout` | `8` cores, 16-GB memory | `8` cores, 24-GB memory |
+| `Business Card` | `8` cores, 16-GB memory | `8` cores, 24-GB memory |
 | `General Document` | `8` cores, 12-GB memory | `8` cores, 24-GB memory|
 | `ID Document` | `8` cores, 8-GB memory | `8` cores, 24-GB memory |
 | `Invoice` | `8` cores, 16-GB memory | `8` cores, 24-GB memory|
@@ -203,7 +205,7 @@ The following host machine requirements are applicable to **train and analyze** 
 > [!IMPORTANT]
 > The keys are used to access your Document Intelligence resource. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service.
 
-:::moniker range="doc-intel-3.0.0"
+:::moniker range=">=doc-intel-3.0.0"
 
 ### [Read](#tab/read)
 
@@ -220,7 +222,7 @@ services:
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
       - apiKey={FORM_RECOGNIZER_KEY}
     ports:
-      - "5000:5000"
+      - "5000:5050"
     networks:
       - ocrvnet
 networks:
@@ -250,7 +252,7 @@ services:
         - apiKey={FORM_RECOGNIZER_KEY}
         - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
     ports:
-      - "5000:5000"
+      - "5000:5050"
   azure-cognitive-service-layout:
      container_name: azure-cognitive-service-layout
      image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0
@@ -283,7 +285,7 @@ services:
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
       - apiKey={FORM_RECOGNIZER_KEY}
     ports:
-      - "5000:5000"
+      - "5000:5050"
     networks:
       - ocrvnet
 networks:
@@ -313,7 +315,7 @@ services:
         - apiKey={FORM_RECOGNIZER_KEY}
         - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
     ports:
-      - "5000:5000"
+      - "5000:5050"
   azure-cognitive-service-layout:
     container_name: azure-cognitive-service-layout
     image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0
@@ -345,7 +347,7 @@ services:
         - apiKey={FORM_RECOGNIZER_KEY}
         - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
     ports:
-          - "5000:5000"
+          - "5000:5050"
     azure-cognitive-service-read:
       container_name: azure-cognitive-service-read
       image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/read-3.0
@@ -377,7 +379,7 @@ services:
           - apiKey={FORM_RECOGNIZER_KEY}
           - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
       ports:
-          - "5000:5000"
+          - "5000:5050"
   azure-cognitive-service-read:
       container_name: azure-cognitive-service-read
       image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/read-3.0
@@ -407,7 +409,7 @@ services:
         - apiKey={FORM_RECOGNIZER_KEY}
         - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
     ports:
-      - "5000:5000"
+      - "5000:5050"
   azure-cognitive-service-layout:
     container_name: azure-cognitive-service-layout
     image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0
@@ -579,7 +581,7 @@ services:
   volumes:
     - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf
   ports:
-    - "5000:5000"
+    - "5000:5050"
  layout:
   container_name: azure-cognitive-service-layout
   image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0:latest
@@ -704,7 +706,7 @@ $b64String = [System.Convert]::ToBase64String($bytes, [System.Base64FormattingOp
 Use the build model API to post the request.
 
 ```http
-POST http://localhost:5000/formrecognizer/documentModels:build?api-version=2022-08-31
+POST http://localhost:5000/formrecognizer/documentModels:build?api-version=2023-07-31
 
 {
     "modelId": "mymodel",
@@ -780,7 +782,7 @@ services:
       - apiKey={FORM_RECOGNIZER_KEY}
       - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
     ports:
-      - "5000:5000"
+      - "5000:5050"
     networks:
       - ocrvnet
   azure-cognitive-service-layout:
@@ -820,7 +822,7 @@ services:
       - apiKey={FORM_RECOGNIZER_KEY}
       - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
     ports:
-      - "5000:5000"
+      - "5000:5050"
     networks:
       - ocrvnet
   azure-cognitive-service-read:
@@ -860,7 +862,7 @@ services:
       - apiKey={FORM_RECOGNIZER_KEY}
       - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
     ports:
-      - "5000:5000"
+      - "5000:5050"
     networks:
       - ocrvnet
   azure-cognitive-service-read:
@@ -900,7 +902,7 @@ services:
       - apiKey={FORM_RECOGNIZER_KEY}
       - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
     ports:
-      - "5000:5000"
+      - "5000:5050"
     networks:
       - ocrvnet
   azure-cognitive-service-read:
@@ -1057,7 +1059,7 @@ services:
   volumes:
     - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf
   ports:
-    - "5000:5000"
+    - "5000:5050"
  rabbitmq:
   container_name: ${RABBITMQ_HOSTNAME}
   image: rabbitmq:3
@@ -1169,7 +1171,6 @@ To learn how to use the Sample Labeling tool with an Azure Container Instance, *
 
 ---
 
-
 :::moniker-end
 
 ## Validate that the service is running
@@ -1202,7 +1203,7 @@ docker-compose down
 
 The Document Intelligence containers send billing information to Azure by using a Document Intelligence resource on your Azure account.
 
-:::moniker range="doc-intel-3.0.0"
+:::moniker range=">=doc-intel-3.0.0"
 Queries to the container are billed at the pricing tier of the Azure resource that's used for the `Key`. You're billed for each container instance used to process your documents and images.
 
 > [!NOTE]

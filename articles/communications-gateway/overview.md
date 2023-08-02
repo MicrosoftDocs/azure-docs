@@ -59,33 +59,24 @@ Azure Communications Gateway's voice features include:
 
 ## API features
 
-Azure Communications Gateway includes optional API integration features. These features can help you to:
+Azure Communications Gateway includes optional API integration features. These features can help you to speed up your rollout and monetization of Teams Calling support.
 
-- Adapt your existing systems to meet the requirements of the Operator Connect and Teams Phone Mobile programs with minimal disruption.
-- Provide a consistent look and feel across your Operator Connect and Teams Phone Mobile offerings and the rest of your portfolio.
-- Speed up your rollout and monetization of Teams Calling support.
+### Number Management Portal
+
+Operator Connect and Teams Phone Mobile require API integration between your IT systems and Microsoft Teams for flow-through provisioning and automation. After your deployment has been certified and launched, you must not use the Operator Connect portal for provisioning. You can use Azure Communications Gateway's Number Management Portal instead. This Azure portal feature enables you to pass the certification process and sell Operator Connect or Teams Phone Mobile services while you carry out a custom API integration project.
+
+The Number Management Portal is available as part of the optional API Bridge feature.
+
+> [!TIP]
+> The Number Management Portal does not allow your enterprise customers to manage Teams Calling. For example, it does not provide self-service portals.
 
 ### CallDuration upload
 
 Azure Communications Gateway can use the Operator Connect APIs to upload information about the duration of individual calls into the Microsoft Teams environment. This allows Microsoft Teams clients to display the call duration recorded by your network, instead of the call duration recorded by Microsoft Teams. Providing this information to Microsoft Teams is a requirement of the Operator Connect program that Azure Communications Gateway performs on your behalf. 
 
-### API Bridge Number Management Portal
-
-Operator Connect and Teams Phone Mobile require API integration between your IT systems and Microsoft Teams for flow-through provisioning and automation. After your deployment has been certified and launched, you must not use the Operator Connect portal for provisioning. You can use Azure Communications Gateway's Number Management Portal instead. This portal enables you to pass the certification process and sell Operator Connect or Teams Phone Mobile services while you carry out a custom API integration project
-
-The Number Management Portal is available as part of the optional API Bridge feature.
-
-> [!TIP]
-> The API Bridge Number Management Portal does not allow your enterprise customers to manage Teams Calling. For example, it does not provide self-service portals.
-
-### API mediation
-
-Azure Communications Gateway's API Bridge feature includes a flexible custom interface to the Operator Connect APIs. Microsoft Professional Services can create REST or SOAP APIs that adapt the Teams Operator Connect API to your networks' requirements for APIs. These custom APIs can reduce the size of an IT integration project by reducing the changes required in your existing infrastructure.
-
-The API mediation function is designed to map between CRM and BSS systems in your network and the Teams Operator Connect API. Your CRM and BSS systems must be able to handle the information required by Teams Operator Connect. You must work with Microsoft to determine whether you can use the API mediation feature and to scope the project.
 
 ## Next steps
 
 - [Learn how Azure Communications Gateway fits into your network](interoperability.md).
-- [Learn about onboarding to Microsoft Teams and Azure Communications Gateway's Basic Integration Included Benefit](onboarding.md).
+- [Learn about onboarding to Microsoft Teams and Azure Communications Gateway's Included Benefits](onboarding.md).
 - [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md).

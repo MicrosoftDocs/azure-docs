@@ -38,6 +38,8 @@ The rows in a downloaded CSV template are as follows:
 
 ## To bulk delete users
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a User Administrator in the organization.
 1. Browse to **Azure Active Directory** > **Users** > **Bulk operations** > **Bulk delete**.
 1. On the **Bulk delete user** page, select **Download** to download the latest version of the CSV template.
@@ -59,7 +61,7 @@ Next, you can check to see that the users you deleted exist in the Azure AD orga
 
 ## Verify deleted users in the Azure portal
 
-1. Sign in to the Azure portal with an account that is a User administrator in the organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a User administrator in the organization.
 1. In the navigation pane, select **Azure Active Directory**.
 1. Under **Manage**, select **Users**.
 1. Under **Show**, select **All users** only and verify that the users you deleted are no longer listed.

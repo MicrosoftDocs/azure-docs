@@ -555,8 +555,6 @@
       items:
         - name: Monitor AKS
           href: monitor-aks.md
-        - name: Monitor kube-audit events
-          href: monitor-apiserver.md
         - name: Monitor reference
           href: monitor-aks-reference.md
         - name: View the kubelet logs
@@ -596,6 +594,8 @@
           href: howto-deploy-java-liberty-app.md
         - name: Build Java app with WebLogic Server
           href: howto-deploy-java-wls-app.md
+        - name: Build Java app with Quarkus
+          href: howto-deploy-java-quarkus-app.md
         - name: Build WordPress app with MySQL
           href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true

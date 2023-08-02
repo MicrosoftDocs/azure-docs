@@ -49,5 +49,5 @@ The following example shows how to use this function with various parameters ins
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`RTRIM`](rtrim.md)
