@@ -350,3 +350,6 @@ For associated best practices, see [Best practices for network connectivity and 
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-update]: /cli/azure/aks#az_aks_update
 [az-dns-zone]: ../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration
+[az-network-private-dns-link-vnet-create]: /cli/azure/network/private-dns/link/vnet#az_network_private_dns_link_vnet_create
+[az-network-vnet-peering-create]: /cli/azure/network/vnet/peering#az_network_vnet_peering_create
+[az-network-vnet-peering-list]: /cli/azure/network/vnet/peering#az_network_vnet_peering_list
