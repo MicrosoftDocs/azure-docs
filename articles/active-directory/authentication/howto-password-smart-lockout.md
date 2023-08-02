@@ -62,7 +62,7 @@ To verify your on-premises AD DS account lockout policy, complete the following 
 
 ## Manage Azure AD smart lockout values
 
-Based on your organizational requirements, you can customize the Azure AD smart lockout values. Customization of the smart lockout settings, with values specific to your organization, requires Azure AD Premium P1 or higher licenses for your users. Customization of the smart lockout settings is not available for Azure operated by 21Vianet tenants.
+Based on your organizational requirements, you can customize the Azure AD smart lockout values. Customization of the smart lockout settings, with values specific to your organization, requires Azure AD Premium P1 or higher licenses for your users. Customization of the smart lockout settings is not available for Microsoft Azure operated by 21Vianet tenants.
 
 To check or modify the smart lockout values for your organization, complete the following steps:
 
