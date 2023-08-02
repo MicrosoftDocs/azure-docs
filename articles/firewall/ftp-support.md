@@ -49,7 +49,7 @@ The following table shows the configuration required to support various FTP scen
 
 \* Active FTP doesn't work when the FTP client must reach an FTP server on the Internet. Active FTP uses a PORT command from the FTP client that tells the FTP server what IP address and port to use for the data channel. The PORT command uses the private IP address of the client, which can't be changed. Client-side traffic traversing the Azure Firewall is NATed for Internet-based communications, so the PORT command is seen as invalid by the FTP server. This is a general limitation of Active FTP when used with a client-side NAT. 
 
-\** Passive FTP over the internet is currently unsupported because the data path traffic (from the internet client via Azure Firewall) can potentially use a different IP address than the control path. For security reasons, It’s not recommended to change the FTP server settings to accept control and data plane traffic from different source IP addresses.
+\** Passive FTP over the internet is currently unsupported because the data path traffic (from the internet client via Azure Firewall) can potentially use a different IP address (due to the load balancer). For security reasons, It’s not recommended to change the FTP server settings to accept control and data plane traffic from different source IP addresses.
 
 
 ## Deploy using Azure PowerShell
