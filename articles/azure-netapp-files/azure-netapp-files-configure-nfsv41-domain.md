@@ -44,7 +44,7 @@ In this section we’ll focus on how to configure the Linux client and how to ch
 
 ## Configure NFSv4.1 ID domain on Azure NetApp Files
 
-You can specify a desired NFSv4.1 ID domain for all non-LDAP volumes using the Azure portal. This setting applies applies to all non-LDAP volumes across all NetApp accounts in the same subscription and region. It does not affect LDAP-enabled volumes in the same NetApp subscription and region. 
+You can specify a desired NFSv4.1 ID domain for all non-LDAP volumes using the Azure portal. This setting applies to all non-LDAP volumes across all NetApp accounts in the same subscription and region. It does not affect LDAP-enabled volumes in the same NetApp subscription and region. 
 
 ### Register the feature
 
@@ -72,7 +72,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. Select **Configure**.
 1. To use the default domain `defaultv4iddomain.com`, select the box next to **Use Default NFSv4 ID Domain**. To use another domain, uncheck the text box and provide the name of the NFSv4.1 ID domain.
 
-  :::image type="content" source="../media/azure-netapp-files/nfsv4-id-domain.png" alt-text="Screenshot with field to set NFSv4 domain." lightbox="../media/azure-netapp-files/nfsv4-id-domain.png":::
+    :::image type="content" source="../media/azure-netapp-files/nfsv4-id-domain.png" alt-text="Screenshot with field to set NFSv4 domain." lightbox="../media/azure-netapp-files/nfsv4-id-domain.png":::
 
 1. Select **Save**.
 

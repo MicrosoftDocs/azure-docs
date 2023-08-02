@@ -27,7 +27,7 @@ Azure NetApp Files supports fetching of extended groups from the LDAP name servi
 When it’s determined that LDAP will be used for operations such as name lookup and fetching extended groups, the following process occurs:
 
 1. Azure NetApp Files uses an LDAP client configuration to make a connection attempt to the AD DS/Azure AD DS LDAP server that is specified in the [Azure NetApp Files AD configuration](create-active-directory-connections.md).
-1. If the TCP connection over the defined AD DS/Azure AD DS LDAP service port is successful, then the Azure NetApp Files LDAP client attempts to “bind” (sign in) to the AD DS/Azure ADDS LDAP server (domain controller) by using the defined credentials in the LDAP client configuration.
+1. If the TCP connection over the defined AD DS/Azure AD DS LDAP service port is successful, then the Azure NetApp Files LDAP client attempts to “bind” (sign in) to the AD DS/Azure AD DS LDAP server (domain controller) by using the defined credentials in the LDAP client configuration.
 1. If the bind is successful, then the Azure NetApp Files LDAP client uses the RFC 2307bis LDAP schema to make an LDAP search query to the AD DS/Azure AD DS LDAP server (domain controller).
 The following information is passed to the server in the query:
    * [Base/user DN](configure-ldap-extended-groups.md#ldap-search-scope) (to narrow search scope)
