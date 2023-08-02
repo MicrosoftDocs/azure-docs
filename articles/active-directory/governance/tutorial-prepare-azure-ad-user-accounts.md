@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 03/18/2023
+ms.date: 08/02/2023
 ms.author: owinfrey
 ms.reviewer: krbain
 ms.custom: template-tutorial
@@ -25,7 +25,7 @@ The off-boarding tutorials only require one account that has group and Teams mem
 
 ## Prerequisites
 
-[!INCLUDE [active-directory-p2-license.md](../../../includes/active-directory-p2-license.md)] 
+[!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
 - An Azure AD tenant
 - A global administrator account for the Azure AD tenant.  This account is used to create our users and workflows.
 
