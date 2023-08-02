@@ -68,11 +68,11 @@ Azure AI services are represented by Azure [resources](../azure-resource-manager
 ## Next steps
 
 * Explore the following [Azure AI services](./what-are-ai-services.md) to find quickstart articles, samples and more to start using your resource.
-    * [Content Moderator](../../content-moderator/index.yml) (retired) 
-    * [Custom Vision](../../custom-vision-service/index.yml) 
-    * [Document Intelligence](../../document-intelligence/index.yml)
-    * [Face](../../computer-vision/overview-identity.md) 
-    * [Language](../../language-service/index.yml)
-    * [Speech](../../speech-service/index.yml) 
-    * [Translator](../../translator/index.yml)
-    * [Vision](../../computer-vision/index.yml) 
+    * [Content Moderator](./content-moderator/index.yml) (retired) 
+    * [Custom Vision](./custom-vision-service/index.yml) 
+    * [Document Intelligence](./document-intelligence/index.yml)
+    * [Face](./computer-vision/overview-identity.md) 
+    * [Language](./language-service/index.yml)
+    * [Speech](./speech-service/index.yml) 
+    * [Translator](./translator/index.yml)
+    * [Vision](./computer-vision/index.yml) 
