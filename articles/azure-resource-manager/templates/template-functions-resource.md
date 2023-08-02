@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 07/31/2023
+ms.date: 08/02/2023
 ms.custom: ignite-2022, devx-track-arm-template
 ---
 
@@ -604,236 +604,333 @@ The following example template references a storage account that isn't deployed 
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/reference.json":::
 
-
-
-
-
-
-
-
 ## references
 
 `reference(symbolic name of the resource collection, ['Full'])`
 
-Returns an array of objects representing a collection of resource's runtime states.
+Returns an array of objects representing a collection of resource's runtime states. This function requires ARM template language version `1.10-experimental` and with [symbolic name](../bicep/file.md#resources) enabled:
 
-In Bicep, use the [references](../bicep/bicep-functions-resource.md#references).
+```json
+"languageVersion": "1.10-experimental",
+``````
+
+In Bicep, there is no explicit references() function like reference(). Instead, symbolic collection usage is employed directly, and during code generation, Bicep translates it to an ARM template that utilizes the ARM template references() function.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| Symbolic name of a resource collection |Yes |string |Symbolic name of a resource collection. |
+| Symbolic name of a resource collection |Yes |string |Symbolic name of a resource collection that is defined in the current template. |
 | 'Full' |No |string |Value that specifies whether to return an array of the full resource objects. The default value is `'Full'`. If you don't specify `'Full'`, only the properties objects of the resources are returned. The full object includes values such as the resource ID and location. |
 
 ### Return value
 
+An array of a resource collection. Every resource type returns different properties for the `references` function. The function doesn't return a single, predefined format. Also, the returned value differs based on the value of the `'Full'` argument. To see the properties for a resource type, return the object in the outputs section as shown in the example.
 
-Every resource type returns different properties for the reference function. The function doesn't return a single, predefined format. Also, the returned value differs based on the value of the `'Full'` argument. To see the properties for a resource type, return the object in the outputs section as shown in the example.
+The output order of `references` is always arranged in ascending order based on the copy index. Therefore, the first resource in the collection with index 0 is displayed first, followed by index 1, and so son. For instance, [worker-0, worker-1, worker-2, ...].
 
-### Remarks
+In the preceding example, if worker-0 and worker-2 are deployed while worker-1 is not due to a false condition, the output of `references` will omit the non-deployed resource and display the deployed ones, ordered by their numbers. The output of `references` will be [worker-0, worker-2, ...]. If all of the resources are omitted, the function returns an empty array.
 
-The reference function retrieves the runtime state of either a previously deployed resource or a resource deployed in the current template. This article shows examples for both scenarios.
+### Valid uses
 
-Typically, you use the `reference` function to return a particular value from an object, such as the blob endpoint URI or fully qualified domain name.
+The `references` function can only be used in the outputs section of a template or deployment and properties object of a resource definition. It cannot be used for resource properties such as `type`, `name`, `location` and other top level properties of the resource definition. When used with [property iteration](copy-properties.md), you can use the `references` function for `input` because the expression is assigned to the resource property.
+
+You can't use the `references` function to set the value of the `count` property in a copy loop. You can use to set other properties in the loop. Reference is blocked for the count property because that property must be determined before the `references` function is resolved.
+
+To use the `references` function or any `list*` function in the outputs section of a nested template, you must set the `expressionEvaluationOptions` to use [inner scope](linked-templates.md#expression-evaluation-scope-in-nested-templates) evaluation or use a linked instead of a nested template.
+
+### Implicit dependency
+
+By using the `references` function, you implicitly declare that one resource depends on another resource. You don't need to also use the `dependsOn` property. The function isn't evaluated until the referenced resource has completed deployment.
+
+### Reference example
+
+The following example deploys a resource collection, and references that resource collection.
 
 ```json
-"outputs": {
-  "BlobUri": {
-    "type": "string",
-    "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))).primaryEndpoints.blob]"
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "1.10-experimental",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    },
+    "numWorkers": {
+      "type": "int",
+      "defaultValue": 4,
+      "metadata": {
+        "description": "The number of workers"
+      }
+    }
   },
-  "FQDN": {
-    "type": "string",
-    "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName'))).dnsSettings.fqdn]"
+  "resources": {
+    "containerWorkers": {
+      "copy": {
+        "name": "containerWorkers",
+        "count": "[length(range(0, parameters('numWorkers')))]"
+      },
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2022-09-01",
+      "name": "[format('worker-{0}', range(0, parameters('numWorkers'))[copyIndex()])]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "containers": [
+          {
+            "name": "[format('worker-container-{0}', range(0, parameters('numWorkers'))[copyIndex()])]",
+            "properties": {
+              "image": "mcr.microsoft.com/azuredocs/aci-helloworld",
+              "ports": [
+                {
+                  "port": 80,
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGB": 2
+                }
+              }
+            }
+          }
+        ],
+        "osType": "Linux",
+        "restartPolicy": "Always",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "port": 80,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "containerController": {
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2022-09-01",
+      "name": "controller",
+      "location": "[parameters('location')]",
+      "properties": {
+        "containers": [
+          {
+            "name": "controller-container",
+            "properties": {
+              "command": [
+                "echo",
+                "[format('Worker IPs are {0}', join(map(references('containerWorkers', 'full'), lambda('w', lambdaVariables('w').properties.ipAddress.ip)), ','))]"
+              ],
+              "image": "mcr.microsoft.com/azuredocs/aci-helloworld",
+              "ports": [
+                {
+                  "port": 80,
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGB": 2
+                }
+              }
+            }
+          }
+        ],
+        "osType": "Linux",
+        "restartPolicy": "Always",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "port": 80,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      },
+      "dependsOn": [
+        "containerWorkers"
+      ]
+    }
+  },
+  "outputs": {
+    "workerIpAddresses": {
+      "type": "string",
+      "value": "[join(map(references('containerWorkers', 'full'), lambda('w', lambdaVariables('w').properties.ipAddress.ip)), ',')]"
+    },
+    "containersFull": {
+      "type": "array",
+      "value": "[references('containerWorkers', 'full')]"
+    },
+    "container": {
+      "type": "array",
+      "value": "[references('containerWorkers')]"
+    }
   }
 }
 ```
 
-Use `'Full'` when you need resource values that aren't part of the properties schema. For example, to set key vault access policies, get the identity properties for a virtual machine.
+The preceding example returns the three objects.
 
 ```json
-{
-  "type": "Microsoft.KeyVault/vaults",
-  "apiVersion": "2019-09-01",
-  "name": "vaultName",
-  "properties": {
-    "tenantId": "[subscription().tenantId]",
-    "accessPolicies": [
+"outputs": {
+  "workerIpAddresses": {
+    "type": "String",
+    "value": "20.66.74.26,20.245.100.10,13.91.86.58,40.83.249.30"
+  },
+  "containersFull": {
+    "type": "Array",
+    "value": [
       {
-        "tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')), '2019-03-01', 'Full').identity.tenantId]",
-        "objectId": "[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')), '2019-03-01', 'Full').identity.principalId]",
-        "permissions": {
-          "keys": [
-            "all"
+        "apiVersion": "2022-09-01",
+        "condition": true,
+        "copyContext": {
+          "copyIndex": 0,
+          "copyIndexes": {
+            "": 0,
+            "containerWorkers": 0
+          },
+          "name": "containerWorkers"
+        },
+        "copyLoopSymbolicName": "containerWorkers",
+        "deploymentResourceLineInfo": {
+          "lineNumber": 30,
+          "linePosition": 25
+        },
+        "existing": false,
+        "isAction": false,
+        "isConditionTrue": true,
+        "isTemplateResource": true,
+        "location": "westus",
+        "properties": {
+          "containers": [
+            {
+              "name": "worker-container-0",
+              "properties": {
+                "environmentVariables": [],
+                "image": "mcr.microsoft.com/azuredocs/aci-helloworld",
+                "instanceView": {
+                  "currentState": {
+                    "detailStatus": "",
+                    "startTime": "2023-07-31T19:25:31.996Z",
+                    "state": "Running"
+                  },
+                  "restartCount": 0
+                },
+                "ports": [
+                  {
+                    "port": 80,
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "requests": {
+                    "cpu": 1.0,
+                    "memoryInGB": 2.0
+                  }
+                }
+              }
+            }
           ],
-          "secrets": [
-            "all"
-          ]
-        }
-      }
-    ],
-    ...
-```
-
-### Valid uses
-
-The `reference` function can only be used in the outputs section of a template or deployment and properties object of a resource definition. It cannot be used for resource properties such as `type`, `name`, `location` and other top level properties of the resource definition. When used with [property iteration](copy-properties.md), you can use the `reference` function for `input` because the expression is assigned to the resource property.
-
-You can't use the `reference` function to set the value of the `count` property in a copy loop. You can use to set other properties in the loop. Reference is blocked for the count property because that property must be determined before the `reference` function is resolved.
-
-To use the `reference` function or any `list*` function in the outputs section of a nested template, you must set the `expressionEvaluationOptions` to use [inner scope](linked-templates.md#expression-evaluation-scope-in-nested-templates) evaluation or use a linked instead of a nested template.
-
-If you use the `reference` function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed.  You get an error if the `reference` function refers to a resource that doesn't exist. Use the `if` function to make sure the function is only evaluated when the resource is being deployed. See the [if function](template-functions-logical.md#if) for a sample template that uses `if` and `reference` with a conditionally deployed resource.
-
-### Implicit dependency
-
-By using the `reference` function, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template and you refer to the resource by its name (not resource ID). You don't need to also use the `dependsOn` property. The function isn't evaluated until the referenced resource has completed deployment.
-
-### Resource name or identifier
-
-When referencing a resource that is deployed in the same template, provide the name of the resource.
-
-```json
-"value": "[reference(parameters('storageAccountName'))]"
-```
-
-When referencing a resource that isn't deployed in the same template, provide the resource ID and `apiVersion`.
-
-```json
-"value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
-```
-
-To avoid ambiguity about which resource you're referencing, you can provide a fully qualified resource identifier.
-
-```json
-"value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName')))]"
-```
-
-When constructing a fully qualified reference to a resource, the order to combine segments from the type and name isn't simply a concatenation of the two. Instead, after the namespace, use a sequence of *type/name* pairs from least specific to most specific:
-
-`{resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]`
-
-For example:
-
-`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` is correct
-`Microsoft.Compute/virtualMachines/extensions/myVM/myExt` is not correct
-
-To simplify the creation of any resource ID, use the `resourceId()` functions described in this document instead of the `concat()` function.
-
-### Get managed identity
-
-[Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md) are [extension resource types](../management/extension-resource-types.md) that are created implicitly for some resources. Because the managed identity isn't explicitly defined in the template, you must reference the resource that the identity is applied to. Use `Full` to get all of the properties, including the implicitly created identity.
-
-The pattern is:
-
-`"[reference(resourceId(<resource-provider-namespace>, <resource-name>), <API-version>, 'Full').Identity.propertyName]"`
-
-For example, to get the principal ID for a managed identity that is applied to a virtual machine, use:
-
-```json
-"[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')),'2019-12-01', 'Full').identity.principalId]",
-```
-
-Or, to get the tenant ID for a managed identity that is applied to a virtual machine scale set, use:
-
-```json
-"[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
-```
-
-### Reference example
-
-The following example deploys a resource, and references that resource.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/referencewithstorage.json":::
-
-The preceding example returns the two objects. The properties object is in the following format:
-
-```json
-{
-   "creationTime": "2017-10-09T18:55:40.5863736Z",
-   "primaryEndpoints": {
-     "blob": "https://examplestorage.blob.core.windows.net/",
-     "file": "https://examplestorage.file.core.windows.net/",
-     "queue": "https://examplestorage.queue.core.windows.net/",
-     "table": "https://examplestorage.table.core.windows.net/"
-   },
-   "primaryLocation": "southcentralus",
-   "provisioningState": "Succeeded",
-   "statusOfPrimary": "available",
-   "supportsHttpsTrafficOnly": false
+          "initContainers": [],
+          "instanceView": {
+            "events": [],
+            "state": "Running"
+          },
+          "ipAddress": {
+            "ip": "20.66.74.26",
+            "ports": [
+              {
+                "port": 80,
+                "protocol": "TCP"
+              }
+            ],
+            "type": "Public"
+          },
+          "isCustomProvisioningTimeout": false,
+          "osType": "Linux",
+          "provisioningState": "Succeeded",
+          "provisioningTimeoutInSeconds": 1800,
+          "restartPolicy": "Always",
+          "sku": "Standard"
+        },
+        "provisioningOperation": "Create",
+        "references": [],
+        "resourceGroupName": "demoRg",
+        "resourceId": "Microsoft.ContainerInstance/containerGroups/worker-0",
+        "scope": "",
+        "subscriptionId": "",
+        "symbolicName": "containerWorkers[0]"
+      },
+      ...
+    ]
+  },
+  "containers": {
+    "type": "Array",
+    "value": [
+      {
+        "containers": [
+          {
+            "name": "worker-container-0",
+            "properties": {
+              "environmentVariables": [],
+              "image": "mcr.microsoft.com/azuredocs/aci-helloworld",
+              "instanceView": {
+                "currentState": {
+                  "detailStatus": "",
+                  "startTime": "2023-07-31T19:25:31.996Z",
+                  "state": "Running"
+                },
+                "restartCount": 0
+              },
+              "ports": [
+                {
+                  "port": 80,
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": 1.0,
+                  "memoryInGB": 2.0
+                }
+              }
+            }
+          }
+        ],
+        "initContainers": [],
+        "instanceView": {
+          "events": [],
+          "state": "Running"
+        },
+        "ipAddress": {
+          "ip": "20.66.74.26",
+          "ports": [
+            {
+              "port": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "type": "Public"
+        },
+        "isCustomProvisioningTimeout": false,
+        "osType": "Linux",
+        "provisioningState": "Succeeded",
+        "provisioningTimeoutInSeconds": 1800,
+        "restartPolicy": "Always",
+        "sku": "Standard"
+      },
+      ...
+    ]
+  }
 }
 ```
-
-The full object is in the following format:
-
-```json
-{
-  "apiVersion":"2022-09-01",
-  "location":"southcentralus",
-  "sku": {
-    "name":"Standard_LRS",
-    "tier":"Standard"
-  },
-  "tags":{},
-  "kind":"Storage",
-  "properties": {
-    "creationTime":"2021-10-09T18:55:40.5863736Z",
-    "primaryEndpoints": {
-      "blob":"https://examplestorage.blob.core.windows.net/",
-      "file":"https://examplestorage.file.core.windows.net/",
-      "queue":"https://examplestorage.queue.core.windows.net/",
-      "table":"https://examplestorage.table.core.windows.net/"
-    },
-    "primaryLocation":"southcentralus",
-    "provisioningState":"Succeeded",
-    "statusOfPrimary":"available",
-    "supportsHttpsTrafficOnly":false
-  },
-  "subscriptionId":"<subscription-id>",
-  "resourceGroupName":"functionexamplegroup",
-  "resourceId":"Microsoft.Storage/storageAccounts/examplestorage",
-  "referenceApiVersion":"2021-04-01",
-  "condition":true,
-  "isConditionTrue":true,
-  "isTemplateResource":false,
-  "isAction":false,
-  "provisioningOperation":"Read"
-}
-```
-
-The following example template references a storage account that isn't deployed in this template. The storage account already exists within the same subscription.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/reference.json":::
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## resourceGroup
 
