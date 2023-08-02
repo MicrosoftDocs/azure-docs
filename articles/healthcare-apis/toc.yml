@@ -18,7 +18,7 @@
     - name: Workspace provisioning
       href: workspace-overview.md
 - name: Quickstarts
-  expanded: true
+  expanded: false
   items: 
     - name: Set up a workspace
       href: get-started-with-health-data-services.md
@@ -32,7 +32,6 @@
   href: authentication-authorization.md
 - name: Register an application via Azure Portal
   href: register-application.md
-  expanded: true
 - name: Register an application using scripts
   href: register-application-cli-rest.md
 - name: Grant permissions via Azure Portal
@@ -48,13 +47,13 @@
 - name: Enable diagnostic logging
   href: logging.md
 - name: More resources
-- name: FAQ
-  href: healthcare-apis-faqs.md
-- name: GitHub projects
-  href: github-projects.md
-- name: Known issues
-  href: known-issues.md
-- name: Release notes
-  href: release-notes.md"
+  expanded: false
+  items:
+    - name: GitHub projects
+      href: github-projects.md
+    - name: Known issues
+      href: known-issues.md
+    - name: Release notes
+      href: release-notes.md"
 - name: FAQ
   href: healthcare-apis-faqs.md
