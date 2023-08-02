@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data-sqlmi
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 08/01/2023
+ms.date: 08/02/2023
 ms.topic: conceptual
 ---
 
