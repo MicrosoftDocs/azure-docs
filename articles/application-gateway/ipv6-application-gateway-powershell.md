@@ -1,6 +1,6 @@
 ---
-title: Configure Application Gateway with a frontend private IPv6 address using Azure PowerShell
-description: Learn how to configure Application Gateway with a frontend private IPv6 address using Azure PowerShell.
+title: Configure Application Gateway with a frontend public IPv6 address using Azure PowerShell (Public Preview)
+description: Learn how to configure Application Gateway with a frontend public IPv6 address using Azure PowerShell.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
@@ -11,17 +11,18 @@ ms.custom: mvc, devx-track-azurepowershell
 ---
 # Configure Application Gateway with a frontend private IPv6 address using Azure PowerShell
 
-Azure Application gateway now supports dual stack frontend connections. Application Gateway can now handle client traffic from both IPv4 and IPv6 addresses, providing greater flexibility and connectivity for our users. Due to the exhaustion of public IPv4 addresses, new networks for mobility and Internet of Things (IoT) are often built on IPv6. Dual stack IPv4/IPv6 connectivity enables Azure-hosted services to traverse this technology gap with globally available, dual-stacked services that readily connect with both the existing IPv4 and these new IPv6 devices and networks.
+Azure Application gateway now supports dual stack frontend connections. Application Gateway can now handle client traffic from both IPv4 and IPv6 addresses, providing greater flexibility and connectivity for our users. Azure VNETs already provides dual-stack capability. To learn more about Azure VNETs dual-stack capability check [Azure Virtual Network](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/ipv6-overview).
+
 If you are currently using Application Gateway with IPv4 addresses, you can continue to do so without any changes. However, if you want to take advantage of the benefits of IPv6 addressing, you can now do so by configuring your gateway to use IPv6 addresses. Currently we do not support connectivity to IPv6 backends. To support IPv6 connectivity, you must create a dual-stack VNET. This dual-stack VNET will have subnets for both IPv4 and IPv6.
 
 Limitations
 •    Supported for Application Gateway Standard V2 only.
-•    No support  for upgrading the existing gateways to Ipv6
+•    No support  for upgrading the existing gateways to Ipv6.
 •    No support  for IPv6 private address.
-•    No support for IPv6 backend
+•    No support for IPv6 backend.
 •    No IPv6 Private Link Support
 
-In this article, you use the Azure portal to create an IPv6 [Azure Application Gateway](overview.md) and test it to ensure it works correctly.Application gateway is used to manage and secure web traffic to servers that you maintain. You can use Azure PowerShell to create an [application gateway](overview.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/overview.md) for backend servers to manage web traffic. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
+In this article, you use the Azure portal to create an IPv6 [Azure Application Gateway](overview.md) and test it to ensure it works correctly. Application gateway is used to manage and secure web traffic to servers that you maintain. You can use Azure PowerShell to create an [application gateway](overview.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/overview.md) for backend servers to manage web traffic. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
 
 In this article, you learn how to:
 
