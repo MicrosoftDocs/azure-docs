@@ -19,7 +19,7 @@ The following changes related to real-time diarization, conversation transcripti
 
 > [!NOTE]<br>
 > The "conversation translation" objects and methods are not affected by these changes. You can still use the `ConversationTranslator` object and its methods for meeting translation scenarios. <br><br> 
-Use of single channel audio input is currently under private preview, please contact diarizationrequest@microsoft.com for more details on getting started with sigle channel input. 
+Use of single channel audio input is currently under private preview, please contact diarizationrequest@microsoft.com for more details on getting started with single channel input. 
 
 <br>
 This table shows the previous and new object names for real-time diarization and meeting transcription. The scenario name is in the first column, the previous object names are in the second column, and the new object names are in the third column. 
