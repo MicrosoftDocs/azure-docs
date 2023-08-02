@@ -17,6 +17,7 @@ Service Fabric managed clusters are created with a default networking configurat
 - [Manage NSG Rules](#nsgrules)
 - [Manage RDP access](#rdp)
 - [Manage Load Balancer config](#lbconfig)
+- [Enable public IP](#publicip)
 - [Enable IPv6](#ipv6)
 - [Bring your own virtual network](#byovnet)
 - [Bring your own load balancer](#byolb)
@@ -303,12 +304,59 @@ Service Fabric managed clusters automatically creates load balancer probes for f
 }
 ```
 
+<a id="publicip"></a>
+## Enable public IP
+
+> [!NOTE]
+> Currently, only public IPv4 is supported.
+
+Service Fabric managed cluster nodes don't require their own public IP addresses for communication. However, some scenarios may require a node to have its own public IP address. For example:
+
+* Gaming, where a console needs to make a direct connection to a cloud virtual machine that is doing game physics processing.
+* Virtual machines that need to make external connections to one another across regions in a distributed database.
+
+For more information about outbound connections in Azure, see [Understand outbound connections](../load-balancer/load-balancer-outbound-connections.md).
+
+Public IP can only be enabled on secondary node types, because primary node types are reserved for Service Fabric system services. Follow the steps in the [Bring your own load balancer section of this article](#bring-your-own-azure-load-balancer) to create a secondary node type for your managed cluster.
+
+> [!NOTE]
+> Enabling public IP is only supported via ARM template.
+
+The following steps describe enable public IP on your node.
+
+1. Download your [ARM template](../azure-resource-manager/templates/export-template-portal.md).
+
+1. For each node type in the template, add `enableNodePublicIP` to the ARM template:
+
+    ```json
+    {
+        "name": "Secondary Node Type", 
+        "apiVersion": "2023-02-01-preview", 
+        "properties": { 
+            "isPrimary" : false, 
+            "vmImageResourceId": "/subscriptions/<SubscriptionID>/resourceGroups/<myRG>/providers/Microsoft.Compute/images/<MyCustomImage>", 
+            "vmSize": "Standard_D2", 
+            "vmInstanceCount": 5, 
+            "dataDiskSizeGB": 100, 
+            "enableNodePublicIP": true 
+        }
+   } 
+    ```
+
+1. [Deloy your ARM template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+
+1. Verify you have a public IP on your nodes by running the following PowerShell command:
+
+    ```powershell
+    az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
+    ```
+
 <a id="ipv6"></a>
 ## Enable IPv6
 Managed clusters do not enable IPv6 by default. This feature will enable full dual stack IPv4/IPv6 capability from the Load Balancer frontend to the backend resources. Any changes you make to the managed cluster load balancer config or NSG rules will affect both the IPv4 and IPv6 routing.
 
 > [!NOTE]
-> This setting is not available in portal and cannot be changed once the cluster is created
+> This setting is not available in portal and cannot be changed once the cluster is created.
 
 * The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
 
