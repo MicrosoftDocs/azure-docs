@@ -180,6 +180,6 @@ This assignment is made in the admin's sign-in context in the Azure portal. Ther
 
 ## Next steps
 
-Create a project to collate the different source shares that need to be migrated together.
+Define your source and target endpoints in preparation for migrating your data.
 > [!div class="nextstepaction"]
-> [Create and manage a project](project-manage.md)
+> [Create and manage source and target endpoints](endpoint-manage.md)

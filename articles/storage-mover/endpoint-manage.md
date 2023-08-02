@@ -415,6 +415,6 @@ Remove-AzStorageMoverEndpoint `
 
 ## Next steps
 
-After your endpoints are created, you can begin working with migration projects.
+Create a project to collate the different source shares that need to be migrated together.
 > [!div class="nextstepaction"]
-> [Define a migration job](project-manage.md)
+> [Create and manage a project](project-manage.md)
