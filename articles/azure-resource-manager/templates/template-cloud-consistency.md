@@ -439,7 +439,7 @@ Endpoint namespaces can also be used in the output of a template as information 
 In general, avoid hardcoded endpoints in a template. The best practice is to use the reference template function to retrieve the endpoints dynamically. For example, the endpoint most commonly hardcoded is the endpoint namespace for storage accounts. Each storage account has a unique FQDN that is constructed by concatenating the name of the storage account with the endpoint namespace. A blob storage account named mystorageaccount1 results in different FQDNs depending on the cloud:
 
 * `mystorageaccount1.blob.core.windows.net` when created on the global Azure cloud.
-* `mystorageaccount1.blob.core.chinacloudapi.cn` when created in the Microsoft Azure operated by 21Vianet cloud.
+* `mystorageaccount1.blob.core.chinacloudapi.cn` when created in the Azure operated by 21Vianet cloud.
 
 The following reference template function retrieves the endpoint namespace from the storage resource provider:
 
