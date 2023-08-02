@@ -6,12 +6,11 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 03/21/2023
-ms.subservice: blobs
 ms.devlang: TypeScript
-ms.custom: devx-track-ts, devguide-ts
+ms.custom: devx-track-ts, devguide-ts, devx-track-js
 ---
 
 # Delete and restore a blob container with TypeScript

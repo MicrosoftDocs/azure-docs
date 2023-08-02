@@ -54,12 +54,14 @@ To create a personal host pool, workspace, application group, and session host V
    | Host pool name | Enter a name for the host pool, for example *aad-hp01*. |
    | Location | Select the Azure region from the list where the host pool, workspace, and application group will be deployed. |
    | Validation environment | Select **No**. This setting enables your host pool to receive service updates before all other production host pools, but isn't needed for this tutorial.|
-   | Preferred app group type | Select **Desktop**. This setting designates what type of resource users see in their feed if they're assigned both *Desktop* and *Remote App* application groups in the same host pool.|
+   | Preferred app group type | Select **Desktop**. This setting designates what type of resource users see in their feed if they're assigned both *Desktop* and *RemoteApp* application groups in the same host pool.|
    | **Host pool type** |  |
    | Host pool type | Select **Personal**. This means that end users have a dedicated assigned session host that they'll always connect to. Selecting **Personal** shows a new option for **Assignment type**. |
    | Assignment type | Select **Automatic**. Automatic assignment means that a user will automatically get assigned the first available session host when they first sign in, which will then be dedicated to that user. |
 
-   Once you've completed this tab, select **Next: Virtual Machines**.
+   Once you've completed this tab, select **Next: Networking**.
+
+1. On the **Networking** tab, select **Enable public access from all networks**, where end users can access the feed and session hosts securely over the public internet or the private endpoints. Once you've completed this tab, select **Next: Virtual Machines**.
 
 1. On the **Virtual machines** tab, complete the following information:
 
@@ -105,6 +107,8 @@ To create a personal host pool, workspace, application group, and session host V
 1. On the **Review + create** tab, ensure validation passes and review the information that will be used during deployment. If validation doesn't pass, review the error message and check what you entered in each tab.
 
 1. Select **Create**. A host pool, workspace, application group, and session host will be created. Once your deployment is complete, select **Go to resource**. This goes to the host pool overview.
+
+1. Finally, from the host pool overview select **Session hosts** and verify the status of the session hosts is **Available**.
 
 ## Assign users to the application group
 

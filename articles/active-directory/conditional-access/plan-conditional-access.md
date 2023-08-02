@@ -25,7 +25,7 @@ With this evaluation and enforcement, Conditional Access defines the basis of [M
 
 ![Diagram showing a high level Conditional Access overview](./media/plan-conditional-access/conditional-access-overview-how-it-works.png)
 
-Microsoft provides [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) that ensure a basic level of security enabled in tenants that don't have Azure AD Premium. With Conditional Access, you can create policies that provide the same protection as security defaults, but with granularity. Conditional Access and security defaults aren't meant to be combined as creating Conditional Access policies will prevent you from enabling security defaults.
+Microsoft provides [security defaults](../fundamentals/security-defaults.md) that ensure a basic level of security enabled in tenants that don't have Azure AD Premium. With Conditional Access, you can create policies that provide the same protection as security defaults, but with granularity. Conditional Access and security defaults aren't meant to be combined as creating Conditional Access policies will prevent you from enabling security defaults.
 
 ## Prerequisites
 
@@ -201,9 +201,9 @@ In addition to your active policies, implement disabled policies that act as sec
 
 * EM01 - ENABLE IN EMERGENCY: MFA Disruption [1/4] - Exchange SharePoint: Require hybrid Azure AD join For VIP users.
 
-### Block countries from which you never expect a sign-in.
+### Block countries/regions from which you never expect a sign-in.
 
-Azure active directory allows you to create [named locations](location-condition.md). Create the list of countries that are allowed, and then create a network block policy with these "allowed countries" as an exclusion. This is less overhead for customers who are based in smaller geographic locations. **Be sure to exempt your emergency access accounts from this policy**.
+Azure active directory allows you to create [named locations](location-condition.md). Create the list of countries/regions that are allowed, and then create a network block policy with these "allowed countries/regions" as an exclusion. This is less overhead for customers who are based in smaller geographic locations. **Be sure to exempt your emergency access accounts from this policy**.
 
 ## Deploy Conditional Access policies
 

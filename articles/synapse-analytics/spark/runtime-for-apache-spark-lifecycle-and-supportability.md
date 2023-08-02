@@ -7,7 +7,7 @@ ms.topic: reference
 ms.subservice: spark
 ms.date: 07/19/2022
 ms.author: dacoelho 
-ms.reviewer: martinle
+ms.reviewer: wiassaf
 ---
 
 # Synapse runtime for Apache Spark lifecycle and supportability

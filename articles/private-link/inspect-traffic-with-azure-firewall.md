@@ -7,7 +7,7 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: allensu
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-linux
 ---
 
 # Use Azure Firewall to inspect traffic destined to a private endpoint
@@ -23,7 +23,7 @@ You may need to inspect or block traffic from clients to the services exposed vi
 
 The following limitations apply:
 
-* Network security groups (NSG) traffic is bypassed from private endpoints
+* Network security groups (NSG) traffic is bypassed from private endpoints due to network policies being disabled for a subnet in a virtual network by default. To utilize network policies like User-Defined Routes and Network Security Groups support, network policy support must be enabled for the subnet. This setting is only applicable to private endpoints within the subnet. This setting affects all private endpoints within the subnet. For other resources in the subnet, access is controlled based on security rules in the network security group.
 
 * User-defined routes (UDR) traffic is bypassed from private endpoints. User-defined routes can be used to override traffic destined for the private endpoint.
 
@@ -103,7 +103,7 @@ See, [Create a Log Analytics workspace in the Azure portal](../azure-monitor/log
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a VM
 

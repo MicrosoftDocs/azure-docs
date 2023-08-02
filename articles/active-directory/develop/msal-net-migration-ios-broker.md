@@ -17,11 +17,12 @@ ms.custom: "devx-track-csharp, aaddev, has-adal-ref"
 
 # Migrate iOS applications that use Microsoft Authenticator from ADAL.NET to MSAL.NET
 
-You've been using the Azure Active Directory Authentication Library for .NET (ADAL.NET) and the iOS broker. Now it's time to migrate to the [Microsoft Authentication Library](msal-overview.md) for .NET (MSAL.NET), which supports the broker on iOS from release 4.3 onward.
+You've been using the Azure Active Directory Authentication Library for .NET (ADAL.NET) and the iOS broker. Now it's time to migrate to the [Microsoft Authentication Library](/entra/msal) for .NET (MSAL.NET), which supports the broker on iOS from release 4.3 onward.
 
 Where should you start? This article helps you migrate your Xamarin iOS app from ADAL to MSAL.
 
 ## Prerequisites
+
 This article assumes that you already have a Xamarin iOS app that's integrated with the iOS broker. If you don't, move directly to MSAL.NET and begin the broker implementation there. For information on how to invoke the iOS broker in MSAL.NET with a new application, see [this documentation](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS#why-use-brokers-on-xamarinios-and-xamarinandroid-applications).
 
 ## Background

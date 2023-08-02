@@ -20,6 +20,18 @@ Health probes support multiple protocols. The availability of a specific health 
 | **[Probe protocol](#probe-protocol)** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **[Probe down behavior](#probe-down-behavior)** | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
 
+## Probe properties
+
+Health probes have the following properties:
+
+| Health Probe property name | Details|
+| --- | --- | 
+| Name | Name of the health probe. This is a naame you get to define for your health probe |
+| Protocol | Protocol of health probe. This is the protocol type you would like the health probe to leverage. Options are: TCP, HTTP, HTTPS |
+| Port | Port of the health probe. The destination port you would like the health probe to use when it connects to the virtual machine to check it's health |
+| Interval (seconds) | Interval of health probe. The amount of time (in seconds) between different probe two consecutive health check attemps to the virtual machine |
+| Used by | The list of load balancer rules using this specific health probe. You should have at least one rule using the health probe for it to be effective |
+
 ## Probe configuration
 
 Health probe configuration consists of the following elements:
@@ -68,8 +80,6 @@ It is important to note that probes also have a timeout period. For example, if 
 * Don't translate or proxy a health probe through the instance that receives the health probe to another instance in your virtual network. This configuration can lead to failures in your scenario. For example: A set of third-party appliances is deployed in the backend pool of a load balancer to provide scale and redundancy for the appliances. The health probe is configured to probe a port that the third-party appliance proxies or translates to other virtual machines behind the appliance. If you probe the same port used to translate or proxy requests to the other virtual machines behind the appliance, any probe response from a single virtual machine marks down the appliance. This configuration can lead to a cascading failure of the application. The trigger can be an intermittent probe failure that causes the load balancer to mark down the appliance instance. This action can disable your application. Probe the health of the appliance itself. The selection of the probe to determine the health signal is an important consideration for network virtual appliances (NVA) scenarios. Consult your application vendor for the appropriate health signal is for such scenarios.
 
 * If you have multiple interfaces configured in your virtual machine, ensure you respond to the probe on the interface you received it on. You may need to source network address translate this address in the VM on a per interface basis.
-
-* Don't enable [TCP timestamps](https://tools.ietf.org/html/rfc1323). TCP timestamps can cause health probes to fail due to the VM's guest OS TCP stack dropping TCP packets. The dropped packets can cause the load balancer to mark the endpoint as down. TCP timestamps are routinely enabled by default on security hardened VM images and must be disabled.
 
 * Note that a probe definition is not mandatory or checked for when using Azure PowerShell, Azure CLI, Templates or API. Probe validation tests are only done when using the Azure Portal.
 

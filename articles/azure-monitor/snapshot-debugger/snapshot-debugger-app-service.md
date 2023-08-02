@@ -7,7 +7,7 @@ author: hhunter-ms
 ms.reviewer: charles.weininger
 reviewer: cweining
 ms.date: 04/24/2023
-ms.custom: devdivchpfy22, devx-track-arm-template
+ms.custom: devdivchpfy22, devx-track-arm-template, devx-track-dotnet
 ---
 
 # Enable Snapshot Debugger for .NET apps in Azure App Service

@@ -3,7 +3,7 @@ title: Use log compaction
 description: Learn how to use log compaction. 
 ms.topic: how-to
 ms.custom: log-compaction
-ms.date: 10/7/2022
+ms.date: 06/19/2023
 ---
 
 # Use log compaction
@@ -15,11 +15,7 @@ In this article you'll, follow these key steps:
 - Consume events from a compacted event hub. 
 
 > [!NOTE] 
-> - This feature is currently in Preview.
-> - Log compaction feature is available only in **premium** and **dedicated** tiers. 
-
-> [!WARNING]
-> Use of the Log Compaction feature is **not eligible for product support through Microsoft Azure**.
+> Log compaction feature isn't supported in the **Basic** tier.
 
 ## Create a compacted event hub/Kafka topic
 This section shows you how to create a compacted event hub using Azure portal and an Azure Resource Manager (ARM) template. 
@@ -85,6 +81,12 @@ With Kafka you can set the partition key when you create the `ProducerRecord` as
 ProducerRecord<String, String> record = new ProducerRecord<String, String>(TOPIC, "Key-1" , "Value-1");
 ```
 
+## Quotas and limits
+| Limit | Basic | Standard | Premium |  Dedicated |
+| ----- | ----- | -------- | -------- | --------- | 
+| Size of compacted event hub  | N/A | 1 GB per partition | 250 GB per partition | 250 GB per partition |
+
+For other quotas and limits, see [Event Hubs quotas and limits](event-hubs-quotas.md).
 
 ## Consuming events from a compacted topic
 There are no changes required at the consumer side to consume events from a compacted event hub. So, you can use any of the existing consumer applications to consume data from a compacted event hub. 

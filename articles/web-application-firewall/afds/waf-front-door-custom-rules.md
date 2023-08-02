@@ -102,6 +102,7 @@ You can control access with a custom WAf rule that defines a priority number, a 
      - COPY
      - MOVE
      - PATCH
+     - CONNECT
 
 ## Examples
 

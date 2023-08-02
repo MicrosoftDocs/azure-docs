@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/08/2022
+ms.date: 05/11/2023
 ms.author: billmath
 ms.reviewer: arvinh
 ---
@@ -72,7 +72,9 @@ If you have already downloaded the provisioning agent and configured it for anot
 
 ## Configure the On-premises ECMA app
 
- 1. Sign in to the Azure portal as an administrator.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+ 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
  2. Go to **Enterprise applications** and select **New application**.
  3. Search for the **On-premises ECMA app** application, give the app a name, and select **Create** to add it to your tenant.
  4. Navigate to the **Provisioning** page of your application.
@@ -167,7 +169,7 @@ The capabilities tab defines the behavior and functionality of the connector. Th
 |No Reference Values In First Export Pass|Unchecked|When checked, reference attributes are exported in a second export pass. |
 |Enable Object Rename|Unchecked|When checked, distinguished names can be modified. |
 |Delete-Add As Replace|Checked|Not supported. This will be ignored.|
-|Enable Export Password in First Pass|Checked|Not supported. This will be ignored.|
+|Enable Export Password in First Pass|Unchecked|Not supported. This will be ignored.|
 
 
 ### Global Parameters
@@ -182,10 +184,10 @@ The Global Parameters tab enables you to configure the Windows PowerShell script
 |Partition Script|\<Blank>|
 |Hierarchy Script|\<Blank>|
 |Begin Import Script|\<Blank>|
-|Import Script|Paste ImportData code as value|
+|Import Script|[Paste the import script as the value](https://github.com/microsoft/MIMPowerShellConnectors/blob/master/src/ECMA2HostCSV/Scripts/Import%20Scripts.ps1)|
 |End Import Script|\<Blank>|
-|Begin Export Script|Paste Begin export code as value|
-|Export Script|Paste ExportData code as value|
+|Begin Export Script|\<Blank>|
+|Export Script|[Paste the import script as the value](https://github.com/microsoft/MIMPowerShellConnectors/blob/master/src/ECMA2HostCSV/Scripts/Export%20Script.ps1)|
 |End Export Script|\<Blank>|
 |Begin Password Script|\<Blank>|
 |Password Extension Script|\<Blank>|
@@ -256,10 +258,11 @@ Follow these steps to confirm that the connector host has started and has identi
 
 
 ## Test the connection from Azure AD to the connector host
+
  1. Return to the web browser window where you were configuring the application provisioning in the portal.
     >[!NOTE]
     >If the window had timed out, then you need to re-select the agent.
-     1. Sign in to the Azure portal.
+     1. Sign in to the [Azure portal](https://portal.azure.com).
      2. Go to **Enterprise applications** and the **On-premises ECMA app** application.
      3. Click on **Provisioning**.
      4. If **Get started** appears, then change the mode to **Automatic**,  on the **On-Premises Connectivity** section, select the agent that you just deployed and select **Assign Agent(s)**, and wait 10 minutes. Otherwise go to **Edit Provisioning**.
@@ -276,12 +279,13 @@ Follow these steps to confirm that the connector host has started and has identi
  5. After the connection test is successful and indicates that the supplied credentials are authorized to enable provisioning, select **Save**.
 
 ## Configure the application connection in the Azure portal
+
 Return to the web browser window where you were configuring the application provisioning.
 
 >[!NOTE]
 >If the window had timed out, then you need to re-select the agent.
 
-   1. Sign in to the Azure portal.
+   1. Sign in to the [Azure portal](https://portal.azure.com).
    2. Go to **Enterprise applications** and the **On-premises ECMA app** application.
    3. Select on **Provisioning**.
    4. If **Get started** appears, then change the mode to **Automatic**,  on the **On-Premises Connectivity** section, select the agent that you deployed and select **Assign Agent(s)**. Otherwise go to **Edit Provisioning**.

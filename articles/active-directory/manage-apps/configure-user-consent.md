@@ -12,7 +12,7 @@ ms.date: 04/19/2023
 ms.author: jomondi
 ms.reviewer: phsignor, yuhko
 ms.custom: contperf-fy21q2, contperf-fy22q2, enterprise-apps
-zone_pivot_groups: enterprise-apps-minus-aad-powershell
+zone_pivot_groups: enterprise-apps-minus-former-powershell
 
 
 #customer intent: As an admin, I want to configure how end-users consent to applications.
@@ -34,6 +34,8 @@ To configure user consent, you need:
 - A Global Administrator role.
 
 ## Configure user consent settings
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 :::zone pivot="portal"
 

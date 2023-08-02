@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: automl, sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, automl, sdkv1, event-tier1-build-2022, ignite-2022
 ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: ssalgado
@@ -16,7 +16,7 @@ monikerRange: 'azureml-api-1'
 
 # Configure training, validation, cross-validation and test data in automated machine learning
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn the different options for configuring training data and validation data splits along with cross-validation settings for your automated machine learning, automated ML, experiments.
 
@@ -32,7 +32,7 @@ For this article you need,
 
 * An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](../quickstart-create-resources.md).
 
-* Familiarity with setting up an automated machine learning experiment with the Azure Machine Learning SDK. Follow the [tutorial](../tutorial-auto-train-image-models.md) or [how-to](how-to-configure-auto-train-v1.md) to see the fundamental automated machine learning experiment design patterns.
+* Familiarity with setting up an automated machine learning experiment with the Azure Machine Learning SDK. Follow the [tutorial](../tutorial-auto-train-image-models.md) or [how-to](how-to-configure-auto-train.md) to see the fundamental automated machine learning experiment design patterns.
 
 * An understanding of train/validation data splits and cross-validation as machine learning concepts. For a high-level explanation,
 
@@ -40,7 +40,7 @@ For this article you need,
 
     * [Understand Cross Validation in machine learning](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd) 
 
-[!INCLUDE [automl-sdk-version](../../../includes/machine-learning-automl-sdk-version.md)]
+[!INCLUDE [automl-sdk-version](../includes/machine-learning-automl-sdk-version.md)]
 
 ## Default data splits and cross-validation in machine learning
 
@@ -126,7 +126,7 @@ To perform k-fold cross-validation, include the `n_cross_validations` parameter 
 
 > [!NOTE]
 > The `n_cross_validations` parameter is not supported in classification scenarios that use deep neural networks.
-> For forecasting scenarios, see how cross validation is applied in [Set up AutoML to train a time-series forecasting model](how-to-auto-train-forecast-v1.md#training-and-validation-data).
+> For forecasting scenarios, see how cross validation is applied in [Set up AutoML to train a time-series forecasting model](how-to-auto-train-forecast.md#training-and-validation-data).
  
 In the following code, five folds for cross-validation are defined. Hence, five different trainings, each training using 4/5 of the data, and each validation using 1/5 of the data with a different holdout fold each time.
 
@@ -207,16 +207,16 @@ When either a custom validation set or an automatically selected validation set 
 
 ## Provide test data (preview)
 
-[!INCLUDE [preview disclaimer](../../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [preview disclaimer](../includes/machine-learning-preview-generic-disclaimer.md)]
 
-You can also provide test data to evaluate the recommended model that automated ML generates for you upon completion of the experiment. When you provide test data it's considered a separate from training and validation, so as to not bias the results of the test run of the recommended model. [Learn more about training, validation and test data in automated ML.](concept-automated-ml-v1.md#training-validation-and-test-data)
+You can also provide test data to evaluate the recommended model that automated ML generates for you upon completion of the experiment. When you provide test data it's considered a separate from training and validation, so as to not bias the results of the test run of the recommended model. [Learn more about training, validation and test data in automated ML.](concept-automated-ml.md#training-validation-and-test-data)
 
 > [!WARNING]
 > This feature is not available for the following automated ML scenarios
 >  * [Computer vision tasks](../how-to-auto-train-image-models.md)
->  * [Many models and hiearchical time series forecasting training (preview)](how-to-auto-train-forecast-v1.md)
->  * [Forecasting tasks where deep learning neural networks (DNN) are enabled](how-to-auto-train-forecast-v1.md#enable-deep-learning)
->  * [Automated ML runs from local computes or Azure Databricks clusters](how-to-configure-auto-train-v1.md#compute-to-run-experiment)
+>  * [Many models and hiearchical time series forecasting training (preview)](how-to-auto-train-forecast.md)
+>  * [Forecasting tasks where deep learning neural networks (DNN) are enabled](how-to-auto-train-forecast.md#enable-deep-learning)
+>  * [Automated ML runs from local computes or Azure Databricks clusters](how-to-configure-auto-train.md#compute-to-run-experiment)
 
 Test datasets must be in the form of an [Azure Machine Learning TabularDataset](how-to-create-register-datasets.md#tabulardataset). You can specify a test dataset with the `test_data` and `test_size` parameters in your `AutoMLConfig` object.  These parameters are mutually exclusive and can not be specified at the same time or with `cv_split_column_names` or `cv_splits_indices`.
 
@@ -247,10 +247,10 @@ automl_config = AutoMLConfig(task = 'regression',
 > Forecasting does not currently support specifying a test dataset using a train/test split with the `test_size` parameter.
 
 
-Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, automatically triggers a remote test run upon completion of your experiment. This test run uses the provided test data to evaluate the best model that automated ML recommends. Learn more about [how to get the predictions from the test run](how-to-configure-auto-train-v1.md#test-models-preview).
+Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, automatically triggers a remote test run upon completion of your experiment. This test run uses the provided test data to evaluate the best model that automated ML recommends. Learn more about [how to get the predictions from the test run](how-to-configure-auto-train.md#test-models-preview).
 
 ## Next steps
 
 * [Prevent imbalanced data and overfitting](../concept-manage-ml-pitfalls.md).
 
-* How to [Auto-train a time-series forecast model](how-to-auto-train-forecast-v1.md).
+* How to [Auto-train a time-series forecast model](how-to-auto-train-forecast.md).

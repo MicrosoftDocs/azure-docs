@@ -10,7 +10,7 @@ ms.topic: reference
 ms.date: 02/02/2022
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.custom: "b2c-support"
+ms.custom: b2c-support, devx-track-js
 ---
 
 # Enable authentication options in a Node.js web app by using Azure Active Directory B2C 
@@ -136,7 +136,7 @@ return confidentialClientApplication.getAuthCodeUrl(authCodeRequest)
 
 [!INCLUDE [active-directory-b2c-app-integration-logging](../../includes/active-directory-b2c-app-integration-logging.md)]
 
-To configure [logging](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/v2-docs/logging.md), in *index.js*, configure the following keys:
+To configure [logging](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/logging.md), in *index.js*, configure the following keys:
 
 - `logLevel` lets you specify the level of logging. Possible values: `Error`, `Warning`, `Info`, and `Verbose`.
 - `piiLoggingEnabled` enables the input of personal data. Possible values: `true` or `false`.
@@ -161,4 +161,3 @@ The following code snippet demonstrates how to configure MSAL logging:
 ## Next steps
 
 Learn more about [MSAL.js configuration options](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md).
-

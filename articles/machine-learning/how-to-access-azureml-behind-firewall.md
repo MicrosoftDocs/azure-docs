@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 04/14/2023
-ms.custom: devx-track-python, ignite-fall-2021, devx-track-azurecli, event-tier1-build-2022
+ms.custom: ignite-fall-2021, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
@@ -129,7 +129,7 @@ To allow the installation of R packages, allow __outbound__ traffic to `cloud.r-
 
 ## Scenario: Using compute cluster or compute instance with a public IP
 
-[!INCLUDE [udr info for computes](../../includes/machine-learning-compute-user-defined-routes.md)]
+[!INCLUDE [udr info for computes](includes/machine-learning-compute-user-defined-routes.md)]
 
 ## Scenario: Firewall between Azure Machine Learning and Azure Storage endpoints
 
@@ -190,9 +190,16 @@ The hosts in this section are used to install Visual Studio Code packages to est
 | `marketplace.visualstudio.com`<br>`vscode.blob.core.windows.net`<br>`*.gallerycdn.vsassets.io` | Required to download and install VS Code extensions. These hosts enable the remote connection to compute instances using the Azure Machine Learning extension for VS Code. For more information, see [Connect to an Azure Machine Learning compute instance in Visual Studio Code](./how-to-set-up-vs-code-remote.md) |
 | `raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/*` | Used to retrieve websocket server bits that are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance. |
 
-## Scenario: Third party firewall
+## Scenario: Third party firewall or Azure Firewall without service tags
 
 The guidance in this section is generic, as each firewall has its own terminology and specific configurations. If you have questions, check the documentation for the firewall you're using.
+
+> [!TIP]
+> If you're using __Azure Firewall__, and want to use the FQDNs listed in this section instead of using service tags, use the following guidance:
+> * FQDNs that use HTTP/S ports (80 and 443) should be configured as __application rules__.
+> * FQDNs that use other ports should be configured as __network rules__.
+> 
+> For more information, see [Differences in application rules vs. network rules](/azure/firewall/fqdn-filtering-network-rules#differences-in-application-rules-vs-network-rules).
 
 If not configured correctly, the firewall can cause problems using your workspace. There are various host names that are used both by the Azure Machine Learning workspace. The following sections list hosts that are required for Azure Machine Learning.
 
@@ -371,7 +378,7 @@ __Azure Machine Learning compute instance and compute cluster hosts__
 | Compute instance | `*.instances.azureml.ms` | TCP | 443, 8787, 18881 |
 | Compute instance | `<region>.tundra.azureml.ms` | UDP | 5831 |
 | Compute instance | `*.<region>.batch.azure.com` | ANY | 443 |
-| Compute instance | `*.<region>.service.batch.com` | ANY | 443 | 
+| Compute instance | `*.<region>.service.batch.azure.com` | ANY | 443 | 
 | Microsoft storage access | `*.blob.core.windows.net` | TCP | 443 |
 | Microsoft storage access | `*.table.core.windows.net` | TCP | 443 |
 | Microsoft storage access | `*.queue.core.windows.net` | TCP | 443 |

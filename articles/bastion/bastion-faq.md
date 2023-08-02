@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 05/17/2023
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -96,6 +96,10 @@ Currently, by default, new Bastion deployments don't support zone redundancies. 
 
 Yes, [Azure AD guest accounts](../active-directory/external-identities/what-is-b2b.md) can be granted access to Bastion and can connect to virtual machines. However, Azure AD guest users can't connect to Azure VMs via Azure AD authentication. Non-guest users are supported via Azure AD authentication. For more information about Azure AD authentication for Azure VMs (for non-guest users), see [Log in to a Windows virtual machine in Azure by using Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
+### <a name="shareable-links-domains"></a>Are custom domains supported with Bastion shareable links?
+
+No, custom domains are not supported with Bastion shareable links. Users will receive a certificate error upon trying to add specific domains in the CN/SAN of the Bastion host certificate.
+
 ## <a name="vm"></a>VM features and connection FAQs
 
 ### <a name="roles"></a>Are any roles required to access a virtual machine?
@@ -105,7 +109,7 @@ In order to make a connection, the following roles are required:
 * Reader role on the virtual machine.
 * Reader role on the NIC with private IP of the virtual machine.
 * Reader role on the Azure Bastion resource.
-* Reader Role on the virtual network of the target virtual machine (if the Bastion deployment is in a peered virtual network).
+* Reader role on the virtual network of the target virtual machine (if the Bastion deployment is in a peered virtual network).
 
 ### <a name="publicip"></a>Do I need a public IP on my virtual machine to connect via Azure Bastion?
 
@@ -117,7 +121,7 @@ No. You can access your virtual machine from the Azure portal using your browser
 
 ### <a name="native-client"></a>Can I connect to my VM using a native client?
 
-Yes. You can connect to a VM from your local computer using a native client. See [Connect to a VM using a native client](connect-native-client-windows.md).
+Yes. You can connect to a VM from your local computer using a native client. See [Connect to a VM using a native client](native-client.md).
 
 ### <a name="agent"></a>Do I need an agent running in the Azure virtual machine?
 
@@ -202,7 +206,7 @@ Make sure the user has **read** access to both the VM, and the peered VNet. Addi
 * Reader role on the virtual machine.
 * Reader role on the NIC with private IP of the virtual machine.
 * Reader role on the Azure Bastion resource.
-* Reader Role on the virtual network (Not needed if there isn't a peered virtual network).
+* Reader role on the virtual network (Not needed if there isn't a peered virtual network).
 
 |Permissions|Description|Permission type|
 |---|---| ---|

@@ -109,7 +109,7 @@ GlobalSignCA is now in the certificate authority list.
 
 You can use Azure PowerShell to create and manage Azure resources by using commands or scripts. Azure hosts Azure Cloud Shell, an interactive shell environment that you can use through the Azure portal in a browser.
 
-If you choose to install and use PowerShell locally, you need Azure AZ PowerShell module 1.0.0 or later to complete the procedures here. Type `$PSVersionTable.PSVersion` to determine the version. If you need to upgrade, see [Install Azure AZ PowerShell module](/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure:
+If you choose to install and use PowerShell locally, you need Azure AZ PowerShell module 1.0.0 or later to complete the procedures here. Type `$PSVersionTable.PSVersion` to determine the version. If you need to upgrade, see [Install Azure AZ PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure:
 
 ```azurepowershell-interactive
 Connect-AzAccount

@@ -5,11 +5,11 @@ description: Learn to create a storage account to store blobs, files, queues, an
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 05/02/2023
 ms.author: tamram
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement-fy23
 ---
 
@@ -29,7 +29,7 @@ None.
 
 # [PowerShell](#tab/azure-powershell)
 
-To create an Azure storage account with PowerShell, make sure you have installed the latest [Azure Az PowerShell module](https://www.powershellgallery.com/packages/Az). See [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
+To create an Azure storage account with PowerShell, make sure you have installed the latest [Azure Az PowerShell module](https://www.powershellgallery.com/packages/Az). See [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -104,7 +104,7 @@ Every Resource Manager resource, including an Azure storage account, must belong
 
 To create an Azure storage account with the Azure portal, follow these steps:
 
-1. From the left portal menu, select **Storage accounts** to display a list of your storage accounts. If the portal menu isn't visible, click the menu button to toggle it on.
+1. From the left portal menu, select **Storage accounts** to display a list of your storage accounts. If the portal menu isn't visible, select the menu button to toggle it on.
 
     :::image type="content" source="media/storage-account-create/menu-expand-sml.png" alt-text="Image of the Azure portal homepage showing the location of the Menu button near the top left corner of the browser." lightbox="media/storage-account-create/menu-expand-lrg.png":::
 
@@ -126,7 +126,7 @@ The following table describes the fields on the **Basics** tab.
 | Project details | Resource group | Required | Create a new resource group for this storage account, or select an existing one. For more information, see [Resource groups](../../azure-resource-manager/management/overview.md#resource-groups). |
 | Instance details | Storage account name | Required | Choose a unique name for your storage account. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. |
 | Instance details | Region | Required | Select the appropriate region for your storage account. For more information, see [Regions and Availability Zones in Azure](../../availability-zones/az-overview.md).<br /><br />Not all regions are supported for all types of storage accounts or redundancy configurations. For more information, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />The choice of region can have a billing impact. For more information, see [Storage account billing](storage-account-overview.md#storage-account-billing).<br /><br />If your subscription supports Azure public multi-access edge zones (Azure MEC), you can deploy your storage account to an edge zone. For more information about edge zones, see [What is Azure public MEC?](../../public-multi-access-edge-compute-mec/overview.md). |
-| Instance details | Performance | Required | Select **Standard** performance for general-purpose v2 storage accounts (default). This type of account is recommended by Microsoft for most scenarios. For more information, see [Types of storage accounts](storage-account-overview.md#types-of-storage-accounts).<br /><br />Select **Premium** for scenarios requiring low latency. After selecting **Premium**, select the type of premium storage account to create. The following types of premium storage accounts are available: <ul><li>[Block blobs](./storage-account-overview.md)</li><li>[File shares](../files/storage-files-planning.md#management-concepts)</li><li>[Page blobs](../blobs/storage-blob-pageblob-overview.md)</li></ul><br />Microsoft recommends creating a general-purpose v2, premium block blob, or premium file share account for most scenarios. To select a legacy account type, use the link provided beneath **Instance details**. For more information about legacy account types, see [Legacy storage account types](storage-account-overview.md#legacy-storage-account-types). |
+| Instance details | Performance | Required | Select **Standard** performance for general-purpose v2 storage accounts (default). This type of account is recommended by Microsoft for most scenarios. For more information, see [Types of storage accounts](storage-account-overview.md#types-of-storage-accounts).<br /><br />Select **Premium** for scenarios requiring low latency. After selecting **Premium**, select the type of premium storage account to create. The following types of premium storage accounts are available: <ul><li>[Block blobs](./storage-account-overview.md)</li><li>[File shares](../files/storage-files-planning.md#management-concepts)</li><li>[Page blobs](../blobs/storage-blob-pageblob-overview.md)</li></ul>
 | Instance details | Redundancy | Required | Select your desired redundancy configuration. Not all redundancy options are available for all types of storage accounts in all regions. For more information about redundancy configurations, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />If you select a geo-redundant configuration (GRS or GZRS), your data is replicated to a data center in a different region. For read access to data in the secondary region, select **Make read access to data available in the event of regional unavailability**. |
 
 The following image shows a standard configuration of the basic properties for a new storage account.
@@ -272,7 +272,7 @@ To create an account with Azure DNS zone endpoints (preview), follow these steps
 
 1. Close and reopen the PowerShell console.
 
-1. Install version [4.4.2-preview](https://www.powershellgallery.com/packages/Az.Storage/4.4.2-preview) or later of the Az.Storage PowerShell module. You may need to uninstall other versions of the PowerShell module. For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
+1. Install version [4.4.2-preview](https://www.powershellgallery.com/packages/Az.Storage/4.4.2-preview) or later of the Az.Storage PowerShell module. You may need to uninstall other versions of the PowerShell module. For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-azure-powershell).
 
     ```azurepowershell
     Install-Module Az.Storage -Repository PsGallery -RequiredVersion 4.4.2-preview -AllowClobber -AllowPrerelease -Force
@@ -447,7 +447,7 @@ If you try to delete a storage account associated with an Azure virtual machine,
 # [Portal](#tab/azure-portal)
 
 1. Navigate to the storage account in the [Azure portal](https://portal.azure.com).
-1. Click **Delete**.
+1. Select **Delete**.
 
 # [PowerShell](#tab/azure-powershell)
 

@@ -44,6 +44,8 @@ When you're using customer-managed keys for encrypting images in an Azure Comput
 
 - VM image version source doesn't currently support customer-managed key encryption.
 
+- Some of the features like replicating an SSE+CMK image, creating an image from SSE+CMK encrypted disk etc. are not supported through portal.
+
 ## PowerShell
 
 To specify a disk encryption set for an image version, use  [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion) with the `-TargetRegion` parameter: 

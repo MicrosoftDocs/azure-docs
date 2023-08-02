@@ -7,10 +7,10 @@ ms.author: deeikele
 ms.reviewer: larryfr
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.date: 09/14/2022
 ms.topic: how-to
-ms.custom: devx-track-python
+ms.custom:
 ---
 
 # Create, run, and delete Azure Machine Learning resources using REST
@@ -238,7 +238,7 @@ providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/com
 -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>"
 ```
 
-To create or overwrite a named compute resource, you'll use a PUT request. In the following, in addition to the now-familiar replacements of `YOUR-SUBSCRIPTION-ID`, `YOUR-RESOURCE-GROUP`, `YOUR-WORKSPACE-NAME`, and `YOUR-ACCESS-TOKEN`, replace `YOUR-COMPUTE-NAME`, and values for `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName`, and `adminUserPassword`. As specified in the reference at [Machine Learning Compute - Create Or Update SDK Reference](/rest/api/azureml/2022-10-01/workspaces/create-or-update), the following command creates a dedicated, single-node Standard_D1 (a basic CPU compute resource) that will scale down after 30 minutes:
+To create or overwrite a named compute resource, you'll use a PUT request. In the following, in addition to the now-familiar replacements of `YOUR-SUBSCRIPTION-ID`, `YOUR-RESOURCE-GROUP`, `YOUR-WORKSPACE-NAME`, and `YOUR-ACCESS-TOKEN`, replace `YOUR-COMPUTE-NAME`, and values for `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName`, and `adminUserPassword`. As specified in the reference at [Machine Learning Compute - Create Or Update SDK Reference](/rest/api/azureml/2023-04-01/workspaces/create-or-update), the following command creates a dedicated, single-node Standard_D1 (a basic CPU compute resource) that will scale down after 30 minutes:
 
 ```bash
 curl -X PUT \
@@ -407,7 +407,7 @@ curl
 
 ### Resource provider errors
 
-[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+[!INCLUDE [machine-learning-resource-provider](includes/machine-learning-resource-provider.md)]
 
 ### Moving the workspace
 
@@ -418,10 +418,9 @@ curl
 
 The Azure Machine Learning workspace uses Azure Container Registry (ACR) for some operations. It will automatically create an ACR instance when it first needs one.
 
-[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
+[!INCLUDE [machine-learning-delete-acr](includes/machine-learning-delete-acr.md)]
 
 ## Next steps
 
 - Explore the complete [Azure Machine Learning REST API reference](/rest/api/azureml/).
-- Learn how to use the designer to [Predict automobile price with the designer](./tutorial-designer-automobile-price-train-score.md).
-- Explore [Azure Machine Learning with Jupyter notebooks](..//machine-learning/samples-notebooks.md).
+- Explore [Azure Machine Learning with Jupyter notebooks](../machine-learning/samples-notebooks.md).

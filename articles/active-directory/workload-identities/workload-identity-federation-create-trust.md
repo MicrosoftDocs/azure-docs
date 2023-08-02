@@ -320,7 +320,7 @@ az ad app federated-credential delete --id f6475511-fd81-4965-a00e-41e7792b7b9c 
 
 To use Azure PowerShell locally for this article instead of using Cloud Shell:
 
-1. Install [the latest version of Azure PowerShell](/powershell/azure/install-az-ps) if you haven't already.
+1. Install [the latest version of Azure PowerShell](/powershell/azure/install-azure-powershell) if you haven't already.
 
 1. Sign in to Azure.
 

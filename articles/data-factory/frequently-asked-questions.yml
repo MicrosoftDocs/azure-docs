@@ -193,7 +193,7 @@ sections:
         answer: |
           For the most up-to-date information about Azure Data Factory, go to the following sites:
           
-          - [Blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+          - [Blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
           - [Documentation home page](./index.yml)
           - [Product home page](https://azure.microsoft.com/services/data-factory/)
           

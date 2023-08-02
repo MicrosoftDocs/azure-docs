@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: shouryah
-ms.author: shoja
+ms.author: rasavage
 ms.date: 09/16/2022
 ms.reviewer: sgilley
 ms.custom: migration

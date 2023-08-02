@@ -47,9 +47,9 @@ Here's the initial set of permissions:
 > [!div class="mx-tableFixed"]
 > | Permission | Description |
 > | --- | --- |
-> | microsoft.directory/conditionalAccessPolicies/basic/update | Update basic properties for conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/create | Create conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/delete | Delete conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/basic/update | Update basic properties for Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/create | Create Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/delete | Delete Conditional Access policies |
 > | microsoft.directory/namedLocations/basic/update | Update basic properties of custom rules that define network locations |
 > | microsoft.directory/namedLocations/create | Create custom rules that define network locations |
 > | microsoft.directory/namedLocations/delete | Delete custom rules that define network locations |
@@ -61,27 +61,30 @@ Here's the initial set of permissions:
 
 ## Steps to use protected actions
 
+> [!NOTE]
+> You should perform these steps in the following sequence to ensure that protected actions are properly configured and enforced. If you don't follow this order, you may get unexpected behavior, such as [getting repeated requests to reauthenticate](./protected-actions-add.md#symptom---policy-is-never-satisfied).
+
 1. **Check permissions**
 
     Check that you're assigned the [Conditional Access Administrator](permissions-reference.md#conditional-access-administrator) or [Security Administrator](permissions-reference.md#security-administrator) roles. If not, check with your administrator to assign the appropriate role.
 
 1. **Configure Conditional Access policy**
 
-    Configure a Conditional Access authentication context and an associated Conditional Access policy. Protected actions use an authentication context, which allows policy enforcement for fine-grain resources in a service, like Azure AD permissions. A good policy to start with is to require passwordless MFA and exclude an emergency account. [Learn more](./protected-actions-add.md#configure-conditional-access-policy)
+    Configure a Conditional Access authentication context and an associated Conditional Access policy. Protected actions use an authentication context, which allows policy enforcement for fine-grain resources in a service, like Azure AD permissions. A good policy to start with is to require passwordless MFA and exclude an emergency account. [Learn more](./protected-actions-add.md#step-1-configure-conditional-access-policy)
 
 1. **Add protected actions**
 
-    Add protected actions by assigning Conditional Access authentication context values to selected permissions. [Learn more](./protected-actions-add.md#add-protected-actions)
+    Add protected actions by assigning Conditional Access authentication context values to selected permissions. [Learn more](./protected-actions-add.md#step-2-add-protected-actions)
 
 1. **Test protected actions**
 
-    Sign in as a user and test the user experience by performing the protected action. You should be prompted to satisfy the Conditional Access policy requirements. For example, if the policy requires multi-factor authentication, you should be redirected to the sign-in page and prompted for strong authentication. [Learn more](./protected-actions-add.md#test-protected-actions)
+    Sign in as a user and test the user experience by performing the protected action. You should be prompted to satisfy the Conditional Access policy requirements. For example, if the policy requires multi-factor authentication, you should be redirected to the sign-in page and prompted for strong authentication. [Learn more](./protected-actions-add.md#step-3-test-protected-actions)
 
 ## What happens with protected actions and applications?
 
 If an application or service attempts to perform a protection action, it must be able to handle the required Conditional Access policy. In some cases, a user might need to intervene and satisfy the policy. For example, they may be required to complete multi-factor authentication. In this preview, the following applications support step-up authentication for protected actions:
 
-- Azure Active Directory administrator experiences for the actions in the [Entra admin center](https://entra.microsoft.com) or [Azure portal](https://portal.azure.com)
+- Azure Active Directory administrator experiences for the actions in the [Entra admin center](https://entra.microsoft.com) or the [Azure portal](https://portal.azure.com)
 - [Microsoft Graph PowerShell](/powershell/microsoftgraph/overview?branch=main)
 - [Microsoft Graph Explorer](/graph/graph-explorer/graph-explorer-overview?branch=main)
 

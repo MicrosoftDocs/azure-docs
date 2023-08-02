@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/28/2023
+ms.date: 04/10/2023
 
 ms.author: justinha
 author: justinha
@@ -27,10 +27,13 @@ The NPS extension acts as an adapter between RADIUS and cloud-based Azure AD Mul
 When you use the NPS extension for Azure AD Multi-Factor Authentication, the authentication flow includes the following components:
 
 1. **NAS/VPN Server** receives requests from VPN clients and converts them into RADIUS requests to NPS servers.
-2. **NPS Server** connects to Active Directory Domain Services (AD DS) to perform the primary authentication for the RADIUS requests and, upon success, passes the request to any installed extensions.
-3. **NPS Extension** triggers a request to Azure AD Multi-Factor Authentication for the secondary authentication. Once the extension receives the response, and if the MFA challenge succeeds, it completes the authentication request by providing the NPS server with security tokens that include an MFA claim, issued by Azure STS.
+1. **NPS Server** connects to Active Directory Domain Services (AD DS) to perform the primary authentication for the RADIUS requests and, upon success, passes the request to any installed extensions.
+1. **NPS Extension** triggers a request to Azure AD Multi-Factor Authentication for the secondary authentication. Once the extension receives the response, and if the MFA challenge succeeds, it completes the authentication request by providing the NPS server with security tokens that include an MFA claim, issued by Azure STS.
    >[!NOTE]
-   >Users must have access to their default authentication method to complete the MFA requirement. They cannot choose an alternative method. Their default authentication method will be used even if it's been disabled in the tenant authentication methods and MFA policies.
+   >Although NPS doesn't support [number matching](how-to-mfa-number-match.md), the latest NPS extension does support time-based one-time password (TOTP) methods, such as the TOTP available in Microsoft Authenticator. TOTP sign-in provides better security than the alternative **Approve**/**Deny** experience. 
+   >
+   >After May 8, 2023, when number matching is enabled for all users, anyone who performs a RADIUS connection with NPS extension version 1.2.2216.1 or later will be prompted to sign in with a TOTP method instead. Users must have a TOTP authentication method registered to see this behavior. Without a TOTP method registered, users continue to see **Approve**/**Deny**.
+
 1. **Azure AD MFA** communicates with Azure Active Directory (Azure AD) to retrieve the user's details and performs the secondary authentication using a verification method configured to the user.
 
 The following diagram illustrates this high-level authentication request flow:
@@ -91,6 +94,8 @@ The following libraries are installed automatically with the extension.
 The Microsoft Azure Active Directory Module for Windows PowerShell is also installed through a configuration script you run as part of the setup process, if not already present. There's no need to install this module ahead of time if it's not already installed.
 
 ### Azure Active Directory
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Everyone using the NPS extension must be synced to Azure AD using Azure AD Connect, and must be registered for MFA.
 
@@ -249,7 +254,7 @@ To provide load-balancing capabilities or for redundancy, repeat these steps on 
    .\AzureMfaNpsExtnConfigSetup.ps1
    ```
 
-1. When prompted, sign in to Azure AD as an administrator.
+1. When prompted, sign in to Azure AD as a Global administrator.
 1. PowerShell prompts for your tenant ID. Use the *Tenant ID* GUID that you copied from the Azure portal in the prerequisites section.
 1. A success message is shown when the script is finished.  
 
@@ -345,7 +350,7 @@ import-module MSOnline
 Connect-MsolService
 New-MsolServicePrincipal -AppPrincipalId 981f26a1-7f43-403b-a875-f8b09b8cd720 -DisplayName "Azure Multi-Factor Auth Client"
 ```
-Once done , go to the [Azure portal](https://portal.azure.com) > **Azure Active Directory** > **Enterprise Applications** > Search for "Azure Multi-Factor Auth Client" > Check properties for this app > Confirm if the service principal is enabled or disabled > Click on the application entry > Go to Properties of the app > If the option "Enabled for users to sign-in? is set to No in Properties of this app , please set it to Yes.
+Once done, sign in to the [Azure portal](https://portal.azure.com) > **Azure Active Directory** > **Enterprise Applications** > Search for "Azure Multi-Factor Auth Client" > Check properties for this app > Confirm if the service principal is enabled or disabled > Click on the application entry > Go to Properties of the app > If the option "Enabled for users to sign-in?" is set to `No` in Properties of this app, please set it to `Yes`.
 
 Run the `AzureMfaNpsExtnConfigSetup.ps1` script again and it should not return the `Service principal was not found` error. 
 

@@ -89,4 +89,6 @@ If you want to help us test new builds before they're released, you should downl
 
 ## Next steps
 
-To learn more about the features of the **Azure Virtual Desktop** app, check out [Use features of the Azure Virtual Desktop Store app when connecting to Azure Virtual Desktop](client-features-windows.md).
+- To learn more about the features of the **Azure Virtual Desktop** app, check out [Use features of the Azure Virtual Desktop Store app when connecting to Azure Virtual Desktop](client-features-windows.md).
+
+- If you want to use Teams on Azure Virtual Desktop with media optimization, see [Use Microsoft Teams on Azure Virtual Desktop](../teams-on-avd.md).

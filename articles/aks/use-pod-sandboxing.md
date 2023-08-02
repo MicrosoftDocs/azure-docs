@@ -2,8 +2,8 @@
 title: Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy Pod Sandboxing (preview), also referred to as Kernel Isolation, on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.custom: devx-track-azurecli
-ms.date: 03/07/2023
+ms.custom: devx-track-azurecli, build-2023, devx-track-linux
+ms.date: 06/07/2023
 ---
 
 # Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
@@ -16,7 +16,7 @@ This article helps you understand this new feature, and how to implement it.
 
 - The Azure CLI version 2.44.1 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-- The `aks-preview` Azure CLI extension version 0.5.123 or later to select the [Mariner operating system][mariner-cluster-config] generation 2 SKU.
+- The `aks-preview` Azure CLI extension version 0.5.123 or later.
 
 - Register the `KataVMIsolationPreview` feature in your Azure subscription.
 
@@ -68,19 +68,17 @@ The following are constraints with this preview of Pod Sandboxing (preview):
 
 * [Microsoft Defender for Containers][defender-for-containers] doesn't support assessing Kata runtime pods.
 
-* [Container Insights][container-insights] doesn't support monitoring of Kata runtime pods in the preview release.
-
 * [Kata][kata-network-limitations] host-network isn't supported.
 
 * AKS does not support [Container Storage Interface drivers][csi-storage-driver] and [Secrets Store CSI driver][csi-secret-store driver] in this preview release.
 
 ## How it works
 
-To achieve this functionality on AKS, [Kata Containers][kata-containers-overview] running on Mariner AKS Container Host (MACH) stack delivers hardware-enforced isolation. Pod Sandboxing extends the benefits of hardware isolation such as a separate kernel for each Kata pod. Hardware isolation allocates resources for each pod and doesn't share them with other Kata Containers or namespace containers running on the same host.
+To achieve this functionality on AKS, [Kata Containers][kata-containers-overview] running on the Azure Linux container host for AKS stack delivers hardware-enforced isolation. Pod Sandboxing extends the benefits of hardware isolation such as a separate kernel for each Kata pod. Hardware isolation allocates resources for each pod and doesn't share them with other Kata Containers or namespace containers running on the same host.
 
 The solution architecture is based on the following components:
 
-* [Mariner][mariner-overview] AKS Container Host
+* The [Azure Linux container host for AKS][azurelinux-overview]
 * Microsoft Hyper-V Hypervisor
 * Azure-tuned Dom0 Linux Kernel
 * Open-source [Cloud-Hypervisor][cloud-hypervisor] Virtual Machine Monitor (VMM)
@@ -94,18 +92,19 @@ When a pod uses the *kata-mshv-vm-isolation* runtimeClass, it creates a VM to se
 
 ## Deploy new cluster
 
-Perform the following steps to deploy an AKS Mariner cluster using the Azure CLI.
+Perform the following steps to deploy an Azure Linux AKS cluster using the Azure CLI.
 
 1. Create an AKS cluster using the [az aks create][az-aks-create] command and specifying the following parameters:
 
    * **--workload-runtime**: Specify *KataMshvVmIsolation* to enable the Pod Sandboxing feature on the node pool. With this parameter, these other parameters shall satisfy the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
-    * **--os-sku**: *mariner*. Only the Mariner os-sku supports this feature in this preview release.
+    * **--os-sku**: *AzureLinux*. Only the Azure Linux os-sku supports this feature in this preview release.
     * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Dsv3][dv3-series] VMs.
 
    The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
     ```azurecli-interactive
-    az aks create --name myAKSCluster --resource-group myResourceGroup --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3 --node-count 1
+    az aks create --name myAKSCluster --resource-group myResourceGroup --os-sku AzureLinux --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3 --node-count 1
+    ```
 
 2. Run the following command to get access credentials for the Kubernetes cluster. Use the [az aks get-credentials][aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
@@ -134,13 +133,13 @@ Use the following command to enable Pod Sandboxing (preview) by creating a node 
    * **--cluster-name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
    * **--name**: Enter a unique name for your clusters node pool, such as *nodepool2*.
    * **--workload-runtime**: Specify *KataMshvVmIsolation* to enable the Pod Sandboxing feature on the node pool. Along with the `--workload-runtime` parameter, these other parameters shall satisfy the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
-     * **--os-sku**: *mariner*. Only the Mariner os-sku supports this feature in the preview release.
+     * **--os-sku**: *AzureLinux*. Only the Azure Linux os-sku supports this feature in the preview release.
      * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Dsv3][dv3-series] VMs.
 
    The following example adds a node pool to *myAKSCluster* with one node in *nodepool2* in the *myResourceGroup*:
 
     ```azurecli-interactive
-    az aks nodepool add --cluster-name myAKSCluster --resource-group myResourceGroup --name nodepool2 --os-sku mariner --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3
+    az aks nodepool add --cluster-name myAKSCluster --resource-group myResourceGroup --name nodepool2 --os-sku AzureLinux --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3
     ```
 
 2. Run the [az aks update][az-aks-update] command to enable pod sandboxing (preview) on the cluster.
@@ -271,12 +270,12 @@ kubectl delete pod pod-name
 
 ## Next steps
 
-* Learn more about [Azure Dedicated hosts][azure-dedicated-hosts] for nodes with your AKS cluster to use hardware isolation and control over Azure platform maintenance events.
+Learn more about [Azure Dedicated hosts][azure-dedicated-hosts] for nodes with your AKS cluster to use hardware isolation and control over Azure platform maintenance events.
 
 <!-- EXTERNAL LINKS -->
 [kata-containers-overview]: https://katacontainers.io/
 [kubectl]: https://kubernetes.io/docs/reference/kubectl/
-[azurerm-mariner]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster_node_pool#os_sku
+[azurerm-azurelinux]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster_node_pool#os_sku
 [kubectl-get-pods]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
 [container-resource-manifest]: https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/
@@ -304,9 +303,9 @@ kubectl delete pod pod-name
 [container-insights]: ../azure-monitor/containers/container-insights-overview.md
 [defender-for-containers]: ../defender-for-cloud/defender-for-containers-introduction.md
 [az-aks-install-cmd]: /cli/azure/aks#az-aks-install-cli
-[mariner-overview]: use-mariner.md
+[azurelinux-overview]: use-azure-linux.md
 [csi-storage-driver]: csi-storage-drivers.md
 [csi-secret-store driver]: csi-secrets-store-driver.md
 [az-aks-update]: /cli/azure/aks#az-aks-update
-[mariner-cluster-config]: cluster-configuration.md#mariner-os
+[azurelinux-cluster-config]: cluster-configuration.md#azure-linux-container-host-for-aks
 [register-the-katavmisolationpreview-feature-flag]: #register-the-katavmisolationpreview-feature-flag

@@ -29,7 +29,7 @@
     href: .\validated-partners\data-management\partner-overview.md
   - name: Migration tools comparison
     href: ./validated-partners/data-management/migration-tools-comparison.md
-  - name: Azure File Migration Program Solutions
+  - name: Azure Storage Migration Program Solutions
     href: ./validated-partners/data-management/azure-file-migration-program-solutions.md
   - name: DobiMigrate getting started guide
     href: ./validated-partners/data-management/dobimigrate-quick-start-guide.md

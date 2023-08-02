@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 01/25/2023
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
@@ -26,7 +26,7 @@ This article shows you how to create and manage a catalog of resources and acces
 
 ## Create a catalog
 
-A catalog is a container of resources and access packages. You create a catalog when you want to group related resources and access packages. An administrator can create a catalog.  In addition, a user who has been delegated the [catalog creator](entitlement-management-delegate.md) role can create a catalog for resources that they own.  A non-administrator who creates the catalog becomes the first catalog owner. A catalog owner can add more users, groups of users, or application service principals as catalog owners.
+A catalog is a container of resources and access packages. You create a catalog when you want to group related resources and access packages. An administrator can create a catalog.  In addition, a user who has been delegated the [catalog creator](entitlement-management-delegate.md) role can create a catalog for resources that they own.  A nonadministrator who creates the catalog becomes the first catalog owner. A catalog owner can add more users, groups of users, or application service principals as catalog owners.
 
 **Prerequisite roles:** Global administrator, Identity Governance administrator, User administrator, or Catalog creator
 
@@ -45,7 +45,7 @@ To create a catalog:
 
 1. Enter a unique name for the catalog and provide a description.
 
-    Users will see this information in an access package's details.
+    Users see this information in an access package's details.
 
 1. If you want the access packages in this catalog to be available for users to request as soon as they're created, set **Enabled** to **Yes**.
 
@@ -131,7 +131,7 @@ To require attributes for access requests:
 
     ![Screenshot that shows selecting Require attributes](./media/entitlement-management-catalog-create/resources-require-attributes.png)
  
-1.	Select the attribute type:
+1. Select the attribute type:
 
     1. **Built-in** includes Azure AD user profile attributes.
     1. **Directory schema extension** provides a way to store more data in Azure AD on user objects and other directory objects. This includes groups, tenant details, and service principals. Only extension attributes on user objects can be used to send out claims to applications.
@@ -140,9 +140,9 @@ To require attributes for access requests:
     > [!NOTE]
     > The User.mobilePhone attribute is a sensitive property that can be updated only by some administrators. Learn more at [Who can update sensitive user attributes?](/graph/api/resources/users#who-can-update-sensitive-attributes).
 
-1.	Select the answer format you want requestors to use for their answer. Answer formats include **short text**, **multiple choice**, and **long text**.
+1. Select the answer format you want requestors to use for their answer. Answer formats include **short text**, **multiple choice**, and **long text**.
 
-1.	If you select multiple choice, select **Edit and localize** to configure the answer options. 
+1. If you select multiple choice, select **Edit and localize** to configure the answer options. 
     1. In the **View/edit question** pane that appears, enter the response options you want to give the requestor when they answer the question in the **Answer values** boxes.
     1. Select the language for the response option. You can localize response options if you choose more languages.
     1. Enter as many responses as you need, and then select **Save**.
@@ -156,7 +156,7 @@ To require attributes for access requests:
  
     ![Screenshot that shows adding localizations.](./media/entitlement-management-catalog-create/add-attributes-questions.png)
 
-1.	If you want to add localization, select **Add localization**.
+1. If you want to add localization, select **Add localization**.
 
     1. In the **Add localizations for question** pane, select the language code for the language in which you want to localize the question related to the selected attribute.
     1. In the language you configured, enter the question in the **Localized Text** box.
@@ -164,7 +164,7 @@ To require attributes for access requests:
 
        ![Screenshot that shows saving the localizations.](./media/entitlement-management-catalog-create/attributes-add-localization.png)
 
-1.	After all attribute information is completed on the **Require attributes** page, select **Save**.
+1. After all attribute information is completed on the **Require attributes** page, select **Save**.
 
 ### Add a Multi-Geo SharePoint site
 
@@ -232,7 +232,7 @@ To assign a user to the catalog owner role:
 
 1. Select **Add owners** to select the members for these roles.
 
-1. Click **Select** to add these members.
+1. Select **Select** to add these members.
 
 ## Edit a catalog
 

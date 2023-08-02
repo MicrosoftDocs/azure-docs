@@ -3,6 +3,7 @@ title: Concepts - Security in Azure Kubernetes Services (AKS)
 description: Learn about security in Azure Kubernetes Service (AKS), including master and node communication, network policies, and Kubernetes secrets.
 author: miwithro
 ms.topic: conceptual
+ms.custom: build-2023
 ms.date: 02/28/2023
 ms.author: miwithro
 ---
@@ -43,7 +44,7 @@ You can control access to the API server using Kubernetes role-based access cont
 
 AKS nodes are Azure virtual machines (VMs) that you manage and maintain.
 
-* Linux nodes run optimized versions of Ubuntu or Mariner.
+* Linux nodes run optimized versions of Ubuntu or Azure Linux.
 * Windows Server nodes run an optimized Windows Server 2019 release using the `containerd` or Docker container runtime.
 
 When an AKS cluster is created or scaled up, the nodes are automatically deployed with the latest OS security updates and configurations.

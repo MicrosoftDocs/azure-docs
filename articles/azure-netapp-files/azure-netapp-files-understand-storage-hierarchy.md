@@ -65,7 +65,7 @@ For performance considerations about QoS types, see [Performance considerations 
 
 #### *Manual* QoS type  
 
-When you [create a capacity pool](azure-netapp-files-set-up-capacity-pool.md), you can specify for the capacity pool to use the manual QoS type. You can also [change an existing capacity pool](manage-manual-qos-capacity-pool.md#change-to-qos) to use the manual QoS type. *Setting the capacity type to manual QoS is a permanent change.* You can't convert a manual QoS type capacity pool to an auto QoS capacity pool. 
+When you [create a capacity pool](azure-netapp-files-set-up-capacity-pool.md), you can specify for the capacity pool to use the manual QoS type. You can also [change an existing capacity pool](manage-manual-qos-capacity-pool.md#change-to-qos) to use the manual QoS type. *Setting the capacity type to manual QoS is a permanent change.* You can't convert a manual QoS type capacity pool to an auto QoS capacity pool. (However, you can move volumes from a manual QoS capacity pool to an auto QoS capacity pool. See [Dynamically change the service level of a volume](dynamic-change-volume-service-level.md).)
 
 In a manual QoS capacity pool, you can assign the capacity and throughput for a volume independently. For minimum and maximum throughput levels, see [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits). The total throughput of all volumes created with a manual QoS capacity pool is limited by the total throughput of the pool. It's determined by the combination of the pool size and the service-level throughput.  For instance, a 4-TiB capacity pool with the Ultra service level has a total throughput capacity of 512 MiB/s (4 TiB x 128 MiB/s/TiB) available for the volumes.
 
@@ -79,7 +79,7 @@ When you use a manual QoS capacity pool with, for example, an SAP HANA system, a
 - A volume's capacity consumption counts against its pool's provisioned capacity.
 - A volume’s throughput consumption counts against its pool’s available throughput. See [Manual QoS type](#manual-qos-type).
 - Each volume belongs to only one pool, but a pool can contain multiple volumes. 
-- Volumes contain a capacity of between 4 TiB and 100 TiB. You can create a [large volume](#large-volumes) with a size of between 100 TiB and 500 TiB.
+- Volumes contain a capacity of between 100 GiB and 100 TiB. You can create a [large volume](#large-volumes) with a size of between 100 TiB and 500 TiB.
 
 ## Large volumes
 

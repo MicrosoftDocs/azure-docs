@@ -37,9 +37,11 @@ This section describes the core benefits that WAF on Application Gateway provide
 
 * Protect multiple web applications at the same time. An instance of Application Gateway can host up to 40 websites that are protected by a web application firewall.
 
-* Create custom WAF policies for different sites behind the same WAF 
+* Create custom WAF policies for different sites behind the same WAF.
 
-* Protect your web applications from malicious bots with the IP Reputation ruleset
+* Protect your web applications from malicious bots with the IP Reputation ruleset.
+
+* Protect your application against DDoS attacks. For more information, see [Application DDoS Protection](../shared/application-ddos-protection.md).
 
 ### Monitoring
 
@@ -263,3 +265,4 @@ To learn what's new with Azure Web Application Firewall, see [Azure updates](htt
 - Learn more about [WAF managed rules](application-gateway-crs-rulegroups-rules.md)
 - Learn more about [Custom Rules](custom-waf-rules-overview.md)
 - Learn about [Web Application Firewall on Azure Front Door](../afds/afds-overview.md)
+- [Learn more about Azure network security](../../networking/security/index.yml)

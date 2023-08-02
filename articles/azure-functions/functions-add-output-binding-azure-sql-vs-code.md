@@ -8,6 +8,7 @@ ms.author: drskwier
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-temp
 ms.devlang: csharp, javascript
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ---
 
 # Connect Azure Functions to Azure SQL Database using Visual Studio Code

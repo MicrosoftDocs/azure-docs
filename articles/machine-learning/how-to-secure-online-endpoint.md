@@ -15,11 +15,11 @@ ms.custom: event-tier1-build-2022, devx-track-azurecli
 
 # Use network isolation with managed online endpoints
 
-[!INCLUDE [SDK/CLI v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [SDK/CLI v2](includes/machine-learning-dev-v2.md)]
 
 When deploying a machine learning model to a managed online endpoint, you can secure communication with the online endpoint by using [private endpoints](../private-link/private-endpoint-overview.md).
 
-You can secure the inbound scoring requests from clients to an _online endpoint_. You can also secure the outbound communications between a _deployment_ and the Azure resources it uses. Security for inbound and outbound communication are configured separately. For more information on endpoints and deployments, see [What are endpoints and deployments](concept-endpoints.md#what-are-endpoints-and-deployments).
+You can secure the inbound scoring requests from clients to an _online endpoint_. You can also secure the outbound communications between a _deployment_ and the Azure resources it uses. Security for inbound and outbound communication are configured separately. For more information on endpoints and deployments, see [What are endpoints and deployments](concept-endpoints-online.md).
 
 The following diagram shows how communications flow through private endpoints to the managed online endpoint. Incoming scoring requests from clients are received through the workspace private endpoint from your virtual network. Outbound communication with services is handled through private endpoints to those service instances from the deployment:
 
@@ -53,6 +53,9 @@ There are additional prerequisites for workspace and its related entities.
 * The `v1_legacy_mode` flag must be disabled (false) on your Azure Machine Learning workspace. If this flag is enabled, you won't be able to create a managed online endpoint. For more information, see [Network isolation with v2 API](how-to-configure-network-isolation-with-v2.md).
 
 * If your Azure Machine Learning workspace has a private endpoint that was created before May 24, 2022, you must recreate the workspace's private endpoint before configuring your online endpoints to use a private endpoint. For more information on creating a private endpoint for your workspace, see [How to configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
+
+    > [!TIP]
+    > To confirm when a workspace is created, you can check the workspace properties. In Studio, click `View all properties in Azure Portal` from `Directory + Subscription + Workspace` section (top right of the Studio), Click JSON View from top right of the Overview page, and choose the latest API Version. You can check the value of `properties.creationTime`. You can do the same by using `az ml workspace show` with [CLI](how-to-manage-workspace-cli.md#get-workspace-information), or `my_ml_client.workspace.get("my-workspace-name")` with [SDK](how-to-manage-workspace.md?tabs=python#find-a-workspace), or `curl` on workspace with [REST API](how-to-manage-rest.md#drill-down-into-workspaces-and-their-resources).
 
 * When you use network isolation with a deployment, Azure Log Analytics is partially supported. All metrics and the `AMLOnlineEndpointTrafficLog` table are supported via Azure Log Analytics. `AMLOnlineEndpointConsoleLog` and `AMLOnlineEndpointEventLog` tables are currently not supported. As a workaround, you can use the [az ml online-deployment get_logs](/cli/azure/ml/online-deployment#az-ml-online-deployment-get-logs) CLI command, the [OnlineDeploymentOperations.get_logs()](/python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations#azure-ai-ml-operations-onlinedeploymentoperations-get-logs) Python SDK, or the Deployment log tab in the Azure Machine Learning studio instead. For more information, see [Monitoring online endpoints](how-to-monitor-online-endpoints.md).
     
@@ -343,7 +346,7 @@ az group delete --resource-group <resource-group-name>
 
 ## Troubleshooting
 
-[!INCLUDE [network isolation issues](../../includes/machine-learning-online-endpoint-troubleshooting.md)]
+[!INCLUDE [network isolation issues](includes/machine-learning-online-endpoint-troubleshooting.md)]
 
 ## Next steps
 

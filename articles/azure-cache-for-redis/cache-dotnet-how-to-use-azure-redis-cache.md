@@ -6,9 +6,8 @@ ms.author: franlanglois
 ms.service: cache
 ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: devx-track-csharp, mvc, mode-other
+ms.custom: devx-track-csharp, mvc, mode-other, devx-track-dotnet
 ms.date: 03/25/2022
-
 ---
 # Quickstart: Use Azure Cache for Redis in .NET Framework
 

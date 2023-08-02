@@ -2,6 +2,7 @@
 title: "Azure Arc-enabled Kubernetes system requirements"
 ms.date: 04/27/2023
 ms.topic: conceptual
+ms.custom: devx-track-azurepowershell
 description: Learn about the system requirements to connect Kubernetes clusters to Azure Arc.
 ---
 
@@ -48,7 +49,7 @@ For Azure CLI:
 
 For Azure PowerShell:
 
-- Install [Azure PowerShell version 6.6.0 or later](/powershell/azure/install-az-ps).
+- Install [Azure PowerShell version 6.6.0 or later](/powershell/azure/install-azure-powershell).
 - Install the **Az.ConnectedKubernetes** PowerShell module:
 
     ```azurepowershell-interactive
