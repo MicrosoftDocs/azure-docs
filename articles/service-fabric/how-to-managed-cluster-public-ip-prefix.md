@@ -54,7 +54,7 @@ The following section describes the steps that should be taken to implement publ
 #### Azure CLI:
 
 1. Create a resource group and a public IP address prefix as outlined in the [Create public IP prefix - Azure CLI](../virtual-network/ip-services/create-public-ip-prefix-cli.md)
-2. Pass the prefix's resource ID to the `PublicIPPrefixId` property under `Microsoft.ServiceFabric/managedClusters` resource in the ARM template and deploy the template.
+2. Modify your existing ARM template and add new property `PublicIPPrefixId` under `Microsoft.ServiceFabric/managedClusters` resource that takes the resource ID of the public IP prefix and deploy the template.
 
   ```azurecli-interactive
     az deployment group create \
@@ -67,7 +67,7 @@ The following section describes the steps that should be taken to implement publ
 #### Azure PowerShell:
 
 1. Create a resource group and a public IP address prefix as outlined in the [Create public IP prefix - PowerShell](../virtual-network/ip-services/create-public-ip-prefix-powershell.md)
-2. Pass the prefix's resource ID to the `PublicIPPrefixId` property under `Microsoft.ServiceFabric/managedClusters` resource in the ARM template and deploy the template.
+2. Modify your existing ARM template and add new property `PublicIPPrefixId` under `Microsoft.ServiceFabric/managedClusters` resource that takes the resource ID of the public IP prefix and deploy the template.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName "ExampleGroup" -TemplateFile <path-to-template> -TemplateParameterFile <path-to-template-parameter-file>
