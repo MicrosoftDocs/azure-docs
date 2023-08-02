@@ -46,6 +46,7 @@ Watch the video below to learn more about using the .NET SDK from an Azure Cosmo
 |  <input type="checkbox"/> |    Enabling Query Metrics     |  For more logging of your backend query executions, you can enable SQL Query Metrics using our .NET SDK. For instructions on how to collect SQL Query Metrics [visit](query-metrics-performance.md)    |
 |  <input type="checkbox"/>    | SDK Logging   | Log [SDK diagnostics](#capture-diagnostics) for outstanding scenarios, such as exceptions or when requests go beyond an expected latency.
 |  <input type="checkbox"/>    | DefaultTraceListener   | The DefaultTraceListener poses performance issues on production environments causing high CPU and I/O bottlenecks. Make sure you're using the latest SDK versions or [remove the DefaultTraceListener from your application](performance-tips-dotnet-sdk-v3.md#logging-and-tracing)  |
+|  <input type="checkbox"/>    | Avoid using any special characters in identifiers   | Some characters are restricted and cannot be used in some identifiers: '/', '\\', '?', '#'. The general recommendation is to not use any special characters in database, collection, item, or partition key identifiers to avoid any unexpected behavior. |
 
 ## Capture diagnostics
 
