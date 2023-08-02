@@ -3,7 +3,7 @@ title: How to create an Azure support request
 description: Customers who need assistance can use the Azure portal to find self-service solutions and to create and manage support requests.
 ms.topic: how-to
 ms.custom: support-help-page
-ms.date: 11/18/2022
+ms.date: 08/03/2023
 ---
 
 # Create an Azure support request
