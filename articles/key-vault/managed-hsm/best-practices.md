@@ -2,7 +2,7 @@
 title: Best practices for securing Azure Key Vault Managed HSM
 description: Learn some of the best practices to use to secure your instance of Azure Key Vault Managed HSM.
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 tags: azure-key-vault
 
 ms.service: key-vault

@@ -4,7 +4,7 @@ description: Get an overview of the Azure Key Vault Managed HSM security domain,
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: concept-article
-author: mbaldwin
+author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 03/28/2022
 ---

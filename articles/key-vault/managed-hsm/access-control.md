@@ -2,7 +2,7 @@
 title: Azure Key Vault Managed HSM access control
 description: Learn how to manage access permissions for Azure Key Vault Managed HSM and keys. Understand the authentication and authorization models for Managed HSM and how to secure your HSMs.
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 tags: azure-resource-manager
 
 ms.service: key-vault
