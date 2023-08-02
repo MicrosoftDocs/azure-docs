@@ -20,9 +20,9 @@ Configuration changes should be deployed in a controlled, consistent way. Develo
 
 ## Scenarios for using snapshots
 
-* **Controlled rollout**: Snapshots are an excellent tool for supporting controlled rollout due to their immutable nature. When developers utilize snapshots for configuration, they can be confident that the configuration remains unchanged as the release progresses through different phases of the rollout.
+* **Controlled rollout**: Snapshots are well suited for supporting controlled rollout due to their immutable nature. When developers utilize snapshots for configuration, they can be confident that the configuration remains unchanged as the release progresses through different phases of the rollout.
 
-* **Last Known Good (LKG) configuration**: Snapshots can be used to support Safe Deployment Practices for Configuration. With snapshots, developers can ensure that a Last known Good (LKG) configuration is available for rollback if there was any issue during deployment.
+* **Last Known Good (LKG) configuration**: Snapshots can be used to support safe deployment practices for Configuration. With snapshots, developers can ensure that a Last known Good (LKG) configuration is available for rollback if there was any issue during deployment.
 
 * **Configuration versioning**: Snapshots can be used to create a version history of configuration settings to sync with release versions. Settings captured in each snapshot can be compared to identify changes between versions.
 
@@ -45,32 +45,37 @@ As snapshots are immutable entities, snapshots can only be created and archived.
 > [!NOTE]
 > The retention period can only be set during the creation of a snapshot. The default value for retention period is 30 days for Standard stores and 7 days for Free stores.
 
-## Permissions
+## Requirements for snapshot operations
+
+If the store uses Azure Active Directory (AAD) for access please check the AAD permissions. If the store uses access keys please check the HMAC section.
 
 ### Create a snapshot
 
-To create a snapshot, the following permissions are needed. The App Configuration Data Owner role already has these permissions.
+To create a snapshot in stores using AAD authentication,  you would require the Data Owner role. You could also create a custom role with the following permissions.
 - `Microsoft.AppConfiguration/configurationStores/keyvalues/read`
 - `Microsoft.AppConfiguration/configurationStores/snapshots/write`
-Snapshots can be created with read-write access keys too.
+
+For stores using HMAC authentication, snapshots can be created with read-write access keys.
 
 ### Archive and recover a snapshot
 
-To archive and recover a snapshot, the following permission is needed. The App Configuration Data Owner role already has this permission.
+To archive and/or recover a snapshot in stores using AAD authentication, the following permission is needed. The App Configuration Data Owner role already has this permission.
 - `Microsoft.AppConfiguration/configurationStores/snapshots/archive/action`
-Snapshots can be archived or recovered with read-write access keys too.
 
-### Read and list a snapshot
+For stores using HMAC authentication, snapshots can be archived or recovered with read-write access keys.
 
-To  list all snapshots, or get an individual snapshot by name the following permission is needed. The built-in Data Owner and Data Reader roles already have this permission.
+### Read and list snapshots
+
+To  list all snapshots, or get all the key-values in an individual snapshot by name the following permission is needed for stores utilizing AAD authentication. The built-in Data Owner and Data Reader roles already have this permission.
 - `Microsoft.AppConfiguration/configurationStores/snapshots/read`
-To read and list the snapshots, the read-write access keys and read-only access keys also work.
+
+For stores that use HMAC authentication, both the "read snapshot" operation (to read the key-values from a snapshot) and the "list snapshots" operation can be performed using either the read-write access keys or the read-only access keys.
 
 ## Billing considerations and limits
 
-Snapshots have their storage quota as detailed here in the  [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration/), refer to “storage per resource." There's no extra charge for snapshots before the included snapshot storage quota is exhausted.
+The storage quota for snapshots is detailed in the "storage per resource section" of the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration/) There's no extra charge for snapshots before the included snapshot storage quota is exhausted.
 
-App Configuration has two tiers, Free and standard, check the details of snapshots quota and charge in each tier.
+App Configuration has two tiers, Free and Standard. Check the details below for snapshot quotas in each tier.
 
 * **Free tier**: This tier has a snapshot storage quota of 10 MB.  One can create as many snapshots as possible as long as the total storage size of all active and archived snapshots is less than 10 MB.
 
