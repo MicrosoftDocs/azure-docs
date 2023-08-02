@@ -14,9 +14,9 @@ Cost optimization settings offer users the ability to customize and control the 
 
 ## Data collection parameters
 
-The container insights agent periodically checks for the data collection settings, validates, and applies the applicable settings to applicable container insights Log Analytics tables and Custom Metrics. The data collection settings should be applied in the subsequent configured Data collection interval.
+The container insights agent periodically checks for the data collection settings, validates and applies the applicable settings to applicable container insights Log Analytics tables and Custom Metrics. The data collection settings should be applied in the subsequent configured Data collection interval.
 
-The following table describes the supported data collection settings
+The following table describes the supported data collection settings:
 
 | **Data collection setting** | **Allowed Values** | **Description** |
 | -- | --- | -- |
@@ -46,7 +46,7 @@ The settings allow you specify which tables you want to collect using streams. T
 This table outlines the list of the container insights Log Analytics tables for which data collection settings are applicable.
 
 >[!NOTE]
->This feature configures settings for all container insights tables (excluding ContainerLog), to configure settings on the ContainerLog please update the ConfigMap listed in documentation for [agent data Collection settings](../containers/container-insights-agent-config.md)
+>This feature configures settings for all container insights tables (excluding ContainerLog), to configure settings on the ContainerLog please update the ConfigMap listed in documentation for [agent data Collection settings](../containers/container-insights-agent-config.md).
 
 | ContainerInsights Table Name | Is Data collection setting: interval applicable? | Is Data collection setting: namespaces applicable? | Remarks |
 | --- | --- | --- | --- |
@@ -60,7 +60,7 @@ This table outlines the list of the container insights Log Analytics tables for 
 | Perf | Yes | Yes\* | \*Data collection setting for namespaces is not applicable for the Kubernetes Node related metrics since the Kubernetes Node is not a namespace scoped object. |
 | InsightsMetrics| Yes\*\* | Yes\*\* | \*\*Data collection settings are only applicable for the metrics collecting the following namespaces: container.azm.ms/kubestate, container.azm.ms/pv and container.azm.ms/gpu |
 
-## Custom Metrics
+## Custom metrics
 
 | Metric namespace | Is Data collection setting: interval applicable? | Is Data collection setting: namespaces applicable? | Remarks |
 | --- | --- | --- | --- |
@@ -93,7 +93,7 @@ resources
 
 Reference the [Limitations](./container-insights-cost-config.md#limitations) section for information on migrating your Recommended alerts.
 
-## Pre-requisites
+## Prerequisites
 
 - AKS Cluster MUST be using either System or User Assigned Managed Identity
     - If the AKS Cluster is using Service Principal, you must upgrade to [Managed Identity](../../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster)
@@ -166,7 +166,7 @@ Create a file and provide values for _interval_, _namespaceFilteringMode_, _name
 > [!NOTE]
 > Minimum Azure CLI version 2.51.0 or higher.
 
-Use the following command to enable monitoring of your AKS cluster
+Use the following command to enable monitoring of your AKS cluster:
 
 ```azcli
 az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --node-count 1 --enable-addons monitoring --data-collection-settings dataCollectionSettings.json --generate-ssh-keys 
@@ -199,19 +199,19 @@ az aks enable-addons -a monitoring -g <clusterResourceGroup> -n <clusterName> --
 ```
 
 ## [Azure portal](#tab/create-portal)
-1. In the Azure portal, select the AKS cluster that you wish to monitor
+1. In the Azure portal, select the AKS cluster that you wish to monitor.
 2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
-3. If you have not previously configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar    
-4. If you are configuring Container Insights for the first time or have not migrated to using [managed identity authentication](../containers/container-insights-onboard.md#authentication), select the "Use managed identity" checkbox
+3. If you have not previously configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar.    
+4. If you are configuring Container Insights for the first time or have not migrated to using [managed identity authentication](../containers/container-insights-onboard.md#authentication), select the "Use managed identity" checkbox.
 [![Screenshot that shows the onboarding options.](media/container-insights-cost-config/cost-settings-onboarding.png)](media/container-insights-cost-config/cost-settings-onboarding.png#lightbox)
 5. Using the dropdown, choose one of the "Cost presets", for more configuration, you may select the "Edit collection settings"
 [![Screenshot that shows the collection settings.](media/container-insights-cost-config/advanced-collection-settings.png)](media/container-insights-cost-config/advanced-collection-settings.png#lightbox)
-6. Click the blue "Configure" button to finish
+6. Click the blue "Configure" button to finish.
 
 
 ## [ARM](#tab/create-arm)
 
-1. Download the Azure Resource Manager Template and Parameter files
+1. Download the Azure Resource Manager Template and Parameter files.
 
 ```bash
 curl -L https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-file -o existingClusterOnboarding.json
@@ -221,7 +221,7 @@ curl -L https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-file -o
 curl -L https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-parameter-file -o existingClusterParam.json
 ```
 
-2. Edit the values in the parameter file: existingClusterParam.json
+2. Edit the values in the parameter file: existingClusterParam.json.
 
 - For _aksResourceId_ and _aksResourceLocation_, use the values on the  **AKS Overview**  page for the AKS cluster.
 - For _workspaceResourceId_, use the resource ID of your Log Analytics workspace.
@@ -233,7 +233,7 @@ curl -L https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-paramet
 - For _enableContainerLogV2_, specify this parameter to be true or false. By default, this parameter is set to true.
 - For _streams_, select the container insights tables you want to collect. Refer to the above mapping for more details.
 
-3. Deploy the ARM template
+3. Deploy the ARM template.
 
 ```azcli
 az login
@@ -260,25 +260,25 @@ The collection settings can be modified through the input of the `dataCollection
 
 * `interval`: The frequency of data collection, the input scheme must be a number between [1, 30] followed by m to denote minutes.
 * `namespaceFilteringMode`: The filtering mode for the namespaces, the input must be either Include, Exclude, or Off.
-* `namespaces`: An array of Kubernetes namespaces as strings, to be included or excluded
+* `namespaces`: An array of Kubernetes namespaces as strings, to be included or excluded.
 * `enableContainerLogV2`: Boolean flag to enable ContainerLogV2 schema. If set to true, the stdout/stderr Logs are ingested to [ContainerLogV2](container-insights-logging-v2.md) table, else the container logs are ingested to ContainerLog table, unless otherwise specified in the ConfigMap. When specifying the individual streams, you must include the corresponding table for ContainerLog or ContainerLogV2.
 * `streams`: An array of container insights table streams. See the supported streams above to table mapping.
 
 ## [Azure portal](#tab/create-portal)
-1. In the Azure portal, select the AKS hybrid cluster that you wish to monitor
+1. In the Azure portal, select the AKS hybrid cluster that you wish to monitor.
 2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
-3. If you have not previously configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar
+3. If you have not previously configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar.
 [![Screenshot that shows the onboarding options.](media/container-insights-cost-config/cost-settings-onboarding.png)](media/container-insights-cost-config/cost-settings-onboarding.png#lightbox)
 4. Using the dropdown, choose one of the "Cost presets", for more configuration, you may select the "Edit collection settings"
-[![Screenshot that shows the collection settings.](media/container-insights-cost-config/advanced-collection-settings.png)](media/container-insights-cost-config/advanced-collection-settings.png#lightbox)
-5. Click the blue "Configure" button to finish
+[![Screenshot that shows the collection settings.](media/container-insights-cost-config/advanced-collection-settings.png)](media/container-insights-cost-config/advanced-collection-settings.png#lightbox).
+5. Click the blue "Configure" button to finish.
 
 
 
 ## [ARM](#tab/create-arm)
 
 
-1. Download the Azure Resource Manager Template and Parameter files
+1. Download the Azure Resource Manager Template and Parameter files.
 
 ```bash
 curl -L https://aka.ms/existingClusterOnboarding.json -o existingClusterOnboarding.json
@@ -288,7 +288,7 @@ curl -L https://aka.ms/existingClusterOnboarding.json -o existingClusterOnboardi
 curl -L https://aka.ms/existingClusterParam.json -o existingClusterParam.json
 ```
 
-2. Edit the values in the parameter file: existingClusterParam.json
+2. Edit the values in the parameter file: existingClusterParam.json.
 
 - For _clusterResourceId_ and _clusterResourceLocation_, use the values on the  **Overview**  page for the AKS hybrid cluster.
 - For _workspaceResourceId_, use the resource ID of your Log Analytics workspace.
@@ -301,7 +301,7 @@ curl -L https://aka.ms/existingClusterParam.json -o existingClusterParam.json
 - For _streams_, select the container insights tables you want to collect. Refer to the above mapping for more details.
 
 
-3. Deploy the ARM template
+3. Deploy the ARM template.
 
 ```azcli
 az login
@@ -333,19 +333,19 @@ The collection settings can be modified through the input of the `dataCollection
 * `streams`: An array of container insights table streams. See the supported streams above to table mapping.
 
 ## [Azure portal](#tab/create-portal)
-1. In the Azure portal, select the Arc cluster that you wish to monitor
+1. In the Azure portal, select the Arc cluster that you wish to monitor.
 2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
-3. If you have not previously configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar    
+3. If you have not previously configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar.    
 4. If you are configuring Container Insights for the first time, select the "Use managed identity" checkbox
-[![Screenshot that shows the onboarding options.](media/container-insights-cost-config/cost-settings-onboarding.png)](media/container-insights-cost-config/cost-settings-onboarding.png#lightbox)
+[![Screenshot that shows the onboarding options.](media/container-insights-cost-config/cost-settings-onboarding.png)](media/container-insights-cost-config/cost-settings-onboarding.png#lightbox).
 5. Using the dropdown, choose one of the "Cost presets", for more configuration, you may select the "Edit advanced collection settings"
-[![Screenshot that shows the collection settings.](media/container-insights-cost-config/advanced-collection-settings.png)](media/container-insights-cost-config/advanced-collection-settings.png#lightbox)
-6. Click the blue "Configure" button to finish
+[![Screenshot that shows the collection settings.](media/container-insights-cost-config/advanced-collection-settings.png)](media/container-insights-cost-config/advanced-collection-settings.png#lightbox).
+6. Click the blue "Configure" button to finish.
 
 
 ## [ARM](#tab/create-arm)
 
-1. Download the Azure Resource Manager Template and Parameter files
+1. Download the Azure Resource Manager Template and Parameter files.
 
 ```bash
 curl -L https://aka.ms/arc-k8s-enable-monitoring-costopt-onboarding-template-file -o existingClusterOnboarding.json 
@@ -355,7 +355,7 @@ curl -L https://aka.ms/arc-k8s-enable-monitoring-costopt-onboarding-template-fil
 curl -L https://aka.ms/arc-k8s-enable-monitoring-costopt-onboarding-template-parameter-file -o existingClusterParam.json 
 ```
 
-2. Edit the values in the parameter file: existingClusterParam.json
+2. Edit the values in the parameter file: existingClusterParam.json.
 
 - For _clusterResourceId_ and  _clusterRegion_, use the values on the  **Overview**  page for the Arc enabled Kubernetes cluster.
 - For _workspaceResourceId_, use the resource ID of your Log Analytics workspace.
@@ -367,7 +367,7 @@ curl -L https://aka.ms/arc-k8s-enable-monitoring-costopt-onboarding-template-par
 - For _enableContainerLogV2_, specify this parameter to be true or false. By default, this parameter is set to true.
 - For _streams_, select the container insights tables you want to collect. Refer to the above mapping for more details.
 
-3. Deploy the ARM template
+3. Deploy the ARM template.
 
 ```azcli
 az login
