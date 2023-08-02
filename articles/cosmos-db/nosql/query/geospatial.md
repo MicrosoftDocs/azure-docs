@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/31/2023
+ms.date: 08/01/2023
 ms.custom: query-reference
 ---
 
@@ -213,3 +213,4 @@ If you don't have the latitude and longitude information, but have the physical 
 ## Next steps
 
 - [Objects and arrays](object-array.md)
+- [Index and query GeoJSON location data](../how-to-geospatial-index-query.md)

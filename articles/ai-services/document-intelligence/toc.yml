@@ -228,7 +228,7 @@ items:
       href:  concept-custom-lifecycle.md
 - name: Tutorials
   items:
-  - name: Use Document Intelligence with Azure Logic Apps
+  - name: Create workflows using Azure Logic Apps
     displayName: connectors, automate, automation, workflows
     href: tutorial-logic-apps.md
   - name: Use managed identities to access Azure storage

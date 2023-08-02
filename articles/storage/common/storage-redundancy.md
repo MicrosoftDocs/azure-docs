@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 07/31/2023
+ms.date: 08/01/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ms.custom: references_regions, engagement
@@ -208,9 +208,13 @@ The following table indicates whether your data is durable and available in a gi
 
 The following table shows which redundancy options are supported by each Azure Storage service.
 
-| LRS | ZRS | GRS | RA-GRS | GZRS | RA-GZRS |
-|---|---|---|---|---|---|
-| Blob storage (including Data Lake Storage)<br/>Queue storage <br/>Table storage <br/>Azure Files<sup>1,</sup><sup>2</sup> <br/>Azure managed disks<br/> Page blobs | Blob storage (including Data Lake Storage)<br/>Queue storage <br/>Table storage <br/>Azure Files<sup>1,</sup><sup>2</sup> <br/>Azure managed disks<sup>3</sup> | Blob storage (including Data Lake Storage)<br/>Queue storage <br/>Table storage <br/>Azure Files<sup>1</sup> | Blob storage (including Data Lake Storage)<br/>Queue storage <br/>Table storage <br/> | Blob storage (including Data Lake Storage)<br/>Queue storage <br/>Table storage <br/>Azure Files<sup>1</sup> | Blob storage (including Data Lake Storage)<br/>Queue storage <br/>Table storage <br/> |
+| Service | LRS | ZRS | GRS | RA-GRS | GZRS | RA-GZRS |
+|---------|-----|-----|-----|--------|------|---------|
+| Blob storage <br/>(including Data Lake Storage) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| Queue storage                                   | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| Table storage                                   | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| Azure Files                                     | &#x2705; <sup>1,</sup><sup>2</sup> | &#x2705; <sup>1,</sup><sup>2</sup> | &#x2705; <sup>1</sup> | | &#x2705; <sup>1</sup> | |
+| Azure managed disks                             | &#x2705; | &#x2705; <sup>3</sup> |          |          |          |          |
 
 <sup>1</sup> Standard file shares are supported on LRS and ZRS. Standard file shares are supported on GRS and GZRS as long as they're less than or equal to 5 TiB in size.<br/>
 <sup>2</sup> Premium file shares are supported on LRS and ZRS.<br/>

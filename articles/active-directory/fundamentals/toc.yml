@@ -5,7 +5,7 @@ items:
   expanded: true
   items:
   - name: What is Azure Active Directory?
-    href: active-directory-whatis.md
+    href: whatis.md
   - name: New name for Azure AD
     href: new-name.md
   - name: Identity fundamentals
@@ -75,7 +75,7 @@ items:
   - name: Integrating all your apps with Azure AD
     href: five-steps-to-full-application-integration.md
   - name: Security defaults
-    href: concept-fundamentals-security-defaults.md
+    href: security-defaults.md
   - name: Block less secure authentications
     href: ../conditional-access/block-legacy-authentication.md?toc=/azure/active-directory/fundamentals/toc.json
 - name: Support and help
