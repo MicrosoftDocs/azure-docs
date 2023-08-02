@@ -45,7 +45,7 @@ To use the feature:
 
 4. To restore backup data for an alternate server from the secondary region, you need to download the *Secondary Region vault credential* from the Azure portal.
 
-   :::image type="content" source="./media/about-restore-microsoft-azure-recovery-services/download-vault-credentials-for-cross-region-restore.png .png" alt-text="Screenshot shows how to download vault credentials for secondary region.":::
+   :::image type="content" source="./media/about-restore-microsoft-azure-recovery-services/download-vault-credentials-for-cross-region-restore.png" alt-text="Screenshot shows how to download vault credentials for secondary region.":::
 
 5. To automate recovery from secondary region for audit or compliance drills, [use this command](backup-client-automation.md#cross-region-restore). 
 
