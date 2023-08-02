@@ -6,6 +6,18 @@ ms.date: 01/09/2023
 ms.author: eur
 ---
 
+ 
+### Aug 2023 release
+
+#### New Speech to text-locales:
+
+STT has added 2 new locales support as shown in the following table. Please refer to the the complete language list [here](../../language-support.md?tabs=stt).
+
+| Locale  | Language                          |
+|---------|-----------------------------------|
+| `pa-IN`         | Punjabi (India) |
+| `ur-IN`        | Urdu (India)  |
+
 ### May 2023 release
 
 #### Pronunciation Assessment
