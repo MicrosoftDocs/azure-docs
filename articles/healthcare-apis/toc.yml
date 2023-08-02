@@ -18,7 +18,7 @@
     - name: Workspace provisioning
       href: workspace-overview.md
 - name: Quickstarts
-  expanded: false
+  expanded: true
   items: 
     - name: Set up a workspace
       href: get-started-with-health-data-services.md
@@ -27,7 +27,7 @@
     - name: Deploy services using Bicep
       href: deploy-healthcare-apis-using-bicep.md
 - name: How-tos
-  expanded: false
+  expanded: true
   items:
     - name: Get an access token
       href: get-access-token.md
@@ -50,7 +50,7 @@
     - name: Enable diagnostic logging
       href: logging.md
 - name: More resources
-  expanded: false
+  expanded: true
   items:
     - name: GitHub projects
       href: github-projects.md
