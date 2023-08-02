@@ -78,13 +78,13 @@ Locate the installer files for the server’s operating system using the followi
 
 **Use the following steps to install the mobility service:**
 
-1. Copy the installation file to the location *C:\Program Files (x86)\Microsoft Azure Site Recovery*, and run it. This will launch the installer UI:
+1. Copy the installation file to the location *C:\Program Files (x86)\Microsoft Azure Site Recovery*, and run it. This will launch the installer UI: 
+
+   ![Image showing Install UI option for  Mobility Service](./media/vmware-physical-mobility-service-overview-modernized/mobility-service-install.png) 
 
 2. Provide the install location in the UI. This should be *C:\Program Files (x86)\Microsoft Azure Site Recovery*. 
 
 4. Click **Install**. This will start the installation of Mobility Service. Wait till the installation has been completed. 
-
-   ![Image showing Install UI option for  Mobility Service](./media/vmware-physical-mobility-service-overview-modernized/mobility-service-install.png)
 
    ![Image showing Installation progress for  Mobility Service](./media/vmware-physical-mobility-service-overview-modernized/installation-progress.png)
 
@@ -127,7 +127,7 @@ Locate the installer files for the server’s operating system using the followi
 4. After successfully installing, register the source machine with the above appliance using the following command:
 
    ```cmd
-   "C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CredentialLessDiscovery true
+   "C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CredentialLessDiscovery true /CSType CSPrime
    ```
 
 #### Installation settings
@@ -139,7 +139,7 @@ Syntax | `.\UnifiedAgentInstaller.exe /Platform vmware /Role MS /CSType CSPrime 
 `/InstallLocation`| Optional. Specifies the Mobility service installation location (any folder).
 `/Platform` | Mandatory. Specifies the platform on which the Mobility service is installed: <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.<br/><br/> If you're treating Azure VMs as physical machines, specify **VMware**.
 `/Silent`| Optional. Specifies whether to run the installer in silent mode.
-`/CSType`| Optional. Used to define modernized or classic architecture. By default, modernized architecture would be launched. (CSPrime or CSLegacy)
+`/CSType`| Optional. Used to define modernized or classic architecture. By default for all agents on or above the version 9.55, modernized architecture would be launched. (CSPrime or CSLegacy)
 
 #### Registration settings
 
@@ -147,7 +147,7 @@ Setting | Details
 --- | ---
 Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime /CredentialLessDiscovery true`
 `/SourceConfigFilePath` | Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
-`/CSType` |  Optional. Used to define modernized or legacy architecture. By default, modernized architecture would be launched. (CSPrime or CSLegacy).
+`/CSType` |  Optional. Used to define modernized or legacy architecture. By default for all agents on or above the version 9.55, modernized architecture would be launched. (CSPrime or CSLegacy).
 `/CredentialLessDiscovery` | Optional. Specifies whether credential-less discovery will be performed or not.  
 
 
@@ -162,7 +162,7 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
 
 2. To install, use the below command:
    ```bash
-       sudo  ./install -q -r MS -v VmWare
+       sudo  ./install -q -r MS -v VmWare -c CSPrime
     ```
 
     Once the installation is complete, copy the string that is generated alongside the parameter *Agent Config Input*. This string is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file).
@@ -170,26 +170,26 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
 3. After successfully installing, register the source machine with the above appliance using the following command:
 
    ```bash
-        <InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -S config.json -q
+        <InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -S config.json -q -c CSPrime
     ```
 #### Installation settings
 
   Setting | Details
   --- | ---
-    Syntax | `./install -q -r MS -v VmWare`
+    Syntax | `./install -q -r MS -v VmWare -c CSPrime`
     `-r` | Mandatory. Installation parameter. Specifies whether the Mobility service (MS) should be installed.
     `-d` | Optional. Specifies the Mobility service installation location: `/usr/local/ASR`.
     `-v` | Mandatory. Specifies the platform on which Mobility service is installed. <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.
     `-q` | Optional. Specifies whether to run the installer in silent mode.
-    `-c` | Optional. Used to define modernized or legacy architecture. By default, modernized architecture would be launched. (CSPrime or CSLegacy).
+    `-c` | Optional. Used to define modernized or legacy architecture. By default for all agents on or above the version 9.55, modernized architecture would be launched. (CSPrime or CSLegacy).
 
 #### Registration settings
 
   Setting | Details
   --- | ---
-    Syntax | `<InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -S config.json -q -D true`  
+    Syntax | `<InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -S config.json -q -D true -c CSPrime`  
     `-S` |  Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
-    `-c` |  Optional. Used to define modernized and legacy architecture. By default, modernized architecture would be launched. (CSPrime or CSLegacy).
+    `-c` |  Optional. Used to define modernized and legacy architecture. By default for all agents on or above the version 9.55, modernized architecture would be launched. (CSPrime or CSLegacy).
     `-q` |  Optional. Specifies whether to run the installer in silent mode.
     `-D` |  Optional. Specifies whether credential-less discovery will be performed or not. 
 
