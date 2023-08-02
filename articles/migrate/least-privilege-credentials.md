@@ -44,9 +44,9 @@ The utility requires the SQL Server instances list to be created as a CSV with t
     2. Provide the username and password for the admin-level account
 5.	Now provide the credentials for the least privileged account that needs to be created.
     1. Select the credential type by entering 1 for SQL Account or 2 for Windows/Domain Account.
-    2. If you chose to create a SQL Account in the previous step, you will be notified that if an SQL Server instance in the list does not have SQL Authentication enabled, the script can optionally provision the account anyway and enable SQL Authentication. However, the instance will need to be restarted for the newly provisioned SQL Account to be used. If you do not want to proceed with SQL Account provisioning, enter *N* or *n* to go back to the previous step and choose the credential type again.
+    2. If you chose to create a SQL Account in the previous step, you'll be notified that if an SQL Server instance in the list doesn't have SQL Authentication enabled, the script can optionally provision the account anyway and enable SQL Authentication. However, the instance needs to be restarted for the newly provisioned SQL Account to be used. If you don't want to proceed with SQL Account provisioning, enter *N* or *n* to go back to the previous step and choose the credential type again.
     3. Provide the username and password for the least privileged account to be provisioned.
-6.	If there are additional admin-level credentials to be used, start again at Step 2 with the same CSV file. The utility will ignore instances which have already been successfully configured. 
+6.	If there are additional admin-level credentials to be used, start again at Step 2 with the same CSV file. The utility ignores instances, which have already been successfully configured. 
 
 > [!Note]
 > We recommend using the same least privileged account credentials to simplify the configuration of the Azure Migrate Appliance.
