@@ -5,7 +5,7 @@ ms.topic: install-set-up-deploy
 ms.date: 08/01/2023
 ---
 
-## Enable and configure with REST API
+# Enable and configure with REST API
 
 We recommend that you enable Defender for Storage on the subscription level. Doing so ensures all storage accounts in the subscription will be protected, including future ones.
 
