@@ -19,7 +19,7 @@ This article shows how to delete containers with the [Azure Storage client libra
 
 ## Prerequisites
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object, see [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md).
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules or types, and creating an authorized client object, see [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md).
 - The [authorization mechanism](../common/authorize-data-access.md) must have permissions to delete a blob container, or to restore a soft-deleted container. To learn more, see the authorization guidance for the following REST API operations:
     - [Delete Container](/rest/api/storageservices/delete-container#authorization)
     - [Restore Container](/rest/api/storageservices/restore-container#authorization)

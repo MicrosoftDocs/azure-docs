@@ -16,6 +16,12 @@ ms.custom: devx-track-ts, devguide-ts, devx-track-js
 
 Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create containers with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
 
+## Prerequisites
+
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and TypeScript](storage-blob-typescript-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to create a blob container. To learn more, see the authorization guidance for the following REST API operation:
+    - [Create Container](/rest/api/storageservices/create-container#authorization)
+
 ## Name a container
 
 A container name must be a valid DNS name, as it forms part of the unique URI used to address the container or its blobs. Follow these rules when naming a container:
