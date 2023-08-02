@@ -18,6 +18,7 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 > [!IMPORTANT]
 > * The Developer tier is for non-production use cases and evaluations. It doesn't offer SLA.
 > * The Consumption tier isn't available in the US Government cloud or the Azure China cloud. 
+> * API Management **v2 service tiers** are now in preview. [Learn more](v2-service-tiers-overview.md).
 
 | Feature                                                                                      | Consumption | Developer | Basic | Standard | Premium |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | ----- | -------- | ------- |
