@@ -77,6 +77,7 @@ Confidential VMs support the following VM sizes:
  For more information, see the [AMD deployment options](virtual-machine-solutions-amd.md).
 ### OS support
 Confidential VMs support the following OS options:
+
 | Linux                                             | Windows                                | |
 |---------------------------------------------------|--------------------------------------------------|-------------------------------|
 | **Ubuntu**                                        | **Windows 11**                                   | **Windows Server Datacenter** |
