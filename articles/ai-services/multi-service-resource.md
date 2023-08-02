@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.custom: devx-track-azurecli, devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: quickstart
-ms.date: 7/18/2023
+ms.date: 08/02/2023
 ms.author: eur
 zone_pivot_groups: programming-languages-portal-cli-sdk
 ---
@@ -67,4 +67,12 @@ Azure AI services are represented by Azure [resources](../azure-resource-manager
 
 ## Next steps
 
-* Explore [Azure AI services](./what-are-ai-services.md) and choose a service to get started.
+* Explore the following [Azure AI services](./what-are-ai-services.md) to find quickstart articles, samples and more to start using your resource.
+    * [Content Moderator](../../content-moderator/index.yml) (retired) 
+    * [Custom Vision](../../custom-vision-service/index.yml) 
+    * [Document Intelligence](../../document-intelligence/index.yml)
+    * [Face](../../computer-vision/overview-identity.md) 
+    * [Language](../../language-service/index.yml)
+    * [Speech](../../speech-service/index.yml) 
+    * [Translator](../../translator/index.yml)
+    * [Vision](../../computer-vision/index.yml) 
