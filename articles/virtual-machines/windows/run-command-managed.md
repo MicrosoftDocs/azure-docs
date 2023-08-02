@@ -256,7 +256,7 @@ PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
  
 - You can provide an inline script, a script URI, or a built-in script [command ID](run-command.md#available-commands) as the input source. Script URI is either storage blob SAS URI with read access or public URI.
 - Only one type of source input is supported for one command execution.
-- Starting with API version 2023-03-01, you can set the property `treatFailureAsDeploymentFailure` to **true** causing the deployment to fail when there is a failure in the script. If set to **false**, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. 
+- Starting with API version 2023-03-01, you can set the property `treatFailureAsDeploymentFailure` to **true** causing the deployment to fail when there is a failure in the script. If set to **false**, ProvisioningState would only reflect whether the run command was run or not by the extensions platform. It would not indicate whether the script failed in case of script failures. 
 - Run Command supports writing output and error to Storage blobs using outputBlobUri and errorBlobUri parameters, which can be used to store large script outputs. Use SAS URI of a storage append blob with read, add, create, write access. The blob should be of type AppendBlob. Writing the script output or error blob would fail otherwise. The blob will be overwritten if it already exists. It will be created if it does not exist.
 
 
