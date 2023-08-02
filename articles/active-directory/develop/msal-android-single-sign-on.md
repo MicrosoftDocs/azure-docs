@@ -37,7 +37,7 @@ There are two ways for applications using MSAL for Android to achieve SSO:
 - Through a [broker application](#sso-through-brokered-authentication)
 - Through the [system browser](#sso-through-system-browser)
 
-  It's recommended to use a broker application for benefits like device-wide SSO, account management, and conditional access. However, it requires your users to download additional applications.
+  It's recommended to use a broker application for benefits like device-wide SSO, account management, and Conditional Access. However, it requires your users to download additional applications.
 
 ## SSO through brokered authentication
 
@@ -91,6 +91,8 @@ If Intune Company Portal is installed and is operating as the active broker, and
 ### Integrating with a broker
 
 #### Generate a redirect URI for a broker
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 You must register a redirect URI that is compatible with the broker. The redirect URI for the broker should include your app's package name and the Base64-encoded representation of your app's signature.
 

@@ -47,7 +47,7 @@ items:
     href: concept-provisioning-logs.md
   - name: Usage and Insights report
     href: concept-usage-insights-report.md
-  - name: Azure AD logs in Azure Monitor
+  - name: Azure AD log integrations
     href: concept-activity-logs-azure-monitor.md
   - name: Plan a reporting and monitoring deployment
     href: plan-monitoring-and-reporting.md
@@ -65,7 +65,7 @@ items:
       href: howto-download-logs.md
     - name: Manage inactive user accounts in Azure AD
       href: howto-manage-inactive-user-accounts.md
-    - name: View applied conditional access policies
+    - name: View applied Conditional Access policies
       href: how-to-view-applied-conditional-access-policies.md
 
   - name: Monitoring
@@ -130,7 +130,7 @@ items:
       items:
       - name: Authentication prompts analysis
         href: workbook-authentication-prompts-analysis.md
-      - name: Conditional access gap analyzer
+      - name: Conditional Access gap analyzer
         href: workbook-conditional-access-gap-analyzer.md
       - name: Cross-tenant access activity 
         href: workbook-cross-tenant-access-activity.md

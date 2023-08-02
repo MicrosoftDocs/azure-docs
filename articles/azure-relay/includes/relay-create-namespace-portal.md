@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 09/26/2022
 ms.author: spelluru
 ---
-1. Sign in to the [Azure portal][Azure portal].
+1. Sign in to the [Azure portal].
 1. Select **All services**. Select **Integration**, search for **Relays**, move the mouse over **Relays**, and then click **Create**. 
 
     :::image type="content" source="./media/relay-create-namespace-portal/select-relay-create.png" alt-text="Screenshot showing the selection of Relays -> Create button.":::

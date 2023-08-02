@@ -26,8 +26,6 @@ Using the information in this tutorial, an administrator of the application lear
 > * Access the sign-ins report
 > * Send logs to Azure Monitor
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
-
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't already have one, [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -36,12 +34,14 @@ Using the information in this tutorial, an administrator of the application lear
 
 ## Create an access review
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 The administrator wants to make sure that users or guests have appropriate access. They decide to ask users of the application to participate in an access review and recertify or attest to their need for access. When the access review is finished, they can then make changes and remove access from users who no longer need it. For more information, see
 [Manage user and guest user access with access reviews](../governance/manage-access-review.md).
 
 To create an access review:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with one of the roles listed in the prerequisites.
+1. Sign in to the [Azure portal](https://portal.azure.com) with one of the roles listed in the prerequisites.
 1. Go to **Azure Active Directory**, and then select **Identity Governance**.
 1. On the left menu, select **Access reviews**.
 1. Select **New access review** to create a new access review.
@@ -114,8 +114,8 @@ To send logs to your logs analytics workspace:
 1. Select **Diagnostic settings**, and then select **Add diagnostic setting**. You can also select Export Settings from the Audit Logs or Sign-ins page to get to the diagnostic settings configuration page.
 1. In the Diagnostic settings menu, select **Send to Log Analytics workspace**, and then select Configure.
 1. Select the Log Analytics workspace you want to send the logs to, or create a new workspace in the provided dialog box.
-1.	Select the logs that you would like to send to the workspace.
-1.	Select **Save** to save the setting.
+1. Select the logs that you would like to send to the workspace.
+1. Select **Save** to save the setting.
 
 After about 15 minutes, verify that events are streamed to your Log Analytics workspace.
 

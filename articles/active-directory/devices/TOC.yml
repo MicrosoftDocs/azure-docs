@@ -8,20 +8,20 @@
   expanded: false
   items:
   - name: Azure AD join a new Windows device
-    href: azuread-joined-devices-frx.md
+    href: device-join-out-of-box.md
 - name: Concepts
   expanded: true
   items:
   - name: Azure AD registered devices
-    href: concept-azure-ad-register.md
+    href: concept-device-registration.md
   - name: Azure AD joined devices 
-    href: concept-azure-ad-join.md
+    href: concept-directory-join.md
   - name: Hybrid Azure AD joined devices
-    href: concept-azure-ad-join-hybrid.md
+    href: concept-hybrid-join.md
   - name: Device registration flows
     href: device-registration-how-it-works.md
   - name: SSO to on-premises resources
-    href: azuread-join-sso.md
+    href: device-sso-to-on-premises-resources.md
   - name: Primary Refresh Tokens
     href: concept-primary-refresh-token.md
 - name: How-to guides
@@ -33,20 +33,20 @@
     expanded: false
     items:
     - name: Plan your Azure AD join implementation
-      href: azureadjoin-plan.md
+      href: device-join-plan.md
     - name: Assign local admins to Azure AD joined devices
       href: assign-local-admin.md
   - name: Hybrid Azure AD join
     expanded: false
     items:
     - name: Plan your hybrid Azure AD join implementation
-      href: hybrid-azuread-join-plan.md
+      href: hybrid-join-plan.md
     - name: Targeted hybrid Azure AD join deployment
-      href: hybrid-azuread-join-control.md 
+      href: hybrid-join-control.md 
     - name: Configure hybrid Azure AD join
-      href: howto-hybrid-azure-ad-join.md
+      href: how-to-hybrid-join.md
     - name: Verifying hybrid Azure AD join
-      href: howto-hybrid-join-verify.md
+      href: how-to-hybrid-join-verify.md
     - name: Troubleshoot hybrid Azure AD join
       expanded: false
       items:
@@ -61,7 +61,7 @@
   - name: Local Administrator Password Solution
     href: howto-manage-local-admin-passwords.md
   - name: Manage device identities
-    href: device-management-azure-portal.md
+    href: manage-device-identities.md
   - name: Troubleshooting Windows devices
     href: troubleshoot-device-windows-joined.md
   - name: Manage stale devices
@@ -94,9 +94,9 @@
     expanded: false
     items:
     - name: Configure hybrid Azure AD join manually
-      href: hybrid-azuread-join-manual.md
+      href: hybrid-join-manual.md
     - name: Enable older operating systems
-      href: howto-hybrid-join-downlevel.md
+      href: how-to-hybrid-join-downlevel.md
   - name: Enforce TLS 1.2
     href: reference-device-registration-tls-1-2.md
   - name: Microsoft Graph APIs

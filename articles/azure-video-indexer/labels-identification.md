@@ -1,7 +1,7 @@
 ---
-title: Azure Video Indexer labels identification overview
-titleSuffix: Azure Video Indexer 
-description: This article gives an overview of an Azure Video Indexer labels identification.
+title: Azure AI Video Indexer labels identification overview
+titleSuffix: Azure AI Video Indexer 
+description: This article gives an overview of an Azure AI Video Indexer labels identification.
 author: juliako
 ms.author: juliako
 manager: femila
@@ -12,7 +12,7 @@ ms.topic: article
 
 # Labels identification  
 
-Labels identification is an Azure Video Indexer AI feature that identifies visual objects like sunglasses or actions like swimming, appearing in the video footage of a media file. There are many labels identification categories and once extracted, labels identification instances are displayed in the Insights tab and can be translated into over 50 languages. Clicking a Label opens the instance in the media file, select Play Previous or Play Next to see more instances. 
+Labels identification is an Azure AI Video Indexer AI feature that identifies visual objects like sunglasses or actions like swimming, appearing in the video footage of a media file. There are many labels identification categories and once extracted, labels identification instances are displayed in the Insights tab and can be translated into over 50 languages. Clicking a Label opens the instance in the media file, select Play Previous or Play Next to see more instances. 
 
 ## Prerequisites  
 
@@ -81,7 +81,7 @@ To display labels identification insights in a JSON file, do the following:
         },
     ```
 
-To download the JSON file via the API, [Azure Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
+To download the JSON file via the API, [Azure AI Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
 
 ## Labels components 
 
@@ -107,7 +107,7 @@ During the Labels procedure, objects in a media file are processed, as follows:
 - Carefully consider when using for law enforcement that Labels potentially cannot detect parts of the video. To ensure fair and high-quality decisions, combine Labels with human oversight. 
 - Don't use labels identification for decisions that may have serious adverse impacts. Machine learning models can result in undetected or incorrect classification output. Decisions based on incorrect output could have serious adverse impacts. Additionally, it's advisable to include human review of decisions that have the potential for serious impacts on individuals. 
 
-When used responsibly and carefully, Azure Video Indexer is a valuable tool for many industries. To respect the privacy and safety of others, and to comply with local and global regulations, we recommend the following:   
+When used responsibly and carefully, Azure AI Video Indexer is a valuable tool for many industries. To respect the privacy and safety of others, and to comply with local and global regulations, we recommend the following:   
 
 - Always respect an individual’s right to privacy, and only ingest videos for lawful and justifiable purposes.  
 - Don't purposely disclose inappropriate content about young children or family members of celebrities or other content that may be detrimental or pose a threat to an individual’s personal freedom.  
@@ -118,7 +118,15 @@ When used responsibly and carefully, Azure Video Indexer is a valuable tool for 
 - Provide a feedback channel that allows users and individuals to report issues with the service.  
 - Be aware of any applicable laws or regulations that exist in your area regarding processing, analyzing, and sharing media containing people. 
 - Keep a human in the loop. Do not use any solution as a replacement for human oversight and decision-making.  
-- Fully examine and review the potential of any AI model you're using to understand its capabilities and limitations. 
+- Fully examine and review the potential of any AI model you're using to understand its capabilities and limitations.
+
+## Learn more about labels identification
+
+- [Transparency note](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note)
+- [Use cases](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note#use-cases)
+- [Capabilities and limitations](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note#system-performance-and-limitations-for-image-analysis)    
+- [Evaluation of image analysis](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note#evaluation-of-image-analysis) 
+- [Data, privacy and security](/legal/cognitive-services/computer-vision/ocr-data-privacy-security)
 
 ## Next steps
 
@@ -133,7 +141,7 @@ When used responsibly and carefully, Azure Video Indexer is a valuable tool for 
 
 `visupport@microsoft.com`  
 
-## Azure Video Indexer insights
+## Azure AI Video Indexer insights
 
 - [Audio effects detection](audio-effects-detection.md)
 - [Face detection](face-detection.md)

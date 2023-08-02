@@ -17,11 +17,11 @@ When you want the function to process multiple documents from a query, the Cosmo
 | Type | Description |
 | --- | --- |
 | `IEnumerable<T>`where `T` is a JSON serializable type | An enumeration of entities returned by the query. Each entry represents one document. | 
-| [CosmosClient] | _(Preview<sup>1</sup>)_<br/>A client connected to the Cosmos DB account. | 
-| [Database] | _(Preview<sup>1</sup>)_<br/>A client connected to the Cosmos DB database. | 
-| [Container] | _(Preview<sup>1</sup>)_<br/>A client connected to the Cosmos DB container. | 
+| [CosmosClient]<sup>1</sup> | A client connected to the Cosmos DB account. | 
+| [Database]<sup>1</sup> | A client connected to the Cosmos DB database. | 
+| [Container]<sup>1</sup> | A client connected to the Cosmos DB container. | 
 
-<sup>1</sup> To use these types, you need to reference [Microsoft.Azure.Functions.Worker.Extensions.CosmosDB 4.3.1-preview1 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/4.3.1-preview1) and the [common dependencies for SDK type bindings](../articles/azure-functions/dotnet-isolated-process-guide.md#sdk-types-preview).
+<sup>1</sup> To use these types, you need to reference [Microsoft.Azure.Functions.Worker.Extensions.CosmosDB 4.4.0 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/4.4.0) and the [common dependencies for SDK type bindings](../articles/azure-functions/dotnet-isolated-process-guide.md#sdk-types).
 
 [CosmosClient]: /dotnet/api/microsoft.azure.cosmos.cosmosclient
 [Database]: /dotnet/api/microsoft.azure.cosmos.database

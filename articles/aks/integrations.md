@@ -37,7 +37,7 @@ AKS uses the following rules for applying updates to installed add-ons:
 | ingress-appgw | Use Application Gateway Ingress Controller with your AKS cluster. | [What is Application Gateway Ingress Controller?][agic] |
 | open-service-mesh | Use Open Service Mesh with your AKS cluster. | [Open Service Mesh AKS add-on][osm] |
 | azure-keyvault-secrets-provider | Use Azure Keyvault Secrets Provider addon.| [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster][keyvault-secret-provider] |
-| web_application_routing | Use a managed NGINX ingress controller with your AKS cluster.| [Web Application Routing Overview][web-app-routing] |
+| web_application_routing | Use a managed NGINX ingress controller with your AKS cluster.| [Application Routing Overview][app-routing] |
 | keda | Use event-driven autoscaling for the applications on your AKS cluster. | [Simplified application autoscaling with Kubernetes Event-driven Autoscaling (KEDA) add-on][keda]|
 
 ## Extensions
