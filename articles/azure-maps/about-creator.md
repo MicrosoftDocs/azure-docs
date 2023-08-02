@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps Creator
 description: Learn about services and capabilities in Microsoft Azure Maps Creator and how to use them in your applications.
 author: brendansco
 ms.author: Brendanc
-ms.date: 07/31/2023
+ms.date: 08/04/2023
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
@@ -12,8 +12,7 @@ services: azure-maps
 
 # What is Azure Maps Creator?
 
-Azure Maps Creator is a first party geospatial platform that enables you to create and render maps, based on indoor map data, on top of the outdoor map in
-your web and mobile applications.
+Azure Maps Creator is a first party geospatial platform that enables you to create and render maps, based on indoor map data, on top of the outdoor map in your web and mobile applications.
 
 ## Services in Azure Maps Creator
 
@@ -21,21 +20,14 @@ Creator is a platform for building indoor mapping solutions for all your needs. 
 
 ### Conversion
 
-An [onboarding tool] is provided to prepare your facility's DWGs by identifying the data to use and positioning your building on the map.
-The conversion service then converts the geometry and data from your DWG files into a digital indoor map.
+An [onboarding tool] is provided to prepare your facility's DWGs by identifying the data to use and positioning your building on the map. The conversion service then converts the geometry and data from your DWG files into a digital indoor map.
 
-The first step in creating your indoor map is to upload a drawing package into your Azure Maps account. A drawing package contains one or
-more CAD (computer-aided design) drawings of your facility along with a manifest describing the drawings. The drawings define the elements of
-the facility while the manifest tells the Azure Maps [Conversion service] how to read the facility drawing files and metadata. For more
-information about manifest properties, see [Manifest file requirements] and for more information on creating and uploading a drawing package,
-see the [Drawing package guide].
+The first step in creating your indoor map is to upload a drawing package into your Azure Maps account. A drawing package contains one or more CAD (computer-aided design) drawings of your facility along with a manifest describing the drawings. The drawings define the elements of the facility while the manifest tells the Azure Maps [Conversion service] how to read the facility drawing files and metadata. For more
+information about manifest properties, see [Manifest file requirements] and for more information on creating and uploading a drawing package, see the [Drawing package guide].
 
 ### Dataset
 
-A collection of the indoor map [features] of a facility. Update your facility dataset through a visual editor and query for features real time using the [Feature State] service. For more information, see [Work with datasets using the QGIS plugin].
-
-> [!TIP]
-> You can search for features in a dataset using the [Features API].
+A collection of the indoor map [features] of a facility. Update your facility dataset through a visual editor and query for features real time using the [Features API]. For more information, see [Work with datasets using the QGIS plugin].
 
 ### Rendering
 
@@ -43,12 +35,16 @@ A collection of the indoor map [features] of a facility. Update your facility da
 
 ### Styling
 
+[Custom styling] for indoor maps enables you to customize your indoor maps to meet your needs. You can customize your facility’s look and feel to reflect your brand colors or emphasize different rooms or specific areas of interest. Everything is configurable from the color of a feature, an icon that renders, or the zoom level when a feature should appear, resize or disappear. When you define how your data should be styled in the [visual style editor], this information is stored in a JSON document that conforms to the [Mapbox Style Specification].
+
+<!-------------------
 Customize the visual appearance of a map using [custom styling]. A style is a JSON document that defines the visual appearance of a map.
 When you define how your data should be styled in the [visual style editor], this information is stored in a JSON document that conforms to the [Mapbox Style Specification].
+------------------->
 
 ### Wayfinding
 
-[Wayfinding] provides your customers with the shortest path between two points within a facility using the [Wayfinding service].
+Once a [Routeset] has been created, [Wayfinding] can provide your customers with the shortest path between two points within a facility using the [Wayfinding service].
 
 ### SDK
 
@@ -82,10 +78,6 @@ This section provides a high-level overview of the indoor map creation workflow.
     features it contains. These default styles can be modified to suit your needs
     using the [visual style editor]. For more information, see
     [Create custom styles for indoor maps].
-
-1. **Dynamic styling**. Apply styles that are based on dynamic indoor map properties.
-    For example, you can render facility meeting rooms with different colors, depending
-    on occupancy status. For more information, see [Feature statesets].
 
 1. **Wayfinding**. Provide your customers with the shortest path between two points
     within a facility. For more information, see [Wayfinding].
@@ -135,8 +127,6 @@ This section provides a high-level overview of the indoor map creation workflow.
 [Dynamic maps StylesObject]: schema-stateset-stylesobject.md
 [Edit indoor maps using the QGIS plugin]: creator-qgis-plugin.md
 [Facility Ontology]: creator-facility-ontology.md
-[Feature State]: /rest/api/maps/v2/feature-state
-[Feature statesets]: creator-indoor-maps.md#feature-statesets
 [Features API]: /rest/api/maps/2023-03-01-preview/features
 [features]: glossary.md#feature
 [Implement Dynamic styling for indoor maps]: indoor-map-dynamic-styling.md
@@ -149,6 +139,7 @@ This section provides a high-level overview of the indoor map creation workflow.
 [Mapbox Style Specification]: https://docs.mapbox.com/mapbox-gl-js/style-spec
 [onboarding tool]: https://azure.github.io/azure-maps-creator-onboarding-tool
 [Query datasets with WFS API]: how-to-creator-wfs.md
+[Routeset]: /rest/api/maps/2023-03-01-preview/routeset/create
 [tileset]: creator-indoor-maps.md#tilesets
 [Tilesets]: creator-indoor-maps.md#tilesets
 [Use Azure Maps Creator to create indoor maps]: tutorial-creator-indoor-maps.md
