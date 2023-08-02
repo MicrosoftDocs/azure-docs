@@ -82,7 +82,7 @@ Azure Government:
 - `https://login.microsoftonline.us`: For PAM-based authentication flows.
 - `https://pasff.usgovcloudapi.net`: For Azure RBAC flows.
 
-Azure operated by 21Vianet:
+Microsoft Azure operated by 21Vianet:
 
 - `https://packages.microsoft.com`: For package installation and upgrades.
 - `http://169.254.169.254`: Azure Instance Metadata Service endpoint.
