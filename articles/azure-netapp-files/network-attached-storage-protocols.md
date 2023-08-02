@@ -3,7 +3,7 @@ title: Understand NAS protocols in Azure NetApp Files | Microsoft Docs
 description: Learn how SMB and NFS operate in Azure NetApp Files.  
 services: azure-netapp-files
 documentationcenter: ''
-author: b-jparisi
+author: whyistheinternetbroken
 manager: ''
 editor: ''
 
@@ -104,7 +104,7 @@ For frequently asked questions regarding SMB in Azure NetApp Files, see the [Azu
 
 Some organizations have pure Windows or pure UNIX environments (homogenous) in which all data is accessed using only one of the following approaches:
 
-* SMB and [NTFS](../windows-server/storage/file-server/ntfs-overview.md) file security
+* SMB and [NTFS](/windows-server/storage/file-server/ntfs-overview) file security
 * NFS and UNIX file security - mode bits or [NFSv4.x access control lists (ACLs)](https://wiki.linux-nfs.org/wiki/index.php/ACLs)
 
 However, many sites must enable data sets to be accessed from both Windows and UNIX clients (heterogenous). For environments with these requirements, Azure NetApp Files has native dual-protocol NAS support. After the user is authenticated on the network and has both appropriate share or export permissions and the necessary file-level permissions, the user can access the data from UNIX hosts using NFS or from Windows hosts using SMB.
@@ -157,7 +157,7 @@ When a NAS client requests access to a dual-protocol volume in Azure NetApp File
 1.	File permissions control the level of access the user has.
 
 In the following illustration, `user1` authenticates to Azure NetApp Files to access a dual-protocol volume through either SMB or NFS. Azure NetApp Files finds the user's Windows and UNIX information in Azure Active Directory and then maps the user's Windows and UNIX identities 1:1. The user is verified as `user1` and gets `user1`'s access credentials. 
-In this instance, `user1` will get full control on their own folder (`user1-dir`) and no access to the HR folder. This setting is based on the security ACLs specified in the file system, and `user1` will get the expected access, regardless of which protocol they're accessing the volumes from.
+In this instance, `user1` gets full control on their own folder (`user1-dir`) and no access to the HR folder. This setting is based on the security ACLs specified in the file system, and `user1` will get the expected access, regardless of which protocol they're accessing the volumes from.
 
 :::image type="content" source="../media/azure-netapp-files/user1-dual-protocol-example.png" alt-text="Example of user accessing a dual-protocol volume with Azure NetApp Files." lightbox="../media/azure-netapp-files/user1-dual-protocol-example.png":::
 
@@ -165,14 +165,14 @@ In this instance, `user1` will get full control on their own folder (`user1-dir`
 
 When you use Azure NetApp Files volumes for both SMB and NFS access, some considerations apply:
 
-* You need an Active Directory connection. As such, you need to meet the [Requirements for Active Directory connections](create-active-directory-connections#requirements-for-active-directory-connections.md).
+* You need an Active Directory connection. As such, you need to meet the [Requirements for Active Directory connections](create-active-directory-connections.md#requirements-for-active-directory-connections.md).
 * Dual-protocol volumes require a reverse lookup zone in DNS with an associated pointer (PTR) record of the AD host machine to prevent dual-protocol volume creation failures.
 * Your NFS client and associated packages (such as `nfs-utils`) should be up to date for the best security, reliability and feature support.
 * Dual-protocol volumes support both Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (AADDS).
 * Dual-protocol volumes don't support the use of LDAP over TLS with AADDS. See [LDAP over TLS considerations](configure-ldap-over-tls.md#considerations).
 * Supported NFS versions include: NFSv3 and NFSv4.1.
 * NFSv4.1 features such as parallel network file system (pNFS), session trunking, and referrals aren't currently supported with Azure NetApp Files volumes.
-* [Windows extended attributes](../windows/win32/api/fileapi/ns-fileapi-createfile2_extended_parameters.md) set/get aren't supported in dual-protocol volumes.
+* [Windows extended attributes](/windows/win32/api/fileapi/ns-fileapi-createfile2_extended_parameters) `set`/`get` aren't supported in dual-protocol volumes.
 
 ## Next steps 
 
