@@ -11,8 +11,6 @@ ms.author: tomkerkhove
 
 The Kubernetes Event-driven Autoscaling (KEDA) add-on integrates with features provided by Azure and open source projects.
 
-[!INCLUDE [Current version callout](./includes/keda/current-version-callout.md)]
-
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 > [!IMPORTANT]

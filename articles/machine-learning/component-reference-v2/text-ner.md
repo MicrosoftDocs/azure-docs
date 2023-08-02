@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.author: shoja
-author: shouryaj
+ms.author: rasavage
+author: rsavage2
 ms.reviewer: ssalgadodev
 ms.date: 12/1/2022
 ---
@@ -18,7 +18,7 @@ This article describes a component in Azure Machine Learning designer.
 
 Use this component to create a machine learning model that is based on the AutoML Text NER.
 
-Named Entity Recognition (NER) is one of the features offered by Azure Cognitive Service for Language. The NER feature can identify and categorize entities in unstructured text. For [more information on NER](../../cognitive-services/language-service/named-entity-recognition/overview.md)
+Named Entity Recognition (NER) is one of the features offered by Azure AI Language. The NER feature can identify and categorize entities in unstructured text. For [more information on NER](../../ai-services/language-service/named-entity-recognition/overview.md)
 
 ## How to configure 
 

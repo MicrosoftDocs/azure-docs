@@ -7,7 +7,7 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 05/02/2022
 ms.author: allensu
-ms.custom: subject-armqs, mode-arm, template-concept
+ms.custom: subject-armqs, mode-arm, template-concept, devx-track-bicep
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint using Bicep.
 ---
 

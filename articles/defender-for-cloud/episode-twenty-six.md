@@ -1,9 +1,9 @@
 ---
 title: Governance capability improvements in Defender for Cloud | Defender for Cloud in the field
-titleSuffix: Microsoft Defender for Cloud
+
 description: Learn about the need for governance and new at scale governance capability
 ms.topic: reference
-ms.date: 02/15/2023
+ms.date: 04/27/2023
 ---
 
 # Governance capability improvements in Defender for Cloud | Defender for Cloud in the field

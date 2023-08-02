@@ -3,7 +3,7 @@ title: Iterative loops in Bicep
 description: Use loops to iterate over collections in Bicep
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 12/09/2022
+ms.date: 05/02/2023
 ---
 
 # Iterative loops in Bicep
@@ -99,7 +99,7 @@ The next example creates the number of storage accounts specified in the `storag
 param location string = resourceGroup().location
 param storageCount int = 2
 
-resource storageAcct 'Microsoft.Storage/storageAccounts@2021-06-01' = [for i in range(0, storageCount): {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2022-09-01' = [for i in range(0, storageCount): {
   name: '${i}storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -132,6 +132,10 @@ module stgModule './storageAccount.bicep' = [for i in range(0, storageCount): {
     location: location
   }
 }]
+
+output storageAccountEndpoints array = [for i in range(0, storageCount): {
+  endpoint: stgModule[i].outputs.storageEndpoint
+}]
 ```
 
 ## Array elements
@@ -146,7 +150,7 @@ param storageNames array = [
   'coho'
 ]
 
-resource storageAcct 'Microsoft.Storage/storageAccounts@2021-06-01' = [for name in storageNames: {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2022-09-01' = [for name in storageNames: {
   name: '${name}${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -178,7 +182,7 @@ var storageConfigurations = [
   }
 ]
 
-resource storageAccountResources 'Microsoft.Storage/storageAccounts@2021-06-01' = [for (config, i) in storageConfigurations: {
+resource storageAccountResources 'Microsoft.Storage/storageAccounts@2022-09-01' = [for (config, i) in storageConfigurations: {
   name: '${storageAccountNamePrefix}${config.suffix}${i}'
   location: resourceGroup().location
   sku: {
@@ -280,7 +284,7 @@ To serially deploy instances of a resource, add the [batchSize decorator](./file
 param location string = resourceGroup().location
 
 @batchSize(2)
-resource storageAcct 'Microsoft.Storage/storageAccounts@2021-06-01' = [for i in range(0, 4): {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2022-09-01' = [for i in range(0, 4): {
   name: '${i}storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -301,7 +305,7 @@ You can't use a loop for a nested child resource. To create more than one instan
 For example, suppose you typically define a file service and file share as nested resources for a storage account.
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2021-06-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   name: 'examplestorage'
   location: resourceGroup().location
   kind: 'StorageV2'
@@ -322,7 +326,7 @@ To create more than one file share, move it outside of the storage account. You 
 The following example shows how to create a storage account, file service, and more than one file share:
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2021-06-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   name: 'examplestorage'
   location: resourceGroup().location
   kind: 'StorageV2'

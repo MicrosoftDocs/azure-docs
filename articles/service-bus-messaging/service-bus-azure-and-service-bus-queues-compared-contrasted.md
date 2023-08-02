@@ -69,7 +69,7 @@ This section compares some of the fundamental queuing capabilities provided by S
 
 ### Additional information
 * Messages in Storage queues are typically first-in-first-out, but sometimes they can be out of order. For example, when the visibility-timeout duration of a message expires because a client application crashed while processing a message. When the visibility timeout expires, the message becomes visible again on the queue for another worker to dequeue it. At that point, the newly visible message might be placed in the queue to be dequeued again.
-* The guaranteed FIFO pattern in Service Bus queues requires the use of messaging sessions. If the application crashes while it's processing a message received in the **Peek & Lock** mode, the next time a queue receiver accepts a messaging session, it will start with the failed message after the message's time-to-live (TTL) period expires.
+* The guaranteed FIFO pattern in Service Bus queues requires the use of messaging sessions. If the application crashes while it's processing a message received in the **Peek & Lock** mode, the next time a queue receiver accepts a messaging session, it will start with the failed message after the session's lock duration expires.
 * Storage queues are designed to support standard queuing scenarios, such as the following ones:
     - Decoupling application components to increase scalability and tolerance for failures
     - Load leveling
@@ -131,11 +131,11 @@ This section compares Storage queues and Service Bus queues from the perspective
 
 ### Additional information
 * Service Bus enforces queue size limits. The maximum queue size is specified when creating a queue. It can be between 1 GB and 80 GB. If the queue's size reaches this limit, additional incoming messages will be rejected and the caller receives an exception. For more information about quotas in Service Bus, see [Service Bus Quotas](service-bus-quotas.md).
-* In the Standard messaging tier, you can create Service Bus queues and topics in 1 (default), 2, 3, 4, or 5-GB sizes. When enabling partitioning in the Standard tier, Service Bus creates 16 copies (16 partitions) of the entity, each of the same size specified. As such, if you create a queue that's 5 GB in size, with 16 partitions the maximum queue size becomes (5 * 16) = 80 GB.  You can see the maximum size of your partitioned queue or topic in the [Azure portal][Azure portal].
+* In the Standard messaging tier, you can create Service Bus queues and topics in 1 (default), 2, 3, 4, or 5-GB sizes. When enabling partitioning in the Standard tier, Service Bus creates 16 copies (16 partitions) of the entity, each of the same size specified. As such, if you create a queue that's 5 GB in size, with 16 partitions the maximum queue size becomes (5 * 16) = 80 GB.  You can see the maximum size of your partitioned queue or topic in the [Azure portal].
 * With Storage queues, if the content of the message isn't XML-safe, then it must be **Base64** encoded. If you **Base64**-encode the message, the user payload can be up to 48 KB, instead of 64 KB.
 * With Service Bus queues, each message stored in a queue is composed of two parts: a header and a body. The total size of the message can't exceed the maximum message size supported by the service tier.
 * When clients communicate with Service Bus queues over the TCP protocol, the maximum number of concurrent connections to a single Service Bus queue is limited to 100. This number is shared between senders and receivers. If this quota is reached, requests for additional connections will be rejected and an exception will be received by the calling code. This limit isn't imposed on clients connecting to the queues using REST-based API.
-* If you require more than 10,000 queues in a single Service Bus namespace, you can contact the Azure support team and request an increase. To scale beyond 10,000 queues with Service Bus, you can also create additional namespaces using the [Azure portal][Azure portal].
+* If you require more than 10,000 queues in a single Service Bus namespace, you can contact the Azure support team and request an increase. To scale beyond 10,000 queues with Service Bus, you can also create additional namespaces using the [Azure portal].
 
 ## Management and operations
 This section compares the management features provided by Storage queues and Service Bus queues.
@@ -197,7 +197,7 @@ Service Bus queues provide many advanced features such as the following ones. So
 The following articles provide more guidance and information about using Storage queues or Service Bus queues.
 
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-* [How to Use the Queue Storage Service](../storage/queues/storage-dotnet-how-to-use-queues.md)
+* [How to Use the Queue Storage Service](/azure/storage/queues/storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
 * [Best practices for performance improvements using Service Bus brokered messaging](service-bus-performance-improvements.md)
 
 [Azure portal]: https://portal.azure.com

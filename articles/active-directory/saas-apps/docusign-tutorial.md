@@ -136,16 +136,7 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 1. In the **Add Assignment** dialog box, select the **Assign** button.
 
 ## Configure DocuSign SSO
-
-1. To automate the configuration in DocuSign, you must install the My Apps Secure Sign-in browser extension by selecting **Install the extension**.
-
-    ![My apps extension](common/install-myappssecure-extension.png)
-
-2. After you add the extension to the browser, select **Setup DocuSign**. You're directed to the DocuSign application. From there, provide the admin credentials to sign in to DocuSign. The browser extension automatically configures the application and automates steps 3 through 5.
-
-    ![Setup configuration](common/setup-sso.png)
-
-3. If you want to set up DocuSign manually, open a new web browser window and sign in to your DocuSign company site as an administrator.
+1. In a different web browser window, sign in to your up DocuSign company site as an administrator
 
 4. In the upper-left corner of the page, select the  app launcher (9 dots), and then select **Admin**.
   

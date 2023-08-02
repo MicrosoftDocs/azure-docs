@@ -112,7 +112,7 @@ PublicClientApplication.create(this.getApplicationCOntext(),
   loadAccount();
   }
   @Override
-  public void onError(MsalException exception{
+  public void onError(MsalException exception){
   /*Fail to initialize PublicClientApplication */
   }
 });
@@ -143,9 +143,9 @@ The `loadAccount` method retrieves the account of the signed in user. The `onAcc
 ```java
 private void loadAccount()
 {
-  mSingleAccountApp.getCurrentAccountAsync(new ISingleAccountPublicClientApplication.CurrentAccountCallback()
+  mSingleAccountApp.getCurrentAccountAsync(new ISingleAccountPublicClientApplication.CurrentAccountCallback())
   {
-    @Overide
+    @Override
     public void onAccountLoaded(@Nullable IAccount activeAccount)
     {
       if (activeAccount != null)

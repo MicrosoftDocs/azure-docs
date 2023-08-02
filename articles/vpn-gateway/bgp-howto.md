@@ -5,7 +5,7 @@ description: Learn how to configure BGP for Azure VPN Gateway using the Azure po
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 04/20/2023
 ms.author: cherylmc 
 
 ---
@@ -19,13 +19,13 @@ For more information about the benefits of BGP and to understand the technical r
 
 ## Getting started
 
-Each part of this article helps you form a basic building block for enabling BGP in your network connectivity. If you complete all three parts (configure BGP on the gateway, S2S connection, and VNet-to-VNet connection) you build the topology as shown in Diagram 1.
+Each part of this article helps you form a basic building block for enabling BGP in your network connectivity. If you complete all three parts (configure BGP on the gateway, S2S connection, and VNet-to-VNet connection) you build the topology as shown in **Diagram 1**. You can combine parts together to build a more complex, multi-hop, transit network that meets your needs.
 
 **Diagram 1**
 
 :::image type="content" source="./media/bgp-howto/vnet-to-vnet.png" alt-text="Diagram showing network architecture and settings." border="false":::
 
-You can combine parts together to build a more complex, multi-hop, transit network that meets your needs.
+For context, referring to Diagram 1, if BGP were to be disabled between TestVNet2 and TestVNet1, TestVNet2 wouldn't learn the routes for the on-premises network, Site5, and therefore couldn't communicate with Site 5. Once you enable BGP, all three networks will be able to communicate over the S2S IPsec and VNet-to-VNet connections.
 
 ### Prerequisites
 
@@ -108,7 +108,9 @@ To get the Azure BGP Peer IP address:
 1. Go to the virtual network gateway resource and select the **Configuration** page to see the BGP configuration information.
 1. Make a note of the BGP Peer IP address.
 
-## <a name ="crosspremises"></a>Configure BGP on cross-premises S2S connections
+## <a name ="crosspremises"></a>To configure BGP on cross-premises S2S connections
+
+The instructions in this section apply to cross-premises site-to-site configurations. 
 
 To establish a cross-premises connection, you need to create a *local network gateway* to represent your on-premises VPN device, and a *connection* to connect the VPN gateway with the local network gateway as explained in [Create site-to-site connection](tutorial-site-to-site-portal.md). The following sections contain the additional properties required to specify the BGP configuration parameters, as shown in Diagram 3.
 
@@ -129,13 +131,13 @@ Configure a local network gateway with BGP settings.
 
    * Name: Site5
    * IP address: The IP address of the gateway endpoint you want to connect to. Example: 128.9.9.9
-   * Address spaces: the address spaces on the on-premises site to which you want to route.
+   * Address spaces: If BGP is enabled, no address space is required.
 
 1. To configure BGP settings, go to the **Advanced** page. Use the following example values (shown in Diagram 3). Modify any values necessary to match your environment.
 
    * Configure BGP settings: Yes
    * Autonomous system number (ASN): 65050
-   * BGP peer IP address: The address that you noted in previous steps.
+   * BGP peer IP address: The address of the on-premise VPN Device. Example: 10.51.255.254
 
 1. Click **Review + create** to create the local network gateway.
 
@@ -180,20 +182,14 @@ The following example lists the parameters you enter into the BGP configuration 
 - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
 ```
 
-## Enable BGP on VNet-to-VNet connections
+## To enable BGP on VNet-to-VNet connections
 
-The steps to enable or disable BGP on a VNet-to-VNet connection are the same as the [S2S steps](#crosspremises). You can enable BGP when creating the connection, or update the configuration on an existing VNet-to-VNet connection.
+The steps in this section apply to VNet-to-VNet connections.
+
+To enable or disable BGP on a VNet-to-VNet connection, you use the same steps as the [S2S cross-premises steps](#crosspremises) in the previous section. You can enable BGP when creating the connection, or update the configuration on an existing VNet-to-VNet connection.
 
 > [!NOTE]
 > A VNet-to-VNet connection without BGP will limit the communication to the two connected VNets only. Enable BGP to allow transit routing capability to other S2S or VNet-to-VNet connections of these two VNets.
-
-If you completed all three parts of this exercise, you have established the following network topology:
-
-**Diagram 4**
-
-:::image type="content" source="./media/bgp-howto/vnet-to-vnet.png" alt-text="Diagram showing full network configuration." border="false":::
-
-For context, referring to **Diagram 4**, if BGP were to be disabled between TestVNet2 and TestVNet1, TestVNet2 wouldn't learn the routes for the on-premises network, Site5, and therefore couldn't communicate with Site 5. Once you enable BGP, as shown in the Diagram 4, all three networks will be able to communicate over the S2S IPsec and VNet-to-VNet connections.
 
 ## Next steps
 

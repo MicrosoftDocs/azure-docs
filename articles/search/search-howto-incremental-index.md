@@ -2,7 +2,6 @@
 title: Enable caching for incremental enrichment (preview) 
 titleSuffix: Azure Cognitive Search
 description: Enable caching of enriched content for potential reuse when modifying downstream skills and projections in an AI enrichment pipeline. 
-
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
@@ -26,6 +25,9 @@ If you're not familiar with setting up indexers, start with [indexer overview](s
 Azure Storage is used to store cached enrichments. The storage account must be [general purpose v2](../storage/common/storage-account-overview.md#types-of-storage-accounts).
 
 Preview APIs or beta Azure SDKs are required for enabling cache on an indexer. The portal does not currently provide an option for caching enrichment.
+
+> [!CAUTION]
+> If you're using the [SharePoint Online indexer (Preview)](search-howto-index-sharepoint-online.md), you should avoid incremental enrichment. Under certain circumstances, the cache becomes invalid, requiring an [indexer reset and run](search-howto-run-reset-indexers.md), should you choose to reload it.
 
 ## Enable on new indexers
 

@@ -600,6 +600,11 @@
             "source_path_from_root": "/articles/data-factory/connector-azure-synapse-analytics-artifacts.md",
             "redirect_url": "/azure/data-factory/compute-linked-services",
             "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/tutorial-refresh-power-bi-dataset-with-airflow.md",
+            "redirect_url": "/azure/data-factory/",
+            "redirect_document_id": true
           }
     ]
 }

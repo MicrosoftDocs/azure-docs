@@ -1370,7 +1370,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 
 ### Custom Container Image
 
-If you're [deploying a custom container image](./functions-create-function-linux-custom-image.md), you must specify it with `linuxFxVersion` and include configuration that allows your image to be pulled, as in [Web App for Containers](../app-service/index.yml). Also, set `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to `false`, since your app content is provided in the container itself:
+If you're [deploying a custom container image](./functions-how-to-custom-container.md), you must specify it with `linuxFxVersion` and include configuration that allows your image to be pulled, as in [Web App for Containers](../app-service/index.yml). Also, set `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to `false`, since your app content is provided in the container itself:
 
 # [Bicep](#tab/bicep)
 
@@ -1854,7 +1854,7 @@ Here's an example that uses HTML:
 
 ### Deploy using PowerShell
 
-The following PowerShell commands create a resource group and deploy a Bicep file/ARM template that creates a function app with its required resources. To run locally, you must have [Azure PowerShell](/powershell/azure/install-az-ps) installed. Run [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) to sign in.
+The following PowerShell commands create a resource group and deploy a Bicep file/ARM template that creates a function app with its required resources. To run locally, you must have [Azure PowerShell](/powershell/azure/install-azure-powershell) installed. Run [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) to sign in.
 
 # [Bicep](#tab/bicep)
 

@@ -99,7 +99,7 @@ The certificate request has now been successfully merged.
 ## Add more information to the CSR
 
 If you want to add more information when creating the CSR, define it in **SubjectName**. You might want to add information such as:
-- Country
+- Country/region
 - City/locality
 - State/province
 - Organization

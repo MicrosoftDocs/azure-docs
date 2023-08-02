@@ -66,7 +66,7 @@ If you're creating an App Service Environment with an external VIP, you can sele
 
 ![Screenshot that shows App Service Environment networking (ASE External) selections.](./media/creation/creation-networking-external.png)
 
-5. From the **Review + create** tab, check that your configuration is correct, and select **Create**. Your App Service Environment can more than one hour to create. 
+5. From the **Review + create** tab, check that your configuration is correct, and select **Create**. Your App Service Environment can take more than one hour to create. 
 
 When your App Service Environment has been successfully created, you can select it as a location when you're creating your apps.
 

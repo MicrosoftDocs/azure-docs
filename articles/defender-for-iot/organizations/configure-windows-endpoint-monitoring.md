@@ -19,7 +19,7 @@ Currently the only protocol supported for Windows Endpoint Monitoring with Defen
 
 Before performing the procedures in this article, you must have:
 
-- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [activated, and configured](ot-deploy/activate-deploy-sensor.md).
+- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [configured, and activated](ot-deploy/activate-deploy-sensor.md).
 
 - Access to your OT network sensor as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -177,6 +177,7 @@ If you'll be using a non-admin account to run your WEM scans, this procedure is 
 
 For more information, see:
 
+- [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md)
 - [View your device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 - [View your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
 - [Configure active monitoring for OT networks](configure-active-monitoring.md)

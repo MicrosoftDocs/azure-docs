@@ -43,7 +43,7 @@ To view your Log Analytics workspace health and set up health status alerts:
         
             The **Enable recommended alert rules** pane opens with a list of recommended alert rules for your Log Analytics workspace.  
         
-            :::image type="content" source="../alerts/media/alerts-managing-alert-instances/alerts-enable-recommended-alert-rule-pane.png" alt-text="Screenshot of recommended alert rules pane.":::
+            :::image type="content" source="media/data-ingestion-time/log-analytics-workspace-recommended-alerts.png" alt-text="Screenshot of recommended alert rules pane.":::
 
         1. In the **Alert me if** section, select all of the rules you want to enable. 
         1. In the **Notify me by** section, select the way you want to be notified if an alert is triggered.
@@ -57,7 +57,7 @@ To view your Log Analytics workspace health and set up health status alerts:
     
             :::image type="content" source="media/data-ingestion-time/log-analytics-workspace-latency-alert-rule.png" lightbox="media/data-ingestion-time/log-analytics-workspace-latency-alert-rule.png" alt-text="Screenshot that shows the Create alert rule wizard for Log Analytics workspace latency issues.":::
 
-       1. Follow the rest of the steps in [Create a new alert rule in the Azure portal](../alerts/alerts-create-new-alert-rule.md#create-a-new-alert-rule-in-the-azure-portal). 
+       1. Follow the rest of the steps in [Create a new alert rule in the Azure portal](../alerts/alerts-create-new-alert-rule.md#create-or-edit-an-alert-rule-in-the-azure-portal). 
 
 ## View Log Analytics workspace health metrics
 

@@ -69,7 +69,7 @@ https://us.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0&
 
 ### Create a dataset
 
-A dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset from your GeoJSON, use the new [Dataset Create API][Dataset Create 2022-09-01-preview]. The Dataset Create API takes the `udid` you got in the previous section and returns the `datasetId` of the new dataset.
+A dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset from your GeoJSON, use the new [Dataset Create API]. The Dataset Create API takes the `udid` you got in the previous section and returns the `datasetId` of the new dataset.
 
 > [!IMPORTANT]
 > This is different from the [previous version][Dataset Create] in that it doesn't require a `conversionId` from a converted drawing package.
@@ -102,7 +102,7 @@ See [Next steps](#next-steps) for links to articles to help you complete your in
 
 ## Add data to an existing dataset
 
-Data can be added to an existing dataset by providing the `datasetId` parameter to the [dataset create API][Dataset Create 2022-09-01-preview] along with the unique identifier of the data you wish to add. The unique identifier can be either a `udid` or `conversionId`. This creates a new dataset consisting of the data (facilities) from both the existing dataset and the new data being imported. Once the new dataset has been created successfully, the old dataset can be deleted.
+Data can be added to an existing dataset by providing the `datasetId` parameter to the [Dataset Create API] along with the unique identifier of the data you wish to add. The unique identifier can be either a `udid` or `conversionId`. This creates a new dataset consisting of the data (facilities) from both the existing dataset and the new data being imported. Once the new dataset has been created successfully, the old dataset can be deleted.
 
 One thing to consider when adding to an existing dataset is how the feature IDs are created. If a dataset is created from a converted drawing package, the feature IDs are generated automatically. When a dataset is created from a GeoJSON package, feature IDs must be provided in the GeoJSON file. When appending to an existing dataset, the original dataset drives the way feature IDs are created. If the original dataset was created using a `udid`, it uses the IDs from the GeoJSON, and will continue to do so with all GeoJSON packages appended to that dataset in the future.  If the dataset was created using a `conversionId`, IDs will be internally generated, and will continue to be internally generated with all GeoJSON packages appended to that dataset in the future.
 
@@ -117,7 +117,7 @@ https://us.atlas.microsoft.com/datasets?api-version=2022-09-01-preview&conversio
 | Identifier   | Description                                                       |
 |--------------|-------------------------------------------------------------------|
 | conversionId | The ID returned when converting your drawing package. For more information, see [Convert a drawing package]. |
-| datasetId    | The dataset ID returned when creating the original dataset from a GeoJSON package). |
+| datasetId    | The dataset ID returned when creating the original dataset from a GeoJSON package. |
 
 ## Geojson zip package requirements
 
@@ -132,7 +132,7 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
 
 ### Facility ontology 2.0 validations in the Dataset
 
-[Facility ontology] defines how Azure Maps Creator internally stores facility data, divided into feature classes, in a Creator dataset. When importing a GeoJSON package, anytime a feature is added or modified, a series of validations run. This includes referential integrity checks and geometry and attribute validations. These validations are described in more detail below.
+[Facility ontology] defines how Azure Maps Creator internally stores facility data, divided into feature classes, in a Creator dataset. When importing a GeoJSON package, anytime a feature is added or modified, a series of validations run. This includes referential integrity checks and geometry and attribute validations. These validations are described in more detail in the following list.
 
 - The maximum number of features that can be imported into a dataset at a time is 150,000.
 - The facility area can be between 4 and 4,000 Sq Km.
@@ -154,30 +154,31 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
 > [!div class="nextstepaction"]
 > [Create a tileset]
 
-[Data Upload API]: /rest/api/maps/data-v2/upload
-[Creator Long-Running Operation API V2]: creator-long-running-operation-v2.md
+<!---------   learn.microsoft.com links     --------------->
 [Access to Creator services]: how-to-manage-creator.md#access-to-creator-services
-
-[Contoso building sample]: https://github.com/Azure-Samples/am-creator-indoor-data-examples
-[units]: creator-facility-ontology.md?pivots=facility-ontology-v2#unit
-[structures]: creator-facility-ontology.md?pivots=facility-ontology-v2#structure
-[level]: creator-facility-ontology.md?pivots=facility-ontology-v2#level
-[facility]: creator-facility-ontology.md?pivots=facility-ontology-v2#facility
-[verticalPenetrations]: creator-facility-ontology.md?pivots=facility-ontology-v2#verticalpenetration
-[openings]: creator-facility-ontology.md?pivots=facility-ontology-v2#opening
 [area]: creator-facility-ontology.md?pivots=facility-ontology-v2#areaelement
-[line]: creator-facility-ontology.md?pivots=facility-ontology-v2#lineelement
-[point]: creator-facility-ontology.md?pivots=facility-ontology-v2#pointelement
-
-[Convert a drawing package]: tutorial-creator-indoor-maps.md#convert-a-drawing-package
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Creator resource]: how-to-manage-creator.md
-[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[Facility Ontology 2.0]: creator-facility-ontology.md?pivots=facility-ontology-v2
-[RFC 7946]: https://www.rfc-editor.org/rfc/rfc7946.html
-[dataset]: creator-indoor-maps.md#datasets
-[Dataset Create 2022-09-01-preview]: /rest/api/maps/v20220901preview/dataset/create
-[Dataset Create]: /rest/api/maps/v2/dataset/create
-[Visual Studio]: https://visualstudio.microsoft.com/downloads/
-[Creator for indoor maps]: creator-indoor-maps.md
+[Convert a drawing package]: tutorial-creator-indoor-maps.md#convert-a-drawing-package
 [Create a tileset]: tutorial-creator-indoor-maps.md#create-a-tileset
+[Creator for indoor maps]: creator-indoor-maps.md
+[Creator Long-Running Operation API V2]: creator-long-running-operation-v2.md
+[Creator resource]: how-to-manage-creator.md
+[dataset]: creator-indoor-maps.md#datasets
+[Facility Ontology 2.0]: creator-facility-ontology.md?pivots=facility-ontology-v2
+[facility]: creator-facility-ontology.md?pivots=facility-ontology-v2#facility
+[level]: creator-facility-ontology.md?pivots=facility-ontology-v2#level
+[line]: creator-facility-ontology.md?pivots=facility-ontology-v2#lineelement
+[openings]: creator-facility-ontology.md?pivots=facility-ontology-v2#opening
+[point]: creator-facility-ontology.md?pivots=facility-ontology-v2#pointelement
+[structures]: creator-facility-ontology.md?pivots=facility-ontology-v2#structure
+[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[units]: creator-facility-ontology.md?pivots=facility-ontology-v2#unit
+[verticalPenetrations]: creator-facility-ontology.md?pivots=facility-ontology-v2#verticalpenetration
+<!---------   REST API Links     --------------->
+[Data Upload API]: /rest/api/maps/data-v2/upload
+[Dataset Create API]: /rest/api/maps/v20220901preview/dataset/create
+[Dataset Create]: /rest/api/maps/v2/dataset/create
+<!---------   External Links     --------------->
+[Contoso building sample]: https://github.com/Azure-Samples/am-creator-indoor-data-examples
+[RFC 7946]: https://www.rfc-editor.org/rfc/rfc7946.html
+[Visual Studio]: https://visualstudio.microsoft.com/downloads/

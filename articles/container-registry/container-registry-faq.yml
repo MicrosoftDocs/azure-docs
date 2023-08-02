@@ -440,8 +440,8 @@ sections:
           To resolve the problem, you need to follow redirects manually without the headers. Print the response headers with the `-D -` option of `curl` and then extract: the `Location` header:
           
           ```bash
-          redirect_url=$(curl -s -D - -H "Authorization: basic $credential" https://$registry.azurecr.io/v2/$repository/blobs/$digest | grep "^Location: " | cut -d " " -f2 | tr -d '\r')
-          curl $redirect_url
+          REDIRECT_URL=$(curl -s -D - -H "Authorization: basic $credential" https://$registry.azurecr.io/v2/$repository/blobs/$digest | grep "^Location: " | cut -d " " -f2 | tr -d '\r')
+          curl $REDIRECT_URL
           ```
           
       - question:  |

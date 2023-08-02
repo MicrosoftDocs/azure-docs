@@ -29,7 +29,7 @@ In this tutorial, learn how to:
 
 Before you can create service principals and role assignments, you need to do the following:
 
-1. Follow the steps to [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+1. Follow the steps to [Install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 
 2. [Download and import the Azure Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/).
 

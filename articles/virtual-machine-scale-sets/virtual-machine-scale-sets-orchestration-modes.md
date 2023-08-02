@@ -134,7 +134,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Disk Types  | Managed disks only, all storage types  | Managed and unmanaged disks  | Managed and unmanaged disks. Ultradisk not supported |
 | Disk Server Side Encryption with Customer Managed Keys | Yes | Yes | Yes |
 | Write Accelerator   | Yes  | Yes  | Yes |
-| Proximity Placement Groups   | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes |
+| Proximity Placement Groups   | Yes, when using one Availability Zone or none. Cannot be changed after deployment. Read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes, when using one Availability Zone or none. Can be changed after deployment stopping all instances. Read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes |
 | Azure Dedicated Hosts   | Yes  | Yes  | Yes |
 | Managed Identity  | [User Assigned Identity](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss.md#user-assigned-managed-identity) only<sup>1</sup>  | System Assigned or User Assigned  | N/A (can specify Managed Identity on individual instances) |
 | Add/remove existing VM to the group  | No  | No  | No |

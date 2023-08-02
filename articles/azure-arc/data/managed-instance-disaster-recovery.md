@@ -36,7 +36,7 @@ The following prerequisites must be met before setting up failover groups betwee
   - Service tier
   - Collation
   - Other instance settings
-- The instance at the secondary site requires `--license-type` as `DisasterRecovery`
+- The instance at the secondary site requires `--license-type` as `DisasterRecovery`. This instance needs to be new, without any user objects. 
 
 > [!NOTE]
 > - It is important to specify the `--license-type` **during** the Azure Arc-enabled SQL MI creation. This will allow the DR instance to be seeded from the primary instance in the primary data center. Updating this property post deployment will not have the same effect.
@@ -259,7 +259,11 @@ az sql instance-failover-group-arc update --k8s-namespace my-namespace --name se
 ```
 Optionally, the `--partner-sync-mode` can be configured back to `sync` mode if desired. 
 
-At this point, if you plan to continue running the production workload off of the secondary site, the `--license-type` needs to be updated to either `BasePrice` or `LicenseIncluded` to initiate billing for the vCores consumed.
+## Post failover operations
+Once you perform a failover from primary site to secondary site, either with or without data loss, you may need to do the following:
+- Update the connection string for your applications to connect to the newly promoted primary Arc SQL managed instance
+- If you plan to continue running the production workload off of the secondary site, update the `--license-type` to either `BasePrice` or `LicenseIncluded` to initiate billing for the vCores consumed.
+
 
 ## Next steps
 

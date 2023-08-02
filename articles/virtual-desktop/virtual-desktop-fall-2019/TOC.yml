@@ -1,11 +1,11 @@
 - name: Azure Virtual Desktop (classic)
+  href: index.yml
+- name: Azure Virtual Desktop documentation
   href: ../index.yml
 - name: Overview
   items:
   - name: What is Azure Virtual Desktop?
-    href: ../overview.md
-  - name: Azure Virtual Desktop documentation
-    href: ../create-host-pools-azure-marketplace.md
+    href: ../overview.md?toc=%2Fazure%2Fvirtual-desktop%2Fvirtual-desktop-fall-2019%2Ftoc.json
 - name: Tutorials
   items:
   - name: 1. Create a tenant
@@ -14,7 +14,7 @@
     href: create-service-principal-role-powershell.md
   - name: 3. Create a host pool with the Azure Marketplace
     href: create-host-pools-azure-marketplace-2019.md
-  - name: 4. Manage app groups
+  - name: 4. Manage application groups
     href: manage-app-groups-2019.md
   - name: 5. Create a host pool to validate service updates
     href: create-validation-host-pool-2019.md

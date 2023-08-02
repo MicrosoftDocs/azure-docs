@@ -39,7 +39,7 @@ To create a custom table, you need:
 Azure tables have predefined schemas. To store log data in a different schema, use data collection rules to define how to collect, transform, and send the data to a custom table in your Log Analytics workspace.
 
 > [!NOTE]
-> For information about creating a custom table for logs you ingest with the deprecated Log Analytics agent, also known as MMA or OMS, see [Collect text logs with the Log Analytics agent](../agents/data-sources-custom-logs.md#define-a-custom-log).
+> For information about creating a custom table for logs you ingest with the deprecated Log Analytics agent, also known as MMA or OMS, see [Collect text logs with the Log Analytics agent](../agents/data-sources-custom-logs.md#define-a-custom-log-table).
 
 # [Portal](#tab/azure-portal-1)
 

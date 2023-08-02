@@ -4,6 +4,7 @@ description: Describes how to group servers before you run an assessment with th
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 07/28/2021
 ms.custom: engagement-fy23

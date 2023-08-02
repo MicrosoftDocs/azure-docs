@@ -11,9 +11,9 @@ ms.topic: conceptual
 ms.date: 12/05/2022
 ms.author: jomondi
 ms.reviewer: saibandaru
+ms.custom: enterprise-apps
 
 #Customer intent: As an Azure AD administrator, I want to learn about enterprise application ownership.
-
 ---
 
 # Overview of enterprise application ownership in Azure Active Directory

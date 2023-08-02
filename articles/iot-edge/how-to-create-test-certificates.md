@@ -303,7 +303,7 @@ Your IoT device also needs a copy of its device certificates so that it can auth
 3. Retrieve the SHA1 thumbprint (called a thumbprint in IoT Hub contexts) from each certificate. The thumbprint is a 40 hexadecimal character string. Use the following openssl command to view the certificate and find the thumbprint:
 
    ```PowerShell
-   openssl x509 -in certs\iot-device-<device name>-primary.cert.pem -text -thumbprint
+   Write-Host (Get-Pfxcertificate -FilePath certs\iot-device-<device name>-primary.cert.pem).Thumbprint
    ```
 
    Run this command twice, once for the primary certificate and once for the secondary certificate. You provide thumbprints for both certificates when you register a new IoT device using self-signed X.509 certificates.

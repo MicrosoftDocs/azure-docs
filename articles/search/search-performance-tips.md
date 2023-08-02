@@ -2,12 +2,11 @@
 title: Performance tips
 titleSuffix: Azure Cognitive Search
 description: Learn about tips and best practices for maximizing performance on a search service.
-
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/25/2022
+ms.date: 04/20/2023
 ---
 
 # Tips for better performance in Azure Cognitive Search
@@ -131,6 +130,11 @@ However, if the administrator chose to move to a Standard S2 tier the topology w
 As this hypothetical scenario illustrates, you can have configurations on lower tiers that result in similar costs as if you had opted for a higher tier in the first place. However, higher tiers come with premium storage, which makes indexing faster. Higher tiers also have much more compute power, as well as extra memory. For the same costs, you could have more powerful infrastructure backing the same index.
 
 An important benefit of added memory is that more of the index can be cached, resulting in lower search latency, and a greater number of queries per second. With this extra power, the administrator may not need to even need to increase the replica count and could potentially pay less than by staying on the S1 service.
+
+### Tip: Consider alternatives to regular expression queries
+
+[Regular expression queries](query-lucene-syntax.md#bkmk_regex) or regex can be particularly expensive. While they can be very useful for complex searches, they also may require a lot of processing power to be executed, especially if the regular expression has a lot of complexity or when searching through a large amount of data. This would result in high search latency. In order to reduce the search latency, try to simplify the regular expression or break the complex query down into smaller, more manageable queries. 
+
 
 ## Next steps
 

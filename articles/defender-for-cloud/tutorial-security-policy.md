@@ -59,7 +59,7 @@ To view your security policies in Defender for Cloud:
             **Deny** prevents deployment of non-compliant resources based on recommendation logic.<br>
             **Disabled** prevents the recommendation from running.
 
-         :::image type="content" source="./media/tutorial-security-policy/default-assignment-screen.png" alt-text="Screenshot showing the edit default assignment screen." lightbox="/media/tutorial-security-policy/default-assignment-screen.png":::
+         :::image type="content" source="./media/tutorial-security-policy/default-assignment-screen.png" alt-text="Screenshot showing the edit default assignment screen." lightbox="./media/tutorial-security-policy/default-assignment-screen.png":::
 
 ## Enable a security recommendation
 

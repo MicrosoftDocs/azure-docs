@@ -5,11 +5,10 @@ description: Learn how to list blob containers in your Azure Storage account usi
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 01/24/2023
 ms.author: pauljewell
-ms.subservice: blobs
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
 ---

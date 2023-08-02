@@ -6,9 +6,7 @@ ms.author: roblescarlos
 ms.date: 06/29/2020
 ms.service: dms
 ms.topic: quickstart
-ms.custom:
-  - subject-armqs
-  - mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Create instance of Azure Database Migration Service using ARM template

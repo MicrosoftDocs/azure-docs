@@ -3,7 +3,7 @@ title: "Cisco ASA/FTD via AMA (Preview) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Cisco ASA/FTD via AMA (Preview) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/28/2023
+ms.date: 07/26/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -17,7 +17,7 @@ The Cisco ASA firewall connector allows you to easily connect your Cisco ASA log
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog<br/> |
-| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
+| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com/) |
 
 ## Query samples
@@ -39,7 +39,7 @@ CommonSecurityLog
 
 To integrate with Cisco ASA/FTD via AMA (Preview) make sure you have: 
 
-- ****: To collect data from non-Azure VMs, they must have Azure Arc installed and enabled. [Learn more](https://learn.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
+- ****: To collect data from non-Azure VMs, they must have Azure Arc installed and enabled. [Learn more](/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
 
 
 ## Vendor installation instructions

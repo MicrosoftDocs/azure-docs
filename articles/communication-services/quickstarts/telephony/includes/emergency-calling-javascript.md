@@ -2,7 +2,7 @@
 author: DaybreakQuip
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 12/09/2021
+ms.date: 07/20/2023
 ms.author: zehangzheng
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
@@ -15,7 +15,7 @@ ms.author: zehangzheng
 
 - The capability to dial an emergency number and receive a callback might be a requirement for your application. Verify the emergency calling requirements with your legal counsel.
 - Microsoft uses country/region codes according to the ISO 3166-1 alpha-2 standard.
-- Supported ISO codes are US (United States), PR (Puerto Rico), CA (Canada), and GB (United Kingdom) only.
+- Supported ISO codes are US (United States), PR (Puerto Rico), CA (Canada), GB (United Kingdom), and DK (Denmark) only.
 - If you don't provide the country/region ISO code to the Azure Communication Services Calling SDK, Microsoft uses the IP address to determine the country or region of the caller.
 
   If the IP address can't provide reliable geolocation (for example, the user is on a virtual private network), you must set the ISO code of the calling country or region by using the API in the Calling SDK.
@@ -80,15 +80,11 @@ async function init() {
             });
   //  callPhoneButton.disabled = false;
 }
-
 ```
-
-> [!WARNING]
-> Azure Communication Services supports enhanced emergency calling to 911 from the United States and Puerto Rico only. The service doesn't support calling 911 from other countries/regions.
 
 ## Add functionality to the call button
 
-Add functionality to your emergency call button by adding the following code to your *client.js* file. For US only, a temporary caller ID is assigned for your emergency call whether or not you provide the `alternateCallerId` parameter.
+Add functionality to your emergency call button by adding the following code to your *client.js* file. A temporary caller ID is assigned for your emergency call whether or not you provide the `alternateCallerId` parameter.
 
 ```javascript
 emergencyButton.addEventListener("click", () => {

@@ -166,7 +166,7 @@ You can follow the instructions below to set up your local run and local debug f
 
     - Environment variables and WinUtils.exe Location are only for windows users.
     - Environment variables: The system environment variable can be auto detected if you have set it before and no need to manually add.
-    - [WinUtils.exe Location](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe): You can specify the WinUtils location by selecting the folder icon on the right.
+    - [WinUtils.exe Location](https://github.com/steveloughran/winutils/releases/download/tag_2017-08-29-hadoop-2.8.1-native/hadoop-2.8.1.zip): You can specify the WinUtils location by selecting the folder icon on the right.
 
 2. Then select the local play button.
 

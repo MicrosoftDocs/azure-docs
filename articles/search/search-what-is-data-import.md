@@ -42,11 +42,9 @@ There is currently no tool support for pushing data via the portal.
 
 For an introduction to the push APIs, see:
 
++ [Quickstart: Full text search using the Azure SDKs](search-get-started-text.md)
 + [C# Tutorial: Optimize indexing with the push API](tutorial-optimize-indexing-push-api.md)
-+ [C# Quickstart: Create an Azure Cognitive Search index using .NET SDK](search-get-started-dotnet.md)
 + [REST Quickstart: Create an Azure Cognitive Search index using PowerShell](search-get-started-powershell.md)
-+ [Python Quickstart: Create an Azure Cognitive Search index using the Azure SDK for Python](search-get-started-python.md)
-+ [JavaScript Quickstart: Create an Azure Cognitive Search index using the Azure SDK for JavaScript](search-get-started-javascript.md)
 
 <a name="indexing-actions"></a>
 

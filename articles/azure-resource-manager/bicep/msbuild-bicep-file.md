@@ -4,8 +4,7 @@ description: Use MSBuild to convert a Bicep file to Azure Resource Manager templ
 ms.date: 09/26/2022
 ms.topic: quickstart
 ms.custom: devx-track-bicep, devx-track-arm-template
-author: davidsmatlak
-ms.author: davidsmatlak
+
 # Customer intent: As a developer I want to convert Bicep files to Azure Resource Manager template (ARM template) JSON in an MSBuild pipeline.
 ---
 

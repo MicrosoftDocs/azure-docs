@@ -1,8 +1,8 @@
 ---
 title: Azure App Configuration REST API
 description: Reference pages for the Azure App Configuration REST API
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 11/28/2022

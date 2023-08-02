@@ -12,6 +12,7 @@ ms.date: 03/29/2023
 ms.author: jomondi
 ms.collection: M365-identity-device-management
 ms.reviewer: ergreenl
+ms.custom: enterprise-apps
 
 #customer intent: As an admin, I want to enable self-service application access so that users can self-discover applications from their My Apps portal.
 ---
@@ -45,6 +46,8 @@ To enable self-service application access, you need:
 - An Azure Active Directory Premium (P1 or P2) license is required for users to request to join a self-service app and for owners to approve or deny requests. Without an Azure Active Directory Premium license, users can't add self-service apps.
 
 ## Enable self-service application access to allow users to find their own applications
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Self-service application access is a great way to allow users to self-discover applications, and optionally allow the business group to approve access to those applications. For password single-sign on applications, you can also allow the business group to manage the credentials assigned to those users from their own My Apps portal.
 

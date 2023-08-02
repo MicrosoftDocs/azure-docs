@@ -208,7 +208,7 @@ As you add scopes, your users might be prompted to provide additional consent fo
 
 If a back-end API doesn't require a scope, which isn't recommended, you can use `clientId` as the scope in the calls to acquire tokens.
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 

@@ -59,11 +59,11 @@ To find out which Conditional Access policy or policies applied and why do the f
 1. Find the event for the sign-in to review. Add or remove filters and columns to filter out unnecessary information.
    1. Add filters to narrow the scope:
       1. **Correlation ID** when you have a specific event to investigate.
-      1. **Conditional access** to see policy failure and success. Scope your filter to show only failures to limit results.
+      1. **Conditional Access** to see policy failure and success. Scope your filter to show only failures to limit results.
       1. **Username** to see information related to specific users.
       1. **Date** scoped to the time frame in question.
 
-   ![Screenshot showing selecting the Conditional access filter in the sign-ins log.](./media/troubleshoot-conditional-access/image3.png)
+   ![Screenshot showing selecting the Conditional Access filter in the sign-ins log.](./media/troubleshoot-conditional-access/image3.png)
 
 1. Once the sign-in event that corresponds to the user's sign-in failure has been found select the **Conditional Access** tab. The Conditional Access tab shows the specific policy or policies that resulted in the sign-in interruption.
    1. Information in the **Troubleshooting and support** tab may provide a clear reason as to why a sign-in failed such as a device that didn't meet compliance requirements.
@@ -92,7 +92,7 @@ If you need to submit a support incident, provide the request ID and time and da
 | 53003 | BlockedByConditionalAccess |
 | 53004 | ProofUpBlockedDueToRisk |
 
-More information about error codes can be found in the article [Azure AD Authentication and authorization error codes](../develop/reference-aadsts-error-codes.md). Error codes in the list appear with a prefix of `AADSTS` followed by the code seen in the browser, for example `AADSTS53002`.
+More information about error codes can be found in the article [Azure AD Authentication and authorization error codes](../develop/reference-error-codes.md). Error codes in the list appear with a prefix of `AADSTS` followed by the code seen in the browser, for example `AADSTS53002`.
 
 ## Service dependencies
 

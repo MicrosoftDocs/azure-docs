@@ -26,7 +26,7 @@ This example shows you how to configure `System-assigned managed identity` on a 
 1. Open [Azure portal](https://portal.azure.com/), Search for and select a Virtual Machine.
 1. Under **Settings** section, select **Identity**.
 1. On the **System assigned** tab, toggle the **Status** to **On**.
-   ![Screenshot of an application](./media/authenticate/identity-virtual-machine.png)
+   ![Screenshot of an application.](./media/signalr-howto-authorize-managed-identity/identity-virtual-machine.png)
 1. Select the **Save** button to confirm the change.
 
 
@@ -162,3 +162,4 @@ If you want to use user-assigned identity, you need to assign `clientId`in addit
 See the following related articles:
 - [Overview of Azure AD for SignalR](signalr-concept-authorize-azure-active-directory.md)
 - [Authorize request to SignalR resources with Azure AD from Azure applications](signalr-howto-authorize-application.md)
+- [Disable local authentication](./howto-disable-local-auth.md)

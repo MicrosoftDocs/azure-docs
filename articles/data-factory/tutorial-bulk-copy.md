@@ -42,7 +42,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 * **Azure Storage account**. The Azure Storage account is used as staging blob storage in the bulk copy operation. 
 * **Azure SQL Database**. This database contains the source data. 
 * **Azure Synapse Analytics**. This data warehouse holds the data copied over from the SQL Database. 

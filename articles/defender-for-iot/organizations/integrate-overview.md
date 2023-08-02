@@ -18,7 +18,6 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 
 ## Axonius
 
-
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
 |**Axonius Cybersecurity Asset Management**      |    Import and manage device inventory discovered by Defender for IoT in your Axonius instance.      |  - OT networks<br>- Locally managed sensors and on-premises management consoles      |   Axonius      |  [Axonius documentation](https://docs.axonius.com/docs/azure-defender-for-iot)  |
@@ -105,7 +104,6 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 |---------|---------|---------|---------|---------|
 | **Splunk** | Send Defender for IoT alerts to Splunk | - OT networks <br>- Cloud connected sensors | Microsoft | [Stream Defender for IoT cloud alerts to a partner SIEM](integrations/send-cloud-data-to-partners.md) |
 |**Splunk**     |  Send Defender for IoT alerts to Splunk       |   - OT networks<br>- Locally managed sensors and on-premises management consoles       |  Microsoft       | [Integrate Splunk with Microsoft Defender for IoT](tutorial-splunk.md)   |
-
 
 ## Next steps
 

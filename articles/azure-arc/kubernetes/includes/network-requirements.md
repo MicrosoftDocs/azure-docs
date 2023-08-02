@@ -23,6 +23,7 @@ ms.date: 03/07/2023
 |`*.servicebus.windows.net` | For [Cluster Connect](../cluster-connect.md) and for [Custom Location](../custom-locations.md) based scenarios. |
 |`https://graph.microsoft.com/` | Required when [Azure RBAC](../azure-rbac.md) is configured. |
 | `*.arc.azure.net`| Required to manage connected clusters in Azure portal. |
+|`https://<region>.obo.arc.azure.com:8084/` | Required when [Cluster Connect](../cluster-connect.md) is configured. |
 
 To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command:
 
@@ -50,6 +51,7 @@ GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-0
 |`guestnotificationservice.azure.us`<br/>`*.guestnotificationservice.azure.us`<br/>`sts.windows.net`<br/>`https://k8sconnectcsp.azureedge.net` | For [Cluster Connect](../cluster-connect.md) and for [Custom Location](../custom-locations.md) based scenarios. |
 |`*.servicebus.usgovcloudapi.net` | For [Cluster Connect](../cluster-connect.md) and for [Custom Location](../custom-locations.md) based scenarios. |
 |`https://graph.microsoft.com/` | Required when [Azure RBAC](../azure-rbac.md) is configured. |
+|`https://usgovvirginia.obo.arc.azure.us:8084/` | Required when [Cluster Connect](../cluster-connect.md) is configured. |
 
 To translate the `*.servicebus.usgovcloudapi.net` wildcard into specific endpoints, use the command:
 

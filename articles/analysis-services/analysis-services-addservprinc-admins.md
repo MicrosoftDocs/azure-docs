@@ -95,21 +95,7 @@ The following Resource Manager template deploys an Analysis Services server with
 
 ## Using managed identities
 
-A managed identity can also be added to the Analysis Services Admins list. For example, you might have a [Logic App with a system-assigned managed identity](../logic-apps/create-managed-service-identity.md), and want to grant it the ability to administer your server.
-
-In most parts of the Azure portal and APIs, managed identities are identified using their service principal object ID. However, Analysis Services requires that they be identified using their client ID. To obtain the client ID for a service principal, you can use the Azure CLI:
-
-```azurecli
-az ad sp show --id <ManagedIdentityServicePrincipalObjectId> --query appId -o tsv
-```
-
-Alternatively you can use PowerShell:
-
-```powershell
-(Get-AzureADServicePrincipal -ObjectId <ManagedIdentityServicePrincipalObjectId>).AppId
-```
-
-You can then use this client ID in conjunction with the tenant ID to add the managed identity to the Analysis Services Admins list, as described above.
+Managed identies that are added to database or server roles will be unable to login to the service or do any operations. Managed identities for service principals are not supported in Azure Analysis Services.
 
 ## Related information
 

@@ -6,7 +6,7 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 03/24/2023
+ms.date: 08/02/2023
 ms.author: allensu
 ms.custom: references_regions, template-concept, ignite-2022
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
@@ -69,10 +69,11 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure App Configuration | Microsoft.Appconfiguration/configurationStores | configurationStores |
 | Azure Automation | Microsoft.Automation/automationAccounts | Webhook, DSCAndHybridWorker |
 | Azure Cosmos DB | Microsoft.AzureCosmosDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, Table |
+| Azure Cosmos DB for PostgreSQL | Microsoft.DBforPostgreSQL/serverGroupsv2 | coordinator |
 | Azure Batch | Microsoft.Batch/batchAccounts | batchAccount, nodeManagement |
 | Azure Cache for Redis | Microsoft.Cache/Redis | redisCache |
 | Azure Cache for Redis Enterprise | Microsoft.Cache/redisEnterprise | redisEnterprise |
-| Azure Cognitive Services | Microsoft.CognitiveServices/accounts | account |
+| Azure AI services | Microsoft.CognitiveServices/accounts | account |
 | Azure Managed Disks | Microsoft.Compute/diskAccesses | managed disk |
 | Azure Container Registry | Microsoft.ContainerRegistry/registries | registry |
 | Azure Kubernetes Service - Kubernetes API | Microsoft.ContainerService/managedClusters | management |
@@ -106,6 +107,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure SignalR Service | Microsoft.SignalRService/SignalR | signalr |
 | Azure SignalR Service | Microsoft.SignalRService/webPubSub | webpubsub |
 | Azure SQL Database | Microsoft.Sql/servers | SQL Server (sqlServer) |
+| Azure SQL Managed Instance | Microsoft.Sql/managedInstances | managedInstance |
 | Azure Storage | Microsoft.Storage/storageAccounts | Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary)<BR> Dfs (dfs, dfs_secondary) |
 | Azure File Sync | Microsoft.StorageSync/storageSyncServices | File Sync Service |
 | Azure Synapse | Microsoft.Synapse/privateLinkHubs | web |

@@ -24,7 +24,7 @@ Follow the instructions in this article to create a GPU optimized Azure virtual 
 
 ## Select an appropriate GPU-optimized Azure virtual machine size
 
-Select one of Azure's [NV-series](../virtual-machines/nv-series.md), [NVv3-series](../virtual-machines/nvv3-series.md), [NVv4-series](../virtual-machines/nvv4-series.md) or [NCasT4_v3-series](../virtual-machines/nct4-v3-series.md) VM sizes to use as a session host. These are tailored for app and desktop virtualization and enable most apps and the Windows user interface to be GPU accelerated. The right choice for your host pool depends on a number of factors, including your particular app workloads, desired quality of user experience, and cost. In general, larger and more capable GPUs offer a better user experience at a given user density, while smaller and fractional-GPU sizes allow more fine-grained control over cost and quality. Consider NV series VM retirement when selecting VM, details on [NV retirement](../virtual-machines/nv-series-retirement.md)
+Select one of Azure's [NV-series](../virtual-machines/nv-series.md), [NVv3-series](../virtual-machines/nvv3-series.md), [NVv4-series](../virtual-machines/nvv4-series.md), [NVadsA10 v5-series](../virtual-machines/nva10v5-series.md), or [NCasT4_v3-series](../virtual-machines/nct4-v3-series.md) VM sizes to use as a session host. These are tailored for app and desktop virtualization and enable most apps and the Windows user interface to be GPU accelerated. The right choice for your host pool depends on a number of factors, including your particular app workloads, desired quality of user experience, and cost. In general, larger and more capable GPUs offer a better user experience at a given user density, while smaller and fractional-GPU sizes allow more fine-grained control over cost and quality. Note that NV-series VMs are planned to be retired. For more information, see [NV retirement](../virtual-machines/nv-series-retirement.md).
 
 >[!NOTE]
 >Azure's NC, NCv2, NCv3, ND, and NDv2 series VMs are generally not appropriate for Azure Virtual Desktop session hosts. These VMs are tailored for specialized, high-performance compute or machine learning tools, such as those built with NVIDIA CUDA. They do not support GPU acceleration for most apps or the Windows user interface.
@@ -97,6 +97,9 @@ To verify that Remote Desktop is using GPU-accelerated encoding:
 2. Launch the Event Viewer and navigate to the following node: **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operational**
 3. To determine if GPU-accelerated encoding is used, look for event ID 170. If you see "AVC hardware encoder enabled: 1" then GPU encoding is used.
 
+> [!TIP]
+> If you're connecting to your session host outside of Azure Virtual Desktop for testing GPU acceleration, the logs will instead be stored in **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTs** > **Operational** in Event Viewer.
+
 ## Verify fullscreen video encoding
 
 To verify that Remote Desktop is using fullscreen video encoding:
@@ -104,6 +107,9 @@ To verify that Remote Desktop is using fullscreen video encoding:
 1. Connect to the desktop of the VM using Azure Virtual Desktop client.
 2. Launch the Event Viewer and navigate to the following node: **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operational**
 3. To determine if fullscreen video encoding  is used, look for event ID 162. If you see "AVC Available: 1 Initial Profile: 2048" then AVC 444 is used.
+
+> [!TIP]
+> If you're connecting to your session host outside of Azure Virtual Desktop for testing GPU acceleration, the logs will instead be stored in **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTs** > **Operational** in Event Viewer.
 
 ## Next steps
 

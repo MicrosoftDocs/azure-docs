@@ -32,6 +32,8 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ## Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Assigning an Azure AD role to a group is similar to assigning users and service principals except that only groups that are role-assignable can be used.
 
 > [!TIP]
@@ -89,6 +91,8 @@ $roleAssignment = New-MgRoleManagementDirectoryRoleAssignment -DirectoryScopeId 
 ```
 
 # [Azure AD PowerShell](#tab/aad-powershell)
+
+[!INCLUDE [aad-powershell-migration-include](../includes/aad-powershell-migration-include.md)]
 
 ### Create a role-assignable group
 

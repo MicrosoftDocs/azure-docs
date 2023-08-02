@@ -39,7 +39,7 @@ articles/service-health @rboucher
 /articles/synapse-analytics/synapse-link/ @Rodrigossz @SnehaGunda @jovanpop-msft
 
 # Cognitive Services
-/articles/cognitive-services/ @aahill @patrickfarley @nitinme @mrbullwinkle @laujan @eric-urban @jboback
+/articles/ai-services/ @aahill @patrickfarley @nitinme @mrbullwinkle @laujan @eric-urban @jboback
 
 # DevOps
 /articles/ansible/ @TomArcherMsft
@@ -65,6 +65,10 @@ articles/service-health @rboucher
 # Azure Security Center
 /articles/security-center/ @memildin
 /includes/*security-controls*.md @memildin
+
+# Defender for Cloud
+
+/articles/defender-for-cloud @dcurwin @ElazarK
 
 # DDOS Protection
 /articles/ddos-protection @aletheatoh @anupamvi
