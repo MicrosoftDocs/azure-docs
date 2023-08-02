@@ -295,14 +295,14 @@ $Runspace.Open()
 }
 ```
 
-These commands send four asychronous requests to the `albums` endpoint of your container app.
+These commands send four asynchronous requests to the `albums` endpoint of your container app.
 
 `[runspacefactory]::CreateRunspacePool(1,4)` creates a `RunspacePool` that allows up to 4 runspaces to run concurrently.
 `1..4 | % {  }` runs the code enclosed in the curly braces four times. 
 `$ps = [powershell]::Create()` creates a new PowerShell instance.
 `$ps.RunspacePool = $Runspace` tells the PowerShell instance to run in our `RunspacePool`.
 `[void]$ps.AddCommand("Invoke-WebRequest").AddParameter("UseBasicParsing",$true).AddParameter("Uri",$url)` tells the PowerShell instance to send a request to your container app.
-`[void]$ps.BeginInvoke()` tells the PowerShell instance to run asychronously.
+`[void]$ps.BeginInvoke()` tells the PowerShell instance to run asynchronously.
 
 For more information, see:
 [Beginning Use of PowerShell Runspaces: Part 3](https://devblogs.microsoft.com/scripting/beginning-use-of-powershell-runspaces-part-3/)
