@@ -246,7 +246,7 @@ To provide load-balancing capabilities or for redundancy, repeat these steps on 
    `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12`
 
    > [!IMPORTANT]
-   > For customers that use the Azure Government or Azure operated by 21Vianet clouds, first edit the `Connect-MsolService` cmdlets in the *AzureMfaNpsExtnConfigSetup.ps1* script to include the *AzureEnvironment* parameters for the required cloud. For example, specify *-AzureEnvironment USGovernment* or *-AzureEnvironment AzureChinaCloud*.
+   > For customers that use the Azure Government or Microsoft Azure operated by 21Vianet clouds, first edit the `Connect-MsolService` cmdlets in the *AzureMfaNpsExtnConfigSetup.ps1* script to include the *AzureEnvironment* parameters for the required cloud. For example, specify *-AzureEnvironment USGovernment* or *-AzureEnvironment AzureChinaCloud*.
    >
    > For more information, see [Connect-MsolService parameter reference](/powershell/module/msonline/connect-msolservice#parameters).
 
