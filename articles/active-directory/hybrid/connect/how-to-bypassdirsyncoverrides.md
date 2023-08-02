@@ -40,7 +40,7 @@ Compare-ADSyncToolsDirSyncOverrides -Credential $(Get-Credential)
 ```
 
 >[!NOTE]
-> The target API used by this feature does not handle authentication user interactions. MFA or conditional policies will block authentication. When prompted to enter credentials, please use a Global Administrator account that doesn't have MFA enabled or any conditional access policy applied. As a last resort, please create a temporary Global Administrator user account without MFA or Conditional Access that can be deleted after completing the desired operations using the BypassDirSyncOverridees feature.
+> The target API used by this feature does not handle authentication user interactions. MFA or conditional policies will block authentication. When prompted to enter credentials, please use a Global Administrator account that doesn't have MFA enabled or any Conditional Access policy applied. As a last resort, please create a temporary Global Administrator user account without MFA or Conditional Access that can be deleted after completing the desired operations using the BypassDirSyncOverridees feature.
 
 This function will export a CSV file with a list of users where Mobile or OtherMobile values in on-premises Active Directory are different than the respective MobilePhone or AlternateMobilePhones in Azure AD.
 

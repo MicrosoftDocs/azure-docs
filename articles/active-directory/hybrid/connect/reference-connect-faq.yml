@@ -190,7 +190,7 @@ sections:
           No.  They are not supported.
           
       - question: |
-          If I disabled a synced device (for example: HAADJ) in the Azure portal, why it is re-enabled?
+          If I disabled a synced device in the Azure portal, why it is re-enabled?
         answer: |
           Synced devices might be authored or mastered on premises. If a synced device is enabled on premises, it might be re-enabled in the Azure portal even if was previously disabled by an administrator. To disable a synced device, use the on-premises Active Directory to disable the computer account.
           

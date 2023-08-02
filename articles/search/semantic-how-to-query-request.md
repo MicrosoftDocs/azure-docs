@@ -25,9 +25,9 @@ There are two main activities to perform:
 
 ## Prerequisites
 
-+ A search service on Standard tier (S1, S2, S3) or Storage Optimized tier (L1, L2), subject to [region availability](https://azure.microsoft.com/global-infrastructure/services/?products=search).
++ A search service on Basic, Standard tier (S1, S2, S3), or Storage Optimized tier (L1, L2), subject to [region availability](https://azure.microsoft.com/global-infrastructure/services/?products=search).
 
-  If you have an existing S1 or greater service in a supported region, you can enable semantic search without having to create a new service.
+  If you have an existing Basic or greater service in a supported region, you can enable semantic search without having to create a new service.
 
 + Semantic search [enabled on your search service](semantic-search-overview.md#enable-semantic-search).
 
