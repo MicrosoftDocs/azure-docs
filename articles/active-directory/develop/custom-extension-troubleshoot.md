@@ -47,7 +47,7 @@ To access the Azure AD sign-in logs:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the **Enterprise apps** experience for your given application, select on the **Sign-in** logs tab.
 1. Select the latest sign-in log.
-1. For more details, select the **Authentication Events** tab. Information related to the custom extension REST API call is displayed, including any [error codes](#error-codes-reference).
+1. For more details, select the **Authentication Events** tab. Information related to the custom authentication extension REST API call is displayed, including any [error codes](#error-codes-reference).
 
     :::image type="content" source="media/custom-extension-troubleshoot/authentication-events.png" alt-text="Screenshot that shows the authentication events information." :::
 
@@ -87,11 +87,11 @@ Use the following table to diagnose an error code.
 
 ## Call your REST API directly
 
-Your REST API is protected by Azure AD access token. You can test your API by obtaining an access token with the [application registration](custom-extension-get-started.md#22-grant-admin-consent) associated with the custom extensions. After you acquire an access token, pass it the HTTP `Authorization` header. To obtain an access token, follow these steps:
+Your REST API is protected by Azure AD access token. You can test your API by obtaining an access token with the [application registration](custom-extension-get-started.md#22-grant-admin-consent) associated with the custom authentiction extensions. After you acquire an access token, pass it the HTTP `Authorization` header. To obtain an access token, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure administrator account.
 1. Select **Azure Active Directory** > **App registrations**.
-1. Select the *Azure Functions authentication events API* app registration [you created previously](custom-extension-get-started.md#step-2-register-a-custom-extension). 
+1. Select the *Azure Functions authentication events API* app registration [you created previously](custom-extension-get-started.md#step-2-register-a-custom-authentication-extension). 
 1. Copy the [application ID](custom-extension-get-started.md#22-grant-admin-consent).
 1. If you haven't created an app secret, follow these steps:
     1. Select **Certificates & secrets** > **Client secrets** > **New client secret**.
@@ -137,7 +137,7 @@ To test your API directly from the Postman, follow these steps:
             "@odata.type": "microsoft.graph.onTokenIssuanceStartCalloutData",
             "tenantId": "<Your tenant GUID>",
             "authenticationEventListenerId": "<GUID>",
-            "customAuthenticationExtensionId": "<Your custom extension ID>",
+            "customAuthenticationExtensionId": "<Your custom authentication extension ID>",
             "authenticationContext": {
                 "correlationId": "fcef74ef-29ea-42ca-b150-8f45c8f31ee6",
                 "client": {
