@@ -1,6 +1,6 @@
 ---
 title: Quickstart for using Azure Container Storage Preview with Azure Kubernetes Service (AKS)
-description: Learn how to install Azure Container Storage Preview for use with Azure Kubernetes Service using an installation script.
+description: Learn how to install Azure Container Storage Preview on an Azure Kubernetes Service cluster using an installation script.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Use Azure Container Storage Preview with Azure Kubernetes Service
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to install Azure Container Storage Preview for use with [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) using a provided installation script.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to install Azure Container Storage Preview on an [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) cluster using a provided installation script.
 
 ## Prerequisites
 
@@ -20,11 +20,13 @@ ms.custom: devx-track-azurecli
 
 - This quickstart requires version 2.0.64 or later of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
+- You'll need an AKS cluster with an appropriate [virtual machine type](install-container-storage-aks.md#vm-types). If you don't have one, see [Create an AKS cluster](install-container-storage-aks.md#create-aks-cluster).
+
 - You'll need the Kubernetes command-line client, `kubectl`. You can install it locally by running the `az aks install-cli` command.
 
 ## Install Azure Container Storage
 
-Follow these instructions to install Azure Container Storage using an installation script.
+Follow these instructions to install Azure Container Storage on your AKS cluster using an installation script.
 
 1. Run the `az login` command to sign in to Azure.
 
@@ -70,7 +72,7 @@ Congratulations, you've successfully installed Azure Container Storage. You now 
 
 ## Next steps
 
-Now you can create a storage pool and persistent volume claim, and then deploy a pod and attach a persistent volume. Follow the steps in the appropriate how-to article.
+Now you can create a storage pool and persistent volume claim, and then deploy a pod and attach a persistent volume. Depending on the back-end storage type you want to use, follow the steps in the appropriate how-to article.
 
 - [Use Azure Container Storage Preview with Azure Elastic SAN Preview](use-container-storage-with-elastic-san.md)
 - [Use Azure Container Storage Preview with Azure Disks](use-container-storage-with-managed-disks.md)

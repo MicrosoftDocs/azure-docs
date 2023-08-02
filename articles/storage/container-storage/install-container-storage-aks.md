@@ -106,7 +106,9 @@ If you intend to use Ephemeral Disk, choose a [storage optimized VM type](../../
 
 ## Create AKS cluster
 
-Run the following command to create a Linux-based AKS cluster and enable a system-assigned managed identity. Replace `<resource-group>` with the name of the resource group you created, `<cluster-name>` with the name of the cluster you want to create, and `<vm-type>` with the VM type you selected in the previous step. In this example, we'll create a cluster with three nodes. Increase the `--node-count` if you want a larger cluster.
+Run the following command to create a Linux-based AKS cluster and enable a system-assigned managed identity. If you already have an AKS cluster you want to use, you can skip this step.
+
+Replace `<resource-group>` with the name of the resource group you created, `<cluster-name>` with the name of the cluster you want to create, and `<vm-type>` with the VM type you selected in the previous step. In this example, we'll create a cluster with three nodes. Increase the `--node-count` if you want a larger cluster.
 
 ```azurecli-interactive
 az aks create -g <resource-group> -n <cluster-name> --node-count 3 -s <vm-type> --generate-ssh-keys
