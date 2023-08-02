@@ -41,7 +41,7 @@ Before you begin the procedures in this article, make sure that you have these r
   
 1. Hover over **Change Data Capture (preview)** until three dots appear. Then select **Change Data Capture (preview) Actions**.
 
-   :::image type="content" source="media/adf-cdc/change-data-capture-resource-101.png" alt-text="Screenshot of Change Data Capture (preview) Actions after hovering over the new top-level artifact." lightbox="media/adf-cdc/change-data-capture-resource-101.png":::
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-101.png" alt-text="Screenshot of the button for change data capture actions appearing over the new top-level artifact." lightbox="media/adf-cdc/change-data-capture-resource-101.png":::
 
 1. Select **New CDC (preview)**. This step opens a flyout to begin the guided process.
 
@@ -49,7 +49,7 @@ Before you begin the procedures in this article, make sure that you have these r
   
 1. You're prompted to name your CDC resource. By default, the name is "adfcdc" with a number that increments by 1. You can replace this default name with your own.
 
-   :::image type="content" source="media/adf-cdc/change-data-capture-resource-103.png" alt-text="Screenshot of the text box to update the name of the resource.":::
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-103.png" alt-text="Screenshot of the text box to update the name of a resource.":::
   
 1. Use the dropdown list to choose your data source. For this article, select **Azure SQL Database**.
 
@@ -95,7 +95,7 @@ Before you begin the procedures in this article, make sure that you have these r
 
    :::image type="content" source="media/adf-cdc/change-data-capture-resource-112.png" alt-text="Screenshot of the change data capture studio." lightbox="media/adf-cdc/change-data-capture-resource-112.png":::
   
-1. A new mapping is automatically created for you. You can update the **Source Table** and **Target Table** selections for your mapping by using the dropdown lists.
+   A new mapping is automatically created for you. You can update the **Source Table** and **Target Table** selections for your mapping by using the dropdown lists.
 
    :::image type="content" source="media/adf-cdc/change-data-capture-resource-113.png" alt-text="Screenshot of the source-to-target mapping in the change data capture studio." lightbox="media/adf-cdc/change-data-capture-resource-113.png":::
 
@@ -151,9 +151,7 @@ Now that your change data capture is running, you can:
 
   :::image type="content" source="media/adf-cdc/change-data-capture-resource-124.png" alt-text="Screenshot of a Delta file." lightbox="media/adf-cdc/change-data-capture-resource-124.png":::
 
-## Make dynamic schema changes at the source
-
-Now you can make schema-level changes to the source tables.
+## Make dynamic schema-level changes to the source tables
 
 1. Add a new **PersonalEmail** column to the source table by using an `ALTER TABLE` T-SQL statement, as shown in the following example.
 
@@ -165,7 +163,7 @@ Now you can make schema-level changes to the source tables.
   
 ## Validate schema changes at the Delta sink
 
-Validate that change data with schema changes arrived at the target Delta sink. For this article, you can see that the new column **PersonalEmail** was added to the sink.
+Confirm that the new column **PersonalEmail** appears in the Delta sink. You now know that change data with schema changes arrived at the target.
 
 :::image type="content" source="media/adf-cdc/change-data-capture-resource-128.png" alt-text="Screenshot of a Delta file with a schema change." lightbox="media/adf-cdc/change-data-capture-resource-128.png":::
 

@@ -40,7 +40,7 @@ Before you begin the procedures in this article, make sure that you have these r
   
 1. Hover over **Change Data Capture (preview)** until you three dots appear. Then select **Change Data Capture (preview) Actions**.
 
-   :::image type="content" source="media/adf-cdc/change-data-capture-resource-62.png" alt-text="Screenshot of Change Data Capture (preview) Actions after hovering over the new top-level artifact." lightbox="media/adf-cdc/change-data-capture-resource-62.png":::
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-62.png" alt-text="Screenshot of the button for change data capture actions appearing over the new top-level artifact." lightbox="media/adf-cdc/change-data-capture-resource-62.png":::
 
 1. Select **New CDC (preview)**. This step opens a flyout to begin the guided process.
 
@@ -48,7 +48,7 @@ Before you begin the procedures in this article, make sure that you have these r
   
 1. You're prompted to name your CDC resource. By default, the name is "adfcdc" with a number that increments by 1. You can replace this default name with your own.
 
-   :::image type="content" source="media/adf-cdc/change-data-capture-resource-64.png" alt-text="Screenshot of the text box to update the name of the resource.":::
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-64.png" alt-text="Screenshot of the text box to update the name of a resource.":::
 
 1. Use the dropdown list to choose your data source. For this article, select **DelimitedText**.
 
@@ -102,13 +102,13 @@ Before you begin the procedures in this article, make sure that you have these r
 
    :::image type="content" source="media/adf-cdc/change-data-capture-resource-74.png" alt-text="Screenshot of the change data capture studio." lightbox="media/adf-cdc/change-data-capture-resource-74.png":::
 
-1. A new mapping is automatically created for you. You can update the **Source Table** and **Target Table** selections for your mapping by using the dropdown lists.
+   A new mapping is automatically created for you. You can update the **Source Table** and **Target Table** selections for your mapping by using the dropdown lists.
 
    :::image type="content" source="media/adf-cdc/change-data-capture-resource-75.png" alt-text="Screenshot of the source-to-target mapping in the change data capture studio." lightbox="media/adf-cdc/change-data-capture-resource-75.png":::
 
 1. After you select your tables, their columns are mapped by default with the **Auto map** toggle turned on. **Auto map** automatically maps the columns by name in the sink, picks up new column changes when the source schema evolves, and flows this information to the supported sink types.
 
-   If you want to use **Auto map** and not change any column mappings, go directly to step 19.
+   If you want to use **Auto map** and not change any column mappings, go directly to step 18.
 
    :::image type="content" source="media/adf-cdc/change-data-capture-resource-76.png" alt-text="Screenshot of the toggle for automatic mapping turned on." lightbox="media/adf-cdc/change-data-capture-resource-76.png":::
 
@@ -126,13 +126,13 @@ Before you begin the procedures in this article, make sure that you have these r
 
    * Add more column mappings by using the **New mapping** button. Use the dropdown lists to make selections for **Mapping method**, **Source column**, and **Target column**.
    * Select the **Keys** column if you want to track the delete operation for supported sink types.
-   * Select the **Refresh** button under **Data Preview** to visualize how the data looks at the target.
+   * Select the **Refresh** button under **Data preview** to visualize how the data looks at the target.
   
    :::image type="content" source="media/adf-cdc/change-data-capture-resource-79.png" alt-text="Screenshot of the button for adding column mappings, the dropdown list for mapping methods, the Keys column, and the Refresh button." lightbox="media/adf-cdc/change-data-capture-resource-79.png":::
 
 1. When your mapping is complete, select the arrow button to return to the main CDC canvas.
 
-   :::image type="content" source="media/adf-cdc/change-data-capture-resource-80.png" alt-text="Screenshot of the button to go back to table mapping page." lightbox="media/adf-cdc/change-data-capture-resource-80.png":::
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-80.png" alt-text="Screenshot of the button to go back to the table mapping page." lightbox="media/adf-cdc/change-data-capture-resource-80.png":::
 
 1. You can add more source-to-target mappings in one CDC artifact. Use the **Edit** button to add more data sources and targets. Then, select **New mapping** and use the drop-down lists to set a new source and target. You can turn **Auto map** on or off for each of these mappings independently.
 
