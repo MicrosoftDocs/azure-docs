@@ -570,6 +570,8 @@
         href: cognidox-tutorial.md
       - name: Cognician
         href: cognician-tutorial.md
+      - name: CoLab
+        href: colab-tutorial.md
       - name: Collaborative Innovation
         href: collaborativeinnovation-tutorial.md
       - name: Colloquial
