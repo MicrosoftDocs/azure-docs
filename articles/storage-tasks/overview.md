@@ -21,26 +21,6 @@ The Azure Storage Task service can process millions of objects in a storage acco
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > To enroll, see \<sign-up form link here\>.
 
-## When to use
-
-Include some scenarios here.
-
-Common actions include:
-
-- Move data to different tiers
-
-- Set tags on blobs
-
-- Parameterized queries so that account owners can set up metadata that task creators can leverage in condition design.
-
-## Key capabilities
-
-- Define conditions and operations by using a visual designer.
-
-- Assign a task to one or more storage accounts. Add filters to narrow the scope of objects to target and specify when and how often a task should run against that account.
-
-- Monitor task runs by using metrics, visual charts, and execution reports. You can drill into this data in the Azure portal from either the Storage Task or the assigned storage account.
-
 ## How it works
 
 Storage tasks provide a framework and the compute infrastructure to process millions of objects in a storage account. A storage task performs operations on containers and blobs in an Azure Storage account based on a set of conditions that you define. A *condition* contains a property, a value, and an operator. The storage tasks uses the operator to compare a property with a value to determine whether the condition is met by the target object. An *operation* is the action a storage task performs on each object that meets the defined conditions. For more information, see [Storage task conditions and operations](storage-task-conditions-operation.md).
