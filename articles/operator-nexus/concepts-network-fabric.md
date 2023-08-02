@@ -10,9 +10,9 @@ ms.custom: template-concept
 ---
 
 # Azure Operator Nexus - Network Fabric
-Azure Operator Nexus offers various capabilities to manage the lifecycle and configuration of the networking required to run the Operator's infrastucture and workloads. 
+Azure Operator Nexus offers various capabilities to manage the lifecycle and configuration of the networking required to run the Operator's infrastructure and workloads. 
 
-Operator Nexus enables you to -
+Operator Nexus enables you to:
 
 * Single pane of glass to manage your on-premises networking devices and their configuration.
 * Create infrastructure and workload networks which are isolated.
@@ -25,7 +25,7 @@ Operator Nexus enables you to -
 
 :::image type="content" source="media/networking-concepts-1.png" alt-text="Screenshot of Resource Types.":::
 
-Key capabilities offered in Azure Operator Nexus Network Fabric -
+Key capabilities offered in Azure Operator Nexus Network Fabric:
 
 * **Bootstrapping and lifecycle management** - Automated bootstrapping & provisioning of network fabric resources based on network function use-cases. It provides various controls to manage network devices in operator premises via Azure APIs.
 

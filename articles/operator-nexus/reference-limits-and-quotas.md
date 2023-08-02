@@ -9,7 +9,7 @@ ms.date: 06/28/2023
 ms.custom: template-reference
 ---
 
-# Nexus Limits and Quotas
+# Azure Operator Nexus limits and quotas
 
 This document provides an overview of the resource limits that apply to the components used in the Nexus solution, encompassing the resources created within Azure cloud and in on-premises instance. It outlines the specific limitations and restrictions that operators should be aware of when deploying and managing the Nexus instance across these environments.
 
