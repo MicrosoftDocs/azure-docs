@@ -34,7 +34,7 @@ You can manage the lifecycle of a Network Fabric Controller via Azure using any 
 
 ### Network Fabric
 
-Network Fabric (NF) resource is a representation of your on-premises network topology in Azure. Every Network Fabric must be associated to and controlled by a Network Fabric Controller which is deployed in the same Azure region. You can associate multiple Network Fabric resources per Network Fabric Controller, see [Nexus Limits and Quotas](./reference-limits-and-quotas.md). A single deployment of the your infrastructure is considered a Network Fabric instance.
+Network Fabric (NF) resource is a representation of your on-premises network topology in Azure. Every Network Fabric must be associated to and controlled by a Network Fabric Controller which is deployed in the same Azure region. You can associate multiple Network Fabric resources per Network Fabric Controller, see [Nexus Limits and Quotas](./reference-limits-and-quotas.md). A single deployment of the infrastructure is considered a Network Fabric instance.
 
 Operator Nexus allows you to create Network Fabrics based on specific SKU types, where each SKU represents the number of network racks and compute servers in each rack deployed on-premises.
 
