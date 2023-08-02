@@ -12,7 +12,7 @@ ms.date: 07/05/2023
 
 # Use a Public IP address prefix for a Service Fabric managed cluster
 
-[Public IP Prefix](../virtual-network/ip-services/public-ip-address-prefix.md) allows you to reserve a range of [public IP addresses](../virtual-network/ip-services/public-ip-addresses.md) for your public endpoints in Azure. Public IP prefixes are assigned from a pool of addresses in each Azure region. You can create a public IP address prefix in an Azure region and subscription by specifying a name and [prefix size](../virtual-network/ip-services/public-ip-address-prefix#prefix-sizes), which is the number of addresses available for use. For example, if you would like to configure virtual machine scale sets, application gateways, or load balancers to be public facing, you need public IP addresses for them. A public IP prefix enables you to use one prefix to manage all IP addresses effectively.
+A public IP address prefix allows you to reserve a range of [public IP addresses](../virtual-network/ip-services/public-ip-addresses.md) for your public endpoints in Azure. Service Fabric managed cluster supports using IP addresses from [Azure Public IP prefix](../virtual-network/ip-services/public-ip-address-prefix.md). Public IP prefixes are assigned from a pool of addresses in each Azure region. You can create a public IP address prefix in an Azure region and subscription by specifying a name and [prefix size](../virtual-network/ip-services/public-ip-address-prefix.md#prefix-sizes), which is the number of addresses available for use. For example, if you would like to configure virtual machine scale sets, application gateways, or load balancers to be public facing, you need public IP addresses for them. A public IP prefix enables you to use one prefix to manage all IP addresses effectively.
 In regions with Availability Zones, Public IP address prefixes can be created as zone-redundant or associated with a specific availability zone. If public IP prefix is created as zone-redundant, the IPs in the prefix are chosen from the pool that is replicated across SLB servers in all zones.
 
 Here are some of the benefits of using a Public IP Prefix for your managed cluster:
@@ -32,7 +32,7 @@ As seen in the diagram, a service fabric managed cluster with three node types h
 
 
 
-## Set up a public IP prefix for Service Fabric managed cluster
+## Use a public IP prefix for Service Fabric managed cluster
 
 The following section describes the steps that should be taken to implement public IP prefix for Service Fabric managed cluster:
 
