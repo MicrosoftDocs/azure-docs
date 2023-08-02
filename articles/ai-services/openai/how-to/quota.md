@@ -221,7 +221,7 @@ az cognitiveservices account deployment create -g test-resource-group -n test-re
 
 ### Usage
 
-To [query your quota usage](/cli/azure/cognitiveservices/usage?view=azure-cli-latest) in a given region, for a specific subscription
+To [query your quota usage](/cli/azure/cognitiveservices/usage?view=azure-cli-latest&preserve-view=true) in a given region, for a specific subscription
 
 ```azurecli
 az cognitiveservices usage list --location
@@ -235,7 +235,7 @@ az cognitiveservices usage list -l eastus
 
 This command runs in the context of the currently active subscription for Azure CLI. Use `az-account-set --subscription` to [modify the active subscription](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
-For more details on `az cognitiveservices account` and `az cognitivesservices usage` consult the [Azure CLI reference documentation](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest)
+For more details on `az cognitiveservices account` and `az cognitivesservices usage` consult the [Azure CLI reference documentation](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true)
 
 # [Azure Resource Manager](#tab/arm)
 
