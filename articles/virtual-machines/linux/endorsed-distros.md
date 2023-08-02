@@ -38,7 +38,8 @@ Azure Linux images can be grouped into three categories:
 Images published and maintained by either Microsoft or partners. There are a large variety of images from multiple publishers for various use case (security hardened, full database / application stack, etc.), and can be available free, pay-as-you-go for BYOL (bring your own license/subscription). 
  
 Platform Images are a type of Marketplace images for which Microsoft has partnered with several mainstream publishers (see table below about Partners) to create a set of “platform images” that undergo additional testing and receive predictable updates (see section below on Image Update Cadence). These platform images can be used for building your own custom images and solution stacks. These images are published by the endorsed Linux distribution partners such as Canonical (Ubunutu), RHEL (Red Hat), Credativ (Debian) etc. 
-Microsoft CSS provides commercially reasonable support for these images. Additionally, Red Hat, Canonical, and Suse offer integrated vendor support capabilities for their platform images.  
+Microsoft CSS provides commercially reasonable support for these images. Additionally, Red Hat, Canonical, and SUSE offer integrated vendor support capabilities for their platform images.  
+
 
 ### Custom Images 
 These images are created and maintained by the customer, often based on platform images. These images can also be created from scratch and uploaded to Azure - [learn how to create custom images](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images). Customers can host these images in [Azure Compute Gallery](https://learn.microsoft.com/en-us/azure/virtual-machines/azure-compute-gallery) and they can share these images with others in their organization.  
