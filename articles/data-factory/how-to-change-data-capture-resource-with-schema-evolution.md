@@ -95,13 +95,13 @@ Before you begin the procedures in this article, make sure that you have these r
 
    :::image type="content" source="media/adf-cdc/change-data-capture-resource-112.png" alt-text="Screenshot of the change data capture studio." lightbox="media/adf-cdc/change-data-capture-resource-112.png":::
   
-   A new mapping is automatically created for you. You can update the **Source Table** and **Target Table** selections for your mapping by using the dropdown lists.
+1. A new mapping is automatically created for you. You can update the **Source Table** and **Target Table** selections for your mapping by using the dropdown lists.
 
    :::image type="content" source="media/adf-cdc/change-data-capture-resource-113.png" alt-text="Screenshot of the source-to-target mapping in the change data capture studio." lightbox="media/adf-cdc/change-data-capture-resource-113.png":::
 
-1. After you select your tables, their columns are mapped by default with the **Auto map** toggle on. **Auto map** automatically maps the columns by name in the sink, picks up new column changes when the source schema evolves, and flows this information to the supported sink types.
+1. After you select your tables, their columns are mapped by default with the **Auto map** toggle turned on. **Auto map** automatically maps the columns by name in the sink, picks up new column changes when the source schema evolves, and flows this information to the supported sink types.
 
-   :::image type="content" source="media/adf-cdc/change-data-capture-resource-114.png" alt-text="Screenshot of the default toggle for Auto map turned on." lightbox="media/adf-cdc/change-data-capture-resource-114.png":::
+   :::image type="content" source="media/adf-cdc/change-data-capture-resource-114.png" alt-text="Screenshot of the toggle for automatic mapping turned on." lightbox="media/adf-cdc/change-data-capture-resource-114.png":::
 
    > [!NOTE]
    > Schema evolution works only when the **Auto map** toggle is turned on. To learn how to edit column mappings or include transformations, see [Capture changed data with a change data capture resource](how-to-change-data-capture-resource.md).
