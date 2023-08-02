@@ -102,7 +102,7 @@ For more information on oras attach, see [ORAS documentation][oras-docs].
 ## Attach a multi-file artifact as a reference
 
 When OCI artifacts are pushed to a registry with ORAS, each file reference is pushed as a blob. To push separate blobs, reference the files individually, or collection of files by referencing a directory.  
-For more information how to push a collection of files, see [Pushing artifacts with multiple files][oras-push-multifiles]
+For more information how to push a collection of files, see [Pushing artifacts with multiple files][oras-push-multifiles].
 
 Create some documentation around an artifact:
 
