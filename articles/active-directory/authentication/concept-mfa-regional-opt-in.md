@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/01/2023
+ms.date: 08/02/2023
 
 author: aloom3
 ms.author: justinha
@@ -14,6 +14,7 @@ manager: amycolannino
 ms.reviewer: aloom3
 
 ms.collection: M365-identity-device-management
+ms.custom: references_regions
 ---
 # Regions that need to opt in for MFA telephony verification  
 
