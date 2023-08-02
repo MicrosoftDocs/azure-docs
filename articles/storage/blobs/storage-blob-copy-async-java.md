@@ -21,7 +21,7 @@ The client library methods covered in this article use the [Copy Blob](/rest/api
 ## Prerequisites
 
 - This article assumes you already have a project set up to work with the Azure Blob Storage client library for Java. To learn about setting up your project, including package installation, adding `import` directives, and creating an authorized client object, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md).
-- The authorization mechanism needs appropriate permissions to perform a copy operation, or to abort a pending copy. To learn more, see the authorization guidance for the following REST API operations:
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to perform a copy operation, or to abort a pending copy. To learn more, see the authorization guidance for the following REST API operations:
     - [Copy Blob](/rest/api/storageservices/copy-blob#authorization)
     - [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob#authorization)
 

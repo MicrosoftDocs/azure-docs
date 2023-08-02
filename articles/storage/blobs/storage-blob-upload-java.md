@@ -20,7 +20,7 @@ This article shows how to upload a block blob using the [Azure Storage client li
 ## Prerequisites
 
 - This article assumes you already have a project set up to work with the Azure Blob Storage client library for Java. To learn about setting up your project, including package installation, adding `import` directives, and creating an authorized client object, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md).
-- The authorization mechanism needs appropriate permissions to perform an upload operation. To learn more, see the authorization guidance for the following REST API operations:
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to perform an upload operation. To learn more, see the authorization guidance for the following REST API operations:
     - [Put Blob](/rest/api/storageservices/put-blob#authorization)
     - [Put Block](/rest/api/storageservices/put-block#authorization)
 

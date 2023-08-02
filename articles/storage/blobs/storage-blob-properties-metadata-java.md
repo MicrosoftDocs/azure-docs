@@ -20,7 +20,7 @@ In addition to the data they contain, blobs support system properties and user-d
 ## Prerequisites
 
 - This article assumes you already have a project set up to work with the Azure Blob Storage client library for Java. To learn about setting up your project, including package installation, adding `import` directives, and creating an authorized client object, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md).
-- The authorization mechanism needs appropriate permissions to work with blob properties or metadata. To learn more, see the authorization guidance for the following REST API operations:
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to work with blob properties or metadata. To learn more, see the authorization guidance for the following REST API operations:
     - [Set Blob Properties](/rest/api/storageservices/set-blob-properties#authorization)
     - [Get Blob Properties](/rest/api/storageservices/get-blob-properties#authorization)
     - [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata#authorization)

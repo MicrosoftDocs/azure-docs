@@ -21,7 +21,7 @@ The client library methods covered in this article use the [Put Blob From URL](/
 ## Prerequisites
 
 - This article assumes you already have a project set up to work with the Azure Blob Storage client library for Java. To learn about setting up your project, including package installation, adding `import` directives, and creating an authorized client object, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md).
-- The authorization mechanism you choose needs appropriate permissions to perform a copy operation. To learn more, see the authorization guidance for the following REST API operations:
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to perform a copy operation. To learn more, see the authorization guidance for the following REST API operations:
     - [Put Blob From URL](/rest/api/storageservices/put-blob-from-url#authorization)
     - [Put Block From URL](/rest/api/storageservices/put-block-from-url#authorization)
 

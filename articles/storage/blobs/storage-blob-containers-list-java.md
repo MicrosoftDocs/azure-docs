@@ -20,7 +20,7 @@ When you list the containers in an Azure Storage account from your code, you can
 ## Prerequisites
 
 - This article assumes you already have a project set up to work with the Azure Blob Storage client library for Java. To learn about setting up your project, including package installation, adding `import` directives, and creating an authorized client object, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md).
-- The authorization mechanism needs appropriate permissions to list blob containers. To learn more, see the authorization guidance for the following REST API operation:
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to list blob containers. To learn more, see the authorization guidance for the following REST API operation:
     - [List Containers](/rest/api/storageservices/list-containers2#authorization)
 
 ## Understand container listing options
