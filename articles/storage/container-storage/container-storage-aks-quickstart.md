@@ -20,35 +20,17 @@ ms.custom: devx-track-azurecli
 
 - This quickstart requires version 2.0.64 or later of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-## Sign in to Azure and set your subscription context
-
-Run the `az login` command to sign in to Azure.
-
-If you need to change your Azure subscription context, use the `az account set` command. We recommend using a subscription on which you have an [Owner](../../role-based-access-control/built-in-roles.md#owner) role. If you don't have access to one, you'll need admin assistance to complete this quickstart.
-
-You can view the subscription IDs for all the subscriptions you have access to by running the `az account list --output table` command. Remember to replace `<subscription-id>` with your subscription ID.
-
-```azurecli-interactive
-az account set --subscription <subscription-id>
-```
+- You'll need the Kubernetes command-line client, `kubectl`. You can install it locally by running the `az aks install-cli` command.
 
 ## Install Azure Container Storage
 
 Follow these instructions to install Azure Container Storage using an installation script.
 
+1. Run the `az login` command to sign in to Azure.
+
 1. Download and save [this shell script](https://github.com/Azure-Samples/azure-container-storage-samples/blob/main/acstor-install.sh).
 
 1. Navigate to the directory where the file is saved using the `cd` command. For example, `cd C:\Users\Username\Downloads`.
-
-1. Change any parameters in the script that you need to. Only the resource group name is required. All other parameters are optional and will default to the values from your configuration.
-   
-   | **Flag** | **Parameter**      | **Description** |
-   |------|----------------|-------------|
-   | -s   | --subscription | The subscription identifier. Defaults to the current subscription. |
-   | -g   | --resource-group | The resource group name (required). |
-   | -c   | --cluster-name | The name of the cluster where ACStor is to be installed. |
-   | -n   | --nodepool-name | The name of the nodepool. Defaults to the first nodepool in the cluster. |
-   | -r   | --release-train | The release train for the installation. Defaults to prod. |
    
 1. Run the following command to change the file permissions:
 
@@ -56,7 +38,17 @@ Follow these instructions to install Azure Container Storage using an installati
    chmod +x acstor-install.sh 
    ```
 
-1. Run the installation script. If you want to use default values, the command looks like this:
+1. Run the installation script. Only the resource group name is required. All other parameters are optional and will default to the values from your configuration.
+   
+   | **Flag** | **Parameter**      | **Description** |
+   |----------|----------------|-------------|
+   | -s   | --subscription | The subscription identifier. Defaults to the current subscription.|
+   | -g   | --resource-group | The resource group name (required).|
+   | -c   | --cluster-name | The name of the cluster where Azure Container Storage is to be installed.|
+   | -n   | --nodepool-name | The name of the nodepool. Defaults to the first nodepool in the cluster.|
+   | -r   | --release-train | The release train for the installation. Defaults to prod.|
+   
+   If you want to use default values, the command looks like this:
 
    ```bash
    bash ./acstor-install.sh -g <resource-group-name>
