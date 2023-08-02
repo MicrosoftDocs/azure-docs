@@ -167,10 +167,8 @@ additionalContent:
             text: Azure FastTrack
 
 
-# Azure Services
-tools:
-  # Supports up to 3 subsections
-      title: HPC Resources # < 60 chars (optional)
+# HPC Resourcess
+    - title: HPC Resources # < 60 chars (optional)
       # summary: # < 160 chars (optional)
       items:
         # Card
@@ -207,9 +205,6 @@ tools:
 
 
 # Video Playlists and other links
-additionalContent:
-  # Supports up to 4 subsections
-  sections:
     - title: HPC Video Content # < 60 chars (Optional; Remove if not applicable.)
       summary: Learn more about Azure HPC with various video content and events # < 160 chars (Optional; Remove if not applicable.)
       items:
