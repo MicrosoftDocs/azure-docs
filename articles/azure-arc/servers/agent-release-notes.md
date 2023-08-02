@@ -18,11 +18,15 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## Version 1.33 - August 2023
 
-Download for [Windows]() or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+Download for [Windows](https://download.microsoft.com/download/e/e/f/eefc5e99-f0f9-47ed-a305-68b1ab847f99/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### Known issue
+
+Running [azcmagent show](azcmagent-show.md) as a standard user will launch a User Access Control prompt and run the command in a new window. To see the correct output, run the command in a console with administrative privileges instead.
 
 ### Fixed
 
-- Fixed an issue that could cause a VM extension to disappear in Azure Resource Manager if it's installed with the same settings twice. After upgrading to agent version 1.33 or later, re-install any missing extensions to restore the information in Azure Resource Manager.
+- Fixed an issue that could cause a VM extension to disappear in Azure Resource Manager if it's installed with the same settings twice. After upgrading to agent version 1.33 or later, reinstall any missing extensions to restore the information in Azure Resource Manager.
 - You can now set the [agent mode](security-overview.md#agent-modes) before connecting the agent to Azure.
 - The agent now responds to instance metadata service (IMDS) requests even when the connection to Azure is temporarily unavailable.
 
@@ -46,7 +50,7 @@ Download for [Windows](https://download.microsoft.com/download/2/6/e/26e2b001-13
 
 ### Known issue
 
-The first release of agent version 1.31 had a known issue affecting customers using proxy servers. The issue is indicated by the  `AZCM0026: Network Error` and a message about "no IP addresses found" when connecting a server to Azure Arc using a proxy server. A newer version of agent 1.31 was released on June 14, 2023 that addresses this issue.
+The first release of agent version 1.31 had a known issue affecting customers using proxy servers. The issue displays as  `AZCM0026: Network Error` and a message about "no IP addresses found" when connecting a server to Azure Arc using a proxy server. A newer version of agent 1.31 was released on June 14, 2023 that addresses this issue.
 
 To check if you're running the latest version of the Azure connected machine agent, navigate to the server in the Azure portal or run `azcmagent show` from a terminal on the server itself and look for the "Agent version." The table below shows the version numbers for the first and patched releases of agent 1.31.
 
