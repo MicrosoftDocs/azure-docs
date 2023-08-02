@@ -18,7 +18,7 @@ ms.author: anfdocs
 
 # Understand dual-protocol security style and permission behaviors in Azure NetApp Files
 
-SMB and NFS use very different permission models for user and group access. As a result, an Azure NetApp File volume must be configured to honor the desired permission model for protocol access. For NFS-only environments, the decision is simple – use UNIX security styles. For SMB-only environments, use NTFS security styles.
+SMB and NFS use different permission models for user and group access. As a result, an Azure NetApp File volume must be configured to honor the desired permission model for protocol access. For NFS-only environments, the decision is simple – use UNIX security styles. For SMB-only environments, use NTFS security styles.
 
 If NFS and SMB on the same datasets (dual-protocol) are required, then the decision should be made based on two questions:
 
@@ -38,60 +38,51 @@ There are two main choices for volume security styles in Azure NetApp Files:
 
 **NTFS** - The NTFS security style provides identical functionality as [standard Windows NTFS permissions](../windows/security/identity-protection/access-control/access-control.md), with granular user and groups in ACLs and detailed security/audit permissions.
 
-In a dual-protocol NAS environment, only one security permission style can be active, so there will be considerations for each security style that should be evaluated before choosing one.
+In a dual-protocol NAS environment, only one security permission style can be active. Therefore, there're considerations for each security style that should be evaluated before choosing one.
 
 | Security style | Considerations |
 | -- | -- |
-| UNIX | * Windows clients can only set UNIX permission attributes through SMBs that map to UNIX attributes (Read/Write/Execute only; no special permissions). | 
-|      | * NFSv4.x ACLs don’t have GUI management. Management is done only via CLI using [nfs4_getfacl and nfs4_setfacl commands](https://manpages.debian.org/testing/nfs4-acl-tools/index.html). |
-|      | * If a file or folder has NFSv4.x ACLs, the Windows security properties tab cannot display them. |
-| -- | -- |
-| NTFS | * UNIX clients cannot set attributes through NFS via commands such as `chown/chmod`. | 
-|      | * NFS clients show only approximated NTFS permissions when using ls commands. For instance, if a user has a permission in a Windows NTFS ACL that cannot be cleanly translated into a POSIX mode bit (such as traverse directory), it will get translated into the closest POSIX mode bit value (such as 1 for execute). |
+| UNIX | <ul><li>Windows clients can only set UNIX permission attributes through SMBs that map to UNIX attributes (Read/Write/Execute only; no special permissions). </li> <li>NFSv4.x ACLs don't have GUI management. Management is done only via CLI using [nfs4_getfacl and nfs4_setfacl commands](https://manpages.debian.org/testing/nfs4-acl-tools/index.html). </li> <li> If a file or folder has NFSv4.x ACLs, the Windows security properties tab cannot display them. </li></ul>| 
+| NTFS | <ul><li> UNIX clients cannot set attributes through NFS via commands such as `chown/chmod`.  </li>  <li>NFS clients show only approximated NTFS permissions when using ls commands. For instance, if a user has a permission in a Windows NTFS ACL that can't be cleanly translated into a POSIX mode bit (such as traverse directory), it's translated into the closest POSIX mode-bit value (such as `1` for execute). </li></ul>|
 
-The selection of volume security style will determine how the name mapping for a user will be performed, which is the core piece of how dual-protocol volumes maintain predictable permissions regardless of protocol in use.
+The selection of volume security style determines how the name mapping for a user is performed. This operation is the core piece of how dual-protocol volumes maintain predictable permissions regardless of protocol in use.
 
 Use the following table as a decision matrix for selecting the proper volume security styles.
 
 | Security style | Mostly NFS | Mostly SMB | Need for granular security |
 | -- | -- | -- | -- |
 | UNIX | X | - | X (using NFSv4.x ACLs) |
-| -- | -- | -- | -- |
 | NTFS | - | X | X |
 
 ## How name mapping works in Azure NetApp Files
 
-In Azure NetApp Files, only users are authenticated and mapped. Groups are not mapped – instead, group memberships are determined using the user identity.
+In Azure NetApp Files, only users are authenticated and mapped. Groups are not mapped. Instead, group memberships are determined by using the user identity.
 
-When a user attempts to access a volume in Azure NetApp Files, it passes along an identity to the service. That identity includes a user name and unique numeric identifier (UID number for NFSv3, name string for NFSv4, SID for SMB), which Azure NetApp Files will use to authenticate against a configured name service to verify the identity of the user.
+When a user attempts to access an Azure NetApp Files volume, that attempt passes along an identity to the service. That identity includes a user name and unique numeric identifier (which is UID number for NFSv3, name string for NFSv4, and SID for SMB).  Azure NetApp Files uses that identity to authenticate against a configured name service to verify the identity of the user.
 
 * LDAP search for numeric IDs is used to look up a user name in Active Directory.
-* Name strings leverage LDAP search to look up a user name and the client and server consult the [configured ID domain for NFSv4.1](azure-netapp-files-configure-nfsv41-domain.md) to ensure those match as well.
+* Name strings use LDAP search to look up a user name and the client, and server consult the [configured ID domain for NFSv4.1](azure-netapp-files-configure-nfsv41-domain.md) to ensure the match.
 * Windows users are queried using standard Windows RPC calls to Active Directory.
 * Group memberships are also queried, and everything is added to a credential cache for faster processing on subsequent requests to the volume.
-* Currently, custom local users are not supported for use with Azure NetApp Files; only users in Active Directory can be leveraged for use with dual-protocols.
+* Currently, custom local users are not supported for use with Azure NetApp Files. Only users in Active Directory can be used with dual protocols.
 * Currently, the only local users that can be used with dual-protocol volumes are root and the `nfsnobody` user.
 
-Once a user name is authenticated and validated by Azure NetApp Files, then the next step for dual-protocol volume authentication is the mapping of user names for UNIX and Windows interoperability.
+After a user name is authenticated and validated by Azure NetApp Files, the next step for dual-protocol volume authentication is the mapping of user names for UNIX and Windows interoperability.
 
-A volume’s security style will determine how a name mapping takes place in Azure NetApp Files because Windows and UNIX permission semantics are so different. If a name mapping is unable to be performed, then authentication will fail and access to a volume from a client will be denied. A common scenario where this may occur is when NFSv3 access is attempted to a volume with NTFS security style. The initial access request from NFSv3 comes into Azure NetApp Files as a numeric UID. If a user named user1 with a numeric ID of 1001 tries to access the NFSv3 mount, the authentication request arrives as numeric ID 1001. Azure NetApp Files then takes numeric ID 1001 and will attempt to resolve 1001 to a user name. This user name is necessary to be able to map to a valid Windows user, since the NTFS permissions on the volume will contain Windows user names rather than a numeric ID. Azure NetApp Files will use the configured name service server (LDAP) to search for the user name. If the user name cannot be found, then authentication fails and access is denied. This is by design to ensure unwanted access to files and folders does not occur.
+A volume's security style determines how a name mapping takes place in Azure NetApp Files. Windows and UNIX permission semantics are different. If a name mapping can't be performed, then authentication fails, and access to a volume from a client is denied. A common scenario where this situation occurs is when NFSv3 access is attempted to a volume with NTFS security style. The initial access request from NFSv3 comes to Azure NetApp Files as a numeric UID. If a user named `user1` with a numeric ID of `1001` tries to access the NFSv3 mount, the authentication request arrives as numeric ID `1001`. Azure NetApp Files then takes numeric ID `1001` and attempts to resolve `1001` to a user name. This user name is required for mapping to a valid Windows user, because the NTFS permissions on the volume contains Windows user names rather than a numeric ID. Azure NetApp Files uses the configured name service server (LDAP) to search for the user name. If the user name can't be found, then authentication fails, and access is denied. This operation is by design in order to prevent unwanted access to files and folders.
 
 ## Name mapping based on security style
 
-The direction in which the name mapping occurs in Azure NetApp Files (that is, Windows to UNIX or UNIX to Windows) depends not only on which protocol is being used, but also on which security style is applied to a volume. A Windows client will always require a Windows-to-UNIX name mapping to allow access, but it will not always need a matching UNIX user name. If no valid UNIX user name exists in the configured name service server, Azure NetApp Files provides a fallback default UNIX user with the numeric UID of 65534 to allow initial authentication for SMB connections. After that, file and folder permissions will control access. Because 65534 generally corresponds with the `nfsnobody` user, access will be limited in most cases. Conversely, an NFS client only needs to use a UNIX-to-Windows name mapping if the NTFS security style is in use. There is no default Windows user in Azure NetApp Files, so if a valid Windows user that matches the requesting name cannot be found, access will be denied.
+The direction in which the name mapping occurs in Azure NetApp Files (Windows to UNIX, or UNIX to Windows) depends not only on the protocol being used but also the security style of a volume. A Windows client always requires a Windows-to-UNIX name mapping to allow access, but it doesn't always need a matching UNIX user name. If no valid UNIX user name exists in the configured name service server, Azure NetApp Files provides a fallback default UNIX user with the numeric UID of `65534` to allow initial authentication for SMB connections. After that, file and folder permissions will control access. Because `65534` generally corresponds with the `nfsnobody` user, access is limited in most cases. Conversely, an NFS client only needs to use a UNIX-to-Windows name mapping if the NTFS security style is in use. There's no default Windows user in Azure NetApp Files. As such, if a valid Windows user that matches the requesting name can't be found, access will be denied.
 
 The following table breaks down the different name mapping permutations and how they behave depending on protocol in use.
 
 | Protocol | Security style | Name mapping direction | Permissions applied |
 | -- | -- | -- | -- |
 | SMB | UNIX | Windows to UNIX | UNIX (POSIX mode bits or NFSv4.x ACLs) |
-| -- | -- | -- | -- |
 | SMB | NTFS | Windows to UNIX | NTFS permissions |
-| -- | -- | -- | -- |
 | NFSv3 | UNIX | N/A | UNIX (POSIX mode bits or NFSv4.x ACLs)* |
-| -- | -- | -- | -- |
 | NFSv4.1 | UNIX | Numeric user ID to user name | UNIX (POSIX mode bits or NFSv4.x ACLs)* |
-| -- | -- | -- | -- |
 | NFSv3/4.1 | NTFS | UNIX to Windows | NTFS permissions |
 
 > [!NOTE] 
@@ -102,11 +93,11 @@ The following table breaks down the different name mapping permutations and how 
 
 ## Name services with dual-protocol volumes
 
-Because dual-protocol volumes leverage name mapping concepts to handle permissions properly regardless of what NAS protocol is being used, name services play a critical role in maintaining functionality in environments that leverage both SMB and NFS for access to volumes.
+Regardless of what NAS protocol is used, dual-protocol volumes use name-mapping concepts to handle permissions properly. As such, name services play a critical role in maintaining functionality in environments that use both SMB and NFS for access to volumes.
 
-Name services act as identity sources for users and groups accessing NAS volumes. This includes Active Directory, which can act as a source for both Windows and UNIX users and groups using both standard domain services and LDAP functionality.
+Name services act as identity sources for users and groups accessing NAS volumes. This operation includes Active Directory, which can act as a source for both Windows and UNIX users and groups using both standard domain services and LDAP functionality.
 
-With Azure NetApp Files, name services are not a hard requirement for dual-protocol volumes but are highly recommended, as there is no concept of creation of custom local users and groups within the service. As such, if you want proper authentication and accurate user and group owner information across protocols, LDAP is a necessity. If you have only a handful of users and you don’t necessarily need accurate user and group identity information to populate, then consider using the [Allow local NFS users with LDAP to access a dual-protocol volume functionality](create-volumes-dual-protocol.md#allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume). Keep in mind that enabling this will [disable extended group functionality](understand-nfs-group-membership.md#considerations-for-extended-GIDs-with-Active-Directory-LDAP).
+Name services aren't a hard requirement but highly recommended for Azure NetApp Files dual-protocol volumes. There's no concept of creation of custom local users and groups within the service. As such, to have proper authentication and accurate user and group owner information across protocols, LDAP is a necessity. If you have only a handful of users and you don't need to populate accurate user and group identity information, then consider using the [Allow local NFS users with LDAP to access a dual-protocol volume functionality](create-volumes-dual-protocol.md#allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume). However, enabling this functionality [disables the extended group functionality](understand-nfs-group-membership.md#considerations-for-extended-GIDs-with-Active-Directory-LDAP).
 
 ### When clients, name services, and storage reside in different areas
 
