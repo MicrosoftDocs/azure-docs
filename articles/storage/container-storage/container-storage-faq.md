@@ -44,7 +44,7 @@ ms.custom: references_regions
 
 * <a id="azure-container-storage-remove"></a>
   **I get this error when trying to install Azure Container Storage, how do I resolve it? "(ExtensionOperationFailed) The extension operation failed with the following error: Unable to get the status from the local CRD with the error : {Error : Retry for given duration didn't get any results with err {status not populated}}?"**
-  This error is due to a lack of permissions for Azure Container Storage to install and deploy storage in your AKS Cluster. Azure Container Storage Preview is deployed using an ARC extension. To resolve this, you must [assign the Contributor role](container-storage-aks-quickstart.md#assign-contributor-role-to-aks-managed-identity) to the AKS managed identity.
+  This error is due to a lack of permissions for Azure Container Storage to install and deploy storage in your AKS Cluster. Azure Container Storage Preview is deployed using an ARC extension. To resolve this, you must [assign the Contributor role](install-container-storage-aks.md#assign-contributor-role-to-aks-managed-identity) to the AKS managed identity.
 
 ## Billing and pricing
 
