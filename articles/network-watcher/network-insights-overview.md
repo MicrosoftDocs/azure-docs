@@ -36,7 +36,7 @@ The Azure Monitor network insights page provides an easy way to visualize the in
 
 To customize the resource health and alerts view in **Network health** tab, you can use the following filters: **Subscription**, **Resource Group**, and **Type**. Additionally, you can sort the resources by name or by resource count.
 
-You can use the search box to search for resources and their associated resources. For example, searching for **agwpip**, which is a public IP associated with an application gateway returns the public IP and and the associated application gateway:
+You can use the search box to search for resources and their associated resources. For example, searching for **agwpip**, which is a public IP associated with an application gateway returns the public IP and the associated application gateway:
 
 :::image type="content" source="./media/network-insights-overview/search.png" alt-text="Screenshot of Azure Monitor network insights search results." lightbox="./media/network-insights-overview/search.png":::
 
