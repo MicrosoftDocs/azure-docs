@@ -25,7 +25,7 @@ In this article we will cover the following -
 There are several different sources of Linux VM images for Azure. Each source provides a different expectation for quality, utility and support. This document will summarize each source (marketplace images, platform images, custom images, and community gallery images). It will further provide more details about platform images which are images provided in partnership between Microsoft and several mainstream Linux publishers such as Red Hat, Canonical, and SUSE. 
 
 
-Microsoft’s Linux distribution partners provide a multitude of Linux images in the Azure Marketplace. For distributions that are not available from the Marketplace, you can always  provide a custom built Linux image by following the guidelines found in  [Create and upload a virtual hard disk that contains the Linux operating system](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/create-upload-generic). For older versions see [Linux Kernel Requirements](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/create-upload-generic#linux-kernel-requirements).
+Microsoft’s Linux distribution partners provide a multitude of Linux images in the Azure Marketplace. For distributions that are not available from the Marketplace, you can always  provide a custom built Linux image by following the guidelines found in  [Create and upload a virtual hard disk that contains the Linux operating system](//azure/virtual-machines/linux/create-upload-generic). For older versions see [Linux Kernel Requirements](//azure/virtual-machines/linux/create-upload-generic#linux-kernel-requirements).
 
 
 The Azure Linux Agent is already pre-installed on Azure Marketplace images and is typically available from the distribution package repository. Source code can be found on [GitHub](https://github.com/azure/walinuxagent).  
@@ -45,12 +45,12 @@ Microsoft CSS provides commercially reasonable support for these images. Additio
 
 
 ### Custom Images 
-These images are created and maintained by the customer, often based on platform images. These images can also be created from scratch and uploaded to Azure - [learn how to create custom images](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images). Customers can host these images in [Azure Compute Gallery](https://learn.microsoft.com/en-us/azure/virtual-machines/azure-compute-gallery) and they can share these images with others in their organization.  
+These images are created and maintained by the customer, often based on platform images. These images can also be created from scratch and uploaded to Azure - [learn how to create custom images](https://learn.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Customers can host these images in [Azure Compute Gallery](https://learn.microsoft.com/azure/virtual-machines/azure-compute-gallery) and they can share these images with others in their organization.  
  
 Microsoft CSS provides commercially reasonable support for custom images. 
 
 ### Community Gallery Images
-These images are created and provided by open source projects, communities and teams. These images are provided using licensing terms set out by the publsiher, often under an open source license. They do not appear as traditional marketplace listings, however, they do appear in the portal and via command line tools. More information on community galleries can be found here: [Azure Compute Gallery](https://learn.microsoft.com/en-us/azure/virtual-machines/azure-compute-gallery#community-gallery).
+These images are created and provided by open source projects, communities and teams. These images are provided using licensing terms set out by the publsiher, often under an open source license. They do not appear as traditional marketplace listings, however, they do appear in the portal and via command line tools. More information on community galleries can be found here: [Azure Compute Gallery](https://learn.microsoft.com/azure/virtual-machines/azure-compute-gallery#community-gallery).
 
 Microsoft CSS provides support for Community Gallery images. 
 
