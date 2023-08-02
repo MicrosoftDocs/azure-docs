@@ -153,28 +153,17 @@ VM Image Builder supports the following Azure Marketplace base operating system 
 
 ## Confidential VM and Trusted Launch Support
 
-VM Image Builder has extended support for TrustedLaunchSupported and ConfidentialVMSupported images, with certain constraints. Here's an overview of the updated support:
+VM Image Builder has extended support for TrustedLaunchSupported and ConfidentialVMSupported images, with certain constraints. Below is the list of constraints:
 
-### TrustedLaunchSupported Images
-
-- VM Image Builder now supports the creation of `TrustedLaunchSupported` images.
-- `TrustedLaunchSupported` images can't be used as source images.
-
-#### Specific Scenarios for TrustedLaunchSupported Images
-
-- Scenario 1: If the source is `TrustedLaunchSupported` and the distribution is `TrustedLaunchSupported`, this is supported.
-- Scenario 2: If the source is normal and the distribution is `TrustedLaunchSupported`, this isn't supported.
-- Scenario 3: If the source is `TrustedLaunchSupported` and the distribution is normal gen2, this isn't supported.
+| SecurityType | Support status |
+|--------------|----------------|
+| TrustedLaunchSupported | Supported as source and creation |
+| ConfidentialVMSupported | Supported as source |
+| TrustedLaunch | Not supported as source |
+| ConfidentialVM | Not supported |
 
 > [!NOTE]
-> These scenarios only apply to `TrustedLaunchSupported` images.
-
-### ConfidentialVMSupported Images
-
-- VM Image Builder also supports `ConfidentialVMSupported` images, as they're also Gen2 Image types.
-- `ConfidentialVM` images aren't supported.
-
-
+> When using TrustedLaunchSupported images, it's important that the source and distribute must both be TrustedLaunchSupported for it to be supported. If the source is normal and the distribute is TrustedLaunchSupported, or if the source is TrustedLaunchSupported and the distribute is normal Gen2, it's not supported.
 
 ## How it works
 
