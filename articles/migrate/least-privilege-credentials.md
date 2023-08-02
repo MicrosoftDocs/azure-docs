@@ -56,4 +56,4 @@ Now that the custom login has been provisioned, provide this credential in the A
 
 ## Next steps
 
-Review the tutorials for discovery of servers running in your [VMware environment](tutorial-discover-vmware.md) or [Hyper-V environment](tutorial-discover-hyper-v.md) or for [discovery of physical servers](tutorial-discover-physical.md).
+Learn how to [assess servers running SQL Server to migrate to Azure SQL](tutorial-assess-sql.md).
