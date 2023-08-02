@@ -58,11 +58,9 @@ A common deployment pattern recommended for you if you're unfamiliar with VPA is
 
 2. Establish observability first by collecting actual resource utilization telemetry over a given period of time. This will help you understand the behavior and signs of symptoms or issues from container and pod resources influenced by the workloads running on them.
 
-4. Set the desired request/limits accordingly and then (in the next deployment/upgrade)
+3. Get familiar with the monitoring data to understand the performance characteristics. Based on this insight, set the desired requests/limits accordingly and then in the next deployment or upgrade
 
-(4) use updateMode = auto/recreate/initial after that, depending on your needs.
-
-
+4. Set `updateMode` value to `Auto`, `Recreate`, or `Initial` depending on your requirements.
 
 ## Deploy, upgrade, or disable VPA on a cluster
 
