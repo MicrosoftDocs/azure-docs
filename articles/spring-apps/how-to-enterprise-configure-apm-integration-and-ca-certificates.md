@@ -374,7 +374,7 @@ When the build service uses the Azure Spring Apps managed container registry, yo
 
 #### Manage APM configurations via bindings in builder
 
-You can manage APM configurations via bindings in builder. For more information, see the [Bindings in builder is deprecated](#bindings-in-builder-is-deprecated) section.
+You can manage APM configurations via bindings in builder. For more information, see the [Manage bindings in builder in Azure Spring Apps (deprecated)](#manage-bindings-in-builder-in-azure-spring-apps-deprecated) section.
 
 #### Bind to app builds and deployments
 
@@ -401,7 +401,7 @@ If you enable Application Insights when creating a service instance, the followi
 You can configure CA certificates in Azure Spring Apps in the following two ways:
 
 - You can manage public certificates in the TLS/SSL settings and bind to app builds and deployments by referring to them. This approach is the recommended way to configure CA certificates.
-- You can manage public certificates in the TLS/SSL settings and bind CA certificates via bindings in the builder. For more information, see the For more information, see [Bindings in builder is deprecated](#bindings-in-builder-is-deprecated) section.
+- You can manage public certificates in the TLS/SSL settings and bind CA certificates via bindings in the builder. For more information, see the [Manage bindings in builder in Azure Spring Apps (deprecated)](#manage-bindings-in-builder-in-azure-spring-apps-deprecated) section.
 
 > [!NOTE]
 > This approach is the old way to configure CA certificates and it has been deprecated. We recommend that you migrate the CA certificate configured in bindings. For more information, see the [Migrate CA certificate configured in bindings](#migrate-ca-certificate-configured-in-bindings) section.
