@@ -1,10 +1,6 @@
 ---
 title: Configure Application Gateway with a frontend public IPv6 address using Azure PowerShell (Public Preview)
-<<<<<<< HEAD
 description: Learn how to configure Application Gateway with a frontend public IPv6 address using Azure PowerShell.
-=======
-description: Learn how to configure Application Gateway with a frontend private IPv6 address using Azure PowerShell.
->>>>>>> bd055fbf695b8adb48f325e3843f99dbf737cdf3
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
@@ -13,31 +9,24 @@ ms.date: 07/26/2023
 ms.author: greglin
 ms.custom: mvc, devx-track-azurepowershell
 ---
-# Configure Application Gateway with a frontend private IPv6 address using Azure PowerShell
+# Configure Application Gateway with a frontend public IPv6 address using Azure PowerShell
 
-<<<<<<< HEAD
-Azure Application gateway now supports dual stack frontend connections. Application Gateway can now handle client traffic from both IPv4 and IPv6 addresses, providing greater flexibility and connectivity for our users. Azure VNETs already provides dual-stack capability. To learn more about Azure VNETs dual-stack capability check [Azure Virtual Network](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/ipv6-overview).
+Azure Application gateway now supports dual stack frontend connections. Application Gateway can now handle client traffic from both IPv4 and IPv6 addresses, providing greater flexibility and connectivity for our users. Azure VNETs already provides dual-stack capability. To learn more about Azure VNETs dual-stack capability check [IPv6 for Azure Virtual Network](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/ipv6-overview).
 
 If you are currently using Application Gateway with IPv4 addresses, you can continue to do so without any changes. However, if you want to take advantage of the benefits of IPv6 addressing, you can now do so by configuring your gateway to use IPv6 addresses. Currently we do not support connectivity to IPv6 backends. To support IPv6 connectivity, you must create a dual-stack VNET. This dual-stack VNET will have subnets for both IPv4 and IPv6.
-=======
-Azure Application gateways now support dual stack frontend connections. Application Gateway can now handle client traffic from both IPv4 and IPv6 addresses, providing greater flexibility and connectivity for our users. Azure VNETS already provides dual-stack capabilities. To learn more about Azure VNETs IPv6 support please check  [IPv6
-for Azure Networks ](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/ipv6-overview)
-
-If you are currently using Application Gateway with IPv4 addresses, you can continue to do so without any changes. However, if you want to take advantage of the benefits of IPv6 addressing, you can now do so by configuring your gateway to use IPv6 addresses. Currently, we do not support connectivity to IPv6 backends. To support IPv6 connectivity, you must create a dual-stack VNET. This dual-stack VNET will have subnets for both IPv4 and IPv6.
->>>>>>> bd055fbf695b8adb48f325e3843f99dbf737cdf3
 
 Limitations
-•    Supported for Application Gateway Standard V2 only.
-•    No support  for upgrading the existing gateways to Ipv6.
-•    No support  for IPv6 private address.
-•    No support for IPv6 backend.
-•    No IPv6 Private Link Support
+* Supported for Application Gateway Standard V2 only.
+* No support  for upgrading the existing gateways to Ipv6.
+* No support  for IPv6 private address.
+* No support for IPv6 backend.
+* No IPv6 Private Link Support
 
-In this article, you use the Azure portal to create an IPv6 [Azure Application Gateway](overview.md) and test it to ensure it works correctly. Application gateway is used to manage and secure web traffic to servers that you maintain. You can use Azure PowerShell to create an [application gateway](overview.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/overview.md) for backend servers to manage web traffic. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
+In this article, you use the powershell to create an IPv6 [Azure Application Gateway](overview.md) and test it to ensure it works correctly. Application gateway is used to manage and secure web traffic to servers that you maintain. We will use a [virtual machine scale set](../virtual-machine-scale-sets/overview.md) for backend servers to manage web traffic. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
 
 In this article, you learn how to:
 
-* Set up the dual stack network
+* Set up the dual-stack network
 * Create an application gateway with IPv6 frontend
 * Create a virtual machine scale set with the default backend pool
 
@@ -57,12 +46,10 @@ A resource group is a logical container into which Azure resources are deployed 
 New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 ```
 
-## Create dual stack network resources 
+## Create a dual-stack subnet
 
-Configure the subnets named *myBackendSubnet* and *myAGSubnet*  using [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Create the virtual network *myVNet* using [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) with the subnet configurations. 
+Configure the subnets named *myBackendSubnet* and *myAGSubnet*  using [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig).
 
-
-## Create a dual stack subnet
 
 ```azurepowershell-interactive
 
@@ -97,7 +84,7 @@ $vnet = New-AzVirtualNetwork `
 ```azurepowershell-interactive
 
 $pipv4 = New-AzPublicIpAddress `   
--Name myAGPublicIPAddress `  
+-Name myAGPublicIPAddress4 `  
 -ResourceGroupName myResourceGroupAG `   
 -Location eastus `   
 -Sku 'Standard' `  
@@ -106,7 +93,7 @@ $pipv4 = New-AzPublicIpAddress `
 -Force
 
 $pipv6 = New-AzPublicIpAddress `    
--Name $myAGPublicIPAddress `   
+-Name myAGPublicIPAddress6 `   
 -ResourceGroupName myResourceGroupAG `
 -Location eastus `
 -Sku 'Standard' `   
@@ -114,14 +101,6 @@ $pipv6 = New-AzPublicIpAddress `
 -IpAddressVersion 'IPv6' `    
 -Force
 ```
-
-## Create an Application Gateway
-
-In this section you create resources that support the application gateway, and then finally create it. The resources that you create include:
-
-- *IP configurations (IPv4 and IPv6) and frontend port* - Associates the subnet that you previously created to the application gateway and assigns a port to use to access it.
-- *Default pool* - All application gateways must have at least one backend pool of servers.
-- *Default listener and rule* - The default listener listens for traffic on the port that was assigned and the default rule sends traffic to the default pool.
 
 ### Create the IP configurations, ports and listeners
 
@@ -136,19 +115,19 @@ $subnet = Get-AzVirtualNetworkSubnetConfig `
 -VirtualNetwork $vnet `
 -Name myAGSubnet
 
-$gipconfig = New-AzApplicationGatewayIPConfiguration `   
+$gipconfig = New-AzApplicationGatewayIPConfiguration `  
 -Name myAGIPConfig `  
 -Subnet $subnet
 
-$fipconfig = New-AzApplicationGatewayFrontendIPConfig `    
+$fipconfigv4 = New-AzApplicationGatewayFrontendIPConfig `   
 -Name myAGFrontendIPv4Config `  
 -PublicIPAddress $pipv4
 
-$fipconfigv6 = New-AzApplicationGatewayFrontendIPConfig `   
+$fipconfigv6 = New-AzApplicationGatewayFrontendIPConfig `  
 -Name myAGFrontendIPv6Config `  
 -PublicIPAddress $pipv6
 
-$frontendport = New-AzApplicationGatewayFrontendPort `  
+$frontendport = New-AzApplicationGatewayFrontendPort `
 -Name myAGFrontendIPv6Config `
 -Port 80
 
@@ -167,6 +146,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSetting `
 -Protocol Http `   
 -CookieBasedAffinity Enabled `  
 -RequestTimeout 30
+
 ```
 
 ### Create the default listener and rule
@@ -176,23 +156,23 @@ A listener is required to enable the application gateway to route traffic approp
 Create a listener named *mydefaultListener* using [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) with the frontend configuration and frontend port that you previously created. A rule is required for the listener to know which backend pool to use for incoming traffic. Create a basic rule named *rule1* using [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
-$listener = New-AzApplicationGatewayHttpListener `    
--Name myAGListner ` 
+$listenerv4 = New-AzApplicationGatewayHttpListener `    
+-Name myAGListnerv4 ` 
 -Protocol Http `  
--FrontendIPConfiguration $fipconfig `  
+-FrontendIPConfiguration $fipconfigv4 `  
 -FrontendPort $frontendport
 
 $listenerv6 = New-AzApplicationGatewayHttpListener `
--Name myAGListneripv6 `    
+-Name myAGListnerv6 `    
 -Protocol Http `    
 -FrontendIPConfiguration $fipconfigv6 `
 -FrontendPort $frontendport
 
-$frontendRule = New-AzApplicationGatewayRequestRoutingRule `   
+$frontendRulev4 = New-AzApplicationGatewayRequestRoutingRule `   
 -Name ruleIPv4 ` 
 -RuleType Basic `   
 -Priority 10 `  
--HttpListener $listener `
+-HttpListener $listenerv4 `
 -BackendAddressPool $backendPool `   
 -BackendHttpSettings $poolSettings 
  
@@ -217,24 +197,20 @@ $sku = New-AzApplicationGatewaySku `
   -Tier Standard_v2 `
   -Capacity 2
 
-$autoscale = New-AzApplicationGatewayAutoscaleConfiguration `  
--MinCapacity 0 `  
--MaxCapacity 2 
+
 
 New-AzApplicationGateway `   
 -Name myipv6AppGW `  
--ResourceGroupName myResourceGroupAG1 `  
+-ResourceGroupName myResourceGroupAG `  
 -Location eastus `  
 -BackendAddressPools $backendPool `  
 -BackendHttpSettingsCollection $poolsettings `  
--FrontendIpConfigurations @($fipconfig, $fipconfigv6) `  
+-FrontendIpConfigurations @($fipconfigv4, $fipconfigv6) `  
 -GatewayIpConfigurations $gipconfig `  
 -FrontendPorts $frontendport `  
--HttpListeners @($listener, $listenerv6) `   
--RequestRoutingRules @($frontendRule, $frontendRulev6) `
+-HttpListeners @($listenerv4, $listenerv6) `   
+-RequestRoutingRules @($frontendRulev4, $frontendRulev6) `
 -Sku $sku `   
--Tag @{"DisableNetworkIsolation" = "True" } `  
--AutoscaleConfiguration $autoscale ` 
 -Force
 ```
 
