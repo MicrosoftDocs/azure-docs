@@ -1,5 +1,5 @@
 ---
-title: Network isolation of managed online endpoints
+title: How to secure managed online endpoints with network isolation
 titleSuffix: Azure Machine Learning
 description: Use private endpoints to provide network isolation for Azure Machine Learning managed online endpoints.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.date: 04/26/2023
 ms.custom: event-tier1-build-2022, devx-track-azurecli
 ---
 
-# Use network isolation with managed online endpoints
+# Secure managed online endpoints with network isolation
 
 [!INCLUDE [SDK/CLI v2](includes/machine-learning-dev-v2.md)]
 
