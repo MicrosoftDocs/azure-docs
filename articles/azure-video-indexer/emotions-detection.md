@@ -1,16 +1,16 @@
 ---
-title: Azure AI Video Indexer emotions detection overview
+title: Azure AI Video Indexer text-based emotion detection overview
 titleSuffix: Azure AI Video Indexer 
-description: This article gives an overview of an Azure AI Video Indexer emotions detection.
+description: This article gives an overview of Azure AI Video Indexer text-based emotion detection.
 author: juliako
 ms.author: juliako
 manager: femila
 ms.service: azure-video-indexer
-ms.date: 04/17/2023
+ms.date: 08/02/2023
 ms.topic: article
 ---
 
-# Emotions detection
+# Text-based emotion detection
 
 Emotions detection is an Azure AI Video Indexer AI feature that automatically detects emotions in video's transcript lines. Each sentence can either be detected as: 
 
@@ -40,24 +40,24 @@ Review [Transparency Note overview](/legal/azure-video-indexer/transparency-note
 
 Introduction: This model is designed to help detect emotions in the transcript of a video. However, it isn't suitable for making assessments about an individual's emotional state, their ability, or their overall performance.  
 
-Use cases: This emotion detection model is intended to help determine the sentiment behind sentences in the video’s transcript. However, it only works on the text itself, and may not perform well for sarcastic input or in cases where input may be ambiguous or unclear. It should not be used for assessing employee performance or the emotional state of any other person.  
+Use cases: This emotion detection model is intended to help determine the sentiment behind sentences in the video’s transcript. However, it only works on the text itself, and may not perform well for sarcastic input or in cases where input may be ambiguous or unclear. It shouldn't be used for assessing employee performance or the emotional state of any other person.  
 
-Information requirements: To increase the accuracy of this model, it is recommended that input data be in a clear and unambiguous format. Users should also note that this model does not have context about input data, which can impact its accuracy.  
+Information requirements: To increase the accuracy of this model, it's recommended that input data be in a clear and unambiguous format. Users should also note that this model doesn't have context about input data, which can impact its accuracy.  
 
-Limitations: This model can produce both false positives and false negatives. To reduce the likelihood of either, users are advised to follow best practices for input data and preprocessing, and to interpret outputs in the context of other relevant information. Interpretation: The outputs of this model should not be used to make assessments about an individual's emotional state or other human characteristics. This model is supported in English and may not function properly with non-English inputs. Not English inputs are being translated to English before entering the model, therefore may produce less accurate results. 
+Limitations: This model can produce both false positives and false negatives. To reduce the likelihood of either, users are advised to follow best practices for input data and preprocessing, and to interpret outputs in the context of other relevant information. Interpretation: The outputs of this model shouldn't be used to make assessments about an individual's emotional state or other human characteristics. This model is supported in English and may not function properly with non-English inputs. Not English inputs are being translated to English before entering the model, therefore may produce less accurate results. 
 
 ## Additional notes for emotion detection instructions
 
 1. Specify examples of intended use cases and specify use cases for which emotion detection isn't designed or tested, including evaluating employee performance, making assessments about a person, their emotional state, or their ability, or monitoring individuals or employees.
-2. Requirements for input data and best practices to increase reliability, and a statement about situations in which the model does not perform well such as for sarcasm.
+2. Requirements for input data and best practices to increase reliability, and a statement about situations in which the model doesn't perform well, such as for sarcasm.
 3. Best practices to reduce false positive and false negative results.  
 4. Information about how to interpret outputs, emphasizing that output isn't to be used for assessments of people.
-5. Disclosure that the system does not have any context about input data.
+5. Disclosure that the system doesn't have any context about input data.
 6. Information about supported and unsupported languages, and how the feature functions with non-English inputs.
 
 ## View the insight
 
-When working on the website the insights are displayed in the **Insights** tab. They can also be generated in a categorized list in a JSON file that includes the id, type, and a list of instances it appeared at, with their time and confidence. 
+When working on the website the insights are displayed in the **Insights** tab. They can also be generated in a categorized list in a JSON file that includes the ID, type, and a list of instances it appeared at, with their time and confidence. 
 
 To display the instances in a JSON file, do the following: 
 
@@ -83,7 +83,7 @@ To display the instances in a JSON file, do the following:
 To download the JSON file via the API, use the [Azure AI Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
 
 > [!NOTE]
-> Emotions detection is language independent, however if the transcript is not in English, it is first being translated to English and only then the model is applied. This may cause a reduced accuracy in emotions detection for non English languages. 
+> Text-based emotion detection is language independent, however if the transcript is not in English, it is first being translated to English and only then the model is applied. This may cause a reduced accuracy in emotions detection for non English languages. 
 
 ## Emotions detection components 
 
@@ -92,13 +92,13 @@ During the emotions detection procedure, the transcript of the video is processe
 |Component |Definition |
 |---|---|
 |Source language |The user uploads the source file for indexing. |
-|Transcription API |The audio file is sent to Azure AI services and the translated transcribed output is returned. If a language has been specified, it is processed. |
-|Emotions detection  |Each sentence is sent to the emotions detection model. The model produces the confidence level of each emotion. If the confidence level exceeds a specific threshold, and there is no ambiguity between positive and negative emotions, the emotion is detected. In any other case, the sentence is labeled as neutral.|
+|Transcription API |The audio file is sent to Azure AI services and the translated transcribed output is returned. If a language has been specified, it's processed. |
+|Emotions detection  |Each sentence is sent to the emotions detection model. The model produces the confidence level of each emotion. If the confidence level exceeds a specific threshold, and there's no ambiguity between positive and negative emotions, the emotion is detected. In any other case, the sentence is labeled as neutral.|
 |Confidence level |The estimated confidence level of the detected emotions is calculated as a range of 0 to 1. The confidence score represents the certainty in the accuracy of the result. For example, an 82% certainty is represented as an 0.82 score. |
 
 ## Considerations and limitations when choosing a use case 
 
-Below are some considerations to keep in mind when using emotions detection: 
+Here are some considerations to keep in mind when using emotions detection: 
 
 * When uploading a file always use high quality audio and video content.
 
@@ -107,7 +107,7 @@ When used responsibly and carefully emotions detection is a valuable tool for ma
 * Always respect an individual’s right to privacy, and only ingest media for lawful and justifiable purposes.    
 Don't purposely disclose inappropriate media showing young children or family members of celebrities or other content that may be detrimental or pose a threat to an individual’s personal freedom.   
 * Commit to respecting and promoting human rights in the design and deployment of your analyzed media.   
-* When using 3rd party materials, be aware of any existing copyrights or permissions required before distributing content derived from them.  
+* When using third-party materials, be aware of any existing copyrights or permissions required before distributing content derived from them.  
 * Always seek legal advice when using media from unknown sources.  
 * Always obtain appropriate legal and professional advice to ensure that your uploaded media is secured and have adequate controls to preserve the integrity of your content and to prevent unauthorized access.     
 * Provide a feedback channel that allows users and individuals to report issues with the service.   
