@@ -32,7 +32,7 @@ As seen in the diagram, a service fabric managed cluster with three node types h
 
 
 
-## Use a public IP prefix in a SFMC cluster
+## Use a public IP prefix in a Service Fabric managed cluster
 
 The following section describes the steps that should be taken to implement public IP prefix in a Service Fabric managed cluster:
 
