@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/08/2022
+ms.date: 08/02/2023
 ms.author: danlep
 ---
 
@@ -33,7 +33,7 @@ The `send-one-way-request` policy sends the provided request to the specified UR
 
 | Attribute     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Required | Default  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode | Determines whether this is a `new` request or a `copy` of the current request. In outbound mode, `mode=copy` does not initialize the request body. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                                                                                                                                                                               | No       | `new`      |
+| mode | Determines whether this is a `new` request or a `copy` of the headers and body in the current request. In the outbound policy, `mode=copy` does not initialize the request body. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                                                                                                                                                                               | No       | `new`      |
 | timeout| The timeout interval in seconds before the call to the URL fails. Policy expressions are allowed.	 | No | 60 |
 
 
