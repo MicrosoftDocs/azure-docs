@@ -154,7 +154,7 @@ Fill out the form with the following information:
 | Relay Namespace Name            | Create a name that you want to assign to the Relay resource created by the template.<br>For this example, we're using `arn-cloudshell-eastus`. |
 | Azure Container Instance OID    | Fill in the value from the prerequisite information you gathered.<br>For this example, we're using `8fe7fd25-33fe-4f89-ade3-0e705fcf4370`.     |
 | Container Subnet Name           | Defaults to `cloudshellsubnet`. Enter the name of the subnet for your container.                                                               |
-| Container Subnet Address Prefix | For this example, we use `10.1.0.0/16`, which provides 65,543 available ip addresses for Cloud Shell.                                                                                                        |
+| Container Subnet Address Prefix | For this example, we use `10.1.0.0/16`, which provides 65,543 IP addresses for Cloud Shell instances.                                          |
 | Relay Subnet Name               | Defaults to `relaysubnet`. Enter the name of the subnet containing your relay.                                                                 |
 | Relay Subnet Address Prefix     | For this example, we use `10.0.2.0/24`.                                                                                                        |
 | Storage Subnet Name             | Defaults to `storagesubnet`. Enter the name of the subnet containing your storage.                                                             |
