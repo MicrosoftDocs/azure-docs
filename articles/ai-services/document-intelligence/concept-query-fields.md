@@ -28,7 +28,7 @@ For query field extraction, specify the fields you want to extract and Document 
 
 * If you're processing a contract in the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/document). Use the `2023-02-28-preview` version:
 
-    :::image type="content" source="media/studio/query-fields.png" alt-text="{alt-text}":::
+    :::image type="content" source="media/studio/query-fields.png" alt-text="Screenshot of the query fields button in Document Intelligence Studio.":::
 
 * You can pass a list of field labels like `Party1`, `Party2`, `TermsOfUse`, `PaymentTerms`, `PaymentDate`, and `TermEndDate`" as part of the analyze document request.
 
