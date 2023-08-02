@@ -1,6 +1,7 @@
 ---
 title: 'Tutorial: Create a passwordless connection with Service Connector'
 description: Create a passwordless connection with Service Connector
+titleSuffix: Service Connector
 author: mcleanbyron
 ms.author: mcleans
 ms.service: service-connector
@@ -59,7 +60,7 @@ If your database server disallows public access, ensure your environment that ru
 
 ### Install the Service Connector passwordless extension
 
-[!INCLUDE [CLI-samples-clean-up](./includes/install_passwordless_extension.md)]
+[!INCLUDE [CLI-samples-clean-up](./includes/install-passwordless-extension.md)]
 
 ## Create passwordless connection
 
@@ -303,8 +304,6 @@ az ad signed-in-user show
 If you don't log in interactively, you may also get the error and `Interactive authentication is needed`. To resolve the error, log in with the `az login` command.
 
 
----
-
 ## Connect to database with Azure Active Directory authentication
 
 After creating the connection, you can use the connection string in your application to connect to the database with Azure Active Directory authentication. For example, you can use the following solutions to connect to the database with Azure Active Directory authentication.
@@ -312,14 +311,14 @@ After creating the connection, you can use the connection string in your applica
 :::zone pivot="postgresql"
 
 
-[!INCLUDE [code sample for postgres aad connection](./includes/code_postgres_aad.md)]
+[!INCLUDE [code sample for postgres aad connection](./includes/code-postgres-aad.md)]
 
 
 :::zone-end
 
 :::zone pivot="mysql"
 
-[!INCLUDE [code sample for mysql aad connection](./includes/code_mysql_aad.md)]
+[!INCLUDE [code sample for mysql aad connection](./includes/code-mysql-aad.md)]
 
 
 :::zone-end
@@ -327,7 +326,7 @@ After creating the connection, you can use the connection string in your applica
 
 :::zone pivot="sql"
 
-[!INCLUDE [code sample for sql aad connection](./includes/code_sql_aad.md)]
+[!INCLUDE [code sample for sql aad connection](./includes/code-sql-aad.md)]
 
 
 :::zone-end
