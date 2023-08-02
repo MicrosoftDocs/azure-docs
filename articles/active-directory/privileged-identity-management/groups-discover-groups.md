@@ -40,7 +40,7 @@ You need appropriate permissions to bring groups in Azure AD PIM. For role-assig
 
     :::image type="content" source="media/pim-for-groups/pim-group-1.png" alt-text="Screenshot of where to view groups that are already enabled for PIM for Groups." lightbox="media/pim-for-groups/pim-group-1.png":::
 
-1.	Select **Discover groups** and select a group that you want to bring under management with PIM.
+1. Select **Discover groups** and select a group that you want to bring under management with PIM.
 
     :::image type="content" source="media/pim-for-groups/pim-group-2.png" alt-text="Screenshot of where to select a group that you want to bring under management with PIM." lightbox="media/pim-for-groups/pim-group-2.png":::
 

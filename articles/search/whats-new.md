@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 06/29/2023
+ms.date: 08/01/2023
 ms.custom: references_regions
 ---
 
@@ -18,12 +18,19 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 > [!NOTE]
 > Looking for preview features? Previews are announced here, but we also maintain a [preview features list](search-api-preview.md) so you can find them in one place.
 
+## July 2023
+
+| Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
+|-----------------------------|------|--------------|
+| [**azure-search-vector-sample.js**](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-javascript/code/azure-search-vector-sample.js) | Sample | Uses Node.js and the **@azure/search-documents 12.0.0-beta.2** library in the Azure SDK for JavaScript to generate embeddings, create and load an index, and run several vector queries. |
+
 ## June 2023
 
 | Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
 |-----------------------------|------|--------------|
 | [**Vector search public preview**](vector-search-overview.md) | Feature | Adds vector fields to a search index for similarity search over vector representations of data. |
 | [**2023-07-01-Preview Search REST API**](/rest/api/searchservice/index-preview) | API | New preview version of the Search REST APIs that adds support for vector search. This API version is inclusive of all preview features. If you're using earlier previews, switch to **2023-07-01-preview** with no loss of functionality.  |
+| [**Semantic search availability**](semantic-search-overview.md) | Feature | Semantic search is now available on the Basic tier. |
 
 ## May 2023
 

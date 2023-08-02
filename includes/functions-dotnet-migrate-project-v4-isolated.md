@@ -37,8 +37,8 @@ After you make these changes, your updated project should look like the followin
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.6.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.3.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.18.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.13.0" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">

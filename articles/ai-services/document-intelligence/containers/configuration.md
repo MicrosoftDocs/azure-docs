@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.0.0'
+monikerRange: 'doc-intel-2.1.0'
 ---
 
 # Configure Document Intelligence containers
