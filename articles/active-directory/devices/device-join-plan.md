@@ -51,7 +51,7 @@ Consider Azure AD join if your goals align with the following criteria:
 
 ## Review your identity infrastructure  
 
-Azure AD join works in managed and federated environments. We think most organizations will deploy with managed domains. Managed domain scenarios don't require configuring and managing a federation server like Active Directory Federation Services (AD FS).
+Azure AD join works in managed and federated environments. We think most organizations will deploy managed domains. Managed domain scenarios don't require configuring and managing a federation server like Active Directory Federation Services (AD FS).
 
 ### Managed environment
 
@@ -189,7 +189,7 @@ Currently, Azure AD joined devices don't support RADIUS authentication for conne
 You can provision Azure AD joined devices using the following approaches:
 
 - **Self-service in OOBE/Settings** - In the self-service mode, users go through the Azure AD join process either during Windows Out of Box Experience (OOBE) or from Windows Settings. For more information, see [Join your work device to your organization's network](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973). 
-- **Windows Autopilot** - Windows Autopilot enables pre-configuration of devices for a smoother Azure AD join experience in OOBE. For more information, see the [Overview of Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
+- **Windows Autopilot** - Windows Autopilot enables preconfiguration of devices for a smoother Azure AD join experience in OOBE. For more information, see the [Overview of Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
 - **Bulk enrollment** - Bulk enrollment enables an administrator driven Azure AD join by using a bulk provisioning tool to configure devices. For more information, see [Bulk enrollment for Windows devices](/intune/windows-bulk-enroll).
  
 Here’s a comparison of these three approaches 
@@ -297,3 +297,4 @@ You can use this implementation to [require managed devices for cloud app access
 
 - [Join a new Windows 10 device to Azure AD during a first run](device-join-out-of-box.md)
 - [Join your work device to your organization's network](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973)
+- [Planning a Windows Hello for Business Deployment](/windows/security/identity-protection/hello-for-business/hello-planning-guide)
