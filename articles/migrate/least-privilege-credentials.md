@@ -56,4 +56,4 @@ Now that the custom login has been provisioned, provide this credential in the A
 
 ## Next steps
 
-[Set up the appliance](how-to-set-up-appliance-vmware.md)
+Review the tutorials for discovery of servers running in your [VMware environment](tutorial-discover-vmware.md) or [Hyper-V environment](tutorial-discover-hyper-v.md) or for [discovery of physical servers](tutorial-discover-physical.md).
