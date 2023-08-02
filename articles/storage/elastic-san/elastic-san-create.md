@@ -118,7 +118,9 @@ Now that you've configured the basic settings and provisioned your storage, you 
 
 # [Portal](#tab/azure-portal)
 
-1. Select **+ Create volume group** and name your volume group. The name must be between 3 and 63 characters long. The name may only contain lowercase letters, numbers and hyphens, and must begin and end with a letter or a number. Each hyphen must be preceded and followed by an alphanumeric character. The volume group name can't be changed once created.
+1. Select **+ Create volume group** and name your volume group.
+    - The name must be between 3 and 63 characters long. The name may only contain lowercase letters, numbers and hyphens, and must begin and end with a letter or a number. Each hyphen must be preceded and followed by an alphanumeric character. The volume group name can't be changed once created.
+
 1. Select **Next : Volumes**
 
 # [PowerShell](#tab/azure-powershell)
