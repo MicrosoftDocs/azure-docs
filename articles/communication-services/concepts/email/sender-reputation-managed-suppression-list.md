@@ -1,5 +1,5 @@
 ---
-title: Comprehending Sender Reputation and Managed Suppression List within Azure Communication Service Email
+title: Comprehending sender reputation and managed suppression list within Azure Communication Service Email
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Managing Sender Reputation and Email Complaints to enhance Email Delivery in your B2C Communication.
 author: bashan-git
@@ -10,11 +10,11 @@ ms.date: 07/31/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
-# Comprehending Sender Reputation and Managed Suppression List within Azure Communication Service Email
+# Comprehending sender reputation and managed suppression list within Azure Communication Service Email
 
 This article provides the Email delivery best practices and how to use the Azure Communication Services Email Logs that help with your email reputation. This comprehensive guide also offers invaluable insights into optimizing email complaint management, fostering healthier email practices, and enhancing your email delivery success, maximizing the chances of reaching recipients' inboxes effectively.
 
-## Managing Sender Reputation and Email Complaints to enhance Email Delivery in your B2C Communication
+## Managing sender reputation and email complaints to enhance email delivery in your B2C communication
 Azure Communication Service Email offers a powerful platform to enrich your customer communications. However, the platform doesn't guarantee that the emails that are sent through the platform lands in the customer's inbox. To proactively identify and avoid significant delivery problems, several reputation checks should be in place, including but not limited to:
 
 * Ensuring a consistent and healthy percentage of successfully delivered emails over time.
@@ -26,7 +26,7 @@ Azure Communication Service Email offers a powerful platform to enrich your cust
 
 To enable email logs and monitor your email delivery, follow the steps outlined in [Azure Communication Services email logs Communication Service in Azure Communication Service](../../concepts/analytics/logs/email-logs.md).
 
-## Email Bounces: Understanding Delivery Status and Types
+## Email bounces: Understanding delivery status and types
 Email bounces indicate issues with the successful delivery of an email. During the email delivery process, the SMTP responses provide the following outcomes:
 
 *  Success (2xx): This indicates that the email has been accepted by the email service provider. However, it doesn't guarantee that the email lands in the customer's inbox. In our email delivery status, this is represented as "Delivered."
@@ -37,7 +37,7 @@ Email bounces indicate issues with the successful delivery of an email. During t
 
 According to the RFCs, a hard bounce (permanent failure) specifically refers to cases where the email address is nonexistent. On the other hand, a soft bounce encompasses various types of failures, while a spam bounce typically occurs due to specific policy decisions. Please note that these practices are not always uniform and standardized across different email service providers.
 
-### Hard Bounces
+### Hard bounces
 A hard bounce occurs when an email can't be delivered because the recipient's address doesn't exist. The list of SMTP codes that can be used to describe hard bounces is as follows:
 
 | Error code | Description | Possible cause | Additional information |
@@ -63,7 +63,7 @@ A hard bounce occurs when an email can't be delivered because the recipient's ad
 
 Sending emails repeatedly to addresses that don't exist can significantly affect your sending reputation. It's crucial to take action by promptly removing those addresses from your contact list and diligently managing a healthy contact list.
 
-#### Managed Suppression List: Safeguarding Sender Reputation in Azure Communication Services
+#### Managed suppression list: Safeguarding sender reputation in Azure Communication Services
 Azure Communication Services offers a valuable feature known as *Managed Suppression List*, which plays a vital role in protecting and preserving your sender reputation. This suppression list cache diligently keeps track of email addresses that have experienced a "Hard Bounced" status for all emails sent through the Azure Communication Service Platform. Whenever an email fails to deliver with one of the specified error codes, the email address is added to our internally managed Suppression List, which spans across our platform and is maintained globally.
 Here's the lifecycle of email addresses that are suppressed:
 
@@ -77,7 +77,7 @@ Here's the lifecycle of email addresses that are suppressed:
 
 Please note that email addresses can only remain on the *Managed Suppression List* for a maximum of 14 days. This proactive measure ensures that your sender reputation remains intact and shields you from adverse effects caused by repeatedly sending emails to invalid addresses. Nevertheless, you take action on bounced status and regularly clean your contact list to maintain optimal email delivery performance.
 
-### Soft Bounces: Understanding Temporary Mail Delivery Failures
+### Soft bounces: Understanding temporary mail delivery failures
 
 A soft bounce occurs when an email can't be delivered temporarily, but the recipient's address is still valid, allowing future attempts at delivery. Please closely monitor soft bounces during email sending, as a high volume of soft bounces (temporary failures) can indicate a potential reputation issue. Email Service Providers may be slowing down your mail delivery.
 
@@ -123,15 +123,15 @@ Here's a list of SMTP codes that can be used to describe soft bounces:
 | 552 5.7.30 | Require TLS Support Required | The email requires TLS (Transport Layer Security) support. | The recipient's email system requires TLS support for secure email transmission. Make sure the sender supports TLS. |
 | 552 5.7.51 | Tenant Inbound Attribution | The inbound email is attributed to a tenant. | The recipient's email system attributes the inbound email to a specific tenant. Check the email's sender information and tenant attribution. |
 
-## Understanding Reputation-Related and Asynchronous Email Delivery Failures
+## Understanding reputation-related and asynchronous email delivery failures
 
 Some Email Service Providers (ESPs) generate email bounces due to reputation issues. These bounces are often classified as spam and abuse related, resulting from specific reputation or content problems. In such cases, the bounce messages may include URLs that link to webpages providing further explanations for the bounces, helping you understand the reason for the delivery failure and enabling appropriate action.
 
 In addition to the SMTP-level bounces, there are cases where bounces occur after the message has been initially accepted by the receiving server. Initially, the response from the Email Service Provider may suggest successful email delivery, but later, a bounce response is sent. These asynchronous bounces are typically directed to the return path address mentioned in the email payload. Please be aware of these asynchronous bounces and handle them accordingly to maintain optimal email delivery performance.
 
-## Opt-out or Unsubscribe Management: Ensuring Transparent Sender Reputation
+## Opt-out or unsubscribe management: Ensuring transparent sender reputation
 
-Understanding your customers' interest in your email communication and monitoring opt-out or unsubscribe requests when recipients choose not to receive emails from you are crucial aspects of maintaining a positive sender reputation. Whether you have a manual or automated process in place for handling unsubscribes, It's important to provide an 'unsubscribe' link in the email payload you send. When recipients decide not to receive further emails, they can simply click on the 'unsubscribe' link and remove their email address from your mailing list.
+Understanding your customers' interest in your email communication and monitoring opt-out or unsubscribe requests when recipients choose not to receive emails from you are crucial aspects of maintaining a positive sender reputation. Whether you have a manual or automated process in place for handling unsubscribes, it's important to provide an "unsubscribe" link in the email payload you send. When recipients decide not to receive further emails, they can simply click on the 'unsubscribe' link and remove their email address from your mailing list.
 
 The functionality of the links and instructions in the email is vital; they must be working correctly and promptly notify the application mailing list to remove the contact from the appropriate list or lists. A proper unsubscribe mechanism should be explicit and transparent from the subscriber's perspective, ensuring they know precisely which messages they're unsubscribing from. Ideally, they should be offered a preferences center that gives them the option to unsubscribe in cases where they're subscribed to multiple lists within your organization. This process prevents accidental unsubscribes and allows users to manage their opt-in and opt-out preferences effectively through the unsubscribe management process.
 
