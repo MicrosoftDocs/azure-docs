@@ -58,7 +58,7 @@ Try extracting data from W-2 forms using the Document Intelligence Studio. You n
 
 1. Select the **Analyze** button:
 
-    :::image type="content" source="media/studio/w2-analyze.png" alt-text="Screenshot: analyze W-2 window in the Document Intelligence Studio.":::
+    :::image type="content" source="media/studio/w2-analyze.png" alt-text="Screenshot of analyze W-2 window in the Document Intelligence Studio.":::
 
     > [!div class="nextstepaction"]
     > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)

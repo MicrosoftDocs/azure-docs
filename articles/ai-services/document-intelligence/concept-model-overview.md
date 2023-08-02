@@ -70,7 +70,7 @@ The Read API analyzes and extracts lines, words, their locations, detected langu
 
 ***Sample document processed using the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/read)***:
 
-:::image type="content" source="media/studio/form-recognizer-studio-read-v3p2.png" alt-text="Screenshot: Screenshot of sample document processed using Document Intelligence Studio Read":::
+:::image type="content" source="media/studio/form-recognizer-studio-read-v3p2.png" alt-text="Screenshot of Screenshot of sample document processed using Document Intelligence Studio Read":::
 
 > [!div class="nextstepaction"]
 > [Learn more: read model](concept-read.md)
@@ -190,7 +190,7 @@ Version v3.0 custom model supports signature detection in custom forms (template
 
 ***Sample custom template processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
 
-:::image type="content" source="media/studio/train-model.png" alt-text="Screenshot: Document Intelligence tool analyze-a-custom-form window.":::
+:::image type="content" source="media/studio/train-model.png" alt-text="Screenshot of Document Intelligence tool analyze-a-custom-form window.":::
 
 > [!div class="nextstepaction"]
 > [Learn more: custom model](concept-custom.md)
@@ -340,7 +340,7 @@ The business card model analyzes and extracts key information from business card
 
 ***Sample custom model processing using the [Sample Labeling tool](https://fott-2-1.azurewebsites.net/)***:
 
-:::image type="content" source="media/overview-custom.jpg" alt-text="Screenshot: Document Intelligence tool analyze-a-custom-form window.":::
+:::image type="content" source="media/overview-custom.jpg" alt-text="Screenshot of Document Intelligence tool analyze-a-custom-form window.":::
 
 > [!div class="nextstepaction"]
 > [Learn more: custom model](concept-custom.md)
