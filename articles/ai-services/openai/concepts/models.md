@@ -29,7 +29,7 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 
  GPT-4 can solve difficult problems with greater accuracy than any of OpenAI's previous models. Like GPT-3.5 Turbo, GPT-4 is optimized for chat and works well for traditional completions tasks. Use the Chat Completions API to use GPT-4. To learn more about how to interact with GPT-4 and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
 
-To request access to GPT_4, Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4)
+To request access to GPT-4, Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4)
 
 - `gpt-4`
 - `gpt-4-32k`
