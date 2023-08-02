@@ -13436,7 +13436,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/external-identities/customers/sample-single-page-application-angular.md",
+     "source_path_from_root": "/articles/active-directory/external-identities/customers/sample-single-page-application-angular.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/sample-single-page-app-angular-sign-in",
       "redirect_document_id": false
     },
@@ -13465,6 +13465,14 @@
       "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-single-page-app-react-sign-in-sign-out",
       "redirect_document_id": false
     },
-    
+    { "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-whatis.md",
+      "redirect_url": "/azure/active-directory/fundamentals/whatis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/services-azure-active-directory-support.md",
+      "redirect_url": "/azure/active-directory/managed-identities-azure-resources/services-id-authentication-support",
+      "redirect_document_id": false
+    }
   ]
 }
