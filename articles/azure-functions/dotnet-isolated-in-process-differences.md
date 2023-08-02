@@ -30,13 +30,13 @@ Use the following table to compare feature and functional differences between th
 | Model types exposed by bindings | Simple types<br/>[JSON serializable](/dotnet/api/system.text.json.jsonserializeroptions) types<br/>Arrays/enumerations<br/>Service SDK types<sup>4</sup> | Simple types<br/>JSON serializable types<br/>Arrays/enumerations<br/>[Service SDK types](dotnet-isolated-process-guide.md#sdk-types)<sup>4</sup> |
 | HTTP trigger model types| [HttpRequest] / [IActionResult]<sup>5</sup><br/>[HttpRequestMessage] / [HttpResponseMessage] | [HttpRequestData] / [HttpResponseData]<br/>[HttpRequest] / [IActionResult] (as a [public preview extension][aspnetcore-integration])<sup>5</sup>|
 | Output binding interactions | Return values (single output only),<br/>`out` parameters,<br/>`IAsyncCollector` | Return values in an expanded model with:<br/> - single or [multiple outputs](dotnet-isolated-process-guide.md#multiple-output-bindings)<br/> - arrays of outputs|
-| Imperative bindings<sup>1</sup>  | [Supported](functions-dotnet-class-library.md#binding-at-runtime) | Not supported |
+| Imperative bindings<sup>1</sup>  | [Supported](functions-dotnet-class-library.md#binding-at-runtime) | Not supported - instead [work with SDK types directly](./dotnet-isolated-process-guide.md#register-azure-clients) |
 | Dependency injection | [Supported](functions-dotnet-dependency-injection.md)  | [Supported](dotnet-isolated-process-guide.md#dependency-injection) (improved model consistent with .NET ecosystem) |
 | Middleware | Not supported | [Supported](dotnet-isolated-process-guide.md#middleware) |
 | Logging | [ILogger] passed to the function<br/>[ILogger&lt;T&gt;] via [dependency injection](functions-dotnet-dependency-injection.md) | [ILogger&lt;T&gt;]/[ILogger] obtained from [FunctionContext](/dotnet/api/microsoft.azure.functions.worker.functioncontext) or via [dependency injection](dotnet-isolated-process-guide.md#dependency-injection)|
 | Application Insights dependencies | [Supported](functions-monitoring.md#dependencies) | [Supported (public preview)](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ApplicationInsights) |
 | Cancellation tokens | [Supported](functions-dotnet-class-library.md#cancellation-tokens) | [Supported](dotnet-isolated-process-guide.md#cancellation-tokens) |
-| Cold start times<sup>2</sup> | (Baseline) | Additionally includes process launch |
+| Cold start times<sup>2</sup> | Optimized | [Configurable optimizations (preview)](./dotnet-isolated-process-guide.md#performance-optimizations) |
 | ReadyToRun | [Supported](functions-dotnet-class-library.md#readytorun) | [Supported](dotnet-isolated-process-guide.md#readytorun) | 
 
 <sup>1</sup> When you need to interact with a service using parameters determined at runtime, using the corresponding service SDKs directly is recommended over using imperative bindings. The SDKs are less verbose, cover more scenarios, and have advantages for error handling and debugging purposes. This recommendation applies to both models.
