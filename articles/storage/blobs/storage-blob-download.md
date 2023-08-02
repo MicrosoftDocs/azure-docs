@@ -63,7 +63,7 @@ The following example downloads a blob by reading from a stream:
 
 ## Download a block blob with configuration options
 
-You can define client library configuration options when downloading a blob. These options can be tuned to improve performance and enhance reliability. The following code examples show how to use [BlobDownloadToOptions](/dotnet/api/azure.storage.blobs.models.blobdownloadtooptions) to define configuration options when calling an download method. Note that the same options are available for [BlobDownloadOptions](/dotnet/api/azure.storage.blobs.models.blobdownloadoptions).
+You can define client library configuration options when downloading a blob. These options can be tuned to improve performance and enhance reliability. The following code examples show how to use [BlobDownloadToOptions](/dotnet/api/azure.storage.blobs.models.blobdownloadtooptions) to define configuration options when calling a download method. Note that the same options are available for [BlobDownloadOptions](/dotnet/api/azure.storage.blobs.models.blobdownloadoptions).
 
 ### Specify data transfer options on download
 
