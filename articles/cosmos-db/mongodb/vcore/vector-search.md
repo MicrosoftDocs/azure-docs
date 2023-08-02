@@ -63,7 +63,6 @@ The following examples show you how to index vectors, add documents that have ve
 
 ### Create a vector index
 
-
 ```javascript
 use test;
 
@@ -200,4 +199,3 @@ This guide demonstrates how to create a vector index, add documents that have ve
 
 > [!div class="nextstepaction"]
 > [Introduction to Azure Cosmos DB for MongoDB vCore](introduction.md)
-
