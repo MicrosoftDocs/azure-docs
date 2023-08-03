@@ -29,7 +29,7 @@ A quick video tutorial can be found here: [Prompt flow get started video tutoria
 >
 >Prompt flow is **not supported** in the project workspace which was created with a workspace hub. The workspace hub is a private preview feature.
 >
->Prompt flow is **not supported** in workspace which enable managed VNet. managed VNet is a private preview feature.
+>Prompt flow is **not supported** in workspaces that enable managed VNet. Managed VNet is a private preview feature.
 >
 >Prompt flow is **not supported** if you secure your Azure AI services account(Azure openAI, Azure cognitive search, Azure content safety) with virtual networks. If you want to use these as connection in prompt flow please allow access from all networks.
 
