@@ -15,7 +15,7 @@ ms.author: radubulboaca
 
 ## Join a room call
 
-To join a room call, set up your web application using the [Add video calling to your client app](../../voice-video-calling/get-started-with-video-calling.md?pivots=platform-ios) guide. Alternatively, you can download the video calling quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Video%20Calling).
+To join a room call, set up your web application using the [Add video calling to your client app](../../voice-video-calling/get-started-with-video-calling.md?pivots=platform-ios) guide. Alternatively, you can download the video calling quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-video-calling).
 
 You'll need a User Access Token when initializing a CallAgent instance to join room calls. Once you have a token, Add the following code to the `onAppear` callback in `ContentView.swift`. You'll need to replace `<USER ACCESS TOKEN>` with a valid user access token for your resource:
 
@@ -99,3 +99,21 @@ func setCallAndObserver(call:Call!, error:Error?) {
     }
 }
 ```
+
+To display the role of the local or remote call participants, subscribe to the handler below.
+
+```swift
+// Subscribe to changes for your role in a call
+public func call(_ call: Call, didChangeRole args: PropertyChangedEventArgs) {
+    // handle self-role change
+}
+
+// Subscribe to role changes for remote participants
+func remoteParticipant(_ remoteParticipant: RemoteParticipant, didChangeRole args: PropertyChangedEventArgs) {
+    // handle remote participant role change
+}
+```
+
+The ability to join a room call and display the roles of call participants is available in the iOS Mobile Calling SDK version [2.3.0-beta.1](https://github.com/Azure/Communication/releases/tag/v2.3.0-beta.1) and above. 
+
+You can learn more about roles of room call participants in the [rooms concept documentation](../../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions).

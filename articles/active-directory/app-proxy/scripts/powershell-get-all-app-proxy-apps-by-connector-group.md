@@ -7,8 +7,9 @@ manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
+ms.custom:
 ms.topic: sample
-ms.date: 04/29/2021
+ms.date: 08/29/2022
 ms.author: kenwith
 ms.reviewer: ashishj
 ---

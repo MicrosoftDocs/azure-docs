@@ -31,7 +31,7 @@ We recommend that you use the first approach (Event Grid trigger) as it has the 
 |---------|---------|
 | [Quickstart: Handle events with function](custom-event-to-function.md) | Sends a custom event to a function for processing. |
 | [Tutorial: automate resizing uploaded images using Event Grid](resize-images-on-storage-blob-upload-event.md) | Users upload images through web app to storage account. When a storage blob is created, Event Grid sends an event to the function app, which resizes the uploaded image. |
-| [Tutorial: stream big data into a data warehouse](event-grid-event-hubs-integration.md) | When Event Hubs creates a Capture file, Event Grid sends an event to a function app. The app retrieves the Capture file and migrates data to a data warehouse. |
+| [Tutorial: stream big data into a data warehouse](event-hubs-integration.md) | When Event Hubs creates a Capture file, Event Grid sends an event to a function app. The app retrieves the Capture file and migrates data to a data warehouse. |
 | [Tutorial: Azure Service Bus to Azure Event Grid integration examples](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid sends messages from Service Bus topic to a function app and a logic app. |
 
 ## REST example (for PUT)
@@ -47,7 +47,7 @@ We recommend that you use the first approach (Event Grid trigger) as it has the 
 			{
 				"resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Web/sites/<FUNCTION APP NAME>/functions/<FUNCTION NAME>",
 				"maxEventsPerBatch": 10,
-				"preferredBatchSizeInKilobytes": 6400
+				"preferredBatchSizeInKilobytes": 64
 			}
 		},
 		"eventDeliverySchema": "EventGridSchema"
@@ -56,7 +56,7 @@ We recommend that you use the first approach (Event Grid trigger) as it has the 
 ```
 
 ## Enable batching
-For a higher throughput, enable batching on the subscription. If you are using the Azure portal, you can set maximum events per batch and the preferred batch size in kilo bytes at the time of creating a subscription or after the creation. 
+For a higher throughput, enable batching on the subscription. If you're using the Azure portal, you can set maximum events per batch and the preferred batch size in kilo bytes at the time of creating a subscription or after the creation. 
 
 You can configure batch settings using the Azure portal, PowerShell, CLI, or Resource Manager template. 
 
@@ -73,7 +73,7 @@ You can update these values for an existing subscription on the **Features** tab
 You can set **maxEventsPerBatch** and **preferredBatchSizeInKilobytes** in an Azure Resource Manager template. For more information, see [Microsoft.EventGrid eventSubscriptions template reference](/azure/templates/microsoft.eventgrid/eventsubscriptions).
 
 ### Azure CLI
-You can use the [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create&preserve-view=true) or [az eventgrid event-subscription update](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-update&preserve-view=true) command to configure batch-related settings using the following parameters: `--max-events-per-batch` or `--preferred-batch-size-in-kilobytes`.
+You can use the [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create&preserve-view=true) command to configure batch-related settings using the following parameters: `--max-events-per-batch` or `--preferred-batch-size-in-kilobytes`.
 
 ### Azure PowerShell
 You can use the [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) or [Update-AzEventGridSubscription](/powershell/module/az.eventgrid/update-azeventgridsubscription) cmdlet to configure batch-related settings using the following parameters: `-MaxEventsPerBatch` or `-PreferredBatchSizeInKiloBytes`.

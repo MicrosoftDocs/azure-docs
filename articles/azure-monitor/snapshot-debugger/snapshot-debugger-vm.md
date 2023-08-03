@@ -1,177 +1,149 @@
 ---
-title: Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Service, and Virtual Machines | Microsoft Docs
-description: Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Service, and Virtual Machines
+title: Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Services, and Virtual Machines | Microsoft Docs
+description: Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Azure Cloud Services, and Azure Virtual Machines.
+ms.author: hannahhunter
+author: hhunter-ms
+ms.reviewer: charles.weininger
+reviewer: cweining
 ms.topic: conceptual
-ms.date: 03/07/2019
-ms.reviewer: jogrima
+ms.date: 03/21/2023
+ms.custom: devdivchpfy22, devx-track-dotnet
 ---
 
-# Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Service, and Virtual Machines
+# Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Services, and Virtual Machines
 
-If your ASP.NET or ASP.NET core application runs in Azure App Service, it's highly recommended to [enable Snapshot Debugger through the Application Insights portal page](snapshot-debugger-app-service.md?toc=/azure/azure-monitor/toc.json). However, if your application requires a customized Snapshot Debugger configuration, or a preview version of .NET core, then this instruction should be followed ***in addition*** to the instructions for [enabling through the Application Insights portal page](snapshot-debugger-app-service.md?toc=/azure/azure-monitor/toc.json).
+If your ASP.NET or ASP.NET Core application runs in Azure App Service and requires a customized Snapshot Debugger configuration, or a preview version of .NET Core, start with [Enable Snapshot Debugger for .NET apps in Azure App Service](snapshot-debugger-app-service.md).
 
-If your application runs in Azure Service Fabric, Cloud Service, Virtual Machines, or on-premises machines, the following instructions should be used. 
+If your application runs in Azure Service Fabric, Azure Cloud Services, Azure Virtual Machines, or on-premises machines, you can skip enabling Snapshot Debugger on App Service and follow the guidance in this article.
+
+## Before you begin
+
+- [Enable Application Insights in your web app](../app/asp-net.md).
+- Include the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package version 1.4.2 or above in your app.
 
 ## Configure snapshot collection for ASP.NET applications
 
-1. [Enable Application Insights in your web app](../app/asp-net.md), if you haven't done it yet.
+When you add the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package to your application, the `SnapshotCollectorTelemetryProcessor` should be added automatically to the `TelemetryProcessors` section of [ApplicationInsights.config](../app/configuration-with-applicationinsights-config.md).
 
-2. Include the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
+If you don't see `SnapshotCollectorTelemetryProcessor` in ApplicationInsights.config, or if you want to customize the Snapshot Debugger configuration, you may edit it by hand. However, these edits may get overwritten if you later upgrade to a newer version of the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package.
 
-3. If needed, customized the Snapshot Debugger configuration added to [ApplicationInsights.config](../app/configuration-with-applicationinsights-config.md). The default Snapshot Debugger configuration is mostly empty and all settings are optional. Here is an example showing a configuration equivalent to the default configuration:
+The following example shows a configuration equivalent to the default configuration:
 
-    ```xml
-    <TelemetryProcessors>
-        <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
-        <!-- The default is true, but you can disable Snapshot Debugging by setting it to false -->
-        <IsEnabled>true</IsEnabled>
-        <!-- Snapshot Debugging is usually disabled in developer mode, but you can enable it by setting this to true. -->
-        <!-- DeveloperMode is a property on the active TelemetryChannel. -->
-        <IsEnabledInDeveloperMode>false</IsEnabledInDeveloperMode>
-        <!-- How many times we need to see an exception before we ask for snapshots. -->
-        <ThresholdForSnapshotting>1</ThresholdForSnapshotting>
-        <!-- The maximum number of examples we create for a single problem. -->
-        <MaximumSnapshotsRequired>3</MaximumSnapshotsRequired>
-        <!-- The maximum number of problems that we can be tracking at any time. -->
-        <MaximumCollectionPlanSize>50</MaximumCollectionPlanSize>
-        <!-- How often we reconnect to the stamp. The default value is 15 minutes.-->
-        <ReconnectInterval>00:15:00</ReconnectInterval>
-        <!-- How often to reset problem counters. -->
-        <ProblemCounterResetInterval>1.00:00:00</ProblemCounterResetInterval>
-        <!-- The maximum number of snapshots allowed in ten minutes.The default value is 1. -->
-        <SnapshotsPerTenMinutesLimit>3</SnapshotsPerTenMinutesLimit>
-        <!-- The maximum number of snapshots allowed per day. -->
-        <SnapshotsPerDayLimit>30</SnapshotsPerDayLimit>
-        <!-- Whether or not to collect snapshot in low IO priority thread. The default value is true. -->
-        <SnapshotInLowPriorityThread>true</SnapshotInLowPriorityThread>
-        <!-- Agree to send anonymous data to Microsoft to make this product better. -->
-        <ProvideAnonymousTelemetry>true</ProvideAnonymousTelemetry>
-        <!-- The limit on the number of failed requests to request snapshots before the telemetry processor is disabled. -->
-        <FailedRequestLimit>3</FailedRequestLimit>
-        </Add>
-    </TelemetryProcessors>
-    ```
+```xml
+<TelemetryProcessors>
+  <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+    <!-- The default is true, but you can disable Snapshot Debugging by setting it to false -->
+    <IsEnabled>true</IsEnabled>
+    <!-- Snapshot Debugging is usually disabled in developer mode, but you can enable it by setting this to true. -->
+    <!-- DeveloperMode is a property on the active TelemetryChannel. -->
+    <IsEnabledInDeveloperMode>false</IsEnabledInDeveloperMode>
+    <!-- How many times we need to see an exception before we ask for snapshots. -->
+    <ThresholdForSnapshotting>1</ThresholdForSnapshotting>
+    <!-- The maximum number of examples we create for a single problem. -->
+    <MaximumSnapshotsRequired>3</MaximumSnapshotsRequired>
+    <!-- The maximum number of problems that we can be tracking at any time. -->
+    <MaximumCollectionPlanSize>50</MaximumCollectionPlanSize>
+    <!-- How often we reconnect to the stamp. The default value is 15 minutes.-->
+    <ReconnectInterval>00:15:00</ReconnectInterval>
+    <!-- How often to reset problem counters. -->
+    <ProblemCounterResetInterval>1.00:00:00</ProblemCounterResetInterval>
+    <!-- The maximum number of snapshots allowed in ten minutes.The default value is 1. -->
+    <SnapshotsPerTenMinutesLimit>3</SnapshotsPerTenMinutesLimit>
+    <!-- The maximum number of snapshots allowed per day. -->
+    <SnapshotsPerDayLimit>30</SnapshotsPerDayLimit>
+    <!-- Whether or not to collect snapshot in low IO priority thread. The default value is true. -->
+    <SnapshotInLowPriorityThread>true</SnapshotInLowPriorityThread>
+    <!-- Agree to send anonymous data to Microsoft to make this product better. -->
+    <ProvideAnonymousTelemetry>true</ProvideAnonymousTelemetry>
+    <!-- The limit on the number of failed requests to request snapshots before the telemetry processor is disabled. -->
+    <FailedRequestLimit>3</FailedRequestLimit>
+  </Add>
+</TelemetryProcessors>
+```
 
-4. Snapshots are collected only on exceptions that are reported to Application Insights. In some cases (for example, older versions of the .NET platform), you might need to [configure exception collection](../app/asp-net-exceptions.md#exceptions) to see exceptions with snapshots in the portal.
+Snapshots are collected _only_ on exceptions reported to Application Insights. In some cases (for example, older versions of the .NET platform), you might need to [configure exception collection](../app/asp-net-exceptions.md#exceptions) to see exceptions with snapshots in the portal.
 
+## Configure snapshot collection for ASP.NET Core applications or Worker Services
 
-## Configure snapshot collection for applications using ASP.NET Core LTS or above
+### Prerequisites
 
-1. [Enable Application Insights in your ASP.NET Core web app](../app/asp-net-core.md), if you haven't done it yet.
+Your application should already reference one of the following Application Insights NuGet packages:
+- [Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)
+- [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService)
 
-    > [!NOTE]
-    > Be sure that your application references version 2.1.1, or newer, of the Microsoft.ApplicationInsights.AspNetCore package.
+### Add the NuGet package
 
-2. Include the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
+Add the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package to your app.
 
-3. Modify your application's `Startup` class to add and configure the Snapshot Collector's telemetry processor.
-    1. If [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package version 1.3.5 or above is used, then add the following using statements to `Startup.cs`.
+### Update the services collection
 
-       ```csharp
-            using Microsoft.ApplicationInsights.SnapshotCollector;
-       ```
+In your application's startup code, where services are configured, add a call to the `AddSnapshotCollector` extension method. It's a good idea to add this line immediately after the call to `AddApplicationInsightsTelemetry`. For example:
+```csharp
+var builder = WebApplication.CreateBuilder(args);
 
-       Add the following at the end of the ConfigureServices method in the `Startup` class in `Startup.cs`.
+// Add services to the container.
+builder.Services.AddApplicationInsightsTelemetry();
+builder.Services.AddSnapshotCollector();
+```
 
-       ```csharp
-            services.AddSnapshotCollector((configuration) => Configuration.Bind(nameof(SnapshotCollectorConfiguration), configuration));
-       ```
-    2. If [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package version 1.3.4 or below is used, then add the following using statements to `Startup.cs`.
+### Configure the Snapshot Collector
+For most situations, the default settings are sufficient. If not, customize the settings by adding the following code before the call to `AddSnapshotCollector()`
+```csharp
+using Microsoft.ApplicationInsights.SnapshotCollector;
+...
+builder.Services.Configure<SnapshotCollectorConfiguration>(builder.Configuration.GetSection("SnapshotCollector"));
+```
 
-       ```csharp
-       using Microsoft.ApplicationInsights.SnapshotCollector;
-       using Microsoft.Extensions.Options;
-       using Microsoft.ApplicationInsights.AspNetCore;
-       using Microsoft.ApplicationInsights.Extensibility;
-       ```
+Next, add a `SnapshotCollector` section to *appsettings.json* where you can override the defaults. The following example shows a configuration equivalent to the default configuration:
 
-       Add the following `SnapshotCollectorTelemetryProcessorFactory` class to `Startup` class.
+```json
+{
+  "SnapshotCollector": {
+    "IsEnabledInDeveloperMode": false,
+    "ThresholdForSnapshotting": 1,
+    "MaximumSnapshotsRequired": 3,
+    "MaximumCollectionPlanSize": 50,
+    "ReconnectInterval": "00:15:00",
+    "ProblemCounterResetInterval":"1.00:00:00",
+    "SnapshotsPerTenMinutesLimit": 1,
+    "SnapshotsPerDayLimit": 30,
+    "SnapshotInLowPriorityThread": true,
+    "ProvideAnonymousTelemetry": true,
+    "FailedRequestLimit": 3
+  }
+}
+```
 
-       ```csharp
-       class Startup
-       {
-           private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
-           {
-               private readonly IServiceProvider _serviceProvider;
-
-               public SnapshotCollectorTelemetryProcessorFactory(IServiceProvider serviceProvider) =>
-                   _serviceProvider = serviceProvider;
-
-               public ITelemetryProcessor Create(ITelemetryProcessor next)
-               {
-                   var snapshotConfigurationOptions = _serviceProvider.GetService<IOptions<SnapshotCollectorConfiguration>>();
-                   return new SnapshotCollectorTelemetryProcessor(next, configuration: snapshotConfigurationOptions.Value);
-               }
-           }
-           ...
-        ```
-        Add the `SnapshotCollectorConfiguration` and `SnapshotCollectorTelemetryProcessorFactory` services to the startup pipeline:
-
-        ```csharp
-           // This method gets called by the runtime. Use this method to add services to the container.
-           public void ConfigureServices(IServiceCollection services)
-           {
-               // Configure SnapshotCollector from application settings
-               services.Configure<SnapshotCollectorConfiguration>(Configuration.GetSection(nameof(SnapshotCollectorConfiguration)));
-
-               // Add SnapshotCollector telemetry processor.
-               services.AddSingleton<ITelemetryProcessorFactory>(sp => new SnapshotCollectorTelemetryProcessorFactory(sp));
-
-               // TODO: Add other services your application needs here.
-           }
-       }
-       ```
-
-4. If needed, customized the Snapshot Debugger configuration by adding a SnapshotCollectorConfiguration section to appsettings.json. All settings in the Snapshot Debugger configuration are optional. Here is an example showing a configuration equivalent to the default configuration:
-
-   ```json
-   {
-     "SnapshotCollectorConfiguration": {
-       "IsEnabledInDeveloperMode": false,
-       "ThresholdForSnapshotting": 1,
-       "MaximumSnapshotsRequired": 3,
-       "MaximumCollectionPlanSize": 50,
-       "ReconnectInterval": "00:15:00",
-       "ProblemCounterResetInterval":"1.00:00:00",
-       "SnapshotsPerTenMinutesLimit": 1,
-       "SnapshotsPerDayLimit": 30,
-       "SnapshotInLowPriorityThread": true,
-       "ProvideAnonymousTelemetry": true,
-       "FailedRequestLimit": 3
-     }
-   }
-   ```
+If you need to customize the Snapshot Collector's behavior manually, without using *appsettings.json*, use the overload of `AddSnapshotCollector` that takes a delegate. For example:
+```csharp
+builder.Services.AddSnapshotCollector(config => config.IsEnabledInDeveloperMode = true);
+```
 
 ## Configure snapshot collection for other .NET applications
 
-1. If your application isn't already instrumented with Application Insights, get started by [enabling Application Insights and setting the instrumentation key](../app/windows-desktop.md).
+Snapshots are collected only on exceptions that are reported to Application Insights. For ASP.NET and ASP.NET Core applications, the Application Insights SDK automatically reports unhandled exceptions that escape a controller method or endpoint route handler. For other applications, you might need to modify your code to report them. The exception handling code depends on the structure of your application. Here's an example:
 
-2. Add the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
-
-3. Snapshots are collected only on exceptions that are reported to Application Insights. You may need to modify your code to report them. The exception handling code depends on the structure of your application, but an example is below:
-
-    ```csharp
-    TelemetryClient _telemetryClient = new TelemetryClient();
-
-    void ExampleRequest()
+```csharp
+TelemetryClient _telemetryClient = new TelemetryClient();
+void ExampleRequest()
+{
+    try
     {
-        try
-        {
-            // TODO: Handle the request.
-        }
-        catch (Exception ex)
-        {
-            // Report the exception to Application Insights.
-            _telemetryClient.TrackException(ex);
-
-            // TODO: Rethrow the exception if desired.
-        }
+        // TODO: Handle the request.
     }
-    ```
+    catch (Exception ex)
+    {
+        // Report the exception to Application Insights.
+        _telemetryClient.TrackException(ex);
+        // TODO: Rethrow the exception if desired.
+    }
+}
+```
+
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Next steps
 
-- Generate traffic to your application that can trigger an exception. Then, wait 10 to 15 minutes for snapshots to be sent to the Application Insights instance.
-- See [snapshots](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) in the Azure portal.
-- For help with troubleshooting Snapshot Debugger issues, see [Snapshot Debugger troubleshooting](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
-
+- Generate traffic to your application that can trigger an exception. Then wait 10 to 15 minutes for snapshots to be sent to the Application Insights instance.
+- See [snapshots](snapshot-debugger-data.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) in the Azure portal.
+- For help with troubleshooting Snapshot Debugger issues, see [Snapshot Debugger troubleshooting](snapshot-debugger-troubleshoot.md).

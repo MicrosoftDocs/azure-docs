@@ -4,8 +4,9 @@ description: Learn how to create assessment for Azure App Service in Azure Migra
 author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
-ms.date: 07/28/2021
-
+ms.date: 06/29/2023
+ms.service: azure-migrate
+ms.custom: engagement-fy23
 ---
 
 
@@ -33,7 +34,7 @@ In this tutorial, you learn how to:
 
 Run an assessment as follows:
 
-1. On the **Overview** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
+1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
     :::image type="content" source="./media/tutorial-assess-webapps/discover-assess-migrate.png" alt-text="Overview page for Azure Migrate":::
 
@@ -53,13 +54,18 @@ Run an assessment as follows:
     --- | ---
     **Target location** | The Azure region to which you want to migrate. Azure App Service configuration and cost recommendations are based on the location that you specify.
     **Isolation required** | Select yes if you want your web apps to run in a private and dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory to core ratio compared to Standard plans.
-    **Reserved instances** | Specifies reserved instances so that cost estimations in the assessment take them into account.<br/><br/> If you select a reserved instance option, you can't specify *Discount (%)*.
-    **Offer** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) in which you're enrolled. The assessment estimates the cost for that offer.
-    **Currency** | The billing currency for your account.
-    **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
-    **EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br/><br/> Leave the settings for reserved instances, and discount (%) properties with their default settings.
-
-    :::image type="content" source="./media/tutorial-assess-webapps/webapps-assessment-properties.png" alt-text="Screenshot of App Service assessment properties.":::
+    - In **Savings options (compute)**, specify the savings option that you want the assessment to consider, helping to optimize your Azure compute cost. 
+        - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.
+        - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
+        - When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.
+        - You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' setting is not applicable.
+        
+        **Option** | **Description**
+        ----- | -----
+        **Offer** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) in which you're enrolled. The assessment estimates the cost for that offer.
+        **Currency** | The billing currency for your account.
+        **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
+        **EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br/><br/> Retain the default settings for reserved instances and discount (%) properties.
 
 1. In **Create assessment**, select **Next**.
 1. In **Select servers to assess** > **Assessment name** > specify a name for the assessment.
@@ -140,5 +146,5 @@ P1v3  | 16
 
 ## Next steps
 
-- Learn how to [perform at-scale agentless migration of ASP.NET web apps to Azure App Service](./tutorial-migrate-webapps.md).
+- Learn how to [perform at-scale agentless migration of ASP.NET web apps to Azure App Service](./tutorial-modernize-asp-net-appservice-code.md).
 - [Learn more](concepts-azure-webapps-assessment-calculation.md) about how Azure App Service assessments are calculated.

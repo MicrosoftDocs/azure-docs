@@ -3,6 +3,7 @@ title: Integrations with partner services - Microsoft Defender for IoT
 description: Learn about supported integrations with Microsoft Defender for IoT.
 ms.date: 08/02/2022
 ms.topic: overview
+ms.custom: enterprise-iot
 ---
 
 # Integrations with Microsoft and partner services
@@ -11,13 +12,11 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 
 ## Aruba ClearPass
 
-
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
 |**Aruba ClearPass**      |   Share Defender for IoT data with ClearPass Security Exchange and update the ClearPass Policy Manager Endpoint Database with Defender for IoT data.      |  - OT networks<br>- Locally managed sensors and on-premises management consoles     |   Microsoft      |  [Integrate ClearPass with Microsoft Defender for IoT](tutorial-clearpass.md)  |
 
 ## Axonius
-
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
@@ -45,7 +44,7 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-| **IBM QRadar** | Send Defender for IoT alerts to IBM QRadar | - OT networks <br>- Cloud connected sensors | Microsoft | [Stream Microsoft Defender for IoT alerts to a 3rd party SIEM](https://techcommunity.microsoft.com/t5/microsoft-defender-for-iot-blog/stream-microsoft-defender-for-iot-alerts-to-a-3rd-party-siem/ba-p/3581242) |
+| **IBM QRadar** | Send Defender for IoT alerts to IBM QRadar | - OT networks <br>- Cloud connected sensors | Microsoft | [Stream Defender for IoT cloud alerts to a partner SIEM](integrations/send-cloud-data-to-partners.md) |
 |**IBM QRadar**     |   Forward Defender for IoT alerts to IBM QRadar.       |   - OT networks<br>- Locally managed sensors and on-premises management consoles      |      Microsoft   | [Integrate Qradar with Microsoft Defender for IoT](tutorial-qradar.md)   |
 
 ## LogRhythm
@@ -70,15 +69,14 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-|**Defender for IoT data connector**     |  Displays Defender for IoT data in Microsoft Sentinel, supporting end-to-end SOC investigations for Defender for IoT alerts.   |    - OT and Enterprise IoT networks <br>- Cloud-connected sensors       |    Microsoft       | [Integrate Microsoft Sentinel and Microsoft Defender for IoT](/azure/sentinel/iot-solution?tabs=use-out-of-the-box-analytics-rules-recommended)  |
-
+|**Defender for IoT data connector in Microsoft Sentinel**     |  Displays Defender for IoT cloud data in Microsoft Sentinel, supporting end-to-end SOC investigations for Defender for IoT alerts.   |    - OT and Enterprise IoT networks <br>- Cloud-connected sensors       |    Microsoft       | [Integrate Microsoft Sentinel and Microsoft Defender for IoT](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended)  |
+|**Microsoft Sentinel**     |  Send Defender for IoT alerts from on-premises resources to Microsoft Sentinel.   |    - OT networks <br>- Locally managed sensors and on-premises management consoles       |  Microsoft       | [Connect on-premises OT network sensors to Microsoft Sentinel](integrations/on-premises-sentinel.md) |
 
 ## Palo Alto
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
 |**Palo Alto**     |   Use Defender for IoT data to block critical threats with Palo Alto firewalls, either with automatic blocking or with blocking recommendations.      |  - OT networks<br>- Locally managed sensors and on-premises management consoles       |     Microsoft    | [Integrate Palo-Alto with Microsoft Defender for IoT](tutorial-palo-alto.md)   |
-
 
 ## RSA NetWitness
 
@@ -100,27 +98,14 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 |---------|---------|---------|---------|---------|
 |**Skybox**      |   Import vulnerability occurrence data discovered by Defender for IoT in your Skybox platform.     |  - OT networks<br>- Locally managed sensors and on-premises management consoles    |   Skybox      |  [Skybox documentation](https://docs.skyboxsecurity.com)  <br><br>  [Skybox integration page](https://www.skyboxsecurity.com/products/integrations)  |
 
-
 ## Splunk
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-| **Splunk** | Send Defender for IoT alerts to Splunk | - OT networks <br>- Cloud connected sensors | Microsoft | [Stream Microsoft Defender for IoT alerts to a 3rd party SIEM](https://techcommunity.microsoft.com/t5/microsoft-defender-for-iot-blog/stream-microsoft-defender-for-iot-alerts-to-a-3rd-party-siem/ba-p/3581242) |
+| **Splunk** | Send Defender for IoT alerts to Splunk | - OT networks <br>- Cloud connected sensors | Microsoft | [Stream Defender for IoT cloud alerts to a partner SIEM](integrations/send-cloud-data-to-partners.md) |
 |**Splunk**     |  Send Defender for IoT alerts to Splunk       |   - OT networks<br>- Locally managed sensors and on-premises management consoles       |  Microsoft       | [Integrate Splunk with Microsoft Defender for IoT](tutorial-splunk.md)   |
-
 
 ## Next steps
 
-For more information, see:
-
-**Device inventory**:
-
-- [Use the Device inventory in the Azure portal](how-to-manage-device-inventory-for-organizations.md)
-- [Use the Device inventory in the OT sensor](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-- [Use the Device inventory in the on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
-
-**Alerts**:
-
-- [View alerts in the Azure portal](how-to-manage-cloud-alerts.md)
-- [View alerts in the OT sensor](how-to-view-alerts.md)
-- [View alerts in the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
+> [!div class="nextstepaction"]
+> [Stream Defender for IoT cloud alerts to a partner SIEM](integrations/send-cloud-data-to-partners.md)

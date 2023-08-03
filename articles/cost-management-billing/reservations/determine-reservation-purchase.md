@@ -2,11 +2,11 @@
 title: Determine what Azure reservation you should purchase
 description: This article helps you determine which reservation you should purchase.
 author: bandersmsft
-ms.reviewer: primittal
+ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 06/23/2022
+ms.date: 12/06/2022
 ms.author: banders
 ---
 
@@ -18,7 +18,7 @@ Purchasing more capacity than your historical usage results in an underutilized 
 
 ## Analyze usage data
 
-Use the following sections to help analyze your daily usage data to determine your baseline usage and what reservation to purchase.
+Use the following sections to help analyze your daily usage data to determine your baseline usage and what reservation to purchase. Before you begin, review the [View and download your Azure usage and charges](../understand/download-azure-daily-usage.md) article to get details about how to download the usage file.
 
 ### Analyze usage for a VM reserved instance purchase
 
@@ -28,11 +28,15 @@ Promo series VMs don't get a reservation discount, so remove them from your anal
 
 To narrow down to eligible VM usage, apply the following filters on your usage data:
 
-- Filter **MeterCategory** to **Virtual Machines**.
-- Get **ServiceType** information from **AdditionalInfo**. The information suggests the right VM size. For example, Standard E32.
-- Use the **ResourceLocation** field to determine the usage data center.
+- Filter `MeterCategory` to `Virtual Machines`.
+- Get `ServiceType` information from `AdditionalInfo`. The information suggests the right VM size. For example, `D2s_v3`.
+- Use the `ResourceLocation` field to determine the usage data center.
 
 Ignore resources that have less than 24 hours of usage in a day.
+
+Here's an example of the usage file showing the usage file with filters applied. In the example, `AdditionalInfo` suggests a `D2s_v3` virtual machine.
+
+:::image type="content" source="./media/determine-reservation-purchase/example-usage-file-details.png" alt-text="Screenshot showing the usage file with filters applied." lightbox="./media/determine-reservation-purchase/example-usage-file-details.png" :::
 
 If you want to analyze at the instance size family level, you can get the instance size flexibility values from [https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv). Combine the values with your data to do the analysis. For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
@@ -102,9 +106,12 @@ Enterprise Agreement customers can use the VM RI Coverage reports for VMs and pu
 
 Reservation purchase recommendations are available in [Azure Advisor](https://portal.azure.com/#blade/Microsoft_Azure_Expert/AdvisorMenuBlade/overview).
 
-- Advisor has only single-subscription scope recommendations.
-- Advisor recommendations are calculated using 30-day look-back period. The projected savings are for a three-year reservation term.
-- If you purchase a shared-scope reservation, Advisor reservation purchase recommendations can take up to 30 days to disappear.
+- Advisor has only single-subscription scope recommendations. If you want to see recommendations for the entire billing scope (Billing account or billing profile), then:
+- In the Azure portal, navigate to Reservations > Add and then select the type that you want to see the recommendations for.
+- The recommendations quantity and savings are for a three-year reservation, where available. If a three-year reservation isn't sold for the service, the recommendation is calculated using the one-year reservation price.
+- The recommendation calculations include any special discounts that you might have on your on-demand usage rates.
+- If you purchase a shared-scope reservation, Advisor reservation purchase recommendations can take up to five days to disappear.
+- Azure classic compute resources such as classic VMs are explicitly excluded from reservation recommendations. Microsoft recommends that users avoid making long-term commitments to legacy services that are being deprecated.
 
 ## Recommendations using APIs
 

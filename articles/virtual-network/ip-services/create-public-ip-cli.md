@@ -11,13 +11,14 @@ ms.author: allensu
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
 ---
+
 # Quickstart: Create a public IP address using the Azure CLI
 
 In this quickstart, you'll learn how to create an Azure public IP address. Public IP addresses in Azure are used for public connections to Azure resources. Public IP addresses are available in two SKUs: basic, and standard. Two tiers of public IP addresses are available: regional, and global. The routing preference of a public IP address is set when created. Internet routing and Microsoft Network routing are the available choices.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -32,6 +33,7 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
     --name QuickStartCreateIP-rg \
     --location eastus2
 ```
+## Create public IP
 
 # [**Standard SKU**](#tab/create-public-ip-standard)
 

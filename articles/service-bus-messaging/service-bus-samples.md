@@ -3,7 +3,8 @@ title: Azure Service Bus samples or examples
 description: Azure Service Bus messaging samples or examples that demonstrate key features. 
 author: spelluru
 ms.topic: article
-ms.date: 07/23/2021
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
+ms.date: 10/19/2022
 ms.author: spelluru
 ---
 
@@ -52,4 +53,3 @@ The Service Bus messaging samples demonstrate key features in [Service Bus messa
 
 ## Management samples
 You can find management samples on GitHub at https://github.com/Azure/azure-service-bus/tree/master/samples/Management.
-

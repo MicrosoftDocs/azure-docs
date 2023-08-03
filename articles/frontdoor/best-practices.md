@@ -2,13 +2,11 @@
 title: Azure Front Door - Best practices
 description: This page provides information about how to configure Azure Front Door based on Microsoft's best practices.
 services: frontdoor
-documentationcenter: ''
 author: johndowns
 ms.service: frontdoor
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 07/10/2022
+ms.date: 02/23/2023
 ms.author: jodowns
 ---
 
@@ -20,17 +18,25 @@ This article summarizes best practices for using Azure Front Door.
 
 ### Avoid combining Traffic Manager and Front Door
 
-For most solutions, you should use *either* Front Door *or* [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview).
-
-Traffic Manager is a DNS-based load balancer. It sends traffic directly to your origin's endpoints. In contrast, Front Door terminates connections at points of presence (PoPs) near to the client and establishes separate long-lived connections to the origins. The products work differently and are intended for different use cases.
-
-If you combine both Front Door and Traffic Manager together, it's unlikely that you'll increase the resiliency or performance of your solution. Also, if you have health probes configured on both services, you might accidentally overload your servers with the volume of health probe traffic.
+For most solutions, you should use *either* Front Door *or* [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md), but not both. Traffic Manager is a DNS-based load balancer. It sends traffic directly to your origin's endpoints. In contrast, Front Door terminates connections at points of presence (PoPs) near to the client and establishes separate long-lived connections to the origins. The products work differently and are intended for different use cases.
 
 If you need content caching and delivery (CDN), TLS termination, advanced routing capabilities, or a web application firewall (WAF), consider using Front Door. For simple global load balancing with direct connections from your client to your endpoints, consider using Traffic Manager. For more information about selecting a load balancing option, see [Load-balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview).
+
+However, as part of a complex architecture, you might choose to use Traffic Manager in front of Front Door. In the unlikely event that Front Door is unavailable, Traffic Manager can route traffic to an alternative destination, such as Azure Application Gateway or a partner content delivery network (CDN). These architectures are difficult to implement and most customers don't need them.
+
+### Restrict traffic to your origins
+
+Front Door's features work best when traffic only flows through Front Door. You should configure your origin to block traffic that hasn't been sent through Front Door. For more information, see [Secure traffic to Azure Front Door origins](origin-security.md).
 
 ### Use the latest API version and SDK version
 
 When you work with Front Door by using APIs, ARM templates, Bicep, or Azure SDKs, it's important to use the latest available API or SDK version. API and SDK updates occur when new functionality is available, and also contain important security patches and bug fixes.
+
+### Configure logs
+
+Front Door tracks extensive telemetry about every request. When you enable caching, your origin servers might not receive every request, so it's important that you use the Front Door logs to understand how your solution is running and responding to your clients. For more information about the metrics and logs that Azure Front Door records, see [Monitor metrics and logs in Azure Front Door](front-door-diagnostics.md) and [WAF logs](../web-application-firewall/afds/waf-front-door-monitor.md#waf-logs).
+
+To configure logging for your own application, see [Configure Azure Front Door logs](./standard-premium/how-to-logs.md)
 
 ## TLS best practices
 
@@ -48,7 +54,7 @@ You can configure Front Door to automatically redirect HTTP requests to use the 
 
 ### Use managed TLS certificates
 
-When Front Door manages your TLS certificates, it reduces your operational costs, and helps you to avoid costly outages caused by forgetting to renew a certificate. Front Door automatically issues and rotates managed TLS certificates.
+When Front Door manages your TLS certificates, it reduces your operational costs, and helps you to avoid costly outages caused by forgetting to renew a certificate. Front Door automatically issues and rotates the managed TLS certificates.
 
 For more information, see [Configure HTTPS on an Azure Front Door custom domain using the Azure portal](standard-premium/how-to-configure-https-custom-domain.md).
 
@@ -62,7 +68,7 @@ For more information, see [Select the certificate for Azure Front Door to deploy
 
 ### Use the same domain name on Front Door and your origin
 
-Front Door can rewrite the `Host` header of incoming requests. This feature can be helpful when you manage a set of customer-facing custom domain names that route to a single origin. The feature can also help when you want to avoid configuring custom domain names in Front Door and at your origin. However, when you rewrite the `Host` header, request cookies and URL redirections might break. In particular, when you use platforms like Azure App Service, features like [session affinity](/azure/app-service/configure-common#configure-general-settings) and [authentication and authorization](/azure/app-service/overview-authentication-authorization) might not work correctly.
+Front Door can rewrite the `Host` header of incoming requests. This feature can be helpful when you manage a set of customer-facing custom domain names that route to a single origin. This feature can also help when you want to avoid configuring custom domain names in Front Door and at your origin. However, when you rewrite the `Host` header, request cookies and URL redirections might break. In particular, when you use platforms like Azure App Service, features like [session affinity](../app-service/configure-common.md#configure-general-settings) and [authentication and authorization](../app-service/overview-authentication-authorization.md) might not work correctly.
 
 Before you rewrite the `Host` header of your requests, carefully consider whether your application is going to work correctly.
 
@@ -72,7 +78,7 @@ For more information, see [Preserve the original HTTP host name between a revers
 
 ### Enable the WAF
 
-For internet-facing applications, we recommend you enable the Front Door web application firewall (WAF) and configure it to use managed rules. When you use a WAF and Microsoft-managed rules, your application is protected from a range of attacks.
+For internet-facing applications, we recommend you enable the Front Door web application firewall (WAF) and configure it to use managed rules. When you use a WAF and Microsoft-managed rules, your application is protected from a wide range of attacks.
 
 For more information, see [Web Application Firewall (WAF) on Azure Front Door](web-application-firewall.md).
 

@@ -2,13 +2,13 @@
 title: Join a Windows Server VM to an Azure AD Domain Services managed domain | Microsoft Docs
 description: In this tutorial, learn how to join a Windows Server virtual machine to an Azure Active Directory Domain Services managed domain.
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/06/2020
+ms.date: 06/22/2023
 ms.author: justinha
 
 #Customer intent: As an server administrator, I want to learn how to join a Windows Server VM to an Azure Active Directory Domain Services managed domain to provide centralized identity and policy.
@@ -67,7 +67,7 @@ If you already have a VM that you want to domain-join, skip to the section to [j
     | Virtual machine name | Enter a name for the VM, such as *myVM* |
     | Region               | Choose the region to create your VM in, such as *East US* |
     | Username             | Enter a username for the local administrator account to create on the VM, such as *azureuser* |
-    | Password             | Enter, and then confirm, a secure password for the local administrator to create on the VM. Don't specify a domain user account's credentials. |
+    | Password             | Enter, and then confirm, a secure password for the local administrator to create on the VM. Don't specify a domain user account's credentials. [Windows LAPS](/windows-server/identity/laps/laps-overview) isn't supported. |
 
 1. By default, VMs created in Azure are accessible from the Internet using RDP. When RDP is enabled, automated sign-in attacks are likely to occur, which may disable accounts with common names such as *admin* or *administrator* due to multiple failed successive sign-in attempts.
 

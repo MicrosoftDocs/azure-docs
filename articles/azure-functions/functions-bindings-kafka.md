@@ -2,7 +2,8 @@
 title: Apache Kafka bindings for Azure Functions
 description: Learn to integrate Azure Functions with an Apache Kafka stream.
 ms.topic: reference
-ms.date: 05/14/2022
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.date: 01/12/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -32,7 +33,7 @@ Add the extension to your project by installing this [NuGet package](https://www
 
 # [Isolated process](#tab/isolated-process)
 
-Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated process](dotnet-isolated-process-guide.md).
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
 Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Kafka).
 
@@ -60,21 +61,8 @@ The Kafka extension is part of an [extension bundle], which is specified in your
 
 To allow your functions to scale properly on the Premium plan when using Kafka triggers and bindings, you need to enable runtime scale monitoring. 
 
-# [Azure portal](#tab/portal)
+[!INCLUDE [functions-runtime-scaling](../../includes/functions-runtime-scaling.md)]
 
-In the Azure portal, in your function app, choose **Configuration** and on the **Function runtime settings** tab turn **Runtime scale monitoring** to **On**.
-
-:::image type="content" source="media/functions-create-vnet/11-enable-runtime-scaling.png" alt-text="Enable runtime scaling in the Azure portal."::: 
-
-# [Azure CLI](#tab/azure-cli)
-
-Use the following Azure CLI command to enable runtime scale monitoring:
-
-```azurecli-interactive
-az resource update -g <RESOURCE_GROUP> -n <FUNCTION_APP_NAME>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
-```
-
----
 
 ## host.json settings
 
@@ -107,6 +95,7 @@ The following properties, which are inherited from the [Apache Kafka C/C++ clien
 |Property  | Applies to | librdkafka equivalent |
 |---------|---------|---------| 
 | AutoCommitIntervalMs	| Trigger | `auto.commit.interval.ms` |
+| AutoOffsetReset | Trigger	| `auto.offset.reset` | 
 | FetchMaxBytes	| Trigger | `fetch.max.bytes` |
 | LibkafkaDebug	| Both | `debug` |
 | MaxPartitionFetchBytes	| Trigger | `max.partition.fetch.bytes` |

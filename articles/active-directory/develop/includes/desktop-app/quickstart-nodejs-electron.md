@@ -2,13 +2,13 @@
 title: "Quickstart: Call Microsoft Graph from a Node.js desktop app"
 description: In this quickstart, you learn how a Node.js Electron desktop application can sign-in users and get an access token to call an API protected by a Microsoft identity platform endpoint
 services: active-directory
-author: mmacy
+author: cilwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.date: 01/14/2022
-ms.author: marsma
+ms.author: cwerner
 ms.custom: mode-api
 #Customer intent: As an application developer, I want to learn how my Node.js Electron desktop application can get an access token and call an API that's protected by a Microsoft identity platform endpoint.
 ---
@@ -28,9 +28,12 @@ This quickstart uses the [Microsoft Authentication Library for Node.js (MSAL Nod
 Follow the steps below to get started.
 
 #### Step 1: Register the application
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To register your application and add the app's registration information to your solution manually, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
@@ -38,7 +41,7 @@ To register your application and add the app's registration information to your 
 1. Select **Register** to create the application.
 1. Under **Manage**, select **Authentication**.
 1. Select **Add a platform** > **Mobile and desktop applications**.
-1. In the **Redirect URIs** section, enter the redirect URI suggested by the app registration portal, e.g. `msalfa29b4c9-7675-4b61-8a0a-bf7b2b4fda91://auth`.
+1. In the **Redirect URIs** section, enter `http://localhost`.
 1. Select **Configure**.
 
 #### Step 2: Download the Electron sample project
@@ -62,7 +65,7 @@ Your file should look similar to below:
 
    ```javascript   
    const AAD_ENDPOINT_HOST = "https://login.microsoftonline.com/"; // include the trailing slash
-   const REDIRECT_URI = "msalfa29b4c9-7675-4b61-8a0a-bf7b2b4fda91://auth";
+
    const msalConfig = {
        auth: {
            clientId: "fa29b4c9-7675-4b61-8a0a-bf7b2b4fda91",
@@ -80,14 +83,11 @@ Your file should look similar to below:
    }
 
    const GRAPH_ENDPOINT_HOST = "https://graph.microsoft.com/"; // include the trailing slash
+
    const protectedResources = {
         graphMe: {
             endpoint: `${GRAPH_ENDPOINT_HOST}v1.0/me`,
             scopes: ["User.Read"],
-        },
-        graphMessages: {
-            endpoint: `${GRAPH_ENDPOINT_HOST}v1.0/me/messages`,
-            scopes: ["Mail.Read"],
         }
    };
 
@@ -121,7 +121,7 @@ Your file should look similar to below:
 
 ### How the sample works
 
-When a user selects the **Sign In** button for the first time, get `getTokenInteractive` method of *AuthProvider.js* is called. This method redirects the user to sign-in with the *Microsoft identity platform endpoint* and validate the user's credentials, and then obtains an **authorization code**. This code is then exchanged for an access token using the `acquireTokenByCode` method of MSAL Node.
+When a user selects the **Sign In** button for the first time, `acquireTokenInteractive` method of MSAL Node is called. This method redirects the user to sign-in with the *Microsoft identity platform endpoint*, obtains an **authorization code**, and then exchanges it for an access token.
 
 ### MSAL Node
 

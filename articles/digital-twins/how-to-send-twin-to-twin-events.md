@@ -1,5 +1,4 @@
 ---
-# Mandatory fields.
 title: Set up twin-to-twin event handling
 titleSuffix: Azure Digital Twins
 description: Learn how to create a function in Azure for propagating events through the twin graph.
@@ -8,12 +7,11 @@ ms.author: baanders # Microsoft employees only
 ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperf-fy22q3 
+ms.custom: contperf-fy22q3, devx-track-azurecli
 ms.devlang: azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
@@ -85,7 +83,7 @@ Now, your function can receive events through your Event Grid topic. The data fl
 
 The last step is to verify that the flow is working, by updating a twin and checking that related twins are updated according to the logic in your Azure function.
 
-To kick off the process, update the twin that's the source of the event flow. You can use the [Azure CLI](/cli/azure/dt/twin#az-dt-twin-update), [Azure Digital Twins SDK](how-to-manage-twin.md#update-a-digital-twin), or [Azure Digital Twins REST APIs](how-to-use-postman.md?tabs=data-plane) to make the update.
+To kick off the process, update the twin that's the source of the event flow. You can use the [Azure CLI](/cli/azure/dt/twin#az-dt-twin-update), [Azure Digital Twins SDK](how-to-manage-twin.md#update-a-digital-twin), or [Azure Digital Twins REST APIs](how-to-use-postman-with-digital-twins.md?tabs=data-plane) to make the update.
 
 Next, query your Azure Digital Twins instance for the related twin. You can use the [Azure CLI](/cli/azure/dt/twin#az-dt-twin-query), or the [Azure Digital Twins REST APIs and SDK](how-to-query-graph.md#run-queries-with-the-api). Verify that the twin received the data and updated as expected.
 

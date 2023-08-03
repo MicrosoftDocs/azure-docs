@@ -5,17 +5,18 @@ description: Triggered pipelines allow you to automate routine, time-consuming t
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: larryfr
-author: blackmist
+ms.author: keli19
+author: likebupt
+ms.reviewer: lagayhar
 ms.date: 08/12/2022
 ms.topic: how-to
-ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, sdkv1, event-tier1-build-2022
 #Customer intent: As a Python coding data scientist, I want to improve my operational efficiency by scheduling my training pipeline of my model using the latest data.
 ---
 
 # Trigger machine learning pipelines
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this article, you'll learn how to programmatically schedule a pipeline to run on Azure. You can create a schedule based on elapsed time or on file-system changes. Time-based schedules can be used to take care of routine tasks, such as monitoring for data drift. Change-based schedules can be used to react to irregular or unpredictable changes, such as new data being uploaded or old data being edited. After learning how to create schedules, you'll learn how to retrieve and deactivate them. Finally, you'll learn how to use other Azure services, Azure Logic App and Azure Data Factory, to run pipelines. An Azure Logic App allows for more complex triggering logic or behavior. Azure Data Factory pipelines allow you to call a machine learning pipeline as part of a larger data orchestration pipeline.
 
@@ -141,7 +142,7 @@ If you then run `Schedule.list(ws)` again, you should get an empty list.
 
 ## Use Azure Logic Apps for complex triggers 
 
-More complex trigger rules or behavior can be created using an [Azure Logic App](/azure/logic-apps/logic-apps-overview).
+More complex trigger rules or behavior can be created using an [Azure Logic App](../../logic-apps/logic-apps-overview.md).
 
 To use an Azure Logic App to trigger a Machine Learning pipeline, you'll need the REST endpoint for a published Machine Learning pipeline. [Create and publish your pipeline](./how-to-create-machine-learning-pipelines.md). Then find the REST endpoint of your `PublishedPipeline` by using the pipeline ID:
 
@@ -154,11 +155,11 @@ published_pipeline.endpoint
 
 ## Create a Logic App
 
-Now create an [Azure Logic App](/azure/logic-apps/logic-apps-overview) instance. If you wish, [use an integration service environment (ISE)](/azure/logic-apps/connect-virtual-network-vnet-isolated-environment) and [set up a customer-managed key](/azure/logic-apps/customer-managed-keys-integration-service-environment) for use by your Logic App.
+Now create an [Azure Logic App](../../logic-apps/logic-apps-overview.md) instance. If you wish, [use an integration service environment (ISE)](../../logic-apps/connect-virtual-network-vnet-isolated-environment.md) and [set up a customer-managed key](../../logic-apps/customer-managed-keys-integration-service-environment.md) for use by your Logic App.
 
 Once your Logic App has been provisioned, use these steps to configure a trigger for your pipeline:
 
-1. [Create a system-assigned managed identity](/azure/logic-apps/create-managed-service-identity) to give the app access to your Azure Machine Learning Workspace.
+1. [Create a system-assigned managed identity](../../logic-apps/create-managed-service-identity.md) to give the app access to your Azure Machine Learning Workspace.
 
 1. Navigate to the Logic App Designer view and select the Blank Logic App template. 
     > [!div class="mx-imgBorder"]

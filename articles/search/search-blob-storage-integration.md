@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/14/2022
+ms.date: 02/07/2023
 ---
 
 # Search over Azure Blob Storage content
@@ -30,7 +30,7 @@ Inputs are your blobs, in a single container, in Azure Blob Storage. Blobs can b
 
 Output is always an Azure Cognitive Search index, used for fast text search, retrieval, and exploration in client applications. In between is the indexing pipeline architecture itself. The pipeline is based on the *indexer* feature, discussed further on in this article.
 
-Once the index is created and populated, it exists independently of your blob container, but you can re-run indexing operations to refresh your index based on changed documents. Timestamp information on individual blobs is used for change detection. You can opt for either scheduled execution or on-demand indexing as the refresh mechanism.
+Once the index is created and populated, it exists independently of your blob container, but you can rerun indexing operations to refresh your index based on changed documents. Timestamp information on individual blobs is used for change detection. You can opt for either scheduled execution or on-demand indexing as the refresh mechanism.
 
 ## Resources used in a blob-search solution
 
@@ -48,7 +48,7 @@ You can start directly in your Storage Account portal page.
 
 1. Use [Search explorer](search-explorer.md) in the search portal page to query your content.
 
-The wizard is the best place to start, but you'll discover more flexible options when you [configure a blob indexer](search-howto-indexing-azure-blob-storage.md) yourself. You can call the REST APIs using a tool like Postman or Visual Studio Code. [Tutorial: Index and search semi-structured data (JSON blobs) in Azure Cognitive Search](search-semi-structured-data.md) walks you through the steps of calling the REST API in Postman.
+The wizard is the best place to start, but you'll discover more flexible options when you [configure a blob indexer](search-howto-indexing-azure-blob-storage.md) yourself. You can call the REST APIs using a tool like Postman. [Tutorial: Index and search semi-structured data (JSON blobs) in Azure Cognitive Search](search-semi-structured-data.md) walks you through the steps of calling the REST API in Postman.
 
 ## How blobs are indexed
 
@@ -66,7 +66,7 @@ Textual content of a document is extracted into a string field named "content". 
 
 ## Use a Blob indexer for content extraction
 
-An *indexer* is a data-source-aware subservice in Cognitive Search, equipped with internal logic for sampling data, reading metadata data, retrieving data, and serializing data from native formats into JSON documents for subsequent import. 
+An *indexer* is a data-source-aware subservice in Cognitive Search, equipped with internal logic for sampling data, reading and retrieving data and metadata, and serializing data from native formats into JSON documents for subsequent import. 
 
 Blobs in Azure Storage are indexed using the [blob indexer](search-howto-indexing-azure-blob-storage.md). You can invoke this indexer by using the **Azure search** command in Azure Storage, the **Import data** wizard, a REST API, or the .NET SDK. In code, you use this indexer by setting the type, and by providing connection information that includes an Azure Storage account along with a blob container. You can subset your blobs by creating a virtual directory, which you can then pass as a parameter, or by filtering on a file type extension.
 
@@ -132,7 +132,7 @@ The output of an indexer is a search index, used for interactive exploration usi
 + [Full query syntax](query-lucene-syntax.md)
 + [Filter expression syntax](query-odata-filter-orderby-syntax.md)
 
-A more permanent solution is to gather query inputs and present the response as search results in a client application. The following C# tutorial explains how to build a search application: [Create your first application in Azure Cognitive Search](tutorial-csharp-create-first-app.md).
+A more permanent solution is to gather query inputs and present the response as search results in a client application. The following C# tutorial explains how to build a search application: [Add search to an ASP.NET Core (MVC) application](tutorial-csharp-create-mvc-app.md).
 
 ## Next steps
 

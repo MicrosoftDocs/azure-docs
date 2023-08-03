@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 05/11/2021
+ms.date: 04/26/2023
 ms.author: kenwith
 ms.reviewer: chmutali
 ---
@@ -27,7 +27,7 @@ The table below captures the list of SuccessFactors attributes included by defau
 - [SuccessFactors to Active Directory User Provisioning](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
 - [SuccessFactors to Azure AD User Provisioning](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
 
-Please refer to the [SAP SuccessFactors integration reference](./sap-successfactors-integration-reference.md#retrieving-additional-attributes) to extend the schema for additional attributes. 
+Please refer to the [SAP SuccessFactors integration reference](./sap-successfactors-integration-reference.md#retrieving-more-attributes) to extend the schema for additional attributes. 
 
 | \# | SuccessFactors Entity                  | SuccessFactors Attribute     | Operation Type |
 |----|----------------------------------------|------------------------------|----------------|

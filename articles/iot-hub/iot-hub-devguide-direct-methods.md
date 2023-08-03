@@ -1,12 +1,12 @@
 ﻿---
-title: Understand Azure IoT Hub direct methods | Microsoft Docs
-description: Developer guide - use direct methods to invoke code on your devices from a service app.
+title: Understand Azure IoT Hub direct methods
+description: This article describes how to use direct methods to invoke code on your devices from a service app.
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 07/15/2022
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.topic: concept-article
+ms.date: 07/15/2022
 ms.custom: [amqp, mqtt,'Role: Cloud Development', 'Role: IoT Device']
 ---
 
@@ -144,7 +144,7 @@ On an IoT device, direct methods can be received over MQTT, AMQP, or either of t
 
 ### MQTT
 
-The following section is for the MQTT protocol. To learn more about using the MQTT protocol directly with IoT Hub, see [MQTT protocol support](iot-hub-mqtt-support.md).
+The following section is for the MQTT protocol. To learn more about using the MQTT protocol directly with IoT Hub, see [MQTT protocol support](../iot/iot-mqtt-connect-to-iot-hub.md).
 
 #### Method invocation
 
@@ -167,7 +167,7 @@ The device sends responses to `$iothub/methods/res/{status}/?$rid={request id}`,
 
 * The `status` property is the device-supplied status of method execution.
 
-* The `$rid` property is the request ID from the method invocation received from IoT Hub.
+* The `$rid` property is the request ID from the method invocation received from IoT Hub. The request ID is a hexadecimal formatted value.
 
 The body is set by the device and can be any status.
 
@@ -211,7 +211,7 @@ Other reference topics in the IoT Hub developer guide include:
 
 * [IoT Hub query language for device twins, jobs, and message routing](iot-hub-devguide-query-language.md) describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 
-* [IoT Hub MQTT support](iot-hub-mqtt-support.md) provides more information about IoT Hub support for the MQTT protocol.
+* [IoT Hub MQTT support](../iot/iot-mqtt-connect-to-iot-hub.md) provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
 
@@ -221,5 +221,5 @@ Now you have learned how to use direct methods, you may be interested in the fol
 
 If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorial:
 
-* [Use direct methods](quickstart-control-device.md)
-* [Device management with Azure IoT Tools for VS Code](iot-hub-device-management-iot-toolkit.md)
+* [Quickstart: Control a device connected to an IoT hub](quickstart-control-device.md)
+* [Device management with the Azure IoT Hub extension for VS Code](iot-hub-device-management-iot-toolkit.md)

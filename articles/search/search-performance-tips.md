@@ -2,12 +2,11 @@
 title: Performance tips
 titleSuffix: Azure Cognitive Search
 description: Learn about tips and best practices for maximizing performance on a search service.
-
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/04/2021
+ms.date: 04/20/2023
 ---
 
 # Tips for better performance in Azure Cognitive Search
@@ -15,18 +14,21 @@ ms.date: 10/04/2021
 This article is a collection of tips and best practices that are often recommended for boosting performance. Knowing which factors are most likely to impact search performance can help you avoid inefficiencies and get the most out of your search service. Some key factors include:
 
 + Index composition (schema and size)
-+ Query types
++ Query design
 + Service capacity (tier, and the number of replicas and partitions)
+
+> [!NOTE]
+> Looking for strategies on high volume indexing? See [Index large data sets in Azure Cognitive Search](search-howto-large-index.md).
 
 ## Index size and schema
 
-Queries run faster on smaller indexes. This is partly a function of having fewer fields to scan, but it's also due to how the system caches content for future queries. After the first query, some content remains in memory where it's searched more efficiently. Because index size tends to grow over time, one best practice is to periodically revisit index composition, both schema and documents, to look for content reduction opportunities. However, if the index is right-sized, the only other calibration you can make is to increase capacity: either by [adding replicas](search-capacity-planning.md#adjust-capacity) or upgrading the service tier. The section ["Tip: Upgrade to a Standard S2 tier"](#tip-upgrade-to-a-standard-s2-tier) shows you how to evaluate the scale up versus scale out decision.
+Queries run faster on smaller indexes. This is partly a function of having fewer fields to scan, but it's also due to how the system caches content for future queries. After the first query, some content remains in memory where it's searched more efficiently. Because index size tends to grow over time, one best practice is to periodically revisit index composition, both schema and documents, to look for content reduction opportunities. However, if the index is right-sized, the only other calibration you can make is to increase capacity: either by [adding replicas](search-capacity-planning.md#adjust-capacity) or upgrading the service tier. The section ["Tip: Upgrade to a Standard S2 tier"](#tip-upgrade-to-a-standard-s2-tier) discusses the scale up versus scale out decision.
 
-Schema complexity can also adversely effect indexing and query performance. Excessive field attribution builds in limitations and processing requirements. [Complex types](search-howto-complex-data-types.md) take longer to index and query. The next few sections explore each condition.
+Schema complexity can also adversely affect indexing and query performance. Excessive field attribution builds in limitations and processing requirements. [Complex types](search-howto-complex-data-types.md) take longer to index and query. The next few sections explore each condition.
 
 ### Tip: Be selective in field attribution
 
-A common mistake that administrators and developer make when creating a search index is selecting all available properties for the fields, as opposed to only selecting just the properties that are needed. For example, if a field doesn't need to be full text searchable, skip that field when setting the searchable attribute.
+A common mistake that administrators and developers make when creating a search index is selecting all available properties for the fields, as opposed to only selecting just the properties that are needed. For example, if a field doesn't need to be full text searchable, skip that field when setting the searchable attribute.
 
 :::image type="content" source="media/search-performance/perf-selective-field-attributes.png" alt-text="Selective attribution" border="true":::
 
@@ -53,13 +55,13 @@ In some cases, you can avoid these tradeoffs by mapping a complex data structure
 
 :::image type="content" source="media/search-performance/perf-flattened-field-hierarchy.png" alt-text="flattened field structure" border="true":::
 
-## Types of queries
+## Query design
 
-The types of queries you send are one of the most important factors for performance, and query optimization can drastically improve performance. When designing queries, think about the following points:
+Query composition and complexity are one of the most important factors for performance, and query optimization can drastically improve performance. When designing queries, think about the following points:
 
-+ **Number of searchable fields.** Each additional searchable field requires additional work by the search service. You can limit the fields being searched at query time using the "searchFields" parameter. It's best to specify only the fields that you care about to improve performance.
++ **Number of searchable fields.** Each additional searchable field results in more work for the search service. You can limit the fields being searched at query time using the "searchFields" parameter. It's best to specify only the fields that you care about to improve performance.
 
-+ **Amount of data being returned.** Retrieving a lot of content can make queries slower. When structuring a query, return only those fields that you need to render the results page, and then retrieve remaining fields using the [Lookup API](/rest/api/searchservice/lookup-document) once a user selects a match.
++ **Amount of data being returned.** Retrieving a large amount content can make queries slower. When structuring a query, return only those fields that you need to render the results page, and then retrieve remaining fields using the [Lookup API](/rest/api/searchservice/lookup-document) once a user selects a match.
 
 + **Use of partial term searches.** [Partial term searches](search-query-partial-matching.md), such as prefix search, fuzzy search, and regular expression search, are more computationally expensive than typical keyword searches, as they require full index scans to produce results.
 
@@ -77,7 +79,7 @@ As a query uses increasingly [complex filter criteria](search-query-odata-filter
 $filter= userid eq 123 or userid eq 234 or userid eq 345 or userid eq 456 or userid eq 567
 ```
 
-In this case, the filter expressions are used to check whether a single field in each document is equal to one of many possible values of a user identity. You are most likely to find this pattern in applications that implement [security trimming](search-security-trimming-for-azure-search.md) (checking a field containing one or more principal IDs against a list of principal IDs representing the user issuing the query).
+In this case, the filter expressions are used to check whether a single field in each document is equal to one of many possible values of a user identity. You're most likely to find this pattern in applications that implement [security trimming](search-security-trimming-for-azure-search.md) (checking a field containing one or more principal IDs against a list of principal IDs representing the user issuing the query).
 
 A more efficient way to execute filters that contain a large number of values is to use [`search.in` function](search-query-odata-search-in-function.md), as shown in this example:
 
@@ -87,9 +89,9 @@ search.in(userid, '123,234,345,456,567', ',')
 
 ### Tip: Add partitions for slow individual queries
 
-When query performance is slowing down in general, adding more replicas frequently solves the issue. But what if the problem is a single query that takes too long to complete? In this scenario, adding replicas will not help, but additional partitions might. A partition splits data across extra computing resources. Two partitions split data in half, a third partition splits it into thirds, and so forth. 
+When query performance is slowing down in general, adding more replicas frequently solves the issue. But what if the problem is a single query that takes too long to complete? In this scenario, adding replicas won't help, but more partitions might. A partition splits data across extra computing resources. Two partitions split data in half, a third partition splits it into thirds, and so forth. 
 
-One positive side-effect of adding partitions is that slower queries sometimes perform faster due to parallel computing. We have noted parallelization on low selectivity queries, such as queries that match many documents, or facets providing counts over a large number of documents. Since significant computation is required to score the relevancy of the documents, or to count the numbers of documents, adding extra partitions helps queries complete faster.  
+One positive side-effect of adding partitions is that slower queries sometimes perform faster due to parallel computing. We've noted parallelization on low selectivity queries, such as queries that match many documents, or facets providing counts over a large number of documents. Since significant computation is required to score the relevancy of the documents, or to count the numbers of documents, adding extra partitions helps queries complete faster.  
 
 To add partitions, use [Azure portal](search-create-service-portal.md), [PowerShell](search-manage-powershell.md), [Azure CLI](search-manage-azure-cli.md), or a management SDK.
 
@@ -97,7 +99,7 @@ To add partitions, use [Azure portal](search-create-service-portal.md), [PowerSh
 
 A service is overburdened when queries take too long or when the service starts dropping requests. If this happens, you can address the problem by upgrading the service or by adding capacity.
 
-The tier of your search service and the number of replicas/partitions also have a big impact on performance. Each higher tier provides faster CPUs and more memory, both of which have a positive impact on performance.
+The tier of your search service and the number of replicas/partitions also have a large impact on performance. Each progressively higher tier provides faster CPUs and more memory, both of which have a positive impact on performance.
 
 ### Tip: Upgrade to a Standard S2 tier
 
@@ -129,11 +131,17 @@ As this hypothetical scenario illustrates, you can have configurations on lower 
 
 An important benefit of added memory is that more of the index can be cached, resulting in lower search latency, and a greater number of queries per second. With this extra power, the administrator may not need to even need to increase the replica count and could potentially pay less than by staying on the S1 service.
 
+### Tip: Consider alternatives to regular expression queries
+
+[Regular expression queries](query-lucene-syntax.md#bkmk_regex) or regex can be particularly expensive. While they can be very useful for complex searches, they also may require a lot of processing power to be executed, especially if the regular expression has a lot of complexity or when searching through a large amount of data. This would result in high search latency. In order to reduce the search latency, try to simplify the regular expression or break the complex query down into smaller, more manageable queries. 
+
+
 ## Next steps
 
-Review these additional articles related to service performance.
+Review these other articles related to service performance:
 
 + [Analyze performance](search-performance-analysis.md)
++ [Index large data sets in Azure Cognitive Search](search-howto-large-index.md)
 + [Choose a service tier](search-sku-tier.md)
-+ [Add capacity (replicas and partitions)](search-capacity-planning.md#adjust-capacity)
++ [Plan or add capacity](search-capacity-planning.md#adjust-capacity)
 + [Case Study: Use Cognitive Search to Support Complex AI Scenarios](https://techcommunity.microsoft.com/t5/azure-ai/case-study-effectively-using-cognitive-search-to-support-complex/ba-p/2804078)

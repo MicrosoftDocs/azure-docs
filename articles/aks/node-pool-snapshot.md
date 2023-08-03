@@ -1,12 +1,11 @@
 ---
 title: Snapshot Azure Kubernetes Service (AKS) node pools
 description: Learn how to snapshot AKS cluster node pools and create clusters and node pools from a snapshot.
-ms.service: container-service
-ms.topic: article
-ms.date: 09/11/2020
-ms.author: jpalma
-author: palma21
-
+ms.topic: how-to
+ms.custom: devx-track-azurecli
+ms.date: 06/05/2023
+ms.author: allensu
+author: asudbring
 ---
 
 # Azure Kubernetes Service (AKS) node pool snapshot
@@ -24,7 +23,8 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 ### Limitations
 
 - Any node pool or cluster created from a snapshot must use a VM from the same virtual machine family as the snapshot, for example, you can't create a new N-Series node pool based of a snapshot captured from a D-Series node pool because the node images in those cases are structurally different.
-- Snapshots must be created and used in the same region as the source node pool.
+- Snapshots must be created same region as the source node pool, those snapshots can be used to create or update clusters and node pools in other regions.
+
 
 ## Take a node pool snapshot
 
@@ -76,6 +76,9 @@ az aks nodepool upgrade --name nodepool1 --cluster-name myAKSCluster --resource-
 
 > [!NOTE]
 > Your node pool image version will be the same contained in the snapshot and will remain the same throughout every scale operation. However, if this node pool is upgraded or a node image upgrade is performed without providing a snapshot-id the node image will be upgraded to latest.
+
+> [!NOTE]
+> To upgrade only the node version for your node pool, use the `--node-image-only` flag. This is required when upgrading the node image version for a node pool based on a snapshot with an identical Kubernetes version.
 
 ## Create a cluster from a snapshot
 

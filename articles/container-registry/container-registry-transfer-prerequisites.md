@@ -2,7 +2,9 @@
 title: Transfer artifacts
 description: Overview of ACR Transfer and prerequisites
 ms.topic: article
-ms.date: 11/18/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom:
 ---
 
@@ -75,16 +77,17 @@ Transfer uses shared access signature (SAS) tokens to access the storage account
 > [!IMPORTANT]
 > While ACR Transfer will work with a manually generated SAS token stored in a Keyvault Secret, for production workloads we *strongly* recommend using [Keyvault Managed Storage SAS Definition Secrets][kv-managed-sas] instead.
 
+
 ### Generate SAS token for export
 
-Run the [az storage container generate-sas][az-storage-container-generate-sas] command to generate a SAS token for the container in the source storage account, used for artifact export.
+Run the [az storage account generate-sas][az-storage-account-generate-sas] command to generate a SAS token for the container in the source storage account, used for artifact export.
 
 *Recommended token permissions*: Read, Write, List, Add.
 
 In the following example, command output is assigned to the EXPORT_SAS environment variable, prefixed with the '?' character. Update the `--expiry` value for your environment:
 
 ```azurecli
-EXPORT_SAS=?$(az storage container generate-sas \
+EXPORT_SAS=?$(az storage account generate-sas \
   --name transfer \
   --account-name $SOURCE_SA \
   --expiry 2021-01-01 \
@@ -159,3 +162,4 @@ az keyvault secret set \
 [az-acr-import]: /cli/azure/acr#az_acr_import
 [az-resource-delete]: /cli/azure/resource#az_resource_delete
 [kv-managed-sas]: ../key-vault/secrets/overview-storage-keys.md
+[az-storage-account-generate-sas]: /cli/azure/storage/account#az-storage-account-generate-sas

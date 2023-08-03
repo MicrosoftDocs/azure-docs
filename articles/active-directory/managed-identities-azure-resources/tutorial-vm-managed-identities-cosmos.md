@@ -1,5 +1,5 @@
 ---
-title: Use managed identities from a virtual machine to access Cosmos DB
+title: Use managed identities from a virtual machine to access Azure Cosmos DB
 description: Learn how to use managed identities with Windows VMs using the Azure portal, CLI, PowerShell, Azure Resource Manager template  
 author: barclayn
 manager: amycolannino
@@ -7,17 +7,17 @@ ms.service: active-directory
 ms.subservice: msi
 ms.workload: integration
 ms.topic: tutorial
-ms.date: 06/24/2022
+ms.date: 03/31/2023
 ms.author: barclayn
-ms.custom: ep-miar
+ms.custom: ep-miar, ignite-2022, devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-linux
 ms.tool: azure-cli, azure-powershell
 ms.devlang: azurecli
-#Customer intent: As an administrator, I want to know how to access Cosmos DB from a virtual machine using a managed identity
+#Customer intent: As an administrator, I want to know how to access Azure Cosmos DB from a virtual machine using a managed identity
 ---
 
-# How to use managed identities to connect to Cosmos DB from an Azure virtual machine
+# How to use managed identities to connect to Azure Cosmos DB from an Azure virtual machine
 
-In this article, we set up a virtual machine to use managed identities to connect to Cosmos. [Azure Cosmos DB](../../cosmos-db/introduction.md) is a fully managed NoSQL database for modern app development. [Managed identities for Azure resources](overview.md) allow your applications to authenticate when accessing services that support Azure AD authentication using an identity managed by Azure.
+In this article, we set up a virtual machine to use managed identities to connect to Azure Cosmos DB. [Azure Cosmos DB](../../cosmos-db/introduction.md) is a fully managed NoSQL database for modern app development. [Managed identities for Azure resources](overview.md) allow your applications to authenticate when accessing services that support Azure AD authentication using an identity managed by Azure.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ In this article, we set up a virtual machine to use managed identities to connec
 
 ## Create a resource group
 
-Create a resource group called **mi-test**. We'll use this resource group for all resources used in this tutorial.
+Create a resource group called **mi-test**. We use this resource group for all resources used in this tutorial.
 
 - [Create a resource group using the Azure portal](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups)
 - [Create a resource group using the CLI](../../azure-resource-manager/management/manage-resource-groups-cli.md#create-resource-groups)
@@ -170,14 +170,14 @@ The user assigned managed identity should be specified using its [resourceID](./
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az vm create --resource-group <MyResourceGroup> --name <myVM> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME>
+az vm create --resource-group <MyResourceGroup> --name <myVM> --image <SKU Linux Image> --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME>
 ```
 
 [Configure managed identities for Azure resources on a VM using the Azure CLI](qs-configure-cli-windows-vm.md#user-assigned-managed-identity)
 
 # [Resource Manager Template](#tab/azure-resource-manager)
 
-Depending on your API version, you have to take [different steps](qs-configure-template-windows-vm.md#user-assigned-managed-identity). If your apiVersion is 2018-06-01, your user-assigned managed identities are stored in the userAssignedIdentities dictionary format and the ```<identityName>``` value is the name of a variable that you define in the variables section of your template. In the variable, you point to the user assigned managed identity that you want to assign.
+Depending on your API version, you have to take [different steps](qs-configure-template-windows-vm.md#user-assigned-managed-identity). If your apiVersion is 2018-06-01, your user-assigned managed identities are stored in the userAssignedIdentities dictionary format. The ```<identityName>``` value is the name of a variable that you define in the variables section of your template. In the variable, you point to the user assigned managed identity that you want to assign.
 
 ```json
     "variables": {
@@ -209,31 +209,31 @@ Under the resources element, add the following entry to assign a user-assigned m
 
 ---
 
-## Create a Cosmos DB account
+## Create an Azure Cosmos DB account
 
-Now that we have a VM with either a user-assigned managed identity or a system-assigned managed identity we need a Cosmos DB account available where you have administrative rights. If you need to create a Cosmos DB account for this tutorial, the [Cosmos DB quickstart](../..//cosmos-db/sql/create-cosmosdb-resources-portal.md) provides detailed steps on how to do that.
+Now that we have a VM with either a user-assigned managed identity or a system-assigned managed identity we need an Azure Cosmos DB account available where you have administrative rights. If you need to create an Azure Cosmos DB account for this tutorial, the [Azure Cosmos DB quickstart](../..//cosmos-db/sql/create-cosmosdb-resources-portal.md) provides detailed steps on how to do that.
 
 >[!NOTE]
-> Managed identities may be used to access any Azure resource that supports Azure Active Directory authentication. This tutorial assumes that your Cosmos DB account will be configured as shown below.
+> Managed identities may be used to access any Azure resource that supports Azure Active Directory authentication. This tutorial assumes that your Azure Cosmos DB account will be configured as shown below.
 
  |Setting|Value|Description |
    |---|---|---|
-   |Subscription|Subscription name|Select the Azure subscription that you want to use for this Azure Cosmos account. |
+   |Subscription|Subscription name|Select the Azure subscription that you want to use for this Azure Cosmos DB account. |
    |Resource Group|Resource group name|Select **mi-test**, or select **Create new**, then enter a unique name for the new resource group. |
-   |Account Name|A unique name|Enter a name to identify your Azure Cosmos account. Because *documents.azure.com* is appended to the name that you provide to create your URI, use a unique name.<br><br>The name can only contain lowercase letters, numbers, and the hyphen (-) character. It must be between 3-44 characters in length.|
-   |API|The type of account to create|Select **Core (SQL)** to create a document database and query by using SQL syntax. <br><br>[Learn more about the SQL API](../../cosmos-db/introduction.md).|
+   |Account Name|A unique name|Enter a name to identify your Azure Cosmos DB account. Because *documents.azure.com* is appended to the name that you provide to create your URI, use a unique name.<br><br>The name can only contain lowercase letters, numbers, and the hyphen (-) character. It must be between 3-44 characters in length.|
+   |API|The type of account to create|Select **Azure Cosmos DB for NoSQL** to create a document database and query by using SQL syntax. <br><br>[Learn more about the SQL API](../../cosmos-db/introduction.md).|
    |Location|The region closest to your users|Select a geographic location to host your Azure Cosmos DB account. Use the location that is closest to your users to give them the fastest access to the data.|
 
    > [!NOTE]
-   > If you are testing you may want to apply Azure Cosmos DB free tier discount. With Azure Cosmos DB free tier, you will get the first 1000 RU/s and 25 GB of storage for free in an account. Learn more about [free tier](https://azure.microsoft.com/pricing/details/cosmos-db/). Keep in mind that for the purpose of this tutorial this choice makes no difference.
+   > If you are testing you may want to apply Azure Cosmos DB free tier discount. With the Azure Cosmos DB free tier, you will get the first 1000 RU/s and 25 GB of storage for free in an account. Learn more about [free tier](https://azure.microsoft.com/pricing/details/cosmos-db/). Keep in mind that for the purpose of this tutorial this choice makes no difference.
 
 ## Grant access
 
-At this point, we should have both a virtual machine configured with a managed identity and a Cosmos DB Account. Before we continue, we need to grant the managed identity a couple of different roles.
+At this point, we should have both a virtual machine configured with a managed identity and an Azure Cosmos DB account. Before we continue, we need to grant the managed identity a couple of different roles.
 
-- First grant access to the Cosmos management plane using [Azure RBAC](../../cosmos-db/role-based-access-control.md). The managed identity needs to have the DocumentDB Account Contributor role assigned to create Databases and containers.
+- First grant access to the Azure Cosmos DB management plane using [Azure RBAC](../../cosmos-db/role-based-access-control.md). The managed identity needs to have the DocumentDB Account Contributor role assigned to create Databases and containers.
 
-- You also need to grant the managed identity a contributor role using [Cosmos RBAC](../../cosmos-db/how-to-setup-rbac.md). You can see specific steps below. 
+- You also need to grant the managed identity a contributor role using [Azure Cosmos DB RBAC](../../cosmos-db/how-to-setup-rbac.md). You can see specific steps below. 
 
 > [!NOTE] 
 > We will use the **Cosmos DB Built-in Data contributor** role. To grant access, you need to associate the role definition with the identity. In our case, the managed identity associated with our virtual machine.
@@ -293,7 +293,7 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 
 ## Access data
 
-Getting access to Cosmos using managed identities may be achieved using the Azure.identity library to enable authentication in your application. You can call [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential) directly or use [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential).
+Getting access to Azure Cosmos DB using managed identities may be achieved using the Azure.identity library to enable authentication in your application. You can call [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential) directly or use [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential).
 
 The ManagedIdentityCredential class attempts to authentication using a managed identity assigned to the deployment environment. The [DefaultAzureCredential](/dotnet/api/overview/azure/identity-readme) class goes through different authentication options in order. The second authentication option that DefaultAzureCredential attempts is Managed identities. 
 
@@ -310,7 +310,7 @@ To use the sample below, you need to have the following NuGet packages:
 - Microsoft.Azure.Cosmos
 - Microsoft.Azure.Management.CosmosDB
 
-In addition to the NuGet packages above, you also need to enable **Include prerelease** and then add **Azure.ResourceManager.CosmosDB**. 
+In addition to the NuGet packages above, you also need to enable **Include prerelease** and then add **Azure.ResourceManager.CosmosDB**.
 
 ```csharp
 using Azure.Identity;
@@ -326,44 +326,53 @@ namespace MITest
     {
         static async Task Main(string[] args)
         {
+            // Replace the placeholders with your own values
             var subscriptionId = "Your subscription ID";
             var resourceGroupName = "You resource group";
             var accountName = "Cosmos DB Account name";
             var databaseName = "mi-test";
             var containerName = "container01";
 
+            // Authenticate to Azure using Managed Identity (system-assigned or user-assigned)
             var tokenCredential = new DefaultAzureCredential();
 
-            // create the management clientSS
-            var managementClient = new CosmosDBManagementClient(subscriptionId, tokenCredential);
+            // Create the Cosmos DB management client using the subscription ID and token credential
+            var managementClient = new CosmosDBManagementClient(tokenCredential)
+            {
+                SubscriptionId = subscriptionId
+            };
 
-            // create the data client
-            var dataClient = new CosmosClient("https://[Account].documents.azure.com:443/", tokenCredential);
+            // Create the Cosmos DB data client using the account URL and token credential
+            var dataClient = new CosmosClient($"https://{accountName}.documents.azure.com:443/", tokenCredential);
 
-            // create a new database 
-            var createDatabaseOperation = await managementClient.SqlResources.StartCreateUpdateSqlDatabaseAsync(resourceGroupName, accountName, databaseName,
+            // Create a new database using the management client
+            var createDatabaseOperation = await managementClient.SqlResources.StartCreateUpdateSqlDatabaseAsync(
+                resourceGroupName,
+                accountName,
+                databaseName,
                 new SqlDatabaseCreateUpdateParameters(new SqlDatabaseResource(databaseName), new CreateUpdateOptions()));
             await createDatabaseOperation.WaitForCompletionAsync();
 
-            // create a new container
-            var createContainerOperation = await managementClient.SqlResources.StartCreateUpdateSqlContainerAsync(resourceGroupName, accountName, databaseName, containerName,
+            // Create a new container using the management client
+            var createContainerOperation = await managementClient.SqlResources.StartCreateUpdateSqlContainerAsync(
+                resourceGroupName,
+                accountName,
+                databaseName,
+                containerName,
                 new SqlContainerCreateUpdateParameters(new SqlContainerResource(containerName), new CreateUpdateOptions()));
             await createContainerOperation.WaitForCompletionAsync();
 
-
-            // create a new item 
+            // Create a new item in the container using the data client
             var partitionKey = "pkey";
             var id = Guid.NewGuid().ToString();
             await dataClient.GetContainer(databaseName, containerName)
                 .CreateItemAsync(new { id = id, _partitionKey = partitionKey }, new PartitionKey(partitionKey));
 
-
-            // read back the item
+            // Read back the item from the container using the data client
             var pointReadResult = await dataClient.GetContainer(databaseName, containerName)
                 .ReadItemAsync<dynamic>(id, new PartitionKey(partitionKey));
 
-
-            // run a query
+            // Run a query to get all items from the container using the data client
             await dataClient.GetContainer(databaseName, containerName)
                 .GetItemQueryIterator<dynamic>("SELECT * FROM c")
                 .ReadNextAsync();
@@ -377,7 +386,7 @@ Language-specific examples using ManagedIdentityCredential:
 
 ### .NET
 
-Initialize your Cosmos DB client:
+Initialize your Azure Cosmos DB client:
 
 ```csharp
 CosmosClient client = new CosmosClient("<account-endpoint>", new ManagedIdentityCredential());
@@ -387,7 +396,7 @@ Then [read and write data](../../cosmos-db/sql/sql-api-dotnet-v3sdk-samples.md).
 
 ### Java
 
-Initialize your Cosmos DB client:
+Initialize your Azure Cosmos DB client:
 
 ```java
 CosmosAsyncClient Client = new CosmosClientBuilder().endpoint("<account-endpoint>") .credential(new ManagedIdentityCredential()) .build();
@@ -397,7 +406,7 @@ Then read and write data as described in [these samples](../../cosmos-db/sql/sql
 
 ### JavaScript
 
-Initialize your Cosmos DB client:
+Initialize your Azure Cosmos DB client:
 
 ```javascript
 const client = new CosmosClient({ "<account-endpoint>", aadCredentials: new ManagedIdentityCredential() });
@@ -407,9 +416,13 @@ Then read and write data as described in [these samples](../../cosmos-db/sql/sql
 
 ## Clean up steps
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 # [Portal](#tab/azure-portal)
 
-1. In the [portal](https://portal.azure.com), select the resource you want to delete.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Select the resource you want to delete.
 
 1. Select **Delete**.
 
@@ -446,7 +459,7 @@ Learn more about managed identities for Azure resources:
 - [What are managed identities for Azure resources?](overview.md)
 - [Azure Resource Manager templates](https://github.com/Azure/azure-quickstart-templates)
 
-Learn more about Azure Cosmos
+Learn more about Azure Cosmos DB:
 
-- [Azure Cosmos DB resource model](../../cosmos-db/account-databases-containers-items.md)
-- [Tutorial: Build a .NET console app to manage data in Azure Cosmos DB SQL API account](../../cosmos-db/sql/sql-api-get-started.md)
+- [Azure Cosmos DB resource model](../../cosmos-db/resource-model.md)
+- [Tutorial: Build a .NET console app to manage data in an Azure Cosmos DB for NoSQL account](../../cosmos-db/sql/sql-api-get-started.md)

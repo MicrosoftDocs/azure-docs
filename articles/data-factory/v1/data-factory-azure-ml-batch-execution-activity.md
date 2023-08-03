@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 ---
 
 # Create predictive pipelines using Machine Learning Studio (classic) and Azure Data Factory
@@ -31,7 +31,7 @@ ms.date: 10/22/2021
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [transform data using machine learning in Data Factory](../transform-data-using-machine-learning.md).
 
 ### Machine Learning Studio (classic)
-[ML Studio (classic)](https://azure.microsoft.com/documentation/services/machine-learning/) enables you to build, test, and deploy predictive analytics solutions. From a high-level point of view, it is done in three steps:
+[ML Studio (classic)](../../machine-learning/index.yml) enables you to build, test, and deploy predictive analytics solutions. From a high-level point of view, it is done in three steps:
 
 1. **Create a training experiment**. You do this step by using ML Studio (classic). Studio (classic) is a collaborative visual development environment that you use to train and test a predictive analytics model using training data.
 2. **Convert it to a predictive experiment**. Once your model has been trained with existing data and you are ready to use it to score new data, you prepare and streamline your experiment for scoring.
@@ -299,22 +299,18 @@ We recommend that you go through the [Build your first pipeline with Data Factor
       }
       ```
 
-      Both **start** and **end** datetimes must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours.**" To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](/previous-versions/azure/dn835050(v=azure.100)) for details about JSON properties.
+      Both **start** and **end** datetime values must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601), such as `2014-10-14T16:32:41Z`. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours.**" To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](/previous-versions/azure/dn835050(v=azure.100)) for details about JSON properties.
 
       > [!NOTE]
       > Specifying input for the AzureMLBatchExecution activity is optional.
-      >
-      >
 
 ### Scenario: Experiments using Reader/Writer Modules to refer to data in various storages
 Another common scenario when creating Studio (classic) experiments is to use Reader and Writer modules. The reader module is used to load data into an experiment and the writer module is to save data from your experiments. For details about reader and writer modules, see [Reader](/azure/machine-learning/studio-module-reference/import-data) and [Writer](/azure/machine-learning/studio-module-reference/export-data) topics on MSDN Library.
 
-When using the reader and writer modules, it is good practice to use a Web service parameter for each property of these reader/writer modules. These web parameters enable you to configure the values during runtime. For example, you could create an experiment with a reader module that uses an Azure SQL Database: XXX.database.windows.net. After the web service has been deployed, you want to enable the consumers of the web service to specify another logical SQL server called YYY.database.windows.net. You can use a Web service parameter to allow this value to be configured.
+When using the reader and writer modules, it's good practice to use a Web service parameter for each property of these reader/writer modules. These web parameters enable you to configure the values during runtime. For example, you could create an experiment with a reader module that uses an Azure SQL Database instance: `XXX.database.windows.net`. After the web service has been deployed, you want to enable the consumers of the web service to specify another logical SQL Server instance called `YYY.database.windows.net`. You can use a Web service parameter to allow this value to be configured.
 
 > [!NOTE]
 > Web service input and output are different from Web service parameters. In the first scenario, you have seen how an input and output can be specified for a Studio (classic) Web service. In this scenario, you pass parameters for a Web service that correspond to properties of reader/writer modules.
->
->
 
 Let's look at a scenario for using Web service parameters. You have a deployed Studio (classic) web service that uses a reader module to read data from one of the data sources supported by Studio (classic) (for example: Azure SQL Database). After the batch execution is performed, the results are written using a Writer module (Azure SQL Database).  No web service inputs and outputs are defined in the experiments. In this case, we recommend that you configure relevant web service parameters for the reader and writer modules. This configuration allows the reader/writer modules to be configured when using the AzureMLBatchExecution activity. You specify Web service parameters in the **globalParameters** section in the activity JSON as follows.
 
@@ -339,8 +335,6 @@ You can also use [Data Factory Functions](data-factory-functions-variables.md) i
 
 > [!NOTE]
 > The Web service parameters are case-sensitive, so ensure that the names you specify in the activity JSON match the ones exposed by the Web service.
->
->
 
 ### Using a Reader module to read data from multiple files in Azure Blob
 Big data pipelines with activities such as Pig and Hive can produce one or more output files with no extensions. For example, when you specify an external Hive table, the data for the external Hive table can be stored in Azure blob storage with the following name 000000_0. You can use the reader module in an experiment to read multiple files, and use them for predictions.
@@ -352,7 +346,7 @@ When using the reader module in a Studio (classic) experiment, you can specify A
 ### Example
 #### Pipeline with AzureMLBatchExecution activity with Web Service Parameters
 
-```JSON
+```json
 {
   "name": "MLWithSqlReaderSqlWriter",
   "properties": {
@@ -411,7 +405,7 @@ If the web service takes multiple inputs, use the **webServiceInputs** property 
 
 In your ML Studio (classic) experiment, web service input and output ports and global parameters have default names ("input1", "input2") that you can customize. The names you use for webServiceInputs, webServiceOutputs, and globalParameters settings must exactly match the names in the experiments. You can view the sample request payload on the Batch Execution Help page for your Studio (classic) endpoint to verify the expected mapping.
 
-```JSON
+```json
 {
     "name": "PredictivePipeline",
     "properties": {
@@ -454,7 +448,7 @@ In your ML Studio (classic) experiment, web service input and output ports and g
 #### Web Service does not require an input
 ML Studio (classic) batch execution web services can be used to run any workflows, for example R or Python scripts, that may not require any inputs. Or, the experiment might be configured with a Reader module that does not expose any GlobalParameters. In that case, the AzureMLBatchExecution Activity would be configured as follows:
 
-```JSON
+```json
 {
     "name": "scoring service",
     "type": "AzureMLBatchExecution",
@@ -481,7 +475,7 @@ ML Studio (classic) batch execution web services can be used to run any workflow
 #### Web Service does not require an input/output
 The ML Studio (classic) batch execution web service might not have any Web Service output configured. In this example, there is no Web Service input or output, nor are any GlobalParameters configured. There is still an output configured on the activity itself, but it is not given as a webServiceOutput.
 
-```JSON
+```json
 {
     "name": "retraining",
     "type": "AzureMLBatchExecution",
@@ -505,7 +499,7 @@ The ML Studio (classic) batch execution web service might not have any Web Servi
 #### Web Service uses readers and writers, and the activity runs only when other activities have succeeded
 The ML Studio (classic) web service reader and writer modules might be configured to run with or without any GlobalParameters. However, you may want to embed service calls in a pipeline that uses dataset dependencies to invoke the service only when some upstream processing has completed. You can also trigger some other action after the batch execution has completed using this approach. In that case, you can express the dependencies using activity inputs and outputs, without naming any of them as Web Service inputs or outputs.
 
-```JSON
+```json
 {
     "name": "retraining",
     "type": "AzureMLBatchExecution",
@@ -564,7 +558,7 @@ If you want to continue using the AzureMLBatchScoring activity, continue reading
 
 ### ML Studio (classic) Batch Scoring activity using Azure Storage for input/output
 
-```JSON
+```json
 {
   "name": "PredictivePipeline",
   "properties": {
@@ -602,7 +596,7 @@ If you want to continue using the AzureMLBatchScoring activity, continue reading
 ### Web Service Parameters
 To specify values for Web service parameters, add a **typeProperties** section to the **AzureMLBatchScoringActivity** section in the pipeline JSON as shown in the following example:
 
-```JSON
+```json
 "typeProperties": {
     "webServiceParameters": {
         "Param 1": "Value 1",
@@ -610,9 +604,10 @@ To specify values for Web service parameters, add a **typeProperties** section t
     }
 }
 ```
+
 You can also use [Data Factory Functions](data-factory-functions-variables.md) in passing values for the Web service parameters as shown in the following example:
 
-```JSON
+```json
 "typeProperties": {
     "webServiceParameters": {
        "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
@@ -622,10 +617,8 @@ You can also use [Data Factory Functions](data-factory-functions-variables.md) i
 
 > [!NOTE]
 > The Web service parameters are case-sensitive, so ensure that the names you specify in the activity JSON match the ones exposed by the Web service.
->
->
 
-## See Also
+## See also
 * [Azure blog post: Getting started with Azure Data Factory and ML Studio (classic)](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md

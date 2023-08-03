@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how partners use Cost Management features and how they enable access for their customers.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/10/2021
+ms.date: 04/05/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -75,7 +75,7 @@ Partners also filter costs in a specific billing currency across customers in th
 
 ![Example showing Actual cost selection for currencies](./media/get-started-partners/actual-cost-selector.png)
 
-Use the [amortized cost view](quick-acm-cost-analysis.md#switch-between-actual-and-amortized-cost) in billing scopes to view reserved instance amortized costs across a reservation term.
+Use the [amortized cost view](customize-cost-analysis-views.md#switch-between-actual-and-amortized-cost) in billing scopes to view reserved instance amortized costs across a reservation term.
 
 ### Billing profile scope
 
@@ -118,7 +118,7 @@ To view costs at the customer scope, in the partner tenant navigate to Cost anal
 
 Only the users with **Global admin** and **Admin agent** roles can manage and view costs for billing accounts, billing profiles, and customers directly in the partner's Azure tenant. For more information about partner center roles, see [Assign users roles and permissions](/partner-center/permissions-overview).
 
-## Enable cost management for customer tenant subscriptions
+## Enable Cost Management for customer tenant subscriptions
 
 Partners may enable access to Cost Management after customers are onboarded to a Microsoft Customer Agreement. Then partners can then enable a policy allowing customers to view their costs for Azure consumed services computed at pay-as-you-go retail rates. Costs are shown in the customer's billing currency for their consumed usage at Azure RBAC subscription and resource groups scopes.
 
@@ -147,21 +147,9 @@ When the cost policy is set to **Yes**, subscription users associated to the cus
 
 When the cost visibility policy is enabled, all services that have subscription usage show costs at pay-as-you-go rates. Reservation usage appears with zero charges for actual and amortized costs. Purchases and entitlements are not associated to a specific subscription. So, purchases aren't displayed at the subscription scope. The global admin/admin agent of a direct partner or an indirect provider can also use the [Update Customer API](/rest/api/billing/2019-10-01-preview/policies/updatecustomer) to set each customer's cost visibility policy at scale.
 
-## View and enable all policies
-
-You can also view and change policies for Azure reservations, Azure Marketplace, view Azure charges, and tag management in a single location. The policy settings apply to all customers under the billing profile.
-
-To view or change policies:
-
-1. In the Azure portal, navigate to **Cost Management** (not Cost Management + Billing).
-1. In the left menu under **Settings**, select **Configuration**.
-1. The billing profile configuration is shown. Polices are shown as Enabled or Disabled. If you want to change a policy, select **Edit** under a policy.  
-    :::image type="content" source="./media/get-started-partners/configuration-policy-settings.png" alt-text="Screenshot showing the billing profile configuration page where you can view and edit policy settings." lightbox="./media/get-started-partners/configuration-policy-settings.png" :::
-1. If needed, change the policy settings, and then select **Save**.
-
 ### View subscription costs in the customer tenant
 
-To view costs for a subscription, open **Cost Management + Billing** in the customer's Azure tenant. Select **Cost analysis** and then the required subscription to start reviewing costs. You can view consumption costs for each subscription individually in the customer tenant.
+To view costs for a subscription, open **Cost Management** in the customer's Azure tenant. Select **Cost analysis** and then the required subscription to start reviewing costs. You can view consumption costs for each subscription individually in the customer tenant.
 
 [![View cost analysis as a customer ](./media/get-started-partners/subscription-costs.png)](./media/get-started-partners/subscription-costs.png#lightbox)
 
@@ -198,7 +186,7 @@ The following data fields are found in usage detail files and Cost Management AP
 | **CustomerTenantDomainName** | Domain name for the Azure Active Directory tenant of the customer's subscription. | Customer Azure Active Directory tenant domain. |
 | **PartnerTenantID** | Identifier for the partner's Azure Active Directory tenant. | Partner Azure Active Directory Tenant ID called as Partner ID, in GUID format. |
 | **PartnerName** | Name of the partner Azure Active Directory tenant. | Partner name. |
-| **ResellerMPNID** | MPNID for the reseller associated with the subscription. | MPN ID of the reseller on record for the subscription. Not available for current activity. |
+| **ResellerMPNID** | ID for the reseller associated with the subscription. | ID of the reseller on record for the subscription. Not available for current activity. |
 | costCenter | Cost center associated to the subscription. | N/A |
 | billingPeriodStartDate | Billing period start date, as shown on the invoice. | N/A |
 | billingPeriodEndDate | Billing period end date, as shown on the invoice. | N/A |

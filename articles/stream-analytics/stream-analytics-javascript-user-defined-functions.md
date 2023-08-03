@@ -1,8 +1,6 @@
 ---
 title: Azure Stream Analytics JavaScript user-defined functions
 description: This article is an introduction to JavaScript user-defined functions in Stream Analytics.
-author: fleid
-ms.author: fleide
 ms.service: stream-analytics
 ms.topic: tutorial
 
@@ -213,13 +211,40 @@ Samstag, 28. Dezember 2019
 ```
 
 ## User Logging
-The logging mechanism allows you to capture custom information while a job is running. You can use log data to debug or assess the correctness of the custom code in real time. This mechanism is available through the Console.Log() method.
+The logging mechanism allows users to capture custom information while a job is running. Log data can be used to debug or assess the correctness of the custom code in real time. This mechanism is available through three different methods.
+
+### Console.Info()
+Console.Info method is used to log general information during code execution. This method will log data without interrupting computation. The message logged will be marked as Event Level Informational.
 
 ```javascript
-console.log('my error message');
+console.info('my info message');
+```
+
+### Console.Warn()
+Console.Warn method is used to log data that might not be correct or expected but is still accepted for computation. This method will not interrupt computation and will resume running after the method is returned. The message logged will be marked as Event Level Warning.
+
+```javascript
+console.warn('my warning message');
+```
+
+### Console.Error() and Console.Log()
+Console.Error method is only used to log error cases where code cannot continue to run. This method will throw an exception with the error information provided as the input parameter and job will stop running. The error message logged will be marked as Event Level Error.
+
+```javascript
+console.error('my error message');
 ```
 
 You can access log messages through the [diagnostic logs](data-errors.md).
+
+## atob() and btoa()
+The method btoa() can be used to encode an ASCII string into Base64. This is usually done to transfer data in a binary format. The atob() method can be used to decode a string of data encoded in Base64 to an ASCII string format.
+
+```javascript
+var myAsciiString = 'ascii string';
+var encodedString = btoa(myAsciiString);
+var decodedString = atob(encodedString);
+```
+
 ## Next steps
 
 * [Machine Learning UDF](./machine-learning-udf.md)

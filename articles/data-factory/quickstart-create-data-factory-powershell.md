@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.devlang: powershell
 ms.topic: quickstart
-ms.date: 01/26/2022
+ms.date: 07/20/2023
 ms.author: jianleishen
 ms.custom: devx-track-azurepowershell, mode-api
 ---
@@ -29,7 +29,7 @@ This quickstart describes how to use PowerShell to create an Azure Data Factory.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 >[!WARNING]
 >If you do not use latest versions of PowerShell and Data Factory module, you may run into deserialization errors while running the commands. 

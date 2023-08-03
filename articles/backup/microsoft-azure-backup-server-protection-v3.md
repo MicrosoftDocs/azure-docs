@@ -1,11 +1,11 @@
 ---
 title: What Azure Backup Server V3 RTM can back up
 description: This article provides a protection matrix listing all workloads, data types, and installations that Azure Backup Serve V3 RTM protects.
-ms.date: 08/08/2022
+ms.date: 04/20/2023
 ms.topic: conceptual
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Azure Backup Server V3 RTM protection matrix
@@ -61,14 +61,14 @@ The following matrix lists what can be protected with Azure Backup Server V3 RTM
 |Hyper-V host - MABS protection agent on Hyper-V host server, cluster, or VM|Windows Server 2012 R2 - Datacenter and Standard|Physical server<br /><br />On-premises Hyper-V virtual machine|V3, V2|Protect: Hyper-V computers, cluster shared volumes (CSVs)<br /><br />Recover: Virtual machine, Item-level recovery of files and folder, volumes, virtual hard drives|
 |Hyper-V host - MABS protection agent on Hyper-V host server, cluster, or VM|Windows Server 2012 - Datacenter and Standard|Physical server<br /><br />On-premises Hyper-V virtual machine|V3, V2|Protect: Hyper-V computers, cluster shared volumes (CSVs)<br /><br />Recover: Virtual machine, Item-level recovery of files and folder, volumes, virtual hard drives|
 |VMware VMs|VMware vCenter/vSphere ESX/ESXi  Licensed Version 5.5/6.0/6.5 |Physical server, <br/>On-premises Hyper-V VM, <br/> Windows VM in VMware|V3, V2|VMware VMs on cluster-shared volumes (CSVs), NFS, and SAN storage<br /> Item-level recovery of files and folders is available only for Windows VMs, VMware vApps are not supported.|
-|VMware VMs|[VMware vSphere Licensed version 6.7 and 7.0](backup-azure-backup-server-vmware.md#vmware-vsphere-67-and-70) |Physical server, <br/>On-premises Hyper-V VM, <br/> Windows VM in VMware|V3|VMware VMs on cluster-shared volumes (CSVs), NFS, and SAN storage<br /> Item-level recovery of files and folders is available only for Windows VMs, VMware vApps are not supported.|
+|VMware VMs|[VMware vSphere Licensed version 6.7, 7.0](backup-azure-backup-server-vmware.md#vmware-vsphere-67-70-and-80) |Physical server, <br/>On-premises Hyper-V VM, <br/> Windows VM in VMware|V3|VMware VMs on cluster-shared volumes (CSVs), NFS, and SAN storage<br /> Item-level recovery of files and folders is available only for Windows VMs, VMware vApps are not supported.|
 |Linux|Linux running as [Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) or [VMware](backup-azure-backup-server-vmware.md) guest|Physical server, <br/>On-premises Hyper-V VM, <br/> Windows VM in VMware|V3, V2|Hyper-V must be running on Windows Server 2012 R2 or Windows Server 2016. Protect: Entire virtual machine<br /><br />Recover: Entire virtual machine <br/><br/> Only file-consistent snapshots are supported. <br/><br/> For a complete list of supported Linux distributions and versions, see the article, [Linux on distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md).|
 
 ### Operating systems and applications at end of support
 
 Support for the following operating systems and applications in MABS are deprecated. We recommended you to upgrade them to continue protecting your data.
 
-If the existing commitments prevent upgrading Windows Server or SQL Server, migrate them to Azure and [use Azure Backup to protect the servers](/azure/backup/). For more information, see [migration of Windows Server, apps and workloads](https://azure.microsoft.com/migration/windows-server/).
+If the existing commitments prevent upgrading Windows Server or SQL Server, migrate them to Azure and [use Azure Backup to protect the servers](./index.yml). For more information, see [migration of Windows Server, apps and workloads](https://azure.microsoft.com/migration/windows-server/).
 
 For on-premises or hosted environments that you can't upgrade or migrate to Azure, activate Extended Security Updates for the machines for protection and support. Note that only limited editions are eligible for Extended Security Updates. For more information, see [Frequently asked questions](https://www.microsoft.com/windows-server/extended-security-updates).
 

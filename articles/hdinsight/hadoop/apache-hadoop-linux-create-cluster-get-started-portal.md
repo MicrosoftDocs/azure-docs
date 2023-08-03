@@ -5,7 +5,7 @@ keywords: hadoop getting started,hadoop linux,hadoop quickstart,hive getting sta
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive, hdiseo17may2017, mvc, seodec18, mode-ui
-ms.date: 02/24/2020
+ms.date: 10/20/2022
 #Customer intent: As a data analyst, I need to create a Hadoop cluster in Azure HDInsight using Azure portal and run a Hive job
 ---
 
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 In this section, you create a Hadoop cluster in HDInsight using the Azure portal.
 
-1. Sign in to the [Azure  portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. From the top menu, select **+ Create a resource**.
 
@@ -41,8 +41,8 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
    |Region    | From the drop-down list, select a region where the cluster is created.  Choose a location closer to you for better performance. |
    |Cluster type| Select **Select cluster type**. Then select **Hadoop** as the cluster type.|
    |Version|From the drop-down list, select a **version**. Use the default version if you don't know what to choose.|
-   |Cluster login username and password    | The default login name is **admin**. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lower case letter, one non-alphanumeric character (except characters ' " ` \). Make sure you **do not provide** common passwords such as "Pass@word1".|
-   |Secure Shell (SSH) username | The default username is **sshuser**.  You can provide another name for the SSH username. |
+   |Cluster login username and password    | The default login name is **admin**. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lower case letter, one non-alphanumeric character (except characters ```' ` "```). Make sure you **do not provide** common passwords such as "Pass@word1".|
+   |Secure Shell (SSH) username | The default username is `sshuser`.  You can provide another name for the SSH username. |
    |Use cluster login password for SSH| Select this check box to use the same password for SSH user as the one you provided for the cluster login user.|
 
    :::image type="content" source="./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-basics.png" alt-text="HDInsight Linux get started provide cluster basic values" border="true":::
@@ -66,13 +66,13 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
 
 1. From the **Review + create** tab, verify the values you selected in the earlier steps.
 
-   :::image type="content" source="./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-review-create-hadoop.png" alt-text="HDInsight Linux get started cluster summary" border="true":::
+   :::image type="content" source="./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-review-create-hadoop.png" alt-text="Screenshot showing HDInsight Linux get started cluster summary." border="true":::
 
 1. Select **Create**. It takes about 20 minutes to create a cluster.
 
    Once the cluster is created, you see the cluster overview page in the Azure portal.
 
-   :::image type="content" source="./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-settings-overview.png" alt-text="HDInsight Linux get started cluster settings" border="true":::
+   :::image type="content" source="./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-settings-overview.png" alt-text="Screenshot showing HDInsight Linux get started cluster settings" border="true.":::
 
 ## Run Apache Hive queries
 
@@ -83,9 +83,9 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
 
 1. To open Ambari, from the previous screenshot, select **Cluster Dashboard**.  You can also browse to  `https://ClusterName.azurehdinsight.net` where `ClusterName` is the cluster you created in the previous section.
 
-   :::image type="content" source="./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-get-started-open-cluster-dashboard.png" alt-text="HDInsight Linux get started cluster dashboard" border="true":::
+   :::image type="content" source="./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-get-started-open-cluster-dashboard.png" alt-text="Screenshot showing HDInsight Linux get started cluster dashboard." border="true":::
 
-2. Enter the Hadoop username and password that you specified while creating the cluster. The default username is **admin**.
+2. Enter the Hadoop username and password that you specified while creating the cluster. The default username is `admin`.
 
 3. Open **Hive View** as shown in the following screenshot:
 

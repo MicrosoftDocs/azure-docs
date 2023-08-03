@@ -2,8 +2,10 @@
 title: Set up private endpoint with private link
 description: Set up a private endpoint on a container registry and enable access over a private link in a local virtual network. Private link access is a feature of the Premium service tier.
 ms.topic: article
-ms.date: 7/26/2022
+ms.custom: devx-track-azurecli
+author: tejaswikolli-web
 ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Connect privately to an Azure container registry using Azure Private Link
@@ -17,7 +19,7 @@ This article shows how to configure a private endpoint for your registry using t
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
 > [!NOTE]
-> Starting October 2021, new container registries allow a maximum of 200 private endpoints. Registries created earlier allow a maximum of 10 private endpoints. Use the [az acr show-usage](/cli/azure/acr#az-acr-show-usage) command to see the limit for your registry.
+> Starting from October 2021, new container registries allow a maximum of 200 private endpoints. Registries created earlier allow a maximum of 10 private endpoints. Use the [az acr show-usage](/cli/azure/acr#az-acr-show-usage) command to see the limit for your registry. Please open a support ticket to increase the limit to 200 private endpoints.
 
 ## Prerequisites
 
@@ -253,6 +255,9 @@ GEO_REPLICA_DATA_ENDPOINT_FQDN=$(az network nic show \
   --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry_data_$REPLICA_LOCATION'].privateLinkConnectionProperties.fqdns" \
   --output tsv)
 ```
+
+Once a new geo-replication is added, a private endpoint connection is set to be pending. To approve a private endpoint connection configured manually run [az acr private-endpoint-connection approve][az-acr-private-endpoint-connection-approve] command.
+
 ### Create DNS records in the private zone
 
 The following commands create DNS records in the private zone for the registry endpoint and its data endpoint. For example, if you have a registry named *myregistry* in the *westeurope* region, the endpoint names are `myregistry.azurecr.io` and `myregistry.westeurope.data.azurecr.io`. 
@@ -463,15 +468,30 @@ If you created all the Azure resources in the same resource group and no longer 
 az group delete --name $RESOURCE_GROUP
 ```
 
+## Integrating with a registry with private link enabled
+
+To pull content from a registry with private link enabled, clients must allow access to the registry REST endpoint, as well as all regional data endpoints. The client proxy or firewall must allow access to
+
+REST endpoint: `{REGISTRY_NAME}.azurecr.io`
+Data endpoint(s): `{REGISTRY_NAME}.{REGISTRY_LOCATION}.data.azurecr.io`
+
+For a geo-replicated registry, customer needs to configure access to the data endpoint for each regional replica.
+
+You have to update the routing configuration for the client proxy and client firewall with the data endpoints to handle the pull requests successfully. A client proxy will provide central traffic control to the [outbound requests][outbound-connection]. To handle local traffic a client proxy is not required, you can add into `noProxy` section to bypass the proxy. Learn more about [HTTP proxy doc](../aks/http-proxy.md) to integrate with AKS. 
+
+Requests to token server over private endpoint connection doesn't require the data endpoint configuration.
+
 ## Next steps
 
 * To learn more about Private Link, see the [Azure Private Link](../private-link/private-link-overview.md) documentation.
 
-* To verify DNS settings in the virtual network that route to a private endpoint, run the [az acr check-health](/cli/azure/acr#az-acr-check-health) command with the `--vnet` parameter. For more information, see [Check the health of an Azure container registry](container-registry-check-health.md) 
+* To verify DNS settings in the virtual network that route to a private endpoint, run the [az acr check-health](/cli/azure/acr#az-acr-check-health) command with the `--vnet` parameter. For more information, see [Check the health of an Azure container registry](container-registry-check-health.md). 
 
 * If you need to set up registry access rules from behind a client firewall, see [Configure rules to access an Azure container registry behind a firewall](container-registry-firewall-access-rules.md).
 
-* [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md)
+* [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md).
+
+* If you need to deploy Azure Container Instances that can pull images from an ACR through a private endpoint, see [Deploy to Azure Container Instances from Azure Container Registry using a managed identity](../container-instances/using-azure-container-registry-mi.md).
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
@@ -507,4 +527,4 @@ az group delete --name $RESOURCE_GROUP
 [az-network-nic-show]: /cli/azure/network/nic#az_network_nic_show
 [quickstart-portal]: container-registry-get-started-portal.md
 [quickstart-cli]: container-registry-get-started-azure-cli.md
-[azure-portal]: https://portal.azure.com
+[outbound-connection]: /azure/firewall/rule-processing#outbound-connectivity

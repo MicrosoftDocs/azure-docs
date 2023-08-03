@@ -1,8 +1,8 @@
 ---
 title: Integrate Azure Web PubSub with service connector
 description: Integrate Azure Web PubSub into your application with Service Connector
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 08/11/2022
@@ -40,9 +40,13 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 ### [Azure Spring Apps](#tab/spring-apps)
 
-| Client type |   System-assigned managed identity   |    User-assigned managed identity    |       Secret/connection string       |           Service principal          |
-|-------------|:------------------------------------:|:------------------------------------:|:------------------------------------:|:------------------------------------:|
-| Java        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Client type |   System-assigned managed identity   | User-assigned managed identity |       Secret/connection string       |           Service principal          |
+|-------------|:------------------------------------:|:------------------------------:|:------------------------------------:|:------------------------------------:|
+| .NET        | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Java        | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Node.js     | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Python      | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+
 
 ---
 

@@ -2,24 +2,26 @@
 title: Configure an app's publisher domain
 description: Learn how to configure an app's publisher domain to let users know where their information is being sent.
 services: active-directory
-author: rwike77
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/23/2021
-ms.author: ryanwi
-ms.reviewer: lenalepa, sureshja, zachowd
+ms.date: 04/27/2023
+ms.author: owenrichards
+ms.reviewer: xurobert
 ms.custom: contperf-fy21q4, aaddev
 ---
 
 # Configure an app's publisher domain
 
-An app’s publisher domain informs users where their information is being sent. The publisher domain also acts as an input or prerequisite for [publisher verification](publisher-verification-overview.md).
+An app’s publisher domain informs users where their information is being sent. The publisher domain also acts as an input or prerequisite for [publisher verification](publisher-verification-overview.md). Depending on when the app was registered and the status of the Publisher Verification, it would be displayed directly to the user on the [application's consent prompt](application-consent-experience.md). An application’s publisher domain is displayed to users (depending on the state of Publisher Verification) on the consent UX to let users know where their information is being sent for trustworthiness.
 
-In an app's [consent prompt](application-consent-experience.md), either the publisher domain or the publisher verification status appears. Which information is shown depends on whether the app is a [multitenant app](/azure/architecture/guide/multitenant/overview), when the app was registered, and the app's publisher verification status.
+In an app's consent prompt, either the publisher domain or the publisher verification status appears. Which information is shown depends on whether the app is a [multitenant app](/azure/architecture/guide/multitenant/overview), when the app was registered, and the app's publisher verification status.
+
+## Understand multitenant apps
 
 A *multitenant app* is an app that supports user accounts that are outside a single organizational directory. For example, a multitenant app might support all Azure Active Directory (Azure AD) work or school accounts, or it might support both Azure AD work or school accounts and personal Microsoft accounts.
 
@@ -65,6 +67,8 @@ If your multitenant was registered *after November 30, 2020*:
 If your app was registered *before May 21, 2019*, your app's consent prompt shows *unverified*, even if you haven't set a publisher domain. We recommend that you set the publisher domain value so that users can see this information in your app's consent prompt.
 
 ## Set a publisher domain in the Azure portal
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 To set a publisher domain for your app by using the Azure portal:
 
@@ -114,7 +118,7 @@ You're not required to maintain the resources that are used for verification aft
 If your tenant has verified domains, in the **Select a verified domain** dropdown, select one of the domains.
 
 > [!NOTE]
-> The expected `Content-Type` header that should return is `application/json`. If you use any other header, like `application/json; charset=utf-8`, you might see this error message:
+> Content will be interpreted as UTF-8 JSON for deserialization. Supported `Content-Type` headers that should return are `application/json`, `application/json; charset=utf-8`, or ` `. If you use any other header, you might see this error message:
 >
 > `Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value.`
 >

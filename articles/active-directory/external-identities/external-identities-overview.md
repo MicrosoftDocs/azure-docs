@@ -1,13 +1,13 @@
 ---
 
-title: External Identities in Azure Active Directory | Microsoft Docs
+title: External Identities in Azure Active Directory
 description: Azure AD External Identities allow you to collaborate with or publish apps to people outside your organization. Compare solutions for External Identities, including Azure Active Directory B2B collaboration, Azure AD B2B collaboration, and Azure AD B2C.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 06/30/2022
+ms.date: 05/05/2023
 ms.author: mimart
 author: msmimart
 manager: celestedg
@@ -28,6 +28,8 @@ The following capabilities make up External Identities:
 - **B2B direct connect** - Establish a mutual, two-way trust with another Azure AD organization for seamless collaboration. B2B direct connect currently supports Teams shared channels, enabling external users to access your resources from within their home instances of Teams. B2B direct connect users aren't represented in your directory, but they're visible from within the Teams shared channel and can be monitored in Teams admin center reports.
 
 - **Azure AD B2C** - Publish modern SaaS apps or custom-developed apps (excluding Microsoft apps) to consumers and customers, while using Azure AD B2C for identity and access management.
+
+- **Azure AD multi-tenant organization** - Collaborate with multiple tenants in a single Azure AD organization via cross-tenant synchronization.  
 
 Depending on how you want to interact with external organizations and the types of resources you need to share, you can use a combination of these capabilities.
 
@@ -61,7 +63,7 @@ Currently, B2B direct connect enables the Teams Connect shared channels feature,
 
 You use [cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md) to manage trust relationships with other Azure AD organizations and define inbound and outbound policies for B2B direct connect.
 
-For details about the resources, files, and applications, that are available to the B2B direct connect user via the Teams shared channel, refer to [Chat, teams, channels, & apps in Microsoft Teams](/microsoftteams/deploy-chat-teams-channels-microsoft-teams-landing-page).
+For details about the resources, files, and applications that are available to the B2B direct connect user via the Teams shared channel refer to [Chat, teams, channels, & apps in Microsoft Teams](/microsoftteams/deploy-chat-teams-channels-microsoft-teams-landing-page).
 
 ## Azure AD B2C
 
@@ -83,9 +85,16 @@ The following table gives a detailed comparison of the scenarios you can enable 
 | **Identity providers supported**  | External users can collaborate using work accounts, school accounts, any email address, SAML and WS-Fed based identity providers, and social identity providers like Gmail and Facebook. |  External users collaborate using Azure AD work accounts or school accounts.   | Consumer users with local application accounts (any email address, user name, or phone number), Azure AD, various supported social identities, and users with corporate and government-issued identities via SAML/WS-Fed-based identity provider federation. |
 | **Single sign-on (SSO)**  | SSO to all Azure AD-connected apps is supported. For example, you can provide access to Microsoft 365 or on-premises apps, and to other SaaS apps such as Salesforce or Workday.  |  SSO to a Teams shared channel. | SSO to customer owned apps within the Azure AD B2C tenants is supported. SSO to Microsoft 365 or to other Microsoft SaaS apps isn't supported. |
 | **Licensing and billing**  | Based on monthly active users (MAU), including B2B collaboration and Azure AD B2C users. Learn more about [External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/) and [billing setup for B2B](external-identities-pricing.md).  |  Based on monthly active users (MAU), including B2B collaboration, B2B direct connect, and Azure AD B2C users. Learn more about [External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/) and [billing setup for B2B](external-identities-pricing.md).   | Based on monthly active users (MAU), including B2B collaboration and Azure AD B2C users. Learn more about [External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/) and [billing setup for Azure AD B2C](../../active-directory-b2c/billing.md). |
-| **Security policy and compliance**        | Managed by the host/inviting organization (for example, with [Conditional Access policies](authentication-conditional-access.md) and cross-tenant access settings). |  Managed by the host/inviting organization (for example, with [Conditional Access policies](authentication-conditional-access.md) and cross-tenant access settings). See also the [Teams documentation](/microsoftteams/security-compliance-overview).   |  Managed by the organization via Conditional Access and Identity Protection.        |
+| **Security policy and compliance**        | Managed by the host/inviting organization (for example, with [Conditional Access policies](authentication-conditional-access.md) and cross-tenant access settings). |  Managed by the host/inviting organization (for example, with [Conditional Access policies](authentication-conditional-access.md) and cross-tenant access settings). See also the [Teams documentation](/microsoftteams/security-compliance-overview).   | Managed by the organization via [Conditional Access and Identity Protection](../../active-directory-b2c/conditional-access-identity-protection-overview.md).         |
+| **Multi-factor Authentication (MFA)**   | If inbound trust settings to accept MFA claims from the user's home tenant are configured, and MFA policies have already been met in the user's home tenant, the external user can sign in. If MFA trust isn't enabled, the user is presented with an MFA challenge from the resource organization. [Learn more](authentication-conditional-access.md#mfa-for-azure-ad-external-users) about MFA for Azure AD external users.  | If inbound trust settings to accept MFA claims from the user's home tenant are configured, and MFA policies have already been met in the user's home tenant, the external user can sign in. If MFA trust isn't enabled, and Conditional Access policies require MFA, the user is blocked from accessing resources. You *must* configure your inbound trust settings to accept MFA claims from the organization. [Learn more](authentication-conditional-access.md#mfa-for-azure-ad-external-users) about MFA for Azure AD external users. | [Integrates directly](../../active-directory-b2c/multi-factor-authentication.md) with Azure AD Multi-Factor Authentication.   |
+| **Microsoft cloud settings**  | [Supported.](cross-cloud-settings.md)  | [Not supported.](cross-cloud-settings.md) | Not applicable.  |
+| **Entitlement management**  | [Supported.](../governance/entitlement-management-overview.md)  | Not supported. | Not applicable. |
+| **Line-of-business (LOB) apps**  | Supported.  | Not supported. Only B2B direct connect-enabled apps can be shared (currently, Teams Connect shared channels).  | Works with [RESTful API](../../active-directory-b2c/technical-overview.md#add-your-own-business-logic-and-call-restful-apis).   |
+| **Conditional Access**        | Managed by the host/inviting organization. [Learn more](authentication-conditional-access.md) about Conditional Access policies. |  Managed by the host/inviting organization. [Learn more](authentication-conditional-access.md) about Conditional Access policies.   |  Managed by the organization via [Conditional Access and Identity Protection](../../active-directory-b2c/conditional-access-identity-protection-overview.md).        |
 | **Branding**  | Host/inviting organization's brand is used.  | For sign-in screens, the user’s home organization brand is used. In the shared channel, the resource organization's brand is used. | Fully customizable branding per application or organization.   |
 | **More information** | [Blog post](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [Documentation](what-is-b2b.md)            |   [Documentation](b2b-direct-connect-overview.md)     | [Product page](https://azure.microsoft.com/services/active-directory-b2c/), [Documentation](../../active-directory-b2c/index.yml)       |
+
+Based on your organization’s requirements you might use cross-tenant synchronization in multi-tenant organizations. For more information about this new feature, see the [multi-tenant organization documentation](../multi-tenant-organizations/index.yml) and the [feature comparison](../multi-tenant-organizations/overview.md#compare-multi-tenant-capabilities). 
 
 ## Managing External Identities features
 
@@ -93,7 +102,7 @@ Azure AD B2B collaboration and B2B direct connect are features Azure AD, and the
 
 ### Cross-tenant access settings
 
-Cross-tenant access settings let you manage B2B collaboration and B2B direct connect with other Azure AD organizations. You can determine how other Azure AD organizations collaborate with you (inbound access), and how your users collaborate with other Azure AD organizations (outbound access). Granular controls let you determine the people, groups, and apps, both in your organization and in external Azure AD organizations, that can participate in B2B collaboration and B2B direct connect. You can also trust multi-factor authentication (MFA) and device claims (compliant claims and hybrid Azure AD joined claims) from other Azure AD organizations.
+Cross-tenant access settings let you manage B2B collaboration and B2B direct connect with other Azure AD organizations. You can determine how other Azure AD organizations collaborate with you (inbound access), and how your users collaborate with other Azure AD organizations (outbound access). Granular controls let you determine the people, groups, and apps, both in your organization and in external Azure AD organizations that can participate in B2B collaboration and B2B direct connect. You can also trust multi-factor authentication (MFA) and device claims (compliant claims and hybrid Azure AD joined claims) from other Azure AD organizations.
 
 - **Default cross-tenant access settings** determine your baseline inbound and outbound settings for both B2B collaboration and B2B direct connect. Initially, your default settings are configured to allow all inbound and outbound B2B collaboration with other Azure AD organizations and to block B2B direct connect with all Azure AD organizations. You can change these initial settings to create your own default configuration.
 
@@ -101,12 +110,14 @@ Cross-tenant access settings let you manage B2B collaboration and B2B direct con
 
 For more information, see [Cross-tenant access in Azure AD External Identities](cross-tenant-access-overview.md).
 
-### Microsoft cloud settings for B2B collaboration (preview)
+Azure AD has a feature for multi-tenant organizations called cross-tenant synchronization, which allows for a seamless collaboration experience across Azure AD tenants. Cross-tenant synchronization settings are configured under the **Organization-specific access settings**. To learn more about multi-tenant organizations and cross-tenant synchronization see the [Multi-tenant organizations documentation](../multi-tenant-organizations/index.yml).
+
+### Microsoft cloud settings for B2B collaboration
 
 Microsoft Azure cloud services are available in separate national clouds, which are physically isolated instances of Azure. Increasingly, organizations are finding the need to collaborate with organizations and users across global cloud and national cloud boundaries. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following Microsoft Azure clouds:
 
 - Microsoft Azure global cloud and Microsoft Azure Government
-- Microsoft Azure global cloud and Microsoft Azure China 21Vianet
+- Microsoft Azure global cloud and Microsoft Azure operated by 21Vianet
 
 To set up B2B collaboration between tenants in different clouds, both tenants need to configure their Microsoft cloud settings to enable collaboration with the other cloud. Then each tenant must configure inbound and outbound cross-tenant access with the tenant in the other cloud. See [Microsoft cloud settings](cross-cloud-settings.md) for details.
 ### External collaboration settings
@@ -162,8 +173,13 @@ Organizations can enforce Conditional Access policies for external B2B collabora
 
 If you offer a Software as a Service (SaaS) application to many organizations, you can configure your application to accept sign-ins from any Azure Active Directory (Azure AD) tenant. This configuration is called making your application multi-tenant. Users in any Azure AD tenant will be able to sign in to your application after consenting to use their account with your application. See how to [enable multitenant sign-ins](../develop/howto-convert-app-to-be-multi-tenant.md).
 
+### Multi-tenant organizations
+
+A multi-tenant organization is an organization that has more than one instance of Azure AD. There are various reasons for [multi-tenancy](../multi-tenant-organizations/overview.md#what-is-a-multi-tenant-organization), like using multiple clouds or having multiple geographical boundaries. Multi-tenant organizations use a one-way synchronization service in Azure AD, called [cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md). Cross-tenant synchronization enables seamless collaboration for a multi-tenant organization. It improves user experience and ensures that users can access resources, without receiving an invitation email and having to accept a consent prompt in each tenant.
+
 ## Next steps
 
 - [What is Azure AD B2B collaboration?](what-is-b2b.md)
 - [What is Azure AD B2B direct connect?](b2b-direct-connect-overview.md)
 - [About Azure AD B2C](../../active-directory-b2c/overview.md)
+- [About Azure AD multi-tenant organizations](../../active-directory/multi-tenant-organizations/overview.md)

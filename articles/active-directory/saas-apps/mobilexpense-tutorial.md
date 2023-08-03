@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/29/2022
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Mobile Xpense
@@ -49,6 +49,8 @@ To configure the integration of Mobile Xpense into Azure AD, you need to add Mob
 1. In the **Add from the gallery** section, type **Mobile Xpense** in the search box.
 1. Select **Mobile Xpense** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Mobile Xpense
 
 Configure and test Azure AD SSO with Mobile Xpense using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Mobile Xpense.
@@ -86,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<sub-domain>.mobilexpense.com/<customername>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Reply URL and Sign-on URL. Contact [Mobile Xpense Client support team](https://www.mobilexpense.net/contact) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Reply URL and Sign-on URL. Contact [Mobile Xpense Client support team](https://www.mobilexpense.com/contact) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -122,11 +124,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Mobile Xpense SSO
 
-To configure single sign-on on **Mobile Xpense** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Mobile Xpense support team](https://www.mobilexpense.net/contact). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Mobile Xpense** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Mobile Xpense support team](https://www.mobilexpense.com/contact). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Mobile Xpense test user
 
-In this section, you create a user called Britta Simon in Mobile Xpense. Work with [Mobile Xpense support team](https://www.mobilexpense.net/contact) to add the users in the Mobile Xpense platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Mobile Xpense. Work with [Mobile Xpense support team](https://www.mobilexpense.com/contact) to add the users in the Mobile Xpense platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 

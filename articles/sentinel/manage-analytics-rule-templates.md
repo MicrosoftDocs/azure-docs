@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Manage template versions for your scheduled analytics rules in Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 > [!IMPORTANT]
 >
 > This feature is in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

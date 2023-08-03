@@ -1,15 +1,15 @@
 ---
 title: Manage existing SIMs - Azure portal
 description: In this how-to guide, learn how to manage existing SIMs in your private mobile network using the Azure portal.  
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 06/16/2022
 ms.custom: template-how-to
 ---
 
-# Manage existing SIMs for Azure Private 5G Core Preview - Azure portal
+# Manage existing SIMs for Azure Private 5G Core - Azure portal
 
 *SIM* resources represent physical SIMs or eSIMs used by user equipment (UEs) served by the private mobile network. In this how-to guide, you'll learn how to manage existing SIMs, including how to assign static IP addresses and SIM policies.
 
@@ -22,7 +22,7 @@ ms.custom: template-how-to
 
 You can view your existing SIMs in the Azure portal.
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCNewPortal](https://aka.ms/AP5GCNewPortal).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select the **Mobile Network** resource representing the private mobile network.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
@@ -45,7 +45,7 @@ To assign a SIM policy to one or more SIMs:
 1. In the resource menu, select **SIMs**.
 1. You'll see a list of provisioned SIMs in the private mobile network. For each SIM policy you want to assign to one or more SIMs, do the following:
 
-    1. Tick the checkbox next to the name of each SIM to which you want to assign the SIM policy.
+    1. Select the checkbox next to the name of each SIM to which you want to assign the SIM policy.
     1. Select **Assign SIM policy**.
     1. In **Assign SIM policy** on the right, select your chosen SIM policy from the **SIM policy** drop-down menu.
     1. Select **Assign SIM policy**.
@@ -63,15 +63,15 @@ To assign a SIM policy to one or more SIMs:
 
 Static IP address allocation ensures that a UE receives the same IP address every time it connects to the private mobile network. This is useful when you want Internet of Things (IoT) applications to be able to consistently connect to the same device. For example, you may configure a video analysis application with the IP addresses of the cameras providing video streams. If these cameras have static IP addresses, you won't need to reconfigure the video analysis application with new IP addresses each time the cameras restart.
 
-If you've configured static IP address allocation for your packet core instance(s), you can assign static IP addresses to the SIMs you've provisioned. If you have multiple sites in your private mobile network, you can assign a different static IP address for each site to the same SIM.
+If you've configured static IP address allocation for your packet core instance(s), you can assign static IP addresses to the SIMs you've provisioned. If you have multiple data networks in your private mobile network, you can assign a different static IP address for each data network to the same SIM.
 
-Each IP address must come from the pool you assigned for static IP address allocation when creating the relevant site, as described in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values). For more information, see [Allocate User Equipment (UE) IP address pools](complete-private-mobile-network-prerequisites.md#allocate-user-equipment-ue-ip-address-pools). 
+Each IP address must come from the pool you assigned for static IP address allocation when creating the relevant data network, as described in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values). For more information, see [Allocate User Equipment (UE) IP address pools](complete-private-mobile-network-prerequisites.md#allocate-user-equipment-ue-ip-address-pools).
 
 If you're assigning a static IP address to a SIM, you'll also need the following information.
 
 - The SIM policy to assign to the SIM. You won't be able to set a static IP address for a SIM without also assigning a SIM policy.
 - The name of the data network the SIM will use.
-- The site at which the SIM will use this static IP address.
+- The site and data network at which the SIM will use this static IP address.
 
 To assign static IP addresses to SIMs:
 
@@ -105,7 +105,7 @@ Deleting a SIM will remove it from your private mobile network.
 
 1. Search for and select the **Mobile Network** resource representing the private mobile network containing your SIMs.
 1. In the resource menu, select **SIMs**.
-1. Tick the checkbox next to each SIM you want to delete.
+1. Select the checkbox next to each SIM you want to delete.
 1. Select **Delete**.
 1. Select **Delete** to confirm you want to delete the SIM(s).
 

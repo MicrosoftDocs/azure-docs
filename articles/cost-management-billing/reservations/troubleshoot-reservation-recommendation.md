@@ -5,9 +5,9 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.author: banders
-ms.reviewer: yashar
+ms.reviewer: nitinarora
 ms.topic: troubleshooting
-ms.date: 03/22/2022
+ms.date: 01/06/2023
 ---
 
 # Troubleshoot Azure reservation recommendations
@@ -30,7 +30,9 @@ It's also important to understand how the scope selection affects recommendation
 
 Azure might recommend purchasing a reservation for certain terms, and not for others, based on the cost savings identified. Specifically, three-year terms have larger discounts than one-year terms. It's more likely that Azure will find savings for a three-year term than it will for a one-year term.
 
-If you want to understand why Azure recommends a specific resource size and quantity, select **&lt;Quantity&gt; See details** for an in-depth, visualization showing potential savings over time.
+Azure classic compute resources such as classic VMs are explicitly excluded from reservation recommendations. Microsoft recommends that users avoid making long-term commitments to legacy services that are being deprecated.
+
+If you want to understand why Azure recommends a specific resource size and quantity, select **\<Quantity\> See details** for an in-depth, visualization showing potential savings over time.
 
 :::image type="content" source="./media/troubleshoot-reservation-recommendation/see-details-link.png" alt-text="Example showing the reservation recommendation See details link" lightbox="./media/troubleshoot-reservation-recommendation/see-details-link.png" :::
 

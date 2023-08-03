@@ -3,11 +3,12 @@ title: Create a Windows VM by using Azure VM Image Builder
 description: In this article, you learn how to create a Windows VM by using VM Image Builder.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: cynthn
-ms.date: 04/23/2021
+ms.reviewer: erd
+ms.date: 06/12/2023
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.collection: windows
 ---
 # Create a Windows VM by using Azure VM Image Builder
@@ -26,10 +27,8 @@ In this article, you learn how to create a customized Windows image by using Azu
 
 Use the following sample JSON template to configure the image: [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). 
 
-
 > [!NOTE]
 > Windows users can run the following Azure CLI examples on [Azure Cloud Shell](https://shell.azure.com) by using Bash.
-
 
 ## Register the features
 
@@ -53,11 +52,9 @@ az provider register -n Microsoft.Storage
 az provider register -n Microsoft.Network
 ```
 
-
 ## Set variables
 
 Because you'll be using some pieces of information repeatedly, create some variables to store that information:
-
 
 ```azurecli-interactive
 # Resource group name - we're using myImageBuilderRG in this example
@@ -75,6 +72,7 @@ Create a variable for your subscription ID:
 ```azurecli-interactive
 subscriptionID=$(az account show --query id --output tsv)
 ```
+
 ## Create the resource group
 
 To store the image configuration template artifact and the image, use the following resource group:
@@ -91,7 +89,7 @@ VM Image Builder uses the provided [user-identity](../../active-directory/manage
 
 Create a user-assigned identity so that VM Image Builder can access the storage account where the script is stored.
 
-```bash
+```azurecli-interactive
 identityName=aibBuiUserId$(date +'%s')
 az identity create -g $imageResourceGroup -n $identityName
 
@@ -107,9 +105,9 @@ curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/1
 imageRoleDefName="Azure Image Builder Image Def"$(date +'%s')
 
 # Update the definition
-sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleImageCreation.json
-sed -i -e "s/<rgName>/$imageResourceGroup/g" aibRoleImageCreation.json
-sed -i -e "s/Azure Image Builder Service Image Creation Role/$imageRoleDefName/g" aibRoleImageCreation.json
+sed -i -e "s%<subscriptionID>%$subscriptionID%g" aibRoleImageCreation.json
+sed -i -e "s%<rgName>%$imageResourceGroup%g" aibRoleImageCreation.json
+sed -i -e "s%Azure Image Builder Service Image Creation Role%$imageRoleDefName%g" aibRoleImageCreation.json
 
 # Create role definitions
 az role definition create --role-definition ./aibRoleImageCreation.json
@@ -128,12 +126,12 @@ We've created a parameterized image configuration template for you to try. Downl
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json -o helloImageTemplateWin.json
 
-sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateWin.json
-sed -i -e "s/<rgName>/$imageResourceGroup/g" helloImageTemplateWin.json
-sed -i -e "s/<region>/$location/g" helloImageTemplateWin.json
-sed -i -e "s/<imageName>/$imageName/g" helloImageTemplateWin.json
-sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateWin.json
-sed -i -e "s/<imgBuilderId>/$imgBuilderId/g" helloImageTemplateWin.json
+sed -i -e "s%<subscriptionID>%$subscriptionID%g" helloImageTemplateWin.json
+sed -i -e "s%<rgName>%$imageResourceGroup%g" helloImageTemplateWin.json
+sed -i -e "s%<region>%$location%g" helloImageTemplateWin.json
+sed -i -e "s%<imageName>%$imageName%g" helloImageTemplateWin.json
+sed -i -e "s%<runOutputName>%$runOutputName%g" helloImageTemplateWin.json
+sed -i -e "s%<imgBuilderId>%$imgBuilderId%g" helloImageTemplateWin.json
 ```
 
 You can modify this example in the terminal by using a text editor such as `vi`.
@@ -249,11 +247,10 @@ When you're done, delete the resources you've created.
    ```
 
 1. Delete the image resource group.
-   
+
    ```azurecli-interactive
    az group delete -n $imageResourceGroup
    ```
-
 
 ## Next steps
 

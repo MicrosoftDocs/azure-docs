@@ -31,7 +31,7 @@ Now that your domain is configured for Azure to manage the DNS, you can now link
 
 1. Open the [Azure portal](https://portal.azure.com).
 
-1. Navigate to your static web app.
+1. Go to your static web app.
 
 1. From the *Overview* window, copy the generated **URL** of your site and set it aside in a text editor for future use.
 
@@ -39,9 +39,9 @@ Now that your domain is configured for Azure to manage the DNS, you can now link
 
 1. Return to the DNS zone you created in the Azure portal.
 
-1. Select the **+ Record set button** button.
+2. Select **+ Record set**.
 
-1. Enter the following values in the *Add record set* window.
+3. Enter the following values in the *Add record set* window.
 
     | Setting | Property |
     |---|---|
@@ -51,8 +51,10 @@ Now that your domain is configured for Azure to manage the DNS, you can now link
     | TTL | Keep default value. |
     | TTL unit | Keep default value. |
     | Alias | Paste in the Static Web Apps generated URL you set aside in a previous step. Make sure to remove the `https://` prefix from your URL. |
+    
+    Additionally, you can select **Yes** for **Alias record set** and select your static web app instead of explicitly providing the URL to take advantage of alias record sets like [prevention from dangling DNS records](/azure/dns/dns-alias#prevent-dangling-dns-records).
 
-1. Select the **OK** button.
+4. Select **OK**.
 
 ### Configure static web app custom domain
 
@@ -60,26 +62,28 @@ Now that your domain is configured for Azure to manage the DNS, you can now link
 
 1. Under *Settings*, select **Custom domains**.
 
-1. Select the **+ Add** button.
+2. Select **+ Add**.
 
-1. In the *Enter domain* tab, enter your domain name prefixed with **www**.
+3. In the *Domain name* box, enter your domain name prefixed with **www**.
 
     For instance, if your domain name is `example.com`, enter `www.example.com` into this box.
+    > [!NOTE]
+    > If you elected to *Add custom domain on Azure DNS*, you will have the option to select the *DNS zone* and the following steps will be done automatically for you once you select **Add**.
 
-1. Select the **Next** button.
+4. Select **Next**.
 
-1. In the *Validate + Configure* tab, enter the following values.
+5. In the *Validate + add* tab, enter the following values.
 
     | Setting | Value |
     |---|---|
     | Domain name | This value should match the domain name you entered in the previous step (with the `www` subdomain). |
     | Hostname record type | Select **CNAME**. |
 
-1. Select the **Add** button.
+6. Select **Add**.
 
     If you get an error saying that the action is invalid, wait 5 minutes and try again.
 
-1. Open a new browser tab and navigate to your domain with the `www` subdomain.
+7. Open a new browser tab and go to your domain with the `www` subdomain.
 
     After the DNS records are updated, you should see your static web app in the browser. Also, inspect the location to verify that your site is served securely using `https`.
 

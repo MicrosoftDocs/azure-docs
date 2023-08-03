@@ -5,7 +5,7 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: sample
-ms.date: 04/27/2022
+ms.date: 10/31/2022
 ms.custom: references_regions
 ms.reviewer: harelbr
 ---
@@ -1317,6 +1317,11 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
   }
 }
 ```
+
+> [!NOTE]
+>
+> Using "All" as a dimension value is equivalent to selecting "\*" (all current and future values).
+
 
 ## Multiple dimensions, dynamic thresholds
 
@@ -4815,7 +4820,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
 
 ## Availability test with metric alert
 
-[Application Insights availability tests](../app/monitor-web-app-availability.md) help you monitor the availability of your web site/application from various locations around the globe. Availability test alerts notify you when availability tests fail from a certain number of locations. Availability test alerts of the same resource type as metric alerts (Microsoft.Insights/metricAlerts). The following sample creates a simple availability test and associated alert.
+[Application Insights availability tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) help you monitor the availability of your web site/application from various locations around the globe. Availability test alerts notify you when availability tests fail from a certain number of locations. Availability test alerts of the same resource type as metric alerts (Microsoft.Insights/metricAlerts). The following sample creates a simple availability test and associated alert.
 
 > [!NOTE]
 > `&amp`; is the HTML entity reference for &. URL parameters are still separated by a single &, but if you mention the URL in HTML, you need to encode it. So, if you have any "&" in your pingURL parameter value, you have to escape it with "`&amp`;"

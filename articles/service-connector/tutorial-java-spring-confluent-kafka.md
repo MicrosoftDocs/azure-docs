@@ -2,9 +2,9 @@
 title: 'Tutorial: Deploy a Spring Boot app connected to Apache Kafka on Confluent Cloud with Service Connector in Azure Spring Apps'
 description: Create a Spring Boot app connected to Apache Kafka on Confluent Cloud with Service Connector in Azure Spring Apps.
 ms.devlang: java
-ms.custom: event-tier1-build-2022
-author: shizn
-ms.author: xshi
+ms.custom: event-tier1-build-2022, devx-track-extended-java
+author: mcleanbyron
+ms.author: mcleans
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 05/03/2022

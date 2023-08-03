@@ -23,15 +23,15 @@ Per-user access pricing for Azure Virtual Desktop lets you grant access to apps 
 Before you can estimate per-user access costs for an existing deployment, you’ll need the following things:
 
 - An Azure Virtual Desktop deployment that's had active users within the last month.
-- [Azure Monitor for your Azure Virtual Desktop deployment](../azure-monitor.md)
+- [Azure Virtual Desktop Insights for your Azure Virtual Desktop deployment](../insights.md)
 
 ## Measure monthly user activity in a host pool
 
-In order to estimate total costs for running a host pool, you'll first need to know the number of active users over the past month. You can use Azure Monitor for Azure Virtual Desktop to find this number.
+In order to estimate total costs for running a host pool, you'll first need to know the number of active users over the past month. You can use Azure Virtual Desktop Insights to find this number.
 
-To check monthly active users on Azure Monitor:
+To check monthly active users on Azure Virtual Desktop Insights:
 
-1. Open the Azure portal, then search for and select **Azure Virtual Desktop**. After that, select **Insights** to open Azure Monitor for Azure Virtual Desktop.
+1. Open the Azure portal, then search for and select **Azure Virtual Desktop**. After that, select **Insights** to open Azure Virtual Desktop Insights.
 
 2. Select the name of the subscription or host pool that you want to measure.
 

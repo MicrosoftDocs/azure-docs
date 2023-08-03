@@ -13,6 +13,8 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. In this article, you will learn how to use the Azure portal to create a VM in an Azure Virtual Network and an Azure Database for MySQL server with an Azure private endpoint.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -170,7 +172,7 @@ In this section, you will create a MySQL server and add a private endpoint to it
     |Private DNS Zone |Select *(New)privatelink.mysql.database.azure.com* |
     |||
 
-    > [!Note] 
+    > [!NOTE] 
     > Use the predefined private DNS zone for your service or provide your preferred DNS zone name. Refer to the [Azure services DNS zone configuration](../../private-link/private-endpoint-dns.md) for details.
 
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 

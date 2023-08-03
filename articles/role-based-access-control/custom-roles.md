@@ -7,20 +7,15 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/19/2022
+ms.date: 04/20/2023
 ms.author: rolyon
 ---
 
 # Azure custom roles
 
-> [!IMPORTANT]
-> Adding a management group to `AssignableScopes` is currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. Just like built-in roles, you can assign custom roles to users, groups, and service principals at management group, subscription, and resource group scopes.
 
-If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. Just like built-in roles, you can assign custom roles to users, groups, and service principals at management group (in preview only), subscription, and resource group scopes.
-
-Custom roles can be shared between subscriptions that trust the same Azure AD tenant. There is a limit of **5,000** custom roles per tenant. (For Azure Germany and Azure China 21Vianet, the limit is 2,000 custom roles.) Custom roles can be created using the Azure portal, Azure PowerShell, Azure CLI, or the REST API.
+Custom roles can be shared between subscriptions that trust the same Azure AD tenant. There is a limit of **5,000** custom roles per tenant. (For Microsoft Azure operated by 21Vianet, the limit is 2,000 custom roles.) Custom roles can be created using the Azure portal, Azure PowerShell, Azure CLI, or the REST API.
 
 ## Steps to create a custom role
 
@@ -154,7 +149,7 @@ The following table describes what the custom role properties mean.
 | `Description`</br>`description` | Yes | String | The description of the custom role. Can include letters, numbers, spaces, and special characters. Maximum number of characters is 2048. |
 | `Actions`</br>`actions` | Yes | String[] | An array of strings that specifies the control plane actions that the role allows to be performed. For more information, see [Actions](role-definitions.md#actions). |
 | `NotActions`</br>`notActions` | No | String[] | An array of strings that specifies the control plane actions that are excluded from the allowed `Actions`. For more information, see [NotActions](role-definitions.md#notactions). |
-| `DataActions`</br>`dataActions` | No | String[] | An array of strings that specifies the data plane actions that the role allows to be performed to your data within that object. If you create a custom role with `DataActions`, that role cannot be assigned at the management group scope. For more information, see [DataActions](role-definitions.md#dataactions). |
+| `DataActions`</br>`dataActions` | No | String[] | An array of strings that specifies the data plane actions that the role allows to be performed to your data within that object. If you create a custom role with `DataActions`, that role can't be assigned at the management group scope. For more information, see [DataActions](role-definitions.md#dataactions). |
 | `NotDataActions`</br>`notDataActions` | No | String[] | An array of strings that specifies the data plane actions that are excluded from the allowed `DataActions`. For more information, see [NotDataActions](role-definitions.md#notdataactions). |
 | `AssignableScopes`</br>`assignableScopes` | Yes | String[] | An array of strings that specifies the scopes that the custom role is available for assignment. Maximum number of `AssignableScopes` is 2,000. For more information, see [AssignableScopes](role-definitions.md#assignablescopes). |
 
@@ -178,7 +173,8 @@ Instead of adding all of these strings, you could just add a wildcard string. Fo
 Microsoft.CostManagement/exports/*
 ```
 
-It's recommended that you specify `Actions` and `DataActions` explicitly instead of using the wildcard (`*`) character. The additional access and permissions granted through future `Actions` or `DataActions` may be unwanted behavior using the wildcard.
+> [!NOTE]
+> It's recommended that you specify `Actions` and `DataActions` explicitly instead of using the wildcard (`*`) character. The additional access and permissions granted through future `Actions` or `DataActions` may be unwanted behavior using the wildcard.
 
 ## Who can create, delete, update, or view a custom role
 
@@ -207,12 +203,12 @@ Here are steps to help find the role assignments before deleting a custom role:
 The following list describes the limits for custom roles.
 
 - Each tenant can have up to **5000** custom roles.
-- Azure Germany and Azure China 21Vianet can have up to 2000 custom roles for each tenant.
+- Microsoft Azure operated by 21Vianet can have up to 2000 custom roles for each tenant.
 - You cannot set `AssignableScopes` to the root scope (`"/"`).
 - You cannot use wildcards (`*`) in `AssignableScopes`. This wildcard restriction helps ensure a user can't potentially obtain access to a scope by updating the role definition.
-- You can only define one management group in `AssignableScopes` of a custom role. Adding a management group to `AssignableScopes` is currently in preview.
+- You can define only one management group in `AssignableScopes` of a custom role.
 - You can have only one wildcard in an action string.
-- Custom roles with `DataActions` cannot be assigned at the management group scope.
+- Custom roles with `DataActions` can't be assigned at the management group scope.
 - Azure Resource Manager doesn't validate the management group's existence in the role definition's `AssignableScopes`.
 
 For more information about custom roles and management groups, see [What are Azure management groups?](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).

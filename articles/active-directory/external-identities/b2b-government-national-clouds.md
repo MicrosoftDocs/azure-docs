@@ -1,12 +1,12 @@
 ---
-title: Azure AD B2B in government and national clouds - Azure Active Directory
+title: Azure AD B2B in government and national clouds
 description: Learn what features are available in Azure Active Directory B2B collaboration in US Government and national clouds 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/17/2022
+ms.date: 02/14/2023
 
 ms.author: mimart
 author: msmimart
@@ -17,14 +17,14 @@ ms.collection: M365-identity-device-management
 
 # Azure AD B2B in government and national clouds
 
-Microsoft Azure [national clouds](../develop/authentication-national-cloud.md) are physically isolated instances of Azure. B2B collaboration isn't enabled by default across national cloud boundaries, but you can use Microsoft cloud settings (preview) to establish mutual B2B collaboration between the following Microsoft Azure clouds:
+Microsoft Azure [national clouds](../develop/authentication-national-cloud.md) are physically isolated instances of Azure. B2B collaboration isn't enabled by default across national cloud boundaries, but you can use Microsoft cloud settings to establish mutual B2B collaboration between the following Microsoft Azure clouds:
 
 - Microsoft Azure global cloud and Microsoft Azure Government
-- Microsoft Azure global cloud and Microsoft Azure China 21Vianet
+- Microsoft Azure global cloud and Microsoft Azure operated by 21Vianet
 
 ## B2B collaboration across Microsoft clouds
 
-To set up B2B collaboration between tenants in different clouds, both tenants need to configure their Microsoft cloud settings to enable collaboration with the other cloud. Then each tenant must configure inbound and outbound cross-tenant access with the tenant in the other cloud. For details, see [Microsoft cloud settings (preview)](cross-cloud-settings.md).
+To set up B2B collaboration between tenants in different clouds, both tenants need to configure their Microsoft cloud settings to enable collaboration with the other cloud. Then each tenant must configure inbound and outbound cross-tenant access with the tenant in the other cloud. For details, see [Microsoft cloud settings](cross-cloud-settings.md).
 
 ## B2B collaboration within the Microsoft Azure Government cloud
 

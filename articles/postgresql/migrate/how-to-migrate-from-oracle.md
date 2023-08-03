@@ -4,8 +4,8 @@ description: This guide helps you to migrate your Oracle schema to Azure Databas
 ms.service: postgresql
 ms.subservice: migration-guide
 ms.topic: how-to
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.date: 03/18/2021
 ---
 
@@ -267,9 +267,9 @@ ora2pg -t COPY -o data.sql -b %namespace/data -c %namespace/config/ora2pg.conf
 Finally, compile all files against the Azure Database for PostgreSQL server. You can choose to load the manually generated DDL files or use the second script *import_all.sh* to import those files interactively.
 
 ```
-psql -f %namespace%\schema\sequences\sequence.sql -h server1-server.postgres.database.azure.com -p 5432 -U username@server1-server -d database -l %namespace%\ schema\sequences\create_sequences.log
+psql -f %namespace%\schema\sequences\sequence.sql -h server1-server.postgres.database.azure.com -p 5432 -U username@server1-server -d database -L %namespace%\ schema\sequences\create_sequences.log
 
-psql -f %namespace%\schema\tables\table.sql -h server1-server.postgres.database.azure.com p 5432 -U username@server1-server -d database -l %namespace%\schema\tables\create_table.log
+psql -f %namespace%\schema\tables\table.sql -h server1-server.postgres.database.azure.com -p 5432 -U username@server1-server -d database -L %namespace%\schema\tables\create_table.log
 ```
 
 Here's the data import command:
@@ -348,9 +348,9 @@ For more information about this migration scenario, see the following resources.
 
 | Resource | Description    |
 | -------------- | ------------------ |
-| [Oracle to Azure PostgreSQL migration cookbook](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf) | This document helps architects, consultants, database administrators, and related roles quickly migrate workloads from Oracle to Azure Database for PostgreSQL by using ora2pg. |
+| [Oracle to Azure PostgreSQL migration cookbook](https://www.microsoft.com/en-us/download/details.aspx?id=103473) | This document helps architects, consultants, database administrators, and related roles quickly migrate workloads from Oracle to Azure Database for PostgreSQL by using ora2pg. |
 | [Oracle to Azure PostgreSQL migration workarounds](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20Database%20for%20PostgreSQL%20Migration%20Workarounds.pdf) | This document helps architects, consultants, database administrators, and related roles quickly fix or work around issues while migrating workloads from Oracle to Azure Database for PostgreSQL. |
-| [Steps to install ora2pg on Windows or Linux](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf)                       | This document provides a quick installation guide for migrating schema and data from Oracle to Azure Database for PostgreSQL by using ora2pg on Windows or Linux. For more information, see the [ora2pg documentation](http://ora2pg.darold.net/documentation.html). |
+| [Steps to install ora2pg on Windows or Linux](https://www.microsoft.com/download/confirmation.aspx?id=105121)                       | This document provides a quick installation guide for migrating schema and data from Oracle to Azure Database for PostgreSQL by using ora2pg on Windows or Linux. For more information, see the [ora2pg documentation](http://ora2pg.darold.net/documentation.html). |
 
 The Data SQL Engineering team developed these resources. This team's core charter is to unblock and accelerate complex modernization for data platform migration projects to the Microsoft Azure data platform.
 

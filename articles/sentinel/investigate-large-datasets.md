@@ -7,15 +7,12 @@ ms.date: 01/21/2022
 ms.author: cwatson
 ---
 
-# Start an investigation by searching for events in large datasets (preview)
+# Start an investigation by searching for events in large datasets
 
 One of the primary activities of a security team is to search logs for specific events. For example, you might search logs for the activities of a specific user within a given time-frame.
 
-In Microsoft Sentinel, you can search across long time periods in extremely large datasets by using a search job.  While you can run a search job on any type of log, search jobs are ideally suited to search archived logs. If you need to do a full investigation on archived data, you can restore that data into the hot cache to run high performing queries and analytics.
+In Microsoft Sentinel, you can search across long time periods in extremely large datasets by using a search job.  While you can run a search job on any type of log, search jobs are ideally suited to search archived logs. If you need to do a full investigation on archived data, you can restore that data into the hot cache to run high performing queries and deeper analysis.
 
-> [!IMPORTANT]
-> The search job and restore features are currently in **PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Search large datasets
 
@@ -23,7 +20,7 @@ Use a search job when you start an investigation to find specific events in logs
 
 Search in Microsoft Sentinel is built on top of search jobs. Search jobs are asynchronous queries that fetch records. The results are returned to a search table that's created in your Log Analytics workspace after you start the search job. The search job uses parallel processing to run the search across long time spans, in extremely large datasets. So search jobs don't impact the workspace's performance or availability.
 
-Search results remain in a search results table that has a *_SRCH suffix.
+Search results are stored in a table that has a *_SRCH suffix.
 
 The following image shows example search criteria for a search job.
 
@@ -34,21 +31,26 @@ The following image shows example search criteria for a search job.
 Use search to find events in any of the following log types:
 
 - [Analytics logs](../azure-monitor/logs/data-platform-logs.md)
-- [Basic logs (preview)](../azure-monitor/logs/basic-logs-configure.md)
+- [Basic logs](../azure-monitor/logs/basic-logs-configure.md)
 
-You can also search analytics or basic log data stored in [archived logs (preview)](../azure-monitor/logs/data-retention-archive.md).
+You can also search analytics or basic log data stored in [archived logs](../azure-monitor/logs/data-retention-archive.md).
 
 ### Limitations of a search job
 
 Before you start a search job, be aware of the following limitations:
 
 - Optimized to query one table at a time.
-- Search date range is up to one year.
+- Search date range is up to seven years.
 - Supports long running searches up to a 24-hour time-out.
 - Results are limited to one million records in the record set.
 - Concurrent execution is limited to five search jobs per workspace.
 - Limited to 100 search results tables per workspace.
 - Limited to 100 search job executions per day per workspace.
+
+Search jobs aren't currently supported for the following workspaces:
+
+- Customer-managed key enabled workspaces
+- Workspaces in the China East 2 region
 
 To learn more, see [Search job in Azure Monitor](../azure-monitor/logs/search-jobs.md) in the Azure Monitor documentation.
 
@@ -82,5 +84,5 @@ Similar to the [threat hunting dashboard](hunting.md#use-the-hunting-dashboard),
 
 ## Next steps
 
-- [Search across long time spans in large datasets (preview)](search-jobs.md)
-- [Restore archived logs from search (preview)](restore.md)
+- [Search across long time spans in large datasets](search-jobs.md)
+- [Restore archived logs from search](restore.md)

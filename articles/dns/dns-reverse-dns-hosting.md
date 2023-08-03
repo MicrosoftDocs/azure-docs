@@ -1,13 +1,13 @@
 ---
 title: Host reverse DNS lookup zones in Azure DNS
 description: Learn how to use Azure DNS to host the reverse DNS lookup zones for your IP ranges
-author: rohinkoul
+author: greg-lindsay
 ms.service: dns
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 04/29/2021
-ms.author: rohink 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.date: 04/27/2023
+ms.author: greglin 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
 ms.devlang: azurecli
 ---
 
@@ -21,7 +21,7 @@ To configure reverse DNS for an Azure-owned IP address assigned to your Azure se
 
 Before reading this article, you should familiarize yourself with the [overview of reverse DNS](dns-reverse-dns-overview.md) and it's supported in Azure.
 
-In this article, you'll learn how to create your first reverse lookup DNS zone and record by using the Azure portal, Azure PowerShell, Azure classic CLI, and Azure CLI.
+In this article, you learn how to create your first reverse lookup DNS zone and record by using the Azure portal, Azure PowerShell, Azure classic CLI, and Azure CLI.
 
 ## Create a reverse lookup DNS zone
 
@@ -38,7 +38,7 @@ In this article, you'll learn how to create your first reverse lookup DNS zone a
     | **Subscription** | Select a subscription to create the DNS zone in.|
     | **Resource group** | Select or create a new resource group. To learn more about resource groups, read the [Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) overview article.|
     | **Name** | Enter a name for the DNS zone. The name of the zone is crafted differently for IPv4 and IPv6 prefixes. Use the instructions for [IPv4](#ipv4) or [IPv6](#ipv6) to name your zone.  |
-    | **Location** | Select the location for the resource group. The location will already be selected if you're using a previously created resource group. |
+    | **Location** | Select the location for the resource group. The location is already be selected if you're using a previously created resource group. |
 
 1. Select **Review + create**, and then select **Create** once validation has passed.
 
@@ -49,7 +49,7 @@ The name of an IPv4 reverse lookup zone is based on the IP range that it represe
 > [!NOTE]
 > When you're creating classless reverse DNS lookup zones in Azure DNS, you must use a hyphen (`-`) instead of a forward slash (`/`) in the zone name.
 >
-> For example, for the IP range of 192.0.2.128/26, you'll use `128-26.2.0.192.in-addr.arpa` as the zone name instead of `128/26.2.0.192.in-addr.arpa`.
+> For example, for the IP range of 192.0.2.128/26, use `128-26.2.0.192.in-addr.arpa` as the zone name instead of `128/26.2.0.192.in-addr.arpa`.
 >
 > Although the DNS standards support both methods, Azure DNS doesn't support DNS zone names that contain the forward slash (`/`) character.
 
@@ -111,7 +111,7 @@ az network dns zone create -g mydnsresourcegroup -n 0.0.0.0.d.c.b.a.8.b.d.0.1.0.
 
 Once the reverse DNS lookup zone gets created, you then need to make sure the zone gets delegated from the parent zone. DNS delegation enables the DNS name resolution process to find the name servers that host your reverse DNS lookup zone. Those name servers can then answer DNS reverse queries for the IP addresses in your address range.
 
-For forward lookup zones, the process of delegating a DNS zone is described in [Delegate your domain to Azure DNS](dns-delegate-domain-azure-dns.md). Delegation for reverse lookup zones works the same way. The only difference is that you'll need to configure the name servers with the ISP. The ISP manages your IP range, that's why they need to update the name servers instead of domain name registrar.
+For forward lookup zones, the process of delegating a DNS zone is described in [Delegate your domain to Azure DNS](dns-delegate-domain-azure-dns.md). Delegation for reverse lookup zones works the same way. The only difference is that you need to configure the name servers with the ISP. The ISP manages your IP range, that's why they need to update the name servers instead of domain name registrar.
 
 ## Create a DNS PTR record
 
@@ -123,9 +123,9 @@ The following example explains the process of creating a PTR record for a revers
 
     :::image type="content" source="./media/dns-reverse-dns-hosting/create-record-set-ipv4.png" alt-text="Screenshot of create IPv4 pointer record set.":::
 
-1. The name of the record set for a PTR record will be the rest of the IPv4 address in reverse order. 
+1. The name of the record set for a PTR record is the rest of the IPv4 address in reverse order. 
 
-    In this example, the first three octets are already populated as part of the zone name `.2.0.192`. That's why only the last octet is needed in the **Name** box. For example, you'll give your record set the name of **15** for a resource whose IP address is `192.0.2.15`.  
+    In this example, the first three octets are already populated as part of the zone name `.2.0.192`. That's why only the last octet is needed in the **Name** box. For example, give your record set the name of **15** for a resource whose IP address is `192.0.2.15`.  
 
     :::image type="content" source="./media/dns-reverse-dns-hosting/create-ipv4-ptr.png" alt-text="Screenshot of create IPv4 pointer record.":::
 
@@ -162,9 +162,9 @@ The following example explains the process of creating new PTR record for IPv6. 
 
    :::image type="content" source="./media/dns-reverse-dns-hosting/create-record-set-ipv6.png" alt-text="Screenshot of create IPv6 pointer record set.":::
 
-1. The name of the record set for a PTR record will be the rest of the IPv6 address in reverse order. It must not include any zero compression. 
+1. The name of the record set for a PTR record is the rest of the IPv6 address in reverse order. It must not include any zero compression. 
 
-    In this example, the first 64 bits of the IPv6 gets populated as part of the zone name (0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa). That's why only the last 64 bits are supplied in the **Name** box. The last 64 bits of the IP address gets entered in reverse order, with a period as the delimiter between each hexadecimal number. You'll name your record set **e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f** if you have a resource whose IP address is 2001:0db8:abdc:0000:f524:10bc:1af9:405e.
+    In this example, the first 64 bits of the IPv6 gets populated as part of the zone name (0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa). That's why only the last 64 bits are supplied in the **Name** box. The last 64 bits of the IP address gets entered in reverse order, with a period as the delimiter between each hexadecimal number. Name your record set **e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f** if you have a resource whose IP address is 2001:0db8:abdc:0000:f524:10bc:1af9:405e.
 
     :::image type="content" source="./media/dns-reverse-dns-hosting/create-ipv6-ptr.png" alt-text="Screenshot of create IPv6 pointer record.":::
 
@@ -200,7 +200,7 @@ To view the records that you created, browse to your DNS zone in the Azure porta
 
 ### IPv4
 
-The **DNS zone** page will show the IPv4 PTR record:
+The **DNS zone** page shows the IPv4 PTR record:
 
 :::image type="content" source="./media/dns-reverse-dns-hosting/view-ipv4-ptr-record.png" alt-text="Screenshot of IPv4 pointer record on overview page." lightbox="./media/dns-reverse-dns-hosting/view-ipv4-ptr-record-expanded.png":::
 

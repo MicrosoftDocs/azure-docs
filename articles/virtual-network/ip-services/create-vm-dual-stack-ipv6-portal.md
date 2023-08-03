@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 08/17/2022
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-linux
 ---
 
 # Create an Azure Virtual Machine with a dual-stack network using the Azure portal
@@ -23,7 +23,7 @@ In this article, you'll create a virtual machine in Azure with the Azure portal.
 
 In this section, you'll create a dual-stack virtual network for the virtual machine.
 
-1. Sign-in to the [Azure portal](https://https://portal.azure.com).
+1. Sign-in to the [Azure portal](https://portal.azure.com).
 
 2. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -215,5 +215,3 @@ For more information about IPv6 and IP addresses in Azure, see:
 - [Overview of IPv6 for Azure Virtual Network.](ipv6-overview.md)
 
 - [What is Azure Virtual Network IP Services?](ip-services-overview.md)
-
-

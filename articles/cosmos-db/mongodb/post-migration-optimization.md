@@ -1,17 +1,17 @@
 ---
 title: Post-migration optimization steps with Azure Cosmos DB's API for MongoDB 
-description: This doc provides the post-migration optimization techniques from MongoDB to Azure Cosmos DB's APi for Mongo DB.
+description: This doc provides the post-migration optimization techniques from MongoDB to Azure Cosmos DB's APi for MongoDB.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
+ms.custom: ignite-2022, build-2023, build-2023-dataai
 ms.topic: how-to
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-
 ---
 
 # Post-migration optimization steps when using Azure Cosmos DB's API for MongoDB
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 > [!IMPORTANT]  
 > Please read this entire guide before carrying out your post-migration steps.
@@ -45,9 +45,9 @@ In this guide, we assume that you are maintaining a record of your migration's p
 
 In order to optimize price and performance, we recommend that you step through your data estate migration spreadsheet and design an index configuration for each resource. 
 1. We actually recommend [planning your indexes during the pre-migration phase](pre-migration-steps.md#post-migration). Add a column to your data estate migration spreadsheet for index settings. 
-   * The Azure Cosmos DB API for MongoDB server versions 3.6 and higher automatically index the _id field only. This field can't be dropped. It automatically enforces the uniqueness of the _id field per shard key. To index additional fields, you apply the MongoDB index-management commands. This default indexing policy differs from the Azure Cosmos DB SQL API, which indexes all fields by default.
+   * The Azure Cosmos DB for MongoDB server versions 3.6 and higher automatically index the _id field only. This field can't be dropped. It automatically enforces the uniqueness of the _id field per shard key. To index additional fields, you apply the MongoDB index-management commands. This default indexing policy differs from the Azure Cosmos DB for NoSQL, which indexes all fields by default.
 
-   * For the Azure Cosmos DB API for MongoDB server version 3.2, all data fields are automatically indexed, by default, during the migration of data to Azure Cosmos DB. In many cases, this default indexing policy is acceptable. In general, removing indexes optimizes write requests and having the default indexing policy (i.e., automatic indexing) optimizes read requests.
+   * For the Azure Cosmos DB for MongoDB server version 3.2, all data fields are automatically indexed, by default, during the migration of data to Azure Cosmos DB. In many cases, this default indexing policy is acceptable. In general, removing indexes optimizes write requests and having the default indexing policy (i.e., automatic indexing) optimizes read requests.
 
    * The indexing capabilities provided by Azure Cosmos DB include adding compound indices, unique indices and time-to-live (TTL) indices. The index management interface is mapped to the createIndex() command. Learn more at Indexing in Azure Cosmos DB and Indexing in Azure Cosmos DB's API for MongoDB.
 2. Apply these index settings during post-migration.
@@ -56,7 +56,7 @@ In order to optimize price and performance, we recommend that you step through y
 ## Globally distribute your data
 
 Azure Cosmos DB is available in all [Azure regions](https://azure.microsoft.com/regions/#services) worldwide. 
-1. Follow the guidance in the article [Distribute data globally on Azure Cosmos DB's API for MongoDB](tutorial-global-distribution-mongodb.md) in order to globally distribute your data. After selecting the default consistency level for your Azure Cosmos DB account, you can associate one or more Azure regions (depending on your global distribution needs). For high availability and business continuity, we always recommend running in at least 2 regions. You can review the tips for [optimizing cost of multi-region deployments in Azure Cosmos DB](../optimize-cost-regions.md).
+1. Follow the guidance in the article [Distribute data globally on Azure Cosmos DB's API for MongoDB](tutorial-global-distribution.md) in order to globally distribute your data. After selecting the default consistency level for your Azure Cosmos DB account, you can associate one or more Azure regions (depending on your global distribution needs). For high availability and business continuity, we always recommend running in at least 2 regions. You can review the tips for [optimizing cost of multi-region deployments in Azure Cosmos DB](../optimize-cost-regions.md).
 
 ## Set consistency level
 
@@ -71,13 +71,13 @@ Most users leave their consistency level at the default session consistency sett
 
 The processing of cutting-over or connecting your application allows you to switch your application to use Azure Cosmos DB once migration is finished. Follow the steps below:
 
-1. In a new window sign into the [Azure portal](https://www.portal.azure.com/)
+1. In a new window, sign in to the [Azure portal](https://www.portal.azure.com/).
 2. From the [Azure portal](https://www.portal.azure.com/), in the left pane open the **All resources** menu and find  the Azure Cosmos DB account to which you have migrated your data.
 3. Open the **Connection String** blade. The right pane contains all the information that you need to successfully connect to your account.
 4. Use the connection information in your application's configuration (or other relevant places) to reflect the Azure Cosmos DB's API for MongoDB connection in your app.
 :::image type="content" source="./media/post-migration-optimization/connection-string.png" alt-text="Screenshot shows the settings for a Connection String.":::
 
-For more details, please see the [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md) page.
+For more details, please see the [Connect a MongoDB application to Azure Cosmos DB](connect-account.md) page.
 
 ## Tune for optimal performance
 
@@ -88,10 +88,10 @@ One convenient fact about [indexing](#optimize-the-indexing-policy), [global dis
 * Trying to do capacity planning for a migration to Azure Cosmos DB?
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)
-* [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md)
+* [Connect a MongoDB application to Azure Cosmos DB](connect-account.md)
 * [Connect to Azure Cosmos DB account using Studio 3T](connect-using-mongochef.md)
 * [How to globally distribute reads using Azure Cosmos DB's API for MongoDB](readpreference-global-distribution.md)
-* [Expire data with Azure Cosmos DB's API for MongoDB](mongodb-time-to-live.md)
+* [Expire data with Azure Cosmos DB's API for MongoDB](time-to-live.md)
 * [Consistency Levels in Azure Cosmos DB](../consistency-levels.md)
 * [Indexing in Azure Cosmos DB](../index-overview.md)
 * [Request Units in Azure Cosmos DB](../request-units.md)

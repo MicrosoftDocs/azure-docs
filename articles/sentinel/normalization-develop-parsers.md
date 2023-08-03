@@ -9,8 +9,6 @@ ms.author: ofshezaf
 
 # Develop Advanced Security Information Model (ASIM) parsers (Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Advanced Security Information Model (ASIM) users use *unifying parsers* instead of table names in their queries, to view data in a normalized format and to include all data relevant to the schema in the query. Unifying parsers, in turn, use *source-specific parsers* to handle the specific details of each source. 
 
 Microsoft Sentinel provides built-in, source-specific parsers for many data sources. You may want to modify, or *develop*, these source-specific parsers in the following situations:
@@ -31,7 +29,7 @@ To understand how parsers fit within the ASIM architecture, refer to the [ASIM a
 > ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 
-## Custom parser development process
+## Custom ASIM parser development process
 
 The following workflow describes the high level steps in developing a custom ASIM, source-specific parser:
 
@@ -177,6 +175,7 @@ The KQL operators that perform parsing are listed below, ordered by their perfor
 |---------|---------|
 |[split](/azure/data-explorer/kusto/query/splitfunction)     |    Parse a string of delimited values.     |
 |[parse_csv](/azure/data-explorer/kusto/query/parsecsvfunction)     |     Parse a string of values formatted as a CSV (comma-separated values) line.    |
+|[parse-kv](/azure/data-explorer/kusto/query/parse-kv-operator)     |     Extracts structured information from a string expression and represents the information in a key/value form.    |
 |[parse](/azure/data-explorer/kusto/query/parseoperator)     |    Parse multiple values from an arbitrary string using a pattern, which can be a simplified pattern with better performance, or a regular expression.     |
 |[extract_all](/azure/data-explorer/kusto/query/extractallfunction)     | Parse single values from an arbitrary string using a regular expression. `extract_all` has a similar performance to `parse` if the latter uses a regular expression.        |
 |[extract](/azure/data-explorer/kusto/query/extractfunction)     |    Extract a single value from an arbitrary string using a regular expression. <br><br>Using `extract` provides better performance than `parse` or `extract_all` if a single value is needed. However, using multiple activations of `extract` over the same source string is less efficient than a single `parse` or `extract_all` and should be avoided.      |
@@ -203,7 +202,7 @@ In many cases, the original value extracted needs to be normalized. For example,
 
 Also, ensuring that parser output fields matches type defined in the schema is critical for parsers to work.  For example, you may need to convert a string representing date and time to a datetime field. Functions such as `todatetime` and `tohex` are helpful in these cases.
 
-For example, the original unique event ID may be sent as an integer, but ASIM requires the value to be a string, to ensure broad compatibility among data sources. Therefore, when assigning the source field use `extned` and `tostring` instead of `project-rename`:
+For example, the original unique event ID may be sent as an integer, but ASIM requires the value to be a string, to ensure broad compatibility among data sources. Therefore, when assigning the source field use `extend` and `tostring` instead of `project-rename`:
 
 ```KQL
   | extend EventOriginalUid = tostring(ReportId),
@@ -426,7 +425,7 @@ Handle the results as follows:
 To make sure that your parser produces valid values, use the ASIM data tester by running the following query in the Microsoft Sentinel **Logs** page:
 
   ```KQL
-  <parser name> | limit <X> | invoke ASimDataTester ( ['<schema>'] )
+  <parser name> | limit <X> | invoke ASimDataTester ('<schema>')
   ```
 
 Specifying a schema is optional. If a schema is not specified, the `EventSchema` field is used to identify the schema the event should adhere to. Ig an event does not include an `EventSchema` field, only common fields will be verified. If a schema is specified as a parameter, this schema will be used to test all records. This is useful for older parsers that do not set the `EventSchema` field. 
@@ -462,11 +461,13 @@ You may want to contribute the parser to the primary ASIM distribution. If accep
 
 To contribute your parsers:
 
-| Step | Description |
-| ---- | ----------- | 
-| Develop the parsers | - Develop both a filtering parser and a parameter-less parser.<br>- Create a YAML file for the parser as described in [Deploying Parsers](#deploy-parsers) above.|
-| Test the parsers | - Make sure that your parsers pass all [testings](#test-parsers) with no errors.<br>- If any warnings are left, document them in the parser YAML file as described below. |
-| Contribute | - Create a pull request against the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel)<br>- Add to the PR your parsers YAML files to the ASIM parser folders (`/Parsers/ASim<schema>/Parsers`)<br>- Adds representative sample data to the sample data folder (`/Sample Data`) |
+- Develop both a filtering parser and a parameter-less parser.
+- Create a YAML file for the parser as described in [Deploying Parsers](#deploy-parsers) above.
+- Make sure that your parsers pass all [testings](#test-parsers) with no errors. If any warnings are left, [document them](#documenting-accepted-warnings) in the parser YAML file.
+- Create a pull request against the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel), including:
+  - Your parsers YAML files in the ASIM parser folders (`/Parsers/ASim<schema>/Parsers`)
+  - Representative sample data according to the [samples submission guidelines](#samples-submission-guidelines).
+  - Test results according to the [test results submission guidelines](#test-results-submission-guidelines).
 
 ### Documenting accepted warnings
 
@@ -483,6 +484,45 @@ Exceptions:
 ```
 
 The warning specified in the YAML file should be a short form of the warning message uniquely identifying. The value is used to match warning messages when performing automated testings and ignore them.  
+
+### Samples submission guidelines
+
+Sample data is needed when troubleshooting parser issues and for ensuring future updates to the parser conform to older samples. The samples you submit should include any event variant that the parser supports. Make sure that the sample events include all possible event types, event formats and variations such as events representing successful and failed activity. Also make sure that variations in value formats are represented. For example, if a hostname can be represented as an FQDN or a simple hostname, the sample events should include both formats.
+
+To submit the event samples, use the following steps:
+
+- In the `Logs` screen, run a query that will extract from the source table only the events selected by the parser. For example, for the [Infoblox DNS parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/ASimDns/Parsers/ASimDnsInfobloxNIOS.yaml), use the following query:
+
+``` KQL
+    Syslog
+    | where ProcessName == "named"
+```
+
+- Export the results using the **Export to CSV** option to a file named `<EventVendor>_<EventProduct>_<EventSchema>_IngestedLogs.csv`, Where `EventProduct`, `EventProduct`, and `EventSchema` are the values assigned by the parser to those fields.
+
+- In the `Logs` screen, run a query that will output the schema or the parser input table. For example, for the same Infoblox DNS parser, the query is:
+
+``` KQL
+    Syslog
+    | getschema
+```
+
+- Export the results using the **Export to CSV** option to a file named `<TableName>_schema.csv`, where `TableName` is the name of source table the parser uses.
+
+- Include both files in your PR in the folder `/Sample Data/ASIM`. If the file already exists, add your GitHub handle to the name, for example: `<EventVendor>_<EventProduct>_<EventSchema>_SchemaTest_<GitHubHanlde>.csv`
+
+### Test results submission guidelines
+
+Test results are important to verify the correctness of the parser and understand any reported exception. 
+
+To submit your test results, use the following steps:
+
+- Run the parser tests and described in the [testings](#test-parsers) section.
+
+- and export the tests results using the **Export to CSV** option to files named `<EventVendor>_<EventProduct>_<EventSchema>_SchemaTest.csv` and `<EventVendor>_<EventProduct>_<EventSchema>_DataTest.csv` respectively.
+
+- Include both files in your PR in the folder `/Parsers/ASim<schema>/Tests`.
+
 
 ## Next steps
 

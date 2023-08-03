@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/29/2022
+ms.date: 09/05/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -124,7 +124,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | client_id |Required |The application ID assigned to your app in the [Azure portal](https://portal.azure.com).|
 | client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets cannot be securely stored, and therefore are not used in this call. If you use a client secret, please change it on a periodic basis. |
 | grant_type |Required |The type of grant. For the authorization code flow, the grant type must be `authorization_code`. |
-| scope |Required |A space-separated list of scopes. A single scope value indicates to Azure AD both of the permissions that are being requested. Using the client ID as the scope indicates that your app needs an access token that can be used against your own service or web API, represented by the same client ID.  The `offline_access` scope indicates that your app needs a refresh token for long-lived access to resources.  You also can use the `openid` scope to request an ID token from Azure AD B2C. |
+| scope |Recommended |A space-separated list of scopes. A single scope value indicates to Azure AD both of the permissions that are being requested. Using the client ID as the scope indicates that your app needs an access token that can be used against your own service or web API, represented by the same client ID.  The `offline_access` scope indicates that your app needs a refresh token for long-lived access to resources.  You also can use the `openid` scope to request an ID token from Azure AD B2C. |
 | code |Required |The authorization code that you acquired in from the `/authorize` endpoint. |
 | redirect_uri |Required |The redirect URI of the application where you received the authorization code. |
 | code_verifier | recommended | The same `code_verifier` used to obtain the authorization code. Required if PKCE was used in the authorization code grant request. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
@@ -181,7 +181,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 Access tokens and ID tokens are short-lived. After they expire, you must refresh them to continue to access resources. When you refresh the access token, Azure AD B2C returns a new token. The refreshed access token will have updated `nbf` (not before), `iat` (issued at), and `exp` (expiration) claim values. All other claim values will be the same as the originally issued access token. 
 
 
-To refresh the toke, submit another POST request to the `/token` endpoint. This time, provide the `refresh_token` instead of the `code`:
+To refresh the token, submit another POST request to the `/token` endpoint. This time, provide the `refresh_token` instead of the `code`:
 
 ```http
 POST https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1

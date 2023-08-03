@@ -8,10 +8,10 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 07/25/2022
+ms.date: 07/31/2023
 ---
 
-# Index data from Azure SQL
+# How to index data from Azure SQL in Azure Cognitive Search
 
 In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure SQL Database or an Azure SQL managed instance and makes it searchable in Azure Cognitive Search. 
 
@@ -28,7 +28,7 @@ This article also provides:
 
 ## Prerequisites
 
-+ An [Azure SQL database](/azure/azure-sql/database/sql-database-paas-overview) with data in a single table or view. 
++ An [Azure SQL database](/azure/azure-sql/database/sql-database-paas-overview) with data in a single table or view, or a [SQL Managed Instance with a public endpoint](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md).
 
   Use a table if your data is large or if you need [incremental indexing](#CaptureChangedRows) using SQL's native change detection capabilities.
 
@@ -36,7 +36,7 @@ This article also provides:
 
 + Read permissions. Azure Cognitive Search supports SQL Server authentication, where the user name and password are provided on the connection string. Alternatively, you can [set up a managed identity and use Azure roles](search-howto-managed-identities-sql.md).
 
-To work through the examples in this article, you'll need a REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md). 
+To work through the examples in this article, you'll need a REST client, such as [Postman](search-get-started-rest.md). 
 
 Other approaches for creating an Azure SQL indexer include Azure SDKs or [Import data wizard](search-get-started-portal.md) in the Azure portal. If you're using Azure portal, make sure that access to all public networks is enabled in the Azure SQL firewall and that the client has access via an inbound rule.
 
@@ -44,7 +44,7 @@ Other approaches for creating an Azure SQL indexer include Azure SDKs or [Import
 
 The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. A data source is defined as an independent resource so that it can be used by multiple indexers.
 
-1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
+1. [Create data source](/rest/api/searchservice/create-data-source) or [Update data source](/rest/api/searchservice/update-data-source) to set its definition: 
 
    ```http
     POST https://myservice.search.windows.net/datasources?api-version=2020-06-30
@@ -246,9 +246,10 @@ Database requirements:
 
 + SQL Server 2012 SP3 and later, if you're using SQL Server on Azure VMs
 + Azure SQL Database or SQL Managed Instance
-+ Tables only (no views).
++ Tables only (no views)
 + On the database, [enable change tracking](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) for the table
 + No composite primary key (a primary key containing more than one column) on the table
++ No clustered indexes on the table. As a workaround, any clustered index would have to be dropped and re-created as nonclustered index, however, performance may be affected in the source compared to having a clustered index
 
 Change detection policies are added to data source definitions. To use this policy, create or update your data source like this:
 

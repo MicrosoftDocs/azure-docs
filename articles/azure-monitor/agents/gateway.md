@@ -2,7 +2,7 @@
 title: Connect computers by using the Log Analytics gateway | Microsoft Docs
 description: Connect your devices and Operations Manager-monitored computers by using the Log Analytics gateway to send data to the Azure Automation and Log Analytics service when they do not have internet access.
 ms.topic: conceptual
-ms.date: 04/06/2022
+ms.date: 07/06/2023
 ms.reviewer: luki
 
 ---
@@ -95,22 +95,7 @@ The following table shows approximately how many agents can communicate with a g
 
 ## Download the Log Analytics gateway
 
-Get the latest version of the Log Analytics gateway Setup file from either Microsoft Download Center ([Download Link](https://go.microsoft.com/fwlink/?linkid=837444)) or the Azure portal.
-
-To get the Log Analytics gateway from the Azure portal, follow these steps:
-
-1. Browse the list of services, and then select **Log Analytics**. 
-1. Select a workspace.
-1. In your workspace blade, under **General**, select **Quick Start**. 
-1. Under **Choose a data source to connect to the workspace**, select **Computers**.
-1. In the **Direct Agent** blade, select **Download Log Analytics gateway**.
- 
-   ![Screenshot of the steps to download the Log Analytics gateway](./media/gateway/download-gateway.png)
-
-or 
-
-1. In your workspace blade, under **Settings**, select **Advanced settings**.
-1. Go to **Connected Sources** > **Windows Servers** and select **Download Log Analytics gateway**.
+Get the latest version of the Log Analytics gateway Setup file from Microsoft Download Center ([Download Link](https://go.microsoft.com/fwlink/?linkid=837444)).
 
 ## Install Log Analytics gateway using setup wizard
 
@@ -212,11 +197,11 @@ After the load balancer is created, a backend pool needs to be created, which di
 
 To configure the Azure Monitor agent (installed on the gateway server) to use the gateway to upload data for Windows or Linux:
 1. Follow the instructions to [configure proxy settings on the agent](./azure-monitor-agent-overview.md#proxy-configuration) and provide the IP address and port number corresponding to the gateway server. If you have deployed multiple gateway servers behind a load balancer, the agent proxy configuration is the virtual IP address of the load balancer instead.  
-2. Add the **configuration endpoint URL** to fetch data collection rules to the allow list for the gateway  
+2. Add the **configuration endpoint URL** to fetch data collection rules to the allowlist for the gateway  
    `Add-OMSGatewayAllowedHost -Host global.handler.control.monitor.azure.com`  
    `Add-OMSGatewayAllowedHost -Host <gateway-server-region-name>.handler.control.monitor.azure.com`  
    (If using private links on the agent, you must also add the [dce endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint))  
-3. Add the **data ingestion endpoint URL** to the allow list for the gateway  
+3. Add the **data ingestion endpoint URL** to the allowlist for the gateway  
    `Add-OMSGatewayAllowedHost -Host <log-analytics-workspace-id>.ods.opinsights.azure.com`  
 3. Restart the **OMS Gateway** service to apply the changes  
    `Stop-Service -Name <gateway-name>`  

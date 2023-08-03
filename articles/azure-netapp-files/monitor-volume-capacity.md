@@ -11,8 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
+ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 04/04/2022
+ms.date: 09/30/2022
 ms.author: anfdocs
 ---
 # Monitor the capacity of a volume  
@@ -63,7 +64,7 @@ You can use the [`az netappfiles volume`](/cli/azure/netappfiles/volume) command
 
 See [REST API for Azure NetApp Files](azure-netapp-files-develop-with-rest-api.md) and [REST API using PowerShell for Azure NetApp Files](develop-rest-api-powershell.md). 
 
-The REST API specification and example code for Azure NetApp Files are available through the [resource-manager GitHub directory](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager/Microsoft.NetApp/stable). 
+The REST API specification and example code for Azure NetApp Files are available through the [resource-manager GitHub directory](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/netapp/resource-manager/Microsoft.NetApp/stable). 
 
 ## Next steps
 

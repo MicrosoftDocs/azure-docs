@@ -1,12 +1,12 @@
 ---
 title: Monitoring Azure Container Registry data reference 
 description: Important reference material needed when you monitor your Azure container registry. Provides details about metrics, resource logs, and log schemas. 
-author: dlepow
-ms.author: danlep
+author: tejaswikolli-web
+ms.author: tejaswikolli
 ms.topic: reference
 ms.custom: subject-monitoring
 ms.service: container-registry
-ms.date: 03/19/2021
+ms.date: 10/11/2022
 ---
 
 # Monitoring Azure Container Registry data reference

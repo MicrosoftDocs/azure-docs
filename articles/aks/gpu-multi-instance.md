@@ -1,7 +1,6 @@
 ---
-title: Multi-instance GPU Node pool (preview)
+title: Multi-instance GPU Node pool
 description: Learn how to create a Multi-instance GPU Node pool and schedule tasks on it
-services: container-service
 ms.topic: article
 ms.date: 1/24/2022
 ms.author: juda
@@ -13,11 +12,9 @@ Nvidia's A100 GPU can be divided in up to seven independent instances. Each inst
 
 This article will walk you through how to create a multi-instance GPU node pool on Azure Kubernetes Service clusters and schedule tasks.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 ## GPU Instance Profile 
 
-GPU Instance Profiles define how a GPU will be partitioned. The following table shows the available GPU Instance Profile for the `Standard_ND96asr_v4`, the only instance type that supports the A100 GPU at this time.
+GPU Instance Profiles define how a GPU will be partitioned. The following table shows the available GPU Instance Profile for the `Standard_ND96asr_v4`
 
 
 | Profile Name | Fraction of SM |Fraction of Memory  | Number of Instances created |
@@ -60,9 +57,9 @@ If you're using command line, use the `az aks nodepool add` command to create th
 
 az aks nodepool add \
     --name mignode \
-    --resourcegroup myresourcegroup \
+    --resource-group myresourcegroup \
     --cluster-name migcluster \
-    --node-size Standard_ND96asr_v4 \
+    --node-vm-size Standard_ND96asr_v4 \
     --gpu-instance-profile MIG1g
 ```
 
@@ -145,38 +142,110 @@ nvgfd/gpu-feature-discovery
 ### Confirm multi-instance GPU capability
 As an example, if you used MIG1g as the GPU instance profile, confirm the node has multi-instance GPU capability by running:
 ```
-kubectl describe mignode
+kubectl describe node mignode
 ```
 If you're using single strategy, you'll see:
 ```
-Allocable:
+Allocatable:
     nvidia.com/gpu: 56
 ```
 If you're using mixed strategy, you'll see:
 ```
-Allocable:
+Allocatable:
     nvidia.com/mig-1g.5gb: 56
 ```
 
 ### Schedule work
-Use the `kubectl` run command to schedule work using single strategy:
-```
-kubectl run -it --rm \
---image=nvidia/cuda:11.0-base \
---restart=Never \
---limits=nvidia.com/gpu=1 \
-single-strategy-example -- nvidia-smi -L
-```
 
-Use the `kubectl` run command to schedule work using mixed strategy:
-```
-kubectl run -it --rm \
---image=nvidia/cuda:11.0-base \
---restart=Never \
---limits=nvidia.com/mig-1g.5gb=1 \
-mixed-strategy-example -- nvidia-smi -L
-```
+The following examples are based on cuda base image version 12.1.1 for Ubuntu22.04, tagged as `12.1.1-base-ubuntu22.04`.
 
+- Single strategy
+
+1. Create a file named `single-strategy-example.yaml` and copy in the following manifest.
+
+    ```yaml 
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: nvidia-single
+    spec:
+      containers:
+      - name: nvidia-single
+        image: nvidia/cuda:12.1.1-base-ubuntu22.04
+        command: ["/bin/sh"]
+        args: ["-c","sleep 1000"]
+        resources:
+          limits:
+            "nvidia.com/gpu": 1
+    ```
+
+2. Deploy the application using the `kubectl apply` command and specify the name of your YAML manifest.
+
+    ```
+    kubectl apply -f single-strategy-example.yaml
+    ```
+    
+3. Verify the allocated GPU devices using the `kubectl exec` command. This command returns a list of the cluster nodes.
+
+    ```
+    kubectl exec nvidia-single -- nvidia-smi -L
+    ```
+
+    The following example resembles output showing successfully created deployments and services.
+
+    ```output
+    GPU 0: NVIDIA A100 40GB PCIe (UUID: GPU-48aeb943-9458-4282-da24-e5f49e0db44b)
+    MIG 1g.5gb     Device  0: (UUID: MIG-fb42055e-9e53-5764-9278-438605a3014c)
+    MIG 1g.5gb     Device  1: (UUID: MIG-3d4db13e-c42d-5555-98f4-8b50389791bc)
+    MIG 1g.5gb     Device  2: (UUID: MIG-de819d17-9382-56a2-b9ca-aec36c88014f)
+    MIG 1g.5gb     Device  3: (UUID: MIG-50ab4b32-92db-5567-bf6d-fac646fe29f2)
+    MIG 1g.5gb     Device  4: (UUID: MIG-7b6b1b6e-5101-58a4-b5f5-21563789e62e)
+    MIG 1g.5gb     Device  5: (UUID: MIG-14549027-dd49-5cc0-bca4-55e67011bd85)
+    MIG 1g.5gb     Device  6: (UUID: MIG-37e055e8-8890-567f-a646-ebf9fde3ce7a)
+    ```
+
+- Mixed mode strategy
+
+1. Create a file named `mixed-strategy-example.yaml` and copy in the following manifest.
+
+    ```yaml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: nvidia-mixed
+    spec:
+      containers:
+      - name: nvidia-mixed
+        image: nvidia/cuda:12.1.1-base-ubuntu22.04
+        command: ["/bin/sh"]
+        args: ["-c","sleep 100"]
+        resources:
+          limits:
+            "nvidia.com/mig-1g.5gb": 1
+    ```
+
+2. Deploy the application using the `kubectl apply` command and specify the name of your YAML manifest.
+
+    ```
+    kubectl apply -f mixed-strategy-example.yaml
+    ```
+    
+3. Verify the allocated GPU devices using the `kubectl exec` command. This command returns a list of the cluster nodes.
+
+    ```
+    kubectl exec nvidia-mixed -- nvidia-smi -L
+    ```
+
+    The following example resembles output showing successfully created deployments and services.
+
+    ```output
+    GPU 0: NVIDIA A100 40GB PCIe (UUID: GPU-48aeb943-9458-4282-da24-e5f49e0db44b)
+    MIG 1g.5gb     Device  0: (UUID: MIG-fb42055e-9e53-5764-9278-438605a3014c)
+    ```
+
+> [!IMPORTANT]
+> The "latest" tag for CUDA images has been deprecated on Docker Hub.
+> Please refer to [NVIDIA's repository](https://hub.docker.com/r/nvidia/cuda/tags) for the latest images and corresponding tags
 
 ## Troubleshooting
 - If you do not see multi-instance GPU capability after the node pool has been created, confirm the API version is not older than 2021-08-01.

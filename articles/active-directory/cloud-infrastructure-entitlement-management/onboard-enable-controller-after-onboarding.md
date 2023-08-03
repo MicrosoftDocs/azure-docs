@@ -2,25 +2,35 @@
 title: Enable or disable the controller in Permissions Management after onboarding is complete
 description: How to enable or disable the controller in Permissions Management after onboarding is complete.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
-ms.author: kenwith
+ms.date: 06/16/2023
+ms.author: jfields
 ---
 
 # Enable or disable the controller after onboarding is complete
 
-This article describes how to enable or disable the controller in Microsoft Azure and Google Cloud Platform (GCP) after onboarding is complete.
+With the controller, you determine what level of access to provide Permissions Management.
 
-This article also describes how to enable the controller in Amazon Web Services (AWS) if you disabled it during onboarding. You can only enable the controller in AWS at this time; you can't disable it.
+* Enable to grant read and write access to your environment(s). You can manage permissions and remediate through Permissions Management.
+    
+* Disable to grant read-only access to your environment(s).
+
+
+This article describes how to enable the controller in Amazon Web Services (AWS), Microsoft Azure and Google Cloud Platform (GCP) after onboarding is complete.
+
+
+This article also describes how to disable the controller in Microsoft Azure and Google Cloud Platform (GCP). Once you enable the controller in AWS, you can't disable it.
+
 
 ## Enable the controller in AWS
 
 > [!NOTE]
->  You can only enable the controller in AWS; you can't disable it at this time.
+>  You can enable the controller in AWS if you disabled it during onboarding. Once you enable the controller, you can’t disable it at this time.
 
 1. Sign in to the AWS console of the member account in a separate browser window.
 1. Go to the Permissions Management home page, select **Settings** (the gear icon), and then select the **Data Collectors** subtab.
@@ -48,14 +58,17 @@ This article also describes how to enable the controller in Amazon Web Services 
 
 ## Enable or disable the controller in Azure
 
+You can enable or disable the controller in Azure at the Subscription level of your Management Group(s).  
 
-1. In Azure, open the **Access control (IAM)** page.
+1. From the Azure [**Home**](https://portal.azure.com) page, select **Management groups**.
+1. Locate the group for which you want to enable or disable the controller, then select the arrow to expand the group menu and view your subscriptions. Alternatively, you can select the **Total Subscriptions** number listed for your group.
+1. Select the subscription for which you want to enable or disable the controller, then click **Access control (IAM)** in the navigation menu.
 1. In the **Check access** section, in the **Find** box, enter **Cloud Infrastructure Entitlement Management**.
 
     The **Cloud Infrastructure Entitlement Management assignments** page appears, displaying the roles assigned to you.
 
     - If you have read-only permission, the **Role** column displays **Reader**.
-    - If you have administrative permission, the **Role** column displays **User Access Administrative**.
+    - If you have administrative permission, the **Role** column displays **User Access Administrator**.
 
 1. To add the administrative role assignment, return to the **Access control (IAM)** page, and then select **Add role assignment**.
 1. Add or remove the role assignment for Cloud Infrastructure Entitlement Management.
@@ -72,13 +85,13 @@ This article also describes how to enable the controller in Amazon Web Services 
 
 1. Execute the **gcloud auth login**.
 1. Follow the instructions displayed on the screen to authorize access to your Google account.
-1. Execute the **sh mciem-workload-identity-pool.sh** to create the workload identity pool, provider, and service account.
-1. Execute the **sh mciem-member-projects.sh** to give Permissions Management permissions to access each of the member projects.
+1. Execute the ``sh mciem-workload-identity-pool.sh`` to create the workload identity pool, provider, and service account.
+1. Execute the ``sh mciem-member-projects.sh`` to give Permissions Management permissions to access each of the member projects.
 
     - If you want to manage permissions through Permissions Management, select **Y** to **Enable controller**.
     - If you want to onboard your projects in read-only mode, select **N** to **Disable controller**.
 
-1. Optionally, execute **mciem-enable-gcp-api.sh** to enable all recommended GCP APIs.
+1. Optionally, execute ``mciem-enable-gcp-api.sh`` to enable all recommended GCP APIs.
 
 1. Go to the Permissions Management home page, select **Settings** (the gear icon), and then select the **Data Collectors** subtab.
 1. On the **Data Collectors** dashboard, select **GCP**, and then select **Create Configuration**.

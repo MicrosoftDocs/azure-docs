@@ -1,15 +1,15 @@
 ---
 title: Community tools - Move classic resources to Azure Resource Manager 
 description: This article catalogs the tools that have been provided by the community to help migrate IaaS resources from classic to the Azure Resource Manager deployment model.
-author: tanmaygore
+author: oriwolman
 manager: vashan
 ms.service: virtual-machines
 ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 02/06/2020
-ms.author: tagore
-
+ms.date: 01/25/2023
+ms.author: oriwolman
+ms.custom: compute-evergreen, devx-track-arm-template
 ---
 
 # Community tools to migrate IaaS resources from classic to Azure Resource Manager
@@ -17,7 +17,7 @@ ms.author: tagore
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 
 > [!IMPORTANT]
-> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](classic-vm-deprecation.md#how-does-this-affect-me).
+> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on September 6, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](classic-vm-deprecation.md#how-does-this-affect-me).
 
 This article catalogs the tools that have been provided by the community to assist with migration of IaaS resources from classic to the Azure Resource Manager deployment model.
 

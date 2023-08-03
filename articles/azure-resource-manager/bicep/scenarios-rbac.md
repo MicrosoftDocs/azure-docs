@@ -4,7 +4,8 @@ description: Describes how to create role assignments and role definitions by us
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 05/15/2022
+ms.custom: devx-track-bicep
+ms.date: 06/23/2023
 ---
 # Create Azure RBAC resources by using Bicep
 
@@ -29,7 +30,7 @@ If you don't explicitly specify the scope, Bicep uses the file's `targetScope`. 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-rbac/scope-default.bicep" highlight="4" :::
 
 > [!TIP]
-> Ensure you use the smallest scope required for your requirements.
+> Use the smallest scope that you need to meet your requirements.
 >
 > For example, if you need to grant a managed identity access to a single storage account, it's good security practice to create the role assignment at the scope of the storage account, not at the resource group or subscription scope.
 
@@ -70,7 +71,7 @@ The following example shows how to create a user-assigned managed identity and a
 
 When you delete a user, group, service principal, or managed identity from Azure AD, it's a good practice to delete any role assignments. They aren't deleted automatically.
 
-Any role assignments that refer to a deleted principal ID become invalid. If you try to reuse a role assignment's name for another role assignment, the deployment will fail. To work around this behavior, you should either remove the old role assignment before you recreate it, or ensure that you use a unique name when you deploy a new role assignment. [This quickstart template illustrates how you can define a role assignment in a Bicep module and use a principal ID as a seed value for the role assignment name.](https://azure.microsoft.com/resources/templates/key-vault-managed-identity-role-assignment/)
+Any role assignments that refer to a deleted principal ID become invalid. If you try to reuse a role assignment's name for another role assignment, the deployment will fail. To work around this behavior, you should either remove the old role assignment before you recreate it, or ensure that you use a unique name when you deploy a new role assignment. This [quickstart template](/samples/azure/azure-quickstart-templates/key-vault-managed-identity-role-assignment) illustrates how you can define a role assignment in a Bicep module and use a principal ID as a seed value for the role assignment name.
 
 ## Custom role definitions
 
@@ -99,6 +100,6 @@ Role definition resource names must be unique within the Azure Active Directory 
   - [Assign a role at subscription scope](https://azure.microsoft.com/resources/templates/subscription-role-assignment/)
   - [Assign a role at tenant scope](https://azure.microsoft.com/resources/templates/tenant-role-assignment/)
   - [Create a resourceGroup, apply a lock and RBAC](https://azure.microsoft.com/resources/templates/create-rg-lock-role-assignment/)
-  - [Create key vault, managed identity, and role assignment](https://azure.microsoft.com/resources/templates/key-vault-managed-identity-role-assignment/)
+  - [Create key vault, managed identity, and role assignment](/samples/azure/azure-quickstart-templates/key-vault-managed-identity-role-assignment)
 - Community blog posts
   - [Create role assignments for different scopes with Bicep](https://4bes.nl/2022/04/24/create-role-assignments-for-different-scopes-with-bicep/), by Barbara Forbes

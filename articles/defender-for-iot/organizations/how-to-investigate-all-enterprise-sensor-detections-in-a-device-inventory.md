@@ -1,8 +1,8 @@
 ---
 title: Manage your OT device inventory from an on-premises management console
-description: Learn how to view and manage OT devices (assets) from the Device inventory page on an on-premises management console.
+description: Learn how to view and manage OT devices (assets) from the Device Inventory page on an on-premises management console.
 ms.topic: how-to
-ms.date: 07/12/2022
+ms.date: 05/17/2023
 
 ---
 
@@ -10,16 +10,31 @@ ms.date: 07/12/2022
 
 Use the **Device inventory** page from an on-premises management console to manage all OT and IT devices detected by sensors connected to that console. Identify new devices detected, devices that might need troubleshooting, and more.
 
-For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device).
-
+For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
 
 > [!TIP]
-> Alternately, view your device inventory from a [the Azure portal](how-to-manage-device-inventory-for-organizations.md), or from an [OT sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md).
+> Alternately, view your device inventory from [the Azure portal](how-to-manage-device-inventory-for-organizations.md), or from an [OT sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md).
 >
+
+## Prerequisites
+
+Before performing the procedures in this article, make sure that you have:
+
+- An on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md), [activated, and configured](ot-deploy/activate-deploy-management.md). To view devices by zone, make sure that you've [configured sites and zones](ot-deploy/sites-and-zones-on-premises.md) on the on-premises management console.
+
+- One or OT network sensors [installed](ot-deploy/install-software-ot-sensor.md), [configured, and activated](ot-deploy/activate-deploy-sensor.md), and [connected to your on-premises management console](ot-deploy/connect-sensors-to-management.md). To view devices per zone, make sure that each sensor is assigned to a specific zone.
+
+- Access to the on-premises management console with one of the following [user roles](roles-on-premises.md):
+
+    - **To view devices the on-premises management console**, sign in as an *Admin*, *Security Analyst*, or *Viewer* user.
+
+    - **To export or import data**, sign in as an *Admin* or *Security Analyst* user.
+
+    - **To use the CLI**, access the CLI via SSH/Telnet as a [privileged user](references-work-with-defender-for-iot-cli-commands.md).
 
 ## View the device inventory
 
-To view detected devices in the **Device Inventory** page in an on-premises management console, sign-in to your on-premises management console, and then select **Device Inventory**. 
+To view detected devices in the **Device Inventory** page in an on-premises management console, sign-in to your on-premises management console, and then select **Device Inventory**.
 
 For example:
 
@@ -34,7 +49,22 @@ Use any of the following options to modify or filter the devices shown:
 | **Save a filter** | To save the current set of filters, select the **Save As** button that appears in the filter row.|
 | **Load a saved filter** | Saved filters are listed on the left, in the **Groups** pane. <br><br>1. Select the **Options** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/options-menu.png"border="false"::: button in the toolbar to display the **Groups** pane. <br>2. In the **Device Inventory Filters** list, select the saved filter you want to load.  |
 
-For more information, see [Device inventory column reference](#device-inventory-column-reference).
+For more information, see [Device inventory column data](device-inventory.md#device-inventory-column-data).
+
+### View device inventory by zone
+
+To view alerts from connected OT sensors for a specific zone, use the **Site Management** page on an on-premises management console.
+
+1. Sign into your on-premises management console and select **Site Management**.
+
+1. Locate the site and zone you want to view, using the filtering options at the top as needed:
+
+    - **Connectivity**: Select to view only all OT sensors, or only connected / disconnected sensors only.
+    - **Upgrade Status**: Select to view all OT sensors, or only those with a specific [software update status](update-ot-software.md#update-an-on-premises-management-console).
+    - **Business Unit**: Select to view all OT sensors, or only those from a [specific business unit](best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
+    - **Region**: Select to view all OT sensors, or only those from a [specific region](best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
+
+1. Select **View device inventory** for a specific OT sensor to jump to the device inventory for that OT sensor.
 
 ## Export the device inventory to CSV
 
@@ -46,6 +76,10 @@ To export device inventory data, select the **Import/Export file** :::image type
 - **Export All Device Inventory**: Exports the entire device inventory, with no filtering
 
 Save the exported file locally.
+
+> [!NOTE]
+> In the exported file, date values are based on the region settings for the machine you're using to access the OT sensor. We recommend exporting data only from a machine with the same region settings as the sensor that detected your data. For more information, see [Synchronize time zones on an OT sensor](how-to-manage-individual-sensors.md#synchronize-time-zones-on-an-ot-sensor).
+>
 
 ## Add to and enhance device inventory data
 
@@ -131,38 +165,12 @@ For example:
 
 For more information, see [Defender for IoT sensor and management console APIs](references-work-with-defender-for-iot-apis.md).
 
-## Device inventory column reference
 
-The following table describes the device properties shown in the **Device inventory** page on an on-premises management console.
-
-| Name | Description |
-|--|--|
-| **Unacknowledged Alerts** | The number of unhandled alerts associated with this device. |
-| **Business Unit** | The business unit that contains this device. |
-| **Region** | The region that contains this device. |
-| **Site** | The site that contains this device. |
-| **Zone** | The zone that contains this device. |
-| **Appliance** | The Microsoft Defender for IoT sensor that protects this device. |
-| **Name** | The name of this device as Defender for IoT discovered it. |
-| **Type** | The type of device, such as PLC or HMI. |
-| **Vendor** | The name of the device's vendor, as defined in the MAC address. |
-| **Operating System** | The OS of the device. |
-| **Firmware** | The device's firmware. |
-| **IP Address** | The IP address of the device. |
-| **VLAN** | The VLAN of the device. |
-| **MAC Address** | The MAC address of the device. |
-| **Protocols** | The protocols that the device uses. |
-| **Unacknowledged Alerts** | The number of unhandled alerts associated with this device. |
-| **Is Authorized** | The authorization status of the device:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been authorized. |
-| **Is Known as Scanner** | Whether this device performs scanning-like activities in the network. |
-| **Is Programming Device** | Whether the device is a programming device:<br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations.<br />- **False**: The device isn't a programming device. |
-| **Groups** | Groups in which this device participates. |
-| **Last Activity** | The last activity that the device performed. |
-| **Discovered** | When this device was first seen in the network. |
-| **PLC mode (preview)** | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. if both states are the same, only one state is presented. |
 ## Next steps
 
 For more information, see:
 
+- [Defender for IoT device inventory](device-inventory.md)
 - [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
 - [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md)
+- [Device data retention periods](references-data-retention.md#device-data-retention-periods).

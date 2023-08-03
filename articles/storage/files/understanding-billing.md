@@ -1,12 +1,11 @@
 ---
-title: Understand Azure Files billing | Microsoft Docs
+title: Understand Azure Files billing
 description: Learn how to interpret the provisioned and pay-as-you-go billing models for Azure file shares.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 06/16/2022
+ms.date: 01/24/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Understand Azure Files billing
@@ -57,7 +56,7 @@ If you're migrating to Azure Files from on-premises or comparing Azure Files to 
 
 - **How do you pay for storage, IOPS, and bandwidth?** With Azure Files, the billing model you use depends on whether you're deploying [premium](#provisioned-model) or [standard](#pay-as-you-go-model) file shares. Most cloud solutions have models that align with the principles of either provisioned storage, such as price determinism and simplicity, or pay-as-you-go storage, which can optimize costs by only charging you for what you actually use. Of particular interest for provisioned models are minimum provisioned share size, the provisioning unit, and the ability to increase and decrease provisioning.
 
-- **Are there any methods to optimize storage costs?** With Azure Files, you can use [capacity reservations](#reserve-capacity) to achieve an up to 36% discount on storage. Other solutions may employ strategies like deduplication or compression to optionally optimize storage efficiency. However, these storage optimization strategies often have non-monetary costs, such as reducing performance. Azure Files capacity reservations have no side effects on performance.
+- **Are there any methods to optimize storage costs?** You can use [Azure Files Reservations](#reservations) to achieve an up to 36% discount on storage. Other solutions may employ strategies like deduplication or compression to optionally optimize storage efficiency. However, these storage optimization strategies often have non-monetary costs, such as reducing performance. Reservations have no side effects on performance.
 
 - **How do you achieve storage resiliency and redundancy?** With Azure Files, storage resiliency and redundancy are baked into the product offering. All tiers and redundancy levels ensure that data is highly available and at least three copies of your data are accessible. When considering other file storage options, consider whether storage resiliency and redundancy is built in or something you must assemble yourself.
 
@@ -65,18 +64,21 @@ If you're migrating to Azure Files from on-premises or comparing Azure Files to 
 
 - **What are the costs of value-added products, like backup, security, etc.?** Azure Files supports integrations with multiple first- and third-party [value-added services](#value-added-services). Value-added services such as Azure Backup, Azure File Sync, and Azure Defender provide backup, replication and caching, and security functionality for Azure Files. Value-added solutions, whether on-premises or in the cloud, have their own licensing and product costs, but are often considered part of the total cost of ownership for file storage.
 
-## Reserve capacity
-Azure Files supports storage capacity reservations, which enable you to achieve a discount on storage by pre-committing to storage utilization. You should consider purchasing reserved instances for any production workload, or dev/test workloads with consistent footprints. When you purchase reserved capacity, your reservation must specify the following dimensions:
+## Reservations
+Azure Files supports reservations (also referred to as *reserved instances*), which enable you to achieve a discount on storage by pre-committing to storage utilization. You should consider purchasing reserved instances for any production workload, or dev/test workloads with consistent footprints. When you purchase a Reservation, you must specify the following dimensions:
 
-- **Capacity size**: Capacity reservations can be for either 10 TiB or 100 TiB, with more significant discounts for purchasing a higher capacity reservation. You can purchase multiple reservations, including reservations of different capacity sizes to meet your workload requirements. For example, if your production deployment has 120 TiB of file shares, you could purchase one 100 TiB reservation and two 10 TiB reservations to meet the total capacity requirements.
-- **Term**: Reservations can be purchased for either a one-year or three-year term, with more significant discounts for purchasing a longer reservation term.
-- **Tier**: The tier of Azure Files for the capacity reservation. Reservations for Azure Files currently are available for the premium, hot, and cool tiers.
-- **Location**: The Azure region for the capacity reservation. Capacity reservations are available in a subset of Azure regions.
-- **Redundancy**: The storage redundancy for the capacity reservation. Reservations are supported for all redundancies Azure Files supports, including LRS, ZRS, GRS, and GZRS.
+- **Capacity size**: Reservations can be for either 10 TiB or 100 TiB, with more significant discounts for purchasing a higher capacity Reservation. You can purchase multiple Reservations, including Reservations of different capacity sizes to meet your workload requirements. For example, if your production deployment has 120 TiB of file shares, you could purchase one 100 TiB Reservation and two 10 TiB Reservations to meet the total storage capacity requirements.
+- **Term**: Reservations can be purchased for either a one-year or three-year term, with more significant discounts for purchasing a longer Reservation term.
+- **Tier**: The tier of Azure Files for the Reservation. Reservations currently are available for the premium, hot, and cool tiers.
+- **Location**: The Azure region for the Reservation. Reservations are available in a subset of Azure regions.
+- **Redundancy**: The storage redundancy for the Reservation. Reservations are supported for all redundancies Azure Files supports, including LRS, ZRS, GRS, and GZRS.
+- **Billing frequency**: Indicates how often the account is billed for the Reservation. Options include *Monthly* or *Upfront*.
 
-Once you purchase a capacity reservation, it will automatically be consumed by your existing storage utilization. If you use more storage than you have reserved, you'll pay list price for the balance not covered by the capacity reservation. Transaction, bandwidth, data transfer, and metadata storage charges aren't included in the reservation.
+Once you purchase a Reservation, it will automatically be consumed by your existing storage utilization. If you use more storage than you have reserved, you'll pay list price for the balance not covered by the Reservation. Transaction, bandwidth, data transfer, and metadata storage charges aren't included in the Reservation.
 
-For more information on how to purchase storage reservations, see [Optimize costs for Azure Files with reserved capacity](files-reserve-capacity.md).
+There are differences in how Reservations work with Azure file share snapshots for standard and premium file shares. If you're taking snapshots of standard file shares, then the snapshot differentials count against the Reservation and are billed as part of the normal used storage meter. However, if you're taking snapshots of premium file shares, then the snapshots are billed using a separate meter and don't count against the Reservation. For more information, see [Snapshots](#snapshots).
+
+For more information on how to purchase Reservations, see [Optimize costs for Azure Files with Reservations](files-reserve-capacity.md).
 
 ## Provisioned model
 Azure Files uses a provisioned model for premium file shares. In a provisioned billing model, you proactively specify to the Azure Files service what your storage requirements are, rather than being billed based on what you use. A provisioned model for storage is similar to buying an on-premises storage solution because when you provision an Azure file share with a certain amount of storage capacity, you pay for that storage capacity regardless of whether you use it or not. Unlike purchasing physical media on-premises, provisioned file shares can be dynamically scaled up or down depending on your storage and IO performance characteristics.
@@ -110,7 +112,7 @@ The following table illustrates a few examples of these formulae for the provisi
 | 51,200 | 54,200 | Up to 100,000 | 164,880,000 | 5,220 |
 | 102,400 | 100,000 | Up to 100,000 | 0 | 10,340 |
 
-Effective file share performance is subject to machine network limits, available network bandwidth, IO sizes, and parallelism, among many other factors. To achieve maximum benefit from parallelization, we recommend enabling SMB Multichannel on premium file shares. To learn more see [enable SMB Multichannel](files-smb-protocol.md#smb-multichannel). Refer to [SMB Multichannel performance](storage-files-smb-multichannel-performance.md) and [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.
+Effective file share performance is subject to machine network limits, available network bandwidth, IO sizes, and parallelism, among many other factors. To achieve maximum benefit from parallelization, we recommend enabling SMB Multichannel on premium file shares. To learn more see [enable SMB Multichannel](files-smb-protocol.md#smb-multichannel). Refer to [SMB Multichannel performance](storage-files-smb-multichannel-performance.md) and [performance troubleshooting guide](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json) for some common performance issues and workarounds.
 
 ### Bursting
 If your workload needs the extra performance to meet peak demand, your share can use burst credits to go above the share's baseline IOPS limit to give the share the performance it needs to meet the demand. Bursting is automated and operates based on a credit system. Bursting works on a best effort basis, and the burst limit isn't a guarantee.
@@ -154,11 +156,11 @@ The following table shows the categorization of each transaction:
 
 | Transaction bucket | Management operations | Data operations |
 |-|-|-|
-| Write transactions | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li><li>`SetShareACL`</li></ul> | <ul><li>`CopyFile`</li><li>`Create`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`SetInfo`</li><li>`Write`</li><li>`PutFilePermission`</li></ul> |
+| Write transactions | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li><li>`SetShareAcl`</li><li>`SnapshotShare`</li><li>`RestoreShare`</li></ul> | <ul><li>`CopyFile`</li><li>`Create`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`SetInfo`</li><li>`Write`</li><li>`PutFilePermission`</li><li>`Flush`</li><li>`SetDirectoryProperties`</li></ul> |
 | List transactions | <ul><li>`ListShares`</li></ul> | <ul><li>`ListFileRanges`</li><li>`ListFiles`</li><li>`ListHandles`</li></ul> |
 | Read transactions | <ul><li>`GetFileServiceProperties`</li><li>`GetShareAcl`</li><li>`GetShareMetadata`</li><li>`GetShareProperties`</li><li>`GetShareStats`</li></ul> | <ul><li>`FilePreflightRequest`</li><li>`GetDirectoryMetadata`</li><li>`GetDirectoryProperties`</li><li>`GetFile`</li><li>`GetFileCopyInformation`</li><li>`GetFileMetadata`</li><li>`GetFileProperties`</li><li>`QueryDirectory`</li><li>`QueryInfo`</li><li>`Read`</li><li>`GetFilePermission`</li></ul> |
-| Other/protocol transactions | | <ul><li>`AbortCopyFile`</li><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li></ul> |
-| Delete transactions | <ul><li>`DeleteShare`</li></ul> | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li></li>`DeleteFile`</li></ul> |  
+| Other/protocol transactions | <ul><li>`AcquireShareLease`</li><li>`BreakShareLease`</li><li>`ReleaseShareLease`</li><li>`RenewShareLease`</li><li>`ChangeShareLease`</li></ul> | <ul><li>`AbortCopyFile`</li><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li></ul> |
+| Delete transactions | <ul><li>`DeleteShare`</li></ul> | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li><li>`DeleteFile`</li></ul> |  
 
 > [!Note]  
 > NFS 4.1 is only available for premium file shares, which use the provisioned billing model. Transactions don't affect billing for premium file shares.
@@ -216,7 +218,7 @@ Snapshots are always billed based on the differential storage utilization of eac
 
 - In premium file shares, snapshots are billed against their own snapshot meter, which has a reduced price over the provisioned storage price. This means that you'll see a separate line item on your bill representing snapshots for premium file shares for each FileStorage storage account on your bill.
 
-- In standard file shares, snapshots are billed as part of the normal used storage meter, although you're still only billed for the differential cost of the snapshot. This means that you won't see a separate line item on your bill representing snapshots for each standard storage account containing Azure file shares. This also means that differential snapshot usage counts against capacity reservations that are purchased for standard file shares.
+- In standard file shares, snapshots are billed as part of the normal used storage meter, although you're still only billed for the differential cost of the snapshot. This means that you won't see a separate line item on your bill representing snapshots for each standard storage account containing Azure file shares. This also means that differential snapshot usage counts against Reservations that are purchased for standard file shares.
 
 Value-added services for Azure Files may use snapshots as part of their value proposition. See [value-added services for Azure Files](#value-added-services) for more information on how snapshots are used.
 

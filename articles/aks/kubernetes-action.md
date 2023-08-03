@@ -1,7 +1,6 @@
 ---
 title: Build, test, and deploy containers to Azure Kubernetes Service using GitHub Actions
 description:  Learn how to use GitHub Actions to deploy your container to Kubernetes
-services: container-service
 ms.topic: article
 ms.date: 08/02/2022
 ms.custom: github-actions-azure
@@ -95,8 +94,8 @@ The following shows an example output from the above command.
 ```
 
 In your GitHub repository, create the below secrets for your action to use. To create a secret:
-1. Navigate to the repository's settings, and click *Secrets* then *Actions*.  
-1. For each secret, click *New Repository Secret* and enter the name and value of the secret.
+1. Navigate to the repository's settings, and select **Security > Secrets and variables > Actions**. 
+1. For each secret, click **New Repository Secret** and enter the name and value of the secret.
 
 For more details on creating secrets, see [Encrypted Secrets][github-actions-secrets].
 
@@ -164,7 +163,7 @@ jobs:
           manifests: |
              azure-vote-all-in-one-redis.yaml
           images: '${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/azure-vote-front:${{ github.sha }}'
-          pull: false 
+          pull-images: false 
 ```
 
 > [!IMPORTANT]
@@ -202,7 +201,7 @@ Review the following starter workflows for AKS. For more details on using starte
 - [Azure Kubernetes Service Kompose][aks-swf-kompose]
 
 > [!div class="nextstepaction"]
-> [Learn how to create multiple pipelines on GitHub Actions with AKS](/learn/modules/aks-deployment-pipeline-github-actions)
+> [Learn how to create multiple pipelines on GitHub Actions with AKS](/training/modules/aks-deployment-pipeline-github-actions)
 
 > [!div class="nextstepaction"]
 > [Learn about Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-start-here)

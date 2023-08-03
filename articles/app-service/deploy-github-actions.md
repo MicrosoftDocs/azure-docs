@@ -3,10 +3,8 @@ title: Configure CI/CD with GitHub Actions
 description: Learn how to deploy your code to Azure App Service from a CI/CD pipeline with GitHub Actions. Customize the build tasks and execute complex deployments.
 ms.topic: article
 ms.date: 12/14/2021
-ms.author: jafreebe
 ms.reviewer: ushan
-ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-
+ms.custom: github-actions-azure, devx-track-azurecli
 ---
 
 # Deploy to App Service using GitHub Actions
@@ -125,7 +123,7 @@ OpenID Connect is an authentication method that uses short-lived tokens. Setting
 1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with the generated `assignee-object-id`. Learn [how to manage Azure subscriptions with the Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli). 
 
     ```azurecli-interactive
-    az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --scopes /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Web/sites/--assignee-principal-type ServicePrincipal
+    az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Web/sites/ --assignee-principal-type ServicePrincipal
     ```
 
 1. Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your active directory application.
@@ -142,7 +140,7 @@ OpenID Connect is an authentication method that uses short-lived tokens. Setting
     ("credential.json" contains the following content)
     {
         "name": "<CREDENTIAL-NAME>",
-        "issuer": "https://token.actions.githubusercontent.com/",
+        "issuer": "https://token.actions.githubusercontent.com",
         "subject": "repo:organization/repository:ref:refs/heads/main",
         "description": "Testing",
         "audiences": [
@@ -160,7 +158,7 @@ To learn how to create a Create an active directory application, service princip
 
 # [Publish profile](#tab/applevel)
 
-In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
+In [GitHub](https://github.com/), browse your repository. Select **Settings > Security > Secrets and variables > Actions > New repository secret**.
 
 To use [app-level credentials](#generate-deployment-credentials), paste the contents of the downloaded publish profile file into the secret's value field. Name the secret `AZURE_WEBAPP_PUBLISH_PROFILE`.
 
@@ -174,7 +172,7 @@ When you configure your GitHub workflow, you use the `AZURE_WEBAPP_PUBLISH_PROFI
 
 # [Service principal](#tab/userlevel)
 
-In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
+In [GitHub](https://github.com/), browse your repository. Select **Settings > Security > Secrets and variables > Actions > New repository secret**.
 
 To use [user-level credentials](#generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name `AZURE_CREDENTIALS`.
 
@@ -190,7 +188,7 @@ When you configure the workflow file later, you use the secret for the input `cr
 
 You need to provide your application's **Client ID**, **Tenant ID** and **Subscription ID** to the login action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
 
-1. Open your GitHub repository and go to **Settings**.
+1. Open your GitHub repository and go to **Settings > Security > Secrets and variables > Actions > New repository secret**.
 
 1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Active Directory application for your GitHub secrets:
 
@@ -290,7 +288,7 @@ The environment variable `AZURE_WEBAPP_PACKAGE_PATH` sets the path to your web a
   run: |
     dotnet restore
     dotnet build --configuration Release
-    dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
+    dotnet publish -c Release --property:PublishDir='${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
 ```
 **ASP.NET**
 
@@ -384,7 +382,7 @@ jobs:
         run: |
           dotnet restore
           dotnet build --configuration Release
-          dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
+          dotnet publish -c Release --property:PublishDir='${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
           
       # Deploy to Azure Web apps
       - name: 'Run Azure webapp deploy action using publish profile credentials'
@@ -599,10 +597,10 @@ jobs:
         run: |
           dotnet restore
           dotnet build --configuration Release
-          dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
+          dotnet publish -c Release --property:PublishDir='${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
           
       # Deploy to Azure Web apps
-      - name: 'Run Azure webapp deploy action using publish profile credentials'
+      - name: 'Run Azure webapp deploy action using Azure Credentials'
         uses: azure/webapps-deploy@v2
         with: 
           app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
@@ -652,7 +650,7 @@ jobs:
     - name: Run MSBuild
       run: msbuild .\SampleWebApplication.sln
        
-    - name: 'Run Azure webapp deploy action using publish profile credentials'
+    - name: 'Run Azure webapp deploy action using Azure Credentials'
       uses: azure/webapps-deploy@v2
       with: 
         app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
@@ -715,6 +713,7 @@ name: Node.js
 
 env:
   AZURE_WEBAPP_NAME: my-app   # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '14.x'                # set this to the node version to use
 
 jobs:
@@ -841,7 +840,7 @@ jobs:
         run: |
           dotnet restore
           dotnet build --configuration Release
-          dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
+          dotnet publish -c Release --property:PublishDir='${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
           
       # Deploy to Azure Web apps
       - name: 'Run Azure webapp deploy action using publish profile credentials'
@@ -974,6 +973,7 @@ name: Node.js
 
 env:
   AZURE_WEBAPP_NAME: my-app   # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '14.x'                # set this to the node version to use
 
 jobs:

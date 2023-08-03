@@ -2,6 +2,7 @@
 title: Azure managed applications with notifications
 description: Configure an Azure managed application with webhook endpoints to receive notifications about creates, updates, deletes, and errors on the managed application instances.
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 08/18/2022
 ---
 
@@ -28,7 +29,7 @@ The following examples show how to add a notification endpoint URI using the por
 
 ### Azure portal
 
-To get started, see [Publish a service catalog application through Azure portal](./publish-portal.md).
+To get started, see [Quickstart: Create and publish an Azure Managed Application definition](./publish-service-catalog-app.md).
 
 :::image type="content" source="./media/publish-notifications/service-catalog-notifications.png" alt-text="Screenshot of the Azure portal that shows a service catalog managed application definition and the notification endpoint.":::
 
@@ -37,7 +38,7 @@ To get started, see [Publish a service catalog application through Azure portal]
 > [!NOTE]
 > You can only supply one endpoint in the `notificationEndpoints` property of the managed application definition.
 
-``` JSON
+```json
 {
   "properties": {
     "isEnabled": true,

@@ -1,14 +1,15 @@
 ---
-title: Generate, view, and apply rule recommendations in the Autopilot dashboard in Permissions Management
-description: How to generate, view, and apply rule recommendations in the Autopilot dashboard in Permissions Management.
+title: Generate, view, and apply rule recommendations in the Microsoft Entra Permissions Management Autopilot dashboard
+description: How to generate, view, and apply rule recommendations in the Microsoft Entra Permissions Management Autopilot dashboard.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
-ms.author: kenwith
+ms.date: 06/16/2023
+ms.author: jfields
 ---
 
 # Generate, view, and apply rule recommendations in the Autopilot dashboard

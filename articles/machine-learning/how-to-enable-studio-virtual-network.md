@@ -9,8 +9,9 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 07/28/2022
+ms.date: 11/16/2022
 ms.custom: contperf-fy20q4, tracking-python, security, event-tier1-build-2022
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
 # Use Azure Machine Learning studio in an Azure virtual network
@@ -44,14 +45,22 @@ In this article, you learn how to:
 > [!TIP]
 > This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 >
+:::moniker range="azureml-api-2"
 > * [Virtual network overview](how-to-network-security-overview.md)
 > * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 > * [Secure the training environment](how-to-secure-training-vnet.md)
-> * For securing inference, see the following documents:
->     * If using CLI v1 or SDK v1 - [Secure inference environment](./v1/how-to-secure-inferencing-vnet.md)
->     * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
+> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
 > * [Use custom DNS](how-to-custom-dns.md)
 > * [Use a firewall](how-to-access-azureml-behind-firewall.md)
+:::moniker-end
+:::moniker range="azureml-api-1"
+> * [Virtual network overview](how-to-network-security-overview.md)
+> * [Secure the workspace resources](./v1/how-to-secure-workspace-vnet.md)
+> * [Secure the training environment](./v1/how-to-secure-training-vnet.md)
+> * [Secure the inference environment](./v1/how-to-secure-inferencing-vnet.md)
+> * [Use custom DNS](how-to-custom-dns.md)
+> * [Use a firewall](how-to-access-azureml-behind-firewall.md)
+:::moniker-end
 >
 > For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
 
@@ -61,9 +70,16 @@ In this article, you learn how to:
 
 + A pre-existing virtual network and subnet to use.
 
+:::moniker range="azureml-api-2"
 + An existing [Azure Machine Learning workspace with a private endpoint](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint).
 
 + An existing [Azure storage account added your virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
+:::moniker-end
+:::moniker range="azureml-api-1"
++ An existing [Azure Machine Learning workspace with a private endpoint](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint).
+
++ An existing [Azure storage account added your virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
+:::moniker-end
 
 ## Limitations
 
@@ -173,11 +189,20 @@ Some storage services, such as Azure Storage Account, have firewall settings tha
 
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
+:::moniker range="azureml-api-2"
 * [Virtual network overview](how-to-network-security-overview.md)
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)
-* For securing inference, see the following documents:
-    * If using CLI v1 or SDK v1 - [Secure inference environment](./v1/how-to-secure-inferencing-vnet.md)
-    * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
+* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
 * [Use custom DNS](how-to-custom-dns.md)
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)
+:::moniker-end
+:::moniker range="azureml-api-1"
+* [Virtual network overview](how-to-network-security-overview.md)
+* [Secure the workspace resources](./v1/how-to-secure-workspace-vnet.md)
+* [Secure the training environment](./v1/how-to-secure-training-vnet.md)
+* [Secure the inference environment](./v1/how-to-secure-inferencing-vnet.md)
+* [Use custom DNS](how-to-custom-dns.md)
+* [Use a firewall](how-to-access-azureml-behind-firewall.md)
+:::moniker-end
+

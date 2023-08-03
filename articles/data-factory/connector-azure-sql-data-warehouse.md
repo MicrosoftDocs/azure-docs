@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/11/2022
+ms.date: 04/20/2023
 ---
 
 # Copy and transform data in Azure Synapse Analytics by using Azure Data Factory or Synapse pipelines
@@ -98,7 +98,10 @@ For different authentication types, refer to the following sections on specific 
 - [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
 
 >[!TIP]
->When creating linked service for Azure Synapse **serverless** SQL pool from UI, choose "enter manually" instead of browsing from subscription.
+>When creating linked service for a **serverless** SQL pool in Azure Synapse from the Azure portal:
+> 1. For **Account Selection Method**, choose **Enter manually**.
+> 1. Paste the **fully qualified domain name** of the serverless endpoint. You can find this in the Azure portal Overview page for your Synapse workspace, in the properties under **Serverless SQL endpoint**. For example, `myserver-ondemand.sql-azuresynapse.net`.
+> 1. For **Database name**, provide the database name in the serverless SQL pool.
 
 >[!TIP]
 >If you hit error with error code as "UserErrorFailedToConnectToSqlServer" and message like "The session limit for the database is XXX and has been reached.", add `Pooling=false` to your connection string and try again.
@@ -475,7 +478,7 @@ To copy data to Azure Synapse Analytics, set the sink type in Copy Activity to *
 | disableMetricsCollection | The service collects metrics such as Azure Synapse Analytics DWUs for copy performance optimization and recommendations, which introduce additional master DB access. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
 | maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 | WriteBehavior | Specify the write behavior for copy activity to load data into Azure SQL Database. <br/> The allowed value is **Insert** and **Upsert**. By default, the service uses insert to load data. | No |
-| upsertSettings | Specify the group of the settings for write behavior. <br/> Apply when the WriteBehavior option is `Upert`. | No |
+| upsertSettings | Specify the group of the settings for write behavior. <br/> Apply when the WriteBehavior option is `Upsert`. | No |
 | ***Under `upsertSettings`:*** | | |
 | keys | Specify the column names for unique row identification. Either a single key or a series of keys can be used. If not specified, the primary key is used. | No |
 | interimSchemaName | Specify the interim schema for creating interim table. Note: user need to have the permission for creating and deleting table. By default, interim table will share the same schema as sink table. | No |
@@ -595,10 +598,10 @@ Azure Synapse Analytics COPY statement directly supports Azure Blob, Azure Data 
 
     | Supported source data store type                             | Supported format           | Supported source authentication type                         |
     | :----------------------------------------------------------- | -------------------------- | :----------------------------------------------------------- |
-    | [Azure Blob](connector-azure-blob-storage.md)                | [Delimited text](format-delimited-text.md)             | Account key authentication, shared access signature authentication, service principal authentication, managed identity authentication |
+    | [Azure Blob](connector-azure-blob-storage.md)                | [Delimited text](format-delimited-text.md)             | Account key authentication, shared access signature authentication, service principal authentication, system-assigned managed identity authentication |
     | &nbsp;                                                       | [Parquet](format-parquet.md)                    | Account key authentication, shared access signature authentication |
     | &nbsp;                                                       | [ORC](format-orc.md)                        | Account key authentication, shared access signature authentication |
-    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | [Delimited text](format-delimited-text.md)<br/>[Parquet](format-parquet.md)<br/>[ORC](format-orc.md) | Account key authentication, service principal authentication, managed identity authentication |
+    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | [Delimited text](format-delimited-text.md)<br/>[Parquet](format-parquet.md)<br/>[ORC](format-orc.md) | Account key authentication, service principal authentication, system-assigned managed identity authentication |
 
     >[!IMPORTANT]
     >- When you use managed identity authentication for your storage linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.
@@ -681,7 +684,7 @@ When your source data is not natively compatible with COPY statement, enable dat
 To use this feature, create an [Azure Blob Storage linked service](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2 linked service](connector-azure-data-lake-storage.md#linked-service-properties) with **account key or system-managed identity authentication** that refers to the Azure storage account as the interim storage.
 
 >[!IMPORTANT]
->- When you use managed identity authentication for your staging linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.
+>- When you use managed identity authentication for your staging linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively. You also need to grant permissions to your Azure Synapse Analytics workspace managed identity in your staging Azure Blob Storage or Azure Data Lake Storage Gen2 account. To learn how to grant this permission, see [Grant permissions to workspace managed identity](/azure/synapse-analytics/security/how-to-grant-workspace-managed-identity-permissions).
 >- If your staging Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage). 
 
 >[!IMPORTANT]
@@ -755,9 +758,9 @@ If the requirements aren't met, the service checks the settings and automaticall
 
     | Supported source data store type                             | Supported source authentication type                        |
     | :----------------------------------------------------------- | :---------------------------------------------------------- |
-    | [Azure Blob](connector-azure-blob-storage.md)                | Account key authentication, managed identity authentication |
+    | [Azure Blob](connector-azure-blob-storage.md)                | Account key authentication, system-assigned managed identity authentication |
     | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Service principal authentication                            |
-    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Account key authentication, managed identity authentication |
+    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Account key authentication, system-assigned managed identity authentication |
 
     >[!IMPORTANT]
     >- When you use managed identity authentication for your storage linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.
@@ -821,7 +824,7 @@ When your source data is not natively compatible with PolyBase, enable data copy
 To use this feature, create an [Azure Blob Storage linked service](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2 linked service](connector-azure-data-lake-storage.md#linked-service-properties) with **account key or managed identity authentication** that refers to the Azure storage account as the interim storage.
 
 >[!IMPORTANT]
->- When you use managed identity authentication for your staging linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.
+>- When you use managed identity authentication for your staging linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively. You also need to grant permissions to your Azure Synapse Analytics workspace managed identity in your staging Azure Blob Storage or Azure Data Lake Storage Gen2 account. To learn how to grant this permission, see [Grant permissions to workspace managed identity](/azure/synapse-analytics/security/how-to-grant-workspace-managed-identity-permissions).
 >- If your staging Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage). 
 
 >[!IMPORTANT]
@@ -1012,7 +1015,7 @@ By default, a data flow run will fail on the first error it gets. You can choose
 
 **Report success on error:** If enabled, the data flow will be marked as a success even if error rows are found. 
 
-:::image type="content" source="media/data-flow/sql-error-row-handling.png" alt-text="Screenshot that shows the error row handling" border="false":::
+:::image type="content" source="media/data-flow/sql-error-row-handling.png" alt-text="Diagram that shows the error row handling in mapping data flow sink transformation.":::
 
 ## Lookup activity properties
 

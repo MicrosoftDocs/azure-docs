@@ -1,37 +1,38 @@
 ---
 title: Migrate servers to Azure by using Private Link
 description: Use Azure Migrate with private endpoints for migrations by using ExpressRoute private peering or VPN connections.
-author: deseelam
-ms.author: deseelam
-ms.manager: vijain
+author: vijain
+ms.author: vijain
 zone_pivot_groups: migrate-agentlessvmware-hyperv-agentbased
 ms.topic: how-to
-ms.date: 12/29/2021
+ms.service: azure-migrate
+ms.date: 12/14/2022
+ms.custom: engagement-fy23
 ---
 
 # Migrate servers to Azure using Private Link
 
-This article describes how to use Azure Migrate to migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link. 
+This article describes how to use Azure Migrate to migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link. 
 
 ::: zone pivot="agentlessvmware"
 
 
-This article shows how to migrate on-premises VMware VMs to Azure, using the [Azure Migrate: Server Migration tool](migrate-services-overview.md#azure-migrate-server-migration-tool), with agentless migration.
+This article shows how to migrate on-premises VMware VMs to Azure, using the [Migration and modernization tool](migrate-services-overview.md#migration-and-modernization-tool), with agentless migration.
 
 ## Set up the Azure Migrate appliance
 
-Azure Migrate: Server Migration runs a lightweight VMware VM appliance to enable the discovery, assessment, and agentless migration of VMware VMs. If you have followed the [Discovery and assessment tutorial](discover-and-assess-using-private-endpoints.md), you've already set the appliance up. If you didn't, [set up and configure the appliance](./discover-and-assess-using-private-endpoints.md#set-up-the-azure-migrate-appliance) before you proceed.
+The Migration and modernization tool runs a lightweight VMware VM appliance to enable the discovery, assessment, and agentless migration of VMware VMs. If you have followed the [Discovery and assessment tutorial](discover-and-assess-using-private-endpoints.md), you've already set the appliance up. If you didn't, [set up and configure the appliance](./discover-and-assess-using-private-endpoints.md#set-up-the-azure-migrate-appliance) before you proceed.
 
 ## Replicate VMs
 
 After setting up the appliance and completing discovery, you can begin replicating VMware VMs to Azure.
 
-The following diagram illustrates the agentless replication workflow with private endpoints by using the Azure Migrate: Server Migration tool.
+The following diagram illustrates the agentless replication workflow with private endpoints by using the Migration and modernization tool.
 
 ![Diagram that shows agentless replication architecture.](./media/how-to-use-azure-migrate-with-private-endpoints/agentless-replication-architecture.png)
 
 Enable replication as follows:
-1. In the Azure Migrate project > **Servers** > **Migration tools** > Azure Migrate: Server Migration, click **Replicate**. 
+1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization** > **Migration tools**, select **Replicate**. 
 
     ![Diagram that shows how to replicate servers.](./media/how-to-use-azure-migrate-with-private-endpoints/replicate-servers.png)
 
@@ -149,27 +150,27 @@ Ensure that the on-premises appliance has network connectivity to the storage ac
 
 
 
-This article shows you how to [migrate on-premises Hyper-V VMs to Azure](tutorial-migrate-hyper-v.md), using the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool, with agentless migration. You can also migrate using agent-based migration.  
+This article shows you how to [migrate on-premises Hyper-V VMs to Azure](tutorial-migrate-hyper-v.md), using the [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) tool, with agentless migration. You can also migrate using agent-based migration.  
 
 ## Set up the replication provider for migration 
 
-The following diagram illustrates the agentless migration workflow with private endpoints by using the Azure Migrate: Server Migration tool. 
+The following diagram illustrates the agentless migration workflow with private endpoints by using the Migration and modernization tool. 
 
  ![Diagram that shows replication architecture.](./media/how-to-use-azure-migrate-with-private-endpoints/replication-architecture.png)
 
-For migrating Hyper-V VMs, Azure Migrate: Server Migration installs software providers (Microsoft Azure Site Recovery provider and Microsoft Azure Recovery Service agent) on Hyper-V Hosts or cluster nodes.  
-1. In the Azure Migrate project > **Servers**, in **Azure Migrate: Server Migration**, click **Discover**. 
+For migrating Hyper-V VMs, the Migration and modernization tool installs software providers (Microsoft Azure Site Recovery provider and Microsoft Azure Recovery Service agent) on Hyper-V Hosts or cluster nodes.  
+1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization**, select **Discover**. 
 1. In **Discover machines** > **Are your machines virtualized?**, select **Yes, with Hyper-V**.
 1. In **Target region**, select the Azure region to which you want to migrate the machines.
 1. Select **Confirm that the target region for migration is region-name**. 
-1. Select **Create resources**. This creates an Azure Site Recovery vault in the background. Don't close the page during the creation of resources. If you have already set up migration with Azure Migrate: Server Migration, this option won't appear since resources were set up previously. 
+1. Select **Create resources**. This creates an Azure Site Recovery vault in the background. Don't close the page during the creation of resources. If you have already set up migration with the Migration and modernization tool, this option won't appear since resources were set up previously. 
     - This step creates a Recovery Services vault in the background and enables a managed identity for the vault. A Recovery Services vault is an entity that contains the replication information of servers and is used to trigger replication operations.
     - If the Azure Migrate project has private endpoint connectivity, a private endpoint is created for the Recovery Services vault. This step adds five fully qualified domain names (FQDNs) to the private endpoint, one for each microservice linked to the Recovery Services vault.
     - The five domain names are formatted in this pattern:  _{Vault-ID}-asr-pod01-{type}-.{target-geo-code}_.privatelink.siterecovery.windowsazure.com
     - By default, Azure Migrate automatically creates a private DNS zone and adds DNS A records for the Recovery Services vault microservices. The private DNS is then linked to the private endpoint virtual network.
 1. In **Prepare Hyper-V host servers**, download the Hyper-V Replication provider, and the registration key file. 
 
-    - The registration key is needed to register the Hyper-V host with Azure Migrate Server Migration. 
+    - The registration key is needed to register the Hyper-V host with the Migration and modernization tool. 
 
     - The key is valid for five days after you generate it. 
 
@@ -187,7 +188,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 > [!Note] 
 > You can replicate up to 10 machines together. If you need to replicate more, then replicate them simultaneously in batches of 10. 
 
-1. In the Azure Migrate project > **Servers** > **Migration tools** > Azure Migrate: Server Migration, click **Replicate**. 
+1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization** > **Migration tools**, select **Replicate**. 
 1. In **Replicate** > **Basics** > **Are your machines virtualized?**, select **Yes, with Hyper-V**. Then click **Next: Virtual machines**.
 1. In **Virtual machines**, select the machines you want to replicate. 
     - If you've run an assessment for the VMs, you can apply VM sizing and disk type (premium/standard) recommendations from the assessment results. To do this, in **Import migration settings from an Azure Migrate assessment?**, select the **Yes** option. 
@@ -263,15 +264,15 @@ To identify the Recovery Services vault created by Azure Migrate and grant the r
 
 **Identify the Recovery Services vault and the managed identity object ID**
 
-You can find the details of the Recovery Services vault on the Azure Migrate: Server Migration **Properties** page.
+You can find the details of the Recovery Services vault on the Migration and modernization tool **Properties** page.
 
-1. Go to the **Azure Migrate** hub, and on the **Azure Migrate: Server Migration** tile, select **Overview**.
+1. Go to the **Azure Migrate** hub, and on the **Migration and modernization** tile, select **Overview**.
 
     ![Screenshot that shows the Overview page on the Azure Migrate hub.](./media/how-to-use-azure-migrate-with-private-endpoints/hub-overview.png) 
 
 1. In the left pane, select **Properties**. Make a note of the Recovery Services vault name and managed identity ID. The vault will have **Private endpoint** as the **Connectivity type** and **Other** as the **Replication type**. You'll need this information when you provide access to the vault.
 
-    ![Screenshot that shows the Azure Migrate: Server Migration Properties page.](./media/how-to-use-azure-migrate-with-private-endpoints/vault-info.png)
+    ![Screenshot that shows the Migration and modernization tool Properties page.](./media/how-to-use-azure-migrate-with-private-endpoints/vault-info.png)
 
 **Permissions to access the storage account**
 
@@ -342,7 +343,7 @@ This article shows a proof-of-concept deployment path for agent-based replicatio
 
 ## Set up a replication appliance for migration
 
-The following diagram illustrates the agent-based replication workflow with private endpoints by using the Azure Migrate: Server Migration tool.
+The following diagram illustrates the agent-based replication workflow with private endpoints by using the Migration and modernization tool.
 
 ![Diagram that shows replication architecture.](./media/how-to-use-azure-migrate-with-private-endpoints/replication-architecture.png)
 
@@ -368,7 +369,7 @@ Now, select machines for replication and migration.
 >[!Note]
 > You can replicate up to 10 machines together. If you need to replicate more, then replicate them simultaneously in batches of 10. 
 
-1. In the Azure Migrate project > **Servers** > **Migration tools** > Azure Migrate: Server Migration, click **Replicate**. 
+1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization** > **Migration tools**, select **Replicate**. 
 
     ![Diagram that shows how to replicate servers.](./media/how-to-use-azure-migrate-with-private-endpoints/replicate-servers.png)
 
@@ -448,15 +449,15 @@ To identify the Recovery Services vault created by Azure Migrate and grant the r
 
 **Identify the Recovery Services vault and the managed identity object ID**
 
-You can find the details of the Recovery Services vault on the **Azure Migrate: Server Migration Properties** page.
+You can find the details of the Recovery Services vault on the **Migration and modernization** page.
 
-1. Go to the **Azure Migrate** hub, and on the **Azure Migrate: Server Migration** tile, select **Overview**.
+1. Go to the **Azure Migrate** hub, and on the **Migration and modernization** tile, select **Overview**.
 
     ![Screenshot that shows the Overview page on the Azure Migrate hub.](./media/how-to-use-azure-migrate-with-private-endpoints/hub-overview.png)
 
 1. In the left pane, select **Properties**. Make a note of the Recovery Services vault name and managed identity ID. The vault will have **Private endpoint** as the **Connectivity type** and **Other** as the **Replication type**. You'll need this information when you provide access to the vault.
 
-    ![Screenshot that shows the Azure Migrate: Server Migration Properties page.](./media/how-to-use-azure-migrate-with-private-endpoints/vault-info.png)
+    ![Screenshot that shows the Migration and modernization tool Properties page.](./media/how-to-use-azure-migrate-with-private-endpoints/vault-info.png)
 
 **Permissions to access the storage account**
 

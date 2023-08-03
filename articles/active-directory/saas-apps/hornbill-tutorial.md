@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/21/2022
+ms.date: 04/19/2023
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Hornbill
@@ -47,6 +47,8 @@ To configure the integration of Hornbill into Azure AD, you need to add Hornbill
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Hornbill** in the search box.
 1. Select **Hornbill** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Hornbill
 
@@ -114,37 +116,33 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, log in to Hornbill as a Security Administrator.
 
-2. On the Home page, click **System**.
+2. On the Home page, click the **Configuration** settings icon at the bottom left of the page.
 
-	![Screenshot shows the Hornbill system.](./media/hornbill-tutorial/system.png   "Hornbill system")
+	![Screenshot shows the Hornbill system.](./media/hornbill-tutorial/settings.png   "Hornbill system")
 
-3. Navigate to **Security**.
+3. Navigate to **Platform Configuration**.
 
-	![Screenshot shows the Hornbill security.](./media/hornbill-tutorial/security.png "Hornbill security")
+	![Screenshot shows the Hornbill platform configuration.](./media/hornbill-tutorial/platform-configuration.png "Hornbill security")
 
-4. Click **SSO Profiles**.
+4. Click **SSO Profiles** under Security.
 
-	![Screenshot shows the Hornbill single.](./media/hornbill-tutorial/profile.png "Hornbill single")
+	![Screenshot shows the Hornbill single.](./media/hornbill-tutorial/profiles.png "Hornbill single")
 
-5. On the right side of the page, click on **Add logo**.
+5. On the right side of the page, click on **+ Create New Profile**.
 
-	![Screenshot shows to add the logo.](./media/hornbill-tutorial/add-logo.png "Hornbill add")
+	![Screenshot shows to add the logo.](./media/hornbill-tutorial/create-new-profile.png "Hornbill create")
 
-6. On the **Profile Details** bar, click on **Import SAML Meta logo**.
+6. On the **Profile Details** bar, click on the **Import IDP Meta Data** button.
 
-	![Screenshot shows Hornbill Meta logo.](./media/hornbill-tutorial/logo.png "Hornbill logo")
+	![Screenshot shows Hornbill Meta logo.](./media/hornbill-tutorial/import-metadata.png "Hornbill logo")
 
-7. On the Pop-up page in the **URL** text box, paste the **App Federation Metadata Url**, which you have copied from Azure portal and click **Process**.
+7. On the pop-up, in the **URL** text box, paste the **App Federation Metadata Url**, which you have copied from Azure portal and click **Process**.
 
-	![Screenshot shows Hornbill process.](./media/hornbill-tutorial/process.png "Hornbill process")
+	![Screenshot shows Hornbill process.](./media/hornbill-tutorial/metadata-url.png "Hornbill process")
 
 8. After clicking process the values get auto populated automatically under **Profile Details** section.
 
-	![Screenshot shows Hornbill profile](./media/hornbill-tutorial/page.png "Hornbill profile")
-
-	![Screenshot shows Hornbill details.](./media/hornbill-tutorial/services.png "Hornbill details")
-
-	![Screenshot shows Hornbill certificate.](./media/hornbill-tutorial/details.png "Hornbill certificate")
+	![Screenshot shows Hornbill profile](./media/hornbill-tutorial/profile-details.png "Hornbill profile")
 
 9. Click **Save Changes**.
 
@@ -153,7 +151,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 In this section, a user called Britta Simon is created in Hornbill. Hornbill supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Hornbill, a new one is created after authentication.
 
 > [!Note]
-> If you need to create a user manually, contact [Hornbill Client support team](https://www.hornbill.com/support/?request/).
+> If you need to create a user manually, contact [Hornbill Client support team](https://www.hornbill.com/support/?request/).
 
 ## Test SSO
 

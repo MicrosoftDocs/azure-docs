@@ -3,10 +3,10 @@ title: Quickstart – Microsoft Azure confidential ledger Python client library
 description: Learn to use the Microsoft Azure confidential ledger client library for Python
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 04/27/2021
+ms.date: 11/14/2022
 ms.service: confidential-ledger
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurepowershell, mode-api
+ms.custom: devx-track-python, mode-api
 ---
 
 # Quickstart: Microsoft Azure confidential ledger client library for Python
@@ -23,7 +23,7 @@ Microsoft Azure confidential ledger is a new and highly secure service for manag
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python 3.6+](/azure/developer/python/configure-local-development-environment)
-- [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
+- [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 
 ## Set up
 
@@ -97,7 +97,7 @@ We'll finish setup by setting some variables for use in your application: the re
   > Each ledger must have a globally unique name. Replace \<your-unique-ledger-name\> with the name of your ledger in the following example.
 
 ```python
-resource_group = "myResourceGroup"
+resource_group = "<azure-resource-group>"
 ledger_name = "<your-unique-ledger-name>"
 subscription_id = "<azure-subscription-id>"
 
@@ -166,7 +166,7 @@ network_identity = identity_client.get_ledger_identity(
 
 ledger_tls_cert_file_name = "networkcert.pem"
 with open(ledger_tls_cert_file_name, "w") as cert_file:
-    cert_file.write(network_identity.ledger_tls_certificate)
+    cert_file.write(network_identity['ledgerTlsCertificate'])
 ```
 
 Now we can use the network certificate, along with the ledger URL and our credentials, to create a confidential ledger client.
@@ -179,21 +179,30 @@ ledger_client = ConfidentialLedgerClient(
 )
 ```
 
-We are prepared to write to the ledger.  We will do so using the `create_ledger_entry` function.
+We are prepared to write to the ledger. We will do so using the `create_ledger_entry` function.
 
 ```python
-append_result = ledger_client.create_ledger_entry(entry_contents="Hello world!")
-print(append_result.transaction_id)
+sample_entry = {"contents": "Hello world!"}
+append_result = ledger_client.create_ledger_entry(entry=sample_entry)
+print(append_result['transactionId'])
 ```
 
 The print function will return the transaction ID of your write to the ledger, which can be used to retrieve the message you wrote to the ledger.
 
 ```python
-latest_entry = ledger_client.get_current_ledger_entry(transaction_id=append_result.transaction_id)
+entry = ledger_client.get_ledger_entry(transaction_id=append_result['transactionId'])['entry']
+print(f"Entry (transaction id = {entry['transactionId']}) in collection {entry['collectionId']}: {entry['contents']}")
+```
+
+If you just want the latest transaction that was committed to the ledger, you can use the `get_current_ledger_entry` function.
+
+
+```python
+latest_entry = ledger_client.get_current_ledger_entry()
 print(f"Current entry (transaction id = {latest_entry['transactionId']}) in collection {latest_entry['collectionId']}: {latest_entry['contents']}")
 ```
 
-The print function will return "Hello world!", as that is the message in the ledger that that corresponds to the transaction ID.
+The print function will return "Hello world!", as that's the message in the ledger that corresponds to the transaction ID and is the latest transaction.
 
 ## Full sample code
 
@@ -210,12 +219,11 @@ from azure.mgmt.confidentialledger.models import ConfidentialLedger
 
 from azure.confidentialledger import ConfidentialLedgerClient
 from azure.confidentialledger.certificate import ConfidentialLedgerCertificateClient
-from azure.confidentialledger import TransactionState
 
 # Set variables
 
-rg = "myResourceGroup"
-ledger_name = "<unique-ledger-name>"
+resource_group = "<azure-resource-group>"
+ledger_name = "<your-unique-ledger-name>"
 subscription_id = "<azure-subscription-id>"
 
 identity_url = "https://identity.confidential-ledger.core.azure.com"
@@ -250,14 +258,14 @@ ledger_properties = ConfidentialLedger(**properties)
 
 # Create a ledger
 
-confidential_ledger_mgmt.ledger.begin_create(rg, ledger_name, ledger_properties)
+confidential_ledger_mgmt.ledger.begin_create(resource_group, ledger_name, ledger_properties)
 
 # Get the details of the ledger you just created
 
-print(f"{rg} / {ledger_name}")
+print(f"{resource_group} / {ledger_name}")
  
 print("Here are the details of your newly created ledger:")
-myledger = confidential_ledger_mgmt.ledger.get(rg, ledger_name)
+myledger = confidential_ledger_mgmt.ledger.get(resource_group, ledger_name)
 
 print (f"- Name: {myledger.name}")
 print (f"- Location: {myledger.location}")
@@ -274,7 +282,7 @@ network_identity = identity_client.get_ledger_identity(
 
 ledger_tls_cert_file_name = "networkcert.pem"
 with open(ledger_tls_cert_file_name, "w") as cert_file:
-    cert_file.write(network_identity.ledger_tls_certificate)
+    cert_file.write(network_identity['ledgerTlsCertificate'])
 
 
 ledger_client = ConfidentialLedgerClient(
@@ -284,12 +292,33 @@ ledger_client = ConfidentialLedgerClient(
 )
 
 # Write to the ledger
-append_result = ledger_client.create_ledger_entry(entry_contents="Hello world!")
-print(append_result.transaction_id)
+sample_entry = {"contents": "Hello world!"}
+ledger_client.create_ledger_entry(entry=sample_entry)
   
 # Read from the ledger
-entry = ledger_client.get_current_ledger_entry(transaction_id=append_result.transaction_id)
+latest_entry = ledger_client.get_current_ledger_entry()
 print(f"Current entry (transaction id = {latest_entry['transactionId']}) in collection {latest_entry['collectionId']}: {latest_entry['contents']}")
+```
+
+## Pollers
+
+If you'd like to wait for your write transaction to be committed to your ledger, you can use the `begin_create_ledger_entry` function. This will return a poller to wait until the entry is durably committed.
+
+```python
+sample_entry = {"contents": "Hello world!"}
+ledger_entry_poller = ledger_client.begin_create_ledger_entry( 
+    entry=sample_entry
+)
+ledger_entry_result = ledger_entry_poller.result()
+```
+
+Querying an older ledger entry requires the ledger to read the entry from disk and validate it. You can use the `begin_get_ledger_entry` function to create a poller that will wait until the queried entry is in a ready state to view.
+
+```python
+get_entry_poller = ledger_client.begin_get_ledger_entry(
+    transaction_id=ledger_entry_result['transactionId']
+)
+entry = get_entry_poller.result()
 ```
 
 ## Clean up resources
@@ -305,3 +334,4 @@ az group delete --resource-group myResourceGroup
 ## Next steps
 
 - [Overview of Microsoft Azure confidential ledger](overview.md)
+- [Verify Azure Confidential Ledger write transaction receipts](verify-write-transaction-receipts.md)

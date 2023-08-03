@@ -1,8 +1,8 @@
 ---
-title: New GCP connector in Microsoft Defender for Cloud
+title: New GCP connector 
 description: Learn all about the new GCP connector in Microsoft Defender for Cloud.
 ms.topic: reference
-ms.date: 05/29/2022
+ms.date: 04/27/2023
 ---
 
 # New GCP connector in Microsoft Defender for Cloud
@@ -19,7 +19,7 @@ ms.date: 05/29/2022
 
 - [5:10](/shows/mdc-in-the-field/gcp-connector#time=05m10s) - Type of assessment utilized by the new GCP connector
 
-- [5:51](/shows/mdc-in-the-field/gcp-connector#time=05m51s) - Custom assessments
+- [5:51](/shows/mdc-in-the-field/gcp-connector#time=05m51s) - Custom assessments (deprecated)
 
 - [6:52](/shows/mdc-in-the-field/gcp-connector#time=06m52s) - Demonstration
 

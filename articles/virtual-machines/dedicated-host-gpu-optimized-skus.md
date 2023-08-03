@@ -1,13 +1,12 @@
 ---
 title: GPU Optimized Azure Dedicated Host SKUs
 description: Specifications for VM packing of GPU optimized ADH SKUs.
-author: brittanyrowe
-ms.author: brittanyrowe
+author: vamckMS
+ms.author: vakavuru
 ms.reviewer: mattmcinnes
-ms.service: virtual-machines
-ms.subservice: dedicated-hosts
+ms.service: azure-dedicated-host
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 01/23/2023
 ---
 
 # GPU Optimized Azure Dedicated Host SKUs

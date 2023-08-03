@@ -6,7 +6,7 @@ ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 08/18/2022
+ms.date: 09/07/2022
 ---
 # Mount NFS volumes for Linux or Windows VMs 
 
@@ -42,7 +42,7 @@ You can mount an NFS file for Windows or Linux virtual machines (VMs).
 
 ## Mount NFS volumes on Windows clients 
 
-Mounting NFSv4.1 volumes on Windows clients is supported. For more information, see [Network File System overview](/windows-server/storage/nfs/nfs-overview).
+Mounting NFSv4.1 volumes on Windows clients is not supported. For more information, see [Network File System overview](/windows-server/storage/nfs/nfs-overview).
 
 If you want to mount NFSv3 volumes on a Windows client using NFS: 
 

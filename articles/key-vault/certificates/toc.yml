@@ -43,8 +43,6 @@ items:
     href: create-certificate-scenarios.md
   - name: Certificate creation methods  
     href: create-certificate.md
-  - name: Creating certificate signing request
-    href: create-certificate-signing-request.md
   - name: Certificate access control
     href: certificate-access-control.md
     
@@ -54,7 +52,9 @@ items:
     href: tutorial-import-certificate.md
   - name: Configure certificate rotation
     href: tutorial-rotate-certificates.md
-  - name: Integrating Key Vault with DigiCert CA
+  - name: Create certificate signing requests
+    href: create-certificate-signing-request.md
+  - name: Integrate Key Vault with DigiCert CA
     href: how-to-integrate-certificate-authority.md
   - name: Export certificate from key vault
     href: how-to-export-certificate.md
@@ -62,6 +62,10 @@ items:
   items:
   - name: Frequently asked questions
     href: faq.yml
+  - name: Multitenancy and Azure Key Vault
+    href: /azure/architecture/guide/multitenant/service/key-vault
+  - name: Key management in Azure
+    href: ../../security/fundamentals/key-management.md
   - name: Azure PowerShell
     href: /powershell/module/az.keyvault/#key_vault
   - name: Azure CLI
@@ -87,8 +91,8 @@ items:
 
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-key-vault
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-key-vault
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/key-vault/
   - name: Region availability

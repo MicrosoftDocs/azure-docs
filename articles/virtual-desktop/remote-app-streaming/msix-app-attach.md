@@ -27,7 +27,7 @@ You'll need the following things to use MSIX app attach in Azure Virtual Desktop
 - An MSIX share, which is the network location where you store MSIX images
 - At least one healthy and active session host in the host pool you'll use
 - If your MSIX packaged application has a private certificate, that certificate must be available on all session hosts in the host pool
-- Azure Virtual Desktop configuration for MSIX app attach (user assignment, association of MSIX application with app group, adding MSIX image to host pool)
+- Azure Virtual Desktop configuration for MSIX app attach (user assignment, association of MSIX application with application group, adding MSIX image to host pool)
 
 ## Create an MSIX package from an existing installer
 

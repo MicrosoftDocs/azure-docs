@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to query the Azure Digital Twins twin graph for information.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/23/2022
+ms.date: 03/02/2023
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
@@ -20,7 +20,7 @@ ms.custom: contperf-fy21q2
 
 This article offers query examples and instructions for using the *Azure Digital Twins query language* to query your [twin graph](concepts-twins-graph.md) for information. (For an introduction to the query language, see [Query language](concepts-query-language.md).)
 
-The article contains sample queries that illustrate the query language structure and common query operations for digital twins. It also describes how to run your queries after you've written them, using the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query) or an [SDK](concepts-apis-sdks.md#overview-data-plane-apis).
+The article contains sample queries that illustrate the query language structure and common query operations for digital twins. It also describes how to run your queries after you've written them, using the [Azure Digital Twins Query API](/rest/api/digital-twins/dataplane/query) or an [SDK](concepts-apis-sdks.md#data-plane-apis).
 
 > [!NOTE]
 > If you're running the sample queries below with an API or SDK call, you'll need to condense the query text into a single line.
@@ -56,9 +56,12 @@ You can also get twins based on the type of a property. Here's a query that gets
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByProperty3":::
 
->[!TIP]
-> If a property is of type `Map`, you can use the map keys and values directly in the query, like this:
-> :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByProperty4":::
+### Query Map properties
+
+If a property is of the complex type `Map`, you can use the map keys and values directly in the query, like this:
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByProperty4":::
+
+If the map key starts with a numeric character, you'll need to wrap the key in double square brackets (`[[<mapKey>]]`) to escape it in the query, similar to the strategy for [querying with reserved keywords](reference-query-reserved.md#escaping-reserved-keywords-in-queries).
 
 ## Query by model
 
@@ -231,9 +234,9 @@ You can combine any of the above types of query using combination operators to i
 
 Once you've decided on a query string, you execute it by making a call to the [Query API](/rest/api/digital-twins/dataplane/query).
 
-You can call the API directly, or use one of the [SDKs](concepts-apis-sdks.md#overview-data-plane-apis) available for Azure Digital Twins.
+You can call the API directly, or use one of the [SDKs](concepts-apis-sdks.md#data-plane-apis) available for Azure Digital Twins.
 
-The following code snippet illustrates the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) call from a client app:
+The following code snippet illustrates the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins.core-readme) call from a client app:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="RunQuery":::
 

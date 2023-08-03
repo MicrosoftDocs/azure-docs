@@ -3,7 +3,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 10/20/2020
+ms.date: 11/17/2022
 ---
 
 The following resources are also available:

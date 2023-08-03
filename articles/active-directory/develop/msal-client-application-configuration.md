@@ -2,7 +2,7 @@
 title: Client application configuration (MSAL)
 description: Learn about configuration options for public client and confidential client applications using the Microsoft Authentication Library (MSAL).
 services: active-directory
-author: mmacy
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/15/2022
-ms.author: marsma
+ms.author: cwerner
 ms.reviewer: saeeda
 ms.custom: aaddev, has-adal-ref
 #Customer intent: As an application developer, I want to learn about the types of client applications so I can decide if this platform meets my app development needs.
@@ -87,7 +87,7 @@ Using MSAL in your code, you specify the audience by using one of the following 
 
 MSAL will throw a meaningful exception if you specify both the Azure AD authority audience and the tenant ID.
 
-If you don't specify an audience, your app will target Azure AD and personal Microsoft accounts as an audience. (That is, it will behave as though `common` were specified.)
+It is recommended to specify an audience, as many tenants, and the applications deployed in them will have guest users. If your application will have external users, the endpoints of `common` and `organization` are best avoided. If you don't specify an audience, your app will target Azure AD and personal Microsoft accounts as an audience and will behave as though `common` were specified.
 
 ### Effective audience
 
@@ -100,7 +100,7 @@ Currently, the only way to get an app to sign in users with only personal Micros
 
 ## Client ID
 
-The client ID is the unique **Application (client) ID** assigned to your app by Azure AD when the app was registered.
+The client ID is the unique **Application (client) ID** assigned to your app by Azure AD when the app was registered. You can find the **Application (Client) ID** in your Azure subscription by Azure AD => Enterprise applications => Application ID.
 
 ## Redirect URI
 

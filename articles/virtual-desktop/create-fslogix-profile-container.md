@@ -9,7 +9,7 @@ manager: femila
 ---
 # Create a profile container with Azure NetApp Files and AD DS
 
-We recommend using FSLogix profile containers as a user profile solution for the [Azure Virtual Desktop service](overview.md). FSLogix profile containers store a complete user profile in a single container and are designed to roam profiles in non-persistent remote computing environments like Azure Virtual Desktop. When you sign in, the container dynamically attaches to the computing environment using a locally supported virtual hard disk (VHD) and Hyper-V virtual hard disk (VHDX). These advanced filter-driver technologies allow the user profile to be immediately available and appear in the system exactly like a local user profile. To learn more about FSLogix profile containers, see [FSLogix profile containers and Azure files](fslogix-containers-azure-files.md).
+We recommend using FSLogix profile containers as a user profile solution for the [Azure Virtual Desktop service](overview.md). FSLogix profile containers store a complete user profile in a single container and are designed to roam profiles in non-persistent remote computing environments like Azure Virtual Desktop. When you sign in, the container dynamically attaches to the computing environment using a locally supported virtual hard disk (VHD) and Hyper-V virtual hard disk (VHDX). These advanced filter-driver technologies allow the user profile to be immediately available and appear in the system exactly like a local user profile. To learn more about FSLogix profile containers, see [FSLogix profile containers and Azure Files](fslogix-containers-azure-files.md).
 
 You can create FSLogix profile containers using [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), an easy-to-use Azure native platform service that helps customers quickly and reliably provision enterprise-grade SMB volumes for their Azure Virtual Desktop environments. To learn more about Azure NetApp Files, see [What is Azure NetApp Files?](../azure-netapp-files/azure-netapp-files-introduction.md)
 
@@ -89,7 +89,7 @@ Next, create a new capacity pool:
     - For **Service level**, select your desired value from the drop-down menu. We recommend **Premium** for most environments.
        >[!NOTE]
        >The Premium setting provides the minimum throughput available for a Premium Service level, which is 256 MBps. You may need to adjust this throughput for a production environment. Final throughput is based on the relationship described in [Throughput limits](../azure-netapp-files/azure-netapp-files-service-levels.md).
-    - For **Size (TiB)**, enter the capacity pool size that best fits your needs. The minimum size is 4 TiB.
+    - For **Size (TiB)**, enter the capacity pool size that best fits your needs. The minimum size is 2 TiB.
 
 5. When you're finished, select **OK**.
 
@@ -186,7 +186,7 @@ This section is based on [Create a profile container for a host pool using a fil
      >[!WARNING]
      >Be careful when creating the *DeleteLocalProfileWhenVHDShouldApply* value. When the FSLogix Profiles system determines a user should have an FSLogix profile, but a local profile already exists, Profile Container will permanently delete the local profile. The user will then be signed in with the new FSLogix profile.
 
-## Make sure users can access the Azure NetApp File share
+## Make sure users can access the Azure NetApp Files share
 
 1. Browse to <https://rdweb.wvd.microsoft.com/arm/webclient>.
 

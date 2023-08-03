@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   ms.author: rosemalcolm
   author: RoseHJM
-  ms.date: 07/11/2022
+  ms.date: 06/06/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -32,15 +32,21 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Configure the Microsoft Dev Box service
+          - text: Configure Microsoft Dev Box
             url: quickstart-configure-dev-box-service.md
-          - text: Configure Dev Box Projects
-            url: quickstart-configure-dev-box-project.md
-          - text: Create a Dev Box
-            url: quickstart-create-dev-box.md  
+          - text: Create a dev box
+            url: quickstart-create-dev-box.md
 
   # Card
-  - title: Provide access to dev box
+  - title: Connect to a dev box
+    linkLists:
+      - linkListType: tutorial
+        links:              
+          - text: Configure the Remote Desktop client to connect to a dev box with multiple monitors
+            url: tutorial-connect-to-dev-box-with-remote-desktop-app.md
+
+  # Card
+  - title: Provide access to Microsoft Dev Box
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -54,22 +60,17 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Configure an Azure Compute Gallery
+          - text: Configure Azure Compute Gallery
             url: how-to-configure-azure-compute-gallery.md
+          - text: Provision a custom image by using Azure VM Image Builder
+            url: how-to-customize-devbox-azure-image-builder.md
 
-  # Card
-  - title: Connect to your dev box
+   # Card
+  - title: References
     linkLists:
-      - linkListType: tutorial
+      - linkListType: reference
         links:
-          - text: Use the Remote Desktop client to connect to a dev box
-            url: tutorial-connect-to-dev-box-with-remote-desktop-app.md
-
- # <!-- Adding later 
-  # Card
- # - title: Reference docs
- #   linkLists:
- #     - linkListType: reference
- #       links:
- #       - text: REST API
- #         url: /rest/api/loadtesting/
+          - text: Azure CLI
+            url: https://learn.microsoft.com/en-us/azure/dev-box/cli-reference-subset
+          - text: REST API
+            url: https://aka.ms/dev-box/restapidocs

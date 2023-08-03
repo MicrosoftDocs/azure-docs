@@ -2,34 +2,40 @@
 title: Securing a custom VNET in Azure Container Apps
 description: Firewall settings to secure a custom VNET in Azure Container Apps
 services: container-apps
-author: JennyLawrance
+author: CaryChai
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic:  reference
-ms.date: 07/15/2022
-ms.author: jennylaw
+ms.date: 03/29/2023
+ms.author: cachai
 ---
 
-# Securing a custom VNET in Azure Container Apps
+# Securing a custom VNET in Azure Container Apps  with Network Security Groups
 
 Network Security Groups (NSGs) needed to configure virtual networks closely resemble the settings required by Kubernetes.
 
-You can lock down a network via NSGs with more restrictive rules than the default NSG rules to control all inbound and outbound traffic for the Container App Environment.
+You can lock down a network via NSGs with more restrictive rules than the default NSG rules to control all inbound and outbound traffic for the Container Apps environment at the subscription level.
 
-Using custom user-defined routes (UDRs) or ExpressRoutes, other than with UDRs of selected destinations that you own, are not yet supported for Container App Environments with VNETs. Therefore, securing a Container App Environment with a firewall is not yet supported.
+In the workload profiles environment, user-defined routes (UDRs) and securing outbound traffic with a firewall are supported. Learn more in the [networking concepts document](./networking.md#user-defined-routes-udr---preview).
+
+In the Consumption only environment, custom user-defined routes (UDRs) and ExpressRoutes aren't supported.
 
 ## NSG allow rules
 
 The following tables describe how to configure a collection of NSG allow rules.
+>[!NOTE]
+> The subnet associated with a Container App Environment on the Consumption only environment requires a CIDR prefix of `/23` or larger. On the workload profiles environment (preview), a `/27` or larger is required.
 
 ### Inbound
 
 | Protocol | Port | ServiceTag | Description |
 |--|--|--|--|
-| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/23`. |
+| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 | Any | \* | AzureLoadBalancer | Allow the Azure infrastructure load balancer to communicate with your environment. |
 
-### Outbound with ServiceTags
+### Outbound with service tags
+
+The following service tags are required when using NSGs on the Consumption only environment:
 
 | Protocol | Port | ServiceTag | Description
 |--|--|--|--|
@@ -37,7 +43,19 @@ The following tables describe how to configure a collection of NSG allow rules.
 | TCP | `9000` | `AzureCloud.<REGION>` | Required for internal AKS secure connection between underlying nodes and control plane. Replace `<REGION>` with the region where your container app is deployed. |
 | TCP | `443` | `AzureMonitor` | Allows outbound calls to Azure Monitor. |
 
+The following service tags are required when using NSGs on the workload profiles environment:
+
+>[!Note]
+> If you are using Azure Container Registry (ACR) with NSGs configured on your virtual network, create a private endpoint on your ACR to allow Container Apps to pull images through the virtual network.
+
+| Protocol | Port | Service Tag | Description
+|--|--|--|--|
+| TCP | `443` | `MicrosoftContainerRegistry` | This is the service tag for container registry for microsoft containers. |
+| TCP | `443` | `AzureFrontDoor.FirstParty` | This is a dependency of the `MicrosoftContainerRegistry` service tag. |
+
 ### Outbound with wild card IP rules
+
+The following IP rules are required when using NSGs on both the Consumption only environment and the workload profiles environment:
 
 | Protocol | Port | IP | Description |
 |--|--|--|--|
@@ -45,9 +63,10 @@ The following tables describe how to configure a collection of NSG allow rules.
 | UDP | `123` | \* | NTP server. |
 | TCP | `5671` | \* | Container Apps control plane. |
 | TCP | `5672` | \* | Container Apps control plane. |
-| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/23`. |
+| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 
 #### Considerations
 
-- If you are running HTTP servers, you might need to add ports `80` and `443`.
+- If you're running HTTP servers, you might need to add ports `80` and `443`.
 - Adding deny rules for some ports and protocols with lower priority than `65000` may cause service interruption and unexpected behavior.
+- Don't explicitly deny the Azure DNS address `168.63.128.16` in the outgoing NSG rules, or your Container Apps environment won't be able to function.

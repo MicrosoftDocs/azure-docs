@@ -2,7 +2,7 @@
 title: Single-page app sign-in & sign-out
 description: Learn how to build a single-page application (sign-in)
 services: active-directory
-author: mmacy
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/19/2022
-ms.author: marsma
+ms.author: owenrichards
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
 ---
@@ -34,7 +34,7 @@ The choice between a pop-up or redirect experience depends on your application f
 
 - If you don't want users to move away from your main application page during authentication, we recommend the pop-up method. Because the authentication redirect happens in a pop-up window, the state of the main application is preserved.
 
-- If users have browser constraints or policies where pop-up windows are disabled, you can use the redirect method. Use the redirect method with the Internet Explorer browser, because there are [known issues with pop-up windows on Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/internet-explorer.md#popups).
+- If users have browser constraints or policies where pop-up windows are disabled, you can use the redirect method. Use the redirect method with the Internet Explorer browser, because there are [known issues with pop-up windows on Internet Explorer](/azure/active-directory/develop/msal-js-use-ie-browser).
 
 ## Sign-in with a pop-up window
 

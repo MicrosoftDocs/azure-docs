@@ -2,8 +2,7 @@
 title: Deployment quota exceeded
 description: Describes how to resolve the error of having more than 800 deployments in the resource group history.
 ms.topic: troubleshooting
-ms.date: 11/30/2021
-ms.custom: devx-track-azurepowershell
+ms.date: 04/05/2023
 ---
 
 # Resolve error when deployment count exceeds 800

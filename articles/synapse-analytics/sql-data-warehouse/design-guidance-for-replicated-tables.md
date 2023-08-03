@@ -5,7 +5,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 11/02/2021
+ms.date: 09/27/2022
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: 
@@ -46,6 +46,9 @@ Replicated tables may not yield the best query performance when:
 - The table has frequent insert, update, and delete operations. The data manipulation language (DML) operations require a rebuild of the replicated table. Rebuilding frequently can cause slower performance.
 - The SQL pool is scaled frequently. Scaling a SQL pool changes the number of Compute nodes, which incurs rebuilding the replicated table.
 - The table has a large number of columns, but data operations typically access only a small number of columns. In this scenario, instead of replicating the entire table, it might be more effective to distribute the table, and then create an index on the frequently accessed columns. When a query requires data movement, SQL pool only moves data for the requested columns.
+
+> [!TIP]
+> For more guidance on indexing and replicated tables, see the [Cheat sheet for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics](cheat-sheet.md#index-your-table).
 
 ## Use replicated tables with simple query predicates
 

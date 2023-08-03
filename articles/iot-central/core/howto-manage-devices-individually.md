@@ -1,9 +1,9 @@
 ---
-title: Manage devices individually in your Azure IoT Central application | Microsoft Docs
+title: Manage devices individually in your application
 description: Learn how to manage devices individually in your Azure IoT Central application. Monitor, manage, create, delete, and update devices.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/02/2022
+ms.date: 02/13/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -20,7 +20,7 @@ This article describes how you manage devices in your Azure IoT Central applicat
 - Keep your device metadata up to date by changing the values stored in the device properties from your views.
 - Control the behavior of your devices by updating a setting on a specific device from your views.
 
-To learn how to manage custom groups of devices, see [Tutorial: Use device groups to analyze device telemetry](tutorial-use-device-groups.md).
+To learn how to manage devices in bulk, see [Manage devices in bulk in your Azure IoT Central application](howto-manage-devices-in-bulk.md).
 
 To learn how to manage devices by using the IoT Central REST API, see [How to use the IoT Central REST API to manage devices.](../core/howto-manage-devices-with-rest-api.md)
 
@@ -32,9 +32,11 @@ To view an individual device:
 
 1. Choose a device template.
 
-1. In the right-hand pane of the **Devices** page, you see a list of devices accessible to your organization created from that device template. Choose an individual device to see the device details page for that device:
+1. In the right-hand pane of the **Devices** page, you see a list of devices accessible to your organization created from that device template:
 
-    :::image type="content" source="media/howto-manage-devices-individually/device-list.png" alt-text="Screenshot showing device list.":::
+    :::image type="content" source="media/howto-manage-devices-individually/device-list.png" alt-text="Screenshot that shows the list of Thermostat devices." lightbox="media/howto-manage-devices-individually/device-list.png":::
+
+    Choose an individual device to see the device details page for that device.
 
     > [!TIP]
     > You can use the filter tool on this page to view devices in a specific organization.
@@ -59,7 +61,7 @@ When a device connects to your IoT Central application, its device status change
 
 1. An operator can block a device. When a device is blocked, it can't send data to your IoT Central application. Blocked devices have a status of **Blocked**. An operator must reset the device before it can resume sending data. When an operator unblocks a device the status returns to its previous value, **Registered** or **Provisioned**.
 
-1. If the device status is **Waiting for Approval**, it means the **Auto approve** option is disabled. An operator must explicitly approve a device before it starts sending data. Devices not registered manually on the **Devices** page, but connected with valid credentials will have the device status **Waiting for Approval**. Operators can approve these devices from the **Devices** page using the **Approve** button.
+1. If the device status is **Waiting for Approval**, it means the **Auto approve** option is disabled. An operator must explicitly approve a device before it starts sending data. Devices not registered manually on the **Devices** page, but connected with valid credentials have the device status **Waiting for Approval**. Operators can approve these devices from the **Devices** page using the **Approve** button.
 
 1. If the device status is **Unassigned**, it means the device connecting to IoT Central isn't assigned to a device template. This situation typically happens in the following scenarios:
 
@@ -80,7 +82,7 @@ Watch the following video to learn more about how to monitor device connection s
 
 > [!VIDEO https://www.youtube.com/embed/EUZH_6Ihtto]
 
-You can include connection and disconnection events in  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md). To learn more, see [React to IoT Hub events > Limitations for device connected and device disconnected events](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events).
+You can include connection and disconnection events in  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md). To learn more, see [React to IoT Hub events > Limitations for device connected and device disconnected events](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connection-state-events).
 
 ## Add a device
 
@@ -136,7 +138,7 @@ To move a device to a different organization, you must have access to both the s
 
 1. Select the new organization for the device:
 
-    :::image type="content" source="media/howto-manage-devices-individually/change-device-organization.png" alt-text="Screenshot that shows how to move a device to a new organization.":::
+    :::image type="content" source="media/howto-manage-devices-individually/change-device-organization.png" alt-text="Screenshot that shows how to move a device to another organization." lightbox="media/howto-manage-devices-individually/change-device-organization.png":::
 
 1. Select **Save**.
 
@@ -146,17 +148,13 @@ If you register devices by starting the import under **All devices**, then the d
 
 1. Choose **Devices** on the left pane.
 
-1. On the left panel, choose **All devices**:
+1. On the left panel, choose **All devices**.
 
-    :::image type="content" source="media/howto-manage-devices-individually/unassociated-devices-1.png" alt-text="Screenshot showing unassigned devices.":::
-
-1. Use the filter on the grid to determine if the value in the **Device Template** column is **Unassigned** for any of your devices.
-
-1. Select the devices you want to assign to a template.
+1. Select the **unassigned** devices you want to assign to a template:
 
 1. Select **Migrate**:
 
-    :::image type="content" source="media/howto-manage-devices-individually/unassociated-devices-2.png" alt-text="Screenshot showing how to assign a device.":::
+    :::image type="content" source="media/howto-manage-devices-individually/unassociated-devices.png" alt-text="Screenshot showing how to assign a device to a device template." lightbox="media/howto-manage-devices-individually/unassociated-devices.png":::
 
 1. Choose the template from the list of available templates and select **Migrate**.
 

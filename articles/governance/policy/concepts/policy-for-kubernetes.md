@@ -4,12 +4,12 @@ description: Learn how Azure Policy uses Rego and Open Policy Agent to manage cl
 ms.date: 06/17/2022
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Understand Azure Policy for Kubernetes clusters
 
-Azure Policy extends [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) v3, an _admission
+Azure Policy extends [Gatekeeper](https://open-policy-agent.github.io/gatekeeper) v3, an _admission
 controller webhook_ for [Open Policy Agent](https://www.openpolicyagent.org/) (OPA), to apply
 at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. Azure
 Policy makes it possible to manage and report on the compliance state of your Kubernetes clusters
@@ -18,23 +18,16 @@ from one place. The add-on enacts the following functions:
 - Checks with Azure Policy service for policy assignments to the cluster.
 - Deploys policy definitions into the cluster as
   [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) and
-  [constraint](https://github.com/open-policy-agent/gatekeeper#constraints) custom resources.
+  [constraint](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraints) custom resources.
 - Reports auditing and compliance details back to Azure Policy service.
 
 Azure Policy for Kubernetes supports the following cluster environments:
 
 - [Azure Kubernetes Service (AKS)](../../../aks/intro-kubernetes.md)
 - [Azure Arc enabled Kubernetes](../../../azure-arc/kubernetes/overview.md)
-- [AKS Engine](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
-> The add-ons for AKS Engine and Arc enabled Kubernetes are in **preview**. Azure Policy for
-> Kubernetes only supports Linux node pools and built-in policy definitions (custom policy
-> definitions is a _public preview_ feature). Built-in policy definitions are in the **Kubernetes**
-> category. The limited preview policy definitions with **EnforceOPAConstraint** and
-> **EnforceRegoPolicy** effect and the related **Kubernetes Service** category are _deprecated_.
-> Instead, use the effects _audit_ and _deny_ with Resource Provider mode
-> `Microsoft.Kubernetes.Data`.
+> The Azure Policy Add-on Helm model and the add-on for AKS Engine have been _deprecated_. Instructions can be found below for [removal of those add-ons](#remove-the-add-on). 
 
 ## Overview
 
@@ -56,10 +49,8 @@ To enable and use Azure Policy with your Kubernetes cluster, take the following 
 
 The following general limitations apply to the Azure Policy Add-on for Kubernetes clusters:
 
-- Azure Policy Add-on for Kubernetes is supported on Kubernetes version **1.14** or higher.
+- Azure Policy Add-on for Kubernetes is supported on [supported Kubernetes versions in Azure Kubernetes Service (AKS)](../../../aks/supported-kubernetes-versions.md).
 - Azure Policy Add-on for Kubernetes can only be deployed to Linux node pools.
-- Only built-in policy definitions are supported. Custom policy definitions are a _public preview_
-  feature.
 - Maximum number of pods supported by the Azure Policy Add-on: **10,000**
 - Maximum number of Non-compliant records per policy per cluster: **500**
 - Maximum number of Non-compliant records per subscription: **1 million**
@@ -78,8 +69,8 @@ The following limitations apply only to the Azure Policy Add-on for AKS:
 - [AKS Pod security policy](../../../aks/use-pod-security-policies.md) and the Azure Policy Add-on
   for AKS can't both be enabled. For more information, see
   [AKS pod security limitation](../../../aks/use-azure-policy.md).
-- Namespaces automatically excluded by Azure Policy Add-on for evaluation: _kube-system_,
-  _gatekeeper-system_, and _aks-periscope_.
+- Namespaces automatically excluded by Azure Policy Add-on for evaluation: _kube-system_ and
+  _gatekeeper-system_.
 
 ## Recommendations
 
@@ -146,7 +137,7 @@ must enable the **Microsoft.PolicyInsights** resource providers.
 1. If limited preview policy definitions were installed, remove the add-on with the **Disable**
    button on your AKS cluster under the **Policies** page.
 
-1. The AKS cluster must be version _1.14_ or higher. Use the following script to validate your AKS
+1. The AKS cluster must be a [supported AKS cluster version](https://learn.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli). Use the following script to validate your AKS
    cluster version:
 
    ```azurecli-interactive
@@ -204,7 +195,7 @@ similar to the following output:
         "identity": null
 }
 ```
-## <a name="install-azure-policy-extension-for-azure-arc-enabled-kubernetes"></a>Install Azure Policy Extension for Azure Arc enabled Kubernetes (preview)
+## <a name="install-azure-policy-extension-for-azure-arc-enabled-kubernetes"></a>Install Azure Policy Extension for Azure Arc enabled Kubernetes
 
 [Azure Policy for Kubernetes](./policy-for-kubernetes.md) makes it possible to manage and report on the compliance state of your Kubernetes clusters from one place.
 
@@ -370,9 +361,6 @@ role-based access control (Azure RBAC) policy assignment operations. The Azure b
 **Resource Policy Contributor** and **Owner** have these operations. To learn more, see
 [Azure RBAC permissions in Azure Policy](../overview.md#azure-rbac-permissions-in-azure-policy).
 
-> [!NOTE]
-> Custom policy definitions is a _public preview_ feature.
-
 Find the built-in policy definitions for managing your cluster using the Azure portal with the
 following steps. If using a custom policy definition, search for it by name or the category that
 you created it with.
@@ -392,8 +380,7 @@ you created it with.
 
    > [!NOTE]
    > When assigning the Azure Policy for Kubernetes definition, the **Scope** must include the
-   > cluster resource. For an AKS Engine cluster, the **Scope** must be the resource group of the
-   > cluster.
+   > cluster resource.
 
 1. Give the policy assignment a **Name** and **Description** that you can use to identify it easily.
 
@@ -437,7 +424,6 @@ In a Kubernetes cluster, if a namespace has the cluster-appropriate label, the a
 with violations aren't denied. Compliance assessment results are still available.
 
 - Azure Arc-enabled Kubernetes cluster: `admission.policy.azure.com/ignore`
-- Azure Kubernetes Service cluster: `control-plane`
 
 > [!NOTE]
 > While a cluster admin may have permission to create and update constraint templates and
@@ -502,7 +488,7 @@ messages, see
 ## Logging
 
 As a Kubernetes controller/container, both the _azure-policy_ and _gatekeeper_ pods keep logs in the
-Kubernetes cluster. The logs can be exposed in the **Insights** page of the Kubernetes cluster. For
+Kubernetes cluster. In general, _azure-policy_ logs can be used to troubleshoot issues with policy ingestion onto the cluster and compliance reporting. The _gatekeeper-controller-manager_ pod logs can be used to troubleshoot runtime denies. The _gatekeeper-audit_ pod logs can be used to troubleshoot audits of existing resources. The logs can be exposed in the **Insights** page of the Kubernetes cluster. For
 more information, see
 [Monitor your Kubernetes cluster performance with Azure Monitor for containers](../../../azure-monitor/containers/container-insights-analyze.md).
 
@@ -662,10 +648,10 @@ To remove the Azure Policy Add-on from your AKS cluster, use either the Azure po
   az aks disable-addons --addons azure-policy --name MyAKSCluster --resource-group MyResourceGroup
   ```
 
+### Remove the add-on from Azure Arc enabled Kubernetes
+
 > [!NOTE]
 > Azure Policy Add-on Helm model is now deprecated. Please opt for the [Azure Policy Extension for Azure Arc enabled Kubernetes](#install-azure-policy-extension-for-azure-arc-enabled-kubernetes) instead.
-
-### Remove the add-on from Azure Arc enabled Kubernetes
 
 To remove the Azure Policy Add-on and Gatekeeper from your Azure Arc enabled Kubernetes cluster, run
 the following Helm command:
@@ -674,10 +660,10 @@ the following Helm command:
 helm uninstall azure-policy-addon
 ```
 
+### Remove the add-on from AKS Engine
+
 > [!NOTE]
 >  The AKS Engine product is now deprecated for Azure public cloud customers. Please consider using [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) for managed Kubernetes or [Cluster API Provider Azure](https://github.com/kubernetes-sigs/cluster-api-provider-azure) for self-managed Kubernetes. There are no new features planned; this project will only be updated for CVEs & similar, with Kubernetes 1.24 as the final version to receive updates.
-
-### Remove the add-on from AKS Engine
 
 To remove the Azure Policy Add-on and Gatekeeper from your AKS Engine cluster, use the method that
 aligns with how the add-on was installed:

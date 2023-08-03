@@ -1,11 +1,11 @@
 ---
-title: Use the REST API to manage and monitor IoT Central applications | Microsoft Docs
-description: This article describes how to create and manage your IoT Central applications with the REST API. The REST API also lets you add a system assigned managed identity to your application.
+title: Use the REST API to manage IoT Central applications
+description: This article describes how to create and manage your IoT Central applications with the REST API and add a system assigned managed identity to your application.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/15/2022
+ms.date: 06/13/2023
 ms.topic: how-to
 ---
 
@@ -90,7 +90,7 @@ Use the following payload to change the display name and enable the system assig
 ```
 
 > [!NOTE]
-> You can only add a managed identity to an IoT Central application that was created in a region. All new applications are created in a region. To learn more, see [Updates](https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-august-2021/).
+> You can only add a managed identity to an IoT Central application that was created in a region. All new applications are created in a region.
 
 ## Delete an IoT Central application
 
@@ -102,7 +102,7 @@ DELETE https://management.azure.com/subscriptions/<your subscription id>/resourc
 
 ## Next steps
 
-Now that you've learned how to create and manage Azure IoT Central applications using the REST API, here is the suggested next step:
+Now that you've learned how to create and manage Azure IoT Central applications using the REST API, here's the suggested next step:
 
 > [!div class="nextstepaction"]
 > [How to use the IoT Central REST API to manage users and roles](howto-manage-users-roles-with-rest-api.md)

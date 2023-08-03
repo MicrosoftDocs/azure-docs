@@ -1,12 +1,11 @@
 ---
-title: Azure Files networking considerations | Microsoft Docs
+title: Azure Files networking considerations
 description: An overview of networking options for Azure Files.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: overview
 ms.date: 05/23/2022
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Azure Files networking considerations
@@ -39,13 +38,13 @@ Configuring public and private endpoints for Azure Files is done on the top-leve
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 ## Secure transfer
-By default, Azure storage accounts require secure transfer, regardless of whether data is accessed over the public or private endpoint. For Azure Files, the **require secure transfer** setting is enforced for all protocol access to the data stored on Azure file shares, including SMB, NFS, and FileREST. The **require secure transfer** setting may be disabled to allow unencrypted traffic. You may also see this setting mislabeled as "require secure transfer for REST API operations".
+By default, Azure storage accounts require secure transfer, regardless of whether data is accessed over the public or private endpoint. For Azure Files, the **require secure transfer** setting is enforced for all protocol access to the data stored on Azure file shares, including SMB, NFS, and FileREST. You can disable the **require secure transfer** setting to allow unencrypted traffic. In the Azure portal, you may also see this setting labeled as **require secure transfer for REST API operations**.
 
 The SMB, NFS, and FileREST protocols have slightly different behavior with respect to the **require secure transfer** setting:
 
 - When **require secure transfer** is enabled on a storage account, all SMB file shares in that storage account will require the SMB 3.x protocol with AES-128-CCM, AES-128-GCM, or AES-256-GCM encryption algorithms, depending on the available/required encryption negotiation between the SMB client and Azure Files. You can toggle which SMB encryption algorithms are allowed via the [SMB security settings](files-smb-protocol.md#smb-security-settings). Disabling the **require secure transfer** setting enables SMB 2.1 and SMB 3.x mounts without encryption.
 
-- NFS file shares do not support an encryption mechanism, so in order to use the NFS protocol to access an Azure file share, you must disable **require secure transfer** for the storage account.
+- NFS file shares don't support an encryption mechanism, so in order to use the NFS protocol to access an Azure file share, you must disable **require secure transfer** for the storage account.
 
 - When secure transfer is required, the FileREST protocol may only be used with HTTPS. FileREST is only supported on SMB file shares today.
 
@@ -101,7 +100,7 @@ Azure Files supports the following mechanisms to tunnel traffic between your on-
 When you create a private endpoint, by default we also create a (or update an existing) private DNS zone corresponding to the `privatelink` subdomain. Strictly speaking, creating a private DNS zone is not required to use a private endpoint for your storage account. However, it is highly recommended in general and explicitly required when mounting your Azure file share with an Active Directory user principal or accessing it from the FileREST API.
 
 > [!Note]  
-> This article uses the storage account DNS suffix for the Azure Public regions, `core.windows.net`. This commentary also applies to Azure Sovereign clouds such as the Azure US Government cloud and the Azure China cloud - just substitute the appropriate suffixes for your environment. 
+> This article uses the storage account DNS suffix for the Azure Public regions, `core.windows.net`. This commentary also applies to Azure Sovereign clouds such as the Azure US Government cloud and the Microsoft Azure operated by 21Vianet cloud - just substitute the appropriate suffixes for your environment. 
 
 In your private DNS zone, we create an A record for `storageaccount.privatelink.file.core.windows.net` and a CNAME record for the regular name of the storage account, which follows the pattern `storageaccount.file.core.windows.net`. Because your Azure private DNS zone is connected to the virtual network containing the private endpoint, you can observe the DNS configuration by calling the `Resolve-DnsName` cmdlet from PowerShell in an Azure VM (alternately `nslookup` in Windows and Linux):
 

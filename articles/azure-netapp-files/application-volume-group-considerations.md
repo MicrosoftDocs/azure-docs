@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/11/2022
+ms.date: 04/25/2023
 ms.author: anfdocs
 ---
 # Requirements and considerations for application volume group for SAP HANA 
@@ -35,6 +35,9 @@ This article describes the requirements and considerations you need to be aware 
     It is recommended that you lay out the VNet and delegated subnet at design time. 
 
     Application volume group for SAP HANA will create multiple IP addresses, up to six IP addresses for larger-sized estates. Ensure that the delegated subnet has sufficient free IP addresses. It’s recommended that you use a delegated subnet with a minimum of 59 IP addresses with a subnet size of /26. See [Considerations about delegating a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations).
+
+>[!IMPORTANT]
+>The use of application volume group for SAP HANA for applications other than SAP HANA is not supported. Reach out to your Azure NetApp Files specialist for guidance on using Azure NetApp Files multi-volume layouts with other database applications.
 
 ## Best practices about proximity placement groups
 

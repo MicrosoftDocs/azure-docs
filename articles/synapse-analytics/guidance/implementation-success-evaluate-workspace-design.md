@@ -1,8 +1,8 @@
 ---
 title: "Synapse implementation success methodology: Evaluate workspace design"
 description: "Learn how to evaluate the Synapse workspace design and validate that it meets guidelines and requirements."
-author: peter-myers
-ms.author: v-petermyers
+author: SnehaGunda
+ms.author: sngun
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.topic: conceptual

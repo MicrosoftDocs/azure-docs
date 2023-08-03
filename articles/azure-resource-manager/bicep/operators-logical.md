@@ -4,7 +4,8 @@ description: Describes Bicep logical operators that evaluate conditions.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.custom: devx-track-bicep
+ms.date: 12/12/2022
 ---
 
 # Bicep logical operators
@@ -46,7 +47,7 @@ param operand1 bool = true
 param operand2 bool = true
 
 output andResultParm bool = operand1 && operand2
-output andResultExp bool = bool(10 >= 10) && bool(5 > 2)
+output andResultExp bool = 10 >= 10 && 5 > 2
 ```
 
 Output from the example:
@@ -55,6 +56,18 @@ Output from the example:
 | ---- | ---- | ---- |
 | `andResultParm` | boolean | true |
 | `andResultExp` | boolean | true |
+
+To avoid *The language expression property 'foo' doesn't exist* exception with [Bicep objects](./data-types.md#objects), you can use the And logical operator as shown in the following example:
+
+```bicep
+param objectToTest object = {
+  one: 1
+  two: 2
+  three: 3
+}
+
+output bar bool = contains(objectToTest, 'four') && objectToTest.four == 4
+```
 
 ## Or ||
 
@@ -83,7 +96,7 @@ param operand1 bool = true
 param operand2 bool = false
 
 output orResultParm bool = operand1 || operand2
-output orResultExp bool = bool(10 >= 10) || bool(5 < 2)
+output orResultExp bool = 10 >= 10 || 5 < 2
 ```
 
 Output from the example:
@@ -92,6 +105,16 @@ Output from the example:
 | ---- | ---- | ---- |
 | `orResultParm` | boolean | true |
 | `orResultExp` | boolean | true |
+
+To avoid *The language expression property array index 'x' is out of bounds* exception, you can use the Or logical operator as shown in the following example:
+
+```bicep
+param emptyArray array = []
+param numberArray array = [1, 2, 3]
+
+output foo bool = empty(emptyArray) || emptyArray[0] == 'bar'
+output bar bool = length(numberArray) >= 3 || numberArray[3] == 4
+```
 
 ## Not !
 
@@ -152,11 +175,11 @@ The output statements return the non-null values. The output type must match the
 
 ```bicep
 param myObject object = {
-  'isnull1': null
-  'isnull2': null
-  'string': 'demoString'
-  'emptystr': ''
-  'integer': 10
+  isnull1: null
+  isnull2: null
+  string: 'demoString'
+  emptystr: ''
+  integer: 10
   }
 
 output nonNullStr string = myObject.isnull1 ?? myObject.string ?? myObject.isnull2

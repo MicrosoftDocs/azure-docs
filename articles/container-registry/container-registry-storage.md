@@ -2,7 +2,9 @@
 title: Container image storage 
 description: Details on how your container images and other artifacts are stored in Azure Container Registry, including security, redundancy, and capacity.
 ms.topic: conceptual
-ms.date: 03/24/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom: references_regions
 ---
 
@@ -12,7 +14,7 @@ Every [Basic, Standard, and Premium](container-registry-skus.md) Azure container
 
 ## Encryption-at-rest
 
-All container images and other artifacts in your registry are encrypted at rest. Azure automatically encrypts an image before storing it, and decrypts it on-the-fly when you or your applications and services pull the image. Optionally apply an extra encryption layer with a [customer-managed key](container-registry-customer-managed-keys.md).
+All container images and other artifacts in your registry are encrypted at rest. Azure automatically encrypts an image before storing it, and decrypts it on-the-fly when you or your applications and services pull the image. Optionally apply an extra encryption layer with a [customer-managed key](tutorial-enable-customer-managed-keys.md).
 
 ## Regional storage
 
@@ -45,7 +47,6 @@ For more information about Basic, Standard, and Premium container registries, se
 <!-- IMAGES -->
 
 <!-- LINKS - External -->
-[portal]: https://portal.azure.com
 [pricing]: https://aka.ms/acr/pricing
 
 <!-- LINKS - Internal -->

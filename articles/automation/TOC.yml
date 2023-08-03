@@ -43,6 +43,8 @@
       href: /powershell/dsc/overview
     - name: Automation network configuration details
       href: automation-network-configuration.md
+    - name: Azure Automation extension for Visual Studio Code
+      href: automation-runbook-authoring.md
     - name: Security
       items:
       - name: Security controls by Azure Policy
@@ -58,6 +60,12 @@
           href: automation-secure-asset-encryption.md
         - name: Management of Azure Automation data
           href: automation-managing-data.md
+    - name: High availability
+      items:
+        - name: Availability zones
+          href: automation-availability-zones.md
+        - name: Disaster recovery for Automation accounts 
+          href: automation-disaster-recovery.md        
 - name: How-to guides
   items:
     - name: Automation Account
@@ -79,15 +87,19 @@
             - name: Remove user-assigned managed identity
               href: remove-user-assigned-identity.md
             - name: Troubleshoot managed identity
-              href: troubleshoot/managed-identity.md
+              href: troubleshoot/managed-identity.md 
         - name: Run As account
           items:
-            - name: Create Run As account
-              href: create-run-as-account.md
             - name: Delete Run As account
               href: delete-run-as-account.md
             - name: Manage Run As account
               href: manage-runas-account.md
+            - name: Migrate Run As account to managed identity
+              href: migrate-run-as-accounts-managed-identity.md
+            - name: FAQ on Migration to managed identity
+              href: automation-managed-identity-faq.md
+        - name: Use Automation extension for Visual Studio Code
+          href: how-to/runbook-authoring-extension-for-vscode.md
         - name: Configure authentication with Amazon Web Services
           href: automation-config-aws-account.md
         - name: Configure authentication with Azure AD
@@ -168,10 +180,12 @@
               href: troubleshoot/runbooks.md
             - name: Data to collect when opening a case for Microsoft Azure Automation
               href: troubleshoot/collect-data-microsoft-azure-automation-case.md
-        - name: Work with a Hybrid Runbook Worker
+        - name: Work with Hybrid Runbook Worker
           items:
             - name: Deploy extension-based worker
               href: extension-based-hybrid-runbook-worker-install.md
+            - name: Migrate existing Agent-based Hybrid Workers to Extension-based Workers
+              href: migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md
             - name: Deploy agent-based Windows worker
               href: automation-windows-hrw-install.md
             - name: Deploy agent-based Linux worker
@@ -226,7 +240,21 @@
                   href: automation-dsc-config-from-server.md
                 - name: Convert configurations to composite resources
                   href: automation-dsc-create-composite.md
-        - name: Change tracking and inventory
+    - name: Change tracking and inventory 
+      items:
+        - name: Use Azure Monitoring Agent (AMA)
+          items:
+            - name: Overview
+              href: change-tracking/overview-monitoring-agent.md
+            - name: Supported regions
+              href: change-tracking/region-mappings-monitoring-agent.md
+            - name: Enable change tracking from portal
+              href: change-tracking/enable-vms-monitoring-agent.md
+            - name: Manage change tracking and inventory
+              href: change-tracking/manage-change-tracking-monitoring-agent.md
+            - name: Configure alerts
+              href: change-tracking/configure-alerts.md
+        - name: Use Log Analytics
           items:
             - name: Overview
               href: change-tracking/overview.md
@@ -261,15 +289,13 @@
                 - name: Troubleshoot feature deployment issues
                   href: troubleshoot/onboarding.md
                 - name: Troubleshoot Change Tracking and Inventory issues
-                  href: troubleshoot/change-tracking.md
+                  href: troubleshoot/change-tracking.md      
     - name: Start/Stop VMs during off-hours
       items:
         - name: Overview
           href: automation-solution-vm-management.md
         - name: Support regions for linked Log Analytics workspace
           href: how-to/region-mappings.md
-        - name: Enable Start/Stop VMs during off-hours
-          href: automation-solution-vm-management-enable.md
         - name: Configure Stop/Start VMs during off-hours
           href: automation-solution-vm-management-config.md
         - name: Query logs from Start/Stop VMs during off-hours
@@ -357,7 +383,7 @@
         - name: Integrate with Event Grid and Microsoft Teams
           href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md
         - name: Automate start/stop of Azure-SSIS IR
-          href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir
+          href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-an-azure-automation-runbook-that-starts-and-stops-an-azure-ssis-ir
 - name: Reference
   items:
   - name: Azure CLI

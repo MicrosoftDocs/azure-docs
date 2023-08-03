@@ -1,10 +1,9 @@
 ---
 title: Bicep comparison operators
 description: Describes Bicep comparison operators that compare values.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/07/2021
+ms.custom: devx-track-bicep
+ms.date: 06/23/2023
 ---
 
 # Bicep comparison operators

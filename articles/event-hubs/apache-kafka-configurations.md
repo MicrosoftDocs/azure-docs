@@ -2,6 +2,7 @@
 title: Recommended configurations for Apache Kafka clients - Azure Event Hubs
 description: This article provides recommended Apache Kafka configurations for clients interacting with Azure Event Hubs for Apache Kafka. 
 ms.topic: reference
+ms.custom: devx-track-extended-java
 ms.date: 03/30/2022
 ---
 
@@ -24,7 +25,7 @@ Property | Recommended Values | Permitted Range | Notes
 ---|---:|---:|---
 `max.request.size` | 1000000 | < 1046528 | The service will close connections if requests larger than 1,046,528 bytes are sent.  *This value **must** be changed and will cause issues in high-throughput produce scenarios.*
 `retries` | > 0 | | May require increasing delivery.timeout.ms value, see documentation.
-`request.timeout.ms` | 60000 | > 20000| Event Hubs will internally default to a minimum of 20,000 ms.  *While requests with lower timeout values are accepted, client behavior isn't guaranteed.*. <p>Make sure that your **request.timeout.ms** is at least the recommended value of 60000 and your **session.timeout.ms** is at least the recommended value of 30000. Having these settings too low could cause consumer timeouts, which then cause rebalances (which then cause more timeouts, which cause more rebalancing, and so on).</p>
+`request.timeout.ms` | 30000 .. 60000 | > 20000| Event Hubs will internally default to a minimum of 20,000 ms.  *While requests with lower timeout values are accepted, client behavior isn't guaranteed.*. <p>Make sure that your **request.timeout.ms** is at least the recommended value of 60000 and your **session.timeout.ms** is at least the recommended value of 30000. Having these settings too low could cause consumer timeouts, which then cause rebalances (which then cause more timeouts, which cause more rebalancing, and so on).</p>
 `metadata.max.idle.ms` | 180000 | > 5000 | Controls how long the producer will cache metadata for a topic that's idle. If the elapsed time since a topic was last produced exceeds the metadata idle duration, then the topic's metadata is forgotten and the next access to it will force a metadata fetch request.
 `linger.ms` | > 0 | | For high throughput scenarios, linger value should be equal to the highest tolerable value to take advantage of batching.
 `delivery.timeout.ms` | | | Set according to the formula (`request.timeout.ms` + `linger.ms`) * `retries`.
@@ -37,7 +38,7 @@ Property | Recommended Values | Permitted Range | Notes
 ---|---:|-----:|---
 `heartbeat.interval.ms` | 3000 | | 3000 is the default value and shouldn't be changed.
 `session.timeout.ms` | 30000 |6000 .. 300000| Start with 30000, increase if seeing frequent rebalancing because of missed heartbeats.<p>Make sure that your request.timeout.ms is at least the recommended value of 60000 and your session.timeout.ms is at least the recommended value of 30000. Having these settings too low could cause consumer timeouts, which then cause rebalances (which then cause more timeouts, which cause more rebalancing, and so on).</p>
-
+`max.poll.interval.ms` | 300000 (default) |>session.timeout.ms| Used for rebalance timeout, so this should not be set too low. Must be greater than session.timeout.ms.
 
 ## librdkafka configuration properties
 The main `librdkafka` configuration file ([link](https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md)) contains extended descriptions for the properties below.
@@ -53,7 +54,7 @@ Property | Recommended Values | Permitted Range | Notes
 
 Property | Recommended Values | Permitted Range | Notes
 ---|---:|-----:|---
-`retries` | > 0 | | Default is 2. We recommend that you keep this value. 
+`retries` | 2 | | Default is 2147483647. 
 `request.timeout.ms` | 30000 .. 60000 | > 20000| Event Hubs will internally default to a minimum of 20,000 ms.  `librdkafka` default value is 5000, which can be problematic. *While requests with lower timeout values are accepted, client behavior isn't guaranteed.*
 `partitioner` | `consistent_random` | See librdkafka documentation | `consistent_random` is default and best.  Empty and null keys are handled ideally for most cases.
 `compression.codec` | `none` || Compression currently not supported.
@@ -64,6 +65,7 @@ Property | Recommended Values | Permitted Range | Notes
 ---|---:|-----:|---
 `heartbeat.interval.ms` | 3000 || 3000 is the default value and shouldn't be changed.
 `session.timeout.ms` | 30000 |6000 .. 300000| Start with 30000, increase if seeing frequent rebalancing because of missed heartbeats.
+`max.poll.interval.ms` | 300000 (default) |>session.timeout.ms| Used for rebalance timeout, so this should not be set too low. Must be greater than session.timeout.ms.
 
 
 ## Further notes

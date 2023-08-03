@@ -1,29 +1,29 @@
 ---
-title: Create an image version encrypted with your own keys 
+title: Create an encrypted image version with customer-managed keys
 description: Create an image version in an Azure Compute Gallery, by using customer-managed encryption keys.
-author: cynthn
+author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 7/1/2021
+ms.date: 02/22/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
 
-# Use customer-managed keys for encrypting images
+# Create an encrypted image version with customer-managed keys
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Images in an Azure Compute Gallery (formerly known as Shared Image Gallery) are stored as snapshots, so they're automatically encrypted through server-side encryption. Server-side encryption uses 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available. Server-side encryption is also FIPS 140-2 compliant. For more information about the cryptographic modules underlying Azure managed disks, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal).
+Images in an Azure Compute Gallery (formerly known as Shared Image Gallery) are stored as snapshots. These images are automatically encrypted through server-side 256-bit encryption [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). Server-side encryption is also FIPS 140-2 compliant. For more information about the cryptographic modules underlying Azure managed disks, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal).
 
-You can rely on platform-managed keys for the encryption of your images, or use your own keys. You can also use both together, for double encryption. If you choose to manage encryption with your own keys, you can specify a *customer-managed key* to use for encrypting and decrypting all disks in your images. 
+You can rely on platform-managed keys for the encryption of your images, or use your own keys. You can also use both of these features together for doubled encryption. If you choose to manage encryption with your own keys, you can specify a *customer-managed key* to use for encrypting and decrypting all disks in your images. 
 
 Server-side encryption through customer-managed keys uses Azure Key Vault. You can either import [your RSA keys](../key-vault/keys/hsm-protected-keys.md) to your key vault or generate new RSA keys in Azure Key Vault.
 
 ## Prerequisites
 
-This article requires you to already have a disk encryption set in each region where you want to replicate your image:
+This article requires that you already have a disk encryption set in each region where you want to replicate your image:
 
 - To use only a customer-managed key, see the articles about enabling customer-managed keys with server-side encryption by using the [Azure portal](./disks-enable-customer-managed-keys-portal.md) or [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-optionally-with-automatic-key-rotation).
 
@@ -34,16 +34,17 @@ This article requires you to already have a disk encryption set in each region w
 
 ## Limitations
 
-When you're using customer-managed keys for encrypting images in an Azure Compute Gallery, these limitations apply:	
+When you're using customer-managed keys for encrypting images in an Azure Compute Gallery, these limitations apply:
 
 - Encryption key sets must be in the same subscription as your image.
 
 - Encryption key sets are regional resources, so each region requires a different encryption key set.
 
-- You can't copy or share images that use customer-managed keys. 
+- After you've used your own keys to encrypt an image, you can't go back to using platform-managed keys for encrypting those images.
 
-- After you've used your own keys to encrypt a disk or image, you can't go back to using platform-managed keys for encrypting those disks or images.
+- VM image version source doesn't currently support customer-managed key encryption.
 
+- Some of the features like replicating an SSE+CMK image, creating an image from SSE+CMK encrypted disk etc. are not supported through portal.
 
 ## PowerShell
 
@@ -118,7 +119,7 @@ az sig image-version create \
    --managed-image "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage"
 ```
 
-If the source for the OS disk is a snapshot, use `--os-snapshot` to specify the OS disk. If there are data disk snapshots that should also be part of the image version, add those. Use `--data-snapshot-luns` to specify the LUN, and use `--data-snapshots` to specify the snapshots.
+If the source for the OS disk is a snapshot, use `--os-snapshot` to specify the OS disk. Add any other data disk snapshots that should also be part of the image version. Use `--data-snapshot-luns` to specify the LUN, and use `--data-snapshots` to specify the snapshots.
 
 In this example, the sources are disk snapshots. There's an OS disk and a data disk at LUN 0. The OS disk will be encrypted with DiskEncryptionSet1, and the data disk will be encrypted with DiskEncryptionSet2.
 
@@ -139,7 +140,7 @@ az sig image-version create \
 
 ### Create the VM
 
-You can create a VM from an Azure Compute Gallery and use customer-managed keys to encrypt the disks. The syntax is the same as creating a [generalized](vm-generalized-image-version.md) or [specialized](vm-specialized-image-version.md) VM from an image. Just add the `--os-disk-encryption-set` parameter with the ID of the encryption set. For data disks, add `--data-disk-encryption-sets` with a space-delimited list of the disk encryption sets for the data disks.
+You can create a VM from an Azure Compute Gallery and use customer-managed keys to encrypt the disks. The syntax is the same as creating a [generalized](vm-generalized-image-version.md) or [specialized](vm-specialized-image-version.md) VM with the addition of the `--os-disk-encryption-set` parameter. For data disks, add `--data-disk-encryption-sets` with a space-delimited list of the disk encryption sets for the data disks.
 
 
 ## Portal

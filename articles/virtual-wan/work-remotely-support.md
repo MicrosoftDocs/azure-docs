@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 02/03/2023
 ms.author: cherylmc
 
 
@@ -27,7 +27,7 @@ As this global pandemic creates unprecedented changes around us, the Azure Virtu
 
 Azure Virtual WAN is a networking service that brings many networking, security, and routing functionalities together to provide a single operational interface. These functionalities include Branch connectivity (via connectivity automation from Virtual WAN Partner devices such as SD-WAN or VPN CPE), Site-to-site VPN connectivity, Remote User VPN (Point-to-site) connectivity, Private (ExpressRoute) connectivity, Intra cloud connectivity (Transitive connectivity for Virtual Networks), VPN ExpressRoute Interconnectivity, Routing, Azure firewall, Encryption for private connectivity etc. You don't have to have all of these use cases to start using Virtual WAN. You can get started with just one use case and adjust your network as it evolves.
 
-![Virtual WAN diagram](./media/virtual-wan-about/virtualwan1.png)
+:::image type="content" source="./media/virtual-wan-about/virtual-wan-diagram.png" alt-text="Virtual WAN diagram." lightbox="./media/virtual-wan-about/virtual-wan-diagram.png":::
 
 Now talking about remote users, lets look at what you need to get your network up and running:
 

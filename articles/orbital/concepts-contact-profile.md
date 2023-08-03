@@ -12,37 +12,35 @@ ms.author: hrshelar
 
 # Ground station contact profile
 
-The contact profile object stores pass requirements such as links and endpoint details for each link. Use this object with the spacecraft object at time of scheduling to view and schedule available passes.
+The contact profile object stores pass requirements such as links and endpoint details for each link. Use this object along with the spacecraft object during pass scheduling to view and schedule available passes.
 
 You can create many contact profiles to represent different types of passes depending on your mission operations. For example, you can create a contact profile for a command and control pass or a contact profile for a downlink only pass. 
 
-These objects are mutable and don't undergo an authorization process like the spacecraft objects do. One contact profile can be used with many spacecraft objects. 
+These objects are mutable and do not undergo an authorization process like the spacecraft objects do. One contact profile can be used with many spacecraft objects. 
 
 See [how to configure a contact profile](contact-profile.md) for the full list of parameters.
 
 ## Prerequisites 
 
-- Subnet that is created in the VNET and resource group you desire. See [Prepare network for Azure Orbital Ground Station integration.](prepare-network.md)
+- Subnet that is created in the relevant VNET and resource group. See [prepare network for Azure Orbital Ground Station integration](prepare-network.md).
 
 ## Creating a contact profile 
 
-Follow the steps in [how to create a contact profile.](contact-profile.md). 
+Follow these steps to [create a contact profile](contact-profile.md).
 
 ## Adjusting pass parameters
 
-Specify a minimum pass time to ensure passes of a certain duration. Specify a minimum elevation to ensure passes above a certain elevation.
+Specify a minimum pass time to ensure your passes are a certain duration. Specify a minimum elevation to ensure passes are above a certain elevation.
 
-The two parameters above are used by the service during the contact scheduling. Avoid changing these on a pass-by-pass basis and create multiple contact profiles if you need such flexibility. 
-
-At the moment autotrack is disabled and autotracking options are not applied.
+The minimum pass time and minimum elevation parameters are used by the service during the contact scheduling. Avoid changing these on a pass-by-pass basis and instead create multiple contact profiles if you require flexibility.
 
 ## Understanding links and channels
 
-A whole band, unique in direction, and unique in polarity is called a link. Channels, which are children under links, specify center frequency, bandwidth, and endpoints. Typically there's only one channel per link but some applications require multiple channels per link. Refer to the Ground Station manual for a full list of supported bands and antenna capabilities.
+A whole band, unique in direction and polarity, is called a link. Channels, which are children under links, specify the center frequency, bandwidth, and endpoints. Typically there is only one channel per link, but some applications require multiple channels per link. 
 
-You can specify an EIRP and G/T requirement for each link. EIRP applies to uplinks and G/T applies to downlinks. You can give a name to each link and channel to keep track of these properties.
+You can specify EIRP and G/T requirements for each link. EIRP applies to uplinks and G/T applies to downlinks. You can provide a name for each link and channel to keep track of these properties. Each channel has a modem associated with it. Follow the steps in [how to setup software modem](modem-chain.md) to understand the options.
 
-Look at the example below to see how to specify an RHCP channel and an LHCP channel if your mission requires dual-polarization on downlink.  
+Refer to the example below to understand how to specify an RHCP channel and an LHCP channel if your mission requires dual-polarization on downlink.  
 
 ```json
 {
@@ -114,34 +112,17 @@ Look at the example below to see how to specify an RHCP channel and an LHCP chan
 }
 ```
 
-
-## Applying modems or bring your own
-
-We recommend taking advantage of Orbital's GSaaS software modem functionality if possible. This modem is managed by the service and is inserted between your endpoint and the incoming or outgoing virtual RF stream per channel. We have a library of modems that will be available in the marketplace for you to utilize. If there is no modem that can be used with your application then utilize the virtual RF delivery feature to bring your own modem.
-
-There are 4 parameters related to modem configurations. The table below shows you how to configure these parameters.
-
-| Parameter                 | Options                                                                     |
-|---------------------------|-----------------------------------------------------------------------------|
-| modulationConfiguration   | 1. Null for virtual RF<br />2. JSON escaped modem config for software modem |
-| demodulationConfiguration | 1. Null for virtual RF<br />2. JSON escaped modem config for software modem |
-| encodingConfiguration     | Null (not used)                                                             |
-| decodingConfiguration     | Null (not used)                                                             |
-
-Use the same modem config file in uplink and downlink channels for full-duplex communications in the same band.
-
-The modem config should be a JSON escaped raw save file from a software modem. Please see the marketplace for modem options.
-
 ## Modifying or deleting a contact profile
 
-You can modify or delete the contact profile via the Portal or through the API.
+You can modify or delete the contact profile via the Orbital Portal or through the API.
 
 ## Configuring contact profile for third party ground stations
 
-When you onboard a third party network, you'll receive a token that identifies your profile. Use this token in the object to link a contact profile to the third party network.
+When you onboard a third party network, you will receive a token that identifies your profile. Use this token in the contact profile object to link a contact profile to the third party network.
 
 ## Next steps
 
 - [Schedule a contact](schedule-contact.md)
+- [Configure the RF chain](modem-chain.md)
 - [Update the Spacecraft TLE](update-tle.md)
 

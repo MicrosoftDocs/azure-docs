@@ -1,12 +1,12 @@
 ---
-title: Download blobs from Azure Blob Storage by using AzCopy v10 | Microsoft Docs
+title: Download blobs from Azure Blob Storage by using AzCopy v10
 description: This article contains a collection of AzCopy example commands that help you download blobs from Azure Blob Storage. 
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.reviewer: dineshm
 ---
 
@@ -107,7 +107,7 @@ You can download specific blobs by using complete file names, partial names with
 
 #### Specify multiple complete blob names
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-path` option. Separate individual blob names by using a semicolin (`;`).
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-path` option. Separate individual blob names by using a semicolon (`;`).
 
 **Syntax**
 
@@ -212,7 +212,7 @@ azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFil
 ```
 
 > [!NOTE]
-> If you are using a SAS token to authorize access to blob data, then append snapshot **DateTime** after the SAS token. For example: `'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z'`.
+> If you are using a SAS token to authorize access to blob data, then append snapshot **DateTime** after the SAS token. For example: `'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z'`.
 
 ## Download with optional flags
 

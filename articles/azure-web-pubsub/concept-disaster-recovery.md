@@ -4,7 +4,7 @@ description: An overview on how to set up multiple Azure Web PubSub service inst
 author: vicancy
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 11/08/2021
+ms.date: 05/28/2023
 ms.author: lianwei
 ---
 # Resiliency and disaster recovery in Azure Web PubSub Service
@@ -15,6 +15,13 @@ Your service instance is a regional service and the instance is running in one r
 
 ## High available architecture for Web PubSub service
 
+There are two typical patterns using Web PubSub service:
+* One is client-server pattern that [clients send events the the server](./quickstarts-event-notifications-from-clients.md] and [server pushes messages to the clients](./quickstarts-push-messages-from-server.md)
+* Another is client-client pattern that [clients pub/sub messages through the Web PubSub service to other clients](./quickstarts-pubsub-among-clients.md)
+
+Below sections describe different ways for these two patterns to do disaster recovery
+
+###  High available architecture for client-server pattern
 In order to have cross region resiliency for Web PubSub service, you need to set up multiple service instances in different regions. So when one region is down, the others can be used as backup.
 
 One typical setup for cross region scenario is to have two (or more) pairs of Web PubSub service instances and app servers.
@@ -44,7 +51,7 @@ Below is a diagram that illustrates such topology:
 
 ![Diagram shows two regions each with an app server and a Web PubSub service, where each server is associated with the Web PubSub service in its region as primary and with the service in the other region as secondary.](media/concept-disaster-recovery/topology.png)
 
-## Failover sequence and best practice
+#### Failover sequence and best practice
 
 Now you have the right system topology setup. Whenever one Web PubSub service instance is down, online traffic will be routed to other instances.
 Here is what happens when a primary instance is down (and recovers after some time):
@@ -87,6 +94,20 @@ Be noted no matter which patterns you choose to use, you'll need to connect each
 
 Also due to the nature of WebSocket connection (it's a long connection), clients will experience connection drops when there is a disaster and failover take place.
 You'll need to handle such cases at client side to make it transparent to your end customers. For example, do reconnect after a connection is closed.
+
+###  High available architecture for client-client pattern
+
+For client-client pattern, currently it is not yet possible to support a zero-down-time disaster recovery. If you have high availability requirements, please consider using client-server pattern, or sending a copy of messages to the server as well.
+
+Clients connected to one Web PubSub service are not yet able to communicate with clients connected to another Web PubSub service using client-client pattern. So when using client-client pattern, the general principles are:
+1. All the app server instances return the same Web PubSub endpoint to the client **negotiate** calls. One way is to have a source-of-truth storing, checking the health status, and managing these endpoints, and returning one healthy endpoint in your primary regions.
+2. Make sure there is no active client connected to other endpoints. [Close All Connections](/rest/api/webpubsub/dataplane/web-pub-sub/close-all-connections) could be used to close all the connected clients.
+
+## How to test a failover
+
+Follow the steps to trigger the failover:
+1. In the Networking tab for the primary resource in the portal, **disable** public network access. If the resource has private network enabled, use *access control rules* to deny all the traffic.
+2. **Restart** the primary resource.  
 
 ## Next steps
 

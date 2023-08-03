@@ -5,22 +5,24 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/01/2018
+ms.date: 08/21/2022
 ---
 
 # Create, edit, or extend JSON for logic app workflow definitions in Azure Logic Apps
 
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
 When you create enterprise integration
 solutions with automated workflows in
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md),
-the underlying logic app definitions use simple
+the underlying workflow definitions use simple
 and declarative JavaScript Object Notation (JSON)
 along with the [Workflow Definition Language (WDL) schema](../logic-apps/logic-apps-workflow-definition-language.md)
 for their description and validation. These formats
-make logic app definitions easier to read and
+make workflow definitions easier to read and
 understand without knowing much about code.
-When you want to automate creating and deploying logic apps,
-you can include logic app definitions as
+When you want to automate creating and deploying logic app resources,
+you can include workflow definitions as
 [Azure resources](../azure-resource-manager/management/overview.md)
 inside [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md).
 To create, manage, and deploy logic apps, you can then use
@@ -28,17 +30,17 @@ To create, manage, and deploy logic apps, you can then use
 [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), 
 or the [Azure Logic Apps REST APIs](/rest/api/logic/).
 
-To work with logic app definitions in JSON,
+To work with workflow definitions in JSON,
 open the Code View editor when working
 in the Azure portal or in Visual Studio,
 or copy the definition into any editor that you want.
-If you're new to logic apps, review
-[how to create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+If you're new to Azure Logic Apps, review
+[Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md).
 
 > [!NOTE]
 > Some Azure Logic Apps capabilities, such as defining
-> parameters and multiple triggers in logic app definitions,
-> are available only in JSON, not the Logic Apps Designer.
+> parameters and multiple triggers in workflow definitions,
+> are available only in JSON, not the workflow designer.
 > So for these tasks, you must work in Code View or another editor.
 
 ## Edit JSON - Azure portal
@@ -54,11 +56,11 @@ and then from the results, select your logic app.
 select **Logic App Code View**.
 
    The Code View editor opens and shows
-   your logic app definition in JSON format.
+   your workflow definition in JSON format.
 
 ## Edit JSON - Visual Studio
 
-Before you can work on your logic app definition
+Before you can work on your workflow definition
 in Visual Studio, make sure that you've
 [installed the required tools](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites).
 To create a logic app with Visual Studio, review
@@ -72,7 +74,7 @@ or as Azure Resource Manager projects from Visual Studio.
 or [Azure Resource Group](../azure-resource-manager/management/overview.md)
 project, that contains your logic app.
 
-2. Find and open your logic app's definition,
+2. Find and open your workflow definition,
 which by default, appears in an
 [Resource Manager template](../azure-resource-manager/templates/overview.md),
 named **LogicApp.json**.
@@ -80,7 +82,7 @@ You can use and customize this template for
 deployment to different environments.
 
 3. Open the shortcut menu for your
-logic app definition and template.
+workflow definition and template.
 Select **Open With Logic App Designer**.
 
    ![Open logic app in a Visual Studio solution](./media/logic-apps-author-definitions/open-logic-app-designer.png)
@@ -88,10 +90,10 @@ Select **Open With Logic App Designer**.
    > [!TIP]
    > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
 
-4. At the bottom of the designer, choose **Code View**.
+4. At the bottom of the workflow designer, choose **Code View**.
 
    The Code View editor opens and shows
-   your logic app definition in JSON format.
+   your workflow definition in JSON format.
 
 5. To return to designer view,
 at the bottom of the Code View editor,
@@ -117,12 +119,12 @@ Follow these general steps to *parameterize*, or define and use parameters for, 
 
 ## Process strings with functions
 
-Logic Apps has various functions for working with strings.
+Azure Logic Apps has various functions for working with strings.
 For example, suppose you want to pass a company name from an order to another system.
 However, you're not sure about proper handling for character encoding.
 You could perform base64 encoding on this string, but to avoid escapes in the URL,
 you can replace several characters instead. Also, you only need a substring for
-the company name because the first five characters are not used.
+the company name because the first five characters aren't used.
 
 ``` json
 {

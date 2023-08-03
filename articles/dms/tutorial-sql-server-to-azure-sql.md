@@ -1,20 +1,26 @@
 ---
 title: "Tutorial: Migrate SQL Server offline to Azure SQL Database"
 titleSuffix: Azure Database Migration Service
-description: Learn to migrate from SQL Server to Azure SQL Database offline by using Azure Database Migration Service.
-services: dms
-author: croblesm
-ms.author: roblescarlos
-manager: craigg
+description: Learn to migrate from SQL Server to Azure SQL Database offline by using Azure Database Migration Service (classic).
+author: abhims14
+ms.author: abhishekum
 ms.reviewer: craigg
+ms.date: 02/08/2023
 ms.service: dms
-ms.workload: data-services
-ms.custom: "seo-lt-2019"
 ms.topic: tutorial
-ms.date: 01/03/2021
+ms.custom:
+  - seo-lt-2019
+  - ignite-2022
 ---
 
-# Tutorial: Migrate SQL Server to Azure SQL Database using DMS
+# Tutorial: Migrate SQL Server to Azure SQL Database using DMS (classic)
+
+[!INCLUDE [Azure Database Migration Service (classic) - SQL scenarios retirement announcement](../../includes/deprecation-announcement-dms-classic-sql.md)]
+
+> [!NOTE]
+> This tutorial uses an older version of the Azure Database Migration Service. For improved functionality and supportability, consider migrating to Azure SQL Database by using the [Azure SQL migration extension for Azure Data Studio](tutorial-sql-server-azure-sql-database-offline-ads.md).
+>
+> To compare features between versions, review [compare versions](dms-overview.md#compare-versions).
 
 You can use Azure Database Migration Service to migrate the databases from a SQL Server instance to [Azure SQL Database](/azure/sql-database/). In this tutorial, you migrate the [AdventureWorks2016](/sql/samples/adventureworks-install-configure#download-backup-files) database restored to an on-premises instance of SQL Server 2016 (or later) to a single database or pooled database in Azure SQL Database by using Azure Database Migration Service.
 
@@ -48,7 +54,7 @@ To complete this tutorial, you need to:
     > [!NOTE]
     > During virtual network setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) to the subnet in which the service will be provisioned:
     >
-    > - Target database endpoint (for example, SQL endpoint, Cosmos DB endpoint, and so on)
+    > - Target database endpoint (for example, SQL endpoint, Azure Cosmos DB endpoint, and so on)
     > - Storage endpoint
     > - Service bus endpoint
     >

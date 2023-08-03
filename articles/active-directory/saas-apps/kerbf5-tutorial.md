@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure AD single sign-on integration with F5 | Microsoft Docs'
+title: 'Tutorial: Azure AD single sign-on integration with F5'
 description: Learn how to configure single sign-on (SSO) between Azure Active Directory and F5.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -115,6 +115,8 @@ To configure the integration of F5 into Azure AD, you need to add F5 from the ga
 1. In the **Add from the gallery** section, type **F5** in the search box.
 1. Select **F5** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD single sign-on for F5
 
 Configure and test Azure AD SSO with F5 using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in F5.
@@ -193,7 +195,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the **Add Assignment** dialog, click the **Assign** button.
 1. Click on **Conditional Access** .
 1. Click on **New Policy**.
-1. You can now see your F5 App as a resource for Conditional Access policy and apply any conditional access including Multifactor Auth, Device based access control or Identity Protection Policy.
+1. You can now see your F5 App as a resource for Conditional Access policy and apply any Conditional Access including Multifactor Auth, Device based access control or Identity Protection Policy.
 
 ## Configure F5 SSO
 
@@ -377,7 +379,7 @@ This adds the new Active Directory server to the Active Directory Servers list.
     * Profile Scope: Profile
     * Languages: English
 
-        ![Screenshot that shows the "Profiles/Policies - Properties" page with the "Name", "Profile Type", and "Langauges" text boxes highlighted.](./media/kerbf5-tutorial/configure30.png)
+        ![Screenshot that shows the "Profiles/Policies - Properties" page with the "Name", "Profile Type", and "Languages" text boxes highlighted.](./media/kerbf5-tutorial/configure30.png)
 
 1. Click on the name, KerbApp200, complete the following information and click **Update**.
 
@@ -482,20 +484,20 @@ When you click the F5 tile in the Access Panel, you should be automatically sign
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
 
-- [Try F5 with Azure AD](https://aad.portal.azure.com/)
+
 
 - [Configure F5 single sign-on for Header Based application](headerf5-tutorial.md)
 
 - [Configure F5 single sign-on for Advanced Kerberos application](advance-kerbf5-tutorial.md)
 
-- [F5 BIG-IP APM and Azure AD integration for secure hybrid access](../manage-apps/f5-aad-integration.md)
+- [F5 BIG-IP APM and Azure AD integration for secure hybrid access](../manage-apps/f5-integration.md)
 
 - [Tutorial to deploy F5 BIG-IP Virtual Edition VM in Azure IaaS for secure hybrid access](../manage-apps/f5-bigip-deployment-guide.md)
 
-- [Tutorial for Azure Active Directory single sign-on integration with F5 BIG-IP for Password-less VPN](../manage-apps/f5-aad-password-less-vpn.md)
+- [Tutorial for Azure Active Directory single sign-on integration with F5 BIG-IP for Password-less VPN](../manage-apps/f5-passwordless-vpn.md)

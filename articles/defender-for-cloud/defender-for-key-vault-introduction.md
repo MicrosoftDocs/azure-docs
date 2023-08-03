@@ -3,8 +3,8 @@ title: Microsoft Defender for Key Vault - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for Key Vault.
 ms.date: 11/09/2021
 ms.topic: overview
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ms.custom: references_regions
 ---
 
@@ -20,7 +20,7 @@ Enable **Microsoft Defender for Key Vault** for Azure-native, advanced threat pr
 |----|:----|
 |Release state:|General availability (GA)|
 |Pricing:|**Microsoft Defender for Key Vault** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet)|
 
 
 ## What are the benefits of Microsoft Defender for Key Vault?
@@ -32,7 +32,7 @@ When anomalous activities occur, Defender for Key Vault shows alerts and optiona
 ## Microsoft Defender for Key Vault alerts
 When you get an alert from Microsoft Defender for Key Vault, we recommend you investigate and respond to the alert as described in [Respond to Microsoft Defender for Key Vault](defender-for-key-vault-usage.md). Microsoft Defender for Key Vault protects applications and credentials, so even if you're familiar with the application or user that triggered the alert, it's important to check the situation surrounding every alert.
 
-The alerts appear in Key Vault's **Security** page, the Workload protections, and Defender for Cloud's alerts page.
+The alerts appear in Key Vault's **Security** page, the Workload protections, and Defender for Cloud's security alerts page.
 
 :::image type="content" source="./media/defender-for-key-vault-intro/key-vault-security-page.png" alt-text="Azure Key Vault's security page":::
 

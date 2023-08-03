@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Box for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Box for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure single sign-on between Azure Active Directory and Box .
 services: active-directory
 author: jeevansd
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/20/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Configure Box for automatic user provisioning
@@ -76,7 +76,7 @@ If automatic provisioning is enabled, then the assigned users and/or groups are 
  * If group objects were configured to be provisioned, then all assigned group objects are provisioned to Box, and all users that are members of those groups. The group and user memberships are preserved upon being written to Box.
 
 > [!TIP] 
-> You may also choose to enabled SAML-based Single Sign-On for Box, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
+> You may also choose to enabled SAML-based Single Sign-On for Box, following the instructions provided in the [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
 ### To configure automatic user account provisioning:
 

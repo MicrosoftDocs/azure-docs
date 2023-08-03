@@ -1,18 +1,18 @@
 ---
-title: 'Tutorial: Configure Tableau Cloud for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Tableau Cloud for automatic user provisioning with Azure Active Directory'
 
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Tableau Cloud.
 
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: b4038c18-2bfd-47cb-8e74-3873dc85a796
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -93,7 +93,7 @@ To keep track of role assignments, you can create two purpose-specific groups fo
 Once provisioning is set up, you will want to edit role changes directly in Azure Active Directory. Otherwise, you may end up with role inconsistencies between Tableau Cloud and Azure Active Directory.
 
 ### Valid Tableau site role values
-On the **Select a Role** page in your Azure Active Directory portal, the Tableau Site Role values that are valid include the following: **Creator, SiteAdministratorCreator, Explorer, SiteAdministratorExplorer, ExplorerCanPublish, Viewer, or Unlicensed**.
+On the **Select a Role** page in your Azure portal, the Tableau Site Role values that are valid include the following: **Creator, SiteAdministratorCreator, Explorer, SiteAdministratorExplorer, ExplorerCanPublish, Viewer, or Unlicensed**.
 
 
 If you select a role that is not in the above list, such as a legacy (pre-v2018.1) role, you will experience an error.
@@ -154,8 +154,7 @@ This section guides you through the steps to configure the Azure AD provisioning
    |active|Boolean||
    |roles|String||
 
-	> [!NOTE]
-	> The displayName attribute in Tableau Cloud will be mapped to the userPrincipalName attribute in Azure AD. When a provisioned user signs into Azure AD for the first time, they will be asked to create an account where they will need to enter in a first name and last name. Tableau Cloud will automatically update the value of the displayName field based on the first name and last name values provided by the provisioned user. Therefore, the displayName you see in Azure AD may have differences with the displayName that appears in Tableau Cloud based on the user’s input.
+
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Tableau Cloud**.
 
 
@@ -201,7 +200,7 @@ In June 2022, Tableau released a SCIM 2.0 connector. Completing the steps below 
 >Be sure to note any changes that have been made to the settings listed above before completing the steps below. Failure to do so will result in the loss of customized settings.
 
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 
 1. Navigate to your current Tableau Cloud app under **Azure Active Directory > Enterprise Applications**.

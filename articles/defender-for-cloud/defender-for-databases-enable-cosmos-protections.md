@@ -1,9 +1,11 @@
 ---
 title: Enable Microsoft Defender for Azure Cosmos DB
-description: Learn how to enable Microsoft Defender for Azure Cosmos DB's enhanced security features.
-titleSuffix: Microsoft Defender for Azure Cosmos DB
+description: Learn how to enable enhanced security features in Microsoft Defender for Azure Cosmos DB.
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
-ms.date: 06/07/2022
+ms.custom: ignite-2022
+ms.date: 11/28/2022
 ---
 
 # Enable Microsoft Defender for Azure Cosmos DB
@@ -66,7 +68,7 @@ You can enable Microsoft Defender for Cloud on a specific Azure Cosmos DB accoun
 
 1. Select **Enable Microsoft Defender for Azure Cosmos DB**.
 
-    :::image type="content" source="media/quickstart-enable-defender-for-cosmos/enable-storage.png" alt-text="Screenshot of the option to enable Microsoft Defender for Azure Cosmos DB on your specified Azure Cosmos DB account.":::
+    :::image type="content" source="media/quickstart-enable-defender-for-cosmos/enable-storage.png" alt-text="Screenshot of the option to enable Microsoft Defender for Azure Cosmos DB on your specified Azure Cosmos DB account." lightbox="media/quickstart-enable-defender-for-cosmos/enable-storage.png":::
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -86,7 +88,7 @@ You can enable Microsoft Defender for Cloud on a specific Azure Cosmos DB accoun
 
 ### [ARM template](#tab/arm-template)
 
-Use an Azure Resource Manager template to deploy an Azure Cosmos DB account with Microsoft Defender for Azure Cosmos DB enabled. For more information, see [Create an Azure Cosmos DB account with Microsoft Defender for Azure Cosmos DB enabled](https://azure.microsoft.com/resources/templates/microsoft-defender-cosmosdb-create-account/).
+Use an Azure Resource Manager template to deploy an Azure Cosmos DB account with Microsoft Defender for Azure Cosmos DB enabled. For more information, see [Create an Azure Cosmos DB account with Microsoft Defender for Azure Cosmos DB enabled](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.documentdb/microsoft-defender-cosmosdb-create-account).
 
 ---
 
@@ -100,9 +102,9 @@ You can use sample Microsoft Defender for Azure Cosmos DB alerts to evaluate the
 
 1. Sign in to the  [Azure portal](https://portal.azure.com/) as a Subscription Contributor user.
 
-1. Navigate to the Alerts page. 
+1. Navigate to the security alerts page. 
 
-1. Select **Create sample alerts**. 
+1. Select **Sample alerts**. 
 
 1. Select the subscription. 
 

@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: "Administrative units troubleshooting and FAQ - Azure Active Directory | Microsoft Docs"
+  title: "Administrative units troubleshooting and FAQ"
   description: Investigate administrative units to grant permissions with restricted scope in Azure Active Directory.
   services: active-directory
   documentationcenter: ''
@@ -10,7 +10,7 @@ metadata:
   ms.topic: faq
   ms.subservice: roles
   ms.workload: identity
-  ms.date: 06/30/2022
+  ms.date: 06/09/2023
   ms.author: rolyon
   ms.reviewer: anandy
   ms.custom: oldportal;it-pro;
@@ -116,6 +116,21 @@ sections:
           Can I create administrative units with dynamic membership rules in the Microsoft 365 admin center?
         answer: |
           No.
+
+  - name: Restricted management administrative units (Preview)
+    questions:
+      - question: |
+          I am the owner of a group that is a member of a restricted management administrative unit. How are my permissions affected?
+        answer: |
+          As an owner of a protected group, you won't be able to manage it just based on ownership. Managing protected resources currently require a role to be assigned at the restricted management administrative unit scope of the protected resource.
+      - question: |
+          How are my Microsoft 365 resources affected by using restricted management administrative units?
+        answer: |
+          Currently, securing Azure AD resources in restricted management administrative units is supported. Resources managed outside of Azure AD aren't supported.
+      - question: |
+          I'm unable to modify a member of a restricted management administrative unit.
+        answer: |
+          The user, group, or device is a member of restricted management administrative unit. Management rights are limited to administrators scoped to that administrative unit.
 
 additionalContent: |
 

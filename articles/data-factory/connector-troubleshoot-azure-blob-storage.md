@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 08/12/2022
+ms.date: 07/20/2023
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -36,7 +36,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 ## Error code: FIPSModeIsNotSupport
 
-- **Message**: `Fail to read data form Azure Blob Storage for Azure Blob connector needs MD5 algorithm which can't co-work with FIPS mode. Please change diawp.exe.config in self-hosted integration runtime install directory to disable FIPS policy following https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/runtime/enforcefipspolicy-element.`
+- **Message**: `Fail to read data form Azure Blob Storage for Azure Blob connector needs MD5 algorithm which can't co-work with FIPS mode. Please change diawp.exe.config in self-hosted integration runtime install directory to disable FIPS policy following https://learn.microsoft.com/dotnet/framework/configure-apps/file-schema/runtime/enforcefipspolicy-element.`
 
 - **Cause**: Then FIPS policy is enabled on the VM where the self-hosted integration runtime was installed.
 
@@ -73,7 +73,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 For more troubleshooting help, try these resources:
 
 - [Connector troubleshooting guide](connector-troubleshoot-guide.md)
-- [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)

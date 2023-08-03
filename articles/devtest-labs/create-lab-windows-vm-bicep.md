@@ -1,10 +1,10 @@
 ---
 title: Create a lab in Azure DevTest Labs using Bicep
 description: Use Bicep to create a lab that has a virtual machine in Azure DevTest Labs.
-author: femila
+ms.author: rosemalcolm
+author: RoseHJM
 ms.topic: quickstart
-ms.author: femila
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep, UpdateFrequency2
 ms.date: 03/22/2022
 ---
 

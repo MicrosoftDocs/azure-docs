@@ -1,13 +1,13 @@
 ---
 title: Azure App Containerization Java; Containerization and migration of Java web applications to Azure Kubernetes.
 description: Tutorial:Containerize & migrate Java web applications to Azure Kubernetes Service.
-services:
-author: rahugup
-manager: bsiva
-ms.custom: subject-rbac-steps, migration-java
+author: vijain
+ms.author: vijain
+ms.manager: kmadnani
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty-aks, devx-track-javaee-wls-aks, migration-java, subject-rbac-steps, devx-track-extended-java
 ms.topic: tutorial
-ms.date: 6/30/2021
-ms.author: rahugup
+ms.service: azure-migrate
+ms.date: 01/04/2023
 ---
 # Java web app containerization and migration to Azure Kubernetes Service
 
@@ -276,3 +276,5 @@ To troubleshoot any issues with the tool, you can look at the log files on the W
 - Containerizing Java web apps on Apache Tomcat (on Linux servers) and deploying them on Linux containers on App Service. [Learn more](./tutorial-app-containerization-java-app-service.md)
 - Containerizing ASP.NET web apps and deploying them on Windows containers on AKS. [Learn more](./tutorial-app-containerization-aspnet-kubernetes.md)
 - Containerizing ASP.NET web apps and deploying them on Windows containers on Azure App Service. [Learn more](./tutorial-app-containerization-aspnet-app-service.md)
+- What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service? [Learn more](../virtual-machines/workloads/oracle/weblogic-aks.md)
+- Open Liberty and WebSphere Liberty on AKS. [Learn more](/azure/developer/java/ee/websphere-family#open-liberty-and-websphere-liberty-on-aks)

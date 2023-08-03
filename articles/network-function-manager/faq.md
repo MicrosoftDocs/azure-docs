@@ -47,6 +47,10 @@ You can register the Azure Stack Edge device and Network Function Manager resour
 
 Check with your network function partner on the billing cycle for network functions deployed using Network Function Manager. Each partner will have a different billing policy for their network function offerings.
 
+### Does Network Function Manager support move of resources? 
+
+Network Function Manager supports moving resources across resource groups and subscriptions in the same region. Moving network function resources cross-region is not supported due to dependencies on other regional resources. 
+
 ## Next steps
 
 For more information, see the [Overview](overview.md).

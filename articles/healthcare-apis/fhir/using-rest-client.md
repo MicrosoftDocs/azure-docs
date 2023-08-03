@@ -2,11 +2,11 @@
 title: Access Azure Health Data Services using REST Client
 description: This article explains how to access the Healthcare APIs using the REST Client extension in VS Code
 services: healthcare-apis
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.topic: tutorial
 ms.date: 06/06/2022
-ms.author: ginle
+ms.author: kesheth
 ---
 
 # Accessing Azure Health Data Services using the REST Client Extension in Visual Studio Code
@@ -67,6 +67,9 @@ grant_type=client_credentials
 ```
 
 [ ![Get access token](media/rest-config.png) ](media/rest-config.png#lightbox)
+
+> [!NOTE] 
+> In the scenarios where the FHIR service audience parameter is not mapped to the FHIR service endpoint url. The resource parameter value should be mapped to Audience value under FHIR Service Authentication blade.
 
 ## `GET` FHIR Patient data
 

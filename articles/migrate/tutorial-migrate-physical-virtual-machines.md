@@ -1,17 +1,18 @@
 ---
 title: Migrate machines as physical server to Azure with Azure Migrate.
 description: This article describes how to migrate physical machines to Azure with Azure Migrate.
-author: rahug1190
-ms.author: rahugup
-ms.manager: bsiva
+author: vijain
+ms.author: vijain
+ms.manager: kmadnani
 ms.topic: tutorial
-ms.date: 01/02/2021
-ms.custom: MVC
+ms.service: azure-migrate
+ms.date: 07/26/2023
+ms.custom: MVC, engagement-fy23
 ---
 
 # Migrate machines as physical servers to Azure
 
-This article shows you how to migrate machines as physical servers to Azure, using the Azure Migrate: Server Migration tool. Migrating machines by treating them as physical servers is useful in a number of scenarios:
+This article shows you how to migrate machines as physical servers to Azure, using the Migration and modernization tool. Migrating machines by treating them as physical servers is useful in a number of scenarios:
 
 - Migrate on-premises physical servers.
 - Migrate VMs virtualized by platforms such as Xen, KVM.
@@ -19,13 +20,12 @@ This article shows you how to migrate machines as physical servers to Azure, usi
 - Migrate VMs running in private clouds.
 - Migrate VMs running in public clouds such as Amazon Web Services (AWS) or Google Cloud Platform (GCP).
 
-
 This tutorial is the third in a series that demonstrates how to assess and migrate physical servers to Azure. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Prepare to use Azure with Azure Migrate: Server Migration.
+> * Prepare to use Azure with Migration and modernization.
 > * Check requirements for machines you want to migrate, and prepare a machine for the Azure Migrate replication appliance that's used to discover and migrate machines to Azure.
-> * Add the Azure Migrate: Server Migration tool in the Azure Migrate hub.
+> * Add the Migration and modernization tool in the Azure Migrate hub.
 > * Set up the replication appliance.
 > * Install the Mobility service on machines you want to migrate.
 > * Enable replication.
@@ -47,7 +47,7 @@ Before you begin this tutorial, you should:
 
 ## Prepare Azure
 
-Prepare Azure for migration with Azure Migrate: Server Migration.
+Prepare Azure for migration with the Migration and modernization tool.
 
 **Task** | **Details**
 --- | ---
@@ -87,7 +87,7 @@ To prepare for physical server migration, you need to verify the physical server
 Make sure machines comply with requirements for migration to Azure.
 
 > [!NOTE]
-> When migrating physical machines, Azure Migrate: Server Migration uses the same replication architecture as agent-based disaster recovery in the Azure Site Recovery service, and some components share the same code base. Some content might link to Site Recovery documentation.
+> When migrating physical machines, the Migration and modernization tool uses the same replication architecture as agent-based disaster recovery in the Azure Site Recovery service, and some components share the same code base. Some content might link to Site Recovery documentation.
 
 1. [Verify](migrate-support-matrix-physical-migration.md#physical-server-requirements) physical server requirements.
 2. Verify that on-premises machines that you replicate to Azure comply with [Azure VM requirements](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
@@ -98,7 +98,7 @@ Review [Windows](prepare-for-migration.md#windows-machines) and [Linux](prepare-
 
 ### Prepare a machine for the replication appliance
 
-Azure Migrate: Server Migration uses a replication appliance to replicate machines to Azure. The replication appliance runs the following components.
+The Migration and modernization tool uses a replication appliance to replicate machines to Azure. The replication appliance runs the following components.
 
 - **Configuration server**: The configuration server coordinates communications between on-premises and Azure, and manages data replication.
 - **Process server**: The process server acts as a replication gateway. It receives replication data; optimizes it with caching, compression, and encryption, and sends it to a cache storage account in Azure.
@@ -115,20 +115,20 @@ Prepare for appliance deployment as follows:
 
 ## Set up the replication appliance
 
-The first step of migration is to set up the replication appliance. To set up the appliance for physical server migration, you download the installer file for the appliance, and then run it on the [machine you prepared](#prepare-a-machine-for-the-replication-appliance). After installing the appliance, you register it with Azure Migrate: Server Migration.
+The first step of migration is to set up the replication appliance. To set up the appliance for physical server migration, you download the installer file for the appliance, and then run it on the [machine you prepared](#prepare-a-machine-for-the-replication-appliance). After installing the appliance, you register it with the Migration and modernization tool.
 
 
 ### Download the replication appliance installer
 
-1. In the Azure Migrate project > **Servers**, in **Azure Migrate: Server Migration**, click **Discover**.
+1. In the Azure Migrate project > **Servers**, in **Migration and modernization**, select **Discover**.
 
     ![Discover VMs](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
-2. In **Discover machines** > **Are your machines virtualized?**, click **Not virtualized/Other**.
+2. In **Discover machines** > **Are your machines virtualized?**, select **Not virtualized/Other**.
 3. In **Target region**, select the Azure region to which you want to migrate the machines.
 4. Select **Confirm that the target region for migration is region-name**.
 5. Click **Create resources**. This creates an Azure Site Recovery vault in the background.
-    - If you've already set up migration with Azure Migrate: Server Migration, the target option can't be configured, since resources were set up previously.    
+    - If you've already set up migration with Migration and modernization, the target option can't be configured, since resources were set up previously.    
     - You can't change the target region for this project after clicking this button.
     - All subsequent migrations are to this region.
     > [!NOTE]
@@ -147,9 +147,12 @@ The first step of migration is to set up the replication appliance. To set up th
 
     ![Finalize registration](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
-It may take some time after finalizing registration until discovered machines appear in Azure Migrate: Server Migration. As VMs are discovered, the **Discovered servers** count rises.
+Mobility service agent needs to be installed on the servers to get them discovered using replication appliance. Discovered machines appear in Azure Migrate: Server Migration. As VMs are discovered, the **Discovered servers** count rises.
 
 ![Discovered servers](./media/tutorial-migrate-physical-virtual-machines/discovered-servers.png)
+
+> [!NOTE]
+> It is recommended to perform discovery and asessment prior to the migration using the Azure Migrate: Discovery and assessment tool, a separate lightweight Azure Migrate appliance. You can deploy the appliance as a physical server to continuously discover servers and performance metadata. For detailed steps, see [Discover physical servers](tutorial-discover-physical.md).
 
 
 ## Install the Mobility service
@@ -179,7 +182,7 @@ On machines you want to migrate, you need to install the Mobility service agent.
     ```
 2. Run the Mobility Service Installer:
     ```
-   UnifiedAgent.exe /Role "MS" /Platform "VmWare" /Silent
+   UnifiedAgent.exe /Role "MS" /Platform "VmWare" /Silent /CSType CSLegacy
     ```
 3. Register the agent with the replication appliance:
     ```
@@ -197,11 +200,11 @@ On machines you want to migrate, you need to install the Mobility service agent.
     ```
 2. Run the installer script:
     ```
-    sudo ./install -r MS -v VmWare -q
+    sudo ./install -r MS -v VmWare -q -c CSLegacy
     ```
 3. Register the agent with the replication appliance:
     ```
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <replication appliance IP address> -P <Passphrase File Path>
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <replication appliance IP address> -P <Passphrase File Path> -c CSLegacy
     ```
 
 ## Replicate machines
@@ -211,7 +214,7 @@ Now, select machines for migration.
 > [!NOTE]
 > You can replicate up to 10 machines together. If you need to replicate more, then replicate them simultaneously in batches of 10.
 
-1. In the Azure Migrate project > **Servers**, **Azure Migrate: Server Migration**, click **Replicate**.
+1. In the Azure Migrate project > **Servers**, **Migration and modernization**, click **Replicate**.
 
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/select-replicate.png" alt-text="Screenshot on selecting Replicate option.":::
 
@@ -287,7 +290,7 @@ Now, select machines for migration.
 
 You can track job status in the portal notifications.
 
-You can monitor replication status by clicking on **Replicating servers** in **Azure Migrate: Server Migration**.
+You can monitor replication status by clicking on **Replicating servers** in **Migration and modernization**.
 ![Monitor replication](./media/tutorial-migrate-physical-virtual-machines/replicating-servers.png)
 
 ## Run a test migration
@@ -302,7 +305,7 @@ When delta replication begins, you can run a test migration for the VMs, before 
 Do a test migration as follows:
 
 
-1. In **Migration goals** > **Servers** > **Azure Migrate: Server Migration**, click **Test migrated servers**.
+1. In **Migration goals** > **Servers** > **Migration and modernization**, click **Test migrated servers**.
 
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/test-migrated-servers.png" alt-text="Screenshot of Test migrated servers.":::
 
@@ -326,7 +329,7 @@ Do a test migration as follows:
 
 After you've verified that the test migration works as expected, you can migrate the on-premises machines.
 
-1. In the Azure Migrate project > **Servers** > **Azure Migrate: Server Migration**, click **Replicating servers**.
+1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization**, click **Replicating servers**.
 
     ![Replicating servers](./media/tutorial-migrate-physical-virtual-machines/replicate-servers.png)
 
@@ -343,7 +346,7 @@ After you've verified that the test migration works as expected, you can migrate
 
 1. After the migration is done, right-click the VM > **Stop replication**. This does the following:
     - Stops replication for the on-premises machine.
-    - Removes the machine from the **Replicating servers** count in Azure Migrate: Server Migration.
+    - Removes the machine from the **Replicating servers** count in the Migration and modernization tool.
     - Cleans up replication state information for the machine.
 1. Verify and [troubleshoot any Windows activation issues on the Azure VM.](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems) 
 1. Perform any post-migration app tweaks, such as updating host names, database connection strings, and web server configurations.

@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 05/11/2021
+ms.date: 10/20/2022
 ms.subservice: app-provisioning
 ms.author: kenwith
 ms.reviewer: arvinh
@@ -15,4 +15,4 @@ ms.reviewer: arvinh
 
 # Azure Active Directory Connect Provisioning Agent: Version release history
 
-[!INCLUDE [active-directory-cloud-sync-version-history.md](../../../includes/active-directory-cloud-sync-version-history.md)]
+[!INCLUDE [cloud-sync-version-history.md](../../../includes/cloud-sync-version-history.md)]

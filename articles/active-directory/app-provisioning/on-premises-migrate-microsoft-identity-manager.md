@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/17/2021
+ms.date: 10/20/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -43,13 +43,13 @@ At this point, the MIM Sync server is no longer needed.
 
 ## Import a connector configuration
 
- 1. Install the ECMA Connector host and provisioning agent on a Windows Server, using the [provisioning users into SQL based applications](on-premises-sql-connector-configure.md#download-install-and-configure-the-azure-ad-connect-provisioning-agent-package) or [provisioning users into LDAP directories](on-premises-ldap-connector-configure.md#download-install-and-configure-the-azure-ad-connect-provisioning-agent-package) articles.
+ 1. Install the ECMA Connector host and provisioning agent on a Windows Server, using the [provisioning users into SQL based applications](on-premises-sql-connector-configure.md#3-install-and-configure-the-azure-ad-connect-provisioning-agent) or [provisioning users into LDAP directories](on-premises-ldap-connector-configure.md#install-and-configure-the-azure-ad-connect-provisioning-agent) articles.
  1. Sign in to the Windows server as the account that the Azure AD ECMA Connector Host runs as.
  1. Change to the directory C:\Program Files\Microsoft ECMA2host\Service\ECMA. Ensure there are one or more DLLs already present in that directory. Those DLLs correspond to Microsoft-delivered connectors.
  1. Copy the MA DLL for your connector, and any of its prerequisite DLLs, to that same ECMA subdirectory of the Service directory.
  1. Change to the directory C:\Program Files\Microsoft ECMA2Host\Wizard. Run the program Microsoft.ECMA2Host.ConfigWizard.exe to set up the ECMA Connector Host configuration.
  1. A new window appears with a list of connectors. By default, no connectors will be present. Select **New connector**.
- 1. Specify the management agent XML file that was exported from MIM Sync earlier. Continue with the configuration and schema-mapping instructions from the section "Create a connector" in either the [provisioning users into SQL based applications](on-premises-sql-connector-configure.md#create-a-generic-sql-connector) or [provisioning users into LDAP directories](on-premises-ldap-connector-configure.md#configure-a-generic-ldap-connector) articles.
+ 1. Specify the management agent XML file that was exported from MIM Sync earlier. Continue with the configuration and schema-mapping instructions from the section "Create a connector" in either the [provisioning users into SQL based applications](on-premises-sql-connector-configure.md#6-create-a-generic-sql-connector) or [provisioning users into LDAP directories](on-premises-ldap-connector-configure.md#configure-a-generic-ldap-connector) articles.
 
 ## Next steps
 

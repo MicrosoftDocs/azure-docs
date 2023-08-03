@@ -16,7 +16,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- An Azure Automation account. For instructions, see [Create an Azure Automation account](./quickstarts/create-account-portal.md).
+- An Azure Automation account. For instructions, see [Create an Azure Automation account](./quickstarts/create-azure-automation-account-portal.md).
 
 - The latest version of Az PowerShell modules Az.Accounts, Az.Resources, Az.Automation, Az.KeyVault.
 
@@ -274,7 +274,7 @@ New-AzRoleAssignment `
 
 To verify a role to a system-assigned managed identity of the Automation account, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to your Automation account.
 1. Under **Account Settings**, select **Identity**.
 
@@ -308,7 +308,7 @@ Disable-AzContextAutosave -Scope Process
 # Connect to Azure with system-assigned managed identity
 $AzureContext = (Connect-AzAccount -Identity).context
 
-# set and store context
+# Set and store context
 $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 ```
 
@@ -348,7 +348,7 @@ $accessToken = Invoke-RestMethod $url -Method 'POST' -Headers $headers -ContentT
 Write-Output $accessToken.access_token
 ```
 
-### Using system-assigned managed identity in Azure PowerShell
+### Using system-assigned managed identity to access Azure Key Vault in Azure PowerShell
 
 For more information, see [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret).
 

@@ -6,7 +6,7 @@ author: msangapu-msft
 
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.topic: article
-ms.date: 03/12/2021
+ms.date: 11/18/2022
 ms.author: msangapu
 ms.custom: seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux

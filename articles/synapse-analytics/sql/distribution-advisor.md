@@ -6,7 +6,7 @@ ms.author: mariyaali
 ms.reviewer: wiassaf
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 07/25/2022
+ms.date: 07/16/2023
 ---
 
 # Distribution Advisor in Azure Synapse SQL
@@ -24,6 +24,8 @@ The Distribution Advisor (DA) feature of Azure Synapse SQL analyzes customer que
 - Execute the T-SQL statement `SELECT @@version` to ensure that your Azure Synapse Analytics dedicated SQL pool is version 10.0.15669 or higher. If your version is lower, a new version should automatically reach your provisioned dedicated SQL pools during their maintenance cycle.
 
 - Ensure that statistics are available and up-to-date before running the advisor. For more details, [Manage table statistics](develop-tables-statistics.md), [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true), and [UPDATE STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true) articles for more details on statistics.
+
+- Enable the Azure Synapse distribution advisor for the current session with the [SET RECOMMENDATIONS](/sql/t-sql/statements/set-recommendations-sql?view=azure-sqldw-latest&preserve-view=true) T-SQL command.
 
 ## Analyze workload and generate distribution recommendations
 
@@ -82,6 +84,9 @@ The `dbo.read_dist_recommendation` system stored procedure will return recommend
 - Run the CTAS command provided by Distribution Advisor to create new tables with the recommended distribution strategy.
 - Modify queries to run on new tables.
 - Execute queries on old and new tables to compare for performance improvements.
+
+> [!NOTE]
+> To help us improve Distribution Advisor, please fill out this [quick survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7MrzmOZCYJNjGsSytTeg4VUM1AwTlYyRVdFWFpPV0M1UERKRzU0TlJGUy4u).
 
 ## Troubleshooting
 
@@ -144,6 +149,8 @@ Ensure that you have the most up to date version of the stored procedure from Gi
 
 ## Azure Synapse product group feedback
 
+To help us improve Distribution Advisor, please fill out this [quick survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7MrzmOZCYJNjGsSytTeg4VUM1AwTlYyRVdFWFpPV0M1UERKRzU0TlJGUy4u).
+
 If you need information not provided in this article, search the [Microsoft Q&A question page for Azure Synapse](/answers/topics/azure-synapse-analytics.html) is a place for you to pose questions to other users and to the Azure Synapse Analytics Product Group.  
 
 We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have an [Azure Synapse Analytics Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-synapse).
@@ -152,6 +159,7 @@ For feature requests, use the [Azure Synapse Analytics Feedback](https://feedbac
 
 ## Next steps
 
+- [SET RECOMMENDATIONS (Transact-SQL)](/sql/t-sql/statements/set-recommendations-sql?view=azure-sqldw-latest&preserve-view=true)
 - [Loading data to dedicated SQL pool](../sql-data-warehouse/load-data-wideworldimportersdw.md) 
 - [Data loading strategies for dedicated SQL pool in Azure Synapse Analytics](../sql-data-warehouse/design-elt-data-loading.md).
 - [Dedicated SQL pool (formerly SQL DW) architecture in Azure Synapse Analytics](../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md)

@@ -4,10 +4,11 @@ description: Learn how to create a geo-replicated Azure container registry by us
 services: azure-resource-manager
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 08/15/2022
+ms.date: 10/11/2022
 ms.topic: quickstart
 ms.service: container-registry
-ms.custom: subject-armqs, mode-arm
+tags: azure-resource-manager
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Create a geo-replicated container registry by using an ARM template
@@ -52,7 +53,7 @@ More Azure Container Registry template samples can be found in the [quickstart t
     * **Region**: select a location for the resource group. Example: **Central US**.
     * **Acr Name**: accept the generated name for the registry, or enter a name. It must be globally unique.
     * **Acr Admin User Enabled**: accept the default value.
-    * **Location**: accept the generated location for the registry's home replica, or enter a location such as **Central US**. 
+    * **Location**: accept the generated location for the registry's home replica, or enter a location such as **Central US**.
     * **Acr Sku**: accept the default value.
     * **Acr Replica Location**: enter a location for the registry replica, using the region's short name. It must be different from the home registry location. Example: **westeurope**.
 

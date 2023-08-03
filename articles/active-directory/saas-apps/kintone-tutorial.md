@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/22/2021
+ms.date: 05/29/2023
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Kintone
@@ -44,6 +44,8 @@ To configure the integration of Kintone into Azure AD, you need to add Kintone f
 1. In the **Add from the gallery** section, type **Kintone** in the search box.
 1. Select **Kintone** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Kintone
 
 Configure and test Azure AD SSO with Kintone using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Kintone.
@@ -69,12 +71,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier (Entity ID)** text box, type a URL using one of the following patterns:
-	
-   | **Identifier** |
-   |---|
-   | `https://<companyname>.cybozu.com` |
-   | `https://<companyname>.kintone.com` |
+    a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+	`https://<companyname>.kintone.com`
     
     b. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<companyname>.kintone.com`
@@ -140,7 +138,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. In the **Login URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
 
-	b. In the **Logout URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
+	b. In the **Logout URL** textbox, paste the value: `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`.
 
 	c. Click **Browse** to upload your downloaded certificate file from Azure portal.
 

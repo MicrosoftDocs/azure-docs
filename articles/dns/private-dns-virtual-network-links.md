@@ -2,11 +2,11 @@
 title: What is a virtual network link subresource of Azure DNS private zones
 description: Overview of virtual network link sub resource an Azure DNS private zone
 services: dns
-author: rohinkoul
+author: greg-lindsay
 ms.service: dns
 ms.topic: article
-ms.date: 04/26/2021
-ms.author: rohink
+ms.date: 09/27/2022
+ms.author: greglin
 ---
 
 # What is a virtual network link?
@@ -21,7 +21,7 @@ From the virtual network perspective, private DNS zone becomes the registration 
 
 ## Resolution virtual network
 
-If you choose to link your virtual network with the private DNS zone without autoregistration. The virtual network is treated as a resolution virtual network only. DNS records for virtual machines deployed this virtual network won't be created automatically in the private zone. However, virtual machines deployed in the virtual network can successfully query for DNS records in the private zone. These records include manually created and auto registered records from other virtual networks linked to the private DNS zone.
+If you choose to link your virtual network with the private DNS zone without autoregistration, the virtual network is treated as a resolution virtual network only. DNS records for virtual machines deployed this virtual network won't be created automatically in the private zone. However, virtual machines deployed in the virtual network can successfully query for DNS records in the private zone. These records include manually created and auto registered records from other virtual networks linked to the private DNS zone.
 
 One private DNS zone can have multiple resolution virtual networks and a virtual network can have multiple resolution zones associated to it.
 

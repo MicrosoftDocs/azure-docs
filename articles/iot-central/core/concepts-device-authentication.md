@@ -1,9 +1,9 @@
 ---
-title: Device authentication in Azure IoT Central | Microsoft Docs
-description: This article introduces key concepts relating to device authentication in Azure IoT Central
+title: Device authentication in Azure IoT Central
+description: This article introduces key IoT Central device authentication concepts such as enrollment groups, shared access signatures, and X.509 certificates.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/02/2022
+ms.date: 10/28/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -38,6 +38,8 @@ To connect a device with an X.509 certificate to your application:
 1. Create an _enrollment group_ that uses the **Certificates (X.509)** attestation type.
 1. Add and verify an intermediate or root X.509 certificate in the enrollment group.
 1. Generate a leaf certificate from the root or intermediate certificate in the enrollment group. Install the leaf certificate on the device for it to use when it connects to your application.
+
+Each enrollment group should use a unique X.509 certificate. IoT Central does not support using the same X.509 certificate across multiple enrollment groups.
 
 To learn more, see [How to connect devices with X.509 certificates](how-to-connect-devices-x509.md)
 
@@ -116,7 +118,7 @@ To automatically register devices that use SAS tokens:
 
 1. Copy the group primary key from the **SAS-IoT-Devices** enrollment group:
 
-    :::image type="content" source="media/concepts-device-authentication/group-primary-key.png" alt-text="Group primary key from S A S - I o T - Devices enrollment group.":::
+    :::image type="content" source="media/concepts-device-authentication/group-primary-key.png" alt-text="Screenshot that shows the group primary key from SAS IoT Devices enrollment group." lightbox="media/concepts-device-authentication/group-primary-key.png":::
 
 1. Use the `az iot central device compute-device-key` command to generate the device SAS keys. Use the group primary key from the previous step. The device ID can contain letters, numbers, and the `-` character:
 

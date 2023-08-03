@@ -33,6 +33,8 @@ items:
   - name: ARM template
     displayName: Resource Manager
     href: quick-create-template.md
+  - name: Terraform
+    href: quick-create-terraform.md
 
 - name: Tutorials
   items:
@@ -43,6 +45,32 @@ items:
   - name: Import HSM-protected keys (nCipher)
     href: hsm-protected-keys-ncipher.md
 
+- name: Develop with Key Vault
+  items: 
+  - name: JavaScript
+    items: 
+    - name: Get Started
+      href: javascript-developer-guide-get-started.md
+    - name: Manage keys
+      items: 
+      - name: Create, update, rotate key
+        href: javascript-developer-guide-create-update-rotate-key.md
+      - name: Get key
+        href: javascript-developer-guide-get-key.md
+      - name: Enable and disable key
+        href: javascript-developer-guide-enable-disable-key.md
+      - name: List keys
+        href: javascript-developer-guide-list-key-version.md
+      - name: Import key
+        href: javascript-developer-guide-import-key.md
+      - name: Backup, delete, and restore key
+        href: javascript-developer-guide-backup-delete-restore-key.md
+    - name: Use keys
+      items:    
+      - name: Encrypt and decrypt key
+        href: javascript-developer-guide-encrypt-decrypt-key.md
+      - name: Sign and verify with key
+        href: javascript-developer-guide-sign-verify-key.md
 
 - name: Samples
   items:
@@ -63,6 +91,10 @@ items:
   items:
   - name: Secure key release policy grammar
     href: policy-grammar.md
+  - name: Key management in Azure
+    href: ../../security/fundamentals/key-management.md
+  - name: Multitenancy and Azure Key Vault
+    href: /azure/architecture/guide/multitenant/service/key-vault
   - name: Azure PowerShell
     href: /powershell/module/az.keyvault/#key_vault
   - name: Azure CLI
@@ -88,8 +120,8 @@ items:
 
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-key-vault
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-key-vault
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/key-vault/
   - name: Region availability

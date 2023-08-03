@@ -3,38 +3,38 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 11/20/2020
+ms.date: 11/17/2022
 ---
 
-This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the telemetry it sends. The sample application is written for Python and is included in the Azure IoT Hub Device SDK for Python. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
+This tutorial shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the telemetry it sends. The sample application is written for Python and is included in the Azure IoT Hub Device SDK for Python. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
-[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples/pnp)
+[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/v2/samples/pnp)
 
 ## Prerequisites
 
 [!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
 
-To complete this quickstart, you need Python 3.7 on your development machine. You can download the latest recommended version for multiple platforms from [python.org](https://www.python.org/). You can check your Python version with the following command:  
+To complete this tutorial, you need Python 3.7 on your development machine. You can download the latest recommended version for multiple platforms from [python.org](https://www.python.org/). You can check your Python version with the following command:  
 
 ```cmd/sh
 python --version
 ```
 
-In your local Python environment install the package as follows:
+In your local Python environment, install the package as follows:
 
 ```cmd/sh
 pip install azure-iot-device
 ```
 
-Clone the Python SDK IoT repository and check out **master**:
+Clone the Python SDK IoT repository: 
 
 ```cmd/sh
-git clone https://github.com/Azure/azure-iot-sdk-python
+git clone --branch v2 https://github.com/Azure/azure-iot-sdk-python
 ```
 
 ## Run the sample device
 
-The *azure-iot-sdk-python\azure-iot-device\samples\pnp* folder contains the sample code for the IoT Plug and Play device. This quickstart uses the *simple_thermostat.py* file. This sample code implements an IoT Plug and Play compatible device and uses the Azure IoT Python Device Client Library.
+The *azure-iot-sdk-python/samples/pnp* folder contains the sample code for the IoT Plug and Play device. This tutorial uses the *simple_thermostat.py* file. This sample code implements an IoT Plug and Play compatible device and uses the Azure IoT Python Device Client Library.
 
 Open the **simple_thermostat.py** file in a text editor. Notice how it:
 
@@ -50,11 +50,11 @@ Open the **simple_thermostat.py** file in a text editor. Notice how it:
 
     1. Uses the device SDK to create a device client and connect to your IoT hub.
 
-    1. Updates properties. The model we are using, **Thermostat**, defines `targetTemperature` and `maxTempSinceLastReboot` as the two properties for our Thermostat, so that is what we will be using. Properties are updated using the `patch_twin_reported_properties` method defined on the `device_client`.
+    1. Updates properties. The **Thermostat** model defines `targetTemperature` and `maxTempSinceLastReboot` as the two properties for the Thermostat. Properties are updated using the `patch_twin_reported_properties` method defined on the `device_client`.
 
-    1. Starts listening for command requests using the **execute_command_listener** function. The function sets up a 'listener' to listen for commands coming from the service. When you set up the listener you provide a `method_name`, `user_command_handler`, and `create_user_response_handler`.
-        - The `user_command_handler` function defines what the device should do when it receives a command. For instance, if your alarm goes off, the effect of receiving this command is you wake up. Think of this as the 'effect' of the command being invoked.
-        - The `create_user_response_handler` function creates a response to be sent to your IoT hub when a command executes successfully. For instance, if your alarm goes off, you respond by hitting snooze, which is feedback to the service. Think of this as the reply you give to the service. You can view this response in the portal.
+    1. Starts listening for command requests using the **execute_command_listener** function. The function sets up a 'listener' to listen for commands coming from the service. When you set up the listener, you provide a `method_name`, `user_command_handler`, and `create_user_response_handler`.
+        - The `user_command_handler` function defines what the device should do when it receives a command.
+        - The `create_user_response_handler` function creates a response to be sent to your IoT hub when a command executes successfully. You can view this response in the portal.
 
     1. Starts sending telemetry. The **pnp_send_telemetry** is defined in the pnp_methods.py file. The sample code uses a loop to call this function every eight seconds.
 
@@ -62,7 +62,7 @@ Open the **simple_thermostat.py** file in a text editor. Notice how it:
 
 [!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
-To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-device/samples/pnp/README.md).
+To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-python/blob/v2/samples/pnp/README.md).
 
 Now that you've seen the code, use the following command to run the sample:
 

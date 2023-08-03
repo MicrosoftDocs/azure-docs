@@ -41,6 +41,8 @@ To develop against the Partner API, ExpressRoute partners leverage a test custom
 ### 1. Enlist subscriptions
 
 To request the test partner and test customer setup, enlist two Pay-As-You-Go Azure subscriptions to your ExpressRoute engineering contact:
+* **ExpressRoute_API_Provider_Sub:** This subscription will be used to manage production ExpressRoute circuits created in peering locations.
+
 * **ExpressRoute_API_Dev_Provider_Sub:** This subscription will be used to manage ExpressRoute circuits created in test peering locations on dummy devices and ports.
 
 * **ExpressRoute_API_Dev_Customer_Sub:** This subscription will be used to create ExpressRoute circuits in test peering locations that map to dummy devices and ports.

@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: guywild
 ms.author: guywild
 ms.reviewer: MeirMen
-ms.date: 03/21/2022
+ms.date: 07/02/2023
 
 ---
 
@@ -161,12 +161,12 @@ As described above, data from the management server or direct-connected agents i
 ### 3. The Azure Monitor service receives and processes data
 The Azure Monitor service ensures that incoming data is from a trusted source by validating certificates and the data integrity with Azure authentication. The unprocessed raw data is then stored in an Azure Event Hub in the region the data will eventually be stored at rest. The type of data that is stored depends on the types of solutions that were imported and used to collect data. Then, the Azure Monitor service processes the raw data and ingests it into the database.
 
-The retention period of collected data stored in the database depends on the selected pricing plan. For the *Free* tier, collected data is available for seven days. For the *Paid* tier, collected data is available for 31 days by default, but can be extended to 730 days. Data is stored encrypted at rest in Azure storage, to ensure data confidentiality, and the data is replicated within the local region using locally redundant storage (LRS). The last two weeks of data are also stored in SSD-based cache and this cache is encrypted.
+The retention period of collected data stored in the database depends on the selected pricing plan. For the *Free* tier, collected data is available for seven days. For the *Paid* tier, collected data is available for 31 days by default, but can be extended to 730 days. Data is stored encrypted at rest in Azure storage, to ensure data confidentiality, and the data is replicated within the local region using locally redundant storage (LRS), or zone-redundant storage (ZRS) in [supported regions](../logs/availability-zones.md). The last two weeks of data are also stored in SSD-based cache and this cache is encrypted.
 
 Data in database storage cannot be altered once ingested but can be deleted via [*purge* API path](personal-data-mgmt.md#delete). Although data cannot be altered, some certifications require that data is kept immutable and cannot be changed or deleted in storage. Data immutability can be achieved using [data export](logs-data-export.md) to a storage account that is configured as [immutable storage](../../storage/blobs/immutable-policy-configure-version-scope.md).
 
 ### 4. Use Azure Monitor to access the data
-To access your Log Analytics workspace, you sign into the Azure portal using the organizational account or Microsoft account that you set up previously. All traffic between the portal and Azure Monitor service is sent over a secure HTTPS channel. When using the portal, a session ID is generated on the user client (web browser) and data is stored in a local cache until the session is terminated. When terminated, the cache is deleted. Client-side cookies, which do not contain personally identifiable information, are not automatically removed. Session cookies are marked HTTPOnly and are secured. After a pre-determined idle period, the Azure portal session is terminated.
+To access your Log Analytics workspace, you sign in to the Azure portal using the organizational account or Microsoft account that you set up previously. All traffic between the portal and Azure Monitor service is sent over a secure HTTPS channel. When using the portal, a session ID is generated on the user client (web browser) and data is stored in a local cache until the session is terminated. When terminated, the cache is deleted. Client-side cookies, which do not contain personally identifiable information, are not automatically removed. Session cookies are marked HTTPOnly and are secured. After a pre-determined idle period, the Azure portal session is terminated.
 
 
 ## Additional security features
@@ -178,9 +178,9 @@ You can use these additional security features to further secure your Azure Moni
 
 ## Tamper-proofing and immutability 
 
-Azure Monitor is an append-only data platform that includes provisions to delete data for compliance purposes. [Set a lock on your Log Analytics workspace](../../azure-resource-manager/management/lock-resources.md) to block all activities that could delete data: purge, table delete, and table- or workspace-level data retention changes. 
+Azure Monitor is an append-only data platform, but includes provisions to delete data for compliance purposes. You can [set a lock on your Log Analytics workspace](../../azure-resource-manager/management/lock-resources.md) to block all activities that could delete data: purge, table delete, and table- or workspace-level data retention changes. However, this lock can still be removed. 
 
-To tamper-proof your monitoring solution, we recommend you [export data to an immutable storage solution](../../storage/blobs/immutable-storage-overview.md).
+To fully tamper-proof your monitoring solution, we recommend you [export your data to an immutable storage solution](../../storage/blobs/immutable-storage-overview.md).
 
 
 ## Next steps

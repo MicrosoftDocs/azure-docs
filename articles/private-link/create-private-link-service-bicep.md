@@ -1,13 +1,14 @@
 ---
-title: 'Quickstart: Create a private link service in Azure Private Link using Bicep'
+title: 'Quickstart: Create a private link service - Bicep'
+titleSuffix: Azure Private Link
 description: In this quickstart, you use Bicep to create a private link service.
 services: private-link
-author: schaffererin
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 04/29/2022
-ms.author: v-eschaffer
+ms.author: allensu
+ms.custom: subject-armqs, mode-arm, template-quickstart, devx-track-bicep
 ---
 
 # Quickstart: Create a private link service using Bicep

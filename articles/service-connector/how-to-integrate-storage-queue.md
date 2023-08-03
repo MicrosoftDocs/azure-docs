@@ -1,8 +1,8 @@
 ---
 title: Integrate Azure Queue Storage with Service Connector
 description: Integrate Azure Queue Storage into your application with Service Connector
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 08/11/2022
@@ -45,10 +45,13 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 ### [Azure Spring Apps](#tab/spring-apps)
 
-| Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
-|--------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
-| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot | ![yes icon](./media/green-check.png) |                                      |                                      |                                      |
+| Client type        | System-assigned managed identity     | User-assigned managed identity | Secret / connection string           | Service principal                    |
+|--------------------|--------------------------------------|--------------------------------|--------------------------------------|--------------------------------------|
+| .NET               | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Java               | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Java - Spring Boot | ![yes icon](./media/green-check.png) |                                |                                      |                                      |
+| Node.js            | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Python             | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
 ---
 
@@ -87,14 +90,14 @@ Use the connection details below to connect compute services to Queue Storage. F
 | AZURE_STORAGEQUEUE_CLIENTSECRET     | Your client secret     | `<client-secret>`                                        |
 | AZURE_STORAGEQUEUE_TENANTID         | Your tenant ID         | `<tenant-ID>`                                            |
 
-### Java - Spring Boot
+### Azure Spring Apps
 
 #### Java - Spring Boot secret / connection string
 
-| Application properties     | Description                | Example value            |
-|----------------------------|----------------------------|--------------------------|
-| azure.storage.account-name | Queue storage account name | `<storage-account-name>` |
-| azure.storage.account-key  | Queue storage account key  | `<account-key>`          |
+| Application properties                 | Description                | Example value            |
+|----------------------------------------|----------------------------|--------------------------|
+| spring.cloud.azure.storage.account     | Queue storage account name | `<storage-account-name>` |
+| spring.cloud.azure.storage.access-key  | Queue storage account key  | `<account-key>`          |
 
 ## Next steps
 
