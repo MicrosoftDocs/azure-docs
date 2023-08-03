@@ -142,7 +142,7 @@
     - name: How-to guides
       items:
         - name: Easily migrate a self-hosted Socket.IO app 
-          href: socketio-migrate-from-self-hosted.md d
+          href: socketio-migrate-from-self-hosted.md
         - name: Troubleshoot
           items: 
             - name: Common issues

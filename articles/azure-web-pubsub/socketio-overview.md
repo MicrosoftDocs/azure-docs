@@ -41,7 +41,7 @@ With Web PubSub for Socket.IO, you are freed from handling scaling issues and im
 To migrate a self-hosted Socket.IO app to Azure, you only need to add a few lines of code with **no need** to change the rest of the application code. This means the programming model remains the same and the complexity of managing a real-time app is significantly reduced.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Mirgrate an self-hosted Socket.IO app to Azure](./reference-cloud-events-amqp.md)
+> [Quickstart: Mirgrate an self-hosted Socket.IO app to Azure](./socketio-migrate-from-self-hosted.md)
 
 
 
