@@ -36,7 +36,7 @@ To trace request processing, you must enable the **Allow tracing** setting for t
 
 1. Navigate to your API Management instance and select **Subscriptions** to review the settings.
 
-   :::image type="content" source="media/api-management-howto-api-inspector/allow-tracing-1.png" alt-text="Allow tracing for subscription":::
+   :::image type="content" source="media/api-management-howto-api-inspector/allow-tracing-1.png" alt-text="Allow tracing for subscription" lightbox="media/api-management-howto-api-inspector/allow-tracing-1.png":::
 1. If tracing isn't enabled for the subscription you're using, select the subscription and enable **Allow tracing**.
 
 [!INCLUDE [api-management-tracing-alert](../../includes/api-management-tracing-alert.md)]
