@@ -22,6 +22,8 @@ The Azure Application Insights JavaScript SDK provides configuration for trackin
 
 These configuration fields are optional and default to false unless otherwise stated.
 
+Add any Microsoft Azure Monitor Application Insights JavaScript SDK configuration directly under `connectionString`. For a code example if you're using the JavaScript (Web) SDK Loader Script, see [JavaScript (Web) SDK Loader Script](./javascript-sdk.md#add-the-javascript-code?tabs=javascriptwebsdkloaderscript) and refer to the HTML example code. For a code example if you're using the npm package, see [npm package](./javascript-sdk.md#add-the-javascript-code?tabs=npmpackage) and refer to the JavaScript example code. 
+
 | Name | Type | Default |
 |------|------|---------|
 | accountId<br><br>An optional account ID, if your app groups users into accounts. No spaces, commas, semicolons, equals, or vertical bars | string | null |
