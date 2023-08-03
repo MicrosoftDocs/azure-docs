@@ -56,8 +56,7 @@ If you want to disable Defender for Storage on the storage account or disable on
 > [!TIP]
 > Malware Scanning can be configured to send scanning results to the following: - **Event Grid custom topic** - for near-real time automatic response based on every scanning result. Learn more how to [configure Malware Scanning to send scanning events to an Event Grid custom topic](/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-storage-account#setting-up-event-grid-for-malware-scanning); **Log Analytics workspace** - for storing every scan result in a centralized log repository for compliance and audit. Learn more how to [configure Malware Scanning to send scanning results to a Log Analytics workspace](/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-storage-account#setting-up-logging-for-malware-scanning).
 
-Learn more on how to [set up response for malware scanning](defender-for-storage-configure-malware-scan.md) results.
-
 ## Next steps
 
 - Learn how to [enable and Configure the Defender for Storage plan at scale with an Azure built-in policy](defender-for-storage-policy-enablement.md).
+- Learn more on how to [set up response for malware scanning](defender-for-storage-configure-malware-scan.md) results.

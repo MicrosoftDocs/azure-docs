@@ -13,13 +13,13 @@ ms.topic: how-to
 We recommend that you enable Defender for Storage on the subscription level. Doing so ensures all storage accounts in the subscription will be protected, including future ones.
 
 > [!TIP]
-> You can always [configure specific storage accounts](https://learn.microsoft.com/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-subscription#override-defender-for-storage-subscription-level-settings) with custom configurations that differ from the settings configured at the subscription level (override subscription-level settings).
+> You can always [configure specific storage accounts](/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-subscription#override-defender-for-storage-subscription-level-settings) with custom configurations that differ from the settings configured at the subscription level (override subscription-level settings).
 
 ## Enable on a subscription (recommended)
 
 ### Bicep template
 
-To enable and configure Microsoft Defender for Storage at the subscription level using [Bicep](https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview?tabs=bicep), make sure your [target scope is set to subscription](https://learn.microsoft.com/azure/azure-resource-manager/bicep/deploy-to-subscription?tabs=azure-cli#scope-to-subscription), and add the following to your Bicep template:
+To enable and configure Microsoft Defender for Storage at the subscription level using [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep), make sure your [target scope is set to subscription](/azure/azure-resource-manager/bicep/deploy-to-subscription?tabs=azure-cli#scope-to-subscription), and add the following to your Bicep template:
 
 ```
 resource StorageAccounts 'Microsoft.Security/pricings@2023-01-01' = {
@@ -50,7 +50,7 @@ If you want to turn off the On-upload malware scanning or Sensitive data threat 
 
 To disable the entire Defender for Storage plan, set the pricingTier property value to Free and remove the subPlan and extensions properties.
 
-Learn more about the [Bicep template in the Microsoft security/pricings documentation](https://learn.microsoft.com/azure/templates/microsoft.security/pricings?pivots=deployment-language-bicep&source=docs).
+Learn more about the [Bicep template in the Microsoft security/pricings documentation](/azure/templates/microsoft.security/pricings?pivots=deployment-language-bicep&source=docs).
 
 ### ARM template
 
@@ -162,4 +162,6 @@ If you want to turn off the On-upload malware scanning or Sensitive data threat 
 
 To disable the entire Defender plan for the storage account, set the isEnabled property value to false and remove the malwareScanning and sensitiveDataDiscovery sections from the properties.
 
-Learn more about the Microsoft.Security/DefenderForStorageSettings API documentation.
+Next steps
+
+Learn more about the [Microsoft.Security/DefenderForStorageSettings](/rest/api/defenderforcloud/defender-for-storage/create) API documentation.
