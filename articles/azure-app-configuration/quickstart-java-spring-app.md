@@ -44,7 +44,7 @@ To install the Spring Cloud Azure Config starter module, add the following depen
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>5.2.0</version>
+    <version>5.4.0</version>
 </dependency>
 ```
 
@@ -54,7 +54,7 @@ To install the Spring Cloud Azure Config starter module, add the following depen
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>4.8.0</version>
+    <version>4.10.0</version>
 </dependency>
 ```
 
