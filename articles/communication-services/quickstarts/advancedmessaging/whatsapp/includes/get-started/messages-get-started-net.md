@@ -66,8 +66,8 @@ namespace AdvancedMessagesQuickstart
 
 ### Configure Environment Variables
 
-In this section, you'll setup Environment variable for Azure Communication Service Resource Connection.
-Get the connection string from your ACS resource in the Azure portal. On the left, navigate to the `Keys` tab, copy the `Connection string` field for the `Primary key`. The connection string is in the format `endpoint=https://{your ACS resource name}.communication.azure.com/;accesskey={secret key}`.
+In this section, you'll setup Environment Variable for Azure Communication Service Resource Connection.
+Get the connection string from your Azure Communication Services resource in the Azure portal. On the left, navigate to the `Keys` tab, copy the `Connection string` field for the `Primary key`. The connection string is in the format `endpoint=https://{your ACS resource name}.communication.azure.com/;accesskey={secret key}`.
 
 :::image type="content" source="../../media/get-started/get-acs-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Keys' tab. Attention is placed on the copy action of the 'Connection string' field in the 'Primary key' section.":::
 
@@ -123,7 +123,7 @@ NotificationMessagesClient notificationMessagesClient = new NotificationMessages
 ```
 
 ## Set channel registration ID   
-The Channel Registration ID GUID was created during channel registration. You can look it up in the portal on the Channels tab of your ACS resource.
+The Channel Registration ID GUID was created during channel registration. You can look it up in the portal on the Channels tab of your Azure Communication Services resource.
 
 :::image type="content" source="../../media/get-started/get-messages-channel-id.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Channels' tab. Attention is placed on the copy action of the 'Channel ID' field.":::
 
