@@ -15,7 +15,7 @@ ms.date: 07/21/2023
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In this article, you use the Azure Data Factory user interface to create a change data capture (CDC) resource. The resource picks up changed data from an Azure SQL Database source and adds it to Delta Lake stored in Azure Data Lake Storage Gen2, in real time. This activity showcases the support of schema evolution in Azure.
+In this article, you use the Azure Data Factory user interface to create a change data capture (CDC) resource. The resource picks up changed data from an Azure SQL Database source and adds it to Delta Lake stored in Azure Data Lake Storage Gen2, in real time. This activity showcases the support of schema evolution by using a CDC resource between source and sink.
 
 In this article, you learn how to:
 
