@@ -119,6 +119,10 @@ No. When you connect to a VM using Azure Bastion, you don't need a public IP on 
 
 No. You can access your virtual machine from the Azure portal using your browser. For available connections and methods, see [About VM connections and features](vm-about.md).
 
+### <a name="rdpusers"></a>Do users need specific rights on a target VM for RDP connections?
+
+[!INCLUDE [Remote Desktop Users](../../includes/bastion-remote-desktop-users.md)]
+
 ### <a name="native-client"></a>Can I connect to my VM using a native client?
 
 Yes. You can connect to a VM from your local computer using a native client. See [Connect to a VM using a native client](native-client.md).

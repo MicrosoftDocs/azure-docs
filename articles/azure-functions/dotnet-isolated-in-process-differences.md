@@ -4,7 +4,7 @@ description: Compares features and functionality differences between running .NE
 ms.service: azure-functions
 ms.custom: devx-track-dotnet
 ms.topic: conceptual 
-ms.date: 11/07/2022
+ms.date: 08/03/2023
 recommendations: false
 #Customer intent: As a developer, I need to understand the differences between running in-process and running in an isolated worker process so that I can choose the best process model for my functions.
 ---
@@ -15,7 +15,7 @@ There are two process models for .NET functions:
 
 [!INCLUDE [functions-dotnet-execution-model](../../includes/functions-dotnet-execution-model.md)] 
 
-This article describes the current state of the functional and behavioral differences between the two models.
+This article describes the current state of the functional and behavioral differences between the two models. To migrate from the in-process model to the isolated worker model, see [Migrate .NET apps from the in-process model to the isolated worker model][migrate].
 
 ## Execution mode comparison table 
 
@@ -56,10 +56,13 @@ Use the following table to compare feature and functional differences between th
 
 ## Next steps
 
-To learn more, see:
+> [!div class="nextstepaction"]
+> [Learn more about the isolated worker model](./dotnet-isolated-process-guide.md)
 
-+ [Develop .NET class library functions](functions-dotnet-class-library.md)
-+ [Develop .NET isolated worker process functions](dotnet-isolated-process-guide.md)
+> [!div class="nextstepaction"]
+> [Migrate to the isolated worker model][migrate]
+
+[migrate]: ./migrate-dotnet-to-isolated-model.md
 
 [ILogger]: /dotnet/api/microsoft.extensions.logging.ilogger
 [ILogger&lt;T&gt;]: /dotnet/api/microsoft.extensions.logging.logger-1
