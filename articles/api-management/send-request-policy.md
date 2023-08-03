@@ -49,7 +49,7 @@ The `send-request` policy sends the provided request to the specified URL, waiti
 | [set-header](set-header-policy.md)                     | Sets a header in the request. Use multiple `set-header` elements for multiple request headers.                                  | No                              |
 | [set-body](set-body-policy.md)                       | Sets the body of the request.                   | No                              |
 | authentication-certificate | [Certificate to use for client authentication](authentication-certificate-policy.md), specified in a `thumbprint` attribute. | No                          |
-| proxy | A [proxy](proxy-policy.md) policy statement. Used to route request via HTTP proxy | No |
+| [proxy](proxy-policy.md) | Routes request via HTTP proxy. | No |
 
 ## Usage
 

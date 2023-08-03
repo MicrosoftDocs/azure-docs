@@ -46,6 +46,7 @@ The `send-one-way-request` policy sends the provided request to the specified UR
 | [set-header](set-header-policy.md)                     | Sets a header in the request. Use multiple `set-header` elements for multiple request headers.                                  | No                              |
 | [set-body](set-body-policy.md)                       | Sets the body of the request.                   | No                              |
 | authentication-certificate | [Certificate to use for client authentication](authentication-certificate-policy.md), specified in a `thumbprint` attribute. | No                              |
+| [proxy](proxy-policy.md) | Routes request via HTTP proxy. | No |
 
 
 ## Usage
