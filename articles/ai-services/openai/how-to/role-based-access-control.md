@@ -128,7 +128,7 @@ All the capabilities of Cognitive Services OpenAI Contributor plus the ability t
 
 All the capabilities of Cognitive Services Contributor plus the ability to:
 
-✅ View quota allocations in Azure OpenAI Studio <br>
+✅ View & edit quota allocations in Azure OpenAI Studio <br>
 ✅ Create new model deployments or edit existing model deployments <br>
 
 ## Common Issues
