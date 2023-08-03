@@ -185,7 +185,7 @@ var sendTemplateMessageOptions = new SendMessageOptions(channelRegistrationId, r
 
 Then send the template message:
 ```csharp
-Response<SendMessageResult> templateResponse = await notificationMessagesClient.SendMessageAsync(sendTemplateMessageOptions);
+Response<SendMessageResult> sendTemplateMessageResult = await notificationMessagesClient.SendMessageAsync(sendTemplateMessageOptions);
 ```
 
 3. User responds to template message
@@ -215,7 +215,7 @@ var sendTextMessageOptions = new SendMessageOptions(channelRegistrationId, recip
 
 Then send the text message:
 ```csharp
-Response<SendMessageResult> textResponse = await notificationMessagesClient.SendMessageAsync(sendTextMessageOptions);
+Response<SendMessageResult> sendTextMessageResult = await notificationMessagesClient.SendMessageAsync(sendTextMessageOptions);
 ```
 
 ## Send a Media Message to WhatsApp User
