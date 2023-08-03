@@ -353,7 +353,7 @@ The JSON output has three parts:
 
 ## Migration guide
 
-* Follow our [**Document Intelligence v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
+* Follow our [**Document Intelligence v3.1 migration guide**](v3-1-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
 
 ::: moniker-end
 

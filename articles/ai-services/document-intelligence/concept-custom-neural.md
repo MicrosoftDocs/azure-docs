@@ -132,7 +132,7 @@ Values in training cases should be diverse and representative. For example, if a
 
 ## Training a model
 
-Custom neural models are available in the [v3.0 and v3.1 APIs](v3-migration-guide.md).
+Custom neural models are available in the [v3.0 and v3.1 APIs](v3-1-migration-guide.md).
 
 | Document Type | REST API | SDK | Label and Test Models|
 |--|--|--|--|
