@@ -49,56 +49,56 @@ This section covers common tasks that different accounts and combinations of acc
 
 If a user were granted role-based access to only this role for an Azure OpenAI resource, they would be able to perform the following common tasks:
 
-✅ View the resource in [Azure portal](https://portal.azure.com)
-✅ View the resource endpoint under **Keys and Endpoint**
-✅ Ability to view the resource and associated model deployments in Azure OpenAI Studio.
-✅ Ability to view what models are available for deployment in Azure OpenAI Studio.
+✅ View the resource in [Azure portal](https://portal.azure.com) <br>
+✅ View the resource endpoint under **Keys and Endpoint** <br>
+✅ Ability to view the resource and associated model deployments in Azure OpenAI Studio. <br>
+✅ Ability to view what models are available for deployment in Azure OpenAI Studio. <br>
 ✅ Use the Chat, Completions, and DALL-E (preview) playground experiences to generate text and images with any models that have already been deployed to this Azure OpenAI resource.
 
 A user with only this role assigned would be unable to:
 
-❌ Create new Azure OpenAI resources
-❌ View/Copy/Regenerate keys under **Keys and Endpoint**
-❌ Create new model deployments or edit existing model deployments
-❌ Create/deploy custom fine-tuned models
-❌ Upload datasets for fine-tuning
-❌ Access quota
-❌ Create customized content filters
+❌ Create new Azure OpenAI resources <br>
+❌ View/Copy/Regenerate keys under **Keys and Endpoint** <br>
+❌ Create new model deployments or edit existing model deployments <br>
+❌ Create/deploy custom fine-tuned models <br>
+❌ Upload datasets for fine-tuning <br>
+❌ Access quota <br>
+❌ Create customized content filters <br>
 ❌ Add a data source for the use your data feature
 
 ### Cognitive Services OpenAI Contributor
 
 This role has all the permissions of Cognitive Services OpenAI User and is also able to perform additional tasks like:
 
-✅ Create custom fine-tuned models
-✅ Upload datasets for fine-tuning
+✅ Create custom fine-tuned models <br>
+✅ Upload datasets for fine-tuning <br>
 
 A user with only this role assigned would be unable to:
 
-❌ Create new Azure OpenAI resources
-❌ View/Copy/Regenerate keys under **Keys and Endpoint**
-❌ Create new model deployments or edit existing model deployments
-❌ Access quota
-❌ Create customized content filters
-❌ Add a data source for the use your data feature
+❌ Create new Azure OpenAI resources <br>
+❌ View/Copy/Regenerate keys under **Keys and Endpoint** <br>
+❌ Create new model deployments or edit existing model deployments <br>
+❌ Access quota <br>
+❌ Create customized content filters <br>
+❌ Add a data source for the use your data feature <
 
 ### Cognitive Services Contributor
 
 This role is typically granted access at the resource group level for a user in conjunction with additional roles. By itself this role would allow a user to perform the following tasks.
 
-✅ Create new Azure OpenAI resources within the assigned resource group.
-✅ View resources in the assigned resource group in the [Azure portal](https://portal.azure.com).
-✅ View the resource endpoint under **Keys and Endpoint**
-✅ View/Copy/Regenerate keys under **Keys and Endpoint**
-✅ Ability to view what models are available for deployment in Azure OpenAI Studio
-✅ Use the Chat, Completions, and DALL-E (preview) playground experiences to generate text and images with any models that have already been deployed to this Azure OpenAI resource
-✅ Create customized content filters
-✅ Add a data source for the use your data feature
+✅ Create new Azure OpenAI resources within the assigned resource group. <br>
+✅ View resources in the assigned resource group in the [Azure portal](https://portal.azure.com). <br>
+✅ View the resource endpoint under **Keys and Endpoint** <br>
+✅ View/Copy/Regenerate keys under **Keys and Endpoint** <br>
+✅ Ability to view what models are available for deployment in Azure OpenAI Studio <br>
+✅ Use the Chat, Completions, and DALL-E (preview) playground experiences to generate text and images with any models that have already been deployed to this Azure OpenAI resource <br>
+✅ Create customized content filters <br>
+✅ Add a data source for the use your data feature <br>
 
 A user with only this role assigned would be unable to:
 
-❌ Create new model deployments or edit existing model deployments
-❌ Access quota
+❌ Create new model deployments or edit existing model deployments <br>
+❌ Access quota <br>
 
 ### Cognitive Services Usages Reader
 
@@ -118,16 +118,16 @@ All the capabilities of Cognitive Services OpenAI plus the ability to:
 
 #### Cognitive Services Usages Reader + Cognitive Services OpenAI Contributor
 
-✅ View quota allocations in Azure OpenAI Studio
-
 All the capabilities of Cognitive Services OpenAI Contributor plus the ability to:
+
+✅ View quota allocations in Azure OpenAI Studio
 
 #### Cognitive Services Usages Reader + Cognitive Services Contributor
 
 All the capabilities of Cognitive Services Contributor plus the ability to:
 
-✅ View quota allocations in Azure OpenAI Studio
-✅ Create new model deployments or edit existing model deployments
+✅ View quota allocations in Azure OpenAI Studio <br>
+✅ Create new model deployments or edit existing model deployments <br>
 
 ## Common Issues
 
