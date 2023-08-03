@@ -138,7 +138,7 @@
       href: how-to-create-custom-image-confidential-vm.md
     - name: Image hardening techniques for deployment
       items:
-      - name: Remove sudo users from Linux image
+      - name: Harden a Linux image to remove sudo users
         href: harden-the-linux-image-to-remove-sudo-users.md
     - name: Secure Key Release (SKR) with Azure Key Vault
       items:

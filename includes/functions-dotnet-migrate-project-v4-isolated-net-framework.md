@@ -7,7 +7,9 @@ ms.author: mahender
 ---
 The following changes are required in the .csproj XML project file: 
 
-1. Change the value of `PropertyGroup`.`AzureFunctionsVersion` to `v4`.
+1. Set the value of `PropertyGroup`.`TargetFramework` to `net48`.
+
+1. Set the value of `PropertyGroup`.`AzureFunctionsVersion` to `v4`.
 
 1. Add the following `OutputType` element to the `PropertyGroup`:
 
