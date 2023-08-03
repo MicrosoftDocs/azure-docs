@@ -9,8 +9,12 @@ ms.date: 07/26/2023
 ms.author: greglin
 ms.custom: mvc, devx-track-azurepowershell
 ---
-# Configure Application Gateway with a frontend public IPv6 address using Azure PowerShell
+# Configure Application Gateway with a frontend public IPv6 address using Azure PowerShell (Public Preview)
 
+# You can register for Public Preview  [here](ipv6-application-gateway-portal.md)
+
+
+## Overview 
 Azure Application gateway now supports dual stack frontend connections. Application Gateway can now handle client traffic from both IPv4 and IPv6 addresses, providing greater flexibility and connectivity for our users. Azure VNETs already provides dual-stack capability. To learn more about Azure VNETs dual-stack capability check [IPv6 for Azure Virtual Network](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/ipv6-overview).
 
 If you are currently using Application Gateway with IPv4 addresses, you can continue to do so without any changes. However, if you want to take advantage of the benefits of IPv6 addressing, you can now do so by configuring your gateway to use IPv6 addresses. Currently we do not support connectivity to IPv6 backends. To support IPv6 connectivity, you must create a dual-stack VNET. This dual-stack VNET will have subnets for both IPv4 and IPv6.
@@ -37,6 +41,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. To find the version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
+
+
+
 
 ## Create a resource group
 
@@ -214,88 +221,80 @@ New-AzApplicationGateway `
 -Force
 ```
 
-## Create a virtual machine scale set
+
+## Backend servers
+
+Now that you have created the Application Gateway, create the backend virtual machines which will host the websites. A backend can be composed of NICs, virtual machine scale sets, public IP address, internal IP address, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service.
+
+In this example, you create two virtual machines to use as backend servers for the application gateway. You also install IIS on the virtual machines to verify that Azure successfully created the application gateway.
+
+## Create two virtual machines
 
 In this example, you create a virtual machine scale set to provide servers for the backend pool in the application gateway. You assign the scale set to the backend pool when you configure the IP settings.
 
-```azurepowershell-interactive
-$vnet = Get-AzVirtualNetwork `
-  -ResourceGroupName myResourceGroupAG `
-  -Name myVNet
-
-$appgw = Get-AzApplicationGateway `
-  -ResourceGroupName myResourceGroupAG `
-  -Name myAppGateway
-
-$backendPool = Get-AzApplicationGatewayBackendAddressPool `
-  -Name appGatewayBackendPool `
-  -ApplicationGateway $appgw
-
-$ipConfig = New-AzVmssIpConfig `
-  -Name myVmssIPConfig `
-  -SubnetId $vnet.Subnets[0].Id `
-  -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
-
-$vmssConfig = New-AzVmssConfig `
-  -Location eastus `
-  -SkuCapacity 2 `
-  -SkuName Standard_DS2_v2 `
-  -UpgradePolicyMode Automatic
-
-Set-AzVmssStorageProfile $vmssConfig `
-  -ImageReferencePublisher MicrosoftWindowsServer `
-  -ImageReferenceOffer WindowsServer `
-  -ImageReferenceSku 2016-Datacenter `
-  -ImageReferenceVersion latest `
-  -OsDiskCreateOption FromImage
-
-Set-AzVmssOsProfile $vmssConfig `
-  -AdminUsername azureuser `
-  -AdminPassword "Azure123456!" `
-  -ComputerNamePrefix myvmss
-
-Add-AzVmssNetworkInterfaceConfiguration `
-  -VirtualMachineScaleSet $vmssConfig `
-  -Name myVmssNetConfig `
-  -Primary $true `
-  -IPConfiguration $ipConfig
-
-New-AzVmss `
-  -ResourceGroupName myResourceGroupAG `
-  -Name myvmss `
-  -VirtualMachineScaleSet $vmssConfig
-```
-
-### Install IIS
+Get the recently created Application Gateway backend pool configuration with *Get-AzApplicationGatewayBackendAddressPool*.
+* Create a network interface with *New-AzNetworkInterface*.
+* Create a virtual machine configuration with *New-AzVMConfig*.
+* Create the virtual machine with *New-AzVM*.
+* When you run the following code sample to create the virtual machines, Azure prompts you    for credentials. Enter a user name and a password:​
 
 ```azurepowershell-interactive
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
-  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-
-$vmss = Get-AzVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
-
-Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
-  -Name "customScript" `
-  -Publisher "Microsoft.Compute" `
-  -Type "CustomScriptExtension" `
-  -TypeHandlerVersion 1.8 `
-  -Setting $publicSettings
-
-Update-AzVmss `
-  -ResourceGroupName myResourceGroupAG `
-  -Name myvmss `
-  -VirtualMachineScaleSet $vmss
+$appgw = Get-AzApplicationGateway -ResourceGroupName myResourceGroupAG -Name myAppGateway
+$backendPool = Get-AzApplicationGatewayBackendAddressPool -Name myAGBackendPool -ApplicationGateway $appgw
+$vnet   = Get-AzVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
+$subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name myBackendSubnet
+$cred = Get-Credential
+for ($i=1; $i -le 2; $i++)
+{
+  $nic = New-AzNetworkInterface `
+    -Name myNic$i `
+    -ResourceGroupName myResourceGroupAG `
+    -Location EastUS `
+    -Subnet $subnet `
+    -ApplicationGatewayBackendAddressPool $backendpool
+  $vm = New-AzVMConfig `
+    -VMName myVM$i `
+    -VMSize Standard_DS2_v2
+  Set-AzVMOperatingSystem `
+    -VM $vm `
+    -Windows `
+    -ComputerName myVM$i `
+    -Credential $cred
+  Set-AzVMSourceImage `
+    -VM $vm `
+    -PublisherName MicrosoftWindowsServer `
+    -Offer WindowsServer `
+    -Skus 2016-Datacenter `
+    -Version latest
+  Add-AzVMNetworkInterface `
+    -VM $vm `
+    -Id $nic.Id
+  Set-AzVMBootDiagnostic `
+    -VM $vm `
+    -Disable
+  New-AzVM -ResourceGroupName myResourceGroupAG -Location EastUS -VM $vm
+  Set-AzVMExtension `
+    -ResourceGroupName myResourceGroupAG `
+    -ExtensionName IIS `
+    -VMName myVM$i `
+    -Publisher Microsoft.Compute `
+    -ExtensionType CustomScriptExtension `
+    -TypeHandlerVersion 1.4 `
+    -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+    -Location EastUS
+}
 ```
-
-## Test the application gateway
-
-Use [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) to get the public IP address of the application gateway. Update the DNS with  public IP4 and IPv6 address, and then use the browser to test the Application Gateway
+# Find public IP address of Application Gateway
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
-![Test base URL in application gateway](./media/tutorial-manage-web-traffic-powershell/tutorial-iistest.png)
+# Update the DNS with IPv4 and IPv6 address
+
+Test the Application : https://{yourdomain.com}
+
+![Application Test](./media/application-gateway-create-gateway-powershell-ipv6/Browser_out.png)
 
 ## Clean up resources
 
@@ -307,4 +306,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## Next steps
 
-[Restrict web traffic with a web application firewall](../web-application-firewall/ag/tutorial-restrict-web-traffic-powershell.md)
+[Troubleshoot Bad Gateway](application-gateway-troubleshooting-502.md)
