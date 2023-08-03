@@ -61,10 +61,10 @@ To see Microsoft Identity Web in action, try our Blazor Server tutorial:
 
 [Tutorial: Create a Blazor Server app that uses the Microsoft identity platform for authentication](tutorial-blazor-server.md)
 
-The Microsoft Identity Web wiki on GitHub contains extensive reference documentation for various aspects of the library. For example, certificate usage, incremental consent, and conditional access reference can be found here:
+The Microsoft Identity Web wiki on GitHub contains extensive reference documentation for various aspects of the library. For example, certificate usage, incremental consent, and Conditional Access reference can be found here:
 
 - <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates" target="_blank">Using certificates with Microsoft.Identity.Web</a> (GitHub)
-- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Managing-incremental-consent-and-conditional-access" target="_blank">Incremental consent and conditional access</a> (GitHub)
+- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Managing-incremental-consent-and-conditional-access" target="_blank">Incremental consent and Conditional Access</a> (GitHub)
 
 <!-- LINKS -->
 <!--  [miw-certs]: microsoft-identity-web-certificates.md  -->
