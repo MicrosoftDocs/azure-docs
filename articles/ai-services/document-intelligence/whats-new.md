@@ -25,7 +25,7 @@ monikerRange: '<=doc-intel-3.1.0'
 Document Intelligence service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and our newest documentation.
 
 >[!NOTE]
-> With the 2022-08-31 API general availability (GA) release, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview, the 2022-01-30-preview or he 2022-06-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-migration-guide.md).
+> With the 2022-08-31 API general availability (GA) release, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview, the 2022-01-30-preview or he 2022-06-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-1-migration-guide.md).
 
 ## July 2023
 
@@ -39,7 +39,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 The Document Intelligence version 3.1 API is now generally available (GA)! The API version corresponds to ```2023-07-31```.
 The v3.1 API introduces new and updated capabilities:
 
-* Document Intelligence APIs are now more modular, with support for optional features, you can now customize the output to specifically include the features you need. Learn more about the [optional parameters](v3-migration-guide.md).
+* Document Intelligence APIs are now more modular, with support for optional features, you can now customize the output to specifically include the features you need. Learn more about the [optional parameters](v3-1-migration-guide.md).
 * Document classification API for splitting a single file into individual documents. [Learn more](concept-custom-classifier.md) about document classification.
 * [Prebuilt contract model](concept-contract.md)
 * [Prebuilt US tax form 1098 model](concept-tax-document.md)
