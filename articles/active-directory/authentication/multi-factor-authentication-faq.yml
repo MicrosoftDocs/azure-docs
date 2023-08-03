@@ -103,7 +103,7 @@ sections:
         answer: |
           Security defaults can be enabled in the Azure AD Free tier. With security defaults, all users are enabled for multi-factor authentication using the Microsoft Authenticator app. There's no ability to use text message or phone verification with security defaults, just the Microsoft Authenticator app.
           
-          For more information, see [What are security defaults?](../fundamentals/concept-fundamentals-security-defaults.md)
+          For more information, see [What are security defaults?](../fundamentals/security-defaults.md)
           
       - question: |
           Can my organization switch between per-user and per-authentication consumption billing models at any time?

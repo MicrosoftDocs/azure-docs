@@ -12,10 +12,10 @@ ms.author: greglin
 
 # Path, header, and query string routing with Application Gateway for Containers - Gateway API (preview)
 
-This document helps you set up an example application that uses the resources from Gateway API to demonstrate traffic routing based on URL path, query string, and header. Review the following gateway API resources for more information: 
-- [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) - create a gateway with one HTTPS listener.
-- [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) - create an HTTP route that references a backend service.
-- [HTTPRouteMatch](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPRouteMatch) - Use `matches` to route based on path, header, and query string.
+This document helps you set up an example application that uses the resources from Gateway API to demonstrate traffic routing based on URL path, query string, and header. Steps are provided to:
+- Create a [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) resource with one HTTPS listener.
+- Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) resource that references a backend service.
+- Use [HTTPRouteMatch](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPRouteMatch) to perform `matches` that route based on path, header, and query string.
 
 ## Prerequisites
 

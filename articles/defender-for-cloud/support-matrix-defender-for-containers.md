@@ -19,20 +19,20 @@ This article summarizes support information for the [Defender for Containers pla
 
 | Feature | Supported Resources | Linux release state | Windows release state   | Agentless/Agent-based | Pricing Tier | Azure clouds availability |
 |--|--|--|--|--|--|--|
-| Compliance-Docker CIS | VM, Virtual Machine Scale Set | GA | - | Log Analytics agent | Defender for Servers Plan 2 | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
-| [Vulnerability assessment](defender-for-containers-vulnerability-assessment-azure.md) (powered by Qualys) - registry scan [OS packages](#registries-and-images-support-for-aks---powered-by-qualys) | ACR, Private ACR | GA | Preview | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
-| [Vulnerability assessment](defender-for-containers-vulnerability-assessment-azure.md) (powered by Qualys) -registry scan [language packages](#registries-and-images-support-for-aks---powered-by-qualys) | ACR, Private ACR | Preview | - | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
+| Compliance-Docker CIS | VM, Virtual Machine Scale Set | GA | - | Log Analytics agent | Defender for Servers Plan 2 | Commercial clouds<br><br> National clouds: Azure Government, Microsoft Azure operated by 21Vianet  |
+| [Vulnerability assessment](defender-for-containers-vulnerability-assessment-azure.md) (powered by Qualys) - registry scan [OS packages](#registries-and-images-support-for-aks---powered-by-qualys) | ACR, Private ACR | GA | Preview | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| [Vulnerability assessment](defender-for-containers-vulnerability-assessment-azure.md) (powered by Qualys) -registry scan [language packages](#registries-and-images-support-for-aks---powered-by-qualys) | ACR, Private ACR | Preview | - | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
 | [Vulnerability assessment (powered by Qualys) - running images](defender-for-containers-vulnerability-assessment-azure.md#view-vulnerabilities-for-images-running-on-your-aks-clusters) | AKS | GA | Preview | Defender profile | Defender for Containers | Commercial clouds |
 | [Vulnerability assessment](agentless-container-registry-vulnerability-assessment.md) powered by MDVM - registry scan | ACR, Private ACR | Preview |  | Agentless | Defender for Containers | Commercial clouds |
 | [Vulnerability assessment](agentless-container-registry-vulnerability-assessment.md) powered by MDVM - running images | AKS | Preview |  | Defender profile | Defender for Containers | Commercial clouds |
-| [Hardening  (control plane)](defender-for-containers-architecture.md) | ACR, AKS | GA | Preview | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
-| [Hardening (Kubernetes data plane)](kubernetes-workload-protections.md) | AKS | GA | - | Azure Policy | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
-| [Runtime threat detection](defender-for-containers-introduction.md#run-time-protection-for-kubernetes-nodes-and-clusters) (control plane)| AKS | GA | GA | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
+| [Hardening  (control plane)](defender-for-containers-architecture.md) | ACR, AKS | GA | Preview | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| [Hardening (Kubernetes data plane)](kubernetes-workload-protections.md) | AKS | GA | - | Azure Policy | Free | Commercial clouds<br><br> National clouds: Azure Government,Azure operated by 21Vianet |
+| [Runtime threat detection](defender-for-containers-introduction.md#run-time-protection-for-kubernetes-nodes-and-clusters) (control plane)| AKS | GA | GA | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
 | Runtime threat detection (workload) | AKS | GA | - | Defender profile | Defender for Containers | Commercial clouds |
-| Discovery/provisioning-Unprotected clusters | AKS | GA | GA | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
-| Discovery/provisioning-Collecting control plane threat data | AKS | GA | GA | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
-| Discovery/provisioning-Defender profile auto provisioning | AKS | GA | - | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
-| Discovery/provisioning-Azure policy add-on auto provisioning | AKS | GA | - | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
+| Discovery/provisioning-Unprotected clusters | AKS | GA | GA | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| Discovery/provisioning-Collecting control plane threat data | AKS | GA | GA | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| Discovery/provisioning-Defender profile auto provisioning | AKS | GA | - | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| Discovery/provisioning-Azure policy add-on auto provisioning | AKS | GA | - | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
 
 ### Registries and images support for AKS - powered by Qualys
 
@@ -125,7 +125,7 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 | Compliance | Docker CIS | GCP VMs | Preview | - | Log Analytics agent | Defender for Servers Plan 2 |
 | Vulnerability Assessment | Registry scan | - | - | - | - | - |
 | Vulnerability Assessment | View vulnerabilities for running images | - | - | - | - | - |
-| Hardening | Control plane recommendations | - | - | - | - | - |
+| Hardening | Control plane recommendations | GKE | GA | GA | Agentless | Free |
 | Hardening | Kubernetes data plane recommendations | GKE | Preview | - | Azure Policy extension | Defender for Containers |
 | Runtime protection| Threat detection (control plane)| GKE | Preview | Preview | Agentless | Defender for Containers |
 | Runtime protection| Threat detection (workload) | GKE | Preview | - | Defender extension | Defender for Containers |

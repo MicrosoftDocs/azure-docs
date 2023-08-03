@@ -303,7 +303,7 @@
     items:
     - name: US Government
       href: ../azure-government/compare-azure-government-global-azure.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#service-availability
-    - name: Azure in China
+    - name: Microsoft Azure operated by 21Vianet
       href: sovereign-cloud-china.md     
   - name: Service availability by region
     href: https://azure.microsoft.com/global-infrastructure/services/

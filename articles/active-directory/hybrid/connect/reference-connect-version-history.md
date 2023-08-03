@@ -492,7 +492,7 @@ You can use these cmdlets to retrieve the TLS 1.2 enablement status or set it as
 > The Azure AD Connect sync V2 endpoint API is now available in these Azure environments:
 >
 > - Azure Commercial
-> - Azure China cloud
+> - Microsoft Azure operated by 21Vianet
 > - Azure US Government cloud
 >
 > This release won't be made available in the Azure German cloud.
