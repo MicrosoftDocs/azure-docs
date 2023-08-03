@@ -4,8 +4,10 @@ description: Overview of how Azure Monitor is billed and how to estimate and ana
 services: azure-monitor
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 03/15/2023
+ms.date: 08/03/2023
 ---
+
+
 # Azure Monitor cost and usage
 
 This article describes the different ways that Azure Monitor charges for usage. It also explains how to evaluate charges on your Azure bill and how to estimate charges to monitor your entire environment.
@@ -79,7 +81,7 @@ For SDKs that don't support adaptive sampling, you can employ [ingestion samplin
 There are two primary tools to view and analyze your Azure Monitor billing and estimated charges:
 
 - [Azure Cost Management + Billing](#azure-cost-management--billing) is the primary tool you'll use to analyze your usage and costs. It gives you multiple options to analyze your monthly charges for different Azure Monitor features and their projected cost over time.
-- [Usage and estimated costs](#usage-and-estimated-costs) provides a listing of monthly charges for different Azure Monitor features. This information is useful for Log Analytics workspaces. It helps you to select your pricing tier by showing how your cost would be different at different tiers.
+- [Usage and estimated costs](#usage-and-estimated-costs) helps optimize log data ingestion costs by estimating what the data ingestion costs would be for Log Analytics in each of the available pricing tiers. 
 
 ## Azure Cost Management + Billing
 
@@ -102,6 +104,8 @@ To create a view just Azure Monitor charges, [create a filter](../cost-managemen
 
 Other services such as Microsoft Defender for Cloud and Microsoft Sentinel also bill their usage against Log Analytics workspace resources, so you might want to add them to your filter. 
 
+### Cost analysis
+
 To get the most useful view for understanding your cost trends in the **Cost analysis** view, 
 
 1. Select the date range you want to investigate 
@@ -117,6 +121,14 @@ See [Common cost analysis uses](../cost-management-billing/costs/cost-analysis-c
 >Alternatively, you can go to the overview page of a Log Analytics workspace or Application Insights resource and select **View Cost** in the upper-right corner of the **Essentials** section. This option opens **Cost Analysis** from Azure Cost Management + Billing already scoped to the workspace or application.
 >
 > :::image type="content" source="logs/media/view-bill/view-cost-option.png" lightbox="logs/media/view-bill/view-cost-option.png" alt-text="Screenshot of option to view cost for a Log Analytics workspace.":::
+
+### Get daily cost analysis emails
+
+Once you have configured your Cost Analysis view, it is strongly recommended to subscribe to get regular email updates from Cost Analysis. The "Subscribe" option is located in the list of options just above the main chart. 
+
+### Cost alerts
+
+To be notified if there are significant increases in your spending, you can set up [cost alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md) (specifically a budget alert) for a single workspace or group of workspaces. 
 
 ### Download usage
 
@@ -148,7 +160,7 @@ This view includes:
 
 - Estimated monthly charges based on usage from the past 31 days by using the current pricing tier.<br>
 - Estimated monthly charges by using different commitment tiers.<br>
-- Billable data ingestion by solution from the past 31 days.
+- Billable data ingestion by table from the past 31 days.
 
 To explore the data in more detail, select the icon in the upper-right corner of either chart to work with the query in Log Analytics.
 
