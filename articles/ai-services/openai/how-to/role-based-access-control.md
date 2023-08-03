@@ -65,7 +65,6 @@ A user with only this role assigned would be unable to:
 ❌ Access quota
 ❌ Create customized content filters
 ❌ Add a data source for the use your data feature
-❌ Access cost analysis
 
 ### Cognitive Services OpenAI Contributor
 
@@ -82,7 +81,6 @@ A user with only this role assigned would be unable to:
 ❌ Access quota
 ❌ Create customized content filters
 ❌ Add a data source for the use your data feature
-❌ Access cost analysis
 
 ### Cognitive Services Contributor
 
@@ -186,17 +184,3 @@ Possible reasons why the user may **not** have permissions:
 
 - Learn more about [Azure-role based access control (Azure RBAC)](../../../role-based-access-control/index.yml).
 - Also check out[assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).
-
-
-
-
-
-
-
-
-
-
-
-  
- 
-
