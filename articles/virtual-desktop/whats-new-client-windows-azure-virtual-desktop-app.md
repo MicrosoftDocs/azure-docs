@@ -15,18 +15,13 @@ ms.date: 08/02/2023
 
 In this article you'll learn about the latest updates for the Azure Virtual Desktop Store app for Windows. To learn more about using the Azure Virtual Desktop Store app for Windows with Azure Virtual Desktop, see [Connect to Azure Virtual Desktop with the Azure Virtual Desktop Store app for Windows](users/connect-windows-azure-virtual-desktop-app.md) and [Use features of the Azure Virtual Desktop Store app for Windows when connecting to Azure Virtual Desktop](users/client-features-windows-azure-virtual-desktop-app.md).
 
-
-
-https://aka.ms/AVDStoreClient
-
 ## Latest client versions
 
-The following table lists the current versions available for the public and Insider releases. To enable Insider releases, see [Enable Windows Insider releases](users/client-features-windows-azure-virtual-desktop-app.md#enable-windows-insider-releases).
+The following table lists the current version available for the public release. To enable Insider releases, see [Enable Windows Insider releases](users/client-features-windows-azure-virtual-desktop-app.md#enable-windows-insider-releases).
 
 | Release    | Latest version   | Download |
 |------------|------------------|----------|
-| Public     | 1.2.4487         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
-| Insider    | 1.2.4487         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+| Public     | 1.2.4487         | [Microsoft Store](https://aka.ms/AVDStoreClient) |
 
 ## Updates for version 1.2.4487
 
