@@ -3,7 +3,7 @@ title: What's new in the Azure Virtual Desktop Agent? - Azure
 description: New features and product updates for the Azure Virtual Desktop Agent.
 author: Heidilohr
 ms.topic: release-notes
-ms.date: 07/12/2023
+ms.date: 07/21/2023
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -24,6 +24,12 @@ Make sure to check back here often to keep up with new updates.
 New versions of the Azure Virtual Desktop Agent are installed automatically. When new versions are released, they're rolled out progressively to session hosts. This process is called *flighting* and it enables Microsoft to monitor the rollout in [validation environments](create-validation-host-pool.md) first.
 
 A rollout may take several weeks before the agent is available in all environments. Some agent versions may not reach non-validation environments, so you may see multiple versions of the agent deployed across your environments.
+
+## Version 1.0.6713.1603
+
+This update was released at the end of July 2023 and includes the following changes:
+
+- Security improvements and bug fixes.
 
 ## Version 1.0.7033.900
 

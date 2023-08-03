@@ -35,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * SiteIntel supports SP-initiated and IdP-initiated SSO.
-* After you configure SiteIntel, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from conditional access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
+* After you configure SiteIntel, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
 
 ## Add SiteIntel from the gallery
 
@@ -154,6 +154,6 @@ When you select the **SiteIntel** tile in the Access Panel, you should be automa
 
 - [List of tutorials about how to integrate SaaS apps with Azure Active Directory ](./tutorial-list.md)
 - [What are application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
 - [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
 - [How to protect SiteIntel with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

@@ -344,7 +344,10 @@ resources:
 ```
 
 ---
-
+View more examples of training with serverless compute at:-
+* [Quick Start](https://github.com/Azure/azureml-examples/blob/main/tutorials/get-started-notebooks/quickstart.ipynb)
+* [Train Model](https://github.com/Azure/azureml-examples/blob/main/tutorials/get-started-notebooks/train-model.ipynb)
+  
 ## AutoML job
 
 There's no need to specify compute for AutoML jobs. Resources can be optionally specified. If instance count isn't specified, then it's defaulted based on max_concurrent_trials and max_nodes parameters. If you submit an AutoML image classification or NLP task with no instance type, we will automatically select a GPU VM size. It is possible to submit AutoML job through CLIs, SDK, or Studio. To submit AutoML jobs with serverless compute in studio first enable the *Guided experience for submitting training jobs with serverless compute* feature in the preview panel and then [submit a training job in studio (preview)](how-to-train-with-ui.md).
@@ -383,4 +386,6 @@ You can also set serverless compute as the default compute in Designer.
 
 ## Next steps
 
-View more examples of training with serverless compute at [azureml-examples-main](https://github.com/Azure/azureml-examples-main)
+View more examples of training with serverless compute at:-
+* [Quick Start](https://github.com/Azure/azureml-examples/blob/main/tutorials/get-started-notebooks/quickstart.ipynb)
+* [Train Model](https://github.com/Azure/azureml-examples/blob/main/tutorials/get-started-notebooks/train-model.ipynb)

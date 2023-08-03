@@ -9,7 +9,7 @@ ms.author: kendownie
 ---
 
 # SMB Multichannel performance
-SMB Multichannel enables an SMB 3.x client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on premium file shares (file shares in the FileStorage storage account kind). On the service side, SMB Multichannel is disabled by default in Azure Files, but there's no additional cost for enabling it.
+SMB Multichannel enables an SMB 3.x client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on premium file shares (file shares in the FileStorage storage account kind) for Windows clients. On the service side, SMB Multichannel is disabled by default in Azure Files, but there's no additional cost for enabling it.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -39,6 +39,7 @@ This feature provides greater performance benefits to multi-threaded application
 ## Limitations
 SMB Multichannel for Azure file shares currently has the following restrictions:
 - Only supported on Windows clients that are using SMB 3.1.1. Ensure SMB client operating systems are patched to recommended levels.
+- Not currently supported or recommended for Linux clients.
 - Maximum number of channels is four, for details see [here](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json#cause-4-number-of-smb-channels-exceeds-four).
 
 ## Configuration
@@ -53,7 +54,7 @@ Get-SmbClientConfiguration | Select-Object -Property EnableMultichannel
 On your Azure storage account, you'll need to enable SMB Multichannel. See [Enable SMB Multichannel](files-smb-protocol.md#smb-multichannel).
 
 ### Disable SMB Multichannel
-In most scenarios, particularly multi-threaded workloads, clients should see improved performance with SMB Multichannel. However, some specific scenarios such as single-threaded workloads or for testing purposes, you might want to disable SMB Multichannel. See [Performance comparison](#performance-comparison) for more details.
+In most scenarios, particularly multi-threaded workloads, clients should see improved performance with SMB Multichannel. However, for some specific scenarios such as single-threaded workloads or for testing purposes, you might want to disable SMB Multichannel. See [Performance comparison](#performance-comparison) for more details.
 
 ## Verify SMB Multichannel is configured correctly
 
@@ -64,7 +65,7 @@ In most scenarios, particularly multi-threaded workloads, clients should see imp
     A copy tool such as robocopy /MT, or any performance tool such as Diskspd to read/write files can generate load.
 1. Open PowerShell as an admin and use the following command: 
 `Get-SmbMultichannelConnection |fl`
-1. Look for **MaxChannels** and **CurrentChannels** properties
+1. Look for **MaxChannels** and **CurrentChannels** properties.
 
 :::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG" alt-text="Screenshot of Get-SMBMultichannelConnection results." lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG":::
 

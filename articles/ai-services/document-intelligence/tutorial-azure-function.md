@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
   * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Document Intelligence API. You'll paste your key and endpoint into the code below later in the tutorial:
 
-      :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+      :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 * [**Python 3.6.x, 3.7.x, 3.8.x or 3.9.x**](https://www.python.org/downloads/) (Python 3.10.x isn't supported for this project).
 
