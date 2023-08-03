@@ -37,8 +37,22 @@ MANA DPDK requires the following set of drivers:
 
 > [!NOTE]
 > MANA DPDK is not available for Windows; it will only work on Linux VMs.
+## Example: Check for MANA
+```bash
+# NOTE: this example assumes lspci is installed
 
-## DPDK installation example (Ubuntu 22.04)
+# check for pci devices with IDs:
+#   vendor: Microsoft Corporation (1414)
+#   class: Ethernet Controller (0200)
+if [[ -n `lspci -d 1414::0200` ]]; then
+    echo "MANA is available"
+else
+    echo "MANA was not detected."
+fi
+
+```
+
+## Example: DPDK installation (Ubuntu 22.04)
 ```bash
 
 DEBIAN_FRONTEND=noninteractive sudo apt-get install -q -y build-essential libudev-dev libnl-3-dev libnl-route-3-dev ninja-build libssl-dev libelf-dev python3-pip meson libnuma-dev
