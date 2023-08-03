@@ -8,11 +8,4 @@
 
 ---
 > [!NOTE]
-> The use of Azure Bastion with Azure Private DNS Zones is supported. However, the following private DNS zone names are not supported:
-> * management.azure.com
-> * blob.core.windows.net
-> * core.windows.net
-> * vaultcore.windows.net
-> * vault.azure.net
-> * azure.com
-
+> The use of Azure Bastion with Azure Private DNS Zones is supported. However, there are certain restrictions. See the [Bastion FAQ](../articles/bastion/bastion-faq.md#dns) for more information.
