@@ -46,7 +46,7 @@ Supported authentication and clients for App Service, Container Apps, and Azure 
 
 Use the connection details below to connect compute services to Azure Database for MySQL. For each example below, replace the placeholder texts `<MySQL-DB-name>`, `<MySQL-DB-username>`, `<MySQL-DB-password>`, `<server-host>`, and `<port>` with your Azure Database for MySQL name, Azure Database for MySQL username, Azure Database for MySQL password, server host, and port.
 
-### [Connection String](#tab/secret)
+### [Connection String](#secret)
 
 
 
@@ -197,7 +197,7 @@ db, err := sql.Open("mysql", connectionString)
 
 ---
 
-### [System assigned Managed Identity](#tab/systemmi)
+### [System assigned Managed Identity](#systemmi)
 #### [.NET(MySqlConnector)](#tab/systemmi-dotnet)
 
 | Default environment variable name | Description                     | Example value                                                                                                                                                  |
@@ -294,7 +294,7 @@ db, err := sql.Open("mysql", connectionString)
 
 ---
 
-### [User assigned Managed Identity](#tab/usermi)
+### [User assigned Managed Identity](#usermi)
 #### [.NET(MySqlConnector)](#tab/usermi-dotnet)
 
 | Default environment variable name | Description                     | Example value                                                                                                                                                  |
@@ -403,7 +403,7 @@ db, err := sql.Open("mysql", connectionString)
 
 ---
 
-### [Service Principal](#tab/sp)
+### [Service Principal](#sp)
 
 #### [.NET(MySqlConnector)](#tab/sp-dotnet)
 

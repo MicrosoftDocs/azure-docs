@@ -83,7 +83,10 @@ await connection.OpenAsync();
 // do something
 ```
 
+---
+
 ### [Go](#tab/go)
+
 1. Install dependencies.
 ```bash
 go get "github.com/go-sql-driver/mysql"
