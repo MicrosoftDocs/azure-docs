@@ -14,12 +14,14 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022, build-2023
 
 A Container Apps environment is a secure context and boundary around container apps. The Container Apps runtime fully manages an environment by handling OS upgrades, scale operations, failover procedures, and resource balancing.
 
-Environments include the following features:
+Environments include the following features.
 
-- **Types**: There are [two different types](#types) of Container Apps environments: Workload profile and Consumption.
-- **Virtual network**: An environment is a based around a virtual network. When you create an environment a virtual network is created for you, or you can provide an [existing virtual network](vnet-custom.md).
-- **Multiple container apps**: When multiple container apps are in the same environment, they share the same virtual network and write logs to the same logging destination.
-- **Multi-service integration**: You can add [Azure Functions](https://aka.ms/functionsonaca) and [Azure Spring Apps](https://aka.ms/asaonaca) to your Azure Container Apps environment.
+| Feature | Description |
+|---|---|
+| Type | There are [two different types](#types) of Container Apps environments: Workload profile and Consumption. |
+| Virtual network | An environment is a based around a virtual network. When you create an environment a virtual network is created for you, or you can provide an [existing virtual network](vnet-custom.md). |
+| Multiple container apps | When multiple container apps are in the same environment, they share the same virtual network and write logs to the same logging destination. |
+| Multi-service integration | You can add [Azure Functions](https://aka.ms/functionsonaca) and [Azure Spring Apps](https://aka.ms/asaonaca) to your Azure Container Apps environment. |
 
 :::image type="content" source="media/environments/azure-container-apps-environments.png" alt-text="Azure Container Apps environments.":::
 
@@ -52,8 +54,8 @@ Depending on the needs of your system, you may opt to use one or more Container 
 
 Azure Container Apps has two different pricing structures.
 
-- If you're using the Consumption only plan, or only the Consumption workload profile in the Consumption + Dedicated plan structure then billing is relevant only to individual container apps and their resource usage. There's no cost associated with the Container Apps environment.
-- If you're using any Dedicated workload profiles in the Consumption + Dedicated plan structure, there's a fixed cost for the Dedicated plan management. This cost is for the entire environment regardless of how many Dedicated workload profiles you're using.
+- If you're using the Consumption only plan, or only the Consumption workload profile in the Dedicated plan then billing is relevant only to individual container apps and their resource usage. There's no cost associated with the Container Apps environment.
+- If you're using any Dedicated workload profiles in the Dedicated plan, there's a fixed cost for the Dedicated plan management. This cost is for the entire environment regardless of how many Dedicated workload profiles you're using.
 
 ## Logs
 

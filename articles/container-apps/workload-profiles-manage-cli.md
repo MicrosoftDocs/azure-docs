@@ -1,17 +1,17 @@
 ---
-title: Create a Consumption + Dedicated workload profiles environment (preview) 
-description: Learn to create an environment with a specialized hardware profile. 
+title: Create a workload profiles environment with the Azure CLI
+description: Learn to create an environment with a specialized hardware profile using the Azure CLI.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.custom: devx-track-azurecli
 ms.topic:  how-to
-ms.date: 04/11/2023
+ms.date: 08/03/2023
 ms.author: cshoe
 zone_pivot_groups: container-apps-vnet-types
 ---
 
-# Manage workload profiles in a Consumption + Dedicated workload profiles plan structure (preview)
+# Manage workload profiles with the Azure CLI
 
 Learn to manage a Container Apps environment with workload profile support.
 
@@ -88,13 +88,13 @@ Use the following commands to create an environment with workload profile suppor
 
       - IP addresses are allocated differently between Consumption and Dedicated profiles:
 
-        | Consumption | Consumption + Dedicated |
+        | Consumption only | Dedicated |
         |---|---|  
         | Every replica requires one IP. Users can't have apps with more than 21 replicas across all apps. Zero downtime deployment requires double the IPs since the old revision is running until the new revision is successfully deployed. | Every instance (VM node) requires a single IP.  You can have up to 21 instances across all workload profiles, and hundreds or more replicas running on these workload profiles. |
 
     ::: zone-end
 
-1. Create *Consumption + Dedicated* environment with workload profile support
+1. Create *Dedicated* environment with workload profile support
 
     ::: zone pivot="aca-vnet-custom"
 

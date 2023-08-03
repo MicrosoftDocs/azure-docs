@@ -11,7 +11,7 @@ ms.author: cachai
 
 # Networking environment in Azure Container Apps
 
-Azure Container Apps run in the context of an [environment](environment.md), which is supported by a virtual network (VNet). By default, your Container App environment is created with a VNet that is automatically generated for you. Generated VNets are inaccessible to you as they're created in Microsoft's tenant. This VNet is publicly accessible over the internet, can only reach internet accessible endpoints, and supports a limited subset of networking capabilities such as ingress IP restrictions and container app level ingress controls.
+Azure Container Apps run in the context of an [environment](environment.md), with its own virtual network (VNet). By default, your Container App environment is created with a VNet that is automatically generated for you. Generated VNets are inaccessible to you as they're created in Microsoft's tenant. This VNet is publicly accessible over the internet, can only reach internet accessible endpoints, and supports a limited subset of networking capabilities such as ingress IP restrictions and container app level ingress controls.
 
 Use the Custom VNet configuration to provide your own VNet if you need more Azure networking features such as:
 
@@ -23,12 +23,12 @@ The features available depend on your environment selection.
 
 ## Environment Selection
 
-There are two environments in Container Apps: the Consumption only environment supports only the [Consumption plan (GA)](./plans.md) and the workload profiles environment that supports both the [Consumption + Dedicated plan structure (preview)](./plans.md). The two environments share many of the same networking characteristics. However, there are some key differences.
+Container Apps features two [environment types](environment.md#types), which share many of the same networking characteristics. However, there some key differences.
 
-| Environment Type | Description |
+| Environment type | Description |
 |-----------|-------------|
-| Workload profiles environment (preview) | Supports user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is /27. <br /> <br /> As workload profiles are currently in preview, the number of supported regions is limited. To learn more, visit the [workload profiles overview](./workload-profiles-overview.md#supported-regions).|
-| Consumption only environment | Doesn't support user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is /23. |
+| Workload profiles | Supports user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is /27. <br /> <br /> As workload profiles are currently in preview, the number of supported regions is limited. To learn more, visit the [workload profiles overview](./workload-profiles-overview.md#supported-regions).|
+| Consumption only | Doesn't support user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is /23. |
 
 ## Accessibility Levels
 
@@ -171,21 +171,21 @@ UDR is only supported on the workload profiles environment. The following applic
 
 Application rules allow or deny traffic based on the application layer. The following outbound firewall application rules are required based on scenario.
 
-| Scenarios | FQDNs | Description | 
+| Scenarios | FQDNs | Description |
 |--|--|--|
-| All scenarios | *mcr.microsoft.com*, **.data.mcr.microsoft.com* | These FQDNs for Microsoft Container Registry (MCR) are used by Azure Container Apps and either these application rules or the network rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. | 
-| Azure Container Registry (ACR) | *Your-ACR-address*, **.blob.windows.net* | These FQDNs are required when using Azure Container Apps with ACR and Azure Firewall. | 
-| Azure Key Vault | *Your-Azure-Key-Vault-address*, *login.microsoft.com* | These FQDNs are required in addition to the service tag required for the network rule for Azure Key Vault. | 
-| Docker Hub Registry | *hub.docker.com*, *registry-1.docker.io*, *production.cloudflare.docker.com* | If you're using [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through the firewall, you need to add these FQDNs to the firewall. | 
+| All scenarios | `mcr.microsoft.com`, `*.data.mcr.microsoft.com` | These FQDNs for Microsoft Container Registry (MCR) are used by Azure Container Apps and either these application rules or the network rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. |
+| Azure Container Registry (ACR) | *Your-ACR-address*, `*.blob.windows.net` | These FQDNs are required when using Azure Container Apps with ACR and Azure Firewall. |
+| Azure Key Vault | *Your-Azure-Key-Vault-address*, `login.microsoft.com` | These FQDNs are required in addition to the service tag required for the network rule for Azure Key Vault. |
+| Docker Hub Registry | `hub.docker.com`, `registry-1.docker.io`, `production.cloudflare.docker.com` | If you're using [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through the firewall, you need to add these FQDNs to the firewall. |
 
 ##### Azure Firewall - Network Rules
 
 Network rules allow or deny traffic based on the network and transport layer. The following outbound firewall network rules are required based on scenario.
 
-| Scenarios | Service Tag | Description | 
+| Scenarios | Service Tag | Description |
 |--|--|--|
 | All scenarios | *MicrosoftContainerRegistry*, *AzureFrontDoorFirstParty*  | These Service Tags for Microsoft Container Registry (MCR) are used by Azure Container Apps and either these network rules or the application rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. |
-| Azure Container Registry (ACR) | *AzureContainerRegistry* | When using ACR with Azure Container Apps, you'll need to configure these application rules used by Azure Container Registry. |
+| Azure Container Registry (ACR) | *AzureContainerRegistry* | When using ACR with Azure Container Apps, you need to configure these application rules used by Azure Container Registry. |
 | Azure Key Vault | *AzureKeyVault*, *AzureActiveDirectory* | These service tags are required in addition to the FQDN for the application rule for Azure Key Vault. |
 
 > [!Note]
@@ -206,7 +206,7 @@ With the workload profiles environment (preview), you can fully secure your ingr
 
 ## <a name="mtls"></a> Environment level network encryption - preview
 
-Azure Container Apps supports environment level network encryption using mutual transport layer security (mTLS). When end-to-end encryption is required, mTLS will encrypt data transmitted between applications within an environment. Applications within a Container Apps environment are automatically authenticated. However, Container Apps currently does not support authorization for access control between applications using the built-in mTLS.
+Azure Container Apps supports environment level network encryption using mutual transport layer security (mTLS). When end-to-end encryption is required, mTLS encrypts data transmitted between applications within an environment. Applications within a Container Apps environment are automatically authenticated. However, Container Apps currently doesn't support authorization for access control between applications using the built-in mTLS.
 
 When your apps are communicating with a client outside of the environment, two-way authentication with mTLS is supported, to learn more see [configure client certificates](client-certificate-authorization.md).
 
@@ -254,9 +254,9 @@ You can enable mTLS in the ARM template for Container Apps environments using th
 
 ## DNS
 
--	**Custom DNS**: If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. When configuring your NSG or Firewall, don't block the `168.63.129.16` address, otherwise, your Container Apps environment won't function.
+- **Custom DNS**: If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. When configuring your NSG or Firewall, don't block the `168.63.129.16` address, otherwise, your Container Apps environment won't function.
 
--	**VNet-scope ingress**: If you plan to use VNet-scope [ingress](ingress-overview.md) in an internal Container Apps environment, configure your domains in one of the following ways:
+- **VNet-scope ingress**: If you plan to use VNet-scope [ingress](ingress-overview.md) in an internal Container Apps environment, configure your domains in one of the following ways:
 
     1. **Non-custom domains**: If you don't plan to use custom domains, create a private DNS zone that resolves the Container Apps environment's default domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server.  If you use Azure Private DNS, create a Private DNS Zone named as the Container App environment’s default domain (`<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io`), with an `A` record. The A record contains the name `*<DNS Suffix>` and the static IP address of the Container Apps environment.
 

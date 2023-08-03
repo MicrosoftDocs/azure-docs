@@ -1,28 +1,28 @@
 ---
-title: Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps
+title: Workload profiles in Azure Container Apps
 description: Learn how to select a workload profile for your container app
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 03/30/2023
+ms.date: 08/03/2023
 ms.author: cshoe
 ms.custom: references_regions
 ---
 
-# Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)
+# Workload profiles in Azure Container Apps
 
-Under the [Consumption + Dedicated plan structure](./plans.md#consumption-dedicated), you can use different workload profiles in your environment. Workload profiles determine the amount of compute and memory resources available to container apps deployed in an environment.
+Workload profiles determine the amount of compute and memory resources available to container apps deployed in an environment.
 
 Profiles are configured to fit the different needs of your applications.
 
 | Profile type  | Description | Potential use |
 |--|--|--|
 | Consumption |  Automatically added to any new environment. | Apps that don't require specific hardware requirements |
-| Dedicated General purpose | Balance of memory and compute resources  |  Apps needing larger amounts of CPU and/or memory |
-| Dedicated Memory optimized | Increased memory resources | Apps needing large in-memory data, in-memory machine learning models, or other high memory requirements |
+| Dedicated (General purpose) | Balance of memory and compute resources  |  Apps that require larger amounts of CPU and/or memory |
+| Dedicated (Memory optimized) | Increased memory resources | Apps that need access to large in-memory data, in-memory machine learning models, or other high memory requirements |
 
-A Consumption workload profile is automatically added to all Consumption + Dedicated plan structure environment you create. You can optionally add dedicated workload profiles of any type or size as you create an environment or after it's created.
+The Consumption workload profile the default profile added to every [environment](environment.md). You can add more profiles to your environment as you create an environment or after it's created.
 
 For each Dedicated workload profile in your environment, you can:
 
@@ -35,7 +35,7 @@ You can configure each of your apps to run on any of the workload profiles defin
 
 ## Supported regions
 
-All regions are supported except for the following regions that are not supported during preview:
+All regions are supported except for the following regions that aren't supported during preview:
 
 - West US 2
 - Central US
@@ -44,7 +44,7 @@ All regions are supported except for the following regions that are not supporte
 
 ## Profile types
 
-There are different types and sizes of workload profiles available by region. By default each Consumption + Dedicated plan structure includes a Consumption profile, but you can also add any of the following profiles:
+There are different types and sizes of workload profiles available by region. By default each Dedicated plan includes a Consumption profile, but you can also add any of the following profiles:
 
 | Display name | Name | Cores | MemoryGiB | Category | Allocation |
 |---|---|---|---|---|---|
@@ -72,7 +72,7 @@ When demand for new apps or more replicas of an existing app exceeds the profile
 
 ## Networking
 
-When using workload profiles in the Consumption + Dedicated plan structure, additional networking features to fully secure your ingress/egress networking traffic such as user defined routes are available. To learn more about what networking features are supported, see [networking concepts](./networking.md), and for steps on how to secure your network with Container Apps, see the [lock down your Container App environment section](./networking.md#lock-down-your-container-app-environment).
+When you use workload profiles in the Dedicated plan, extra networking features to fully secure your ingress/egress networking traffic such as user defined routes are available. To learn more about what networking features are supported, see [networking concepts](./networking.md), and for steps on how to secure your network with Container Apps, see the [lock down your Container App environment section](./networking.md#lock-down-your-container-app-environment).
 
 ## Next steps
 

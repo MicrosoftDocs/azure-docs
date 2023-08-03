@@ -1,16 +1,16 @@
 ---
-title: Create a Consumption + Dedicated workload profiles environment (preview) in the Azure portal
+title: Create a workload profiles environment in the Azure portal
 description: Learn to create an environment with a specialized hardware profile in the Azure portal. 
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  how-to
-ms.date: 04/11/2023
+ms.date: 08/03/2023
 ms.author: cshoe
 ms.custom: references_regions
 ---
 
-# Manage workload profiles in a Consumption + Dedicated workload profiles plan structure (preview) in the Azure portal
+# Manage workload profiles in the Azure portal
 
 Learn to manage Container Apps environments with [workload profile](./workload-profiles-overview.md) support.
 
@@ -38,7 +38,7 @@ Learn to manage Container Apps environments with [workload profile](./workload-p
 
 1. Configure the new environment.
 
-    :::image type="content" source="media/workload-profiles/azure-container-apps-dedicated-environment.png" alt-text="Screenshot of create an Azure Container Apps Consumption + Dedicated plan environment window.":::
+    :::image type="content" source="media/workload-profiles/azure-container-apps-dedicated-environment.png" alt-text="Screenshot of create an Azure Container Apps Dedicated plan environment window.":::
 
     Enter the following values to create your environment.
 

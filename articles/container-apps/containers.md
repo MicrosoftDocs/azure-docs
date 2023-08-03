@@ -131,14 +131,14 @@ The following code is an example of the `containers` array in the [`properties.t
 | `command` | The container's startup command. | Equivalent to Docker's [entrypoint](https://docs.docker.com/engine/reference/builder/) field.  |
 | `args` | Start up command arguments. | Entries in the array are joined together to create a parameter list to pass to the startup command. |
 | `env` | An array of key/value pairs that define environment variables. | Use `secretRef` instead of the `value` field to refer to a secret. |
-| `resources.cpu` | The number of CPUs allocated to the container. | With the Consumption plan, values must adhere to the following rules:<br><br>• greater than zero<br>• less than or equal to 2<br>• can be any decimal number (with a max of two decimal places)<br><br> For example, `1.25` is valid, but `1.555` is invalid.<br> The default is 0.25 CPU per container.<br><br>When you use the Consumption workload profile in the Consumption + Dedicated plan structure, the same rules apply, except CPU must be less than or equal to 4.<br><br>When you use a Dedicated workload profile in the Consumption + Dedicated plan structure, the maximum CPU must be less than or equal to the number of cores available in the profile. |
-| `resources.memory` | The amount of RAM allocated to the container. | With the Consumption plan, values must adhere to the following rules:<br><br>• greater than zero<br>• less than or equal to `4Gi`<br>• can be any decimal number (with a max of two decimal places)<br><br>For example, `1.25Gi` is valid, but `1.555Gi` is invalid.<br>The default is `0.5Gi` per container.<br><br>When you use the Consumption workload profile in the Consumption + Dedicated plan structure, the same rules apply except memory must be less than or equal to `8Gi`.<br><br>When you use a dedicated workload profile in the Consumption + Dedicated plan structure, the maximum memory must be less than or equal to the amount of memory available in the profile. |
+| `resources.cpu` | The number of CPUs allocated to the container. | With the Consumption plan, values must adhere to the following rules:<br><br>• greater than zero<br>• less than or equal to 2<br>• can be any decimal number (with a max of two decimal places)<br><br> For example, `1.25` is valid, but `1.555` is invalid.<br> The default is 0.25 CPU per container.<br><br>When you use the Consumption workload profile in Dedicated plan, the same rules apply, except CPU must be less than or equal to 4.<br><br>When you use a Dedicated workload profile in the Dedicated plan, the maximum CPU must be less than or equal to the number of cores available in the profile. |
+| `resources.memory` | The amount of RAM allocated to the container. | With the Consumption plan, values must adhere to the following rules:<br><br>• greater than zero<br>• less than or equal to `4Gi`<br>• can be any decimal number (with a max of two decimal places)<br><br>For example, `1.25Gi` is valid, but `1.555Gi` is invalid.<br>The default is `0.5Gi` per container.<br><br>When you use the Consumption workload profile in the Dedicated plan, the same rules apply except memory must be less than or equal to `8Gi`.<br><br>When you use a dedicated workload profile in the Dedicated plan, the maximum memory must be less than or equal to the amount of memory available in the profile. |
 | `volumeMounts` | An array of volume mount definitions. | You can define a temporary volume or multiple permanent storage volumes for your container.  For more information about storage volumes, see [Use storage mounts in Azure Container Apps](storage-mounts.md).|
 | `probes`| An array of health probes enabled in the container. | This feature is based on Kubernetes health probes. For more information about probes settings, see [Health probes in Azure Container Apps](health-probes.md).|
 
 <a id="allocations"></a>
 
-In the Consumption plan and the Consumption workload profile in the [Consumption + Dedicated plan structure](plans.md#consumption-dedicated), the total CPU and memory allocations requested for all the containers in a container app must add up to one of the following combinations.
+In the Consumption only plan and the Consumption workload profile in the [Dedicated plan](plans.md#consumption-dedicated), the total CPU and memory allocations requested for all the containers in a container app must add up to one of the following combinations.
 
 | vCPUs (cores) | Memory | Consumption plan | Consumption workload profile |
 |---|---|---|---|
@@ -162,7 +162,7 @@ In the Consumption plan and the Consumption workload profile in the [Consumption
 - The total of the CPU requests in all of your containers must match one of the values in the *vCPUs* column.
 - The total of the memory requests in all your containers must match the memory value in the memory column in the same row of the CPU column.
 
-When you use a Dedicated workload profile in the Consumption + Dedicated plan structure, the total CPU and memory allocations requested for all the containers in a container app must be less than or equal to the cores and memory available in the profile.
+When you use a Dedicated workload profile in the Dedicated plan, the total CPU and memory allocations requested for all the containers in a container app must be less than or equal to the cores and memory available in the profile.
 
 ## Multiple containers
 
@@ -184,7 +184,7 @@ To run multiple containers in a container app, add more than one container in th
 
 You can define one or more [init containers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in a container app. Init containers run before the primary app container and can be used to perform initialization tasks such as downloading data or preparing the environment.
 
-Init containers are defined in the `initContainers` array of the container app template. The containers run in the order they are defined in the array and must complete successfully before the primary app container starts.
+Init containers are defined in the `initContainers` array of the container app template. The containers run in the order they're defined in the array and must complete successfully before the primary app container starts.
 
 ## Container registries
 
