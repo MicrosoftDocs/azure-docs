@@ -23,42 +23,42 @@ Azure Storage Tasks can perform operations on containers and blobs in Azure Stor
 
 ## Anatomy of a storage task
 
-Azure Storage Tasks is a service that manages *storage tasks*. A storage task defines a set of *conditions*, *operations*, and *assignments*. The following table describes each of these components.
+Azure Storage Tasks is a service that manages *storage tasks*. A storage task contains a set of *conditions*, *operations*, and *assignments*. The following table describes each component of a task.
 
 | Component | Description |
 |---|---|
 | Conditions | A *condition* contains a property, a value, and an operator. When the storage task runs, it uses the operator to compare a property with a value to determine whether the condition is met by the target object. For example, a condition might evaluate whether a `creation-time` property of a blob is greater than five days ago. |
 | Operations | An operation is the action a storage task performs on each object that meets the defined set of conditions. Deleting a blob is an example of an operation. |
-| Assignments | An assignment identifies a storage account and a subset of objects in that account that the task will target. An assignment also defines when the task runs and where execution reports are stored. |
+| Assignments | An assignment identifies a storage account and a subset of objects to target in that account. It also specifies when the task runs and where execution reports are stored. |
 
-See any of these articles to learn more about these components:
+See these articles to learn more about each component:
 
 - [Storage task conditions and operations](storage-task-conditions-operations.md)
 - [Storage task assignments](storage-task-assignment.md)
 
 ## How to use a storage task
 
-First, define the conditions and operations of a task. Then, assign that task to one or more storage accounts. Use metrics, charts, and reports to monitor task runs.
+First, define the conditions and operations of a task. Then, assign that task to one or more storage accounts. Monitor task runs by using metrics, charts, and reports.
 
 ### Define a task
 
 Start by creating a task. To provision a task, you must define at least one condition and one operation. After the task is created, you can edit those conditions and operations or add more of them by using a visual designer.
 
-See any of these articles to learn more:
+See these articles to learn how to define a task:
 
 - [Create a storage task](storage-task-create.md)
 - [Define storage task conditions and operations]( storage-task-conditions-operations-edit.md)
 
 ### Assign a task
 
-You can assign a task to any storage accounts that you own. When you create an assignment, you select the storage account, and assign a role to the system-assigned managed identity of the task. That identity is created for you automatically when the task is provisioned. The role that you assign that identity must enable it to perform the operations that are defined in the task.
+You can assign a task to any storage account that you own. As you create an assignment, you'll select a storage account, and assign a role to the system-assigned managed identity of the task. That identity is created for you automatically when the task is provisioned. The role that you assign that identity must enable it to perform the operations that are defined in the task.
 
 A storage task can be assigned to a storage account only by an owner of that account. Therefore, if the task that you define is useful to an owner of another storage account, you must grant that user access to the storage task. Then, that user can assign your task to their storage account. You can grant a user access to your storage task by assigning an Azure role to their user identity.
 
-See any of these articles to learn more:
+See these articles to learn how to assign a task:
 
 - [Storage task authorization](storage-task-authorization.md)
-- [Create and manage a storage task assignment](storage-task-assignment-create.md).
+- [Create and manage a storage task assignment](storage-task-assignment-create.md)
 
 ### Monitor task runs
 
@@ -66,7 +66,7 @@ Tasks run asynchronously according to the schedule that you specify in the assig
 
 The overview page of the task presents metrics and visualizations that summarize how many objects met the task condition, and the result of the operations attempted by the storage task on each object. The charts enable you to quickly drill into a specific execution instance.
 
-See any of these articles to learn more:
+See these articles to learn how to monitor task runs:
 
 - [Storage task runs](storage-task-runs.md)
 - [Monitor Azure Storage Tasks](monitor-storage-tasks.md)
