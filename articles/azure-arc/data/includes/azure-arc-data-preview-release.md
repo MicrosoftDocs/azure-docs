@@ -9,11 +9,11 @@ ms.date: 05/02/2023
 At this time, a test or preview build is not available for the next release.
 -->
 
-Aug 2023 test release is now available.
+Aug 2023 preview release is now available.
 
 |Component|Value|
 |-----------|-----------|
-|Container images registry/repository |`mcr.microsoft.com/arcdata/test`|
+|Container images registry/repository |`mcr.microsoft.com/arcdata/preview`|
 |Container images tag |`v1.22.0_2023-08-08`|
 |**CRD names and version:**| |
 |`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
@@ -38,8 +38,12 @@ Aug 2023 test release is now available.
 
 ### Release notes
 
-- Support for configuring Azure Failover groups between two Arc enabled SQL managed instances using Azure portal. 
+- Arc Enabled SQL Server | Automatic certificate rotation for certificates used for Azure Active Directory authentication is now supported.
+    - For Service Managed Certificates the certificate rotation is automatic.
+    - For Customer Managed Certificates user needs to upload the certificate to App Registration manually.
+- Support for configuring and managing Azure Failover groups between two Arc enabled SQL managed instances using Azure portal. 
 - Upgraded OpenSearch and OpenSearch Dashboards from 2.7.0 to 2.8.0
+
 
 
 

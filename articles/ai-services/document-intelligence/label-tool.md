@@ -283,7 +283,7 @@ With Model Compose, you can compose up to 200 models to a single model ID. When 
 
 Select the Analyze icon from the navigation bar to test your model. Select source *Local file*. Browse for a file and select a file from the sample dataset that you unzipped in the test folder. Then choose the **Run analysis** button to get key/value pairs, text and tables predictions for the form. The tool applies tags in bounding boxes and reports the confidence of each tag.
 
-:::image type="content" source="media/analyze.png" alt-text="Screenshot: analyze-a-custom-form window":::
+:::image type="content" source="media/analyze.png" alt-text="Screenshot of analyze-a-custom-form window":::
 
 > [!TIP]
 > You can also run the Analyze API with a REST call. To learn how to do this, see [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
