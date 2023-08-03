@@ -254,7 +254,8 @@ If your compute instance is behind a VNet, you need to make the following change
 - If your storage account also behind vnet, please follow [Secure Azure storage accounts](../how-to-secure-workspace-vnet.md#secure-azure-storage-accounts) to create private endpoints for both table and blob.
 - Make sure the managed identity of workspace have `Storage Blob Data Contributor`, `Storage Table Data Contributor` roles on the workspace default storage account.
 
-**Note** this only works if your AOAI and other cognitive services allow access from all networks.
+> [!NOTE] 
+> This only works if your AOAI and other cognitive services allow access from all networks.
 
 ### Managed endpoint runtime related
 
