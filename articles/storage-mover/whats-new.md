@@ -19,7 +19,7 @@ The following Azure Storage Mover agent versions are supported:
 
 | Milestone                    | Version number | Release date       | Status                                                            |
 |------------------------------|----------------|--------------------|-------------------------------------------------------------------|
-| Refresh release              | x.x.xxx        | August 5, 2023     | Supported                                                         |
+| Refresh release              | 2.0.287        | August 5, 2023     | Supported                                                         |
 | Refresh release              | 1.1.256        | June 14, 2023      | Supported                                                         |
 | General availability release | 1.0.229        | April 17, 2023     | Supported                                                         |
 | Public preview release       | 0.1.116        | September 15, 2022 | Functioning. No longer supported by Microsoft Azure Support teams.|

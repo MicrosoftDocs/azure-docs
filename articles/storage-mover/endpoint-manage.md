@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 08/01/2023
+ms.date: 08/03/2023
 ms.custom: template-how-to
 ---
 
@@ -107,13 +107,13 @@ The following steps describe the process of creating a source endpoint.
 
       :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Screenshot of the Storage Mover resource page within the Azure portal showing the location of the Storage Endpoints link." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
 
-      On the **Storage endpoints** page, the default **Storage endpoints** view displays the names of any provisioned source endpoints and a summary of their associated data. You can select **Target endpoints** to view the corresponding destination endpoints. You can also filter the results further by selecting either the **Protocol version** or **Host** filter and selecting the appropriate option.
+      On the **Storage endpoints** page, the default **Storage endpoints** view displays the names of any provisioned source endpoints and a summary of their associated properties. You can select **Target endpoints** to view the corresponding destination endpoints. You can also filter the results further by selecting either the **Protocol version** or **Host** filter and selecting the appropriate option.
 
       :::image type="content" source="media/endpoint-manage/endpoint-filter.png" alt-text="Screenshot of the Storage Endpoints page within the Azure portal showing the location of the endpoint filters." lightbox="media/endpoint-manage/endpoint-filter-lrg.png":::
 
    1. Select **Create endpoint** to expand the **Endpoint type** menu. Select **Create source endpoint** to open the **Create source endpoint** pane as shown in the following image.
 
-      :::image type="content" source="media/endpoint-manage/endpoint-create.png" alt-text="Screenshot of the Endpoint Overview page highlighting the location of the Create Endpoint link" lightbox="media/endpoint-manage/endpoint-create-lrg.png":::
+      :::image type="content" source="media/endpoint-manage/endpoint-source-create.png" alt-text="Screenshot of the Endpoint Overview page highlighting the location of the Create Endpoint link" lightbox="media/endpoint-manage/endpoint-source-create-lrg.png":::
 
    1. Within the **Create source endpoint** pane, provide values for the required **Host name or IP** and **Share name** values. The host name or IP address value must be either an IPv4 address, or fully-qualified doamin or host name. You may also add an optional **Description** value of up to 1024 characters in length. Next, select **Protocol version** to expand the protocol selection menu and select the appropriate option for your source target.
 
@@ -129,7 +129,7 @@ The following steps describe the process of creating a source endpoint.
 
       :::image type="content" source="media/endpoint-manage/secrets.png" alt-text="Screenshot of the Create Endpoint pane showing the location of the Secrets options."  lightbox="media/endpoint-manage/secrets-lrg.png":::
 
-      Your new endpoint is deployed and now appears within your list of endpoints as show in the following example image.
+      Your new endpoint is deployed and now appears within the list of source endpoints as shown in the following sample image.
 
       :::image type="content" source="media/endpoint-manage/endpoint-added.png" alt-text="Screenshot of the Endpoint Overview page with the newly created endpoint displayed."  lightbox="media/endpoint-manage/endpoint-added-lrg.png":::
 
@@ -258,7 +258,7 @@ Target endpoints identify locations to which your data is migrated.
 
       :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Screenshot of the Storage Mover resource page within the Azure portal showing the location of the Storage Endpoints links." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
 
-      On the **Storage endpoints** page, the default **Storage endpoints** view displays the names of any provisioned source endpoints and a summary of their associated data. Select **Target endpoints** to view the existing destination endpoints. You can filter the results further by selecting the **Storage account** filter and the appropriate option.
+      On the **Storage endpoints** page, the default **Storage endpoints** view displays the names of any provisioned source endpoints and a summary of their associated properties. Select **Target endpoints** to view the existing destination endpoints. You can filter the results further by selecting the **Storage account** filter and the appropriate option.
 
       :::image type="content" source="media/endpoint-manage/endpoint-target-filter.png" alt-text="Screenshot of the Storage Endpoints page within the Azure portal showing the location of the target endpoint filters." lightbox="media/endpoint-manage/endpoint-target-filter-lrg.png":::
 
@@ -266,23 +266,17 @@ Target endpoints identify locations to which your data is migrated.
 
       :::image type="content" source="media/endpoint-manage/endpoint-target-create.png" alt-text="Screenshot of the Endpoint Overview page highlighting the location of the Create Endpoint list" lightbox="media/endpoint-manage/endpoint-target-create-lrg.png":::
 
-   1. Within the **Create Endpoint** pane, provide values for the required **Host name or IP** and **Share name** values. You may also add an optional **Description** value of up to 1024 characters in length. Next, select **Protocol version** to expand the protocol selection menu and select the appropriate option for your source target.
+   1. Within the **Create target endpoint** pane, select your subscription and destination storage account from within the **Subscription** and **Storage account** lists, respectively. Next, select the appropriate **Target type** option corresponding to your target endpoint.
 
-      Storage mover agents use secrets stored within Key Vault to connect to SMB endpoints. When you create an SMB source endpoint, you need to provide both the name of the Key Vault containing the secrets and the names of the secrets themselves.
+      [!INCLUDE [protocol-endpoint-agent](includes/protocol-endpoint-agent.md)]
 
-      First, select **Key vault** to expand the menu and select the name of the Key Vault containing your secrets. You can supply a value with which to filter the list of Key Vaults if necessary.
-
-      :::image type="content" source="media/endpoint-manage/key-vault.png" alt-text="Screenshot of the Create Source pane showing the drop-down list containg a resource group's Key Vaults":::
-
-      After you've selected the appropriate Key Vault, you can supply values for the required **Select secret for username** and **Select secret for password** fields. These values can be supplied by providing the URI to the secrets, or by selecting the secrets from a list. Select the **Select secret** button to enable the menu and select the username and password values. Alternatively, you can enable the **Enter secret from URI** option and supply the appropriate URI to the username and password secret.
-
-      The values for host and share name are concatenated to form the full migration source path. The path value is displayed in the **Full source path** field. Copy the path provided and verify that you're able to access it before committing your changes. Finally, when you've confirmed that all values are correct and that you can access the source path, select **Create** to add your new endpoint.
+      Finally, you may add an optional **Description** value for your taregt of up to 1024 characters in length.
 
       :::image type="content" source="media/endpoint-manage/secrets.png" alt-text="Screenshot of the Create Endpoint pane showing the location of the Secrets options."  lightbox="media/endpoint-manage/secrets-lrg.png":::
 
-      Your new endpoint is deployed and now appears within your list of endpoints as show in the following example image.
+   Your new endpoint is deployed and now appears within your list of endpoints as show in the following example image.
 
-      :::image type="content" source="media/endpoint-manage/endpoint-added.png" alt-text="Screenshot of the Endpoint Overview page with the newly created endpoint displayed."  lightbox="media/endpoint-manage/endpoint-added-lrg.png":::
+   :::image type="content" source="media/endpoint-manage/endpoint-added.png" alt-text="Screenshot of the Endpoint Overview page with the newly created endpoint displayed."  lightbox="media/endpoint-manage/endpoint-added-lrg.png":::
 
 ### [PowerShell](#tab/powershell)
 
