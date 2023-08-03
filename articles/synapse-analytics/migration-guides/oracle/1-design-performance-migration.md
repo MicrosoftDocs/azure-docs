@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
 ms.reviewer: wiassaf
-ms.date: 08/11/2022
+ms.date: 02/13/2023
 ---
 
 # Design and performance for Oracle migrations
@@ -234,9 +234,12 @@ Oracle-specific features can often be replaced by Azure Synapse features. Howeve
 
   - **Clustered columnstore indexes**: when no index options are specified for a table, Azure Synapse by default creates a clustered [columnstore index](/sql/relational-databases/indexes/columnstore-indexes-design-guidance). Clustered columnstore tables offer the highest level of data compression, best overall query performance, and generally outperform clustered index or heap tables. A clustered columnstore index is usually the best choice for large tables. When you [create a table](/sql/t-sql/statements/create-table-azure-sql-data-warehouse), choose clustered columnstore if you're unsure how to index your table. However, there are some scenarios where clustered columnstore indexes aren't the best option:
 
+    - Tables with pre-sort data on a sort key(s) could benefit from the segment elimination enabled by *ordered* clustered columnstore indexes.
     - Tables with varchar(max), nvarchar(max), or varbinary(max) data types, because a clustered columnstore index doesn't support those data types. Instead, consider using a heap or clustered index.
     - Tables with transient data, because columnstore tables might be less efficient than heap or temporary tables.
     - Small tables with less than 100 million rows. Instead, consider using heap tables.
+    
+  - **Ordered clustered columnstore indexes**: By enabling efficient segment elimination, ordered clustered columnstore indexes in Azure Synapse dedicated SQL pools provide much faster performance by skipping large amounts of ordered data that don't match the query predicate. Loading data into an ordered CCI table can take longer than a non-ordered CCI table because of the data sorting operation, however queries can run faster afterwards with ordered CCI. For more information on ordered clustered columnstore indexes, see [Performance tuning with ordered clustered columnstore index](../../sql-data-warehouse/performance-tuning-ordered-cci.md).
 
   - **Clustered and nonclustered indexes**: clustered indexes can outperform clustered columnstore indexes when a single row needs to be quickly retrieved. For queries where a single row lookup, or just a few row lookups, must perform at extreme speed, consider using a cluster index or nonclustered secondary index. The disadvantage of using a clustered index is that only queries with a highly selective filter on the clustered index column will benefit. To improve filtering on other columns, you can add a nonclustered index to the other columns. However, each index that you add to a table uses more space and increases the processing time to load.
   
@@ -258,7 +261,7 @@ Oracle-specific features can often be replaced by Azure Synapse features. Howeve
 
   - A system event, such as startup or shutdown of the Oracle database.
 
-  - A user event, such as sign in or sign out.
+  - A user event, such as sign-in or signout.
 
   You can get a list of the triggers defined in an Oracle database by querying the `ALL_TRIGGERS`, `DBA_TRIGGERS`, or `USER_TRIGGERS` views. The following screenshot shows a `DBA_TRIGGERS` query in Oracle SQL Developer.
 
@@ -297,7 +300,7 @@ Most Oracle data types have a direct equivalent in Azure Synapse. The following 
 | LONG RAW | Not supported. Map to VARBINARY(MAX). |
 | NCHAR | NCHAR |
 | NVARCHAR2 | NVARCHAR |
-| NUMBER | NUMBER |
+| NUMBER | FLOAT |
 | NCLOB | Not directly supported. Replace with NVARCHAR(MAX). |
 | NUMERIC | NUMERIC |
 | ORD media data types | Not supported |

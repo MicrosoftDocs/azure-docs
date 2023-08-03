@@ -2,11 +2,10 @@
 title: 'Azure Premium Storage: Design for high performance'
 description: Design high-performance applications using Azure premium SSD managed disks. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: conceptual
 ms.date: 06/29/2021
 ms.author: rogarana
-ms.subservice: disks
 ---
 
 # Azure premium storage: design for high performance
@@ -139,7 +138,7 @@ Throughout this section, refer to the application requirements checklist that yo
 
 ### Optimize IOPS, throughput, and latency at a glance
 
-The table below summarizes performance factors and the steps necessary to optimize IOPS, throughput, and latency. The sections following this summary will describe each factor is much more depth.
+The table below summarizes performance factors and the steps necessary to optimize IOPS, throughput, and latency. The sections following this summary will describe each factor in much more depth.
 
 For more information on VM sizes and on the IOPS, throughput, and latency available for each type of VM, see [Sizes for virtual machines in Azure](sizes.md).
 

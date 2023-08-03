@@ -8,7 +8,7 @@ adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-java-uiex
 ms.devlang: java
-ms.custom: mode-api, vscode-azure-extension-update-complete
+ms.custom: mode-api, vscode-azure-extension-update-complete, devx-track-extended-java
 ---
 
 # Quickstart: Create a Java function in Azure using Visual Studio Code
@@ -55,7 +55,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | **Select the build tool for Java project** | Choose `Maven`. |
     |**Provide a function name**| Enter `HttpExample`.|
     |**Authorization level**| Choose `Anonymous`, which lets anyone call your function endpoint. For more information about the authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
-    |**Select how you would like to open your project**| Choose `Add to workspace`.|
+    |**Select how you would like to open your project**| Choose `Open in current window`.|
 
 1. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. For more information about the files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=java#generated-project-files).
 

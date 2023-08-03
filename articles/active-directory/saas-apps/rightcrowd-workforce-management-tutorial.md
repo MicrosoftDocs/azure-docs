@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with RightCrowd Workforce Management | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with RightCrowd Workforce Management'
 description: Learn how to configure single sign-on between Azure Active Directory and RightCrowd Workforce Management.
 services: active-directory
 author: jeevansd

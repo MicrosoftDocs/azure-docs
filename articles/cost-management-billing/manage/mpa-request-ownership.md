@@ -6,7 +6,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/29/2022
+ms.date: 03/29/2023
 ms.author: banders
 ---
 
@@ -33,6 +33,8 @@ There are three options to transfer products:
 - Transfer only subscriptions
 - Transfer only reservations
 - Transfer both subscriptions and reservations
+
+[!INCLUDE [cost-management-billing-subscription-b2b-b2c-transfer-note](../../../includes/cost-management-billing-subscription-b2b-b2c-transfer-note.md)]
 
 ## Prerequisites
 

@@ -1,6 +1,7 @@
 ---
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 11/09/2022
 ms.author: cshoe

@@ -17,7 +17,7 @@ IoT Edge can be installed on Kubernetes by using [KubeVirt](https://www.cncf.io/
 
 ## Architecture
 
-[![IoT Edge on Kubernetes with KubeVirt](./media/how-to-install-iot-edge-kubernetes/iotedge-kubevirt.png)](./media/how-to-install-iot-edge-kubernetes/iotedge-kubevirt.png#lightbox)
+:::image type="content" source="./media/how-to-install-iot-edge-kubernetes/iotedge-kubevirt.png" alt-text="Screenshot showing I o T Edge on Kubernetes with KubeVirt." lightbox="./media/how-to-install-iot-edge-kubernetes/iotedge-kubevirt.png":::
 
 | Note | Description |
 |-|-|

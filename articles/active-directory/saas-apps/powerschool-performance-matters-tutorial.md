@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Powerschool Performance Matters | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Powerschool Performance Matters'
 description: Learn how to configure single sign-on between Azure Active Directory and Powerschool Performance Matters.
 services: active-directory
 author: jeevansd

@@ -3,7 +3,7 @@ title: Stream data from Microsoft Purview Information Protection to Microsoft Se
 description: Stream data from Microsoft Purview Information Protection (formerly Microsoft Information Protection) to Microsoft Sentinel so you can analyze and report on data from the Microsoft Purview labeling clients and scanners.
 author: limwainstein
 ms.topic: how-to
-ms.date: 01/02/2023
+ms.date: 05/31/2023
 ms.author: lwainstein
 #Customer intent: As a security operator, I want to get specific labeling data from Microsoft Purview, so I can track, analyze, report on the data and use it for compliance purposes.
 ---
@@ -31,11 +31,15 @@ With the connector, you can:
 
 ### Azure Information Protection connector vs. Microsoft Purview Information Protection connector
 
-This connector replaces the Azure Information Protection (AIP) data connector. The Azure Information Protection (AIP) data connector uses the AIP audit logs (public preview) feature. As of **March 31, 2023**, the AIP analytics and audit logs public preview will be retired, and moving forward will be using the [Microsoft 365 auditing solution](/microsoft-365/compliance/auditing-solutions-overview).
+This connector replaces the Azure Information Protection (AIP) data connector. The Azure Information Protection (AIP) data connector uses the AIP audit logs (public preview) feature. 
 
-For more information: 
-- See [Removed and retired services](/azure/information-protection/removed-sunset-services#azure-information-protection-analytics).
-- Learn how to [disconnect the AIP connector](#disconnect-the-azure-information-protection-connector).
+> [!IMPORTANT]
+>
+> As of **March 31, 2023**, the AIP analytics and audit logs public preview will be retired, and moving forward will be using the [Microsoft 365 auditing solution](/microsoft-365/compliance/auditing-solutions-overview).
+>
+> For more information: 
+> - See [Removed and retired services](/azure/information-protection/removed-sunset-services#azure-information-protection-analytics).
+> - Learn how to [disconnect the AIP connector](#disconnect-the-azure-information-protection-connector).
 
 When you enable the Microsoft Purview Information Protection connector, audit logs stream into the standardized 
 `MicrosoftPurviewInformationProtection` table. Data is gathered through the [Office Management API](/office/office-365-management-api/office-365-management-activity-api-schema), which uses a structured schema. The new standardized schema is adjusted to enhance the deprecated schema used by AIP, with more fields and easier access to parameters.
@@ -48,7 +52,7 @@ Before you begin, verify that you have:
 
 - The Microsoft Sentinel solution enabled. 
 - A defined Microsoft Sentinel workspace.
-- A valid license to [Microsoft Purview Information Protection](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance).
+- A valid license to M365 E3, M365 A3, Microsoft Business Basic or any other Audit eligible license. Read more about [auditing solutions in Microsoft Purview](/microsoft-365/compliance/audit-solutions-overview).
 - [Enabled Sensitivity labels for Office](/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide#use-the-microsoft-purview-compliance-portal-to-enable-support-for-sensitivity-labels&preserve-view=true) and [enabled auditing](/microsoft-365/compliance/turn-audit-log-search-on-or-off?view=o365-worldwide#use-the-compliance-center-to-turn-on-auditing&preserve-view=true).
 - The Global Administrator or Security Administrator role on the workspace.
 
@@ -76,10 +80,12 @@ To disconnect the Azure Information Protection connector:
 1. In the **Data connectors** blade, in the search bar, type *Azure Information Protection*. 
 1. Select **Azure Information Protection**.
 1. Below the connector description, select **Open connector page**.
-1. Under **Configuration**, select **Disconnect**.
+1. Under **Configuration**, select **Connect Azure Information Protection logs**.
+1. Clear the selection for the workspace from which you want to disconnect the connector, and select **OK**.
 
-## Known Issues And Limitations
+## Known issues and limitations
 
+- Sensitivity label events collected through the Office Management API do not populate the Label Names. Customers can use watchlists or enrichments defined in KQL as the example below. 
 - The Office Management API doesn't obtain a Downgrade Label with the names of the labels before and after the downgrade. To retrieve this information, extract the `labelId` of each label and enrich the results. 
 
     Here's an example KQL query:

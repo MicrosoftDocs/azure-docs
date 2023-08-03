@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 03/27/2019
 ms.author: wiassaf
-ms.reviewer: wiassaf
 ms.custom: "seo-lt-2019, azure-synapse, devx-track-csharp"
 ---
 
@@ -26,7 +25,7 @@ The status of your dedicated SQL pool (formerly SQL DW) will be shown here. If t
 
 ![Service Available](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-For more information, see [Resource Health](/azure/service-health/resource-health-overview).
+For more information, see [Resource Health](../../service-health/resource-health-overview.md).
 
 ## Check for paused or scaling operation
 

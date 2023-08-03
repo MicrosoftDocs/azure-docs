@@ -102,7 +102,7 @@ sections:
       - question: |
          Should I create a dedicated account to register the connector with Azure AD Application Proxy?
         answer: |
-              There's no reason to. Any global admin or application administrator account will work. The credentials entered during installation aren't used after the registration process. Instead, a certificate is issued to the connector, which is used for authentication from that point on.
+              There's no reason to. Any Global Administrator or application administrator account will work. The credentials entered during installation aren't used after the registration process. Instead, a certificate is issued to the connector, which is used for authentication from that point on.
 
       - question: |
          How can I monitor the performance of the Azure AD Application Proxy connector?
@@ -128,7 +128,7 @@ sections:
           ```
           
       - question: |
-         Why is the connector still showing in Azure AD portal after I uninstalled the connector from the Server?
+         Why is the connector still showing in Azure portal after I uninstalled the connector from the Server?
         answer: |
            When a connector is running, it remains active as it connects to the service. Uninstalled /Unused connectors are tagged as inactive and are removed after 10 days of inactivity from the portal.
            There is no way to remove the Inactive connector manually from the Azure portal.

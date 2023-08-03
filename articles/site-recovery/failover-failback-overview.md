@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 06/30/2021
 ms.author: ankitadutta
 author: ankitaduttaMSFT
+ms.service: site-recovery
 ---
 # About on-premises disaster recovery failover/failback - Classic
 

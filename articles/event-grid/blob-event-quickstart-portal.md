@@ -81,7 +81,7 @@ Before subscribing to the events for the Blob storage, let's create the endpoint
     > [!IMPORTANT]
     > Keep the Azure Event Grid Viewer window open so that you can see events as they are posted. 
 
-[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
+[!INCLUDE [register-provider.md](./includes/register-provider.md)]
 
 ## Subscribe to the Blob storage
 
@@ -143,5 +143,5 @@ Now that you know how to create custom topics and event subscriptions, learn mor
 
 - [About Event Grid](overview.md)
 - [Route Blob storage events to a custom web endpoint](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
-- [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
-- [Stream big data into a data warehouse](event-grid-event-hubs-integration.md)
+- [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-logic-app.md)
+- [Stream big data into a data warehouse](event-hubs-integration.md)

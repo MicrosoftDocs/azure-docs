@@ -26,9 +26,9 @@ Many modern applications have a single-page app (SPA) front end that is written 
 
 The recommended way of supporting SPAs is [OAuth 2.0 Authorization code flow (with PKCE)](./authorization-code-flow.md).
 
-Some frameworks, like [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), only support the implicit grant flow. In these cases, Azure Active Directory B2C (Azure AD B2C) supports the OAuth 2.0 authorization implicit grant flow. The flow is described in [section 4.2 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). In implicit flow, the app receives tokens directly from the Azure AD B2C authorize endpoint, without any server-to-server exchange. All authentication logic and session handling are done entirely in the JavaScript client with either a page redirect or a pop-up box.
+Some frameworks, like [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib), only support the implicit grant flow. In these cases, Azure Active Directory B2C (Azure AD B2C) supports the OAuth 2.0 authorization implicit grant flow. The flow is described in [section 4.2 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). In implicit flow, the app receives tokens directly from the Azure AD B2C authorize endpoint, without any server-to-server exchange. All authentication logic and session handling are done entirely in the JavaScript client with either a page redirect or a pop-up box.
 
-Azure AD B2C extends the standard OAuth 2.0 implicit flow to more than simple authentication and authorization. Azure AD B2C introduces the [policy parameter](user-flow-overview.md). With the policy parameter, you can use OAuth 2.0 to add policies to your app, such as sign-up, sign-in, and profile management user flows. In the example HTTP requests in this article, we use **{tenant}.onmicrosoft.com** for illustration. Replace `{tenant}` with [the name of your tenant](tenant-management.md#get-your-tenant-name) if you've one. Also, you need to have [created a user flow](tutorial-create-user-flows.md?pivots=b2c-user-flow).
+Azure AD B2C extends the standard OAuth 2.0 implicit flow to more than simple authentication and authorization. Azure AD B2C introduces the [policy parameter](user-flow-overview.md). With the policy parameter, you can use OAuth 2.0 to add policies to your app, such as sign-up, sign-in, and profile management user flows. In the example HTTP requests in this article, we use **{tenant}.onmicrosoft.com** for illustration. Replace `{tenant}` with [the name of your tenant]( tenant-management-read-tenant-name.md#get-your-tenant-name) if you've one. Also, you need to have [created a user flow](tutorial-create-user-flows.md?pivots=b2c-user-flow).
 
 We use the following figure to illustrate implicit sign-in flow. Each step is described in detail later in the article.
 
@@ -260,4 +260,4 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 ## Next steps
 
-See the code sample: [Sign-in with Azure AD B2C in a JavaScript SPA](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-core-samples/VanillaJSTestApp/app/b2c).
+See the code sample: [Sign-in with Azure AD B2C in a JavaScript SPA](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-browser-samples/VanillaJSTestApp2.0/app/b2c).

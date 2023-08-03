@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Jamf Pro | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Jamf Pro'
 description: Learn how to configure single sign-on between Azure Active Directory and Jamf Pro.
 services: active-directory
 author: jeevansd

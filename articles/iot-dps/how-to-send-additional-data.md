@@ -1,12 +1,13 @@
 ---
-title: How to transfer a payload between device and Azure Device Provisioning Service
+title: How to transfer a payload between devices and DPS
+titleSuffix: Azure IoT Hub Device Provisioning Service
 description: This document describes how to transfer a payload between device and Device Provisioning Service (DPS)
 author: kgremban
+
 ms.author: kgremban
 ms.date: 09/21/2022
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-dps
-services: iot-dps
 ---
 
 # How to transfer payloads between devices and DPS
@@ -86,7 +87,7 @@ Below is an example snippet from `/etc/aziot/config.toml` where the `payload` pr
  
 ```
 
-The payload file (in this case `/home/aziot/payload/json`) can contain any valid JSON such as:
+The payload file (in this case `/home/aziot/payload.json`) can contain any valid JSON such as:
 
 
 ```json

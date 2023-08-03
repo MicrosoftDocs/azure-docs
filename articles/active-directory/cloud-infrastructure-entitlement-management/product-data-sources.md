@@ -1,6 +1,6 @@
 ---
-title: View and configure settings for data collection from your authorization system in Permissions Management
-description: How to view and configure settings for collecting data from your authorization system in Permissions Management.
+title: View and configure settings for data collection
+description: How to view and configure settings for collecting data from your authorization system.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
+ms.date: 06/19/2023
 ms.author: jfields
 ---
 
@@ -99,4 +99,4 @@ You can use the **Data Collectors** dashboard in Permissions Management to view 
 
 ## Next steps
 
-- For information about viewing an inventory of created resources and licensing information for your authorization system, see [Display an inventory of  created resources and licenses for your authorization system](product-data-inventory.md)
+- To view an inventory of created resources and licensing information for your authorization system, see [Display an inventory of  created resources and licenses for your authorization system](product-data-inventory.md)

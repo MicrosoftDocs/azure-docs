@@ -370,7 +370,7 @@ Azure Cosmos DB for MongoDB supports the following database commands:
 | `Text Index` | No |
 | `2dsphere` | Yes |
 | `2d Index` | No |
-| `Hashed Index` | Yes |
+| `Hashed Index` | No |
 
 ### Index properties
 

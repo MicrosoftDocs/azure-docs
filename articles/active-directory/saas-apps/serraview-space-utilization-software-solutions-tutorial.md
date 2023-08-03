@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Serraview Space Utilization Software Solutions | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Serraview Space Utilization Software Solutions'
 description: Learn how to configure single sign-on between Azure Active Directory and Serraview Space Utilization Software Solutions.
 services: active-directory
 author: jeevansd

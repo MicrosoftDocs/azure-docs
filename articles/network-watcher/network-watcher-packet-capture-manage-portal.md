@@ -1,14 +1,13 @@
 ---
-title: Manage packet captures in VMs with Network Watcher - Azure portal
-titleSuffix: Azure Network Watcher
+title: Manage packet captures in VMs with Azure Network Watcher - Azure portal
 description: Learn how to manage packet captures in virtual machines with the packet capture feature of Network Watcher using the Azure portal.
 services: network-watcher
-author: shijaiswal
+author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.workload:  infrastructure-services
+ms.workload: infrastructure-services
 ms.date: 01/04/2023
-ms.author: shijaiswal
+ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 ---
 

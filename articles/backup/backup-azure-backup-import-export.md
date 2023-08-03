@@ -4,7 +4,10 @@ description: Learn how you can use Azure Backup to send data off the network by 
 ms.reviewer: saurse
 ms.topic: how-to
 ms.date: 12/05/2022
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
+
 # Offline seeding for MARS using customer-owned disks with Azure Import/Export
 
 This article describes how to send the initial full backup data from MARS to Azure using customer-owned disks instead of sending it via the network. Learn about [sending the initial full backup data from DPM/MABS to Azure using customer-owned disks](backup-azure-backup-server-import-export.md).
@@ -252,7 +255,7 @@ The amount of time it takes to process an Azure import job varies. Process time 
 
 To monitor the status of your import job from the Azure portal, go to the **Azure Data Box** pane and select the job.
 
-For more information on the status of the import jobs, see [Monitor Azure Import/Export Jobs](/azure/import-export/storage-import-export-view-drive-status?tabs=azure-portal-preview).
+For more information on the status of the import jobs, see [Monitor Azure Import/Export Jobs](../import-export/storage-import-export-view-drive-status.md?tabs=azure-portal-preview).
 
 ### Finish the workflow
 

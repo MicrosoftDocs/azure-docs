@@ -11,6 +11,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 11/22/2021
 ms.author: cwerner
+ms.reviewer: jmprieur
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
 # Customer intent: As an application developer, I want to know how to set up authentication in a web application built using Node.js and MSAL Node.
 ---
@@ -31,6 +32,8 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 ## Register and download your quickstart application
 
 #### Step 1: Register your application
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.

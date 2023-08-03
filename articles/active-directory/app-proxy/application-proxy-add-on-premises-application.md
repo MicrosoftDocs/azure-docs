@@ -139,12 +139,13 @@ Public DNS records for Azure AD Application Proxy endpoints are chained CNAME re
 
 ## Install and register a connector
 
-To use Application Proxy, install a connector on each Windows server you're using with the Application Proxy service. The connector is an agent that manages the outbound connection from the on-premises application servers to Application Proxy in Azure AD. You can install a connector on servers that also have other authentication agents installed such as Azure AD Connect.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
+To use Application Proxy, install a connector on each Windows server you're using with the Application Proxy service. The connector is an agent that manages the outbound connection from the on-premises application servers to Application Proxy in Azure AD. You can install a connector on servers that also have other authentication agents installed such as Azure AD Connect.
 
 To install the connector:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an application administrator of the directory that uses Application Proxy. For example, if the tenant domain is `contoso.com`, the admin should be `admin@contoso.com` or any other admin alias on that domain.
+1. Sign in to the [Azure portal](https://portal.azure.com) as an application administrator of the directory that uses Application Proxy. For example, if the tenant domain is `contoso.com`, the admin should be `admin@contoso.com` or any other admin alias on that domain.
 1. Select your username in the upper-right corner. Verify you're signed in to a directory that uses Application Proxy. If you need to change directories, select **Switch directory** and choose a directory that uses Application Proxy.
 1. In left navigation panel, select **Azure Active Directory**.
 1. Under **Manage**, select **Application proxy**.
@@ -203,7 +204,7 @@ To confirm the connector installed and registered correctly:
 
 Now that you've prepared your environment and installed a connector, you're ready to add on-premises applications to Azure AD.
 
-1. Sign in as an administrator in the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 2. In the left navigation panel, select **Azure Active Directory**.
 3. Select **Enterprise applications**, and then select **New application**.
 4. Select **Add an on-premises application** button which appears about halfway down the page in the **On-premises applications** section. Alternatively, you can select **Create your own application** at the top of the page and then select **Configure Application Proxy for secure remote access to an on-premises application**.
@@ -212,6 +213,7 @@ Now that you've prepared your environment and installed a connector, you're read
     | Field  | Description |
     | :--------------------- | :----------------------------------------------------------- |
     | **Name** | The name of the application that will appear on My Apps and in the Azure portal. |
+    | **Maintenance Mode** | Select if you would like to enable maintenance mode and temporarily disable access for all users to the application. |
     | **Internal URL** | The URL for accessing the application from inside your private network. You can provide a specific path on the backend server to publish, while the rest of the server is unpublished. In this way, you can publish different sites on the same server as different apps, and give each one its own name and access rules.<br><br>If you publish a path, make sure that it includes all the necessary images, scripts, and style sheets for your application. For example, if your app is at `https://yourapp/app` and uses images located at `https://yourapp/media`, then you should publish `https://yourapp/` as the path. This internal URL doesn't have to be the landing page your users see. For more information, see [Set a custom home page for published apps](application-proxy-configure-custom-home-page.md). |
     | **External URL** | The address for users to access the app from outside your network. If you don't want to use the default Application Proxy domain, read about [custom domains in Azure AD Application Proxy](./application-proxy-configure-custom-domain.md). |
     | **Pre Authentication** | How Application Proxy verifies users before giving them access to your application.<br><br>**Azure Active Directory** - Application Proxy redirects users to sign in with Azure AD, which authenticates their permissions for the directory and application. We recommend keeping this option as the default so that you can take advantage of Azure AD security features like Conditional Access and Multi-Factor Authentication. **Azure Active Directory** is required for monitoring the application with Microsoft Defender for Cloud Apps.<br><br>**Passthrough** - Users don't have to authenticate against Azure AD to access the application. You can still set up authentication requirements on the backend. |
@@ -222,11 +224,11 @@ Now that you've prepared your environment and installed a connector, you're read
     | Field | Description |
     | :------------------------------ | :----------------------------------------------------------- |
     | **Backend Application Timeout** | Set this value to **Long** only if your application is slow to authenticate and connect. At default, the backend application timeout has a length of 85 seconds. When set to long, the backend timeout is increased to 180 seconds. |
-    | **Use HTTP-Only Cookie** | Set this value to **Yes** to have Application Proxy cookies include the HTTPOnly flag in the HTTP response header. If using Remote Desktop Services, set this value to **No**. |
-    | **Use Secure Cookie**| Set this value to **Yes** to transmit cookies over a secure channel such as an encrypted HTTPS request.
-    | **Use Persistent Cookie**| Keep this value set to **No**. Only use this setting for applications that can't share cookies between processes. For more information about cookie settings, see [Cookie settings for accessing on-premises applications in Azure Active Directory](./application-proxy-configure-cookie-settings.md).
-    | **Translate URLs in Headers** | Keep this value as **Yes** unless your application required the original host header in the authentication request. |
-    | **Translate URLs in Application Body** | Keep this value as **No** unless you have hardcoded HTML links to other on-premises applications and don't use custom domains. For more information, see [Link translation with Application Proxy](./application-proxy-configure-hard-coded-link-translation.md).<br><br>Set this value to **Yes** if you plan to monitor this application with Microsoft Defender for Cloud Apps. For more information, see [Configure real-time application access monitoring with Microsoft Defender for Cloud Apps and Azure Active Directory](./application-proxy-integrate-with-microsoft-cloud-application-security.md). |
+    | **Use HTTP-Only Cookie** | Select to have Application Proxy cookies include the HTTPOnly flag in the HTTP response header. If using Remote Desktop Services, keep this unselected. |
+    | **Use Persistent Cookie**| Keep this unselected. Only use this setting for applications that can't share cookies between processes. For more information about cookie settings, see [Cookie settings for accessing on-premises applications in Azure Active Directory](./application-proxy-configure-cookie-settings.md).
+    | **Translate URLs in Headers** | Keep this selected unless your application required the original host header in the authentication request. |
+    | **Translate URLs in Application Body** | Keep this unselected unless you have hardcoded HTML links to other on-premises applications and don't use custom domains. For more information, see [Link translation with Application Proxy](./application-proxy-configure-hard-coded-link-translation.md).<br><br>Select if you plan to monitor this application with Microsoft Defender for Cloud Apps. For more information, see [Configure real-time application access monitoring with Microsoft Defender for Cloud Apps and Azure Active Directory](./application-proxy-integrate-with-microsoft-cloud-application-security.md). |
+    | **Validate Backend SSL Certificate** | Select to enable backend SSL certificate validation for the application. |
 
 7. Select **Add**.
 

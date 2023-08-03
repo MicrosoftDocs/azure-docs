@@ -4,7 +4,7 @@ description: Learn to create and configure the networking needed to deploy your 
 ms.topic: tutorial
 ms.custom: contperf-fy22q1
 ms.service: azure-vmware
-ms.date: 05/31/2022
+ms.date: 01/13/2023
 
 ---
 
@@ -84,6 +84,9 @@ The vNet with the provided address range and GatewaySubnet is created in your su
 ### Create a vNet manually
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+    
+   >[!NOTE]
+   >If you need access to the Azure US Gov portal, go to https://portal.azure.us/
 
 1. Navigate to the resource group you created in the [create a private cloud tutorial](tutorial-create-private-cloud.md) and select **+ Add** to define a new resource. 
 
@@ -129,7 +132,7 @@ Now that you've created a virtual network, you'll create a virtual network gatew
    | **Name** | Enter a unique name for the virtual network gateway. |
    | **Region** | Select the geographical location of the virtual network gateway. |
    | **Gateway type** | Select **ExpressRoute**. |
-   | **SKU** | Leave the default value: **standard**. |
+   | **SKU** | Select the gateway SKU appropriate for your workload. <br> For Azure NetApp Files datastores, select UltraPerformance or ErGw3Az. |
    | **Virtual network** | Select the virtual network you created previously. If you don't see the virtual network, make sure the gateway's region matches the region of your virtual network. |
    | **Gateway subnet address range** | This value is populated when you select the virtual network. Don't change the default value. |
    | **Public IP address** | Select **Create new**. |

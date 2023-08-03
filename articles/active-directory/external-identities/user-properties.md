@@ -1,17 +1,19 @@
 ---
-title: Properties of a B2B guest user - Azure Active Directory | Microsoft Docs
-description: Azure Active Directory B2B invited guest user properties and states before and after invitation redemption
+title: Properties of a B2B guest user
+description: Azure Active Directory B2B collaboration guest user properties and states before and after invitation redemption. 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/12/2022
-ms.author: mimart
-author: msmimart
+ms.date: 05/18/2023
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 ms.custom: "it-pro, seo-update-azuread-jan, seoapril2019"
 ms.collection: M365-identity-device-management
+
+# Customer intent: As a tenant administrator, I want to learn about B2B collaboration guest user properties and states before and after invitation redemption. 
 ---
 
 # Properties of an Azure Active Directory B2B collaboration user
@@ -27,6 +29,10 @@ The following table describes B2B collaboration users based on how they authenti
 - **Internal guest**: Before Azure AD B2B collaboration was available, it was common to collaborate with distributors, suppliers, vendors, and others by setting up internal credentials for them and designating them as guests by setting the user object UserType to Guest. If you have internal guest users like these, you can invite them to use B2B collaboration instead so they can use their own credentials, allowing their external identity provider to manage authentication and their account lifecycle.
 - **Internal member**: These users are generally considered employees of your organization. The user authenticates internally via Azure AD, and the user object created in the resource Azure AD directory has a UserType of Member.
 
+The user type you choose has the following limitations for apps or services (but aren't limited to):
+    
+[!INCLUDE [user-type-workload-limitations-include](../includes/user-type-workload-limitations-include.md)]
+
 > [!IMPORTANT]
 > The [email one-time passcode](one-time-passcode.md) feature is now turned on by default for all new tenants and for any existing tenants where you haven't explicitly turned it off. When this feature is turned off, the fallback authentication method is to prompt invitees to create a Microsoft account.
 
@@ -36,7 +42,7 @@ Now, let's see what an Azure AD B2B collaboration user looks like in Azure AD.
 
 ### Before invitation redemption
 
-B2B collaboration user accounts are the result of inviting guest users to collaborate by using the guest users' own credentials. When the invitation is initially sent to the guest user, an account is created in your tenant. This account doesn’t have any credentials associated with it because authentication is performed by the guest user's identity provider. The **Identities** property for the guest user account in your directory is set to the host's organization domain until the guest redeems their invitation. In the portal, the invited user’s profile will show an **External user state** of **PendingAcceptance**. Querying for `externalUserState` using the Microsoft Graph API will return `Pending Acceptance`.
+B2B collaboration user accounts are the result of inviting guest users to collaborate by using the guest users' own credentials. When the invitation is initially sent to the guest user, an account is created in your tenant. This account doesn’t have any credentials associated with it because authentication is performed by the guest user's identity provider. The **Identities** property for the guest user account in your directory is set to the host's organization domain until the guest redeems their invitation. The user sending the invitation is added as a default value for the **Sponsor** (preview) attribute on the guest user account. In the portal, the invited user’s profile will show an **External user state** of **PendingAcceptance**. Querying for `externalUserState` using the Microsoft Graph API will return `Pending Acceptance`.
 
 ![Screenshot of user profile before redemption.](media/user-properties/before-redemption.png)
 
@@ -71,7 +77,7 @@ This property indicates the relationship of the user to the host tenancy. This p
 
 ### Identities
 
-This property indicates the user’s primary identity provider. A user can have several identity providers, which can be viewed by selecting the link next to **Identities** in the user’s profile or by querying the `onPremisesSyncEnabled` property via the Microsoft Graph API.
+This property indicates the user’s primary identity provider. A user can have several identity providers, which can be viewed by selecting the link next to **Identities** in the user’s profile or by querying the `identities` property via the Microsoft Graph API.
 
 > [!NOTE]
 > Identities and UserType are independent properties. A value of Identities does not imply a particular value for UserType
@@ -84,7 +90,6 @@ Microsoft account |  This user is homed in a Microsoft account and authenticates
 google.com | This user has a Gmail account and has signed up by using self-service to the other organization.
 facebook.com | This user has a Facebook account and has signed up by using self-service to the other organization.
 mail | This user has signed up by using Azure AD Email one-time passcode (OTP).
-phone | This user has an email address that doesn't match a verified Azure AD domain or a SAML/WS-Fed domain, and isn't a Gmail address or Microsoft account.
 {issuer URI} | This user is homed in an external organization that doesn't use Azure Active Directory as their identity provider, but instead uses a SAML/WS-Fed-based identity provider. The issuer URI is shown when the Identities field is clicked.
 
 ### Directory synced
@@ -128,6 +133,6 @@ If a guest user accepts your invitation and they subsequently change their email
 
 ## Next steps
 
-* [What is Azure AD B2B collaboration?](what-is-b2b.md)
+* [B2B user claims mapping](claims-mapping.md)
 * [B2B collaboration user tokens](user-token.md)
-* [B2B collaboration user claims mapping](claims-mapping.md)
+* [B2B collaboration for hybrid organizations](hybrid-organizations.md)

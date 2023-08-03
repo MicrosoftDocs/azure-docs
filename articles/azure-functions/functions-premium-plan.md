@@ -5,7 +5,7 @@ author: nzthiago
 ms.topic: conceptual
 ms.date: 08/08/2022
 ms.author: thalme
-ms.custom: references_regions, fasttrack-edit, devx-track-azurecli
+ms.custom: references_regions, fasttrack-edit, devx-track-azurepowershell
 ---
 
 # Azure Functions Premium plan
@@ -243,12 +243,12 @@ See the complete regional availability of Functions on the [Azure web site](http
 
 |Region| Windows | Linux |
 |--| -- | -- |
-|Australia Central| 100 | Not Available |
+|Australia Central| 100 | 20 |
 |Australia Central 2| 100 | Not Available |
 |Australia East| 100 | 40 |
 |Australia Southeast | 100 | 20 |
 |Brazil South| 100 | 20 |
-|Canada Central| 100 | 20 |
+|Canada Central| 100 | 100 |
 |Central India| 100 | 20 |
 |Central US| 100 | 100 |
 |China East 2| 100 | 20 |
@@ -256,7 +256,7 @@ See the complete regional availability of Functions on the [Azure web site](http
 |East Asia| 100 | 20 |
 |East US | 100 | 100 |
 |East US 2| 100 | 100 |
-|France Central| 100 | 20 |
+|France Central| 100 | 60 |
 |Germany West Central| 100 | 20 |
 |Japan East| 100 | 20 |
 |Japan West| 100 | 20 |
@@ -264,16 +264,17 @@ See the complete regional availability of Functions on the [Azure web site](http
 |Korea Central| 100 | 20 |
 |Korea South| Not Available | 20 |
 |North Central US| 100 | 20 |
-|North Europe| 100 | 80 |
+|North Europe| 100 | 100 |
 |Norway East| 100 | 20 |
 |South Africa North| 100 | 20 |
-|South Central US| 100 | 60 |
+|South Africa West| 20 | 20 |
+|South Central US| 100 | 100 |
 |South India | 100 | Not Available |
 |Southeast Asia| 100 | 20 |
 |Switzerland North| 100 | 20 |
 |Switzerland West| 100 | 20 |
 |UAE North| 100 | 20 |
-|UK South| 100 | 60 |
+|UK South| 100 | 100 |
 |UK West| 100 | 20 |
 |USGov Arizona| 100 | 20 |
 |USGov Texas| 100 | Not Available |
@@ -281,7 +282,7 @@ See the complete regional availability of Functions on the [Azure web site](http
 |West Central US| 100 | 20 |
 |West Europe| 100 | 100 |
 |West India| 100 | 20 |
-|West US| 100 | 40 |
+|West US| 100 | 100 |
 |West US 2| 100 | 20 |
 |West US 3| 100 | 20 |
 

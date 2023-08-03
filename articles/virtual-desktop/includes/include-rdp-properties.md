@@ -2,15 +2,15 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 11/15/2022
+ms.date: 06/23/2023
 ---
 
 ## Connection information
 
 | Display name | RDP property | Azure Virtual Desktop | Remote Desktop Services | Description | Values | Default value |
 |--|--|:-:|:-:|--|--|:-:|
-| Azure AD authentication | enablerdsaadauth:i:*value* | ✔ | ✔ | Determines whether the client will use Azure AD to authenticate to the remote PC if it's available.<br /><br />Note: Available in preview for Windows and web clients only currently. This replaces the property `targetisaadjoined`. | - 0: RDP won't use Azure AD authentication, even if the remote PC supports it.<br />- 1: RDP will use Azure AD authentication if the remote PC supports it. | 0 |
-| Azure AD authentication | targetisaadjoined:i:*value* | ✔ | ✗ | Allows connections to Azure AD-joined session hosts using username and password.<br /><br />Note: only applicable to non-Windows clients and local Windows devices that aren't joined to Azure AD. | - 0: connections to Azure AD-joined session hosts will succeed for Windows devices that [meet the requirements](/azure/virtual-desktop/deploy-azure-ad-joined-vm#connect-using-the-windows-desktop-client), but other connections will fail.<br />- 1: connections to Azure AD-joined hosts will succeed but are restricted to entering user name and password credentials when connecting to session hosts. | 0 |
+| Azure AD single sign-on | enablerdsaadauth:i:*value* | ✔ | ✔ | Determines whether the client will use Azure AD to authenticate to the remote PC. In Azure Virtual Desktop, this provides a single sign-on experience.<br /><br />This feature is currently only available in preview for the Windows, web, and macOS clients only . This property replaces the property `targetisaadjoined`. | - 0: Connections won't use Azure AD authentication, even if the remote PC supports it.<br />- 1: Connections will use Azure AD authentication if the remote PC supports it. | 0 |
+| Azure AD authentication | targetisaadjoined:i:*value* | ✔ | ✗ | Allows connections to Azure AD-joined session hosts using username and password.<br /><br />Note: only applicable to non-Windows clients and local Windows devices that aren't joined to Azure AD. | - 0: Connections to Azure AD-joined session hosts will succeed for Windows devices that [meet the requirements](/azure/virtual-desktop/deploy-azure-ad-joined-vm#connect-using-the-windows-desktop-client), but other connections will fail.<br />- 1: Connections to Azure AD-joined hosts will succeed but are restricted to entering user name and password credentials when connecting to session hosts. | 0 |
 | Credential Security Support Provider | enablecredsspsupport:i:*value* | ✔ | ✔ | Determines whether the client will use the Credential Security Support Provider (CredSSP) for authentication if it's available. | - 0: RDP won't use CredSSP, even if the operating system supports CredSSP.<br />- 1: RDP will use CredSSP if the operating system supports CredSSP. | 1 |
 | Alternate shell | alternate shell:s:*value* | ✔ | ✔ | Specifies a program to be started automatically in the remote session as the shell instead of explorer. | Valid path to an executable file, such as `C:\ProgramFiles\Office\word.exe`. | None |
 | KDC proxy name | kdcproxyname:s:*value* | ✔ | ✗ | Specifies the fully qualified domain name of a KDC proxy. | Valid path to a KDC proxy server, such as `kdc.contoso.com`. | None |
@@ -63,7 +63,7 @@ ms.date: 11/15/2022
 
 | Display name | RDP property | Azure Virtual Desktop | Remote Desktop Services | Description | Values | Default value |
 |--|--|:-:|:-:|--|--|:-:|
-| Muitiple displays | use multimon:i:*value* | ✔ | ✔ | Determines whether the remote session will use one or multiple displays from the local computer. | - 0: Don't enable multiple display support.<br />- 1: Enable multiple display support. | 0 |
+| Multiple displays | use multimon:i:*value* | ✔ | ✔ | Determines whether the remote session will use one or multiple displays from the local computer. | - 0: Don't enable multiple display support.<br />- 1: Enable multiple display support. | 0 |
 | Selected monitors | selectedmonitors:s:*value* | ✔ | ✔ | Specifies which local displays to use from the remote session. The selected displays must be contiguous. Requires `use multimon` to be set to **1**.<br /><br />Only available on the Windows Inbox (MSTSC) and Windows Desktop (MSRDC) clients. | Comma separated list of machine-specific display IDs. You can retrieve IDs by calling `mstsc.exe /l`. The first ID listed will be set as the primary display in the session. | All displays. |
 | Maximize to current displays | maximizetocurrentdisplays:i:*value* | ✔ | ✔ | Determines which display the remote session goes full screen on when maximizing. Requires `use multimon` to be set to **1**.<br /><br />Only available on the Windows Desktop (MSRDC) client. | - 0: Session goes full screen on the displays initially selected when maximizing.<br />- 1: Session dynamically goes full screen on the displays touched by the session window when maximizing. | 0 |
 | Multi to single display switch | singlemoninwindowedmode:i:*value* | ✔ | ✔ | Determines whether a multi display remote session automatically switches to single display when exiting full screen. Requires `use multimon` to be set to **1**.<br /><br />Only available on the Windows Desktop (MSRDC) client. | - 0: Session retains all displays when exiting full screen.<br />- 1: Session switches to single display when exiting full screen. | 0 |

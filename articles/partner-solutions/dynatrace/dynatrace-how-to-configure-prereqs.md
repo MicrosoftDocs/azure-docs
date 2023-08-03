@@ -2,9 +2,8 @@
 title: Configure pre-deployment to use Azure Native Dynatrace Service
 description: This article describes how to complete the prerequisites for Dynatrace on the Azure portal. 
 ms.topic: conceptual
-author: flang-msft
-ms.author: franlanglois
-ms.date: 10/12/2022
+
+ms.date: 02/02/2023
 
 ---
 
@@ -41,3 +40,10 @@ To use the Security Assertion Markup Language (SAML) based single sign-on (SSO) 
 ## Next steps
 
 - [Quickstart: Create a new Dynatrace environment](dynatrace-create.md)
+- Get started with Azure Native Dynatrace Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Dynatrace.Observability%2Fmonitors)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview)

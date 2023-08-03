@@ -16,7 +16,7 @@ ms.date: 06/20/2022
 
 [!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
-The following document includes links to examples showing how to connect and query with Azure Database for MySQL Single Server. This guide also includes TLS recommendations and libraries that you can use to connect to the server in supported languages below.
+The following document includes links to examples showing how to connect and query with Azure Database for MySQL single server. This guide also includes TLS recommendations and libraries that you can use to connect to the server in supported languages below.
 
 ## Quickstarts
 
@@ -42,7 +42,7 @@ Transport Layer Security (TLS) is used by all drivers that Microsoft supplies or
 
 Azure Database for MySQL uses the world's most popular community edition of MySQL database. Hence, it is compatible with a wide variety of programming languages and drivers. The goal is to support the three most recent versions MySQL drivers, and efforts with authors from the open source community to constantly improve the functionality and usability of MySQL drivers continue.
 
-See what [drivers](concepts-compatibility.md) are compatible with Azure Database for MySQL Single server.
+See what [drivers](concepts-compatibility.md) are compatible with Azure Database for MySQL single server.
 
 ## Next steps
 

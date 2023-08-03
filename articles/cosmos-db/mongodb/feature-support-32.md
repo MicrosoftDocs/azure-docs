@@ -340,7 +340,7 @@ Unique indexes are available for all Azure Cosmos DB accounts using Azure Cosmos
 
 ## Time-to-live (TTL)
 
-Azure Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. TTL can be enabled for collections by going to the [Azure portal](https://portal.azure.com).
+Azure Cosmos DB only supports a time-to-live (TTL) at the collection level (_ts) in version 3.2. Upgrade to versions 3.6+ to take advantage of other forms of [TTL](time-to-live.md).  
 
 ## User and role management
 

@@ -1,8 +1,8 @@
 ---
-title: Organize subscriptions into management groups and assign roles to users for Microsoft Defender for Cloud
+title: Organize subscriptions into management groups and assign roles to users
 description: Learn how to organize your Azure subscriptions into management groups in Microsoft Defender for Cloud and assign roles to users in your organization
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 01/24/2023
 ms.custom: subject-rbac-steps
 ---
 
@@ -16,7 +16,7 @@ For visibility into the security posture of all subscriptions linked to an Azure
 
 ### Overview of management groups
 
-Use management groups to efficiently manage access, policies, and reporting on groups of subscriptions, as well as effectively manage the entire Azure estate by performing actions on the root management group. You can organize subscriptions into management groups and apply your governance policies to the management groups. All subscriptions within a management group automatically inherit the policies applied to the management group. 
+Use management groups to efficiently manage access, policies, and reporting on groups of subscriptions, and effectively manage the entire Azure estate by performing actions on the root management group. You can organize subscriptions into management groups and apply your governance policies to the management groups. All subscriptions within a management group automatically inherit the policies applied to the management group. 
 
 Each Azure AD tenant is given a single top-level management group called the root management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This group allows global policies and Azure role assignments to be applied at the directory level. 
 
@@ -31,7 +31,7 @@ For a detailed overview of management groups, see the [Organize your resources w
 
 ### View and create management groups in the Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for and select **Management Groups**.
 
@@ -47,9 +47,9 @@ For a detailed overview of management groups, see the [Organize your resources w
 
 You can add subscriptions to the management group that you created.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Search for and select **Management Groups**
+1. Search for and select **Management Groups**.
 
 1. Select the management group for your subscription.
 
@@ -66,9 +66,9 @@ You can add subscriptions to the management group that you created.
 
 ### Assign Azure roles to users through the Azure portal: 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Search for and select **Management Groups**
+1. Search for and select **Management Groups**.
 
 1.  Select the relevant management group.
 
@@ -87,7 +87,7 @@ You can add subscriptions to the management group that you created.
 
 ### Assign Azure roles to users with PowerShell: 
 
-1. Install [Azure PowerShell](/powershell/azure/install-az-ps).
+1. Install [Azure PowerShell](/powershell/azure/install-azure-powershell).
 2. Run the following commands: 
 
     ```azurepowershell

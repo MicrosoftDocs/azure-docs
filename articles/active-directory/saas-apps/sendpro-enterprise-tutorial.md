@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SendPro Enterprise | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SendPro Enterprise'
 description: Learn how to configure single sign-on between Azure Active Directory and SendPro Enterprise.
 services: active-directory
 author: jeevansd

@@ -1,15 +1,15 @@
 ---
-title: Windows smart card sign-in using Azure Active Directory certificate-based authentication - Azure Active Directory
+title: Windows smart card sign-in using Azure Active Directory certificate-based authentication
 description: Learn how to enable Windows smart card sign-in using Azure Active Directory certificate-based authentication
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/10/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
-author: vimrang
+author: justinha
 manager: amycolannino
 ms.reviewer: vimrang
 
@@ -54,6 +54,9 @@ Some customers may maintain different and sometimes may have non-routable UPN va
 >[!NOTE]
 >In all cases, a user supplied username login hint (X509UserNameHint) will be sent if provided. For more information, see [User Name Hint](/windows/security/identity-protection/smart-cards/smart-card-group-policy-and-registry-settings#allow-user-name-hint)
 
+>[!IMPORTANT]
+> If a user supplies a username login hint (X509UserNameHint), the value provided **MUST** be in UPN Format.
+
 For more information about the Windows flow, see [Certificate Requirements and Enumeration (Windows)](/windows/security/identity-protection/smart-cards/smart-card-certificate-requirements-and-enumeration).
 
 ## Supported Windows platforms
@@ -73,7 +76,11 @@ The Windows smart card sign-in works with the latest preview build of Windows 11
 |&#x2705; | &#x2705; | &#x2705; |&#x2705; |
 
 >[!NOTE] 
->Azure AD CBA supports both certificates on-device as well as external storage like security keys on Windows.
+>Azure AD CBA supports both certificates on-device as well as external storage like security keys on Windows. 
+
+## Windows Out of the box experience (OOBE)
+
+Windows OOBE should allow the user to login using an external smart card reader and authenticate against Azure AD CBA. Windows OOBE by default should have the necessary smart card drivers or the smart card drivers previously added to the Windows image before OOBE setup.
 
 ## Restrictions and caveats  
 

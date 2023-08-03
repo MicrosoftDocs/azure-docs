@@ -1,11 +1,11 @@
 ---
 title: Redirect URI (reply URL) restrictions
 description: A description of the restrictions and limitations on redirect URI (reply URL) format enforced by the Microsoft identity platform.
-author: madansr7
+author: henrymbuguakiarie
 manager: CelesteDG
-ms.author: saumadan
+ms.author: henrymbugua
 ms.date: 08/25/2022
-ms.reviewer: marsma
+ms.reviewer: madansr7
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -34,6 +34,8 @@ The Azure Active Directory (Azure AD) application model specifies these restrict
 
     * `https://contoso.com/abc` is returned as `https://contoso.com/abc`
     * `https://contoso.com/abc/response-oidc` is returned as `https://contoso.com/abc/response-oidc`
+
+* Redirect URIs do not support special characters - `! $ ' ( ) , ;`
 
 ## Maximum number of redirect URIs
 
@@ -116,7 +118,7 @@ To add a redirect URI that uses the `http` scheme with the `127.0.0.1` loopback 
 
 ## Restrictions on wildcards in redirect URIs
 
-Wildcard URIs like `https://*.contoso.com` may seem convenient, but should be avoided due to security implications. According to the OAuth 2.0 specification ([section 3.1.2 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)), a redirection endpoint URI must be an absolute URI.
+Wildcard URIs like `https://*.contoso.com` may seem convenient, but should be avoided due to security implications. According to the OAuth 2.0 specification ([section 3.1.2 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)), a redirection endpoint URI must be an absolute URI. As such, when a configured wildcard URI matches a redirect URI, query strings and fragments in the redirect URI are stripped.
 
 Wildcard URIs are currently unsupported in app registrations configured to sign in personal Microsoft accounts and work or school accounts. Wildcard URIs are allowed, however, for apps that are configured to sign in only work or school accounts in an organization's Azure AD tenant.
 
@@ -131,7 +133,7 @@ If you have several subdomains and your scenario requires that, upon successful 
 In this approach:
 
 1. Create a "shared" redirect URI per application to process the security tokens you receive from the authorization endpoint.
-1. Your application can send application-specific parameters (such as subdomain URL where the user originated or anything like branding information) in the state parameter. When using a state parameter, guard against CSRF protection as specified in [section 10.12 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-10.12)).
+1. Your application can send application-specific parameters (such as subdomain URL where the user originated or anything like branding information) in the state parameter. When using a state parameter, guard against CSRF protection as specified in [section 10.12 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-10.12).
 1. The application-specific parameters will include all the information needed for the application to render the correct experience for the user, that is, construct the appropriate application state. The Azure AD authorization endpoint strips HTML from the state parameter so make sure you are not passing HTML content in this parameter.
 1. When Azure AD sends a response to the "shared" redirect URI, it will send the state parameter back to the application.
 1. The application can then use the value in the state parameter to determine which URL to further send the user to. Make sure you validate for CSRF protection.

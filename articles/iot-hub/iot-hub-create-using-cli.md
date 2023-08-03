@@ -1,12 +1,13 @@
 ---
-title: Create an IoT Hub using Azure CLI | Microsoft Docs
+title: Create an IoT hub using the Azure CLI
 description: Learn how to use the Azure CLI commands to create a resource group and then create an IoT hub in the resource group. Also learn how to remove the hub.
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 08/23/2018
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.custom: devx-track-azurecli
+ms.topic: how-to
+ms.date: 08/23/2018
 ---
 
 # Create an IoT hub using the Azure CLI
@@ -15,7 +16,7 @@ ms.author: kgremban
 
 This article shows you how to create an IoT hub using Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 When you create an IoT hub, you must create it in a resource group. Either use an existing resource group, or run the following [command to create a resource group](/cli/azure/resource):
 
@@ -30,7 +31,7 @@ When you create an IoT hub, you must create it in a resource group. Either use a
    > az account list-locations -o table
    > ```
 
-## Create an IoT Hub
+## Create an IoT hub
 
 Use the Azure CLI to create a resource group and then add an IoT hub.
 
@@ -73,7 +74,7 @@ The result is a JSON printout which includes your keys and other information.
 
 Alternatively, there are several options to register a device using different kinds of authorization. To explore the options, see [Examples](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create-examples) on the **az iot hub device-identity** reference page.
 
-## Remove an IoT Hub
+## Remove an IoT hub
 
 There are various commands to [delete an individual resource](/cli/azure/resource), such as an IoT hub.
 

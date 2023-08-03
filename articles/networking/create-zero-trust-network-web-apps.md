@@ -57,7 +57,8 @@ Other Azure services that will be deployed and configured and not explicitly lis
 First up, you create a resource group to store all of the created resources. 
 
 > [!IMPORTANT]
-> You may use your own resource group name and desired region. For this how-to, we will deploy all resources to the same resource group, **myResourceGroup**, deploy all resources to the **East US** Azure region. Use these and your Azure subscription as the default settings throughout the article.
+> You may use your own resource group name and desired region. For this how-to, we will deploy all resources to the same resource group, **myResourceGroup**, and deploy all resources to the **East US** Azure region. Use these and your Azure subscription as the default settings throughout the article.
+>
 > Creating all your resources in the same resource group is good practice for keeping track of resources used, and makes it easier to clean up a demonstration or non-production environment. 
 
 1. From the **Azure portal**, search for and select **Resource groups**.
@@ -83,14 +84,11 @@ In this step, you'll deploy [Azure Key Vault](../key-vault/general/overview.md) 
 1. From the Azure portal menu, or from the **Home** page, select **Create a resource**.
 1. In the **Search** box, enter **Key Vault** and select **Key Vault** from the results.
 1. In the **Key Vault** creation page, select **Create**.
-1. In the **Create key vault** page, enter or select these settings:
+1. In the **Create key vault** page, enter or select these settings along with default values:
     
     | Setting | Value |
     | --- | --- |
-    | Subscription | Select a subscription. |
-    | Resource Group | Select the **myResourceGroup** resource group. |
     | Name | Enter a unique name for your key vault. This example will use **myKeyVaultZT**. |
-    | Location | Select **East US**. |
     | Pricing tier | Select **Standard**. |
     | Days to retain deleted vaults | Enter **7**. |
     | Purge Protection | Select **Disable purge protection (allow key vault and objects to be purged during retention period)**. |
@@ -110,7 +108,7 @@ In this task, you'll upload your trusted wildcard certificate for your public do
 1. Navigate to the previously created key vault, **myKeyVaultZT**.
 1. In the **Key Vault** page, select **Certificates** under **Objects**.
 1. On the **Certificates** page, select **+ Generate/Import**
-1. On the **Create a certificate** page, specify the following settings:
+1. On the **Create a certificate** page, enter or select these settings along with default values:
     
     | Setting | Value |
     | --- | --- |
@@ -122,19 +120,12 @@ In this task, you'll upload your trusted wildcard certificate for your public do
 1. Select **Create**.
 
 ### Deploy a user-assigned managed identity
+
 You'll create a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) and give that identity access to the Azure Key Vault. The application gateway and Azure Firewall will then use this identity to retrieve the certificate from the vault. 
 
 1. In the **Search** box, enter and select **Managed identities**.
 1. Select **+ Create**.
-1. On the **Basics** tab, enter the following settings:
-    
-    | Setting | Value |
-    | --- | --- |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **myResourceGroup**. |
-    | Region | Select **East US** |
-    | Name | Select **myManagedIDappGW** |
-
+1. On the **Basics** tab, select **myManagedIDappGW** for **Name**.
 1. Select **Review + Create** and select **Create**.
 
 #### Assign access to Key Vault for the managed identity
@@ -153,18 +144,9 @@ You'll deploy a hub and spoke architecture for your web application. The hub net
 1. Select **+ Create a resource** in the upper left-hand corner of the portal.
 1. In the search box, enter **Virtual Network**. Select **Virtual Network** in the search results.
 1. In the **Virtual Network** page, select **Create**.
-1. In **Create virtual network**, enter or select the following settings on the **Basics** tab:
-    
-    | Setting | Value |
-    | --- | --- |
-    | **Project details** |   |
-    | Subscription | Select your subscription. |
-    | Resource group | **myResourceGroup** |
-    | **Instance details** |   |
-    | Name | Enter **myHubVNet**. |
-    | Region | Select **(US) East US**. |
+1. In **Create virtual network**, enter **Name** of **hub-vnet** on the **Basics** tab.
 
-1. Select the **IP Addresses** tab, or select the **Next: IP Addresses** button at the bottom of the page and enter in the following settings:
+1. Select the **IP Addresses** tab, or select the **Next: IP Addresses** button at the bottom of the page and enter these settings along with default values:
 
     | Setting   | Value  |
     |--|-|
@@ -179,12 +161,8 @@ You'll deploy a hub and spoke architecture for your web application. The hub net
     
     | Setting            | Value      |
     |--|-|
-    | **Project details** |   |
-    | Subscription | Select your subscription. |
-    | Resource group | **myResourceGroup** |
     | **Instance details** |   |
-    | Name | **mySpokeVNet** |
-    | Region | **(US) East US** |
+    | Name | **spoke-vnet** |
     | IPv4 address space | **172.16.0.0/16**  |
     | Select **+ Add subnet** | |
     | Subnet name        |  Enter **AppGwSubnet**. |
@@ -194,10 +172,10 @@ You'll deploy a hub and spoke architecture for your web application. The hub net
     | Select **Add**.    | |
 
 1. Select the **Review + create** > **Create**.
-1. Navigate to the **myHubVNet** that you previously created.
+1. Navigate to the **hub-vnet** that you previously created.
 1. From the **Hub virtual network** page, select **Peerings** from under **Settings**.
 1. In the **Peerings** page, select **+ Add**.
-1. In the **Add peering** page, enter theIn This virtual network section, specify the following settings:
+1. In the **Add peering** page, enter or select these settings along with default values:
     
     | Setting            | Value                      |
     |--| - |
@@ -211,7 +189,7 @@ You'll deploy a hub and spoke architecture for your web application. The hub net
     | Virtual network deployment model | **Resource manager** |
     | I know my resource ID | Keep default of **Unselected** |
     | Subscription | Select your subscription  |
-    | Virtual network | **mySpokeVNet** |
+    | Virtual network | **spoke-vnet** |
     | Traffic to remote virtual network | **Allow** |
     | Traffic forwarded from remote virtual network |  **Allow** |
     | Virtual network gateway or Route Server | **None** |
@@ -225,13 +203,7 @@ To securely access the web app, a fully qualified DNS name must be configured in
 1. Select **+ Create a resource** in the upper left-hand corner of the portal.
 1. In the Search box, enter **DNS Zone**.
 1. From the results list, select **DNS Zone** > **Create**.
-1. On the **Basics** tab, enter the following settings:
-    
-    | Setting            | Value                      |
-    |--| - |
-    | Subscription | Select your subscription |
-    | Resource Group | **myResourceGroup** |
-    | Name | Enter your domain name |    
+1. On the **Basics** tab, enter your domain name.  
 1. Select **Review + Create** > **Create**.
 
 >[!NOTE]
@@ -242,18 +214,15 @@ To securely access the web app, a fully qualified DNS name must be configured in
 You'll deploy [Azure App Service](../app-service/overview.md).for hosting the secured web application.
 1. In the search bar, type **App Services**. Under Services, select **App Services**.
 1. In the **App Services** page, select **+ Create**.
-1. In the **Create Web App** page, enter or select the following on the **Basics** tab:
+1. In the **Create Web App** page, enter or select these settings along with default values on the **Basics** tab:
 
     | Setting            | Value                      |
     |--| - |
-    | **Project Details** |  |
-    | Resource group | Select **myResourceGroup**. |
     | **Instance Details** |  |
     | Name | Enter a globally unique name for your web app. For example, **myWebAppZT1**. |
     | Publish | Select **Code** |
     | Runtime stack | select **.NET 6 (LTS)**. |
     | Operating System | Select **Windows** |
-    | Region | Select **East US**. |
     | **Pricing Plans** |  |
     | Windows Plan (East US) | Select **Create new** and enter **zt-asp** for the name. |
     | Pricing plan | Leave default of **Standard S1** or select another plan from the menu. |
@@ -263,13 +232,12 @@ You'll deploy [Azure App Service](../app-service/overview.md).for hosting the se
 1. From the **App Service** page, select **Networking** from under **Settings**.
 1. In the **Inbound Traffic** section, select **Private endpoints**.
 1. In the **Private endpoint connection** page, select **+ Add** > **Express**.
-1. In the **Add Private Endpoint** pane, enter or select the following settings:
+1. In the **Add Private Endpoint** pane, enter or select these settings along with default values:
 
     | Setting | Value            |
     |--| - |
     | Name | **pe-appservice** |
-    | Subscription | Select your subscription |
-    | Virtual network | **mySpokeVNet** |
+    | Virtual network | **spoke-vnet** |
     | Subnet | **App1** |
 
 1. Select **OK**.
@@ -280,15 +248,12 @@ You'll deploy an application gateway and the edge ingress solution for the app t
 
 1. In the search bar, type **application gateways**. Under Services, select **Application gateways**.
 1. In the **Load balancing | Application gateway** page, select **+ Create**.
-1. On the **Basics** tab, enter these settings for the following application gateway settings:
+1. On the **Basics** tab, enter or select these settings along with default values:
 
     | Setting            | Value                      |
     |--| - |
-    | **Project details** |   |
-    | Resource group | Select **myResourceGroup**.|
     | **Instance details** |  |
     | Application gateway name | Enter **myAppGateway**. |
-    | Region |  Select **East US**. |
     | Tier | Select **WAF v2**. |
     | Enable autoscaling | Select **No**. |
     | Instance count |  Enter **1**. |
@@ -296,7 +261,7 @@ You'll deploy an application gateway and the edge ingress solution for the app t
     | HTTP2 | Select **Disabled**. |
     | WAF Policy | Select **Create new**. <br/> Enter **myWAFpolicy** for the WAF policy name and select **Ok**.</br>|
     | **Configure virtual network** |  |    
-    | Virtual network| Select **mySpokeVNet**. |
+    | Virtual network| Select **spoke-vnet**. |
     | Subnet | Select **AppGwSubnet (172.16.0.0/24)**. |
 
 1. Select **Next: Frontends >** and configure the Frontends with the following settings:
@@ -322,9 +287,10 @@ You'll deploy an application gateway and the edge ingress solution for the app t
     
     | Setting            | Value                      |
     |--| - |    
-    | Rule name: **myRouteRule1** |
-    | Priority: **100** |
-1. Under the **Listener** tab, enter the following settings:
+    | Rule name: Enter **myRouteRule1** |
+    | Priority: Enter **100** |
+
+1. Under the **Listener** tab, enter or select these settings along with default values:
     
     | Setting            | Value                      |
     |--| - | 
@@ -347,7 +313,8 @@ You'll deploy an application gateway and the edge ingress solution for the app t
     > [!NOTE] 
     > The FQDN used for **Host name** must match the DNS record that you will create in a later step. If necessary, you can come back to the Listener configuration and change this to the DNS record that you create.
 
-1. Select the **Backend targets** tab and enter the following settings:
+1. Select the **Backend targets** tab.
+1. On the **Backend targets** tab, enter or select these settings along with default values:
     
     | Setting            | Value                      |
     |--| - |   
@@ -373,7 +340,7 @@ Now, you'll add a custom health probe for your backend pool.
 1. Navigate to the previously created application gateway.
 1. From the gateway, select **Health probes** under **Settings**.
 1. On the Health probe, select **+ Add**.
-1. On the Add health probe page, specify the following settings:
+1. On the Add health probe page, enter or select these settings along with default values:
 
     | Setting            | Value                      |
     |--| - |
@@ -396,7 +363,7 @@ Now, you'll add a custom health probe for your backend pool.
 1. To retrieve the Public IP address for your application gateway, navigate to the **Overview** page of the application gateway and copy the **Frontend Public IP Address** listed.
 1. Navigate to the DNS zone that you previously created.
 1. From the DNS zone, select **+ Record set**.
-1. On the **Add record set** pane, enter or select the following settings:
+1. On the **Add record set** pane, enter or select these settings along with default values:
     
     | Setting            | Value                      |
     |--| - |
@@ -419,23 +386,19 @@ You'll deploy Azure Firewall to perform packet inspection between the applicatio
 
 1. In the Azure portal, search for and select **Firewalls**.
 1. On the Firewalls page, select **+ Create**.
-1. On the **Create a firewall** page, specify the following settings:
+1. On the **Create a firewall** page, enter or select these settings along with default values:
     
     | Setting | Value |
     |----|---- 
-    | Subscription | Select your subscription. |
-    | Resource group | Enter **myResourceGroup**. |
     | Name | Enter **myFirewall**. |
-    | Region | Select **East US**. |
     | Availability zone | Select **None**. |
     | Firewall tier | Select **Premium**. |
     | Firewall policy | Select **Add new**.|
     | **Create a new Firewall Policy** | |
     | Policy name | Enter **myFirewalPolicy**. |
-    | Region | Select **East US**. |
     | Policy tier | Select **Premium** and select **OK**. |
     | Choose a virtual network | Select **Use existing**. |
-    | Virtual network | Select **myHubVNet**. |
+    | Virtual network | Select **hub-vnet**. |
     | Public IP address | Select **Add new**. <br/> Enter **myFirewallpip** and select **OK**.</br> |
 
 1. Select **Review + create** and then select **Create**. This deployment can take up to 30 minutes to complete.
@@ -449,7 +412,7 @@ In this task, you'll configure the firewall policy used for packet inspection.
 1. In the **Firewall Policy** page, select the **IDPS** under **Settings**.
 1. On the **IDPS** page, select **Alert and deny** and then select **Apply**. Wait for the firewall policy to complete updating before proceeding to the next step.
 1. Select **TLS inspection** under **Settings**
-1. On the TLS inspection page, select **Enabled** and then specify the following settings:
+1. On the TLS inspection page, select **Enabled**. Then enter or select these settings along with default values:
     
     | Setting | Value |
     |-----|-----|
@@ -467,7 +430,7 @@ In this task, you'll configure the firewall policy used for packet inspection.
 1. Select **Apply**.
 1. From the firewall policy, select **Network rules**.
 1. In the **Network rules** page, select **Add a rule collection**.
-1. In the **Add a rule collection** page, enter or select the following settings:
+1. In the **Add a rule collection** page, enter or select these settings along with default values:
     
     | Setting            | Value                      |
     |--| - |
@@ -500,31 +463,30 @@ You'll create a route table with user-defined route force traffic all App Servic
 
 1. Type app services in the search. Under Services, select **Route tables**.
 1. In the Route tables page, select **+ Create**.
-1. On the Create Route table page, specify the following settings:
+1. On the Create Route table page, enter or select these settings along with default values:
+    
     | Setting            | Value                      |
     |--| - |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **myResourceGroup**. |
-    | Region | Select **East US**. |
     | Name | Enter **myRTspoke2hub**. |
     | Propagate gateway routes | Select **Yes** |
+
 1. Select **Review + Create**, and then select **Create**.
 1. Navigate back to the Route Tables page and then select **+ Create**.
-1. On the **Create Route** table page, specify the following settings:
+1. On the **Create Route** table page, enter or select these settings along with default values:
+    
     | Setting            | Value                      |
     |--| - |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **myResourceGroup**. |
-    | Region | Select **East US**. |
     | Name | Enter **myRTapp2web**. |
     | Propagate gateway routes | Select **Yes** |
+
 1. Select **Review + Create**, and then select **Create**.
 
 ### Configuring route tables
 
 1. Navigate to the **myRTspoke2hub** route table.
 1. From the Route Table, select the **Routes** page under **Settings** and select **+ Add**.
-1. On the **Add Route** pane, specify the following settings:
+1. On the **Add Route** pane, enter or select these settings along with default values:
+
     | Setting            | Value                      |
     |--| - |
     | Route name | Enter **ToAppService**. |
@@ -532,15 +494,17 @@ You'll create a route table with user-defined route force traffic all App Servic
     | Destination IP addresses/CIDR ranges | Enter **172.16.1.0/24**. |
     | Next hop type | Select **Virtual appliance**. |
     | Next hop address |   The private IP address of the Azure Firewall. For example, **192.168.100.4**. |
+
 1. Select **Add**.
 1. From the Route table, select **Subnets** under **Settings** and select **+ Associate**.
-1. On the **Associate subnet** pane, select the **mySpokeVNet** virtual network, and then select the **AppGwSubnet** subnet.
+1. On the **Associate subnet** pane, select the **spoke-vnet** virtual network, and then select the **AppGwSubnet** subnet.
 1. Select **OK**.
 1. After the association appears, select the link to the **AppGwSubnet** association.
 1. In the **Network policy for private endpoints** section, select **Route Tables** and select **Save**.
 1. Navigate to the **myRTapp2web** route table.
 1. From the **Route Table** page, select **Routes** under **Settings**.
-1. In the Add Route pane, specify the following settings:
+1. In the Add Route pane, enter or select these settings along with default values:
+    
     | Setting            | Value                      |
     |--| - |
     | Route name | Enter **ToAppGW**. |   
@@ -548,15 +512,15 @@ You'll create a route table with user-defined route force traffic all App Servic
     | Destination IP addresses/CIDR ranges | Enter **172.16.0.0/24**. |
     | Next hop type | Select **Virtual appliance**. |
     | Next hop address | Enter the  private IP address of the Azure Firewall. For example, **192.168.100.4**. |
+
 1. Select **Add**.
 1. Select the **Subnets** page under settings, and select **+ Associate**.
-1. On the **Associate subnet** pane, select the **mySpokeVNet** virtual network, and then select the **App1** subnet.
+1. On the **Associate subnet** pane, select the **spoke-vnet** virtual network, and then select the **App1** subnet.
 1. Select **OK**.
 1. Repeat this process for another subnet by selecting **+ Associate**.
-1. Select the **mySpokeVNet** virtual network, and then select the **AppGwSubnet** subnet. Select **OK**.
+1. Select the **spoke-vnet** virtual network, and then select the **AppGwSubnet** subnet. Select **OK**.
 1. After the association appears, select the link to the **App1** association.
 1. In the **Network policy for private endpoints** section, select **Network security groups** and **Route Tables**, and then select **Save**.
-
 
 ### Test again
 
@@ -575,20 +539,12 @@ You'll deploy network security groups to prevent other subnets from accessing th
 
 1. From the Azure portal, search for and select **Network security groups**.
 1. In the **Network security groups** page, select **Create**.
-1. On the Basics tab, enter or select the following settings:
-    
-    | Setting            | Value                      |
-    |--| - |
-    | Subscription | Select your subscription. |
-    | Resource group | Enter **myResourceGroup**. |
-    | Name | Enter **nsg-app1**. |
-    | Region | Select **East US**. |
-
+1. On the Basics tab, enter **nsg-app1** in **Name**.
 1. Select **Review + Create** and then select **Create**.
 1. Navigate to the newly deployed network security group.
 1. In the **network security group** page, select **Inbound security rules** under **Settings**.
 1. From **Inbound security rules** page, select **Add**.
-1. On the **Add inbound security rule** pane, enter or select the following settings:
+1. On the **Add inbound security rule** pane, enter or select these settings along with default values:
     
     | Setting            | Value                      |
     |--| - |
@@ -603,7 +559,7 @@ You'll deploy network security groups to prevent other subnets from accessing th
 
 1. Select **Add**.
 1. From **Inbound security rules** page, select **Add**.
-1. On the **Add inbound security rule** pane, enter or select the following settings:
+1. On the **Add inbound security rule** pane, enter or select these settings along with default values:
         
     | Setting            | Value                      |
     |--| - |
@@ -620,12 +576,12 @@ You'll deploy network security groups to prevent other subnets from accessing th
 1. Select **Add**.
 1. From the **Network security group** page, select **Subnets** under **Settings**.
 1. On the **Subnets** page, select **Associate**.
-1. In the **Associate subnet** pane, select the **mySpokeVNet** virtual network.
+1. In the **Associate subnet** pane, select the **spoke-vnet** virtual network.
 1. In the Subnet drop-down, select the **App1** subnet.
 1. Select **OK**.
 
 ## Clean Up
-You'll clean up your environment by deleting the resource group containing all resources, **myResourceGroup**. Due to soft delete rules, Azure Key Vault may not be deleted. Learn how to delete [Azure Key Vault]
+You'll clean up your environment by deleting the resource group containing all resources, **myResourceGroup**.
 
 ## Next steps
 

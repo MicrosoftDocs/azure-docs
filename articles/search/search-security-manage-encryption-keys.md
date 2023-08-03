@@ -7,9 +7,9 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 12/14/2022
-ms.custom: references_regions, devx-track-azurepowershell 
+ms.topic: how-to
+ms.date: 01/20/2023
+ms.custom: references_regions
 ---
 
 # Configure customer-managed keys for data encryption in Azure Cognitive Search
@@ -24,6 +24,9 @@ This article walks you through the steps of setting up customer-managed key (CMK
 
 + CMK encryption becomes operational when an object is created. You can't encrypt objects that already exist. CMK encryption occurs whenever an object is saved to disk, either data at rest for long-term storage or temporary data for short-term storage. With CMK, the disk never sees unencrypted data.
 
+> [!NOTE]
+> If an index is CMK encrypted, it is only accessible if the search service has access the key. If access to the key is revoked, the index is unusable and the service cannot be scaled until the index is deleted or access to the key is restored.
+
 ## CMK encrypted objects
 
 Objects that can be encrypted include indexes, synonym lists, indexers, data sources, and skillsets. Encryption is computationally expensive to decrypt so only sensitive content is encrypted.
@@ -32,7 +35,7 @@ Encryption is performed over the following content:
 
 + All content within indexes and synonym lists, including descriptions.
 
-+ For indexers, data sources, and skillsets, only those fields that store connection strings, descriptions, keys, and user inputs are encrypted. For example, skillsets have Cognitive Services keys, and some skills accept user inputs, such as custom entities. In both cases, keys and user inputs into skills are encrypted.
++ For indexers, data sources, and skillsets, only those fields that store connection strings, descriptions, keys, and user inputs are encrypted. For example, skillsets have Azure AI services keys, and some skills accept user inputs, such as custom entities. In both cases, keys and user inputs into skills are encrypted.
 
 ## Full double encryption
 
@@ -60,7 +63,7 @@ The following tools and services are used in this scenario.
 
 + [Azure Cognitive Search](search-create-service-portal.md) on a [billable tier](search-sku-tier.md#tier-descriptions) (Basic or above, in any region).
 
-+ [Azure Key Vault](../key-vault/general/overview.md), you can create key vault using [Azure portal](../key-vault//general/quick-create-portal.md), [Azure CLI](../key-vault//general/quick-create-cli.md), or [Azure PowerShell](../key-vault//general/quick-create-powershell.md). Create the resource in the same subscription as Azure Cognitive Search. The key vault must have **soft-delete** and **purge protection** enabled.
++ [Azure Key Vault](../key-vault/general/overview.md), you can [create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md), [Azure CLI](../key-vault//general/quick-create-cli.md), or [Azure PowerShell](../key-vault//general/quick-create-powershell.md). Create the resource in the same subscription as Azure Cognitive Search. The key vault must have **soft-delete** and **purge protection** enabled.
 
 + [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). If you don't have one, [set up a new tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
@@ -89,7 +92,7 @@ You can set both properties using the portal, PowerShell, or Azure CLI commands.
 
 ### [**Azure portal**](#tab/portal-pp)
 
-1. [Sign in to Azure portal](https://portal.azure.com) and open your key vault overview page.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open your key vault overview page.
 
 1. On the **Overview** page under **Essentials**, enable **Soft-delete** and **Purge protection**.
 
@@ -135,7 +138,7 @@ You can set both properties using the portal, PowerShell, or Azure CLI commands.
 
 Skip key generation if you already have a key in Azure Key Vault that you want to use, but collect the key identifier. You'll need this information when creating an encrypted object.
 
-1. [Sign in to Azure portal](https://portal.azure.com) and open your key vault overview page.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open your key vault overview page.
 
 1. Select **Keys** on the left, and then select **+ Generate/Import**.
 
@@ -176,7 +179,7 @@ Conditions that will prevent you from adopting this approach include:
 > 
 > The REST API version 2021-04-30-Preview and [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) provide this feature.
 
-1. [Sign into Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **+ Create a new resource**.
 
@@ -236,7 +239,7 @@ Conditions that will prevent you from adopting this approach include:
 
 ### [**Register an app**](#tab/register-app)
 
-1. In [Azure portal](https://portal.azure.com), find the Azure Active Directory resource for your subscription.
+1. In the [Azure portal](https://portal.azure.com), find the Azure Active Directory resource for your subscription.
 
 1. On the left, under **Manage**, select **App registrations**, and then select **New registration**.
 
@@ -335,9 +338,11 @@ Once you create the encrypted object on the search service, you can use it as yo
 
 <a name="encryption-enforcement-policy"></a>
 
-## 6 Set up policy
+## 6 - Set up policy
 
-Azure Cognitive Search has an optional [built-in policy](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F76a56461-9dc0-40f0-82f5-2453283afa2f) to enforce usage of CMK on individual objects defined in a search service. In this step, you'll apply this policy to your search service and set up your search service to enforce this policy.
+Azure policies help to enforce organizational standards and to assess compliance at-scale. Azure Cognitive Search has an optional [built-in policy for service-wide CMK enforcement](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F76a56461-9dc0-40f0-82f5-2453283afa2f).
+
+In this section, you'll set the policy that defines a CMK standard for your search service. Then, you'll set up your search service to enforce this policy.
 
 > [!NOTE]
 > Policy set up requires the preview [Services - Create or Update API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
@@ -346,13 +351,15 @@ Azure Cognitive Search has an optional [built-in policy](https://portal.azure.co
 
    :::image type="content" source="media/search-security-manage-encryption-keys/assign-policy.png" alt-text="Screenshot of assigning built-in CMK policy." border="true":::
 
-1. Set up the [policy scope](../governance/policy/concepts/scope.md). In the **Parameters** section, uncheck **Only show parameters...** and set **Effect** to **Deny**
+1. Set up the [policy scope](../governance/policy/concepts/scope.md). In the **Parameters** section, uncheck **Only show parameters...** and set **Effect** to [**Deny**](../governance/policy/concepts/effects.md#deny). 
+
+   During evaluation of the request, a request that matches a deny policy definition is marked as non-compliant. Assuming the standard for your service is CMK encryption, "deny" means that requests that *don't* specify CMK encryption are non-compliant.
 
    :::image type="content" source="media/search-security-manage-encryption-keys/effect-deny.png" alt-text="Screenshot of changing built-in CMK policy effect to deny." border="true":::
 
 1. Finish creating the policy.
 
-1. Call the [Services - Create or Update API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) to enable CMK policy enforcement.
+1. Call the [Services - Create or Update API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) to enable CMK policy enforcement at the service level.
 
 ```http
 PATCH https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2021-04-01-preview

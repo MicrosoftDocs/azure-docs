@@ -1,11 +1,13 @@
 ---
 title: Azure Storage samples using Python
+titleSuffix: Azure Storage
 description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the Python storage client libraries.
 author: pauljewellmsft
+
 ms.author: pauljewell
 ms.date: 12/21/2022
-ms.service: storage
-ms.subservice: common
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: sample
 ms.devlang: python
 ms.custom: devx-track-python, py-fresh-zinc

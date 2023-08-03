@@ -6,7 +6,6 @@ author: duongau
 manager: KumudD
 ms.service: frontdoor
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2022
 ms.author: duau
@@ -16,8 +15,13 @@ ms.custom: mode-ui
 
 # Quickstart: Create an Azure Front Door profile - Azure portal
 
+In this quickstart, you'll learn how to create an Azure Front Door profile using the Azure portal. You can create an Azure Front Door profile through *Quick create* with basic configurations or through the *Custom create* which allows a more advanced configuration. 
 
-In this quickstart, you'll learn how to create an Azure Front Door profile using the Azure portal. You can create an Azure Front Door profile through *Quick Create* with basic configurations or through the *Custom create* which allows a more advanced configuration. With *Custom create*, you deploy two App services. Then, you create the Azure Front Door profile using the two App services as your origin. Lastly, you'll verify connectivity to your App services using the Azure Front Door frontend hostname.
+With *Custom create*, you deploy two App services. Then, you create the Azure Front Door profile using the two App services as your origin. Lastly, you'll verify connectivity to your App services using the Azure Front Door frontend hostname.
+
+:::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagram of Front Door deployment environment using the Azure portal." border="false":::
+
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 ## Prerequisites
 
@@ -62,15 +66,19 @@ An Azure account with an active subscription. [Create an account for free](https
 
 ## Create Front Door profile - Custom Create
 
+In the previous tutorial, you created an Azure Front Door profile through *Quick create*, which created your profile with basic configurations.
+
+You'll now create an Azure Front Door profile using *Custom create* and deploy two App services that your Azure Front Door profile will use as your origin.
+
 ### Create two Web App instances
 
 If you already have services to use as an origin, skip to [create a Front Door for your application](#create-a-front-door-for-your-application).
 
-In this example, we create two Web App instances that is deployed in two different Azure regions. Both web application instances will run in *Active/Active* mode, so either one can service incoming traffic. This configuration differs from an *Active/Stand-By* configuration, where one acts as a failover.
+In this example, we create two Web App instances that are deployed in two different Azure regions. Both web application instances will run in *Active/Active* mode, so either one can service incoming traffic. This configuration differs from an *Active/Stand-By* configuration, where one acts as a failover.
 
 Use the following steps to create two Web Apps used in this example.
 
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the top left-hand side of the portal, select **+ Create a resource**. Then search for **Web App**. Select **Create** to begin configuring the first Web App.
 
@@ -92,7 +100,7 @@ Use the following steps to create two Web Apps used in this example.
 
 1. Select **Review + create**, review the summary, and then select **Create**. Deployment of the Web App can take up to a minute.
 
-1. After your create the first Web App, create a second Web App. Use the same settings as above, except for the following settings:
+1. After you create the first Web App, create a second Web App. Use the same settings as above, except for the following settings:
 
     | Setting | Description |
     |--|--|
@@ -103,7 +111,7 @@ Use the following steps to create two Web Apps used in this example.
 
 ### Create a Front Door for your application
 
-Configure Azure Front Door to direct user traffic based on lowest latency between the two Web Apps origins. You will also secure your Azure Front Door with a Web Application Firewall (WAF) policy. 
+Configure Azure Front Door to direct user traffic based on lowest latency between the two Web Apps origins. You'll also secure your Azure Front Door with a Web Application Firewall (WAF) policy. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
  
@@ -149,7 +157,7 @@ Configure Azure Front Door to direct user traffic based on lowest latency betwee
     | Patterns to match | Set all the URLs this route will accept. This example will use the default, and accept all URL paths. |
     | Accepted protocols | Select the protocol the route will accept. This example will accept both HTTP and HTTPS requests. |
     | Redirect | Enable this setting to redirect all HTTP traffic to the HTTPS endpoint. |
-    | Origin group | Select **Add a new origin group**. For the origin group name, enter **myOriginGroup**. Then select **+ Add an origin**. For the first origin, enter **WebApp1** for the *Name* and then for the *Origin Type* select **App services**. In the *Host name*, select **webapp-contoso-001.azurewebsite.net**. Select **Add** to add the origin to the origin group. Repeat the steps to add the second Web App as an origin. For the origin *Name*, enter **WebApp2**. The *Host name* is **webapp-contoso-002.azurewebsite.net**. Once both Web App origins have been added, select **Add** to save the origin group configuration. |
+    | Origin group | Select **Add a new origin group**. For the origin group name, enter **myOriginGroup**. Then select **+ Add an origin**. For the first origin, enter **WebApp1** for the *Name* and then for the *Origin Type* select **App services**. In the *Host name*, select **webapp-contoso-001.azurewebsites.net**. Select **Add** to add the origin to the origin group. Repeat the steps to add the second Web App as an origin. For the origin *Name*, enter **WebApp2**. The *Host name* is **webapp-contoso-002.azurewebsites.net**. Choose a priority, the lowest number has the highest priority, a priority of 1 if both origins are needed to be served by Azure Front Door. Choose a weight appropriately for traffic routing, equal weights of 1000 if the traffic needs to be routed to both origins equally. Once both Web App origins have been added, select **Add** to save the origin group configuration. |
     | Origin path | Leave blank. |
     | Forwarding protocol | Select the protocol that will be forwarded to the origin group. This example will match the incoming requests to origins. |
     | Caching | Select the check box if you want to cache contents closer to your users globally using Azure Front Door's edge POPs and the Microsoft network. |

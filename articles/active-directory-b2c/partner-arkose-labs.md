@@ -9,7 +9,7 @@ ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 1/4/2023
+ms.date: 01/18/2023
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -37,7 +37,7 @@ Arkose Labs products integration includes the following components:
   - Custom HTML, JavaScript, and API connectors integrate with the Arkose platform
 - **Azure Functions** - Your hosted API endpoint that works with the API connectors feature 
   - This API validates the server-side of the Arkose Labs session token
-  - Learn more in the [Azure Functions Overview](/azure/azure-functions/functions-overview)
+  - Learn more in the [Azure Functions Overview](../azure-functions/functions-overview.md)
 
 The following diagram illustrates how the Arkose Labs platform integrates with Azure AD B2C.
 
@@ -68,9 +68,9 @@ The following diagram illustrates how the Arkose Labs platform integrates with A
 
 ### Create an ArkoseSessionToken custom attribute
 
-To create a custom attribute:  
+To create a custom attribute:
 
-1. Go to the [Azure portal](https://ms.portal.azure.com/#home), then to **Azure AD B2C**.
+1. Sign in to the [Azure portal](https://portal.azure.com), then navigate to **Azure AD B2C**.
 2. Select **User attributes**.
 3. Select **Add**.
 4. Enter **ArkoseSessionToken** as the attribute Name.
@@ -117,7 +117,7 @@ The user flow is for sign-up and sign-in, or sign-up. The Arkose Labs user flow 
 13. In **Use custom page content**, paste your custom HTML URI.
 14. (Optional) If you use social identity providers, repeat steps for **Social account sign-up page**.
 
-    ![Screenshot of Layout name options and Social acount sign-up page options, under Page layouts.](media/partner-arkose-labs/page-layouts.png)
+    ![Screenshot of Layout name options and Social account sign-up page options, under Page layouts.](media/partner-arkose-labs/page-layouts.png)
 
 15. From your user flow, go to **Properties**.
 16. Select **Enable JavaScript**. 
@@ -179,7 +179,7 @@ Username and password are stored as environment variables, not part of the repos
 
 #### Deploy the application to the web
 
-1. Deploy your Azure Function to the cloud. Learn more with [Azure Functions documentation](/azure/azure-functions/).
+1. Deploy your Azure Function to the cloud. Learn more with [Azure Functions documentation](../azure-functions/index.yml).
 2. Copy the endpoint web URL of your Azure Function.
 3. After deployment, select the **Upload settings** option. 
 4. Your environment variables are uploaded to the Application settings of the app service. Learn more on [Application settings in Azure](../azure-functions/functions-develop-vs-code.md?tabs=csharp#application-settings-in-azure). 

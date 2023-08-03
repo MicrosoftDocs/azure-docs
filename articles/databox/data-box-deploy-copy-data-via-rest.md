@@ -69,7 +69,7 @@ Each of these steps is described in the following sections.
 
 Connection to Azure Blob storage REST APIs over https requires the following steps:
 
-* Download the certificate from Azure portal
+* Download the certificate from Azure portal. This certificate is used for connecting to the web UI and Azure Blob storage REST APIs. 
 * Import the certificate on the client or remote host
 * Add the device IP and blob service endpoint to the client or remote host
 * Configure third-party software and verify the connection

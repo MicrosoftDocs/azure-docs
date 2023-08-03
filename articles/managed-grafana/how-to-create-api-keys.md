@@ -1,14 +1,21 @@
 ---
 title: Create and manage Grafana API keys in Azure Managed Grafana
 description: Learn how to generate and manage Grafana API keys, and start making API calls for Azure Managed Grafana.
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: managed-grafana
+ms.custom: engagement-fy23, devx-track-azurecli
 ms.topic: how-to 
-ms.date: 08/31/2022
+ms.date: 11/17/2022
 ---
 
 # Generate and manage Grafana API keys in Azure Managed Grafana
+
+> [!NOTE]
+> This document is deprecated as the API keys feature has been replaced by a new feature in Grafana 9.1. Go to [Service accounts](./how-to-service-accounts.md) to access the current recommended method to create and manage API keys.
+
+> [!TIP]
+> To switch to using service accounts, in Grafana instances created before the release of Grafana 9.1, go to **Configuration > API keys and select Migrate to service accounts now**.  Select **Yes, migrate now**. Each existing API keys will be automatically migrated into a service account with a token. The service account will be created with the same permission as the API Key and current API keys will continue to work as before.
 
 In this guide, learn how to generate and manage API keys, and start making API calls to the Grafana server. Grafana API keys will enable you to create integrations between Azure Managed Grafana and other services.
 
@@ -19,7 +26,7 @@ In this guide, learn how to generate and manage API keys, and start making API c
 
 ## Enable API keys
 
-API keys are disabled by default in Azure Managed Grafana. You can enable this feature during the creation of the instance on the Azure portal, or you can activate it on an existing instance, using the Azure portal or the CLI.
+API keys are disabled by default in Azure Managed Grafana. You can enable this feature during the creation of the instance in the Azure portal, or you can activate it on an existing instance, using the Azure portal or the CLI.
 
 ### Create an Azure Managed Grafana workspace with API key creation enabled
 
@@ -59,7 +66,7 @@ az grafana update --name <azure-managed-grafana-name> --api-keys Enabled
     | **Managed Grafana role** | Choose a Managed Grafana role: Viewer, Editor or Admin.                                                                                                    | *Editor*    |
     | **Time to live**         | Enter a time before your API key expires. Use *s* for seconds, *m* for minutes, *h* for hours, *d* for days, *w* for weeks, *M* for months, *y* for years. | 7d          |
 
-   :::image type="content" source="media/create-api-keys/form.png" alt-text="Screenshot of the Grafana dashboard. API creation form filled out.":::
+   :::image type="content" source="media/create-api-keys/form.png" alt-text="Screenshot of the Grafana dashboard. API creation form is filled out.":::
 
 1. Once the key has been generated, a message pops up with the new key and a curl command including your key. Copy this information and save it in your records now, as it will be hidden once you leave this page. If you close this page without save the new API key, you'll need to generate a new one.
 
@@ -135,7 +142,7 @@ az grafana api-key delete --name <azure-managed-grafana-name> --key <key>
 
 ## Next steps
 
-In this how-to guide, you learned how to create an API key for Azure Managed Grafana. To learn how to call Grafana APIs, see:
+In this how-to guide, you learned how to create an API key for Azure Managed Grafana. When you're ready, start using service accounts as the new way to authenticate applications that interact with Grafana:
 
 > [!div class="nextstepaction"]
-> [Call Grafana APIs](how-to-api-calls.md)
+> [User service accounts](how-to-service-accounts.md)

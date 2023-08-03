@@ -30,7 +30,7 @@ Some preview features provide access to entire new functionality while others ma
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. For more information, see [Quickstart: Create workspace resources](quickstart-create-resources.md).
+* An Azure Machine Learning workspace. For more information, see [Create resources to get started](quickstart-create-resources.md).
 
 ## How do I enable preview features?
 

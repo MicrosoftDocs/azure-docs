@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Picturepark | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Picturepark'
 description: Learn how to configure single sign-on between Azure Active Directory and Picturepark.
 services: active-directory
 author: jeevansd

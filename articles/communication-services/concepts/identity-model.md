@@ -82,7 +82,7 @@ If you cache access tokens to a backing store, we recommend using encryption. An
 
 ## Next steps
 
-* For an introduction to access token management, see [Create and manage access tokens](../quickstarts/access-tokens.md).
+* For an introduction to access token management, see [Create and manage access tokens](../quickstarts/identity/access-tokens.md).
 * For an introduction to authentication, see [Authenticate to Azure Communication Services](./authentication.md).
 * For an introduction to data residency and privacy, see [Region availability and data residency](./privacy.md).
 * To learn how to quickly create identities for testing, see the [quick-create identity quickstart](../quickstarts/identity/quick-create-identity.md).

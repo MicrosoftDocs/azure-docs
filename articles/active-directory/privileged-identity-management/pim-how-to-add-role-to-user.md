@@ -1,9 +1,9 @@
 ---
-title: Assign Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
+title: Assign Azure AD roles in PIM
 description: Learn how to assign Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 editor: ''
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 02/02/2022
-ms.author: amsliu
+ms.author: billmath
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.custom: subject-rbac-steps
@@ -27,14 +27,16 @@ Privileged Identity Management support both built-in and custom Azure AD roles. 
 
 >[!Note]
 >When a role is assigned, the assignment:
->- Can't be asigned for a duration of less than five minutes
+>- Can't be assigned for a duration of less than five minutes
 >- Can't be removed within five minutes of it being assigned
 
 ## Assign a role
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Follow these steps to make a user eligible for an Azure AD admin role.
 
-1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is a member of the [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator) role.
+1. Sign in to the [Azure portal](https://portal.azure.com) with a user that is a member of the [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator) role.
 
 1. Open **Azure AD Privileged Identity Management**.
 
@@ -74,7 +76,7 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
 For certain roles, the scope of the granted permissions can be restricted to a single admin unit, service principal, or application. This procedure is an example if assigning a role that has the scope of an administrative unit. For a list of roles that support scope via administrative unit, see [Assign scoped roles to an administrative unit](../roles/admin-units-assign-roles.md). This feature is currently being rolled out to Azure AD organizations.
 
-1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) with Privileged Role Administrator permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com) with Privileged Role Administrator permissions.
 
 1. Select **Azure Active Directory** > **Roles and administrators**.
 
@@ -245,7 +247,7 @@ The following is an example of the response. The response object shown here migh
 
 ## Update or remove an existing role assignment
 
-Follow these steps to update or remove an existing role assignment. **Azure AD P2 licensed customers only**: Don't assign a group as Active to a role through both Azure AD and Privileged Identity Management (PIM). For a detailed explanation, see [Known issues](../roles/groups-concept.md#known-issues).
+Follow these steps to update or remove an existing role assignment. **Microsoft Entra Premium P2 or Microsoft Entra ID Governance licensed customers only**: Don't assign a group as Active to a role through both Azure AD and Privileged Identity Management (PIM). For a detailed explanation, see [Known issues](../roles/groups-concept.md#known-issues).
 
 1. Open **Azure AD Privileged Identity Management**.
 
@@ -317,4 +319,3 @@ POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleEligibilitySc
 ## Next steps
 
 - [Configure Azure AD admin role settings in Privileged Identity Management](pim-how-to-change-default-settings.md)
-- [Assign Azure resource roles in Privileged Identity Management](pim-resource-roles-assign-roles.md)

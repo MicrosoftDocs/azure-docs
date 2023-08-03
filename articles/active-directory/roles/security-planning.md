@@ -1,6 +1,6 @@
 ---
 
-title: Secure access practices for administrators in Azure AD | Microsoft Docs
+title: Secure access practices for administrators in Azure AD
 description: Ensure that your organization's administrative access and administrator accounts are secure. For system architects and IT pros who configure Azure AD, Azure, and Microsoft Online Services. 
 services: active-directory 
 keywords: 
@@ -382,7 +382,7 @@ Determine if current built-in Azure AD administrator roles are still up to date 
 
 #### Review users who have administration of Azure AD joined devices
 
-For more information, see [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-azuread-join-plan.md).
+For more information, see [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-join-plan.md).
 
 #### Review members of [built-in Microsoft 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
 Skip this step if you're not using Microsoft 365.

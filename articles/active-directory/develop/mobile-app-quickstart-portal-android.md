@@ -6,7 +6,7 @@ author: henrymbuguakiarie
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/15/2022
 ROBOTS: NOINDEX
@@ -478,7 +478,7 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > }
 > ```
 > 
-> [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 > 
 > ## Next steps
 > 

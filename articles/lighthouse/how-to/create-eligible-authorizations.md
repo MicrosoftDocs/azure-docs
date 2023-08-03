@@ -3,6 +3,7 @@ title: Create eligible authorizations
 description: When onboarding customers to Azure Lighthouse, you can let users in your managing tenant elevate their role on a just-in-time basis. 
 ms.date: 11/28/2022
 ms.topic: how-to
+ms.custom: devx-track-arm-template
 ---
 
 # Create eligible authorizations

@@ -5,7 +5,8 @@ author: vijain
 ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
-ms.date: 12/12/2022
+ms.service: azure-migrate
+ms.date: 07/26/2023
 ms.custom: MVC, engagement-fy23
 ---
 
@@ -146,9 +147,12 @@ The first step of migration is to set up the replication appliance. To set up th
 
     ![Finalize registration](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
-It may take some time after finalizing registration until discovered machines appear in the Migration and modernization tool. As VMs are discovered, the **Discovered servers** count rises.
+Mobility service agent needs to be installed on the servers to get them discovered using replication appliance. Discovered machines appear in Azure Migrate: Server Migration. As VMs are discovered, the **Discovered servers** count rises.
 
 ![Discovered servers](./media/tutorial-migrate-physical-virtual-machines/discovered-servers.png)
+
+> [!NOTE]
+> It is recommended to perform discovery and asessment prior to the migration using the Azure Migrate: Discovery and assessment tool, a separate lightweight Azure Migrate appliance. You can deploy the appliance as a physical server to continuously discover servers and performance metadata. For detailed steps, see [Discover physical servers](tutorial-discover-physical.md).
 
 
 ## Install the Mobility service
@@ -178,7 +182,7 @@ On machines you want to migrate, you need to install the Mobility service agent.
     ```
 2. Run the Mobility Service Installer:
     ```
-   UnifiedAgent.exe /Role "MS" /Platform "VmWare" /Silent
+   UnifiedAgent.exe /Role "MS" /Platform "VmWare" /Silent /CSType CSLegacy
     ```
 3. Register the agent with the replication appliance:
     ```
@@ -196,11 +200,11 @@ On machines you want to migrate, you need to install the Mobility service agent.
     ```
 2. Run the installer script:
     ```
-    sudo ./install -r MS -v VmWare -q
+    sudo ./install -r MS -v VmWare -q -c CSLegacy
     ```
 3. Register the agent with the replication appliance:
     ```
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <replication appliance IP address> -P <Passphrase File Path>
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <replication appliance IP address> -P <Passphrase File Path> -c CSLegacy
     ```
 
 ## Replicate machines

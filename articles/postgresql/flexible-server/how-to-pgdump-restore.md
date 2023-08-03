@@ -7,7 +7,7 @@ ms.reviewer: maghan
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/16/2022
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 # Best practices for pg_dump and pg_restore for Azure Database for PostgreSQL - Flexible Server

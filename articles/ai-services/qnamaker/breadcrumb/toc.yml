@@ -1,0 +1,22 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Azure AI services
+    tocHref: /azure/ai-services/
+    topicHref: /azure/ai-services/index
+    items:
+    - name: QnA Maker
+      tocHref: /azure/ai-services/
+      topicHref: /azure/ai-services/qnamaker/index
+- name: Azure
+  tocHref: /legal/
+  topicHref: /azure/index
+  items:
+  - name: Azure AI services                # Original doc set name
+    tocHref: /legal/cognitive-services/qnamaker    # Destination doc set route
+    topicHref: /azure/ai-services/index    # Original doc set route
+    items:
+    - name: QnA Maker           # Destination doc set name
+      tocHref: /legal/cognitive-services/qnamaker      # Destination doc set route
+      topicHref: /azure/ai-services/qnamaker/index    # Original doc set route

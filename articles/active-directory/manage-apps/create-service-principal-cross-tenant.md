@@ -11,10 +11,8 @@ ms.workload: identity
 ms.date: 07/26/2022
 ms.author: jomondi
 ms.reviewer: karavar
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-azurecli
 zone_pivot_groups: enterprise-apps-cli
-
-
 #Customer intent: As an administrator of an Azure AD tenant, I want to create an enterprise application using client ID for a multi-tenant application provided by a service provider or independent software vendor.
 ---
 
@@ -24,7 +22,7 @@ In this article, you'll learn how to create an enterprise application in your te
 
 Before you proceed to add the application using any of these options, check whether the enterprise application is already in your tenant by attempting to sign in to the application. If the sign-in is successful, the enterprise application already exists in your tenant.
 
-If you have verified that the application isn't in your tenant, proceed with any of the following ways to add the enterprise application to your tenant using the appId
+If you have verified that the application isn't in your tenant, proceed with any of the following ways to add the enterprise application to your tenant.
 
 ## Prerequisites
 
@@ -32,7 +30,7 @@ To add an enterprise application to your Azure AD tenant, you need:
 
 - An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, or Application Administrator.
-- The client ID of the multi-tenant application.
+- The client ID (also called appId in Microsoft Graph) of the multi-tenant application.
 
 
 ## Create an enterprise application
@@ -52,7 +50,7 @@ where:
 
 :::zone pivot="msgraph-powershell"
 
-1. Run `connect-MgGraph -Scopes "Application.ReadWrite.All"` and sign in with a Global Admin user account.
+1. Run `connect-MgGraph -Scopes "Application.ReadWrite.All"` and sign in with a Global Administrator user account.
 1. Run the following command to create the enterprise application:
 
    ```powershell
@@ -67,24 +65,26 @@ where:
 :::zone-end
 :::zone pivot="ms-graph"
 
-From the Microsoft Graph explorer window:
+You can use an API client such as [Graph Explorer](https://aka.ms/ge) to work with Microsoft Graph.
 
-1. To create the enterprise application, insert the following query:
+1. Grant the client app the *Application.ReadWrite.All* permission.
+
+1. To create the enterprise application, run the following query. The appId is the client ID of the application.
    
    ```http
-   POST /servicePrincipals.
-   ```
-1. Supply the following request in the **Request body**.
-
+   POST https://graph.microsoft.com/v1.0/servicePrincipals
+   Content-type: application/json
+   
    {
      "appId": "fc876dd1-6bcb-4304-b9b6-18ddf1526b62"
    }
-1. Grant the Application.ReadWrite.All permission under the **Modify permissions** tab and select **Run query**.
+   
+   ```
 
-1. To  delete the enterprise application you created, run the query:
+1. To delete the enterprise application you created, run the query.
 
     ```http
-    DELETE /servicePrincipals/{objectID}
+    DELETE https://graph.microsoft.com/v1.0/servicePrincipals(appId='fc876dd1-6bcb-4304-b9b6-18ddf1526b62')
     ```	
 :::zone-end
 :::zone pivot="azure-cli"

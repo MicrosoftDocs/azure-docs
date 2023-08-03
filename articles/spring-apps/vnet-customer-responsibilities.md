@@ -1,7 +1,7 @@
 ---
 title:  "Customer responsibilities running Azure Spring Apps in a virtual network"
 description: This article describes customer responsibilities running Azure Spring Apps in a virtual network.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: conceptual
@@ -14,7 +14,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article includes specifications for the use of Azure Spring Apps in a virtual network.
 

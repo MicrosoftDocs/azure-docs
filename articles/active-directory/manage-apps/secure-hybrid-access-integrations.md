@@ -8,16 +8,18 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/16/2022
+ms.date: 01/19/2023
 ms.author: gasinh
 ms.collection: M365-identity-device-management
+ms.custom: not-enterprise-apps
+
 ---
 
 # Secure hybrid access with Azure Active Directory partner integrations
 
 Azure Active Directory (Azure AD) supports modern authentication protocols that help keep applications secure. However, many business applications work in a protected corporate network, and some use legacy authentication methods. As companies build Zero Trust strategies and support hybrid and cloud environments, there are solutions that connect apps to Azure AD and provide authentication for legacy applications.
 
-Learn more: [Zero Trust Deployment Guide for Microsoft Azure Active Directory](/security/blog/2020/04/30/zero-trust-deployment-guide-azure-active-directory/)
+Learn more: [Zero Trust security](../../security/fundamentals/zero-trust.md)
 
 Azure AD natively supports modern protocols:
 
@@ -35,10 +37,10 @@ The solution that you build can include the following parts:
 
 * **App discovery** - Often, customers aren't aware of every application in use
   * Application discovery finds applications, facilitating app integrating with Azure AD
-* **App migration** - Create a workflow to integrate apps with Azure AD without using the Azure AD portal
+* **App migration** - Create a workflow to integrate apps with Azure AD without using the Azure portal
   * Integrate apps that customers use today
 * **Legacy authentication support** - Connect apps with legacy authentication methods and single sign-on (SSO)
-* **Conditional Access** - Enable customers to apply Azure AD policies to apps in your solution without using the Azure AD portal
+* **Conditional Access** - Enable customers to apply Azure AD policies to apps in your solution without using the Azure portal
 
 Learn more: [What is Conditional Access?](../conditional-access/overview.md) 
 
@@ -54,11 +56,11 @@ We recommend you become a verified publisher, so customers know you're the trust
 
 ## Enable single sign-on for IT admins
 
-There are several ways to enable SSO for IT administrators to your solution. See, [Plan a single sign-on deployment, SSO options](/azure/active-directory/manage-apps/plan-sso-deployment#single-sign-on-options).
+There are several ways to enable SSO for IT administrators to your solution. See, [Plan a single sign-on deployment, SSO options](./plan-sso-deployment.md#single-sign-on-options).
 
 Microsoft Graph uses OIDC/OAuth. Customers use OIDC to sign in to your solution. Use the JSON Web Token (JWT) Azure AD issues to interact with Microsoft Graph. See, [OpenID Connect on the Microsoft identity platform](../develop/v2-protocols-oidc.md).
 
-If your solution uses SAML for IT administrator SSO, the SAML token won't enable your solution to interact with Microsoft Graph. You can use SAML for IT administrator SSO, but your solution needs to support OIDC integration with Azure AD, so it can get a JWT from Azure AD to interact with Microsoft Graph. See, [How the Microsoft identity platform uses the SAML protocol](/azure/active-directory/develop/active-directory-saml-protocol-reference).
+If your solution uses SAML for IT administrator SSO, the SAML token won't enable your solution to interact with Microsoft Graph. You can use SAML for IT administrator SSO, but your solution needs to support OIDC integration with Azure AD, so it can get a JWT from Azure AD to interact with Microsoft Graph. See, [How the Microsoft identity platform uses the SAML protocol](../develop/active-directory-saml-protocol-reference.md).
 
 You can use one of the following SAML approaches:
 
@@ -255,7 +257,7 @@ After the SaaS applications are registered in Azure AD, the applications need to
 
 ### Connect apps to Azure AD with legacy authentication
 
-Your solution can enable the customer to use SSO and Azure Active Directory features, even unsupported applications. To allow access with legacy protocols, your application calls Azure AD to authenticate the user and apply Azure AD Conditional Access policies. Enable this integration from your console. Create a SAML or an OIDC application registration between your solution and Azure AD.
+Your solution can enable the customer to use SSO and Azure Active Directory features, even unsupported applications. To allow access with legacy protocols, your application calls Azure AD to authenticate the user and apply [Azure AD Conditional Access policies](../conditional-access/overview.md). Enable this integration from your console. Create a SAML or an OIDC application registration between your solution and Azure AD.
 
 #### Create a SAML application registration
 
@@ -355,10 +357,10 @@ https://graph.microsoft.com/v1.0/applications/{Application Object ID}
 
 ### Apply Conditional Access policies
 
-Customers and partners can use the Microsoft Graph API to create or apply Conditional Access policies to customer applications. For partners, customers can apply these policies from your solution without using the Azure portal. There are two options to apply Azure AD Conditional Access policies:
+Customers and partners can use the Microsoft Graph API to create or apply per application [Conditional Access policies](../conditional-access/overview.md). For partners, customers can apply these policies from your solution without using the Azure portal. There are two options to apply Azure AD Conditional Access policies:
 
-- Assign the application to a Conditional Access policy
-- Create a new Conditional Access policy and assign the application to it
+- [Assign the application to a Conditional Access policy](#use-a-conditional-access-policy)
+- [Create a new Conditional Access policy and assign the application to it](#create-a-new-conditional-access-policy)
 
 #### Use a Conditional Access policy
 
@@ -379,7 +381,7 @@ Method: PATCH
 
 https://graph.microsoft.com/v1.0/identity/conditionalAccess/policies/{policyid}
 {
-    "displayName":"Existing CA Policy",
+    "displayName":"Existing Conditional Access Policy",
     "state":"enabled",
     "conditions": 
     {
@@ -416,7 +418,7 @@ Method: POST
 
 https://graph.microsoft.com/v1.0/identity/conditionalAccess/policies/
 {
-    "displayName":"New CA Policy",
+    "displayName":"New Conditional Access Policy",
     "state":"enabled",
     "conditions": 
     {
@@ -537,7 +539,7 @@ https://login.microsoftonline.com/{Tenant_ID}/federationmetadata/2007-06/federat
 
 ### Assign users and groups
 
-After you publish the application to Azure AD, you can assign the app to users and groups to ensure it appears on the My Apps portal. This assignment is on the service principal object generated when you created the application. See, [My Apps portal overview](/azure/active-directory/manage-apps/myapps-overview).
+After you publish the application to Azure AD, you can assign the app to users and groups to ensure it appears on the My Apps portal. This assignment is on the service principal object generated when you created the application. See, [My Apps portal overview](./myapps-overview.md).
 
 Get `AppRole` instances the application might have associated with it. It's common for SaaS applications to have various `AppRole` instances associated with them. Typically, for custom applications, there's one default `AppRole` instance. Get the `AppRole` instance ID you want to assign:
 
@@ -572,7 +574,7 @@ To help protect legacy applications, while using networking and delivery control
 * **Citrix ADC**
   * [Tutorial: Azure AD SSO integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication)](../saas-apps/citrix-netscaler-tutorial.md)
 * **F5 BIG-IP Access Policy Manager**
-  * [Tutorial: Azure AD SSO integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication)](./f5-aad-integration.md)
+  * [Tutorial: Azure AD SSO integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication)](./f5-integration.md)
 * **Kemp LoadMaster**
   * [Tutorial: Azure AD SSO integration with Kemp LoadMaster Azure AD integration](../saas-apps/kemp-tutorial.md)
 * **Pulse Secure Virtual Traffic Manager**
@@ -585,7 +587,7 @@ The following VPN solution providers connect with Azure AD to enable modern auth
 * **Fortinet FortiGate**
   * [Tutorial: Azure AD SSO integration with FortiGate SSL VPN](../saas-apps/fortigate-ssl-vpn-tutorial.md)
 * **F5 BIG-IP Access Policy Manager**
-  * [Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO](./f5-aad-password-less-vpn.md)
+  * [Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO](./f5-passwordless-vpn.md)
 * **Palo Alto Networks GlobalProtect**
   * [Tutorial: Azure AD SSO integration with Palo Alto Networks - Admin UI](../saas-apps/paloaltoadmin-tutorial.md)
 * **Pulse Connect Secure**
@@ -598,7 +600,7 @@ The following software-defined perimeter (SDP) solutions providers connect with 
 * **Perimeter 81**
   * [Tutorial: Azure AD SSO integration with Perimeter 81](../saas-apps/perimeter-81-tutorial.md)
 * **Silverfort Authentication Platform**
-  * [Tutorial: Configure Secure Hybrid Access with Azure AD and Silverfort](./silverfort-azure-ad-integration.md)
+  * [Tutorial: Configure Secure Hybrid Access with Azure AD and Silverfort](./silverfort-integration.md)
 * **Strata Maverics Identity Orchestrator**
   * [Integrate Azure AD SSO with Maverics Identity Orchestrator SAML Connector](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)
 * **Zscaler Private Access**

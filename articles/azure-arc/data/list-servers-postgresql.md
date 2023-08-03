@@ -4,6 +4,7 @@ description: List the Azure Arc-enabled PostgreSQL servers created in an Azure A
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
+ms.custom: devx-track-azurecli
 author: dhanmm
 ms.author: dhmahaja
 ms.reviewer: mikeray

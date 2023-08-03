@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/14/2022
+ ms.date: 03/30/2023
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -24,10 +24,10 @@ Managed Disks and the Key Vault or managed HSM must be in the same Azure region,
 
 You must grant access to managed disks in your Key Vault or managed HSM to use your keys for encrypting and decrypting the DEK. This allows you full control of your data and keys. You can disable your keys or revoke access to managed disks at any time. You can also audit the encryption key usage with Azure Key Vault monitoring to ensure that only managed disks or other trusted Azure services are accessing your keys.
 
-When a key is either disabled, deleted, or expired, any VMs with disks using that key will automatically shut down. After this, the VMs will not be usable unless the key is enabled again or you assign a new key.
-
-> [!NOTE]
-> It is generally expected that Disk I/O (read or write operations) will start to fail 1 hour after a key is either disabled, deleted, or expired.
+> [!IMPORTANT]
+> When a key is either disabled, deleted, or expired, any VMs with either OS or data disks using that key will automatically shut down. After the automated shut down, VMs won't boot until the key is enabled again, or you assign a new key.
+> 
+> Generally, disk I/O (read or write operations) start to fail one hour after a key is either disabled, deleted, or expired.
 
 The following diagram shows how managed disks use Azure Active Directory and Azure Key Vault to make requests using the customer-managed key:
 

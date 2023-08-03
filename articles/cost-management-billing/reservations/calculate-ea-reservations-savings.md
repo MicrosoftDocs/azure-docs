@@ -7,7 +7,7 @@ ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/06/2022
+ms.date: 03/24/2023
 ms.author: banders
 ---
 
@@ -20,7 +20,7 @@ This article helps Enterprise Agreement users manually calculate their reservati
 
 Although the example process shown in this article uses Excel, you can use the spreadsheet application of your choice.
 
-This article is specific to EA users. Microsoft Customer Agreement (MCA) users can use similar steps to calculate their reservation savings through invoices. However, the MCA amortized usage file doesn't contain UnitPrice (on-demand pricing) for reservations. Other resources in the file do. For more information, see [Download usage for your Microsoft Customer Agreement](understand-reserved-instance-usage-ea.md#download-usage-for-your-microsoft-customer-agreement).
+This article is specific to EA users. Microsoft Customer Agreement (MCA) users can use similar steps to calculate their reservation savings through invoices. However, the MCA amortized usage file doesn't contain UnitPrice (on-demand pricing) for reservations. Other resources in the file do. For more information, see [Download usage for your Microsoft Customer Agreement](../savings-plan/utilization-cost-reports.md).
 
 ## Required permissions
 

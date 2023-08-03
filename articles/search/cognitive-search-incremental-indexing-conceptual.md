@@ -2,12 +2,11 @@
 title: Incremental enrichment concepts (preview)
 titleSuffix: Azure Cognitive Search
 description: Cache intermediate content and incremental changes from AI enrichment pipeline in Azure Storage to preserve investments in existing processed documents. This feature is currently in public preview.
-
 author: HeidiSteen    
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/17/2021
+ms.date: 04/21/2023
 ---
 
 # Incremental enrichment and caching in Azure Cognitive Search
@@ -80,23 +79,19 @@ If you know that a change to the skill is indeed superficial, you should overrid
 Setting this parameter ensures that only updates to the skillset definition are committed and the change isn't evaluated for effects on the existing cache. Use a preview API version, 2020-06-30-Preview or later.
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30-Preview
-    {
-        "disableCacheReprocessingChangeDetection" : true
-    }
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30-Preview&disableCacheReprocessingChangeDetection
+  
 ```
 
 <a name="Bypass-data-source-check"></a>
 
 ### Bypass data source validation checks
 
-Most changes to a data source definition will invalidate the cache. However, for scenarios where you know that a change should not invalidate the cache - such as changing a connection string or rotating the key on the storage account - append the "ignoreResetRequirement" parameter on the data source update. Setting this parameter to true allows the commit to go through, without triggering a reset condition that would result in all objects being rebuilt and populated from scratch.
+Most changes to a data source definition will invalidate the cache. However, for scenarios where you know that a change should not invalidate the cache - such as changing a connection string or rotating the key on the storage account - append the "ignoreResetRequirement" parameter on the [data source update](/rest/api/searchservice/update-data-source). Setting this parameter to true allows the commit to go through, without triggering a reset condition that would result in all objects being rebuilt and populated from scratch.
 
 ```http
-PUT https://[search service].search.windows.net/datasources/[data source name]?api-version=2020-06-30-Preview
-    {
-        "ignoreResetRequirement" : true
-    }
+PUT https://[search service].search.windows.net/datasources/[data source name]?api-version=2020-06-30-Preview&ignoreResetRequirement
+ 
 ```
 
 <a name="Force-skillset-evaluation"></a>
@@ -180,6 +175,11 @@ REST API version `2020-06-30-Preview` or later provides incremental enrichment t
 + [Reset Skills (api-version=2020-06-30)](/rest/api/searchservice/preview-api/reset-skills)
 
 + [Update Data Source](/rest/api/searchservice/update-data-source), when called with a preview API version, provides a new parameter named "ignoreResetRequirement", which should be set to true when your update action should not invalidate the cache. Use "ignoreResetRequirement" sparingly as it could lead to unintended inconsistency in your data that will not be detected easily.
+
+## Limitations
+
+> [!CAUTION]
+> If you're using the [SharePoint Online indexer (Preview)](search-howto-index-sharepoint-online.md), you should avoid incremental enrichment. Under certain circumstances, the cache becomes invalid, requiring an [indexer reset and run](search-howto-run-reset-indexers.md), should you choose to reload it.
 
 ## Next steps
 

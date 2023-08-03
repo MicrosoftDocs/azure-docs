@@ -1,20 +1,19 @@
 ---
 title: U-SQL UDT and UDAGG programmability guide for Azure Data Lake
-description: Learn about the U-SQL UDT and UDAGG programmability in Azure Data Lake Analytics to enable you create good USQL script.
+description: Learn about the U-SQL UDT and UDAGG programmability in Azure Data Lake Analytics to enable you to create good USQL scripts.
 ms.service: data-lake-analytics
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 06/30/2017
+ms.date: 01/27/2023
 ---
 
 # U-SQL programmability guide - UDT and UDAGG
 
-
-
 ## Use user-defined types: UDT
+
 User-defined types, or UDT, is another programmability feature of U-SQL. U-SQL UDT acts like a regular C# user-defined type. C# is a strongly typed language that allows the use of built-in and custom user-defined types.
 
-U-SQL cannot implicitly serialize or de-serialize arbitrary UDTs when the UDT is passed between vertices in rowsets. This means that the user has to provide an explicit formatter by using the IFormatter interface. This provides U-SQL with the serialize and de-serialize methods for the UDT.
+U-SQL can't implicitly serialize or de-serialize arbitrary UDTs when the UDT is passed between vertices in rowsets. This means that the user has to provide an explicit formatter by using the IFormatter interface. This provides U-SQL with the serialize and de-serialize methods for the UDT.
 
 > [!NOTE]
 > U-SQL’s built-in extractors and outputters currently cannot serialize or de-serialize UDT data to or from files even with the IFormatter set. So when you're writing UDT data to a file with the OUTPUT statement, or reading it with an extractor, you have to pass it as a string or byte array. Then you call the serialization and deserialization code (that is, the UDT’s ToString() method) explicitly. User-defined extractors and outputters, on the other hand, can read and write UDTs.
@@ -23,12 +22,12 @@ If we try to use UDT in EXTRACTOR or OUTPUTTER (out of previous SELECT), as show
 
 ```usql
 @rs1 =
-    SELECT 
-    	MyNameSpace.Myfunction_Returning_UDT(filed1) AS myfield
+    SELECT
+        MyNameSpace.Myfunction_Returning_UDT(filed1) AS myfield
     FROM @rs0;
 
-OUTPUT @rs1 
-    TO @output_file 
+OUTPUT @rs1
+    TO @output_file
     USING Outputters.Text();
 ```
 
@@ -51,7 +50,7 @@ USQL-Programmability\Types.usql	52	1	USQL-Programmability
 
 To work with UDT in outputter, we either have to serialize it to string with the ToString() method or create a custom outputter.
 
-UDTs currently cannot be used in GROUP BY. If UDT is used in GROUP BY, the following error is thrown:
+UDTs currently can't be used in GROUP BY. If UDT is used in GROUP BY, the following error is thrown:
 
 ```output
 Error	1	E_CSC_USER_INVALIDTYPEINCLAUSE: GROUP BY doesn't support type MyNameSpace.Myfunction_Returning_UDT
@@ -68,7 +67,7 @@ C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\USQ
 62	5	USQL-Programmability
 ```
 
-To define a UDT, we have to:
+To define a UDT, we must:
 
 1. Add the following namespaces:
 
@@ -81,11 +80,11 @@ using System.IO;
 
 3. Define a used-defined type with SqlUserDefinedType attribute.
 
-**SqlUserDefinedType** is used to mark a type definition in an assembly as a user-defined type (UDT) in U-SQL. The properties on the attribute reflect the physical characteristics of the UDT. This class cannot be inherited.
+**SqlUserDefinedType** is used to mark a type definition in an assembly as a user-defined type (UDT) in U-SQL. The properties on the attribute reflect the physical characteristics of the UDT. This class can't be inherited.
 
 SqlUserDefinedType is a required attribute for UDT definition.
 
-The constructor of the class:  
+The constructor of the class:
 
 * SqlUserDefinedTypeAttribute (type formatter)
 
@@ -118,15 +117,15 @@ The `IFormatter` interface serializes and de-serializes an object graph with the
 
 * **Serialize**: Serializes an object, or graph of objects, with the given root to the provided stream.
 
-`MyType` instance: Instance of the type.  
-`IColumnWriter` writer / `IColumnReader` reader: The underlying column stream.  
+`MyType` instance: Instance of the type.
+`IColumnWriter` writer / `IColumnReader` reader: The underlying column stream.
 `ISerializationContext` context: Enum that defines a set of flags that specifies the source or destination context for the stream during serialization.
 
-* **Intermediate**: Specifies that the source or destination context is not a persisted store.
+* **Intermediate**: Specifies that the source or destination context isn't a persisted store.
 
 * **Persistence**: Specifies that the source or destination context is a persisted store.
 
-As a regular C# type, a U-SQL UDT definition can include overrides for operators such as +/==/!=. It can also include static methods. For example, if we are going to use this UDT as a parameter to a U-SQL MIN aggregate function, we have to define < operator override.
+As a regular C# type, a U-SQL UDT definition can include overrides for operators such as +/==/!=. It can also include static methods. For example, if we're going to use this UDT as a parameter to a U-SQL MIN aggregate function, we have to define < operator override.
 
 Earlier in this guide, we demonstrated an example for fiscal period identification from the specific date in the format `Qn:Pn (Q1:P10)`. The following example shows how to define a custom type for fiscal period values.
 
@@ -142,18 +141,18 @@ public struct FiscalPeriod
 
     public FiscalPeriod(int quarter, int month):this()
     {
-	this.Quarter = quarter;
-	this.Month = month;
+        this.Quarter = quarter;
+        this.Month = month;
     }
 
     public override bool Equals(object obj)
     {
-	if (ReferenceEquals(null, obj))
-	{
-	    return false;
-	}
+        if (ReferenceEquals(null, obj))
+        {
+            return false;
+        }
 
-	return obj is FiscalPeriod && Equals((FiscalPeriod)obj);
+        return obj is FiscalPeriod && Equals((FiscalPeriod)obj);
     }
 
     public bool Equals(FiscalPeriod other)
@@ -173,10 +172,10 @@ return this.Quarter.CompareTo(other.Quarter) < 0 || this.Month.CompareTo(other.M
 
     public override int GetHashCode()
     {
-	unchecked
-	{
-	    return (this.Quarter.GetHashCode() * 397) ^ this.Month.GetHashCode();
-	}
+        unchecked
+        {
+            return (this.Quarter.GetHashCode() * 397) ^ this.Month.GetHashCode();
+        }
     }
 
     public static FiscalPeriod operator +(FiscalPeriod c1, FiscalPeriod c2)
@@ -186,24 +185,24 @@ return new FiscalPeriod((c1.Quarter + c2.Quarter) > 4 ? (c1.Quarter + c2.Quarter
 
     public static bool operator ==(FiscalPeriod c1, FiscalPeriod c2)
     {
-	return c1.Equals(c2);
+        return c1.Equals(c2);
     }
 
     public static bool operator !=(FiscalPeriod c1, FiscalPeriod c2)
     {
-	return !c1.Equals(c2);
+        return !c1.Equals(c2);
     }
     public static bool operator >(FiscalPeriod c1, FiscalPeriod c2)
     {
-	return c1.GreaterThan(c2);
+        return c1.GreaterThan(c2);
     }
     public static bool operator <(FiscalPeriod c1, FiscalPeriod c2)
     {
-	return c1.LessThan(c2);
+        return c1.LessThan(c2);
     }
     public override string ToString()
     {
-	return (String.Format("Q{0}:P{1}", this.Quarter, this.Month));
+        return (String.Format("Q{0}:P{1}", this.Quarter, this.Month));
     }
 
 }
@@ -212,28 +211,28 @@ public class FiscalPeriodFormatter : IFormatter<FiscalPeriod>
 {
     public void Serialize(FiscalPeriod instance, IColumnWriter writer, ISerializationContext context)
     {
-	using (var binaryWriter = new BinaryWriter(writer.BaseStream))
-	{
-	    binaryWriter.Write(instance.Quarter);
-	    binaryWriter.Write(instance.Month);
-	    binaryWriter.Flush();
-	}
+        using (var binaryWriter = new BinaryWriter(writer.BaseStream))
+        {
+            binaryWriter.Write(instance.Quarter);
+            binaryWriter.Write(instance.Month);
+            binaryWriter.Flush();
+        }
     }
 
     public FiscalPeriod Deserialize(IColumnReader reader, ISerializationContext context)
     {
-	using (var binaryReader = new BinaryReader(reader.BaseStream))
-	{
+        using (var binaryReader = new BinaryReader(reader.BaseStream))
+        {
 var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16());
-	    return result;
-	}
+            return result;
+        }
     }
 }
 ```
 
 The defined type includes two numbers: quarter and month. Operators `==/!=/>/<` and static method `ToString()` are defined here.
 
-As mentioned earlier, UDT can be used in SELECT expressions, but cannot be used in OUTPUTTER/EXTRACTOR without custom serialization. It either has to be serialized as a string with `ToString()` or used with a custom OUTPUTTER/EXTRACTOR.
+As mentioned earlier, UDT can be used in SELECT expressions, but can't be used in OUTPUTTER/EXTRACTOR without custom serialization. It either has to be serialized as a string with `ToString()` or used with a custom OUTPUTTER/EXTRACTOR.
 
 Now let’s discuss usage of UDT. In a code-behind section, we changed our GetFiscalPeriod function to the following:
 
@@ -243,29 +242,29 @@ public static FiscalPeriod GetFiscalPeriodWithCustomType(DateTime dt)
     int FiscalMonth = 0;
     if (dt.Month < 7)
     {
-	FiscalMonth = dt.Month + 6;
+        FiscalMonth = dt.Month + 6;
     }
     else
     {
-	FiscalMonth = dt.Month - 6;
+        FiscalMonth = dt.Month - 6;
     }
 
     int FiscalQuarter = 0;
     if (FiscalMonth >= 1 && FiscalMonth <= 3)
     {
-	FiscalQuarter = 1;
+        FiscalQuarter = 1;
     }
     if (FiscalMonth >= 4 && FiscalMonth <= 6)
     {
-	FiscalQuarter = 2;
+        FiscalQuarter = 2;
     }
     if (FiscalMonth >= 7 && FiscalMonth <= 9)
     {
-	FiscalQuarter = 3;
+        FiscalQuarter = 3;
     }
     if (FiscalMonth >= 10 && FiscalMonth <= 12)
     {
-	FiscalQuarter = 4;
+        FiscalQuarter = 4;
     }
 
     return new FiscalPeriod(FiscalQuarter, FiscalMonth);
@@ -281,16 +280,16 @@ DECLARE @input_file string = @"c:\work\cosmos\usql-programmability\input_file.ts
 DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.tsv";
 
 @rs0 =
-	EXTRACT
-	    guid string,
-	    dt DateTime,
-	    user String,
-	    des String
-	FROM @input_file USING Extractors.Tsv();
+    EXTRACT
+        guid string,
+        dt DateTime,
+        user String,
+        des String
+    FROM @input_file USING Extractors.Tsv();
 
 @rs1 =
-    SELECT 
-    	guid AS start_id,
+    SELECT
+        guid AS start_id,
         dt,
         DateTime.Now.ToString("M/d/yyyy") AS Nowdate,
         USQL_Programmability.CustomFunctions.GetFiscalPeriodWithCustomType(dt).Quarter AS fiscalquarter,
@@ -301,7 +300,7 @@ DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.
     FROM @rs0;
 
 @rs2 =
-    SELECT 
+    SELECT
         start_id,
         dt,
         DateTime.Now.ToString("M/d/yyyy") AS Nowdate,
@@ -309,15 +308,15 @@ DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.
         fiscalmonth,
         USQL_Programmability.CustomFunctions.GetFiscalPeriodWithCustomType(dt).ToString() AS fiscalperiod,
 
-	   // This user-defined type was created in the prior SELECT.  Passing the UDT to this subsequent SELECT would have failed if the UDT was not annotated with an IFormatter.
+           // This user-defined type was created in the prior SELECT.  Passing the UDT to this subsequent SELECT would have failed if the UDT was not annotated with an IFormatter.
            fiscalperiod_adjusted.ToString() AS fiscalperiod_adjusted,
            user,
            des
     FROM @rs1;
 
-OUTPUT @rs2 
-	TO @output_file 
-	USING Outputters.Text();
+OUTPUT @rs2
+    TO @output_file
+    USING Outputters.Text();
 ```
 
 Here's an example of a full code-behind section:
@@ -477,7 +476,7 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 ```
 
 ## Use user-defined aggregates: UDAGG
-User-defined aggregates are any aggregation-related functions that are not shipped out-of-the-box with U-SQL. The example can be an aggregate to perform custom math calculations, string concatenations, manipulations with strings, and so on.
+User-defined aggregates are any aggregation-related functions that aren't shipped out-of-the-box with U-SQL. The example can be an aggregate to perform custom math calculations, string concatenations, manipulations with strings, and so on.
 
 The user-defined aggregate base class definition is as follows:
 
@@ -493,7 +492,7 @@ The user-defined aggregate base class definition is as follows:
     }
 ```
 
-**SqlUserDefinedAggregate** indicates that the type should be registered as a user-defined aggregate. This class cannot be inherited.
+**SqlUserDefinedAggregate** indicates that the type should be registered as a user-defined aggregate. This class can't be inherited.
 
 SqlUserDefinedType attribute is **optional** for UDAGG definition.
 
@@ -503,20 +502,20 @@ The base class allows you to pass three abstract parameters: two as input parame
 ```csharp
 public class GuidAggregate : IAggregate<string, string, string>
 {
-	string guid_agg;
+    string guid_agg;
 
-	public override void Init()
-	{ … }
+    public override void Init()
+    { … }
 
-	public override void Accumulate(string guid, string user)
-	{ … }
+    public override void Accumulate(string guid, string user)
+    { … }
 
-	public override string Terminate()
-	{ … }
+    public override string Terminate()
+    { … }
 }
 ```
 
-* **Init** invokes once for each group during computation. It provides an initialization routine for each aggregation group.  
+* **Init** invokes once for each group during computation. It provides an initialization routine for each aggregation group.
 * **Accumulate** is executed once for each value. It provides the main functionality for the aggregation algorithm. It can be used to aggregate values with various data types that are defined during class inheritance. It can accept two parameters of variable data types.
 * **Terminate** is executed once per aggregation group at the end of processing to output the result for each group.
 
@@ -551,30 +550,30 @@ Then use the following syntax:
 AGG<UDAGG_functionname>(param1,param2)
 ```
 
-Here is an example of UDAGG:
+Here's an example of UDAGG:
 
 ```csharp
 public class GuidAggregate : IAggregate<string, string, string>
 {
-	string guid_agg;
+    string guid_agg;
 
-	public override void Init()
-	{
-	    guid_agg = "";
-	}
+    public override void Init()
+    {
+        guid_agg = "";
+    }
 
-	public override void Accumulate(string guid, string user)
-	{
-	    if (user.ToUpper()== "USER1")
-	    {
-		guid_agg += "{" + guid + "}";
-	    }
-	}
+    public override void Accumulate(string guid, string user)
+    {
+        if (user.ToUpper()== "USER1")
+        {
+            guid_agg += "{" + guid + "}";
+        }
+    }
 
-	public override string Terminate()
-	{
-	    return guid_agg;
-	}
+    public override string Terminate()
+    {
+        return guid_agg;
+    }
 
 }
 ```
@@ -586,13 +585,13 @@ DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
 DECLARE @output_file string = @" \usql-programmability\output_file.tsv";
 
 @rs0 =
-	EXTRACT
+    EXTRACT
             guid string,
-	    dt DateTime,
+            dt DateTime,
             user String,
             des String
-	FROM @input_file 
-	USING Extractors.Tsv();
+    FROM @input_file
+    USING Extractors.Tsv();
 
 @rs1 =
     SELECT

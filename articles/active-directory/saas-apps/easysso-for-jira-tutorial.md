@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with EasySSO for Jira | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with EasySSO for Jira'
 description: Learn how to configure single sign-on between Azure Active Directory and EasySSO for Jira.
 services: active-directory
 author: jeevansd

@@ -32,7 +32,7 @@ This article describes security best practices for the following application pro
 
 It's important to keep Redirect URIs of your application up to date. Under **Authentication** for the application in the Azure portal, a platform must be selected for the application and then the **Redirect URI** property can be defined.
 
-:::image type="content" source="./media/active-directory-application-registration-best-practices/redirect-uri.png" alt-text="Screenshot that shows where the redirect U R I property is located.":::
+:::image type="content" source="./media/application-registration-best-practices/redirect-uri.png" alt-text="Screenshot that shows where the redirect U R I property is located.":::
 
 Consider the following guidance for redirect URIs:
 
@@ -45,7 +45,7 @@ Consider the following guidance for redirect URIs:
 
 Scenarios that required **implicit flow** can now use **Auth code flow** to reduce the risk of compromise associated with implicit flow misuse. Under **Authentication** for the application in the Azure portal, a platform must be selected for the application and then the **Access tokens (used for implicit flows)** property can be set.
 
-:::image type="content" source="./media/active-directory-application-registration-best-practices/implict-grant-flow.png" alt-text="Screenshot that shows where the implicit flow property is located.":::
+:::image type="content" source="./media/application-registration-best-practices/implict-grant-flow.png" alt-text="Screenshot that shows where the implicit flow property is located.":::
 
 Consider the following guidance related to implicit flow:
 
@@ -57,11 +57,12 @@ Consider the following guidance related to implicit flow:
 
 Certificates and secrets, also known as credentials, are a vital part of an application when it's used as a confidential client. Under **Certificates and secrets** for the application in the Azure portal, certificates and secrets can be added or removed.
 
-:::image type="content" source="./media/active-directory-application-registration-best-practices/credentials.png" alt-text="Screenshot that shows where the certificates and secrets are located.":::
+:::image type="content" source="./media/application-registration-best-practices/credentials.png" alt-text="Screenshot that shows where the certificates and secrets are located.":::
 
 Consider the following guidance related to certificates and secrets:
 
 - Always use [certificate credentials](./active-directory-certificate-credentials.md) whenever possible and don't use password credentials, also known as *secrets*. While it's convenient to use password secrets as a credential, when possible use x509 certificates as the only credential type for getting tokens for an application.
+  - Configure [application authentication method policies](/graph/api/resources/applicationauthenticationmethodpolicy) to govern the use of secrets by limiting their lifetimes or blocking their use altogether.
 - Use Key Vault with [managed identities](../managed-identities-azure-resources/overview.md) to manage credentials for an application.
 - If an application is used only as a Public Client App (allows users to sign in using a public endpoint), make sure that there are no credentials specified on the application object.
 - Review the credentials used in applications for freshness of use and their expiration. An unused credential on an application can result in a security breach. Rollover credentials frequently and don't share credentials across applications. Don't have many credentials on one application.
@@ -72,7 +73,7 @@ Consider the following guidance related to certificates and secrets:
 
 The **Application ID URI** property of the application specifies the globally unique URI used to identify the web API. It's the prefix for scopes and in access tokens, it's also the value of the audience claim and it must use a verified customer owned domain. For multi-tenant applications, the value must also be globally unique. It's also referred to as an identifier URI. Under **Expose an API** for the application in the Azure portal, the **Application ID URI** property can be defined.
 
-:::image type="content" source="./media/active-directory-application-registration-best-practices/app-id-uri.png" alt-text="Screenshot that shows where the Application I D U R I is located.":::
+:::image type="content" source="./media/application-registration-best-practices/app-id-uri.png" alt-text="Screenshot that shows where the Application I D U R I is located.":::
 
 Consider the following guidance related to defining the Application ID URI:
 
@@ -87,7 +88,7 @@ Consider the following guidance related to defining the Application ID URI:
 
 Owners can manage all aspects of a registered application. It's important to regularly review the ownership of all applications in the organization. For more information, see [Azure AD access reviews](../governance/access-reviews-overview.md). Under **Owners** for the application in the Azure portal, the owners of the application can be managed.
 
-:::image type="content" source="./media/active-directory-application-registration-best-practices/app-ownership.png" alt-text="Screenshot that shows where owners of the application are managed.":::
+:::image type="content" source="./media/application-registration-best-practices/app-ownership.png" alt-text="Screenshot that shows where owners of the application are managed.":::
 
 Consider the following guidance related to specifying application owners:
 
@@ -98,7 +99,7 @@ Consider the following guidance related to specifying application owners:
 
 The **Integration assistant** in Azure portal can be used to make sure that an application meets a high quality bar and to provide secure integration. The integration assistant highlights best practices and recommendation that help avoid common oversights when integrating with the Microsoft identity platform.
 
-:::image type="content" source="./media/active-directory-application-registration-best-practices/checklist.png" alt-text="Screenshot that shows where to find the integration assistant.":::
+:::image type="content" source="./media/application-registration-best-practices/checklist.png" alt-text="Screenshot that shows where to find the integration assistant.":::
 
 ## Next steps
 
