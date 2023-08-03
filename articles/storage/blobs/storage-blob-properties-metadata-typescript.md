@@ -18,7 +18,7 @@ In addition to the data they contain, blobs support system properties and user-d
 
 ## Prerequisites
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object, see [Get started with Azure Blob Storage and TypeScript](storage-blob-typescript-get-started.md).
+- The examples in this article assume you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object to work with data resources, see [Get started with Azure Blob Storage and TypeScript](storage-blob-typescript-get-started.md).
 - The [authorization mechanism](../common/authorize-data-access.md) must have permissions to work with blob properties or metadata. To learn more, see the authorization guidance for the following REST API operations:
     - [Set Blob Properties](/rest/api/storageservices/set-blob-properties#authorization)
     - [Get Blob Properties](/rest/api/storageservices/get-blob-properties#authorization)

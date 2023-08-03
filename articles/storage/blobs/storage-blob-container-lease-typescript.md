@@ -19,7 +19,7 @@ This article shows how to create and manage container leases using the [Azure St
 
 ## Prerequisites
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object, see [Get started with Azure Blob Storage and TypeScript](storage-blob-typescript-get-started.md).
+- The examples in this article assume you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object to work with data resources, see [Get started with Azure Blob Storage and TypeScript](storage-blob-typescript-get-started.md).
 - The [authorization mechanism](../common/authorize-data-access.md) must have permissions to work with a container lease. To learn more, see the authorization guidance for the following REST API operation:
     - [Lease Container](/rest/api/storageservices/lease-container#authorization)
 

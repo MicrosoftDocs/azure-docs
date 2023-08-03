@@ -14,13 +14,13 @@ ms.custom: devx-track-ts, devguide-ts, devx-track-js
 
 # Copy a blob with asynchronous scheduling using TypeScript
 
-This article shows how to copy a blob with asynchronous scheduling using the [Azure Storage client library for JavaScript and TypeScript](/javascript/api/overview/azure/storage-blob-readme). You can copy a blob from a source within the same storage account, from a source in a different storage account, or from any accessible object retrieved via HTTP GET request on a given URL. You can also abort a pending copy operation.
+This article shows how to copy a blob with asynchronous scheduling using the [Azure Storage client library for JavaScript](/javascript/api/overview/azure/storage-blob-readme). You can copy a blob from a source within the same storage account, from a source in a different storage account, or from any accessible object retrieved via HTTP GET request on a given URL. You can also abort a pending copy operation.
 
 The client library methods covered in this article use the [Copy Blob](/rest/api/storageservices/copy-blob) REST API operation, and can be used when you want to perform a copy with asynchronous scheduling. For most copy scenarios where you want to move data into a storage account and have a URL for the source object, see [Copy a blob from a source object URL with TypeScript](storage-blob-copy-url-typescript.md).
 
 ## Prerequisites
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object, see [Get started with Azure Blob Storage and TypeScript](storage-blob-typescript-get-started.md).
+- The examples in this article assume you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object to work with data resources, see [Get started with Azure Blob Storage and TypeScript](storage-blob-typescript-get-started.md).
 - The [authorization mechanism](../common/authorize-data-access.md) must have permissions to perform a copy operation, or to abort a pending copy. To learn more, see the authorization guidance for the following REST API operation:
     - [Copy Blob](/rest/api/storageservices/copy-blob#authorization)
     - [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob#authorization)

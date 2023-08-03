@@ -18,7 +18,7 @@ This article shows how to use blob index tags to manage and find data using the 
 
 ## Prerequisites
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object, see [Get started with Azure Blob Storage and TypeScript](storage-blob-typescript-get-started.md).
+- The examples in this article assume you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object to work with data resources, see [Get started with Azure Blob Storage and TypeScript](storage-blob-typescript-get-started.md).
 - The [authorization mechanism](../common/authorize-data-access.md) must have permissions to work with blob index tags. To learn more, see the authorization guidance for the following REST API operations:
     - [Get Blob Tags](/rest/api/storageservices/get-blob-tags#authorization)
     - [Set Blob Tags](/rest/api/storageservices/set-blob-tags#authorization)
