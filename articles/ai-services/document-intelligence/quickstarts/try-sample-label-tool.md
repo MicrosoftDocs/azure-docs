@@ -51,7 +51,7 @@ You'll need the following to get started:
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
- :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+ :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 ## Analyze using a Prebuilt model
 
@@ -118,7 +118,7 @@ Azure the Document Intelligence Layout API extracts text, tables, selection mark
 
 1. Select **Run Layout**. The Document Intelligence Sample Labeling tool will call the Analyze Layout API and analyze the document.
 
-    :::image type="content" source="../media/fott-layout.png" alt-text="Screenshot: Layout dropdown menu.":::
+    :::image type="content" source="../media/fott-layout.png" alt-text="Screenshot of Layout dropdown menu.":::
 
 1. View the results - see the highlighted text extracted, selection marks detected and tables detected.
 
@@ -174,7 +174,7 @@ Train a custom model to analyze and extract data from forms and documents specif
 
 1. Select **New project**
 
-    :::image type="content" source="../media/fott-new-project.png" alt-text="Screenshot: select a new project prompt.":::
+    :::image type="content" source="../media/fott-new-project.png" alt-text="Screenshot of select a new project prompt.":::
 
 #### Create a new project
 

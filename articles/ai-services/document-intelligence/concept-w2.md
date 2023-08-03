@@ -58,7 +58,7 @@ Try extracting data from W-2 forms using the Document Intelligence Studio. You n
 
 1. Select the **Analyze** button:
 
-    :::image type="content" source="media/studio/w2-analyze.png" alt-text="Screenshot: analyze W-2 window in the Document Intelligence Studio.":::
+    :::image type="content" source="media/studio/w2-analyze.png" alt-text="Screenshot of analyze W-2 window in the Document Intelligence Studio.":::
 
     > [!div class="nextstepaction"]
     > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)
@@ -109,7 +109,7 @@ Try extracting data from W-2 forms using the Document Intelligence Studio. You n
 | LocalWagesTipsEtc | 18 | Number | Local wages, tips, etc. | 50000 |
 | LocalIncomeTax | 19 | Number | Local income tax | 750 |
 | LocalityName | 20 | Number | Locality name. | CLEVELAND |
- | W2Copy |  | String | Copy of W-2 forms A, B, C, D, 1, or 2 | Copy A For Social Security Administration |
+ | W2&#8203;Copy |  | String | Copy of W-2 forms A, B, C, D, 1, or 2 | Copy A For Social Security Administration |
 | TaxYear |  | Number | Tax year | 2020 |
 
 * | W2FormVariant |  | String | The variants of W-2 forms, including *W-2*, *W-2AS*, *W-2CM*, *W-2GU*, *W-2VI* | W-2 |

@@ -24,11 +24,14 @@ To perform the procedures in this article, you need:
 
 - An OT sensor [onboarded](../onboard-sensors.md) to Defender for IoT in the Azure portal.
 
+- OT sensor software installed on your appliance. Make sure that you've either [installed](install-software-ot-sensor.md) the software yourself or [purchased](../ot-pre-configured-appliances.md) a preconfigured appliance.
+
 - The sensor's activation file, which was downloaded after [onboarding your sensor](../onboard-sensors.md). You need a unique activation file for each OT sensor you deploy.
 
     [!INCLUDE [root-of-trust](../includes/root-of-trust.md)]
 
-- OT sensor software installed on your appliance. Make sure that you've either [installed](install-software-ot-sensor.md) the software yourself or [purchased](../ot-pre-configured-appliances.md) a preconfigured appliance.
+    > [!NOTE]
+    > Activation files expire 14 days after creation. If you onboarded your sensor but didn't upload the activation file before it expired, [download a new  activation file](../how-to-manage-individual-sensors.md#current).
 
 - A SSL/TLS certificate. We recommend using a CA-signed certificate, and not a self-signed certificate. For more information, see [Create SSL/TLS certificates for OT appliances](create-ssl-certificates.md).
 

@@ -46,7 +46,7 @@ As you begin to plan your product transfer, consider the information needed to a
   - Enterprise Agreement (EA)
   - Microsoft Customer Agreement (MCA) in the Enterprise motion where you buy Azure services through a Microsoft representative. Also called an MCA enterprise agreement.
   - Microsoft Customer Agreement (MCA) that you bought through the Azure website. Also called an MCA individual agreement.
-  - Others like MSDN, BizSpark, EOPEN, Azure Pass, and Free Trial
+  - Others like MSDN, EOPEN, Azure Pass, and Free Trial
 - Do you have the required permissions on the product to accomplish a transfer? Specific permission needed for each transfer type is listed in the following product transfer support table.
   - Only the billing administrator of an account can transfer subscription ownership.
   - Only a billing administrator owner can transfer reservation or savings plan ownership.
