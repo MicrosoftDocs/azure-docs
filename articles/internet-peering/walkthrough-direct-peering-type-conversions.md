@@ -39,7 +39,7 @@ Select the "AS8075 (with Voice) option and click Save
 ### Enabling Peering Service on a Connection
 A standard PNI within a peering can be enabled for Peering Service and can be requested per connection.
 
-You need to be a Peering Service Partner to enable Peering Serivce on a connection. See the [partner requirements page](prerequisites.md) and make sure you have signed the agreement with Microsoft. For questions, reach out to peeringservice@microsoft.com.
+You need to be a Peering Service Partner to enable Peering Service on a connection. See the [partner requirements page](prerequisites.md) and make sure you have signed the agreement with Microsoft. For questions, reach out to peeringservice@microsoft.com.
 
 Navigate to the Connection tab under settings and click edit on a connection.
 :::image type="content" source="./media/walkthrough-type-conversion/viewconnection.png" alt-text="Screenshot shows how to select within the Connections tab in the Azure portal." lightbox="./media/walkthrough-type-conversion/viewconnection.png":::
@@ -75,7 +75,7 @@ The peer email contact provided during the 'Peer Asn' resource creation will als
 
 If a conversion to Voice is requested and the connections already have IP addresses provided by Microsoft, please set up BFD on your sessions as early as possible to avoid any downtime. The conversion process for Voice waits for both the BGP and BFD sessions to come up before allowing any traffic on the sessions.
 
-If a conversion to Voice is requested and the connections have IP addresses provided by the peering partner, wait for the email notification with the new Microsoft provided IPs addresses and configure them on your end along with BFD. Once the BGP and BFD sessions with the new IP addresses come up, traffic will be allowed on this session and the session with the old IP addresses will be shut down. There is no downtime in this case.
+If a conversion to Voice is requested and the connections have IP addresses provided by the peering partner, wait for the email notification with the new Microsoft provided IP addresses and configure them on your end along with BFD. Once the BGP and BFD sessions with the new IP addresses come up, traffic will be allowed on this session and the session with the old IP addresses will be shut down. There is no downtime in this case.
 
 Once the connection is completed its state returns to Active.
 
@@ -96,7 +96,7 @@ Once the connection is completed its state returns to Active.
 
 **A.** Verify if the peering satisfies all the requirements from the [“Before you begin” section](#before-you-begin)
 
-**Q.** Why has my request to enable peering service on a connection been rejected? 
+**Q.** Why has my request to enable Peering Service on a connection been rejected? 
 
 **A.** For enabling peering service on a connection, refer to the [partner requirements page](prerequisites.md) and make sure you have signed the agreement with Microsoft. For questions, reach out to peeringservice@microsoft.com. Also, verify if the peering satisfies all the requirements from the [“Before you begin” section](#before-you-begin).
 
