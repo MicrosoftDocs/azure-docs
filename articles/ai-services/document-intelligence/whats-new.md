@@ -101,10 +101,6 @@ The v3.1 API introduces new and updated capabilities:
 
 * Share custom extraction projects with ease. For more information, see [Project sharing with custom models](how-to-guides/project-share-custom-models.md).
 
-✔️ **Query fields**
-
-* With Document Intelligence [General documents](concept-general-document.md) model, utilize the query fields feature to add fields to the extraction process without the need for added training. For more information, see [Document Intelligence query field extraction](concept-query-fields.md).
-
 ## May 2023
 
 **Introducing refreshed documentation for Build 2023**
