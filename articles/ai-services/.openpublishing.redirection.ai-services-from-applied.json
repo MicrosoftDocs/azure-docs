@@ -541,7 +541,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/applied-ai-services/document-intelligence/v3-migration-guide.md",
+      "source_path_from_root": "/articles/ai-services/document-intelligence/v3-migration-guide.md",
       "redirect_url": "/azure/ai-services/document-intelligence/v3-1-migration-guide",
       "redirect_document_id": true
     }
