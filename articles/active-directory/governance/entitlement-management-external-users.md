@@ -83,6 +83,8 @@ To ensure people outside of your organization can request access packages and ge
 
     ![Edit catalog settings](./media/entitlement-management-shared/catalog-edit.png)
 
+  If you are an administrator or catalog owner, you can view the list of catalogs currently enabled for external users in the Azure portal list of catalogs, by changing the filter setting for **Enabled for external users** to **Yes**.  If any of those catalogs shown in that filtered view have a non-zero number of access packages, those access packages may have a policy [for users not in your directory](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory) that allow external users to request.
+
 ### Configure your Azure AD B2B external collaboration settings
 
 - Allowing guests to invite other guests to your directory means that guest invites can occur outside of entitlement management. We recommend setting **Guests can invite** to **No** to only allow for properly governed invitations.

@@ -325,7 +325,7 @@ We recommend updating your custom scripts, workflows, and governance rules to co
 ### Deprecation of legacy standards in compliance dashboard
 
 Legacy PCI DSS v3.2.1 and legacy SOC TSP have been fully deprecated in the Defender for Cloud compliance dashboard, and replaced by [SOC 2  Type 2](/azure/compliance/offerings/offering-soc-2) initiative and [PCI DSS v4](/azure/compliance/offerings/offering-pci-dss) initiative-based compliance standards.
-We have fully deprecated support of [PCI DSS](/azure/compliance/offerings/offering-pci-dss) standard/initiative in Azure China 21Vianet.
+We have fully deprecated support of [PCI DSS](/azure/compliance/offerings/offering-pci-dss) standard/initiative in Microsoft Azure operated by 21Vianet.
 
 Learn how to [customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
@@ -650,7 +650,7 @@ Learn more about [MCSB](https://aka.ms/mcsb).
 
 ### Some regulatory compliance standards are now available in government clouds
 
-We're announcing that the following regulatory standards are being updated with latest version and are available for customers in Azure Government and Azure China 21Vianet.
+We're announcing that the following regulatory standards are being updated with latest version and are available for customers in Azure Government and Microsoft Azure operated by 21Vianet.
 
 **Azure Government**:
 
@@ -658,7 +658,7 @@ We're announcing that the following regulatory standards are being updated with 
 - [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2)
 - [ISO 27001:2013](/azure/compliance/offerings/offering-iso-27001)
 
-**Azure China 21Vianet**:
+**Microsoft Azure operated by 21Vianet**:
 
 - [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2)
 - [ISO 27001:2013](/azure/compliance/offerings/offering-iso-27001)
