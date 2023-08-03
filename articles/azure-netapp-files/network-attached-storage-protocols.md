@@ -178,7 +178,7 @@ When you use Azure NetApp Files volumes for both SMB and NFS access, some consid
 ## Next steps 
 
 * [Understand file locking and lock types in Azure NetApp Files](understand-file-locks.md)
-* [Understand dual-protocol security style and permission behaviors in Azure NetApp Files](understand-dual-protocol-permission-behaviors.md)
+* [Understand dual-protocol security style and permission behaviors in Azure NetApp Files](dual-protocol-permission-behaviors.md)
 * [Understand the use of LDAP with Azure NetApp Files](lightweight-directory-access-protocol.md) 
 * [Understand NFS Group memberships and supplemental groups](network-file-system-group-memberships.md)
 * [Azure NetApp Files NFS FAQ](faq-nfs.md)

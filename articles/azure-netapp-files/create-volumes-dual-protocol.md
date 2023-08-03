@@ -247,6 +247,7 @@ Follow instructions in [Configure an NFS client for Azure NetApp Files](configur
 
 ## Next steps  
 
+* [Considerations for Azure NetApp Files dual-protocol volumes](network-attached-storage-protocols.md#considerations-for-azure-netapp-files-dual-protocol-volumes) 
 * [Manage availability zone volume placement for Azure NetApp Files](manage-availability-zone-volume-placement.md)
 * [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md)
 * [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md)
