@@ -25,7 +25,7 @@ A direct peering type conversion for a peering connection can only be requested 
 -  Bandwidth updates can't be requested to other connections in the peering during the conversion
 -  No adding or removing of connections can occur during the conversion
 -  Type conversions run during the business hours of Pacific Daylight Time.
--  For Voice conversions, the connection session addresses are provided by Microsoft and enabled with BFD (Bidirectional Forwarding Detection). It is expected that the partners set up their configurations accordingly.
+-  For Voice conversions, the connection session addresses are provided by Microsoft and enabled with BFD (Bidirectional Forwarding Detection). It's expected that the partners set up their configurations accordingly.
 
 ## 1. Configure the new Type on a Direct Peering
 ### Converting from PNI to Voice
@@ -62,7 +62,7 @@ You can see this state in the Connection tab in the same location where you sele
 ## 3. Monitoring the conversion
 While your connection is undergoing conversion its state will be labeled as TypeChangeInProgress.
 
-You are kept up to date through emails at the following steps:
+You're kept up to date through emails at the following steps:
 -  Request Received
 -  Request Approved
 -  Session Address Changes (if any)
@@ -75,7 +75,7 @@ The peer email contact provided during the 'Peer Asn' resource creation will als
 
 If a conversion to Voice is requested and the connections already have IP addresses provided by Microsoft, please set up BFD on your sessions as early as possible to avoid any downtime. The conversion process for Voice waits for both the BGP and BFD sessions to come up before allowing any traffic on the sessions.
 
-If a conversion to Voice is requested and the connections have IP addresses provided by the peering partner, wait for the email notification with the new Microsoft provided IP addresses and configure them on your end along with BFD. Once the BGP and BFD sessions with the new IP addresses come up, traffic will be allowed on this session and the session with the old IP addresses will be shut down. There is no downtime in this case.
+If a conversion to Voice is requested and the connections have IP addresses provided by the peering partner, wait for the email notification with the new Microsoft provided IP addresses and configure them on your end along with BFD. Once the BGP and BFD sessions with the new IP addresses come up, traffic will be allowed on this session and the session with the old IP addresses will be shut down. There's no downtime in this case.
 
 Once the connection is completed its state returns to Active.
 
@@ -102,11 +102,11 @@ Once the connection is completed its state returns to Active.
 
 **Q.** How long does it take for the conversion to complete?
 
-**A.** For conversions that do not involve any IP address changes, if the expected setup is done by the peering partner, the conversion should be completed in ~two business days. For conversions involving IP addresses change, there is an extra delay in reserving new addresses internally and considering the delay in peering partner finishing their end of the configuration, expect the process to take ~five business days.
+**A.** For conversions that don't involve any IP address changes, if the expected setup is done by the peering partner, the conversion should be completed in ~two business days. For conversions involving IP addresses change, there's an extra delay in reserving new addresses internally and considering the delay in peering partner finishing their end of the configuration, expect the process to take ~five business days.
 
 **Q.** Is there an impact on traffic for the whole-time conversion happens?
 
-**A.** Conversion process involves several stages and not all stages have traffic impact. Draining the traffic, configuring new policies pertaining to the type of peering, and allowing the traffic back once BGP and BFD come up are done serially. Combined these steps usually take ~2 hrs given the peering partner complete their end of the configurations. For Voice conversions, ensure that the BFD setup is done on time to ensure minimal downtime. For conversions that involve a change in IP addresses, there is almost zero downtime, since the traffic is seamlessly shifted to the session with the new addresses from the old session after which the old session is shut down.
+**A.** Conversion process involves several stages and not all stages have traffic impact. Draining the traffic, configuring new policies pertaining to the type of peering, and allowing the traffic back once BGP and BFD come up are done serially. Combined these steps usually take ~2 hrs given the peering partner complete their end of the configurations. For Voice conversions, ensure that the BFD setup is done on time to ensure minimal downtime. For conversions that involve a change in IP addresses, there's almost zero downtime, since the traffic is seamlessly shifted to the session with the new addresses from the old session after which the old session is shut down.
 
 **Q.** How do I know which connection to configure the new Microsoft provided IP addresses?
 
