@@ -25,9 +25,44 @@ This article explains how to back up the controller database.
 
 ## Back up data controller database
 
-As part of built-in capabilities, the Data controller database `controller` is automatically backed up whenever there is an update - this update includes creating, deleting or updating an existing custom resource such as an Arc SQL managed instance.
+As part of built-in capabilities, the Data controller database `controller` is automatically backed up every 5 minutes once backups are enabled. To enable backups:
 
-The `.bak` files for the `controller` database are stored in the same storage class specified for the data and logs via the `--storage-class` parameter.
+- Create a `backups-controldb` `PersistentVolumeClaim` with a storage class that supports `ReadWriteMany` access:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: backups-controldb
+  namespace: <namespace>
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 15Gi
+  storageClassName: <storage-class>
+```
+
+- Edit the `DataController` custom resource spec to include a `backups` storage definition:
+
+```yaml
+storage:
+    backups:
+      accessMode: ReadWriteMany
+      className: <storage-class>
+      size: 15Gi
+    data:
+      accessMode: ReadWriteOnce
+      className: managed-premium
+      size: 15Gi
+    logs:
+      accessMode: ReadWriteOnce
+      className: managed-premium
+      size: 10Gi
+```
+
+The `.bak` files for the `controller` database are stored on the `backups` volume of the `controldb` pod at `/var/opt/backups/mssql`.
 
 ## Recover controller database 
 
@@ -91,7 +126,7 @@ Follow these steps to restore the controller database from a backup, if the SQL 
 1. Restore the database from backup - after the corrupted `controllerdb` is dropped. For example:
 
    ```sql
-   RESTORE DATABASE test FROM DISK = '/backups/<controller backup file>.bak'
+   RESTORE DATABASE test FROM DISK = '/var/opt/backups/mssql/<controller backup file>.bak'
    WITH MOVE 'controller' to '/var/opt/mssql/data/controller.mdf
    ,MOVE 'controller' to '/var/opt/mssql/data/controller_log.ldf' 
    ,RECOVERY;
@@ -193,30 +228,28 @@ Follow these steps to restore the controller database from a backup with new sto
    kubectl scale --replicas=1 sts/controldb -n <namespace>
    ```
 
-8. Copy the backup file of the controller database to `var/opt/mssql/data` on the newly created data volume
+8. Connect to the `controldb` SQL server as `sa` using the password in the `controller-sa-secret` secret created earlier.
 
-9. Connect to the `controldb` SQL server as `sa` using the password in the `controller-sa-secret` secret created earlier.
-
-10. Create a `system` login with sysadmin role using the password in the `controller-system-secret` kubernetes secret as follows:
+9. Create a `system` login with sysadmin role using the password in the `controller-system-secret` kubernetes secret as follows:
 
    ```sql
    CREATE LOGIN [system] WITH PASSWORD = '<password-from-secret>'
    ALTER SERVER ROLE sysadmin ADD MEMBER [system]
    ```
 
-11. Restore the backup, then delete the backup file from the data volume once successful using the `RESTORE` command as follows:
+10. Restore the backup using the `RESTORE` command as follows:
 
    ```sql
-   RESTORE DATABASE [controller] FROM DISK = N'/var/opt/mssql/data/controller.bak' WITH FILE = 1
+   RESTORE DATABASE [controller] FROM DISK = N'/var/opt/backups/mssql/<controller backup file>.bak' WITH FILE = 1
    ```
 
-12. Create a `controldb-rw-user` login using the password in the `controller-db-rw-secret` secret `CREATE LOGIN [controldb-rw-user] WITH PASSWORD = '<password-from-secret>'` and associate it with the existing `controldb-rw-user` user in the controller DB `ALTER USER [controldb-rw-user] WITH LOGIN = [controldb-rw-user]`.
+11. Create a `controldb-rw-user` login using the password in the `controller-db-rw-secret` secret `CREATE LOGIN [controldb-rw-user] WITH PASSWORD = '<password-from-secret>'` and associate it with the existing `controldb-rw-user` user in the controller DB `ALTER USER [controldb-rw-user] WITH LOGIN = [controldb-rw-user]`.
 
-13. Disable the `sa` login using TSQL - `ALTER LOGIN [sa] DISABLE`.
+12. Disable the `sa` login using TSQL - `ALTER LOGIN [sa] DISABLE`.
 
-14. Edit the `controldb` StatefulSet to remove the `controller-sa-secret` volume and corresponding volume mount.
+13. Edit the `controldb` StatefulSet to remove the `controller-sa-secret` volume and corresponding volume mount.
 
-15. Delete the `controller-sa-secret` secret.
+14. Delete the `controller-sa-secret` secret.
 
 16. Scale the controller ReplicaSet back up to 1 replica using the `kubectl scale` command.
 
