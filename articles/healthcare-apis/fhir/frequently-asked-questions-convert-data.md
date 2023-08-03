@@ -5,7 +5,7 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: faq
-ms.date: 06/30/2023
+ms.date: 08/02/2023
 ms.author: jasteppe
 ---
 
@@ -54,9 +54,11 @@ Yes. You can use the [FHIR Converter Visual Studio Code extension](https://mar
 
 Yes. It’s possible to store and reference custom templates. See [Configure settings for $convert-data using the Azure portal](configure-settings-convert-data.md) for instructions to reference and store various versions of custom templates.
 
-## If I need support in troubleshooting issues, where can I go?
+## If I need support troubleshooting issues, where can I go?
 
-Depending on the version of converter you’re using, you can either:
+Depending on the version of `$convert-data` you’re using, you can:
+
+* Use the [troubleshooting guide](troubleshoot-convert-data.md) for the Azure Health Data Service FHIR service version of the `$convert-data` operation.
 
 * Open a [support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) for the Azure Health Data Service FHIR service version of the `$convert-data` operation.
 
