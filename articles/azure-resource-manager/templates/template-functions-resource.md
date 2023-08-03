@@ -619,7 +619,7 @@ The following example template references a storage account that isn't deployed 
 }
 ```
 
-In Bicep, there is no explicit `references` function like [`reference`](../bicep/bicep-function-resource.md#reference). Instead, symbolic collection usage is employed directly, and during code generation, Bicep translates it to an ARM template that utilizes the ARM template `references` function. The forthcoming release of Bicep will include a translation feature that converts symbolic collections to ARM templates using the references() function.
+In Bicep, there is no explicit `references` function like [`reference`](../bicep/bicep-functions-resource.md#reference). Instead, symbolic collection usage is employed directly, and during code generation, Bicep translates it to an ARM template that utilizes the ARM template `references` function. The forthcoming release of Bicep will include a translation feature that converts symbolic collections to ARM templates using the references() function.
 
 ### Parameters
 
