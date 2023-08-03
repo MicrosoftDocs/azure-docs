@@ -152,6 +152,8 @@ To support temporary passwords in Azure AD for synchronized users, you can enabl
 > If the user has the option "Password never expires" set in Active Directory (AD), the force password change flag will not be set in Active Directory (AD), so the user will not be prompted to change the password during the next sign-in.
 >
 > A new user created in Active Directory with "User must change password at next logon" flag will always be provisioned in Azure AD with a password policy to "Force change password on next sign-in", irrespective of the *ForcePasswordChangeOnLogOn* feature being true or false. This is an Azure AD internal logic since the new user is provisioned without a password, whereas *ForcePasswordChangeOnLogOn* feature only affects admin password reset scenarios.
+>
+> If a user was created in Active Directory with "User must change password at next logon" before the feature was enabled, the user will receive an error while signing in. To remediate this issue, un-check and re-check the field "User must change password at next logon" in Active Directory Users and Computers. After synchronizing the user object changes, the user will receive the expected prompt in Azure AD to update their password. 
 
 > [!CAUTION]
 > You should only use this feature when SSPR and Password Writeback are enabled on the tenant.  This is so that if a user changes their password via SSPR, it will be synchronized to Active Directory.
