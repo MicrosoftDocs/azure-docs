@@ -121,7 +121,7 @@ No. You can access your virtual machine from the Azure portal using your browser
 
 ### <a name="rdpusers"></a>Do users need specific rights on a target VM for RDP connections?
 
-[Remote Desktop Users group](../../includes/bastion-remote-desktop-users.md)
+[!INCLUDE [Remote Desktop Users](../../includes/bastion-remote-desktop-users.md)]
 
 ### <a name="native-client"></a>Can I connect to my VM using a native client?
 
