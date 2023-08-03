@@ -41,32 +41,33 @@ Your applications don't need to change the connection URL. When resolving to a p
 
 For Azure services, use the recommended zone names as described in the following table:
 
-| Private link resource type / Subresource |Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|
-| Azure Automation (Microsoft.Automation/automationAccounts) / Webhook, DSCAndHybridWorker | privatelink.azure-automation.net | azure-automation.net |
-| Azure SQL Database (Microsoft.Sql/servers) / sqlServer | privatelink.database.windows.net | database.windows.net |
-| Azure SQL Managed Instance (Microsoft.Sql/managedInstances) / managedInstance | privatelink.{dnsPrefix}.database.windows.net | {instanceName}.{dnsPrefix}.database.windows.net |
-| Azure Synapse Analytics (Microsoft.Synapse/workspaces) / Sql  | privatelink.sql.azuresynapse.net | sql.azuresynapse.net |
-| Azure Synapse Analytics (Microsoft.Synapse/workspaces) / SqlOnDemand  | privatelink.sql.azuresynapse.net | {workspaceName}-ondemand.sql.azuresynapse.net |
-| Azure Synapse Analytics (Microsoft.Synapse/workspaces) / Dev  | privatelink.dev.azuresynapse.net | dev.azuresynapse.net |
-| Azure Synapse Studio (Microsoft.Synapse/privateLinkHubs) / Web | privatelink.azuresynapse.net | azuresynapse.net |
-| Storage account (Microsoft.Storage/storageAccounts) / Blob (blob, blob_secondary) | privatelink.blob.core.windows.net | blob.core.windows.net |
-| Storage account (Microsoft.Storage/storageAccounts) / Table (table, table_secondary) | privatelink.table.core.windows.net | table.core.windows.net |
-| Storage account (Microsoft.Storage/storageAccounts) / Queue (queue, queue_secondary) | privatelink.queue.core.windows.net | queue.core.windows.net |
-| Storage account (Microsoft.Storage/storageAccounts) / File (file, file_secondary) | privatelink.file.core.windows.net | file.core.windows.net |
-| Storage account (Microsoft.Storage/storageAccounts) / Web (web, web_secondary) | privatelink.web.core.windows.net | web.core.windows.net |
-| Azure Data Lake File System Gen2 (Microsoft.Storage/storageAccounts) / Data Lake File System Gen2 (dfs, dfs_secondary) | privatelink.dfs.core.windows.net | dfs.core.windows.net |
-| Azure Cosmos DB (Microsoft.DocumentDb/databaseAccounts) / Sql | privatelink.documents.azure.com | documents.azure.com |
-| Azure Cosmos DB (Microsoft.DocumentDb/databaseAccounts) / MongoDB | privatelink.mongo.cosmos.azure.com | mongo.cosmos.azure.com |
-| Azure Cosmos DB (Microsoft.DocumentDb/databaseAccounts) / Cassandra | privatelink.cassandra.cosmos.azure.com | cassandra.cosmos.azure.com |
-| Azure Cosmos DB (Microsoft.DocumentDb/databaseAccounts) / Gremlin | privatelink.gremlin.cosmos.azure.com | gremlin.cosmos.azure.com |
-| Azure Cosmos DB (Microsoft.DocumentDb/databaseAccounts) / Table | privatelink.table.cosmos.azure.com | table.cosmos.azure.com |
-| Azure Batch (Microsoft.Batch/batchAccounts) / batchAccount | privatelink.batch.azure.com | {regionName}.batch.azure.com |
-| Azure Batch (Microsoft.Batch/batchAccounts) / nodeManagement | privatelink.batch.azure.com | {regionName}.service.batch.azure.com |
-| Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) / postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
-| Azure Database for MySQL (Microsoft.DBforMySQL/servers) / mysqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
-| Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) / mariadbServer | privatelink.mariadb.database.azure.com | mariadb.database.azure.com |
-| Azure Key Vault (Microsoft.KeyVault/vaults) / vault | privatelink.vaultcore.azure.net | vault.azure.net <br> vaultcore.azure.net |
+| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+|---|---|---|---|
+| Azure Automation (Microsoft.Automation/automationAccounts) | Webhook </br> DSCAndHybridWorker | privatelink.azure-automation.net | azure-automation.net |
+| Azure SQL Database (Microsoft.Sql/servers) | sqlServer | privatelink.database.windows.net | database.windows.net |
+| Azure SQL Managed Instance (Microsoft.Sql/managedInstances) | managedInstance | privatelink.{dnsPrefix}.database.windows.net | {instanceName}.{dnsPrefix}.database.windows.net |
+| Azure Synapse Analytics (Microsoft.Synapse/workspaces) | Sql  | privatelink.sql.azuresynapse.net | sql.azuresynapse.net |
+| Azure Synapse Analytics (Microsoft.Synapse/workspaces) | SqlOnDemand  | privatelink.sql.azuresynapse.net | {workspaceName}-ondemand.sql.azuresynapse.net |
+| Azure Synapse Analytics (Microsoft.Synapse/workspaces) | Dev  | privatelink.dev.azuresynapse.net | dev.azuresynapse.net |
+| Azure Synapse Studio (Microsoft.Synapse/privateLinkHubs) | Web | privatelink.azuresynapse.net | azuresynapse.net |
+| Storage account (Microsoft.Storage/storageAccounts) | blob </br> blob_secondary | privatelink.blob.core.windows.net | blob.core.windows.net |
+| Storage account (Microsoft.Storage/storageAccounts) | table </br> table_secondary | privatelink.table.core.windows.net | table.core.windows.net |
+| Storage account (Microsoft.Storage/storageAccounts) | queue </br> queue_secondary | privatelink.queue.core.windows.net | queue.core.windows.net |
+| Storage account (Microsoft.Storage/storageAccounts) | file | privatelink.file.core.windows.net | file.core.windows.net |
+| Storage account (Microsoft.Storage/storageAccounts) | web </br> web_secondary | privatelink.web.core.windows.net | web.core.windows.net |
+| Azure Data Lake File System Gen2 (Microsoft.Storage/storageAccounts) | dfs </br> dfs_secondary | privatelink.dfs.core.windows.net | dfs.core.windows.net |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Sql | privatelink.documents.azure.com | documents.azure.com |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | MongoDB | privatelink.mongo.cosmos.azure.com | mongo.cosmos.azure.com |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Cassandra | privatelink.cassandra.cosmos.azure.com | cassandra.cosmos.azure.com |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Gremlin | privatelink.gremlin.cosmos.azure.com | gremlin.cosmos.azure.com |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Table | privatelink.table.cosmos.azure.com | table.cosmos.azure.com |
+| Azure Cosmos DB (Microsoft.DBforPostgreSQL/serverGroupsv2) | coordinator | privatelink.postgres.cosmos.azure.com | postgres.cosmos.azure.com |
+| Azure Batch (Microsoft.Batch/batchAccounts) | batchAccount | {regionName}.privatelink.batch.azure.com | {regionName}.batch.azure.com |
+| Azure Batch (Microsoft.Batch/batchAccounts) | nodeManagement | {regionName}.service.privatelink.batch.azure.com | {regionName}.service.batch.azure.com |
+| Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) | postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
+| Azure Database for MySQL (Microsoft.DBforMySQL/servers) | mysqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
+| Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) | mariadbServer | privatelink.mariadb.database.azure.com | mariadb.database.azure.com |
+| Azure Key Vault (Microsoft.KeyVault/vaults) | vault | privatelink.vaultcore.azure.net | vault.azure.net <br> vaultcore.azure.net |
 | Azure Key Vault (Microsoft.KeyVault/managedHSMs) / Managed HSMs | privatelink.managedhsm.azure.net | managedhsm.azure.net |
 | Azure Kubernetes Service - Kubernetes API (Microsoft.ContainerService/managedClusters) / management | privatelink.{regionName}.azmk8s.io </br> {subzone}.privatelink.{regionName}.azmk8s.io | {regionName}.azmk8s.io |
 | Azure Search (Microsoft.Search/searchServices) / searchService | privatelink.search.windows.net | search.windows.net |
