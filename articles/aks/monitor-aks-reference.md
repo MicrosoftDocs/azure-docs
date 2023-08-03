@@ -99,4 +99,3 @@ For more information on the schema of Activity Log entries, see [Activity  Log s
 
 - See [Monitoring Azure AKS](monitor-aks.md) for a description of monitoring Azure AKS.
 - See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
-- 
