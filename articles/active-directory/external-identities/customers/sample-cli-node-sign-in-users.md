@@ -81,7 +81,7 @@ To configure the client application (Node.js CLI app) to use your Microsoft Entr
 1. Find the placeholder:
 
     - `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `node-cli-app` application copied from the Microsoft Entra admin center.
-    - `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For instance, if your tenant primary domain is *contoso.onmicrosoft.com*, use *contoso*.
+    - `Enter_the_Tenant_Subdomain_Here` and replace it with the Directory (tenant) subdomain. For example, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant name, learn how to [read your tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details)
 
 ## Run and test the sample Node.js CLI application
 
@@ -104,7 +104,7 @@ You can now test the sample Node.js CLI application.
 
      :::image type="content" source="media/tutorial-node-cli-app-sign-in/node-cli-app-signed-in-user.png" alt-text="Screenshot showing a signed-in user in a node CLI application.":::
 
-1. Move back to the terminal and see your authentication information including the ID token claims returned by Microsoft Entra.
+1. Move back to the terminal and see your authentication information including the ID token claims.
 
 ## Next steps
 
