@@ -687,6 +687,13 @@ Videos that contain adult or racy content might be available for private view on
 | `bannedWordsCount` | The number of banned words. |
 | `bannedWordsRatio` | The ratio of banned words to the total number of words. |
 
+##### Learn more about textualContentModeration
+
+- [Cognitive Services documentation](/azure/ai-services/content-moderator/text-moderation-api)
+- [Supported languages](/azure/ai-services/content-moderator/language-support) 
+- [Capabilities and limitations](/azure/ai-services/content-moderator/text-moderation-api) 
+- [Data, privacy and security](/azure/ai-services/content-moderator/overview#data-privacy-and-security)
+
 #### emotions
 
 Azure AI Video Indexer identifies emotions based on speech and audio cues. 
