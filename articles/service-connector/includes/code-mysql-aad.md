@@ -57,13 +57,16 @@ using MySqlConnector;
 var credential = new DefaultAzureCredential(
     new DefaultAzureCredentialOptions
     {
-        ManagedIdentityClientId = userAssignedClientId
+        ManagedIdentityClientId = Environment.GetEnvironmentVariable("AZURE_MYSQL_CLIENTID");
     });
 
 // system-assigned managed identity
 //var credential = new DefaultAzureCredential();
 
 // service principal 
+//var tenantId = Environment.GetEnvironmentVariable("AZURE_MYSQL_TENANTID");
+//var clientId = Environment.GetEnvironmentVariable("AZURE_MYSQL_CLIENTID");
+//var clientSecret = Environment.GetEnvironmentVariable("AZURE_MYSQL_CLIENTSECRET");
 //var credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
 
 var tokenRequestContext = new TokenRequestContext(
@@ -78,6 +81,61 @@ Console.WriteLine("Opening connection using access token...");
 await connection.OpenAsync();
 
 // do something
+```
+
+### [Go](#tab/go)
+1. Install dependencies.
+```bash
+go get "github.com/go-sql-driver/mysql"
+go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+go get "github.com/Azure/azure-sdk-for-go/sdk/azcore"
+```
+
+1. In code, get access token via `azidentity`, then connect to Azure MySQL with the token.
+```go
+import (
+  "context"
+  
+  "github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
+  "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+  "github.com/go-sql-driver/mysql"
+)
+
+
+func main() {
+  
+  // for system-assigned managed identity
+  cred, err := azidentity.NewDefaultAzureCredential(nil)
+  if err != nil {
+    // error handling
+  }
+
+  // for user-assigned managed identity, uncomment the following code
+  /* clientid := os.Getenv("AZURE_MYSQL_CLIENTID")
+  azidentity.ManagedIdentityCredentialOptions.ID := clientid
+
+  options := &azidentity.ManagedIdentityCredentialOptions{ID: clientid}
+  cred, err := azidentity.NewManagedIdentityCredential(options)
+  if err != nil {
+  } */
+	
+  // for service principal, uncomment the following code
+  /* clientid := os.Getenv("AZURE_MYSQL_CLIENTID")
+  tenantid := os.Getenv("AZURE_MYSQL_TENANTID")
+  clientsecret := os.Getenv("AZURE_MYSQL_CLIENTSECRET")
+  
+  cred, err := azidentity.NewClientSecretCredential(tenantid, clientid, clientsecret, &azidentity.ClientSecretCredentialOptions{})
+  if err != nil {
+  } */
+
+  ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+  token, err := cred.GetToken(ctx, policy.TokenRequestOptions{
+    Scopes: []string("https://ossrdbms-aad.database.windows.net/.default"),
+  })
+  
+  connectionString := os.Getenv("AZURE_MYSQL_CONNECTIONSTRING") + ";Password=" + token.Token
+  db, err := sql.Open("mysql", connectionString)
+}
 ```
 
 
