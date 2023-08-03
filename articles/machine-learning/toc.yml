@@ -32,7 +32,7 @@
     - name: Install and setup the CLI(v2)
       href: how-to-configure-cli.md
     # v1
-    - name: Install and set up the CLI (v1)
+    - name: Install and set up the CLI(v1)
       displayName: azurecli, mlops
       href: ./v1/reference-azure-machine-learning-cli.md
     # end v1
