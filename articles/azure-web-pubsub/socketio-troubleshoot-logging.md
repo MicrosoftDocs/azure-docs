@@ -1,84 +1,78 @@
 ---
 title: How to collect logs in Azure Socket.IO
-description: Learn how to collect logs in Azure Socket.IO
+description: This article explains how to collect logs when using Web PubSub for Socket.IO
 author: xingsy97
 ms.author: xingsy97
 ms.date: 08/01/2023
 ms.service: azure-web-pubsub
 ms.topic: how-to
 ---
-# How to collect logs in Azure Socket.IO
+# How to collect logs using Web PubSub for Socket.IO
 
-### Server side
-Native [Socket.IO](https://socket.io/docs/v4/logging-and-debugging/) framework uses [debug](https://github.com/visionmedia/debug) as its logging utility. Our server SDK follows it for all logic which is directly tied to Socket.IO. 
+## Server-side
+On the server-side, two utilities are included that provide bebugging 
+capabilities.
+- [DEBUG](https://github.com/debug-js/debug), which is used by Socket.IO library and extention library provided by Web PubSub for certain logging.
+- [@azure/logger](https://www.npmjs.com/package/@azure/logger), which provides more low-level network-related logging. It also allows you to set a log level. 
 
-- Print all debug information:
+### `DEBUG` JavaScript utility
+
+#### Logs all debug information
 ```bash
 DEBUG=* node yourfile.js
 ```
 
-- Print debug information from different package.
-
-Examples for [`socket.io`](https://github.com/socketio/socket.io), [`engine.io`](https://github.com/socketio/engine.io) and server SDK [`@azure/web-pubsub-socket.io`](https://github.com/Azure/azure-webpubsub/tree/main/experimental/sdk/webpubsub-socketio-extension) are shown below. 
-
+#### Logs debug information of specific packages.
 ```bash
-# Print debug information from package socket.io
+# Logs debug information of "socket.io" package
 DEBUG=socket.io:* node yourfile.js
 
-# Print debug information from package engine.io
+# Logs debug information of "engine.io" package
 DEBUG=engine:* node yourfile.js
 
-# Print debug information from server SDK package
+# Logs debug information of extention library "wps-sio-ext" provided by Web PubSub
 DEBUG=wps-sio-ext:* node yourfile.js
-```
 
-- Print debug information from mulitple packages:
-```bash
+# Logs debug information of mulitple packages
 DEBUG=engine:*,socket.io:*,wps-sio-ext:* node yourfile.js
 ```
+:::image type="content" source="./media/socketio-troubleshoot-logging/log-debug.png" alt-text="Screenshot of logging information from DEBUG JavaScript utility":::
 
-### Client side
-Web PubSub for Socket.IO doesn't modify the client package. The client-side logging with Web PubSub is same as the native Socket.IO
-
-#### Client in Node
-- Print all debug information
-```bash
-DEBUG=* node yourfile.js
-```
-
-- Print debug information from different package
-```bash
-# Print debug information from package socket.io-client
-DEBUG=socket.io-client:* node yourfile.js
-
-# Print debug information from package engine.io-client
-DEBUG=engine.io-client:* node yourfile.js
-```
-
-- Print debug information from multiple package
-```bash
-DEBUG=socket.io-client:*,engine.io-client* node yourfile.js
-```
-
-#### Client in browser
-In browser, use `localStorage.debug = '<scope>'` instead of `DEBUG=<scope>` in Node.
-
-For example, in browser, use code below to print all debug information.
-```bash
-localStorage.debug = '*';
-```
-
-### Server connection logging
-Server SDK uses an external package to build [Server Connection]() with the service. This external package uses [@azure/logger](https://www.npmjs.com/package/@azure/logger) as its logging utility. Enable its logging by setting environmental variable `AZURE_LOG_LEVEL`.
-
-For example:
+### `@azure/logger` utility
+You can enable logging from this utility to get more low-level network-related information by setting the environmental variable `AZURE_LOG_LEVEL`.
 
 ```bash
 AZURE_LOG_LEVEL=verbose node yourfile.js
 ```
 
 `Azure_LOG_LEVEL` has 4 levels: "verbose", "info", "warning" and "error".
+:::image type="content" source="./media/socketio-troubleshoot-logging/log-azure-logger.png" alt-text="Screenshot of logging information from DEBUG JavaScript utility":::
 
-## Related resources
+## Client side
+Using Web PubSub for Socket.IO doesn't change how you debug Socket.IO library. [Refer to the documentation](https://socket.io/docs/v4/logging-and-debugging/) from Socket.IO library.
 
-- [Logging and debugging in Socket.IO](https://socket.io/docs/v4/logging-and-debugging/)
+### Debug Socket.IO client in Node
+```bash
+# Logs all debug information
+DEBUG=* node yourfile.js
+
+# Logs debug information from "socket.io-client" package 
+DEBUG=socket.io-client:* node yourfile.js
+
+# Logs debug information from "engine.io-client" package 
+DEBUG=engine.io-client:* node yourfile.js
+
+# Logs debug information from multiple packages 
+DEBUG=socket.io-client:*,engine.io-client* node yourfile.js
+```
+
+### Debug Socket.IO client in browser
+In browser, use `localStorage.debug = '<scope>'`.
+
+```bash
+# Logs all debug information
+localStorage.debug = '*';
+
+# Logs debug information from "socket.io-client" package 
+localStorage.debug = 'socket.io-client';
+```

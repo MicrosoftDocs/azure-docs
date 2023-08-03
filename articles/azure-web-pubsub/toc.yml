@@ -143,6 +143,12 @@
         items:
           - name: Easily migrate a self-hosted Socket.IO app 
             href: socketio-migrate-from-self-hosted.md
+          name: Troubleshoot
+          items: 
+            - name: Common issues
+              href: socketio-troubleshoot-common-issues.md
+            - name: Collect logs
+              href: socketio-troubleshoot-logging.md
       - name: Concepts
         items:
           - name: How does Web PubSub support Socket.IO library
