@@ -80,7 +80,7 @@ A user with only this role assigned would be unable to:
 ❌ Create new model deployments or edit existing model deployments <br>
 ❌ Access quota <br>
 ❌ Create customized content filters <br>
-❌ Add a data source for the use your data feature <
+❌ Add a data source for the use your data feature
 
 ### Cognitive Services Contributor
 
@@ -135,20 +135,19 @@ All the capabilities of Cognitive Services Contributor plus the ability to:
 
 **Issue:**
 
-When selecting an existing Cognitive Search resource the search indices don't load, and the loading wheel continues without end. In Azure OpenAI Studio, go to **Playground Chat** > **Add your data (preview)** under Assistant setup. Selecting **Add a data source** opens a modal that allows you to add a data source through either Azure Cognitive Search or Blob Storage. Selecting the Azure Cognitive Search option and an existing Cognitive Search resource should load Azure Cognitive Search Indices to select from.
+When selecting an existing Cognitive Search resource the search indices don't load, and the loading wheel spins continuously. In Azure OpenAI Studio, go to **Playground Chat** > **Add your data (preview)** under Assistant setup. Selecting **Add a data source** opens a modal that allows you to add a data source through either Azure Cognitive Search or Blob Storage. Selecting the Azure Cognitive Search option and an existing Cognitive Search resource should load the available Azure Cognitive Search indices to select from.
 
 **Root cause** 
 
 To make a generic API call for listing Azure Cognitive Search services, the following call is made:
-
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Search/searchServices?api-version=2021-04-01-Preview  
- Replace {subscriptionId} with your actual subscription ID.
+
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Search/searchServices?api-version=2021-04-01-Preview
+  
+Replace {subscriptionId} with your actual subscription ID.
 
 For this API call, you need a **subscription-level scope** role. You can use the **Reader** role for read-only access or the **Contributor** role for read-write access. If you only need access to Azure Cognitive Search services, you can use the **Azure Cognitive Search Service Contributor** or **Azure Cognitive Search Service Reader** roles.
 
-**Resolution**
-
-You can resolve it by following options.
+**Solution options**
 
 - Contact your subscription administrator or owner: Reach out to the person managing your Azure subscription and request the appropriate access. Explain your requirements and the specific role you need (for example, Reader, Contributor, Azure Cognitive Search Service Contributor, or Azure Cognitive Search Service Reader).
 
@@ -162,9 +161,9 @@ You can resolve it by following options.
 
 **Root cause:**
 
-Insufficient subscription-level access for the user attempting to access the blob storage in Azure Open I Studio. The user may **not** have the necessary permissions to call the Azure Management API endpoint: https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/listAccountSas?api-version=2022-09-01
+Insufficient subscription-level access for the user attempting to access the blob storage in Azure OpenAI Studio. The user may **not** have the necessary permissions to call the Azure Management API endpoint: https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/listAccountSas?api-version=2022-09-01
 
->Public access to the blob storage is disabled by the owner of the Azure subscription for security reasons.
+Public access to the blob storage is disabled by the owner of the Azure subscription for security reasons.
 
 Permissions needed for the API call:
 `**Microsoft.Storage/storageAccounts/listAccountSas/action:**` This permission allows the user to list the Shared Access Signature (SAS) tokens for the specified storage account.
@@ -175,10 +174,10 @@ Possible reasons why the user may **not** have permissions:
 - The user's role has been restricted by the subscription owner or administrator due to security concerns or organizational policies.
 - The user's role has been recently changed, and the new role does not grant the required permissions.
 
-**Solution:**
+**Solution options**
 
 - Verify and update access rights: Ensure the user has the appropriate subscription-level access, including the necessary permissions for the API call (Microsoft.Storage/storageAccounts/listAccountSas/action). If required, request the subscription owner or administrator to grant the necessary access rights.
-- Request assistance from the owner or admin: If neither of the above solutions is feasible, consider asking the subscription owner or administrator to upload the data files on your behalf. This approach can help import the data into Azure OpenAI Studio without **user** requiring subscription-level access or public access to the blob storage.
+- Request assistance from the owner or admin: If the solution above is not feasible, consider asking the subscription owner or administrator to upload the data files on your behalf. This approach can help import the data into Azure OpenAI Studio without **user** requiring subscription-level access or public access to the blob storage.
 
 ## Next steps
 
