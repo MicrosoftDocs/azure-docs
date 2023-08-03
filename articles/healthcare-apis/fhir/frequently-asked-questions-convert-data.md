@@ -5,7 +5,7 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: faq
-ms.date: 08/02/2023
+ms.date: 08/03/2023
 ms.author: jasteppe
 ---
 
@@ -68,15 +68,20 @@ Depending on the version of `$convert-data` you’re using, you can:
 
 In this article, you learned about the frequently asked questions (FAQs) about the `$convert-data` operation and endpoint for converting health data into FHIR by using the FHIR service in Azure Health Data Services. 
 
-For information about how to import FHIR data into the FHIR service, see:
+For an overview of `$convert-data`, see
  
 > [!div class="nextstepaction"]
-> [Import operation](import-data.md)
+> [Overview of $convert-data](overview-of-convert-data.md)
 
-For information about how to export FHIR data from the FHIR service, see:
+To learn how to configure settings for `$convert-data` using the Azure portal, see
  
 > [!div class="nextstepaction"]
-> [Export operation](export-data.md)
+> [Configure settings for $convert-data using the Azure portal](configure-settings-convert-data.md)
+
+To learn how to troubleshoot `$convert-data`, see
+ 
+> [!div class="nextstepaction"]
+> [Troubleshoot $convert-data](troubleshoot-convert-data.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
  
