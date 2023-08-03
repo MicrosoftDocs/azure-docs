@@ -42,7 +42,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
     * Enterprise Admins 
     * Administrators 
     * Account Operators 
-    * Azure AD DC Administrators _(Azure AD DS Only)_
+    * Azure AD DS Administrators _(Azure AD DS Only)_
     * Alternatively, an AD domain user account with `msDS-SupportedEncryptionTypes` write permission on the AD connection admin account can also be used to set the Kerberos encryption type property on the AD connection admin account. 
 
     >[!NOTE]
