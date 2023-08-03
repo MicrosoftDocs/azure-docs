@@ -33,10 +33,10 @@ Device identities are a prerequisite for scenarios like [device-based Conditiona
 
 The modern device scenario focuses on two of these methods: 
 
-- [Azure AD registration](concept-azure-ad-register.md) 
+- [Azure AD registration](concept-device-registration.md) 
    - Bring your own device (BYOD)
    - Mobile device (cell phone and tablet)
-- [Azure AD join](concept-azure-ad-join.md)
+- [Azure AD join](concept-directory-join.md)
    - Windows 11 and Windows 10 devices owned by your organization
    - [Windows Server 2019 and newer servers in your organization running as VMs in Azure](howto-vm-sign-in-azure-ad-windows.md)
 
@@ -54,8 +54,8 @@ Getting devices in to Azure AD can be done in a self-service manner or a control
 
 ## Next steps
 
-- Learn more about [Azure AD registered devices](concept-azure-ad-register.md)
-- Learn more about [Azure AD joined devices](concept-azure-ad-join.md)
+- Learn more about [Azure AD registered devices](concept-device-registration.md)
+- Learn more about [Azure AD joined devices](concept-directory-join.md)
 - Learn more about [hybrid Azure AD joined devices](concept-hybrid-join.md)
-- To get an overview of how to manage device identities in the Azure portal, see [Managing device identities using the Azure portal](device-management-azure-portal.md).
+- To get an overview of how to manage device identities in the Azure portal, see [Managing device identities using the Azure portal](manage-device-identities.md).
 - To learn more about device-based Conditional Access, see [Configure Azure Active Directory device-based Conditional Access policies](../conditional-access/require-managed-devices.md).

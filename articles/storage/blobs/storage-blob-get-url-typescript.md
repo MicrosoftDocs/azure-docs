@@ -9,7 +9,7 @@ ms.date: 03/21/2023
 ms.service: azure-storage
 ms.topic: how-to
 ms.devlang: typescript
-ms.custom: devx-track-js, devguide-js
+ms.custom: devx-track-ts, devguide-ts
 ---
 
 # Get URL for container or blob with TypeScript

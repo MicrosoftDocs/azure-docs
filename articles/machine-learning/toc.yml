@@ -396,6 +396,9 @@
             - name: Deep learning models
               displayName: auto ML, time series, forecasting, deep learning, TCN
               href: concept-automl-forecasting-deep-learning.md
+            - name: Forecasting at scale
+              displayName: auto ML, time series, forecasting, scalability, large data, many models, distributed training
+              href: concept-automl-forecasting-at-scale.md
             - name: Model sweeping and selection
               displayName: auto ML, time series, forecasting, model selection, sweeping
               href: concept-automl-forecasting-sweeping.md
@@ -405,13 +408,16 @@
             - name: Lag features
               displayName: auto ML, time series, lags
               href: concept-automl-forecasting-lags.md
+            - name: Inference and evaluation
+              displayName: auto ML, time series, inference, model evaluation, rolling forecast
+              href: concept-automl-forecasting-evaluation.md
         - name: Overfitting & imbalanced data
           displayName: automl, auto ml, risks
           href: concept-manage-ml-pitfalls.md
     - name: How-to
       items:
-      - name: Use automated ML (Python)
-        displayName: SDK, automl
+      - name: Use automated ML for tabular data (Python, CLI)
+        displayName: SDK, CLI, Python, automl
         href: how-to-configure-auto-train.md
       - name: Use automated ML (interface)
         href: how-to-use-automated-ml-for-ml-models.md
@@ -454,8 +460,8 @@
       # end v1
       - name: Time series forecasting
         items:
-        - name: Auto-train a forecasting model (Python)
-          displayName: forecasting, time series, auto ML, automl, SDK
+        - name: Auto-train a forecasting model (Python, CLI)
+          displayName: forecasting, time series, auto ML, automl, Python, SDK, CLI
           href: how-to-auto-train-forecast.md
         # v1
         - name: Auto-train a forecast model
@@ -791,7 +797,7 @@
           href: concept-endpoints-online.md
         - name: Deploy an ML model with an online endpoint
           href: how-to-deploy-online-endpoints.md
-        - name: Roll out models with safe deployment strategies
+        - name: Deploy models with safe rollout strategy
           href: how-to-safely-rollout-online-endpoints.md
         - name: Autoscale online endpoints
           href: how-to-autoscale-endpoints.md

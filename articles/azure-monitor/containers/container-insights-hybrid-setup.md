@@ -268,7 +268,7 @@ In this section, you install the containerized agent for Container insights. Bef
     --set amalogsagent.secret.wsid=<logAnalyticsWorkspaceId>,amalogsagent.secret.key=<logAnalyticsWorkspaceKey>,amalogsagent.env.clusterName=<my_prod_cluster> microsoft/azuremonitor-containers
     ```
 
-    If the Log Analytics workspace is in Azure China 21Vianet, run the following command:
+    If the Log Analytics workspace is in Microsoft Azure operated by 21Vianet, run the following command:
 
     ```
     $ helm install --name myrelease-1 \

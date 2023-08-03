@@ -134,7 +134,7 @@ The device and location that a user uses to access an app are also important. De
 
 :::image type="content" source="media/migrate-adfs-classify-apps-plan-pilot/user-location-data-access.png" alt-text="Diagram showing the relationship between User Location and Data Access.":::
 
-With these aspects of resource, user, and device in mind, you may choose to use [Azure AD Conditional Access](../conditional-access/overview.md) capabilities. Conditional access goes beyond user permissions: it's based on a combination of factors, such as the identity of a user or group, the network that the user is connected to, the device and application they're using, and the type of data they're trying to access. The access granted to the user adapts to this broader set of conditions.
+With these aspects of resource, user, and device in mind, you may choose to use [Azure AD Conditional Access](../conditional-access/overview.md) capabilities. Conditional Access goes beyond user permissions: it's based on a combination of factors, such as the identity of a user or group, the network that the user is connected to, the device and application they're using, and the type of data they're trying to access. The access granted to the user adapts to this broader set of conditions.
 
 ## Exit criteria
 

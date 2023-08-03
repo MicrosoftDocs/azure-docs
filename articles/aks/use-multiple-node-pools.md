@@ -447,16 +447,16 @@ az provider register --namespace Microsoft.ContainerService
 
 ### Manage capacity reservations
 
-Associating a node pool with an existing capacity reservation group can be done using [`az aks nodepool add`][az-aks-nodepool-add] command and specifying a capacity reservation group with the --capacityReservationGroup flag". The capacity reservation group should already exist, otherwise the node pool is added to the cluster with a warning and no capacity reservation group gets associated.
+Associating a node pool with an existing capacity reservation group can be done using [`az aks nodepool add`][az-aks-nodepool-add] command and specifying a capacity reservation group with the  --crg-id  flag". The capacity reservation group should already exist, otherwise the node pool is added to the cluster with a warning and no capacity reservation group gets associated.
 
 ```azurecli-interactive
-az aks nodepool add -g MyRG --cluster-name MyMC -n myAP --capacityReservationGroup myCRG
+az aks nodepool add -g MyRG --cluster-name MyMC -n myAP  --crg-id {crg_id} 
 ```
 
 Associating a system node pool with an existing capacity reservation group can be done using [`az aks create`][az-aks-create] command. If the capacity reservation group specified doesn't exist, then a warning is issued and the cluster gets created without any capacity reservation group association.
 
 ```azurecli-interactive
-az aks create -g MyRG --cluster-name MyMC --capacityReservationGroup myCRG
+az aks create -g MyRG --cluster-name MyMC  --crg-id {crg_id} 
 ```
 
 Deleting a node pool command implicitly dissociates a node pool from any associated capacity reservation group, before that node pool is deleted.
