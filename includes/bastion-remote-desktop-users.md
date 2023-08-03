@@ -7,4 +7,4 @@
  ms.author: cherylmc
 
 ---
-When connecting via RDP, users must have rights on the target VM. If the user is not a local administrator, add the user to the Remote Desktop Users group on the target VM.
+When a user connects via RDP, they must have rights on the target VM. If the user isn't a local administrator, add the user to the Remote Desktop Users group on the target VM.
