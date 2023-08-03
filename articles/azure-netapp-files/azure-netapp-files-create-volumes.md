@@ -35,8 +35,8 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 * Security  
   Support for UNIX mode bits (read, write, and execute) is available for NFSv3 and NFSv4.1. Root-level access is required on the NFS client to mount NFS volumes.
 
-* Local user/group and LDAP support for NFSv4.1  
-  Currently, NFSv4.1 supports root access to volumes only. See [Configure NFSv4.1 default domain for Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md). 
+* User ID mapping in NFSv4.1 for LDAP-enabled and non-LDAP volumes  
+  To avoid permission issues, including access for a root user, when using NFSv4.1, the ID domain configuration on the NFS client and Azure NetApp Files must match. User ID mapping can use centralized user management with LDAP or use local users for non-LDAP volumes. To configure the ID Domain in Azure NetApp Files for non-LDAP volumes, see [Configure NFSv4.1 ID domain for Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md). 
 
 ## Best practice
 
