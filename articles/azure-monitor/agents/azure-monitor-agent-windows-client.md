@@ -68,6 +68,7 @@ Here is a comparison between client installer and VM extension for Azure Monitor
     msiexec /i AzureMonitorAgentClientSetup.msi /qn
     ```
 4. To install with custom file paths, [network proxy settings](./azure-monitor-agent-overview.md#proxy-configuration), or on a Non-Public Cloud use the command below with the values from the following table:
+
     ```cli
     msiexec /i AzureMonitorAgentClientSetup.msi /qn DATASTOREDIR="C:\example\folder"
     ```
@@ -82,6 +83,7 @@ Here is a comparison between client installer and VM extension for Azure Monitor
     | PROXYUSERNAME | Set to Proxy username. PROXYUSE and PROXYUSEAUTH must be set to "true" |
     | PROXYPASSWORD | Set to Proxy password. PROXYUSE and PROXYUSEAUTH must be set to "true" |
     | CLOUDENV | Set to Cloud. "Azure Commercial", "Azure China", "Azure US Gov", "Azure USNat", or "Azure USSec
+
 
 6. Verify successful installation:
     - Open **Control Panel** -> **Programs and Features** OR **Settings** -> **Apps** -> **Apps & Features** and ensure you see ‘Azure Monitor Agent’ listed

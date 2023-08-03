@@ -6,7 +6,7 @@ author: kgaddam10
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 07/05/2023
+ms.date: 08/03/2023
 ms.author: kavitagaddam 
 ms.custom: references_regions
 ---
@@ -77,7 +77,7 @@ The DICOM Change Feed API could previously return results that incorrectly skipp
 
 #### MedTech service 
 
-**Feature Enhancement: Encounter identifiers included in the device message**
+**Encounter identifiers included in the device message**
 
 Customers can now include encounter identifiers in the device message so that they can look up the corresponding FHIR encounter and link it to the observation created in the FHIR transformation. This look up feature is supported in OSS and was an ask from customers for the PaaS MedTech service.
 
