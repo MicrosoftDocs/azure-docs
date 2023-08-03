@@ -103,7 +103,7 @@ Once the connection is completed its state returns to Active.
 
 **Q.** Is there an impact on traffic for the whole-time conversion happens?
 
-**A.** Conversion process involves several stages and not all stages have traffic impact. Draining the traffic, configuring new policies pertaining to the type of peering, and allowing the traffic back once BGP and BFD come up are done serially. Combined these steps usually take ~two hrs given the peering partner complete their end of the configurations. For Voice conversions, ensure that the BFD setup is done on time to ensure minimal downtime. For conversions that involve a change in IP addresses, there is almost zero downtime, since the traffic is seamlessly shifted to the session with the new addresses from the old session after which the old session is shut down.
+**A.** Conversion process involves several stages and not all stages have traffic impact. Draining the traffic, configuring new policies pertaining to the type of peering, and allowing the traffic back once BGP and BFD come up are done serially. Combined these steps usually take ~2 hrs given the peering partner complete their end of the configurations. For Voice conversions, ensure that the BFD setup is done on time to ensure minimal downtime. For conversions that involve a change in IP addresses, there is almost zero downtime, since the traffic is seamlessly shifted to the session with the new addresses from the old session after which the old session is shut down.
 
 **Q.** How do I know which connection to configure the new Microsoft provided IP addresses?
 
@@ -115,7 +115,7 @@ Once the connection is completed its state returns to Active.
 
 **Q.** I have two different peerings, Peering A with standard PNI(s) connections and peering B with Voice connections. I would like to convert the standard PNI peering connections to Voice. What happens to the peering resources in this case?
 
-**A.** Once Peering A is converted from PNIs to Voice, the connections from Peering A are moved to Peering B, and Peering A is deleted. For example: If Peering A with two PNI connections are converted to Voice, and Peering B already has two connections, the process will result in Peering B which is the Voice peering having four connections now and the Peering A resource will be removed. This is by design so that a resource provider maintains only one peering for a given provider and type of direct peering at a given location.
+**A.** Once Peering A is converted from PNIs to Voice, the connections from Peering A are moved to Peering B, and Peering A is deleted. For example: If Peering A with two PNI connections are converted to Voice, and Peering B already has two connections, the process will result in Peering B (the Voice peering) having four connections now and the Peering A resource will be removed. This is by design so that a resource provider maintains only one peering for a given provider and type of direct peering at a given location.
 
 **Q.** I have more questions what is a good place to contact you at?
 
