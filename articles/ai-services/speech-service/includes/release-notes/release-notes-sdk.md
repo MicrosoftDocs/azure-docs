@@ -808,7 +808,7 @@ Stay healthy!
 - TTS C++ api now supports `std::wstring` as synthesis text input, removing the need to convert a wstring to string before passing it to the SDK. See details [here](/cpp/cognitive-services/speech/speechsynthesizer#speaktextasync).
 - C#: [Language ID](../../language-identification.md?pivots=programming-language-csharp) and [source language config](../../how-to-recognize-speech.md) are now available.
 - JavaScript: Added a feature to `Connection` object to pass through custom messages from the Speech service as callback `receivedServiceMessage`.
-- JavaScript: Added support for `FromHost API` to ease use with on-prem containers and sovereign clouds. See documentation [here](../../speech-container-howto.md).
+- JavaScript: Added support for `FromHost API` to ease use with on-premises containers and sovereign clouds. See documentation [here](../../speech-container-howto.md).
 - JavaScript: We now honor `NODE_TLS_REJECT_UNAUTHORIZED` thanks to a contribution from [orgads](https://github.com/orgads). See details [here](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75).
 
 **Breaking changes**
