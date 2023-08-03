@@ -805,8 +805,6 @@
       href: connect-azure-stack.md
     - name: Connect Azure Virtual Desktop
       href: connect-azure-virtual-desktop.md
-    - name: Integrate Azure Data Explorer
-      href: store-logs-in-azure-data-explorer.md
     - name: Stream Microsoft Purview Information Protection data
       href: connect-microsoft-purview.md
     - name: Integrate Microsoft Purview
