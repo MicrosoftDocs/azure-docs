@@ -94,6 +94,9 @@
         - name: Private access
           href: concepts-private-access.md
           displayName: private, link
+        - name: Azure AD and Postgres authentication
+          href: concepts-authentication.md
+          displayName: Azure Active Directory, AAD, authentication, PostgreSQL roles
         - name: Node DNS names
           href: concepts-node-domain-name.md
           displayName: DNS, FQDN, connection, connect
@@ -157,8 +160,6 @@
           href: howto-ingest-azure-data-factory.md
     - name: Manage
       items:
-        - name: Create users
-          href: howto-create-users.md
         - name: Schedule maintenance
           href: howto-maintenance.md
         - name: Start and stop cluster compute
@@ -214,6 +215,9 @@
         - name: Manage private access
           href: howto-private-access.md
           displayName: network, private link
+        - name: Manage Azure AD and Postgres users
+          href: how-to-configure-authentication.md
+          displayName: Azure Active Directory, PosgreSQL roles, authentication
         - name: Customer managed keys
           href: how-to-customer-managed-keys.md
           displayName: customer-managed, keys, cmk
