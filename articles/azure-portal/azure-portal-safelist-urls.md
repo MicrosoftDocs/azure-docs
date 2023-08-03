@@ -148,7 +148,7 @@ ux.console.azure.com (Azure Cloud Shell)
 graph.microsoftazure.us
 ```
 
-### [Azure China Cloud](#tab/azure-china-cloud)
+### [Microsoft Azure operated by 21Vianet Cloud](#tab/azure-china-cloud)
 
 ```
 aadcdn.msauth.cn

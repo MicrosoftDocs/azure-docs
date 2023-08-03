@@ -1,6 +1,6 @@
 ---
-title: Markup - Azure China
-description: This article explains how to configure markup rules for use in Azure China.
+title: Markup - Microsoft Azure operated by 21Vianet
+description: This article explains how to configure markup rules for use in Microsoft Azure operated by 21Vianet.
 author: bandersmsft
 ms.reviewer: shrshett
 tags: billing
@@ -12,7 +12,7 @@ ms.author: banders
 ms.custom: references_regions, subject-reliability
 ---
 
-# Markup - Azure China
+# Markup - Microsoft Azure operated by 21Vianet
 
 Markup enables you to publish prices and costs to end customers that are inclusive of any uplift you may wish to charge for any value-added services offered. The markup feature in Microsoft Cost Management enables you to configure markup that reflected in your end customers' pricing and cost management experiences for all applicable Microsoft first party products and services. Markup doesn't apply to third party marketplace products and seat-based products.
 
@@ -24,13 +24,13 @@ This feature provides estimated prices and accumulated costs to your end custome
 ## Prerequisites
 
 >[!IMPORTANT]
-> Configuring markup is currently available only for partner use with customers on the Microsoft Customer Agreement (MCA) with Azure China 21Vianet (Azure China).
+> Configuring markup is currently available only for partner use with customers on the Microsoft Customer Agreement (MCA) with Azure operated by 21Vianet.
 
 If you're a billing account or billing profile admin, you can create and manage markup rules for the customers linked to your billing profile. Only one markup rule can be set up per customer billing profile for a defined time period. The markup rule applies to the customer billing profile only for first party Azure prices and charges. 
 
 ## Create a markup rule
 
-1. Sign in to the Azure China portal at https://portal.azure.cn/.
+1. Sign in to the Azure operated by 21Vianet portal at https://portal.azure.cn/.
 1. Navigate to  **Cost Management**.
  Don't navigate to **Cost Management + Billing**.
 1. Navigate to **Settings** > **Manage billing account.**
