@@ -57,13 +57,13 @@ At the same time, LLMs are not perfect and customers often require Custom questi
 
 1. On the **Index data field mapping** screen, select *answer* for **Content data** field. The input for other fields such as **File name**, **Title** and **URL** are optional depending on the nature of your data source.
 
-    :::image type="content" source="../media/question-answering/data-field-mapping.png" alt-text="A screenshot showing selection information for Azure Cognitive Search in Azure OpenAI Studio." lightbox="../media/question-answering/data-field-mapping.png":::
+    :::image type="content" source="../media/question-answering/data-field-mapping.png" alt-text="A screenshot showing index field mapping information for Azure Cognitive Search in Azure OpenAI Studio." lightbox="../media/question-answering/data-field-mapping.png":::
 
 1. Select **Next**. You can skip the **Add an existing Semantic Search configuration** if it isn't applicable. Review the information you entered, and select **Save and close**.
 
 1. Your data source has now been added. Select your model's deployment name under the **Configuration** > **Deployment** tab on the menu to the right. 
 
-    :::image type="content" source="../media/quickstarts/chat-playground.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/quickstarts/chat-playground.png":::
+    :::image type="content" source="../../../openai/media/quickstarts/chat-playground.png" alt-text="A screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../../../openai/media/quickstarts/chat-playground.png":::
 
 You can now start exploring Azure OpenAI capabilities with a no-code approach through the chat playground. It's simply a text box where you can submit a prompt to generate a completion. From this page, you can quickly iterate and experiment with the capabilities. 
 
