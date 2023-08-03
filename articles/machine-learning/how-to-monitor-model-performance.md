@@ -780,7 +780,7 @@ With Azure Machine Learning model monitoring, you have the option to define your
 The component input DataFrame should contain a `mltable` with the processed data from the preprocessing component and any number of literals, each representing an implemented metric as part of the custom signal component. For example, if you have implemented one metric, `std_deviation`, then you will need an input for `std_deviation_threshold`. Generally, there should be one input per metric with the name {metric_name}_threshold.
 
   | signature name | type | description | example value |
-  |---|---|---|---|---|
+  |---|---|---|---|
   | production_data | mltable | A tabular dataset, which matches a subset of baseline data schema. | |
   | std_deviation_threshold | literal, string | Respective threshold for the implemented metric. | 2 |
 
@@ -805,7 +805,7 @@ Here is an example output from a custom signal component computing the metric, `
   | DIGITALITEMCOUNT | 7.238 | std_deviation | 2 |
   | PHYSICALITEMCOUNT | 5.509 | std_deviation | 2 |
 
-An example custom signal component definition and metric computation code can be found here: [https://github.com/Azure/azureml-examples/tree/main/cli/monitoring](https://github.com/Azure/azureml-examples/tree/main/cli/monitoring).
+An example custom signal component definition and metric computation code can be found here: [https://github.com/Azure/azureml-examples/tree/main/cli/monitoring/components/custom_signal](https://github.com/Azure/azureml-examples/tree/main/cli/monitoring/components/custom_signal).
 
 # [Azure CLI](#tab/azure-cli)
 
