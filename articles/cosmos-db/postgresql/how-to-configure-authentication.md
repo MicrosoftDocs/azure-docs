@@ -22,7 +22,7 @@ ms.date: 08/01/2023
 > [Contact us](mailto:askcosmosdb4postgres@microsoft.com) if you're interested in participating in Azure Active Directory authentication 
 > for Azure Cosmos DB for PostgreSQL preview.
 >
-> You can see a complete list of other new features in [preview features](product-updates.md).
+> You can see a complete list of other new features in [preview features](product-updates.md#features-in-preview).
 
 In this article, you configure authentication methods for Azure Cosmos DB for PostgreSQL. You manage Azure Active Directory (Azure AD) admin users and native PostgreSQL roles for authentication with Azure Cosmos DB for PostgreSQL. You also learn how to use an Azure AD token with Azure Cosmos DB for PostgreSQL.
 

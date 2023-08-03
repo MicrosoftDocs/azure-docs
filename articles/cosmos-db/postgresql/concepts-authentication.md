@@ -22,7 +22,7 @@ ms.date: 08/02/2023
 > [Contact us](mailto:askcosmosdb4postgres@microsoft.com) if you're interested in participating in Azure Active Directory authentication 
 > for Azure Cosmos DB for PostgreSQL preview.
 >
-> You can see a complete list of other new features in [preview features](product-updates.md).
+> You can see a complete list of other new features in [preview features](product-updates.md#features-in-preview).
 
 Azure Cosmos DB for PostgreSQL supports PostgreSQL authentication and integration with Azure Active Directory (Azure AD). Each Azure Cosmos DB for PostgreSQL cluster is created with native PostgreSQL authentication enabled and one built-in PostgreSQL role named `citus`. You can add more native PostgreSQL roles after cluster provisioning is completed.
 
