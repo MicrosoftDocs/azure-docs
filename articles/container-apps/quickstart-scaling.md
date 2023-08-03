@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---
 
-# Tutorial: Scale your container app
+# Tutorial: Scale a container app
 
 Azure Container Apps manages automatic horizontal scaling through a set of declarative scaling rules. As a container app revision scales out, new instances of the revision are created on-demand. These instances are known as replicas.
 
@@ -260,15 +260,15 @@ For more information, see [az containerapp logs](/cli/azure/containerapp/logs).
 
 # [Bash](#tab/bash)
 
-Open a new bash shell using Windows Subsystem for Linux or Azure Cloud Shell. Run the following command, replacing `<YOUR_CONTAINER_APP_FQDN>` with the fully qualified domain name for your container app that you saved from the [Create and deploy the container app](#create-and-deploy-the-container-app) section.
+Open a new bash shell using Windows Subsystem for Linux or a Linux virtual machine. Run the following command, replacing `<YOUR_CONTAINER_APP_FQDN>` with the fully qualified domain name for your container app that you saved from the [Create and deploy the container app](#create-and-deploy-the-container-app) section.
 
 ```bash
-seq 1 4 | xargs -Iname -P4 curl "<YOUR_CONTAINER_APP_FQDN>/albums"
+seq 1 20 | xargs -Iname -P20 curl "<YOUR_CONTAINER_APP_FQDN>/albums"
 ```
 
-This command sends four concurrent requests to the `/albums` endpoint of your container app.
+This command sends 20 concurrent requests to the `/albums` endpoint of your container app.
 
-- `seq 1 4` generates a sequence from one to four.
+- `seq 1 20` generates a sequence from one to 20.
 - The pipe operator `|` sends this sequence to the `xargs` command.
 - `xargs` then runs `curl` with the specified URL.
 - The `-Iname` argument to `xargs` acts as a placeholder for the output of `seq`. This prevents it being sent to the `curl` command.
@@ -285,9 +285,9 @@ Open a new command prompt and enter PowerShell. Run the following commands, repl
 
 ```powershell
 $url="<YOUR_CONTAINER_APP_FQDN>/albums"
-$Runspace = [runspacefactory]::CreateRunspacePool(1,4)
+$Runspace = [runspacefactory]::CreateRunspacePool(1,20)
 $Runspace.Open()
-1..4 | % {
+1..20 | % {
     $ps = [powershell]::Create()
     $ps.RunspacePool = $Runspace
     [void]$ps.AddCommand("Invoke-WebRequest").AddParameter("UseBasicParsing",$true).AddParameter("Uri",$url)
@@ -295,10 +295,10 @@ $Runspace.Open()
 }
 ```
 
-These commands send four asynchronous requests to the `albums` endpoint of your container app.
+These commands send 20 asynchronous requests to the `albums` endpoint of your container app.
 
-- `[runspacefactory]::CreateRunspacePool(1,4)` creates a `RunspacePool` that allows up to four runspaces to run concurrently.
-- `1..4 | % {  }` runs the code enclosed in the curly braces four times. 
+- `[runspacefactory]::CreateRunspacePool(1,20)` creates a `RunspacePool` that allows up to 20 runspaces to run concurrently.
+- `1..20 | % {  }` runs the code enclosed in the curly braces 20 times. 
 - `$ps = [powershell]::Create()` creates a new PowerShell instance.
 - `$ps.RunspacePool = $Runspace` tells the PowerShell instance to run in our `RunspacePool`.
 - `[void]$ps.AddCommand("Invoke-WebRequest").AddParameter("UseBasicParsing",$true).AddParameter("Uri",$url)` tells the PowerShell instance to send a request to your container app.
@@ -324,6 +324,25 @@ In the first shell, where you ran the `az containerapp logs show` command, the o
 	"Count":0
 }
 ```
+
+## View scaling in Azure Portal (optional)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the *Search* bar at the top, enter **my-container-app**.
+1. In the search results, under *Resources*, select *my-container-app*.
+1. In the navigation bar at the left, expand *Application* and select *Scale and replicas*.
+1. In the *Scale and Replicas* page, select *Replicas*.
+1. Your container app now has more than one replica running.
+
+:::image type="content" source="media/scale-app/azure-container-apps-scale-replicas.png" alt-text="Container app replicas.":::
+
+Note you might need to click *Refresh* to see the new replicas.
+
+1. In the navigation bar at the left, expand *Monitoring* and select *Metrics*.
+1. In the *Metrics* page, set *Metric* to *Replica Count*.
+1. The graph shows your container app's replica count has increased recently.
+
+:::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics.png" alt-text="Container app replica count.":::
 
 ## Clean up resources
 
