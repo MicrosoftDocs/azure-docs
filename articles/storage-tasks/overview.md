@@ -1,13 +1,13 @@
 ---
 title: About Azure Storage Tasks
 titleSuffix: Azure Storage
-description: Description of Azure Storage Tasks goes here  
+description: Learn how to perform operations on containers and blobs in Azure Storage accounts based on a set of conditions that you define. 
 services: storage
 author: normesta
 
 ms.service: storage-tasks
 ms.topic: overview
-ms.date: 05/10/2023
+ms.date: 08/03/2023
 ms.author: normesta
 
 ---
@@ -23,26 +23,26 @@ Azure Storage Tasks can perform operations on containers and blobs in Azure Stor
 
 ## Anatomy of a storage task
 
-Azure Storage Tasks is a service that manages *storage tasks*. A storage task defines a set of *conditions*, *operations*, and *assignments*.
+Azure Storage Tasks is a service that manages *storage tasks*. A storage task defines a set of *conditions*, *operations*, and *assignments*. The following table describes each of these components.
 
 | Component | Description |
 |---|---|
 | Conditions | A *condition* contains a property, a value, and an operator. When the storage task runs, it uses the operator to compare a property with a value to determine whether the condition is met by the target object. For example, a condition might evaluate whether a `creation-time` property of a blob is greater than five days ago. |
-| Operations | An operation is the action a storage task performs on each object that meets the defined conditions. Deleting a blob is an example of an operation. |
+| Operations | An operation is the action a storage task performs on each object that meets the defined set of conditions. Deleting a blob is an example of an operation. |
 | Assignments | An assignment identifies a storage account and a subset of objects in that account that the task will target. An assignment also defines when the task runs and where execution reports are stored. |
 
 See any of these articles to learn more about these components:
 
 - [Storage task conditions and operations](storage-task-conditions-operations.md)
-- [Storage Task assignments](storage-task-assignment.md)
+- [Storage task assignments](storage-task-assignment.md)
 
 ## How to use a storage task
 
-Define the conditions and operations of a task and then assign that task to one or more storage accounts. You can use metrics, charts, and reports to monitor task runs.
+First, define the conditions and operations of a task. Then, assign that task to one or more storage accounts. Use metrics, charts, and reports to monitor task runs.
 
 ### Define a task
 
-Start by creating a task. To provision a task, you must define at least one condition and one operation. After the task is created, you can edit those conditions and operations or add more of them in the Azure portal by using a visual designer.
+Start by creating a task. To provision a task, you must define at least one condition and one operation. After the task is created, you can edit those conditions and operations or add more of them by using a visual designer.
 
 See any of these articles to learn more:
 
@@ -51,10 +51,7 @@ See any of these articles to learn more:
 
 ### Assign a task
 
-You can assign a task to any storage accounts that you own. When you create an assignment, you select the storage account, and assign a role to the system-assigned managed identity of the task. The role that you assign must enable that identity to perform the operations that are defined in the task.
-
-> [!NOTE]
-> The system-assigned managed identity is created automatically when the task is provisioned.
+You can assign a task to any storage accounts that you own. When you create an assignment, you select the storage account, and assign a role to the system-assigned managed identity of the task. That identity is created for you automatically when the task is provisioned. The role that you assign that identity must enable it to perform the operations that are defined in the task.
 
 A storage task can be assigned to a storage account only by an owner of that account. Therefore, if the task that you define is useful to an owner of another storage account, you must grant that user access to the storage task. Then, that user can assign your task to their storage account. You can grant a user access to your storage task by assigning an Azure role to their user identity.
 
