@@ -35,11 +35,11 @@ For a full end-to-end solution to manage fleet operations and "Telemetry, Tracki
    * Global reach through integrated third-party networks
 
 ## Links to learn more
-- [Overview, features, security, and FAQ](https://azure.microsoft.com/en-us/products/orbital/#layout-container-uid189e)
-- [Pricing](https://azure.microsoft.com/en-us/pricing/details/orbital/)
-- [Microsoft Learn training session](https://learn.microsoft.com/en-us/training/modules/introduction-to-ground-station/)
+- [Overview, features, security, and FAQ](https://azure.microsoft.com/products/orbital/#layout-container-uid189e)
+- [Pricing](https://azure.microsoft.com/pricing/details/orbital/)
+- [Microsoft Learn training session](https://learn.microsoft.com/training/modules/introduction-to-ground-station/)
 - [Azure Space Blog](https://techcommunity.microsoft.com/t5/azure-space-blog/bg-p/AzureSpaceBlog)
-- [General Availability press anouncement](https://azure.microsoft.com/en-us/blog/new-azure-space-products-enable-digital-resiliency-and-empower-the-industry/)
+- [General Availability press anouncement](https://azure.microsoft.com/blog/new-azure-space-products-enable-digital-resiliency-and-empower-the-industry/)
 
 ## Next steps
 
