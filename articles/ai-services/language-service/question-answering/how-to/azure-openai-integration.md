@@ -27,7 +27,7 @@ At the same time, LLMs are not perfect and customers often require Custom questi
 
 * An Azure Language Service resource and Custom Question Answering project. If you don’t have one already, then [create one](../quickstart/sdk.md). 
 
-## Migrate to Azure OpenAI on your data
+## Migrate your question-answer pairs to Azure OpenAI on your data
 
 1.	Sign in to [Language Studio](https://aka.ms/languageStudio) and navigate to your Custom Question Answering project.
 
