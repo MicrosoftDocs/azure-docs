@@ -5,7 +5,7 @@ ms.topic: install-set-up-deploy
 ms.date: 08/01/2023
 ---
 
-# Enable and COnfigure the Defender for Storage plan at scale with an Azure built-in policy
+# Enable and Configure the Defender for Storage plan at scale with an Azure built-in policy
 
 Enabling Defender for Storage via a policy is recommended because it facilitates enablement at scale and ensures that a consistent security policy is applied across all existing and future storage accounts within the defined scope (such as entire management groups). This keeps the storage accounts protected with Defender for Storage according to the organization's defined configuration.
 
@@ -33,8 +33,8 @@ To enable and configure Defender for Storage at scale with an Azure built-in pol
 > [!TIP]
 > Malware Scanning can be configured to send scanning results to the following: - **Event Grid custom topic** - for near-real time automatic response based on every scanning result. Learn more how to [configure Malware Scanning to send scanning events to an Event Grid custom topic](https://learn.microsoft.com/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-storage-account#setting-up-event-grid-for-malware-scanning); **Log Analytics workspace** - for storing every scan result in a centralized log repository for compliance and audit. Learn more how to [configure Malware Scanning to send scanning results to a Log Analytics workspace](https://learn.microsoft.com/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-storage-account#setting-up-logging-for-malware-scanning).
 
-Learn more on how to [set up response for malware scanning](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-storage-configure-malware-scan) results.
+Learn more on how to [set up response for malware scanning](defender-for-storage-configure-malware-scan.md) results.
 
-## Next Steps
+## Next steps
 
 Learn how to [enable and configure Microsoft Defender for Storage with IaC templates](defender-for-storage-infrastructure-as-code-enablement.md).
