@@ -47,11 +47,11 @@ As snapshots are immutable entities, snapshots can only be created and archived.
 
 ## Requirements for snapshot operations
 
-If the store uses Azure Active Directory (AAD) for access please check the AAD permissions. If the store uses access keys please check the HMAC section.
+If the store uses Azure Active Directory (Azure AD) for access, check the Azure AD permissions. If the store uses access keys, check the HMAC section.
 
 ### Create a snapshot
 
-To create a snapshot in stores using AAD authentication, the following permissions are required. The App Configuration Data Owner role already have these permissions.
+To create a snapshot in stores using Azure Active Directory (Azure AD) authentication, the following permissions are required. The App Configuration Data Owner role already has these permissions.
 - `Microsoft.AppConfiguration/configurationStores/keyvalues/read`
 - `Microsoft.AppConfiguration/configurationStores/snapshots/write`
 
@@ -59,14 +59,14 @@ For stores using HMAC authentication, snapshots can be created with read-write a
 
 ### Archive and recover a snapshot
 
-To archive and/or recover a snapshot in stores using AAD authentication, the following permission is needed. The App Configuration Data Owner role already has this permission.
+To archive and/or recover a snapshot in stores using Azure AD authentication, the following permission is needed. The App Configuration Data Owner role already has this permission.
 - `Microsoft.AppConfiguration/configurationStores/snapshots/archive/action`
 
 For stores using HMAC authentication, snapshots can be archived or recovered with read-write access keys.
 
 ### Read and list snapshots
 
-To  list all snapshots, or get all the key-values in an individual snapshot by name the following permission is needed for stores utilizing AAD authentication. The built-in Data Owner and Data Reader roles already have this permission.
+To  list all snapshots, or get all the key-values in an individual snapshot by name the following permission is needed for stores utilizing Azure AD authentication. The built-in Data Owner and Data Reader roles already have this permission.
 - `Microsoft.AppConfiguration/configurationStores/snapshots/read`
 
 For stores that use HMAC authentication, both the "read snapshot" operation (to read the key-values from a snapshot) and the "list snapshots" operation can be performed using either the read-write access keys or the read-only access keys.
@@ -75,7 +75,7 @@ For stores that use HMAC authentication, both the "read snapshot" operation (to 
 
 The storage quota for snapshots is detailed in the "storage per resource section" of the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration/) There's no extra charge for snapshots before the included snapshot storage quota is exhausted.
 
-App Configuration has two tiers, Free and Standard. Check the details below for snapshot quotas in each tier.
+App Configuration has two tiers, Free and Standard. Check the following details for snapshot quotas in each tier.
 
 * **Free tier**: This tier has a snapshot storage quota of 10 MB.  One can create as many snapshots as possible as long as the total storage size of all active and archived snapshots is less than 10 MB.
 
