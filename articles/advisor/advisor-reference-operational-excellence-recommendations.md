@@ -268,7 +268,7 @@ Learn more about [Alert Rule - ScheduledQueryRulesRp (Log alert rule was disable
 
 Create a periodic HSM backup to prevent data loss and have ability to recover the HSM in case of a disaster.
 
-Learn more about [Managed HSM Service - CreateHSMBackup (Create a backup of HSM)](../key-vault/managed-hsm/best-practices.md#backup).
+Learn more about [Managed HSM Service - CreateHSMBackup (Create a backup of HSM)](../key-vault/managed-hsm/best-practices.md#create-backups).
 
 ## Data Explorer
 

@@ -196,7 +196,7 @@ The following host machine requirements are applicable to **train and analyze** 
 
 * Replace the {ENDPOINT_URI} and {API_KEY} values with your resource Endpoint URI and the key from the Azure resource page.
 
-   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
+   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot of Azure portal keys and endpoint page.":::
 
 * Ensure that the EULA value is set to *accept*.
 
@@ -222,7 +222,7 @@ services:
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
       - apiKey={FORM_RECOGNIZER_KEY}
     ports:
-      - "5000:5050"
+      - "5000:5000"
     networks:
       - ocrvnet
 networks:
@@ -285,7 +285,7 @@ services:
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
       - apiKey={FORM_RECOGNIZER_KEY}
     ports:
-      - "5000:5050"
+      - "5000:5000"
     networks:
       - ocrvnet
 networks:
@@ -581,7 +581,7 @@ services:
   volumes:
     - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf
   ports:
-    - "5000:5050"
+    - "5000:5000"
  layout:
   container_name: azure-cognitive-service-layout
   image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0:latest
@@ -1189,7 +1189,7 @@ There are several ways to validate that the container is running:
   |**http://<span></span>localhost:5000/swagger** | The container provides a full set of documentation for the endpoints and a Try it out feature. With this feature, you can enter your settings into a web-based HTML form and make the query without having to write any code. After the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format that's required.
   |
 
-:::image type="content" source="../media/containers/container-webpage.png" alt-text="Screenshot: Azure containers welcome page.":::
+:::image type="content" source="../media/containers/container-webpage.png" alt-text="Screenshot of Azure containers welcome page.":::
 
 ## Stop the containers
 

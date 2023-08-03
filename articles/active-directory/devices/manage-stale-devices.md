@@ -150,6 +150,9 @@ $dt = (Get-Date).AddDays(-90)
 Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property AccountEnabled, DeviceId, DeviceOSType, DeviceOSVersion, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-90days-summary.csv -NoTypeInformation
 ```
 
+> [!WARNING]
+> [Some active devices may have a blank time stamp.](#why-is-the-timestamp-not-updated-more-frequently)
+
 #### Set devices to disabled
 
 Using the same commands we can pipe the output to the set command to disable the devices over a certain age.
@@ -183,7 +186,7 @@ Remove-AzureADDevice -ObjectId $Device.ObjectId
 
 ### Why is the timestamp not updated more frequently?
 
-The timestamp is updated to support device lifecycle scenarios. This attribute isn't an audit. Use the sign-in audit logs for more frequent updates on the device.
+The timestamp is updated to support device lifecycle scenarios. This attribute isn't an audit. Use the sign-in audit logs for more frequent updates on the device. Some active devices may have a blank time stamp.
 
 ### Why should I worry about my BitLocker keys?
 

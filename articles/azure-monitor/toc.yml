@@ -210,6 +210,10 @@ items:
           items:
           - name: Node.js OpenTelemetry exporter
             href: app/opentelemetry-nodejs-exporter.md
+        - name: Python (supplemental)
+          items:
+          - name: Migrate from Opencensus
+            href: app/opentelemetry-python-opencensus-migrate.md
         - name: FAQ
           href: /azure/azure-monitor/faq#opentelemetry
       - name: Create a resource
@@ -1447,8 +1451,6 @@ items:
         href: autoscale/autoscale-custom-metric.md
       - name: Autoscale Virtual Machine Scale Sets using PowerShell
         href: autoscale/autoscale-using-powershell.md
-      - name: Scale Virtual Machine Scale Sets using Resource Manager templates
-        href: ../virtual-machine-scale-sets/tutorial-autoscale-template.md?toc=/azure/azure-monitor/toc.json
       - name: Scale Virtual Machine Scale Sets using CLI
         href: ../virtual-machine-scale-sets/tutorial-autoscale-cli.md?toc=/azure/azure-monitor/toc.json
       - name: Use webhooks and email notifications
