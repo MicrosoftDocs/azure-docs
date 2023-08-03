@@ -36,7 +36,7 @@ ms.custom: devx-track-csharp
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Document Intelligence API.
 
-  :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+  :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 * Finally, you need a document file at a URL location. For this project, you can use the sample forms provided in the following table for each feature:
 
@@ -64,19 +64,19 @@ ms.custom: devx-track-csharp
 
 1. On the start page, choose Create a new project.
 
-    :::image type="content" source="../../../media/quickstarts/start-window.png" alt-text="Screenshot: Visual Studio start window.":::
+    :::image type="content" source="../../../media/quickstarts/start-window.png" alt-text="Screenshot of Visual Studio start window.":::
 
 1. On the **Create a new project page**, enter **console** in the search box. Choose the **Console Application** template, then choose **Next**.
 
-    :::image type="content" source="../../../media/quickstarts/create-new-project.png" alt-text="Screenshot: Visual Studio's create new project page.":::
+    :::image type="content" source="../../../media/quickstarts/create-new-project.png" alt-text="Screenshot of Visual Studio's create new project page.":::
 
 1. In the **Configure your new project** dialog window, enter `formRecognizer_app` in the Project name box. Then choose Next.
 
-    :::image type="content" source="../../../media/quickstarts/configure-new-project.png" alt-text="Screenshot: Visual Studio's configure new project dialog window.":::
+    :::image type="content" source="../../../media/quickstarts/configure-new-project.png" alt-text="Screenshot of Visual Studio's configure new project dialog window.":::
 
 1. In the **Additional information** dialog window, select **.NET 6.0 (Long-term support)**, and then select **Create**.
 
-    :::image type="content" source="../../../media/quickstarts/additional-information.png" alt-text="Screenshot: Visual Studio's additional information dialog window.":::
+    :::image type="content" source="../../../media/quickstarts/additional-information.png" alt-text="Screenshot of Visual Studio's additional information dialog window.":::
 
 <!-- > [!div class="nextstepaction"]
 > [I &#8203;ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=setup) -->
@@ -128,7 +128,7 @@ ms.custom: devx-track-csharp
 
 1. Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
-    :::image type="content" source="../../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
+    :::image type="content" source="../../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot of run your Visual Studio program.":::
 
 ## Read model
 

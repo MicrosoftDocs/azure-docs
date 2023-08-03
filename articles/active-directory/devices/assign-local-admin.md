@@ -111,5 +111,5 @@ Additionally, you can also add users using the command prompt:
 
 ## Next steps
 
-- To get an overview of how to manage device in the Azure portal, see [managing devices using the Azure portal](device-management-azure-portal.md).
+- To get an overview of how to manage device in the Azure portal, see [managing devices using the Azure portal](manage-device-identities.md).
 - To learn more about device-based Conditional Access, see [Conditional Access: Require compliant or hybrid Azure AD joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md).

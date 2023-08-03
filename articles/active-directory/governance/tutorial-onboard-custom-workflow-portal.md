@@ -35,7 +35,7 @@ Two accounts are required for this tutorial, one account for the new hire and an
 -	Department must be set to sales
 -	Manager attribute must be set, and the manager account should have a mailbox to receive an email
 
-For more comprehensive instructions on how to complete these prerequisite steps, you may refer to the [Preparing user accounts for Lifecycle workflows tutorial](tutorial-prepare-azure-ad-user-accounts.md). The [TAP policy](../authentication/howto-authentication-temporary-access-pass.md#enable-the-temporary-access-pass-policy) must also be enabled to run this tutorial.
+For more comprehensive instructions on how to complete these prerequisite steps, you may refer to the [Preparing user accounts for Lifecycle workflows tutorial](tutorial-prepare-user-accounts.md). The [TAP policy](../authentication/howto-authentication-temporary-access-pass.md#enable-the-temporary-access-pass-policy) must also be enabled to run this tutorial.
 
 Detailed breakdown of the relevant attributes:
 
@@ -126,5 +126,5 @@ After running your workflow on-demand and checking that everything is working fi
 :::image type="content" source="media/tutorial-lifecycle-workflows/enable-schedule.png" alt-text="Screenshot of enabling workflow schedule." lightbox="media/tutorial-lifecycle-workflows/enable-schedule.png":::
 
 ## Next steps
-- [Tutorial: Preparing user accounts for Lifecycle workflows](tutorial-prepare-azure-ad-user-accounts.md)
+- [Tutorial: Preparing user accounts for Lifecycle workflows](tutorial-prepare-user-accounts.md)
 - [Automate employee onboarding tasks before their first day of work using Lifecycle Workflows APIs](/graph/tutorial-lifecycle-workflows-onboard-custom-workflow)

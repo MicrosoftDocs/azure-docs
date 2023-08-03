@@ -612,7 +612,7 @@ This feature empowers users on Linux clients to register their devices with Azur
 
 
 For more information, see: 
-[Azure AD registered devices](../devices/concept-azure-ad-register.md).
+[Azure AD registered devices](../devices/concept-device-registration.md).
 [Plan your Azure Active Directory device deployment](../devices/plan-device-deployment.md)
 
 ---
@@ -781,7 +781,7 @@ This feature empowers users on Linux clients to register their devices with Azur
 
 For more information, see:
 
-- [Azure AD registered devices](../devices/concept-azure-ad-register.md)
+- [Azure AD registered devices](../devices/concept-device-registration.md)
 - [Plan your Azure Active Directory device deployment](../devices/plan-device-deployment.md)
 
 ---
@@ -917,7 +917,7 @@ A new policy API is available for the administrators to control tenant wide poli
 
 In some situations, you may want to restrict the ability for end users to self-service BitLocker keys. With this new functionality, you can now turn off self-service of BitLocker keys, so that only specific individuals with right privileges can recover a BitLocker key.
 
-For more information, see: [Block users from viewing their BitLocker keys (preview)](../devices/device-management-azure-portal.md#configure-device-settings)
+For more information, see: [Block users from viewing their BitLocker keys (preview)](../devices/manage-device-identities.md#configure-device-settings)
 
 
 ---
@@ -1249,7 +1249,7 @@ All Devices List:
 - Columns can be reordered via drag and drop
 - Select all devices
 
-For more information, see: [Manage devices in Azure AD using the Azure portal](../devices/device-management-azure-portal.md#view-and-filter-your-devices-preview).
+For more information, see: [Manage devices in Azure AD using the Azure portal](../devices/manage-device-identities.md#view-and-filter-your-devices-preview).
 
 
  
@@ -1536,7 +1536,7 @@ The sign-ins Microsoft Graph API now supports confirming safe and compromised on
 Microsoft cloud settings let you collaborate with organizations from different Microsoft Azure clouds. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following clouds:
 
 -Microsoft Azure global cloud and Microsoft Azure Government
--Microsoft Azure global cloud and Microsoft Azure China 21Vianet
+-Microsoft Azure global cloud and Microsoft Azure operated by 21Vianet
 
 To learn more about Microsoft cloud settings for B2B collaboration, see: [Cross-tenant access overview - Azure AD](../external-identities/cross-tenant-access-overview.md#microsoft-cloud-settings).
  
