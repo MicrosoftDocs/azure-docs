@@ -221,10 +221,10 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.Relay/namespaces/WcfRelays/authorizationRules | [listkeys](/rest/api/relay/wcfrelays/listkeys) |
 | Microsoft.Search/searchServices | [listAdminKeys](/rest/api/searchmanagement/2021-04-01-preview/admin-keys/get) |
 | Microsoft.Search/searchServices | [listQueryKeys](/rest/api/searchmanagement/2021-04-01-preview/query-keys/list-by-search-service) |
-| Microsoft.ServiceBus/namespaces/authorizationRules | [listKeys](/rest/api/servicebus/stable/namespaces-authorization-rules/list-keys) |
-| Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules | [listKeys](/rest/api/servicebus/stable/disasterrecoveryconfigs/listkeys) |
-| Microsoft.ServiceBus/namespaces/queues/authorizationRules | [listKeys](/rest/api/servicebus/stable/queues-authorization-rules/list-keys) |
-| Microsoft.ServiceBus/namespaces/topics/authorizationRules | [listKeys](/rest/api/servicebus/stable/topics%20%E2%80%93%20authorization%20rules/list-keys) |
+| Microsoft.ServiceBus/namespaces/authorizationRules | [listKeys](/rest/api/servicebus/controlplane-stable/namespaces-authorization-rules/list-keys) |
+| Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules | [listKeys](/rest/api/servicebus/controlplane-stable/disaster-recovery-configs/list-keys) |
+| Microsoft.ServiceBus/namespaces/queues/authorizationRules | [listKeys](/rest/api/servicebus/controlplane-stable/queues-authorization-rules/list-keys) |
+| Microsoft.ServiceBus/namespaces/topics/authorizationRules | [listKeys](/rest/api/servicebus/controlplane-stable/topics%20–%20authorization%20rules/list-keys) |
 | Microsoft.SignalRService/SignalR | [listKeys](/rest/api/signalr/signalr/listkeys) |
 | Microsoft.Storage/storageAccounts | [listAccountSas](/rest/api/storagerp/storageaccounts/listaccountsas) |
 | Microsoft.Storage/storageAccounts | [listKeys](/rest/api/storagerp/storageaccounts/listkeys) |
@@ -606,15 +606,20 @@ The following example template references a storage account that isn't deployed 
 
 ## references
 
-`reference(symbolic name of the resource collection, ['Full'])`
+`reference(symbolic name of a resource collection, ['Full'])`
 
-Returns an array of objects representing a collection of resource's runtime states. This function requires ARM template language version `1.10-experimental` and with [symbolic name](../bicep/file.md#resources) enabled:
+`references` works similarly as [`reference`](#reference). In stead of returning an object presenting a resource's runtime state, 'references` returns an array of objects representing a collection of resource's runtime states. This function requires ARM template language version `1.10-experimental` and with [symbolic name](../bicep/file.md#resources) enabled:
 
 ```json
-"languageVersion": "1.10-experimental",
-``````
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "1.10-experimental",
+  "contentVersion": "1.0.0.0",
+  ...
+}
+```
 
-In Bicep, there is no explicit references() function like reference(). Instead, symbolic collection usage is employed directly, and during code generation, Bicep translates it to an ARM template that utilizes the ARM template references() function.
+In Bicep, there is no explicit `references` function like [`reference`](../bicep/bicep-function-resource.md#reference). Instead, symbolic collection usage is employed directly, and during code generation, Bicep translates it to an ARM template that utilizes the ARM template `references` function. The forthcoming release of Bicep will include a translation feature that converts symbolic collections to ARM templates using the references() function.
 
 ### Parameters
 
@@ -625,11 +630,11 @@ In Bicep, there is no explicit references() function like reference(). Instead, 
 
 ### Return value
 
-An array of a resource collection. Every resource type returns different properties for the `references` function. The function doesn't return a single, predefined format. Also, the returned value differs based on the value of the `'Full'` argument. To see the properties for a resource type, return the object in the outputs section as shown in the example.
+An array of the resource collection. Every resource type returns different properties for the `reference` function. Also, the returned value differs based on the value of the `'Full'` argument. For more information, see [reference](#reference).
 
-The output order of `references` is always arranged in ascending order based on the copy index. Therefore, the first resource in the collection with index 0 is displayed first, followed by index 1, and so son. For instance, [worker-0, worker-1, worker-2, ...].
+The output order of `references` is always arranged in ascending order based on the copy index. Therefore, the first resource in the collection with index 0 is displayed first, followed by index 1, and so son. For instance, *[worker-0, worker-1, worker-2, ...]*.
 
-In the preceding example, if worker-0 and worker-2 are deployed while worker-1 is not due to a false condition, the output of `references` will omit the non-deployed resource and display the deployed ones, ordered by their numbers. The output of `references` will be [worker-0, worker-2, ...]. If all of the resources are omitted, the function returns an empty array.
+In the preceding example, if *worker-0* and *worker-2* are deployed while *worker-1* is not due to a false condition, the output of `references` will omit the non-deployed resource and display the deployed ones, ordered by their numbers. The output of `references` will be *[worker-0, worker-2, ...]*. If all of the resources are omitted, the function returns an empty array.
 
 ### Valid uses
 
