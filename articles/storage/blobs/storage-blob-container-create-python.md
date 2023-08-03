@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 01/24/2023
+ms.date: 08/02/2023
 ms.author: pauljewell
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
@@ -16,6 +16,12 @@ ms.custom: devx-track-python, devguide-python
 # Create a blob container with Python
 
 Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create containers with the [Azure Storage client library for Python](/python/api/overview/azure/storage).
+
+## Prerequisites
+
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Python. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to create a blob container. To learn more, see the authorization guidance for the following REST API operation:
+    - [Create Container](/rest/api/storageservices/create-container#authorization)
 
 ## Container names
 

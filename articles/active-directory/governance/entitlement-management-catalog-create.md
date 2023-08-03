@@ -49,7 +49,7 @@ To create a catalog:
 
 1. If you want the access packages in this catalog to be available for users to request as soon as they're created, set **Enabled** to **Yes**.
 
-1. If you want to allow users in selected external directories to be able to request access packages in this catalog, set **Enabled for external users** to **Yes**.
+1. If you want to allow users in external directories from connected organizations to be able to request access packages in this catalog, set **Enabled for external users** to **Yes**.  The access packages must also have a policy allowing users from connected organizations to request.  If the access packages in this catalog are intended only for users already in the directory, then set **Enabled for external users** to **No**.
 
     ![Screenshot that shows the New catalog pane.](./media/entitlement-management-shared/new-catalog.png)
 

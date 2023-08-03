@@ -18,7 +18,7 @@ To complete this tutorial, you need the following resources:
 
 * Access to a [**SharePoint site**](https://onedrive.live.com/signup).
 
-* A free [**Outlook online**](https://signup.live.com/signup.aspx?lic=1&mkt=en-ca) or [**Office 365**](https://www.microsoft.com/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook) email account**.
+* A free [**Outlook online**](https://signup.live.com/signup.aspx?lic=1&mkt=en-ca) or [**Office 365**](https://www.microsoft.com/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook) email account.
 
 * **A sample invoice to test your Logic App**. You can download and use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/invoice-logic-apps-tutorial.pdf) for this tutorial.
 
@@ -113,7 +113,9 @@ At this point, you should have a Document Intelligence resource and a SharePoint
 
 ::: moniker range=">=doc-intel-3.0.0"
 
-4. Search for and select **SharePoint** from the search bar once more. Then, select the **Get file content** action.
+15. Next, we're going to add another step to the workflow. Select the **➕ New step** button underneath the newly created SharePoint node.
+
+1. Search for and select **SharePoint** from the search bar once more. Then, select the **Get file content** action.
 
 1. Complete the fields as follows:
 
@@ -123,7 +125,7 @@ At this point, you should have a Document Intelligence resource and a SharePoint
 
     :::image type="content" source="../../media/logic-apps-tutorial/sharepoint-get-file-content.png" alt-text="Screenshot of the Get File Content node.":::
 
-1. Next, we're going to add another new step to the workflow. Select the **➕ New step** button underneath the newly created SharePoint node.
+1. We're going to add another new step to the workflow. Select the **➕ New step** button underneath the newly created SharePoint node.
 
 1. A new node is added to the Logic App designer view. Search for **Form Recognizer** (Document Intelligence forthcoming) in the **Choose an operation** search bar and select **Analyze Document for Prebuilt or Custom models (v3.0 API)** from the list.
 
@@ -164,7 +166,7 @@ At this point, you should have a Document Intelligence resource and a SharePoint
 
     :::image type="content" source="../../media/logic-apps-tutorial/dynamic-content-documents.png" alt-text="Screenshot of the dynamic content list.":::
 
-1. Now, select **Add an Action** from within the **For each** step window.
+1. Now, select **Add an Action** from **within** the **For each** step window.
 
 1. In the **Choose an operation** search bar, enter *Outlook* and select **Outlook.com** (personal) or **Office 365 Outlook** (work).
 
@@ -191,16 +193,24 @@ At this point, you should have a Document Intelligence resource and a SharePoint
 
     * **To**. Enter your personal or business email address or any other email address you have access to.
 
-    * **Subject**. Enter ***Invoice received from:*** and then add the following expression:
+    * **Subject**. Enter ***Invoice received from:*** and leave your cursor positioned after the colon. 
+
+    * Enter the following expression into the **Expression** field and select **OK**:
 
         ```powerappsfl
 
           items('For_each')?['fields']?['VendorName']?['content']
         ```
 
+        * After you enter the expression in the field select the OK button and the formula badge will appear in the place where you left your cursor:
+
+        :::image type="content" source="../../media/logic-apps-tutorial/sharepoint-expression.png" alt-text="Screenshot of the formula expression field.":::
+
+        :::image type="content" source="../../media/logic-apps-tutorial/sharepoint-formula-badge.png" alt-text="Screenshot of the formula expression badge.":::
+
     * **Body**. We're going to add specific information about the invoice:
 
-      * Type ***Invoice ID:*** and, using the same method as before, append the following expression:
+      * Type ***Invoice ID:*** and, using the same method as before: position your cursor, copy the following expression into the expression field, and select **OK** the following expression:
 
          ```powerappsfl
 
@@ -240,6 +250,10 @@ At this point, you should have a Document Intelligence resource and a SharePoint
 >
 > * This current version only returns a single invoice per PDF.
 > * The "For each loop" is required around the send email action to enable an output format that may return more than one invoice from PDFs in the future.
+
+After you save your Logic App, if you need to make an update or edit your **For each** node will look similar to the following image:
+
+  :::image type="content" source="../../media/logic-apps-tutorial/for-each-after-save.png" alt-text="Screenshot of the For each node after the app has been saved.":::
 
 :::moniker-end
 
