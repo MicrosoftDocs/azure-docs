@@ -1021,11 +1021,7 @@
       "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library",
       "branch": "main",
       "branch_mapping": {}
-<<<<<<< HEAD
-    }  
-=======
     }
->>>>>>> 932bc58761bfd45bc52cde595e54909d5c4a21c1
   ],
   "branch_target_mapping": {
     "live": ["Publish", "PDF"],
