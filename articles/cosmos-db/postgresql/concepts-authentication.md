@@ -6,12 +6,23 @@ ms.author: nlarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 08/01/2023
+ms.date: 08/02/2023
 ---
 
 # Azure Active Directory and PostgreSQL authentication with Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
+
+> [!IMPORTANT]
+> Azure Active Directory authentication in Azure Cosmos DB for PostgreSQL is currently in preview.
+> This preview version is provided without a service level agreement, and it's not recommended
+> for production workloads. Certain features might not be supported or might have constrained 
+> capabilities.
+>
+> [Contact us](mailto:askcosmosdb4postgres@microsoft.com) if you're interested in participating in Azure Active Directory authentication 
+> for Azure Cosmos DB for PostgreSQL preview.
+>
+> You can see a complete list of other new features in [preview features](product-updates.md).
 
 Azure Cosmos DB for PostgreSQL supports PostgreSQL authentication and integration with Azure Active Directory (Azure AD). Each Azure Cosmos DB for PostgreSQL cluster is created with native PostgreSQL authentication enabled and one built-in PostgreSQL role named `citus`. You can add more native PostgreSQL roles after cluster provisioning is completed.
 
@@ -53,18 +64,7 @@ Notably, the `citus` role has some restrictions:
 
 `citus` role can't be deleted but would be disabled if 'Azure Active Directory authentication only' authentication method is selected on cluster.
 
-## Azure Active Directory authentication
-
-> [!IMPORTANT]
-> Azure Active Directory authentication in Azure Cosmos DB for PostgreSQL is currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended
-> for production workloads. Certain features might not be supported or might have constrained 
-> capabilities.
->
-> [Contact us](mailto:askcosmosdb4postgres@microsoft.com) if you're interested in participating in Azure Active Directory authentication 
-> for Azure Cosmos DB for PostgreSQL preview.
->
-> You can see a complete list of other new features in [preview features](product-updates.md).
+## Azure Active Directory authentication (preview)
 
 [Microsoft Azure Active Directory (Azure AD)](./../../active-directory/fundamentals/active-directory-whatis.md) authentication is a mechanism of connecting to Azure Cosmos DB  for PostgreSQL using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 

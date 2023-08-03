@@ -160,6 +160,8 @@
           href: howto-ingest-azure-data-factory.md
     - name: Manage
       items:
+        - name: Manage users
+          href: howto-create-users.md
         - name: Schedule maintenance
           href: howto-maintenance.md
         - name: Start and stop cluster compute
