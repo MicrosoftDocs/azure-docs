@@ -188,11 +188,11 @@ For more information about Azure Linux Container Host security, see the followin
 * [Azure Linux Container Host for AKS][linux-container-host-aks]
 * [Security concepts for clusters in AKS][security-concepts-aks]
 
-<!-- LINKS - external -->
+<!-- EXTERNAL LINKS -->
+[cis-benchmark-azure-linux]: https://www.cisecurity.org/benchmark/azure_linux
 
-<!-- LINKS - internal -->
+<!-- INTERNAL LINKS -->
 [security-concepts-aks]: concepts-security.md
 [cis-benchmarks]: /compliance/regulatory/offering-CIS-Benchmark
-[cis-benchmark-azure-linux]: https://www.cisecurity.org/benchmark/azure_linux
 [linux-security-baseline]: ../governance/policy/samples/guest-configuration-baseline-linux.md
 [linux-container-host-aks]: ../azure-linux/intro-azure-linux.md

@@ -1,18 +1,17 @@
 ---
-title: Azure Kubernetes Service (AKS) Ubuntu image alignment with Center for Internet Security (CIS) benchmark
+title: Azure Kubernetes Service (AKS) Windows image alignment with Center for Internet Security (CIS) benchmark
 description: Learn how AKS applies the CIS benchmark
 ms.topic: article
-ms.date: 04/19/2023
-ms.reviewer: mattmcinnes
+ms.date: 08/03/2023
 ---
 
-# Azure Kubernetes Service (AKS) Ubuntu image alignment with Center for Internet Security (CIS) benchmark
+# Azure Kubernetes Service (AKS) Windows image alignment with Center for Internet Security (CIS) benchmark
 
-As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI DSS, and HIPAA standards. This article covers the security OS configuration applied to Ubuntu imaged used by AKS. This security configuration is based on the Azure Linux security baseline, which aligns with CIS benchmark. For more information about AKS security, see Security concepts for applications and clusters in Azure Kubernetes Service (AKS). For more information about AKS security, see [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)][security-concepts-aks-apps-clusters]. For more information on the CIS benchmark, see [Center for Internet Security (CIS) Benchmarks][cis-benchmarks]. For more information on the Azure security baselines for Linux, see [Linux security baseline][linux-security-baseline].
+As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI DSS, and HIPAA standards. This article covers the security OS configuration applied to Windows imaged used by AKS. This security configuration is based on the Azure X security baseline, which aligns with CIS benchmark. For more information about AKS security, see Security concepts for applications and clusters in Azure Kubernetes Service (AKS). For more information about AKS security, see [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)][security-concepts-aks-apps-clusters]. For more information on the CIS benchmark, see [Center for Internet Security (CIS) Benchmarks][cis-benchmarks]. For more information on the Azure security baselines for Linux, see [Linux security baseline][linux-security-baseline].
 
-## Ubuntu LTS 18.04
+## Windows Server 2019 and 2022
 
-AKS clusters are deployed on host virtual machines, which run an operating system with built-in secure configurations. This operating system is used for containers running on AKS. This host operating system is based on an **Ubuntu 18.04.LTS** image with security configurations applied. 
+AKS clusters are deployed on host virtual machines, which run an operating system with built-in secure configurations. This operating system is used for containers running on AKS. This host operating system is based on a **Windows Server 2022** and **Windows Server 2019** image with security configurations applied. 
 
 As a part of the security-optimized operating system:
 
@@ -25,7 +24,7 @@ As a part of the security-optimized operating system:
 
 The goal of the secure configuration built into the host OS is to reduce the surface area of attack and optimize for the deployment of containers in a secure manner.
 
-The following are the results from the [CIS Ubuntu 18.04 LTS Benchmark v2.1.0][cis-benchmark-ubuntu] recommendations.
+The following are the results from the [CIS XX Benchmark vx.x.x][cis-benchmark-windows] recommendations.
 
 Recommendations can have one of the following reasons:
 
@@ -295,9 +294,8 @@ For more information about AKS security, see the following articles:
 * [AKS best practices](./best-practices.md)
 
 <!-- EXTERNAL LINKS -->
-[cis-benchmark-ubuntu]: https://www.cisecurity.org/benchmark/ubuntu/
+[cis-benchmark-windows]: https://www.cisecurity.org/benchmark/windows/
 
 <!-- INTERNAL LINKS -->
 [cis-benchmarks]: /compliance/regulatory/offering-CIS-Benchmark
-[linux-security-baseline]: ../governance/policy/samples/guest-configuration-baseline-linux.md
 [security-concepts-aks-apps-clusters]: concepts-security.md
