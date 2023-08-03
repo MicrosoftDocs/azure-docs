@@ -626,7 +626,7 @@ In Bicep, there is no explicit `references` function. Instead, symbolic collecti
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| Symbolic name of a resource collection |Yes |string |Symbolic name of a resource collection that is defined in the current template. The `references`` function does not support referencing resources external to the current template. |
+| Symbolic name of a resource collection |Yes |string |Symbolic name of a resource collection that is defined in the current template. The `references` function does not support referencing resources external to the current template. |
 | 'Full' |No |string |Value that specifies whether to return an array of the full resource objects. The default value is `'Full'`. If you don't specify `'Full'`, only the properties objects of the resources are returned. The full object includes values such as the resource ID and location. |
 
 ### Return value
