@@ -26,12 +26,12 @@ This section contains recommendations for achieving resiliency and availability 
 
 | Category | Priority |Recommendation |  
 |---------------|--------|---|
-| [**Scalability**](#scalability) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-1: Deploy using flexible scale set instead of simple Virtual Machines](#vmss-1-deploy-vms-with-flexible-orchestration-mode) |
-| |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VMSS-5: Use autoscale based on custom metrics and schedules*](#-vmss-5-use-autoscale-based-on-custom-metrics-and-schedules) |
-| |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [VMSS-6: Set Virtual Machine Scale Sets custom scale-in policies to the default policy](#-vmss-6-set-the-virtual-machine-scale-sets-custom-scale-in-to-the-default-policy) |
+| [**Scalability**](#scalability) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-1: Deploy VMs with flexible orchestration mode](#-vmss-deploy-vms-with-flexible-orchestration-mode) |
+| |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VMSS-5: Configure Virtual Machine Scale Sets Autoscale to Automatic](#-vmss-5-configure-virtual-machine-scale-sets-autoscale-to-automatic) |
+| |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [VMSS-6: Set Virtual Machine Scale Sets custom scale-in policies to default](#-vmss-6-set-virtual-machine-scale-sets-custom-scale-in-to-the-default) |
 | [**High Availability**](#high-availability) |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VMSS-4: Enable automatic repair policy](#-vmss-4-enable-automatic-repair-policy) |
-| [**Disaster Recovery**](#disaster-recovery) |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [VMSS-2: Use Virtual Machine Scale Sets Protection Policy to treat specific VM VMs differently](#-vmss-2-use-virtual-machine-scale-sets-protection-policy-to-treat-specific-vm-vms-differently) |V
-| [**Monitoring**](#monitoring) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-3: Enable Virtual Machine Scale Sets Application health monitoring](#-vmss-3-enable-virtual-machine-scale-sets-application-health-monitoring) |
+| [**Disaster Recovery**](#disaster-recovery) |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [VMSS-2: Enable Protection Policy for all Virtual Machine Scale Set VMs](#-vmss-2-enable-protection-policy-for-all-virtual-machine-scale-set-vms) |
+| [**Monitoring**](#monitoring) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-3: Enable Virtual Machine Scale Sets application health monitoring](#-vmss-3-enable-virtual-machine-scale-sets-application-health-monitoring) |
 
 
 ### Scalability
@@ -48,7 +48,7 @@ For more information on when to use scale sets instead of VMs, see [When to use 
 
 ----
 
-#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VMSS-5: Use autoscale based on custom metrics and schedules** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VMSS-5: Configure Virtual Machine Scale Sets Autoscale to Automatic** 
 
 [Autoscale is a built-in feature of Azure Monitor](../azure-monitor/autoscale/autoscale-overview.md) that helps the performance and cost-effectiveness of your resources by adding and removing scale setVM based on demand. In addition, you can choose to scale your resources manually to a specific instance count or in accordance with metrics thresholds. You can also schedule instance counts that scale during designated time windows.
 
@@ -61,7 +61,7 @@ To learn how to enable automatic OS image upgrades, see [Azure Virtual Machine S
 ----
 
 
-#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **VMSS-6: Set the Virtual Machine Scale Sets custom scale-in to the default policy** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **VMSS-6: Set Virtual Machine Scale Sets custom scale-in policies to default** 
 
 >[!IMPORTANT]
 >Flexible orchestration for Virtual Machine Scale Sets does not currently support scale-in policy.
@@ -109,7 +109,7 @@ A grace period can be set using the property `automaticRepairsPolicy.gracePeriod
 
 ### Disaster recovery
 
-#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **VMSS-2: Use Virtual Machine Scale Sets Protection Policy to treat specific VM VMs differently** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **VMSS-2: Enable Protection Policy for all Virtual Machine Scale Set VMs** 
 
 Use [Virtual Machine Scale Sets Protection Policy](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-protection.md) if you want specific VMs to be treated differently from the rest of the scale set instance.
 
@@ -122,7 +122,7 @@ As your application processes traffic, there can be situations where you want sp
 ----
 ### Monitoring
 
-#### :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg"::: **VMSS-3: Enable Virtual Machine Scale Sets Application health monitoring** 
+#### :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg"::: **VMSS-3: Enable Virtual Machine Scale Sets application health monitoring** 
 
 Monitoring your application health is an important signal for managing and upgrading your deployment. Azure Virtual Machine Scale Sets provides support for rolling upgrades, including:
 
