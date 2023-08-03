@@ -44,7 +44,7 @@ The studio supports Document Intelligence v3.0 models and v3.0 model training. P
       * Go to the overview page for your resource and select **Keys and Endpoint** from the left navigation bar.
       * Enter the values in the appropriate fields.
 
-      :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+      :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 1. Once you've completed configuring your resource, you're able to try the different models offered by Document Intelligence Studio. From the front page, select any Document Intelligence model to try using with a no-code approach.
 

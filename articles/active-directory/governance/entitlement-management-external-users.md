@@ -47,11 +47,15 @@ The following diagram and steps provide an overview of how external users are gr
 
 1. You [add a connected organization](entitlement-management-organization.md) for the Azure AD directory or domain you want to collaborate with.  You can also configure a connected organization for a social identity provider.
 
-1. You create an access package in your directory that includes a policy [For users not in your directory](entitlement-management-access-package-create.md#allow-users-in-your-directory-to-request-the-access-package) and specifies the approver and lifecycle settings.
+1. You check the catalog setting **Enabled for external users** in the catalog to contain the access package is **Yes**.
+
+1. You create an access package in your directory that includes a policy [For users not in your directory](entitlement-management-access-package-create.md#allow-users-not-in-your-directory-to-request-the-access-package) and specifies the connected organizations that can request, the approver and lifecycle settings.  If you select in the policy the option of specific connected organizations or the option of all connected organizations, then only users from those organizations that have previously been configured can request.   If you select in the policy the option of all users, then any user can request, including those which are not already part of your directory and not part of any connected organization.
+
+1. You check [the hidden setting on the access package](entitlement-management-access-package-edit.md#change-the-hidden-setting) to ensure the access package is hidden.  If it is not hidden, then any user allowed by the policy settings in that access package can browse for the access package in the My Access portal for your tenant.
 
 1. You send a [My Access portal link](entitlement-management-access-package-settings.md) to your contact at the external organization that they can share with their users to request the access package.
 
-1. An external user (**Requestor A** in this example) uses the My Access portal link to [request access](entitlement-management-request-access.md) to the access package. How the user signs in depends on the authentication type of the directory or domain that's defined in the connected organization and in the external users settings.
+1. An external user (**Requestor A** in this example) uses the My Access portal link to [request access](entitlement-management-request-access.md) to the access package. The My access portal will require that the user sign in as part of their connected organization. How the user signs in depends on the authentication type of the directory or domain that's defined in the connected organization and in the external users settings.
 
 1. An approver [approves the request](entitlement-management-request-approve.md) (assuming the policy requires approval).
 
@@ -78,6 +82,8 @@ To ensure people outside of your organization can request access packages and ge
 - By default, when you create a [new catalog](entitlement-management-catalog-create.md), it's enabled to allow external users to request access packages in the catalog. Make sure **Enabled for external users** is set to **Yes**.
 
     ![Edit catalog settings](./media/entitlement-management-shared/catalog-edit.png)
+
+  If you are an administrator or catalog owner, you can view the list of catalogs currently enabled for external users in the Azure portal list of catalogs, by changing the filter setting for **Enabled for external users** to **Yes**.  If any of those catalogs shown in that filtered view have a non-zero number of access packages, those access packages may have a policy [for users not in your directory](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory) that allow external users to request.
 
 ### Configure your Azure AD B2B external collaboration settings
 
