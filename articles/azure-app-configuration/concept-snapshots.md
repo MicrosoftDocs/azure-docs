@@ -51,7 +51,7 @@ If the store uses Azure Active Directory (AAD) for access please check the AAD p
 
 ### Create a snapshot
 
-To create a snapshot in stores using AAD authentication,  you would require the Data Owner role. You could also create a custom role with the following permissions.
+To create a snapshot in stores using AAD authentication, the following permissions are required. The App Configuration Data Owner role already have these permissions.
 - `Microsoft.AppConfiguration/configurationStores/keyvalues/read`
 - `Microsoft.AppConfiguration/configurationStores/snapshots/write`
 
