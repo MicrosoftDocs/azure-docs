@@ -1,7 +1,7 @@
 ---
-title: Integrate Azure OpenAI with question answering
+title: Integrate Azure OpenAI with Custom Question Answering
 titleSuffix: Azure AI services
-description: Learn how to use question answering with Azure OpenAI.
+description: Learn how to use Custom Question Answering with Azure OpenAI.
 ms.service: cognitive-services
 ms.subservice: language-service
 author: jboback
@@ -10,13 +10,13 @@ ms.topic: how-to
 ms.date: 08/02/2023
 ---
 
-# Integrate Azure OpenAI on your data with question-answer pairs from Custom Question Answering
+# Integrate Azure OpenAI on your data with Custom Question Answering
 
 Custom Question Answering enables you to create a conversational layer on your data based on sophisticated Natural Language Processing (NLP) capabilities with enhanced relevance using a deep learning ranker, precise answers, and end-to-end region support. Most use cases for Custom Question Answering rely on finding appropriate answers for inputs by integrating it with chat bots, social media applications and speech-enabled desktop applications. 
 
 AI runtimes however, are evolving due to the development of Large Language Models (LLMs), such as GPT-35-Turbo and GPT-4 offered by [Azure Open AI](../../../openai/overview.md) can address many chat-based use cases, which you may want to migrate to.
 
-At the same time, LLMs are not perfect and customers often require Custom question answering's premium authoring experience to achieve more granular control over the quality and content of question-answer pairs, and allow them to address content issues in production. Read this article to learn how to migrate your Custom Question Answering project to Azure OpenAI On Your Data (Preview), using your project's underlying Azure Cognitive Search indexes.
+At the same time, LLMs are not perfect and customers often require Custom question answering's premium authoring experience to achieve more granular control over the quality and content of question-answer pairs, and allow them to address content issues in production. Read this article to learn how to integrate Azure OpenAI On Your Data (Preview) with question-answer pairs from your Custom Question Answering project, using your project's underlying Azure Cognitive Search indexes.
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ At the same time, LLMs are not perfect and customers often require Custom questi
 
     :::image type="content" source="../media/question-answering/azure-search-data-source.png" alt-text="A screenshot showing selection information for Azure Cognitive Search in Azure OpenAI Studio." lightbox="../media/question-answering/azure-search-data-source.png":::
 
-1. On the **Index data field mapping** screen, select *answer* for **Content data** field. The input for other fields such as **File name**, **Title** and **URL** are optional depending on the nature of your data source.
+1. On the **Index data field mapping** screen, select *answer* for **Content data** field. The other fields such as **File name**, **Title** and **URL** are optional depending on the nature of your data source.
 
     :::image type="content" source="../media/question-answering/data-field-mapping.png" alt-text="A screenshot showing index field mapping information for Azure Cognitive Search in Azure OpenAI Studio." lightbox="../media/question-answering/data-field-mapping.png":::
 
