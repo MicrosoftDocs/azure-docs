@@ -99,6 +99,8 @@ A user with only this role assigned would be unable to:
 
 ❌ Create new model deployments or edit existing model deployments <br>
 ❌ Access quota <br>
+❌ Create custom fine-tuned models <br>
+❌ Upload datasets for fine-tuning
 
 ### Cognitive Services Usages Reader
 
