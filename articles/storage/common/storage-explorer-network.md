@@ -111,9 +111,7 @@ If you have configured Storage Explorer to use **system proxy**, then proxy serv
 
 ## Which proxy source should I choose?
 
-If you're using features not listed [here](#features-that-do-not-support-system-proxy), then you should first try using [**system proxy**](#use-system-proxy). If you come across an issue while using system proxy with a supported feature, [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues/new).
-
-If you're using features that don't support system proxy, then [**app settings**](#use-app-proxy-settings) is probably the next best option. The GUI-based experience for configuring the proxy configuration helps reduce the chance of entering your proxy information correctly. However, if you already have proxy environment variables configured, then it might be better to use [**environment variables**](#use-environment-variables).
+You should first try using [**system proxy**](#use-system-proxy). After that, [**app settings**](#use-app-proxy-settings) is the next best option. The GUI-based experience for configuring the proxy configuration helps reduce the chance of entering your proxy information correctly. However, if you already have proxy environment variables configured, then it might be better to use [**environment variables**](#use-environment-variables).
 
 ## AzCopy proxy usage
 
