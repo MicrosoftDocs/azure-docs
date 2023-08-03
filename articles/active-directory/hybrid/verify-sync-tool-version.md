@@ -16,7 +16,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-## Verifying your version of the provisioning agent or connect sync
+# Verifying your version of the provisioning agent or connect sync
 This article describes the steps to verify the installed verision of the provisiong agent and connect sync.
 
 ## Verify the provisioning agent
