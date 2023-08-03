@@ -181,7 +181,7 @@ For **custom input schema**, use the event data fields (like `data.key1`). To ac
 ```
 
 > [!NOTE]
-> Event Grid doesn't support filtering on an array of objects. Only allows String, Boolean, Numbers and Array of the same types (like integer array or string array).
+> Event Grid doesn't support filtering on an array of objects. It only allows String, Boolean, Numbers, and Array of the same types (like integer array or string array).
  
 
 ## Values
