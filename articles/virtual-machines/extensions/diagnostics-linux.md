@@ -8,9 +8,8 @@ ms.author: gabsta
 author: GabstaMSFT
 ms.collection: linux
 ms.date: 04/04/2023
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
 ms.devlang: azurecli
-
 ---
 # Use the Linux diagnostic extension 4.0 to monitor metrics and logs
 

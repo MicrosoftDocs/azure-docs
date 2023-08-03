@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 11/22/2022
 ms.reviewer: jushiman
-ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
+ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-linux
 ---
 
 # Create a Virtual Machine Scale Set that uses Availability Zones

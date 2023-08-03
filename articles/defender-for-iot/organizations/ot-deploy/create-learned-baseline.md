@@ -13,7 +13,7 @@ This article is one in a series of articles describing the [deployment path](../
 
 ## Understand learning mode
 
-An OT network sensor starts monitoring your network automatically after your [first sign-in](activate-deploy-sensor.md#sign-in-to-your-ot-sensor). Network devices start appearing in your device inventory, and [alerts](../alerts.md) are triggered for any security or operational incidents that occur in your network.
+An OT network sensor starts monitoring your network automatically after it's connected to the network and you've [signed in](activate-deploy-sensor.md#sign-in-to-the-sensor-console-and-change-the-default-password). Network devices start appearing in your device inventory, and [alerts](../alerts.md) are triggered for any security or operational incidents that occur in your network.
 
 Initially, this activity happens in *learning* mode, which instructs your OT sensor to learn your network's usual activity, including the devices and protocols in your network, and the regular file transfers that occur between specific devices. Any regularly detected activity becomes your network's baseline traffic.
 
@@ -37,7 +37,7 @@ You can perform the procedures in this article from the Azure portal, an OT sens
 
 Before you start, make sure that you have:
 
-- An OT sensor [installed](install-software-ot-sensor.md) and [activated](activate-deploy-sensor.md), with alerts being triggered by detected traffic.
+- An OT sensor [installed](install-software-ot-sensor.md), [configured, and activated](activate-deploy-sensor.md), with alerts being triggered by detected traffic.
 
 - Access to your OT sensor as **Security Analyst** or **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](../roles-on-premises.md).
 

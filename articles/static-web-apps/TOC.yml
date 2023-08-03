@@ -157,8 +157,12 @@
           href: publish-jekyll.md
     - name: Deploy from a framework
       items:
+        - name: Angular
+          href: deploy-angular.md
         - name: Blazor
           href: deploy-blazor.md
+        - name: React
+          href: deploy-react.md
         - name: Next.js
           href: nextjs.md
           items:
@@ -168,6 +172,8 @@
             href: deploy-nextjs-hybrid.md
         - name: Nuxt.js
           href: deploy-nuxtjs.md
+        - name: Vue
+          href: deploy-vue.md
     - name: Add a database connection
       items:
       - name: Azure Cosmos DB 
