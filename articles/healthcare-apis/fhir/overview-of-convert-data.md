@@ -124,7 +124,9 @@ To learn how to configure settings for `$convert-data` using the Azure portal, s
  
 > [!div class="nextstepaction"]
 > [Configure settings for $convert-data using the Azure portal](configure-settings-convert-data.md)
- 
+
+To learn how to troubleshoot `$convert-data`, see 
+
 > [!div class="nextstepaction"]
 > [Troubleshoot $convert-data](troubleshoot-convert-data.md)
 
