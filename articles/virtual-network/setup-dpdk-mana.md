@@ -12,8 +12,18 @@ ms.author: mamcgove
 
 The Microsoft Azure Network Adapter (MANA) is new hardware for Azure virtual machines to enables higher throughput and reliability. 
 To make use of MANA, users must modify their DPDK initialization routines. MANA requires two changes compared to legacy hardware:
-- MANA requires modified EAL arguments for the poll-mode driver (PMD).
+- [MANA EAL arguments](#mana-dpdk-eal-arguments) for the poll-mode driver (PMD) differ from previous hardware.
 - The Linux kernel must release control of the MANA network interfaces before DPDK initialization begins.
+
+The setup procedure for MANA DPDK is outlined in the [example code.](#example-testpmd-setup-and-netvsc-test).
+
+## Introduction
+
+Legacy Azure Linux VMs rely on the mlx4 or mlx5 drivers and the accompanying hardware for accelerated networking. Azure DPDK users would select specific interfaces to include or exclude by passing bus addresses to the DPDK EAL. The setup procedure for MANA DPDK differs slightly, since the assumption of 1 bus address per Accelerated Networking interface no longer holds true. Rather than using a PCI bus address, the MANA PMD uses the MAC address to determine which interface it should bind to.
+
+## MANA DPDK EAL Arguments
+MANA users should pass both the bus address of the MANA device and the MAC address of the interface for use with DPDK. 
+On the commandline: `--vdev="$BUS_ADDRESS,mac=$MAC_ADDRESS"` is used instead of `--vdev="net_vdev_netvsc0,iface=eth1"` or `-a $BUS_ADDRESS` to include a specific interface. For more detail, [example code is available](#example-testpmd-setup-and-netvsc-test) to demonstrate the changes needed for DPDK EAL initialization on MANA.
 
 ## DPDK requirements for MANA
 
@@ -28,10 +38,11 @@ MANA DPDK requires the following set of drivers:
 > [!NOTE]
 > MANA DPDK is not available for Windows; it will only work on Linux VMs.
 
-## DPDK installation example (Ubuntu)
+## DPDK installation example (Ubuntu 22.04)
 ```bash
 
 DEBIAN_FRONTEND=noninteractive sudo apt-get install -q -y build-essential libudev-dev libnl-3-dev libnl-route-3-dev ninja-build libssl-dev libelf-dev python3-pip meson libnuma-dev
+
 pip3 install pyelftools
 
 # Try latest LTS DPDK, example uses DPDK tag v23.07-rc3
@@ -44,16 +55,15 @@ sudo ninja install
 popd
 ```
 
-## Example: Testpmd setup and running tests
+## Example: Testpmd setup and netvsc test
 
 Note the following example code for running DPDK with MANA. The direct-to-vf 'netvsc' configuration on Azure is recommended for maximum performance with MANA.
 
 ```bash
-#NOTE: Run as root
 
 # NOTE: DPDK requires either 2MB or 1GB hugepages to be enabled
 # Enable 2MB hugepages.
-echo 1024 | sudo tee /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
+echo 1024 | tee /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
 
 # Assuming use of eth1 for DPDK in this demo
 PRIMARY="eth1"
@@ -94,6 +104,7 @@ dpdk-testpmd -l 1-9 --vdev="$BUS_INFO,mac=$MANA_MAC" -- --forward-mode=txonly --
 ```
 
 ## Troubleshooting
+
 ### Fail to set interface down.
 Failure to set the MANA bound device to DOWN can result in low or zero packet throughput. 
 The failure to release the device can result the EAL error message related to transmit queues.
@@ -113,3 +124,6 @@ EAL: Error - exiting with code: 1
 Cause: Cannot init EAL: Permission denied
 ```
 
+### Low throughput with use of --vdev="net_vdev_netvsc0,iface=eth1"
+
+Failover configuration of either the `net_failsafe` or `net_vdev_netvsc` poll-mode-drivers is not recommended for high performance on Azure. The netvsc configuration with DPDK version 20.11 or higher may give better results. For optimal performance, ensure your Linux kernel, rdma-core, and DPDK packages meet the listed requirements for DPDK and MANA.
