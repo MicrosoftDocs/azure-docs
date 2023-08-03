@@ -15,6 +15,7 @@ Resource Manager provides the following functions for getting resource values in
 * [pickZones](#pickzones)
 * [providers (deprecated)](#providers)
 * [reference](#reference)
+* [references](#references)
 * [resourceId](#resourceid)
 * [subscriptionResourceId](#subscriptionresourceid)
 * [managementGroupResourceId](#managementgroupresourceid)
