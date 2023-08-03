@@ -93,26 +93,34 @@ Unlike SMB, NFS doesn't utilize the ACL concept or user-based authentication. Th
 |Last accessed timestamp|This timestamp will be preserved as custom blob metadata if it exists on the source file. There is no blob-native timestamp of this type.|
 |Other metadata         |Other metadata will be persisted in a custom metadata field of the target blob if it exists on source items. Only 4 KiB of metadata can be stored. Metadata of a larger size won't be migrated.|
 
-## Creating endpoints
+## Create an endpoint
 
 Before you can create a job definition, you need to create endpoints for your source and target data sources.
 
 > [!IMPORTANT]
 > If you have not yet deployed a Storage Mover resource using the resource provider, you'll need to create your top level resource before attempting the steps in this example.
 
-Azure Storage Mover supports migration scenarios using NFS and SMB. The steps to create the endpoints are similar. The key differentiator between the creation of NFS- and SMB-enabled endpoints is the use of Azure Key Vault to store the shared credential for SMB resources. When a migration job is run, the agents use the shared credential stored within Key Vault. Access to Key Vault secrets are managed by granting an RBAC role assignment to the agent's managed identity.
+Azure Storage Mover supports migration scenarios using NFS and SMB protocols. The steps to create both endpoints are similar. The key differentiator between the creation of NFS- and SMB-enabled endpoints is the use of Azure Key Vault to store the shared credential for SMB resources. When a migration job is run, the agents use the shared credential stored within Key Vault. Access to Key Vault secrets are managed by granting an RBAC role assignment to the agent's managed identity.
+
+### Create a source endpoint
+
+Source endpoints identify locations from which your data is migrated. Source endpoints are used to define the origin the data specified within your migration project. Azure Storage Mover handles source locations in form of file shares. These locations could reside on Network Attached Storage (NAS), a server, or even on a workstation. Common protocols for file shares are SMB (Server Message Block) and NFS (Network File System).
+
+The steps below describe the process of creating a source endpoint.
 
 ### [Azure portal](#tab/portal)
 
-   1. To create an endpoint using the [Azure portal](https://portal.azure.com), navigate to the **Storage mover** resource page. Select **Storage endpoints** from within the navigation pane as shown in the sample image to access your endpoints.
+   1. In the [Azure portal](https://portal.azure.com), navigate to your **Storage mover** resource page. Select **Storage endpoints** from within the navigation pane to access your endpoints.
 
-      :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Storage Mover resource page within the Azure portal showing the location of the Storage Endpoints link." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
+      :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Screenshot of the Storage Mover resource page within the Azure portal showing the location of the Storage Endpoints link." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
 
-   1. The default **Source endpoints** view displays the names of any provisioned source endpoints and a summary of their associated data. You can select the **Destination endpoints** filter to view the corresponding destination endpoints.
+      On the **Storage endpoints** page, the default **Storage endpoints** view displays the names of any provisioned source endpoints and a summary of their associated data. You can select **Target endpoints** to view the corresponding destination endpoints. You can filter the results further by selecting either the **Protocol version** or **Host** filter and selecting the appropriate option.
 
-      Select **Create endpoint** to expand the **Endpoint type** menu. Depending on your use case, select either **Create source** or **Create target endpoint** to open the **Create endpoint** pane as shown in the following image.
+      :::image type="content" source="media/endpoint-manage/endpoint-filter.png" alt-text="Screenshot of the Storage Endpoints page within the Azure portal showing the location of the endpoint filters." lightbox="media/endpoint-manage/endpoint-filter-lrg.png":::
 
-      :::image type="content" source="media/endpoint-manage/endpoint-create.png" alt-text="Image of the Endpoint Overview page highlighting the location of the Create Endpoint link" lightbox="media/endpoint-manage/endpoint-create-lrg.png":::
+   1. Select **Create endpoint** to expand the **Endpoint type** menu. Select **Create source** to open the **Create endpoint** pane as shown in the following image.
+
+      :::image type="content" source="media/endpoint-manage/endpoint-create.png" alt-text="Screenshot of the Endpoint Overview page highlighting the location of the Create Endpoint link" lightbox="media/endpoint-manage/endpoint-create-lrg.png":::
 
    1. Within the **Create Endpoint** pane, provide values for the required **Host name or IP** and **Share name** values. You may also add an optional **Description** value of up to 1024 characters in length. Next, select **Protocol version** to expand the protocol selection menu and select the appropriate option for your source target.
 
@@ -120,21 +128,21 @@ Azure Storage Mover supports migration scenarios using NFS and SMB. The steps to
 
       First, select **Key vault** to expand the menu and select the name of the Key Vault containing your secrets. You can supply a value with which to filter the list of Key Vaults if necessary.
 
-      :::image type="content" source="media/endpoint-manage/key-vault.png" alt-text="Image of the Create Source pane showing the drop-down list containg a resource group's Key Vaults":::
+      :::image type="content" source="media/endpoint-manage/key-vault.png" alt-text="Screenshot of the Create Source pane showing the drop-down list containg a resource group's Key Vaults":::
 
       After you've selected the appropriate Key Vault, you can supply values for the required **Select secret for username** and **Select secret for password** fields. These values can be supplied by providing the URI to the secrets, or by selecting the secrets from a list. Select the **Select secret** button to enable the menu and select the username and password values. Alternatively, you can enable the **Enter secret from URI** option and supply the appropriate URI to the username and password secret.
 
       The values for host and share name are concatenated to form the full migration source path. The path value is displayed in the **Full source path** field. Copy the path provided and verify that you're able to access it before committing your changes. Finally, when you've confirmed that all values are correct and that you can access the source path, select **Create** to add your new endpoint.
 
-      :::image type="content" source="media/endpoint-manage/secrets.png" alt-text="Image of the Create Endpoint pane showing the location of the Secrets options."  lightbox="media/endpoint-manage/secrets-lrg.png":::
+      :::image type="content" source="media/endpoint-manage/secrets.png" alt-text="Screenshot of the Create Endpoint pane showing the location of the Secrets options."  lightbox="media/endpoint-manage/secrets-lrg.png":::
 
       Your new endpoint is deployed and now appears within your list of endpoints as show in the following example image.
 
-      :::image type="content" source="media/endpoint-manage/endpoint-added.png" alt-text="Image of the Endpoint Overview page with the newly created endpoint displayed."  lightbox="media/endpoint-manage/endpoint-added-lrg.png":::
+      :::image type="content" source="media/endpoint-manage/endpoint-added.png" alt-text="Screenshot of the Endpoint Overview page with the newly created endpoint displayed."  lightbox="media/endpoint-manage/endpoint-added-lrg.png":::
 
 ### [PowerShell](#tab/powershell)
 
-   The `New-AzStorageMoverProject` cmdlet is used to create a new endpoint within a [storage mover resource](storage-mover-create.md) you previously deployed. If you haven't yet installed the `Az.StorageMover` module:
+   The `New-AzStorageMoverSmbEndpoint` and `New-AzStorageMoverNfsEndpoint` cmdlets are used to create a new endpoint within a [storage mover resource](storage-mover-create.md) you previously deployed. If you haven't yet installed the `Az.StorageMover` module:
 
    ```powershell
    ## Ensure you are running the latest version of PowerShell 7
@@ -188,7 +196,7 @@ Azure Storage Mover supports migration scenarios using NFS and SMB. The steps to
       
       ```
 
-   1. After you've successfully connected, you can create your new endpoint resources. Use the `New-AzStorageMoverSmbEndpoint` cmdlet to create an SMB endpoint as shown in the following example.
+   1. After you've successfully connected, you can create your new endpoint resources. Depending on your requirement, you can use the `New-AzStorageMoverSmbEndpoint` cmdlet to create an SMB endpoint as shown in the following example.
 
       ```powershell
 
@@ -203,7 +211,7 @@ Azure Storage Mover supports migration scenarios using NFS and SMB. The steps to
        
       ```
 
-      Create new NFS source endpoint by using the `New-AzStorageMoverNfsEndpoint` cmdlet as shown.
+      Alternatively, you can create new NFS source endpoint by using the `New-AzStorageMoverNfsEndpoint` cmdlet as shown in the following example.
 
       ```powershell
 
@@ -216,58 +224,70 @@ Azure Storage Mover supports migration scenarios using NFS and SMB. The steps to
        
       ```
 
+---
+
+### Create a target endpoint
+
+Target endpoints identify locations to which your data is migrated.
+
+### [Azure portal](#tab/portal)
+
+   Do some portal stuff
+
+### [PowerShell](#tab/powershell)
+
    1. Next, create a corresponding destination endpoint. To create a new SMB fileshare, use the `New-AzStorageMoverAzStorageSmbFileShareEndpoint` cmdlet as shown in the following example.
 
-      ```powershell
+   ```powershell
 
-      New-AzStorageMoverAzStorageSmbFileShareEndpoint `
-         -Name "smbTargetEndpoint" ` 
-         -ResourceGroupName $resourceGroupName `
-         -StorageMoverName $storageMoverName ` 
-         -StorageAccountResourceId $targetResourceID `
-         -FileShareName $targetFileshare
+   New-AzStorageMoverAzStorageSmbFileShareEndpoint `
+      -Name "smbTargetEndpoint" ` 
+      -ResourceGroupName $resourceGroupName `
+      -StorageMoverName $storageMoverName ` 
+      -StorageAccountResourceId $targetResourceID `
+      -FileShareName $targetFileshare
 
-      ```
+   ```
 
-      Use the `New-AzStorageMoverAzStorageContainerEndpoint` PowerShell cmdlet to create a new NFS blob container. The following example provides provisioning guidance.
+   Use the `New-AzStorageMoverAzStorageContainerEndpoint` PowerShell cmdlet to create a new NFS blob container. The following example provides provisioning guidance.
 
-      ```powershell
+   ```powershell
 
-      New-AzStorageMoverAzStorageContainerEndpoint `
-        -Name "nfsTargetEndpoint" `
-        -ResourceGroupName $resourceGroupName `
-        -StorageMoverName $storageMoverName `
-        -BlobContainerName $targetEpContainer `
-        -StorageAccountResourceId $targetResourceID `
+   New-AzStorageMoverAzStorageContainerEndpoint `
+     -Name "nfsTargetEndpoint" `
+     -ResourceGroupName $resourceGroupName `
+     -StorageMoverName $storageMoverName `
+     -BlobContainerName $targetEpContainer `
+     -StorageAccountResourceId $targetResourceID `
 
-      ```
+   ```
 
-      The following sample response contains the `ProvisioningState` property, which indicates that the endpoint was successfully created.
+   The following sample response contains the `ProvisioningState` property, which indicates that the endpoint was successfully created.
 
-      ```Response
+   ```Response
 
-      Id                           : /subscriptions/<GUID>/resourceGroups/
-                                    demoResourceGroup/providers/Microsoft.StorageMover/
-                                    storageMovers/demoMover/endpoints/smbTargetEndpoint
-      Name                         : demoTarget
-      Property                     : {
-                                       "endpointType": "AzureStorageSmbFileShare",
-                                       "description": "",
-                                       "provisioningState": "Succeeded",
-                                       "storageAccountResourceId": "/subscriptions/[GUID]/
-                                        resourceGroups/demoResourceGroup/providers/Microsoft.Storage/
-                                        storageAccounts/contosoeuap",
-                                       "fileShareName": "demoFileshare"
-                                     }
-      SystemDataCreatedAt          : 6/22/2023 1:19:00 AM
-      SystemDataCreatedBy          : user@contoso.com
-      SystemDataCreatedByType      : User
-      SystemDataLastModifiedAt     : 6/22/2023 1:19:00 AM
-      SystemDataLastModifiedBy     : user@contoso.com
-      SystemDataLastModifiedByType : User
-      Type                         : microsoft.storagemover/storagemovers/endpoints
+   Id                           : /subscriptions/<GUID>/resourceGroups/
+                                 demoResourceGroup/providers/Microsoft.StorageMover/
+                                 storageMovers/demoMover/endpoints/smbTargetEndpoint
+   Name                         : demoTarget
+   Property                     : {
+                                    "endpointType": "AzureStorageSmbFileShare",
+                                    "description": "",
+                                    "provisioningState": "Succeeded",
+                                    "storageAccountResourceId": "/subscriptions/[GUID]/
+                                     resourceGroups/demoResourceGroup/providers/Microsoft.Storage/
+                                     storageAccounts/contosoeuap",
+                                    "fileShareName": "demoFileshare"
+                                  }
+   SystemDataCreatedAt          : 6/22/2023 1:19:00 AM
+   SystemDataCreatedBy          : user@contoso.com
+   SystemDataCreatedByType      : User
+   SystemDataLastModifiedAt     : 6/22/2023 1:19:00 AM
+   SystemDataLastModifiedBy     : user@contoso.com
+   SystemDataLastModifiedByType : User
+   Type                         : microsoft.storagemover/storagemovers/endpoints
 
-      ```
+   ```
 
 ---
 
@@ -281,15 +301,15 @@ Follow the steps in this section to view endpoints accessible to your Storage Mo
 
    1. To create an endpoint using the Navigate to the [Azure portal](https://portal.azure.com), navigate to the **Storage mover** resource page. Select **Storage endpoints** from within the navigation pane as shown in the sample image to access your endpoints.
 
-      :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Storage Mover resource page within the Azure portal showing the location of the Storage Endpoints link." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
+      :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Screenshot of the Storage Mover resource page within the Azure portal showing the location of the Storage Endpoints link." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
 
    1. After the portal becomes functional, select the checkbox corresponding to the name of the endpoint whose details you want to view. The **Endpoint overview** pane opens, displaying the endpoint's details.
 
-       :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Create Endpoint screen" lightbox="media/endpoint-manage/storage-mover-lrg.png":::
+       :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Screenshot of the Create Endpoint screen" lightbox="media/endpoint-manage/storage-mover-lrg.png":::
 
    1. Update the value that you want to edit. Confirm that all data is correct and select **Update** to save your changes.
 
-       :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Create Endpoint screen" lightbox="media/endpoint-manage/storage-mover-lrg.png":::
+       :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Screenshot of the Create Endpoint screen" lightbox="media/endpoint-manage/storage-mover-lrg.png":::
 
 ### [PowerShell](#tab/powershell)
 
@@ -386,17 +406,17 @@ The removal of an endpoint resource should be a relatively rare occurrence in yo
 
    1. To delete an endpoint using the [Azure portal](https://portal.azure.com), navigate to the **Storage mover** resource page. Select **Storage endpoints** from within the navigation pane to access your endpoints as indicated in the following image.
 
-      :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Image of the Storage Mover resource page within the Azure portal showing the location of the Storage Endpoints link." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
+      :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Screenshot of the Storage Mover resource page within the Azure portal showing the location of the Storage Endpoints link." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
 
    1. The default **Source endpoints** view displays the names of any provisioned source endpoints and a summary of their associated data. You can select the **Destination endpoints** filter to view the corresponding destination endpoints.
 
       Locate the name of the endpoint you want to delete and select the corresponding checkbox. After verifying that you've selected the appropriate endpoint, select **Delete** as shown in the following image.
 
-      :::image type="content" source="media/endpoint-manage/endpoint-delete.png" alt-text="Image of the Storage Mover resource page within the Azure portal showing the location of the Delete button." lightbox="media/endpoint-manage/endpoint-delete-lrg.png":::
+      :::image type="content" source="media/endpoint-manage/endpoint-delete.png" alt-text="Screenshot of the Storage Mover resource page within the Azure portal showing the location of the Delete button." lightbox="media/endpoint-manage/endpoint-delete-lrg.png":::
 
       Your new endpoint is deleted and no longer appears within your list of endpoints as show in the following example image.
 
-      :::image type="content" source="media/endpoint-manage/endpoint-without.png" alt-text="Image of the Endpoint Overview page inferring a newly deleted endpoint."  lightbox="media/endpoint-manage/endpoint-without-lrg.png":::
+      :::image type="content" source="media/endpoint-manage/endpoint-without.png" alt-text="Screenshot of the Endpoint Overview page inferring a newly deleted endpoint."  lightbox="media/endpoint-manage/endpoint-without-lrg.png":::
 
 # [PowerShell](#tab/powershell)
 
