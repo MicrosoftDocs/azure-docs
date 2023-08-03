@@ -24,8 +24,8 @@ A direct peering type conversion for a peering connection can only be requested 
 -  The peering must be represented as an Azure resource with a valid subscription. To onboard your peering as a resource, refer to: [Convert a legacy Direct peering to an Azure resource using the Azure portal](howto-legacy-direct-portal.md)
 -  Bandwidth updates can't be requested to other connections in the peering during the conversion
 -  No adding or removing of connections can occur during the conversion
--  The type conversion will run during the business hours of Pacific Daylight Time.
--  For Voice conversions, the connection session addresses will be provided by Microsoft and enabled with BFD (Bidirectional Forwarding Detection). It is expected that the partners set up their configurations accordingly.
+-  Type conversions run during the business hours of Pacific Daylight Time.
+-  For Voice conversions, the connection session addresses are provided by Microsoft and enabled with BFD (Bidirectional Forwarding Detection). It is expected that the partners set up their configurations accordingly.
 
 ## 1. Configure the new Type on a Direct Peering
 ### Converting from PNI to Voice
@@ -39,7 +39,7 @@ Select the "AS8075 (with Voice) option and click Save
 ### Enabling Peering Service on a Connection
 A standard PNI within a peering can be enabled for Peering Service and can be requested per connection.
 
-You need to be a Peering Service partner to be able to do this. Please see the [partner requirements page](prerequisites.md) and make sure you have signed the agreement with Microsoft. For questions, reach out to peeringservice@microsoft.com.
+You need to be a Peering Service Partner to enable Peering Serivce on a connection. See the [partner requirements page](prerequisites.md) and make sure you have signed the agreement with Microsoft. For questions, reach out to peeringservice@microsoft.com.
 
 Navigate to the Connection tab under settings and click edit on a connection.
 :::image type="content" source="./media/walkthrough-type-conversion/viewconnection.png" alt-text="Screenshot shows how to select within the Connections tab in the Azure portal." lightbox="./media/walkthrough-type-conversion/viewconnection.png":::
