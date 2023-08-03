@@ -66,7 +66,7 @@ You can see this state in the Connection tab in the same location where you sele
 ## 3. Monitoring the conversion
 While your connection is undergoing conversion its state will be labeled as TypeChangeInProgress.
 
-You'll be kept up to date through emails at the following steps:
+You are kept up to date through emails at the following steps:
 -  Request Received
 -  Request Approved
 -  Session Address Changes (if any)
@@ -77,7 +77,7 @@ In the case of a request rejection or any action needed by you from our team you
 
 The peer email contact provided during the 'Peer Asn' resource creation will also receive a notification for each of the above steps. If there are any questions, contact peering@microsoft.com
 
-Once the connection is completed its state will return to Active.
+Once the connection is completed its state returns to Active.
 
 ## FAQ
 
