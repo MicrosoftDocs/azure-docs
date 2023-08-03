@@ -609,7 +609,7 @@ The following example template references a storage account that isn't deployed 
 
 `reference(symbolic name of a resource collection, ['Full'])`
 
-`references` works similarly as [`reference`](#reference). In stead of returning an object presenting a resource's runtime state, 'references` returns an array of objects representing a collection of resource's runtime states. This function requires ARM template language version `1.10-experimental` and with [symbolic name](../bicep/file.md#resources) enabled:
+The `references` function works similarly as [`reference`](#reference). In stead of returning an object presenting a resource's runtime state, the `references` function returns an array of objects representing a collection of resource's runtime states. This function requires ARM template language version `1.10-experimental` and with [symbolic name](../bicep/file.md#resources) enabled:
 
 ```json
 {
@@ -620,13 +620,13 @@ The following example template references a storage account that isn't deployed 
 }
 ```
 
-In Bicep, there is no explicit `references` function like [`reference`](../bicep/bicep-functions-resource.md#reference). Instead, symbolic collection usage is employed directly, and during code generation, Bicep translates it to an ARM template that utilizes the ARM template `references` function. The forthcoming release of Bicep will include a translation feature that converts symbolic collections to ARM templates using the references() function.
+In Bicep, there is no explicit `references` function. Instead, symbolic collection usage is employed directly, and during code generation, Bicep translates it to an ARM template that utilizes the ARM template `references` function. The forthcoming release of Bicep will include the translation feature that converts symbolic collections to ARM templates using the `references` function.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| Symbolic name of a resource collection |Yes |string |Symbolic name of a resource collection that is defined in the current template. |
+| Symbolic name of a resource collection |Yes |string |Symbolic name of a resource collection that is defined in the current template. The `references`` function does not support referencing resources external to the current template. |
 | 'Full' |No |string |Value that specifies whether to return an array of the full resource objects. The default value is `'Full'`. If you don't specify `'Full'`, only the properties objects of the resources are returned. The full object includes values such as the resource ID and location. |
 
 ### Return value
