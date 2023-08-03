@@ -10,14 +10,14 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: franksolomon
 ms.date: 07/06/2023
-ms.custom: contperf-fy21q1, devx-track-python, data4ml
-
+ms.custom: contperf-fy21q1, data4ml
 # Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute resource, to train my machine learning models.
 ---
 
 # Create datastores
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 In this article, learn how to connect to Azure data storage services with Azure Machine Learning datastores.
 

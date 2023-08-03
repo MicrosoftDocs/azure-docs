@@ -89,7 +89,7 @@
         - name: Custom claims provider
           href: custom-claims-provider-overview.md
     - name: Security
-      displayName: least privilege, secure app configuration, conditional access
+      displayName: least privilege, secure app configuration, Conditional Access
       items:
         - name: Application security
           href: security-best-practices-for-app-registration.md
@@ -231,6 +231,8 @@
               href: scenario-web-app-call-api-call-api.md
             - name: Move to production
               href: scenario-web-app-call-api-production.md
+        - name: Deploy and setup App Service auth in a pipeline
+          href: deploy-web-app-authentication-pipeline.md
 - name: Web API
   items:
     - name: Web API authentication

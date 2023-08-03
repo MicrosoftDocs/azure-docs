@@ -75,6 +75,10 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 
 - A read-only lock on a **resource group** that contains a **virtual machine** prevents all users from starting or restarting a virtual machine. These operations require a POST method request.
 
+- A read-only lock on a **resource group** that contains a **virtual machine** prevents users from moving the VM out of the resource group.
+
+- A read-only lock on a **resource group** prevents users from moving any new **resource** into that resource group.
+
 - A read-only lock on a **resource group** that contains an **automation account** prevents all runbooks from starting. These operations require a POST method request.
 
 - A cannot-delete lock on a **resource** or **resource group** prevents the deletion of Azure RBAC assignments.
@@ -111,15 +115,15 @@ Instead, delete the service, which also deletes the infrastructure resource grou
 
 For managed applications, choose the service you deployed.
 
-![Select service](./media/lock-resources/select-service.png)
+:::image type="content" source="./media/lock-resources/select-service.png" alt-text="Screenshot of the Azure portal with an instance of Azure Databricks selected.":::
 
 Notice the service includes a link for a **Managed Resource Group**. That resource group holds the infrastructure and is locked. You can only delete it indirectly.
 
-![Show managed group](./media/lock-resources/show-managed-group.png)
+:::image type="content" source="./media/lock-resources/show-managed-group.png" alt-text="Screenshot displaying the Managed Resource Group link in the Azure portal.":::
 
 To delete everything for the service, including the locked infrastructure resource group, choose **Delete** for the service.
 
-![Delete service](./media/lock-resources/delete-service.png)
+:::image type="content" source="./media/lock-resources/delete-service.png" alt-text="Screenshot of the Azure portal with the Delete option for the selected service.":::
 
 ## Configure locks
 

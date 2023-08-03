@@ -86,12 +86,14 @@ You can contact your account teams if downtime requirements aren't met by the Of
 
 > [!NOTE]
 > Support for online migration is coming soon.
+
 **Q. Will there be future updates to Single Server to support the latest PostgreSQL versions?**
 
 **A.** We recommend you migrate to Flexible Server if you must run on the latest PostgreSQL engine versions. We continue to deploy minor versions released by the community for Postgres version 11 until it's retired by the community in Nov'2023.
 
 > [!NOTE]
 > We're extending support for Postgres version 11 past the community retirement date and will support PostgreSQL version 11 on both [Single Server](https://azure.microsoft.com/updates/singlepg11-retirement/) and [Flexible Server](https://azure.microsoft.com/updates/flexpg11-retirement/) to ease this transition. Consider migrating to Flexible Server to use the benefits of the latest Postgres engine versions.
+
 **Q. How does the Flexible Server 99.99% availability SLA differ from Single Server?**
 
 **A.** Flexible Server zone-redundant deployment provides 99.99% availability with zonal-level resiliency, and Single Server delivers 99.99% availability but without zonal resiliency. Flexible Server High Availability (HA) architecture deploys a hot standby server with redundant compute and storage (with each site's data stored in 3x copies). A Single Server HA architecture doesn't have a passive hot standby to help recover from zonal failures. Flexible Server HA architecture reduces downtime during unplanned outages and planned maintenance.

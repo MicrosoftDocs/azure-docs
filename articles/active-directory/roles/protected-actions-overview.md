@@ -47,9 +47,9 @@ Here's the initial set of permissions:
 > [!div class="mx-tableFixed"]
 > | Permission | Description |
 > | --- | --- |
-> | microsoft.directory/conditionalAccessPolicies/basic/update | Update basic properties for conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/create | Create conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/delete | Delete conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/basic/update | Update basic properties for Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/create | Create Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/delete | Delete Conditional Access policies |
 > | microsoft.directory/namedLocations/basic/update | Update basic properties of custom rules that define network locations |
 > | microsoft.directory/namedLocations/create | Create custom rules that define network locations |
 > | microsoft.directory/namedLocations/delete | Delete custom rules that define network locations |
@@ -84,7 +84,7 @@ Here's the initial set of permissions:
 
 If an application or service attempts to perform a protection action, it must be able to handle the required Conditional Access policy. In some cases, a user might need to intervene and satisfy the policy. For example, they may be required to complete multi-factor authentication. In this preview, the following applications support step-up authentication for protected actions:
 
-- Azure Active Directory administrator experiences for the actions in the [Entra admin center](https://entra.microsoft.com) or [Azure portal](https://portal.azure.com)
+- Azure Active Directory administrator experiences for the actions in the [Entra admin center](https://entra.microsoft.com) or the [Azure portal](https://portal.azure.com)
 - [Microsoft Graph PowerShell](/powershell/microsoftgraph/overview?branch=main)
 - [Microsoft Graph Explorer](/graph/graph-explorer/graph-explorer-overview?branch=main)
 

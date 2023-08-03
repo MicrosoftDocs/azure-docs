@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/20/2023
+ms.date: 07/11/2023
 ms.author: helohr
 manager: femila
 ---
@@ -42,7 +42,7 @@ Azure Virtual Desktop supports cloud-only identities when using [Azure AD joined
 If you're using an Identity Provider (IdP) other than Azure AD to manage your user accounts, you must ensure that:
 
 - Your IdP is [federated with Azure AD](../active-directory/devices/azureadjoin-plan.md#federated-environment).
-- Your session hosts are Azure AD-joined or [Hybrid Azure AD-joined](../active-directory/devices/hybrid-azuread-join-plan.md).
+- Your session hosts are Azure AD-joined or [Hybrid Azure AD-joined](../active-directory/devices/hybrid-join-plan.md).
 - You enable [Azure AD authentication](configure-single-sign-on.md) to the session host.
 
 ### External identity
@@ -69,23 +69,16 @@ To use a smart card to authenticate to Azure AD, you must first [configure AD FS
 
 If you haven't already enabled [single sign-on](#single-sign-on-sso) or saved your credentials locally, you'll also need to authenticate to the session host when launching a connection. The following list describes which types of authentication each Azure Virtual Desktop client currently supports.
 
-- The Windows Desktop client and Azure Virtual Desktop Store app both support the following authentication methods:
-    - Username and password
-    - Smart card
-    - [Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust)
-    - [Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs)
-    - [Azure AD authentication](configure-single-sign-on.md)
-- The Remote Desktop app supports the following authentication method: 
-    - Username and password
-- The web client supports the following authentication method:
-    - Username and password
-- The Android client supports the following authentication method:
-    - Username and password
-- The iOS client supports the following authentication method:
-    - Username and password
-- The macOS client supports the following authentication method:
-    - Username and password
-    - Smart card: support for smart card-based sign in using smart card redirection at the Winlogon prompt when NLA is not negotiated.
+
+|Client  |Supported authentication type(s)  |
+|---------|---------|
+|Windows Desktop client    | Username and password <br>Smart card <br>[Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust) <br>[Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs) <br>[Azure AD authentication](configure-single-sign-on.md)               |
+|Azure Virtual Desktop Store app     |  Username and password <br>Smart card <br>[Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust) <br>[Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs) <br>[Azure AD authentication](configure-single-sign-on.md)           |
+|Remote Desktop app     |  Username and password       |
+|Web client    | Username and password        |
+|Android client   | Username and password        |
+|iOS client     |   Username and password      |
+|macOS client    | Username and password <br>Smart card: support for smart card-based sign in using smart card redirection at the Winlogon prompt when NLA is not negotiated.        |
 
 >[!IMPORTANT]
 >In order for authentication to work properly, your local machine must also be able to access the [required URLs for Remote Desktop clients](safe-url-list.md#remote-desktop-clients).
@@ -104,7 +97,7 @@ Azure Virtual Desktop supports both NT LAN Manager (NTLM) and Kerberos for sessi
 
 ## In-session authentication
 
-Once you're connected to your remote app or desktop, you may be prompted for authentication inside the session. This section explains how to use credentials other than username and password in this scenario.
+Once you're connected to your RemoteApp or desktop, you may be prompted for authentication inside the session. This section explains how to use credentials other than username and password in this scenario.
 
 ### In-session passwordless authentication (preview)
 

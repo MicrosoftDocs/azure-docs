@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Send a search request to the REST API using Java - Bing Entity Search"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this quickstart to send a request to the Bing Entity Search REST API using Java, and receive a JSON response.
 services: cognitive-services
 author: aahill
@@ -15,7 +15,7 @@ ms.author: aahi
 ---
 # Quickstart: Send a search request to the Bing Entity Search REST API using Java
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple Java application sends a news search query to the API, and displays the response.
 
@@ -48,28 +48,28 @@ Although this application is written in Java, the API is a RESTful Web service c
    import com.google.gson.JsonParser;
    ```
 
-2. In a new class, create variables for the API endpoint, your subscription key, and a search query. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. In a new class, create variables for the API endpoint, your subscription key, and a search query. You can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
    ```java
    public class EntitySearch {
 
       static String subscriptionKey = "ENTER KEY HERE";
-    
-    	static String host = "https://api.bing.microsoft.com";
-    	static String path = "/v7.0/search";
-    
-    	static String mkt = "en-US";
-    	static String query = "italian restaurant near me";
+
+      static String host = "https://api.bing.microsoft.com";
+      static String path = "/v7.0/search";
+
+      static String mkt = "en-US";
+      static String query = "italian restaurant near me";
    //...
-    
+
    ```
 
 ## Construct a search request string
 
 1. Create a function called `search()` that returns a JSON `String`. url-encode your search query, and add it to a parameters string with `&q=`. Add your market to the parameter string with `?mkt=`.
- 
+
 2. Create a URL object with your host, path, and parameters strings.
-    
+
     ```java
     //...
     public static String search () throws Exception {
@@ -78,7 +78,7 @@ Although this application is written in Java, the API is a RESTful Web service c
         URL url = new URL (host + path + params);
     //...
     ```
-      
+
 ## Send a search request and receive a response
 
 1. In the `search()` function created above, create a new `HttpsURLConnection` object with `url.openCOnnection()`. Set the request method to `GET`, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
@@ -92,8 +92,8 @@ Although this application is written in Java, the API is a RESTful Web service c
     //...
     ```
 
-2. Create a new `StringBuilder`. Use a new `InputStreamReader` as a parameter when instantiating  `BufferedReader` to read the API response.  
-    
+2. Create a new `StringBuilder`. Use a new `InputStreamReader` as a parameter when instantiating  `BufferedReader` to read the API response.
+
     ```java
     //...
     StringBuilder response = new StringBuilder ();
@@ -102,25 +102,25 @@ Although this application is written in Java, the API is a RESTful Web service c
     //...
     ```
 
-3. Create a `String` object to store the response from the `BufferedReader`. Iterate through it, and append each line to the string. Then, close the reader and return the response. 
-    
+3. Create a `String` object to store the response from the `BufferedReader`. Iterate through it, and append each line to the string. Then, close the reader and return the response.
+
     ```java
     String line;
-    
+
     while ((line = in.readLine()) != null) {
       response.append(line);
     }
     in.close();
-    
+
     return response.toString();
     ```
 
 ## Format the JSON response
 
-1. Create a new function called `prettify` to format the JSON response. Create a new `JsonParser`, call `parse()` on the JSON text, and then store it as a JSON object. 
+1. Create a new function called `prettify` to format the JSON response. Create a new `JsonParser`, call `parse()` on the JSON text, and then store it as a JSON object.
 
-2. Use the Gson library to create a new `GsonBuilder()`, use `setPrettyPrinting().create()` to format the JSON, and then return it.    
-  
+2. Use the Gson library to create a new `GsonBuilder()`, use `setPrettyPrinting().create()` to format the JSON, and then return it.
+
    ```java
    //...
    public static String prettify (String json_text) {
@@ -135,22 +135,22 @@ Although this application is written in Java, the API is a RESTful Web service c
 ## Call the search function
 
 - From the main method of your project, call `search()`, and use `prettify()` to format the text.
-    
+
     ```java
-    	public static void main(String[] args) {
-    		try {
-    			String response = search ();
-    			System.out.println (prettify (response));
-    		}
-    		catch (Exception e) {
-    			System.out.println (e);
-    		}
-    	}
+      public static void main(String[] args) {
+        try {
+          String response = search ();
+          System.out.println (prettify (response));
+        }
+        catch (Exception e) {
+          System.out.println (e);
+        }
+      }
     ```
 
 ## Example JSON response
 
-A successful response is returned in JSON, as shown in the following example: 
+A successful response is returned in JSON, as shown in the following example:
 
 ```json
 {
@@ -206,7 +206,7 @@ A successful response is returned in JSON, as shown in the following example:
         },
         "telephone": "(800) 555-1212"
       },
-      
+
       . . .
     ]
   }

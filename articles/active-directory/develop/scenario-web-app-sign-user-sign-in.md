@@ -353,7 +353,7 @@ In Java, sign-out is handled by calling the Microsoft identity platform `logout`
 
 # [Node.js](#tab/nodejs)
 
-When the user selects the **Sign out** button, the app triggers the `/signout` route, which destroys the session and redirects the browser to Microsoft identity platform sign-out endpoint.
+When the user selects the **Sign out** button, the app triggers the `/auth/signout` route, which destroys the session and redirects the browser to Microsoft identity platform sign-out endpoint.
 
 :::code language="js" source="~/ms-identity-node/App/auth/AuthProvider.js" range="157-175":::
 

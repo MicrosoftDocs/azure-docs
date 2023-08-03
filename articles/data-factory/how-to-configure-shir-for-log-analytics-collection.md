@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: 
 ms.custom: synapse
 ms.topic: how-to
-ms.date: 08/09/2022
+ms.date: 07/17/2023
 ms.author: jburchel
 ---
 

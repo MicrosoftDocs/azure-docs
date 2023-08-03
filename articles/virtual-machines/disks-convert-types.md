@@ -3,8 +3,9 @@ title: Convert managed disks storage between different disk types
 description: How to convert Azure managed disks between the different disks types by using Azure PowerShell, Azure CLI, or the Azure portal.
 author: roygara
 ms.service: azure-disk-storage
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 06/21/2023
+ms.date: 08/01/2023
 ms.author: rogarana
 ---
 
@@ -191,10 +192,10 @@ Follow these steps:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the VM from the list of **Virtual machines**.
 1. If the VM isn't stopped, select **Stop** at the top of the VM **Overview** pane, and wait for the VM to stop.
-1. In the pane for the VM, select **Disks** from the menu.
+1. In the pane for the VM, select **Disks** under **Settings**.
 1. Select the disk that you want to convert.
-1. Select **Size + performance** from the menu.
-1. Change the **Account type** from the original disk type to the desired disk type.
+1. Select **Size + performance** under **Settings**.
+1. Change the **Storage type** from the original disk type to the desired disk type.
 1. Select **Save**, and close the disk pane.
 
 The disk type conversion is instantaneous. You can start your VM after the conversion.

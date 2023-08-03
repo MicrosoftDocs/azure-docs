@@ -330,12 +330,16 @@ items:
       href: author-visually.md
     - name: Iterative development and debugging
       href: iterative-development-debugging.md
+    - name: Deactivate and reactivate
+      href: deactivate-activity.md
     - name: Management hub
       href: author-management-hub.md
     - name: Source control
       href: source-control.md
     - name: Author a change data capture resource
       href: how-to-change-data-capture-resource.md
+    - name: Author a change data capture resource with schema evolution
+      href: how-to-change-data-capture-resource-with-schema-evolution.md
     - name: Connect to Azure DevOps in another tenant
       href: cross-tenant-connections-to-azure-devops.md
     - name: Manage your environment with DataOps
@@ -906,6 +910,8 @@ items:
       href: how-to-send-notifications-to-teams.md
     - name: Monitor integration runtime
       href: monitor-integration-runtime.md
+    - name: Monitor managed virtual network integration runtime
+      href: monitor-managed-virtual-network-integration-runtime.md
     - name: Monitor Azure-SSIS integration runtime
       href: monitor-integration-runtime.md#azure-ssis-integration-runtime
     - name: Run Data Pipelines with Service Level Agreements
@@ -1297,6 +1303,8 @@ items:
       href: sap-change-data-capture-debug-shir-logs.md
     - name: Manage the SAP CDC process
       href: sap-change-data-capture-management.md
+    - name: Advanced topics
+      href: sap-change-data-capture-advanced-topics.md    
       displayName: SAP, change data capture, CDC
 - name: Managed Airflow
   items:

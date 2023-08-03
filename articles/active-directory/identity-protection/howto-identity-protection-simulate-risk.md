@@ -84,10 +84,12 @@ The sign-in shows up in the Identity Protection dashboard within 2-4 hours.
 
 ## Leaked Credentials for Workload Identities
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 This risk detection indicates that the application's valid credentials have been leaked. This leak can occur when someone checks in the credentials in a public code artifact on GitHub. Therefore, to simulate this detection, you need a GitHub account and can [sign up a GitHub account](https://docs.github.com/get-started/signing-up-for-github) if you don't have one already.
 
 **To simulate Leaked Credentials in GitHub for Workload Identities, perform the following steps**:
-1. Navigate to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Browse to **Azure Active Directory** > **App registrations**.
 3. Select **New registration** to register a new application or reuse an existing stale application.
 4. Select **Certificates & Secrets** > **New client Secret** , add a description of your client secret and set an expiration for the secret or specify a custom lifetime and select **Add**. Record the secret's value for later use for your GitHub Commit.
@@ -114,7 +116,7 @@ This section provides you with steps for testing the user and the sign-in risk p
 
 To test a user risk security policy, perform the following steps:
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **Overview**.
 1. Select **Configure user risk policy**.
    1. Under **Assignments**
@@ -134,7 +136,7 @@ To test a user risk security policy, perform the following steps:
 
 To test a sign-in risk policy, perform the following steps:
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **Overview**.
 1. Select **Configure sign-in risk policy**.
    1. Under **Assignments**

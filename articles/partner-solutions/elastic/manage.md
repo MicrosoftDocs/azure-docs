@@ -114,3 +114,10 @@ When the Elastic resource is deleted, logs are no longer sent to Elastic. All bi
 ## Next steps
 
 - For help with troubleshooting, see [Troubleshooting Elastic integration with Azure](troubleshoot.md).
+- Get started with Elastic Cloud (Elasticsearch) - An Azure Native ISV Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Elastic%2Fmonitors)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview)

@@ -414,6 +414,7 @@ In this tutorial, you learn how to:
         ``` 
     - Add `using` statements in header to resolve required dependencies.
         ```c#
+        using System.Threading.Tasks;
         using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
         using Microsoft.Azure.WebPubSub.Common;
         ```

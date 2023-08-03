@@ -16,7 +16,7 @@ On April 28,2023 we announced retirement of Application gateway V1 on 28 April 2
 
 ### What is the official date Application Gateway V1 is cut off from creation?
 
-New Customers aren't allowed to create v1 from 1 July 2023. However, any existing V1 customers can continue to create resources until August 2024 and manage V1 resources until the retirement date of 28 April 2026.
+New Customers will not be allowed to create V1 from 1 July 2023 onwards. However, any existing V1 customers can continue to create resources in existing subscriptions until August 2024 and manage V1 resources until the retirement date of 28 April 2026.
 
 ### What happens to existing Application Gateway V1 after 28 April 2026?
 
@@ -24,11 +24,11 @@ Once the deadline arrives V1 gateways aren't supported. Any V1 SKU resources tha
 
 ### What is the definition of a new customer on Application Gateway V1 SKU?
 
-Customers who didn't have Application Gateway V1 SKU in their subscriptions in the month of June 2023 are considered as new customers. These customers won’t be able to create new V1 gateways from 1 July 2023.
+Customers who didn't have Application Gateway V1 SKU in their subscriptions as of 4 July 2023 are considered as new customers. These customers won’t be able to create new V1 gateways in subscriptions which didn't have an existing V1 gateway as of 4 July 2023 going forward.
 
 ### What is the definition of an existing customer on Application Gateway V1 SKU?
 
-Customers who had active or stopped but allocated Application Gateway V1 SKU in their subscriptions in the month of June 2023, are considered existing customers. These customers get until August 28, 2024 to create new V1 application gateways and until April 28,2026 to migrate their V1 gateways to V2.
+Customers who had active or stopped but allocated Application Gateway V1 SKU in their subscriptions as of  4 July 2023, are considered existing customers. These customers get until August 28, 2024 to create new V1 application gateways in their existing subscriptions and until April 28,2026 to migrate their V1 gateways to V2.
 
 ### Does this migration plan affect any of my existing workloads that run on Application Gateway V1 SKU?
 

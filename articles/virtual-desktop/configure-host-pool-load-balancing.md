@@ -76,7 +76,7 @@ You can also configure load balancing with the Azure portal.
 
 To configure load balancing:
 
-1. Sign into the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for and select **Azure Virtual Desktop** under Services.
 3. In the Azure Virtual Desktop page, select **Host pools**.
 4. Select the name of the host pool you want to edit.

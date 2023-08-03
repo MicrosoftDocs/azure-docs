@@ -5,9 +5,8 @@ description: Learn how to upload a blob to your Azure Storage account using the 
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 06/16/2023
-ms.service: storage
-ms.subservice: blobs
+ms.date: 07/07/2023
+ms.service: azure-storage
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
@@ -19,13 +18,10 @@ This article shows how to upload a blob using the [Azure Storage client library 
 
 ## Prerequisites
 
-To work with the code examples in this article, make sure you have:
-
-- An authorized client object to connect to Blob Storage data resources. To learn more, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
-- Permissions to perform an upload operation. To learn more, see the authorization guidance for the following REST API operations:
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for .NET. To learn about setting up your project, including package installation, adding `using` directives, and creating an authorized client object, see [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to perform an upload operation. To learn more, see the authorization guidance for the following REST API operations:
     - [Put Blob](/rest/api/storageservices/put-blob#authorization)
     - [Put Block](/rest/api/storageservices/put-block#authorization)
-- The package **Azure.Storage.Blobs** installed to your project directory. To learn more about setting up your project, see [Get Started with Azure Storage and .NET](storage-blob-dotnet-get-started.md#set-up-your-project).
 
 ## Upload data to a block blob
 
@@ -81,7 +77,7 @@ You can configure the values in [StorageTransferOptions](/dotnet/api/azure.stora
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadWithTransferOptions":::
 
-To learn more about tuning data transfer options, see [Performance tuning for uploads and downloads](storage-blobs-tune-upload-download.md).
+To learn more about tuning data transfer options, see [Performance tuning for uploads and downloads with .NET](storage-blobs-tune-upload-download.md).
 
 ### Specify transfer validation options on upload
 
