@@ -12,39 +12,39 @@ ms.custom: template-how-to, engagement-fy23
 
 # Direct Peering Type Conversion Request Walkthrough
 
-In this article, you learn how to use the Azure portal to request a direct peering type conversion
+In this article, you learn how to use the Azure portal to request a type conversion on a direct peering
 
 
 ## Before you begin
 
 A direct peering type conversion for a peering connection can only be requested if the following prerequisites apply:
--  There must be redundant connection(s) within the peering
--  The redundant connection must be of equal bandwidth 
+-  The peering must have at least 2 connections.
+-  The redundant connections must be of equal bandwidth 
 -  Connections must be fully provisioned (Connection State should be set to "Active")
--  No connection in the peering can be in the process of decommission or device migration
--  Peering must be represented as an Azure Resource with a valid Subscription
+-  All connections in the peering must be fully provisioned (with the property 'ConnectionState' = Active) i.e. none of the connections must be undergoing provisioning or decommission or an internal device migration.
+-  Peering must be represented as an Azure Resource with a valid Subscription. Otherwise follow this [link](howto-legacy-direct-portal.md) to onboard your peering to an Azure subscription, before requesting a conversion. Create a Peer ASN resource under this subscription. See [Associate peer ASN to Azure subscription](howto-subscription-association-portal.md) using the Azure portal to learn how to Associate your public ASN with your Azure subscription.
 -  Bandwidth updates can't be requested to other connections in the peering during the conversion
 -  No adding or removing of connections can occur during the conversion
 -  The type conversion will run during the business hours of Pacific Daylight Time.
--  For Voice conversions you'll need to be ready to set up BFD as soon as notified as well as configuring the new ip addresses provided through email
+-  For Voice conversions, the connection session addresses will be provided by Microsoft and enabled with BFD(Bidirectional Forwarding Detection). It is expected that the partners set up their configurations accordingly.
 
 > [!NOTE]
 > If your peering is not currently an Azure Resource please refer to the [legacy subscription conversion document](./howto-legacy-direct-portal.md).
 
-## 1. Configure the new direct peering type
+## 1. Configure the new Type on a Direct Peering
 ### Converting from PNI to Voice
-PNI or MAPS to Voice will be done to all connections as it is done at a peering level.
+A peering with standard PNI(s) or PNI(s) enabled for MAPS can be converted to Voice PNI(s) and this has to be requested at the peering level which means all the connections within the peering will be converted.
 
-Select the "Configuration" Page under the Settings section of your Peering's Page
+Go to the "Configuration" Page under the Settings section of your Peering's Page
 
-Select the "(with Voice)"" option
+Select the "(with Voice)" option.
 :::image type="content" source="./media/walkthrough-type-conversion/conversionselection.png" alt-text="Screenshot shows how to select within the Conversions tab in the Azure portal." lightbox="./media/walkthrough-type-conversion/conversionselection.png":::
 
-Select Save
+Hit Save.
 :::image type="content" source="./media/walkthrough-type-conversion/savepage.png" alt-text="Screenshot shows how to save the changes within the  Conversions tab in the Azure portal." lightbox="./media/walkthrough-type-conversion/savepage.png":::
 
 ### Enabling Peering Service on a Connection
-PNI to MAPS can be done on a connection basis.
+A standard PNI within a peering can be enabled for Peering Service and can be requested per connection.
 
 Navigate to the Connection tab under settings and click edit on a connection
 :::image type="content" source="./media/walkthrough-type-conversion/viewconnection.png" alt-text="Screenshot shows how to select within the Connections tab in the Azure portal." lightbox="./media/walkthrough-type-conversion/viewconnection.png":::
@@ -52,14 +52,16 @@ Navigate to the Connection tab under settings and click edit on a connection
 Then edit the "Use for Peering Service" section to enabled and click Save
 :::image type="content" source="./media/walkthrough-type-conversion/editconnection.png" alt-text="Screenshot shows how to edit a connection." lightbox="./media/walkthrough-type-conversion/editconnection.png":::
 
+Once the request is received, the 'Connection State' on each of the connections change to 'TypeChangeRequested'.
+
 ## 2. Conversion approval
-Your request will  be approved by a member of our team.
+Your request will be reviewed and approved by someone from the internal team.
 
-After approval connections will be processed one at a time making sure to keep redundant connection(s) open.
+After approval, the connections will be converted one at a time to ensure that the redundant connection(s) are always up and carrying traffic.
 
-Connections will go through the TypeChangeRequested state until the type change is approved at which point it will go to TypeChangeInProgress.
+Connections will go through the TypeChangeRequested state until the type change is approved. 
+Now, the 'Connection State' on the connections(s) change to 'TypeChangeInProgress'.
 You can see this in the Connection tab in the same location where you selected to edit the connection.
-
 
 ## 3. Monitoring the conversion
 While your connection is undergoing conversion its state will be labeled as TypeChangeInProgress.
@@ -72,6 +74,8 @@ You'll be kept up to date through emails at the following steps:
 -  Peering Azure Resource removal (if any)
 
 In the case of a request rejection or any action needed by you from our team you'll also receive an email
+
+The peer email contact provided during the 'Peer Asn' resource creation will also receive a notification for the following. In case of any questions, please contact peering@microsoft.com
 
 Once the connection is completed its state will return to Active.
 
