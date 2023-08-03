@@ -22,9 +22,9 @@ ms.collection: M365-identity-device-management
 ---
 # Share link to request an access package in entitlement management
 
-Most users in your directory can sign in to the My Access portal and automatically see a list of access packages they are in scope of a policy and can request. In addition, users from outside of your directory that are in scope, can also see access packages they are in scope of a policy and can request.  However, if you have sensitive access packages or external business partner users that aren't yet in your directory but aren't part of an existing connected organization, those access packages should be hidden.  Even though the user can request a hidden acess package, they won't see it in the my access portal. Instead, you'll need to send them a link that they can use to request that access package.
+Most users in your directory can sign in to the My Access portal and automatically see a list of access packages they are in scope of a policy and can request. In addition, users from outside of your directory that are in scope, can also see access packages they are in scope of a policy and can request.  However, if you have sensitive access packages or external business partner users that aren't yet in your directory but aren't part of an existing connected organization, those access packages should be hidden.  Even though the user can request a hidden access package, they won't see it in the My access portal if they don't have the link. Instead, you'll need to send them a link that they can use to request that access package.
 
-As long as the catalog for the access package is [enabled for external users](entitlement-management-catalog-create.md) and you have a [policy for the external user's directory](entitlement-management-access-package-request-policy.md), the external user can use the My Access portal link to request the access package.
+In order for the external user from another directory to use the My Access portal link to request the access package, the catalog for the access package must be [enabled for external users](entitlement-management-catalog-create.md) and there must be a [policy for the external user's directory](entitlement-management-access-package-request-policy.md) in the access package.
 
 ## Share link to request an access package
 
