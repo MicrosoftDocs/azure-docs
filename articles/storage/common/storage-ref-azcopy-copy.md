@@ -253,7 +253,7 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from 
 
 `--disable-auto-decoding`    False by default to enable automatic decoding of illegal chars on Windows. Can be set to true to disable automatic decoding.
 
-`--dry-run`    Prints the file paths that would be copied by this command. This flag doesn't copy the actual files. Does not currently honor '--overwrite' flag and when using '--overwrite=false' will list files in the source directory whether or not they exist in the destination directory.
+`--dry-run`    Prints the file paths that would be copied by this command. This flag doesn't copy the actual files. The --overwrite flag has no effect. If you set the --overwrite flag to false, files in the source directory are listed even if those files exist in the destination directory.
 
 `--exclude-attributes`    (string)    (Windows only) Exclude files whose attributes match the attribute list. For example: A;S;R
 
