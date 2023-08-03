@@ -2,8 +2,7 @@
 title: How to migrate a self-hosted Socket.IO to fully managed on Azure
 description: A tutorial...
 author: xingsy97
-
-ms.author: xingsy97
+ms.author: xiyuanxing
 ms.date: 07/21/2023
 ms.service: azure-web-pubsub
 ms.topic: how-to
@@ -15,7 +14,7 @@ ms.topic: how-to
 
 ## Prerequisites
 > [!div class="checklist"]
-> * An Azure account with an active subscription. If you don't have one, you can [create a free accout](https://azure.microsoft.com/en-us/free/). 
+> * An Azure account with an active subscription. If you don't have one, you can [create a free accout](https://azure.microsoft.com/free/). 
 > * Some familiarity with Socket.IO library.
 
 ## Create a Web PubSub for Socket.IO resource

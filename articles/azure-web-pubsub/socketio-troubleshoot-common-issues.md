@@ -2,12 +2,12 @@
 title: How to troubleshoot Socket.IO common issues
 description: Learn how to troubleshoot Socket.IO common issues
 author: xingsy97
-ms.author: xingsy97
+ms.author: xiyuanxing
 ms.date: 08/01/2023
 ms.service: azure-web-pubsub
 ms.topic: how-to
 ---
-# Troubleshooting guide for common issues
+# Troubleshooting for common issues
 
 It's helpful to group issues you may observe into these areas. 
 - serve side

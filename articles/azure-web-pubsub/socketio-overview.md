@@ -1,6 +1,6 @@
 ---
 title: Overview of Web PubSub for Socket.IO
-description: 
+description: An overview of Web PubSub's support for the open-source Socket.IO library
 author: kevinguo-ed
 ms.author: kevinguo
 ms.date: 07/27/2023
@@ -21,7 +21,7 @@ Web PubSub for Socket.IO removes the burden of deploying, hosting and coordinati
 > - **Socket.IO** refers to the open-source library. 
 > - **Web PubSub for Socket.IO** refers to a fully managed Azure service.  
 
-|            | Hosting Socket.IO app yourself | Using Web PubSub for Socket.IO
+|            | Hosting Socket.IO app yourself | Using Web PubSub for Socket.IO|
 |------------|------------|------------|
 | Deployment | Customer managed | Azure managed |
 | Hosting | Customer needs provision enough server resources to serve and maintain persistent connections | Azure managed |
@@ -40,7 +40,6 @@ With Web PubSub for Socket.IO, you are freed from handling scaling issues and im
 ## Same programming model
 To migrate a self-hosted Socket.IO app to Azure, you only need to add a few lines of code with **no need** to change the rest of the application code. This means the programming model remains the same and the complexity of managing a real-time app is significantly reduced.
 
-## 
 > [!div class="nextstepaction"]
 > [Quickstart: Mirgrate an self-hosted Socket.IO app to Azure](./reference-cloud-events-amqp.md)
 

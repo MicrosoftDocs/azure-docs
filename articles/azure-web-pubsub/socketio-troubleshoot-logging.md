@@ -2,7 +2,7 @@
 title: How to collect logs in Azure Socket.IO
 description: This article explains how to collect logs when using Web PubSub for Socket.IO
 author: xingsy97
-ms.author: xingsy97
+ms.author: xiyuanxing
 ms.date: 08/01/2023
 ms.service: azure-web-pubsub
 ms.topic: how-to
@@ -46,7 +46,7 @@ AZURE_LOG_LEVEL=verbose node yourfile.js
 ```
 
 `Azure_LOG_LEVEL` has 4 levels: "verbose", "info", "warning" and "error".
-:::image type="content" source="./media/socketio-troubleshoot-logging/log-azure-logger.png" alt-text="Screenshot of logging information from DEBUG JavaScript utility":::
+:::image type="content" source="./media/socketio-troubleshoot-logging/log-azure-logger.png" alt-text="Screenshot of logging information from @azure/logger utility":::
 
 ## Client side
 Using Web PubSub for Socket.IO doesn't change how you debug Socket.IO library. [Refer to the documentation](https://socket.io/docs/v4/logging-and-debugging/) from Socket.IO library.
