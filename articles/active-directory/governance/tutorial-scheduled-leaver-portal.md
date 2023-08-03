@@ -2,14 +2,14 @@
 title: Automate employee offboarding tasks after their last day of work with Azure portal
 description: Tutorial for post off-boarding users from an organization using Lifecycle workflows with Azure portal.
 services: active-directory
-author: amsliu
+author: owinfreyATL
 manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.subservice: compliance
 ms.date: 08/18/2022
-ms.author: amsliu
+ms.author: owinfrey
 ms.reviewer: krbain
 ms.custom: template-tutorial
 ---
