@@ -1219,7 +1219,7 @@ sections:
       - question: |
           Which ports and domains do I need to open or allow for the agent?
         answer: |
-          See the [Network firewall requirements](containers/container-insights-onboard.md#network-firewall-requirements) for the proxy and firewall configuration information that's required for the containerized agent with Azure, Azure US Government, and Azure China 21Vianet clouds.
+          See the [Network firewall requirements](containers/container-insights-onboard.md#network-firewall-requirements) for the proxy and firewall configuration information that's required for the containerized agent with Azure, Azure US Government, and Microsoft Azure operated by 21Vianet clouds.
           
       - question: |
           Is there support for collecting Kubernetes audit logs for ARO clusters?
