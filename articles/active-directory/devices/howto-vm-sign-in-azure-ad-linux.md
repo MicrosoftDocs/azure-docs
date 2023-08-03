@@ -190,7 +190,7 @@ There are two ways to configure role assignments for a VM:
 - Azure Cloud Shell experience
 
 > [!NOTE]
-> The Virtual Machine Administrator Login and Virtual Machine User Login roles use `dataActions` and can be assigned at the management group, subscription, resource group, or resource scope. We recommend that you assign the roles at the management group, subscription, or resource group level and not at the individual VM level. This practice avoids the risk of reaching the [Azure role assignments limit](../../role-based-access-control/troubleshoot-limits.md) per subscription.
+> The Virtual Machine Administrator Login and Virtual Machine User Login roles use `dataActions` and can be assigned at the management group, subscription, resource group, or resource scope. We recommend that you assign the roles at the management group, subscription, or resource level and not at the individual VM level. This practice avoids the risk of reaching the [Azure role assignments limit](../../role-based-access-control/troubleshoot-limits.md) per subscription.
 
 ### Azure AD portal
 
@@ -288,16 +288,29 @@ Another way to verify it is via Graph PowerShell:
 
 ### Log in by using the Azure CLI
 
+Below Prerequisite to consider before sign in by using your Azure AD Account.
+1. Verify to have Azure CLI installed on your system.
+   
+2. Verify to have AZ VM extension set installed on your system. 
+Use below Command to install the Az VM extension set. 
+
+```Az VM extension set
+az vm extension set --publisher Microsoft.Azure.ActiveDirectory --name AADSSHLoginForLinux --resource-group AzureADLinuxVM --vm-name myVM
+```
+
+Once installed verify that Az VM extension set successfully get provisioned. 
+
 Enter `az login`. This command opens a browser window, where you can sign in by using your Azure AD account.
 
 ```azurecli
 az login 
 ```
 
-Then enter `az ssh vm`. The following example automatically resolves the appropriate IP address for the VM.
+Then enter `az ssh vm`. The following example automatically resolves the appropriate IP address for the VM or can use IP Address as well. 
 
 ```azurecli
 az ssh vm -n myVM -g AzureADLinuxVM
+az ssh vm --ip 10.11.123.456
 ```
 
 If you're prompted, enter your Azure AD login credentials at the login page, perform multifactor authentication, and/or satisfy device checks. You'll be prompted only if your Azure CLI session doesn't already meet any required Conditional Access criteria. Close the browser window, return to the SSH prompt, and you'll be automatically connected to the VM.
@@ -351,7 +364,14 @@ az ssh vm -n myVM -g AzureADLinuxVM
 
 ## Export the SSH configuration for use with SSH clients that support OpenSSH
 
-Login to Azure Linux VMs with Azure AD supports exporting the OpenSSH certificate and configuration. That means you can use any SSH clients that support OpenSSH-based certificates to sign in through Azure AD. The following example exports the configuration for all IP addresses assigned to the VM:
+Login to Azure Linux VMs with Azure AD supports exporting the OpenSSH certificate and configuration. That means you can use any SSH clients that support OpenSSH-based certificates to sign in through Azure AD. 
+
+You can execute the operation from Azure cloudshell and below instructions required to generate and export the openSSH certificate and configuration successfully.
+1. On the Cloudshell Switch to Powershell mode and once on the user home directory, you have to create <b>.ssh directory</b> using <b>mkdir .ssh</b> command inside it. This is important step else it will generate error that .ssh directory does not exist.
+
+
+2. Execute the below command to generate the certificate and configuration. 
+The following example exports the configuration for all IP addresses assigned to the VM:
 
 ```azurecli
 az ssh config --file ~/.ssh/config -n myVM -g AzureADLinuxVM
@@ -362,6 +382,12 @@ Alternatively, you can export the configuration by specifying just the IP addres
 ```azurecli
 az ssh config --file ~/.ssh/config --ip 10.11.123.456
 ```
+
+3. Browse the Path where files has been generated and download all the files from cloudshell.
+
+4. Once downloaded you have to open PuttyGen and import key through conversions menu with the file <b>id_rsa</b> and generate private key with or without passphrase from it and save with the earlier download files. 
+
+5. Open Putty application and navigate to <b>Auth > Credentials</b> and browse Private Key and certificate which was generated earlier and login from it. 
 
 You can then connect to the VM through normal OpenSSH usage. Connection can be done through any SSH client that uses OpenSSH.
 
@@ -456,7 +482,7 @@ To uninstall old packages:
 1. If the command fails, try the low-level tools with scripts disabled:
    1. For Ubuntu/Debian, run `sudo dpkg --purge aadlogin`. If it's still failing because of the script, delete the `/var/lib/dpkg/info/aadlogin.prerm` file and try again.
    1. For everything else, run `rpm -e --noscripts aadogin`.
-1. Repeat steps 3-4 for package `aadlogin-selinux`.
+1.	Repeat steps 3-4 for package `aadlogin-selinux`.
 
 ### Extension installation errors
 
