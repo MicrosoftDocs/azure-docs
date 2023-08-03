@@ -16,7 +16,7 @@ ms.custom: developer, devx-track-js
 #Customer intent: As a dev, devops, I want to learn how to build a Node.js CLI application that signs in users in an Azure AD for customers tenant.
 ---
 
-# Sign in users in a Node.js CLI application - Prepare app
+# Tutorial: Prepare a Node.js CLI application for authentication
 
 In this article, you create a Node.js CLI application that signs in users. The client application you build uses the [OAuth 2.0 Authorization Code Flow](../../develop/v2-oauth2-auth-code-flow.md) with Proof Key for Code Exchange (PKCE) for secure user authentication.
 
@@ -52,10 +52,10 @@ To build the Node.js CLI application from scratch, follow these steps:
  After you create the files, you should achieve the following project structure:
 
  ```
-        ciam-sign-in-node-cli-app/
-        ├── authConfig.js
-        └── index.js
-        └── package.json
+ciam-sign-in-node-cli-app/
+    ├── authConfig.js
+    └── index.js
+    └── package.json
  ```
 
 ## Install app dependencies

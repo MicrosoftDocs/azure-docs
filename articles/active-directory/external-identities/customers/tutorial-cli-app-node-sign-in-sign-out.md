@@ -111,7 +111,7 @@ const acquireToken = async () => {
     }
 };
 ```
-The `acquireToken` function first attempts to retrieve all accounts from the token cache using `pca.getTokenCache().getAllAccounts()`. If only one account is found, it tries to acquire a token silently for that account. If the silent acquisition fails due to an `InteractionRequiredAuthError`, it falls back to interactive authentication using `pca.acquireTokenInteractive(tokenRequest)`. If multiple accounts are found, it prompts the user to select an account to sign in and if no account is found, it uses interactive authentication.
+In this code snippet, the `acquireToken` function tries to get an access token for a single account silently; if it fails, it uses interactive authentication. If multiple accounts are found, it prompts the user to select an account, and if no account is found, it initiates interactive authentication to prompt the user for sign-in and consent.
 
 ## Initiate the authentication flow
 

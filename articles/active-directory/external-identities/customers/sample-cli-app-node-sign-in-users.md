@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Sign in users in a sample Node.js CLI application. 
 
-This how-to guide uses a sample Node Command Line Interface (CLI) application to sign in users in an Azure Active Directory (Azure AD) for customers tenant. The sample application uses the [Microsoft Authentication Library for Node](/javascript/api/%40azure/msal-node) (MSAL Node) to handle authentication.
+This guide uses a sample Node Command Line Interface (CLI) application to sign in users in an Azure Active Directory (Azure AD) for customers tenant. The sample application uses the [Microsoft Authentication Library for Node](/javascript/api/%40azure/msal-node) (MSAL Node) to handle authentication.
 
 In this article, you complete the following tasks:
 

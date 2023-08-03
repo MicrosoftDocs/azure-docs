@@ -76,7 +76,7 @@ items:
         - name: Command-line interface (CLI) app
           items:
             - name: Node.js - sign in users
-              href: sample-cli-node-sign-in-users.md
+              href: sample-cli-app-node-sign-in-users.md
 - name: Tutorials
   expanded: true
   items: 
