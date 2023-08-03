@@ -165,7 +165,7 @@ See how data, including customer information, vendor details, and line items, is
 
 | Supported languages | Details |
 |:----------------------|:---------|
-| &bullet; English (en) | United States (us), Australia (-au), Canada (-ca), United Kingdom (-uk), India (-in)|
+| &bullet; English (en) | United States (us), Australia (au), Canada (ca), United Kingdom (uk), India (in)|
 | &bullet; Spanish (es) |Spain (es)|
 | &bullet; German (de) | Germany (de)|
 | &bullet; French (fr) | France (fr) |
@@ -176,14 +176,14 @@ See how data, including customer information, vendor details, and line items, is
 | &bullet; Danish (da) | Denmark (dk)|
 | &bullet; Estonian (et) | Estonia (ee)|
 | &bullet; Finnish (fi) | Finland (fl)|
-| &bullet; Croation (hr) | Bosnia and Herzegovina (ba), Croatia (hr), Serbia (rs)|
+| &bullet; Croatian (hr) | Bosnia and Herzegovina (ba), Croatia (hr), Serbia (rs)|
 | &bullet; Hungarian (hu) | Hungary (hu)|
 | &bullet; Icelandic (is) | Iceland (is)|
 | &bullet; Japanese (ja) | Japan (ja)|
 | &bullet; Korean (ko) | Korea (kr)|
 | &bullet; Lithuanian (lt) | Lithuania (lt)|
 | &bullet; Latvian (lv) | Latvia (lv)|
-| &bullet; Malay (ms) | Malasia (ms)|
+| &bullet; Malay (ms) | Malaysia (ms)|
 | &bullet; Norwegian (nb) | Norway (no)|
 | &bullet; Polish (pl) | Poland (pl)|
 | &bullet; Romanian (ro) | Romania (ro)|
