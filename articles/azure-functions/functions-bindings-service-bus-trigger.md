@@ -64,7 +64,7 @@ public static void Run(
 ```
 # [Isolated process](#tab/isolated-process)
 
-The following example shows a [C# function](dotnet-isolated-process-guide.md) that receives a Service Bus queue message, logs the message, and sends a message to different Service Bus queue:
+The following example shows a [C# function](dotnet-isolated-process-guide.md) that uses the `Microsoft.Azure.Functions.Worker.Extensions.ServiceBus` package to receive a Service Bus queue message, log the message and send a message to different Service Bus queue:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusFunction.cs" range="10-25":::
 
