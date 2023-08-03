@@ -7,40 +7,17 @@ ms.date: 03/01/2023
 ms.reviewer: aul
 ---
 
-# Collect Prometheus metrics with Container insights
-[Prometheus](https://aka.ms/azureprometheus-promio) is a popular open-source metric monitoring solution and is the most common monitoring tool used to monitor Kubernetes clusters. Container insights uses its containerized agent to collect much of the same data that Prometheus typically collects from the cluster without requiring a Prometheus server. This data is presented in Container insights views and available to other Azure Monitor features such as [log queries](container-insights-log-query.md) and [log alerts](container-insights-log-alerts.md).
+# Send Prometheus metrics to Log Analytics workspace with Container insights
+This article describes how to send Prometheus metrics from your Kubernetes cluster monitored by Container insights to a Log Analytics workspace. Before you perform this configuration, you should first ensure that you're [scraping Prometheus metrics from your cluster using Azure Monitor managed service for Prometheus](), which is the recommended method for monitoring your clusters. Use the configuration described in this article only if you also want to send this same data to a Log Analytics workspace where you can analyze it using [log queries](../logs/log-query-overview.md) and [log alerts](../alerts/alerts-log-query.md).
 
-Container insights can also scrape your custom Prometheus metrics from your application on your cluster and send the data to either Azure Monitor Logs or to Azure Monitor managed service for Prometheus (preview). This requires exposing the Prometheus metrics endpoint through your exporters or pods and then configuring one of the addons for the Azure Monitor agent used by Container insights as shown the following diagram. Metrics sent to the Log Analytics workspace are queried through log queries, whereas Metrics sent through Azure Monitor managed Prometheus are queried through PromQL and Prometheus recording rules and alerts are supported.
+This requires exposing the Prometheus metrics endpoint through your exporters or pods and then configuring the monitoring addon for the Azure Monitor agent used by Container insights as shown the following diagram.
 
 :::image type="content" source="media/container-insights-prometheus/monitoring-kubernetes-architecture.png" lightbox="media/container-insights-prometheus/monitoring-kubernetes-architecture.png" alt-text="Diagram of container monitoring architecture sending Prometheus metrics to Azure Monitor Logs." border="false":::
 
 
-## Send data to Azure Monitor managed service for Prometheus
-[Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) is a fully managed Prometheus-compatible service that supports industry standard features such as PromQL, Grafana dashboards, and Prometheus alerts. This service requires configuring the *metrics addon* for the Azure Monitor agent, which sends data to Prometheus.
-
-> [!TIP]
-> You don't need to enable Container insights to configure your AKS cluster to send data to managed Prometheus. See [Collect Prometheus metrics from AKS cluster (preview)](../essentials/prometheus-metrics-enable.md) for details on how to configure your cluster without enabling Container insights.
-
-
-Use the following procedure to add Prometheus collection to your cluster that's already using Container insights.
-
-1. Open the **Kubernetes services** menu in the Azure portal and select your AKS cluster.
-2. Click **Insights**.
-3. Click **Monitor settings**.
-
-    :::image type="content" source="media/container-insights-prometheus-metrics-addon/aks-cluster-monitor-settings.png" lightbox="media/container-insights-prometheus-metrics-addon/aks-cluster-monitor-settings.png" alt-text="Screenshot of button for monitor settings for an AKS cluster.":::
-
-4. Click the checkbox for **Enable Prometheus metrics** and select your Azure Monitor workspace.
-5. To send the collected metrics to Grafana, select a Grafana workspace. See [Create an Azure Managed Grafana instance](../../managed-grafana/quickstart-managed-grafana-portal.md) for details on creating a Grafana workspace.
-
-    :::image type="content" source="media/container-insights-prometheus-metrics-addon/aks-cluster-monitor-settings-details.png" lightbox="media/container-insights-prometheus-metrics-addon/aks-cluster-monitor-settings-details.png" alt-text="Screenshot of monitor settings for an AKS cluster.":::
-
-6. Click **Configure** to complete the configuration.
-
-See [Collect Prometheus metrics from AKS cluster (preview)](../essentials/prometheus-metrics-enable.md) for details on [verifying your deployment](../essentials/prometheus-metrics-enable.md#verify-deployment) and [limitations](../essentials/prometheus-metrics-enable.md#limitations-during-enablementdeployment)
 
 ## Send metrics to Azure Monitor Logs
-You may want to collect more data in addition to the predefined set of data collected by Container insights. This data isn't used by Container insights views but is available for log queries and alerts like the other data it collects. This requires configuring the *monitoring addon* for the Azure Monitor agent, which is the one currently used by Container insights to send data to a Log Analytics workspace.
+This requires configuring the *monitoring addon* for the Azure Monitor agent, which is the one currently used by Container insights to send data to a Log Analytics workspace.
 
 ### Prometheus scraping settings (for metrics stored as logs)
 
