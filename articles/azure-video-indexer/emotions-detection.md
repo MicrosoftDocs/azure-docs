@@ -123,7 +123,7 @@ Interpretation: The outputs of this model should not be used to make assessments
 
 - The model should not be used to evaluate employee performance and monitoring individuals.
 - The model should not be used for making assessments about a person, their emotional state, or their ability.
-- The results of the model can be inacurate, as this is an AI system, and should be treated with caution.
+- The results of the model can be inaccurate, as this is an AI system, and should be treated with caution.
 - The confidence of the model in its prediction should also be taken into account.
 - Non English videos will produce less accurate results.
 

@@ -94,7 +94,7 @@ Unless specified otherwise, a model is generally available.
 
 ### Audio and video models (multi-channels)
 
-When indexing by one channel, partial result for those models are available.
+When indexing by one channel, partial results for those models are available.
 
 * **Keywords extraction**: Extracts keywords from speech and visual text.
 * **Named entities extraction**: Extracts brands, locations, and people from speech and visual text via natural language processing (NLP).
