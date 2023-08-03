@@ -85,7 +85,7 @@ The Dev Box service requires a configured and working Active Directory join, whi
 
   Hybrid Azure AD-joined dev boxes require network line of sight to your on-premises domain controllers periodically. Without this connection, devices become unusable.
 
-  For more information, see [Plan your hybrid Azure Active Directory join deployment](../active-directory/devices/hybrid-azuread-join-plan.md).
+  For more information, see [Plan your hybrid Azure Active Directory join deployment](../active-directory/devices/hybrid-join-plan.md).
 
 ### Create a network connection
 

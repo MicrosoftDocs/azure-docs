@@ -30,7 +30,7 @@ This article explains how you can configure Conditional Access policies that blo
 
 While rolling out legacy authentication blocking protection, we recommend a phased approach, rather than disabling it for all users all at once. Customers may choose to first begin disabling basic authentication on a per-protocol basis, by applying Exchange Online authentication policies, then (optionally) also blocking legacy authentication via Conditional Access policies when ready.
 
-Customers without licenses that include Conditional Access can make use of [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) to block legacy authentication.
+Customers without licenses that include Conditional Access can make use of [security defaults](../fundamentals/security-defaults.md) to block legacy authentication.
 
 ## Prerequisites
 

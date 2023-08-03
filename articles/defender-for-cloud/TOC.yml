@@ -82,9 +82,6 @@
     - name: Protect your key vaults with Defender for Key Vault
       displayName: enable, key, vault, key vault
       href: tutorial-enable-key-vault-plan.md
-    - name: Protect your Domain Name System (DNS) with Defender for DNS
-      displayName: DNS
-      href: tutorial-enable-dns-plan.md
     - name: Protect your resources with Defender for Resource Manager
       displayName: resource manager, resource, manager, enable
       href: tutorial-enable-resource-manager-plan.md
@@ -727,9 +724,6 @@
     - name: Overview
       displayName: domain, Defender for DNS
       href: defender-for-dns-introduction.md
-    - name: Protect your Domain Name System (DNS) with Defender for DNS
-      displayName: DNS
-      href: tutorial-enable-dns-plan.md
     - name: Respond to Microsoft Defender for DNS alerts
       displayName: DNS
       href: defender-for-dns-alerts.md 
