@@ -267,13 +267,13 @@ Open a new bash shell using Windows Subsystem for Linux or a Linux virtual machi
 seq 1 20 | xargs -Iname -P20 curl "<YOUR_CONTAINER_APP_FQDN>"
 ```
 
-This command sends 20 concurrent requests to your container app.
+These commands send 20 concurrent requests to your container app.
 
 - `seq 1 20` generates a sequence from one to 20.
 - The pipe operator `|` sends this sequence to the `xargs` command.
 - `xargs` then runs `curl` with the specified URL.
 - The `-Iname` argument to `xargs` acts as a placeholder for the output of `seq`. This prevents the return value from being sent to the `curl` command.
-- The `-P4` argument instructs `xargs` to run up to four processes at a time.
+- The `-P20` argument instructs `xargs` to run up to 20 processes at a time.
 
 For more information, see the documentation for:
 - [seq](https://www.man7.org/linux/man-pages/man1/seq.1.html)
