@@ -33,8 +33,6 @@ Each level provides availability and performance tradeoffs. The following image 
 
 :::image type="content" source="./media/consistency-levels/five-consistency-levels.png" alt-text="Diagram of consistency as a spectrum starting with Strong and going to higher availability & throughput along with lower latency with Eventual." border="false" :::
 
-As account consistency changes in Cosmos DB, developers should be prepared to redeploy the applications and make necessary code modifications to apply these changes.
-
 ## Consistency levels and Azure Cosmos DB APIs
 
 Azure Cosmos DB provides native support for wire protocol-compatible APIs for popular databases. These include MongoDB, Apache Cassandra, Apache Gremlin, and Azure Table Storage. In API for Gremlin or Table, the default consistency level configured on the Azure Cosmos DB account is used. For details on consistency level mapping between Apache Cassandra and Azure Cosmos DB, see [API for Cassandra consistency mapping](cassandra/consistency-mapping.md). For details on consistency level mapping between MongoDB and Azure Cosmos DB, see [API for MongoDB consistency mapping](mongodb/consistency-mapping.md).
@@ -45,7 +43,7 @@ Read consistency applies to a single read operation scoped within a logical part
 
 ## Configure the default consistency level
 
-You can configure the default consistency level on your Azure Cosmos DB account at any time. The default consistency level configured on your account applies to all Azure Cosmos DB databases and containers under that account. All reads and queries issued against a container or a database use the specified consistency level by default. To learn more, see how to [configure the default consistency level](how-to-manage-consistency.md#configure-the-default-consistency-level). You can also override the default consistency level for a specific request, to learn more, see how to [Override the default consistency level](how-to-manage-consistency.md?#override-the-default-consistency-level) article.
+You can configure the default consistency level on your Azure Cosmos DB account at any time. The default consistency level configured on your account applies to all Azure Cosmos DB databases and containers under that account. All reads and queries issued against a container or a database use the specified consistency level by default. To learn more, see how to [configure the default consistency level](how-to-manage-consistency.md#configure-the-default-consistency-level). You can also override the default consistency level for a specific request, to learn more, see how to [Override the default consistency level](how-to-manage-consistency.md?#override-the-default-consistency-level) article. As account level consistency changes in Azure Cosmos DB, developers should be prepared to redeploy the applications and make necessary code modifications to apply these changes.
 
 > [!TIP]
 > Overriding the default consistency level only applies to reads within the SDK client. An account configured for strong consistency by default will still write and replicate data synchronously to every region in the account. When the SDK client instance or request overrides this with Session or weaker consistency, reads will be performed using a single replica. For more information, see [Consistency levels and throughput](consistency-levels.md#consistency-levels-and-throughput).
@@ -106,6 +104,8 @@ After every write operation, the client receives an updated Session Token from t
 
 > [!IMPORTANT]
 > In Session Consistency, the client’s usage of a session token guarantees that data corresponding to an older session will never be read. However, if the client is using an older session token and more recent updates have been made to the database, the more recent version of the data will be returned despite an older session token being used. The Session Token is used as a minimum version barrier but not as a specific (possibly historical) version of the data to be retrieved from the database.
+
+Session Tokens in Azure Cosmos DB are partition-bound, meaning they are exclusively associated with the partition they are generated for. Use the session token for these documents it was captured, not for others, even within the same container.
 
 If the client didn't initiate a write to a physical partition, the client doesn't contain a session token in its cache and reads to that physical partition behave as reads with Eventual Consistency. Similarly, if the client is re-created, its cache of session tokens is also re-created. Here too, read operations follow the same behavior as Eventual Consistency until subsequent write operations rebuild the client’s cache of session tokens.
 

@@ -17,7 +17,7 @@ ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azu
 
 This article explains how to manage consistency levels in Azure Cosmos DB. You learn how to configure the default consistency level, override the default consistency, manually manage session tokens, and understand the Probabilistically Bounded Staleness (PBS) metric.
 
-As account consistency changes in Cosmos DB, developers should be prepared to redeploy the applications and make necessary code modifications to accommodate these changes.
+As account level consistency changes in Azure Cosmos DB, developers should be prepared to redeploy the applications and make necessary code modifications to apply these changes.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -174,7 +174,7 @@ If you do not flow the Azure Cosmos DB SessionToken across as described above yo
 
 To manage session tokens manually, get the session token from the response and set them per request. If you don't need to manage session tokens manually, you don't need to use these samples. The SDK keeps track of session tokens automatically. If you don't set the session token manually, by default, the SDK uses the most recent session token.
 
-Session Tokens in Cosmos DB are container-bound, meaning they are exclusively associated with the container they are generated for. Avoid using Session Tokens from one container on another.
+Session Tokens in Azure Cosmos DB are partition-bound, meaning they are exclusively associated with the partition they are generated for. Use the session token for these documents it was captured, not for others, even within the same container.
 
 ### <a id="utilize-session-tokens-dotnet"></a>.NET SDK
 
