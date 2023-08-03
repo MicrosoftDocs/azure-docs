@@ -96,8 +96,6 @@ The following graphic illustrates the bounded staleness consistency with musical
 
 In session consistency, within a single client session, reads are guaranteed to honor the read-your-writes, and write-follows-reads guarantees. This guarantee assumes a single “writer” session or sharing the session token for multiple writers.
 
-Session Tokens in Cosmos DB are container-bound, meaning they are exclusively associated with the container they are generated for. Avoid using Session Tokens from one container on another.
-
 Like all consistency levels weaker than Strong, writes are replicated to a minimum of three replicas (in a four replica set) in the local region, with asynchronous replication to all other regions.
 
 After every write operation, the client receives an updated Session Token from the server. The client caches the tokens and sends them to the server for read operations in a specified region. If the replica against which the read operation is issued contains data for the specified token (or a more recent token), the requested data is returned. If the replica doesn't contain data for that session, the client retries the request against another replica in the region. If necessary, the client retries the read against extra available regions until data for the specified session token is retrieved.
