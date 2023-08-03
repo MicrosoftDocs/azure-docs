@@ -18,7 +18,7 @@ In this article you'll, follow these key steps:
 > Log compaction feature isn't supported in the **Basic** tier.
 
 ## Create a compacted event hub/Kafka topic
-This section shows you how to create a compacted event hub using Azure portal and an Azure Resource Manager (ARM) template. 
+This section shows you how to create a compacted event hub using Azure portal and an Azure Resource Manager (ARM) template.
 
 ### [Azure portal](#tab/portal)
 You can create a compacted event hub using the Azure portal by following these steps. 
