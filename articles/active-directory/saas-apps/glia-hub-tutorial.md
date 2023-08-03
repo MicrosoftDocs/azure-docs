@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Glia Hub
 
-In this article, you will learn how to integrate Glia Hub with Azure Active Directory (Azure AD). Glia Hub is the leading Digital Customer Service (DCS) solution that enriches customer touchpoints on web, mobile and phone through various communication channels (text, audio, video, Cobrowsing, etc.). When you integrate Glia Hub with Azure AD, you can:
+In this article, you'll learn how to integrate Glia Hub with Azure Active Directory (Azure AD). Glia Hub is the leading Digital Customer Service (DCS) solution that enriches customer touchpoints on web, mobile and phone through various communication channels (text, audio, video, Cobrowsing, etc.). When you integrate Glia Hub with Azure AD, you can:
 
 * Control in Azure AD who has access to Glia Hub.
 * Enable your users to be automatically signed-in to Glia Hub with their Azure AD accounts.
