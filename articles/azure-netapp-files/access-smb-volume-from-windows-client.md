@@ -14,6 +14,10 @@ You can use Azure Active Directory (Azure AD) with the Hybrid Authentication Man
 
 :::image type="content" source="../media/azure-netapp-files/diagram-windows-joined-active-directory.png" alt-text="Diagram of SMB volume joined to Azure Active Directory." lightbox="../media/azure-netapp-files/diagram-windows-joined-active-directory.png":::
 
+## Considerations 
+
+* NFSv4.1 Kerberos and dual-protocol Azure NetApp Files volumes are currently not supported. 
+
 ## Steps
 
 Before you can connect your on-premises environment to Azure AD, you must have [created an Azure NetApp Files volume](azure-netapp-files-create-volumes-smb.md).
