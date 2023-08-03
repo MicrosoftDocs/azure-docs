@@ -37,8 +37,7 @@ This article primarily helps with the configuration migration. Client traffic mi
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Use a new PowerShell session each time to run the migration script. This applies when the migration fails or if you are using the script to migrate another V1 gateway. This is required because the initialized variables clean up the existing resource group before executing the migration script again.
-
+>Run the `Set-AzContext -Subscription <V1 application gateway SubscriptionId>` cmdlet every time before running the migration script. This is necessary to set the active Azure context to the correct subscription, because the migration script might clean up the existing resource group if it doesn't exist in current subscription context.
 ## Configuration migration 
 
 An Azure PowerShell script is provided in this document. It performs the following operations to help you with the configuration:
@@ -53,7 +52,7 @@ You can download the migration script from the  [PowerShell Gallery](https://www
 ## Using the script
 
 > [!NOTE]
-> Use a new PowerShell session each time to run the migration script. This applies when the migration fails or if you are using the script to migrate another V1 gateway. This is required because the initialized variables clean up the existing resource group before executing the migration script again.
+> Run the `Set-AzContext -Subscription <V1 application gateway SubscriptionId>` cmdlet every time before running the migration script. This is necessary to set the active Azure context to the correct subscription, because the migration script might clean up the existing resource group if it doesn't exist in current subscription context.
 
 There are two options for you depending on your local PowerShell environment setup and preferences:
 
@@ -76,13 +75,19 @@ This command also installs the required Az modules.
 
 If you have some Azure Az modules installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](/powershell/gallery/how-to/working-with-packages/manual-download).
 
+#### How to run the script
+
 To run the script:
 
 1. Use `Connect-AzAccount` to connect to Azure.
 
-1. Use `Import-Module Az` to import the Az modules.
+2. Use `Import-Module Az` to import the Az modules.
 
-1. Run `Get-Help AzureAppGWMigration.ps1` to examine the required parameters:
+3. Run the `Set-AzContext` cmdlet ,to set the active Azure context to the correct subscription.This is an important step because the migration script might clean up the existing resource group if it doesn't exist in current subscription context.
+   ```
+   Set-AzContext -Subscription '<V1 application gateway SubscriptionId>'
+   ```
+4. Run `Get-Help AzureAppGWMigration.ps1` to examine the required parameters:
 
    ```
    AzureAppGwMigration.ps1
@@ -163,7 +168,7 @@ To run the script:
    * **validateMigration: [switch]: Optional**. Use this parameter if you want the script to do some basic configuration comparison validations after the V2 gateway creation and the configuration copy. By default, no validation is done.
    * **enableAutoScale: [switch]: Optional**. Use this parameter if you want the script to enable autoscaling on the new V2 gateway after it's created. By default, autoscaling is disabled. You can always manually enable it later on the newly created V2 gateway.
 
-1. Run the script using the appropriate parameters. It may take five to seven minutes to finish.
+5. Run the script using the appropriate parameters. It may take five to seven minutes to finish.
 
     **Example**
 
