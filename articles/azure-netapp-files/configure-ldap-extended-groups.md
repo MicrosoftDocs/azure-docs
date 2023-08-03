@@ -127,3 +127,4 @@ The following information is passed to the server in the query:
 * [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md)
 * [Troubleshoot volume errors for Azure NetApp Files](troubleshoot-volumes.md)
 * [Modify Active Directory connections for Azure NetApp Files](modify-active-directory-connections.md)
+* [Understand NFS group memberships and supplemental groups](network-file-system-group-memberships.md)

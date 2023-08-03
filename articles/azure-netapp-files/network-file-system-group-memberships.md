@@ -75,3 +75,4 @@ By default, in Microsoft Active Directory LDAP servers, the `MaxPageSize` attrib
 * [Understand dual-protocol security style and permission behaviors in Azure NetApp Files](understand-dual-protocol-permission-behaviors.md)
 * [Understand the use of LDAP with Azure NetApp Files](lightweight-directory-access-protocol.md) 
 * [Azure NetApp Files NFS FAQ](faq-nfs.md)
+* [Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes](configure-ldap-extended-groups.md)
