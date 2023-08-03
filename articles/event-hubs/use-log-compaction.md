@@ -21,7 +21,7 @@ In this article you'll, follow these key steps:
 This section shows you how to create a compacted event hub using Azure portal and an Azure Resource Manager (ARM) template.
 
 ### [Azure portal](#tab/portal)
-You can create a compacted event hub using the Azure portal by following these steps. 
+You can create a compacted event hub using the Azure portal by following these steps.
 
 1. Navigate to your Event Hubs namespace.
 1. On the Event Hubs Namespace page, select Event Hubs in the left menu.
