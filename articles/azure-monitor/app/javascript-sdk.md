@@ -142,7 +142,7 @@ If you want to use the extra features provided by plugins for specific framework
    - **Page View** for Azure Monitor Application Insights Real User Monitoring
    - **Custom Event** for the Click Analytics Auto-Collection plug-in.
 
-   It might take a few minutes for data to show up in the portal.
+   It might take a few minutes for data to show up in the portal. If the only data you see showing up is a load failure exception, see [Troubleshoot SDK load failure for JavaScript web apps](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting#troubleshoot-sdk-load-failure-for-javascript-web-apps).
 
    :::image type="content" source="media/javascript-sdk/confirm-data-flowing.png" alt-text="Screenshot of the Application Insights Transaction search pane in the Azure portal with the Page View option selected. The page views are highlighted." lightbox="media/javascript-sdk/confirm-data-flowing.png":::
 
