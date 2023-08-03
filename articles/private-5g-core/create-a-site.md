@@ -87,11 +87,11 @@ If you decided not to configure diagnostics packet collection or use a user assi
     - Under **Provide custom HTTPS certificate?**, select **Yes** or **No** based on whether you decided to provide a custom HTTPS certificate in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values). If you selected **Yes**, use the information you collected in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) to select a certificate.
 
 1. Select **Review + create**.
-1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
+1. Azure will now validate the configuration values you've entered.
 
     :::image type="content" source="media/create-a-site/create-site-validation.png" alt-text="Screenshot of the Azure portal showing successful validation of configuration values for a site resource.":::
 
-    If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged with red dots. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
+    If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged with red X icons. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
 1. Once your configuration has been validated, you can select **Create** to create the site. The Azure portal will display the following confirmation screen when the site has been created.
 
