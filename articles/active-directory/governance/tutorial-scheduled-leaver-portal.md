@@ -30,7 +30,7 @@ This post off-boarding scenario runs a scheduled workflow and accomplishes the f
 
 ##  Before you begin
 
-As part of the prerequisites for completing this tutorial, you'll need an account that has licenses and Teams memberships that can be deleted during the tutorial. For more comprehensive instructions on how to complete these prerequisite steps, you may refer to  the [Preparing user accounts for Lifecycle workflows tutorial](tutorial-prepare-azure-ad-user-accounts.md).
+As part of the prerequisites for completing this tutorial, you'll need an account that has licenses and Teams memberships that can be deleted during the tutorial. For more comprehensive instructions on how to complete these prerequisite steps, you may refer to  the [Preparing user accounts for Lifecycle workflows tutorial](tutorial-prepare-user-accounts.md).
 
 The scheduled leaver scenario can be broken down into the following:
 -	**Prerequisite:** Create a user account that represents an employee leaving your organization
@@ -110,5 +110,5 @@ After running your workflow on-demand and checking that everything is working fi
   :::image type="content" source="media/tutorial-lifecycle-workflows/enable-schedule.png" alt-text="Screenshot of workflow enabled schedule." lightbox="media/tutorial-lifecycle-workflows/enable-schedule.png":::
 
 ## Next steps
-- [Preparing user accounts for Lifecycle workflows](tutorial-prepare-azure-ad-user-accounts.md)
+- [Preparing user accounts for Lifecycle workflows](tutorial-prepare-user-accounts.md)
 - [Automate employee offboarding tasks after their last day of work using Lifecycle Workflows APIs](/graph/tutorial-lifecycle-workflows-scheduled-leaver)
