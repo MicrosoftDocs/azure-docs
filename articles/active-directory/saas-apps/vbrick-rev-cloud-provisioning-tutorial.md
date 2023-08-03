@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure Vbrick Rev Cloud for automatic user provisioning with Azure Active Directory'
-description: Learn how to automatically provision and de-provision user accounts from Azure AD to Vbrick Rev Cloud.
+description: Learn how to automatically provision and deprovision user accounts from Azure AD to Vbrick Rev Cloud.
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -16,7 +16,7 @@ ms.author: thwimmer
 
 # Tutorial: Configure Vbrick Rev Cloud for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Vbrick Rev Cloud and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Vbrick Rev Cloud](https://vbrick.com) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both Vbrick Rev Cloud and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and deprovisions users and groups to [Vbrick Rev Cloud](https://vbrick.com) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Supported capabilities
