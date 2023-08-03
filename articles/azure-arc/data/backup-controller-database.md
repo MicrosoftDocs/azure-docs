@@ -25,9 +25,25 @@ This article explains how to back up the controller database.
 
 ## Back up data controller database
 
-As part of built-in capabilities, the Data controller database `controller` is automatically backed up every 5 minutes.
+As part of built-in capabilities, the Data controller database `controller` is automatically backed up every 5 minutes once backups are enabled. To enable backups:
 
-The `.bak` files for the `controller` database are stored in the same storage class specified for the data and logs via the `--storage-class` parameter.
+- Create a `backups-controldb` `PersistentVolumeClaim` with a storage class that support `ReadWriteMany` access:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: backups-controldb
+  namespace: <namespace>
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 15Gi
+  storageClassName: <storage-class>
+
+The `.bak` files for the `controller` database are stored on the `backups` volume at `/var/opt/backups/mssql`.
 
 ## Recover controller database 
 
