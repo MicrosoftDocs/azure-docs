@@ -88,7 +88,7 @@ This setting's details may be retrieved using the PowerShell cmdlet Get-MsolComp
 Get-MgPolicyAuthorizationPolicy | Select-Object AllowedToSignUpEmailBasedSubscriptions, AllowEmailVerifiedUsersToJoinOrganization
 ```
 
-For more information and examples of how to use these parameters, see [Update-MgPolicyAuthorizationPolicy](https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.identity.signins/update-mgpolicyauthorizationpolicy?view=graph-powershell-1.0).
+For more information and examples of how to use these parameters, see [Update-MgPolicyAuthorizationPolicy](/powershell/module/microsoft.graph.identity.signins/update-mgpolicyauthorizationpolicy?view=graph-powershell-1.0&preserve-view=true).
 
 ## Next steps
 
