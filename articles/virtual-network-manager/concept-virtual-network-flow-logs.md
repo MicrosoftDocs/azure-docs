@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.topic: conceptual
 ms.service: virtual-network-manager
-ms.date: 08/11/2023
+ms.date: 08/10/2023
 ---
 
 # Monitoring Azure Virtual Network Manager with Virtual Network Flow Logs

@@ -99,6 +99,8 @@
     items:
     - name: Configure Event Logs for Azure Virtual Network Manager
       href: how-to-configure-event-logs.md
+    - name: Monitor security admin rules with Virtual Network Flow Logs
+      href: concept-virtual-network-flow-logs.md
   - name: View applied configurations
     href: how-to-view-applied-configurations.md
   - name: Define dynamic network group membership with Azure Policy
