@@ -41,11 +41,12 @@ MANA DPDK requires the following set of drivers:
 ```bash
 # NOTE: this example assumes lspci is installed
 
-# check for pci devices with IDs:
+# check for pci devices with ID:
 #   vendor: Microsoft Corporation (1414)
-#   class: Ethernet Controller (0200)
+#   class:  Ethernet Controller (0200)
+#   device: Microsft Azure Network Adapter (00ba) (optional) 
 if [[ -n `lspci -d 1414::0200` ]]; then
-    echo "MANA is available"
+    echo "MANA device is available."
 else
     echo "MANA was not detected."
 fi
@@ -54,7 +55,7 @@ fi
 
 ## Example: DPDK installation (Ubuntu 22.04)
 ```bash
-
+# NOTE: assumes compatible kernel and rdma-core are installed
 DEBIAN_FRONTEND=noninteractive sudo apt-get install -q -y build-essential libudev-dev libnl-3-dev libnl-route-3-dev ninja-build libssl-dev libelf-dev python3-pip meson libnuma-dev
 
 pip3 install pyelftools
@@ -82,8 +83,8 @@ echo 1024 | tee /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hug
 # Assuming use of eth1 for DPDK in this demo
 PRIMARY="eth1"
 
-# $ ip -br link show master eth1
-# > enP30832p0s0     UP             f0:0d:3a:ec:b4:0a <BROADCAST,MULTICAST,SLAVE,UP,LOWER_UP>
+# $ ip -br link show master eth1 
+# > enP30832p0s0     UP             f0:0d:3a:ec:b4:0a <... # truncated
 # grab interface name for device bound to primary
 SECONDARY="`ip -br link show master $PRIMARY | awk '{ print $1 }'`"
 # Get mac address for MANA interface (should match primary)
