@@ -44,7 +44,7 @@ To build the Node.js CLI application from scratch, follow these steps:
 
 1. Create a folder to host your application and give it a name, such as *ciam-sign-in-node-cli-app*.
 
-1. In your terminal, navigate to your project directory, such as `cd ciam-sign-in-node-cli-app` and initialize your project using `npm init` 
+1. In your terminal, navigate to your project directory, such as `cd ciam-sign-in-node-cli-app` and initialize your project using `npm init`. 
  This creates a *package.json* file in your project folder, which contains references to all npm packages. 
 
 1. In your project root directory, create two files, then name them *authConfig.js* and *index.js*. The *authConfig.js* file contains the authentication configuration parameters while *index.js* holds the app's authentication logic. 
