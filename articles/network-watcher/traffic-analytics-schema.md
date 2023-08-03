@@ -155,7 +155,7 @@ The following table lists the fields in the schema and what they signify.
 | **SrcPublicIPs_s** | <SOURCE_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
 | **DestPublicIPs_s** | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
 
-# [**VNet flow logs**](#tab/vnet)
+# [**VNet flow logs (preview)**](#tab/vnet)
 
 | Field | Format | Comments |
 | ----- | ------ | -------- |
@@ -245,7 +245,7 @@ The following table details public IP schema:
 | **ThreatDescription** | Description of the threat | **For Malicious IPs only**: Description of the threat posed by the malicious IP. |
 | **DNSDomain** | DNS domain | **For Malicious IPs only**: Domain name associated with this IP. |
 
-# [**VNet flow logs**](#tab/vnet)
+# [**VNet flow logs (preview)**](#tab/vnet)
 
 | Field | Format | Comments |
 | ----- | ------ | -------- |
