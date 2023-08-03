@@ -20,16 +20,12 @@ In this article, you learn how to use the Azure portal to request a type convers
 A direct peering type conversion for a peering connection can only be requested if the following prerequisites apply:
 -  The peering must have at least two connections.
 -  The redundant connections must be of equal bandwidth 
--  Connections must be fully provisioned (Connection State should be set to "Active")
 -  All connections in the peering must be fully provisioned (with the property 'ConnectionState' = Active) that is, none of the connections must be undergoing provisioning or decommission or an internal device migration.
 -  The peering must be represented as an Azure resource with a valid subscription. To onboard your peering as a resource, refer to: [Convert a legacy Direct peering to an Azure resource using the Azure portal](howto-legacy-direct-portal.md)
 -  Bandwidth updates can't be requested to other connections in the peering during the conversion
 -  No adding or removing of connections can occur during the conversion
 -  The type conversion will run during the business hours of Pacific Daylight Time.
 -  For Voice conversions, the connection session addresses will be provided by Microsoft and enabled with BFD (Bidirectional Forwarding Detection). It is expected that the partners set up their configurations accordingly.
-
-> [!NOTE]
-> If your peering is not currently an Azure Resource please refer to the [legacy subscription conversion document](./howto-legacy-direct-portal.md).
 
 ## 1. Configure the new Type on a Direct Peering
 ### Converting from PNI to Voice
@@ -42,6 +38,8 @@ Select the "AS8075 (with Voice) option and click Save
 
 ### Enabling Peering Service on a Connection
 A standard PNI within a peering can be enabled for Peering Service and can be requested per connection.
+
+You need to be a Peering Service partner to be able to do this. Please see the [partner requirements page](prerequisites.md) and make sure you have signed the agreement with Microsoft. For questions, reach out to peeringservice@microsoft.com.
 
 Navigate to the Connection tab under settings and click edit on a connection.
 :::image type="content" source="./media/walkthrough-type-conversion/viewconnection.png" alt-text="Screenshot shows how to select within the Connections tab in the Azure portal." lightbox="./media/walkthrough-type-conversion/viewconnection.png":::
@@ -75,6 +73,10 @@ In the case of a request rejection or any action needed by you from our team you
 
 The peer email contact provided during the 'Peer Asn' resource creation will also receive a notification for each of the above steps. If there are any questions, contact peering@microsoft.com
 
+If a conversion to Voice is requested and the connections already have IP addresses provided by Microsoft, please set up BFD on your sessions as early as possible to avoid any downtime. The conversion process for Voice waits for both the BGP and BFD sessions to come up before allowing any traffic on the sessions.
+
+If a conversion to Voice is requested and the connections have IP addresses provided by the peering partner, wait for the email notification with the new Microsoft provided IPs addresses and configure them on your end along with BFD. Once the BGP and BFD sessions with the new IP addresses come up, traffic will be allowed on this session and the session with the old IP addresses will be shut down. There is no downtime in this case.
+
 Once the connection is completed its state returns to Active.
 
 ## FAQ
@@ -84,9 +86,10 @@ Once the connection is completed its state returns to Active.
 **A.** We do our absolute best and take various steps to prevent any interruption to service. These steps include:
 -  Guaranteeing a redundant connection with equivalent bandwidth is up at the time of conversion.
 -  Performing any conversions one connection at a time.
--  Only bringing down old connections if it's necessary.
--  Only bringing down old connections once the new connection is established 
--  Only bringing down old connections once the traffic has ceased.
+-  Only bringing down old connections if:
+    -  it's necessary (for example in the case of an IP Address change).
+    -  the new connection has been established.
+    -  the traffic has completely drained and moved to the redundant connection.
 -  Only performing conversions at times where engineers are online and capable of helping remedy any unlikely issues.  
 
 **Q.** Why has my request to convert the type of direct peering been rejected?
