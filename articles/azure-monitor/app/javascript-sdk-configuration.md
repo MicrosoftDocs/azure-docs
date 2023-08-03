@@ -149,6 +149,8 @@ The static classes were changed to const objects that reference the new exported
 
 ### Tree shaking deprecated functions and replacements
 
+This section only applies to you if you're using the deprecated functions and you want to optimize package size. We recommend using the replacement functions to reduce size and support all the versions of Internet Explorer.
+
 | Existing | Replacement |
 |----------|-------------|
 | **CoreUtils** | **@microsoft/applicationinsights-core-js** |
