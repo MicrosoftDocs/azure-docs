@@ -112,7 +112,6 @@ The following figure shows an example of that kind of configuration.
 ## Next Steps
 
 * [Understand the use of LDAP with Azure NetApp Files](lightweight-directory-access-protocol.md)
-* [Understand dual-protocol security style and permission behaviors in Azure NetApp Files](understand-dual-protocol-permission-behaviors.md)
 * [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md)
 * [Azure NetApp Files NFS FAQ](faq-nfs.md)
 * [Azure NetApp Files SMB FAQ](faq-smb.md)
