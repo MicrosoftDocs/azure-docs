@@ -83,7 +83,6 @@ await connection.OpenAsync();
 // do something
 ```
 
----
 
 ### [Go](#tab/go)
 
