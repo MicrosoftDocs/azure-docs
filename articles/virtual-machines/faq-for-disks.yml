@@ -5,7 +5,7 @@ metadata:
   author: roygara
   ms.service: azure-disk-storage
   ms.topic: faq
-  ms.date: 05/04/2023
+  ms.date: 08/03/2023
   ms.author: rogarana
 title: Frequently asked questions about Azure IaaS VM disks and managed and unmanaged premium disks
 summary: This article answers some frequently asked questions about Azure Managed Disks and Azure Premium SSD disks.
@@ -329,7 +329,7 @@ sections:
       - question: |
           Can I switch from Azure Disk Encryption to server-side encryption with customer-managed keys?
         answer: |
-          For Windows VMs, yes. For Linux VMs, maybe. If you encrypted the OS disk of a Linux VM with ADE, you can't disable ADE on either the OS or data disks. First [disable encryption and remove the encryption extension](windows/disk-encryption-windows.md#disable-encryption-and-remove-the-encryption-extension), then make a new managed disk using the current disk as a source, and encrypt that new disk with customer-managed keys.
+          For Windows VMs, yes. For Linux VMs, maybe. If you encrypted the OS disk of a Linux VM with ADE, you can't disable ADE on either the OS or data disks. First [disable encryption and remove the encryption extension](windows/disk-encryption-windows.md#disable-encryption-and-remove-the-encryption-extension), then make a new managed disk using the current disk as a source, attach the new disk to a new VM, and encrypt that new disk with customer-managed keys.
 
       - question: |
           Can I switch from server-side encryption with customer-managed keys to Azure Disk Encryption?
