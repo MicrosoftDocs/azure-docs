@@ -44,7 +44,7 @@ Once done proceed with [configuring Azure Active Directory authentication](#conf
 
 To add or remove Azure AD roles on cluster, follow these steps on **Authentication** page:
 
-1. In **Azure Active Directory (AAD) authentication (preview)** section, select **Add Azure AD admins**. 
+1. In **Azure Active Directory (Azure AD) authentication (preview)** section, select **Add Azure AD admins**. 
 1. In **Select Azure AD Admins** panel, select one or more valid Azure AD user or enterprise application in the current AD tenant to be an Azure AD administrator on your Azure Cosmos DB for PostgreSQL cluster.
 1. Use **Select** to confirm your choice.
 1. In the **Authentication** page, select **Save** in the toolbar to save changes or proceed with adding native PostgreSQL roles.
@@ -133,8 +133,8 @@ export PGPASSWORD=$(az account get-access-token --resource-type oss-rdbms --quer
 
 
 > [!NOTE]
-> Make sure PGPASSWORD variable is set to the AAD access token for your 
-> subscription for AAD authentication. If you need to do Postgres role authentication 
+> Make sure PGPASSWORD variable is set to the Azure AD access token for your 
+> subscription for Azure AD authentication. If you need to do Postgres role authentication 
 > from the same session you can set PGPASSWORD to the Postgres role password 
 > or clear the PGPASSWORD variable value to enter the password interactively. 
 > Authentication would fail with the wrong value in PGPASSWORD.
@@ -188,7 +188,7 @@ For example, to allow PostgreSQL `db_user` to read `mytable`, grant the permissi
 GRANT SELECT ON mytable TO db_user;
 ```
 
-To grant the same permissions to AAD role `user@tenant.onmicrosoft.com` use the following command: 
+To grant the same permissions to Azure AD role `user@tenant.onmicrosoft.com` use the following command: 
 
 ```sql
 GRANT SELECT ON mytable TO "user@tenant.onmicrosoft.com";
@@ -203,10 +203,10 @@ system-wide (for example, for all tables in a schema):
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
 ```
 
-Or for AAD role
+Or for Azure AD role
 
 ```sql
--- applies to the coordinator node and propagates to worker nodes for AAD role user@tenant.onmicrosoft.com
+-- applies to the coordinator node and propagates to worker nodes for Azure AD role user@tenant.onmicrosoft.com
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO "user@tenant.onmicrosoft.com";
 ```
 
