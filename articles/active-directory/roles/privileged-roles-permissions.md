@@ -23,7 +23,7 @@ Azure Active Directory (Azure AD) has roles and permissions that are identified 
 
 ## Which roles and permissions are privileged?
 
-You can use the Azure portal, Microsoft Graph PowerShell, or Microsoft Graph API to identify roles, permissions, and role assignments that are identified as privileged.
+For a list of privileged roles and permissions, see [Azure AD built-in roles](permissions-reference.md). You can also use the Azure portal, Microsoft Graph PowerShell, or Microsoft Graph API to identify roles, permissions, and role assignments that are identified as privileged.
 
 # [Portal](#tab/portal)
 
