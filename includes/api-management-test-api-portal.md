@@ -11,6 +11,6 @@ Operations can be called directly from the portal, which provides a convenient w
     When the test is successful, the backend responds with **200 OK** and some data.
 
     > [!TIP]
-    > By default, the test console sends a request to API Management's CORS proxy, which forwards the request to the API Management instance, which then forwards it to the backend. This proxy uses public IP address 13.91.254.72 and can only reach public endpoints. If you want to send a request directly from the browser to the API Management service, select **Bypass CORS proxy**. Use this option when you want to use the test console and your API Management gateway is internet-isolated or doesn't allow traffic from the CORS proxy.
+    > By default, the test console sends a request to API Management's CORS proxy, which forwards the request to the API Management instance, which then forwards it to the backend. This proxy uses public IP address 13.91.254.72 and can only reach public endpoints. If you want to send a request directly from the browser to the API Management service, select **Bypass CORS proxy**. Use this option when you want to use the test console and your API Management gateway is network-isolated or doesn't allow traffic from the CORS proxy.
 
 To debug an API, see [Tutorial: Debug your APIs using request tracing](../articles/api-management/api-management-howto-api-inspector.md).
