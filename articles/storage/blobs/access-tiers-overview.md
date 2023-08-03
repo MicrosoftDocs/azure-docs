@@ -200,7 +200,7 @@ Changing the access tier for a blob when versioning is enabled, or if the blob h
 
 ## Cold tier (preview)
 
-The cold tier is currently in PREVIEW and is available in all public regions.
+The cold tier is currently in PREVIEW and is available in all public regions except Poland Central and Qatar Central.
 
 ### Enrolling in the preview 
 

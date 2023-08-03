@@ -21,8 +21,6 @@ In this quickstart, you use the Azure portal to create a user account in your Az
 
 It's recommended that you use a nonproduction environment to test the steps in this quickstart.
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
-
 ## Prerequisites
 
 To create a user account and assign it to an enterprise application, you need:
@@ -32,6 +30,8 @@ To create a user account and assign it to an enterprise application, you need:
 - Completion of the steps in [Quickstart: Add an enterprise application](add-application-portal.md).
 
 ## Create a user account
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 To create a user account in your Azure AD tenant:
 
@@ -50,7 +50,7 @@ To create a user account in your Azure AD tenant:
 
 To assign a user account to an enterprise application:
 
-1. In the [Azure portal](https://portal.azure.com), browse to **Azure Active Directory** and select **Enterprise applications**.
+1. Sign in to the [Azure portal](https://portal.azure.com), then browse to **Azure Active Directory** and select **Enterprise applications**.
 1. Search for and select the application to which you want to assign the user account. For example, the application that you created in the previous quickstart named **Azure AD SAML Toolkit 1**.
 1. In the left pane, select **Users and groups**, and then select **Add user/group**.
 

@@ -243,7 +243,7 @@ Copy following sample input data, paste to the input box, and select **Test**, t
 
 ```json
 {
-  "url": "https://learn.microsoft.com/en-us/azure/cognitive-services/openai/"
+  "url": "https://learn.microsoft.com/en-us/azure/ai-services/openai/"
 }
 ```
 

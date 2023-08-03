@@ -101,7 +101,7 @@ After you've created your web app, you can enable the continuous deployment opti
 * From the left pane, choose **Container settings**.
 * In the main window, navigate to Continuous deployment and toggle between the **On** and **Off** buttons to set your preference:
 
-:::image type="content" source="media/label-tool/continuous-deployment.png" alt-text="Screenshot: enlargement of container settings for continuous deployment." lightbox="media/label-tool/continuous-deployment-bigger.png":::
+:::image type="content" source="media/label-tool/continuous-deployment.png" alt-text="Screenshot of enlargement of container settings for continuous deployment." lightbox="media/label-tool/continuous-deployment-bigger.png":::
 
 > [!NOTE]
 > When creating your web app, you can also configure authorization/authentication. This is not necessary to get started.

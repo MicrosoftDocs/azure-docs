@@ -11,14 +11,27 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
+ms.custom: devx-track-linux
 ms.topic: overview
-ms.date: 06/26/2023
+ms.date: 08/03/2023
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+## August 2023
+
+* [Configure NFSv4.1 ID domain for non-LDAP volumes](azure-netapp-files-configure-nfsv41-domain.md) (Preview)
+
+    To harmonize the authentication ID Domain settings in your NFSv4.1 environment, you can now configure a custom NFSv4.1 ID Domain in Azure NetApp Files for non-LDAP volumes. The ID Domain is set for all non-LDAP volumes in the same region and subscription, and can co-exist in environments with LDAP-enabled volumes. Once the ID Domain on Azure NetApp Files matches your NFSv4.1 clients, ‘root’ and non-root users will no longer be squashed to ‘nobody’. This setting helps either prepare for a future implementation of LDAP with Active Directory in the future by enabling the use of the same authentication ID Domain across all NFSv4.1 clients, or just ensures scripts and software installation routines that use ‘root’ can modify files on NFSv4.1 volumes correctly.
+
+    For details on registering the feature and setting NFSv4.1 ID Domain in Azure NetApp Files, see [Configure NFSv4.1 ID Domain](azure-netapp-files-configure-nfsv41-domain.md).
+
+* [Moving volumes from *manual* QoS capacity pool to *auto* QoS capacity pool](dynamic-change-volume-service-level.md)   
+
+    You can now move volumes from a manual QoS capacity pool to an auto QoS capacity pool. When you move a volume to an auto QoS capacity pool, the throughput is changed according to the allocated volume size (quota) of the target pool's service level:  `<throughput> = <volume quota> x <Service Level Throughput / TiB>` 
 
 ## June 2023
 

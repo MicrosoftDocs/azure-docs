@@ -11,7 +11,7 @@ ms.date: 07/20/2023
 manager: nitinme
 ---
 
-# How to use function calling with Azure OpenAI Service
+# How to use function calling with Azure OpenAI Service (Preview)
 
 The latest versions of gpt-35-turbo and gpt-4 have been fine-tuned to work with functions and are able to both determine when and how a function should be called. If one or more functions are included in your request, the model will then determine if any of the functions should be called based on the context of the prompt. When the model determines that a function should be called, it will then respond with a JSON object including the arguments for the function. 
 
@@ -35,10 +35,10 @@ When functions are provided, by default the `function_call` will be set to `"aut
 import os
 import openai
 
-openai.api_key = os.getenv("AZURE_OPENAI_ENDPOINT") 
+openai.api_key = os.getenv("AZURE_OPENAI_KEY")
 openai.api_version = "2023-07-01-preview"
 openai.api_type = "azure"
-openai.api_base = os.getenv("AZURE_OPENAI_KEY")
+openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")
 
 messages= [
     {"role": "user", "content": "Find beachfront hotels in San Diego for less than $300 a month with free breakfast."}
@@ -125,8 +125,10 @@ if response_message.get("function_call"):
     available_functions = {
             "search_hotels": search_hotels,
     }
+    function_to_call = available_functions[function_name] 
+
     function_args = json.loads(response_message["function_call"]["arguments"])
-    function_response = fuction_to_call(**function_args)
+    function_response = function_to_call(**function_args)
 
     # Add the assistant response and function response to the messages
     messages.append( # adding assistant response to messages
@@ -208,5 +210,5 @@ To learn more about our recommendations on how to use Azure OpenAI models respon
 ## Next steps
 
 * [Learn more about Azure OpenAI](../overview.md).
-* For more examples on working with functions, check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/oai/function-samples)
+* For more examples on working with functions, check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/oai/functions-samples)
 * Get started with the GPT-35-Turbo model with [the GPT-35-Turbo quickstart](../chatgpt-quickstart.md).

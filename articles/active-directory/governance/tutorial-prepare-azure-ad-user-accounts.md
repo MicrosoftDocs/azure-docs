@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 03/18/2023
+ms.date: 08/02/2023
 ms.author: owinfrey
 ms.reviewer: krbain
 ms.custom: template-tutorial
@@ -25,7 +25,7 @@ The off-boarding tutorials only require one account that has group and Teams mem
 
 ## Prerequisites
 
-[!INCLUDE [active-directory-p2-license.md](../../../includes/active-directory-p2-license.md)] 
+[!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
 - An Azure AD tenant
 - A global administrator account for the Azure AD tenant.  This account is used to create our users and workflows.
 
@@ -34,6 +34,8 @@ The off-boarding tutorials only require one account that has group and Teams mem
 In most cases, users are going to be provisioned to Azure AD either from an on-premises solution (such as Azure AD Connect or Cloud sync) or with an HR solution. These users have the attributes and values populated at the time of creation. Setting up the infrastructure to provision users is outside the scope of this tutorial. For information, see [Tutorial: Basic Active Directory environment](../cloud-sync/tutorial-basic-ad-azure.md) and [Tutorial: Integrate a single forest with a single Azure AD tenant](../cloud-sync/tutorial-single-forest.md)
 
 ## Create users in Azure AD
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 We use the Graph Explorer to quickly create two users needed to execute the Lifecycle Workflows in the tutorials.  One user represents our new employee and the second represents the new employee's manager.
 
@@ -157,6 +159,7 @@ Once your user(s) has been successfully created in Azure AD, you may proceed to 
 There are some additional steps that you should be aware of when testing either the [On-boarding users to your organization using Lifecycle workflows with Azure portal](tutorial-onboard-custom-workflow-portal.md) tutorial or the [On-boarding users to your organization using Lifecycle workflows with Microsoft Graph](tutorial-onboard-custom-workflow-graph.md) tutorial.
 
 ### Edit the users attributes using the Azure portal
+
 Some of the attributes required for the pre-hire onboarding tutorial are exposed through the Azure portal and can be set there. 
 
  These attributes are:
@@ -168,7 +171,7 @@ Some of the attributes required for the pre-hire onboarding tutorial are exposed
 
 For the tutorial, the **mail** attribute only needs to be set on the manager account and the **manager** attribute set on the employee account.  Use the following steps:
 
- 1. Sign in to Azure portal.
+ 1. Sign in to the [Azure portal](https://portal.azure.com).
  2. On the right, select **Azure Active Directory**.
  3. Select **Users**.
  4. Select **Melva Prince**.
@@ -181,6 +184,7 @@ For the tutorial, the **mail** attribute only needs to be set on the manager acc
  11. Select **Save**.
 
 ### Edit employeeHireDate
+
 The employeeHireDate attribute is new to Azure AD.  It isn't exposed through the UI and must be updated using Graph.  To edit this attribute, we can use [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
 >[!NOTE]
@@ -188,57 +192,58 @@ The employeeHireDate attribute is new to Azure AD.  It isn't exposed through the
 
 In order to do this, we must get the object ID for our user Melva Prince.
 
- 1.  Sign in to the [Azure portal](https://portal.azure.com).
- 2.  On the right, select **Azure Active Directory**.
- 3.  Select **Users**.
- 4.  Select **Melva Prince**.
- 5.  Select the copy sign next to the **Object ID**.
- 6.  Now navigate to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
- 7. Sign-in to Graph Explorer with the global administrator account for your tenant.
- 8. At the top, change **GET** to **PATCH** and add `https://graph.microsoft.com/v1.0/users/<id>` to the box.  Replace `<id>` with the value we copied before.
- 9. Copy the following in to the **Request body** and select **Run query**
-      ```Example
-      {
-      "employeeHireDate": "2022-04-15T22:10:00Z"
-      }
-      ```
-     :::image type="content" source="media/tutorial-lifecycle-workflows/update-1.png" alt-text="Screenshot of the PATCH employeeHireDate." lightbox="media/tutorial-lifecycle-workflows/update-1.png":::
- 
- 10.  Verify the change by changing **PATCH** back to **GET** and **v1.0** to **beta**. Select **Run query**. You should see the attributes for Melva set.  
- :::image type="content" source="media/tutorial-lifecycle-workflows/update-3.png" alt-text="Screenshot of the GET employeeHireDate." lightbox="media/tutorial-lifecycle-workflows/update-3.png":::
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the right, select **Azure Active Directory**.
+3. Select **Users**.
+4. Select **Melva Prince**.
+5. Select the copy sign next to the **Object ID**.
+6. Now navigate to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+7. Sign-in to Graph Explorer with the global administrator account for your tenant.
+8. At the top, change **GET** to **PATCH** and add `https://graph.microsoft.com/v1.0/users/<id>` to the box.  Replace `<id>` with the value we copied before.
+9. Copy the following in to the **Request body** and select **Run query**
+    ```Example
+    {
+    "employeeHireDate": "2022-04-15T22:10:00Z"
+    }
+    ```
+    :::image type="content" source="media/tutorial-lifecycle-workflows/update-1.png" alt-text="Screenshot of the PATCH employeeHireDate." lightbox="media/tutorial-lifecycle-workflows/update-1.png":::
+
+10. Verify the change by changing **PATCH** back to **GET** and **v1.0** to **beta**. Select **Run query**. You should see the attributes for Melva set.  
+    :::image type="content" source="media/tutorial-lifecycle-workflows/update-3.png" alt-text="Screenshot of the GET employeeHireDate." lightbox="media/tutorial-lifecycle-workflows/update-3.png":::
 
 ### Edit the manager attribute on the employee account
 The manager attribute is used for email notification tasks.  It's used by the lifecycle workflow to email the manager a temporary password for the new employee.   Use the following steps to ensure your Azure AD users have a value for the manager attribute.
 
-1.  Still in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
-2. Make sure the top is still set to **PUT** and `https://graph.microsoft.com/v1.0/users/<id>/manager/$ref` is in the box.  Change `<id>` to the ID of Melva Prince. 
- 3. Copy the code below in to the **Request body** 
- 4. Replace `<managerid>` in the following code with the value of Britta Simons ID.
- 5. Select **Run query**
-      ```Example
-      {
+1. Still in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+2. Make sure the top is still set to **PUT** and `https://graph.microsoft.com/v1.0/users/<id>/manager/$ref` is in the box. Change `<id>` to the ID of Melva Prince. 
+3. Copy the code below in to the **Request body** 
+4. Replace `<managerid>` in the following code with the value of Britta Simons ID.
+5. Select **Run query**
+    ```Example
+    {
       "@odata.id": "https://graph.microsoft.com/v1.0/users/<managerid>"
-      }
-      ```
+    }
+    ```
 
-      :::image type="content" source="media/tutorial-lifecycle-workflows/graph-add-manager.png" alt-text="Screenshot of Adding a manager in Graph explorer." lightbox="media/tutorial-lifecycle-workflows/graph-add-manager.png":::
+    :::image type="content" source="media/tutorial-lifecycle-workflows/graph-add-manager.png" alt-text="Screenshot of Adding a manager in Graph explorer." lightbox="media/tutorial-lifecycle-workflows/graph-add-manager.png":::
 
- 6. Now, we can verify that the manager has been set correctly by changing the **PUT** to **GET**.
- 7. Make sure `https://graph.microsoft.com/v1.0/users/<id>/manager/` is in the box.  The `<id>` is still that of Melva Prince. 
- 8. Select **Run query**.  You should see Britta Simon returned in the Response.
+6. Now, we can verify that the manager has been set correctly by changing the **PUT** to **GET**.
+7. Make sure `https://graph.microsoft.com/v1.0/users/<id>/manager/` is in the box.  The `<id>` is still that of Melva Prince. 
+8. Select **Run query**.  You should see Britta Simon returned in the Response.
 
-       :::image type="content" source="media/tutorial-lifecycle-workflows/graph-get-manager.png" alt-text="Screenshot of getting a manager in Graph explorer." lightbox="media/tutorial-lifecycle-workflows/graph-get-manager.png":::
+    :::image type="content" source="media/tutorial-lifecycle-workflows/graph-get-manager.png" alt-text="Screenshot of getting a manager in Graph explorer." lightbox="media/tutorial-lifecycle-workflows/graph-get-manager.png":::
 
 For more information about updating manager information for a user in Graph API, see [assign manager](/graph/api/user-post-manager?view=graph-rest-1.0&tabs=http&preserve-view=true) documentation. You can also set this attribute in the Azure Admin center. For more information, see [add or change profile information](../fundamentals/active-directory-users-profile-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context).
 
-### Enabling the Temporary Access Pass (TAP) 
+### Enabling the Temporary Access Pass (TAP)
+
 A Temporary Access Pass is a time-limited pass issued by an admin that satisfies strong authentication requirements.  
 
 In this scenario, we use this feature of Azure AD to generate a temporary access pass for our new employee.  It is then mailed to the employee's manager.
 
 To use this feature, it must be enabled on our Azure AD tenant.  To do this, use the following steps.
 
-1. Sign in to the Azure portal as a Global Administrator and select **Azure Active Directory** > **Security** > **Authentication methods** > **Temporary Access Pass**
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator and select **Azure Active Directory** > **Security** > **Authentication methods** > **Temporary Access Pass**
 2. Select **Yes** to enable the policy and add Britta Simon and select which users have the policy applied, and any **General** settings.
 
 ## Additional steps for leaver scenario

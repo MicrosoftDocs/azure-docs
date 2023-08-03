@@ -27,6 +27,9 @@ To run this sample, you need:
 
 
 ## Register and download your quickstart app
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 There are two ways to start your quickstart application: express (option 1) and manual (option 2).
 
 ### Option 1: Register and automatically configure your app, and then download the code sample
