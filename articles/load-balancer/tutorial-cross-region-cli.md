@@ -1,12 +1,14 @@
 ---
-title: 'Tutorial: Create a cross-region load balancer using Azure CLI'
+title: 'Tutorial: Create a cross-region load balancer - Azure CLI'
 titleSuffix: Azure Load Balancer
 description: Get started with this tutorial deploying a cross-region Azure Load Balancer using Azure CLI.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 03/04/2021
+ms.date: 06/27/2023
+ms.custom: template-tutorial, devx-track-azurecli, engagement-fy23
+ROBOTS: NOINDEX
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
 
@@ -41,7 +43,11 @@ Sign in to Azure CLI:
 ```azurecli-interactive
 az login
 ```
+## Set resource variables
 
+```azurecli-interactive
+
+``````
 ## Create cross-region load balancer
 
 In this section, you'll create a cross-region load balancer, public IP address, and load balancing rule.
@@ -50,7 +56,7 @@ In this section, you'll create a cross-region load balancer, public IP address, 
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with [az group create](/cli/azure/group#az_group_create):
+Create a resource group with [az group create](/cli/azure/group#az-group-create):
 
 * Named **myResourceGroupLB-CR**.
 * In the **westus** location.
@@ -63,7 +69,7 @@ Create a resource group with [az group create](/cli/azure/group#az_group_create)
 
 ### Create the load balancer resource
 
-Create a cross-region load balancer with [az network cross-region-lb create](/cli/azure/network/cross-region-lb#az_network_cross_region_lb_create):
+Create a cross-region load balancer with [az network cross-region-lb create](/cli/azure/network/cross-region-lb#az-network-cross-region-lb-create):
 
 * Named **myLoadBalancer-CR**.
 * A frontend pool named **myFrontEnd-CR**.
@@ -85,7 +91,7 @@ A load balancer rule defines:
 * The backend IP pool to receive the traffic.
 * The required source and destination port. 
 
-Create a load balancer rule with [az network cross-region-lb rule create](/cli/azure/network/cross-region-lb/rule#az_network_cross_region_lb_rule_create):
+Create a load balancer rule with [az network cross-region-lb rule create](/cli/azure/network/cross-region-lb/rule#az-network-cross-region-lb-rule-create):
 
 * Named **myHTTPRule-CR**
 * Listening on **Port 80** in the frontend pool **myFrontEnd-CR**.
@@ -115,9 +121,9 @@ In this section, you'll add two regional standard load balancers to the backend 
 
 In this section, you'll place the resource IDs of two regional load balancers frontends into variables.  You'll then use the variables to add the frontends to the backend address pool of the cross-region load balancer.
 
-Retrieve the resource IDs with [az network lb frontend-ip show](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_show).
+Retrieve the resource IDs with [az network lb frontend-ip show](/cli/azure/network/lb/frontend-ip#az-network-lb-frontend-ip-show).
 
-Use [az network cross-region-lb address-pool address add](/cli/azure/network/cross-region-lb/address-pool/address#az_network_cross_region_lb_address_pool_address_add) to add the frontends you placed in variables in the backend pool of the cross-region load balancer:
+Use [az network cross-region-lb address-pool address add](/cli/azure/network/cross-region-lb/address-pool/address#az-network-cross-region-lb-address-pool-address-add) to add the frontends you placed in variables in the backend pool of the cross-region load balancer:
 
 ```azurecli-interactive
   region1id=$(az network lb frontend-ip show \
@@ -153,7 +159,7 @@ Use [az network cross-region-lb address-pool address add](/cli/azure/network/cro
 
 In this section, you'll test the cross-region load balancer. You'll connect to the public IP address in a web browser.  You'll stop the virtual machines in one of the regional load balancer backend pools and observe the failover.
 
-1. To get the public IP address of the load balancer, use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show):
+1. To get the public IP address of the load balancer, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show):
 
     ```azurecli-interactive
       az network public-ip show \
@@ -170,7 +176,7 @@ In this section, you'll test the cross-region load balancer. You'll connect to t
 
 ## Clean up resources
 
-When no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, load balancer, and all related resources.
+When no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, load balancer, and all related resources.
 
 ```azurecli-interactive
   az group delete \

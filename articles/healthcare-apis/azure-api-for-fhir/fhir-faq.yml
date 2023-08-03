@@ -2,12 +2,13 @@
 metadata:
   title: FAQs about FHIR services in Azure API for FHIR
   description: Get answers to frequently asked questions about the Azure API for FHIR, such as the storage location of data behind FHIR APIs and version support.
-  author: caitlinv39
+  author: expekesheth
   ms.service: healthcare-apis
   ms.subservice: fhir
+  ms.custom: ignite-2022
   ms.topic: faq
-  ms.date: 12/27/2021
-  ms.author: cavoeg
+  ms.date: 03/21/2022
+  ms.author: kesheth
 title: Frequently asked questions about Azure API for FHIR
 summary: |
 
@@ -54,9 +55,9 @@ sections:
           Azure IoT Connector for FHIR (preview) currently supports only FHIR version R4 and is visible on R4 instances of Azure API for FHIR.
 
       - question: |
-          What's the difference between Azure Healthcare APIs and Azure API for FHIR?
+          What's the difference between Azure Health Data Services and Azure API for FHIR?
         answer: |
-          Azure API for FHIR is a generally available managed FHIR service. Azure Healthcare APIs is in public preview and allows you to deploy a FHIR service and a DICOM service in the same workspace. The Azure Healthcare APIs overview gives more details.         
+          Azure API for FHIR is a generally available managed FHIR service. Azure Health Data Services allows you to deploy a FHIR service and a DICOM service in the same workspace. The Azure Health Data Services overview provides more details.         
           
       - question: |
           What's the difference between the Microsoft FHIR Server for Azure and Azure API for FHIR?
@@ -109,7 +110,7 @@ sections:
       - question: |
           Can I create a custom FHIR resource?
         answer: |
-          We do not allow custom FHIR resources. If you need a custom FHIR resource, you can build a custom resource on top of the [Basic resource](http://www.hl7.org/fhir/basic.html) with extensions. 
+          We do not allow custom FHIR resources. If you need a custom FHIR resource, you can build a custom resource on top of the [Basic resource](https://www.hl7.org/fhir/basic.html) with extensions. 
           
       - question: |
           Are extensions supported on Azure API for FHIR?
@@ -139,7 +140,7 @@ sections:
       - question: |
           Can I post a bundle to Azure API for FHIR?
         answer: |
-          We currently support posting [batch bundles](https://www.hl7.org/fhir/valueset-bundle-type.html), but we don't support posting transaction bundles in Azure API for FHIR. You can use the FHIR service in the Azure Healthcare APIs if you need transaction bundle support. 
+          We currently support posting [batch bundles](https://www.hl7.org/fhir/valueset-bundle-type.html), but we don't support posting transaction bundles in Azure API for FHIR. You can use the FHIR service in Azure Health Data Services if you need transaction bundle support. 
           
       - question: |
           How can I get all resources for a single patient in Azure API for FHIR?
@@ -213,19 +214,14 @@ sections:
           
   - name: Azure API for FHIR features and services
     questions:
+    
+      - question: |
+          Can I perform health checks on FHIR service?
+        answer: |
+          To perform health check on FHIR service , enter `{{fhirurl}}/health/check` in the GET request. You should be able to see Status of FHIR service. HTTP Status code response with 200 and OverallStatus as "Healthy" in response, means your health check is succesful.
+          In case of errors, you will recieve error response with HTTP status code 404 (Not Found) or status code 500 (Internal Server Error), and detailed information in response body in some scenarios.
+    
       - question: |
           Is there a way to encrypt my data using my personal key and not a default key?
         answer: |
-          Yes, Azure API for FHIR allows configuring customer-managed keys, leveraging support from Cosmos DB. For more information about encrypting your data with a personal key, see [Configure customer-managed keys at REST](customer-managed-key.md).
-          
-  - name: "Azure API for FHIR: Preview Features"
-    questions:
-      - question: |
-          Can I configure scaling capacity for Azure IoT Connector for FHIR (preview)?
-        answer: |
-          Since Azure IoT Connector for FHIR is free of charge during public preview, its scaling capacity is fixed and limited. Azure IoT Connector for FHIR configuration available in public preview is expected to provide a throughput of about 200 messages per second. Some form of resource capacity configuration will be made available in General Availability (GA).
-
-      - question: |
-          Why can't I install Azure IoT Connector for FHIR (preview) when Private Link is enabled on Azure API for FHIR?
-        answer: |
-          Azure IoT Connector for FHIR doesn't support Private Link capability at this time. Hence, if you have Private Link enabled on Azure API for FHIR, you can't install Azure IoT Connector for FHIR and vice-versa. This limitation is expected to go away when Azure IoT Connector for FHIR is available for General Availability (GA).
+          Yes, Azure API for FHIR allows configuring customer-managed keys, leveraging support from Azure Cosmos DB. For more information about encrypting your data with a personal key, see [Configure customer-managed keys at REST](customer-managed-key.md).

@@ -6,7 +6,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: troubleshooting
-ms.date: 04/07/2021
+ms.date: 04/05/2023
 ms.author: banders
 ms.reviewer: baolcsva
 ---

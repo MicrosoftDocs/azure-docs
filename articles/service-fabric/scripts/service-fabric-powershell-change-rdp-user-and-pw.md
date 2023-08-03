@@ -14,7 +14,7 @@ ms.workload: multiple
 ms.topic: sample
 ms.date: 03/19/2018
 ms.author: atsenthi
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Update the admin username and password of the VMs in a cluster
@@ -47,4 +47,4 @@ A single node type with five nodes, for example, has a duration of 45 to 60 minu
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
-Additional Azure Powershell samples for Azure Service Fabric can be found in the [Azure PowerShell samples](../service-fabric-powershell-samples.md).
+Additional Azure PowerShell samples for Azure Service Fabric can be found in the [Azure PowerShell samples](../service-fabric-powershell-samples.md).

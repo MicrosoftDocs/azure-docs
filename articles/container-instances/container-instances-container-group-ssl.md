@@ -1,8 +1,13 @@
 ---
 title: Enable TLS with sidecar container
 description: Create an SSL or TLS endpoint for a container group running in Azure Container Instances by running Nginx in a sidecar container
-ms.topic: article
-ms.date: 07/02/2020
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+ms.custom: devx-track-azurecli
+services: container-instances
+ms.topic: how-to
+ms.date: 06/17/2022
 ---
 # Enable a TLS endpoint in a sidecar container
 
@@ -16,7 +21,7 @@ In this example, the container group only exposes port 443 for Nginx with its pu
 
 See [Next steps](#next-steps) for other approaches to enabling TLS in a container group.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.55 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -187,13 +192,13 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### Deploy the container group
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command:
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
 ```
 
-Deploy the container group with the [az container create](/cli/azure/container#az_container_create) command, passing the YAML file as an argument.
+Deploy the container group with the [az container create](/cli/azure/container#az-container-create) command, passing the YAML file as an argument.
 
 ```azurecli
 az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
@@ -201,7 +206,7 @@ az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
 
 ### View deployment state
 
-To view the state of the deployment, use the following [az container show](/cli/azure/container#az_container_show) command:
+To view the state of the deployment, use the following [az container show](/cli/azure/container#az-container-show) command:
 
 ```azurecli
 az container show --resource-group <myResourceGroup> --name app-with-ssl --output table

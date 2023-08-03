@@ -1,8 +1,11 @@
 ---
 title: Connect environments to a lab's vnet
 description: Learn how to connect an environment (like Service Fabric cluster) to your lab's virtual network in Azure DevTest Labs
+ms.author: rosemalcolm
+author: RoseHJM
 ms.topic: how-to
 ms.date: 06/26/2020
+ms.custom: UpdateFrequency2
 ---
 
 # Connect an environment to your lab's virtual network in Azure DevTest Labs

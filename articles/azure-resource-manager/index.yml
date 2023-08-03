@@ -9,11 +9,11 @@ metadata:
   title: Azure Resource Manager documentation
   description: Azure Resource Manager is the deployment and management service for Azure.
   ms.service: azure-resource-manager
-  ms.topic: hub-page # Required
+  ms.topic: hub-page
   ms.collection: collection
   author: tfitzmac
   ms.author: tomfitz
-  ms.date: 12/08/2021
+  ms.date: 07/28/2023
 
 # highlightedContent section (optional)
 # Maximum of 8 items
@@ -71,7 +71,7 @@ conceptualContent:
         - url: bicep/overview.md
           itemType: overview
           text: Overview
-        - url: /learn/paths/bicep-deploy
+        - url: /training/paths/bicep-deploy
           itemType: learn
           text: Learn path
         - url: bicep/file.md

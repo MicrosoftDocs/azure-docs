@@ -9,8 +9,7 @@ ms.author: tamram
 ms.reviewer: ozguns
 ms.date: 12/13/2021
 ms.topic: how-to
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ms.custom: contperf-fy21q1
 ---
 
@@ -37,7 +36,7 @@ When you attempt to access queue data in the Azure portal, the portal first chec
 > When a storage account is locked with an Azure Resource Manager **ReadOnly** lock, the [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation is not permitted for that storage account. **List Keys** is a POST operation, and all POST operations are prevented when a **ReadOnly** lock is configured for the account. For this reason, when the account is locked with a **ReadOnly** lock, users must use Azure AD credentials to access queue data in the portal. For information about accessing queue data in the portal with Azure AD, see [Use your Azure AD account](#use-your-azure-ad-account).
 
 > [!NOTE]
-> The classic subscription administrator roles **Service Administrator** and **Co-Administrator** include the equivalent of the Azure Resource Manager [`Owner`](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, including the **Microsoft.Storage/storageAccounts/listkeys/action**, so a user with one of these administrative roles can also access queue data with the account key. For more information, see [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> The classic subscription administrator roles **Service Administrator** and **Co-Administrator** include the equivalent of the Azure Resource Manager [`Owner`](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, including the **Microsoft.Storage/storageAccounts/listkeys/action**, so a user with one of these administrative roles can also access queue data with the account key. For more information, see [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### Use your Azure AD account
 
@@ -51,9 +50,6 @@ The Azure Resource Manager **Reader** role permits users to view storage account
 For information about the built-in roles that support access to queue data, see [Authorize access to queues using Azure Active Directory](authorize-access-azure-active-directory.md).
 
 Custom roles can support different combinations of the same permissions provided by the built-in roles. For more information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md) and [Understand role definitions for Azure resources](../../role-based-access-control/role-definitions.md).
-
-> [!NOTE]
-> The preview version of Storage Explorer in the Azure portal does not support using Azure AD credentials to view and modify queue data. Storage Explorer in the Azure portal always uses the account keys to access data. To use Storage Explorer in the Azure portal, you must be assigned a role that includes **Microsoft.Storage/storageAccounts/listkeys/action**.
 
 ## Navigate to queues in the Azure portal
 

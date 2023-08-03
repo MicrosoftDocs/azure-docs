@@ -31,7 +31,7 @@ The IDology integration includes the following components:
 
 - Azure AD B2C – The authorization server responsible for verifying the user’s credentials. It's also known as the identity provider.
 - IDology – The IDology service takes input provided by the user and verifies the user’s identity.
-- Custom Rest API – This API implements the integration between Azure AD and the IDology service.
+- Custom REST API – This API implements the integration between Azure AD and the IDology service.
 
 The following architecture diagram shows the implementation.
 
@@ -55,7 +55,7 @@ The following architecture diagram shows the implementation.
 
 1. IDology provides a variety of solutions, which you can find [here](https://www.idology.com/solutions/). For this sample, we use ExpectID.
 
-2. To create an IDology account, contact [IDology](https://www.idology.com/request-a-demo/microsoft-integration-signup/).
+2. To create an IDology account, contact [IDology](https://www.idology.com/talk-to-a-trust-expert/).
 
 3. Once an account is created, you'll receive the information you need for API configuration. The following sections describe the process.
 
@@ -69,7 +69,7 @@ You'll need the URL of the deployed service to configure Azure AD with the requi
 
 ### Part 2 - Configure the API 
 
-Application settings can be [configured in App Service in Azure](../app-service/configure-common.md#configure-app-settings). With this method, settings can be securely configured without checking them into a repository. You'll need to provide the following settings to the Rest API:
+Application settings can be [configured in App Service in Azure](../app-service/configure-common.md#configure-app-settings). With this method, settings can be securely configured without checking them into a repository. You'll need to provide the following settings to the REST API:
 
 | Application settings | Source | Notes |
 | :-------- | :------------| :-----------|

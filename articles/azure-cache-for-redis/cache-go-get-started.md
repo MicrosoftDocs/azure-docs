@@ -6,9 +6,8 @@ ms.author: franlanglois
 ms.service: cache
 ms.devlang: golang
 ms.topic: quickstart
-ms.date: 01/08/2021
-ms.custom: mode-api
-#Customer intent: As a Go developer new to Azure Cache for Redis, I want to create a new Go app that uses Azure Cache for Redis.
+ms.date: 09/09/2021
+ms.custom: mode-api, devx-track-go
 ---
 
 # Quickstart: Use Azure Cache for Redis with Go
@@ -22,7 +21,7 @@ If you want to skip straight to the code, see the [Go quickstart](https://github
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- [Go](https://golang.org/doc/install) (preferably version 1.13 or above)
+- [Go](https://go.dev/doc/install) (preferably version 1.13 or above)
 - [Git](https://git-scm.com/downloads)
 - An HTTP client such [curl](https://curl.se/)
 
@@ -47,7 +46,7 @@ func main() {
 ...
 ```
 
-Then, we establish connection with Azure Cache for Redis. We use [tls.Config](https://golang.org/pkg/crypto/tls/#Config)--Azure Cache for Redis only accepts secure connections with [TLS 1.2 as the minimum required version](cache-remove-tls-10-11.md).
+Then, we establish connection with Azure Cache for Redis. We use [tls.Config](https://go.dev/pkg/crypto/tls/#Config)--Azure Cache for Redis only accepts secure connections with [TLS 1.2 as the minimum required version](cache-remove-tls-10-11.md).
 
 ```go
 ...
@@ -62,7 +61,7 @@ if err != nil {
 ...
 ```
 
-If the connection is successful, [HTTP handlers](https://golang.org/pkg/net/http/#HandleFunc) are configured to handle `POST` and `GET` operations and the HTTP server is started.
+If the connection is successful, [HTTP handlers](https://go.dev/pkg/net/http/#HandleFunc) are configured to handle `POST` and `GET` operations and the HTTP server is started.
 
 > [!NOTE]
 > [gorilla mux library](https://github.com/gorilla/mux) is used for routing (although it's not strictly necessary and we could have gotten away by using the standard library for this sample application).

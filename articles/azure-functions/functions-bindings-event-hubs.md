@@ -1,11 +1,11 @@
 ---
 title: Azure Event Hubs bindings for Azure Functions
 description: Learn to use Azure Event Hubs trigger and bindings in Azure Functions.
-author: craigshoemaker
 ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
-ms.date: 02/21/2020
-ms.author: cshoe
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.date: 03/04/2022
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure Event Hubs trigger and bindings for Azure Functions

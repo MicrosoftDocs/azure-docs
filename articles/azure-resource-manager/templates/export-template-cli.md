@@ -2,8 +2,10 @@
 title: Export template in Azure CLI
 description: Use Azure CLI to export an Azure Resource Manager template from resources in your subscription.
 ms.topic: conceptual
-ms.date: 09/03/2021
+ms.custom: devx-track-azurecli, devx-track-arm-template
+ms.date: 05/22/2023
 ---
+
 # Use Azure CLI to export a template
 
 [!INCLUDE [Export template intro](../../../includes/resource-manager-export-template-intro.md)]
@@ -22,7 +24,7 @@ This article shows how to export templates through **Azure CLI**. For other opti
 
 After setting up your resource group successfully, you can export an Azure Resource Manager template for the resource group.
 
-To export all resources in a resource group, use [az group export](/cli/azure/group#az_group_export) and provide the resource group name.
+To export all resources in a resource group, use [az group export](/cli/azure/group#az-group-export) and provide the resource group name.
 
 ```azurecli-interactive
 az group export --name demoGroup
@@ -68,7 +70,7 @@ If you use the `--skip-resource-name-params` parameter when exporting the templa
 "resources": [
   {
     "type": "Microsoft.Web/serverfarms",
-    "apiVersion": "2016-09-01",
+    "apiVersion": "2022-09-01",
     "name": "demoHostPlan",
     ...
   }
@@ -94,10 +96,10 @@ If you use the `--include-parameter-default-value` parameter when exporting the 
 
 You can save a template from a deployment in the deployment history. The template you get is exactly the one that was used for deployment.
 
-To get a template from a resource group deployment, use the [az deployment group export](/cli/azure/deployment/group#az_deployment_group_export) command. You specify the name of the deployment to retrieve. For help with getting the name of a deployment, see [View deployment history with Azure Resource Manager](deployment-history.md).
+To get a template from a resource group deployment, use the [az deployment group export](/cli/azure/deployment/group#az-deployment-group-export) command. You specify the name of the deployment to retrieve. For help with getting the name of a deployment, see [View deployment history with Azure Resource Manager](deployment-history.md).
 
 ```azurecli-interactive
-az deployment group export --resource-group demoGroup --name demoDeployment 
+az deployment group export --resource-group demoGroup --name demoDeployment
 ```
 
 The template is displayed in the console. To save the file, use:
@@ -108,9 +110,9 @@ az deployment group export --resource-group demoGroup --name demoDeployment > de
 
 To get templates deployed at other levels, use:
 
-* [az deployment sub export](/cli/azure/deployment/sub#az_deployment_sub_export) for deployments to subscriptions
-* [az deployment mg export](/cli/azure/deployment/mg#az_deployment_mg_export) for deployments to management groups
-* [az deployment tenant export](/cli/azure/deployment/tenant#az_deployment_tenant_export) for deployments to tenants
+* [az deployment sub export](/cli/azure/deployment/sub#az-deployment-sub-export) for deployments to subscriptions
+* [az deployment mg export](/cli/azure/deployment/mg#az-deployment-mg-export) for deployments to management groups
+* [az deployment tenant export](/cli/azure/deployment/tenant#az-deployment-tenant-export) for deployments to tenants
 
 
 ## Next steps

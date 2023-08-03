@@ -2,12 +2,10 @@
 title: Deployment best practices 
 description: Learn about the key mechanisms of deploying to Azure App Service. Find language-specific recommendations and other caveats.
 keywords: azure app service, web app, deploy, deployment, pipelines, build
-author: jasonfreeberg
-
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
-ms.author: jafreebe
+ms.custom: UpdateFrequency3
 ---
 
 # Deployment Best Practices
@@ -61,7 +59,7 @@ There are examples below for common automation frameworks.
 
 ### Use Azure DevOps
 
-App Service has [built-in continuous delivery](deploy-continuous-deployment.md) for containers through the Deployment Center. Navigate to your app in the [Azure portal](https://portal.azure.com/) and select **Deployment Center** under **Deployment**. Follow the instructions to select your repository and branch. This will configure a DevOps build and release pipeline to automatically build, tag, and deploy your container when new commits are pushed to your selected branch.
+App Service has [built-in continuous delivery](deploy-continuous-deployment.md) for containers through the Deployment Center. Navigate to your app in the [Azure portal](https://portal.azure.com) and select **Deployment Center** under **Deployment**. Follow the instructions to select your repository and branch. This will configure a DevOps build and release pipeline to automatically build, tag, and deploy your container when new commits are pushed to your selected branch.
 
 ### Use GitHub Actions
 
@@ -117,7 +115,7 @@ az ad sp create-for-rbac --name "myServicePrincipal" --role contributor \
 
 In your script, log in using `az login --service-principal`, providing the principal’s information. You can then use `az webapp config container set` to set the container name, tag, registry URL, and registry password. Below are some helpful links for you to construct your container CI process.
 
-- [How to log into the Azure CLI on Circle CI](https://circleci.com/orbs/registry/orb/circleci/azure-cli) 
+- [How to sign in to the Azure CLI on Circle CI](https://circleci.com/orbs/registry/orb/circleci/azure-cli) 
 
 ## Language-Specific Considerations
 

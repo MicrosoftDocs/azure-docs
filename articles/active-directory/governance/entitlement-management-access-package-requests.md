@@ -1,18 +1,18 @@
 ---
-title: View and remove requests for an access package in Azure AD entitlement management - Azure Active Directory
-description: Learn how to view requests and remove for an access package in Azure Active Directory entitlement management.
+title: View and remove requests for an access package in entitlement management - Microsoft Entra
+description: Learn how to view requests and remove for an access package in entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
-manager: karenhoran
+author: owinfreyatl
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 9/20/2021
-ms.author: ajburnle
+ms.date: 05/31/2023
+ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 
@@ -20,9 +20,9 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an access package manager, I want detailed information about requests for access packages so that I can view the status and troubleshoot any issues.
 
 ---
-# View and remove requests for an access package in Azure AD entitlement management
+# View and remove requests for an access package in entitlement management
 
-In Azure AD entitlement management, you can see who has requested access packages, their policy, and status. This article describes how to view requests for an access package, and remove requests that are no longer needed.
+In entitlement management, you can see who has requested access packages, the policy for their request, and the status of their request. This article describes how to view requests for an access package, and remove requests that are no longer needed.
 
 ## View requests
 
@@ -42,8 +42,8 @@ In Azure AD entitlement management, you can see who has requested access package
 
 If you have a set of users whose requests are in the "Partially Delivered" or "Failed" state, you can retry those requests by using the [reprocess functionality](entitlement-management-reprocess-access-package-requests.md).
 
-### View assignments with Microsoft Graph
-You can also retrieve requests for an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can call the API to [list accessPackageAssignmentRequests](/graph/api/entitlementmanagement-list-accesspackageassignmentrequests?view=graph-rest-beta&preserve-view=true). You can supply a filter to indicate a specific access package, such as: `$expand=accessPackage&$filter=accessPackage/id eq '9bbe5f7d-f1e7-4eb1-a586-38cdf6f8b1ea'`. An application that has the application permission `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can also use this API.
+### View requests with Microsoft Graph
+You can also retrieve requests for an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can call the API to [list accessPackageAssignmentRequests](/graph/api/entitlementmanagement-list-accesspackageassignmentrequests?view=graph-rest-beta&preserve-view=true). While an identity governance administrator can retrieve access package requests from multiple catalogs, if user or application service principal is assigned only to catalog-specific delegated administrative roles, the request must supply a filter to indicate a specific access package, such as: `$expand=accessPackage&$filter=accessPackage/id eq '9bbe5f7d-f1e7-4eb1-a586-38cdf6f8b1ea'`. An application that has the application permission `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can also use this API to retrieve requests across all catalogs.
 
 ## Remove request (Preview)
 

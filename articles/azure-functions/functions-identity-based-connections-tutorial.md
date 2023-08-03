@@ -28,9 +28,9 @@ After you complete this tutorial, you should complete the follow-on tutorial tha
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ The [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
++ The [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
 
-+ The [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
++ The [Azure Functions Core Tools](functions-run-local.md#v2) version 4.x.
 
 ## Why use identity?
 
@@ -256,7 +256,7 @@ Whenever your app would need to add a reference to a secret, you would just need
 > [!TIP]
 > The [Application Insights connection string](../azure-monitor/app/sdk-connection-string.md) and its included instrumentation key are not considered secrets and can be retrieved from App Insights using [Reader](../role-based-access-control/built-in-roles.md#reader) permissions. You do not need to move them into Key Vault, although you certainly can.
 
-## Use managed identity for AzureWebJobsStorage (Preview)
+## Use managed identity for AzureWebJobsStorage
 
 Next you will use the system-assigned identity you configured in the previous steps for the `AzureWebJobsStorage` connection. `AzureWebJobsStorage` is used by the Functions runtime and by several triggers and bindings to coordinate between multiple running instances. It is required for your function app to operate, and like Azure Files, it is configured with a connection string by default when you create a new function app.
 
@@ -285,15 +285,18 @@ Similar to the steps you took before with the user-assigned identity and your ke
 1. Click on your application. It should move down into the **Selected members** section. Click **Select**.
 
 1. Back on the **Add role assignment** screen, click **Review + assign**. Review the configuration, and then click **Review + assign**.
+ 
+> [!TIP]
+> If you intend to use the function app for a blob-triggered function, you will need to repeat these steps for the **Storage Account Contributor** and **Storage Queue Data Contributor** roles over the account used by AzureWebJobsStorage. To learn more, see [Blob trigger identity-based connections](./functions-bindings-storage-blob-trigger.md#identity-based-connections).
 
 ### Edit the AzureWebJobsStorage configuration
 
 Next you will update your function app to use its system-assigned identity when it uses the blob service for host storage.
 
 > [!IMPORTANT]
-> The `AzureWebJobsStorage` configuration is used by some triggers and bindings, and those extensions must be able to use identity-based connections, too. Apps that use blob triggers or event hub triggers may need to update those extensions. Because no functions have been defined for this app, there isn't a concern yet. To learn more about this requirement, see [Connecting to host storage with an identity (Preview)](./functions-reference.md#connecting-to-host-storage-with-an-identity-preview).
+> The `AzureWebJobsStorage` configuration is used by some triggers and bindings, and those extensions must be able to use identity-based connections, too. Apps that use blob triggers or event hub triggers may need to update those extensions. Because no functions have been defined for this app, there isn't a concern yet. To learn more about this requirement, see [Connecting to host storage with an identity](./functions-reference.md#connecting-to-host-storage-with-an-identity).
 >
-> Similarly, `AzureWebJobsStorage` is used for deployment artifacts when using server-side build in Linux Consumption. When you enable identity-based connections for `AzureWebJobsStorage` in Linux Consmption, you will need to deploy via [an external deployment package](run-functions-from-deployment-package.md).
+> Similarly, `AzureWebJobsStorage` is used for deployment artifacts when using server-side build in Linux Consumption. When you enable identity-based connections for `AzureWebJobsStorage` in Linux Consumption, you will need to deploy via [an external deployment package](run-functions-from-deployment-package.md).
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your function app.
 
@@ -311,6 +314,9 @@ Next you will update your function app to use its system-assigned identity when 
 1. Select **OK** and then **Save** > **Continue** to save your changes. 
 
 You've removed the storage connection string requirement for AzureWebJobsStorage by configuring your app to instead connect to blobs using managed identities.  
+
+> [!NOTE]
+> The `__accountName` syntax is unique to the AzureWebJobsStorage connection and cannot be used for other storage connections. To learn to define other connections, check the reference for each trigger and binding your app uses.
 
 ## Next steps 
 

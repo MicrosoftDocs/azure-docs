@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/29/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with 10,000ft Plans
@@ -45,6 +45,8 @@ To configure the integration of 10,000ft Plans into Azure AD, you need to add 10
 1. In the **Add from the gallery** section, type **10,000ft Plans** in the search box.
 1. Select **10,000ft Plans** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for 10,000ft Plans
 
 Configure and test Azure AD SSO with 10,000ft Plans using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in 10,000ft Plans.
@@ -78,9 +80,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     
     c. In the **Sign-on URL** text box, type the URL:
     ` https://rm.smartsheet.com`
-
-	> [!NOTE]
-	> The value for **Identifier** is different if you have a custom domain. Contact [10,000ft Plans Client support team](https://www.10000ft.com/plans/support) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, select the copy icon to copy **App Federation Metadata Url**. Save it on your computer.
 
@@ -133,9 +132,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 ### Create 10000ft Plans test user
 
 In this section, a user called Britta Simon is created in 10,000ft Plans. 10,000ft Plans supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in 10,000ft Plans, a new one is created after authentication.
-
-> [!NOTE]
-> If you need to create a user manually, you need to contact the [10,000ft Plans Client support team](https://www.10000ft.com/plans/support).
 
 ## Test SSO
 

@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Deploy Azure API for FHIR using an ARM template'
 description: In this quickstart, learn how to deploy Azure API for Fast Healthcare Interoperability Resources (FHIR®), by using an Azure Resource Manager template (ARM template).
-author: matjazl
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-api
-ms.author: zxue
-ms.date: 10/27/2021
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-api, devx-track-arm-template
+ms.author: kesheth
+ms.date: 06/03/2022
 ---
 
 # Quickstart: Use an ARM template to deploy Azure API for FHIR
@@ -29,7 +29,7 @@ An Azure account with an active subscription. [Create one for free](https://azur
 # [PowerShell](#tab/PowerShell)
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-* If you want to run the code locally, [Azure PowerShell](/powershell/azure/install-az-ps).
+* If you want to run the code locally, [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 # [CLI](#tab/CLI)
 
@@ -52,7 +52,7 @@ The template defines one Azure resource:
 
 <!--
 
-Replace the line above with the following line once https://docs.microsoft.com/azure/templates/microsoft.healthcareapis/services goes live:
+Replace the line above with the following line once https://learn.microsoft.com/azure/templates/microsoft.healthcareapis/services goes live:
 
 * [**Microsoft.HealthcareApis/services**](/azure/templates/microsoft.healthcareapis/services)
 
@@ -76,7 +76,7 @@ On the **Deploy Azure API for FHIR** page:
 
 4. Enter a new **Service Name** and choose the **Location** of the Azure API for FHIR. The location can be the same as or different from the region of the resource group.
 
-   [ ![Deploy Azure API for FHIR using the ARM template in the Azure portal.](media/fhir-resource-manager-template/deploy-azure-api-fhir.png) ](media/fhir-resource-manager-template/deploy-azure-api-fhir.png#lightbox)
+   [![Deploy Azure API for FHIR using the ARM template in the Azure portal.](media/fhir-resource-manager-template/deploy-azure-api-fhir.png)](media/fhir-resource-manager-template/deploy-azure-api-fhir.png#lightbox)
 
 5. Select **Review + create**.
 
@@ -246,3 +246,5 @@ In this quickstart guide, you've deployed the Azure API for FHIR into your subsc
 
 >[!div class="nextstepaction"]
 >[Configure Private Link](configure-private-link.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

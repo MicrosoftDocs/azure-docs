@@ -7,8 +7,8 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 10/22/2021
-ms.custom: devx-track-csharp, devx-track-azurepowershell
+ms.date: 04/12/2023
+ms.custom: devx-track-csharp, devx-track-azurepowershell, devx-track-dotnet
 ---
 
 # Create, monitor, and manage Azure data factories using Azure Data Factory .NET SDK
@@ -100,6 +100,9 @@ You should have following four values from these steps:
 In the walkthrough, you create a data factory with a pipeline that contains a copy activity. The copy activity copies data from a folder in your Azure blob storage to another folder in the same blob storage. 
 
 The Copy Activity performs the data movement in Azure Data Factory. The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.
+
+> [!IMPORTANT]
+> The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been deprecated. No new features have been added since June 30, 2020.   We strongly encourage you to upgrade, see the [migration guide](../../active-directory/develop/msal-migration.md) for more details.
 
 1. Using Visual Studio 2012/2013/2015, create a C# .NET console application.
    1. Launch **Visual Studio** 2012/2013/2015.

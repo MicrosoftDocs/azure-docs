@@ -16,6 +16,8 @@ ms.custom: seodec18
 
 # Query data from the Azure Time Series Insights Gen1 environment using C Sharp
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 > [!CAUTION]
 > This is a Gen1 article.
 

@@ -1,24 +1,22 @@
 ---
 title: Organize your resources with management groups - Azure Governance
 description: Learn about the management groups, how their permissions work, and how to use them.
-ms.date: 08/17/2021
+ms.date: 04/20/2023
 ms.topic: overview
+author: tfitzmac
+ms.author: tomfitz
 ---
 # What are Azure management groups?
 
-If your organization has many subscriptions, you may need a way to efficiently manage access,
-policies, and compliance for those subscriptions. Azure management groups provide a level of scope
-above subscriptions. You organize subscriptions into containers called "management groups" and apply
-your governance conditions to the management groups. All subscriptions within a management group
-automatically inherit the conditions applied to the management group. Management groups give you
-enterprise-grade management at a large scale no matter what type of subscriptions you might have.
-All subscriptions within a single management group must trust the same Azure Active Directory
-tenant.
+If your organization has many Azure subscriptions, you may need a way to efficiently manage access,
+policies, and compliance for those subscriptions. _Management groups_ provide a governance scope
+above subscriptions. You organize subscriptions into management groups; the governance conditions you apply
+cascade by inheritance to all associated subscriptions.
 
-For example, you can apply policies to a management group that limits the regions available for
-virtual machine (VM) creation. This policy would be applied to all management groups,
-subscriptions, and resources under that management group by only allowing VMs to be created in that
-region.
+Management groups give you enterprise-grade management at scale, no matter what type of subscriptions you might have.
+However, all subscriptions within a single management group must trust the same Azure Active Directory (Azure AD) tenant.
+
+For example, you can apply policies to a management group that limits the regions available for virtual machine (VM) creation. This policy would be applied to all nested management groups, subscriptions, and resources and allow VM creation only in authorized regions.
 
 ## Hierarchy of management groups and subscriptions
 
@@ -26,15 +24,15 @@ You can build a flexible structure of management groups and subscriptions to org
 into a hierarchy for unified policy and access management. The following diagram shows an example of
 creating a hierarchy for governance using management groups.
 
-:::image type="complex" source="./media/tree.png" alt-text="Diagram of a sample management group hierarchy." border="false":::
-   Diagram of a root management group holding both management groups and subscriptions. Some child management groups hold management groups, some hold subscriptions, and some hold both. One of the examples in the sample hierarchy is four levels of management groups with the child level being all subscriptions.
+:::image type="complex" source="../media/mg-org.png" alt-text="Diagram of a sample management group hierarchy." border="false":::
+   Diagram of a root management group holding both management groups and subscriptions. Some child management groups hold management groups, some hold subscriptions, and some hold both. One of the examples in the sample hierarchy is four levels of management groups, with the child level being all subscriptions.
 :::image-end:::
 
-You can create a hierarchy that applies a policy, for example, which limits VM locations to the US
-West Region in the group called "Production". This policy will inherit onto all the Enterprise
-Agreement (EA) subscriptions that are descendants of that management group and will apply to all VMs
-under those subscriptions. This security policy cannot be altered by the resource or subscription
-owner allowing for improved governance.
+You can create a hierarchy that applies a policy, for example, which limits VM locations to the West US region in the management group called "Corp". This policy will inherit all the Enterprise Agreement (EA) subscriptions that are descendants of that management group and will apply to all VMs under those subscriptions. This security policy cannot be altered by the resource or subscription
+owner, allowing for improved governance.
+
+> [!NOTE]
+> Management groups aren't currently supported in Cost Management features for Microsoft Customer Agreement (MCA) subscriptions.
 
 Another scenario where you would use management groups is to provide user access to multiple
 subscriptions. By moving multiple subscriptions under that management group, you can create one
@@ -55,25 +53,24 @@ subscriptions.
 
 ## Root management group for each directory
 
-Each directory is given a single top-level management group called the "Root" management group. This
+Each directory is given a single top-level management group called the **root** management group. The
 root management group is built into the hierarchy to have all management groups and subscriptions
 fold up to it. This root management group allows for global policies and Azure role assignments to
 be applied at the directory level. The [Azure AD Global Administrator needs to elevate
 themselves](../../role-based-access-control/elevate-access-global-admin.md) to the User Access
 Administrator role of this root group initially. After elevating access, the administrator can
-assign any Azure role to other directory users or groups to manage the hierarchy. As administrator,
-you can assign your own account as owner of the root management group.
+assign any Azure role to other directory users or groups to manage the hierarchy. As an administrator,
+you can assign your account as the owner of the root management group.
 
-### Important facts about the Root management group
+### Important facts about the root management group
 
-- By default, the root management group's display name is **Tenant root group**. The ID is the Azure
-  Active Directory ID.
-- To change the display name, your account must be assigned the Owner or Contributor role on the
+- By default, the root management group's display name is **Tenant root group** and operates itself as a management group. The ID is the same value as the Azure Active Directory (Azure AD) tenant ID.
+- To change the display name, your account must be assigned the **Owner** or **Contributor** role on the
   root management group. See
   [Change the name of a management group](manage.md#change-the-name-of-a-management-group) to update
   the name of a management group.
 - The root management group can't be moved or deleted, unlike other management groups.
-- All subscriptions and management groups fold up to the one root management group within the
+- All subscriptions and management groups fold up into one root management group within the
   directory.
   - All resources in the directory fold up to the root management group for global management.
   - New subscriptions are automatically defaulted to the root management group when created.
@@ -85,10 +82,9 @@ you can assign your own account as owner of the root management group.
     the only users that can elevate themselves to gain access. Once they have access to the root
     management group, the global administrators can assign any Azure role to other users to manage
     it.
-- In SDK, the root management group, or 'Tenant Root', operates as a management group.
 
 > [!IMPORTANT]
-> Any assignment of user access or policy assignment on the root management group **applies to all
+> Any assignment of user access or policy on the root management group **applies to all
 > resources within the directory**. Because of this, all customers should evaluate the need to have
 > items defined on this scope. User access and policy assignments should be "Must Have" only at this
 > scope.
@@ -102,36 +98,7 @@ The reason for this process is to make sure there's only one management group hi
 directory. The single hierarchy within the directory allows administrative customers to apply global
 access and policies that other customers within the directory can't bypass. Anything assigned on the
 root will apply to the entire hierarchy, which includes all management groups, subscriptions,
-resource groups, and resources within that Azure AD Tenant.
-
-## Trouble seeing all subscriptions
-
-A few directories that started using management groups early in the preview before June 25 2018
-could see an issue where not all the subscriptions were within the hierarchy. The process to have
-all subscriptions in the hierarchy was put in place after a role or policy assignment was done on
-the root management group in the directory.
-
-### How to resolve the issue
-
-There are two options you can do to resolve this issue.
-
-- Remove all Role and Policy assignments from the root management group
-  - By removing any policy and role assignments from the root management group, the service
-    backfills all subscriptions into the hierarchy the next overnight cycle. This process is so
-    there's no accidental access given or policy assignment to all of the tenants subscriptions.
-  - The best way to do this process without impacting your services is to apply the role or policy
-    assignments one level below the Root management group. Then you can remove all assignments from
-    the root scope.
-- Call the API directly to start the backfill process
-  - Any customer in the directory can call the _TenantBackfillStatusRequest_ or
-    _StartTenantBackfillRequest_ APIs. When the StartTenantBackfillRequest API is called, it kicks
-    off the initial setup process of moving all the subscriptions into the hierarchy. This process
-    also starts the enforcement of all new subscription to be a child of the root management group.
-    This process can be done without changing any assignments on the root level. By calling the API,
-    you're saying it's okay that any policy or access assignment on the root can be applied to all
-    subscriptions.
-
-If you have questions on this backfill process, contact: `managementgroups@microsoft.com`
+resource groups, and resources within that Azure AD tenant.
 
 ## Management group access
 
@@ -140,7 +107,7 @@ Azure management groups support
 resource accesses and role definitions. These permissions are inherited to child resources that
 exist in the hierarchy. Any Azure role can be assigned to a management group that will inherit down
 the hierarchy to the resources. For example, the Azure role VM contributor can be assigned to a
-management group. This role has no action on the management group, but will inherit to all VMs under
+management group. This role has no action on the management group but will inherit to all VMs under
 that management group.
 
 The following chart shows the list of roles and the supported actions on management groups.
@@ -155,24 +122,26 @@ The following chart shows the list of roles and the supported actions on managem
 |Resource Policy Contributor |        |        |          |        |               | X             |       |
 |User Access Administrator   |        |        |          |        | X             | X             |       |
 
-\*: MG Contributor and MG Reader only allow users to do those actions on the management group scope.
-\*\*: Role Assignments on the Root management group aren't required to move a subscription or
-management group to and from it. See [Manage your resources with management groups](manage.md) for
+\*: The **Management Group Contributor** and **Management Group Reader** roles allow users to perform those actions only on the management group scope.
+
+\*\*: Role assignments on the root management group aren't required to move a subscription or
+management group to and from it.
+
+See [Manage your resources with management groups](manage.md) for
 details on moving items within the hierarchy.
 
 ## Azure custom role definition and assignment
 
-Azure custom role support for management groups is currently in preview with some
-[limitations](#limitations). You can define the management group scope in the Role Definition's
-assignable scope. That Azure custom role will then be available for assignment on that management
-group and any management group, subscription, resource group, or resource under it. This custom role
-will inherit down the hierarchy like any built-in role.
+You can define a management group as an assignable scope in an Azure custom role definition.
+The Azure custom role will then be available for assignment on that management
+group and any management group, subscription, resource group, or resource under it. The custom role
+will inherit down the hierarchy like any built-in role. For information about the limitations with custom roles and management groups, see [Limitations](#limitations).
 
 ### Example definition
 
 [Defining and creating a custom role](../../role-based-access-control/custom-roles.md) doesn't
 change with the inclusion of management groups. Use the full path to define the management group
-**/providers/Microsoft.Management/managementgroups/{groupId}**.
+**/providers/Microsoft.Management/managementgroups/{_groupId_}**.
 
 Use the management group's ID and not the management group's display name. This common error happens
 since both are custom-defined fields when creating a management group.
@@ -217,26 +186,26 @@ when trying to separate the assignment from its definition.
 
 For example, let's look at a small section of a hierarchy for a visual.
 
-:::image type="complex" source="./media/subtree.png" alt-text="Diagram of a subset of the sample management group hierarchy." border="false":::
-   The diagram focuses on the root management group with child I T and Marketing management groups. The I T management group has a single child management group named Production while the Marketing management group has two Free Trial child subscriptions.
+:::image type="complex" source="../media/mg-org-sub.png" alt-text="Diagram of a subset of the sample management group hierarchy." border="false":::
+   The diagram focuses on the root management group with child Landing zones and Sandbox management groups. The Landing zones management group has two child management groups named Corp and Online while the Sandbox management group has two child subscriptions.
 :::image-end:::
 
-Let's say there's a custom role defined on the Marketing management group. That custom role is then
-assigned on the two free trial subscriptions.
+Let's say there's a custom role defined on the Sandbox management group. That custom role is then
+assigned on the two Sandbox subscriptions.
 
-If we try to move one of those subscriptions to be a child of the Production management group, this
-move would break the path from subscription role assignment to the Marketing management group role
+If we try to move one of those subscriptions to be a child of the Corp management group, this
+move would break the path from subscription role assignment to the Sandbox management group role
 definition. In this scenario, you'll receive an error saying the move isn't allowed since it will
 break this relationship.
 
 There are a couple different options to fix this scenario:
 - Remove the role assignment from the subscription before moving the subscription to a new parent
   MG.
-- Add the subscription to the Role Definition's assignable scope.
+- Add the subscription to the role definition's assignable scope.
 - Change the assignable scope within the role definition. In the above example, you can update the
-  assignable scopes from Marketing to Root Management Group so that the definition can be reached by
+  assignable scopes from Sandbox to the root management group so that the definition can be reached by
   both branches of the hierarchy.
-- Create another Custom Role that is defined in the other branch. This new role requires the role
+- Create another custom role that is defined in the other branch. This new role requires the role
   assignment to be changed on the subscription also.
 
 ### Limitations
@@ -251,18 +220,9 @@ There are limitations that exist when using custom roles on management groups.
   restriction is in place as there's a latency issue with updating the data plane resource
   providers. This latency issue is being worked on and these actions will be disabled from the role
   definition to reduce any risks.
-- The Azure Resource Manager doesn't validate the management group's existence in the role
+- Azure Resource Manager doesn't validate the management group's existence in the role
   definition's assignable scope. If there's a typo or an incorrect management group ID listed, the
   role definition is still created.
-- Role assignment of a role with _dataActions_ isn't supported. Create the role assignment at the
-  subscription scope instead.
-
-> [!IMPORTANT]
-> Adding a management group to `AssignableScopes` is currently in preview. This preview version is
-> provided without a service-level agreement, and it's not recommended for production workloads.
-> Certain features might not be supported or might have constrained capabilities. For more
-> information, see
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Moving management groups and subscriptions
 
@@ -271,42 +231,45 @@ need to be evaluated as true.
 
 If you're doing the move action, you need:
 
-- Management group write and Role Assignment write permissions on the child subscription or
+- Management group write and role assignment write permissions on the child subscription or
   management group.
-  - Built-in role example **Owner**
+  - Built-in role example: **Owner**
 - Management group write access on the target parent management group.
   - Built-in role example: **Owner**, **Contributor**, **Management Group Contributor**
 - Management group write access on the existing parent management group.
   - Built-in role example: **Owner**, **Contributor**, **Management Group Contributor**
 
-**Exception**: If the target or the existing parent management group is the Root management group,
-the permissions requirements don't apply. Since the Root management group is the default landing
+**Exception**: If the target or the existing parent management group is the root management group,
+the permissions requirements don't apply. Since the root management group is the default landing
 spot for all new management groups and subscriptions, you don't need permissions on it to move an
 item.
 
-If the Owner role on the subscription is inherited from the current management group, your move
+If the **Owner** role on the subscription is inherited from the current management group, your move
 targets are limited. You can only move the subscription to another management group where you have
-the Owner role. You can't move it to a management group where you're a contributor because you would
-lose ownership of the subscription. If you're directly assigned to the Owner role for the
+the **Owner** role. You can't move it to a management group where you're a **Contributor** because you would
+lose ownership of the subscription. If you're directly assigned to the **Owner** role for the
 subscription (not inherited from the management group), you can move it to any management group
-where you're a contributor.
+where you're assigned the **Contributor** role.
 
 > [!IMPORTANT]
 > Azure Resource Manager caches management group hierarchy details for up to 30 minutes.
-> As a result, moving a management group may not immediately be reflected in the Azure portal. 
+> As a result, moving a management group may not immediately be reflected in the Azure portal.
 
 ## Audit management groups using activity logs
 
 Management groups are supported within
-[Azure Activity Log](../../azure-monitor/essentials/platform-logs-overview.md). You can search all
+[Azure Activity log](../../azure-monitor/essentials/platform-logs-overview.md). You can search all
 events that happen to a management group in the same central location as other Azure resources. For
-example, you can see all Role Assignments or Policy Assignment changes made to a particular
+example, you can see all role assignments or policy assignment changes made to a particular
 management group.
 
 :::image type="content" source="./media/al-mg.png" alt-text="Screenshot of Activity Logs and operations related to the selected management group." border="false":::
 
-When looking to query on Management Groups outside of the Azure portal, the target scope for
-management groups looks like **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**.
+When looking to query on management groups outside the Azure portal, the target scope for
+management groups looks like **"/providers/Microsoft.Management/managementGroups/{_management-group-id_}"**.
+
+> [!NOTE]
+> Using the Azure Resource Manager REST API, you can enable diagnostic settings on a management group to send related Azure Activity log entries to a Log Analytics workspace, Azure Storage, or Azure Event Hub. For more information, see [Management Group Diagnostic Settings - Create Or Update](/rest/api/monitor/management-group-diagnostic-settings/create-or-update).
 
 ## Next steps
 

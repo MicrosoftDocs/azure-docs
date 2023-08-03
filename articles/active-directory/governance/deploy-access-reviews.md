@@ -1,18 +1,18 @@
 ---
-title: Plan an Azure Active Directory access reviews deployment
+title: Plan a Microsoft Entra access reviews deployment
 description: Planning guide for a successful access reviews deployment.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
-manager: karenhoran
+author: owinfreyATL
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 04/16/2021
-ms.author: ajburnle
+ms.date: 06/28/2023
+ms.author: owinfrey
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 
@@ -21,9 +21,9 @@ ms.collection: M365-identity-device-management
 
 ---
 
-# Plan an Azure Active Directory access reviews deployment
+# Plan a Microsoft Entra access reviews deployment
 
-[Azure Active Directory (Azure AD) access reviews](access-reviews-overview.md) help your organization keep the network more secure by managing its [resource access lifecycle](identity-governance-overview.md). With access reviews, you can:
+[Microsoft Entra access reviews](access-reviews-overview.md) help your organization keep the network more secure by managing its [resource access lifecycle](identity-governance-overview.md). With access reviews, you can:
 
 * Schedule regular reviews or do ad-hoc reviews to see who has access to specific resources, such as applications and groups.
 * Track reviews for insights, compliance, or policy reasons.
@@ -33,7 +33,7 @@ ms.collection: M365-identity-device-management
 
   ![Diagram that shows the access reviews flow.](./media/deploy-access-review/1-planning-review.png)
 
-Access reviews are an [Azure AD Identity Governance](identity-governance-overview.md) capability. The other capabilities are [entitlement management](entitlement-management-overview.md), [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md), and [terms of use](../conditional-access/terms-of-use.md). Together, they help you address these four questions:
+Access reviews are an [Microsoft Entra Identity Governance](identity-governance-overview.md) capability. The other capabilities are [entitlement management](entitlement-management-overview.md), [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md), and [terms of use](../conditional-access/terms-of-use.md). Together, they help you address these four questions:
 
 * Which users should have access to which resources?
 * What are those users doing with that access?
@@ -47,7 +47,7 @@ Planning your access reviews deployment is essential to make sure you achieve yo
 The key benefits of enabling access reviews are:
 
 * **Control collaboration**: Access reviews allow you to manage access to all the resources your users need. When users share and collaborate, you can be assured that the information is among authorized users only.
-* **Manage risk**: Access reviews provide you a way to review access to data and applications, which lowers the risk of data leakage and data spill. You gain the capability to regularly review external partners' access to corporate resources.
+* **Manage risk**: Access reviews provide you with a way to review access to data and applications, which lowers the risk of data leakage and data spill. You gain the capability to regularly review external partners' access to corporate resources.
 * **Address compliance and governance**: With access reviews, you can govern and recertify the access lifecycle to groups, apps, and sites. You can control and track reviews for compliance or risk-sensitive applications specific to your organization.
 * **Reduce cost**: Access reviews are built in the cloud and natively work with cloud resources such as groups, applications, and access packages. Using access reviews is less costly than building your own tools or otherwise upgrading your on-premises tool set.
 
@@ -63,9 +63,10 @@ The following videos help you learn about access reviews:
 
 ### Licenses
 
-You need a valid Azure AD Premium (P2) license for each person, other than Global administrators or User administrators, who will create or do access reviews. For more information, see [Access reviews license requirements](access-reviews-overview.md).
+[!INCLUDE [active-directory-p2-governance-license.md](../../../includes/active-directory-p2-governance-license.md)]
 
-You might also need other Identity Governance features, such as [entitlement lifecycle management](entitlement-management-overview.md) or PIM. In that case, you might also need related licenses. For more information, see [Azure Active Directory pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+>[!NOTE]
+>Creating a review on inactive users and with [user-to-group affiliation](review-recommendations-access-reviews.md#user-to-group-affiliation) recommendations requires a Microsoft Entra ID Governance license.
 
 ## Plan the access reviews deployment project
 
@@ -73,7 +74,7 @@ Consider your organizational needs to determine the strategy for deploying acces
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that project roles are clear.
+When technology projects fail, they typically do so because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/deployment-plans.md) and that project roles are clear.
 
 For access reviews, you'll likely include representatives from the following teams within your organization:
 
@@ -111,11 +112,11 @@ Communication is critical to the success of any new business process. Proactivel
 
 Access reviews support shifting responsibility of reviewing and acting on continued access to business owners. Decoupling access decisions from the IT department drives more accurate access decisions. This shift is a cultural change in the resource owner's accountability and responsibility. Proactively communicate this change and ensure resource owners are trained and able to use the insights to make good decisions.
 
-The IT department will want to stay in control for all infrastructure-related access decisions and privileged role assignments.
+The IT department wants to stay in control for all infrastructure-related access decisions and privileged role assignments.
 
 #### Customize email communication
 
-When you schedule a review, you nominate users who will do this review. These reviewers then receive an email notification of new reviews assigned to them and reminders before a review assigned to them expires.
+When you schedule a review, you nominate users who do this review. These reviewers then receive an email notification of new reviews assigned to them and reminders before a review assigned to them expires.
 
 The email sent to reviewers can be customized to include a short message that encourages them to act on the review. Use the extra text to:
 
@@ -137,7 +138,7 @@ In your pilot, we recommend that you:
 * Document any access removed as a part of the pilot in case you need to quickly restore it.
 * Monitor audit logs to ensure all events are properly audited.
 
-For more information, see [Best practices for a pilot](../fundamentals/active-directory-deployment-plans.md).
+For more information, see [Best practices for a pilot](../fundamentals/deployment-plans.md).
 
 ## Introduction to access reviews
 
@@ -160,7 +161,7 @@ The administrative role required to create, manage, or read an access review dep
 
 | Resource type| Create and manage access reviews (creators)| Read access review results |
 | - | - | -|
-| Group or application| Global administrator <p>User administrator<p>Identity Governance administrator<p>Privileged Role administrator (only does reviews for Azure AD role-assignable groups)<p>Group owner ([if enabled by an admin]( create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups-preview))| Global administrator<p>Global reader<p>User administrator<p>Identity Governance administrator<p>Privileged Role administrator<p>Security reader<p>Group owner ([if enabled by an admin]( create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups-preview)) |
+| Group or application| Global administrator <p>User administrator<p>Identity Governance administrator<p>Privileged Role administrator (only does reviews for Azure AD role-assignable groups)<p>Group owner ([if enabled by an admin]( create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups))| Global administrator<p>Global reader<p>User administrator<p>Identity Governance administrator<p>Privileged Role administrator<p>Security reader<p>Group owner ([if enabled by an admin]( create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups)) |
 |Azure AD roles| Global administrator <p>Privileged Role administrator|  Global administrator<p>Global reader<p>User administrator<p>Privileged Role administrator<p> <p>Security reader |
 | Azure resource roles| User Access Administrator (for the resource)<p>Resource owner| User Access Administrator (for the resource)<p>Resource owner<p>Reader (for the resource) |
 | Access package| Global administrator<p>User administrator<p>Identity Governance administrator<p>Catalog owner (for the access package)<p>Access package manager (for the access package)| Global administrator<p>Global reader<p>User administrator<p>Identity Governance administrator<p>Catalog owner (for the access package)<p>Access package manager (for the access package)<p>Security reader  |
@@ -180,7 +181,7 @@ When you create an access review, administrators can choose one or more reviewer
 
 ### Components of an access review
 
-Before you implement your access reviews, plan the types of reviews relevant to your organization. To do so, you'll need to make business decisions about what you want to review and the actions to take based on those reviews.
+Before you implement your access reviews, plan the types of reviews relevant to your organization. To do so, you need to make business decisions about what you want to review and the actions to take based on those reviews.
 
 To create an access review policy, you must have the following information:
 
@@ -195,7 +196,7 @@ To create an access review policy, you must have the following information:
 * What automatic actions should be enforced based on the review?
    * What happens if the reviewer doesn't respond in time?
 
-* What manual actions will be taken as a result based on the review?
+* What manual actions are taken as a result based on the review?
 * What communications should be sent based on the actions taken?
 
 #### Example access review plan
@@ -248,7 +249,7 @@ When you create an access review for groups or applications, you can choose to l
 
 [Access packages](entitlement-management-overview.md) can vastly simplify your governance and access review strategy. An access package is a bundle of all the resources with the access a user needs to work on a project or do their task. For example, you might want to create an access package that includes all the applications that developers in your organization need, or all applications to which external users should have access. An administrator or delegated access package manager then groups the resources (groups or apps) and the roles the users need for those resources.
 
-When you [create an access package](entitlement-management-access-package-create.md), you can create one or more access policies that set conditions for which users can request an access package, what the approval process looks like, and how often a person would have to re-request access. Access reviews are configured while you create or edit an access package policy.
+When you [create an access package](entitlement-management-access-package-create.md), you can create one or more access package policies that set conditions for which users can request an access package, what the approval process looks like, and how often a person would have to re-request access or have their access reviewed. Access reviews are configured while you create or edit those access package policies.
 
 Select the **Lifecycle** tab and scroll down to access reviews.
 
@@ -276,7 +277,7 @@ Group owners review membership because they're best qualified to know who needs 
 
    For example, Microsoft Teams uses Microsoft 365 Groups as the underlying authorization model to grant users access to resources that are in SharePoint, Exchange, OneNote, or other Microsoft 365 services. The creator of the team automatically becomes an owner and should be responsible for attesting to the membership of that group.
 
-* Groups created manually in the Azure AD portal or via scripting through Microsoft Graph might not necessarily have owners defined. Define them either through the Azure AD portal in the group's **Owners** section or via Microsoft Graph.
+* Groups created manually in the Azure portal or via scripting through Microsoft Graph might not necessarily have owners defined. Define them either through the Azure portal in the group's **Owners** section or via Microsoft Graph.
 
 * Groups that are synchronized from on-premises Active Directory can't have an owner in Azure AD. When you create an access review for them, select individuals who are best suited to decide on membership in them.
 
@@ -285,11 +286,11 @@ Group owners review membership because they're best qualified to know who needs 
 
 ### Review membership of exclusion groups in Conditional Access policies
 
-To learn how to review membership of exclusion groups, see [Use Azure AD access reviews to manage users excluded from Conditional Access policies](conditional-access-exclusion.md).
+To learn how to review membership of exclusion groups, see [Use Microsoft Entra access reviews to manage users excluded from Conditional Access policies](conditional-access-exclusion.md).
 
 ### Review guest users' group memberships
 
-To learn how to review guest users' access to group memberships, see [Manage guest access with Azure AD access reviews](./manage-guest-access-with-access-reviews.md).
+To learn how to review guest users' access to group memberships, see [Manage guest access with Microsoft Entra access reviews](./manage-guest-access-with-access-reviews.md).
 
 ### Review access to on-premises groups
 
@@ -319,7 +320,9 @@ To create access reviews for an application, set the **User assignment required?
 
  ![Screenshot that shows planning app assignments.](./media/deploy-access-review/6-plan-applications-assignment-required.png)
 
-Then [assign the users and groups](../manage-apps/assign-user-or-group-access-portal.md) that you want to have access.
+Then [assign the users and groups](../manage-apps/assign-user-or-group-access-portal.md) whose access you want to have reviewed.
+
+Read more about how to [prepare for an access review of users' access to an application](access-reviews-application-preparation.md).
 
 ### Reviewers for an application
 
@@ -327,7 +330,7 @@ Access reviews can be for the members of a group or for users who were assigned 
 
 ## Plan review of Azure AD and Azure resource roles
 
-[Privileged Identity Management](../privileged-identity-management/pim-configure.md) simplifies how enterprises manage privileged access to resources in Azure AD. Using PIM keeps the list of privileged roles in [Azure AD](../roles/permissions-reference.md) and [Azure resources](../../role-based-access-control/built-in-roles.md) much smaller. It also increases the overall security of the directory.
+[Privileged Identity Management](../privileged-identity-management/pim-configure.md) simplifies how enterprises manage privileged access to resources in Azure AD. Using PIM keeps the list of privileged roles in [Azure AD](../roles/permissions-reference.md) and [Azure resources](../../role-based-access-control/built-in-roles.md) smaller. It also increases the overall security of the directory.
 
 Access reviews allow reviewers to attest whether users still need to be in a role. Just like access reviews for access packages, reviews for Azure AD roles and Azure resources are integrated into the PIM admin user experience.
 
@@ -440,5 +443,5 @@ For more advanced queries and analysis of access reviews, and to track changes a
 
 Learn about the following related technologies:
 
-* [What is Azure AD entitlement management?](entitlement-management-overview.md)
-* [What is Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
+* [What is Microsoft entitlement management?](entitlement-management-overview.md)
+* [What is Microsoft Privileged Identity Management?](../privileged-identity-management/pim-configure.md)

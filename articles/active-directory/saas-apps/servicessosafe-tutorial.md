@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SoSafe | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SoSafe'
 description: Learn how to configure single sign-on between Azure Active Directory and SoSafe.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/02/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 
 ---
@@ -50,6 +50,8 @@ To configure the integration of SoSafe into Azure AD, you need to add SoSafe fro
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type SoSafe in the search box.
 1. Select SoSafe from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for SoSafe
 
@@ -126,7 +128,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. Paste the value of Tenant ID value in **Azure Tenant ID** textbox from Azure portal.
 
-    b. Open the downloaded **Cerificate(Base64)** from the Azure portal into Notepad and paste the content into the **Certificate** textbox.
+    b. Open the downloaded **Certificate(Base64)** from the Azure portal into Notepad and paste the content into the **Certificate** textbox.
 
     c. In the **Login URL** box, paste the **Login URL** value that you copied from the Azure portal.
 

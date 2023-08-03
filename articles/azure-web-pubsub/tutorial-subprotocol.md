@@ -4,13 +4,14 @@ description: A tutorial to walk through how to use Azure Web PubSub service and 
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
+ms.custom: devx-track-azurecli
 ms.topic: tutorial 
 ms.date: 11/01/2021
 ---
 
 # Tutorial: Publish and subscribe messages between WebSocket clients using subprotocol
 
-In [Build a chat app tutorial](./tutorial-build-chat.md), you've learned how to use WebSocket APIs to send and receive data with Azure Web PubSub. You can see there's no protocol needed when client is communicating with the service. For example, you can use `WebSocket.send()` to send any data and server will receive the data as is. This is easy to use, but the functionality is also limited. You can't, for example, specify the event name when sending the event to server, or publish message to other clients instead of sending it to server. In this tutorial, you'll learn how to use subprotocol to extend the functionality of client.
+In [Build a chat app tutorial](./tutorial-build-chat.md), you've learned how to use WebSocket APIs to send and receive data with Azure Web PubSub. You can see there's no protocol needed when client is communicating with the service. For example, you can use `WebSocket.send()` to send any data and server will receive the data as is. This is easy to use, but the functionality is also limited. You can't, for example, specify the event name when sending the event to your server, or publish message to other clients instead of sending it to your server. In this tutorial, you'll learn how to use subprotocol to extend the functionality of client.
 
 In this tutorial, you learn how to:
 
@@ -21,7 +22,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This setup requires version 2.22.0 or higher of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -64,7 +65,7 @@ Copy the fetched **ConnectionString** and it will be used later in this tutorial
 
 ## Using a subprotocol
 
-The client can start a WebSocket connection using a specific [subprotocol](https://datatracker.ietf.org/doc/html/rfc6455#section-1.9). Azure Web PubSub service supports a subprotocol called `json.webpubsub.azure.v1` to empower the clients to do publish/subscribe directly instead of a round trip to the upstream server. Check [Azure Web PubSub supported JSON WebSocket subprotocol](./reference-json-webpubsub-subprotocol.md) for details about the subprotocol.
+The client can start a WebSocket connection using a specific [subprotocol](https://datatracker.ietf.org/doc/html/rfc6455#section-1.9). Azure Web PubSub service supports a subprotocol called `json.webpubsub.azure.v1` to empower the clients to do publish/subscribe directly through the Web PubSub service instead of a round trip to the upstream server. Check [Azure Web PubSub supported JSON WebSocket subprotocol](./reference-json-webpubsub-subprotocol.md) for details about the subprotocol.
 
 > If you use other protocol names, they will be ignored by the service and passthrough to server in the connect event handler, so you can build your own protocols.
 
@@ -440,7 +441,7 @@ Also note that, instead of a plain text, client now receives a JSON message that
 
 ## Publish messages from client
 
-In the [Build a chat app](./tutorial-build-chat.md) tutorial, when client sends a message through WebSocket connection, it will trigger a user event at the server side. With subprotocol, client will have more functionalities by sending a JSON message. For example, you can publish message directly from client to other clients.
+In the [Build a chat app](./tutorial-build-chat.md) tutorial, when client sends a message through WebSocket connection to the Web PubSub service, the service triggers a user event at your server side. With subprotocol, client will have more functionalities by sending a JSON message. For example, you can publish messages directly from client through the Web PubSub service to other clients.
 
 This will be useful if you want to stream a large amount of data to other clients in real time. Let's use this feature to build a log streaming application, which can stream console logs to browser in real time.
 
@@ -514,7 +515,7 @@ This will be useful if you want to stream a large amount of data to other client
     
     ```javascript
     const WebSocket = require('ws');
-    const fetch = require('node-fetch');
+    const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
     async function main() {
       let res = await fetch(`http://localhost:8080/negotiate`);

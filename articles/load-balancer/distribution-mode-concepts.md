@@ -1,11 +1,11 @@
 ---
 title: Azure Load Balancer distribution modes
 description: Get started learning about the different distribution modes of Azure Load Balancer.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
-ms.topic: article 
-ms.date: 12/27/2021
+ms.topic: conceptual 
+ms.date: 05/30/2023
 ms.custom: template-concept 
 #Customer intent: As a administrator, I want to learn about the different distribution modes of Azure Load Balancer so that I can configure the distribution mode for my application.
 ---
@@ -17,17 +17,17 @@ Azure Load Balancer supports the following distribution modes for routing connec
 | Distribution mode | Hash based | Session persistence: Client IP | Session persistence: Client IP and protocol |
 | --- | --- | --- | --- |
 | Overview | Traffic from the same client IP routed to any healthy instance in the backend pool | Traffic from the same client IP is routed to the same backend instance | Traffic from the same client IP and protocol is routed to the same backend instance |
-| Tuples | 5 tuple | 2 tuple | 3 tuple |
+| Tuples | five-tuple | two-tuple | three-tuple |
 | Azure portal configuration | Session persistence: **None** | Session persistence: **Client IP** | Session persistence: **Client IP and protocol** |
 | [REST API](/rest/api/load-balancer/load-balancers/create-or-update#loaddistribution) |  ```"loadDistribution":"Default"```| ```"loadDistribution":SourceIP```    | ```"loadDistribution":SourceIPProtocol```    |
 
-There is no downtime when switching from one distribution mode to another on a Load Balancer.
+There's no downtime when switching from one distribution mode to another on a load balancer.
 
 ## Hash based
 
-Azure Load Balancer uses a five tuple hash based distribution mode by default.  
+Azure Load Balancer uses a five-tuple hash based distribution mode by default.  
 
-The five tuple is consists of:
+The five-tuple consists of:
 * **Source IP**
 * **Source port**
 * **Destination IP**
@@ -39,19 +39,19 @@ In order to configure hash based distribution, you must select session persisten
 
 ![Hash-based distribution](./media/load-balancer-overview/load-balancer-distribution.png)
 
-*Figure: Default 5 tuple hash based distribution*
+*Figure: Default five-tuple hash based distribution*
 
 
 ## Session persistence 
 
-Session persistence is also known session affinity, source IP affinity, or client IP affinity. This distribution mode uses a two-tuple (source IP and destination IP) or three-tuple (source IP, destination IP, and protocol type) hash to route to backend instances. When using session persistence, connections from the same client will go to the same backend instance within the backend pool.
+Session persistence is also known session affinity, source IP affinity, or client IP affinity. This distribution mode uses a two-tuple (source IP and destination IP) or three-tuple (source IP, destination IP, and protocol type) hash to route to backend instances. When using session persistence, connections from the same client go to the same backend instance within the backend pool.
 
 Session persistence mode has two configuration types:
 
-* **Client IP (2-tuple)** - Specifies that successive requests from the same client IP address will be handled by the same backend instance.
-* **Client IP and protocol (3-tuple)** - Specifies that successive requests from the same client IP address and protocol combination will be handled by the same backend instance.
+* **Client IP (2-tuple)** - Specifies that successive requests from the same client IP address are handled by the same backend instance.
+* **Client IP and protocol (3-tuple)** - Specifies that successive requests from the same client IP address and protocol combination are handled by the same backend instance.
 
-The following figure illustrates a two-tuple configuration. Notice how the two-tuple runs through the load balancer to virtual machine 1 (VM1). VM1 is then backed up by VM2 and VM3.
+The following figure illustrates a two-tuple configuration. Notice how the two-tuple runs through the load balancer to virtual machine 1 (VM1). VM1 is backed up by VM2 and VM3.
 
 ![Two-tuple session affinity distribution mode](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
 
@@ -59,7 +59,7 @@ The following figure illustrates a two-tuple configuration. Notice how the two-t
 
 ## Use cases
 
-Source IP affinity with client IP and protocol (source IP affinity 3-tuple), solves an incompatibility between Azure Load Balancer and Remote Desktop Gateway (RD Gateway). 
+Source IP affinity with client IP and protocol (source IP affinity three-tuple), solves an incompatibility between Azure Load Balancer and Remote Desktop Gateway (RD Gateway). 
 
 Another use case scenario is media upload. The data upload happens through UDP, but the control plane is achieved through TCP:
 

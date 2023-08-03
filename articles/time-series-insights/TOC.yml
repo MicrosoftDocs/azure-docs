@@ -83,6 +83,8 @@
       href: time-series-insights-parameterized-urls.md
 - name: How-to guides
   items:
+  - name: Migrate to Azure Data Explorer
+    href: migration-to-adx.md
   - name: Grant data access
     href: concepts-access-policies.md
   - name: Connect to Event Hubs
@@ -125,6 +127,8 @@
       items:
       - name: How to migrate to new API versions
         href: how-to-api-migration.md
+      - name: How to migrate to Azure Data Explorer
+        href: how-to-tsi-gen2-migration.md
   - name: Azure Time Series Insights Gen1
     items:
     - name: Explore Time Series Insights
@@ -145,11 +149,13 @@
       href: time-series-insights-environment-mitigate-latency.md
     - name: Diagnose and troubleshoot
       href: time-series-insights-diagnose-and-solve-problems.md
+    - name: How to migrate to Azure Data Explorer
+      href: how-to-tsi-gen1-migration.md
 - name: Reference
   items:
   - name: Time Series Insights
     items:
-    - name: Rest APIs Overview
+    - name: REST APIs Overview
       href: /rest/api/time-series-insights/
     - name: Data Access Gen2
       items:
@@ -190,7 +196,7 @@
 - name: Resources
   items:
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/time-series-insights/toc.json&bc=/azure/time-series-insights/breadcrumb/toc.json
+    href: ../iot/iot-support-help.md?toc=/azure/time-series-insights/toc.json&bc=/azure/time-series-insights/breadcrumb/toc.json
   - name: Customer data requests
     href: time-series-insights-customer-data-requests.md
   - name: Developer resources
@@ -216,7 +222,7 @@
     - name: Azure support options
       href: https://azure.microsoft.com/support/options/
     - name: Azure IoT support and help options
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot/iot-support-help.md
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-timeseries-insights
     - name: MSDN forum

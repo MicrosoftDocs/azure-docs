@@ -13,6 +13,8 @@ ms.custom: seodec18
 
 # Tutorial: Set up an Azure Time Series Insights Gen2 environment
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 This tutorial guides you through the process of creating an Azure Time Series Insights Gen2 *pay-as-you-go* (PAYG) environment.
 
 In this tutorial, you learn how to:

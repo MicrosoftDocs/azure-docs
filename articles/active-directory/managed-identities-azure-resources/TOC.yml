@@ -56,6 +56,8 @@
     href: how-to-view-managed-identity-activity.md
 - name: Concepts
   items:
+    - name: Developer introduction and guidelines
+      href: overview-for-developers.md  
     - name: Managed identities and Azure VMs
       href: how-managed-identities-work-vm.md
     - name: Best practice recommendations
@@ -76,6 +78,8 @@
       href: qs-configure-rest-vm.md
     - name: Azure SDKs
       href: qs-configure-sdk-windows-vm.md
+    - name: Using Azure Policy
+      href: how-to-assign-managed-identity-via-azure-policy.md
 
   - name: Configure managed identities on virtual machine scale sets
     items:
@@ -89,6 +93,8 @@
       href: qs-configure-template-windows-vmss.md
     - name: REST
       href: qs-configure-rest-vmss.md
+    - name: Using Azure Policy
+      href: how-to-assign-managed-identity-via-azure-policy.md
 
   - name: Use managed identities on VMs
     items:
@@ -105,10 +111,12 @@
     - name: CLI
       href: howto-assign-access-cli.md
     - name: PowerShell
-      href: howto-assign-access-powershell.md
+      href: howto-assign-access-powershell.md   
 
   - name: Manage user-assigned managed identities
     href: how-manage-user-assigned-managed-identities.md
+  - name: View associated resources for a managed identity
+    href: how-to-view-associated-resources-for-an-identity.md
   - name: View managed identity service principals
     items:
     - name: Portal
@@ -125,6 +133,8 @@
       href: how-to-assign-app-role-managed-identity-cli.md
   - name: View managed identity activity
     href: how-to-view-managed-identity-activity.md
+  - name: Move a managed identity to a new region
+    href: how-to-managed-identity-regional-move.md
 
 - name: Reference
   items:
@@ -137,7 +147,7 @@
   - name: Python
     href: /python/api/overview/azure/identity-readme
   - name: Go
-    href: https://golang.org/doc/
+    href: https://go.dev/doc/
 - name: Resources
   items:
   - name: Frequently asked questions
@@ -147,7 +157,7 @@
   - name: Azure services that support managed identities for Azure resources
     href: managed-identities-status.md
   - name: Azure services that support Azure Active Directory authentication
-    href: services-azure-active-directory-support.md
+    href: services-id-authentication-support.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-managed-identity
   - name: Azure AD Developers forum

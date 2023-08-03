@@ -1,20 +1,17 @@
 ---
-title: Access the Azure Healthcare APIs using REST Client
-description: This article explains how to access the Healthcare APIs using the REST Client extension in VSCode
+title: Access Azure Health Data Services using REST Client
+description: This article explains how to access the Healthcare APIs using the REST Client extension in VS Code
 services: healthcare-apis
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 01/06/2022
-ms.author: ginle
+ms.date: 06/06/2022
+ms.author: kesheth
 ---
 
-# Accessing the Healthcare APIs (preview) using the REST Client Extension in Visual Studio Code
+# Accessing Azure Health Data Services using the REST Client Extension in Visual Studio Code
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-In this article, you will learn how to access the Healthcare APIs using [REST Client extension in Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=humao.rest-client).
+In this article, you'll learn how to access Azure Health Data Services using [REST Client extension in Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=humao.rest-client).
 
 ## Install REST Client extension
 
@@ -24,7 +21,7 @@ Select the Extensions icon on the left side panel of your Visual Studio Code, an
 
 ## Create a `.http` file and define variables
 
-Create a new file in Visual Studio Code. Enter a `GET` request command line in the file, and save it as `test.http`. The file suffix `.http` automatically activates the REST Client environment. Click on `Send Request` to get the metadata. 
+Create a new file in Visual Studio Code. Enter a `GET` request command line in the file, and save it as `test.http`. The file suffix `.http` automatically activates the REST Client environment. Select `Send Request` to get the metadata. 
 
 [ ![Send Request](media/rest-send-request.png) ](media/rest-send-request.png#lightbox)
 
@@ -47,7 +44,7 @@ In your `test.http` file, include the following information obtained from regist
 
 ## Get Azure AD Access Token
 
-After including the information below in your `test.http` file, hit `Send Request`. You will see an HTTP response that contains your access token.
+After including the information below in your `test.http` file, hit `Send Request`. You'll see an HTTP response that contains your access token.
 
 The line starting with `@name` contains a variable that captures the HTTP response containing the access token. The variable, `@token`, is used to store the access token.
 
@@ -56,7 +53,7 @@ The line starting with `@name` contains a variable that captures the HTTP respon
 
 ```
 ### Get access token 
-@name getAADToken 
+# @name getAADToken 
 POST https://login.microsoftonline.com/{{tenantid}}/oauth2/token
 Content-Type: application/x-www-form-urlencoded
 
@@ -70,6 +67,9 @@ grant_type=client_credentials
 ```
 
 [ ![Get access token](media/rest-config.png) ](media/rest-config.png#lightbox)
+
+> [!NOTE] 
+> In the scenarios where the FHIR service audience parameter is not mapped to the FHIR service endpoint url. The resource parameter value should be mapped to Audience value under FHIR Service Authentication blade.
 
 ## `GET` FHIR Patient data
 
@@ -95,8 +95,19 @@ You can run PowerShell or CLI scripts within Visual Studio Code. Press `CTRL` an
 
 ## Troubleshooting
 
-If you are unable to get the metadata, which does not require access token based on the HL7 specification, check that your FHIR server is running properly.
+If you're unable to get the metadata, which doesn't require access token based on the HL7 specification, check that your FHIR server is running properly.
 
-If you are unable to get an access token, make sure that the client application is registered properly and you are using the correct values from the application registration step.
+If you're unable to get an access token, make sure that the client application is registered properly and you're using the correct values from the application registration step.
 
-If you are unable to get data from the FHIR server, make sure that the client application (or the service principal) has been granted access permissions such as "FHIR Data Contributor" to the FHIR server.
+If you're unable to get data from the FHIR server, make sure that the client application (or the service principal) has been granted access permissions such as "FHIR Data Contributor" to the FHIR server.
+
+## Next steps
+
+In this article, you learned how to access Azure Health Data Services data using the using the REST Client extension in Visual Studio Code.
+
+To learn about how to validate FHIR resources against profiles in Azure Health Data Services, see 
+
+>[!div class="nextstepaction"]
+>[Validate FHIR resources against profiles in Azure Health Data Services](validation-against-profiles.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

@@ -42,7 +42,7 @@ Install-Package Azure.Communication.Identity -Version 1.0.1
 5. With the Communication Services resource procured in pre-requisites, add the connectionstring to the **ChatTeamsInteropQuickStart/MainPage.xaml.cs** file. 
 
 ``` csharp
-//ACS resource connection string i.e = "endpoint=https://your-resource.communication.azure.net/;accesskey=your-access-key";
+//Azure Communication Services resource connection string i.e = "endpoint=https://your-resource.communication.azure.net/;accesskey=your-access-key";
 private const string connectionString_ = "";
 ```
 
@@ -147,4 +147,5 @@ A Teams meeting link looks like this: `https://teams.microsoft.com/l/meetup-join
 :::image type="content" source="../join-teams-meeting-chat-quickstart-windows.png" alt-text="Screenshot of the completed csharp Application.":::
 
 > [!NOTE] 
-> Currently only sending, receiving, editing messages and sending typing notifications is supported for interoperability scenarios with Teams. Other features like read receipts and Communication Services users adding or removing other users from the Teams meeting are not yet supported.
+> Certain features are currently not supported for interoperability scenarios with Teams. Learn more about the supported features, please see [Teams meeting capabilities for Teams external users](../../../concepts/interop/guest/capabilities.md)
+

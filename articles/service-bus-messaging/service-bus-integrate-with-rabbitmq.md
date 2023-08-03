@@ -5,7 +5,6 @@ author: videlalvaro
 ms.topic: how-to
 ms.date: 11/17/2021
 ms.author: alvidela
-ROBOTS: NOINDEX
 ms.custom: contperf-fy22q2
 ---
 
@@ -103,7 +102,7 @@ In the `Address` field we'll enter the name of your **Azure Service Bus Queue**,
 
 ## Publishing Messages from RabbitMQ to Azure Service Bus
 
-In the RabbitMQ Management interface we can go to `Queues`, select the `azure` queue, and search for the `Publish message` panel. There a form will appear that will let you publish messages directly to your queue. For our example we're just going to add `fist message` as the `Payload` and hit `Publish Message`:
+In the RabbitMQ Management interface we can go to `Queues`, select the `azure` queue, and search for the `Publish message` panel. There a form will appear that will let you publish messages directly to your queue. For our example we're just going to add `first message` as the `Payload` and hit `Publish Message`:
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/first-message.png" alt-text="Publish first message":::
 

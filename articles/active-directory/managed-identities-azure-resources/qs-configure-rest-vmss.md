@@ -1,17 +1,17 @@
 ---
-title: Configure managed identities on Azure virtual machine scale set using REST - Azure AD
+title: Configure managed identities on Azure virtual machine scale set using REST
 description: Step-by-step instructions for configuring a system and user-assigned managed identities on an Azure virtual machine scale set using CURL to make REST API calls.
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2022
+ms.date: 05/25/2023
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: mode-api, devx-track-azurecli 
@@ -19,8 +19,6 @@ ms.devlang: azurecli
 ---
 
 # Configure managed identities for Azure resources on a virtual machine scale set using REST API calls
-
-[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Managed identities for Azure resources provide Azure services with an automatically managed system identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
@@ -46,7 +44,7 @@ If you don't already have an Azure account, [sign up for a free account](https:/
   > [!NOTE]
   > No additional Azure AD directory role assignments required.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## System-assigned managed identity
 
@@ -56,13 +54,13 @@ In this section, you learn how to enable and disable system-assigned managed ide
 
 To create a virtual machine scale set with system-assigned managed identity enabled, you need create a virtual machine scale set and retrieve an access token to use CURL to call the Resource Manager endpoint with the system-assigned managed identity type value.
 
-1. Create a [resource group](../../azure-resource-manager/management/overview.md#terminology) for containment and deployment of your virtual machine scale set and its related resources, using [az group create](/cli/azure/group/#az_group_create). You can skip this step if you already have resource group you would like to use instead:
+1. Create a [resource group](../../azure-resource-manager/management/overview.md#terminology) for containment and deployment of your virtual machine scale set and its related resources, using [az group create](/cli/azure/group/#az-group-create). You can skip this step if you already have resource group you would like to use instead:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-2. Create a [network interface](/cli/azure/network/nic#az_network_nic_create) for your virtual machine scale set:
+2. Create a [network interface](/cli/azure/network/nic#az-network-nic-create) for your virtual machine scale set:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
@@ -321,7 +319,7 @@ In this section, you learn how to add and remove user-assigned managed identity 
    az account get-access-token
    ```
 
-2. Create a [network interface](/cli/azure/network/nic#az_network_nic_create) for your virtual machine scale set:
+2. Create a [network interface](/cli/azure/network/nic#az-network-nic-create) for your virtual machine scale set:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic

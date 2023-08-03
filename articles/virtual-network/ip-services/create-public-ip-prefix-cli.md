@@ -21,7 +21,7 @@ When you create a public IP address resource, you can assign a static public IP 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -29,7 +29,7 @@ When you create a public IP address resource, you can assign a static public IP 
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with [az group create](/cli/azure/group#az_group_create) named **QuickStartCreateIPPrefix-rg** in the **eastus2** location.
+Create a resource group with [az group create](/cli/azure/group#az-group-create) named **QuickStartCreateIPPrefix-rg** in the **eastus2** location.
 
 ```azurecli-interactive
   az group create \
@@ -49,7 +49,7 @@ The prefixes in the examples are:
 
 For more information on available prefix sizes, see [Prefix sizes](public-ip-address-prefix.md#prefix-sizes).
 
-Create a public IP prefix with [az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_create) named **myPublicIpPrefix** in the **eastus2** location.
+Create a public IP prefix with [az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create) named **myPublicIpPrefix** in the **eastus2** location.
 
 ## IPv4
 
@@ -103,7 +103,20 @@ The removal of the **`--zone`** parameter is the default selection for standard 
 
 ---
 
+# [**Routing Preference Interent IPv4 prefix**](#tab/ipv4-routing-pref)
 
+To create a IPv4 public IP prefix with routing preference Internet, enter **RoutingPreference=Internet** in the **`--ip-tags`** parameter.
+
+```azurecli-interactive
+  az network public-ip prefix create \
+    --length 28 \
+    --name myPublicIpPrefix-rpinternet \
+    --resource-group QuickStartCreateIPPrefix-rg \
+    --location eastus2 \
+    --version IPv4
+    --iptags 'RoutingPreference=Internet'
+```
+---
 
 ## IPv6
 
@@ -161,7 +174,7 @@ The removal of the **`--zone`** parameter is the default selection for standard 
 
 Once you create a prefix, you must create static IP addresses from the prefix. In this section, you'll create a static IP address from the prefix you created earlier.
 
-Create a public IP address with [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) in the **myPublicIpPrefix** prefix.
+Create a public IP address with [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) in the **myPublicIpPrefix** prefix.
 
 # [**IPv4 address**](#tab/ipv4-address)
 
@@ -200,7 +213,7 @@ To create a IPv6 public IP prefix, enter **IPv6** in the **`--version`** paramet
 
 In this section, you'll learn how to delete a prefix.
 
-To delete a public IP prefix, use [az network public-ip prefix delete](/cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_delete).
+To delete a public IP prefix, use [az network public-ip prefix delete](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete).
 
 ```azurecli-interactive
   az network public-ip prefix delete \
@@ -216,7 +229,7 @@ To delete a public IP prefix, use [az network public-ip prefix delete](/cli/azur
 In this article, you created a public IP prefix and a public IP from that prefix. 
 
 
-When you're done with the public IP prefix, delete the resource group and all of the resources it contains with [az group delete](/cli/azure/group#az_group_delete).
+When you're done with the public IP prefix, delete the resource group and all of the resources it contains with [az group delete](/cli/azure/group#az-group-delete).
 
 ```azurecli-interactive
   az group delete \

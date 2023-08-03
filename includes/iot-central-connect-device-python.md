@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 03/31/2021
 ---
 
-[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples/pnp)
+[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/v2/samples/pnp)
 
 ## Prerequisites
 
@@ -16,17 +16,19 @@ To complete the steps in this article, you need the following resources:
 
 - A development machine with [Python](https://www.python.org/) version 3.7 or later installed. You can run `python --version` at the command line to check your version. Python is available for a wide variety of operating systems. The instructions in this tutorial assume you're running the **python** command at the Windows command prompt.
 
-- A local copy of the [Microsoft Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python) GitHub repository that contains the sample code. Use this link to download a copy of the repository: [Download ZIP](https://github.com/Azure/azure-iot-sdk-python/archive/main.zip). Then unzip the file to a suitable location on your local machine.
+- A local copy of the [Microsoft Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python/tree/v2/) GitHub repository that contains the sample code. Use this link to download a copy of the repository: [Download ZIP](https://github.com/Azure/azure-iot-sdk-python/archive/v2.zip). Then unzip the file to a suitable location on your local machine.
 
 ## Review the code
 
-In the copy of the Microsoft Azure IoT SDK for Python you downloaded previously, open the *azure-iot-sdk-python/azure-iot-device/samples/pnp/temp_controller_with_thermostats.py* file in a text editor.
+In the copy of the Microsoft Azure IoT SDK for Python you downloaded previously, open the *azure-iot-sdk-python-2/samples/pnp/temp_controller_with_thermostats.py* file in a text editor.
+
+The sample implements the multiple-component [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) Digital Twin Definition Language model.
 
 When you run the sample to connect to IoT Central, it uses the Device Provisioning Service (DPS) to register the device and generate a connection string. The sample retrieves the DPS connection information it needs from the command-line environment.
 
 The `main` function:
 
-* Uses DPS to provision the device. The provisioning information includes the model ID. IoT Central uses the model ID to identify or generate the device template for this device. To learn more, see [Associate a device with a device template](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
+* Uses DPS to provision the device. The provisioning information includes the model ID. IoT Central uses the model ID to identify or generate the device template for this device. To learn more, see [Assign a device to a device template](../articles/iot-central/core/concepts-device-templates.md#assign-a-device-to-a-device-template).
 * Creates a `Device_client` object and sets the `dtmi:com:example:TemperatureController;2` model ID before it opens the connection.
 * Sends initial property values to IoT Central. It uses the `pnp_helper` to create the patches.
 * Creates listeners for the `getMaxMinReport` and `reboot` commands. Each thermostat component has its own `getMaxMinReport` command.
@@ -162,7 +164,7 @@ async def main():
     # ...
 ```
 
-The `provision_device` function uses DPS to provision the device and register it with IoT Central. The function includes the device model ID, which IoT Central uses to [associate a device with a device template](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template), in the provisioning payload:
+The `provision_device` function uses DPS to provision the device and register it with IoT Central. The function includes the device model ID, which IoT Central uses to [assign a device to a device template](../articles/iot-central/core/concepts-device-templates.md#assign-a-device-to-a-device-template), in the provisioning payload:
 
 ```python
 async def provision_device(provisioning_host, id_scope, registration_id, symmetric_key, model_id):
@@ -248,7 +250,7 @@ async def send_telemetry_from_temp_controller(device_client, telemetry_msg, comp
 
 ## Run the code
 
-To run the sample application, open a command-line environment and navigate to the folder *azure-iot-sdk-python/azure-iot-device/samples/pnp* folder that contains the *temp_controller_with_thermostats.py* sample file.
+To run the sample application, open a command-line environment and navigate to the folder *azure-iot-sdk-python-2/samples/pnp* folder that contains the *temp_controller_with_thermostats.py* sample file.
 
 [!INCLUDE [iot-central-connection-environment](iot-central-connection-environment.md)]
 

@@ -2,7 +2,7 @@
 title: Azure Analysis Services authentication and user permissions| Microsoft Docs
 description: This article describes how Azure Analysis Services uses Azure Active Directory (Azure AD) for identity management and user authentication.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 02/02/2022
 ms.author: owend
@@ -70,6 +70,10 @@ Roles at this level apply to users or accounts that need to perform tasks that c
  Roles defined for a tabular model are database roles. That is, the roles contain members consisting of Azure AD users and security groups that have specific permissions that define the action those members can take on a model database. A database role is created as a separate object in the database, and applies only to the database in which that role is created.   
   
  By default, when you create a new tabular model project, the model project does not have any roles. Roles can be defined by using the Role Manager dialog box in Visual Studio. When roles are defined during model project design, they are applied only to the model workspace database. When the model is deployed, the same roles are applied to the deployed model. After a model has been deployed, server and database administrators can manage roles and members by using SSMS. To learn more, see [Manage database roles and users](analysis-services-database-users.md).
+  
+## Considerations and limitations
+
+* Azure Analysis Services does not support the use of One-Time Password for B2B users
   
 ## Next steps
 

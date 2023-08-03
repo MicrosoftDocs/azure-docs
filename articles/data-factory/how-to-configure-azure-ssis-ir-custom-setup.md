@@ -4,15 +4,15 @@ description: This article describes how to use the custom setup interface for an
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-author: swinarko
-ms.author: sawinark
+author: chugugrace
+ms.author: chugu
 ms.custom: seo-lt-2019
-ms.date: 02/15/2022
+ms.date: 07/17/2023
 ---
 
 # Customize the setup for an Azure-SSIS Integration Runtime
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 You can customize your Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR) in Azure Data Factory (ADF) or Synapse Pipelines via custom setups. They allow you to add your own steps during the provisioning or reconfiguration of your Azure-SSIS IR. 
 
@@ -53,7 +53,7 @@ To customize your Azure-SSIS IR, you need the following items:
 
 ## Instructions
 
-You can provision or reconfigure your Azure-SSIS IR with custom setups on ADF UI. If you want to do the same using PowerShell, download and install [Azure PowerShell](/powershell/azure/install-az-ps).
+You can provision or reconfigure your Azure-SSIS IR with custom setups on ADF UI. If you want to do the same using PowerShell, download and install [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ### Standard custom setup
 
@@ -136,17 +136,17 @@ If you select the **Install licensed component** type for your express custom se
 
 * If you select the **oh22's SQLPhonetics.NET** component, you can install the [SQLPhonetics.NET](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) data quality/matching component from oh22 on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **1.0.45**.
    
-* If you select the **KingswaySoft's SSIS Integration Toolkit** component, you can install the [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) suite of connectors for CRM/ERP/marketing/collaboration apps, such as Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce Marketing Cloud, etc. from KingswaySoft on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **20.2**.
+* If you select the **KingswaySoft's SSIS Integration Toolkit** component, you can install the [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) suite of connectors for CRM/ERP/marketing/collaboration apps, such as Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce Marketing Cloud, etc. from KingswaySoft on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **21.2**.
 
-* If you select the **KingswaySoft's SSIS Productivity Pack** component, you can install the [SSIS Productivity Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) suite of components from KingswaySoft on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **20.2**.
+* If you select the **KingswaySoft's SSIS Productivity Pack** component, you can install the [SSIS Productivity Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) suite of components from KingswaySoft on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **21.2**.
 
 * If you select the **Theobald Software's Xtract IS** component, you can install the [Xtract IS](https://theobald-software.com/en/xtract-is/) suite of connectors for SAP system (ERP, S/4HANA, BW) from Theobald Software on your Azure-SSIS IR by dragging & dropping/uploading the product license file that you purchased from them into the **License file** box. The current integrated version is **6.5.13.18**.
 
 * If you select the **AecorSoft's Integration Service** component, you can install the [Integration Service](https://www.aecorsoft.com/en/products/integrationservice) suite of connectors for SAP and Salesforce systems from AecorSoft on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **3.0.00**.
 
-* If you select the **CData's SSIS Standard Package** component, you can install the [SSIS Standard Package](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#standard) suite of most popular components from CData, such as Microsoft SharePoint connectors, on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **19.7354**.
+* If you select the **CData's SSIS Standard Package** component, you can install the [SSIS Standard Package](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#standard) suite of most popular components from CData, such as Microsoft SharePoint connectors, on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **21.7867**.
 
-* If you select the **CData's SSIS Extended Package** component, you can install the [SSIS Extended Package](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#extended) suite of all components from CData, such as Microsoft Dynamics 365 Business Central connectors and other components in their **SSIS Standard Package**, on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **19.7354**. Due to its large size, to avoid installation timeout, please ensure that your Azure-SSIS IR has at least 4 CPU cores per node.
+* If you select the **CData's SSIS Extended Package** component, you can install the [SSIS Extended Package](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#extended) suite of all components from CData, such as Microsoft Dynamics 365 Business Central connectors and other components in their **SSIS Standard Package**, on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **21.7867**. Due to its large size, to avoid installation timeout, please ensure that your Azure-SSIS IR has at least 4 CPU cores per node.
 
 Your added express custom setups will appear on the **Advanced settings** page. To remove them, select their check boxes, and then select **Delete**.
 
@@ -298,9 +298,9 @@ To view and reuse some samples of standard custom setups, complete the following
         
         If Data Source Name (DSN) is used in connection, DSN configuration is needed in setup script. For example: C:\Windows\SysWOW64\odbcconf.exe /A {CONFIGSYSDSN "MySQL ODBC 8.0 Unicode Driver" "DSN=\<dsnname\>|PORT=3306|SERVER=\<servername\>"}
 
-      * An *ORACLE ENTERPRISE* folder, which contains a custom setup script (*main.cmd*) and silent installation config file (*client.rsp*) to install the Oracle connectors and OCI driver on each node of your Azure-SSIS IR Enterprise Edition. This setup lets you use the Oracle Connection Manager, Source, and Destination to connect to the Oracle server. 
+      * An *ORACLE ENTERPRISE* folder, which contains a custom setup script (*main.cmd*) to install the Oracle connectors and OCI driver on each node of your Azure-SSIS IR Enterprise Edition. This setup lets you use the Oracle Connection Manager, Source, and Destination to connect to the Oracle server. 
       
-        First, download Microsoft Connectors v5.0 for Oracle (*AttunitySSISOraAdaptersSetup.msi* and *AttunitySSISOraAdaptersSetup64.msi*) from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) and the latest Oracle client (for example, *winx64_12102_client.zip*) from [Oracle](https://www.oracle.com/database/technologies/oracle19c-windows-downloads.html). Next, upload them all together with *main.cmd* and *client.rsp* to your blob container. If you use TNS to connect to Oracle, you also need to download *tnsnames.ora*, edit it, and upload it to your blob container. In this way, it can be copied to the Oracle installation folder during setup.
+        First, download Microsoft Connectors v5.0 for Oracle (*AttunitySSISOraAdaptersSetup.msi* and *AttunitySSISOraAdaptersSetup64.msi*) from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) and the latest Oracle Instant Client (for example, *instantclient-basic-windows.x64-21.3.0.0.0.zip*) from [Oracle](https://www.oracle.com/cis/database/technologies/instant-client/downloads.html). Next, upload them all together with *main.cmd* to your blob container. If you use TNS to connect to Oracle, you also need to download *tnsnames.ora*, edit it, and upload it to your blob container. In this way, it can be copied to the Oracle installation folder during setup.
 
       * An *ORACLE STANDARD ADO.NET* folder, which contains a custom setup script (*main.cmd*) to install the Oracle ODP.NET driver on each node of your Azure-SSIS IR. This setup lets you use the ADO.NET Connection Manager, Source, and Destination to connect to the Oracle server. 
       
@@ -314,7 +314,7 @@ To view and reuse some samples of standard custom setups, complete the following
 
       * An *ORACLE STANDARD OLEDB* folder, which contains a custom setup script (*main.cmd*) to install the Oracle OLEDB driver on each node of your Azure-SSIS IR. This setup lets you use the OLEDB Connection Manager, Source, and Destination to connect to the Oracle server. 
      
-        First, [download the latest Oracle OLEDB driver](https://www.oracle.com/partners/campaign/index-090165.html) (for example, *ODAC122010Xcopy_x64.zip*), and then upload it together with *main.cmd* to your blob container.
+        First, [download the latest Oracle OLEDB driver](https://oracle.com/technetwork/database/windows/downloads/index-090165.html) (for example, *ODAC122010Xcopy_x64.zip*), and then upload it together with *main.cmd* to your blob container.
 
       * A *POSTGRESQL ODBC* folder, which contains a custom setup script (*main.cmd*) to install the PostgreSQL ODBC drivers on each node of your Azure-SSIS IR. This setup lets you use the ODBC Connection Manager, Source, and Destination to connect to the PostgreSQL server. 
      

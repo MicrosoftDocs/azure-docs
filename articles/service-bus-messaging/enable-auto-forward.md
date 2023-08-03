@@ -3,7 +3,7 @@ title: Enable auto forwarding for Azure Service Bus queues and subscriptions
 description: This article explains how to enable auto forwarding for queues and subscriptions by using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
 ms.topic: how-to
 ms.date: 04/19/2021 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.devlang: azurecli
 ---
 
@@ -33,7 +33,7 @@ On the **Overview** page for your Service Bus subscription, select the current v
 :::image type="content" source="./media/enable-auto-forward/subscription-auto-forward.png" alt-text="Enable auto forward for an existing subscription":::
 
 ## Using Azure CLI
-To **create a queue with auto forwarding enabled**, use the [`az servicebus queue create`](/cli/azure/servicebus/queue#az_servicebus_queue_create) command with `--forward-to` set to the name of queue or topic to which you want the messages to be forwarded. 
+To **create a queue with auto forwarding enabled**, use the [`az servicebus queue create`](/cli/azure/servicebus/queue#az-servicebus-queue-create) command with `--forward-to` set to the name of queue or topic to which you want the messages to be forwarded. 
 
 ```azurecli-interactive
 az servicebus queue create \
@@ -43,7 +43,7 @@ az servicebus queue create \
     --forward-to myqueue2
 ```
 
-To **update the auto forward setting for an existing queue**, use the [`az servicebus queue update`](/cli/azure/servicebus/queue#az_servicebus_queue_update) command with `--forward-to` set to the name of the queue or topic to which you want the messages to be forwarded. 
+To **update the auto forward setting for an existing queue**, use the [`az servicebus queue update`](/cli/azure/servicebus/queue#az-servicebus-queue-update) command with `--forward-to` set to the name of the queue or topic to which you want the messages to be forwarded. 
 
 ```azurecli-interactive
 az servicebus queue update \
@@ -54,7 +54,7 @@ az servicebus queue update \
 ```
 
 
-To **create a subscription to a topic with auto forwarding enabled**, use the [`az servicebus topic subscription create`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_create) command with `--forward-to` set to the name of queue or topic to which you want the messages to be forwarded.
+To **create a subscription to a topic with auto forwarding enabled**, use the [`az servicebus topic subscription create`](/cli/azure/servicebus/topic/subscription#az-servicebus-topic-subscription-create) command with `--forward-to` set to the name of queue or topic to which you want the messages to be forwarded.
 
 ```azurecli-interactive
 az servicebus topic subscription create \
@@ -65,7 +65,7 @@ az servicebus topic subscription create \
     --forward-to myqueue2
 ```
 
-To **update the auto forward setting for a subscription to a topic**, use the [`az servicebus topic subscription update`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_update) command with `--forward-to` set to the name of queue or topic to which you want the messages to be forwarded.
+To **update the auto forward setting for a subscription to a topic**, use the [`az servicebus topic subscription update`](/cli/azure/servicebus/topic/subscription#az-servicebus-topic-subscription-update) command with `--forward-to` set to the name of queue or topic to which you want the messages to be forwarded.
 
 ```azurecli-interactive
 az servicebus topic subscription create \

@@ -1,16 +1,16 @@
 ---
-title: Configure MFA Server - Azure Active Directory
+title: Configure MFA Server
 description: Learn how to configure settings for Azure MFA Server in the Azure portal
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 This article helps you to manage Azure MFA Server settings in the Azure portal.
 
 > [!IMPORTANT]
-> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure AD Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+> In September 2022, Microsoft announced deprecation of Azure Multi-Factor Authentication Server. Beginning September 30, 2024, Azure Multi-Factor Authentication Server deployments will no longer service multifactor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Azure MFA service by using the latest Migration Utility included in the most recent [Azure MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
 
 The following MFA Server settings are available:
 
@@ -32,6 +32,8 @@ The following MFA Server settings are available:
 | Server status | See the status of your on-premises MFA servers including version, status, IP, and last communication time and date. |
 
 ## One-time bypass
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 The one-time bypass feature allows a user to authenticate a single time without performing multi-factor authentication. The bypass is temporary and expires after a specified number of seconds. In situations where the mobile app or phone is not receiving a notification or phone call, you can allow a one-time bypass so the user can access the desired resource.
 

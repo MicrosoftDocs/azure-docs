@@ -5,22 +5,18 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: matjazl
-ms.author: cavoeg
-author: caitlinv39
-ms.date: 08/03/2021
+ms.author: kesheth
+author: expekesheth
+ms.date: 06/06/2022
 ---
 
 # CARIN Implementation Guide for Blue Button&#174;
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-In this tutorial, we'll walk through setting up the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [CARIN Implementation Guide for Blue Button](https://build.fhir.org/ig/HL7/carin-bb/index.html) (C4BB IG).
+In this tutorial, we'll walk through setting up the FHIR service in Azure Health Data Services (hereby called the FHIR service) to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [CARIN Implementation Guide for Blue Button](https://build.fhir.org/ig/HL7/carin-bb/index.html) (C4BB IG).
 
 ## Touchstone capability statement
 
-The first test that we'll focus on is testing the FHIR service against the [C4BB IG capability statement](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS). If you run this test against the FHIR service without any updates, the test will fail due to missing search parameters and missing profiles. 
+The first test that we'll focus on is testing FHIR service against the [C4BB IG capability statement](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS). If you run this test against the FHIR service without any updates, the test will fail due to missing search parameters and missing profiles. 
 
 ### Define search parameters
 
@@ -56,7 +52,7 @@ To assist with creation of these search parameters and profiles, we have a [samp
 
 ## Touchstone read test
 
-After testing the capabilities statement, we will test the [read capabilities](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/01-Read&activeOnly=false&contentEntry=TEST_SCRIPTS) of the FHIR service against the C4BB IG. This test is testing conformance against the eight profiles you loaded in the first test. You will need to have resources loaded that conform to the profiles. The best path would be to test against resources that you already have in your database, but we also have an [http file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/C4BB/C4BB_Sample_Resources.http) available with sample resources pulled from the examples in the IG that you can use to create the resources and test against.
+After testing the capabilities statement, we'll test the [read capabilities](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/01-Read&activeOnly=false&contentEntry=TEST_SCRIPTS) of the FHIR service against the C4BB IG. This test is testing conformance against the eight profiles you loaded in the first test. You'll need to have resources loaded that conform to the profiles. The best path would be to test against resources that you already have in your database, but we also have an [http file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/C4BB/C4BB_Sample_Resources.http) available with sample resources pulled from the examples in the IG that you can use to create the resources and test against.
 
 :::image type="content" source="media/centers-medicare-services-tutorials/test-execution-results-touchstone.png" alt-text="Touchstone read test execution results.":::
 
@@ -78,5 +74,7 @@ The final test we'll walk through is testing [error handling](https://touchstone
 In this tutorial, we walked through how to pass the CARIN IG for Blue Button tests in Touchstone. Next, you can review how to test the Da Vinci formulary tests.
 
 >[!div class="nextstepaction"]
->[DaVinci Drug Formulary](davinci-drug-formulary-tutorial.md)       
+>[DaVinci Drug Formulary](davinci-drug-formulary-tutorial.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.       
  

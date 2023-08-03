@@ -4,12 +4,13 @@ description: A tutorial that walks you through the process of using a user-assig
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: daveba
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: tutorial
 ms.tgt_pltfrm: na
+ms.custom: devx-track-arm-template
 ms.workload: identity
 ms.date: 01/11/2022
 ms.author: barclayn
@@ -36,11 +37,11 @@ In this tutorial, you learn how to:
 - You also need a Linux Virtual machine. If you need to create  a virtual machine for this tutorial, you can follow the article titled [Create a Linux virtual machine with the Azure portal](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
 - To run the example scripts, you have two options:
     - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top-right corner of code blocks.
-    - Run scripts locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az_login).
+    - Run scripts locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az-login).
 
 ## Create a user-assigned managed identity
 
-Create a user-assigned managed identity using [az identity create](/cli/azure/identity#az_identity_create). The `-g` parameter specifies the resource group where the user-assigned managed identity is created, and the `-n` parameter specifies its name. Be sure to replace the `<RESOURCE GROUP>` and `<UAMI NAME>` parameter values with your own values:
+Create a user-assigned managed identity using [az identity create](/cli/azure/identity#az-identity-create). The `-g` parameter specifies the resource group where the user-assigned managed identity is created, and the `-n` parameter specifies its name. Be sure to replace the `<RESOURCE GROUP>` and `<UAMI NAME>` parameter values with your own values:
     
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -104,11 +105,13 @@ The response contains details for the role assignment created, similar to the fo
 
 ## Get an access token using the VM's identity and use it to call Resource Manager 
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 For the remainder of the tutorial, we will work from the VM we created earlier.
 
 To complete these steps, you need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/about). 
 
-1. Sign in to the Azure [portal](https://portal.azure.com).
+1. Sign in to the [Azure portal]portal](https://portal.azure.com).
 2. In the portal, navigate to **Virtual Machines** and go to the Linux virtual machine and in the **Overview**, click **Connect**. Copy the string to connect to your VM.
 3. Connect to the VM with the SSH client of your choice. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](~/articles/virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
 4. In the terminal window, use CURL to make a request to the Azure Instance Metadata Service (IMDS) identity endpoint to get an access token for Azure Resource Manager.  

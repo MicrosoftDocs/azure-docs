@@ -1,23 +1,20 @@
 ---
-title: Route network traffic - Azure CLI | Microsoft Docs
+title: Route network traffic - Azure CLI
 description: In this article, learn how to route network traffic with a route table using the Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
-author: KumudD
+author: asudbring
 manager: mtillman
-editor: ''
 tags: azure-resource-manager
-# Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
-
-ms.assetid: 
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/13/2018
-ms.author: kumud
-ms.custom: devx-track-azurecli
+ms.date: 04/20/2022
+ms.author: allensu
+ms.custom: devx-track-azurecli, devx-track-linux
+# Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ---
 
 # Route network traffic with a route table using the Azure CLI
@@ -28,13 +25,13 @@ Azure automatically routes traffic between all subnets within a virtual network,
 * Create a route
 * Create a virtual network with multiple subnets
 * Associate a route table to a subnet
-* Create an NVA that routes traffic
+* Create a basic NVA that routes traffic from an Ubuntu VM
 * Deploy virtual machines (VM) into different subnets
 * Route traffic from one subnet to another through an NVA
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -49,7 +46,7 @@ az group create \
   --location eastus
 ```
 
-Create a route table with [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create). The following example creates a route table named *myRouteTablePublic*. 
+Create a route table with [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create). The following example creates a route table named *myRouteTablePublic*. 
 
 ```azurecli-interactive
 # Create a route table
@@ -60,7 +57,7 @@ az network route-table create \
 
 ## Create a route
 
-Create a route in the route table with [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create). 
+Create a route in the route table with [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create). 
 
 ```azurecli-interactive
 az network route-table route create \
@@ -115,9 +112,9 @@ az network vnet subnet update \
 
 ## Create an NVA
 
-An NVA is a VM that performs a network function, such as routing, firewalling, or WAN optimization.
+An NVA is a VM that performs a network function, such as routing, firewalling, or WAN optimization.  We will create a basic NVA from a general purpose Ubuntu VM, for demonstration purposes. 
 
-Create an NVA in the *DMZ* subnet with [az vm create](/cli/azure/vm). When you create a VM, Azure creates and assigns a public IP address to the VM, by default. The `--public-ip-address ""` parameter instructs Azure not to create and assign a public IP address to the VM, since the VM doesn't need to be connected to from the internet. If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option.
+Create a VM to be used as the NVA in the *DMZ* subnet with [az vm create](/cli/azure/vm). When you create a VM, Azure creates and assigns a network interface *myVmNvaVMNic* and a public IP address to the VM, by default. The `--public-ip-address ""` parameter instructs Azure not to create and assign a public IP address to the VM, since the VM doesn't need to be connected to from the internet. If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option.
 
 ```azurecli-interactive
 az vm create \
@@ -132,7 +129,7 @@ az vm create \
 
 The VM takes a few minutes to create. Do not continue to the next step until Azure finishes creating the VM and returns output about the VM. 
 
-For a network interface to be able to forward network traffic sent to it, that is not destined for its own IP address, IP forwarding must be enabled for the network interface. Enable IP forwarding for the network interface with [az network nic update](/cli/azure/network/nic).
+For a network interface myVmNvaVMNic to be able to forward network traffic sent to it, that is not destined for its own IP address, IP forwarding must be enabled for the network interface. Enable IP forwarding for the network interface with [az network nic update](/cli/azure/network/nic).
 
 ```azurecli-interactive
 az network nic update \
@@ -141,7 +138,7 @@ az network nic update \
   --ip-forwarding true
 ```
 
-Within the VM, the operating system, or an application running within the VM, must also be able to forward network traffic. Enable IP forwarding within the VM's operating system with [az vm extension set](/cli/azure/vm/extension):
+Within the VM, the operating system, or an application running within the VM, must also be able to forward network traffic.  We will use the `sysctl` command to enable the Linux kernel to forward packets.  To run this command without logging onto the VM, we will use the [Custom Script extension](/azure/virtual-machines/extensions/custom-script-linux) [az vm extension set](/cli/azure/vm/extension):
 
 ```azurecli-interactive
 az vm extension set \
@@ -152,7 +149,7 @@ az vm extension set \
   --settings '{"commandToExecute":"sudo sysctl -w net.ipv4.ip_forward=1"}'
 ```
 
-The command may take up to a minute to execute.
+The command may take up to a minute to execute.  Note that this change will not persist after a VM reboot, so if the NVA VM is rebooted for any reason, the script will need to be repeated.
 
 ## Create virtual machines
 
@@ -206,7 +203,7 @@ Take note of the **publicIpAddress**. This address is used to access the VM from
 
 ## Route traffic through an NVA
 
-Use the following command to create an SSH session with the *myVmPrivate* VM. Replace *\<publicIpAddress>* with the public IP address of your VM. In the example above, the IP address is *13.90.242.231*.
+Using an SSH client of your choice, connect to the VMs created above.  For example, the following command can be used from a command line interface such as [WSL](/windows/wsl/install) to create an SSH session with the *myVmPrivate* VM. Replace *\<publicIpAddress>* with the public IP address of your VM. In the example above, the IP address is *13.90.242.231*.
 
 ```bash
 ssh azureuser@<publicIpAddress>
@@ -217,7 +214,8 @@ When prompted for a password, enter the password you selected in [Create virtual
 Use the following command to install trace route on the *myVmPrivate* VM:
 
 ```bash
-sudo apt-get install traceroute
+sudo apt update
+sudo apt install traceroute
 ```
 
 Use the following command to test routing for network traffic to the *myVmPublic* VM from the *myVmPrivate* VM.

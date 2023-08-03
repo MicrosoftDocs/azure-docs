@@ -1,6 +1,6 @@
 ---
 title: Bing News Search Python client library quickstart 
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -16,7 +16,7 @@ Use this quickstart to begin searching for news with the Bing News Search client
 
 * [Python](https://www.python.org/) 2.x or 3.x
 
-It is recommended to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html) for your python development. You can install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). You must install a virtualenv for Python 2.7. You can create a virtual environment with:
+It is recommended to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html) for your Python development. You can install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). You must install a virtualenv for Python 2.7. You can create a virtual environment with:
 
 ```console
 python -m venv mytestenv

@@ -1,28 +1,26 @@
 ---
-title: Render coverage | Microsoft Azure Maps
-description: Learn whether Azure Maps renders various regions with detailed or simplified data. See the level it uses for raster-tile and vector-tile maps in those regions.
-author: stevemunk
-ms.author: v-munksteve
-ms.date: 01/14/2022
+title: Render coverage
+titleSuffix: Microsoft Azure Maps
+description: Render coverage tables list the countries/regions that support Azure Maps road tiles.
+author: eriklindeman
+ms.author: eriklind
+ms.date: 03/23/2022
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 ---
 
-
 # Azure Maps render coverage
 
-Azure Maps uses both raster tiles and vector tiles to create maps. At the lowest resolution, the entire world fits in a single tile. At the highest resolution, a single tile represents 38 square meters. You'll see more details about continents, regions, cities, and individual streets as you zoom in the map. For more information about tiles, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
-
-However, Maps doesn't have the same level of information and accuracy for all regions. The following tables detail the level of information you can render for each region.
+The render coverage tables below list the countries/regions that support Azure Maps road tiles. Both raster and vector tiles are supported. At the lowest resolution, the entire world fits in a single tile. At the highest resolution, a single tile represents 38 square meters. You'll see more details about continents, regions, cities, and individual streets as you zoom in the map. For more information about tiles, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
 
 ### Legend
 
 | Symbol             | Meaning                                   |
 |--------------------|-------------------------------------------|
-|        ✓           | Country is provided with detailed data.   |
-|        ◑           | Country is provided with simplified data. |
-| Country is missing | Country data is not provided.             |
+|        ✓           | Country/region is provided with detailed data.   |
+|        ◑           | Country/region is provided with simplified data. |
+| Country/region is missing | Country/region data isn't provided.              |
 
 ## Americas
 
@@ -78,11 +76,11 @@ However, Maps doesn't have the same level of information and accuracy for all re
 | Brunei         |    ✓     |
 | Cambodia       |    ✓     |
 | Guam           |    ✓     |
-| Hong Kong      |    ✓     |
+| Hong Kong Special Administrative Region     |    ✓     |
 | India          |    ✓     |
 | Indonesia      |    ✓     |
 | Laos           |    ✓     |
-| Macao          |    ✓     |
+| Macao Special Administrative Region         |    ✓     |
 | Malaysia       |    ✓     |
 | Myanmar        |    ✓     |
 | New Zealand    |    ✓     |
@@ -140,7 +138,7 @@ However, Maps doesn't have the same level of information and accuracy for all re
 | Spain              |    ✓     |
 | Sweden             |    ✓     |
 | Switzerland        |    ✓     |
-| Turkey             |    ✓     |
+| Türkiye            |    ✓     |
 | Ukraine            |    ✓     |
 | United Kingdom     |    ✓     |
 | Vatican City       |    ✓     |
@@ -195,8 +193,13 @@ However, Maps doesn't have the same level of information and accuracy for all re
 | Zambia                       |    ✓     |
 | Zimbabwe                     |    ✓     |
 
-## Additional information
+## Next steps
 
-- See [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) for more information about Azure Maps rendering.
+> [!div class="nextstepaction"]
+> [Zoom levels and tile grid](zoom-levels-and-tile-grid.md)
 
-- [Azure Maps routing service](routing-coverage.md).
+> [!div class="nextstepaction"]
+> [Get map tiles](/rest/api/maps/render/getmaptile)
+
+> [!div class="nextstepaction"]
+> [Azure Maps routing coverage](routing-coverage.md)

@@ -1,19 +1,21 @@
 ---
-title: Create Elastic application - Azure partner solutions
+title: Create Elastic application
 description: This article describes how to use the Azure portal to create an instance of Elastic.
 ms.topic: quickstart
-ms.date: 09/02/2021
+ms.date: 06/01/2023
+author: flang-msft
+ms.author: franlanglois
 ms.custom: mode-other
 ---
 
 # QuickStart: Get started with Elastic
 
-In this quickstart, you'll use the Azure portal to integrate an instance of Elastic with your Azure solutions.
+In this quickstart, you use the Azure portal to integrate an instance of Elastic with your Azure solutions.
 
 ## Prerequisites
 
-- Subscription owner - The Elastic integration with Azure can only be created by users who have _Owner_ access on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before starting the setup.
-- Single sign-on app - The ability to automatically navigate between the Azure portal and Elastic Cloud is enabled via single sign-on (SSO). This option is automatically enabled and turned on for all Azure users. 
+- Subscription owner - The Elastic integration with Azure can only be created by users who have _Owner_ or _Contributor_ permissions on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before starting the setup.
+- Single sign-on app - The ability to automatically navigate between the Azure portal and Elastic Cloud is enabled via single sign-on (SSO). This option is automatically enabled and turned on for all Azure users.
 
 ## Find offer
 
@@ -23,9 +25,9 @@ Use the Azure portal to find the Elastic application.
 
 1. If you've visited the **Marketplace** in a recent session, select the icon from the available options. Otherwise, search for _Marketplace_.
 
-    :::image type="content" source="media/create/marketplace.png" alt-text="Marketplace icon.":::
+    :::image type="content" source="media/create/marketplace.png" alt-text="Image of marketplace icon.":::
 
-1. Search for _Elastic_ and select **Elasticsearch (Elastic Cloud)** from the available offerings.
+1. Search for _Elastic_ and select **Elastic Cloud (Elasticsearch) - An Azure Native ISV Service** from the available offerings.
 
 1. Select **Set up + subscribe**.
 
@@ -62,16 +64,16 @@ After you've selected the offer for Elastic, you're ready to set up the applicat
 
    To filter the Azure resources that send logs to Elastic, use resource tags. The tag rules for sending logs are:
 
-   * By default, logs are collected for all resources. 
-   * Resources with *Include* tags send logs to Elastic. 
-   * Resources with *Exclude* tags don't send logs to Elastic. 
-   * If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
- 
+   - By default, logs are collected for all resources.
+   - Resources with _Include_ tags send logs to Elastic.
+   - Resources with _Exclude_ tags don't send logs to Elastic.
+   - If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
+
    Select **Next: Tags** to set up tags for the new Elastic resource.
 
-1. In **Tags**, add custom tags for the new Elastic resource. Each tag consists of a name and value. When you've finished adding tags, select **Next: Review+Create** to navigate to the final step for resource creation. 
+1. In **Tags**, add custom tags for the new Elastic resource. Each tag consists of a name and value. When you've finished adding tags, select **Next: Review+Create** to navigate to the final step for resource creation.
 
-   :::image type="content" source="media/create/add-tags.png" alt-text="Add tags to Elastic resource":::
+   :::image type="content" source="media/create/add-tags.png" alt-text="Screenshot of add tags to Elastic resource.":::
 
 1. On **Review + create**, your configuration is validated. You can review the selections you made in the earlier forms. You can also review the terms for this offering.
 
@@ -85,10 +87,15 @@ After you've selected the offer for Elastic, you're ready to set up the applicat
 
 1. After the deployment is finished, select **Go to resource** to view the deployed resource.
 
-    :::image type="content" source="media/create/deployment-complete.png" alt-text="View status of deployment":::
-
+    :::image type="content" source="media/create/deployment-complete.png" alt-text="Screenshot of view status of deployment.":::
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Manage the Elastic resource](manage.md)
+- [Manage the Elastic resource](manage.md)
+- Get started with Elastic Cloud (Elasticsearch) - An Azure Native ISV Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Elastic%2Fmonitors)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview)

@@ -1,10 +1,9 @@
 ---
 title: Child resources in Bicep
 description: Describes how to set the name and type for child resources in Bicep.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/13/2021
+ms.custom: devx-track-bicep
+ms.date: 06/23/2023
 ---
 
 # Set name and type for child resources in Bicep
@@ -15,13 +14,13 @@ Each parent resource accepts only certain resource types as child resources. The
 
 This article show different ways you can declare a child resource.
 
-### Microsoft Learn
+### Training resources
 
-If you would rather learn about about child resources through step-by-step guidance, see [Deploy child and extension resources by using Bicep](/learn/modules/child-extension-bicep-templates) on **Microsoft Learn**.
+If you would rather learn about child resources through step-by-step guidance, see [Deploy child and extension resources by using Bicep](/training/modules/child-extension-bicep-templates).
 
 ## Name and type pattern
 
-In Bicep, you can specify the child resource either within the parent resource or outside of the parent resource. The values you provide for the resource name and resource type vary based on how you declare the child resource. However, the full name and type always resolve to the same pattern. 
+In Bicep, you can specify the child resource either within the parent resource or outside of the parent resource. The values you provide for the resource name and resource type vary based on how you declare the child resource. However, the full name and type always resolve to the same pattern.
 
 The **full name** of the child resource uses the pattern:
 
@@ -29,7 +28,7 @@ The **full name** of the child resource uses the pattern:
 {parent-resource-name}/{child-resource-name}
 ```
 
-If you have more two levels in the hierarchy, keep repeating parent names:
+If you have more than two levels in the hierarchy, keep repeating parent names:
 
 ```bicep
 {parent-resource-name}/{child-level1-resource-name}/{child-level2-resource-name}
@@ -47,7 +46,7 @@ If you have more than two levels in the hierarchy, keep repeating parent resourc
 {resource-provider-namespace}/{parent-resource-type}/{child-level1-resource-type}/{child-level2-resource-type}
 ```
 
-If you count the segments between `/` characters, the number of segments in the type is always one more than the number of segments in the name. 
+If you count the segments between `/` characters, the number of segments in the type is always one more than the number of segments in the name.
 
 ## Within parent resource
 
@@ -83,7 +82,7 @@ output childAddressPrefix string = VNet1::VNet1_Subnet1.properties.addressPrefix
 
 ## Outside parent resource
 
-The following example shows the child resource outside of the parent resource. You might use this approach if the parent resource isn't deployed in the same template, or if want to use [a loop](loops.md) to create more than one child resource. Specify the parent property on the child with the value set to the symbolic name of the parent. With this syntax you still need to declare the full resource type, but the name of the child resource is only the name of the child.
+The following example shows the child resource outside of the parent resource. You might use this approach if the parent resource isn't deployed in the same template, or if you want to use [a loop](loops.md) to create more than one child resource. Specify the parent property on the child with the value set to the symbolic name of the parent. With this syntax you still need to declare the full resource type, but the name of the child resource is only the name of the child.
 
 ```bicep
 resource <parent-resource-symbolic-name> '<resource-type>@<api-version>' = {
@@ -113,7 +112,7 @@ You can also use the full resource name and type when declaring the child resour
 :::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/fullnamedeclaration.bicep" highlight="10,11,17,18":::
 
 > [!IMPORTANT]
-> Setting the full resource name and type isn't the recommended approach. It's not as type safe as using one of the other approaches.
+> Setting the full resource name and type isn't the recommended approach. It's not as type safe as using one of the other approaches. For more information, see [Linter rule: use parent property](./linter-rule-use-parent-property.md).
 
 ## Next steps
 

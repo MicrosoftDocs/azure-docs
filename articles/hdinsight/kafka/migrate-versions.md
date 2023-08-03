@@ -3,7 +3,7 @@ title: Migrate Apache Kafka workloads to Azure HDInsight 4.0
 description: Learn how to migrate Apache Kafka workloads on HDInsight 3.6 to HDInsight 4.0.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 05/24/2023
 ---
 
 # Migrate Apache Kafka workloads to Azure HDInsight 4.0

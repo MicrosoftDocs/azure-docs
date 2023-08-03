@@ -2,14 +2,15 @@
 title: Tutorial - Configure LDAPS for Azure Active Directory Domain Services | Microsoft Docs
 description: In this tutorial, you learn how to configure secure lightweight directory access protocol (LDAPS) for an Azure Active Directory Domain Services managed domain.
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/23/2021
+ms.date: 03/15/2023
 ms.author: justinha
+ms.reviewer: xyuan
 
 #Customer intent: As an identity administrator, I want to secure access to an Azure Active Directory Domain Services managed domain using secure lightweight directory access protocol (LDAPS)
 ---
@@ -44,7 +45,7 @@ To complete this tutorial, you need the following resources and privileges:
   * If needed, [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
 * The *LDP.exe* tool installed on your computer.
   * If needed, [install the Remote Server Administration Tools (RSAT)][rsat] for *Active Directory Domain Services and LDAP*.
-* You need global administrator privileges in your Azure AD tenant to enable secure LDAP.
+* You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Azure AD roles in your tenant to enable secure LDAP.
 
 ## Sign in to the Azure portal
 

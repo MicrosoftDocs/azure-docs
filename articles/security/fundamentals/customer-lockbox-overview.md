@@ -1,13 +1,13 @@
 ---
 title: Customer Lockbox for Microsoft Azure
 description: Technical overview of Customer Lockbox for Microsoft Azure, which provides control over cloud provider access when Microsoft may need to access customer data.
-author: TerryLanfear
-ms.service: security
-ms.subservice: security-fundamentals
+author: msmbaldwin
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.topic: article
-ms.author: terrylan
+ms.author: mbaldwin
 manager: rkarlin
-ms.date: 05/12/2021
+ms.date: 11/14/2022
 ---
 
 # Customer Lockbox for Microsoft Azure
@@ -28,23 +28,35 @@ The following services are generally available for Customer Lockbox:
 - Azure API Management
 - Azure App Service
 - Azure Cognitive Search
-- Azure Cognitive Services
+- Azure AI services
 - Azure Container Registry
-- Azure Database for MySQL
-- Azure Databricks
 - Azure Data Box
 - Azure Data Explorer
 - Azure Data Factory
+- Azure Database for MySQL
+- Azure Database for MySQL Flexible Server
 - Azure Database for PostgreSQL
+- Azure Databricks
+- Azure Edge Zone Platform Storage
 - Azure Functions
 - Azure HDInsight
+- Azure Health Bot
+- Azure Intelligent Recommendations
 - Azure Kubernetes Service
+- Azure Logic Apps
 - Azure Monitor
-- Azure Storage
+- Azure Spring Apps
 - Azure SQL Database
+- Azure SQL managed Instance
+- Azure Storage
 - Azure subscription transfers
 - Azure Synapse Analytics
+- Azure Unified Vision Service
+- Microsoft Azure Attestation
+- Azure Data Manager for Energy Preview
+- OpenAI
 - Virtual machines in Azure (covering remote desktop access, access to memory dumps, and managed disks)
+
 
 ### Public Preview
 The following services are currently in preview for Customer Lockbox:
@@ -82,7 +94,7 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 
     The request is now in a **Customer Notified** state, waiting for the customer's approval before granting access.
 
-7. At the customer organization, the user who has the [Owner role](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) for the Azure subscription receives an email from Microsoft, to notify them about the pending access request. For Customer Lockbox requests, this person is the designated approver.
+7. At the customer organization, the users who have the [Owner role](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) for the Azure subscription and/or the [Azure Active Directory Global Administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-ad-roles) receive an email from Microsoft, to notify them about the pending access request. For Customer Lockbox requests, this person is the designated approver.
 
     Example email:
 
@@ -124,9 +136,9 @@ As an example:
 
 ![Azure Customer Lockbox - activity logs](./media/customer-lockbox-overview/customer-lockbox-activitylogs.png)
 
-## Customer Lockbox integration with Azure Security Benchmark
+## Customer Lockbox integration with the Microsoft cloud security benchmark
 
-We've introduced a new baseline control ([3.13](../benchmarks/security-control-identity-access-control.md#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios)) in Azure Security Benchmark that covers Customer Lockbox applicability. Customers can now leverage the benchmark to review Customer Lockbox applicability for a service.
+We've introduced a new baseline control ([PA-8: Determine access process for cloud provider support](/security/benchmark/azure/mcsb-privileged-access#pa-8-determine-access-process-for-cloud-provider-support)) in the Microsoft cloud security benchmark that covers Customer Lockbox applicability. Customers can now leverage the benchmark to review Customer Lockbox applicability for a service.
 
 ## Exclusions
 

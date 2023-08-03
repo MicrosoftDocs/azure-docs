@@ -3,11 +3,12 @@ title: Internal redirection using CLI
 titleSuffix: Azure Application Gateway
 description: Learn how to create an application gateway that redirects internal web traffic to the appropriate pool using the Azure CLI.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.topic: how-to
-ms.date: 11/14/2019
-ms.author: victorh
+ms.date: 04/27/2023
+ms.author: greglin
 ---
 
 # Create an application gateway with internal redirection using the Azure CLI
@@ -24,7 +25,7 @@ In this article, you learn how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -40,7 +41,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## Create network resources 
 
-Create the virtual network named *myVNet* and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet). You can then add the subnet named *myBackendSubnet* that's needed by the backend pool of servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create).
+Create the virtual network named *myVNet* and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet). You can then add the subnet named *myBackendSubnet* that's needed by the backend pool of servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -93,7 +94,7 @@ It may take several minutes for the application gateway to be created. After the
 
 A listener is required to enable the application gateway to route traffic appropriately to the backend pool. In this tutorial, you create two listeners for your two domains. In this example, listeners are created for the domains of *www\.contoso.com* and *www\.contoso.org*.
 
-Add the backend listeners that are needed to route traffic using [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az_network_application_gateway_http_listener_create).
+Add the backend listeners that are needed to route traffic using [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create).
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -114,7 +115,7 @@ az network application-gateway http-listener create \
 
 ### Add the redirection configuration
 
-Add the redirection configuration that sends traffic from *www\.consoto.org* to the listener for *www\.contoso.com* in the application gateway using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az_network_application_gateway_redirect_config_create).
+Add the redirection configuration that sends traffic from *www\.consoto.org* to the listener for *www\.contoso.com* in the application gateway using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -131,7 +132,7 @@ az network application-gateway redirect-config create \
 
 Rules are processed in the order in which they are created, and traffic is directed using the first rule that matches the URL sent to the application gateway. For example, if you have a rule using a basic listener and a rule using a multi-site listener both on the same port, the rule with the multi-site listener must be listed before the rule with the basic listener in order for the multi-site rule to function as expected. 
 
-In this example, you create two new rules and delete the default rule that was created.  You can add the rule using [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az_network_application_gateway_rule_create).
+In this example, you create two new rules and delete the default rule that was created.  You can add the rule using [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -191,7 +192,7 @@ az vmss extension set \
 
 ## Create CNAME record in your domain
 
-After the application gateway is created with its public IP address, you can get the DNS address and use it to create a CNAME record in your domain. You can use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) to get the DNS address of the application gateway. Copy the *fqdn* value of the DNSSettings and use it as the value of the CNAME record that you create. The use of A-records is not recommended because the VIP may change when the application gateway is restarted.
+After the application gateway is created with its public IP address, you can get the DNS address and use it to create a CNAME record in your domain. You can use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) to get the DNS address of the application gateway. Copy the *fqdn* value of the DNSSettings and use it as the value of the CNAME record that you create. The use of A-records is not recommended because the VIP may change when the application gateway is restarted.
 
 ```azurecli-interactive
 az network public-ip show \

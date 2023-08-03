@@ -6,16 +6,21 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/21/2021
+ms.date: 04/12/2022
 ms.author: cynthn
 ms.custom: portal
 
 ---
 # Create an image of a VM in the portal
 
-A image can be created from a VM and then used to create multiple VMs.
+An image can be created from a VM and then used to create multiple VMs.
 
-For images stored in an Azure Compute Gallery (formerly known as Shared Image Gallery), you can use VMs that already have accounts created on them (specialized) or you can generalize the VM before creating the image to remove machine accounts and other machines specific information. To generalize a VM, see [Generalized a Windows VM](generalize.md). For more information, see [Generalized and specialized images](shared-image-galleries.md#generalized-and-specialized-images).
+For images stored in an Azure Compute Gallery (formerly known as Shared Image Gallery), you can use VMs that already have accounts created on them (specialized) or you can generalize the VM before creating the image to remove machine accounts and other machines specific information. To generalize a VM, see [Generalized a VM](generalize.md). For more information, see [Generalized and specialized images](shared-image-galleries.md#generalized-and-specialized-images).
+
+> [!IMPORTANT]
+> Once you mark a VM as `generalized` in Azure, you cannot restart the VM. Legacy **managed images** are automatically marked as generalized.
+> > When capturing an image of a virtual machine in Azure, the virtual machine will be temporarily stopped to ensure data consistency and prevent any potential issues during the image creation. This is because capturing an image requires a point-in-time snapshot of the virtual machine's disk.
+> To avoid disruptions in a production environment, it's recommended you schedule the image capture process during a maintenance window or a time when the temporary downtime won't impacting critical services.
 
 
 ## Capture a VM in the portal 
@@ -24,7 +29,7 @@ For images stored in an Azure Compute Gallery (formerly known as Shared Image Ga
 
 2. Select your VM from the list.
 
-3. In the **Virtual machine** page for the VM, on the upper menu, select **Capture**.
+3. On the page for the VM, on the upper menu, select **Capture**.
 
    The **Create an image** page appears.
 
@@ -38,7 +43,7 @@ For images stored in an Azure Compute Gallery (formerly known as Shared Image Ga
 
 1. For **Gallery details**, select the gallery or create a new gallery by selecting **Create new**.
 
-1. In **Operating system state** select generalized or specialized. For more information, see [Generalized and specialized images](shared-image-galleries.md#generalized-and-specialized-images).
+1. In **Operating system state** select generalized or specialized. For more information, see [Generalized and specialized images](shared-image-galleries.md#generalized-and-specialized-images). 
  
 1. Select an image definition or select **create new** and provide a name and information for a new [Image definition](shared-image-galleries.md#image-definitions).
 
@@ -48,7 +53,7 @@ For images stored in an Azure Compute Gallery (formerly known as Shared Image Ga
 
 1. Select an **End of life** date. This date can be used to track when older images need to be retired.
 
-1. Under [Replication](shared-image-galleries.md#replication), select a default replica count and then select any additional regions where you would like your image replicated.
+1. Under [Replication](azure-compute-gallery.md#replication), select a default replica count and then select any additional regions where you would like your image replicated.
 
 8. When you are done, select **Review + create**.
 
@@ -58,4 +63,4 @@ For images stored in an Azure Compute Gallery (formerly known as Shared Image Ga
 
 ## Next steps
 
-- [Azure Compute Galleries overview](shared-image-galleries.md)	
+- [Azure Compute Galleries overview](shared-image-galleries.md)

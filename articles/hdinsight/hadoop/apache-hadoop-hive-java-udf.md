@@ -3,8 +3,8 @@ title: Java user-defined function (UDF) with Apache Hive Azure HDInsight
 description: Learn how to create a Java-based user-defined function (UDF) that works with Apache Hive. This example UDF converts a table of text strings to lowercase.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017, devx-track-java
-ms.date: 11/20/2019
+ms.custom: hdinsightactive, hdiseo17may2017, devx-track-java, devx-track-extended-java
+ms.date: 07/20/2023
 ---
 
 # Use a Java UDF with Apache Hive in HDInsight
@@ -142,7 +142,7 @@ cd C:\HDI
     notepad src/main/java/com/microsoft/examples/ExampleUDF.java
     ```
 
-    Then copy and paste the java code below into the new file. Then close the file.
+    Then copy and paste the Java code below into the new file. Then close the file.
 
     ```java
     package com.microsoft.examples;
@@ -256,7 +256,7 @@ This problem may be caused by the line endings in the Python file. Many Windows 
 You can use the following PowerShell statements to remove the CR characters before uploading the file to HDInsight:
 
 ```PowerShell
-# Set $original_file to the python file path
+# Set $original_file to the Python file path
 $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
 [IO.File]::WriteAllText($original_file, $text)
 ```

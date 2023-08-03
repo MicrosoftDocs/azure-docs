@@ -4,7 +4,7 @@ description: Step-by-step instructions on how to configure Jupyter Notebooks ava
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 11/22/2019
+ms.date: 07/12/2023
 ---
 
 # Use external packages with Jupyter Notebooks in Apache Spark clusters on HDInsight
@@ -103,7 +103,7 @@ In this article, you'll learn how to use the [spark-csv](https://search.maven.or
 
 ### Tools and extensions
 
-* [Use external python packages with Jupyter Notebooks in Apache Spark clusters on HDInsight Linux](apache-spark-python-package-installation.md)
+* [Use external Python packages with Jupyter Notebooks in Apache Spark clusters on HDInsight Linux](apache-spark-python-package-installation.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Apache Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use Apache Zeppelin notebooks with an Apache Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)

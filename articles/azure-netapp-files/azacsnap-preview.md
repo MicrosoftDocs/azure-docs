@@ -2,17 +2,13 @@
 title: Preview features for Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs
 description: Provides a guide for using the preview features of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
-documentationcenter: ''
 author: Phil-Jensen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
+ms.custom: devx-track-azurecli
 ms.topic: reference
-ms.date: 01/25/2022
+ms.date: 12/16/2022
 ms.author: phjensen
 ---
 
@@ -20,436 +16,270 @@ ms.author: phjensen
 
 > [!NOTE]
 > PREVIEWS ARE PROVIDED "AS-IS," "WITH ALL FAULTS," AND "AS AVAILABLE," AND ARE EXCLUDED FROM THE SERVICE LEVEL AGREEMENTS AND LIMITED WARRANTY
-> ref:  https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+> ref:  <https://azure.microsoft.com/support/legal/preview-supplemental-terms/>
 
-This article provides a guide on setup and usage of the new features in preview for **AzAcSnap v5.1**.  These new features can be used with Azure NetApp Files, Azure BareMetal, and now Azure Managed Disk.  This guide should be read along with the documentation for the generally available version of AzAcSnap at [aka.ms/azacsnap](./azacsnap-introduction.md).
+This article provides a guide on set up and usage of the new features in preview for **AzAcSnap**.  This guide should be read along with the main
+documentation for AzAcSnap at [aka.ms/azacsnap](./azacsnap-introduction.md).
 
-The four new preview features provided with AzAcSnap v5.1 are:
-- Oracle Database support
-- Backint coexistence
-- Azure Managed Disk
-- RunBefore and RunAfter capability
+The preview features provided with **AzAcSnap 7** are:
+
+- Azure NetApp Files Backup.
+- IBM Db2 Database.
+- Azure Managed Disk.
+- Azure Key Vault support for storing Service Principal.
 
 ## Providing feedback
 
 Feedback on AzAcSnap, including this preview, can be provided [online](https://aka.ms/azacsnap-feedback).
 
-## Getting the AzAcSnap Preview snapshot tools
+## Using AzAcSnap Preview features
 
-Get the most recent version of the Preview [AzAcSnap Preview Installer](https://aka.ms/azacsnap-preview-installer) from Microsoft.
+AzAcSnap preview features are offered together with generally available features.  Using the preview features requires the use of the `--preview` command line option to enable their usage.  To setup and install AzAcSnap refer to [Get started with Azure Application Consistent Snapshot tool](azacsnap-get-started.md)
 
-The self-installation file has an associated [MD5 checksum file](https://aka.ms/azacsnap-preview-installer-checksum) to check the download integrity.
+Return to this document for details on using the specific preview features.
 
-First download the installer.  Follow the steps in the main [get started](azacsnap-get-started.md) documentation to complete the install of AzAcSnap.  Return
-to this document for details on using the preview features.
+## Azure NetApp Files Backup
 
-## Oracle Database
+> [!NOTE]
+> Support for Azure NetApp Files Backup is a Preview feature.  
+> This section's content supplements [Configure Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md) website page.
+
+When taking snapshots with AzAcSnap on multiple volumes all the snapshots have the same name by default.  Due to the removal of the Volume name from the resource ID hierarchy when the snapshot is archived into Azure NetApp Files Backup it's necessary to ensure the Snapshot name is unique.  AzAcSnap can do this automatically when it creates the Snapshot by appending the Volume name to the normal snapshot name.  For example, for a system with two data volumes (`hanadata01`, `hanadata02`) when doing a `-c backup` with `--prefix daily` the complete snapshot names become `daily__F2AFDF98703__hanadata01` and `daily__F2AFDF98703__hanadata02`.  
+
+This can be enabled in AzAcSnap by setting `"anfBackup": "renameOnly"` in the configuration file, see the following snippet:
+
+```output
+"anfStorage": [
+  {
+    "anfBackup" : "renameOnly",
+    "dataVolume": [
+```
+
+This can also be done using the `azacsnap -c configure --configuration edit --configfile <configfilename>` and when asked to `Enter new value for 'ANF Backup (none, renameOnly)' (current = 'none'):` enter `renameOnly`.
+
+## IBM Db2 Database
 
 ### Supported platforms and operating systems
 
 > [!NOTE]
-> Support for Oracle is Preview feature.  
-> This section's content supplements [What is Azure Application Consistent Snapshot tool](azacsnap-introduction.md) website page.
+> Support for IBM Db2 is Preview feature.  
+> This section's content supplements [What is Azure Application Consistent Snapshot tool](azacsnap-introduction.md) page.
 
 New database platforms and operating systems supported with this preview release.
 
 - **Databases**
-  - Oracle Database release 12 or later (refer to [Oracle VM images and their deployment on Microsoft Azure](../virtual-machines/workloads/oracle/oracle-vm-solutions.md) for details)
-
-- **Operating Systems**
-  - Oracle Linux 7+
+  - IBM Db2 for LUW on Linux-only is in preview as of Db2 version 10.5 (refer to [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload](../virtual-machines/workloads/sap/dbms_guide_ibm.md) for details)
 
 
 ### Enable communication with database
 
 > [!NOTE]
-> Support for Oracle is Preview feature.  
-> This section's content supplements [Install Azure Application Consistent Snapshot tool](azacsnap-installation.md) website page.
+> Support for IBM Db2 is Preview feature.  
+> This section's content supplements [Install Azure Application Consistent Snapshot tool](azacsnap-installation.md) page.
 
-This section explains how to enable communication with storage. Ensure the storage back-end you're using is correctly selected.
+This section explains how to enable communication with the database. Ensure the database you're using is correctly selected from the tabs.
 
-# [Oracle](#tab/oracle)
+# [IBM Db2](#tab/db2)
 
-The snapshot tools communicate with the Oracle database and need a user with appropriate permissions to enable/disable backup mode.  After putting the database in backup 
-mode, `azacsnap` will query the Oracle database to get a list of files which have backup-mode as active.  This file list is output into an external file which is in 
-the same location and basename as the log file, but with a ".protected-tables" extension (output filename detailed in the AzAcSnap log file). 
+The snapshot tools issue commands to the IBM Db2 database using the command line processor `db2` to enable and disable backup mode.  
 
-The following examples show the setup of the Oracle database user, the use of `mkstore` to create an Oracle Wallet, and the `sqlplus` configuration files required for 
-communication to the Oracle database. 
+After putting the database in backup mode, `azacsnap` will query the IBM Db2 database to get a list of "protected paths", which are part of the database where backup-mode is active.  This list is output into an external file, which is in the same location and basename as the log file, but with a ".\<DBName>-protected-paths" extension (output filename detailed in the AzAcSnap log file).
 
-The following example commands set up a user (AZACSNAP) in the Oracle database, change the IP address, usernames, and passwords as appropriate:
+AzAcSnap uses the IBM Db2 command line processor `db2` to issue SQL commands, such as `SET WRITE SUSPEND` or `SET WRITE RESUME`.  Therefore AzAcSnap should be installed in one of the following two ways:
 
-1. From the Oracle database installation
+  1. Installed onto the database server, then complete the setup with "[Local connectivity](#local-connectivity)".
+  1. Installed onto a centralized backup system, then complete the setup with "[Remote connectivity](#remote-connectivity)".
 
-    ```bash
-    su – oracle
-    sqlplus / AS SYSDBA
-    ```
+#### Local connectivity
 
-    ```output
-    SQL*Plus: Release 12.1.0.2.0 Production on Mon Feb 1 01:34:05 2021
-    Copyright (c) 1982, 2014, Oracle. All rights reserved.
-    Connected to:
-    Oracle Database 12c Standard Edition Release 12.1.0.2.0 - 64bit Production
-    SQL>
-    ```
+If AzAcSnap has been installed onto the database server, then be sure to add the `azacsnap` user to the correct Linux group and import the Db2 instance user's profile per the following example setup.
 
-1. Create the user
+##### `azacsnap` user permissions
 
-    This example creates the AZACSNAP user.
+The `azacsnap` user should belong to the same Db2 group as the database instance user.  Here we are getting the group membership of the IBM Db2 installation's database instance user `db2tst`.
 
-    ```sql
-    SQL> CREATE USER azacsnap IDENTIFIED BY password;
-    ```
+```bash
+id db2tst
+```
 
-    ```output
-    User created.
-    ```
+```output
+uid=1101(db2tst) gid=1001(db2iadm1) groups=1001(db2iadm1)
+```
 
-1. Grant the user permissions - This example sets the permission for the AZACSNAP user to allow for putting the database in backup mode.
+From the output we can confirm the `db2tst` user has been added to the `db2iadm1` group, therefore add the `azacsnap` user to the group.
 
-    ```sql
-    SQL> GRANT CREATE SESSION TO azacsnap;
-    ```
+```bash
+usermod -a -G db2iadm1 azacsnap
+```
 
-    ```output
-    Grant succeeded.
-    ```
+##### `azacsnap` user profile
 
+The `azacsnap` user will need to be able to execute the `db2` command.  By default the `db2` command will not be in the `azacsnap` user's $PATH, therefore add the following to the user's `.bashrc` file using your own IBM Db2 installation value for `INSTHOME`.
 
-    ```sql
-    SQL> GRANT SYSBACKUP TO azacsnap;
-    ```
-    
-    ```output
-    Grant succeeded.
-    ```
+```output
+# The following four lines have been added to allow this user to run the DB2 command line processor.
+INSTHOME="/db2inst/db2tst"
+if [ -f ${INSTHOME}/sqllib/db2profile ]; then
+    . ${INSTHOME}/sqllib/db2profile
+fi
+```
 
-    ```sql
-    SQL> connect azacsnap/password
-    ```
+Test the user can run the `db2` command line processor.
 
-    ```output
-    Connected.
-    ```
+```bash
+su - azacsnap
+db2
+```
 
-    ```sql
-    SQL> quit
-    ```
+```output
+(c) Copyright IBM Corporation 1993,2007
+Command Line Processor for DB2 Client 11.5.7.0
 
-1. OPTIONAL - Prevent user's password from expiring
+You can issue database manager commands and SQL statements from the command
+prompt. For example:
+    db2 => connect to sample
+    db2 => bind sample.bnd
 
-   It may be necessary to disable password expiry for the user, without this change the user's password could expire preventing snapshots to be taken correctly. 
-   
-   > [!NOTE]
-   > Check with corporate policy before making this change.
-   
-   This example gets the password expiration for the AZACSNAP user:
-   
-   ```sql
-   SQL> SELECT username, account_status,expiry_date,profile FROM dba_users WHERE username='AZACSNAP';
-   ```
-   
-   ```output
-   USERNAME              ACCOUNT_STATUS                 EXPIRY_DA PROFILE
-   --------------------- ------------------------------ --------- ------------------------------
-   AZACSNAP              OPEN                           DD-MMM-YY DEFAULT
-   ```
-   
-   There are a few methods for disabling password expiry in the Oracle database, refer to your database administrator for guidance.  One example is 
-   by modifying the DEFAULT user's profile so the password life time is unlimited as follows:
-   
-   ```sql
-   SQL> ALTER PROFILE default LIMIT PASSWORD_LIFE_TIME unlimited;
-   ```
-   
-   After making this change, there should be no password expiry date for user's with the DEFAULT profile.
+For general help, type: ?.
+For command help, type: ? command, where command can be
+the first few keywords of a database manager command. For example:
+ ? CATALOG DATABASE for help on the CATALOG DATABASE command
+ ? CATALOG          for help on all of the CATALOG commands.
 
-   ```sql
-   SQL> SELECT username, account_status,expiry_date,profile FROM dba_users WHERE username='AZACSNAP';
-   ```
-   
-   ```output
-   USERNAME              ACCOUNT_STATUS                 EXPIRY_DA PROFILE
-   --------------------- ------------------------------ --------- ------------------------------
-   AZACSNAP              OPEN                                     DEFAULT
-   ```
+To exit db2 interactive mode, type QUIT at the command prompt. Outside
+interactive mode, all commands must be prefixed with 'db2'.
+To list the current command option settings, type LIST COMMAND OPTIONS.
+
+For more detailed help, refer to the Online Reference Manual.
+```
+
+```sql
+db2 => quit
+DB20000I  The QUIT command completed successfully.
+```
+
+Now configure azacsnap to user localhost.
+Once this is working correctly go on to configure (`azacsnap -c configure`) with the `serverAddress=localhost` and test (`azacsnap -c test --test db2`) azacsnap database connectivity.
 
 
-1. The Oracle Wallet provides a method to manage database credentials across multiple domains. This is accomplished by using a database connection string in 
-   the datasource definition, which is resolved by an entry in the wallet. When used correctly, the Oracle Wallet makes having passwords in the datasource 
-   configuration unnecessary.
-   
-   This feature can be leveraged to use the Oracle TNS (Transparent Network Substrate) administrative file to hide the details of the database 
-   connection string and instead use an alias. If the connection information changes, it's a matter of changing the `tnsnames.ora` file instead 
-   of potentially many datasource definitions.
-   
-   Set up the Oracle Wallet (change the password) This example uses the mkstore command from the Linux shell to set up the Oracle wallet. Theses commands 
-   are run on the Oracle database server using unique user credentials to avoid any impact on the running database. In this example a new user (azacsnap) 
-   is created, and their environment variables configured appropriately.
-   
-   > [!IMPORTANT]
-   > Be sure to create a unique user to generate the Oracle Wallet to avoid any impact on the running database.
-   
-   1. Run the following commands on the Oracle Database Server.
-      
-    1. Get the Oracle environment variables to be used in setup.  Run the following commands as the `root` user on the Oracle Database Server.
+#### Remote connectivity
 
-       ```bash
-       su - oracle -c 'echo $ORACLE_SID'
-       ```
-       
-       ```output
-       oratest1
-       ```
-       
-       ```bash
-       su - oracle -c 'echo $ORACLE_HOME'
-       ```
-       
-       ```output
-       /u01/app/oracle/product/19.0.0/dbhome_1
-       ```
-       
-    1. Create the Linux user to generate the Oracle Wallet and associated `*.ora` files using the output from the previous step.
+If AzAcSnap has been installed following option 2, then be sure to allow SSH access to the Db2 database instance per the following example setup.
 
-       > [!NOTE]
-       > In these examples we are using the `bash` shell.  If you're using a different shell (for example, csh), then ensure environment variables have been set correctly.
 
-       ```bash
-       useradd -m azacsnap
-       echo "export ORACLE_SID=oratest1" >> /home/azacsnap/.bash_profile
-       echo "export ORACLE_HOME=/u01/app/oracle/product/19.0.0/dbhome_1" >> /home/azacsnap/.bash_profile
-       echo "export TNS_ADMIN=/home/azacsnap" >> /home/azacsnap/.bash_profile
-       echo "export PATH=\$PATH:\$ORACLE_HOME/bin" >> /home/azacsnap/.bash_profile
-       ```
+Log in to the AzAcSnap system as the `azacsnap` user and generate a public/private SSH key pair.
 
-    1. As the new Linux user (`azacsnap`), create the wallet and `*.ora` files.
-    
-       `su` to the user created in the previous step.
-       
-       ```bash
-       sudo su - azacsnap
-       ```
-       
-       Create the Oracle Wallet.
+```bash
+ssh-keygen
+```
 
-       ```bash
-       mkstore -wrl $TNS_ADMIN/.oracle_wallet/ -create
-       ```
-       
-       ```output
-       Oracle Secret Store Tool Release 19.0.0.0.0 - Production
-       Version 19.3.0.0.0
-       Copyright (c) 2004, 2019, Oracle and/or its affiliates. All rights reserved.
-       
-       Enter password: <wallet_password>
-       Enter password again: <wallet_password>
-       ```
-       
-       Add the connect string credentials to the Oracle Wallet.  In the following example command: AZACSNAP is the ConnectString to be used by AzAcSnap; azacsnap 
-       is the Oracle Database User; AzPasswd1 is the Oracle User's database password.
-       
-       ```bash
-       mkstore -wrl $TNS_ADMIN/.oracle_wallet/ -createCredential AZACSNAP azacsnap AzPasswd1
-       ```
-       
-       ```output
-       Oracle Secret Store Tool Release 19.0.0.0.0 - Production
-       Version 19.3.0.0.0
-       Copyright (c) 2004, 2019, Oracle and/or its affiliates. All rights reserved.
-       
-       Enter wallet password: <wallet_password>
-       ```
-       
-       Create the `tnsnames-ora` file.  In the following example command: HOST should be set to the IP address of the Oracle Database Server; SID should be 
-       set to the Oracle Database SID.
-      
-       ```bash
-       echo "# Connection string
-       AZACSNAP=\"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.1.1)(PORT=1521))(CONNECT_DATA=(SID=oratest1)))\"
-       " > $TNS_ADMIN/tnsnames.ora
-       ```
-       
-       Create the `sqlnet.ora` file.
-       
-       ```bash
-       echo "SQLNET.WALLET_OVERRIDE = TRUE
-       WALLET_LOCATION=(
-           SOURCE=(METHOD=FILE)
-           (METHOD_DATA=(DIRECTORY=\$TNS_ADMIN/.oracle_wallet))
-       ) " > $TNS_ADMIN/sqlnet.ora
-       ```
-       
-       Test the Oracle Wallet.
-       
-       ```bash
-       sqlplus /@AZACSNAP as SYSBACKUP
-       ```
-       
-       ```output
-       SQL*Plus: Release 19.0.0.0.0 - Production on Wed Jan 12 00:25:32 2022
-       Version 19.3.0.0.0
-       
-       Copyright (c) 1982, 2019, Oracle.  All rights reserved.
-       
-       
-       Connected to:
-       Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
-       Version 19.3.0.0.0
-       ```
-       
-       ```sql
-       SELECT MACHINE FROM V$SESSION WHERE SID=1;
-       ```
-       
-       ```output
-       MACHINE
-       ----------------------------------------------------------------
-       oradb-19c
-       ```
-       
-       ```sql
-       quit
-       ```
-       
-       ```output
-       Disconnected from Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
-       Version 19.3.0.0.0
-       ```
-       
-       Create a ZIP file archive of the Oracle Wallet and `*.ora` files.
-       
-       ```bash
-       cd $TNS_ADMIN
-       zip -r wallet.zip sqlnet.ora tnsnames.ora .oracle_wallet
-       ```
-       
-       ```output
-         adding: sqlnet.ora (deflated 9%)
-         adding: tnsnames.ora (deflated 7%)
-         adding: .oracle_wallet/ (stored 0%)
-         adding: .oracle_wallet/ewallet.p12.lck (stored 0%)
-         adding: .oracle_wallet/ewallet.p12 (deflated 1%)
-         adding: .oracle_wallet/cwallet.sso.lck (stored 0%)
-         adding: .oracle_wallet/cwallet.sso (deflated 1%)
-       ```
+```output
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/azacsnap/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/azacsnap/.ssh/id_rsa.
+Your public key has been saved in /home/azacsnap/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:4cr+0yN8/dawBeHtdmlfPnlm1wRMTO/mNYxarwyEFLU azacsnap@db2-02
+The key's randomart image is:
++---[RSA 2048]----+
+|         ... o.  |
+|          . . +. |
+|        .. E + o.|
+|       ....   B..|
+|        S. . o *=|
+|     . .  . o o=X|
+|      o. . +  .XB|
+|     .  + + + +oX|
+|      ...+ . =.o+|
++----[SHA256]-----+
+```
 
-    1. Copy the ZIP file to the target system (for example, the centralized virtual machine running AzAcSnap).
-    
-       > [!NOTE]
-       > If deploying to a centralized virtual machine, then it will need to have the Oracle instant client installed and setup so the AzAcSnap user can 
-       > run `sqlplus` commands.  The Oracle Instant Client can downloaded from https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html.
-       > In order for SQL\*Plus to run correctly, download both the required package (for example, Basic Light Package) and the optional SQL\*Plus tools package.
+Get the contents of the public key.
 
-   1. Complete the following steps on the system running AzAcSnap.
-      
-    1. Deploy ZIP file copied from the previous step.
-    
-       > [!IMPORTANT]
-       > This step assumes the user running AzAcSnap, by default `azacsnap`, already has been created using the AzAcSnap installer.
-       
-       > [!NOTE]
-       > It's possible to leverage the `TNS_ADMIN` shell variable to allow for multiple Oracle targets by setting the unique shell variable value
-       > for each Oracle system as needed.
+```bash
+cat .ssh/id_rsa.pub
+```
 
-       ```bash
-       export TNS_ADMIN=$HOME/ORACLE19c
-       mkdir $TNS_ADMIN
-       cd $TNS_ADMIN
-       unzip ~/wallet.zip
-       ```
-       
-       ```output
-       Archive:  wallet.zip
-         inflating: sqlnet.ora
-         inflating: tnsnames.ora
-          creating: .oracle_wallet/
-        extracting: .oracle_wallet/ewallet.p12.lck
-         inflating: .oracle_wallet/ewallet.p12
-        extracting: .oracle_wallet/cwallet.sso.lck
-         inflating: .oracle_wallet/cwallet.sso
-       ```
-       
-       Check the files have been extracted correctly.
-       
-       ```bash
-       ls
-       ```
-       
-       ```output
-       sqlnet.ora  tnsnames.ora  wallet.zip
-       ```
-       
-       Assuming all the previous steps have been completed correctly, then it should be possible to connect to the database using the `/@AZACSNAP` connect string.
-       
-       ```bash
-       sqlplus /@AZACSNAP as SYSBACKUP
-       ```
-       
-       ```output
-       SQL*Plus: Release 21.0.0.0.0 - Production on Wed Jan 12 13:39:36 2022
-       Version 21.1.0.0.0
-       
-       Copyright (c) 1982, 2020, Oracle.  All rights reserved.
-       
-       
-       Connected to:
-       Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
-       Version 19.3.0.0.0
-       
-       ```sql
-       SQL> quit
-       ```
-       
-       ```output
-       Disconnected from Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
-       Version 19.3.0.0.0
-       ```
-       
-       > [!IMPORTANT]
-       > The `$TNS_ADMIN` shell variable determines where to locate the Oracle Wallet and `*.ora` files, so it must be set before running `azacsnap` to ensure
-       > correct operation.
-       
-    1. Test the setup with AzAcSnap
-       
-       After configuring AzAcSnap (for example, `azacsnap -c configure --configuration new`) with the Oracle connect string (for example, `/@AZACSNAP`), it should 
-       be possible to connect to the Oracle database.
-       
-       Check the `$TNS_ADMIN` variable is set for the correct Oracle target system
-       
-       ```bash
-       ls -al $TNS_ADMIN
-       ```
-       
-       ```output
-       total 16
-       drwxrwxr-x.  3 orasnap orasnap   84 Jan 12 13:39 .
-       drwx------. 18 orasnap sapsys  4096 Jan 12 13:39 ..
-       drwx------.  2 orasnap orasnap   90 Jan 12 13:23 .oracle_wallet
-       -rw-rw-r--.  1 orasnap orasnap  125 Jan 12 13:39 sqlnet.ora
-       -rw-rw-r--.  1 orasnap orasnap  128 Jan 12 13:24 tnsnames.ora
-       -rw-r--r--.  1 root    root    2569 Jan 12 13:28 wallet.zip
-       ```
-       
-       Run the `azacsnap` test command
-       
-       ```bash
-       cd ~/bin
-       azacsnap -c test --test oracle --configfile ORACLE.json
-       ```
-       
-       ```output
-       BEGIN : Test process started for 'oracle'
-       BEGIN : Oracle DB tests
-       PASSED: Successful connectivity to Oracle DB version 1903000000
-       END   : Test process complete for 'oracle'
-       ```
-       
-       > [!IMPORTANT]
-       > The `$TNS_ADMIN` variable must be setup correctly for `azacsnap` to run correctly, either by adding to the user's `.bash_profile` file, 
-       > or by exporting it before each run (for example, `export TNS_ADMIN="/home/orasnap/ORACLE19c" ; cd /home/orasnap/bin ; ./azacsnap --configfile ORACLE19c.json 
-       > -c backup --volume data --prefix hourly-ora19c --retention 12`)
+```output
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCb4HedCPdIeft4DUp7jwSDUNef52zH8xVfu5sSErWUw3hhRQ7KV5sLqtxom7an2a0COeO13gjCiTpwfO7UXH47dUgbz+KfwDaBdQoZdsp8ed1WI6vgCRuY4sb+rY7eiqbJrLnJrmgdwZkV+HSOvZGnKEV4Y837UHn0BYcAckX8DiRl7gkrbZUPcpkQYHGy9bMmXO+tUuxLM0wBrzvGcPPZ azacsnap@db2-02
+```
+
+Log in to the IBM Db2 system as the Db2 Instance User.
+
+Add the contents of the AzAcSnap user's public key to the Db2 Instance Users `authorized_keys` file.
+
+```bash
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCb4HedCPdIeft4DUp7jwSDUNef52zH8xVfu5sSErWUw3hhRQ7KV5sLqtxom7an2a0COeO13gjCiTpwfO7UXH47dUgbz+KfwDaBdQoZdsp8ed1WI6vgCRuY4sb+rY7eiqbJrLnJrmgdwZkV+HSOvZGnKEV4Y837UHn0BYcAckX8DiRl7gkrbZUPcpkQYHGy9bMmXO+tUuxLM0wBrzvGcPPZ azacsnap@db2-02" >> ~/.ssh/authorized_keys
+```
+
+Log in to the AzAcSnap system as the `azacsnap` user and test SSH access.
+
+```bash
+ssh <InstanceUser>@<ServerAddress>
+```
+
+```output
+[InstanceUser@ServerName ~]$
+```
+
+Test the user can run the `db2` command line processor.
+
+```bash
+db2
+```
+
+```output
+(c) Copyright IBM Corporation 1993,2007
+Command Line Processor for DB2 Client 11.5.7.0
+
+You can issue database manager commands and SQL statements from the command
+prompt. For example:
+    db2 => connect to sample
+    db2 => bind sample.bnd
+
+For general help, type: ?.
+For command help, type: ? command, where command can be
+the first few keywords of a database manager command. For example:
+ ? CATALOG DATABASE for help on the CATALOG DATABASE command
+ ? CATALOG          for help on all of the CATALOG commands.
+
+To exit db2 interactive mode, type QUIT at the command prompt. Outside
+interactive mode, all commands must be prefixed with 'db2'.
+To list the current command option settings, type LIST COMMAND OPTIONS.
+
+For more detailed help, refer to the Online Reference Manual.
+```
+
+```sql
+db2 => quit
+DB20000I  The QUIT command completed successfully.
+```
+
+```bash
+[prj@db2-02 ~]$ exit
+
+```output
+logout
+Connection to <serverAddress> closed.
+```
+
+Once this is working correctly go on to configure (`azacsnap -c configure`) with the Db2 server's external IP address and test (`azacsnap -c test --test db2`) azacsnap database connectivity.
+
+Run the `azacsnap` test command
+
+```bash
+cd ~/bin
+azacsnap -c test --test db2 --configfile Db2.json
+```
+
+```output
+BEGIN : Test process started for 'db2'
+BEGIN : Db2 DB tests
+PASSED: Successful connectivity to Db2 DB version v11.5.7.0
+END   : Test process complete for 'db2'
+```
 
 ---
 
@@ -457,34 +287,9 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
 
 This section explains how to configure the data base.
 
-# [Oracle](#tab/oracle)
+# [IBM Db2](#tab/db2)
 
-These are required changes to be applied to the Oracle Database to allow for monitoring by the database administrator. 
-
-1. Set up Oracle alert logging
-   
-   Use the following Oracle SQL commands while connected to the database as SYSDBA to create a stored procedure under the default Oracle SYSBACKUP database account. 
-   This will allow AzAcSnap to output messages to standard output using the PUT_LINE procedure in the DBMS_OUTPUT package, and also to the Oracle database `alert.log` 
-   file (using the KSDWRT procedure in the DBMS_SYSTEM package).
-    
-   ```bash
-   sqlplus / As SYSDBA
-   ```
-   
-   ```sql
-   GRANT EXECUTE ON DBMS_SYSTEM TO SYSBACKUP;
-   CREATE PROCEDURE sysbackup.azmessage(in_msg IN VARCHAR2)
-   AS
-       v_timestamp VARCHAR2(32);
-   BEGIN
-       SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')
-           INTO v_timestamp FROM DUAL;
-       SYS.DBMS_SYSTEM.KSDWRT(SYS.DBMS_SYSTEM.ALERT_FILE, in_msg);
-   END azmessage;
-   /
-   SHOW ERRORS
-   QUIT
-   ```
+No special database configuration is required for Db2 as we are using the Instance User's local operating system environment.
 
 ---
 
@@ -493,63 +298,25 @@ These are required changes to be applied to the Oracle Database to allow for mon
 This section explains how to configure AzAcSnap for the specified database.
 
 > [!NOTE]
-> Support for Oracle is Preview feature.  
+> Support for Db2 is Preview feature.  
 > This section's content supplements [Configure Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md) website page.
 
 ### Details of required values
 
 The following sections provide detailed guidance on the various values required for the configuration file.
 
-# [Oracle](#tab/oracle)
+# [IBM Db2](#tab/db2)
 
-#### Oracle Database values for configuration
+#### Db2 Database values for configuration
 
-When adding an Oracle database to the configuration, the following values are required:
+When adding a Db2 database to the configuration, the following values are required:
 
-- **Oracle DB Server's Address** = The database server hostname or IP address.
+- **Db2 Server's Address** = The database server hostname or IP address.
+  - If Db2 Server Address (serverAddress) matches '127.0.0.1' or 'localhost' then azacsnap will execute all `db2` commands locally (refer "Local connectivity").  Otherwise AzAcSnap will use the serverAddress as the host to connect to via SSH using the "Instance User" as the SSH login name, this can be validated with `ssh <instanceUser>@<serverAddress>` replacing instanceUser and serverAddress with the respective values (refer "Remote connectivity").
+- **Instance User** = The database System Instance User.
 - **SID** = The database System ID.
-- **Oracle Connect String** = The Connect String used by `sqlplus` to connect to Oracle and enable/disable backup mode.
 
 ---
-
-## Backint coexistence
-
-> [!NOTE]
-> Support for coexistence with SAP HANA's Backint interface is a Preview feature.  
-> This section's content supplements [Configure Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md) website page.
-
-[Azure Backup](/azure/backup/) service provides an alternate backup tool for SAP HANA, where database and log backups are streamed into the 
-Azure Backup Service.  Some customers would like to combine the streaming backint-based backups with regular snapshot-based backups.  However, backint-based 
-backups block other methods of backup, such as using a files-based backup or a storage snapshot-based backup (for example, AzAcSnap).  Guidance is provided on
-the Azure Backup site on how to [Run SAP HANA native client backup to local disk on a database with Azure Backup enabled](/azure/backup/sap-hana-db-manage#run-sap-hana-native-client-backup-to-local-disk-on-a-database-with-azure-backup-enabled).  
-
-The process described in the Azure Backup documentation has been implemented with AzAcSnap to automatically do the following steps:
-
-1. force a log backup flush to backint.
-1. wait for running backups to complete.
-1. disable the backint-based backup.
-1. put SAP HANA into a consistent state for backup.
-1. take a storage snapshot-based backup.
-1. release SAP HANA.
-1. re-enable the backint-based backup.
-
-By default this option is disabled, but it can be enabled by running `azacsnap -c configure –configuration edit` and answering ‘y’ (yes) to the question 
-“Do you need AzAcSnap to automatically disable/enable backint during snapshot? (y/n) [n]”.  This will set the autoDisableEnableBackint value to true in the 
-JSON configuration file (for example, `azacsnap.json`).  It's also possible to change this value by editing the configuration file directly.
-
-Refer to this partial snippet of the configuration file to see where this value is placed and the correct format:
-
-```output
-  "database": [
-    {
-      "hana": {
-        "serverAddress": "127.0.0.1",
-        "sid": "P40",
-        "instanceNumber": "00",
-        "hdbUserStoreName": "AZACSNAP",
-        "savePointAbortWaitSeconds": 600,
-        "autoDisableEnableBackint": true,
-```
 
 ## Azure Managed Disk
 
@@ -557,11 +324,11 @@ Refer to this partial snippet of the configuration file to see where this value 
 > Support for Azure Managed Disk as a storage back-end is a Preview feature.  
 > This section's content supplements [Configure Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md) website page.
 
-Microsoft provides a number of storage options for deploying databases such as SAP HANA.  Many of these are detailed on the 
-[Azure Storage types for SAP workload](/azure/virtual-machines/workloads/sap/planning-guide-storage) web page.  Additionally there's a 
-[Cost conscious solution with Azure premium storage](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#cost-conscious-solution-with-azure-premium-storage).  
+Microsoft provides many storage options for deploying databases such as SAP HANA.  Many of these options are detailed on the 
+[Azure Storage types for SAP workload](../virtual-machines/workloads/sap/planning-guide-storage.md) web page.  Additionally there's a 
+[Cost conscious solution with Azure premium storage](../virtual-machines/workloads/sap/hana-vm-premium-ssd-v1.md#cost-conscious-solution-with-azure-premium-storage).  
 
-AzAcSnap is able to take application consistent database snapshots when deployed on this type of architecture (that is, a VM with Managed Disks).  However, the setup 
+AzAcSnap is able to take application consistent database snapshots when deployed on this type of architecture (that is, a VM with Managed Disks).  However, the set up 
 for this platform is slightly more complicated as in this scenario we need to block I/O to the mountpoint (using `xfs_freeze`) before taking a snapshot of the Managed 
 Disks in the mounted Logical Volume(s).  
 
@@ -758,7 +525,7 @@ The storage hierarchy looks like the following example for SAP HANA:
 
 Installing and setting up the Azure VM and Azure Managed Disks in this way follows Microsoft guidance to create LVM stripes of the Managed Disks on the VM.  
 
-With the Azure VM setup as described, AzAcSnap can be run with Azure Managed Disks in a similar way to other supported storage back-ends (for example, Azure NetApp Files, Azure Large Instance (Bare Metal)).  Because AzAcSnap communicates with the Azure Resource Manager to take snapshots, it also needs a Service Principal with the correct permissions to take managed disk snapshots.
+With the Azure VM set up as prescribed, AzAcSnap can take snapshots of Azure Managed Disks.  The snapshot operations are similar to those for other storage back-ends supported by AzAcSnap (for example, Azure NetApp Files, Azure Large Instance (Bare Metal)).  Because AzAcSnap communicates with the Azure Resource Manager to take snapshots, it also needs a Service Principal with the correct permissions to take managed disk snapshots.
 
 This capability allows customers to test/trial AzAcSnap on a smaller system and scale-up to Azure NetApp Files and/or Azure Large Instance (Bare Metal).
 
@@ -875,234 +642,178 @@ Although `azacsnap` is currently missing the `-c restore` option for Azure Manag
     ```
 
 
-## RunBefore and RunAfter capability
 
-> [!NOTE]
-> Support for `azacsnap` to run shell commands before and after `azacsnap` executes is a Preview feature.  
-> This section's content supplements [What is Azure Application Consistent Snapshot tool](azacsnap-introduction.md) website page.
+## Azure Key Vault
 
-A new capability for AzAcSnap to execute external commands before or after its main execution.
+From AzAcSnap v5.1, it's possible to store the Service Principal securely as a Secret in Azure Key Vault.  Using this feature allows for centralization of Service Principal credentials
+where an alternate administrator can set up the Secret for AzAcSnap to use.
 
-`--runbefore` will run a shell command before the main execution of azacsnap and provides some of the azacsnap command-line parameters to the shell environment. 
-By default, `azacsnap` will wait up to 30 seconds for the external shell command to complete before killing the process and returning to azacsnap normal execution. 
-This can be overridden by adding a number to wait in seconds after a `%` character (for example, `--runbefore "mycommand.sh%60"` will wait up to 60 seconds for `mycommand.sh` 
-to complete).
+The steps to follow to set up Azure Key Vault and store the Service Principal in a Secret are as follows:
 
-`--runafter` will run a shell command after the main execution of azacsnap and provides some of the azacsnap command-line parameters to the shell environment. 
-By default, `azacsnap` will wait up to 30 seconds for the external shell command to complete before killing the process and returning to azacsnap normal execution. 
-This can be overridden by adding a number to wait in seconds after a `%` character (for example, `--runafter "mycommand.sh%60"` will wait for up to 60 seconds for `mycommand.sh` 
-to complete).
+1. Within an Azure Cloud Shell session, make sure you're logged on at the subscription where you want to create the Azure Key Vault:
 
-The following list of environment variables is generated by `azacsnap` and passed to the shell forked to run the commands provided as parameters to `--runbefore` and `--runafter`:
+    ```azurecli-interactive
+    az account show
+    ```
 
-- `$azCommand` = the command option passed to -c (for example, backup, test, etc.).
-- `$azConfigFileName` = the configuration filename.
-- `$azPrefix` = the --prefix value.
-- `$azRetention` = the --retention value.
-- `$azSid` = the --dbsid value.
-- `$azSnapshotName` = the snapshot name generated by azacsnap.
+1. If the subscription isn't correct, use the following command to set the Cloud Shell to the correct subscription:
 
-> [!NOTE]
-> There's only a value for `$azSnapshotName` in the `--runafter` option.
+    ```azurecli-interactive
+    az account set -s <subscription name or id>
+    ```
 
-### Example usage
+1. Create Azure Key Vault
 
-An example usage for this new feature is to upload a snapshot to Azure Blob for archival purposes using the azcopy tool ([Copy or move data to Azure Storage by using AzCopy](/azure/storage/common/storage-use-azcopy-v10)).  
+    ```azurecli-interactive
+    az keyvault create --name "<AzureKeyVaultName>" -g <ResourceGroupName>
+    ```
 
-The following crontab entry is a single line and runs `azacsnap` at five past midnight.  Note the call to `snapshot-to-blob.sh` passing the snapshot name and snapshot prefix:
+1. Create the trust relationship and assign the policy for virtual machine to get the Secret
 
-```output
-5 0 * * *         ( . ~/.bash_profile ; cd /home/azacsnap/bin ; ./azacsnap -c backup --volume data --prefix daily --retention 1 --configfile HANA.json --trim --ssl openssl --runafter 'env ; ./snapshot-to-blob.sh $azSnapshotName $azPrefix')
-```
+   1. Show AzAcSnap virtual machine Identity
+      
+      If the virtual machine already has an identity created, retrieve it as follows:
+      
+      ```azurecli-interactive
+      az vm identity show --name "<VMName>" --resource-group "<ResourceGroup>"
+      ```
+      
+      The `"principalId"` in the output is used as the `--object-id` value when setting the Policy with `az keyvault set-policy`.
+      
+      ```output
+      {
+        "principalId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
+        "tenantId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
+        "type": "SystemAssigned, UserAssigned",
+        "userAssignedIdentities": { 
+          "/subscriptions/99z999zz-99z9-99zz-99zz-9z9zz999zz99/resourceGroups/AzSecPackAutoConfigRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/AzSecPackAutoConfigUA-eastus2": {
+            "clientId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
+            "principalId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99"
+          }
+        }
+      }
+      ```
 
-This example shell script has a special stanza at the end to prevent AzAcSnap from killing the external command due to the timeout described earlier.  This allows for 
-a long running command, such as uploading large files with azcopy, to be run without being prematurely stopped. 
+   1. Set AzAcSnap virtual machine Identity (if necessary)
+   
+      If the VM doesn't have an identity, create it as follows:
+      
+      ```azurecli-interactive
+      az vm identity assign --name "<VMName>" --resource-group "<ResourceGroup>"
+      ```
+      
+      The `"systemAssignedIdentity"` in the output is used as the `--object-id` value when setting the Policy with `az keyvault set-policy`.
+      
+      ```output
+      {
+        "systemAssignedIdentity": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
+        "userAssignedIdentities": {
+          "/subscriptions/99z999zz-99z9-99zz-99zz-  9z9zz999zz99/resourceGroups/AzSecPackAutoConfigRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/AzSecPackAutoConfigUA-eastus2": {
+            "clientId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
+            "principalId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99"
+          }
+        }
+      }
+      ```
 
-The snapshots need to be mounted on the system doing the copy, with at a minimum read-only privilege.  The base location of the mount point for the snapshots should
-be provided to the `sourceDir` variable in the script.
+   1. Assign a suitable policy for the virtual machine to be able to retrieve the Secret from the Key Vault.
 
-```bash
-cat snapshot-to-blob.sh
-```
+      ```azurecli-interactive
+      az keyvault set-policy --name "<AzureKeyVaultName>" --object-id "<VMIdentity>" --secret-permissions get
+      ```
 
-```output
-#!/bin/bash
-# Utility to upload-to/list Azure Blob store.
-#   If run as snapshot-to-blob.sh will upload a gzipped tarball of the snapshot.
-#   If run as list-blobs.sh will list uploaded blobs.
-#     e.g. `ln -s snapshot-to-blob.sh list-blobs.sh`
+1. Create Azure Key Vault Secret
 
+   Create the secret, which will store the Service Principal credential information.
+   
+   It's possible to paste the contents of the Service Principal. In the **Bash** Cloud Shell below a single apostrophe character is put after value then 
+   press the `[Enter]` key, then paste the contents of the Service Principal, close the content by adding another single apostrophe and press the `[Enter]` key.  
+   This command should create the Secret and store it in Azure Key Vault.
+   
+   > [!TIP] 
+   > If you have a separate Service Principal per installation the `"<NameOfSecret>"` could be the SID, or some other suitable unique identifier.
+  
+   Following example is for using the **Bash** Cloud Shell:
 
-# _START_ Change these
-SAS_KEY_FILE="${HOME}/bin/blob-credentials.saskey"
-# the snapshots need to be mounted locally for copying, put source directory here
-SOURCE_DIR="/mnt/saphana1/hana_data_PR1/.snapshot"
-# _END_ Change these
+    ```azurecli-interactive
+    az keyvault secret set --name "<NameOfSecret>" --vault-name "<AzureKeyVaultName>" --value '
+    {
+      "clientId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
+      "clientSecret": "<ClientSecret>",
+      "subscriptionId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
+      "tenantId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
+      "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+      "resourceManagerEndpointUrl": "https://management.azure.com/",
+      "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+      "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+      "galleryEndpointUrl": "https://gallery.azure.com/",
+      "managementEndpointUrl": "https://management.core.windows.net/"
+    }'
+    ```
 
+    Following example is for using the **PowerShell** Cloud Shell:
 
-# _START_ AzCopy Settings
-#Overrides where the job plan files (used for progress tracking and resuming) are stored, to avoid filling up a disk.
-export AZCOPY_JOB_PLAN_LOCATION="${HOME}/.azcopy/plans/"
-#Overrides where the log files are stored, to avoid filling up a disk.
-export AZCOPY_LOG_LOCATION="${HOME}/.azcopy/logs/"
-#If set, to anything, on-screen output will include counts of chunks by state
-export AZCOPY_SHOW_PERF_STATES=true
-# _END_ AzCopy Settings
+    > [!WARNING] 
+    > In PowerShell the double quotes have to be escaped with an additional double quote, so one double quote (") becomes two double quotes ("").
 
+    ```azurecli-interactive
+    az keyvault secret set --name "<NameOfSecret>" --vault-name "<AzureKeyVaultName>" --value '
+    {
+      ""clientId"": ""99z999zz-99z9-99zz-99zz-9z9zz999zz99"",
+      ""clientSecret"": ""<ClientSecret>"",
+      ""subscriptionId"": ""99z999zz-99z9-99zz-99zz-9z9zz999zz99"",
+      ""tenantId"": ""99z999zz-99z9-99zz-99zz-9z9zz999zz99"",
+      ""activeDirectoryEndpointUrl"": ""https://login.microsoftonline.com"",
+      ""resourceManagerEndpointUrl"": ""https://management.azure.com/"",
+      ""activeDirectoryGraphResourceId"": ""https://graph.windows.net/"",
+      ""sqlManagementEndpointUrl"": ""https://management.core.windows.net:8443/"",
+      ""galleryEndpointUrl"": ""https://gallery.azure.com/"",
+      ""managementEndpointUrl"": ""https://management.core.windows.net/""
+    }'
+    ```
 
-# do not change any of the following
+    The output of the command `az keyvault secret set` will have the URI value to use as `"authFile"` entry in the AzAcSnap JSON configuration file.  The URI is
+    the value of the `"id"` below (for example, `"https://<AzureKeyVaultName>.vault.azure.net/secrets/<NameOfSecret>/z9999999z9999999z9999999"`).
 
+    ```output
+    {
+      "attributes": {
+        "created": "2022-02-23T20:21:01+00:00",
+        "enabled": true,
+        "expires": null,
+        "notBefore": null,
+        "recoveryLevel": "Recoverable+Purgeable",
+        "updated": "2022-02-23T20:21:01+00:00"
+      },
+      "contentType": null,
+      "id": "https://<AzureKeyVaultName>.vault.azure.net/secrets/<NameOfSecret>/z9999999z9999999z9999999",
+      "kid": null,
+      "managed": null,
+      "name": "AzureAuth",
+      "tags": {
+        "file-encoding": "utf-8"
+      },
+      "value": "\n{\n  \"clientId\": \"99z999zz-99z9-99zz-99zz-9z9zz999zz99\",\n  \"clientSecret\": \"<ClientSecret>\",\n  \"subscriptionId\": \"99z999zz-99z9-99zz-99zz-9z9zz999zz99\",\n  \"tenantId\": \"99z999zz-99z9-99zz-99zz-9z9zz999zz99\",\n  \"activeDirectoryEndpointUrl\": \"https://login.microsoftonline.com\",\n  \"resourceManagerEndpointUrl\": \"https://management.azure.com/\",\n  \"activeDirectoryGraphResourceId\": \"https://graph.windows.net/\",\n  \"sqlManagementEndpointUrl\": \"https://management.core.windows.net:8443/\",\n  \"galleryEndpointUrl\": \"https://gallery.azure.com/\",\n  \"managementEndpointUrl\": \"https://management.core.windows.net/\"\n}"
+    }
+    ```
 
-# Make sure we got some command line args
-if [ "$(basename "$0")" = "snapshot-to-blob.sh" ] && ([ "$1" = "" ] || [ "$2" = "" ]); then
-  echo "Usage: $0 <SNAPSHOT_NAME> <PREFIX>"
-  exit 1
-fi
+1. Update AzAcSnap JSON configuration file
 
-# Make sure we can read the SAS key credential file.
-if [ -r "${SAS_KEY_FILE}" ]; then
-  source "${SAS_KEY_FILE}"
-else
-  echo "Credential file '${SAS_KEY_FILE}' not found, exiting!"
-fi
+   Replace the value for the authFile entry with the Secret's ID value.  Making this change can be done by editing the file using a tool like `vi`, or by using the 
+   `azacsnap -c configure --configuration edit` option.
 
+    1. Old Value
+  
+      ```output
+      "authFile": "azureauth.json"
+      ```
+  
+    1. New Value
+  
+      ```output
+      "authFile": "https://<AzureKeyVaultName>.vault.azure.net/secrets/<NameOfSecret>/z9999999z9999999z9999999"
+      ```
 
-# Assign the rest of the Global variables.
-SNAPSHOT_NAME=$1
-PREFIX=$2
-BLOB_STORE="$(echo "${PORTAL_GENERATED_SAS}" | cut -f1 -d'?')"
-BLOB_SAS_KEY="$(echo "${PORTAL_GENERATED_SAS}" | cut -f2 -d'?')"
-ARCHIVE_LOG="logs/$(basename "$0").log"
-
-# Archive naming (daily.1, daily.2, etc...)
-DAY_OF_WEEK=$(date "+%u")
-MONTH_OF_YEAR=$(date "+%m")
-ARCHIVE_BLOB_TGZ="${PREFIX}.${DAY_OF_WEEK}.tgz"
-
-#######################################
-# Write to the log.
-# Globals:
-#   None
-# Arguments:
-#   LOG_MSG
-#######################################
-write_log(){
-  LOG_MSG=$1
-  date=$(date "+[%d/%h/%Y:%H:%M:%S %z]")
-  echo "$date ${LOG_MSG}" >> "${ARCHIVE_LOG}"
-}
-
-
-#######################################
-# Run and Log the command.
-# Globals:
-#   None
-# Arguments:
-#   CMD_TO_RUN
-#######################################
-run_cmd(){
-  CMD_TO_RUN="${1}"
-  write_log "[RUNCMD] ${CMD_TO_RUN}"
-  bash -c "${CMD_TO_RUN}"
-}
-
-
-#######################################
-# Check snapshot exists and then background the upload to Blob store.
-# Globals:
-#   SOURCE_DIR
-#   SNAPSHOT_NAME
-#   ARCHIVE_LOG
-# Arguments:
-#   None
-#######################################
-snapshot_to_blob(){
-  # Check SOURCE_DIR and SNAPSHOT_NAME exist
-  if [ ! -d "${SOURCE_DIR}/${SNAPSHOT_NAME}" ]; then
-    echo "${SOURCE_DIR}/${SNAPSHOT_NAME} not found, exiting!" | tee -a "${ARCHIVE_LOG}"
-    exit 1
-  fi
-  # background ourselves so AzAcSnap exits cleanly
-  echo "Backgrounding '$0 $@' to prevent blocking azacsnap"
-  echo "write_logging to ${ARCHIVE_LOG}"
-  {
-    trap '' HUP
-    # the script
-    upload_to_blob
-    list_blob >> "${ARCHIVE_LOG}"
-  } < /dev/null > /dev/null 2>&1 &
-}
-
-
-#######################################
-# Upload to Blob store.
-# Globals:
-#   SOURCE_DIR
-#   SNAPSHOT_NAME
-#   ARCHIVE_BLOB_TGZ
-#   BLOB_STORE
-#   BLOB_SAS_KEY
-#   ARCHIVE_LOG
-# Arguments:
-#   None
-#######################################
-upload_to_blob(){
-  # Copy snapshot to blob store
-  echo "Starting upload of ${SNAPSHOT_NAME} to ${BLOB_STORE}/${ARCHIVE_BLOB_TGZ}" >> "${ARCHIVE_LOG}"
-  run_cmd "azcopy env ; cd ${SOURCE_DIR}/${SNAPSHOT_NAME} && tar zcvf - * | azcopy cp \"${BLOB_STORE}/${ARCHIVE_BLOB_TGZ}?${BLOB_SAS_KEY}\" --from-to PipeBlob && cd -"
-  echo "Completed upload of ${SNAPSHOT_NAME} ${BLOB_STORE}/${ARCHIVE_BLOB_TGZ}" >> "${ARCHIVE_LOG}"
-
-  # Complete
-  echo "Finished ($0 ${SNAPSHOT_NAME} ${PREFIX}) @ $(date "+%d-%h-%Y %H:%M")" >> "${ARCHIVE_LOG}"
-  echo "--------------------------------------------------------------------------------" >> "${ARCHIVE_LOG}"
-  # col 12345678901234567890123456789012345678901234567890123456789012345678901234567890
-}
-
-
-#######################################
-# List contents of Blob store.
-# Globals:
-#   BLOB_STORE
-#   BLOB_SAS_KEY
-# Arguments:
-#   None
-#######################################
-list_blob(){
-  LOG_MSG="Current list of files stored in ${BLOB_STORE}"
-  write_log "${LOG_MSG}"
-  echo "${LOG_MSG}"
-  run_cmd "azcopy list \"${BLOB_STORE}?${BLOB_SAS_KEY}\"  --properties LastModifiedTime "
-}
-
-
-# Log when script started.
-write_log "Started ($0 ${SNAPSHOT_NAME} ${PREFIX}) @ $(date "+%d-%h-%Y %H:%M")"
-
-
-# Check what this was called as ($0) and run accordingly.
-case "$(basename "$0")" in
-  "snapshot-to-blob.sh" )
-    snapshot_to_blob
-    ;;
-  "list-blobs.sh" )
-    list_blob
-    ;;
-  *)
-    echo "Command '$0' not recognised!"
-    ;;
-esac
-```
-
-The saskeyFile contains the following example SAS Key (content changed for security):
-
-```bash
-cat blob-credentials.saskey
-```
-
-```output
-# we need a generated SAS key, get this from the portal with read,add,create,write,list permissions
-PORTAL_GENERATED_SAS="https://<targetstorageaccount>.blob.core.windows.net/<blob-store>?sp=racwl&st=2021-06-10T21:10:38Z&se=2021-06-11T05:10:38Z&spr=https&sv=2020-02-10&sr=c&sig=<key-material>"
-```
 
 ## Next steps
 

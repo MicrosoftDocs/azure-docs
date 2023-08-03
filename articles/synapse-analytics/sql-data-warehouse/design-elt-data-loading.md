@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 11/20/2020
 ms.author: joanpo
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ms.custom: azure-synapse
 ---
 
@@ -18,7 +18,7 @@ Traditional SMP dedicated SQL pools use an Extract, Transform, and Load (ETL) pr
 
 Using an Extract, Load, and Transform (ELT) process leverages built-in distributed query processing capabilities and eliminates the resources needed for data transformation prior to loading.
 
-While dedicated SQL pools support many loading methods, including popular SQL Server options such as [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) and the [SqlBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), the fastest and most scalable way to load data is through PolyBase external tables and the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+While dedicated SQL pools support many loading methods, including popular SQL Server options such as [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&view=azure-sqldw-latest&preserve-view=true) and the [SqlBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json), the fastest and most scalable way to load data is through PolyBase external tables and the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 With PolyBase and the COPY statement, you can access external data stored in Azure Blob storage or Azure Data Lake Store via the T-SQL language. For the most flexibility when loading, we recommend using the COPY statement.
 
@@ -46,17 +46,17 @@ Getting data out of your source system depends on the storage location. The goal
 
 With PolyBase and the COPY statement, you can load data from UTF-8 and UTF-16 encoded delimited text or CSV files. In addition to delimited text or CSV files, it loads from the Hadoop file formats such as ORC and Parquet. PolyBase and the COPY statement can also load data from Gzip and Snappy compressed files.
 
-Extended ASCII, fixed-width format, and nested formats such as WinZip or XML aren't supported. If you're exporting from SQL Server, you can use the [bcp command-line tool](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to export the data into delimited text files.
+Extended ASCII, fixed-width format, and nested formats such as WinZip or XML aren't supported. If you're exporting from SQL Server, you can use the [bcp command-line tool](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&view=azure-sqldw-latest&preserve-view=true) to export the data into delimited text files.
 
 ## 2. Land the data into Azure Blob storage or Azure Data Lake Store
 
-To land the data in Azure storage, you can move it to [Azure Blob storage](../../storage/blobs/storage-blobs-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) or [Azure Data Lake Store Gen2](../../data-lake-store/data-lake-store-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). In either location, the data should be stored in text files. PolyBase and the COPY statement can load from either location.
+To land the data in Azure storage, you can move it to [Azure Blob storage](../../storage/blobs/storage-blobs-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json) or [Azure Data Lake Store Gen2](../../data-lake-store/data-lake-store-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json). In either location, the data should be stored in text files. PolyBase and the COPY statement can load from either location.
 
 Tools and services you can use to move data to Azure Storage:
 
-- [Azure ExpressRoute](../../expressroute/expressroute-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) service enhances network throughput, performance, and predictability. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. ExpressRoute connections do not route data through the public internet. The connections offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the public internet.
-- [AzCopy utility](../../storage/common/storage-choose-data-transfer-solution.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) moves data to Azure Storage over the public internet. This works if your data sizes are less than 10 TB. To perform loads on a regular basis with AzCopy, test the network speed to see if it is acceptable.
-- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) has a gateway that you can install on your local server. Then you can create a pipeline to move data from your local server up to Azure Storage. To use Data Factory with dedicated SQL pools, see [Loading data for dedicated SQL pools](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+- [Azure ExpressRoute](../../expressroute/expressroute-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json) service enhances network throughput, performance, and predictability. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. ExpressRoute connections do not route data through the public internet. The connections offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the public internet.
+- [AzCopy utility](../../storage/common/storage-choose-data-transfer-solution.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json) moves data to Azure Storage over the public internet. This works if your data sizes are less than 10 TB. To perform loads on a regular basis with AzCopy, test the network speed to see if it is acceptable.
+- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json) has a gateway that you can install on your local server. Then you can create a pipeline to move data from your local server up to Azure Storage. To use Data Factory with dedicated SQL pools, see [Loading data for dedicated SQL pools](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json).
 
 ## 3. Prepare the data for loading
 
@@ -70,9 +70,9 @@ If you are using PolyBase, you need to define external tables in your dedicated 
 
 Defining external tables involves specifying the data source, the format of the text files, and the table definitions. T-SQL syntax reference articles that you will need are:
 
-- [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 Use the following SQL data type mapping when loading Parquet files:
 
@@ -110,12 +110,11 @@ Use the following SQL data type mapping when loading Parquet files:
 |                            INT64                             |         TIME (MILLIS)                 |       time       |
 |                            INT64                             | TIMESTAMP   (MILLIS)                  |    datetime2     |
 | [Complex   type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md) |                 LIST                  |   varchar(max)   |
-| [Complex   type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md |                  MAP                  |   varchar(max)   |
+| [Complex   type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md) |                  MAP                  |   varchar(max)   |
 
 >[!IMPORTANT] 
 >- SQL dedicated pools do not currently support Parquet data types with MICROS and NANOS precision. 
->- You may experience the following error if types are mismatched between Parquet and SQL or if you have unsupported Parquet data types: 
->**"HdfsBridge::recordReaderFillBuffer - Unexpected error encountered filling record reader buffer: ClassCastException: ..."**
+>- You may experience the following error if types are mismatched between Parquet and SQL or if you have unsupported Parquet data types: `HdfsBridge::recordReaderFillBuffer - Unexpected error encountered filling record reader buffer: ClassCastException:...`
 >- Loading a value outside the range of 0-127 into a tinyint column for Parquet and ORC file format is not supported.
 
 For an example of creating external objects, see [Create external tables](../sql/develop-tables-external-tables.md?tabs=sql-pool).
@@ -127,7 +126,7 @@ To format the text files:
 
 - If your data is coming from a non-relational source, you need to transform it into rows and columns. Whether the data is from a relational or non-relational source, the data must be transformed to align with the column definitions for the table into which you plan to load the data.
 - Format data in the text file to align with the columns and data types in the destination table. Misalignment between data types in the external text files and the dedicated SQL pool table causes rows to be rejected during the load.
-- Separate fields in the text file with a terminator.  Be sure to use a character or a character sequence that isn't found in your source data. Use the terminator you specified with [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- Separate fields in the text file with a terminator.  Be sure to use a character or a character sequence that isn't found in your source data. Use the terminator you specified with [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## 4. Load the data using PolyBase or the COPY statement
 
@@ -139,13 +138,13 @@ To load data, you can use any of these loading options:
 
 - The [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) is the recommended loading utility as it enables you to seamlessly and flexibly load data. The statement has many additional loading capabilities that PolyBase does not provide. See the [NY taxi cab COPY tutorial](./load-data-from-azure-blob-storage-using-copy.md) to run through a sample tutorial.  
 - [PolyBase with T-SQL](./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) requires you to define external data objects.
-- [PolyBase and COPY statement with Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) is another orchestration tool.  It defines a pipeline and schedules jobs.
-- [PolyBase with SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) works well when your source data is in SQL Server. SSIS defines the source to destination table mappings, and also orchestrates the load. If you already have SSIS packages, you can modify the packages to work with the new data warehouse destination.
+- [PolyBase and COPY statement with Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json) is another orchestration tool.  It defines a pipeline and schedules jobs.
+- [PolyBase with SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&view=azure-sqldw-latest&preserve-view=true) works well when your source data is in SQL Server. SSIS defines the source to destination table mappings, and also orchestrates the load. If you already have SSIS packages, you can modify the packages to work with the new data warehouse destination.
 - [PolyBase with Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json) transfers data from a table to a Databricks dataframe and/or writes data from a Databricks dataframe to a table using PolyBase.
 
 ### Other loading options
 
-In addition to PolyBase and the COPY statement, you can use [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) or the [SqlBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). bcp loads directly to the database without going through Azure Blob storage, and is intended only for small loads.
+In addition to PolyBase and the COPY statement, you can use [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&view=azure-sqldw-latest&preserve-view=true) or the [SqlBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json). bcp loads directly to the database without going through Azure Blob storage, and is intended only for small loads.
 
 > [!NOTE]
 > The load performance of these options is slower than PolyBase and the COPY statement.

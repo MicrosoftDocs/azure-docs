@@ -1,18 +1,18 @@
 ---
-title: Java app with Azure Cosmos DB Cassandra API using Java 3.0 SDK
-description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with the Azure portal and Java 3.0 SDK.
+title: Java app with Azure Cosmos DB for Apache Cassandra using Java 3.0 SDK
+description: This quickstart shows how to use the Azure Cosmos DB for Apache Cassandra to create a profile application with the Azure portal and Java 3.0 SDK.
 ms.service: cosmos-db
 author: TheovanKraay
 ms.author: thvankra
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 07/17/2021
-ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api, ignite-2022, devx-track-extended-java
 ---
 
-# Quickstart: Build a Java app to manage Azure Cosmos DB Cassandra API data (v3 Driver)
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+# Quickstart: Build a Java app to manage Azure Cosmos DB for Apache Cassandra data (v3 Driver)
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](manage-data-dotnet.md)
@@ -24,17 +24,17 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 > * [Golang](manage-data-go.md)
 >    
 
-In this quickstart, you create an Azure Cosmos DB Cassandra API account, and use a Cassandra Java app cloned from GitHub to create a Cassandra database and container using the [v3.x Apache Cassandra drivers](https://github.com/datastax/java-driver/tree/3.x) for Java. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
+In this quickstart, you create an Azure Cosmos DB for Apache Cassandra account, and use a Cassandra Java app cloned from GitHub to create a Cassandra database and container using the [v3.x Apache Cassandra drivers](https://github.com/datastax/java-driver/tree/3.x) for Java. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
-- [Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Point your `JAVA_HOME` environment variable to the folder where the JDK is installed.
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or [try Azure Cosmos DB for free](../try-free.md) without an Azure subscription.
+- [Java Development Kit (JDK) 8](/java/openjdk/download#openjdk-8). Point your `JAVA_HOME` environment variable to the folder where the JDK is installed.
 - A [Maven binary archive](https://maven.apache.org/download.cgi). On Ubuntu, run `apt-get install maven` to install Maven.
 - [Git](https://www.git-scm.com/downloads). On Ubuntu, run `sudo apt-get install git` to install Git.
 
 > [!NOTE]
-> This is a simple quickstart which uses [version 3](https://github.com/datastax/java-driver/tree/3.x) of the open-source Apache Cassandra driver for Java. In most cases, you should be able to connect an existing Apache Cassandra dependent Java application to Azure Cosmos DB Cassandra API without any changes to your existing code. However, we recommend adding our [custom Java extension](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/feature/java-driver-3%2F1.0.0), which includes custom retry and load balancing policies, for a better overall experience. This is to handle [rate limiting](./scale-account-throughput.md#handling-rate-limiting-429-errors) and application level failover in Azure Cosmos DB respectively. You can find a comprehensive sample which implements the extension [here](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample).
+> This is a simple quickstart which uses [version 3](https://github.com/datastax/java-driver/tree/3.x) of the open-source Apache Cassandra driver for Java. In most cases, you should be able to connect an existing Apache Cassandra dependent Java application to Azure Cosmos DB for Apache Cassandra without any changes to your existing code. However, we recommend adding our [custom Java extension](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/feature/java-driver-3%2F1.0.0), which includes custom retry and load balancing policies, for a better overall experience. This is to handle [rate limiting](./scale-account-throughput.md#handling-rate-limiting-429-errors) and application level failover in Azure Cosmos DB respectively. You can find a comprehensive sample which implements the extension [here](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample).
 
 ## Create a database account
 
@@ -74,7 +74,7 @@ This step is optional. If you're interested to learn how the code creates the da
   cluster = Cluster.builder().addContactPoint(cassandraHost).withPort(cassandraPort).withCredentials(cassandraUsername, cassandraPassword).withSSL(sslOptions).build();
   ```
 
-* The `cluster` connects to the Azure Cosmos DB Cassandra API and returns a session to access.
+* The `cluster` connects to the Azure Cosmos DB for Apache Cassandra and returns a session to access.
 
   ```java
   return cluster.connect();
@@ -214,7 +214,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmos DB account with Cassandra API, and run a Cassandra Java app that creates a Cassandra database and container. You can now import additional data into your Azure Cosmos DB account. 
+In this quickstart, you learned how to create an Azure Cosmos DB account with API for Cassandra, and run a Cassandra Java app that creates a Cassandra database and container. You can now import additional data into your Azure Cosmos DB account. 
 
 > [!div class="nextstepaction"]
 > [Import Cassandra data into Azure Cosmos DB](migrate-data.md)

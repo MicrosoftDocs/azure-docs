@@ -2,7 +2,7 @@
 title: Overview of transaction processing in Azure Service Bus
 description: This article gives you an overview of transaction processing and the send via feature in Azure Service Bus.
 ms.topic: article
-ms.date: 09/21/2021
+ms.date: 09/28/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
@@ -12,7 +12,9 @@ ms.custom: devx-track-csharp
 This article discusses the transaction capabilities of Microsoft Azure Service Bus. Much of the discussion is illustrated by the [AMQP Transactions with Service Bus sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia). This article is limited to an overview of transaction processing and the *send via* feature in Service Bus, while the Atomic Transactions sample is broader and more complex in scope.
 
 > [!NOTE]
-> The basic tier of Service Bus doesn't support transactions. The standard and premium tiers support transactions. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
+> - The basic tier of Service Bus doesn't support transactions. The standard and premium tiers support transactions. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
+> - Mixing management and messaging operations in a transaction isn't supported. 
+> - JavaScript SDK doesn't support transactions. 
 
 ## Transactions in Service Bus
 
@@ -36,6 +38,13 @@ The operations that can be performed within a transaction scope are as follows:
 Receive operations aren't included, because it's assumed that the application acquires messages using the peek-lock mode, inside some receive loop or with a callback, and only then opens a transaction scope for processing the message.
 
 The disposition of the message (complete, abandon, dead-letter, defer) then occurs within the scope of, and dependent on, the overall outcome of the transaction.
+
+> [!IMPORTANT]
+> Azure Service Bus doesn't retry an operation in case of an exception when the operation is in a transaction scope.
+
+## Operations that do not enlist in transaction scopes
+
+Be aware that message processing code that calls into databases and other services like Cosmos DB does not automatically enlist those downstream resources into the same transactional scope. For more information on how to handle these scenarios, look into the [guidelines on idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
 
 ## Transfers and "send via"
 
@@ -67,6 +76,8 @@ using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
     ts.Complete();
 }
 ```
+
+To learn more about the `EnableCrossEntityTransactions` property, see the following reference [ServiceBusClientBuilder.enableCrossEntityTransactions Method](/java/api/com.azure.messaging.servicebus.servicebusclientbuilder.enablecrossentitytransactions). 
 
 
 ## Timeout

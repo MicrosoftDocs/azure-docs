@@ -33,7 +33,7 @@
     href: ./tutorials/protect-new-resources.md
   - name: "Learn: Govern multiple subscriptions by using Azure Blueprints"
     displayName: governance, module
-    href: /learn/modules/build-cloud-governance-strategy-azure/8-govern-subscriptions-azure-blueprints
+    href: /training/modules/build-cloud-governance-strategy-azure/8-govern-subscriptions-azure-blueprints
 - name: Samples
   items:
   - name: Index
@@ -60,20 +60,6 @@
       href: ./samples/ism-protected/deploy.md
   - name: Canada Federal PBMM
     href: ./samples/canada-federal-pbmm.md
-  - name: CIS Microsoft Azure Foundations Benchmark v1.3.0
-    displayName: standards, cis
-    href: ./samples/cis-azure-1-3-0.md
-  - name: CIS Microsoft Azure Foundations Benchmark v1.1.0
-    displayName: standards, cis
-    href: ./samples/cis-azure-1-1-0.md
-  - name: CMMC Level 3
-    displayName: standards, cmmc
-    href: ./samples/cmmc-l3.md
-  - name: HIPAA HITRUST 9.2
-    displayName: standards, HIPAA HITRUST
-    href: ./samples/hipaa-hitrust-9-2.md
-  - name: IRS 1075
-    href: ./samples/irs-1075-sept2016.md
   - name: ISO 27001
     displayName: standards, iso, 27001, 2013
     href: ./samples/iso-27001-2013.md
@@ -99,35 +85,7 @@
     - name: Steps to deploy
       displayName: standards, iso, 27001
       href: ./samples/iso27001-ase-sql-workload/deploy.md
-  - name: Media   
-    items:
-    - name: Overview
-      displayName: standards, Media MPAA
-      href: ./samples/media/index.md
-    - name: Control mapping
-      displayName: standards, Media
-      href: ./samples/media/control-mapping.md
-    - name: Steps to deploy
-      displayName: standards, Media
-      href: ./samples/media/deploy.md
-  - name: New Zealand ISM Restricted
-    displayName: standards, NZISM
-    href: ./samples/new-zealand-ism.md
-  - name: NIST SP 800-171 R2
-    displayName: standards, nist, 800-171, rev 2
-    href: ./samples/nist-sp-800-171-r2.md
-  - name: PCI-DSS v3.2.1
-    items:
-    - name: Overview
-      displayName: standards, Payment Card Industry Data Security Standard
-      href: ./samples/pci-dss-3.2.1/index.md
-    - name: Control mapping
-      displayName: standards, Payment Card Industry Data Security Standard
-      href: ./samples/pci-dss-3.2.1/control-mapping.md
-    - name: Steps to deploy
-      displayName: standards, Payment Card Industry Data Security Standard
-      href: ./samples/pci-dss-3.2.1/deploy.md
-  - name: SWIFT CSP v2020   
+  - name: SWIFT CSP v2020
     items:
     - name: Overview
       displayName: standards, SWIFT CSP-CSCF v2020
@@ -199,7 +157,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.blueprint/#blueprint
   - name: Azure SDK for .NET
-    href: /dotnet/api/overview/azure/blueprints/management
+    href: /dotnet/api/microsoft.azure.management.blueprint
   - name: REST
     href: /rest/api/blueprints/
   - name: PSGallery (Az.Blueprint module)

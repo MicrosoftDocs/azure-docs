@@ -1,16 +1,16 @@
 ---
-title: Configure a log analytics workspace in Azure AD | Microsoft Docs
+title: Configure a log analytics workspace in Azure AD
 description: Learn how to configure log analytics.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: report-monitor
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 10/31/2022
 
-ms.author: markvi
-author: MarkusVi
-manager: karenhoran
+ms.author: sarahlipsey
+author: shlipsey3
+manager: amycolannino
 ms.reviewer: sandeo
 
 #Customer intent: As an IT admin, I want to set up log analytics so I can analyze the health of my environment.
@@ -33,9 +33,9 @@ In this tutorial, you learn how to:
 
 - An Azure subscription with at least one P1 licensed admin. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
 
-- An Azure AD tenant.
+- An Azure Active Directory (Azure AD) tenant.
 
-- A user who's a global administrator or security administrator for the Azure AD tenant.
+- A user who's a Global Administrator or Security Administrator for the Azure AD tenant.
 
 
 Familiarize yourself with these articles:
@@ -53,6 +53,8 @@ Familiarize yourself with these articles:
 
 
 ## Configure a workspace 
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 This procedure outlines how to configure a log analytics workspace for your audit and sign-in logs.
 Configuring a log analytics workspace consists of two main steps:
@@ -195,15 +197,11 @@ Create a new column by combining the values to two other columns:
 
 `SigninLogs | limit 10 | extend RiskUser = strcat(RiskDetail, "-", Identity) | project RiskUser, ClientAppUsed`
 
-
-
-
-## Create an alert rule  
+## Create an alert rule
 
 This procedure shows how to send alerts when the breakglass account is used.
 
 **To create an alert rule:**
-
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
 
@@ -343,9 +341,9 @@ This procedure shows how to create a new workbook using the quickstart template.
 
 
 
-## Add a query to a workbook template  
+## Add a query to a workbook template
 
-This procedure shows how to add a query to an existing workbook template. The example is based on a query that shows the distribution of conditional access success to failures.
+This procedure shows how to add a query to an existing workbook template. The example is based on a query that shows the distribution of Conditional Access success to failures.
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
@@ -358,7 +356,7 @@ This procedure shows how to add a query to an existing workbook template. The ex
 
     ![Screenshot shows Monitoring in the menu with Workbooks selected.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
-4. In the **conditional access** section, click **Conditional Access Insights and Reporting**.
+4. In the **Conditional Access** section, click **Conditional Access Insights and Reporting**.
 
     ![Screenshot shows the Conditional Access Insights and Reporting option.](./media/tutorial-log-analytics-wizard/conditional-access-template.png)
 

@@ -15,6 +15,8 @@ ms.custom: seodec18
 
 # Diagnose and solve issues in your Azure Time Series Insights Gen1 environment
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 > [!CAUTION]
 > This is a Gen1 article.
 

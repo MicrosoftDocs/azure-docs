@@ -1,13 +1,15 @@
 ---
 title: Filter data by using Azure Data Lake Storage query acceleration
+titleSuffix: Azure Storage
 description: Use query acceleration to retrieve a subset of data from your storage account.
 author: normesta
-ms.subservice: data-lake-storage-gen2
-ms.service: storage
+
+ms.service: azure-data-lake-storage
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 06/09/2022
 ms.author: normesta
 ms.reviewer: jamsbak
+ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp, devx-track-azurepowershell
 ---
 
@@ -49,101 +51,6 @@ Query acceleration enables applications and analytics frameworks to dramatically
   ### [Node.js v12 SDK](#tab/nodejs)
 
   There are no additional prerequisites required to use the Node.js SDK.
-
----
-
-## Enable query acceleration
-
-To use query acceleration, you must register the query acceleration feature with your subscription. Once you've verified that the feature is registered, you must register the Azure Storage resource provider.
-
-### Step 1: Register the query acceleration feature
-
-To use query acceleration, you must first register the query acceleration feature with your subscription.
-
-#### [PowerShell](#tab/powershell)
-
-1. Open a Windows PowerShell command window.
-
-1. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
-
-   ```powershell
-   Connect-AzAccount
-   ```
-
-2. If your identity is associated with more than one subscription, then set your active subscription.
-
-   ```powershell
-   $context = Get-AzSubscription -SubscriptionId <subscription-id>
-   Set-AzContext $context
-   ```
-
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
-
-3. Register the query acceleration feature by using the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) command.
-
-   ```powershell
-   Register-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName BlobQuery
-   ```
-
-#### [Azure CLI](#tab/azure-cli)
-
-1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
-
-2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account.
-
-   ```azurecli-interactive
-   az account set --subscription <subscription-id>
-   ```
-
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
-
-3. Register the query acceleration feature by using the [az feature register](/cli/azure/feature#az_feature_register) command.
-
-   ```azurecli
-   az feature register --namespace Microsoft.Storage --name BlobQuery
-   ```
-
----
-
-### Step 2: Verify that the feature is registered
-
-#### [PowerShell](#tab/powershell)
-
-To verify that the registration is complete, use the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName BlobQuery
-```
-
-#### [Azure CLI](#tab/azure-cli)
-
-To verify that the registration is complete, use the [az feature](/cli/azure/feature#az_feature_show) command.
-
-```azurecli
-az feature show --namespace Microsoft.Storage --name BlobQuery
-```
-
----
-
-### Step 3: Register the Azure Storage resource provider
-
-After your registration is approved, you must re-register the Azure Storage resource provider.
-
-#### [PowerShell](#tab/powershell)
-
-To register the resource provider, use the [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) command.
-
-```powershell
-Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
-```
-
-#### [Azure CLI](#tab/azure-cli)
-
-To register the resource provider, use the [az provider register](/cli/azure/provider#az_provider_register) command.
-
-```azurecli
-az provider register --namespace 'Microsoft.Storage'
-```
 
 ---
 
@@ -336,10 +243,25 @@ private static async Task DumpQueryCsv(BlockBlobClient blob, string query, bool 
 {
     try
     {
-        var options = new BlobQueryOptions() {
-            InputTextConfiguration = new BlobQueryCsvTextOptions() { HasHeaders = headers },
-            OutputTextConfiguration = new BlobQueryCsvTextOptions() { HasHeaders = true },
-            ProgressHandler = new Progress<long>((finishedBytes) => Console.Error.WriteLine($"Data read: {finishedBytes}"))
+        var options = new BlobQueryOptions()
+        {
+            InputTextConfiguration = new BlobQueryCsvTextOptions()
+            { 
+                HasHeaders = true, 
+                RecordSeparator = "\n", 
+                ColumnSeparator = ",", 
+                EscapeCharacter = '\\', 
+                QuotationCharacter = '"'
+            },
+            OutputTextConfiguration = new BlobQueryCsvTextOptions() 
+            { 
+                HasHeaders = true, 
+                RecordSeparator = "\n", 
+                ColumnSeparator = ",", 
+                EscapeCharacter = '\\', 
+                QuotationCharacter = '"' },
+            ProgressHandler = new Progress<long>((finishedBytes) => 
+                Console.Error.WriteLine($"Data read: {finishedBytes}"))
         };
         options.ErrorHandler += (BlobQueryError err) => {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -351,7 +273,8 @@ private static async Task DumpQueryCsv(BlockBlobClient blob, string query, bool 
                 query,
                 options)).Value.Content))
         {
-            using (var parser = new CsvReader(reader, new CsvConfiguration(CultureInfo.CurrentCulture, hasHeaderRecord: true) { HasHeaderRecord = true }))
+            using (var parser = new CsvReader
+                (reader, new CsvConfiguration(CultureInfo.CurrentCulture) { HasHeaderRecord = true }))
             {
                 while (await parser.ReadAsync())
                 {
@@ -362,7 +285,7 @@ private static async Task DumpQueryCsv(BlockBlobClient blob, string query, bool 
     }
     catch (Exception ex)
     {
-        Console.Error.WriteLine("Exception: " + ex.ToString());
+        System.Windows.Forms.MessageBox.Show("Exception: " + ex.ToString());
     }
 }
 

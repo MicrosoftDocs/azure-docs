@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 10/04/2021
+ms.date: 05/22/2023
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Mini R is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -32,19 +32,19 @@ Azure Stack Edge Mini R has the following capabilities:
 |Accelerated AI inferencing| Enabled by the Intel Movidius Myriad X VPU. |
 |Wired and wireless | Allows wired and wireless data transfers.|
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
-|Disconnected mode|  Device and service can be optionally managed via Azure Stack Hub. Deploy, run, manage applications in offline mode. <br> Disconnected mode supports offline upload scenarios.|
+|Disconnected mode|  Deploy, run, manage applications in offline mode. <br> Disconnected mode supports offline upload scenarios.|
 |Supported file transfer protocols      |Supports standard SMB, NFS, and REST protocols for data ingestion. <br> For more information on supported versions, go to [Azure Stack Edge Mini R system requirements](azure-stack-edge-gpu-system-requirements.md).|
 |Data refresh     | Ability to refresh local files with the latest from cloud. <br> For more information, see [Refresh a share on your Azure Stack Edge](azure-stack-edge-gpu-manage-shares.md#refresh-shares).|
 |Double encryption    | Use of self-encrypting drive provides the first layer of encryption. VPN provides the second layer of encryption. BitLocker support to locally encrypt data and secure data transfer to cloud over *https* . <br> For more information, see [Configure VPN on your Azure Stack Edge Pro R device](azure-stack-edge-mini-r-configure-vpn-powershell.md).|
 |Bandwidth throttling| Throttle to limit bandwidth usage during peak hours. <br> For more information, see [Manage bandwidth schedules on your Azure Stack Edge](azure-stack-edge-gpu-manage-bandwidth-schedules.md).|
-|Easy ordering| Bulk ordering and tracking of the device via Azure Edge Hardware Center (Preview). <br> For more information, see [Order a device via Azure Edge Hardware Center](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).|
+|Easy ordering| Bulk ordering and tracking of the device via Azure Edge Hardware Center. <br> For more information, see [Order a device via Azure Edge Hardware Center](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).|
 
 ## Use cases
 
 Here are the various scenarios where Azure Stack Edge Mini R can be used for rapid Machine Learning (ML) inferencing at the edge and preprocessing data before sending it to Azure.
 
-- **Inference with Azure Machine Learning** - With Azure Stack Edge Mini R, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your ML models. For more information on how to use the Azure ML hardware accelerated models on the Azure Stack Edge Mini R device, see 
-[Deploy Azure ML hardware accelerated models on Azure Stack Edge Mini R](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
+- **Inference with Azure Machine Learning** - With Azure Stack Edge Mini R, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your ML models. For more information on how to use the Azure Machine Learning hardware accelerated models on the Azure Stack Edge Mini R device, see 
+[Deploy Azure Machine Learning hardware accelerated models on Azure Stack Edge Mini R](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
 
 - **Preprocess data** - Transform data via compute options such as containers or virtual machines before sending it to Azure to create a more actionable dataset. Preprocessing can be used to:
 
@@ -57,7 +57,7 @@ Here are the various scenarios where Azure Stack Edge Mini R can be used for rap
 
 ## Components
 
-The Azure Stack Edge Mini R solution comprises of an Azure Stack Edge resource, Azure Stack Edge Mini R rugged, ultra portable physical device, and a local web UI.
+The Azure Stack Edge Mini R solution comprises an Azure Stack Edge resource, Azure Stack Edge Mini R rugged, ultra portable physical device, and a local web UI.
 
 * **Azure Stack Edge Mini R physical device** - An ultra portable, rugged, compute and storage device supplied by Microsoft. The device has an onboard battery and weighs less than 7 lbs.
 
@@ -79,7 +79,7 @@ Azure Stack Edge Mini R physical device, Azure resource, and target storage acco
 
 - **Resource availability** - For a list of all the regions where the Azure Stack Edge resource is available, go to [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). 
 
-- **Device availability** - For a list of all the countries where the Azure Stack Edge Mini R device is available, go to Availability section in the Azure Stack Edge Mini R tab for [Azure Stack Edge Mini R pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgeMiniR).
+- **Device availability** - For a list of all the countries/regions where the Azure Stack Edge Mini R device is available, go to Availability section in the Azure Stack Edge Mini R tab for [Azure Stack Edge Mini R pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgeMiniR).
 
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. The regions where the storage accounts store Azure Stack Edge Mini R data should be located close to where the device is located for optimum performance. A storage account located far from the device results in long latencies and slower performance.
 
@@ -87,6 +87,8 @@ Azure Stack Edge service is a non-regional service. For more information, see [R
 
 For a discussion of considerations for choosing a region for the Azure Stack Edge service, device, and data storage, see [Choosing a region for Azure Stack Edge](azure-stack-edge-gpu-regions.md).
 
+[!INCLUDE [azure-stack-edge-use-case-parameters](../../includes/azure-stack-edge-use-case-parameters.md)]
+
 ## Next steps
 
-- Review the [Azure Stack Edge Mini R system requirements](azure-stack-edge-gpu-system-requirements.md).
+- Review the [Azure Stack Edge Mini R system requirements](azure-stack-edge-mini-r-system-requirements.md).

@@ -2,15 +2,14 @@
 title: 'Quickstart: Create a profile for HA of applications - Azure CLI - Azure Traffic Manager'
 description: This quickstart article describes how to create a Traffic Manager profile to build a highly available web application by using Azure CLI.
 services: traffic-manager
-author: asudbring
+author: greg-lindsay
 manager: kumud
 ms.service: traffic-manager
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/19/2021
-ms.author: allensu
-ms.custom: devx-track-azurecli, mode-api
+ms.date: 02/18/2023
+ms.author: greglin
+ms.custom: template-quickstart, devx-track-azurecli, mode-api
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
@@ -24,7 +23,7 @@ In this quickstart, you'll create two instances of a web application. Each of th
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -43,21 +42,22 @@ The following example creates a resource group named *myResourceGroup* in the *e
 
 ## Create a Traffic Manager profile
 
-Create a Traffic Manager profile using [az network traffic-manager profile create](/cli/azure/network/traffic-manager/profile#az_network_traffic_manager_profile_create) that directs user traffic based on endpoint priority.
+Create a Traffic Manager profile using [az network traffic-manager profile create](/cli/azure/network/traffic-manager/profile#az-network-traffic-manager-profile-create) that directs user traffic based on endpoint priority.
 
-In the following example, replace **<profile_name>** with a unique Traffic Manager profile name.
 
 ```azurecli-interactive
 
+mytrafficmanagerprofile='mytrafficmanagerprofile'$RANDOM
+
 az network traffic-manager profile create \
-	--name <profile_name> \
+	--name $mytrafficmanagerprofile \
 	--resource-group myResourceGroup \
 	--routing-method Priority \
-	--path "/" \
-	--protocol HTTP \
-	--unique-dns-name <profile_name> \
+	--path '/' \
+	--protocol "HTTP" \
+	--unique-dns-name $mytrafficmanagerprofile  \
 	--ttl 30 \
-	--port 80
+--port 80
 
 ```
 
@@ -66,20 +66,19 @@ az network traffic-manager profile create \
 For this quickstart, you'll need two instances of a web application deployed in two different Azure regions (*East US* and *West Europe*). Each will serve as primary and failover endpoints for Traffic Manager.
 
 ### Create web app service plans
-Create web app service plans using [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) for the two instances of the web application that you will deploy in two different Azure regions.
+Create web app service plans using [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) for the two instances of the web application that you will deploy in two different Azure regions.
 
-In the following example, replace **<appspname_eastus>** and **<appspname_westeurope>** with a unique App Service Plan Name
 
 ```azurecli-interactive
 
 az appservice plan create \
-    --name <appspname_eastus> \
+    --name myAppServicePlanEastUS \
     --resource-group myResourceGroup \
     --location eastus \
     --sku S1
 
 az appservice plan create \
-    --name <appspname_westeurope> \
+    --name myAppServicePlanWestEurope \
     --resource-group myResourceGroup \
     --location westeurope \
     --sku S1
@@ -87,84 +86,67 @@ az appservice plan create \
 ```
 
 ### Create a web app in the app service plan
-Create two instances the web application using [az webapp create](/cli/azure/webapp#az_webapp_create) in the App Service plans in the *East US* and *West Europe* Azure regions.
-
-In the following example, replace **<app1name_eastus>** and **<app2name_westeurope>** with a unique App Name, and replace **<appspname_eastus>** and **<appspname_westeurope>** with the name used to create the App Service plans in the previous section.
+Create two instances the web application using [az webapp create](/cli/azure/webapp#az-webapp-create) in the App Service plans in the *East US* and *West Europe* Azure regions.
 
 ```azurecli-interactive
 
+mywebappeastus='myWebAppEastUS'$RANDOM
+myWebAppWestEurope='myWebAppWestEurope'$RANDOM
+
 az webapp create \
-    --name <app1name_eastus> \
-    --plan <appspname_eastus> \
+    --name $mywebappeastus \
+    --plan myAppServicePlanEastUS \
     --resource-group myResourceGroup
 
 az webapp create \
-    --name <app2name_westeurope> \
-    --plan <appspname_westeurope> \
+    --name $myWebAppWestEurope \
+    --plan myAppServicePlanWestEurope \
     --resource-group myResourceGroup
 
 ```
 
 ## Add Traffic Manager endpoints
-Add the two Web Apps as Traffic Manager endpoints using [az network traffic-manager endpoint create](/cli/azure/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_create) to the Traffic Manager profile as follows:
+Add the two Web Apps as Traffic Manager endpoints using [az network traffic-manager endpoint create](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-create) to the Traffic Manager profile as follows:
 
 - Determine the Web App ID and add the Web App located in the *East US* Azure region as the primary endpoint to route all the user traffic. 
 - Determine the Web App ID and add the Web App located in the *West Europe* Azure region as the failover endpoint. 
 
 When the primary endpoint is unavailable, traffic automatically routes to the failover endpoint.
 
-In the following example, replace **<app1name_eastus>** and **<app2name_westeurope>** with the App Names created for each region in the previous section. Then replace **<profile_name>** with the profile name used in the previous section. 
 
 **East US endpoint**
 
 ```azurecli-interactive
 
-az webapp show \
-    --name <app1name_eastus> \
-    --resource-group myResourceGroup \
-    --query id
-
-```
-
-Make note of ID displayed in output and use in the following command to add the endpoint:
-
-```azurecli-interactive
+App1ResourceId=$(az webapp show --name $mywebappeastus --resource-group myResourceGroup --query id --output tsv)
 
 az network traffic-manager endpoint create \
-    --name <app1name_eastus> \
+    --name $mywebappeastus \
     --resource-group myResourceGroup \
-    --profile-name <profile_name> \
+    --profile-name $mytrafficmanagerprofile \
     --type azureEndpoints \
-    --target-resource-id <ID from az webapp show> \
+    --target-resource-id $App1ResourceId \
     --priority 1 \
     --endpoint-status Enabled
+
 ```
 
 **West Europe endpoint**
 
 ```azurecli-interactive
 
-az webapp show \
-    --name <app2name_westeurope> \
-    --resource-group myResourceGroup \
-    --query id
-
-```
-
-Make note of ID displayed in output and use in the following command to add the endpoint:
-
-```azurecli-interactive
+App2ResourceId=$(az webapp show --name $myWebAppWestEurope --resource-group myResourceGroup --query id --output tsv)
 
 az network traffic-manager endpoint create \
-    --name <app1name_westeurope> \
+    --name $myWebAppWestEurope \
     --resource-group myResourceGroup \
-    --profile-name <profile_name> \
+    --profile-name $mytrafficmanagerprofile \
     --type azureEndpoints \
-    --target-resource-id <ID from az webapp show> \
+    --target-resource-id  $App2ResourceId \
     --priority 2 \
     --endpoint-status Enabled
-
 ```
+
 
 ## Test your Traffic Manager profile
 
@@ -174,12 +156,12 @@ In the following example, replace **<app1name_eastus>** and **<app2name_westeuro
 
 ### Determine the DNS name
 
-Determine the DNS name of the Traffic Manager profile using [az network traffic-manager profile show](/cli/azure/network/traffic-manager/profile#az_network_traffic_manager_profile_show).
+Determine the DNS name of the Traffic Manager profile using [az network traffic-manager profile show](/cli/azure/network/traffic-manager/profile#az-network-traffic-manager-profile-show).
 
 ```azurecli-interactive
 
 az network traffic-manager profile show \
-    --name <profile_name> \
+    --name $mytrafficmanagerprofile \
     --resource-group myResourceGroup \
     --query dnsConfig.fqdn
 
@@ -192,14 +174,14 @@ Copy the **RelativeDnsName** value. The DNS name of your Traffic Manager profile
 
     > [!NOTE]
     > In this quickstart scenario, all requests route to the primary endpoint. It is set to **Priority 1**.
-2. To view Traffic Manager failover in action, disable your primary site using [az network traffic-manager endpoint update](/cli/azure/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_update).
+2. To view Traffic Manager failover in action, disable your primary site using [az network traffic-manager endpoint update](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-update).
 
    ```azurecli-interactive
 
     az network traffic-manager endpoint update \
-        --name <app1name_eastus> \
+        --name $mywebappeastus \
         --resource-group myResourceGroup \
-        --profile-name <profile_name> \
+        --profile-name $mytrafficmanagerprofile \
         --type azureEndpoints \
         --endpoint-status Disabled
     
@@ -210,7 +192,7 @@ Copy the **RelativeDnsName** value. The DNS name of your Traffic Manager profile
 
 ## Clean up resources
 
-When you're done, delete the resource groups, web applications, and all related resources using [az group delete](/cli/azure/group#az_group_delete).
+When you're done, delete the resource groups, web applications, and all related resources using [az group delete](/cli/azure/group#az-group-delete).
 
 ```azurecli-interactive
 

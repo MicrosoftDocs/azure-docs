@@ -1,15 +1,18 @@
 ---
-title: 'Tutorial: Configure Zoom for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Zoom for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Zoom.
 services: active-directory
+documentationcenter: ''
 author: twimmers
-writer: twimmers
-manager: CelesteDG
+writer: Thwimmer
+manager: jeedes
+ms.assetid: d9bd44ed-2e9a-4a1b-b33c-cb9e9fe8ff47
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
+ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/3/2019
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -36,79 +39,60 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
-2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determine what data to [map between Azure AD and Zoom](../app-provisioning/customize-application-attributes.md). 
+1. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Determine what data to [map between Azure AD and Zoom](../app-provisioning/customize-application-attributes.md). 
 
-## Step 2. Configure Zoom to support provisioning with Azure AD
-
-1. Sign in to your [Zoom Admin Console](https://zoom.us/signin). Navigate to **Advanced > App Marketplace** in the left navigation pane.
-
-	![Zoom Integrations](media/zoom-provisioning-tutorial/zoom01.png)
-
-2. Navigate to **Manage** in the top-right corner of the page. 
-
-	![Screenshot of the Zoom App Marketplace with the Manage option called out.](media/zoom-provisioning-tutorial/zoom02.png)
-
-3. Navigate to your created Azure AD app. 
-	
-	![Screenshot of the Created Apps section with the Azure A D app called out.](media/zoom-provisioning-tutorial/zoom03.png)
-
-4. Select **App Credentials** in the left navigation pane.
-
-	![Screenshot of the left navigation pane with the App Credentials option highlighted.](media/zoom-provisioning-tutorial/zoom04.png)
-
-5. Copy and save the **JWT Token**. This value will be entered in the **Secret Token** field in the Provisioning tab of your Zoom application in the Azure portal. If you need a new non-expiring token, you will need to reconfigure the expiration time which will auto generate a new token. 
-
-	![Screenshot of the App Credentials page.](media/zoom-provisioning-tutorial/zoom05.png)
-
-## Step 3. Add Zoom from the Azure AD application gallery
+## Step 2. Add Zoom from the Azure AD application gallery
 
 Add Zoom from the Azure AD application gallery to start managing provisioning to Zoom. If you have previously setup Zoom for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
-## Step 4. Define who will be in scope for provisioning 
+## Step 3. Define who will be in scope for provisioning 
 
 The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* When assigning users and groups to Zoom, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add additional roles. 
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 
-## Step 5. Configure automatic user provisioning to Zoom 
+## Step 4. Configure automatic user provisioning to Zoom 
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
 
 ### To configure automatic user provisioning for Zoom in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Azure portal](https://portal.azure.com/?feature.userProvisioningV2Authentication=true), ensure you are using the link (https://portal.azure.com/?feature.userProvisioningV2Authentication=true) then Select **Enterprise Applications**, then select **All applications**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+	![Screenshot of the Enterprise applications blade.](common/enterprise-applications.png)
 
-2. In the applications list, select **Zoom**.
+1. In the applications list, select **Zoom**.
 
-	![The Zoom link in the Applications list](common/all-applications.png)
+	![Screenshot of the Zoom link in the Applications list.](common/all-applications.png)
 
-3. Select the **Provisioning** tab.
+1. Select the **Provisioning** tab.
 
 	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
-4. Set the **Provisioning Mode** to **Automatic**.
+1. Set the **Provisioning Mode** to **Automatic**.
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, enter `https://api.zoom.us/scim` in **Tenant URL**. Input the **JWT Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Zoom. If the connection fails, ensure your Zoom account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, select **OAuth2 Authorization Code Grant**. Enter `https://api.zoom.us/scim` in **Tenant URL**, click on **Authorize**, make sure that you enter your Zoom account's Admin credentials. Click **Test Connection** to ensure Azure AD can connect to Zoom. If the connection fails, ensure your Zoom account has Admin permissions and try again.
 
- 	![Zoom provisioning](./media/zoom-provisioning-tutorial/provisioning.png)
+ 	![Screenshot of theZoom provisioning Token.](./media/zoom-provisioning-tutorial/provisioning-oauth.png)
 
-6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
+	> [!NOTE] 
+	> You will have two options for your Authentication Method: **Bearer Authentication** and **OAuth2 Authorization Code Grant**. Make sure that you select OAuth2 Authorization Code Grant. Zoom no longer supports the **Bearer Authentication** method
 
-	![Notification Email](common/provisioning-notification-email.png)
+1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
-7. Select **Save**.
+	![Screenshot of the Notification Email.](common/provisioning-notification-email.png)
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Zoom**.
+1. Select **Save**.
 
-9. Review the user attributes that are synchronized from Azure AD to Zoom in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Zoom for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Zoom API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Zoom**.
+
+1. Review the user attributes that are synchronized from Azure AD to Zoom in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Zoom for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Zoom API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
    |Attribute|Type|
    |---|---|
@@ -119,23 +103,23 @@ This section guides you through the steps to configure the Azure AD provisioning
    |emails[type eq "work"]|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
 
-10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. To configure scoping filters, refer to the following instructions provided in the [Screenshot of the Scoping filter tutorial.](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. To enable the Azure AD provisioning service for Zoom, change the **Provisioning Status** to **On** in the **Settings** section.
+1. To enable the Azure AD provisioning service for Zoom, change the **Provisioning Status** to **On** in the **Settings** section.
 
-	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
+	![Screenshot of the Provisioning Status Toggled On.](common/provisioning-toggle-on.png)
 
-12. Define the users and/or groups that you would like to provision to Zoom by choosing the desired values in **Scope** in the **Settings** section.
+1. Define the users and/or groups that you would like to provision to Zoom by choosing the desired values in **Scope** in the **Settings** section.
 
-	![Provisioning Scope](common/provisioning-scope.png)
+	![Screenshot of the Provisioning Scope.](common/provisioning-scope.png)
 
-13. When you are ready to provision, click **Save**.
+1. When you are ready to provision, click **Save**.
 
-	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
+	![Screenshot of Saving Provisioning Configuration.](common/provisioning-configuration-save.png)
 
 This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
-## Step 6. Monitor your deployment
+## Step 5. Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
 1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
@@ -147,12 +131,14 @@ Once you've configured provisioning, use the following resources to monitor your
 
 ## Change log
 * 05/14/2020 - Support for UPDATE operations  added for emails[type eq "work"] attribute.
-* 10/20/2020 - Added support for two new roles "Licensed" and "On-Prem" to replace existing roles "Pro" and "Corp". Support for roles "Pro" and "Corp" will be removed in the future.
+* 10/20/2020 - Added support for two new roles **Licensed** and **on-premises** to replace existing roles **Pro** and **Corp**. Support for roles **Pro** and **Corp** will be removed in the future.
+* 05/30/2023 - Added support for new authentication method i.e. **OAuth 2.0**.
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md).
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zoom Support article](https://support.zoom.us/hc/en-us/articles/115005887566-Configuring-Zoom-with-Azure).
 
 ## Next steps
 

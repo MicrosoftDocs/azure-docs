@@ -1,16 +1,16 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Active Directory device management FAQ | Microsoft Docs
+  title: Azure Active Directory device management FAQ
   description: Azure Active Directory device management FAQ.
   
   services: active-directory
   ms.service: active-directory
   ms.subservice: devices
   ms.topic: faq
-  ms.date: 02/15/2022
+  ms.date: 02/27/2023
   ms.author: joflore
   author: MicrosoftGuyJFlo
-  manager: karenhoran
+  manager: amycolannino
   ms.reviewer: ravenn
   ms.collection: M365-identity-device-management
 title: Azure Active Directory device management FAQ
@@ -55,27 +55,26 @@ sections:
           
       - question: Why do my users see an error message saying "Your organization has deleted the device" or "Your organization has disabled the device" on their Windows 10/11 devices?
         answer: |
-          On Windows 10/11 devices joined or registered with Azure AD, users are issued a [Primary refresh token (PRT)](concept-primary-refresh-token.md) which enables single sign on. The validity of the PRT is based on the validity of the device itself. Users see this message if the device is either deleted or disabled in Azure AD without initiating the action from the device itself. A device can be deleted or disabled in Azure AD one of the following scenarios: 
+          On Windows 10/11 devices joined or registered with Azure AD, users are issued a [Primary refresh token (PRT)](concept-primary-refresh-token.md) which enables single sign-on. The validity of the PRT is based on the validity of the device itself. Users see this message if the device is either deleted or disabled in Azure AD without initiating the action from the device itself. A device can be deleted or disabled in Azure AD one of the following scenarios: 
           
           - User disables the device from the My Apps portal. 
           - An administrator (or user) deletes or disables the device in the Azure portal or by using PowerShell
           - Hybrid Azure AD joined only: An administrator removes the devices OU out of sync scope resulting in the devices being deleted from Azure AD
+          - Hybrid Azure AD joined only: An administrator disables the computer account on premises, resulting in the device being disabled in Azure AD
           - Upgrading Azure AD connect to the version 1.4.xx.x. [Understanding Azure AD Connect 1.4.xx.x and device disappearance](/troubleshoot/azure/active-directory/reference-connect-device-disappearance).
-          
-          
-          See below on how these actions can be rectified.
+
           
           
           
       - question: I disabled or deleted my device in the Azure portal or by using Windows PowerShell. But the local state on the device says it's still registered. What should I do?
         answer: |
-          This operation is by design. In this case, the device doesn't have access to resources in the cloud. Administrators can perform this action for stale, lost, or stolen devices to prevent unauthorized access. If this action was performed unintentionally, you'll need to re-enable or re-register the device as described below
+          This operation is by design. In this case, the device doesn't have access to resources in the cloud. Administrators can perform this action for stale, lost, or stolen devices to prevent unauthorized access. If this action was performed unintentionally, you need to re-enable or re-register the device using the steps that follow:
           
-          - If the device was disabled in Azure AD, an administrator with sufficient privileges can enable it from the Azure AD portal  
+          - If the device was disabled in Azure AD, an administrator with sufficient privileges can enable it from the Azure portal  
             > [!NOTE]
-            > If you are syncing devices using Azure AD Connect, hybrid Azure AD joined devices will be automatically re-enabled during the next  sync cycle. So, if you need to disable a hybrid Azure AD joined device, you need to disable it from your on-premises AD
+            > If you're syncing devices using Azure AD Connect, hybrid Azure AD joined devices will be automatically re-enabled during the next  sync cycle. So, if you need to disable a hybrid Azure AD joined device, you need to disable it from your on-premises AD
           
-           - If the device is deleted in Azure AD, you need to re-register the device. To re-register, you must take a manual action on the device. See below for instructions for re-registration based on the device state. 
+           - If the device is deleted in Azure AD, you need to re-register the device. To re-register, you must take a manual action on the device. See the following steps for instructions to re-register based on the device state. 
           
                 To re-register hybrid Azure AD joined Windows 10/11 and Windows Server 2016/2019 devices, take the following steps:
           
@@ -114,7 +113,7 @@ sections:
           
           
       - question: Does Windows 10/11 device registration in Azure AD support TPMs in FIPS mode?
-        answer: Windows 10/11 device registration is only supported for FIPS-compliant TPM 2.0 and not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Azure AD join or Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Contact your hardware OEM for support. 
+        answer: Windows 10/11 device registration is only supported for FIPS-compliant TPM 2.0 and not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Azure AD join or Hybrid Azure AD join. Microsoft doesn't provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Contact your hardware OEM for support. 
 
       - question: Why can a user still access resources from a device I disabled in the Azure portal?
         answer: |
@@ -125,11 +124,11 @@ sections:
           
       - question: I can't add more than 3 Azure AD user accounts under the same user session on a Windows 10/11 device, why?
         answer: |
-          Azure AD added support for multiple Azure AD accounts starting in Windows 10 1803 release. However, Windows 10/11 restricts the number of Azure AD accounts on a device to 3 to limit the size of token requests and enable reliable single sign on (SSO). Once 3 accounts have been added, users will see an error for subsequent accounts. The Additional problem information on the error screen provides the following message indicating the reason - "Add account operation is blocked because account limit is reached". 
+          Azure AD added support for multiple Azure AD accounts starting in Windows 10 1803 release. However, Windows 10/11 restricts the number of Azure AD accounts on a device to 3 to limit the size of token requests and enable reliable single sign-on (SSO). Once 3 accounts have been added, users see an error for subsequent accounts. The Additional problem information on the error screen provides the following message indicating the reason - "Add account operation is blocked because account limit is reached". 
           
       - question: What are the MS-Organization-Access certificates present on our Windows 10/11 devices? 
         answer: |
-          The MS-Organization-Access certificates are issued by Azure AD Device Registration Service during the device registration process. These certificates are issued to all join types supported on Windows - Azure AD joined, hybrid Azure AD joined and Azure AD registered devices. Once issued, they are used as part of the authentication process from the device to request a Primary Refresh Token (PRT). For Azure AD joined and hybrid Azure AD joined devices, this certificate is present in Local Computer\Personal\Certificates whereas for Azure AD registered devices, certificate is present in Current User\Personal\Certificates.  All MS-Organization-Access certificates have a default lifetime of 10 years, however these certificates are deleted from the corresponding certificate store when the device is unregistered from Azure AD. Any inadvertent deletion of this certificate will lead to authentication failures for the user, and will require re-registration of the device in such cases. 
+          The MS-Organization-Access certificates are issued by Azure AD Device Registration Service during the device registration process. These certificates are issued to all join types supported on Windows - Azure AD joined, hybrid Azure AD joined and Azure AD registered devices. Once issued, they're used as part of the authentication process from the device to request a Primary Refresh Token (PRT). For Azure AD joined and hybrid Azure AD joined devices, this certificate is present in Local Computer\Personal\Certificates whereas for Azure AD registered devices, certificate is present in Current User\Personal\Certificates.  All MS-Organization-Access certificates have a default lifetime of 10 years, however these certificates are deleted from the corresponding certificate store when the device is unregistered from Azure AD. Any inadvertent deletion of this certificate leads to authentication failures for the user, and will require re-registration of the device in such cases. 
           
   - name: Azure AD join FAQ
     questions:
@@ -162,15 +161,7 @@ sections:
       - question: Can a guest user sign in to an Azure AD joined device?
         answer: |
           No, currently, guest users can not sign in to an Azure AD joined device.
-          
-          
-          
-      - question: Why do my users have issues on Azure AD joined devices after changing their UPN?
-        answer: |
-          Currently, UPN changes are not fully supported on Azure AD joined devices. So their authentication with Azure AD fails after their UPN changes. As a result, users have SSO and Conditional Access issues on their devices. At this time, users need to sign in to Windows through the "Other user" tile using their new UPN to resolve this issue. We are currently working on addressing this issue. However, users signing in with Windows Hello for Business do not face this issue. 
-          
-          UPN changes are supported starting with Windows 10 2004 update and also applicable to Windows 11. Users on devices with this update will not have any issues after changing their UPNs
-          
+        
           
           
       - question: My users can't search printers from Azure AD joined devices. How can I enable printing from those devices?
@@ -203,7 +194,7 @@ sections:
           
       - question: How can users change their temporary or expired password on Azure AD joined devices?
         answer: |
-              Currently, Azure AD joined devices do not force users to change password on the lock screen. So, users with temporary or expired passwords will be forced to change passwords only when they access an application (that requires an Azure AD token) after they login to Windows.
+              Currently, Azure AD joined devices don't force users to change password on the lock screen. So, users with temporary or expired passwords will be forced to change passwords only when they access an application (that requires an Azure AD token) after they login to Windows.
           
       - question: Why do I see the 'Oops… an error occurred!' dialog when I try to Azure AD join my PC?
         answer: |
@@ -219,14 +210,17 @@ sections:
           
       - question: What are the MS-Organization-P2P-Access certificates present on our Windows 10/11 devices?
         answer: |
-          The MS-Organization-P2P-Access certificates are issued by Azure AD to both, Azure AD joined and hybrid Azure AD joined devices. These certificates are used to enable trust between devices in the same tenant for remote desktop scenarios. One certificate is issued to the device and another is issued to the user. The device certificate is present in `Local Computer\Personal\Certificates` and is valid for one day. This certificate is renewed (by issuing a new certificate) if the device is still active in Azure AD. The user certificate is present in `Current User\Personal\Certificates` and this certificate is also valid for one day, but it is issued on-demand when a user attempts a remote desktop session to another Azure AD joined device. It is not renewed on expiry. Both these certificates are issued using the MS-Organization-P2P-Access certificate present in the `Local Computer\AAD Token Issuer\Certificates`. This certificate is issued by Azure AD during device registration. 
+          The MS-Organization-P2P-Access certificates are issued by Azure AD to both, Azure AD joined and hybrid Azure AD joined devices. These certificates are used to enable trust between devices in the same tenant for remote desktop scenarios. One certificate is issued to the device and another is issued to the user. The device certificate is present in `Local Computer\Personal\Certificates` and is valid for one day. This certificate is renewed (by issuing a new certificate) if the device is still active in Azure AD. The user certificate isn't persistent and is valid for one hour, but it's issued on-demand when a user attempts a remote desktop session to another Azure AD joined device. It isn't renewed on expiry. Both these certificates are issued using the MS-Organization-P2P-Access certificate present in the `Local Computer\AAD Token Issuer\Certificates`. This certificate is issued by Azure AD during device registration. 
           
+      - question: How can we disable cached logon/expire the cache logon of the user on Azure AD joined devices?
+        answer: |
+              It isn't possible to disable or expire previous cached logons on Azure AD joined devices. 
           
           
   - name: Hybrid Azure AD join FAQ
     questions:
       - question: How do I unjoin a Hybrid Azure AD joined device locally on the device?
-        answer: For hybrid Azure AD joined devices, make sure to turn off automatic registration in AD using the [Controlled validation](hybrid-azuread-join-control.md) article. Then the scheduled task won't register the device again. Next, open a command prompt as an administrator and enter `dsregcmd.exe /debug /leave`. Or run this command as a script across several devices to unjoin in bulk.
+        answer: For hybrid Azure AD joined devices, make sure to turn off automatic registration in AD using the [Controlled validation](hybrid-join-control.md) article. Then the scheduled task won't register the device again. Next, open a command prompt as an administrator and enter `dsregcmd.exe /debug /leave`. Or run this command as a script across several devices to unjoin in bulk.
 
       - question: Where can I find troubleshooting information to diagnose hybrid Azure AD join failures?
         answer: |
@@ -239,15 +233,15 @@ sections:
         answer: |
           When your users add their accounts to apps on a domain-joined device, they might be prompted with **Add account to Windows?** If they enter **Yes** on the prompt, the device registers with Azure AD. The trust type is marked as Azure AD registered. After you enable hybrid Azure AD join in your organization, the device also gets hybrid Azure AD joined. Then two device states show up for the same device. 
           
-          In most cases, Hybrid Azure AD join takes precedence over the Azure AD registered state, resulting in your device being considered hybrid Azure AD joined for any authentication and Conditional Access evaluation. However, sometimes, this dual state can result in a non-deterministic evaluation of the device and cause access issues. We strongly recommend upgrading to Windows 10 version 1803 and above where we automatically clean up the Azure AD registered state. Learn how to [avoid or clean up this dual state on the Windows 10 machine](hybrid-azuread-join-plan.md#review-things-you-should-know). 
+          In most cases, Hybrid Azure AD join takes precedence over the Azure AD registered state, resulting in your device being considered hybrid Azure AD joined for any authentication and Conditional Access evaluation. However, sometimes, this dual state can result in a non-deterministic evaluation of the device and cause access issues. We strongly recommend upgrading to Windows 10 version 1803 and above where we automatically clean up the Azure AD registered state. Learn how to [avoid or clean up this dual state on the Windows 10 machine](hybrid-join-plan.md#review-things-you-should-know). 
           
           
           
-      - question: Why do my users have issues on Windows 10/11 hybrid Azure AD joined devices after changing their UPN?
+      - question: Why do my users have issues on Windows 10 hybrid Azure AD joined devices after changing their UPN?
         answer: |
-          Currently UPN changes are not fully supported with hybrid Azure AD joined devices. While users can sign in to the device and access their on-premises applications, authentication with Azure AD fails after a UPN change. As a result, users have SSO and Conditional Access issues on their devices. At this time, you need to unjoin the device from Azure AD (run "dsregcmd /leave" with elevated privileges) and rejoin (happens automatically) to resolve the issue. We are currently working on addressing this issue. However, users signing in with Windows Hello for Business do not face this issue. 
+          Currently UPN changes aren't fully supported with hybrid Azure AD joined devices. While users can sign in to the device and access their on-premises applications, authentication with Azure AD fails after a UPN change. As a result, users have SSO and Conditional Access issues on their devices. At this time, you need to unjoin the device from Azure AD (run "dsregcmd /leave" with elevated privileges) and rejoin (happens automatically) to resolve the issue.
           
-          UPN changes are supported with Windows 10 2004 update and also applicable to Windows 11. Users on devices with this update will not have any issues after changing their UPNs
+          UPN changes are supported with Windows 10 2004 update and also applicable to Windows 11. Users on devices with this update won't have any issues after changing their UPNs
           
           
           
@@ -259,7 +253,7 @@ sections:
           
       - question: What happens if a user changes their password and tries to sign in to their Windows 10/11 hybrid Azure AD joined device outside the corporate network?
         answer: |
-          If a password is changed outside the corporate network (for example, by using Azure AD SSPR), then the user sign in with the new password will fail. For hybrid Azure AD joined devices, on-premises Active Directory is the primary authority. When a device does not have line of sight to the domain controller, it is unable to validate the new password. So, user needs to establish connection with the domain controller (either via VPN or being in the corporate network) before they're able to sign in to the device with their new password. Otherwise, they can only sign in with their old password because of cached sign in capability in Windows. However, the old password is invalidated by Azure AD during token requests and hence, prevents single sign-on and fails any device-based Conditional Access policies until the user authenticates with their new password in an app or browser. This issue doesn't occur if you use Windows Hello for Business. 
+          If a password is changed outside the corporate network (for example, by using Azure AD SSPR), then the user sign in with the new password fails. For hybrid Azure AD joined devices, on-premises Active Directory is the primary authority. When a device doesn't have line of sight to the domain controller, it's unable to validate the new password. So, user needs to establish connection with the domain controller (either via VPN or being in the corporate network) before they're able to sign in to the device with their new password. Otherwise, they can only sign in with their old password because of cached sign in capability in Windows. However, the old password is invalidated by Azure AD during token requests and hence, prevents single sign-on and fails any device-based Conditional Access policies until the user authenticates with their new password in an app or browser. This issue doesn't occur if you use Windows Hello for Business. 
           
           
   - name: Azure AD register FAQ
@@ -270,7 +264,7 @@ sections:
           - For iOS and Android, you can use the Microsoft Authenticator application **Settings** > **Device Registration** and select **Unregister device**.
           - For macOS, you can use the Microsoft Intune Company Portal application to unenroll the device from management and remove any registration. 
           
-          For Windows 10/11 devices, this process can be automated with the [Workplace Join (WPJ) removal tool](https://download.microsoft.com/download/8/e/f/8ef13ae0-6aa8-48a2-8697-5b1711134730/WPJCleanUp.zip)
+          For Windows 10 version 2004 and older, this process can be automated with the [Workplace Join (WPJ) removal tool](https://download.microsoft.com/download/8/e/f/8ef13ae0-6aa8-48a2-8697-5b1711134730/WPJCleanUp.zip)
           
           > [!NOTE]
           > This tool removes all SSO accounts on the device. After this operation, all applications will lose SSO state, and the device will be unenrolled from management tools (MDM) and unregistered from the cloud. The next time an application tries to sign in, users will be asked to add the account again.
@@ -278,7 +272,7 @@ sections:
           
       - question: How can I block users from adding more work accounts (Azure AD registered) on my corporate Windows 10/11 devices?
         answer: |
-          Enable the following registry to block your users from adding additional work accounts to your corporate domain joined, Azure AD joined, or hybrid Azure AD joined Windows 10/11 devices. This policy can also be used to block domain joined machines from inadvertently getting Azure AD registered with the same user account. 
+          Enable the following registry to block your users from adding other work accounts to your corporate domain joined, Azure AD joined, or hybrid Azure AD joined Windows 10/11 devices. This policy can also be used to block domain joined machines from inadvertently getting Azure AD registered with the same user account. 
           
           `HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001`
           
@@ -304,8 +298,8 @@ additionalContent: |
 
   ## Next steps
 
-  - Learn more about [Azure AD registered devices](concept-azure-ad-register.md)
-  - Learn more about [Azure AD joined devices](concept-azure-ad-join.md)
-  - Learn more about [hybrid Azure AD joined devices](concept-azure-ad-join-hybrid.md)
+  - Learn more about [Azure AD registered devices](concept-device-registration.md)
+  - Learn more about [Azure AD joined devices](concept-directory-join.md)
+  - Learn more about [hybrid Azure AD joined devices](concept-hybrid-join.md)
   - [The Microsoft Error Lookup Tool](/windows/win32/debug/system-error-code-lookup-tool)
   

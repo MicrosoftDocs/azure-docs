@@ -1,9 +1,9 @@
 ---
-title: Transform data inside Azure IoT Central | Microsoft Docs
+title: Transform data inside Azure IoT Central
 description: IoT devices send data in various formats that you may need to transform. This article describes how to transform data in an IoT Central before exporting it.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/28/2021
+ms.date: 06/13/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -13,8 +13,6 @@ services: iot-central
 
 # Transform data inside your IoT Central application for export
 
-:::image type="content" source="media/howto-transform-data-internally/transformations.png" alt-text="Diagram that shows data export transformation options." border="false":::
-
 IoT devices send data in various formats. To use the device data in your IoT solution, you may need to transform your device data before it's exported to other services.
 
 This article shows you how to transform device data as part of a data export definition in an IoT Central application.
@@ -23,18 +21,22 @@ Transformations in an IoT Central data export definition let you manipulate the 
 
 Use transformations to restructure JSON payloads, rename fields, filter out fields, and run simple calculations on telemetry values. For example, use a transformation to convert your messages into a tabular format that matches the schema of a destination such as an Azure Data Explorer table.
 
+The following video introduces you to IoT Central data transformations:
+
+> [!VIDEO https://aka.ms/docs/player?id=f1752a73-89e6-42c2-8298-e9d6ce212daa]
+
 ## Add a transformation
 
 To add a transformation for a destination in your data export, select **+ Transform** as shown in the following screenshot:
 
-:::image type="content" source="media/howto-transform-data-internally/add-transformation.png" alt-text="Screenshot that shows how to add a transformation to a destination.":::
+:::image type="content" source="media/howto-transform-data-internally/add-transformation.png" alt-text="Screenshot that shows how to add a transformation to a destination." lightbox="media/howto-transform-data-internally/add-transformation.png":::
 
 The **Data Transformation** panel lets you specify the transformation. In the **1. Add your input message** section, you can enter a sample message that you want to pass through the transformation. You can also generate a sample message by selecting a device template. In the **2. Build transformation query** section, you can enter the query that transforms the input message. The **3. Preview output messages(s)** section shows the result of the transformation:
 
-:::image type="content" source="media/howto-transform-data-internally/transformation-editor.png" alt-text="Screenshot of transformation editor in IoT Central.":::
+:::image type="content" source="media/howto-transform-data-internally/transformation-editor.png" alt-text="Screenshot of transformation editor in IoT Central." lightbox="media/howto-transform-data-internally/transformation-editor.png":::
 
 > [!TIP]
-> If you don't know the format of your input message, use `.` as the query to export the message as is to a destination such as a Webhook. Then paste the message received by the webhook into ***1. Add your input message**. Then build a transform query to process this message into your required output format.
+> If you don't know the format of your input message, use `.` as the query to export the message as is to a destination such as a Webhook. Then paste the message received by the webhook into **1. Add your input message**. Then build a transform query to process this message into your required output format.
 
 ## Build a transformation query
 
@@ -309,7 +311,7 @@ JSON output:
 }
 ```
 
-To learn more about how to add an Azure Data Explorer cluster and database as an export destination, see [Create an Azure Data Explorer destination](howto-export-data.md#create-an-azure-data-explorer-destination).
+To learn more about how to add an Azure Data Explorer cluster and database as an export destination, see [Create an Azure Data Explorer destination](howto-export-to-azure-data-explorer.md).
 
 ### Scenario 2: Breaking apart a telemetry array
 
@@ -542,7 +544,7 @@ JSON output:
 
 ### Scenario 4: Export data to Azure Data Explorer and visualize it in Power BI
 
-In this scenario, you export data to Azure Data Explorer and then a use a connector to visualize the data in Power BI. To learn more about how to add an Azure Data Explorer cluster and database as an export destination, see [Create an Azure Data Explorer destination](howto-export-data.md#create-an-azure-data-explorer-destination).
+In this scenario, you export data to Azure Data Explorer and then a use a connector to visualize the data in Power BI. To learn more about how to add an Azure Data Explorer cluster and database as an export destination, see [Create an Azure Data Explorer destination](howto-export-to-azure-data-explorer.md).
 
 This scenario uses an Azure Data Explorer table with the following schema:
 
@@ -726,7 +728,7 @@ JSON output:
 The output data is exported to your Azure Data Explorer cluster. To visualize the exported data in Power BI, complete the following steps:
 
 1. Install the Power BI application. You can download the desktop Power BI application from [Go from data to insight to action with Power BI Desktop](https://powerbi.microsoft.com/desktop/).
-1. Download the Power BI desktop [IoT Central ADX Connector.pbit](https://github.com/Azure-Samples/iot-central-docs-samples/raw/master/azure-data-explorer-power-bi/IoT%20Central%20ADX%20Connector.pbit) file from GitHub.
+1. Download the Power BI desktop [IoT Central ADX Connector.pbit](https://github.com/Azure-Samples/iot-central-docs-samples/raw/main/azure-data-explorer-power-bi/IoT%20Central%20ADX%20Connector.pbit) file from GitHub.
 1. Use the Power BI Desktop app to open the *IoT Central ADX Connector.pbit* file you downloaded in the previous step. When prompted, enter the Azure Data Explorer cluster, database, and table information you made a note of previously.
 
 Now you can visualize the data in Power BI:

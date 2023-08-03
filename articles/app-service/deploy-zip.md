@@ -2,10 +2,9 @@
 title: Deploy files to App Service
 description: Learn to deploy various app packages or discrete libraries, static files, or startup scripts to Azure App Service
 ms.topic: article
-ms.date: 08/13/2021
-ms.reviewer: sisirap
-ms.custom: seodec18, devx-track-azurepowershell
-
+ms.date: 07/21/2023
+ms.author: msangapu
+ms.custom: seodec18
 ---
 
 # Deploy files to App Service
@@ -39,7 +38,7 @@ For more information, see [Kudu documentation](https://github.com/projectkudu/ku
 
 # [Azure CLI](#tab/cli)
 
-Deploy a ZIP package to your web app by using the [az webapp deploy](/cli/azure/webapp#az_webapp_deploy) command. The CLI command uses the [Kudu publish API](#kudu-publish-api-reference) to deploy the files and can be fully customized.
+Deploy a ZIP package to your web app by using the [az webapp deploy](/cli/azure/webapp#az-webapp-deploy) command. The CLI command uses the [Kudu publish API](#kudu-publish-api-reference) to deploy the files and can be fully customized.
 
 The following example pushes a ZIP package to your site. Specify the path to your local ZIP package for `--src-path`.
 
@@ -67,10 +66,14 @@ Publish-AzWebApp -ResourceGroupName Default-Web-WestUS -Name MyApp -ArchivePath 
 
 # [Kudu API](#tab/api)
 
-The following example uses the cURL tool to deploy a ZIP package. Replace the placeholders `<username>`, `<zip-package-path>`, and `<app-name>`. When prompted by cURL, type in the [deployment password](deploy-configure-credentials.md).
+The following example uses the cURL tool to deploy a ZIP package. Replace the placeholders `<username>`, `<password>`, `<zip-package-path>`, and `<app-name>`. Use the [deployment credentials](deploy-configure-credentials.md) for authentication.
 
 ```bash
-curl -X POST -u <username> --data-binary @"<zip-package-path>" https://<app-name>.scm.azurewebsites.net/api/publish?type=zip
+curl -X POST \
+     -H "Content-Type: application/octet-stream" \
+     -u '<username>:<password>' \
+     -T "<zip-package-path>" \
+     "https://<app-name>.scm.azurewebsites.net/api/zipdeploy"
 ```
 
 [!INCLUDE [deploying to network secured sites](../../includes/app-service-deploy-network-secured-sites.md)]
@@ -78,7 +81,11 @@ curl -X POST -u <username> --data-binary @"<zip-package-path>" https://<app-name
 The following example uses the `packageUri` parameter to specify the URL of an Azure Storage account that the web app should pull the ZIP from.
 
 ```bash
-curl -X POST -u <username> https://<app-name>.scm.azurewebsites.net/api/publish -d '{"packageUri": "https://storagesample.blob.core.windows.net/sample-container/myapp.zip?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3"}'
+curl -X PUT \
+     -H "Content-Type: application/json" \
+     -u '<username>:<password>' \
+     -d '{"packageUri": "https://storagesample.blob.core.windows.net/sample-container/myapp.zip?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3"}' \
+     "https://<app-name>.scm.azurewebsites.net/api/zipdeploy"
 ```
 
 # [Kudu UI](#tab/kudu-ui)
@@ -113,7 +120,7 @@ The deployment process places the package on the shared file drive correctly (se
 
 # [Azure CLI](#tab/cli)
 
-Deploy a WAR package to Tomcat or JBoss EAP by using the [az webapp deploy](/cli/azure/webapp#az_webapp_deploy) command. Specify the path to your local Java package for `--src-path`.
+Deploy a WAR package to Tomcat or JBoss EAP by using the [az webapp deploy](/cli/azure/webapp#az-webapp-deploy) command. Specify the path to your local Java package for `--src-path`.
 
 ```azurecli-interactive
 az webapp deploy --resource-group <group-name> --name <app-name> --src-path ./<package-name>.war
@@ -121,10 +128,10 @@ az webapp deploy --resource-group <group-name> --name <app-name> --src-path ./<p
 
 [!INCLUDE [deploying to network secured sites](../../includes/app-service-deploy-network-secured-sites.md)]
 
-The following example uses the `--src-url` parameter to specify the URL of an Azure Storage account that the web app should pull the ZIP from.
+The following example uses the `--src-url` parameter to specify the URL of an Azure Storage account that the web app should pull the WAR from.
 
 ```azurecli-interactive
-az webapp deploy --resource-group <group-name> --name <app-name> --src-url "https://storagesample.blob.core.windows.net/sample-container/myapp.war?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3
+az webapp deploy --resource-group <group-name> --name <app-name> --src-url "https://storagesample.blob.core.windows.net/sample-container/myapp.war?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3 --type war
 ```
 
 The CLI command uses the [Kudu publish API](#kudu-publish-api-reference) to deploy the package and can be fully customized.
@@ -142,7 +149,7 @@ Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <
 The following example uses the cURL tool to deploy a .war, .jar, or .ear file. Replace the placeholders `<username>`, `<file-path>`, `<app-name>`, and `<package-type>` (`war`, `jar`, or `ear`, accordingly). When prompted by cURL, type in the [deployment password](deploy-configure-credentials.md).
 
 ```bash
-curl -X POST -u <username> --data-binary @"<file-path>" https://<app-name>.scm.azurewebsites.net/api/publish&type=<package-type>
+curl -X POST -u <username> -T @"<file-path>" https://<app-name>.scm.azurewebsites.net/api/publish?type=<package-type>
 ```
 
 [!INCLUDE [deploying to network secured sites](../../includes/app-service-deploy-network-secured-sites.md)]
@@ -165,7 +172,7 @@ The Kudu UI does not support deploying JAR, WAR, or EAR applications. Please use
 
 # [Azure CLI](#tab/cli)
 
-Deploy a startup script, library, and static file to your web app by using the [az webapp deploy](/cli/azure/webapp#az_webapp_deploy) command with the `--type` parameter.
+Deploy a startup script, library, and static file to your web app by using the [az webapp deploy](/cli/azure/webapp#az-webapp-deploy) command with the `--type` parameter.
 
 If you deploy a startup script this way, App Service automatically uses your script to start your app.
 
@@ -200,7 +207,7 @@ Not supported. See Azure CLI or Kudu API.
 The following example uses the cURL tool to deploy a startup file for their application.Replace the placeholders `<username>`, `<startup-file-path>`, and `<app-name>`. When prompted by cURL, type in the [deployment password](deploy-configure-credentials.md).
 
 ```bash
-curl -X POST -u <username> --data-binary @"<startup-file-path>" https://<app-name>.scm.azurewebsites.net/api/publish?type=startup
+curl -X POST -u <username> -T @"<startup-file-path>" https://<app-name>.scm.azurewebsites.net/api/publish?type=startup
 ```
 
 ### Deploy a library file
@@ -208,7 +215,7 @@ curl -X POST -u <username> --data-binary @"<startup-file-path>" https://<app-nam
 The following example uses the cURL tool to deploy a library file for their application. Replace the placeholders `<username>`, `<lib-file-path>`, and `<app-name>`. When prompted by cURL, type in the [deployment password](deploy-configure-credentials.md).
 
 ```bash
-curl -X POST -u <username> --data-binary @"<lib-file-path>" https://<app-name>.scm.azurewebsites.net/api/publish?type=lib&path="/home/site/deployments/tools/my-lib.jar"
+curl -X POST -u <username> -T @"<lib-file-path>" "https://<app-name>.scm.azurewebsites.net/api/publish?type=lib&path=/home/site/deployments/tools/my-lib.jar"
 ```
 
 ### Deploy a static file
@@ -216,7 +223,7 @@ curl -X POST -u <username> --data-binary @"<lib-file-path>" https://<app-name>.s
 The following example uses the cURL tool to deploy a config file for their application. Replace the placeholders `<username>`, `<config-file-path>`, and `<app-name>`. When prompted by cURL, type in the [deployment password](deploy-configure-credentials.md).
 
 ```bash
-curl -X POST -u <username> --data-binary @"<config-file-path>" https://<app-name>.scm.azurewebsites.net/api/publish?type=static&path="/home/site/deployments/tools/my-config.json"
+curl -X POST -u <username> -T @"<config-file-path>" "https://<app-name>.scm.azurewebsites.net/api/publish?type=static&path=/home/site/deployments/tools/my-config.json"
 ```
 
 # [Kudu UI](#tab/kudu-ui)
@@ -233,7 +240,7 @@ The table below shows the available query parameters, their allowed values, and 
 
 | Key | Allowed values | Description | Required | Type  |
 |-|-|-|-|-|
-| `type` | `war`\|`jar`\|`ear`\|`lib`\|`startup`\|`static`\|`zip` | The type of the artifact being deployed, this sets the default target path and informs the web app how the deployment should be handled. <br/> - `type=zip`: Deploy a ZIP package by unzipping the content to `/home/site/wwwroot`. `path` parameter is optional. <br/> - `type=war`: Deploy a WAR package. By default, the WAR package is deployed to `/home/site/wwwroot/app.war`. The target path can be specified with `path`. <br/> - `type=jar`: Deploy a JAR package to `/home/site/wwwroot/app.jar`. The `path` parameter is ignored <br/> - `type=ear`: Deploy an EAR package to `/home/site/wwwroot/app.ear`. The `path` parameter is ignored <br/> - `type=lib`: Deploy a JAR library file. By default, the file is deployed to `/home/site/libs`. The target path can be specified with `path`. <br/> - `type=static`: Deploy a static file (e.g. a script). By default, the file is deployed to `/home/site/scripts`. The target path can be specified with `path`. <br/> - `type=startup`: Deploy a script that App Service automatically uses as the startup script for your app. By default, the script is deployed to `D:\home\site\scripts\<name-of-source>` for Windows and `home/site/wwwroot/startup.sh` for Linux. The target path can be specified with `path`. | Yes | String |
+| `type` | `war`\|`jar`\|`ear`\|`lib`\|`startup`\|`static`\|`zip` | The type of the artifact being deployed, this sets the default target path and informs the web app how the deployment should be handled. <br/> - `type=zip`: Deploy a ZIP package by unzipping the content to `/home/site/wwwroot`. `path` parameter is optional. <br/> - `type=war`: Deploy a WAR package. By default, the WAR package is deployed to `/home/site/wwwroot/app.war`. The target path can be specified with `path`. <br/> - `type=jar`: Deploy a JAR package to `/home/site/wwwroot/app.jar`. The `path` parameter is ignored <br/> - `type=ear`: Deploy an EAR package to `/home/site/wwwroot/app.ear`. The `path` parameter is ignored <br/> - `type=lib`: Deploy a JAR library file. By default, the file is deployed to `/home/site/libs`. The target path can be specified with `path`. <br/> - `type=static`: Deploy a static file (e.g. a script). By default, the file is deployed to `/home/site/wwwroot`. <br/> - `type=startup`: Deploy a script that App Service automatically uses as the startup script for your app. By default, the script is deployed to `D:\home\site\scripts\<name-of-source>` for Windows and `home/site/wwwroot/startup.sh` for Linux. The target path can be specified with `path`. | Yes | String |
 | `restart` | `true`\|`false` | By default, the API restarts the app following the deployment operation (`restart=true`). To deploy multiple artifacts, prevent restarts on the all but the final deployment by setting `restart=false`. | No | Boolean |
 | `clean` | `true`\|`false` | Specifies whether to clean (delete) the target deployment before deploying the artifact there. | No | Boolean |
 | `ignorestack` | `true`\|`false` | The publish API uses the `WEBSITE_STACK` environment variable to choose safe defaults depending on your site's language stack. Setting this parameter to `false` disables any language-specific defaults. | No | Boolean |

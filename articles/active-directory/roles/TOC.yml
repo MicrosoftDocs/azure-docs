@@ -20,8 +20,12 @@
       href: m365-workload-docs.md
   - name: Use groups to manage role assignments
     href: groups-concept.md
-  - name: Administrative units  
-    href: administrative-units.md
+  - name: Administrative units
+    items:
+    - name: Administrative units
+      href: administrative-units.md
+    - name: Restricted management
+      href: admin-units-restricted-management.md
   - name: Best practices
     href: best-practices.md
   - name: Security
@@ -30,6 +34,8 @@
       href: security-planning.md
     - name: Create emergency accounts
       href: security-emergency-access.md
+    - name: Protected actions
+      href: protected-actions-overview.md
 - name: How-to guides
   items:
   - name: Prerequisites
@@ -54,11 +60,9 @@
       href: groups-create-eligible.md
     - name: Assign roles to groups
       href: groups-assign-role.md
-    - name: Make a group eligible for a role in PIM
-      href: groups-pim-eligible.md
     - name: Assign roles with scope using PowerShell
       href: custom-assign-powershell.md
-    - name: Assign roles using Graph API
+    - name: Assign roles using Microsoft Graph
       href: custom-assign-graph.md
   - name: Remove role assignments
     items: 
@@ -82,8 +86,14 @@
       href: admin-units-members-list.md
     - name: Remove members
       href: admin-units-members-remove.md
+    - name: Manage members with dynamic membership rules
+      href: admin-units-members-dynamic.md
     - name: Assign roles with scope
       href: admin-units-assign-roles.md
+  - name: Protected actions
+    items:
+    - name: Add, remove, or test
+      href: protected-actions-add.md
   - name: Delegate
     items:
     - name: Delegate admin role
@@ -114,6 +124,10 @@
       href: custom-enterprise-app-permissions.md
     - name: App consent permissions
       href: custom-consent-permissions.md
+    - name: Device management permissions
+      href: custom-device-permissions.md
+    - name: User management permissions
+      href: custom-user-permissions.md
     - name: Group management permissions
       href: custom-group-permissions.md
   - name: Azure AD service limits

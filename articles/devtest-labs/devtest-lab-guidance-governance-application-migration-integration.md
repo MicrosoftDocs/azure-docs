@@ -2,8 +2,11 @@
 title: Application migration and integration
 description: This article provides governance guidance for Azure DevTest Labs infrastructure. The context is application migration and integration. 
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
+ms.custom: UpdateFrequency2
 ---
 
 # Governance of Azure DevTest Labs infrastructure - Application migration and integration
@@ -47,6 +50,8 @@ Another factor is the frequency of changes to your software package. If you run 
 
 This scenario is an advanced scenario, and the scripts provided are sample scripts only. If any changes are required, you need to manage and maintain the scripts used in your environment.
 
+
+
 ## Patterns to set up network configuration
 
 ### Question
@@ -87,6 +92,21 @@ If you use a site-to-site VPN or Express Route, consider using private IPs so th
 
 When using shared public IPs, the virtual machines in a lab share a public IP address. This approach can be helpful when you need to avoid breaching the limits on public IP addresses for a given subscription.
 
+## Limits of labs per subscription
+### Question
+How many labs can I create under the same subscription?
+
+### Answer
+
+There isn't a specific limit on the number of labs that can be created per subscription. However, the amount of resources used per subscription is limited. You can read about the [limits and quotas for Azure subscriptions](../azure-resource-manager/management/azure-subscription-service-limits.md) and [how to increase these limits](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
+          
+## Limits of VMs per lab          
+### Question
+How many VMs can I create per lab?
+
+### Answer: 
+There is no specific limit on the number of VMs that can be created per lab. However, the resources (VM cores, public IP addresses, and so on) that are used are limited per subscription. You can read about the [limits and quotas for Azure subscriptions](../azure-resource-manager/management/azure-subscription-service-limits.md) and [how to increase these limits](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
+          
 ## Limits of number of virtual machines per user or lab
 
 ### Question

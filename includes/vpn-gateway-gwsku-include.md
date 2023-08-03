@@ -5,19 +5,18 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 12/15/2021
+ ms.date: 06/27/2023
  ms.author: cherylmc
  ms.custom: include file
 ---
 
-When you create a virtual network gateway, you need to specify the gateway SKU that you want to use. Select the SKU that satisfies your requirements based on the types of workloads, throughput, features, and SLAs. For virtual network gateway SKUs in Azure Availability Zones, see [Azure Availability Zones gateway SKUs](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
+When you create a virtual network gateway, you need to specify the gateway SKU that you want to use. Select the SKU that satisfies your requirements based on the types of workloads, throughput, features, and SLAs. For virtual network gateway SKUs in Azure Availability Zones, see [Zone-redundant gateway SKUs](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 
 ###  <a name="benchmark"></a>Gateway SKUs by tunnel, connection, and throughput
 
 [!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
 > [!NOTE]
-> VpnGw SKUs (VpnGw1, VpnGw1AZ, VpnGw2, VpnGw2AZ, VpnGw3, VpnGw3AZ, VpnGw4, VpnGw4AZ, VpnGw5, and VpnGw5AZ) are supported for the Resource Manager deployment model only. Classic virtual networks should continue to use the old (legacy) SKUs.
 >  * For information about working with the legacy gateway SKUs (Basic, Standard, and HighPerformance), see [Working with VPN gateway SKUs (legacy SKUs)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
 >  * For ExpressRoute gateway SKUs, see [Virtual Network Gateways for ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
 >
@@ -34,7 +33,7 @@ The new VPN gateway SKUs streamline the feature sets offered on the gateways:
 
 (*) You can configure "PolicyBasedTrafficSelectors" to connect a route-based VPN gateway to multiple on-premises policy-based firewall devices. Refer to [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) for details.
 
-(\*\*) The Basic SKU is considered a legacy SKU. The Basic SKU has certain feature limitations. You can't resize a gateway that uses a Basic SKU to another SKU, you must instead change to a new SKU, which involves deleting and recreating your VPN gateway.
+(\*\*) The Basic SKU is considered a legacy SKU. The Basic SKU has certain feature limitations. You can't resize a gateway that uses a Basic SKU to another SKU, you must instead change to a new SKU, which involves deleting and recreating your VPN gateway. You can't deploy a Basic SKU to a VNet that uses IPv6 address space.
 
 ###  <a name="workloads"></a>Gateway SKUs - Production vs. Dev-Test Workloads
 

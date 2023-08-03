@@ -4,7 +4,7 @@ description: Learn how to create a Java function from the command line, then pub
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.devlang: java
-ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api
+ms.custom: devx-track-java, mode-api, devx-track-extended-java
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
@@ -19,7 +19,7 @@ In this article, you use command-line tools to create a Java function that respo
 
 If Maven isn't your preferred development tool, check out our similar tutorials for Java developers:
 + [Gradle](./functions-create-first-java-gradle.md)
-+ [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions)
++ [IntelliJ IDEA](functions-create-maven-intellij.md)
 + [Visual Studio Code](create-first-function-vs-code-java.md)
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
@@ -166,7 +166,7 @@ A function app and related resources are created in Azure when you first deploy 
     az login
     ```
 
-    The [az login](/cli/azure/reference-index#az_login) command signs you into your Azure account.
+    The [az login](/cli/azure/reference-index#az-login) command signs you into your Azure account.
 
     # [Azure PowerShell](#tab/azure-powershell) 
     ```azurepowershell
@@ -191,6 +191,8 @@ A function app and related resources are created in Azure when you first deploy 
     + Function app. A function app is the deployment and execution unit for your functions. The name is randomly generated based on your _artifactId_, appended with a randomly generated number.
     
     The deployment packages the project files and deploys them to the new function app using [zip deployment](functions-deployment-technologies.md#zip-deploy). The code runs from the deployment package in Azure.
+
+[!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]
 
 [!INCLUDE [functions-run-remote-azure-cli](../../includes/functions-run-remote-azure-cli.md)]
 

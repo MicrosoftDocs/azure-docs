@@ -2,7 +2,8 @@
 title: Child resources in templates
 description: Describes how to set the name and type for child resources in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
-ms.date: 01/19/2022
+ms.custom: devx-track-arm-template
+ms.date: 06/22/2023
 ---
 
 # Set name and type for child resources
@@ -14,7 +15,7 @@ Each parent resource accepts only certain resource types as child resources. The
 In an Azure Resource Manager template (ARM template), you can specify the child resource either within the parent resource or outside of the parent resource. The values you provide for the resource name and resource type vary based on whether the child resource is defined inside or outside of the parent resource.
 
 > [!TIP]
-> For an improved authoring experience, you can use Bicep rather than JSON to develop templates. For more information about Bicep syntax, see [child resources](../bicep/child-resource-name-type.md).
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [child resources](../bicep/child-resource-name-type.md).
 
 ## Within parent resource
 
@@ -46,7 +47,7 @@ The following example shows a virtual network and with a subnet. Notice that the
 "resources": [
   {
     "type": "Microsoft.Network/virtualNetworks",
-    "apiVersion": "2018-10-01",
+    "apiVersion": "2022-11-01",
     "name": "VNet1",
     "location": "[parameters('location')]",
     "properties": {
@@ -59,7 +60,7 @@ The following example shows a virtual network and with a subnet. Notice that the
     "resources": [
       {
         "type": "subnets",
-        "apiVersion": "2018-10-01",
+        "apiVersion": "2022-11-01",
         "name": "Subnet1",
         "dependsOn": [
           "VNet1"
@@ -92,7 +93,7 @@ The following example shows the child resource outside of the parent resource. Y
 ]
 ```
 
-When defined outside of the parent resource, you format the type and with slashes to include the parent type and name.
+When defined outside of the parent resource, you format the type and name values with slashes to include the parent type and name.
 
 ```json
 "type": "{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}",
@@ -105,7 +106,7 @@ The following example shows a virtual network and subnet that are both defined a
 "resources": [
   {
     "type": "Microsoft.Network/virtualNetworks",
-    "apiVersion": "2018-10-01",
+    "apiVersion": "2022-11-01",
     "name": "VNet1",
     "location": "[parameters('location')]",
     "properties": {
@@ -118,7 +119,7 @@ The following example shows a virtual network and subnet that are both defined a
   },
   {
     "type": "Microsoft.Network/virtualNetworks/subnets",
-    "apiVersion": "2018-10-01",
+    "apiVersion": "2022-11-01",
     "name": "VNet1/Subnet1",
     "dependsOn": [
       "VNet1"

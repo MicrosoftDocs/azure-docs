@@ -1,14 +1,13 @@
 ---
 title: Verify encryption status for Linux - Azure Disk Encryption
 description: This article provides instructions on verifying the encryption status from the platform and OS levels.
-author: kailashmsft
+author: mamccrea
 ms.service: virtual-machines
 ms.subservice: disks
 ms.topic: how-to
-ms.author: kaib
-ms.date: 03/11/2020
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-
+ms.author: mamccrea
+ms.date: 04/11/2023
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell, devx-track-linux
 ---
 
 # Verify encryption status for Linux 
@@ -56,7 +55,7 @@ Another way to validate the encryption status is by looking at the **Disk settin
 
 You can validate the *general* encryption status of an encrypted VM by using the following PowerShell commands:
 
-```azurepowershell
+```azurepowershell-interactive
    $VMNAME="VMNAME"
    $RGNAME="RGNAME"
    Get-AzVmDiskEncryptionStatus -ResourceGroupName  ${RGNAME} -VMName ${VMNAME}
@@ -68,7 +67,7 @@ You can capture the encryption settings from each disk by using the following Po
 ### Single pass
 In a single pass, the encryption settings are stamped on each of the disks (OS and data). You can capture the encryption settings for an OS disk in a single pass as follows:
 
-```powershell
+```azurepowershell-interactive
 $RGNAME = "RGNAME"
 $VMNAME = "VMNAME"
 
@@ -92,7 +91,7 @@ If the disk doesn't have encryption settings stamped, the output will be empty:
 
 Use the following commands to capture encryption settings for data disks:
 
-```azurepowershell
+```azurepowershell-interactive
 $RGNAME = "RGNAME"
 $VMNAME = "VMNAME"
 
@@ -118,7 +117,7 @@ In a dual pass, the encryption settings are stamped in the VM model and not on e
 
 To verify that the encryption settings were stamped in a dual pass, use the following commands:
 
-```azurepowershell
+```azurepowershell-interactive
 $RGNAME = "RGNAME"
 $VMNAME = "VMNAME"
 
@@ -142,7 +141,8 @@ Write-Host "====================================================================
 Check the encryption settings for disks that aren't attached to a VM.
 
 ### Managed disks
-```powershell
+
+```azurepowershell-interactive
 $Sourcedisk = Get-AzDisk -ResourceGroupName ${RGNAME} -DiskName ${TARGETDISKNAME}
 Write-Host "============================================================================================================================================================="
 Write-Host "Encryption Settings:"
@@ -154,21 +154,24 @@ Write-Host "Secret URL:" $Sourcedisk.EncryptionSettingsCollection.EncryptionSett
 Write-Host "Key URL:" $Sourcedisk.EncryptionSettingsCollection.EncryptionSettings.KeyEncryptionKey.KeyUrl
 Write-Host "============================================================================================================================================================="
 ```
+
 ## Azure CLI
 
 You can validate the *general* encryption status of an encrypted VM by using the following Azure CLI commands:
 
-```azurecli
+```azurecli-interactive
 VMNAME="VMNAME"
 RGNAME="RGNAME"
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "substatus"
 ```
+
 ![General encryption status from the Azure CLI ](./media/disk-encryption/verify-encryption-linux/verify-gen-cli.png)
 
 ### Single pass
+
 You can validate the encryption settings for each disk by using the following Azure CLI commands:
 
-```azurecli
+```azurecli-interactive
 az vm encryption show -g ${RGNAME} -n ${VMNAME} --query "disks[*].[name, statuses[*].displayStatus]"  -o table
 ```
 
@@ -181,7 +184,7 @@ Use the following commands to get detailed status and encryption settings.
 
 OS disk:
 
-```bash
+```azurecli-interactive
 RGNAME="RGNAME"
 VMNAME="VNAME"
 
@@ -201,7 +204,7 @@ done
 
 Data disks:
 
-```azurecli
+```azurecli-interactive
 RGNAME="RGNAME"
 VMNAME="VMNAME"
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "substatus"
@@ -221,7 +224,7 @@ done
 
 ### Dual pass
 
-```azurecli
+```azurecli-interactive
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} -o table
 ```
 
@@ -229,7 +232,7 @@ az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} -o table
 
 You can also check the encryption settings on the VM Model Storage profile of the OS disk:
 
-```bash
+```azurecli-interactive
 disk=`az vm show -g ${RGNAME} -n ${VMNAME} --query storageProfile.osDisk.name -o tsv`
 for disk in $disk; do \
 echo "============================================================================================================================================================="; \
@@ -250,7 +253,7 @@ Check the encryption settings for disks that aren't attached to a VM.
 
 ### Managed disks
 
-```bash
+```azurecli-interactive
 RGNAME="RGNAME"
 TARGETDISKNAME="DISKNAME"
 echo "============================================================================================================================================================="
@@ -261,6 +264,7 @@ echo -ne "Disk Encryption Key: "; az disk show -g ${RGNAME} -n ${TARGETDISKNAME}
 echo -ne "key Encryption Key: "; az disk show -g ${RGNAME} -n ${TARGETDISKNAME} --query encryptionSettingsCollection.encryptionSettings[].keyEncryptionKey.keyUrl -o tsv; \
 echo "============================================================================================================================================================="
 ```
+
 ### Unmanaged disks
 
 Unmanaged disks are VHD files that are stored as page blobs in Azure storage accounts.
@@ -274,55 +278,66 @@ To get the details for a specific disk, you need to provide:
 
 This command lists all the IDs for all your storage accounts:
 
-```azurecli
+```azurecli-interactive
 az storage account list --query [].[id] -o tsv
 ```
+
 The storage account IDs are listed in the following form:
 
 /subscriptions/\<subscription id>/resourceGroups/\<resource group name>/providers/Microsoft.Storage/storageAccounts/\<storage account name>
 
 Select the appropriate ID and store it on a variable:
-```bash
+
+```azurecli-interactive
 id="/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name>"
 ```
 
 This command gets the connection string for one particular storage account and stores it on a variable:
 
-```bash
+```azurecli-interactive
 ConnectionString=$(az storage account show-connection-string --ids $id --query connectionString -o tsv)
 ```
 
 The following command lists all the containers under a storage account:
-```azurecli
+
+```azurecli-interactive
 az storage container list --connection-string $ConnectionString --query [].[name] -o tsv
 ```
+
 The container used for disks is normally named "vhds."
 
-Store the container name on a variable: 
-```bash
+Store the container name on a variable:
+
+```azurecli-interactive
 ContainerName="name of the container"
 ```
 
 Use this command to list all the blobs on a particular container:
-```azurecli 
+
+```azurecli-interactive
 az storage blob list -c ${ContainerName} --connection-string $ConnectionString --query [].[name] -o tsv
 ```
+
 Choose the disk that you want to query and store its name on a variable:
-```bash
+
+```azurecli-interactive
 DiskName="diskname.vhd"
 ```
+
 Query the disk encryption settings:
-```azurecli
+
+```azurecli-interactive
 az storage blob show -c ${ContainerName} --connection-string ${ConnectionString} -n ${DiskName} --query metadata.DiskEncryptionSettings
 ```
 
 ## Operating system
+
 Validate if the data disk partitions are encrypted (and the OS disk isn't).
 
 When a partition or disk is encrypted, it's displayed as a **crypt** type. When it's not encrypted, it's displayed as a **part/disk** type.
 
 ```bash
-lsblk
+sudo lsblk
 ```
 
 ![OS crypt layer for a partition](./media/disk-encryption/verify-encryption-linux/verify-os-crypt-layer.png)
@@ -332,24 +347,25 @@ You can get more details by using the following **lsblk** variant.
 You'll see a **crypt** type layer that is mounted by the extension. The following example shows logical volumes and normal disks having **crypto\_LUKS FSTYPE**.
 
 ```bash
-lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,RO,MOUNTPOINT
+sudo lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,RO,MOUNTPOINT
 ```
+
 ![OS crypt layer for logical volumes and normal disks](./media/disk-encryption/verify-encryption-linux/verify-os-crypt-layer-2.png)
 
 As an extra step, you can validate if the data disk has any keys loaded:
 
 ```bash
-cryptsetup luksDump /dev/VGNAME/LVNAME
+sudo cryptsetup luksDump /dev/VGNAME/LVNAME
 ```
 
 ```bash
-cryptsetup luksDump /dev/sdd1
+sudo cryptsetup luksDump /dev/sdd1
 ```
 
 And you can check which **dm** devices are listed as **crypt**:
 
 ```bash
-dmsetup ls --target crypt
+sudo dmsetup ls --target crypt
 ```
 
 ## Next steps

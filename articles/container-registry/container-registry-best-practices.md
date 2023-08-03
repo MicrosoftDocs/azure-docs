@@ -2,7 +2,9 @@
 title: Registry best practices
 description: Learn how to use your Azure container registry effectively by following these best practices.
 ms.topic: article
-ms.date: 08/13/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Best practices for Azure Container Registry
@@ -58,7 +60,7 @@ When authenticating with an Azure container registry, there are two primary scen
 
 | Type | Example scenario | Recommended method |
 |---|---|---|
-| Individual identity | A developer pulling images to or pushing images from their development machine. | [az acr login](/cli/azure/acr#az_acr_login) |
+| Individual identity | A developer pulling images to or pushing images from their development machine. | [az acr login](/cli/azure/acr#az-acr-login) |
 | Headless/service identity | Build and deployment pipelines where the user isn't directly involved. | [Service principal](container-registry-authentication.md#service-principal) |
 
 For in-depth information about these and other Azure Container Registry authentication scenarios, see [Authenticate with an Azure container registry](container-registry-authentication.md).
@@ -115,6 +117,5 @@ For recommendations to improve the security posture of your container registries
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
 [az-acr-show-usage]: /cli/azure/acr#az_acr_show_usage
 [azure-cli]: /cli/azure
-[azure-portal]: https://portal.azure.com
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-skus]: container-registry-skus.md

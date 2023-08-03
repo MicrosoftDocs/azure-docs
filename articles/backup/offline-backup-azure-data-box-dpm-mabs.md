@@ -2,7 +2,10 @@
 title: Offline Backup with Azure Data Box for DPM and MABS
 description: You can use Azure Data Box to seed initial Backup data offline from DPM and MABS.
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 08/04/2022
+ms.service: backup
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Offline seeding using Azure Data Box for DPM and MABS
 
@@ -11,7 +14,7 @@ ms.date: 07/29/2021
 
 This article explains how you can use Azure Data Box to seed initial backup data offline from DPM and MABS to an Azure Recovery Services vault.
 
-You can use [Azure Data Box](../databox/data-box-overview.md) to seed your large initial DPM/MABS backups offline (without using the network) to a Recovery Services vault. This process saves time and network bandwidth that would otherwise be consumed moving large amounts of backup data online over a high-latency network. This feature is currently in preview.
+You can use [Azure Data Box](../databox/data-box-overview.md) to seed your large initial DPM/MABS backups offline (without using the network) to a Recovery Services vault. This process saves time and network bandwidth that would otherwise be consumed moving large amounts of backup data online over a high-latency network.
 
 Offline backup based on Azure Data Box provides two distinct advantages over [offline backup based on the Azure Import/Export service](backup-azure-backup-server-import-export.md):
 
@@ -122,9 +125,6 @@ Specify alternate source: *WIM:D:\Sources\Install.wim:4*
 11. On the **Choose online replication** screen of the wizard, choose the option **Transfer using Microsoft owned disks** and select **Next**.
 
     ![Choose initial online replication](./media/offline-backup-azure-data-box-dpm-mabs/choose-initial-online-replication.png)
-
-    >[!NOTE]
-    > The option to select **Transfer using Microsoft Owned disks** isn't available for MABS v3 since the feature is in preview. Reach out to us at [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com) if you want to use this feature for MABS v3.
 
 12. Sign into Azure when prompted, using the user credentials that have owner access on the Azure Subscription. After a successful sign-in, the following screen is displayed:
 

@@ -1,16 +1,15 @@
 ---
-title: "Quickstart: Add sign in with Microsoft to an iOS or macOS app | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Add sign in with Microsoft to an iOS or macOS app"
 description: In this quickstart, learn how an iOS or macOS app can sign in users, get an access token from the Microsoft identity platform, and call the Microsoft Graph API.
 services: active-directory
-author: mmacy
+author: henrymbuguakiarie
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.workload: identity
 ms.date: 01/14/2022
-ms.author: marsma
+ms.author: henrymbugua
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:iOS", mode-api
 #Customer intent: As an application developer, I want to learn how to sign in users and call Microsoft Graph from my iOS or macOS application.
@@ -47,9 +46,12 @@ To register your app,
 ### Option 2: Register and manually configure your application and code sample
 
 #### Step 1: Register your application
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To register your application and add the app's registration information to your solution manually, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
@@ -219,7 +221,7 @@ self.applicationContext!.acquireToken(with: parameters) { (result, error) in /* 
 
 > |Where:| Description |
 > |---------|---------|
-> | `scopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom web APIs  (`api://<Application ID>/access_as_user`) |
+> | `scopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom web APIs  (`api://<Application ID>/access_as_user`)) |
 
 #### acquireTokenSilent: Get an access token silently
 
@@ -239,10 +241,10 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
 
 > |Where: | Description |
 > |---------|---------|
-> | `scopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom web APIs (`api://<Application ID>/access_as_user`) |
+> | `scopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom web APIs (`api://<Application ID>/access_as_user`)) |
 > | `account` | The account a token is being requested for. This quickstart is about a single account application. If you want to build a multi-account app you'll need to define logic to identify which account to use for token requests using `accountsFromDeviceForParameters:completionBlock:` and passing correct `accountIdentifier` |
 
-[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 

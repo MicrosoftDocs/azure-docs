@@ -4,8 +4,10 @@ description: Learn how to set up an Azure Migrate appliance in Azure Government
 author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 07/11/2023
+ms.custom: engagement-fy23 
 ---
 
 
@@ -13,9 +15,9 @@ ms.date: 11/02/2021
 
 Follow this article to deploy an [Azure Migrate appliance](./migrate-appliance-architecture.md) for Azure Government cloud to perform:
 
-- discovery, assessment and agentless replication of servers running in VMware environment
-- discovery and assessment of servers running in Hyper-V environment
-- discovery and assessment of physical servers or servers running on other clouds like AWS, GCP, Xen etc.
+- Discovery, assessment and agentless replication of servers running in VMware environment
+- Discovery and assessment of servers running in Hyper-V environment
+- Discovery and assessment of physical servers or servers running on other clouds like AWS, GCP, Xen etc.
 
 If you want to set up  an appliance in the public cloud, follow [this article](deploy-appliance-script.md).
 
@@ -26,21 +28,21 @@ If you want to set up  an appliance in the public cloud, follow [this article](d
 
 You can use the script to deploy the Azure Migrate appliance on an existing physical or a virtualized server.
 
-- The server that will act as the appliance must be running Windows Server 2016 and meet other requirements for [VMware](migrate-appliance.md#appliance---vmware), [Hyper-V](migrate-appliance.md#appliance---hyper-v), and [physical servers](migrate-appliance.md#appliance---physical).
+- The server that will act as the appliance must be running Windows Server 2022 and meet other requirements for [VMware](migrate-appliance.md#appliance---vmware), [Hyper-V](migrate-appliance.md#appliance---hyper-v), and [physical servers](migrate-appliance.md#appliance---physical).
 - If you run the script on a server with Azure Migrate appliance already set up, you can choose to clean up the existing configuration and set up a fresh appliance of the desired configuration. When you execute the script, you will get a notification as shown below:
   
     :::image type="content" source="./media/deploy-appliance-script/script-reconfigure-appliance.png" alt-text="Screenshot that shows how to reconfigure an appliance.":::
 
 ## Set up the appliance for VMware
 
-1. To set up the appliance, you download the zipped file named AzureMigrateInstaller.zip either from the portal or from [here](https://go.microsoft.com/fwlink/?linkid=2140334).
+1. To set up the appliance, you download the zipped file named AzureMigrateInstaller.zip either from the portal or from [here](https://go.microsoft.com/fwlink/?linkid=2191847).
 1. Extract the contents on the server where you want to deploy the appliance.
 1. Execute the PowerShell script to launch the appliance configuration manager.
 1. Set up the appliance and configure it for the first time.
 
 ### Download the script
 
-1. In **Migration Goals** > **Windows, Linux and SQL Servers** > **Azure Migrate: Discovery and assessment**, click **Discover**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, click **Discover**.
 2. In **Discover server** > **Are your servers virtualized?**, select **Yes, with VMware vSphere hypervisor**.
 3. Provide an appliance name and generate a project key in the portal.
 3. Click **Download**, to download the zipped file.
@@ -57,7 +59,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2140337) | 30d4f4e06813ceb83602a220fc5fe2278fa6aafcbaa36a40a37f3133f882ee8c
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 967FC3B8A5C467C303D86C8889EB4E0D4A8A7798865CBFBDF23E425D4EE425CA  
 
 
 ### Run the script
@@ -74,7 +76,7 @@ Check that the zipped file is secure, before you deploy it.
 
 5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover, assess and migrate **servers running in your VMware environment** to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure Government cloud**.
 
-   :::image type="content" source="./media/deploy-appliance-script-government/script-vmware-gov-inline.png" alt-text="Screenshot that shows how to set up appliance with desired configuration for Vmware." lightbox="./media/deploy-appliance-script-government/script-vmware-gov-expanded.png":::
+   :::image type="content" source="./media/deploy-appliance-script-government/script-vmware-gov-inline.png" alt-text="Screenshot that shows how to set up appliance with desired configuration for VMware." lightbox="./media/deploy-appliance-script-government/script-vmware-gov-expanded.png":::
 
 6. The installer script does the following:
 
@@ -94,14 +96,14 @@ Make sure that the appliance can connect to Azure URLs for [government clouds](m
 
 ## Set up the appliance for Hyper-V
 
-1. To set up the appliance, you download the zipped file named AzureMigrateInstaller.zip either from the portal or from [here](https://go.microsoft.com/fwlink/?linkid=2140334).
+1. To set up the appliance, you download the zipped file named AzureMigrateInstaller.zip either from the portal or from [here](https://go.microsoft.com/fwlink/?linkid=2191847).
 1. Extract the contents on the server where you want to deploy the appliance.
 1. Execute the PowerShell script to launch the appliance configuration manager.
 1. Set up the appliance and configure it for the first time.
 
 ### Download the script
 
-1.	In **Migration Goals** > **Windows, Linux and SQL Servers** > **Azure Migrate: Discovery and assessment**, click **Discover**.
+1.	In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, click **Discover**.
 2.	In **Discover servers** > **Are your servers virtualized?**, select **Yes, with Hyper-V**.
 3. Provide an appliance name and generate a project key in the portal.
 3. Click **Download**, to download the zipped file. 
@@ -118,7 +120,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2140424) | 30d4f4e06813ceb83602a220fc5fe2278fa6aafcbaa36a40a37f3133f882ee8c
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 967FC3B8A5C467C303D86C8889EB4E0D4A8A7798865CBFBDF23E425D4EE425CA  
 
 ### Run the script
 
@@ -155,14 +157,14 @@ Make sure that the appliance can connect to Azure URLs for [government clouds](m
 
 ## Set up the appliance for physical servers
 
-1. To set up the appliance, you download the zipped file named AzureMigrateInstaller.zip either from the portal or from [here](https://go.microsoft.com/fwlink/?linkid=2140334).
+1. To set up the appliance, you download the zipped file named AzureMigrateInstaller.zip either from the portal or from [here](https://go.microsoft.com/fwlink/?linkid=2191847).
 1. Extract the contents on the server where you want to deploy the appliance.
 1. Execute the PowerShell script to launch the appliance configuration manager.
 1. Set up the appliance and configure it for the first time.
 
 ### Download the script
 
-1. In **Migration Goals** > **Windows, Linux and SQL Servers** > **Azure Migrate: Discovery and assessment**, click **Discover**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, click **Discover**.
 2. In **Discover servers** > **Are your servers virtualized?**, select **Physical or other (AWS, GCP, Xen etc.)**.
 3. Click **Download**, to download the zipped file.
 
@@ -178,7 +180,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2140338) | 30d4f4e06813ceb83602a220fc5fe2278fa6aafcbaa36a40a37f3133f882ee8c
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 967FC3B8A5C467C303D86C8889EB4E0D4A8A7798865CBFBDF23E425D4EE425CA 
 
 > [!NOTE]
 > The same script can be used to set up Physical appliance for Azure Government cloud with either public or private endpoint connectivity.

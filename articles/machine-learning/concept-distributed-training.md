@@ -4,9 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Learn what type of distributed training Azure Machine Learning supports and the open source framework integrations available for distributed training.
 services: machine-learning
 ms.service: machine-learning
-author: nibaccam
-ms.author: nibaccam
-ms.subservice: core
+author: rtanase
+ms.author: ratanase
+ms.reviewer: sgilley
+ms.subservice: training
+ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 03/27/2020
 ---
@@ -32,7 +34,7 @@ For ML models that don't require distributed training, see [train models with Az
 
 Data parallelism is the easiest to implement of the two distributed training approaches, and is sufficient for most use cases.
 
-In this approach, the data is divided into partitions, where the number of partitions is equal to the total number of available nodes, in the compute cluster. The model is copied in each of these worker nodes, and each worker operates on its own subset of the data. Keep in mind that each node has to have the capacity to support the model that's being trained, that is the model has to entirely fit on each node. The following diagram provides a visual demonstration of this approach.
+In this approach, the data is divided into partitions, where the number of partitions is equal to the total number of available nodes, in the compute cluster or [serverless compute](./how-to-use-serverless-compute.md). The model is copied in each of these worker nodes, and each worker operates on its own subset of the data. Keep in mind that each node has to have the capacity to support the model that's being trained, that is the model has to entirely fit on each node. The following diagram provides a visual demonstration of this approach.
 
 ![Data-parallelism-concept-diagram](./media/concept-distributed-training/distributed-training.svg)
 
@@ -46,6 +48,5 @@ In model parallelism, worker nodes only need to synchronize the shared parameter
 
 ## Next steps
 
-* Learn how to [use compute targets for model training](how-to-set-up-training-targets.md) with the Python SDK.
 * For a technical example, see the [reference architecture  scenario](/azure/architecture/reference-architectures/ai/training-deep-learning).
 * Find tips for MPI, TensorFlow, and PyTorch in the [Distributed GPU training guide](how-to-train-distributed-gpu.md) 

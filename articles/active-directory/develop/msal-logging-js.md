@@ -1,9 +1,8 @@
 ---
 title: Logging errors and exceptions in MSAL.js
-titleSuffix: Microsoft identity platform
 description: Learn how to log errors and exceptions in MSAL.js
 services: active-directory
-author: mmacy
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,13 +10,13 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/21/2021
-ms.author: marsma
+ms.author: dmwendia
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-js
 ---
 # Logging in MSAL.js
 
-[!INCLUDE [MSAL logging introduction](../../../includes/active-directory-develop-error-logging-introduction.md)]
+[!INCLUDE [MSAL logging introduction](./includes/error-handling-and-tips/error-logging-introduction.md)]
 
 ## Configure logging in MSAL.js
 
@@ -30,6 +29,8 @@ The loggerOptions object has the following properties:
 - `piiLoggingEnabled` (optional): if set to true, logs personal and organizational data. By default this is false so that your application doesn't log personal data. Personal data logs are never written to default outputs like Console, Logcat, or NSLog.
 
 ```javascript
+import msal from "@azure/msal-browser"
+
 const msalConfig = {
     auth: {
         clientId: "enter_client_id_here",
@@ -48,35 +49,30 @@ const msalConfig = {
     },
     system: {
         loggerOptions: {
-            loggerCallback: (level: LogLevel, message: string, containsPii: boolean): void => {
+            logLevel: msal.LogLevel.Verbose,
+            loggerCallback: (level, message, containsPii) => {
                 if (containsPii) {
                     return;
                 }
                 switch (level) {
-                    case LogLevel.Error:
+                    case msal.LogLevel.Error:
                         console.error(message);
                         return;
-                    case LogLevel.Info:
+                    case msal.LogLevel.Info:
                         console.info(message);
                         return;
-                    case LogLevel.Verbose:
+                    case msal.LogLevel.Verbose:
                         console.debug(message);
                         return;
-                    case LogLevel.Warning:
+                    case msal.LogLevel.Warning:
                         console.warn(message);
                         return;
                 }
             },
             piiLoggingEnabled: false
         },
-        windowHashTimeout: 60000,
-        iframeHashTimeout: 6000,
-        loadFrameTimeout: 0,
-        asyncPopups: false
-    };
-}
-
-const msalInstance = new PublicClientApplication(msalConfig);
+    },
+};
 ```
 
 ## Next steps

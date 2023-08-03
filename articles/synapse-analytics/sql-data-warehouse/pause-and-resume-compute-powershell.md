@@ -1,31 +1,37 @@
 ---
-title: 'Quickstart: Pause and resume compute in dedicated SQL pool (formerly SQL DW) with Azure PowerShell'
-description: You can use Azure PowerShell to pause and resume dedicated SQL pool (formerly SQL DW). compute resources.
+title: "Quickstart: Pause and resume compute in dedicated SQL pool (formerly SQL DW) with Azure PowerShell"
+description: You can use Azure PowerShell to pause and resume dedicated SQL pool (formerly SQL DW) compute resources.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-manager: craigg
-ms.reviewer: igorstan
-ms.date: 03/20/2019
-ms.topic: quickstart
+ms.date: 01/05/2023
 ms.service: synapse-analytics
 ms.subservice: sql-dw
-ms.custom: devx-track-azurepowershell, seo-lt-2019, azure-synapse, mode-api
+ms.topic: quickstart
+ms.custom:
+  - devx-track-azurepowershell
+  - seo-lt-2019
+  - azure-synapse
+  - mode-api
 ---
 
 # Quickstart: Pause and resume compute in dedicated SQL pool (formerly SQL DW) with Azure PowerShell
 
 You can use Azure PowerShell to pause and resume dedicated SQL pool (formerly SQL DW) compute resources.
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+
+> [!NOTE]
+> This article applies to dedicated SQL pools (formerly SQL DW) and not dedicated SQL pools created in Azure Synapse Workspaces. There are different PowerShell cmdlets to use for each, for example, use `Suspend-AzSqlDatabase` for a dedicated SQL pool (formerly SQL DW), but `Suspend-AzSynapseSqlPool` for a dedicated SQL pool in an Azure Synapse Workspace. For instructions to pause and resume a dedicated SQL pool in an Azure Synapse Workspace, see [Quickstart: Pause and resume compute in dedicated SQL pool in an Azure Synapse Workspace with Azure PowerShell](pause-and-resume-compute-workspace-powershell.md).
+> For more on the differences between dedicated SQL pool (formerly SQL DW) and dedicated SQL pools in Azure Synapse Workspaces, read [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/what-s-the-difference-between-azure-synapse-formerly-sql-dw-and/ba-p/3597772).
 
 ## Before you begin
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This quickstart assumes you already have a dedicated SQL pool (formerly SQL DW) that you can pause and resume. If you need to create one, you can use [Create and Connect - portal](create-data-warehouse-portal.md) to create a dedicated SQL pool (formerly SQL DW) called **mySampleDataWarehouse**.
+This quickstart assumes you already have a dedicated SQL pool (formerly SQL DW) that you can pause and resume. If you need to create one, you can use [Create and Connect - portal](create-data-warehouse-portal.md) to create a dedicated SQL pool (formerly SQL DW) called `mySampleDataWarehouse`.
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to your Azure subscription using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) command and follow the on-screen directions.
+Sign in to your Azure subscription using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) command and follow the on-screen directions.
 
 ```powershell
 Connect-AzAccount
@@ -50,29 +56,29 @@ Locate the database name, server name, and resource group for the dedicated SQL 
 Follow these steps to find location information for your dedicated SQL pool (formerly SQL DW):
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Click **Azure Synapse Analytics (formerly SQL DW)** in the left page of the Azure portal.
-1. Select **mySampleDataWarehouse** from the **Azure Synapse Analytics (formerly SQL DW)** page. The SQL pool opens.
+1. Select **Dedicated SQL pool (formerly SQL DW)** in the menu of the Azure portal, or search for **Dedicated SQL pool (formerly SQL DW)** in the search bar.
+1. Select `mySampleDataWarehouse`. The SQL pool opens.
 
-    ![Server name and resource group](./media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
+    :::image type="content" source="./media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png" alt-text="Screenshot of the Azure portal containing the dedicated SQL pool (formerly SQL DW) server name and resource group.":::
 
-1. Write down the dedicated SQL pool (formerly SQL DW) name, which is the database name. Also write down the server name, and the resource group.
-1. Use only the first part of the server name in the PowerShell cmdlets. In the preceding image, the full server name is sqlpoolservername.database.windows.net. We use **sqlpoolservername** as the server name in the PowerShell cmdlet.
+1. Remember the dedicated SQL pool (formerly SQL DW) name, which is the database name. Also write down the server name, and the resource group.
+1. Use only the first part of the server name in the PowerShell cmdlets. In the preceding image, the full server name is `sqlpoolservername.database.windows.net`. We use **sqlpoolservername** as the server name in the PowerShell cmdlet.
 
 ## Pause compute
 
 To save costs, you can pause and resume compute resources on-demand. For example, if you are not using the database during the night and on weekends, you can pause it during those times, and resume it during the day.
 
-> [!NOTE]
+> [!NOTE]  
 > There is no charge for compute resources while the database is paused. However, you continue to be charged for storage.
 
-To pause a database, use the [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet. The following example pauses a SQL pool named **mySampleDataWarehouse** hosted on a server named **sqlpoolservername**. The server is in an Azure resource group named **myResourceGroup**.
+To pause a database, use the [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet. The following example pauses a SQL pool named `mySampleDataWarehouse` hosted on a server named **sqlpoolservername**. The server is in an Azure resource group named **myResourceGroup**.
 
 ```powershell
 Suspend-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "sqlpoolservername" –DatabaseName "mySampleDataWarehouse"
 ```
 
-The following example retrieves the database into the $database object. It then pipes the object to [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). The results are stored in the object resultDatabase. The final command shows the results.
+The following example retrieves the database into the `$database` object. It then pipes the object to [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). The results are stored in the object `$resultDatabase`. The final command shows the results.
 
 ```powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
@@ -83,14 +89,14 @@ $resultDatabase
 
 ## Resume compute
 
-To start a database, use the [Resume-AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet. The following example starts a database named **mySampleDataWarehouse** hosted on a server named **sqlpoolservername**. The server is in an Azure resource group named **myResourceGroup**.
+To start a database, use the [Resume-AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet. The following example starts a database named `mySampleDataWarehouse` hosted on a server named **sqlpoolservername**. The server is in an Azure resource group named **myResourceGroup**.
 
 ```powershell
 Resume-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "sqlpoolservername" -DatabaseName "mySampleDataWarehouse"
 ```
 
-The next example retrieves the database into the $database object. It then pipes the object to [Resume-AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) and stores the results in $resultDatabase. The final command shows the results.
+The next example retrieves the database into the `$database` object. It then pipes the object to [Resume-AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) and stores the results in `$resultDatabase`. The final command shows the results.
 
 ```powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
@@ -116,18 +122,20 @@ You are being charged for data warehouse units and data stored your dedicated SQ
 
 Follow these steps to clean up resources as you desire.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and click on your SQL pool.
+1. Sign in to the [Azure portal](https://portal.azure.com), and select on your SQL pool.
 
-    ![Clean up resources](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    :::image type="content" source="./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png" alt-text="Clean up resources.":::
 
-2. To pause compute, click the **Pause** button. When the SQL pool is paused, you see a **Start** button.  To resume compute, click **Start**.
+1. To pause compute, select the **Pause** button. When the SQL pool is paused, you see a **Start** button.  To resume compute, select **Resume**.
 
-3. To remove the SQL pool so you are not charged for compute or storage, click **Delete**.
+1. To remove the SQL pool so you are not charged for compute or storage, select **Delete**.
 
-4. To remove the SQL server you created, click **sqlpoolservername.database.windows.net**, and then click **Delete**.  Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
+1. To remove the SQL server you created, select `sqlpoolservername.database.windows.net`, and then select **Delete**.  Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
 
-5. To remove the resource group, click **myResourceGroup**, and then click **Delete resource group**.
+1. To remove the resource group, select **myResourceGroup**, and then select **Delete resource group**.
 
 ## Next steps
 
-To learn more about SQL pool, continue to the [Load data into dedicated SQL pool (formerly SQL DW)](./load-data-from-azure-blob-storage-using-copy.md) article. For additional information about managing compute capabilities, see the [Manage compute overview](sql-data-warehouse-manage-compute-overview.md) article.
+- To learn more about SQL pool, continue to the [Load data into dedicated SQL pool (formerly SQL DW)](./load-data-from-azure-blob-storage-using-copy.md) article. For additional information about managing compute capabilities, see the [Manage compute overview](sql-data-warehouse-manage-compute-overview.md) article.
+
+- For more on the differences between dedicated SQL pool (formerly SQL DW) and dedicated SQL pools in Azure Synapse Workspaces, read [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/what-s-the-difference-between-azure-synapse-formerly-sql-dw-and/ba-p/3597772).

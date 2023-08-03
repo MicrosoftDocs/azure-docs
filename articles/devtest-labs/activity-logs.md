@@ -2,7 +2,10 @@
 title: Activity logs
 description: This article provides steps to view activity logs for Azure DevTest Labs. 
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 07/10/2020
+ms.custom: UpdateFrequency2
 ---
 
 # View activity logs for labs in Azure DevTest Labs 

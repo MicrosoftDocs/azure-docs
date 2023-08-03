@@ -2,7 +2,7 @@
 title: Understand how the automatic migration process for your Azure Monitor classic alerts works
 description: Learn how the automatic migration process works.
 ms.topic: conceptual
-ms.date: 02/14/2021
+ms.date: 06/20/2023
 ---
 # Understand the automatic migration process for your classic alert rules
 

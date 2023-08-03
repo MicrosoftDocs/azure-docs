@@ -3,7 +3,7 @@ title: Enable duplicate message detection - Azure Service Bus
 description: This article explains how to enable duplicate message detection using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
 ms.topic: how-to
 ms.date: 04/19/2021 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-python
 ms.devlang: azurecli
 ---
 
@@ -37,7 +37,7 @@ To change the duplicate detection window size for an existing queue or a topic, 
 
 
 ## Using Azure CLI
-To **create a queue with duplicate detection enabled**, use the [`az servicebus queue create`](/cli/azure/servicebus/queue#az_servicebus_queue_create) command with `--enable-duplicate-detection` set to `true`. 
+To **create a queue with duplicate detection enabled**, use the [`az servicebus queue create`](/cli/azure/servicebus/queue#az-servicebus-queue-create) command with `--enable-duplicate-detection` set to `true`. 
 
 ```azurecli-interactive
 az servicebus queue create \
@@ -48,7 +48,7 @@ az servicebus queue create \
     --duplicate-detection-history-time-window P1D
 ```
 
-To **create a topic with duplicate detection enabled**, use the [`az servicebus topic create`](/cli/azure/servicebus/topic#az_servicebus_topic_create) command with `--enable-duplicate-detection` set to `true`.
+To **create a topic with duplicate detection enabled**, use the [`az servicebus topic create`](/cli/azure/servicebus/topic#az-servicebus-topic-create) command with `--enable-duplicate-detection` set to `true`.
 
 ```azurecli-interactive
 az servicebus topic create \
@@ -61,7 +61,7 @@ az servicebus topic create \
 
 The above examples also set the size of the duplicate detection window by using the `--duplicate-detection-history-time-window` parameter. The window size is set to one day. The default value is 10 minutes and the maximum allowed value is seven days.
 
-To **update a queue with a new detection window size**, use the [`az servicebus queue update`](/cli/azure/servicebus/queue#az_servicebus_queue_update) command with the `--duplicate-detection-history-time-window` parameter. In this example, the window size is updated to seven days. 
+To **update a queue with a new detection window size**, use the [`az servicebus queue update`](/cli/azure/servicebus/queue#az-servicebus-queue-update) command with the `--duplicate-detection-history-time-window` parameter. In this example, the window size is updated to seven days. 
 
 ```azurecli-interactive
 az servicebus queue update \
@@ -71,7 +71,7 @@ az servicebus queue update \
     --duplicate-detection-history-time-window P7D
 ```
 
-Similarly, to **update a topic with a new detection window size**, use the [`az servicebus topic update`](/cli/azure/servicebus/topic#az_servicebus_topic_update) command with the `--duplicate-detection-history-time-window` parameter. In this example, the window size is updated to seven days.
+Similarly, to **update a topic with a new detection window size**, use the [`az servicebus topic update`](/cli/azure/servicebus/topic#az-servicebus-topic-update) command with the `--duplicate-detection-history-time-window` parameter. In this example, the window size is updated to seven days.
 
 ```azurecli-interactive
 az servicebus topic update \

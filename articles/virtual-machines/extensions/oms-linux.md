@@ -4,11 +4,11 @@ description: Deploy the Log Analytics agent on Linux virtual machine using a vir
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-author: amjads1
-ms.author: amjads
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.author: gabsta
+author: GabstaMSFT
 ms.collection: linux
-ms.date: 11/02/2021
-
+ms.date: 06/15/2022
 ---
 # Log Analytics virtual machine extension for Linux
 
@@ -31,6 +31,16 @@ The following table provides a mapping of the version of the Log Analytics VM ex
 
 | Log Analytics Linux VM extension version | Log Analytics Agent bundle version | 
 |--------------------------------|--------------------------|
+| 1.16.0 | [1.16.0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.16.0-0) |
+| 1.14.23 | [1.14.23](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.14.23-0) |
+| 1.14.20 | [1.14.20](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.14.20-0) |
+| 1.14.19 | [1.14.19](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.14.19-0) |
+| 1.14.16 | [1.14.16](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.14.16-0) |
+| 1.14.13 | [1.14.13](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.14.13-0) |
+| 1.14.11 | [1.14.11](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.14.11-0) |
+| 1.14.9 | [1.14.9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.14.9-0) |
+| 1.13.40 | [1.13.40](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.40-0) |
+| 1.13.35 | [1.13.35](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.35-0) |
 | 1.13.33 | [1.13.33](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.33-0) |
 | 1.13.27 | [1.13.27](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.27-0) |
 | 1.13.15 | [1.13.9-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.9-0) |
@@ -64,6 +74,9 @@ The Log Analytics agent extension for Linux requires that the target virtual mac
 ## Extension schema
 
 The following JSON shows the schema for the Log Analytics agent extension. The extension requires the workspace ID and workspace key from the target Log Analytics workspace; these values can be [found in your Log Analytics workspace](../../azure-monitor/vm/monitor-virtual-machine.md) in the Azure portal. Because the workspace key should be treated as sensitive data, it should be stored in a protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine. Note that **workspaceId** and **workspaceKey** are case-sensitive.
+> [!NOTE]
+> Because the [Container Monitoring solution](/previous-versions/azure/azure-monitor/containers/containers) is being retired, the following documentation uses the optional setting "skipDockerProviderInstall": true.
+
 
 ```json
 {
@@ -77,10 +90,11 @@ The following JSON shows the schema for the Log Analytics agent extension. The e
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.13",
+    "typeHandlerVersion": "1.16",
     "autoUpgradeMinorVersion": true,
     "settings": {
-      "workspaceId": "myWorkspaceId"
+      "workspaceId": "myWorkspaceId",
+      "skipDockerProviderInstall": true
     },
     "protectedSettings": {
       "workspaceKey": "myWorkSpaceKey"
@@ -99,7 +113,7 @@ The following JSON shows the schema for the Log Analytics agent extension. The e
 | apiVersion | 2018-06-01 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
-| typeHandlerVersion | 1.13 |
+| typeHandlerVersion | 1.16 |
 | workspaceId (e.g) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (e.g) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
@@ -126,9 +140,10 @@ The following example assumes the VM extension is nested inside the virtual mach
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.13",
+    "typeHandlerVersion": "1.16",
     "settings": {
-      "workspaceId": "myWorkspaceId"
+      "workspaceId": "myWorkspaceId",
+      "skipDockerProviderInstall": true
     },
     "protectedSettings": {
       "workspaceKey": "myWorkSpaceKey"
@@ -151,9 +166,10 @@ When placing the extension JSON at the root of the template, the resource name i
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.13",
+    "typeHandlerVersion": "1.16",
     "settings": {
-      "workspaceId": "myWorkspaceId"
+      "workspaceId": "myWorkspaceId",
+      "skipDockerProviderInstall": true
     },
     "protectedSettings": {
       "workspaceKey": "myWorkSpaceKey"
@@ -164,7 +180,7 @@ When placing the extension JSON at the root of the template, the resource name i
 
 ## Azure CLI deployment
 
-The Azure CLI can be used to deploy the Log Analytics agent VM extension to an existing virtual machine. Replace the *myWorkspaceKey* value below with your workspace key and the *myWorkspaceId* value with your workspace ID. These values can be found in your Log Analytics workspace in the Azure portal under *Advanced Settings*. 
+The Azure CLI can be used to deploy the Log Analytics agent VM extension to an existing virtual machine. Replace the *myWorkspaceKey* value below with your workspace key and the *myWorkspaceId* value with your workspace ID. These values can be found in your Log Analytics workspace in the Azure portal under *Advanced Settings*. Replace the latestVersion value with a version from [Log Analytics Linux VM extension version](oms-linux.md#agent-and-vm-extension-version). 
 
 ```azurecli
 az vm extension set \
@@ -173,14 +189,31 @@ az vm extension set \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
   --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
-  --settings '{"workspaceId":"myWorkspaceId"}'
+  --settings '{"workspaceId":"myWorkspaceId","skipDockerProviderInstall": true}' \
+  --version latestVersion
+```
+
+## Azure PowerShell deployment
+
+The Azure Powershell cmdlets can be used to deploy the Log Analytics agent VM extension to an existing virtual machine. Replace the *myWorkspaceKey* value below with your workspace key and the *myWorkspaceId* value with your workspace ID. These values can be found in your Log Analytics workspace in the Azure portal under *Advanced Settings*. Replace the latestVersion value with a version from [Log Analytics Linux VM extension version](oms-linux.md#agent-and-vm-extension-version). 
+
+```powershell
+Set-AzVMExtension \
+  -ResourceGroupName myResourceGroup \
+  -VMName myVM \
+  -ExtensionName OmsAgentForLinux \
+  -ExtensionType OmsAgentForLinux \
+  -Publisher Microsoft.EnterpriseCloud.Monitoring \
+  -TypeHandlerVersion latestVersion \
+  -ProtectedSettingString '{"workspaceKey":"myWorkspaceKey"}' \
+  -SettingString '{"workspaceId":"myWorkspaceId","skipDockerProviderInstall": true}'
 ```
 
 ## Troubleshoot and support
 
 ### Troubleshoot
 
-Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure CLI. To see the deployment state of extensions for a given VM, run the following command using the Azure CLI.
+Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure CLI or Azure Powershell. To see the deployment state of extensions for a given VM, run the following command if you are using the Azure CLI.
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
@@ -189,7 +222,19 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 Extension execution output is logged to the following file:
 
 ```
-/opt/microsoft/omsagent/bin/stdout
+/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/extension.log
+```
+
+To retrieve the OMS extension version installed on a VM, run the following command if you are using Azure CLI.
+
+```azurecli
+az vm extension show --resource-group myResourceGroup --vm-name myVM -instance-view
+```
+
+To retrieve the OMS extension version installed on a VM, run the following command if you are using Azure PowerShell.
+
+```powershell
+Get-AzVMExtension -ResourceGroupName my_resource_group  -VMName my_vm_name -Name OmsAgentForLinux -Status
 ```
 
 ### Error codes and their meanings
@@ -199,11 +244,13 @@ Extension execution output is logged to the following file:
 | 9 | Enable called prematurely | [Update the Azure Linux Agent](./update-linux-agent.md) to the latest available version. |
 | 10 | VM is already connected to a Log Analytics workspace | To connect the VM to the workspace specified in the extension schema, set stopOnMultipleConnections to false in public settings or remove this property. This VM gets billed once for each workspace it is connected to. |
 | 11 | Invalid config provided to the extension | Follow the preceding examples to set all property values necessary for deployment. |
-| 17 | Log Analytics package installation failure | 
-| 19 | OMI package installation failure | 
-| 20 | SCX package installation failure |
+| 17 | Log Analytics package installation failure | | 
+| 18 | Installation of OMSConfig package failed. | Look through the command output for the root failure. |
+| 19 | OMI package installation failure | |
+| 20 | SCX package installation failure | |
+| 33 | Error generating metaconfiguration for omsconfig. | File a [GitHub Issue](https://github.com/Microsoft/OMS-Agent-for-Linux/issues) with details from the output. |
 | 51 | This extension is not supported on the VM's operation system | |
-| 52 | This extension failed due to a missing dependency | Check the output and logs for more information about which dependency is missing. |
+| 52 | This extension failed due to a missing dependency or permission | Check the output and logs for more information about which dependency or permission is missing. |
 | 53 | This extension failed due to missing or wrong configuration parameters | Check the output and logs for more information about what went wrong. Additionally, check the correctness of the workspace ID, and verify that the machine is connected to the internet. |
 | 55 | Cannot connect to the Azure Monitor service or required packages missing or dpkg package manager is locked| Check that the system either has internet access, or that a valid HTTP proxy has been provided. Additionally, check the correctness of the workspace ID, and verify that curl and tar utilities are installed. |
 

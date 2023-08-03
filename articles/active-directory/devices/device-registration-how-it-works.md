@@ -6,18 +6,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 01/24/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: ravenn
 
 ms.collection: M365-identity-device-management
 ---
 # How it works: Device registration
 
-Device Registration is a prerequisite to cloud-based authentication. Commonly, devices are Azure AD or hybrid Azure AD joined to complete device registration. This article provides details of how Azure AD join and hybrid Azure Ad join work in managed and federated environments.For more information about how Azure AD authentication works on these devices, see the article [Primary refresh tokens](concept-primary-refresh-token.md#detailed-flows)
+Device Registration is a prerequisite to cloud-based authentication. Commonly, devices are Azure AD or hybrid Azure AD joined to complete device registration. This article provides details of how Azure AD join and hybrid Azure Ad join work in managed and federated environments. For more information about how Azure AD authentication works on these devices, see the article [Primary refresh tokens](concept-primary-refresh-token.md#detailed-flows).
 
 ## Azure AD joined in Managed environments
 
@@ -52,7 +52,7 @@ Device Registration is a prerequisite to cloud-based authentication. Commonly, d
 
 ## Hybrid Azure AD joined in Managed environments
 
-:::image type="content" source="media/device-registration-how-it-works/device-registration-hybrid-azure-ad-managed.png" alt-text="Hybrid Azure AD joined device flow in a managed environement" lightbox="media/device-registration-how-it-works/device-registration-hybrid-azure-ad-managed.png":::
+:::image type="content" source="media/device-registration-how-it-works/device-registration-hybrid-azure-ad-managed.png" alt-text="Screenshot of hybrid Azure AD joined device flow in a managed environment." lightbox="media/device-registration-how-it-works/device-registration-hybrid-azure-ad-managed.png":::
 
 | Phase | Description |
 | :----: | ----------- |
@@ -81,8 +81,8 @@ Device Registration is a prerequisite to cloud-based authentication. Commonly, d
 
 ## Next steps
 
-- [Azure AD joined devices](concept-azure-ad-join.md)
-- [Azure AD registered devices](concept-azure-ad-register.md)
-- [Hybrid Azure AD joined devices](concept-azure-ad-join-hybrid.md)
+- [Azure AD joined devices](concept-directory-join.md)
+- [Azure AD registered devices](concept-device-registration.md)
+- [Hybrid Azure AD joined devices](concept-hybrid-join.md)
 - [What is a Primary Refresh Token?](concept-primary-refresh-token.md)
 - [Azure AD Connect: Device options](../hybrid/how-to-connect-device-options.md)

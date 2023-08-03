@@ -4,10 +4,10 @@ description: Learn how to back up your virtual machines with Azure Resource Mana
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 11/15/2021
-ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
-author: v-amallick
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 #  Back up a virtual machine in Azure with an ARM template
@@ -57,7 +57,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -adminUsername $adminUsername -adminPassword $adminPassword -dnsLabelPrefix $dnsPrefix
 ```
 
-Azure PowerShell is used to deploy the ARM template in this quickstart. The [Azure portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), and [Rest API](../azure-resource-manager/templates/deploy-rest.md) can also be used to deploy templates.
+Azure PowerShell is used to deploy the ARM template in this quickstart. The [Azure portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), and [REST API](../azure-resource-manager/templates/deploy-rest.md) can also be used to deploy templates.
 
 ## Validate the deployment
 

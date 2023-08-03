@@ -2,19 +2,20 @@
 title: Get access token using Azure CLI - Azure API for FHIR
 description: This article explains how to obtain an access token for Azure API for FHIR using the Azure CLI.
 services: healthcare-apis
-author: matjazl
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 01/06/2022
-ms.author: zxue
+ms.date: 06/03/2022
+ms.author: kesheth
 ---
 
 # Get access token for Azure API for FHIR using Azure CLI
 
 In this article, you'll learn how to obtain an access token for the Azure API for FHIR using the Azure CLI. When you [provision the Azure API for FHIR](fhir-paas-portal-quickstart.md), you configure a set of users or service principals that have access to the service. If your user object ID is in the list of allowed object IDs, you can access the service using a token obtained using the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Obtain a token
 
@@ -36,3 +37,5 @@ In this article, you've learned how to obtain an access token for the Azure API 
 
 >[!div class="nextstepaction"]
 >[Access the FHIR service using Postman](./../fhir/use-postman.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

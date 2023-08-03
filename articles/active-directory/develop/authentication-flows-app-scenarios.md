@@ -1,8 +1,8 @@
 ---
-title: Microsoft identity platform authentication flows & app scenarios | Azure
+title: Microsoft identity platform authentication flows & app scenarios
 description: Learn about application scenarios for the Microsoft identity platform, including authenticating identities, acquiring tokens, and calling protected APIs.
 services: active-directory
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 
 ms.assetid:
@@ -10,8 +10,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/03/2020
-ms.author: jmprieur
+ms.date: 05/05/2022
+ms.author: cwerner
+ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, has-adal-ref
 #Customer intent: As an app developer, I want to learn about authentication flows and application scenarios so I can create applications protected by the Microsoft identity platform.
 ---
@@ -106,7 +107,7 @@ To help protect a web app that signs in a user:
 
 - If you develop in .NET, you use ASP.NET or ASP.NET Core with the ASP.NET OpenID Connect middleware. Protecting a resource involves validating the security token, which is done by the [IdentityModel extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) and not MSAL libraries.
 
-- If you develop in Node.js, you use [MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) or [Passport.js](https://github.com/AzureAD/passport-azure-ad).
+- If you develop in Node.js, you use [MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node).
 
 For more information, see [Web app that signs in users](scenario-web-app-sign-user-overview.md).
 
@@ -134,7 +135,7 @@ Though we don't recommend that you use it, the [username/password flow](scenario
 
 Using the username/password flow constrains your applications. For instance, applications can't sign in a user who needs to use multifactor authentication or the Conditional Access tool in Azure AD. Your applications also don't benefit from single sign-on. Authentication with the username/password flow goes against the principles of modern authentication and is provided only for legacy reasons.
 
-In desktop apps, if you want the token cache to persist, you can customize the [token cache serialization](msal-net-token-cache-serialization.md). By implementing [dual token cache serialization](msal-net-token-cache-serialization.md#dual-token-cache-serialization-msal-unified-cache-and-adal-v3), you can use backward-compatible and forward-compatible token caches. These tokens support previous generations of authentication libraries. Specific libraries include Azure AD Authentication Library for .NET (ADAL.NET) version 3 and version 4.
+In desktop apps, if you want the token cache to persist, you can customize the [token cache serialization](msal-net-token-cache-serialization.md). By implementing dual token cache serialization, you can use backward-compatible and forward-compatible token caches.
 
 For more information, see [Desktop app that calls web APIs](scenario-desktop-overview.md).
 
@@ -291,9 +292,6 @@ Microsoft Authentication Libraries support multiple platforms:
 
 You can also use various languages to build your applications.
 
-> [!NOTE]
-> Some application types aren't available on every platform.
-
 In the Windows column of the following table, each time .NET Core is mentioned, .NET Framework is also possible. The latter is omitted to avoid cluttering the table.
 
 |Scenario  | Windows | Linux | Mac | iOS | Android
@@ -311,5 +309,8 @@ For more information, see [Microsoft identity platform authentication libraries]
 
 ## Next steps
 
-* Learn more about [authentication basics](./authentication-vs-authorization.md) and [access tokens in the Microsoft identity platform](access-tokens.md).
-* Learn more about [securing access to IoT apps](/azure/architecture/example-scenario/iot-aad/iot-aad).
+For more information about authentication, see:
+
+- [Authentication vs. authorization.](./authentication-vs-authorization.md)
+- [Microsoft identity platform access tokens.](access-tokens.md)
+- [Securing access to IoT apps.](/azure/architecture/example-scenario/iot-aad/iot-aad#security)

@@ -2,12 +2,12 @@
 title: 'Tutorial: Create a gateway load balancer - Azure portal'
 titleSuffix: Azure Load Balancer
 description: Use this tutorial to learn how to create a gateway load balancer using the Azure portal.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 12/03/2021
-ms.custom: template-tutorial, ignite-fall-2021
+ms.date: 06/27/2023
+ms.custom: template-tutorial, ignite-fall-2021, engagement-fy23
 ---
 
 # Tutorial: Create a gateway load balancer using the Azure portal
@@ -22,11 +22,6 @@ In this tutorial, you learn how to:
 > * Create a gateway load balancer.
 > * Chain a load balancer frontend to gateway load balancer.
 
-> [!IMPORTANT]
-> Gateway Azure Load Balancer is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -35,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create virtual network
 
@@ -82,13 +77,19 @@ A virtual network is needed for the resources that are in the backend pool of th
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Bastion name | Enter **myBastionHost** |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/27** |
+    | AzureBastionSubnet address space | Enter **10.1.1.0/26** |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
 
 11. Select the **Review + create** tab or select the **Review + create** button.
 
 12. Select **Create**.
+
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+>
 
 ## Create NSG
 
@@ -226,7 +227,7 @@ In this section, you'll create the configuration and deploy the gateway load bal
     | IP Version | Select **IPv4** or **IPv6** depending on your requirements. |
     | Frontend IP address | Select **MyFrontend**. |
     | Backend pool | Select **myBackendPool**. |
-    | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
+    | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **TCP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
     | Session persistence | Select **None**. |
 
     :::image type="content" source="./media/tutorial-gateway-portal/add-load-balancing-rule.png" alt-text="Screenshot of create load-balancing rule." border="true":::
@@ -237,10 +238,11 @@ In this section, you'll create the configuration and deploy the gateway load bal
 
 19. Select **Create**.
 
-## Add network virtual appliances to the Gateway Load Balancer backend pool
-Deploy NVAs through the Azure Marketplace. Once deployed, add the NVA virtual machines to the backend pool by navigating to the Backend pools tab of your Gateway Load Balancer.
+## Add network virtual appliances to the gateway load balancer backend pool
 
-## Chain load balancer frontend to gateway load balancer
+Deploy NVAs through the Azure Marketplace. Once deployed, add the NVA virtual machines to the backend pool of the gateway load balancer. To add the virtual machines, go to the backend pools tab of your gateway load balancer.
+
+## Chain load balancer frontend to the gateway load balancer
 
 In this example, you'll chain the frontend of a standard load balancer to the gateway load balancer. 
 
@@ -262,6 +264,32 @@ You'll add the frontend to the frontend IP of an existing load balancer in your 
 
     :::image type="content" source="./media/tutorial-gateway-portal/select-gateway-load-balancer.png" alt-text="Screenshot of addition of gateway load balancer to frontend IP." border="true":::
 
+## Chain virtual machine to Gateway Load Balancer
+
+Alternatively, you can chain a VM's NIC IP configuration to the gateway load balancer.
+
+You'll add the gateway load balancer's frontend to an existing VM's NIC IP configuration.
+
+> [!IMPORTANT]
+> A virtual machine must have a public IP address assigned before attempting to chain the NIC configuration to the frontend of the gateway load balancer.
+
+1. In the search box in the Azure portal, enter **Virtual machine**. In the search results, select **Virtual machines**.
+
+2. In **Virtual machines**, select the virtual machine that you want to add to the gateway load balancer. In this example, the virtual machine is named **myVM1**.
+
+3. In the overview of the virtual machine, select **Networking** in **Settings**.
+
+4. In **Networking**, select the name of the network interface attached to the virtual machine. In this example, it's **myvm1229**.
+
+    :::image type="content" source="./media/tutorial-gateway-portal/vm-nic.png" alt-text="Screenshot of virtual machine networking overview." border="true":::
+
+5. In the network interface page, select **IP configurations** in **Settings**.
+
+6. Select **myFrontend** in **Gateway Load balancer**.
+
+    :::image type="content" source="./media/tutorial-gateway-portal/vm-nic-gw-lb.png" alt-text="Screenshot of nic IP configuration." border="true":::
+
+7. Select **Save**.
 
 ## Clean up resources
 

@@ -1,26 +1,21 @@
 ---
-title: DPDK in an Azure Linux VM | Microsoft Docs
+title: DPDK in an Azure Linux VM
+titleSuffix: Azure Virtual Network
 description: Learn the benefits of the Data Plane Development Kit (DPDK) and how to set up the DPDK on a Linux virtual machine.
 services: virtual-network
-documentationcenter: na
-author: laxmanrb
-manager: gedegrac
-editor: ''
-
-ms.assetid: 
+author: steveesp
 ms.service: virtual-network
+ms.custom: devx-track-linux
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/12/2020
-ms.author: labattul
-
+ms.date: 04/24/2023
+ms.author: steveesp
 ---
+
 # Set up DPDK in a Linux virtual machine
 
 Data Plane Development Kit (DPDK) on Azure offers a faster user-space packet processing framework for performance-intensive applications. This framework bypasses the virtual machine’s kernel network stack.
 
-In typical packet processing that uses the kernel network stack, the process is interrupt-driven. When the network interface receives incoming packets, there is a kernel interrupt to process the packet and a context switch from the kernel space to the user space. DPDK eliminates context switching and the interrupt-driven method in favor of a user-space implementation that uses poll mode drivers for fast packet processing.
+In typical packet processing that uses the kernel network stack, the process is interrupt-driven. When the network interface receives incoming packets, there's a kernel interrupt to process the packet and a context switch from the kernel space to the user space. DPDK eliminates context switching and the interrupt-driven method in favor of a user-space implementation that uses poll mode drivers for fast packet processing.
 
 DPDK consists of sets of user-space libraries that provide access to lower-level resources. These resources can include hardware, logical cores, memory management, and poll mode drivers for network interface cards.
 
@@ -29,7 +24,6 @@ DPDK can run on Azure virtual machines that are supporting multiple operating sy
 ## Benefit
 
 **Higher packets per second (PPS)**: Bypassing the kernel and taking control of packets in the user space reduces the cycle count by eliminating context switches. It also improves the rate of packets that are processed per second in Azure Linux virtual machines.
-
 
 ## Supported operating systems minimum versions
 
@@ -55,53 +49,17 @@ All Azure regions support DPDK.
 
 ## Prerequisites
 
-Accelerated networking must be enabled on a Linux virtual machine. The virtual machine should have at least two network interfaces, with one interface for management. Enabling Accelerated networking on management interface is not recommended. Learn how to [create a Linux virtual machine with accelerated networking enabled](create-vm-accelerated-networking-cli.md).
+Accelerated networking must be enabled on a Linux virtual machine. The virtual machine should have at least two network interfaces, with one interface for management. Enabling Accelerated networking on management interface isn't recommended. Learn how to [create a Linux virtual machine with accelerated networking enabled](create-vm-accelerated-networking-cli.md).
 
-## Install DPDK via system package (recommended)
+In addition, DPDK uses RDMA verbs to create data queues on the Network Adapter. In the VM, ensure the correct RDMA kernel drivers are loaded. They can be mlx4_ib, mlx5_ib or mana_ib depending on VM sizes. 
 
-### Ubuntu 18.04
 
-```bash
-sudo add-apt-repository ppa:canonical-server/server-backports -y
-sudo apt-get update
-sudo apt-get install -y dpdk
-```
 
-### Ubuntu 20.04 and newer
-
-```bash
-sudo apt-get install -y dpdk
-```
-
-### Debian 10 and newer
-
-```bash
-sudo apt-get install -y dpdk
-```
-
-## Install DPDK manually (not recommended)
+## Install DPDK manually (recommended)
 
 ### Install build dependencies
 
-#### Ubuntu 18.04
-
-```bash
-sudo add-apt-repository ppa:canonical-server/server-backports -y
-sudo apt-get update
-sudo apt-get install -y build-essential librdmacm-dev libnuma-dev libmnl-dev meson
-```
-
-#### Ubuntu 20.04 and newer
-
-```bash
-sudo apt-get install -y build-essential librdmacm-dev libnuma-dev libmnl-dev meson
-```
-
-#### Debian 10 and newer
-
-```bash
-sudo apt-get install -y build-essential librdmacm-dev libnuma-dev libmnl-dev meson
-```
+# [RHEL, CentOS](#tab/redhat)
 
 #### RHEL7.5/CentOS 7.5
 
@@ -110,6 +68,8 @@ yum -y groupinstall "Infiniband Support"
 sudo dracut --add-drivers "mlx4_en mlx4_ib mlx5_ib" -f
 yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel libmnl-devel meson
 ```
+
+# [openSUSE, SLES](#tab/suse)
 
 #### SLES 15 SP1
 
@@ -131,11 +91,31 @@ zypper \
   --gpg-auto-import-keys install kernel-default-devel gcc make libnuma-devel numactl librdmacm1 rdma-core-devel meson
 ```
 
+# [Ubuntu, Debian](#tab/ubuntu)
+
+#### Ubuntu 18.04
+
+```bash
+sudo add-apt-repository ppa:canonical-server/server-backports -y
+sudo apt-get update
+sudo apt-get install -y build-essential librdmacm-dev libnuma-dev libmnl-dev meson
+```
+
+#### Ubuntu 20.04/Debian 10 and newer
+
+```bash
+sudo apt-get install -y build-essential librdmacm-dev libnuma-dev libmnl-dev meson
+```
+
+---
 ### Compile and install DPDK manually
 
-1. [Download the latest DPDK](https://core.dpdk.org/download). Version 19.11 LTS or newer is required for Azure.
+1. [Download the latest DPDK](https://core.dpdk.org/download). Version 22.11 LTS or newer is recommended for Azure.
+
 2. Build the default config with `meson builddir`.
+
 3. Compile with `ninja -C builddir`.
+
 4. Install with `DESTDIR=<output folder> ninja -C builddir install`.
 
 ## Configure the runtime environment
@@ -144,17 +124,21 @@ After restarting, run the following commands once:
 
 1. Hugepages
 
-   * Configure hugepage by running the following command, once for each numa node:
+    * Configure hugepage by running the following command, once for each numa node:
 
-     ```bash
+    ```bash
      echo 1024 | sudo tee /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
-     ```
+    ```
 
-   * Create a directory for mounting with `mkdir /mnt/huge`.
-   * Mount hugepages with `mount -t hugetlbfs nodev /mnt/huge`.
-   * Check that hugepages are reserved with `grep Huge /proc/meminfo`.
+    * Create a directory for mounting with `mkdir /mnt/huge`.
+   
+    * Mount hugepages with `mount -t hugetlbfs nodev /mnt/huge`.
+   
+    * Check that hugepages are reserved with `grep Huge /proc/meminfo`.
 
-     > [NOTE]
+    * The example above is for 2M huge pages. 1G huge pages can also be used.
+
+     > [!NOTE]
      > There is a way to modify the grub file so that hugepages are reserved on boot by following the [instructions](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) for the DPDK. The instructions are at the bottom of the page. When you're using an Azure Linux virtual machine, modify files under **/etc/config/grub.d** instead, to reserve hugepages across reboots.
 
 2. MAC & IP addresses: Use `ifconfig –a` to view the MAC and IP address of the network interfaces. The *VF* network interface and *NETVSC* network interface have the same MAC address, but only the *NETVSC* network interface has an IP address. *VF* interfaces are running as subordinate interfaces of *NETVSC* interfaces.
@@ -162,15 +146,25 @@ After restarting, run the following commands once:
 3. PCI addresses
 
    * Use `ethtool -i <vf interface name>` to find out which PCI address to use for *VF*.
+   
    * If *eth0* has accelerated networking enabled, make sure that testpmd doesn’t accidentally take over the *VF* pci device for *eth0*. If the DPDK application accidentally takes over the management network interface and causes you to lose your SSH connection, use the serial console to stop the DPDK application. You can also use the serial console to stop or start the virtual machine.
 
 4. Load *ibuverbs* on each reboot with `modprobe -a ib_uverbs`. For SLES 15 only, also load *mlx4_ib* with `modprobe -a mlx4_ib`.
 
+## Master PMD
+
+DPDK applications must run over the master PMD that is exposed in Azure. If the application runs directly over the VF PMD, it doesn't receive all packets that are destined to the VM, since some packets show up over the synthetic interface. DPDK supports two types of master PMDs: NetVSC PMD and Failsafe PMD. A master PMD guarantees that the application receives all packets that are destined to it. It also makes sure that the application keeps running in DPDK mode over master PMD, even if the VF is revoked when the host is being serviced.
+
+## NetVSC PMD
+
+NetVSC is the recommended PMD to run as a master PMD in Azure. It guarantees that the application receives all packets that are destined to it. It also makes sure that the application keeps running in DPDK mode, even if the VF is revoked when the host is being serviced. For more information about how to use and configure NetVSC PMD, see (https://doc.dpdk.org/guides/nics/netvsc.html).
+
 ## Failsafe PMD
 
-DPDK applications must run over the failsafe PMD that is exposed in Azure. If the application runs directly over the *VF* PMD, it doesn't receive **all** packets that are destined to the VM, since some packets show up over the synthetic interface. 
+Note: running with failsafe PMD is not recommended in Azure. If your DPDK version is 22.11 LTS or newer, use NetVSC PMD is recommended.
 
-If you run a DPDK application over the failsafe PMD, it guarantees that the application receives all packets that are destined to it. It also makes sure that the application keeps running in DPDK mode, even if the VF is revoked when the host is being serviced. For more information about failsafe PMD, see [Fail-safe poll mode driver library](https://doc.dpdk.org/guides/nics/fail_safe.html).
+As an alternative, you can run a DPDK application over the failsafe PMD. For more information about failsafe PMD see [Fail-safe poll mode driver library](https://doc.dpdk.org/guides/nics/fail_safe.html).
+
 
 ## Run testpmd
 
@@ -182,7 +176,6 @@ To run testpmd in root mode, use `sudo` before the *testpmd* command.
 
    ```bash
    testpmd -w <pci address from previous step> \
-     --vdev="net_vdev_netvsc0,iface=eth1" \
      -- -i \
      --port-topology=chained
     ```
@@ -192,15 +185,12 @@ To run testpmd in root mode, use `sudo` before the *testpmd* command.
    ```bash
    testpmd -w <pci address nic1> \
    -w <pci address nic2> \
-   --vdev="net_vdev_netvsc0,iface=eth1" \
-   --vdev="net_vdev_netvsc1,iface=eth2" \
    -- -i
    ```
 
-   If you're running testpmd with more than two NICs, the `--vdev` argument follows this pattern: `net_vdev_netvsc<id>,iface=<vf’s pairing eth>`.
+After it's started, run `show port info all` to check port information. You should see one or two DPDK ports that are net_netvsc.
 
-3.  After it's started, run `show port info all` to check port information. You should see one or two DPDK ports that are net_failsafe (not *net_mlx4*).
-4.  Use `start <port> /stop <port>` to start traffic.
+3.  Use `start <port> /stop <port>` to start traffic.
 
 The previous commands start *testpmd* in interactive mode, which is recommended for trying out  testpmd commands.
 
@@ -215,7 +205,6 @@ The following commands periodically print the packets per second statistics:
      -l <core-list> \
      -n <num of mem channels> \
      -w <pci address of the device you plan to use> \
-     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=txonly \
@@ -230,7 +219,6 @@ The following commands periodically print the packets per second statistics:
      -l <core-list> \
      -n <num of mem channels> \
      -w <pci address of the device you plan to use> \
-     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=rxonly \
@@ -241,6 +229,7 @@ The following commands periodically print the packets per second statistics:
 When you're running the previous commands on a virtual machine, change *IP_SRC_ADDR* and *IP_DST_ADDR* in `app/test-pmd/txonly.c` to match the actual IP address of the virtual machines before you compile. Otherwise, the packets are dropped before reaching the receiver.
 
 ### Advanced: Single sender/single forwarder
+
 The following commands periodically print the packets per second statistics:
 
 1. On the TX side, run the following command:
@@ -250,7 +239,6 @@ The following commands periodically print the packets per second statistics:
      -l <core-list> \
      -n <num of mem channels> \
      -w <pci address of the device you plan to use> \
-     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=txonly \
@@ -266,18 +254,50 @@ The following commands periodically print the packets per second statistics:
      -n <num of mem channels> \
      -w <pci address NIC1> \
      -w <pci address NIC2> \
-     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
-     --vdev="net_vdev_netvsc<2nd id>,iface=<2nd iface to attach to>" (you need as many --vdev arguments as the number of devices used by testpmd, in this case) \
      -- --nb-cores <number of cores to use for test pmd> \
      --forward-mode=io \
      --eth-peer=<recv port id>,<sender peer MAC address> \
      --stats-period <display interval in seconds>
     ```
 
-When you're running the previous commands on a virtual machine, change *IP_SRC_ADDR* and *IP_DST_ADDR* in `app/test-pmd/txonly.c` to match the actual IP address of the virtual machines before you compile. Otherwise, the packets are dropped before reaching the forwarder. You won’t be able to have a third machine receive forwarded traffic, because the *testpmd* forwarder doesn’t modify the layer-3 addresses, unless you make some code changes.
+When you're running the previous commands on a virtual machine, change *IP_SRC_ADDR* and *IP_DST_ADDR* in `app/test-pmd/txonly.c` to match the actual IP address of the virtual machines before you compile. Otherwise, the packets are dropped before reaching the forwarder. You can't have a third machine receive forwarded traffic, because the *testpmd* forwarder doesn’t modify the layer-3 addresses, unless you make some code changes.
+
+## Install DPDK via system package (not recommended)
+
+# [RHEL, CentOS](#tab/redhat)
+
+```bash
+sudo yum install -y dpdk
+```
+
+# [openSUSE, SLES](#tab/suse)
+
+```bash
+sudo zypper install -y dpdk
+```
+
+# [Ubuntu, Debian](#tab/ubuntu)
+
+### Ubuntu 18.04
+
+```bash
+sudo add-apt-repository ppa:canonical-server/server-backports -y
+sudo apt-get update
+sudo apt-get install -y dpdk
+```
+
+### Ubuntu 20.04/Debian 10 and newer
+
+```bash
+sudo apt-get install -y dpdk
+```
+
+---
 
 ## References
 
 * [EAL options](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#eal-command-line-options)
+
 * [Testpmd commands](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#testpmd-command-line-options)
+
 * [Packet dump commands](https://doc.dpdk.org/guides/tools/pdump.html#pdump-tool)

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/18/2021
+ms.date: 07/17/2023
 ms.author: jianleishen
 ---
 
@@ -99,7 +99,7 @@ The following properties are supported in the copy activity ***\*source\**** sec
 
 ## Mapping data flow properties
 
-In mapping data flows, you can read Excel format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties), and [Amazon S3](connector-amazon-simple-storage-service.md#mapping-data-flow-properties). You can point to Excel files either using Excel dataset or using an [inline dataset](data-flow-source.md#inline-datasets).
+In mapping data flows, you can read Excel format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties), [Amazon S3](connector-amazon-simple-storage-service.md#mapping-data-flow-properties) and [SFTP](connector-sftp.md#mapping-data-flow-properties). You can point to Excel files either using Excel dataset or using an [inline dataset](data-flow-source.md#inline-datasets).
 
 ### Source properties
 
@@ -145,6 +145,15 @@ source(allowSchemaDrift: true,
     sheetName: 'worksheet',
     firstRowAsHeader: true) ~> ExcelSourceInlineDataset
 ```
+
+## Handling very large Excel files
+
+The Excel connector does not support streaming read for the Copy activity and must load the entire file into memory before data can be read.  To import schema, preview data, or refresh an Excel dataset, the data must be returned before the http request timeout (100s). For large Excel files, these operations may not finish within that timeframe, causing a timeout error.  If you want to move large Excel files (>100MB) into another data store, you can use one of following options to work around this limitation:
+
+- Use the self-hosted integration runtime (SHIR), then use the Copy activity to move the large Excel file into another data store with the SHIR.
+- Split the large Excel file into several smaller ones, then use the Copy activity to move the folder containing the files.
+- Use a dataflow activity to move the large Excel file into another data store. Dataflow supports streaming read for Excel and can move/transfer large files quickly.
+- Manually convert the large Excel file to CSV format, then use a Copy activity to move the file.
 
 ## Next steps
 

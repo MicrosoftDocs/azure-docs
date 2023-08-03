@@ -3,7 +3,8 @@ title: Application-consistent backups of Linux VMs
 description: Create application-consistent backups of your Linux virtual machines to Azure. This article explains configuring the script framework to back up Azure-deployed Linux VMs. This article also includes troubleshooting information.
 ms.topic: conceptual
 ms.date: 01/12/2018
-
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Application-consistent backup of Azure Linux VMs
@@ -28,9 +29,9 @@ Pre-scripts invoke native application APIs, which quiesce the IOs, and flush in-
 
    - **VMSnapshotScriptPluginConfig.json**: Permission “600.” For example, only “root” user should have “read” and “write” permissions to this file, and no user should have “execute” permissions.
 
-   - **Pre-script file**: Permission “700.”  For example, only “root” user should have “read”, “write”, and “execute” permissions to this file.
+   - **Pre-script file**: Permission “700.”  For example, only “root” user should have “read”, “write”, and “execute” permissions to this file. The file is expected to be a shell script but theoretically this script can internally spawn or refer to other scripts like a Python script.
 
-   - **Post-script** Permission “700.” For example, only “root” user should have “read”, “write”, and “execute” permissions to this file.
+   - **Post-script** Permission “700.” For example, only “root” user should have “read”, “write”, and “execute” permissions to this file. The file is expected to be a shell script but theoretically this script can internally spawn or refer to other scripts like a Python script.
 
    > [!IMPORTANT]
    > The framework gives users a lot of power. Secure the framework, and ensure only “root” user has access to critical JSON and script files.

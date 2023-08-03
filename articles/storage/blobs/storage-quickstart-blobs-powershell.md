@@ -5,9 +5,8 @@ description: In this quickstart, you use Azure PowerShell in object (Blob) stora
 services: storage
 author: stevenmatthew
 ms.service: storage
-ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 03/31/2020
+ms.date: 03/31/2022
 ms.author: shaas
 ms.custom: devx-track-azurepowershell, mode-api
 ---
@@ -24,7 +23,7 @@ You will also need the Storage Blob Data Contributor role to read, write, and de
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This quickstart requires the Azure PowerShell module Az version 0.7 or later. Run `Get-InstalledModule -Name Az -AllVersions | select Name,Version` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+This quickstart requires the Azure PowerShell module Az version 0.7 or later. Run `Get-InstalledModule -Name Az -AllVersions | select Name,Version` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-powershell](../../../includes/storage-quickstart-tutorial-intro-include-powershell.md)]
 
@@ -134,15 +133,18 @@ azcopy copy 'D:\Images\Image001.jpg' "https://$StorageAccountName.blob.core.wind
 Remove all of the assets you've created. The easiest way to remove the assets is to delete the resource group. Removing the resource group also deletes all resources included within the group. In the following example, removing the resource group removes the storage account and the resource group itself.
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name $ResourceGroupName 
+Remove-AzResourceGroup -Name $ResourceGroup 
 ```
 
 ## Next steps
 
-In this quickstart, you transferred files between a local file system and Azure Blob storage. To learn more about working with Blob storage by using PowerShell, explore Azure PowerShell samples for Blob storage.
+In this quickstart, you transferred files between a local file system and Azure Blob storage. To learn more about working with Blob storage by using PowerShell, select an option below.
 
 > [!div class="nextstepaction"]
-> [Azure PowerShell samples for Azure Blob storage](storage-samples-blobs-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Manage block blobs with PowerShell](blob-powershell.md)
+
+> [!div class="nextstepaction"]
+> [Azure PowerShell samples for Azure Blob storage](storage-samples-blobs-powershell.md?toc=/azure/storage/blobs/toc.json)
 
 ### Microsoft Azure PowerShell Storage cmdlets reference
 
@@ -150,4 +152,4 @@ In this quickstart, you transferred files between a local file system and Azure 
 
 ### Microsoft Azure Storage Explorer
 
-- [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
+- [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=/azure/storage/blobs/toc.json) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.

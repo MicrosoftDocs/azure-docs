@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: devx-track-python, has-adal-ref
+ms.custom: devx-track-python, has-adal-ref, event-tier1-build-2022
 
 author: likebupt
 ms.author: keli19
@@ -16,7 +16,7 @@ ms.date: 06/15/2021
 
 This article describes the Execute Python Script component in Azure Machine Learning designer.
 
-Use this component to run Python code. For more information about the architecture and design principles of Python, see [how run Python code in Azure Machine Learning designer](../how-to-designer-python.md).
+Use this component to run Python code. For more information about the architecture and design principles of Python, see [how run Python code in Azure Machine Learning designer](../v1/how-to-designer-python.md).
 
 With Python, you can perform tasks that existing components don't support, such as:
 
@@ -57,7 +57,7 @@ if spec is None:
 
 ## Access to current workspace and registered datasets
 
-You can refer to the following sample code to access to the [registered datasets](../how-to-create-register-datasets.md) in your workspace:
+You can refer to the following sample code to access to the [registered datasets](../v1/how-to-create-register-datasets.md) in your workspace:
 
 ```Python
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -199,7 +199,7 @@ The Execute Python Script component contains sample Python code that you can use
     > [!IMPORTANT]
     > Please use unique and meaningful name for files in the script bundle since some common words (like `test`, `app` and etc) are reserved for built-in services.
    
-    Following is a script bundle example, which contains a python script file and a txt file:
+    Following is a script bundle example, which contains a Python script file and a txt file:
       
     > [!div class="mx-imgBorder"]
     > ![Script bundle example](media/module/python-script-bundle.png)  
@@ -221,7 +221,7 @@ The Execute Python Script component contains sample Python code that you can use
         # Execution logic goes here
         print(f'Input pandas.DataFrame #1: {dataframe1}')
  
-        # Test the custom defined python function
+        # Test the custom defined Python function
         dataframe1 = my_func(dataframe1)
  
         # Test to read custom uploaded files by relative path
@@ -257,7 +257,7 @@ The Execute Python Script component contains sample Python code that you can use
 
     If the component is completed, check the output if as expected.
 
-    If the component is failed, you need to do some troubleshooting. Select the component, and open **Outputs+logs** in the right pane. Open **70_driver_log.txt** and search **in azureml_main**, then you could find which line caused the error. For example, "File "/tmp/tmp01_ID/user_script.py", line 17, in azureml_main" indicates that the error occurred in the 17 line of your python script.
+    If the component is failed, you need to do some troubleshooting. Select the component, and open **Outputs+logs** in the right pane. Open **70_driver_log.txt** and search **in azureml_main**, then you could find which line caused the error. For example, "File "/tmp/tmp01_ID/user_script.py", line 17, in azureml_main" indicates that the error occurred in the 17 line of your Python script.
 
 ## Results
 

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language SELECT clause
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/31/2021
+ms.date: 02/25/2022
 ms.topic: article
 ms.service: digital-twins
 
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Azure Digital Twins query language reference: SELECT clause
 
-This document contains reference information on the **SELECT clause** for the [Azure Digital Twins query language](concepts-query-language.md).
+This document contains reference information on the *SELECT clause* for the [Azure Digital Twins query language](concepts-query-language.md).
 
 The SELECT clause is the first part of a query. It specifies the list of columns that the query will return.
 
@@ -80,13 +80,7 @@ For the following examples, consider a twin graph that contains the following da
 
 Here's a diagram illustrating this scenario:
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/reference-query-clause-select/projections-graph.png" alt-text="Diagram showing the sample graph described above.":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/reference-query-clause-select/projections-graph.png" alt-text="Diagram showing the sample graph described above.":::
 
 #### Project collection example
 

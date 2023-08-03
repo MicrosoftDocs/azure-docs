@@ -2,21 +2,20 @@
 title: Shaping data for knowledge store 
 titleSuffix: Azure Cognitive Search
 description: Define the data structures in a knowledge store by creating data shapes and passing them to a projection.
-
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/15/2021
+ms.date: 01/31/2023
 ---
 
 # Shaping data for projection into a knowledge store
 
 In Azure Cognitive Search, "shaping data" describes a step in the [knowledge store workflow](knowledge-store-concept-intro.md) that creates a data representation of the content that you want to project into tables, objects, and files in Azure Storage.
 
-As skills execute, the outputs are written to an enrichment tree in a hierarchy of nodes, and while you might want to view and consume the enrichment tree in its entirety, it's more likely that you will want a finer grain, creating subsets of nodes for different scenarios, such as placing the nodes related to translated text or extracted entities in specific tables.
+As skills execute, the outputs are written to an enrichment tree in a hierarchy of nodes, and while you might want to view and consume the enrichment tree in its entirety, it's more likely that you'll want a finer grain, creating subsets of nodes for different scenarios, such as placing the nodes related to translated text or extracted entities in specific tables.
 
-By itself, the enrichment tree does not include logic that would inform how its content is represented in a knowledge store. Data shapes fill this gap by providing the schema of what goes into each table, object, and file projection. You can think of a data shape as a custom definition or view of the enriched data. You can create as many shapes as you need, and then assign them to [projections](knowledge-store-projection-overview.md) in a knowledge store definition. 
+By itself, the enrichment tree doesn't include logic that would inform how its content is represented in a knowledge store. Data shapes fill this gap by providing the schema of what goes into each table, object, and file projection. You can think of a data shape as a custom definition or view of the enriched data. You can create as many shapes as you need, and then assign them to [projections](knowledge-store-projection-overview.md) in a knowledge store definition. 
 
 ## Approaches for creating shapes
 
@@ -26,7 +25,7 @@ There are two ways to shape enriched content to that it can be projected into a 
 
 + Use an inline shape within the projection definition itself.
 
-Using the Shaper skill externalizes the shape so that it can be used by multiple projections or even other skills. It also ensures that all the mutations of the enrichment tree are contained within the skill, and that the output is an object that can be reused. In contrast, inline shaping allows you to create the shape you need, but is an anonymous object and is only available to the projection for which it is defined.
+Using the Shaper skill externalizes the shape so that it can be used by multiple projections or even other skills. It also ensures that all the mutations of the enrichment tree are contained within the skill, and that the output is an object that can be reused. In contrast, inline shaping allows you to create the shape you need, but is an anonymous object and is only available to the projection for which it's defined.
 
 The approaches can be used together or separately. This article shows both: a Shaper skill for the table projections, and inline shaping with the key phrases table projection.
 
@@ -110,7 +109,7 @@ Within a Shaper skill, an input can have a `sourceContext` element. This same pr
 
 `sourceContext` is used to construct multi-level, nested objects in an enrichment pipeline. If the input is at a *different* context than the skill context, use the *sourceContext*. The *sourceContext* requires you to define a nested input with the specific element being addressed as the source. 
 
-In the example above, sentiment analysis and key phrases extraction was performed on text that was split into pages for more efficient analysis. Assuming you want the scores and phrases projected into a table, you will now need to set the context to nested input that provides the score and phrase.
+In the example above, sentiment analysis and key phrases extraction was performed on text that was split into pages for more efficient analysis. Assuming you want the scores and phrases projected into a table, you'll now need to set the context to nested input that provides the score and phrase.
 
 ### Projecting a shape into multiple tables
 
@@ -222,7 +221,7 @@ One observation from both the approaches is how values of "Keyphrases" are proje
 
 You can generate a new shape using the Shaper skill or use inline shaping of the object projection. While the tables example demonstrated the approach of creating a shape and slicing, this example demonstrates the use of inline shaping. 
 
-Inline shaping is the ability to create a new shape in the definition of the inputs to a projection. Inline shaping creates an anonymous object that is identical to what a Shaper skill would produce (in this case, `projectionShape`). Inline shaping is useful if you are defining a shape that you do not plan to reuse.
+Inline shaping is the ability to create a new shape in the definition of the inputs to a projection. Inline shaping creates an anonymous object that is identical to what a Shaper skill would produce (in this case, `projectionShape`). Inline shaping is useful if you're defining a shape that you don't plan to reuse.
 
 The projections property is an array. This example adds a new projection instance to the array, where the knowledgeStore definition contains inline projections. When using inline projections, you can omit the Shaper skill.
 

@@ -3,7 +3,7 @@ title: Tutorial - Reduce Azure costs with recommendations
 description: This tutorial helps you reduce Azure costs when you act on optimization recommendations.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2021
+ms.date: 12/06/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -50,14 +50,14 @@ The list of recommendations identifies usage inefficiencies or shows purchase re
 The **Impact** category, along with the **Potential yearly savings**, are designed to help identify recommendations that have the potential to save as much as possible.
 
 High impact recommendations include:
-- [Buy reserved virtual machine instances to save money over pay-as-you-go costs](../../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)
-- [Optimize virtual machine spend by resizing or shutting down underutilized instances](../../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances)
-- [Use Standard Storage to store Managed Disks snapshots](../../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
+- [Buy an Azure savings plan to save money on a variety of compute services](../savings-plan/buy-savings-plan.md)
+- [Buy reserved virtual machine instances to save money over pay-as-you-go costs](../../advisor/advisor-reference-cost-recommendations.md#buy-virtual-machine-reserved-instances-to-save-money-over-pay-as-you-go-costs)
+- [Optimize virtual machine spend by resizing or shutting down underutilized instances](../../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-vm-or-virtual-machine-scale-set-vmss-spend-by-resizing-or-shutting-down-underutilized-instances)
+- [Use Standard Storage to store Managed Disks snapshots](../../advisor/advisor-reference-cost-recommendations.md#use-standard-storage-to-store-managed-disks-snapshots)
 
 Medium impact recommendations include:
-- [Delete Azure Data Factory pipelines that are failing](../../advisor/advisor-cost-recommendations.md#delete-azure-data-factory-pipelines-that-are-failing)
-- [Reduce costs by eliminating un-provisioned ExpressRoute circuits](../../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits)
-- [Reduce costs by deleting or reconfiguring idle virtual network gateways](../../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways)
+- [Reduce costs by eliminating un-provisioned ExpressRoute circuits](../../advisor/advisor-reference-cost-recommendations.md#delete-expressroute-circuits-in-the-provider-status-of-not-provisioned)
+- [Reduce costs by deleting or reconfiguring idle virtual network gateways](../../advisor/advisor-reference-cost-recommendations.md#repurpose-or-delete-idle-virtual-network-gateways)
 
 ## Act on a recommendation
 
@@ -67,7 +67,7 @@ The 5% or less CPU utilization setting is the default, but you can adjust the se
 
 Although some scenarios can result in low utilization by design, you can often save money by changing the size of your virtual machines to less expensive sizes. Your actual savings might vary if you choose a resize action. Let's walk through an example of resizing a virtual machine.
 
-In the list of recommendations, click the **Right-size or shutdown underutilized virtual machines** recommendation. In the list of virtual machine candidates, choose a virtual machine to resize and then click the virtual machine. The virtual machine's details are shown so that you can verify the utilization metrics. The **potential yearly savings** value is what you can save if you shut down or remove the VM. Resizing a VM will probably save you money, but you won't save the full amount of the potential yearly savings.
+In the list of recommendations, select the **Right-size or shutdown underutilized virtual machines** recommendation. In the list of virtual machine candidates, choose a virtual machine to resize and then select the virtual machine. The virtual machine's details are shown so that you can verify the utilization metrics. The **potential yearly savings** value is what you can save if you shut down or remove the VM. Resizing a VM will probably save you money, but you won't save the full amount of the potential yearly savings.
 
 ![Example of Recommendation details](./media/tutorial-acm-opt-recommendations/recommendation-details.png)
 
@@ -84,7 +84,7 @@ Next, you're presented with a list of available resize options. Choose the one t
 
 ![Example list of available VM sizes where you can choose a size](./media/tutorial-acm-opt-recommendations/choose-size.png)
 
-After you choose a suitable size, click **Resize** to start the resize action.
+After you choose a suitable size, select **Resize** to start the resize action.
 
 Resizing requires an actively running virtual machine to restart. If the virtual machine is in a production environment, we recommend that you run the resize operation after business hours. Scheduling the restart can reduce disruptions caused by momentarily unavailability.
 

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to implement marker and value tags on models and digital twins
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 1/5/2022
+ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -27,11 +27,11 @@ Tags are first added as properties within the [model](concepts-models.md) that d
 
 ## Marker tags 
 
-A **marker tag** is a simple string that is used to mark or categorize a digital twin, such as "blue" or "red". This string is the tag's name, and marker tags have no meaningful value—the tag is significant just by its presence (or absence). 
+A *marker tag* is a simple string that is used to mark or categorize a digital twin, such as "blue" or "red". This string is the tag's name, and marker tags have no meaningful value—the tag is significant just by its presence (or absence). 
 
 ### Add marker tags to model 
 
-Marker tags are modeled as a [DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) Map from `string` to `boolean`. The boolean `mapValue` is ignored, as the presence of the tag is all that's important. 
+Marker tags are modeled as a [DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md) Map from `string` to `boolean`. The boolean `mapValue` is ignored, as the presence of the tag is all that's important.
 
 Here's an excerpt from a twin model implementing a marker tag as a property:
 
@@ -41,11 +41,11 @@ Here's an excerpt from a twin model implementing a marker tag as a property:
 
 Once the `tags` property is part of a digital twin's model, you can set the marker tag in the digital twin by setting the value of this property. 
 
-Here's a code example on how to set marker `tags` for a twin using the [.NET SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true):
+Here's a code example on how to set marker `tags` for a twin using the [.NET SDK](/dotnet/api/overview/azure/digitaltwins.core-readme):
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesCsharp":::
 
-After creating the twin with tag properties according to the example above, the twin will look like this:
+After you create a twin with tag properties according to the example above, the twin will look like this:
 
 ```JSON
 {
@@ -85,11 +85,11 @@ You can also combine tags for more complex queries. Here's a query to get all tw
 
 ## Value tags 
 
-A **value tag** is a key-value pair that is used to give each tag a value, such as `"color": "blue"` or `"color": "red"`. Once a value tag is created, it can also be used as a marker tag by ignoring the tag's value. 
+A *value tag* is a key-value pair that is used to give each tag a value, such as `"color": "blue"` or `"color": "red"`. Once a value tag is created, it can also be used as a marker tag by ignoring the tag's value. 
 
 ### Add value tags to model 
 
-Value tags are modeled as a [DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) Map from `string` to `string`. Both the `mapKey` and the `mapValue` are significant. 
+Value tags are modeled as a [DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md) Map from `string` to `string`. Both the `mapKey` and the `mapValue` are significant. 
 
 Here's an excerpt from a twin model implementing a value tag as a property:
 

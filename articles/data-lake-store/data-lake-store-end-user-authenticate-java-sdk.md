@@ -6,9 +6,8 @@ author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ms.author: normesta
-
 ---
 # End-user authentication with Azure Data Lake Storage Gen1 using Java
 > [!div class="op_single_selector"]
@@ -17,7 +16,9 @@ ms.author: normesta
 > * [Using Python](data-lake-store-end-user-authenticate-python.md)
 > * [Using REST API](data-lake-store-end-user-authenticate-rest-api.md)
 > 
->   
+>
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
 In this article, you learn about how to use the Java SDK to do end-user authentication with Azure Data Lake Storage Gen1. For service-to-service authentication with Data Lake Storage Gen1 using Java SDK, see [Service-to-service authentication with Data Lake Storage Gen1 using Java](data-lake-store-service-to-service-authenticate-java.md).
 
@@ -77,5 +78,3 @@ The Data Lake Storage Gen1 SDK provides convenient methods that let you manage t
 In this article, you learned how to use end-user authentication to authenticate with Azure Data Lake Storage Gen1 using Java SDK. You can now look at the following articles that talk about how to use the Java SDK to work with Azure Data Lake Storage Gen1.
 
 * [Data operations on Data Lake Storage Gen1 using Java SDK](data-lake-store-get-started-java-sdk.md)
-
-

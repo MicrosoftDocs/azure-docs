@@ -3,12 +3,12 @@ title: Host multiple web sites using CLI
 titleSuffix: Azure Application Gateway
 description: Learn how to create an application gateway that hosts multiple web sites using the Azure CLI.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/13/2019
-ms.author: victorh
-ms.custom: mvc, devx-track-azurecli
+ms.date: 04/27/2023
+ms.author: greglin
+ms.custom: mvc, devx-track-azurecli, devx-track-linux
 #Customer intent: As an IT administrator, I want to use Azure CLI to configure Application Gateway to host multiple web sites , so I can ensure my customers can access the web information they need.
 ---
 
@@ -22,7 +22,7 @@ In this article, you learn how to:
 * Create an application gateway
 * Create backend listeners
 * Create routing rules
-* Create virtual machine scale sets with the backend pools
+* Create Virtual Machine Scale Sets with the backend pools
 * Create a CNAME record in your domain
 
 :::image type="content" source="./media/tutorial-multiple-sites-cli/scenario.png" alt-text="Multi-site Application Gateway":::
@@ -31,7 +31,7 @@ If you prefer, you can complete this procedure using [Azure PowerShell](tutorial
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -73,7 +73,7 @@ az network public-ip create \
 
 ## Create the application gateway
 
-You can use [az network application-gateway create](/cli/azure/network/application-gateway#az_network_application_gateway_create) to create the application gateway. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myAGPublicIPAddress* that you previously created. 
+You can use [az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create) to create the application gateway. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myAGPublicIPAddress* that you previously created. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -88,7 +88,8 @@ az network application-gateway create \
   --frontend-port 80 \
   --http-settings-port 80 \
   --http-settings-protocol Http \
-  --public-ip-address myAGPublicIPAddress
+  --public-ip-address myAGPublicIPAddress \
+  --priority 10
 ```
 
 It may take several minutes for the application gateway to be created. After the application gateway is created, you can see these new features of it:
@@ -101,7 +102,7 @@ It may take several minutes for the application gateway to be created. After the
 
 ### Add the backend pools
 
-Add the backend pools that are needed to contain the backend servers using [az network application-gateway address-pool create](/cli/azure/network/application-gateway/address-pool#az_network_application_gateway_address-pool_create)
+Add the backend pools that are needed to contain the backend servers using [az network application-gateway address-pool create](/cli/azure/network/application-gateway/address-pool#az-network-application-gateway-address-pool-create)
 ```azurecli-interactive
 az network application-gateway address-pool create \
   --gateway-name myAppGateway \
@@ -116,7 +117,7 @@ az network application-gateway address-pool create \
 
 ### Add listeners
 
-Add listeners that are needed to route traffic using [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az_network_application_gateway_http_listener_create).
+Add listeners that are needed to route traffic using [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create).
 
 >[!NOTE]
 > With Application Gateway or WAF v2 SKU, you can also configure up to 5 host names per listener and you can use wildcard characters in the host name. See [wildcard host names in listener](multiple-site-overview.md#wildcard-host-names-in-listener) for more information.
@@ -144,7 +145,7 @@ az network application-gateway http-listener create \
 
 Rules are processed in the order they're listed if rule priority field is not used. Traffic is directed using the first rule that matches regardless of specificity. For example, if you have a rule using a basic listener and a rule using a multi-site listener both on the same port, the rule with the multi-site listener must be listed before the rule with the basic listener in order for the multi-site rule to function as expected.
 
-In this example, you create two new rules and delete the default rule created when you deployed the application gateway. You can add the rule using [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az_network_application_gateway_rule_create).
+In this example, you create two new rules and delete the default rule created when you deployed the application gateway. You can add the rule using [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -153,7 +154,8 @@ az network application-gateway rule create \
   --resource-group myResourceGroupAG \
   --http-listener contosoListener \
   --rule-type Basic \
-  --address-pool contosoPool
+  --address-pool contosoPool \
+  --priority 200
 
 az network application-gateway rule create \
   --gateway-name myAppGateway \
@@ -161,7 +163,8 @@ az network application-gateway rule create \
   --resource-group myResourceGroupAG \
   --http-listener fabrikamListener \
   --rule-type Basic \
-  --address-pool fabrikamPool
+  --address-pool fabrikamPool \
+  --priority 100
 
 az network application-gateway rule delete \
   --gateway-name myAppGateway \
@@ -174,27 +177,27 @@ In order to ensure that more specific rules are processed first, use the rule pr
 ```azurecli-interactive
 az network application-gateway rule create \
   --gateway-name myAppGateway \
-  --name wccontosoRule \
+  --name contosoRule \
   --resource-group myResourceGroupAG \
-  --http-listener wccontosoListener \
+  --http-listener contosoListener \
   --rule-type Basic \
   --priority 200 \
-  --address-pool wccontosoPool
+  --address-pool contosoPool
 
 az network application-gateway rule create \
   --gateway-name myAppGateway \
-  --name shopcontosoRule \
+  --name fabrikamRule \
   --resource-group myResourceGroupAG \
-  --http-listener shopcontosoListener \
+  --http-listener fabrikamListener \
   --rule-type Basic \
   --priority 100 \
-  --address-pool shopcontosoPool
+  --address-pool fabrikamPool
 
 ```
 
-## Create virtual machine scale sets
+## Create Virtual Machine Scale Sets
 
-In this example, you create three virtual machine scale sets that support the three backend pools in the application gateway. The scale sets that you create are named *myvmss1*, *myvmss2*, and *myvmss3*. Each scale set contains two virtual machine instances on which you install IIS.
+In this example, you create three Virtual Machine Scale Sets that support the three backend pools in the application gateway. The scale sets that you create are named *myvmss1*, *myvmss2*, and *myvmss3*. Each scale set contains two virtual machine instances on which you install IIS.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -218,7 +221,7 @@ for i in `seq 1 2`; do
     --instance-count 2 \
     --vnet-name myVNet \
     --subnet myBackendSubnet \
-    --vm-sku Standard_DS2 \
+    --vm-sku Standard_D1_v2 \
     --upgrade-policy-mode Automatic \
     --app-gateway myAppGateway \
     --backend-pool-name $poolName
@@ -244,7 +247,7 @@ done
 
 ## Create a CNAME record in your domain
 
-After the application gateway is created with its public IP address, you can get the DNS address and use it to create a CNAME record in your domain. You can use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) to get the DNS address of the application gateway. Copy the *fqdn* value of the DNSSettings and use it as the value of the CNAME record that you create. 
+After the application gateway is created with its public IP address, you can get the DNS address and use it to create a CNAME record in your domain. You can use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) to get the DNS address of the application gateway. Copy the *fqdn* value of the DNSSettings and use it as the value of the CNAME record that you create. 
 
 ```azurecli-interactive
 az network public-ip show \

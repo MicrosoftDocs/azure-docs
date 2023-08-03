@@ -2,17 +2,18 @@
 title: Integrate Azure App Configuration with Kubernetes Deployment using Helm
 description: Learn how to use dynamic configurations in Kubernetes deployment with Helm.
 services: azure-app-configuration
-author: shenmuxiaosen
-manager: zhenlan
+author: mcleanbyron
 
 ms.service: azure-app-configuration
 ms.topic: tutorial
-ms.date: 04/14/2020
-ms.author: shuawan
+ms.date: 03/27/2023
+ms.author: mcleans
 
 #Customer intent: I want to use Azure App Configuration data in Kubernetes deployment with Helm.
 ---
 # Integrate with Kubernetes Deployment using Helm
+
+Applications hosted in Kubernetes can access data in App Configuration [using the App Configuration provider library](./enable-dynamic-configuration-aspnet-core.md). The App Configuration provider has built-in caching and refreshing capabilities so applications can have dynamic configuration without redeployment. If you prefer not to update your application, this tutorial shows how to bring data from App Configuration to your Kubernetes using Helm via deployment. This way, your application can continue accessing configuration from Kubernetes variables and secrets. You run Helm upgrade when you want your application to pick up new configuration changes.
 
 Helm provides a way to define, install, and upgrade applications running in Kubernetes. A Helm chart contains the information necessary to create an instance of a Kubernetes application. Configuration is stored outside of the chart itself, in a file called *values.yaml*.
 
@@ -29,23 +30,20 @@ This tutorial assumes basic understanding of managing Kubernetes with Helm. Lear
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - Install [Azure CLI](/cli/azure/install-azure-cli) (version 2.4.0 or later)
 - Install [Helm](https://helm.sh/docs/intro/install/) (version 2.14.0 or later)
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - A Kubernetes cluster.
 
-## Create an App Configuration store
+## Add key-values
 
-[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+Add the following key-values to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
-1. Select **Configuration Explorer** > **Create** to add the following key-value pairs:
-
-    | Key | Value |
-    |---|---|
-    | settings.color | White |
-    | settings.message | Data from Azure App Configuration |
-
-2. Leave **Label** and **Content Type** empty for now.
+| Key | Value |
+|---|---|
+| *settings.color* | *White* |
+| *settings.message* | *Data from Azure App Configuration* |
 
 ## Add a Key Vault reference to App Configuration
 
@@ -186,7 +184,7 @@ settings:
 First, download the configuration from App Configuration to a *myConfig.yaml* file. Use a key filter to only download those keys that start with **settings.**. If in your case the key filter is not sufficient to exclude keys of Key Vault references, you may use the argument **--skip-keyvault** to exclude them.
 
 > [!TIP]
-> Learn more about the [export command](/cli/azure/appconfig/kv#az_appconfig_kv_export).
+> Learn more about the [export command](/cli/azure/appconfig/kv#az-appconfig-kv-export).
 
 ```azurecli-interactive
 az appconfig kv export -n myAppConfiguration -d file --path myConfig.yaml --key "settings.*"  --separator "." --format yaml

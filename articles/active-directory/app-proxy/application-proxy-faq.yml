@@ -4,12 +4,12 @@ metadata:
   description: Learn answers to frequently asked questions (FAQ) about using Azure AD Application Proxy to publish internal, on-premises applications to remote users.  
   services: active-directory
   author: kenwith
-  manager: karenhoran
+  manager: 
   ms.service: active-directory
   ms.subservice: app-proxy
   ms.workload: identity
   ms.topic: faq
-  ms.date: 01/10/2022
+  ms.date: 11/17/2022
   ms.author: kenwith
   ms.reviewer: ashishj
 title: Active Directory (Azure AD) Application Proxy frequently asked questions
@@ -19,6 +19,16 @@ summary: This page answers frequently asked questions about Azure Active Directo
 sections:
   - name: General
     questions:
+
+      - question: |
+         Can I modify an App Proxy app from the **App registrations** page in the Azure portal?
+        answer: |
+            No, the following configuration items are being used by app proxy and should not be altered or deleted:
+            -	Enable/Disable “Allow public clients flows”.
+            -	CWAP_AuthSecret (Client secrets).
+            -	API Permissions.
+            Modifying any of the above configuration items on the App registration page will break pre-authentication for Azure AD Application Proxy. 
+
       - question: |
          Can I delete an App Proxy app from the App registrations page in the Azure portal? 
         answer: |
@@ -92,7 +102,7 @@ sections:
       - question: |
          Should I create a dedicated account to register the connector with Azure AD Application Proxy?
         answer: |
-              There's no reason to. Any global admin or application administrator account will work. The credentials entered during installation aren't used after the registration process. Instead, a certificate is issued to the connector, which is used for authentication from that point on.
+              There's no reason to. Any Global Administrator or application administrator account will work. The credentials entered during installation aren't used after the registration process. Instead, a certificate is issued to the connector, which is used for authentication from that point on.
 
       - question: |
          How can I monitor the performance of the Azure AD Application Proxy connector?
@@ -118,13 +128,19 @@ sections:
           ```
           
       - question: |
-         Why is the connector still showing in Azure AD portal after I uninstalled the connector from the Server?
+         Why is the connector still showing in Azure portal after I uninstalled the connector from the Server?
         answer: |
            When a connector is running, it remains active as it connects to the service. Uninstalled /Unused connectors are tagged as inactive and are removed after 10 days of inactivity from the portal.
            There is no way to remove the Inactive connector manually from the Azure portal.
           
   - name: Application configuration
     questions:
+      - question: |
+         Can I use the domain suffixes [tenantname].onmicrosoft.com or [tenantname].mail.onmicrosoft.com in the external URL?
+        answer: |
+            Although these suffixes appear in the suffix list, you should not use them. These domain suffixes are not meant to be used with Azure AD Application Proxy. If you use these domain suffixes, the created Azure AD Application Proxy application won't work.
+            You can use either the standard domain suffix `msappproxy.net` or a [custom domain](application-proxy-configure-custom-domain.md).
+
       - question: |
          I am receiving an error about an invalid certificate or possible wrong password
         answer: |
@@ -181,6 +197,53 @@ sections:
          Can I configure Application Proxy to add the HSTS header?
         answer: |
               Application Proxy does not automatically add the HTTP Strict-Transport-Security header to HTTPS responses, but it will maintain the header if it is in the original response sent by the published application. Proving a setting to enable this functionality is on the roadmap.
+
+      - question: |
+         Can I use a custom port number in the external URL?
+        answer: |
+              No, if the protocol `http` is configured in the external URL then the Azure AD Application Proxy endpoint accepts incoming request on the port TCP 80, if the protocol `https` then on the port TCP 443.
+
+      - question: |
+         Can I use a custom port number in the internal URL?
+        answer: |
+              Yes, some examples for internal URLs including ports: `http://app.contoso.local:8888/`, `https://app.contoso.local:8080/`, `https://app.contoso.local:8081/test/`.
+
+      - question: |
+         What are the challenges, if the external and the internal URLs are different?
+        answer: |
+              Some responses sent by the published web applications might contain hard-coded URLs.
+              In this case it must be ensured by using a link translation solution that the client always uses the correct URL.
+              Link translation solutions might be complex and might not work in all the scenarios. You can find [here](application-proxy-configure-hard-coded-link-translation.md) our documented solutions for link translation.
+              
+              As best practice it is advised to use identical external and internal URLs. External and internal URLs are considered to be identical, if the `protocol://hostname:port/path/` in both URLs are identical.
+              
+              This can be achieved by using the [Custom Domains](application-proxy-configure-custom-domain.md) feature.
+              
+              Examples:
+              
+              Identical:
+              ```
+              External URL: https://app1.contoso.com/test/
+              Internal URL: https://app1.contoso.com/test/
+              ```
+              
+              Not identical:
+              
+              ```
+              External URL: https://app1.contoso.com/test/
+              Internal URL: http://app1.contoso.com/test/
+              
+              External URL: https://app1.contoso.com/test/
+              Internal URL: https://app1.contoso.com:8080/test/
+              
+              External URL: https://app1.msappproxy.net/test/
+              Internal URL: https://app1.contoso.com:/test/
+              ```
+              
+              Making the external and internal URLs identical is not possible at all, if the internal URL contains a non-standard port (other than TCP 80 / 443).
+              
+              In some scenarios changes must be done in the configuration of the web app.
+
 
   - name: Integrated Windows authentication
     questions:

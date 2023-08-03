@@ -1,11 +1,13 @@
 ---
 title: Set up an Azure Migrate appliance for Hyper-V
 description: Learn how to set up an Azure Migrate appliance to assess and migrate servers on Hyper-V.
-author: vineetvikram 
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 03/13/2021
+ms.service: azure-migrate
+ms.date: 12/12/2022
+ms.custom: engagement-fy23
 ---
 
 # Set up an appliance for servers on Hyper-V
@@ -16,10 +18,13 @@ The [Azure Migrate appliance](migrate-appliance.md)  is a lightweight appliance 
 
 You can deploy the appliance using a couple of methods:
 
-- Set up on a server on Hyper-V using a downloaded VHD. This method described in this article.
+- Set up on a server on Hyper-V using a downloaded VHD. This method described in the current article.
 - Set up on a server on Hyper-V or physical server with a PowerShell installer script. [This method](deploy-appliance-script.md) should be used if you can't set up a server using a VHD, or if you're in Azure Government.
 
 After creating the appliance, you check that it can connect to Azure Migrate: Discovery and assessment, configure it for the first time, and register it with the project.
+
+> [!NOTE]
+> If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of servers.[Learn more](create-manage-projects.md#find-a-project)
 
 ## Appliance deployment (VHD)
 
@@ -32,7 +37,7 @@ To set up the appliance using a VHD template:
 
 ### Generate the project key
 
-1. In **Migration Goals** > **Windows, Linux and SQL Servers** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover servers** > **Are your servers virtualized?**, select **Yes, with Hyper-V**.
 3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of servers on Hyper-V. The name should be alphanumeric with 14 characters or fewer.
 1. Click on **Generate key** to start the creation of the required Azure resources. Do not close the Discover servers page during the creation of resources.
@@ -43,10 +48,10 @@ To set up the appliance using a VHD template:
 
 In **2: Download Azure Migrate appliance**, select the .VHD file and click on **Download**.
 
-   ![Selections for Discover servers](./media/tutorial-assess-hyper-v/servers-discover.png)
+   :::image type="content" source="./media/tutorial-assess-hyper-v/servers-discover.png" alt-text="Screenshot of selections for Discover servers.":::
 
 
-   ![Selections for Generate Key](./media/tutorial-assess-hyper-v/generate-key-hyperv.png)
+   :::image type="content" source="./media/tutorial-assess-hyper-v/generate-key-hyper-v-inline-1.png" alt-text="Screenshots of selections for Generate Key." lightbox="./media/tutorial-assess-hyper-v/generate-key-hyper-v-expanded-1.png":::
 
 ### Verify security
 
@@ -66,7 +71,7 @@ Import the downloaded file, and create an appliance.
 1. Extract the zipped VHD file to a folder on the Hyper-V host that will host the appliance. Three folders are extracted.
 2. Open Hyper-V Manager. In **Actions**, click **Import Virtual Machine**.
 
-    ![Deploy VHD](./media/how-to-set-up-appliance-hyper-v/deploy-vhd.png)
+    ![Screenshot of preocedure to Deploy VHD.](./media/how-to-set-up-appliance-hyper-v/deploy-vhd.png)
 
 2. In the Import Virtual Machine Wizard > **Before you begin**, click **Next**.
 3. In **Locate Folder**, specify the folder containing the extracted VHD. Then click **Next**.
@@ -95,30 +100,37 @@ Set up the appliance for the first time.
 
    Alternately, you can open the app from the appliance desktop by clicking the app shortcut.
 1. Accept the **license terms**, and read the third-party information.
-1. In the web app > **Set up prerequisites**, do the following:
-    - **Connectivity**: The app checks that the server has internet access. If the server uses a proxy:
-      - Click on **Setup proxy** to and specify the proxy address (in the form http://ProxyIPAddress or http://ProxyFQDN) and listening port.
-      - Specify credentials if the proxy needs authentication.
-      - Only HTTP proxy is supported.
-      - If you have added proxy details or disabled the proxy and/or authentication, click on **Save** to trigger connectivity check again.
-    - **Time sync**: Time is verified. The time on the appliance should be in sync with internet time for server discovery to work properly.
-    - **Install updates**: Azure Migrate: Discovery and assessment checks that the appliance has the latest updates installed. After the check completes, you can click on **View appliance services** to see the status and versions of the components running on the appliance.
 
-### Register the appliance with Azure Migrate
+#### Set up prerequisites and register the appliance
 
-1. Paste the **project key** copied from the portal. If you do not have the key, go to **Azure Migrate: Discovery and assessment> Discover> Manage existing appliances**, select the appliance name you provided at the time of key generation and copy the corresponding key.
-1. You will need a device code to authenticate with Azure. Clicking on **Login** will open a modal with the device code as shown below.
+In the configuration manager, select **Set up prerequisites**, and then complete these steps:
+1. **Connectivity**: The appliance checks that the server has internet access. If the server uses a proxy:
+    - Select **Setup proxy** to specify the proxy address (in the form `http://ProxyIPAddress` or `http://ProxyFQDN`, where *FQDN* refers to a *fully qualified domain name*) and listening port.
+    - Enter credentials if the proxy needs authentication.
+    - If you have added proxy details or disabled the proxy or authentication, select **Save** to trigger connectivity and check connectivity again.
+    
+        Only HTTP proxy is supported.
+1. **Time sync**: Check that the time on the appliance is in sync with internet time for discovery to work properly.
+1. **Install updates and register appliance**: To run auto-update and register the appliance, follow these steps:
 
-    ![Modal showing the device code](./media/tutorial-discover-vmware/device-code.png)
+    :::image type="content" source="./media/tutorial-discover-vmware/prerequisites.png" alt-text="Screenshot that shows setting up the prerequisites in the appliance configuration manager.":::
 
-1. Click on **Copy code & Login** to copy the device code and open an Azure Login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-1. On the new tab, paste the device code and sign-in by using your Azure username and password.
-   
-   Sign-in with a PIN isn't supported.
-3. In case you close the login tab accidentally without logging in, you need to refresh the browser tab of the appliance configuration manager to enable the Login button again.
-1. After you successfully logged in, go back to the previous tab with the appliance configuration manager.
-4. If the Azure user account used for logging has the right [permissions](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) on the Azure resources created during key generation, the appliance registration will be initiated.
-1. After appliance is successfully registered, you can see the registration details by clicking on **View details**.
+    > [!NOTE]
+    > This is a new user experience in Azure Migrate appliance which is available only if you have set up an appliance using the latest OVA/Installer script downloaded from the portal. The appliances which have already been registered will continue seeing the older version of the user experience and will continue to work without any issues.
+
+    1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown.
+	2. The appliance will verify the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
+    3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and open an Azure Login prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
+    
+        :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and log in.":::
+    4. In a new tab in your browser, paste the device code and sign in by using your Azure username and password. Signing in with a PIN isn't supported.
+	    > [!NOTE]
+        > If you close the login tab accidentally without logging in, refresh the browser tab of the appliance configuration manager to display the device code and Copy code & Login button.
+	5. After you successfully log in, return to the browser tab that displays the appliance configuration manager. If the Azure user account that you used to log in has the required permissions for the Azure resources that were created during key generation, appliance registration starts.
+
+        After the appliance is successfully registered, to see the registration details, select **View details**.
+
+You can *rerun prerequisites* at any time during appliance configuration to check whether the appliance meets all the prerequisites.
 
 ### Delegate credentials for SMB VHDs
 
@@ -140,12 +152,14 @@ If you're running VHDs on SMBs, you must enable delegation of credentials from t
 
 Connect from the appliance to Hyper-V hosts or clusters, and start discovery.
 
+### Provide Hyper-V host/cluster details
+
 1. In **Step 1: Provide Hyper-V host credentials**, click on **Add credentials** to  specify a friendly name for credentials, add **Username** and **Password** for a Hyper-V host/cluster that the appliance will use to discover servers. Click on **Save**.
 1. If you want to add multiple credentials at once, click on **Add more** to save and add more credentials. Multiple credentials are supported for the discovery of servers on Hyper-V.
 1. In **Step 2: Provide Hyper-V host/cluster details**, click on **Add discovery source** to specify the Hyper-V host/cluster **IP address/FQDN** and the friendly name for credentials to connect to the host/cluster.
 1. You can either **Add single item** at a time or **Add multiple items** in one go. There is also an option to provide Hyper-V host/cluster details through **Import CSV**.
 
-    ![Selections for adding discovery source](./media/tutorial-assess-hyper-v/add-discovery-source-hyperv.png)
+    ![Screenshot of selections for adding discovery source.](./media/tutorial-assess-hyper-v/add-discovery-source-hyperv.png)
 
     - If you choose **Add single item**, you need to specify friendly name for credentials and Hyper-V host/cluster **IP address/FQDN** and click on **Save**.
     - If you choose **Add multiple items** _(selected by default)_, you can add multiple records at once by specifying Hyper-V host/cluster **IP address/FQDN** with the friendly name for credentials in the text box. Verify** the added records and click on **Save**.
@@ -158,16 +172,56 @@ Connect from the appliance to Hyper-V hosts or clusters, and start discovery.
     - You can't remove a specific host from a cluster. You can only remove the entire cluster.
     - You can add a cluster, even if there are issues with specific hosts in the cluster.
 1. You can **revalidate** the connectivity to hosts/clusters anytime before starting the discovery.
-1. Click on **Start discovery**, to kick off server discovery from the successfully validated hosts/clusters. After the discovery has been successfully initiated, you can check the discovery status against each host/cluster in the table.
 
-This starts discovery. It takes approximately 2 minutes per host for metadata of discovered servers to appear in the Azure portal.
+### Provide server credentials
+
+In **Step 3: Provide server credentials to perform software inventory and agentless dependency analysis and to discover SQL Server instances and databases**, you can provide multiple server credentials. If you don't want to use any of these appliance features, you can skip this step and proceed with discovery of servers running on Hyper-V hosts/clusters. You can change this option at any time.
+
+:::image type="content" source="./media/tutorial-discover-hyper-v/appliance-server-credentials-mapping.png" alt-text="Screenshot that shows providing credentials for software inventory and dependency analysis.":::
+
+If you want to use these features, provide server credentials by completing the following steps. The appliance attempts to automatically map the credentials to the servers to perform the discovery features.
+
+To add server credentials:
+
+1. Select **Add Credentials**.
+1. In the dropdown menu, select **Credentials type**.
+    
+    You can provide domain/, Windows(non-domain)/, Linux(non-domain) credentials. Learn how to [provide credentials](add-server-credentials.md) and how we handle them.
+1. For each type of credentials, enter:
+    * A friendly name.
+    * A username.
+    * A password.
+    Select **Save**.
+
+    If you choose to use domain credentials, you also must enter the FQDN for the domain. The FQDN is required to validate the authenticity of the credentials with the Active Directory instance in that domain.
+1. Review the [required permissions](add-server-credentials.md#required-permissions) on the account for discovery of installed applications and agentless dependency analysis.
+1. To add multiple credentials at once, select **Add more** to save credentials, and then add more credentials.
+    When you select **Save** or **Add more**, the appliance validates the domain credentials with the domain's Active Directory instance for authentication. Validation is made after each addition to avoid account lockouts as during discovery, the appliance iterates to map credentials to respective servers.
+
+To check validation of the domain credentials:
+
+In the configuration manager, in the credentials table, see the **Validation status** for domain credentials. Only domain credentials are validated.
+
+If validation fails, you can select the **Failed** status to see the validation error. Fix the issue, and then select **Revalidate credentials** to reattempt validation of the credentials.
+
+:::image type="content" source="./media/tutorial-discover-hyper-v/add-server-credentials-multiple.png" alt-text="Screenshot that shows providing and validating multiple credentials.":::
+
+### Start discovery
+
+Click on **Start discovery**, to kick off server discovery from the successfully validated host(s)/cluster(s). After the discovery has been successfully initiated, you can check the discovery status against each host/cluster in the table.
+
+## How discovery works
+
+* It takes approximately 2 minutes per host for metadata of discovered servers to appear in the Azure portal.
+* If you have provided server credentials, software inventory (discovery of installed applications) is automatically initiated when the discovery of servers running on Hyper-V host(s)/cluster(s) is finished. Software inventory occurs once every 12 hours.
+* During software inventory, the added server credentials are iterated against servers and validated for agentless dependency analysis. When the discovery of servers is finished, in the portal, you can enable agentless dependency analysis on the servers. Only the servers on which validation succeeds can be selected to enable [agentless dependency analysis](how-to-create-group-machine-dependencies-agentless.md).
 
 ## Verify servers in the portal
 
 After discovery finishes, you can verify that the servers appear in the portal.
 
 1. Open the Azure Migrate dashboard.
-2. In **Azure Migrate - Windows, Linux and SQL Servers** > **Azure Migrate: Discovery and assessment** page, click the icon that displays the count for **Discovered servers**.
+2. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** page, click the icon that displays the count for **Discovered servers**.
 
 ## Next steps
 

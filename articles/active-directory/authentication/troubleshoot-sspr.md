@@ -1,17 +1,17 @@
 ---
-title: Troubleshoot self-service password reset - Azure Active Directory
+title: Troubleshoot self-service password reset
 description: Learn how to troubleshoot common problems and resolution steps for self-service password reset in Azure Active Directory
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 06/28/2021
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
-ms.reviewer: rhicock
+manager: amycolannino
+ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
 ---

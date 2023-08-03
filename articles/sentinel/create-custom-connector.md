@@ -1,16 +1,13 @@
 ---
 title: Resources for creating Microsoft Sentinel custom connectors | Microsoft Docs
 description: Learn about available resources for creating custom connectors for Microsoft Sentinel. Methods include the Log Analytics agent and API, Logstash, Logic Apps, PowerShell, and Azure Functions.
-author: batamig
+author: limwainstein
 ms.topic: conceptual
-ms.custom: mvc, ignite-fall-2021
-ms.date: 11/21/2021
-ms.author: bagol
+ms.date: 01/09/2023
+ms.author: lwainstein
 ---
 
 # Resources for creating Microsoft Sentinel custom connectors
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Microsoft Sentinel provides a wide range of [built-in connectors for Azure services and external solutions](connect-data-sources.md), and also supports ingesting data from some sources without a dedicated connector.
 
@@ -31,7 +28,7 @@ The following table compares essential details about each method for creating cu
 |**[PowerShell](#connect-with-powershell)** <br>Best for prototyping and periodic file uploads | Direct support for file collection. <br><br>PowerShell can be used to collect more sources, but will require coding and configuring the script as a service.      |No               |  Low       |
 |**[Log Analytics API](#connect-with-the-log-analytics-api)** <br>Best for ISVs implementing integration, and for unique collection requirements   | Supports all capabilities available with the code.  | Depends on the implementation           |     High    |
 |**[Azure Functions](#connect-with-azure-functions)** <br>Best for high-volume cloud sources, and for unique collection requirements  | Supports all capabilities available with the code.  |  Yes             |     High; requires programming knowledge    |
-|     |         |                |
+
 
 > [!TIP]
 > For comparisons of using Logic Apps and Azure Functions for the same connector, see:
@@ -95,7 +92,7 @@ Use [Azure Logic Apps](../logic-apps/index.yml) to create a serverless, custom c
     |**A recurring task**     |   For example, schedule your Logic App to retrieve data regularly from specific files, databases, or external APIs. <br>For more information, see [Create, schedule, and run recurring tasks and workflows in Azure Logic Apps](../connectors/connectors-native-recurrence.md).      |
     |**On-demand triggering**     | Run your Logic App on-demand for manual data collection and testing. <br>For more information, see  [Call, trigger, or nest logic apps using HTTPS endpoints](../logic-apps/logic-apps-http-endpoint.md).        |
     |**HTTP/S endpoint**     |  Recommended for streaming, and if the source system can start the data transfer. <br>For more information, see [Call service endpoints over HTTP or HTTPs](../connectors/connectors-native-http.md).       |
-    |     |         |
+
 
 1. **Use any of the Logic App connectors that read information to get your events**. For example:
 
@@ -152,7 +149,7 @@ The [Upload-AzMonitorLog PowerShell script](https://www.powershellgallery.com/pa
 |**TaggedAzureResourceId**     | When this parameter exists, the script associates all uploaded log records with the specified Azure resource. <br><br>This association enables the uploaded log records for resource-context queries, and adheres to resource-centric, role-based access control.       |
 |**AdditionalDataTaggingName**     |      When this parameter exists, the script adds another field to every log record, with the configured name, and the value that's configured for the **AdditionalDataTaggingValue** parameter. <br><br>In this case, **AdditionalDataTaggingValue** must not be empty. |
 |**AdditionalDataTaggingValue**     |   When this parameter exists, the script adds another field to every log record, with the configured value, and the field name configured for the **AdditionalDataTaggingName** parameter. <br><br>If the **AdditionalDataTaggingName** parameter is empty, but a value is configured, the default field name is **DataTagging**.       |
-|     |         |
+
 
 ### Find your workspace ID and key
 
@@ -172,8 +169,8 @@ While calling a RESTful endpoint directly requires more programming, it also pro
 
 For more information, see the [Log Analytics Data collector API](../azure-monitor/logs/data-collector-api.md), especially the following examples:
 
-- [C#](../azure-monitor/logs/data-collector-api.md#c-sample)
-- [Python](../azure-monitor/logs/data-collector-api.md#python-sample)
+- [C#](../azure-monitor/logs/data-collector-api.md#sample-requests)
+- [Python](../azure-monitor/logs/data-collector-api.md#sample-requests)
 
 ## Connect with Azure Functions
 
@@ -181,10 +178,10 @@ Use Azure Functions together with a RESTful API and various coding languages, su
 
 For examples of this method, see:
 
-- [Connect your VMware Carbon Black Cloud Endpoint Standard to Microsoft Sentinel with Azure Function](./data-connectors-reference.md#vmware-carbon-black-endpoint-standard-preview)
-- [Connect your Okta Single Sign-On to Microsoft Sentinel with Azure Function](./data-connectors-reference.md#okta-single-sign-on-preview)
-- [Connect your Proofpoint TAP to Microsoft Sentinel with Azure Function](./data-connectors-reference.md#proofpoint-targeted-attack-protection-tap-preview)
-- [Connect your Qualys VM to Microsoft Sentinel with Azure Function](./data-connectors-reference.md#qualys-vulnerability-management-vm-preview)
+- [Connect your VMware Carbon Black Cloud Endpoint Standard to Microsoft Sentinel with Azure Function](./data-connectors/vmware-carbon-black-cloud-using-azure-functions.md)
+- [Connect your Okta Single Sign-On to Microsoft Sentinel with Azure Function](./data-connectors/okta-single-sign-on-using-azure-function.md)
+- [Connect your Proofpoint TAP to Microsoft Sentinel with Azure Function](./data-connectors/proofpoint-tap-using-azure-function.md)
+- [Connect your Qualys VM to Microsoft Sentinel with Azure Function](data-connectors/qualys-vulnerability-management-using-azure-functions.md)
 - [Ingesting XML, CSV, or other formats of data](../azure-monitor/logs/create-pipeline-datacollector-api.md#ingesting-xml-csv-or-other-formats-of-data)
 - [Monitoring Zoom with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) (blog)
 - [Deploy a Function App for getting Office 365 Management API data into Microsoft Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data) (Microsoft Sentinel GitHub community)

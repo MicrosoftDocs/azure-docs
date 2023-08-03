@@ -12,10 +12,7 @@ ms.subservice: teams-interop
 
 # Join a Teams meeting
 
-> [!IMPORTANT]
-> BYOI interoperability is now generally available to all Communication Services applications and Teams organizations.
-
-Azure Communication Services can be used to build applications that enable users to join and participate in Teams meetings. [Standard ACS pricing](https://azure.microsoft.com/pricing/details/communication-services/) applies to these users, but there's no additional fee for the interoperability capability itself. With the bring your own identity (BYOI) model, you control user authentication and users of your applications don't need Teams licenses to join Teams meetings. This is ideal for applications that enable licensed Teams users and external users using a custom application to join into a virtual consultation experience. For example, healthcare providers using Teams can conduct teleheath virtual visits with their patients who use a custom application. 
+Azure Communication Services can be used to build applications that enable users to join and participate in Teams meetings. [Standard Azure Communication Services pricing](https://azure.microsoft.com/pricing/details/communication-services/) applies to these users, but there's no additional fee for the interoperability capability itself. With the bring your own identity (BYOI) model, you control user authentication and users of your applications don't need Teams licenses to join Teams meetings. This is ideal for applications that enable licensed Teams users and external users using a custom application to join into a virtual consultation experience. For example, healthcare providers using Teams can conduct teleheath virtual visits with their patients who use a custom application. 
 
 It's also possible to use Teams identities with the Azure Communication Services SDKs. More information is available [here](./teams-interop.md).
 
@@ -35,12 +32,18 @@ As with Teams anonymous meeting join, your application must have the meeting lin
 
 A Communication Service user won't be admitted to a Teams meeting until there is at least one Teams user present in the meeting. Once a Teams user is present, then the Communication Services user will wait in the lobby until explicitly admitted by a Teams user, unless the "Who can bypass the lobby?" meeting policy/setting is set to "Everyone".
 
-During a meeting, Communication Services users will be able to use core audio, video, screen sharing, and chat functionality via Azure Communication Services SDKs. Once a Communication Services user leaves the meeting or the meeting ends, they're no longer able to send or receive new chat messages, but they'll have access to messages sent and received during the meeting. Anonymous Communication Services users can't add/remove participants to/from the meeting nor can they start recording or transcription for the meeting.
+During a meeting, Communication Services users will be able to use core audio, video, screen sharing, and chat functionality via Azure Communication Services SDKs. Once a Communication Services user leaves the meeting or the meeting ends, they're no longer able to send or receive new chat messages, and they no longer have access to messages sent and received during the meeting. Anonymous Communication Services users can't add/remove participants to/from the meeting nor can they start recording or transcription for the meeting.
 
 Additional information on required dataflows for joining Teams meetings is available at the [client and server architecture page](client-and-server-architecture.md). The [Group Calling Hero Sample](../samples/calling-hero-sample.md) provides example code for joining a Teams meeting from a web application.
 
+## Chat storage
+
+During a Teams meeting, all chat messages sent by Teams users or Communication Services users are stored in the geographic region associated with the Microsoft 365 organization hosting the meeting. For more information, review the article [Location of data in Microsoft Teams](/microsoftteams/location-of-data-in-teams). For each Communication Services user in the meetings, there is also a copy of the most recently sent message that is stored in the geographic region associated with the Communication Services resource used to develop the Communication Services application. For more information, review the article [Region availability and data residency](./privacy.md).
+
+If the hosting Microsoft 365 organization has defined a retention policy that deletes chat messages for any of the Teams users in the meeting, then all copies of the most recently sent message that have been stored for Communication Services users will also be deleted in accordance with the policy.  If there is not a retention policy defined, then the copies of the most recently sent message for all Communication Services users will be deleted after 30 days. For more information about Teams retention policies, review the article [Learn about retention for Microsoft Teams](/microsoft-365/compliance/retention-policies-teams).
+
 ## Diagnostics and call analytics
-After a Teams meeting ends, diagnostic information about the meeting is available using the [Communication Services logging and diagnostics](./logging-and-diagnostics.md) and using the [Teams Call Analytics](/MicrosoftTeams/use-call-analytics-to-troubleshoot-poor-call-quality) in the Teams admin center. Communication Services users will appear as "Anonymous" in Call Analytics screens. Communication Services users aren't included in the [Teams real-time Analytics](/microsoftteams/use-real-time-telemetry-to-troubleshoot-poor-meeting-quality).
+After a Teams meeting ends, diagnostic information about the meeting is available using the [Communication Services logging and diagnostics](./analytics/logs/voice-and-video-logs.md) and using the [Teams Call Analytics](/MicrosoftTeams/use-call-analytics-to-troubleshoot-poor-call-quality) in the Teams admin center. Communication Services users will appear as "Anonymous" in Call Analytics screens. Communication Services users aren't included in the [Teams real-time Analytics](/microsoftteams/use-real-time-telemetry-to-troubleshoot-poor-meeting-quality).
 
 ## Privacy
 Interoperability between Azure Communication Services and Microsoft Teams enables your applications and users to participate in Teams calls, meetings, and chat. It is your responsibility to ensure that the users of your application are notified when recording or transcription are enabled in a Teams call or meeting.
@@ -50,6 +53,7 @@ Microsoft will indicate to you via the Azure Communication Services API that rec
 ## Limitations and known issues
 
 - Communication Services users can join a Teams meeting that is scheduled for a Teams channel and use audio and video, but they won't be able to send or receive any chat messages because they aren't members of the channel.
+- Communication Services users can join a Teams meeting and use video, but they won't be able to apply background effects.
 - Communication Services users may join a Teams webinar, but the presenter and attendee roles aren't currently enforced, thus Communication Services users could perform actions not intended for attendees, such as screen sharing, turning their camera on/off, or unmuting themselves, if your application provides UX for those actions.
 - When using Microsoft Graph to [list the participants in a Teams meeting](/graph/api/call-list-participants), details for Communication Services users are not currently included.
 - PowerPoint presentations aren't rendered for Communication Services users.

@@ -1,76 +1,58 @@
 ---
-title: Add a user as a lab creator in Azure Lab Services
-description: This article shows how to add a user to the Lab Creator role for a lab account in Azure Lab Services. The lab creators can create labs within this lab account. 
+title: Assign a lab creator
+titleSuffix: Azure Lab Services
+description: This article shows how to add a user to the Lab Creator role for a lab plan in Azure Lab Services. Lab creators can create labs within the lab plan.
+services: lab-services
+ms.service: lab-services
+author: ntrogh
+ms.author: nicktrog
 ms.topic: how-to
-ms.date: 07/26/2021
+ms.date: 07/04/2023
 ms.custom: subject-rbac-steps
 ---
 
-# Add lab creators to a lab account in Azure Lab Services
-This article shows you how to add users as lab creators to a lab account in Azure Lab Services. These uses then can create labs in the lab account. 
+# Add lab creators to a lab plan in Azure Lab Services
 
-## Add Microsoft user account to Lab Creator role
-To set up a classroom lab in a lab account, the user must be a member of the **Lab Creator** role in the lab account. The account you used to create the lab account is automatically added to this role. If you are planning to use the same user account to create a classroom lab, you can skip this step. To use another user account to create a classroom lab, do the following steps: 
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
-To provide educators the permission to create labs for their classes, add them to the **Lab Creator** role: For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+This article describes how to add users as lab creators to a lab account or lab plan in Azure Lab Services. Users with the Lab Creator role can create labs and manage labs for the lab account or lab plan.
 
+## Prerequisites
 
-1. On the **Lab Account** page, select **Access control (IAM)**
+- To add lab creators to a lab plan, your Azure account needs to have the [Owner](./concept-lab-services-role-based-access-control.md#owner-role) Azure RBAC role assigned on the resource group. Learn more about the [Azure Lab Services built-in roles](./concept-lab-services-role-based-access-control.md).
 
-1. Select **Add** > **Add role assignment (Preview)**.
+## Add Azure AD user account to Lab Creator role
 
-    ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+[!INCLUDE [Add Lab Creator role](./includes/lab-services-add-lab-creator.md)]
 
-1. On the **Role** tab, select the **Lab Creator** role.
+If you're using a lab account, assign the Lab Creator role on the lab account. 
 
-    ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+## Add a guest user as a lab creator
 
-1. On the **Members** tab, select the user you want to add to the Lab Creators role
+If you need to add an external user as a lab creator, you need to add the external user as a guest account in the Azure Active Directory that is linked to your Azure subscription.
 
-1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+The following types of email accounts can be used:
 
+- A Microsoft-domain email account, such as *outlook.com*, *hotmail.com*, *msn.com*, or *live.com*.
+- A non-Microsoft email account, such as one provided by Yahoo! or Google. The user needs to [link the account with a Microsoft account](./how-to-manage-labs.md#use-a-non-organizational-account-as-a-lab-creator).
+- A GitHub account. The user needs to [link the account with a Microsoft account](./how-to-manage-labs.md#use-a-non-organizational-account-as-a-lab-creator).
 
+To add a guest user as a lab creator:
 
+1. Follow these steps to [add guest users to Azure Active Directory](/azure/active-directory/external-identities/b2b-quickstart-add-guest-users-portal).
 
-    > [!NOTE]
-    > If you are adding a non-Microsoft account user as a lab creator, see the [Add a non-Microsoft account user as a lab creator](#add-a-non-microsoft-account-user-as-a-lab-creator) section. 
+    If using an email account that's provided by your university’s Azure AD, you don't have to add them as a guest account.
 
-## Add a non-Microsoft account user as a lab creator
-To add a user as a lab creator, you use their email accounts. The following types of email accounts might be used:
+1. Follow these steps to [assign the Lab Creator role to the Azure AD user account](#add-azure-ad-user-account-to-lab-creator-role).
 
-- An email account that's provided by your university’s Azure Active Directory (AAD).
-- A Microsoft email account, such as `@outlook.com`, `@hotmail.com`, `@msn.com`, or `@live.com`.
-- A non-Microsoft email account, such as one provided by Yahoo or Google. However, these types of accounts must be linked with a Microsoft account.
-- A GitHub account. This account must be linked with a Microsoft account.
-
-### Using a non-Microsoft email account
-Lab creators/instructors can use non-Microsoft email accounts to register and sign in to a classroom lab.  However, the sign-in to the Lab Services portal requires that instructors first create a Microsoft account that's linked to their non-Microsoft email address.
-
-Many instructors might already have a Microsoft account linked to their non-Microsoft email addresses. For example, instructors already have a Microsoft account if they have used their email address with Microsoft’s other products or services, such as Office, Skype, OneDrive, or Windows.  
-
-When instructors sign in to the Lab Services portal, they are prompted for their email address and password. If the instructor attempts to sign in with a non-Microsoft account that does not have a Microsoft account linked, the instructor will receive the following error message: 
-
-![Error message](./media/how-to-configure-student-usage/cant-find-account.png)
-
-To sign up for a Microsoft account, instructors should go to [http://signup.live.com](http://signup.live.com).  
-
-
-### Using a GitHub Account
-Instructors can also use an existing GitHub account to register and sign in to a classroom lab. If the instructor already has a Microsoft account linked to their GitHub account, then they can sign in and provide their password as shown in the previous section. If they have not yet linked their GitHub account to a Microsoft account, they should select **Sign-in options**:
-
-![Sign-in options link](./media/how-to-configure-student-usage/signin-options.png)
-
-On the **Sign-in options** page, select **Sign in with GitHub**.
-
-![Sign in with GitHub link](./media/how-to-configure-student-usage/signin-github.png)
-
-Finally, they are prompted to create a Microsoft account that's linked to their GitHub account. It happens automatically when the instructor selects **Next**.  The instructor is then immediately signed in and connected to the classroom lab.
-
+> [!IMPORTANT]
+> Only lab creators need an account in Azure AD connected to the Azure subscription. For account requirements for lab users see [Access a lab in Azure Lab Services](./how-to-access-lab-virtual-machine.md).
 
 ## Next steps
+
 See the following articles:
 
-- [As a lab owner, create and manage labs](how-to-manage-classroom-labs.md)
+- [As a lab owner, create and manage labs](how-to-manage-labs.md)
 - [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
-- [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
-- [As a lab user, access labs](how-to-use-classroom-lab.md)
+- [As a lab owner, configure and control usage of a lab](how-to-manage-lab-users.md)
+- [As a lab user, access labs](how-to-use-lab.md)

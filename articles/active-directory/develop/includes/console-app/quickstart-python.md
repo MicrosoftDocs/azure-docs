@@ -1,16 +1,16 @@
 ---
-title: "Quickstart: Call Microsoft Graph from a Python daemon | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Call Microsoft Graph from a Python daemon"
 description: In this quickstart, you learn how a Python process can get an access token and call an API protected by Microsoft identity platform, using the app's own identity
 services: active-directory
-author: jmprieur
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.workload: identity
-ms.date: 01/10/2022
-ms.author: jmprieur
+ms.date: 03/28/2023
+ms.author: owenrichards
+ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, "scenarios:getting-started", "languages:Python", mode-other
 #Customer intent: As an application developer, I want to learn how my Python app can get an access token and call an API that's protected by the Microsoft identity platform using client credentials flow.
 ---
@@ -30,9 +30,12 @@ To run this sample, you need:
 ## Register and download your quickstart app
 
 #### Step 1: Register your application
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To register your application and add the app's registration information to your solution manually, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
@@ -74,7 +77,7 @@ If you try to run the application at this point, you'll receive *HTTP 403 - Forb
 
 ##### Global tenant administrator
 
-If you are a global tenant administrator, go to **API Permissions** page in **App registrations** in the Azure portal and select **Grant admin consent for {Tenant Name}** (Where {Tenant Name} is the name of your directory).
+If you're a global tenant administrator, go to **API Permissions** page in **App registrations** in the Azure portal and select **Grant admin consent for {Tenant Name}** (Where {Tenant Name} is the name of your directory).
 
 
 ##### Standard user
@@ -87,8 +90,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 Where:
  * `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
- * `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
-
+ * `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered previously.
 
 
 #### Step 5: Run the application
@@ -165,7 +167,7 @@ if not result:
 
 For more information, please see the [reference documentation for `AcquireTokenForClient`](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_for_client).
 
-[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 

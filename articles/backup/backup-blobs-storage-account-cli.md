@@ -2,7 +2,10 @@
 title: Back up Azure Blobs using Azure CLI
 description: Learn how to back up Azure Blobs using Azure CLI.
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 08/06/2021
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up Azure Blobs in a storage account using Azure CLI
@@ -34,7 +37,7 @@ See the [prerequisites](./blob-backup-configure-manage.md#before-you-start) and 
 
 Backup vault is a storage entity in Azure that stores backup data for various newer workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers, and blobs in a storage account and Azure Disks. Backup vaults make it easy to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.
 
-Before creating a Backup vault, choose the storage redundancy of the data within the vault. Then proceed to create the Backup vault with that storage redundancy and the location. In this article, we'll create a Backup vault _TestBkpVault_, in the region _westus_, under the resource group _testBkpVaultRG_. Use the [az dataprotection vault create](/cli/azure/dataprotection/backup-vault#az_dataprotection_backup_vault_create) command to create a Backup vault. Learn more about [creating a Backup vault](./backup-vault-overview.md#create-a-backup-vault).
+Before creating a Backup vault, choose the storage redundancy of the data within the vault. Then proceed to create the Backup vault with that storage redundancy and the location. In this article, we'll create a Backup vault _TestBkpVault_, in the region _westus_, under the resource group _testBkpVaultRG_. Use the [az dataprotection vault create](/cli/azure/dataprotection/backup-vault#az-dataprotection-backup-vault-create) command to create a Backup vault. Learn more about [creating a Backup vault](./create-manage-backup-vault.md#create-a-backup-vault).
 
 ```azurecli-interactive
 az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVault -l westus --type SystemAssigned --storage-settings datastore-type="VaultStore" type="LocallyRedundant"
@@ -75,7 +78,7 @@ After creating a vault, let's create a Backup policy to protect Azure Blobs in a
 > [!IMPORTANT]
 > Read [this section](blob-backup-configure-manage.md#before-you-start) before creating the policy and configure backups for Azure Blobs.
 
-To understand the inner components of a Backup policy for Azure Blobs backup, retrieve the policy template using the [az dataprotection backup-policy get-default-policy-template](/cli/azure/dataprotection/backup-policy#az_dataprotection_backup_policy_get_default_policy_template) command. This command returns a default policy template for a given datasource type. Use this policy template to create a new policy.
+To understand the inner components of a Backup policy for Azure Blobs backup, retrieve the policy template using the [az dataprotection backup-policy get-default-policy-template](/cli/azure/dataprotection/backup-policy#az-dataprotection-backup-policy-get-default-policy-template) command. This command returns a default policy template for a given datasource type. Use this policy template to create a new policy.
 
 ```azurecli-interactive
 az dataprotection backup-policy get-default-policy-template --datasource-type AzureBlob
@@ -136,7 +139,7 @@ The policy template consists of a lifecycle only (which decides when to delete/c
 > [!NOTE]
 > Restoring over long durations may lead to restore operations taking longer to complete. Also, the time taken to restore a set of data is based on the number of write and delete operations made during the restore period. For example, an account with one million objects with 3,000 objects added per day and 1,000 objects deleted per day will require approximately two hours to restore to a point 30 days in the past.<br><br>We don't recommend a retention period and restoration more than 90 days in the past for an account with this rate of change.
 
-Once the policy JSON has all the required values, proceed to create a new policy from the policy object using the [az dataprotection backup-policy create](/cli/azure/dataprotection/backup-policy#az_dataprotection_backup_policy_create) command.
+Once the policy JSON has all the required values, proceed to create a new policy from the policy object using the [az dataprotection backup-policy create](/cli/azure/dataprotection/backup-policy#az-dataprotection-backup-policy-create) command.
 
 ```azurecli-interactive
 az dataprotection backup-policy get-default-policy-template --datasource-type AzureBlob > policy.json
@@ -201,7 +204,7 @@ You need to assign a few permissions via RBAC to vault (represented by vault MSI
 
 ### Prepare the request
 
-Once all the relevant permissions are set, the configuration of backup is performed in 2 steps. First, we prepare the relevant request by using the relevant vault, policy, storage account using the [az dataprotection backup-instance initialize](/cli/azure/dataprotection/backup-instance#az_dataprotection_backup_instance_initialize) command. Then, we submit the request to protect the disk using the [az dataprotection backup-instance create](/cli/azure/dataprotection/backup-instance#az_dataprotection_backup_instance_create) command.
+Once all the relevant permissions are set, the configuration of backup is performed in 2 steps. First, we prepare the relevant request by using the relevant vault, policy, storage account using the [az dataprotection backup-instance initialize](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-initialize) command. Then, we submit the request to protect the disk using the [az dataprotection backup-instance create](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-create) command.
 
 ```azurecli-interactive
 az dataprotection backup-instance initialize --datasource-type AzureBlob  -l southeastasia --policy-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupPolicies/BlobBackup-Policy" --datasource-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA" > backup_instance.json

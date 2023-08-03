@@ -33,7 +33,7 @@ The hosting plan you choose determines the following behaviors:
 
 To learn more about choosing the correct hosting plan and for a detailed comparison between the plans, see [Azure Functions hosting options](functions-scale.md).
 
-It's important that you choose the correct plan when you create your function app. Functions provides a limited ability to switch your hosting plan, primarily between Consumption and Elastic Premium plans. To learn more, see [Plan migration](functions-how-to-use-azure-function-app-settings.md?tabs=portal#plan-migration). 
+It's important that you choose the correct plan when you create your function app. Functions provide a limited ability to switch your hosting plan, primarily between Consumption and Elastic Premium plans. To learn more, see [Plan migration](functions-how-to-use-azure-function-app-settings.md?tabs=portal#plan-migration). 
 
 ## Configure storage correctly
 
@@ -187,7 +187,7 @@ Premium plan is the recommended plan for reducing colds starts while maintaining
 
 ## Monitor effectively
 
-Azure Functions offers built-in integration with Azure Application Insights to monitor your function execution and traces written from your code. To learn more, see [Monitor Azure Functions](functions-monitoring.md). Azure Monitor also provides facilities for monitoring the health of the function app itself. To learn more, see [Using Azure Monitor Metric with Azure Functions](monitor-metrics.md).
+Azure Functions offers built-in integration with Azure Application Insights to monitor your function execution and traces written from your code. To learn more, see [Monitor Azure Functions](functions-monitoring.md). Azure Monitor also provides facilities for monitoring the health of the function app itself. To learn more, see [Monitoring with Azure Monitor](monitor-functions.md).
 
 You should be aware of the following considerations when using Application Insights integration to monitor your functions:
 

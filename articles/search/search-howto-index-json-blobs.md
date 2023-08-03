@@ -8,10 +8,10 @@ author: HeidiSteen
 ms.author: heidist
 
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 02/01/2021
+ms.topic: how-to
+ms.date: 03/22/2023
 ---
-# How to index JSON blobs and files in Azure Cognitive Search
+# Index JSON blobs and files in Azure Cognitive Search
 
 **Applies to**: [Blob indexers](search-howto-indexing-azure-blob-storage.md), [File indexers](search-file-storage-integration.md)
 
@@ -21,7 +21,7 @@ This article shows you how to set JSON-specific properties for blobs or files th
 + A JSON document containing an array of well-formed JSON elements
 + A JSON document containing multiple entities, separated by a newline
 
-The blob indexer provides a **`parsingMode`** parameter to optimize the output of the search document based on the structure Parsing modes consist of the following options:
+The blob indexer provides a "parsingMode" parameter to optimize the output of the search document based on the structure. Parsing modes consist of the following options:
 
 | parsingMode | JSON document | Description |
 |--------------|-------------|--------------|
@@ -31,9 +31,9 @@ The blob indexer provides a **`parsingMode`** parameter to optimize the output o
 
 For both **`jsonArray`** and **`jsonLines`**, you should review [Indexing one blob to produce many search documents](search-howto-index-one-to-many-blobs.md) to understand how the blob indexer handles disambiguation of the document key for multiple search documents produced from the same blob.
 
-Within the indexer definition, you can optionally set [field mappings](search-indexer-field-mappings.md) to choose which properties of the source JSON document are used to populate your target search index. For example, when using the **`jsonArray`** parsing mode, if the array exists as a lower-level property, you can set a **`document root`** property indicating where the array is placed within the blob.
+Within the indexer definition, you can optionally set [field mappings](search-indexer-field-mappings.md) to choose which properties of the source JSON document are used to populate your target search index. For example, when using the **`jsonArray`** parsing mode, if the array exists as a lower-level property, you can set a "documentRoot" property indicating where the array is placed within the blob.
 
-The following sections describe each mode in more detail. If you are unfamiliar with indexer clients and concepts, see [Create a search indexer](search-howto-create-indexers.md). You should also be familiar with the details of [basic blob indexer configuration](search-howto-indexing-azure-blob-storage.md), which isn't repeated here.
+The following sections describe each mode in more detail. If you're unfamiliar with indexer clients and concepts, see [Create a search indexer](search-howto-create-indexers.md). You should also be familiar with the details of [basic blob indexer configuration](search-howto-indexing-azure-blob-storage.md), which isn't repeated here.
 
 <a name="parsing-single-blobs"></a>
 
@@ -73,7 +73,7 @@ api-key: [admin key]
 
 ### json example (single hotel JSON files)
 
-The [hotel JSON document data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels/hotel-json-documents) on GitHub is helpful for testing JSON parsing, where each blob represents a structured JSON file. You can upload the data files to Blob storage and use the **Import data** wizard to quickly evaluate how this content is parsed into individual search documents. 
+The [hotel JSON document data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels/hotel-json-documents) on GitHub is helpful for testing JSON parsing, where each blob represents a structured JSON file. You can upload the data files to Blob Storage and use the [**Import data** wizard](search-get-started-portal.md) to quickly evaluate how this content is parsed into individual search documents. 
 
 The data set consists of five blobs, each containing a hotel document with an address collection and a rooms collection. The blob indexer detects both collections and reflects the structure of the input documents in the index schema.
 
@@ -91,7 +91,7 @@ Alternatively, you can use the JSON array option. This option is useful when blo
 ]
 ```
 
-The **`parameters`** property on the indexer contains parsing mode values. For a JSON array, the indexer definition should look similar to the following example.
+The "parameters" property on the indexer contains parsing mode values. For a JSON array, the indexer definition should look similar to the following example.
 
 ```http
 POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
@@ -108,7 +108,7 @@ api-key: [admin key]
 
 ### jsonArrays example (clinical trials sample data)
 
-The [clinical trials JSON data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials/clinical-trials-json) on GitHub is helpful for testing JSON array parsing. You can upload the data files to Blob storage and use the **Import data** wizard to quickly evaluate how this content is parsed into individual search documents. 
+The [clinical trials JSON data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials/clinical-trials-json) on GitHub is helpful for testing JSON array parsing. You can upload the data files to Blob storage and use the [**Import data** wizard](search-get-started-portal.md) to quickly evaluate how this content is parsed into individual search documents. 
 
 The data set consists of eight blobs, each containing a JSON array of entities, for a total of 100 entities. The entities vary as to which fields are populated, but the end result is one search document per entity, from all arrays, in all blobs.
 
@@ -116,7 +116,7 @@ The data set consists of eight blobs, each containing a JSON array of entities, 
 
 ### Parsing nested JSON arrays
 
-For JSON arrays having nested elements, you can specify a **`documentRoot`** to indicate a multi-level structure. For example, if your blobs look like this:
+For JSON arrays having nested elements, you can specify a "documentRoot" to indicate a multi-level structure. For example, if your blobs look like this:
 
 ```http
 {
@@ -200,7 +200,7 @@ You can also refer to individual array elements by using a zero-based index. For
 ```
 
 > [!NOTE]
-> If **`sourceFieldName`** refers to a property that doesn't exist in the JSON blob, that mapping is skipped without an error. This behavior allows indexing to continue for JSON blobs that have a different schema (which is a common use case). Because there is no validation check, check the mappings carefully for typos so that you aren't losing documents for the wrong reason.
+> If "sourceFieldName" refers to a property that doesn't exist in the JSON blob, that mapping is skipped without an error. This behavior allows indexing to continue for JSON blobs that have a different schema (which is a common use case). Because there is no validation check, check the mappings carefully for typos so that you aren't losing documents for the wrong reason.
 >
 
 ## Next steps

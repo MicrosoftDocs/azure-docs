@@ -1,21 +1,19 @@
 ---
 title: Diagnose a VM network routing problem - Azure CLI
 titleSuffix: Azure Network Watcher
-description: In this article, you learn how use Azure CLI to diagnose a virtual machine network routing problem using the next hop capability of Azure Network Watcher.
+description: In this article, you learn how to use Azure CLI to diagnose a virtual machine network routing problem using the next hop capability of Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: damendo
-editor: ''
+author: halkazwini
 tags: azure-resource-manager
-# Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
-ms.assetid: 
 ms.service: network-watcher
 ms.topic: how-to
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
-ms.date: 01/07/2021
-ms.author: damendo
-ms.custom:
+ms.date: 03/18/2022
+ms.author: halkazwini
+ms.custom: engagement-fy23, devx-track-azurecli
+# Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
 ---
 
 # Diagnose a virtual machine network routing problem - Azure CLI
@@ -24,7 +22,7 @@ In this article, you deploy a virtual machine (VM), and then check communication
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
@@ -32,13 +30,13 @@ In this article, you deploy a virtual machine (VM), and then check communication
 
 ## Create a VM
 
-Before you can create a VM, you must create a resource group to contain the VM. Create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Before you can create a VM, you must create a resource group to contain the VM. Create a resource group with [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Create a VM with [az vm create](/cli/azure/vm#az_vm_create). If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option. The following example creates a VM named *myVm*:
+Create a VM with [az vm create](/cli/azure/vm#az-vm-create). If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option. The following example creates a VM named *myVm*:
 
 ```azurecli-interactive
 az vm create \
@@ -56,7 +54,7 @@ To test network communication with Network Watcher, you must first enable a netw
 
 ### Enable network watcher
 
-If you already have a network watcher enabled in the East US region, skip to [Use next hop](#use-next-hop). Use the [az network watcher configure](/cli/azure/network/watcher#az_network_watcher_configure) command to create a network watcher in the East US region:
+If you already have a network watcher enabled in the East US region, skip to [Use next hop](#use-next-hop). Use the [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) command to create a network watcher in the East US region:
 
 ```azurecli-interactive
 az network watcher configure \
@@ -67,7 +65,7 @@ az network watcher configure \
 
 ### Use next hop
 
-Azure automatically creates routes to default destinations. You may create custom routes that override the default routes. Sometimes, custom routes can cause communication to fail. To test routing from a VM, use [az network watcher show-next-hop](/cli/azure/network/watcher#az_network_watcher_show_next_hop) to determine the next routing hop when traffic is destined for a specific address.
+Azure automatically creates routes to default destinations. You may create custom routes that override the default routes. Sometimes, custom routes can cause communication to fail. To test routing from a VM, use [az network watcher show-next-hop](/cli/azure/network/watcher#az-network-watcher-show-next-hop) to determine the next routing hop when traffic is destined for a specific address.
 
 Test outbound communication from the VM to one of the IP addresses for www.bing.com:
 
@@ -99,7 +97,7 @@ The output returned informs you that **None** is the **nextHopType**, and that t
 
 ## View details of a route
 
-To analyze routing further, review the effective routes for the network interface with the [az network nic show-effective-route-table](/cli/azure/network/nic#az_network_nic_show_effective_route_table) command:
+To analyze routing further, review the effective routes for the network interface with the [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table) command:
 
 ```azurecli-interactive
 az network nic show-effective-route-table \
@@ -149,7 +147,7 @@ As you can see in the output from the `az network watcher nic show-effective-rou
 
 ## Clean up resources
 
-When no longer needed, you can use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group and all of the resources it contains:
+When no longer needed, you can use [az group delete](/cli/azure/group#az-group-delete) to remove the resource group and all of the resources it contains:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes

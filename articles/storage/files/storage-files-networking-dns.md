@@ -1,13 +1,12 @@
 ---
-title: Configuring DNS forwarding for Azure Files | Microsoft Docs
+title: Configuring DNS forwarding for Azure Files
 description: Learn how to configure DNS forwarding for Azure Files.
-author: roygara
-ms.service: storage
+author: khdownie
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 07/02/2021
-ms.author: rogarana
-ms.subservice: files 
-ms.custom: devx-track-azurepowershell
+ms.author: kendownie
+ms.custom: ignite-2022
 ---
 
 # Configuring DNS forwarding for Azure Files
@@ -37,7 +36,7 @@ By default, `storageaccount.file.core.windows.net` resolves to the public endpoi
 
 Since our ultimate objective is to access the Azure file shares hosted within the storage account from on-premises using a network tunnel such as a VPN or ExpressRoute connection, you must configure your on-premises DNS servers to forward requests made to the Azure Files service to the Azure private DNS service. To accomplish this, you need to set up *conditional forwarding* of `*.core.windows.net` (or the appropriate storage endpoint suffix for the US Government, Germany, or China national clouds) to a DNS server hosted within your Azure virtual network. This DNS server will then recursively forward the request on to Azure's private DNS service that will resolve the fully qualified domain name of the storage account to the appropriate private IP address.
 
-Configuring DNS forwarding for Azure Files will require running a virtual machine to host a DNS server to forward the requests, however this is a one time step for all the Azure file shares hosted within your virtual network. Additionally, this is not an exclusive requirement to Azure Files - any Azure service that supports private endpoints that you want to access from on-premises can make use of the DNS forwarding you will configure in this guide: Azure Blob storage, SQL Azure, Cosmos DB, etc. 
+Configuring DNS forwarding for Azure Files will require running a virtual machine to host a DNS server to forward the requests, however this is a one time step for all the Azure file shares hosted within your virtual network. Additionally, this is not an exclusive requirement to Azure Files - any Azure service that supports private endpoints that you want to access from on-premises can make use of the DNS forwarding you will configure in this guide, including Azure Blob storage, Azure SQL, and Azure Cosmos DB.
 
 This guide shows the steps for configuring DNS forwarding for the Azure storage endpoint, so in addition to Azure Files, DNS name resolution requests for all of the other Azure storage services (Azure Blob storage, Azure Table storage, Azure Queue storage, etc.) will be forwarded to Azure's private DNS service. Additional endpoints for other Azure services can also be added if desired. DNS forwarding back to your on-premises DNS servers will also be configured, enabling cloud resources within your virtual network (such as a DFS-N server) to resolve on-premises machine names. 
 
@@ -46,7 +45,7 @@ Before you can setup DNS forwarding to Azure Files, you need to have completed t
 
 - A storage account containing an Azure file share you would like to mount. To learn how to create a storage account and an Azure file share, see [Create an Azure file share](storage-how-to-create-file-share.md).
 - A private endpoint for the storage account. To learn how to create a private endpoint for Azure Files, see [Create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint).
-- The [latest version](/powershell/azure/install-az-ps) of the Azure PowerShell module.
+- The [latest version](/powershell/azure/install-azure-powershell) of the Azure PowerShell module.
 
 > [!Important]  
 > This guide assumes you're using the DNS server within Windows Server in your on-premises environment. All of the steps described in this guide are possible with any DNS server, not just the Windows DNS Server.

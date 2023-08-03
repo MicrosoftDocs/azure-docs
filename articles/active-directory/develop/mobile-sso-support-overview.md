@@ -1,17 +1,16 @@
 ---
-title: Support single sign-on and app protection policies in mobile apps you develop | Azure
-titleSuffix: Microsoft identity platform
+title: Support single sign-on and app protection policies in mobile apps you develop
 description: Explanation and overview of building mobile applications that support single sign-on and app protection policies using the Microsoft identity platform and integrating with Azure Active Directory. 
 services: active-directory
-author: knicholasa
-manager: CelesteDG
-
+manager: henrymbuguakiarie
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
-ms.author: nichola
+author: janicericketts
+ms.author: henrymbugua
+ms.reviewer: janicericketts
 ms.custom: has-adal-ref
 
 #Customer intent: As an app developer, I want to know how to implement an app that supports single sign-on and app protection policies using the Microsoft identity platform and integrating with Azure Active Directory.
@@ -29,7 +28,7 @@ This article explains why SSO and APP are important and provides the high-level 
 
 [Single sign-on (SSO)](../manage-apps/plan-sso-deployment.md) allows a user to sign in once and get access to other applications without re-entering credentials. This makes accessing apps easier and eliminates the need for users to remember long lists of usernames and passwords. Implementing it in your app makes accessing and using your app easier.
 
-In addition, enabling single sign-on in your app unlocks new authentication mechanisms that come with modern authentication, like [passwordless logins](../authentication/concept-authentication-passwordless.md). Usernames and passwords are one of the most popular attack vectors against applications, and enabling SSO allows you to mitigate this risk by enforcing conditional access or passwordless logins that add additional security or rely on more secure authentication mechanisms. Finally, enabling single sign-on also enables [single sign-out](v2-protocols-oidc.md#single-sign-out). This is useful in situations like work applications that will be used on shared devices.
+In addition, enabling single sign-on in your app unlocks new authentication mechanisms that come with modern authentication, like [passwordless logins](../authentication/concept-authentication-passwordless.md). Usernames and passwords are one of the most popular attack vectors against applications, and enabling SSO allows you to mitigate this risk by enforcing Conditional Access or passwordless logins that add additional security or rely on more secure authentication mechanisms. Finally, enabling single sign-on also enables [single sign-out](v2-protocols-oidc.md#single-sign-out). This is useful in situations like work applications that will be used on shared devices.
 
 [App protection policies (APP)](/mem/intune/apps/app-protection-policy) ensure that an organization's data remains safe and contained. They allow companies to manage and protect their data within an app and allow control over who can access the app and its data. Implementing app protection policies enables your app to connect users to resources protected by Conditional Access policies and securely transfer data to and from other protected apps. Scenarios unlocked by app protection policies include requiring a PIN to open an app, controlling the sharing of data between apps, and preventing company app data from being saved to personal storage locations.
 
@@ -44,7 +43,7 @@ The best choice for implementing single sign-on in your application is to use [t
 > [!NOTE]
 > It is possible to configure MSAL to use an embedded web view. This will prevent single sign-on. Use the default behavior (that is, the system web browser) to ensure that SSO will work.
 
-If you're currently using the [ADAL library](../azuread-dev/active-directory-authentication-libraries.md) in your application, then we highly recommend that you [migrate it to MSAL](msal-migration.md), as [ADAL is being deprecated](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/update-your-applications-to-use-microsoft-authentication-library/ba-p/1257363).
+Azure Active Directory Authentication Library (ADAL) has been deprecated. Please use the [Microsoft Authentication Library (MSAL)](/entra/msal/). If you have existing applications that use ADAL, be sure to [migrate them to MSAL](..\develop\msal-migration.md).
 
 For iOS applications, we have a [quickstart](quickstart-v2-ios.md) that shows you how to set up sign-ins using MSAL, as well as [guidance for configuring MSAL for various SSO scenarios](single-sign-on-macos-ios.md).
 

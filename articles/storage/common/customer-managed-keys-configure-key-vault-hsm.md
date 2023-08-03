@@ -5,13 +5,13 @@ description: Learn how to configure Azure Storage encryption with customer-manag
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 05/05/2022
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.subservice: storage-common-concepts
+ms.custom: devx-track-azurecli
 ---
 
 # Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM
@@ -27,7 +27,7 @@ This article shows how to configure encryption with customer-managed keys stored
 
 First, assign a system-assigned managed identity to the storage account. You'll use this managed identity to grant the storage account permissions to access the managed HSM. For more information about system-assigned managed identities, see [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
 
-To assign a managed identity using Azure CLI, call [az storage account update](/cli/azure/storage/account#az_storage_account_update). Remember to replace the placeholder values in brackets with your own values:
+To assign a managed identity using Azure CLI, call [az storage account update](/cli/azure/storage/account#az-storage-account-update). Remember to replace the placeholder values in brackets with your own values:
 
 ```azurecli
 az storage account update \
@@ -40,7 +40,7 @@ az storage account update \
 
 Next, assign the **Managed HSM Crypto Service Encryption User** role to the storage account's managed identity so that the storage account has permissions to the managed HSM. Microsoft recommends that you scope the role assignment to the level of the individual key in order to grant the fewest possible privileges to the managed identity.
 
-To create the role assignment for storage account, call [az key vault role assignment create](/cli/azure/role/assignment#az_role_assignment_create). Remember to replace the placeholder values in brackets with your own values.
+To create the role assignment for storage account, call [az key vault role assignment create](/cli/azure/role/assignment#az-role-assignment-create). Remember to replace the placeholder values in brackets with your own values.
 
 ```azurecli
 storage_account_principal = $(az storage account show \
@@ -62,7 +62,9 @@ Finally, configure Azure Storage encryption with customer-managed keys to use a 
 
 Install Azure CLI 2.12.0 or later to configure encryption to use a customer-managed key in a managed HSM. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-To automatically update the key version for a customer-managed key, omit the key version when you configure encryption with customer-managed keys for the storage account. Call [az storage account update](/cli/azure/storage/account#az_storage_account_update) to update the storage account's encryption settings, as shown in the following example. Include the `--encryption-key-source parameter` and set it to `Microsoft.Keyvault` to enable customer-managed keys for the account. Remember to replace the placeholder values in brackets with your own values.
+To automatically update the key version for a customer-managed key, omit the key version when you configure encryption with customer-managed keys for the storage account. For more information about configuring encryption for automatic key rotation, see [Update the key version](customer-managed-keys-overview.md#update-the-key-version).
+
+Next, call [az storage account update](/cli/azure/storage/account#az-storage-account-update) to update the storage account's encryption settings, as shown in the following example. Include the `--encryption-key-source parameter` and set it to `Microsoft.Keyvault` to enable customer-managed keys for the account. Remember to replace the placeholder values in brackets with your own values.
 
 ```azurecli
 hsmurl = $(az keyvault show \
@@ -90,7 +92,7 @@ az storage account update
     --encryption-key-vault $hsmurl
 ```
 
-When you manually update the key version, you'll need to update the storage account's encryption settings to use the new version. First, query for the key vault URI by calling [az keyvault show](/cli/azure/keyvault#az_keyvault_show), and for the key version by calling [az keyvault key list-versions](/cli/azure/keyvault/key#az_keyvault_key_list_versions). Then call [az storage account update](/cli/azure/storage/account#az_storage_account_update) to update the storage account's encryption settings to use the new version of the key, as shown in the previous example.
+When you manually update the key version, you'll need to update the storage account's encryption settings to use the new version. First, query for the key vault URI by calling [az keyvault show](/cli/azure/keyvault#az-keyvault-show), and for the key version by calling [az keyvault key list-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Then call [az storage account update](/cli/azure/storage/account#az-storage-account-update) to update the storage account's encryption settings to use the new version of the key, as shown in the previous example.
 
 ## Next steps
 

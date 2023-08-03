@@ -1,14 +1,13 @@
 ---
 title: Build integrated solutions
 description: Solution tools and partners that integrate with a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
-author: mlee3gsd 
+author: WilliamDAssafMSFT  
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 04/17/2018
-ms.author: martinle
-ms.reviewer: igorstan
+ms.author: wiassaf
 ms.custom: seo-lt-2019
 ---
 
@@ -39,7 +38,7 @@ Azure Data Factory gives users a managed platform to create complex extract and 
 * **Stored Procedures**: Orchestrate the execution of stored procedures.
 * **Copy**: Use ADF to move data into dedicated SQL pool (formerly SQL DW). This operation can use ADF's standard data movement mechanism or PolyBase under the covers.
 
-For more information, see [Integrate with Azure Data Factory](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+For more information, see [Integrate with Azure Data Factory](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json).
 
 ## Azure Machine Learning
 

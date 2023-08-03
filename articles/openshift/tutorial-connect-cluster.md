@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Connect to an Azure Red Hat OpenShift 4 cluster
 description: Learn how to connect a Microsoft Azure Red Hat OpenShift cluster
-author: sakthi-vetrivel
-ms.author: suvetriv
+author: johnmarco
+ms.author: johnmarc
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 04/24/2020
@@ -61,7 +61,7 @@ Once you're logged into the OpenShift Web Console, click on the **?** on the top
 
 ![Screenshot that highlights the Command Line Tools option in the list when you select the ? icon.](media/aro4-download-cli.png)
 
-You can also download the latest release of the CLI appropriate to your machine from <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/>.
+You can also download the [latest release of the CLI](https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/) appropriate to your machine.
 
 If you're running the commands on the Azure Cloud Shell, download the latest OpenShift 4 CLI for Linux.
 

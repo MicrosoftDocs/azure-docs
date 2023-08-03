@@ -1,18 +1,16 @@
 ---
-title:  Using DICOMweb Standard APIs with Python - Azure Healthcare APIs 
+title:  Using DICOMweb Standard APIs with Python - Azure Health Data Services
 description: This tutorial describes how to use DICOMweb Standard APIs with Python. 
-author: stevewohl
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: devx-track-python
 ms.topic: tutorial
-ms.date: 07/16/2021
-ms.author: aersoy
+ms.date: 02/15/2022
+ms.author: mmitrik
 ---
 
 # Using DICOMWeb&trade; Standard APIs with Python
-
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 This tutorial uses Python to demonstrate working with the DICOM Service.
 
@@ -40,16 +38,16 @@ To use the DICOMWeb&trade; Standard APIs, you must have an instance of the DICOM
 
 After you've deployed an instance of the DICOM service, retrieve the URL for your App service:
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search **Recent resources** and select your DICOM service instance.
 1. Copy the **Service URL** of your DICOM service. 
 2. If you haven't already obtained a token, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md). 
 
-For this code, we'll be accessing an Public Preview Azure service. It is important that you don't upload any private health information (PHI).
+For this code, we'll be accessing a Public Preview Azure service. It's important that you don't upload any private health information (PHI).
 
 ## Working with the DICOM service
 
-The DICOMweb&trade; Standard makes heavy use of `multipart/related` HTTP requests combined with DICOM specific accept headers. Developers familiar with other REST-based APIs often find working with the DICOMweb&trade; standard awkward. However, once you have it up and running, it's easy to use. It just takes a little familiarity to get started.
+The DICOMweb&trade; Standard makes heavy use of `multipart/related` HTTP requests combined with DICOM specific accept headers. Developers familiar with other REST-based APIs often find working with the DICOMweb&trade; standard awkward. However, once you've it up and running, it's easy to use. It just takes a little familiarity to get started.
 
 ### Import the appropriate Python libraries
 
@@ -69,7 +67,7 @@ from azure.identity import DefaultAzureCredential
 
 ### Configure user-defined variables to be used throughout
 
-Replace all variable values wrapped in { } with your own values. Additionally, validate that any constructed variables are correct.  For instance, `base_url` is constructed using the Service URL and then appended with the version of the REST API being used. The Service URL of your DICOM service will be: ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. You can use the Azure Portal to navigate to the DICOM service and obtain your Service URL. You can also visit the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md) for more information on versioning. If you're using a custom URL, you'll need to override that value with your own.
+Replace all variable values wrapped in { } with your own values. Additionally, validate that any constructed variables are correct.  For instance, `base_url` is constructed using the Service URL and then appended with the version of the REST API being used. The Service URL of your DICOM service will be: ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. You can use the Azure portal to navigate to the DICOM service and obtain your Service URL. You can also visit the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md) for more information on versioning. If you're using a custom URL, you'll need to override that value with your own.
 
 ```python
 dicom_service_name = "{server-name}"
@@ -84,7 +82,7 @@ instance_uid = "1.2.826.0.1.3680043.8.498.47359123102728459884412887463296905395
 
 ### Authenticate to Azure and get a token
 
-`DefaultAzureCredential` allows us to get a variety of ways to get tokens to log into the service. We will use the `AzureCliCredential` to get a token to log into the service. There are other credential providers such as `ManagedIdentityCredential` and `EnvironmentCredential` that are also possible to use. In order to use the AzureCliCredential, you must have logged into Azure from the CLI prior to running this code. (See [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md) for more information.) Alternatively, you can simply copy and paste the token retrieved while logging in from the CLI.
+`DefaultAzureCredential` allows us to get a variety of ways to get tokens to log into the service. We'll use the `AzureCliCredential` to get a token to log into the service. There are other credential providers such as `ManagedIdentityCredential` and `EnvironmentCredential` that are also possible to use. In order to use the AzureCliCredential, you must have logged into Azure from the CLI prior to running this code. (For more information, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md).) Alternatively, you can simply copy and paste the token retrieved while logging in from the CLI.
 
 > [!NOTE]
 > `DefaultAzureCredential` returns several different Credential objects. We reference the `AzureCliCredential` as the 5th item in the returned collection. This may not be consistent. If so, uncomment the `print(credential.credential)` line. This will list all the items. Find the correct index, recalling that Python uses zero-based indexing.
@@ -103,7 +101,7 @@ bearer_token = f'Bearer {token.token}'
 
 ### Create supporting methods to support `multipart\related`
 
-The `Requests` libraries (and most Python libraries) do not work with `multipart\related` in a way that supports DICOMweb&trade;. Because of these libraries, we must add a few methods to support working with DICOM files.
+The `Requests` libraries (and most Python libraries) don't work with `multipart\related` in a way that supports DICOMweb&trade;. Because of these libraries, we must add a few methods to support working with DICOM files.
 
 `encode_multipart_related` takes a set of fields (in the DICOM case, these libraries are generally Part 10 dam files) and an optional user-defined boundary. It returns both the full body, along with the content_type, which it can be used.
 
@@ -187,7 +185,7 @@ response = client.post(url, body, headers=headers, verify=False)
 
 This example demonstrates how to upload multiple DICOM files into the specified study. It uses a bit of a Python to pre-load the DICOM file (as bytes) into memory.  
 
-By passing an array of files to the fields parameter of `encode_multipart_related`, multiple files can be uploaded in a single POST. It is sometimes used to upload a complete series or study. 
+By passing an array of files to the fields parameter of `encode_multipart_related`, multiple files can be uploaded in a single POST. It's sometimes used to upload a complete series or study. 
 
 _Details:_
 * Path: ../studies/{study}
@@ -224,7 +222,7 @@ response = client.post(url, body, headers=headers, verify=False)
 ```
 ### Store single instance (non-standard)
 
-The following code example demonstrates how to upload a single DICOM file. It is a non-standard API endpoint that simplifies uploading a single file as binary bytes sent in the body of a request
+The following code example demonstrates how to upload a single DICOM file. It's a non-standard API endpoint that simplifies uploading a single file as binary bytes sent in the body of a request
 
 _Details:_
 * Path: ../studies
@@ -422,7 +420,7 @@ response = client.get(url, headers=headers) #, verify=False)
 
 In the following examples, we search for items using their unique identifiers. You can also search for other attributes, such as PatientName.
 
-Refer to the [DICOM Conformance Statement](dicom-services-conformance-statement.md#supported-search-parameters) document for supported DICOM attributes.
+Refer to the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md#supported-search-parameters) document for supported DICOM attributes.
 
 ### Search for studies
 
@@ -585,7 +583,7 @@ _Details:_
 * Headers:
    * Authorization: Bearer $token
 
-This code example deletes the green-square instance (it's the only element left in the series) from the server. If it's successful, the response status code won't content.
+This code example deletes the green-square instance (it's the only element left in the series) from the server. If it's successful, the response status code won't delete content.
 
 ```python
 headers = {"Authorization":bearer_token}

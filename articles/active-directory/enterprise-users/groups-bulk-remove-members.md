@@ -1,10 +1,10 @@
 ---
-title: Bulk remove group members by uploading a CSV file - Azure Active Directory | Microsoft Docs
+title: Bulk remove group members by uploading a CSV file
 description: Remove group members in bulk operations in the Azure admin center. 
 services: active-directory 
-author: curtand
-ms.author: curtand
-manager: karenhoran
+author: barclayn
+ms.author: barclayn
+manager: amycolannino
 ms.date: 09/22/2021
 ms.topic: how-to
 ms.service: active-directory
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Bulk remove group members in Azure Active Directory
 
-Using Azure Active Directory (Azure AD) portal, you can remove a large number of members from a group by using a comma-separated values (CSV) file to bulk remove group members.
+You can remove a large number of members from a group by using a comma-separated values (CSV) file to remove group members in bulk using the portal for Azure Active Directory (Azure AD), part of Microsoft Entra.
 
 ## Understand the CSV template
 
@@ -42,7 +42,9 @@ The rows in a downloaded CSV template are as follows:
 
 ## To bulk remove group members
 
-1. Sign in to [the Azure portal](https://portal.azure.com) with a User administrator account in the organization. Group owners can also bulk remove members of groups they own.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with a User administrator account in the organization. Group owners can also bulk remove members of groups they own.
 1. In Azure AD, select **Groups** > **All groups**.
 1. Open the group from which you're removing members and then select **Members**.
 1. On the **Members** page, select **Remove members**.

@@ -1,12 +1,13 @@
 ---
 title: Create a Service Fabric cluster using Azure Resource Manager template
 description: In this quickstart, you will create an Azure Service Fabric test cluster by using Azure Resource Manager template.
-author: erikadoyle
-ms.author: edoyle
-ms.date: 05/10/2021
 ms.topic: quickstart
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.custom: devx-track-arm-template
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Quickstart: Create a Service Fabric cluster using ARM template
@@ -31,7 +32,7 @@ To complete this quickstart, you'll need to:
 
 * Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md).
 
-* Install [Azure PowerShell](/powershell/azure/install-az-ps).
+* Install [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ### Download the sample template and certificate helper script
 

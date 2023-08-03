@@ -2,7 +2,7 @@
 title: Availability and consistency - Azure Event Hubs | Microsoft Docs
 description: How to provide the maximum amount of availability and consistency with Azure Event Hubs using partitions.
 ms.topic: article
-ms.date: 03/15/2021
+ms.date: 03/13/2023
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp
 ---
@@ -13,7 +13,7 @@ This article provides information about availability and consistency supported b
 ## Availability
 Azure Event Hubs spreads the risk of catastrophic failures of individual machines or even complete racks across clusters that span multiple failure domains within a datacenter. It implements transparent failure detection and failover mechanisms such that the service will continue to operate within the assured service-levels and typically without noticeable interruptions when such failures occur. 
 
-If an Event Hubs namespace has been created with [availability zones](../availability-zones/az-overview.md) enabled, the outage risk is further spread across three physically separated facilities, and the service has enough capacity reserves to instantly cope up with the complete, catastrophic loss of the entire facility. For more information, see [Azure Event Hubs - Geo-disaster recovery](event-hubs-geo-dr.md).
+If an Event Hubs namespace is created in a region with [availability zones](../availability-zones/az-overview.md), the outage risk is further spread across three physically separated facilities, and the service has enough capacity reserves to instantly cope up with the complete, catastrophic loss of the entire facility. For more information, see [Azure Event Hubs - Geo-disaster recovery](event-hubs-geo-dr.md).
 
 When a client application sends events to an event hub without specifying a partition, events are automatically distributed among partitions in your event hub. If a partition isn't available for some reason, events are distributed among the remaining partitions. This behavior allows for the greatest amount of up time. For use cases that require the maximum up time, this model is preferred instead of sending events to a specific partition. 
 
@@ -31,7 +31,7 @@ We recommend sending events to an event hub without setting partition informatio
 
 - [Send events using .NET](event-hubs-dotnet-standard-getstarted-send.md)
 - [Send events using Java](event-hubs-java-get-started-send.md)
-- [Send events using JavaScript](event-hubs-python-get-started-send.md)
+- [Send events using JavaScript](event-hubs-node-get-started-send.md)
 - [Send events using Python](event-hubs-python-get-started-send.md)
 
 

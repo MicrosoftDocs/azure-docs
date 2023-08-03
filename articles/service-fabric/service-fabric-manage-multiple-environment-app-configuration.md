@@ -2,8 +2,13 @@
 title: Manage apps for multiple environments
 description: Azure Service Fabric applications can be run on clusters that range in size from one machine to thousands of machines. In some cases, you will want to configure your application differently for those varied environments. This article covers how to define different application parameters per environment.
 ms.topic: conceptual
-ms.date: 02/23/2018
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Manage applications for multiple environments
 
 Azure Service Fabric clusters enable you to create clusters using anywhere from one to many thousands machines. In most cases, you find yourself having to deploy your application across multiple cluster configurations: your local development cluster, a shared development cluster and your production cluster. All of these clusters are considered different environments your code has to run in. Application binaries can run without modification across this wide spectrum, but you often want to configure the application differently.

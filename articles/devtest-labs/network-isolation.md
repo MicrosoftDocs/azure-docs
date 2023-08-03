@@ -1,96 +1,144 @@
 ---
 title: Network isolation
-description: Learn about  network isolation in Azure DevTest Labs.
+description: Learn how to enable and configure network isolation for labs in Azure DevTest Labs.
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.author: rosemalcolm
+author: RoseHJM
+ms.custom: UpdateFrequency2
+ms.date: 06/30/2023
 ---
 
-# Network isolation in DevTest Labs
+# Network isolation in Azure DevTest Labs
 
-An [Azure virtual network](../virtual-network/virtual-networks-overview.md) acts as a security boundary, isolating your Azure resources from the public internet. You can also join an Azure virtual network to your on-premises network to securely connect to your on-premises resources. In DevTest Labs, you can choose to [isolate all lab virtual machines](devtest-lab-configure-vnet.md) and [environments to your network](connect-environment-lab-virtual-network.md) to ensure lab resources follow organizational networking policies. 
+This article walks you through creating a network-isolated lab in Azure DevTest Labs.
 
-As a lab owner, you can also choose to completely isolate the lab. You isolate virtual machines and environments to the selected network. You can also isolate lab storage account and key vaults you created in your subscription. This article walks you through creating a network isolated lab. 
+By default, Azure DevTest Labs creates a new [Azure virtual network](../virtual-network/virtual-networks-overview.md) for each lab. The virtual network acts as a security boundary to isolate lab resources from the public internet. To ensure lab resources follow organizational networking policies, you can use several other networking options:
 
-Also review the following articles:
+- Isolate all lab [virtual machines (VMs)](devtest-lab-configure-vnet.md) and [environments](connect-environment-lab-virtual-network.md) in a pre-existing virtual network that you select.
+- Join an Azure virtual network to an on-premises network, to securely connect to on-premises resources. For more information, see [DevTest Labs enterprise reference architecture: Connectivity components](devtest-lab-reference-architecture.md#connectivity-components).
+- Completely isolate the lab, including VMs, environments, the lab storage account, and key vaults, to a selected virtual network. This article describes how to configure network isolation.
 
-- [How DevTest Labs uses lab storage account](encrypt-storage.md)
-- [How DevTest Labs uses key vaults](devtest-lab-store-secrets-in-key-vault.md)
- 
-> [!NOTE]
-> Network isolation is currently supported for new labs creations only.
+## Enable network isolation
 
-## Steps to enable network isolation during lab creation
+You can enable network isolation in the Azure portal only during lab creation. To convert an existing lab and associated lab resources to isolated network mode, use the PowerShell script [Convert-DtlLabToIsolatedNetwork.ps1](https://github.com/Azure/azure-devtestlab/blob/master/Tools/ConvertDtlLabToIsolatedNetwork/Convert-DtlLabToIsolatedNetwork.ps1).
 
-1. During lab creation, go to the **Networking** tab.
-1. You can either select a **Default** network that the lab will create for you or select an existing network from the drop-down. You'll only be able to select networks that are in the same region and subscription as the lab. 
+During lab creation, you can enable network isolation for the default lab virtual network, or choose another, pre-existing virtual network to use for the lab.
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot that shows creating a lab.](./media/network-isolation/create-lab.png)
+### Use the default virtual network and subnet
+
+To enable network isolation for the **Default** virtual network and subnet that DevTest Labs creates for the lab:
+
+1. During [lab creation](devtest-lab-create-lab.md), on the **Create DevTest Lab** screen, select the **Networking** tab.
+1. Next to **Isolate lab resources**, select **Yes**.
+1. Finish creating the lab.
+
+   :::image type="content" source="./media/network-isolation/isolate-lab-resources.png" alt-text="Screenshot that shows enabling network isolation for the default network.":::
+
+After you create the lab, no further action is needed. The lab handles isolating resources from now on.
+
+### Use a different virtual network and subnet
+
+To use a different, existing virtual network for the lab, and enable network isolation for that network:
+
+1. During [lab creation](devtest-lab-create-lab.md), on the **Networking** tab of the **Create DevTest Lab** screen, select a network from the dropdown list. The list only shows networks in the same region and subscription as the lab.
+
+   :::image type="content" source="./media/network-isolation/create-lab.png" alt-text="Screenshot that shows selecting a virtual network.":::   
+
 1. Select a subnet.
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot that shows creating a subnet.](./media/network-isolation/create-lab-subnet.png)
-1. If you choose to isolate the lab storage account and key vault to the default network, no further action is needed. The lab handles isolating resources from now on.
+   :::image type="content" source="./media/network-isolation/create-lab-subnet.png" alt-text="Screenshot that shows selecting a subnet.":::
+
+1. Next to **Isolate lab resources**, select **Yes**.
+
+   :::image type="content" source="./media/network-isolation/isolate-my-vnet.png" alt-text="Screenshot that shows enabling network isolation for a selected network.":::
+
+1. Finish creating the lab.
+
+<a name="steps-to-follow-post-lab-creation"></a>
+## Configure service endpoints
+
+If you enabled network isolation for a virtual network other than the default, complete the following steps to isolate the lab storage account and key vault to the network you selected. Do these steps after you create the lab, but before you do any other lab configuration or create any lab resources.
+
+### Configure the endpoint for the lab storage account
+
+1. On the lab's **Overview** page, select the **resource group**. 
+
+   ![Screenshot that shows selecting the resource group for a lab.](./media/network-isolation/contoso-lab.png)
+
+1. On the resource group **Overview** page, select the lab's storage account. The naming convention for the lab storage account is `a\<labName>\<4-digit number>`. For example, if the lab name is `contosolab`, the storage account name could be `acontosolab1234`.
+
+   ![Screenshot that shows selecting the lab storage account.](./media/network-isolation/contoso-test.png)
+
+1. On the storage account page, select **Networking** from the left navigation. On the **Firewalls and virtual networks** tab, ensure that **Allow Azure services on the trusted services list to access this storage account.** is selected.
  
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot that shows network isolation.](./media/network-isolation/isolate-lab-resources.png)
-1. If you choose to isolate the lab storage account and key vault to an existing network you selected, complete the following steps after lab creation. These steps ensure that the lab continues to function in the isolated mode. 
+     :::image type="content" source="./media/network-isolation/allow-trusted-services.png" alt-text="Screenshot that shows allowing trusted services access to a resource group.":::
+
+   DevTest Labs is a [trusted Microsoft service](../storage/common/storage-network-security.md#trusted-microsoft-services), so selecting this option lets the lab operate normally in a network isolated mode.
+
+1. Select **Add existing virtual network**.
+
+     :::image type="content" source="./media/network-isolation/add-existing-virtual-network.png" alt-text="Screenshot that shows the resource group networking pane with add existing virtual network highlighted.":::
+
+1. On the **Add networks** pane, select the virtual network and subnet you chose when you created the lab, and then select **Add**.
+
+      :::image type="content" source="./media/network-isolation/add-network-pane.png" alt-text="Screenshot that shows the add network pane with virtual networks, subnets, and Add highlighted.":::
+
+1. On the **Networking** page, select **Save**.
  
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot that shows isolating resources.](./media/network-isolation/isolate-my-vnet.png)
 
-    > [!IMPORTANT]
-    > The lab owner needs to complete these steps prior to configuring or creating any resources in the lab.
+Azure Storage now allows inbound connections from the added virtual network, which enables the lab to operate successfully in a network isolated mode.
 
-### Steps to follow post lab creation
+You can automate these steps with PowerShell or Azure CLI to configure network isolation for multiple labs. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
 
-1. On the home page for the lab, select the **resource group** on the **Overview** page. You should see the **Resource group** page for the resource group that contains the lab. 
+### Configure the endpoint for the lab key vault
+
+1. On the lab's **Overview** page, select the **resource group**. 
+
+1. On the resource group **Overview** page, select the lab's key vault.
+
+   :::image type="content" source="./media/network-isolation/key-vault.png" alt-text="Screenshot that shows selecting the lab's key vault.":::
+
+1. On the key vault page, select **Networking** from the left navigation. On the **Firewalls and virtual networks** tab, ensure that **Allow trusted Microsoft services to bypass this firewall** is selected.
+
+   :::image type="content" source="./media/network-isolation/key-vault-allow-access.png" alt-text="Screenshot that shows allowing trusted services access to a key vault.":::
+
+1. Select **Add existing virtual networks**.
  
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot that shows Contoso lab.](./media/network-isolation/contoso-lab.png)
-1. Select the Azure storage account of the lab. The naming convention for the lab storage account is: a\<*labNameWithoutInvalidCharacters*>\<*4-digit number*>. For example, if the lab name is contosolab, the storage account name could be acontosolab1234.
+    :::image type="content" source="./media/network-isolation/networking-key-vault.png" alt-text="Screenshot that shows the key vault networking pane with add existing virtual network highlighted.":::
+
+1. On the **Add networks** pane, select the virtual network and subnet you chose when you created the lab, and then select **Enable**.
  
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot that shows Contoso test.](./media/network-isolation/contoso-test.png)
-1. On the storage account, go to Firewalls and virtual networks and ensure ‘Allow trusted Microsoft Services to access this storage account’ check box is checked. As [DevTest Labs is a trusted Microsoft service](../storage/common/storage-network-security.md#trusted-microsoft-services), this option will enable the lab to operate normally in a network isolated mode. 
+    :::image type="content" source="./media/network-isolation/key-vault-enable-network.png" alt-text="Screenshot that shows enabling a virtual network and subnet in a key vault.":::
 
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot that shows Contoso lab firewalls.](./media/network-isolation/contoso-lab-firewalls-vnets.png)
-1. Next, click on **+Add existing virtual network**, select the virtual network and subnet you picked while creating the lab and click on **Enable**. 
-
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot that shows Contoso my vnet.](./media/network-isolation/contoso-lab-my-vnet.png)
-5.	Once the service endpoint is successfully enabled for the selected virtual network, click on **Add**. 
-
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot that shows Add.](./media/network-isolation/contoso-firewall-add.png)
+1. Once the service endpoint is successfully enabled, select **Add**.
  
-With this, Azure storage will allow inbound connections from the added virtual network and enable the lab to operate successfully in a network isolated mode. 
+    :::image type="content" source="./media/network-isolation/key-vault-add-network.png" alt-text="Screenshot that shows adding a virtual network and subnet in a key vault.":::
+1. On the **Networking** page, select **Save**.
 
-You can also choose to automate these steps to configure this setting for multiple labs. 
+## Considerations
 
-[Learn more on managing default network access rules for Azure Storage using PowerShell and CLI](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#powershell)
+Here are some things to remember when using a lab in a network isolated mode:
 
-## Network isolation for an existing lab
+### Enable access to the storage account from outside the lab
 
-As a lab owner, you can choose to isolate the network for an existing lab. [This sample script](https://github.com/Azure/azure-devtestlab/blob/master/Tools/ConvertDtlLabToIsolatedNetwork/Convert-DtlLabToIsolatedNetwork.ps1) demonstrates how to convert an existing lab and associated lab resources to an isolated network mode. 
+The lab owner must explicitly enable access to a network isolated lab's storage account from an allowed endpoint. Actions like uploading a VHD to the storage account for creating custom images require this access. You can enable access by creating a lab VM, and securely accessing the lab's storage account from that VM.
 
-## Things to remember while using a lab in a network isolated mode
+For more information, see [Connect to a storage account using an Azure Private Endpoint](../private-link/tutorial-private-endpoint-storage-portal.md).
 
-### Accessing lab's storage account outside the lab 
+### Provide storage account to export lab usage data
 
-The lab owner must explicitly enable accessing a network isolated lab's storage account from an allowed endpoint. This access is needed for actions like uploading a VHD to the storage account for creating custom images. You can enable access by creating a virtual machine and securely accessing the lab’s storage account from that virtual machine. 
+To [export usage data](personal-data-delete-export.md) for a network isolated lab, the lab owner must explicitly provide a storage account and generate a blob within the account to store the data. Exporting usage data fails in network isolated mode if the user doesn't explicitly provide the storage account to use.
 
-[Learn more on accessing a storage account privately from a virtual machine](../private-link/tutorial-private-endpoint-storage-portal.md)
+For more information, see [Export or delete personal data from Azure DevTest Labs](personal-data-delete-export.md).
 
-### Exporting usage data from the lab 
+### Set key vault access policies
 
-To [export personal usage data for a network isolated lab](personal-data-delete-export.md), the lab owner must explicitly provide a storage account and generate a blob within the account to store the data. 
+Enabling the key vault service endpoint affects only the firewall. Make sure to configure the appropriate key vault access permissions in the key vault **Access policies** section.
 
-If no lab storage account is provided, this operation will fail in the network isolated mode. The lab’s storage account isn't accessible for the lab to use if the customer provides no storage account. 
-
-[Learn more on exporting lab usage data in a specified storage account](personal-data-delete-export.md#azure-powershell)
+For more information, see [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md).
 
 ## Next steps
 
-[Create or modify labs automatically using Azure Resource Manager templates and PowerShell](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
+- [Azure Resource Manager (ARM) templates in Azure DevTest Labs](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
+- [Manage Azure DevTest Labs storage accounts](encrypt-storage.md)
+- [Store secrets in a key vault in Azure DevTest Labs](devtest-lab-store-secrets-in-key-vault.md)

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/10/2021
+ms.date: 03/10/2023
 ms.author: jeedes
 
 ---
@@ -50,6 +50,8 @@ To configure the integration of Mural Identity into Azure AD, you need to add Mu
 1. In the **Add from the gallery** section, type **Mural Identity** in the search box.
 1. Select **Mural Identity** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Mural Identity
 
 Configure and test Azure AD SSO with Mural Identity using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Mural Identity.
@@ -75,25 +77,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
-1. On the **Basic SAML Configuration** section, perform the following steps if you wish to configure the application in **SP** initiated mode:
-
-    a. In the **Identifier** text box, type the URL:
-    `https://app.mural.co`
-
-    b. In the **Reply URL** text box, type one of the following URLs:
-    
-    | **Reply URL** |
-    |-------|
-    | `https://api.mural.co/api/v0/authenticate/saml2/callback` | 
-    | `https://app.mural.co/api/v0/authenticate/saml2/callback` |
-
-    c. In the **Sign-on URL** text box, type one of the following URLs:
-
-    | **Sign-on URL** |
-    |--------|
-    | `https://api.mural.co/api/v0/authenticate/saml2/callback` | 
-    | `https://app.mural.co/api/v0/authenticate/saml2/callback` |
-
 1. Mural Identity application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
 	![image](common/default-attributes.png)
@@ -103,10 +86,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| Name | Source Attribute|
 	| -------- | --------- |
 	| email | user.userprincipalname |
+    | FirstName | user.givenname |
+    | LastName | user.surname |
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (PEM)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+   ![The Certificate download link](common/certificate-base64-download.png)
 
 1. On the **Set up Mural Identity** section, copy the appropriate URL(s) based on your requirement.
 
@@ -138,7 +123,34 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Mural Identity SSO
 
-To configure single sign-on on **Mural Identity** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Mural Identity support team](mailto:support@mural.co). They set this setting to have the SAML SSO connection set properly on both sides.
+1. Log in to the Mural Identity website as an administrator.
+
+1. Click your **name** in the bottom left corner of the dashboard and select **Company dashboard** from the list of options.
+
+1. Click **SSO** in the left sidebar and perform the below steps.
+
+    ![Screenshot of showing the configuration for MURAL.](./media/mural-identity-tutorial/settings.png)
+
+a. Download the **MURAL's metadata**.
+
+b. In the **Sign in URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
+
+c. In the **Sign in certificate**, upload the **Certificate (PEM)**, which you have downloaded from the Azure portal. 
+
+d. Select **HTTP-POST** as the Request binding type and select **SHA256** as the Sign-in algorithm type.
+
+e. In the **Claim mapping** section, fill the following fields. 
+
+* Email address: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+
+* First name: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+
+* Last name: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+
+f. Click **Test single sign-on** to test the configuration and **Save** it.
+
+> [!NOTE]
+> For more information on how to configure the SSO at MURAL, please follow [this](https://support.mural.co/s/article/configure-sso-with-mural-and-azure-ad) support page.
 
 ### Create Mural Identity test user
 
@@ -152,13 +164,17 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal. This will redirect to Mural Identity Sign on URL where you can initiate the login flow.  
 
-* Go to Mural Identity Sign-on URL directly and initiate the login flow from there.
+* Go to Mural Identity Sign on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Mural Identity for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Mural Identity tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Mural Identity for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Mural Identity tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Mural Identity for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+
+## Change log
+
+* 03/21/2022 - Application Name updated.
 
 ## Next steps
 

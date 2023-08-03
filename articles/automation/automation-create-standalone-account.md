@@ -50,7 +50,7 @@ The following table describes the fields on the **Basics** tab.
 
 The following image shows a standard configuration for a new Automation account.
 
-:::image type="content" source="./media/automation-create-standalone-account/create-account-basics.png" alt-text="Required fields for creating the Automation account on Basics tab":::
+:::image type="content" source="./media/automation-create-standalone-account/create-account-basics-v2.png" alt-text="Screenshot shows the required fields for creating the Automation account on Basics tab.":::
 
 ### Advanced
 
@@ -69,13 +69,21 @@ You can chose to enable managed identities later, and the Automation account is 
 
 The following image shows a standard configuration for a new Automation account.
 
-:::image type="content" source="./media/automation-create-standalone-account/create-account-advanced.png" alt-text="Required fields for creating the Automation account on Advanced tab":::
+:::image type="content" source="./media/automation-create-standalone-account/create-account-advanced-v2.png" alt-text="Screenshot shows the required fields for creating the Automation account on Advanced tab.":::
 
-### Tags tab
+### Networking
+
+On the **Networking** tab, you can configure connectivity to Automation Account - either publicly via public IP addresses or privately using a [Azure Automation Private Link](./how-to/private-link-security.md). Azure Automation Private Link connects one or more private endpoints (and therefore the virtual networks they are contained in) to your Automation Account resource. 
+
+The following image shows a standard configuration for a new Automation account.
+
+:::image type="content" source="./media/automation-create-standalone-account/create-account-networking-v2.png" alt-text="Screenshot shows the required fields for creating the Automation account on Networking tab.":::
+
+### Tags
 
 On the **Tags** tab, you can specify Resource Manager tags to help organize your Azure resources. For more information, see [Tag resources, resource groups, and subscriptions for logical organization](../azure-resource-manager/management/tag-resources.md).
 
-### Review + create tab
+### Review + create
 
 When you navigate to the **Review + create** tab, Azure runs validation on the Automation account settings that you have chosen. If validation passes, you can proceed to create the Automation account.
 
@@ -87,23 +95,23 @@ Review your new Automation account.
 
 When the Automation account is successfully created, several resources are automatically created for you. After creation, these runbooks can be safely deleted if you do not wish to keep them. The managed identities can be used to authenticate to your account in a runbook, and should be left unless you create another one or do not require them. The Automation access keys are also created during Automation account creation. The following table summarizes resources for the account.
 
-|Resource |Description |
-|------||------|
-|AzureAutomationTutorial Runbook |An example graphical runbook that demonstrates how to authenticate by using a Run As account. The runbook gets all Resource Manager resources. |
-|AzureAutomationTutorialScript |An example PowerShell runbook that demonstrates how to authenticate by using a Run As account. The runbook gets all Resource Manager resources.|
-|AzureAutomationTutorialPython2Runbook |An example Python runbook that demonstrates how to authenticate by using a Run As account. The runbook lists all resource groups present in the subscription.|
+| **Resource**  |**Description** |
+|---|---|
+|AzureAutomationTutorialWithIdentityGraphical |An example graphical runbook that demonstrates how to authenticate by  using the Managed Identity. The runbook gets all Resource Manager resources. |
+|AzureAutomationTutorialWithIdentity|An example PowerShell runbook that demonstrates how to authenticate by  using the Managed Identity. The runbook gets all Resource Manager resources. |
+
 
 > [!NOTE]
 > The tutorial runbooks have not been updated to authenticate using a managed identity. Review the [Using system-assigned identity](enable-managed-identity-for-automation.md#assign-role-to-a-system-assigned-managed-identity) or [Using user-assigned identity](add-user-assigned-identity.md#assign-a-role-to-a-user-assigned-managed-identity) to learn how to grant the managed identity access to resources and configure your runbooks to authenticate using either type of managed identity.
 
 ## Manage Automation account keys
 
-When you create an Automation account, Azure generates two 512-bit automation account access keys for that account. These keys are shared access keys that are used as registration keys for registering [DSC nodes](/azure/automation/automation-dsc-onboarding#use-dsc-metaconfiguration-to-register-hybrid-machines) as well as [Windows](/azure/automation/automation-windows-hrw-install#manual-deployment) and [Linux](/azure/automation/automation-linux-hrw-install#manually-run-powershell-commands) Hybrid runbook workers. These keys are only used while registering DSC nodes and Hybrid workers. Existing machines configured as DSC nodes or hybrid workers won’t be affected after rotation of these keys. 
+When you create an Automation account, Azure generates two 512-bit automation account access keys for that account. These keys are shared access keys that are used as registration keys for registering [DSC nodes](./automation-dsc-onboarding.md#use-dsc-metaconfiguration-to-register-hybrid-machines) as well as [Windows](./automation-windows-hrw-install.md#manual-deployment) and [Linux](./automation-linux-hrw-install.md#manually-run-powershell-commands) Hybrid runbook workers. These keys are only used while registering DSC nodes and Hybrid workers. Existing machines configured as DSC nodes or hybrid workers won’t be affected after rotation of these keys. 
 
 ### View Automation account keys
 
 To view and copy your Automation account access keys, follow these steps:
-1. In the [Azure portal](https://portal.azure.com/), go to your Automation account.
+1. In the [Azure portal](https://portal.azure.com), go to your Automation account.
 1. Under **Account Settings**, select **Keys** to view your Automation account's primary and secondary access keys. 
 You can use any of the two keys to access your Automation account. However, we recommend that you use the first key and reserve the use of second key.
 
@@ -118,7 +126,7 @@ Choose a client
 # [Azure portal](#tab/azureportal)
 
 Follow these steps:
-1. Go to your Automation account in [Azure portal](https://portal.azure.com/).
+1. Go to your Automation account in the [Azure portal](https://portal.azure.com).
 1. Under **Account Settings**, select **Keys**.
 1. Select **Regenerate primary** to regenerate the primary access key for your Automation account.
 1. Select the **Regenerate secondary** to regenerate the secondary access key.

@@ -2,8 +2,8 @@
 title: Run jobs end-to-end using templates
 description: With only CLI commands, you can create a pool, upload input data, create jobs and associated tasks, and download the resulting output data.
 ms.topic: how-to
-ms.date: 12/20/2021
-ms.custom: seodec18, devx-track-azurecli
+ms.date: 05/26/2023
+ms.custom: seodec18, devx-track-azurecli, devx-track-linux
 ---
 # Use Azure Batch CLI templates and file transfer
 
@@ -89,10 +89,10 @@ The following is an example of a template that creates a pool of Linux VMs with 
                 "imageReference": {
                     "publisher": "Canonical",
                     "offer": "UbuntuServer",
-                    "sku": "16.04-LTS",
+                    "sku": "20.04-LTS",
                     "version": "latest"
                 },
-                "nodeAgentSKUId": "batch.node.ubuntu 16.04"
+                "nodeAgentSKUId": "batch.node.ubuntu 20.04"
             },
             "vmSize": "STANDARD_D3_V2",
             "targetDedicatedNodes": "[parameters('nodeCount')]",

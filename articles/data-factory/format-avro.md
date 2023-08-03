@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/18/2021
+ms.date: 07/17/2023
 ms.author: jianleishen
 ---
 
@@ -89,7 +89,7 @@ Supported **Avro write settings** under `formatSettings`:
 
 ## Mapping data flow properties
 
-In mapping data flows, you can read and write to avro format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties), and you can read avro format in [Amazon S3](connector-amazon-simple-storage-service.md#mapping-data-flow-properties).
+In mapping data flows, you can read and write to avro format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) and [SFTP](connector-sftp.md#mapping-data-flow-properties), and you can read avro format in [Amazon S3](connector-amazon-simple-storage-service.md#mapping-data-flow-properties).
 
 ### Source properties
 

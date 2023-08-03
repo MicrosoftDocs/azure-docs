@@ -1,21 +1,22 @@
 ---
 title: Home Realm Discovery policy
-titleSuffix: Azure AD
 description: Learn how to manage Home Realm Discovery policy for Azure Active Directory authentication for federated users, including auto-acceleration and domain hints.
 services: active-directory
-author: nickludwig
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/09/2021
-ms.author: ludwignick
+ms.date: 01/02/2023
+ms.author: jomondi
+ms.reviewer: sreyanth, ludwignick
+ms.custom: enterprise-apps
 
 ---
 # Home Realm Discovery for an application
 
-Home Realm Discovery (HRD) is the process that allows Azure Active directory (Azure AD) to determine which identity provider ("IdP") a user needs to authenticate with at sign-in time.  When a user signs in to an Azure AD tenant to access a resource, or to the Azure AD common sign-in page, they type a user name (UPN). Azure AD uses that to discover where the user needs to sign in.
+Home Realm Discovery (HRD) is the process that allows Azure Active directory (Azure AD) to determine which identity provider (IDP) a user needs to authenticate with at sign-in time.  When a user signs in to an Azure AD tenant to access a resource, or to the Azure AD common sign-in page, they type a user name (UPN). Azure AD uses that to discover where the user needs to sign in.
 
 The user will be taken to one of the following identity providers to be authenticated:
 
@@ -54,13 +55,13 @@ For example, the application "largeapp.com" might enable their customers to acce
 
 Domain hint syntax varies depending on the protocol that's used, and it's typically configured in the application in the following ways:
 
-- For applications that use the**WS-Federation**:  whr=contoso.com in the query string.
+- For applications that use the **WS-Federation**:  `whr` query string parameter. For example, whr=contoso.com.
 
 - For applications that use the **SAML**:  Either a SAML authentication request that contains a domain hint or a query string whr=contoso.com.
 
-- For applications that use the **Open ID Connect**: A query string domain_hint=contoso.com.
+- For applications that use the **Open ID Connect**: `domain_hint`  query string parameter. For example, domain_hint=contoso.com.
 
-By default, Azure AD attempts to redirect sign-in to the IdP that's configured for a domain if **both** of the following are true:
+By default, Azure AD attempts to redirect sign-in to the IDP that's configured for a domain if **both** of the following are true:
 
 - A domain hint is included in the authentication request from the application **and**
 - The tenant is federated with that domain.
@@ -109,7 +110,7 @@ The json object is an example HRD policy definition:
     {  
       "AccelerateToFederatedDomain":true,
       "PreferredDomain":"federated.example.edu",
-      "AllowCloudPasswordValidation":false,    
+      "AllowCloudPasswordValidation":false
     }
   }
   ```

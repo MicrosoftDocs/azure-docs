@@ -1,24 +1,24 @@
 ---
-title: Add your custom domain - Azure Active Directory | Microsoft Docs
+title: Add your custom domain
 description: Instructions about how to add a custom domain using Azure Active Directory.
 services: active-directory
-author: ajburnle
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 10/25/2019
-ms.author: ajburnle
+ms.date: 01/23/2023
+ms.author: barclayn
 ms.reviewer: elkuzmen
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Add your custom domain name using the Azure Active Directory portal
+# Add your custom domain name using the Azure portal
 
-Every new Azure AD tenant comes with an initial domain name, *\<domainname>.onmicrosoft.com*. You can't change or delete the initial domain name, but you can add your organization's names. Adding custom domain names helps you to create user names that are familiar to your users, such as *alain\@contoso.com*.
+Azure Active Directory (Azure AD) tenants come with an initial domain name, *\<domainname>.onmicrosoft.com*. You can't change or delete the initial domain name, but you can add your organization's names. Adding custom domain names helps you to create user names that are familiar to your users, such as *alain\@contoso.com*.
 
 ## Before you begin
 
@@ -26,7 +26,9 @@ Before you can add a custom domain name, create your domain name with a domain r
 
 ## Create your directory in Azure AD
 
-After you get your domain name, you can create your first Azure AD directory. Sign in to the Azure portal for your directory, using an account with the **Owner** role for the subscription.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+After you get your domain name, you can create your first Azure AD directory. Sign in to the [Azure portal](https://portal.azure.com) for your directory, using an account with the **Owner** role for the subscription.
 
 Create your new directory by following the steps in [Create a new tenant for your organization](active-directory-access-create-new-tenant.md#create-a-new-tenant-for-your-organization).
 
@@ -44,7 +46,7 @@ For more information about subscription roles, see [Azure roles](../../role-base
 
 After you create your directory, you can add your custom domain name.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the directory.
 
 1. Search for and select *Azure Active Directory* from any page. Then select **Custom domain names** > **Add custom domain**.
 
@@ -55,7 +57,7 @@ After you create your directory, you can add your custom domain name.
     ![Custom domain names page, with Add custom domain page](media/add-custom-domain/add-custom-domain-blade.png)
 
     >[!IMPORTANT]
-    >You must include *.com*, *.net*, or any other top-level extension for this to work properly.
+    >You must include *.com*, *.net*, or any other top-level extension for this to work. When adding a custom domain, the Password Policy values will be inherited from the initial domain.
 
     The unverified domain is added. The **contoso.com** page appears showing your DNS information. Save this information. You need it later to create a TXT record to configure DNS.
 
@@ -76,7 +78,7 @@ After you register your custom domain name, make sure it's valid in Azure AD. Th
 
 To verify your custom domain name, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the directory.
 
 1. Search for and select *Azure Active Directory* from any page, then select **Custom domain names**.
 
@@ -96,7 +98,7 @@ If Azure AD can't verify a custom domain name, try the following suggestions:
 
 - **Wait at least an hour and try again.** DNS records must propagate before Azure AD can verify the domain. This process can take an hour or more.
  
-- **If you are trying to verify a child domain, verify the parent domain first.** Make sure the parent domain is created and verified first before you try to verify child domain.
+- **If you are trying to verify a child domain, verify the parent domain first.** Make sure the parent domain is created and verified first before you try to verify a child domain.
 
 - **Make sure the DNS record is correct.** Go back to the domain name registrar site. Make sure the entry is there, and that it matches the DNS entry information provided by Azure AD.
 

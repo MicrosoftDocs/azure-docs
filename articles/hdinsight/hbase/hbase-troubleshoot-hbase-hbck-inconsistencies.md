@@ -3,12 +3,12 @@ title: hbase hbck returns inconsistencies in Azure HDInsight
 description: hbase hbck returns inconsistencies in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 08/08/2019
+ms.date: 08/28/2022
 ---
 
 # Scenario: `hbase hbck` command returns inconsistencies in Azure HDInsight
 
-This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
+This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters. If you are using hbase-2.x, see [How to use Apache HBase HBCK2 tool](./how-to-use-hbck2-tool.md)
 
 ## Issue: Region is not in `hbase:meta`
 
@@ -48,6 +48,8 @@ Bring regions online by running:
 ```
 hbase hbck -ignorePreCheckPermission –fixAssignment
 ```
+
+Alternatively, run `assign <region-hash>` on hbase-shell to force to assign this region
 
 ---
 

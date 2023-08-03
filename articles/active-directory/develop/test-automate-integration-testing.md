@@ -1,18 +1,17 @@
 ---
-title: Run automated integration tests 
-titleSuffix: Microsoft identity platform
+title: Run automated integration tests
 description: Learn how to run automated integration tests as a user against APIs protected by the Microsoft identity platform. Use the Resource Owner Password Credential Grant (ROPC) auth flow to sign in as a user instead of automating the interactive sign-in prompt UI.
 services: active-directory
-author: arcrowe
-manager: dastrock
+author: cilwerner
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 11/30/2021
-ms.author: arcrowe
-ms.reviewer: sahmalik
+ms.author: cwerner
+ms.reviewer: sahmalik, arcrowe
 ms.custom: aaddev
 # Customer intent: As a developer, I want to use ROPC in automated integration tests against APIs protected by Microsoft identity platform so I don't have to automate the interactive sign-in prompts.
 ---
@@ -49,9 +48,11 @@ We recommend you securely store the test usernames and passwords as [secrets](..
 
 ## Create test users
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Create some test users in your tenant for testing. Since the test users are not actual humans, we recommend you assign complex passwords and securely store these passwords as [secrets](../../key-vault/secrets/about-secrets.md) in Azure Key Vault.
 
-1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
+1. Sign in to the [Azure portal](https://portal.azure.com), then select **Azure Active Directory**.
 1. Go to **Users**.
 1. Select **New user** and create one or more test user accounts in your directory.
 1. The example test later in this article uses a single test user.  [Add the test username and password as secrets](../../key-vault/secrets/quick-create-portal.md) in the key vault you created previously. Add the username as a secret named "TestUserName" and the password as a secret named "TestPassword".
@@ -73,7 +74,7 @@ ROPC is a public client flow, so you need to enable your app for public client f
 
 Since ROPC is not an interactive flow, you won't be prompted with a consent screen to consent to these at runtime.  Pre-consent to the permissions to avoid errors when acquiring tokens.
 
-Add the permissions to your app. Do not add any sensitive or high-privilege permissions to the app, we recommend you scope your testing scenarios to basic integration scenarios around integrating with Azure AD.  
+Add the permissions to your app. Do not add any sensitive or high-privilege permissions to the app, we recommend you scope your testing scenarios to basic integration scenarios around integrating with Azure AD.
 
 From your app registration in the [Azure portal](https://portal.azure.com), go to **API Permissions** > **Add a permission**.  Add the permissions you need to call the APIs you'll be using. A test example further in this article uses the `https://graph.microsoft.com/User.Read` and `https://graph.microsoft.com/User.ReadBasic.All` permissions.
 
@@ -104,18 +105,19 @@ client_id={your_client_ID}
 Replace *{tenant}* with your tenant ID, *{your_client_ID}* with the client ID of your application, and *{resource_you_want_to_call}* with the identifier URI (for example, "https://graph.microsoft.com") or app ID of the API you are trying to access.
 
 ## Exclude test apps and users from your MFA policy
-Your tenant likely has a conditional access policy that [requires multifactor authentication (MFA) for all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md), as recommended by Microsoft.  MFA won't work with ROPC, so you'll need to exempt your test applications and test users from this requirement.
+
+Your tenant likely has a Conditional Access policy that [requires multifactor authentication (MFA) for all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md), as recommended by Microsoft.  MFA won't work with ROPC, so you'll need to exempt your test applications and test users from this requirement.
 
 To exclude user accounts:
-1. Navigate to the [Azure portal](https://portal.azure.com) and sign in to your tenant.  Select **Azure Active Directory**.  Select **Security** in the left navigation pane and then select **Conditional access**.
-1. In **Policies**, select the conditional access policy that requires MFA.
+1. Sign in to the [Azure portal](https://portal.azure.com) to access your tenant.  Select **Azure Active Directory**.  Select **Security** in the left navigation pane and then select **Conditional Access**.
+1. In **Policies**, select the Conditional Access policy that requires MFA.
 1. Select **Users or workload identities**.
 1. Select the **Exclude** tab and then the **Users and groups** checkbox.
 1. Select the user account(s) to exclude in **Select excluded users**.
 1. Select the **Select** button and then **Save**.
 
 To exclude a test application:
-1. In **Policies**, select the conditional access policy that requires MFA.
+1. In **Policies**, select the Conditional Access policy that requires MFA.
 1. Select **Cloud apps or actions**.
 1. Select the **Exclude** tab and then **Select excluded cloud apps**.
 1. Select the app(s) you want to exclude in **Select excluded cloud apps**.
@@ -123,7 +125,11 @@ To exclude a test application:
 
 ## Write your application tests
 
-Now that you're set up, you can write your automated tests.  The following .NET example code uses [Microsoft Authentication Library (MSAL)](msal-overview.md) and [xUnit](https://xunit.net/), a common testing framework.
+Now that you're set up, you can write your automated tests. The following are tests for:
+1. .NET example code uses [Microsoft Authentication Library (MSAL)](msal-overview.md) and [xUnit](https://xunit.net/), a common testing framework.
+1. JavaScript example code uses [Microsoft Authentication Library (MSAL)](msal-overview.md) and [Playwright](https://playwright.dev/), a common testing framework.
+
+## [.NET](#tab/dotnet)
 
 ### Set up your appsettings.json file
 
@@ -133,16 +139,16 @@ Add the client ID of the test app you previously created, the necessary scopes, 
 {
   "Authentication": {
     "AzureCloudInstance": "AzurePublic", //Will be different for different Azure clouds, like US Gov
-    "AadAuthorityAudience": "AzureAdMultipleOrgs", 
+    "AadAuthorityAudience": "AzureAdMultipleOrgs",
     "ClientId": <your_client_ID>
   },
 
   "WebAPI": {
     "Scopes": [
       //For this Microsoft Graph example.  Your value(s) will be different depending on the API you're calling
-      "https://graph.microsoft.com/User.Read",  
+      "https://graph.microsoft.com/User.Read",
       //For this Microsoft Graph example.  Your value(s) will be different depending on the API you're calling
-      "https://graph.microsoft.com/User.ReadBasic.All"  
+      "https://graph.microsoft.com/User.ReadBasic.All"
     ]
   },
 
@@ -176,56 +182,56 @@ using System;
 
 public class ClientFixture : IAsyncLifetime
 {
-public HttpClient httpClient;
+    public HttpClient httpClient;
 
-public async Task InitializeAsync()
-{
-    var builder = new ConfigurationBuilder().AddJsonFile("<path-to-json-file>");
+    public async Task InitializeAsync()
+    {
+        var builder = new ConfigurationBuilder().AddJsonFile("<path-to-json-file>");
 
-    IConfigurationRoot Configuration = builder.Build();
+        IConfigurationRoot Configuration = builder.Build();
 
-            var PublicClientApplicationOptions = new PublicClientApplicationOptions();
-            Configuration.Bind("Authentication", PublicClientApplicationOptions);
-            var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(PublicClientApplicationOptions)
-                .Build();
+        var PublicClientApplicationOptions = new PublicClientApplicationOptions();
+        Configuration.Bind("Authentication", PublicClientApplicationOptions);
+        var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(PublicClientApplicationOptions)
+            .Build();
 
-            SecretClientOptions options = new SecretClientOptions()
-            {
-                Retry =
+        SecretClientOptions options = new SecretClientOptions()
+        {
+            Retry =
                 {
                     Delay= TimeSpan.FromSeconds(2),
                     MaxDelay = TimeSpan.FromSeconds(16),
                     MaxRetries = 5,
                     Mode = RetryMode.Exponential
                  }
-            };
+        };
 
-            string keyVaultUri = Configuration.GetValue<string>("KeyVault:KeyVaultUri"); 
-            var client = new SecretClient(new Uri(keyVaultUri), new DefaultAzureCredential(), options);
+        string keyVaultUri = Configuration.GetValue<string>("KeyVault:KeyVaultUri");
+        var client = new SecretClient(new Uri(keyVaultUri), new DefaultAzureCredential(), options);
 
-            KeyVaultSecret userNameSecret = client.GetSecret("TestUserName");        
-            KeyVaultSecret passwordSecret = client.GetSecret("TestPassword");
+        KeyVaultSecret userNameSecret = client.GetSecret("TestUserName");
+        KeyVaultSecret passwordSecret = client.GetSecret("TestPassword");
 
-            string password = passwordSecret.Value;
-            string username = userNameSecret.Value;
-            string[] scopes = Configuration.GetSection( "WebAPI:Scopes").Get<string[]>();
-            SecureString securePassword = new NetworkCredential("", password).SecurePassword;
+        string password = passwordSecret.Value;
+        string username = userNameSecret.Value;
+        string[] scopes = Configuration.GetSection("WebAPI:Scopes").Get<string[]>();
+        SecureString securePassword = new NetworkCredential("", password).SecurePassword;
 
-            AuthenticationResult result = null;
-            httpClient = new HttpClient();
+        AuthenticationResult result = null;
+        httpClient = new HttpClient();
 
-    try
-    {
-        result = await app.AcquireTokenByUsernamePassword(scopes, username, securePassword)
-            .ExecuteAsync();
+        try
+        {
+            result = await app.AcquireTokenByUsernamePassword(scopes, username, securePassword)
+                .ExecuteAsync();
+        }
+        catch (MsalException) { }
+
+        string accessToken = result.AccessToken;
+        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", accessToken);
     }
-    catch (MsalException) { }
 
-    string accessToken = result.AccessToken;
-    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", accessToken);
-}
-
-public Task DisposeAsync() => Task.CompletedTask;
+    public Task DisposeAsync() => Task.CompletedTask;
 }
 ```
 
@@ -236,21 +242,129 @@ The following example is a test that calls Microsoft Graph.  Replace this test w
 ```csharp
 public class ApiTests : IClassFixture<ClientFixture>
 {
-ClientFixture clientFixture;
+    ClientFixture clientFixture;
 
-public ApiTests(ClientFixture clientFixture)
-{
-    this.clientFixture = clientFixture;
-}
+    public ApiTests(ClientFixture clientFixture)
+    {
+        this.clientFixture = clientFixture;
+    }
 
-
-[Fact]
-public async Task GetRequestTest()
-{
-    var testClient = clientFixture.httpClient;
-    HttpResponseMessage response = await testClient.GetAsync("https://graph.microsoft.com/v1.0/me");
-    var responseCode = response.StatusCode.ToString();
-    Assert.Equal("OK", responseCode);
-}
+    [Fact]
+    public async Task GetRequestTest()
+    {
+        var testClient = clientFixture.httpClient;
+        HttpResponseMessage response = await testClient.GetAsync("https://graph.microsoft.com/v1.0/me");
+        var responseCode = response.StatusCode.ToString();
+        Assert.Equal("OK", responseCode);
+    }
 }
 ```
+
+## [JavaScript](#tab/JavaScript)
+
+### Set up your authConfig.json file
+
+Add the client ID and the tenant ID of the test app you previously created, the key vault URI and the secret name to the authConfig.js file of your test project.
+
+```javascript
+export const msalConfig = {
+    auth: {
+        clientId: 'Enter_the_Application_Id_Here',
+        authority: 'https://login.microsoftonline.com/Enter_the_Tenant_Id_Here',
+    },
+};
+
+export const keyVaultConfig = {
+    keyVaultUri: 'https://<your-unique-keyvault-name>.vault.azure.net',
+    secretName: 'Enter_the_Secret_Name',
+};
+```
+
+### Initialize MSAL.js and fetch the user credentials from Key Vault
+
+Initialize the MSAL.js authentication context by instantiating a [PublicClientApplication](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html) with a [Configuration](https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal.html#configuration) object. The minimum required configuration property is the `clientID` of the application.
+
+Use [SecretClient()](/javascript/api/@azure/keyvault-secrets/secretclient) to get the test username and password secrets from Azure Key Vault.
+
+[DefaultAzureCredential()](/javascript/api/@azure/identity/defaultazurecredential) authenticates with Azure Key Vault by getting an access token from a service principal configured by environment variables or a managed identity (if the code is running on an Azure resource with a managed identity).  If the code is running locally, `DefaultAzureCredential` uses the local user's credentials. Read more in the [Azure Identity client library](/javascript/api/@azure/identity/defaultazurecredential) content.
+
+Use Microsoft Authentication Library (MSAL) to authenticate using the ROPC flow and get an access token.  The access token is passed along as a bearer token in the HTTP request.
+
+
+```javascript
+import { test, expect } from '@playwright/test';
+import { DefaultAzureCredential } from '@azure/identity';
+import { SecretClient } from '@azure/keyvault-secrets';
+import { PublicClientApplication, CacheKVStore } from '@azure/msal-node';
+import { msalConfig, keyVaultConfig } from '../authConfig';
+
+let tokenCache;
+const KVUri = keyVaultConfig.keyVaultUri;
+const secretName = keyVaultConfig.secretName;
+
+async function getCredentials() {
+    try {
+        const credential = new DefaultAzureCredential();
+        const secretClient = new SecretClient(KVUri, credential);
+        const secret = await secretClient.getSecret(keyVaultConfig.secretName);
+        const password = secret.value;
+        return [secretName, password];
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+test.beforeAll(async () => {
+    const pca = new PublicClientApplication(msalConfig);
+    const [username, password] = await getCredentials();
+    const usernamePasswordRequest = {
+        scopes: ['user.read', 'User.ReadBasic.All'],
+        username: username,
+        password: password,
+    };
+    await pca.acquireTokenByUsernamePassword(usernamePasswordRequest);
+    tokenCache = pca.getTokenCache().getKVStore();
+});
+```
+
+### Run the test suite
+
+In the same file, add the tests as shown below: 
+
+```javascript
+/**
+ * Stores the token in the session storage and reloads the page
+ */
+async function setSessionStorage(page, tokens) {
+    const cacheKeys = Object.keys(tokens);
+    for (let key of cacheKeys) {
+        const value = JSON.stringify(tokenCache[key]);
+        await page.context().addInitScript(
+            (arr) => {
+                window.sessionStorage.setItem(arr[0], arr[1]);
+            },
+            [key, value]
+        );
+    }
+    await page.reload();
+}
+
+test.describe('Testing Authentication with MSAL.js ', () => {
+    test('Test user has signed in successfully', async ({ page }) => {
+        await page.goto('http://localhost:<port>/');
+        let signInButton = page.getByRole('button', { name: /Sign In/i });
+        let signOutButton = page.getByRole('button', { name: /Sign Out/i });
+        let welcomeDev = page.getByTestId('WelcomeMessage');
+        expect(await signInButton.count()).toBeGreaterThan(0);
+        expect(await signOutButton.count()).toBeLessThanOrEqual(0);
+        expect(await welcomeDev.innerHTML()).toEqual('Please sign-in to see your profile and read your mails');
+        await setSessionStorage(page, tokenCache);
+        expect(await signInButton.count()).toBeLessThanOrEqual(0);
+        expect(await signOutButton.count()).toBeGreaterThan(0);
+        expect(await welcomeDev.innerHTML()).toContain(`Welcome`);
+    });
+});
+
+```
+
+For more information, please check the following code sample [MSAL.js Testing Example](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-browser-samples/TestingSample).

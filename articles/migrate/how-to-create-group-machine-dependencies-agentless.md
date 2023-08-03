@@ -4,17 +4,16 @@ description:  Set up agentless dependency analysis in Azure Migrate.
 author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 6/08/2020
+ms.date: 02/23/2022
+ms.custom: engagement-fy23
 ---
 
 
 # Analyze server dependencies (agentless)
 
 This article describes how to set up agentless dependency analysis using Azure Migrate: Discovery and assessment tool. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across servers for assessment and migration to Azure.
-
-> [!IMPORTANT]
->Agentless dependency analysis is currently available only for servers running in your VMware environment, discovered with the Azure Migrate:Discovery and assessment tool.
 
 ## Current limitations
 
@@ -25,39 +24,41 @@ This article describes how to set up agentless dependency analysis using Azure M
 
 ## Before you start
 
-- Ensure that you have [created a project](./create-manage-projects.md) with the Azure Migrate:Discovery and assessment tool added to it.
-- Review [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) to perform dependency analysis.
-- Review [appliance requirements](migrate-support-matrix-vmware.md#azure-migrate-appliance-requirements) before setting up the appliance.
-- [Review dependency analysis requirements](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) before enabling dependency analysis on servers.
+- Ensure that you have [created a project](./create-manage-projects.md) with the Azure Migrate: Discovery and assessment tool added to it.
+- Review the requirements based on your environment and the appliance you are setting up to perform software inventory:
+
+    Environment | Requirements
+    --- | ---
+    Servers running in VMware environment | Review [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) <br/> Review [appliance requirements](migrate-appliance.md#appliance---vmware)<br/> Review [port access requirements](migrate-support-matrix-vmware.md#port-access-requirements) <br/> Review [agentless dependency analysis requirements](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless)
+    Servers running in Hyper-V environment | Review [Hyper-V host requirements](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) <br/> Review [appliance requirements](migrate-appliance.md#appliance---hyper-v)<br/> Review [port access requirements](migrate-support-matrix-hyper-v.md#port-access)<br/> Review [agentless dependency analysis requirements](migrate-support-matrix-hyper-v.md#dependency-analysis-requirements-agentless)
+    Physical servers or servers running on other clouds | Review [server requirements](migrate-support-matrix-physical.md#physical-server-requirements) <br/> Review [appliance requirements](migrate-appliance.md#appliance---physical)<br/> Review [port access requirements](migrate-support-matrix-physical.md#port-access)<br/> Review [agentless dependency analysis requirements](migrate-support-matrix-physical.md#dependency-analysis-requirements-agentless)
+- Review the Azure URLs that the appliance will need to access in the [public](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls).
+
 
 ## Deploy and configure the Azure Migrate appliance
 
-1. [Review](migrate-appliance.md#appliance---vmware) the requirements for deploying the Azure Migrate appliance.
-2. Review the Azure URLs that the appliance will need to access in the [public](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls).
-3. [Review data](migrate-appliance.md#collected-data---vmware) that the appliance collects during discovery and assessment.
-4. [Note](migrate-support-matrix-vmware.md#port-access-requirements) port access requirements for the appliance.
-5. [Deploy the Azure Migrate appliance](how-to-set-up-appliance-vmware.md) to start discovery. To deploy the appliance, you download and import an OVA template into VMware to create a server running in your vCenter Server. After deploying the appliance, you need to register it with the project and configure it to initiate the discovery.
-6. As you configure the appliance, you need to specify the following in the appliance configuration manager:
-    - The details of the vCenter Server to which you want to connect.
-    - vCenter Server credentials scoped to discover the servers in your VMware environment.
-    - Server credentials, which can be domain/ Windows(non-domain)/ Linux(non-domain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how we handle them.
-
-## Verify permissions
-
-- You need to [create a vCenter Server read-only account](./tutorial-discover-vmware.md#prepare-vmware) for discovery and assessment. The read-only account needs privileges enabled for **Virtual Machines** > **Guest Operations**, in order to interact with the servers to collect dependency data.
-- You need a user account so that Azure Migrate can access the server to collect dependency data. [Learn](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) about account requirements for Windows and Linux servers.
+1. Deploy the Azure Migrate appliance to start discovery. To deploy the appliance, you can use the [deployment method](migrate-appliance.md#deployment-methods) as per your environment. After deploying the appliance, you need to register it with the project and configure it to initiate the discovery.
+2. As you configure the appliance, you need to specify the following in the appliance configuration manager:
+    - The details of the source environment (vCenter Server(s)/Hyper-V host(s) or cluster(s)/physical servers) which you want to discover.
+    - Server credentials, which can be domain/ Windows (non-domain)/ Linux (non-domain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how the appliance handles them.
+    - Verify the permissions required to perform agentless dependency analysis. For Windows servers, you need to provide domain or non-domain (local) account with administrative permissions. For Linux servers, provide a sudo user account with permissions to execute ls and netstat commands or create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files. If you're providing a sudo user account, ensure that you have enabled NOPASSWD for the account to run the required commands without prompting for a password every time sudo command is invoked.
 
 ### Add credentials and initiate discovery
 
 1. Open the appliance configuration manager, complete the prerequisite checks and registration of the appliance.
 2. Navigate to the **Manage credentials and discovery sources** panel.
-1.  In **Step 1: Provide vCenter Server credentials**, click on **Add credentials** to  provide credentials for the vCenter Server account that the appliance will use to discover servers running on the vCenter Server.
-1. In **Step 2: Provide vCenter Server details**, click on **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the vCenter Server instance
-:::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 on appliance configuration manager for vCenter Server details":::
-1. In **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis and discovery of SQL Server instances and databases**, click **Add credentials** to provide multiple server credentials to initiate software inventory.
-1. Click on **Start discovery**, to kick off vCenter Server discovery.
+1.  In **Step 1: Provide credentials for discovery source**, click on **Add credentials** to  provide credentials for the discovery source that the appliance will use to discover servers running in your environment.
+1. In **Step 2: Provide discovery source details**, click on **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the discovery source.
+:::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 on appliance configuration manager for vCenter Server details.":::
+1. In **Step 3: Provide server credentials to perform software inventory and agentless dependency analysis**, click **Add credentials** to provide multiple server credentials to perform software inventory.
+1. Click on **Start discovery**, to initiate discovery.
 
- After the vCenter Server discovery is complete, appliance initiates the discovery of installed applications, roles and features (software inventory).During software inventory, the added servers credentials will be iterated against servers and validated for agentless dependency analysis. You can enable agentless dependency analysis for servers from the portal. Only the servers where the validation succeeds can be selected to enable agentless dependency analysis.
+ After the server discovery is complete, appliance initiates the discovery of installed applications, roles and features (software inventory) on the servers. During software inventory, the discovered servers are validated to check if they meet the prerequisites and can be enabled for agentless dependency analysis.
+ 
+ > [!Note]
+ > You can enable agentless dependency analysis for discovered servers from Azure Migrate project. Only the servers where the validation succeeds can be selected to enable agentless dependency analysis.
+
+ After servers have been enabled for agentless dependency analysis from portal, appliance gathers the dependency data every 5 mins from the server and sends an aggregated data point every 6 hours to Azure. Review the [data](discovered-metadata.md#application-dependency-data) collected by appliance during agentless dependency analysis.
 
 ## Start dependency discovery
 
@@ -71,7 +72,7 @@ Select the servers on which you want to enable dependency discovery.
 1. In the **Add servers** page, select the servers where you want to enable dependency analysis. You can enable dependency mapping only on those servers where validation succeeded. The next validation cycle will run 24 hours after the last validation timestamp.
 1. After selecting the servers, click **Add servers**.
 
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png" alt-text="Start dependency analysis":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png" alt-text="Screenshot of process to start dependency analysis.":::
 
 You can visualize dependencies around six hours after enabling dependency analysis on servers. If you want to simultaneously enable multiple servers for dependency analysis, you can use [PowerShell](#start-or-stop-dependency-analysis-using-powershell) to do so.
 
@@ -85,11 +86,11 @@ You can visualize dependencies around six hours after enabling dependency analys
 1. Expand the **Client** group to list the servers with a dependency on the selected server.
 1. Expand the **Port** group to list the servers that have a dependency from the selected server.
 1. To navigate to the map view of any of the dependent servers, click on the server name > **Load server map**
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png" alt-text="Expand Server port group and load server map":::
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-client-group.png" alt-text="Expand client group":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png" alt-text="Screenshot to Expand Server port group and load server map.":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-client-group.png" alt-text="Expand client group.":::
 
 8. Expand the selected server to view process-level details for each dependency.
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-server-processes.png" alt-text="Expand server to show processes":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-server-processes.png" alt-text="Expand server to show processes.":::
 
 > [!NOTE]
 > Process information for a dependency is not always available. If it's not available, the dependency is depicted with the process marked as "Unknown process".
@@ -104,7 +105,7 @@ You can visualize dependencies around six hours after enabling dependency analys
 6. Click **Export dependency**.
 
 The dependency data is exported and downloaded in a CSV format. The downloaded file contains the dependency data across all servers enabled for dependency analysis. 
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/export.png" alt-text="Export dependencies":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/export.png" alt-text="Screenshot to Export dependencies.":::
 
 ### Dependency information
 

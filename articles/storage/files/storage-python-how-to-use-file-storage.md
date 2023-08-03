@@ -1,14 +1,14 @@
 ---
-title: Develop for Azure Files with Python | Microsoft Docs
+title: Develop for Azure Files with Python
+titleSuffix: Azure Storage
 description: Learn how to develop Python applications and services that use Azure Files to store file data.
-author: roygara
+author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/08/2020
-ms.author: rogarana
-ms.subservice: files
-ms.custom: devx-track-python
+ms.date: 05/04/2023
+ms.author: pauljewell
+ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Develop for Azure Files with Python
@@ -24,7 +24,7 @@ Learn the basics of using Python to develop apps or services that use Azure File
 - Create file share backups by using snapshots
 
 > [!NOTE]
-> Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure file share using the standard Python I/O classes and functions. This article will describe how to write apps that use the Azure Files Storage Python SDK, which uses the [Azure Files REST API](/rest/api/storageservices/file-service-rest-api) to talk to Azure Files.
+> Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure file share using the standard Python I/O classes and functions. This article will describe how to write apps that use the Azure Storage SDK for Python, which uses the [Azure Files REST API](/rest/api/storageservices/file-service-rest-api) to talk to Azure Files.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -92,13 +92,13 @@ from azure.storage.file import FileService
 
 # [Azure Python SDK v12](#tab/python)
 
-[ShareServiceClient](/azure/developer/python/sdk/storage/azure-storage-file-share/azure.storage.fileshare.shareserviceclient) lets you work with shares, directories, and files. The following code creates a `ShareServiceClient` object using the storage account connection string.
+[ShareServiceClient](/azure/developer/python/sdk/storage/azure-storage-file-share/azure.storage.fileshare.shareserviceclient) lets you work with shares, directories, and files. This code creates a `ShareServiceClient` object using the storage account connection string:
 
 :::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_CreateShareServiceClient":::
 
 # [Azure Python SDK v2](#tab/python2)
 
-The [FileService](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true) object lets you work with shares, directories, and files. The following code creates a `FileService` object using the storage account name and account key. Replace `<myaccount>` and `<mykey>` with your account name and key.
+The [FileService](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice) object lets you work with shares, directories, and files. The following code creates a `FileService` object using the storage account name and account key. Replace `<myaccount>` and `<mykey>` with your account name and key.
 
 ```python
 file_service = FileService(account_name='myaccount', account_key='mykey')
@@ -116,7 +116,7 @@ The following code example uses a [ShareClient](/azure/developer/python/sdk/stor
 
 # [Azure Python SDK v2](#tab/python2)
 
-The following code example uses a [FileService](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true) object to create the share if it doesn't exist.
+The following code example uses a [FileService](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice) object to create the share if it doesn't exist.
 
 ```python
 file_service.create_share('myshare')
@@ -136,7 +136,7 @@ The following method creates a directory in the root of the specified file share
 
 # [Azure Python SDK v2](#tab/python2)
 
-The code below will create a subdirectory named *sampledir* under the root directory.
+This code creates a subdirectory named *sampledir* under the root directory:
 
 ```python
 file_service.create_directory('myshare', 'sampledir')
@@ -146,7 +146,7 @@ file_service.create_directory('myshare', 'sampledir')
 
 ## Upload a file
 
-In this section, you'll learn how to upload a file from local storage into Azure Files.
+In this section, you learn how to upload a file from local storage into Azure Files.
 
 # [Azure Python SDK v12](#tab/python)
 
@@ -156,7 +156,7 @@ The following method uploads the contents of the specified file into the specifi
 
 # [Azure Python SDK v2](#tab/python2)
 
-An Azure file share contains, at the least, a root directory where files can reside. To create a file and upload data, use the [create_file_from_path](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#create-file-from-path-share-name--directory-name--file-name--local-file-path--content-settings-none--metadata-none--validate-content-false--progress-callback-none--max-connections-2--file-permission-none--smb-properties--azure-storage-file-models-smbproperties-object---timeout-none-), [create_file_from_stream](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#create-file-from-stream-share-name--directory-name--file-name--stream--count--content-settings-none--metadata-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--file-permission-none--smb-properties--azure-storage-file-models-smbproperties-object--), [create_file_from_bytes](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#create-file-from-bytes-share-name--directory-name--file-name--file--index-0--count-none--content-settings-none--metadata-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--file-permission-none--smb-properties--azure-storage-file-models-smbproperties-object--), or [create_file_from_text](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#create-file-from-text-share-name--directory-name--file-name--text--encoding--utf-8---content-settings-none--metadata-none--validate-content-false--timeout-none--file-permission-none--smb-properties--azure-storage-file-models-smbproperties-object--) methods. They're high-level methods that perform the necessary chunking when the size of the data exceeds 64 MiB.
+An Azure file share contains, at the least, a root directory where files can reside. To create a file and upload data, use the [create_file_from_path](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#azure-storage-file-fileservice-fileservice-create-file-from-path), [create_file_from_stream](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#azure-storage-file-fileservice-fileservice-create-file-from-stream), [create_file_from_bytes](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#azure-storage-file-fileservice-fileservice-create-file-from-bytes), or [create_file_from_text](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#azure-storage-file-fileservice-fileservice-create-file-from-text) methods. They're high-level methods that perform the necessary chunking when the size of the data exceeds 64 MiB.
 
 `create_file_from_path` uploads the contents of a file from the specified path, and `create_file_from_stream` uploads the contents from an already opened file/stream. `create_file_from_bytes` uploads an array of bytes, and `create_file_from_text` uploads the specified text value using the specified encoding (defaults to UTF-8).
 
@@ -178,13 +178,13 @@ file_service.create_file_from_path(
 
 # [Azure Python SDK v12](#tab/python)
 
-To list the files and directories in a subdirectory, use the [list_directories_and_files](/azure/developer/python/sdk/storage/azure-storage-file-share/azure.storage.fileshare.shareclient#list-directories-and-files-directory-name-none--name-starts-with-none--marker-none----kwargs-) method. This method returns an auto-paging iterable. The following code outputs the **name** of each file and subdirectory in the specified directory to the console.
+To list the files and directories in a subdirectory, use the [list_directories_and_files](/python/api/azure-storage-file-share/azure.storage.fileshare.ShareClient#azure-storage-fileshare-shareclient-list-directories-and-files) method. This method returns an auto-paging iterable. The following code outputs the **name** of each file and subdirectory in the specified directory to the console.
 
 :::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_ListFilesAndDirs":::
 
 # [Azure Python SDK v2](#tab/python2)
 
-To list the files and directories in a share, use the [list_directories_and_files](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#list-directories-and-files-share-name--directory-name-none--num-results-none--marker-none--timeout-none--prefix-none--snapshot-none-) method. This method returns a generator. The following code outputs the **name** of each file and directory in a share to the console.
+To list the files and directories in a share, use the [list_directories_and_files](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#azure-storage-file-fileservice-fileservice-list-directories-and-files) method. This method returns a generator. The following code outputs the **name** of each file and directory in a share to the console.
 
 ```python
 generator = file_service.list_directories_and_files('myshare')
@@ -198,7 +198,7 @@ for file_or_dir in generator:
 
 # [Azure Python SDK v12](#tab/python)
 
-To download data from a file, use [download_file](/azure/developer/python/sdk/storage/azure-storage-file-share/azure.storage.fileshare.sharefileclient#download-file-offset-none--length-none----kwargs-).
+To download data from a file, use [download_file](/python/api/azure-storage-file-share/azure.storage.fileshare.ShareFileClient#azure-storage-fileshare-sharefileclient-download-file).
 
 The following example demonstrates using `download_file` to get the contents of the specified file and store it locally with **DOWNLOADED-** prepended to the filename.
 
@@ -206,7 +206,7 @@ The following example demonstrates using `download_file` to get the contents of 
 
 # [Azure Python SDK v2](#tab/python2)
 
-To download data from a file, use [get_file_to_path](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#get-file-to-path-share-name--directory-name--file-name--file-path--open-mode--wb---start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-), [get_file_to_stream](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#get-file-to-stream-share-name--directory-name--file-name--stream--start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-), [get_file_to_bytes](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#get-file-to-bytes-share-name--directory-name--file-name--start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-), or [get_file_to_text](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#get-file-to-text-share-name--directory-name--file-name--encoding--utf-8---start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-). They're high-level methods that perform the necessary chunking when the size of the data exceeds 64 MiB.
+To download data from a file, use [get_file_to_path](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#azure-storage-file-fileservice-fileservice-get-file-to-path), [get_file_to_stream](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#get-file-to-stream-share-name--directory-name--file-name--stream--start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-), [get_file_to_bytes](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#azure-storage-file-fileservice-fileservice-get-file-to-bytes), or [get_file_to_text](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#azure-storage-file-fileservice-fileservice-get-file-to-text). They're high-level methods that perform the necessary chunking when the size of the data exceeds 64 MiB.
 
 The following example demonstrates using `get_file_to_path` to download the contents of the **myfile** file and store it to the *out-sunset.png* file.
 
@@ -275,7 +275,7 @@ directories_and_files = list(
 
 ## Get file from share snapshot
 
-You can download a file from a share snapshot. This enables you to restore a previous version of a file.
+You can download a file from a share snapshot, which enables you to restore a previous version of a file.
 
 # [Azure Python SDK v12](#tab/python)
 
@@ -310,13 +310,13 @@ file_service.delete_share(share_name, snapshot=snapshot_id)
 
 # [Azure Python SDK v12](#tab/python)
 
-To delete a file, call [delete_file](/azure/developer/python/sdk/storage/azure-storage-file-share/azure.storage.fileshare.sharefileclient#delete-file---kwargs-).
+To delete a file, call [delete_file](/python/api/azure-storage-file-share/azure.storage.fileshare.ShareFileClient#azure-storage-fileshare-sharefileclient-delete-file).
 
 :::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_DeleteFile":::
 
 # [Azure Python SDK v2](#tab/python2)
 
-To delete a file, call [delete_file](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#delete-file-share-name--directory-name--file-name--timeout-none-).
+To delete a file, call [delete_file](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#azure-storage-file-fileservice-fileservice-delete-file).
 
 ```python
 file_service.delete_file('myshare', None, 'myfile')
@@ -328,13 +328,13 @@ file_service.delete_file('myshare', None, 'myfile')
 
 # [Azure Python SDK v12](#tab/python)
 
-To delete a share that contains snapshots, call [delete_share](/azure/developer/python/sdk/storage/azure-storage-file-share/azure.storage.fileshare.shareclient#delete-share-delete-snapshots-false----kwargs-) with `delete_snapshots=True`.
+To delete a share that contains snapshots, call [delete_share](/python/api/azure-storage-file-share/azure.storage.fileshare.ShareClient#azure-storage-fileshare-shareclient-delete-share) with `delete_snapshots=True`.
 
 :::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_DeleteShare":::
 
 # [Azure Python SDK v2](#tab/python2)
 
-A share that contains snapshots cannot be deleted unless all the snapshots are deleted first.
+A share that contains snapshots can't be deleted unless all the snapshots are deleted first.
 
 ```python
 file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
@@ -349,3 +349,5 @@ Now that you've learned how to manipulate Azure Files with Python, follow these 
 - [Python Developer Center](/azure/developer/python/)
 - [Azure Storage Services REST API](/rest/api/azure/)
 - [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage)
+
+For related code samples using deprecated Python version 2 SDKs, see [Code samples using Python version 2](files-samples-python-v2.md).

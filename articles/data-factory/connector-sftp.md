@@ -1,33 +1,38 @@
 ---
-title: Copy data from and to SFTP server
+title: Copy and transform data in SFTP server using Azure Data Factory or Azure Synapse Analytics
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from and to SFTP server by using Azure Data Factory and Azure Synapse Analytics pipelines.
+description: Learn how to copy data from and to SFTP server, and transform data in SFTP server using Azure Data Factory or Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/13/2021
+ms.date: 04/12/2023
 ---
 
-# Copy data from and to the SFTP server using Azure Data Factory or Azure Synapse Analytics
+# Copy and transform data in SFTP server using Azure Data Factory or Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you are using:"]
 > * [Version 1](v1/data-factory-sftp-connector.md)
 > * [Current version](connector-sftp.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to copy data from and to the secure FTP (SFTP) server. To learn more read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
+This article outlines how to use Copy Activity to copy data from and to the secure FTP (SFTP) server, and use Data Flow to transform data in SFTP server. To learn more read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 ## Supported capabilities
 
-The SFTP connector is supported for the following activities:
+This SFTP connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
-- [GetMetadata activity](control-flow-get-metadata-activity.md)
-- [Delete activity](delete-activity.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
+|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|
+|[Delete activity](delete-activity.md)|&#9312; &#9313;|
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
 Specifically, the SFTP connector supports:
 
@@ -407,6 +412,79 @@ This table describes the behavior that results from using a file list path in th
 | Sample source structure                                      | Content in FileListToCopy.txt                             | Azure Data Factory configuration                                            |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | root<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadata<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **In the dataset:**<br>- Folder path: `root/FolderA`<br><br>**In the Copy activity source:**<br>- File list path: `root/Metadata/FileListToCopy.txt` <br><br>The file list path points to a text file in the same data store that includes a list of files you want to copy (one file per line, with the relative path to the path configured in the dataset). |
+
+## Mapping data flow properties
+
+When you're transforming data in mapping data flows, you can read and write files from SFTP in the following formats:
+
+- [Avro](format-avro.md#mapping-data-flow-properties)
+- [Delimited text](format-delimited-text.md#mapping-data-flow-properties)
+- [Excel](format-excel.md#mapping-data-flow-properties)
+- [JSON](format-json.md#mapping-data-flow-properties)
+- [ORC](format-orc.md#mapping-data-flow-properties)
+- [Parquet](format-parquet.md#mapping-data-flow-properties)
+- [XML](format-xml.md#mapping-data-flow-properties)
+
+Format specific settings are located in the documentation for that format. For more information, see [Source transformation in mapping data flow](data-flow-source.md) and [Sink transformation in mapping data flow](data-flow-sink.md).
+
+> [!Note]
+> SSH host key validation is not supported in mapping data flow now.
+
+> [!Note]
+> To access on premise SFTP sever, you need to use Azure Data Factory or Synapse workspace [Managed Virtual Network](managed-virtual-network-private-endpoint.md) using a private endpoint. Refer to this [tutorial](tutorial-managed-virtual-network-on-premise-sql-server.md) for detailed steps. 
+
+### Source transformation
+
+The below table lists the properties supported by SFTP source. You can edit these properties in the **Source options** tab. When using inline dataset, you will see additional settings, which are the same as the properties described in [dataset properties](#dataset-properties) section. 
+
+| Name | Description | Required | Allowed values | Data flow script property |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Wildcard path | Using a wildcard pattern will instruct ADF to loop through each matching folder and file in a single source transformation. This is an effective way to process multiple files within a single flow. | No | String[] | wildcardPaths  |
+| Partition Root Path | If you have partitioned folders in your file source with  a ```key=value``` format (for example, `year=2019`), then you can assign the top level of that partition folder tree to a column name in your data flow data stream.  | No | String | partitionRootPath  |
+| Allow no files found |If true, an error is not thrown if no files are found. | No | `true` or `false` | ignoreNoFilesFound  |
+| List of files |This is a file set. Create a text file that includes a list of relative path files to process. Point to this text file.  | No | `true` or `false` | fileList  |
+| Column to store file name | Store the name of the source file in a column in your data. Enter a new column name here to store the file name string.  | No | String | rowUrlColumn |
+| After completion | Choose to do nothing with the source file after the data flow runs, delete the source file, or move the source file. The paths for the move are relative. | No | Delete: `true` or `false` <br> Move: `['<from>', '<to>']` | purgeFiles<br/>moveFiles |
+| Filter by last modified | You can filter which files you process by specifying a date range of when they were last modified. All date-times are in UTC. | No | Timestamp | modifiedAfter<br/> modifiedBefore |
+
+#### SFTP source script example
+
+When you use SFTP dataset as source type, the associated data flow script is:
+
+```
+source(allowSchemaDrift: true,
+	validateSchema: false,
+	ignoreNoFilesFound: true,
+	purgeFiles: true,
+	fileList: true,
+	modifiedAfter: (toTimestamp(1647388800000L)),
+	modifiedBefore: (toTimestamp(1647561600000L)),
+	partitionRootPath: 'partdata',
+	wildcardPaths:['partdata/**/*.csv']) ~> SFTPSource
+```
+
+### Sink transformation
+
+The below table lists the properties supported by SFTP sink. You can edit these properties in the **Settings** tab. When using inline dataset, you will see additional settings, which are the same as the properties described in [dataset properties](#dataset-properties) section. 
+
+| Name | Description | Required | Allowed values | Data flow script property |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Clear the folder |Determines whether or not the destination folder gets cleared before the data is written. | No | `true` or `false` | truncate |
+| File name option | The naming format of the data written. By default, one file per partition in format `part-#####-tid-<guid>`. | No | Pattern: String <br> Per partition: String[] <br> Name file as column data: String <br> Name folder as column data: String <br>Output to single file: `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> rowFolderUrlColumn<br> partitionFileNames |
+| Quote all | Determines whether to enclose all values in quotes. | No | `true` or `false` | quoteAll |
+
+#### SFTP sink script example
+
+When you use SFTP dataset as sink type, the associated data flow script is:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+	validateSchema: false,
+	filePattern:'loans[n].csv',
+	truncate: true,
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true) ~> SFTPSink
+```
 
 ## Lookup activity properties
 

@@ -3,19 +3,19 @@ title: Plan cloud HR application to Azure Active Directory user provisioning
 description: This article describes the deployment process of integrating cloud HR systems, such as Workday and SuccessFactors, with Azure Active Directory. Integrating Azure AD with your cloud HR system results in a complete identity lifecycle management system. 
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/13/2021
+ms.date: 04/24/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
 # Plan cloud HR application to Azure Active Directory user provisioning
 
-Historically, IT staff have relied on manual methods to create, update, and delete employees. They've used methods such as uploading CSV files or custom scripts to sync employee data. These provisioning processes are error prone, insecure, and hard to manage.
+Historically, IT staff has relied on manual methods to create, update, and delete employees. They've used methods such as uploading CSV files or custom scripts to sync employee data. These provisioning processes are error prone, insecure, and hard to manage.
 
 To manage the identity lifecycles of employees, vendors, or contingent workers, [Azure Active Directory (Azure AD) user provisioning service](../app-provisioning/user-provisioning.md) offers integration with cloud-based human resources (HR) applications. Examples of applications include Workday or SuccessFactors.
 
@@ -25,6 +25,10 @@ Azure AD uses this integration to enable the following cloud HR application (app
 - **Provision cloud-only users to Azure AD:** In scenarios where Active Directory isn't used, provision users directly from the cloud HR app to Azure AD.
 - **Write back to the cloud HR app:** Write the email addresses and username attributes from Azure AD back to the cloud HR app.
 
+The following video provides guidance on planning your HR-driven provisioning integrations.  
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/HsdBt40xEHs]
+
 > [!NOTE]
 > This deployment plan shows you how to deploy your cloud HR app workflows with Azure AD user provisioning. For information on how to deploy automatic user provisioning to software as a service (SaaS) apps, see [Plan an automatic user provisioning deployment](./plan-auto-user-provisioning.md).
 
@@ -32,7 +36,7 @@ Azure AD uses this integration to enable the following cloud HR application (app
 
 The Azure AD user provisioning service enables automation of the following HR-based identity lifecycle management scenarios:
 
-- **New employee hiring:** When a new employee is added to the cloud HR app, a user account is automatically created in Active Directory and Azure AD with the option to write back the email address and username attributes to the cloud HR app.
+- **New employee hiring:** Adding an employee to the cloud HR app automatically creates a user in Active Directory and Azure AD. Adding a user account includes the option to write back the email address and username attributes to the cloud HR app.
 - **Employee attribute and profile updates:** When an employee record such as name, title, or manager is updated in the cloud HR app, their user account is automatically updated in Active Directory and Azure AD.
 - **Employee terminations:** When an employee is terminated in the cloud HR app, their user account is automatically disabled in Active Directory and Azure AD.
 - **Employee rehires:** When an employee is rehired in the cloud HR app, their old account can be automatically reactivated or reprovisioned to Active Directory and Azure AD.
@@ -44,7 +48,7 @@ The cloud HR app integration with Azure AD user provisioning is ideally suited f
 - Want a prebuilt, cloud-based solution for cloud HR user provisioning.
 - Require direct user provisioning from the cloud HR app to Active Directory or Azure AD.
 - Require users to be provisioned by using data obtained from the cloud HR app.
-- Require joining, moving, and leaving users to be synced to one or more Active Directory forests, domains, and OUs based only on change information detected in the cloud HR app.
+- Syncing users who are joining, moving, and leaving. The sync happens between one or more Active Directory forests, domains, and OUs based only on change information detected in the cloud HR app.
 - Use Microsoft 365 for email.
 
 ## Learn
@@ -64,7 +68,7 @@ This article uses the following terms:
 This capability of HR-driven IT provisioning offers the following significant business benefits:
 
 - **Increase productivity:** You can now automate the assignment of user accounts and Microsoft 365 licenses and provide access to key groups. Automating assignments gives new hires immediate access to their job tools and increases productivity.
-- **Manage risk:** You can increase security by automating changes based on employee status or group memberships with data flowing in from the cloud HR app. Automating changes ensures that user identities and access to key apps update automatically when users transition or leave the organization.
+- **Manage risk:** Automate changes based on employee status or group membership to increase security. This automation ensures that user identities and access to key apps update automatically. For example, an update in the HR app when a user transitions or leaves the organization flows in automatically.
 - **Address compliance and governance:** Azure AD supports native audit logs for user provisioning requests performed by apps of both source and target systems. With auditing, you can track who has access to the apps from a single screen.
 - **Manage cost:** Automatic provisioning reduces costs by avoiding inefficiencies and human error associated with manual provisioning. It reduces the need for custom-developed user provisioning solutions built over time by using legacy and outdated platforms.
 
@@ -72,7 +76,7 @@ This capability of HR-driven IT provisioning offers the following significant bu
 
 To configure the cloud HR app to Azure AD user provisioning integration, you require a valid [Azure AD Premium license](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) and a license for the cloud HR app, such as Workday or SuccessFactors.
 
-You also need a valid Azure AD Premium P1 or higher subscription license for every user that will be sourced from the cloud HR app and provisioned to either Active Directory or Azure AD. Any improper number of licenses owned in the cloud HR app might lead to errors during user provisioning.
+You also need a valid Azure AD Premium P1 or higher subscription license for every user that is sourced from the cloud HR app and provisioned to either Active Directory or Azure AD. Any improper number of licenses owned in the cloud HR app might lead to errors during user provisioning.
 
 ### Prerequisites
 
@@ -90,7 +94,8 @@ You also need a valid Azure AD Premium P1 or higher subscription license for eve
 | Videos | [What is user provisioning in Active Azure Directory?](https://youtu.be/_ZjARPpI6NI) |
 | | [How to deploy user provisioning in Active Azure Directory](https://youtu.be/pKzyts6kfrw) |
 | Tutorials | [List of tutorials on how to integrate SaaS apps with Azure AD](../saas-apps/tutorial-list.md) |
-| | [Tutorial: Configure Workday for automatic user provisioning](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
+| | [Tutorial: Configure automatic user provisioning with Workday](../saas-apps/workday-inbound-tutorial.md) |
+| | [Tutorial: Configure automatic user provisioning with SAP SuccessFactors](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md) |
 | FAQ | [Automated user provisioning](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [Provisioning from Workday to Azure AD](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 
@@ -108,7 +113,7 @@ The following example describes the end-to-end user provisioning solution archit
 The following key steps are indicated in the diagram:  
 
 1. **HR team** performs the transactions in the cloud HR app tenant.
-2. **Azure AD provisioning service** runs the scheduled cycles from the cloud HR app tenant and identifies changes that need to be processed for sync with Active Directory.
+2. **Azure AD provisioning service** runs the scheduled cycles from the cloud HR app tenant and identifies changes to process for sync with Active Directory.
 3. **Azure AD provisioning service** invokes the Azure AD Connect provisioning agent with a request payload that contains Active Directory account create, update, enable, and disable operations.
 4. **Azure AD Connect provisioning agent** uses a service account to manage Active Directory account data.
 5. **Azure AD Connect** runs delta [sync](../hybrid/how-to-connect-sync-whatis.md) to pull updates in Active Directory.
@@ -121,31 +126,31 @@ Consider your organizational needs while you determine the strategy for this dep
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so owing to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md). Also make sure that stakeholder roles in the project are well understood. Document the stakeholders and their project input and accountabilities.
+When technology projects fail, they typically do so owing to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/deployment-plans.md). Also make sure that stakeholder roles in the project are well understood. Document the stakeholders and their project input and accountabilities.
 
 Include a representative from the HR organization who can provide inputs on existing HR business processes and worker identity plus job data-processing requirements.
 
 ### Plan communications
 
-Communication is critical to the success of any new service. Proactively communicate with your users about when and how their experience will change. Let them know how to gain support if they experience issues.
+Communication is critical to the success of any new service. Proactively communicate with your users about when and how their experience is changing. Let them know how to gain support if they experience issues.
 
 ### Plan a pilot
 
 Integrating HR business processes and identity workflows from the cloud HR app to target systems requires a considerable amount of data validation, data transformation, data cleansing, and end-to-end testing before you can deploy the solution into production.
 
-Run the initial configuration in a [pilot environment](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) before you scale it to all users in production.
+Run the initial configuration in a [pilot environment](../fundamentals/deployment-plans.md#best-practices-for-a-pilot) before you scale it to all users in production.
 
 ## Select cloud HR provisioning connector apps
 
 To facilitate Azure AD provisioning workflows between the cloud HR app and Active Directory, you can add multiple provisioning connector apps from the Azure AD app gallery:
 
 - **Cloud HR app to Active Directory user provisioning**: This provisioning connector app facilitates user account provisioning from the cloud HR app to a single Active Directory domain. If you have multiple domains, you can add one instance of this app from the Azure AD app gallery for each Active Directory domain you need to provision to.
-- **Cloud HR app to Azure AD user provisioning**: While Azure AD Connect is the tool that should be used to synchronize Active Directory users to Azure AD, this provisioning connector app can be used to facilitate the provisioning of cloud-only users from the cloud HR app to a single Azure AD tenant.
+- **Cloud HR app to Azure AD user provisioning**: Azure AD Connect is the tool used to synchronize Active Directory on premises users to Azure Active Directory. The Cloud HR app to Azure AD user provisioning is a connector you use to provision cloud-only users from the cloud HR app to a single Azure AD tenant.
 - **Cloud HR app write-back**: This provisioning connector app facilitates the write-back of the user's email addresses from Azure AD to the cloud HR app.
 
 For example, the following image lists the Workday connector apps that are available in the Azure AD app gallery.
 
-![Azure Active Directory portal app gallery](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img2.png)
+![Azure portal app gallery](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img2.png)
 
 ### Decision flow chart
 
@@ -175,9 +180,9 @@ We recommend the following production configuration:
 
 |Requirement|Recommendation|
 |:-|:-|
-|Number of Azure AD Connect provisioning agents to deploy|Two (for high availability and failover)
-|Number of provisioning connector apps to configure|One app per child domain|
-|Server host for Azure AD Connect provisioning agent|Windows Server 2016 with line of sight to geolocated Active Directory domain controllers</br>Can coexist with Azure AD Connect service|
+|Number of Azure AD Connect provisioning agents to deploy.|Two (for high availability and failover).
+|Number of provisioning connector apps to configure.|One app per child domain.|
+|Server host for Azure AD Connect provisioning agent.|Windows Server 2016 with line of sight to geolocated Active Directory domain controllers. </br>Can coexist with Azure AD Connect service.|
 
 ![Flow to on-premises agents](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img4.png)
 
@@ -189,20 +194,20 @@ We recommend the following production configuration:
 
 |Requirement|Recommendation|
 |:-|:-|
-|Number of Azure AD Connect provisioning agents to deploy on-premises|Two per disjoint Active Directory forest|
-|Number of provisioning connector apps to configure|One app per child domain|
-|Server host for Azure AD Connect provisioning agent|Windows Server 2016 with line of sight to geolocated Active Directory domain controllers</br>Can coexist with Azure AD Connect service|
+|Number of Azure AD Connect provisioning agents to deploy on-premises|Two per disjoint Active Directory forest.|
+|Number of provisioning connector apps to configure|One app per child domain.|
+|Server host for Azure AD Connect provisioning agent.|Windows Server 2016 with line of sight to geolocated Active Directory domain controllers. </br>Can coexist with Azure AD Connect service.|
 
 ![Single cloud HR app tenant disjoint Active Directory forest](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img5.png)
 
 ### Azure AD Connect provisioning agent requirements
 
-The cloud HR app to Active Directory user provisioning solution requires that you deploy one or more Azure AD Connect provisioning agents on servers that run Windows Server 2016 or greater. The servers must have a minimum of 4-GB RAM and .NET 4.7.1+ runtime. Ensure that the host server has network access to the target Active Directory domain.
+The cloud HR app to Active Directory user provisioning solution requires the deployment of one or more Azure AD Connect provisioning agents. These agents must be deployed on servers that run Windows Server 2016 or greater. The servers must have a minimum of 4-GB RAM and .NET 4.7.1+ runtime. Ensure that the host server has network access to the target Active Directory domain.
 
 To prepare the on-premises environment, the Azure AD Connect provisioning agent configuration wizard registers the agent with your Azure AD tenant, [opens ports](../app-proxy/application-proxy-add-on-premises-application.md#open-ports), [allows access to URLs](../app-proxy/application-proxy-add-on-premises-application.md#allow-access-to-urls), and supports [outbound HTTPS proxy configuration](../saas-apps/workday-inbound-tutorial.md#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
 
 The provisioning agent configures a [Global Managed Service Account (GMSA)](../cloud-sync/how-to-prerequisites.md#group-managed-service-accounts)
-to communicate with the Active Directory domains. If you want to use a non-GMSA service account for provisioning, you can [skip GMSA configuration](../cloud-sync/how-to-manage-registry-options.md#skip-gmsa-configuration) and specify your service account during configuration. 
+to communicate with the Active Directory domains.
 
 You can select domain controllers that should handle provisioning requests. If you have several geographically distributed domain controllers, install the provisioning agent in the same site as your preferred domain controllers. This positioning improves the reliability and performance of the end-to-end solution.
 
@@ -210,11 +215,11 @@ For high availability, you can deploy more than one Azure AD Connect provisionin
 
 ## Design HR provisioning app deployment topology
 
-Depending on the number of Active Directory domains involved in the inbound user provisioning configuration, you may consider one of the following deployment topologies. Each topology diagram uses an example deployment scenario to highlight configuration aspects. Use the example that closely resembles your deployment requirement to determine the configuration that will meet your needs. 
+Depending on the number of Active Directory domains involved in the inbound user provisioning configuration, you may consider one of the following deployment topologies. Each topology diagram uses an example deployment scenario to highlight configuration aspects. Use the example that closely resembles your deployment requirement to determine the configuration that meets your needs. 
 
-### Deployment topology 1: Single app to provision all users from Cloud HR to single on-premises Active Directory domain
+### Deployment topology one: Single app to provision all users from Cloud HR to single on-premises Active Directory domain
 
-This is the most common deployment topology. Use this topology, if you need to provision all users from Cloud HR to a single AD domain and same provisioning rules apply to all users. 
+Deployment topology one is the most common deployment topology. Use this topology, if you need to provision all users from Cloud HR to a single AD domain and same provisioning rules apply to all users. 
 
 :::image type="content" source="media/plan-cloud-hr-provision/topology-1-single-app-with-single-ad-domain.png" alt-text="Screenshot of single app to provision users from Cloud HR to single AD domain" lightbox="media/plan-cloud-hr-provision/topology-1-single-app-with-single-ad-domain.png":::
 
@@ -222,29 +227,29 @@ This is the most common deployment topology. Use this topology, if you need to p
 * Setup two provisioning agent nodes for high availability and failover. 
 * Use the [provisioning agent configuration wizard](../cloud-sync/how-to-install.md#install-the-agent) to register your AD domain with your Azure AD tenant. 
 * When configuring the provisioning app, select the AD domain from the dropdown of registered domains. 
-* If you are using scoping filters, configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
+* If you're using scoping filters, configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
 
-### Deployment topology 2: Separate apps to provision distinct user sets from Cloud HR to single on-premises Active Directory domain
+### Deployment topology two: Separate apps to provision distinct user sets from Cloud HR to single on-premises Active Directory domain
 
-This topology supports business requirements where attribute mapping and provisioning logic differs based on user type (employee/contractor), user location or user's business unit. You can also use this topology to delegate the administration and maintenance of inbound user provisioning based on division or country.
+This topology supports business requirements where attribute mapping and provisioning logic differ based on user type (employee/contractor), user location or user's business unit. You can also use this topology to delegate the administration and maintenance of inbound user provisioning based on division or country/region.
 
 :::image type="content" source="media/plan-cloud-hr-provision/topology-2-separate-apps-with-single-ad-domain.png" alt-text="Screenshot of separate apps to provision users from Cloud HR to single AD domain" lightbox="media/plan-cloud-hr-provision/topology-2-separate-apps-with-single-ad-domain.png":::
 
 **Salient configuration aspects**
 * Setup two provisioning agent nodes for high availability and failover. 
 * Create an HR2AD provisioning app for each distinct user set that you want to provision. 
-* Use [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) in the provisioning app to define users to be processed by each app. 
-* To handle the scenario where managers references need to be resolved across distinct user sets (e.g. contractors reporting to managers who are employees), you can create a separate HR2AD provisioning app for updating only the *manager* attribute. Set the scope of this app to all users. 
+* Use [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) in the provisioning app to define users to process each app. 
+* In the scenario where manager references need to be resolved across distinct user sets, create a separate HR2AD provisioning app. For example,  contractors reporting to managers who are employees. Use the separate app to update only the *manager* attribute. Set the scope of this app to all users. 
 * Configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
 
 > [!NOTE] 
 > If you do not have a test AD domain and use a TEST OU container in AD, then you may use this topology to create two separate apps *HR2AD (Prod)* and *HR2AD (Test)*. Use the *HR2AD (Test)* app to test your attribute mapping changes before promoting it to the *HR2AD (Prod)* app.  
 
-### Deployment topology 3: Separate apps to provision distinct user sets from Cloud HR to multiple on-premises Active Directory domains (no cross-domain visibility)
+### Deployment topology three: Separate apps to provision distinct user sets from Cloud HR to multiple on-premises Active Directory domains (no cross-domain visibility)
 
-Use this topology to manage multiple independent child AD domains belonging to the same forest, if managers always exist in the same domain as the user and your unique ID generation rules for attributes like *userPrincipalName*, *samAccountName* and *mail* does not require a forest-wide lookup. It also offers the flexibility of delegating the administration of each provisioning job by domain boundary. 
+Use topology three to manage multiple independent child AD domains belonging to the same forest. Make sure that managers always exist in the same domain as the user. Also make sure that your unique ID generation rules for attributes like *userPrincipalName*, *samAccountName*, and *mail* don't require a forest-wide lookup. Topology three offers the flexibility of delegating the administration of each provisioning job by domain boundary. 
 
-For example: In the diagram below, the provisioning apps are setup for each geographic region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). Depending on the location, users are provisioned to the respective AD domain. Delegated administration of the provisioning app is possible so that *EMEA administrators* can independently manage the provisioning configuration of users belonging to the EMEA region.  
+For example: In the diagram, the provisioning apps are set up for each geographic region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). Depending on the location, users are provisioned to the respective AD domain. Delegated administration of the provisioning app is possible so that *EMEA administrators* can independently manage the provisioning configuration of users belonging to the EMEA region.  
 
 :::image type="content" source="media/plan-cloud-hr-provision/topology-3-separate-apps-with-multiple-ad-domains-no-cross-domain.png" alt-text="Screenshot of separate apps to provision users from Cloud HR to multiple AD domains" lightbox="media/plan-cloud-hr-provision/topology-3-separate-apps-with-multiple-ad-domains-no-cross-domain.png":::
 
@@ -253,15 +258,15 @@ For example: In the diagram below, the provisioning apps are setup for each geog
 * Use the [provisioning agent configuration wizard](../cloud-sync/how-to-install.md#install-the-agent) to register all child AD domains with your Azure AD tenant. 
 * Create a separate HR2AD provisioning app for each target domain. 
 * When configuring the provisioning app, select the respective child AD domain from the dropdown of available AD domains. 
-* Use [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) in the provisioning app to define users to be processed by each app. 
+* Use [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) in the provisioning app to define users that each app processes. 
 * Configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
 
 
-### Deployment topology 4: Separate apps to provision distinct user sets from Cloud HR to multiple on-premises Active Directory domains (with cross-domain visibility)
+### Deployment topology four: Separate apps to provision distinct user sets from Cloud HR to multiple on-premises Active Directory domains (with cross-domain visibility)
 
-Use this topology to manage multiple independent child AD domains belonging to the same forest, if a user's manager may exist in the different domain and your unique ID generation rules for attributes like *userPrincipalName*, *samAccountName* and *mail* requires a forest-wide lookup. 
+Use topology four to manage multiple independent child AD domains belonging to the same forest. A user's manager may exist in a different domain. Also, your unique ID generation rules for attributes like *userPrincipalName*, *samAccountName* and *mail* require a forest-wide lookup. 
 
-For example: In the diagram below, the provisioning apps are setup for each geographic region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). Depending on the location, users are provisioned to the respective AD domain. Cross-domain manager references and forest-wide lookup is handled by enabling referral chasing on the provisioning agent. 
+For example: In the diagram, the provisioning apps are set up for each geographic region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). Depending on the location, users are provisioned to the respective AD domain. Cross-domain manager references and forest-wide lookup are handled by enabling referral chasing on the provisioning agent. 
 
 :::image type="content" source="media/plan-cloud-hr-provision/topology-4-separate-apps-with-multiple-ad-domains-cross-domain.png" alt-text="Screenshot of separate apps to provision users from Cloud HR to multiple AD domains with cross domain support" lightbox="media/plan-cloud-hr-provision/topology-4-separate-apps-with-multiple-ad-domains-cross-domain.png":::
 
@@ -270,17 +275,17 @@ For example: In the diagram below, the provisioning apps are setup for each geog
 * Configure [referral chasing](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) on the provisioning agent. 
 * Use the [provisioning agent configuration wizard](../cloud-sync/how-to-install.md#install-the-agent) to register the parent AD domain and all child AD domains with your Azure AD tenant. 
 * Create a separate HR2AD provisioning app for each target domain. 
-* When configuring each provisioning app, select the parent AD domain from the dropdown of available AD domains. This ensures forest-wide lookup while generating unique values for attributes like *userPrincipalName*, *samAccountName* and *mail*.
+* When configuring each provisioning app, select the parent AD domain from the dropdown of available AD domains. Selecting the parent domain ensures forest-wide lookup while generating unique values for attributes like *userPrincipalName*, *samAccountName* and *mail*.
 * Use *parentDistinguishedName* with expression mapping to dynamically create user in the correct child domain and [OU container](#configure-active-directory-ou-container-assignment). 
-* Use [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) in the provisioning app to define users to be processed by each app. 
+* Use [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) in the provisioning app to define users that each app processes.
 * To resolve cross-domain managers references, create a separate HR2AD provisioning app for updating only the *manager* attribute. Set the scope of this app to all users. 
 * Configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
 
 ### Deployment topology 5: Single app to provision all users from Cloud HR to multiple on-premises Active Directory domains (with cross-domain visibility)
 
-Use this topology if you want to use a single provisioning app to manage users belonging to all your parent and child AD domains. This topology is recommended if provisioning rules are consistent across all domains and there is no requirement for delegated administration of provisioning jobs. This topology supports resolving cross-domain manager references and can perform forest-wide uniqueness check. 
+Use this topology if you want to use a single provisioning app to manage users belonging to all your parent and child AD domains. This topology is recommended if provisioning rules are consistent across all domains and there's no requirement for delegated administration of provisioning jobs. This topology supports resolving cross-domain manager references and can perform forest-wide uniqueness check. 
 
-For example: In the diagram below, a single provisioning app manages users present in three different child domains grouped by region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). The attribute mapping for *parentDistinguishedName* is used to dynamically create a user in the appropriate child domain. Cross-domain manager references and forest-wide lookup is handled by enabling referral chasing on the provisioning agent. 
+For example: In the diagram, a single provisioning app manages users present in three different child domains grouped by region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). The attribute mapping for *parentDistinguishedName* is used to dynamically create a user in the appropriate child domain. Cross-domain manager references and forest-wide lookup are handled by enabling referral chasing on the provisioning agent. 
 
 :::image type="content" source="media/plan-cloud-hr-provision/topology-5-single-app-with-multiple-ad-domains-cross-domain.png" alt-text="Screenshot of single app to provision users from Cloud HR to multiple AD domains with cross domain support" lightbox="media/plan-cloud-hr-provision/topology-5-single-app-with-multiple-ad-domains-cross-domain.png":::
 
@@ -289,9 +294,9 @@ For example: In the diagram below, a single provisioning app manages users prese
 * Configure [referral chasing](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) on the provisioning agent. 
 * Use the [provisioning agent configuration wizard](../cloud-sync/how-to-install.md#install-the-agent) to register the parent AD domain and all child AD domains with your Azure AD tenant. 
 * Create a single HR2AD provisioning app for the entire forest. 
-* When configuring the provisioning app, select the parent AD domain from the dropdown of available AD domains. This ensures forest-wide lookup while generating unique values for attributes like *userPrincipalName*, *samAccountName* and *mail*.
+* When configuring the provisioning app, select the parent AD domain from the dropdown of available AD domains. Selecting the parent domain ensures forest-wide lookup while generating unique values for attributes like *userPrincipalName*, *samAccountName* and *mail*.
 * Use *parentDistinguishedName* with expression mapping to dynamically create user in the correct child domain and [OU container](#configure-active-directory-ou-container-assignment). 
-* If you are using scoping filters, configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
+* If you're using scoping filters, configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
 
 ### Deployment topology 6: Separate apps to provision distinct users from Cloud HR to disconnected on-premises Active Directory forests
 
@@ -309,7 +314,7 @@ Use this topology if your IT infrastructure has disconnected/disjoint AD forests
 
 ### Deployment topology 7: Separate apps to provision distinct users from multiple Cloud HR to disconnected on-premises Active Directory forests
 
-In large organizations, it is not uncommon to have multiple HR systems. During business M&A (mergers and acquisitions) scenarios, you may come across a need to connect your on-premises Active Directory to multiple HR sources. We recommend the topology below if you have multiple HR sources and would like to channel the identity data from these HR sources to either the same or different on-premises Active Directory domains.  
+In large organizations, it isn't uncommon to have multiple HR systems. During business M&A (mergers and acquisitions) scenarios, you may come across a need to connect your on-premises Active Directory to multiple HR sources. We recommend the topology if you have multiple HR sources and would like to channel the identity data from these HR sources to either the same or different on-premises Active Directory domains.  
 
 :::image type="content" source="media/plan-cloud-hr-provision/topology-7-separate-apps-from-multiple-hr-to-disconnected-ad-forests.png" alt-text="Screenshot of separate apps to provision users from multiple Cloud HR to disconnected AD forests" lightbox="media/plan-cloud-hr-provision/topology-7-separate-apps-from-multiple-hr-to-disconnected-ad-forests.png":::
 
@@ -358,7 +363,7 @@ You can also [customize the default attribute mappings](../app-provisioning/cust
 
 ### Determine user account status
 
-By default, the provisioning connector app maps the HR user profile status to the user account status in Active Directory or Azure AD to determine whether to enable or disable the user account.
+By default, the provisioning connector app maps the HR user profile status to the user account status. The status is used to determine whether to enable or disable the user account.
 
 When you initiate the Joiners-Leavers process, gather the following requirements.
 
@@ -394,8 +399,8 @@ When you initiate the Joiners-Movers-Leavers process, gather the following requi
 Depending on your requirements, you can modify the mappings to meet your integration goals. For more information, see the specific cloud HR app tutorial (such as [Workday](../saas-apps/workday-inbound-tutorial.md#part-4-configure-attribute-mappings)) for a list of custom attributes to map.
 
 ### Generate a unique attribute value
+Attributes like CN, samAccountName, and the UPN have unique constraints. You may need to generate unique attribute values when you initiate the Joiners process.
 
-When you initiate the Joiners process, you might need to generate unique attribute values when you set attributes like CN, samAccountName, and the UPN, which has unique constraints.
 
 The Azure AD function [SelectUniqueValues](../app-provisioning/functions-for-customizing-application-data.md#selectuniquevalue) evaluates each rule and then checks the value generated for uniqueness in the target system. For an example, see [Generate unique value for the userPrincipalName (UPN) attribute](../app-provisioning/functions-for-customizing-application-data.md#generate-unique-value-for-userprincipalname-upn-attribute).
 
@@ -414,13 +419,13 @@ For example, if you want to create users in OU based on the HR attribute **Munic
 Switch([Municipality], "OU=Default,OU=Users,DC=contoso,DC=com", "Dallas", "OU=Dallas,OU=Users,DC=contoso,DC=com", "Austin", "OU=Austin,OU=Users,DC=contoso,DC=com", "Seattle", "OU=Seattle,OU=Users,DC=contoso,DC=com", "London", "OU=London,OU=Users,DC=contoso,DC=com")
 `
 
-With this expression, if the Municipality value is Dallas, Austin, Seattle, or London, the user account will be created in the corresponding OU. If there's no match, then the account is created in the default OU.
+With this expression, if the Municipality value is Dallas, Austin, Seattle, or London, the user account is created in the corresponding OU. If there's no match, then the account is created in the default OU.
 
 ## Plan for password delivery of new user accounts
 
 When you initiate the Joiners process, you need to set and deliver a temporary password of new user accounts. With cloud HR to Azure AD user provisioning, you can roll out the Azure AD [self-service password reset](../authentication/tutorial-enable-sspr.md) (SSPR) capability for the user on day one.
 
-SSPR is a simple means for IT administrators to enable users to reset their passwords or unlock their accounts. You can provision the **Mobile Number** attribute from the cloud HR app to Active Directory and sync it with Azure AD. After the **Mobile Number** attribute is in Azure AD, you can enable SSPR for the user's account. Then on day one, the new user can use the registered and verified mobile number for authentication. Refer to the [SSPR documentation](../authentication/howto-sspr-authenticationdata.md) for details on how to pre-populate authentication contact information. 
+SSPR is a simple means for IT administrators to enable users to reset their passwords or unlock their accounts. You can provision the **Mobile Number** attribute from the cloud HR app to Active Directory and sync it with Azure AD. After the **Mobile Number** attribute is in Azure AD, you can enable SSPR for the user's account. Then on day one, the new user can use the registered and verified mobile number for authentication. Refer to the [SSPR documentation](../authentication/howto-sspr-authenticationdata.md) for details on how to prepopulate authentication contact information. 
 
 ## Plan for initial cycle
 
@@ -434,8 +439,7 @@ When the Azure AD provisioning service runs for the first time, it performs an [
 After you're satisfied with the results of the initial cycle for test users, start the [incremental updates](../app-provisioning/how-provisioning-works.md#incremental-cycles).
 
 ## Plan testing and security
-
-At each stage of your deployment from initial pilot through enabling user provisioning, ensure that you're testing that results are as expected and auditing the provisioning cycles.
+A deployment consists of stages ranging from the initial pilot to enabling user provisioning. At each stage, ensure that you're testing for expected results. Also, audit the provisioning cycles.
 
 ### Plan testing
 
@@ -447,7 +451,7 @@ After you configure the cloud HR app to Azure AD user provisioning, run test cas
 |User is terminated in the cloud HR app.|- The user account is disabled in Active Directory.</br>- The user can't log into any enterprise apps protected by Active Directory.
 |User supervisory organization is updated in the cloud HR app.|Based on the attribute mapping, the user account moves from one OU to another in Active Directory.|
 |HR updates the user's manager in the cloud HR app.|The manager field in Active Directory is updated to reflect the new manager's name.|
-|HR rehires an employee into a new role.|Behavior depends on how the cloud HR app is configured to generate employee IDs:</br>- If the old employee ID is reused for a rehire, the connector enables the existing Active Directory account for the user.</br>- If the rehire gets a new employee ID, the connector creates a new Active Directory account for the user.|
+|HR rehires an employee into a new role.|Behavior depends on how the cloud HR app is configured to generate employee IDs. If the old employee ID is used for a rehired employee, the connector enables the existing Active Directory account for the user. If the rehired employee gets a new employee ID, the connector creates a new Active Directory account for the user.|
 |HR converts the employee to a contract worker or vice versa.|A new Active Directory account is created for the new persona and the old account gets disabled on the conversion effective date.|
 
 Use the previous results to determine how to transition your automatic user provisioning implementation into production based on your established timelines.
@@ -463,7 +467,7 @@ It's common for a security review to be required as part of the deployment of a 
 
 The cloud HR user provisioning implementation might fail to work as desired in the production environment. If so, the following rollback steps can assist you in reverting to a previous known good state.
 
-1. Review the [provisioning summary report](../app-provisioning/check-status-user-account-provisioning.md#getting-provisioning-reports-from-the-azure-portal) and [provisioning logs](../app-provisioning/check-status-user-account-provisioning.md#provisioning-logs-preview) to determine what incorrect operations were performed on the affected users or groups. For more information on the provisioning summary report and logs, see [Manage cloud HR app user provisioning](#manage-your-configuration).
+1. Review the [provisioning logs](../app-provisioning/check-status-user-account-provisioning.md#provisioning-logs) to determine what incorrect operations were performed on the affected users or groups. For more information on the provisioning summary report and logs, see [Manage cloud HR app user provisioning](#manage-your-configuration).
 2. The last known good state of the users or groups affected can be determined through the provisioning audit logs or by reviewing the target systems (Azure AD or Active Directory).
 3. Work with the app owner to update the users or groups affected directly in the app by using the last known good state values.
 
@@ -477,7 +481,7 @@ Choose the cloud HR app that aligns to your solution requirements.
 
 ## Manage your configuration
 
-Azure AD can provide additional insights into your organization's user provisioning usage and operational health through audit logs and reports.
+Azure AD can provide more insights into your organization's user provisioning usage and operational health through audit logs and reports.
 
 ### Gain insights from reports and logs
 

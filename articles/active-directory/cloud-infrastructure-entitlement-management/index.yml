@@ -1,0 +1,125 @@
+### YamlMime:Landing
+
+title: Microsoft Entra Permissions Management
+summary: Microsoft Entra Permissions Management is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities (users and workloads),  actions, and resources across cloud infrastructures. It detects, right-sizes, and monitors unused and excessive permissions and enables Zero Trust security through least privilege access in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
+
+metadata:
+  title: Microsoft Entra Permissions Management
+  description: Learn how to use Permissions Management and Cloud Infrastructure Entitlement Management (CIEM)
+  services: active-directory
+  author: jenniferf-skc
+  manager: amycolannino
+  ms.service: active-directory 
+  ms.subservice: ciem
+  ms.workload: identity
+  ms.topic: landing-page
+  ms.date: 06/16/2023
+  ms.author: jfields
+
+
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: What's Microsoft Entra Permissions Management?
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview
+            url: overview.md
+  # Card
+  - title: Onboard Permissions Management
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Enable Permissions Management
+            url: onboard-enable-tenant.md
+  # Card
+  - title: View risk metrics in your authorization system
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: View key statistics and data about your authorization system
+            url: ui-dashboard.md
+  # Card
+  - title: Configure settings for data collection
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: View and configure settings for data collection
+            url: product-data-sources.md
+  # Card
+  # - title: Manage organizational and personal information
+  #  linkLists:
+  #    - linkListType: overview
+  #      links:
+  #        - text: Set personal information and preferences
+  #          url: product-account-settings.md
+  # Card
+  - title: View information about identities
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: View information about identities
+            url: usage-analytics-home.md
+          - text: View how users access information
+            url: ui-audit-trail.md
+  # Card
+  - title: Manage roles/policies and permission requests
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: View existing roles/policies and requests for permission
+            url: ui-remediation.md
+  # Card
+  # - title: View how users access information
+    # linkLists:
+      # - linkListType: overview
+        # links:
+          # - text: View how users access information
+            # url: ui-audit-trail.md
+  # Card
+  - title: Set activity alerts and triggers
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: View information about activity triggers
+            url: ui-triggers.md
+  # Card
+  - title: Manage rules for authorization systems
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Create and view rules in the Autopilot dashboard
+            url: ui-autopilot.md
+  # Card
+  - title: Generate reports
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Generate and view a system report
+            url: report-view-system-report.md
+  # Card
+  # - title: Learn with Permissions Management videos
+    # linkLists:
+      # - linkListType: overview
+        # links:
+          # - text: Permissions Management training videos
+            # url: training-videos.md
+  # Card
+  - title: FAQs
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: FAQs
+            url: faqs.md
+  # Card
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Troubleshoot
+            url: troubleshoot.md

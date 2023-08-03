@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/30/2021
+ms.date: 06/22/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -117,7 +117,7 @@ The **Protocol** element specifies the protocol to be used for the communication
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Name | Yes | The name of a valid protocol supported by Azure AD B2C that's used as part of the technical profile. Possible values are `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary`, or `None`. |
-| Handler | No | When the protocol name is set to `Proprietary`, specifies the name of the assembly that's used by Azure AD B2C to determine the protocol handler. |
+| Handler | No | When the protocol name is set to `Proprietary`, specifies the name of the assembly that's used by Azure AD B2C to determine the protocol handler. If you set the protocol *Name* attribute to `None`, do not include the *Handler* attribute.|
 
 ## Metadata
 
@@ -188,7 +188,7 @@ The **Key** element contains the following attribute:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Id | No | A unique identifier of a particular key pair referenced from other elements in the policy file. |
-| StorageReferenceId | Yes | An identifer of a storage key container referenced from other elements in the policy file. |
+| StorageReferenceId | Yes | An identifier of a storage key container referenced from other elements in the policy file. |
 
 ## Input claims transformations
 
@@ -249,6 +249,7 @@ The **InputClaim** element contains the following attributes:
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Yes | The identifier of a claim type. The claim is already defined in the claims schema section in the policy file or parent policy file. |
 | DefaultValue | No | A default value to use to create a claim if the claim indicated by ClaimTypeReferenceId doesn't exist so that the resulting claim can be used as an InputClaim element by the technical profile. |
+|AlwaysUseDefaultValue |No |Forces the use of the default value. |
 | PartnerClaimType | No | The identifier of the claim type of the external partner that the specified policy claim type maps to. If the PartnerClaimType attribute isn't specified, the specified policy claim type is mapped to the partner claim type of the same name. Use this property when your claim type name is different from the other party. An example is if the first claim name is *givenName*, while the partner uses a claim named *first_name*. |
 
 ## Display claims

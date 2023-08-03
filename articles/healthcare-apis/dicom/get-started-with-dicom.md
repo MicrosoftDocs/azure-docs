@@ -1,35 +1,35 @@
 ---
-title: Get started with the DICOM service - Azure Healthcare APIs
-description: This document describes how to get started with the DICOM service in Azure Healthcare APIs.
-author: stevewohl
+title: Get started with the DICOM service - Azure Health Data Services
+description: This document describes how to get started with the DICOM service in Azure Health Data Services.
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 01/06/2022
-ms.author: zxue
+ms.date: 06/03/2022
+ms.author: mmitrik
 ms.custom: mode-api
 ---
 
 # Get started with the DICOM service
 
-This article outlines the basic steps to get started with the DICOM service in [Azure Healthcare APIs](../healthcare-apis-overview.md). 
+This article outlines the basic steps to get started with the DICOM service in [Azure Health Data Services](../healthcare-apis-overview.md). 
 
-As a prerequisite, you'll need an Azure subscription and have been granted proper permissions to create Azure resource groups and deploy Azure resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in PowerShell, Azure CLI, and REST API scripts.
+As a prerequisite, you'll need an Azure subscription and have been granted proper permissions to create Azure resource groups and to deploy Azure resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in PowerShell, Azure CLI, and REST API scripts. You'll need a workspace to provision a DICOM service. A FHIR service is optional and is needed only if you connect imaging data with electronic health records of the patient via DICOMcast.
 
-[![Get Started with DICOM](media/get-started-with-dicom.png)](media/get-started-with-dicom.png#lightbox)
+[![Screenshot of Get Started with DICOM diagram.](media/get-started-with-dicom.png)](media/get-started-with-dicom.png#lightbox)
 
 ## Create a workspace in your Azure Subscription
 
-You can create a workspace from the [Azure portal](../healthcare-apis-quickstart.md) or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Healthcare APIs samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
+You can create a workspace from the [Azure portal](../healthcare-apis-quickstart.md) or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Azure Health Data Services samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
 
 > [!NOTE]
 > There are limits to the number of workspaces and the number of DICOM service instances you can create in each Azure subscription.
 
 ## Create a DICOM service in the workspace
 
-You can create a DICOM service instance from the [Azure portal](deploy-dicom-services-in-azure.md) or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Healthcare APIs samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
+You can create a DICOM service instance from the [Azure portal](deploy-dicom-services-in-azure.md) or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Azure Health Data Services samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
 
-Optionally, you can create a [FHIR service](../fhir/fhir-portal-quickstart.md) and [IoT connector](../iot/deploy-iot-connector-in-azure.md) in the workspace.
+Optionally, you can create a [FHIR service](../fhir/fhir-portal-quickstart.md) and [MedTech service](../iot/deploy-iot-connector-in-azure.md) in the workspace.
 
 ## Access the DICOM service
 
@@ -37,7 +37,7 @@ The DICOM service is secured by Azure Active Directory (Azure AD) that can't be 
 
 ### Register a client application
 
-You can create or register a client application from the [Azure portal](../register-application.md), or using PowerShell and Azure CLI scripts. This client application can be used for one or more DICOM service instances. It can also be used for other services in Azure Healthcare APIs.
+You can create or register a client application from the [Azure portal](dicom-register-application.md), or using PowerShell and Azure CLI scripts. This client application can be used for one or more DICOM service instances. It can also be used for other services in Azure Health Data Services.
 
 If the client application is created with a certificate or client secret, ensure that you renew the certificate or client secret before expiration and replace the client credentials in your applications.
 
@@ -53,23 +53,23 @@ You can perform create, read (search), update and delete (CRUD) transactions aga
 
 #### Get an access token
 
-You can obtain an Azure AD access token using PowerShell, Azure CLI, REST CLI, or .NET SDK.  For more information, see [Get access token](../get-access-token.md).
+You can obtain an Azure AD access token using PowerShell, Azure CLI, REST CLI, or .NET SDK. For more information, see [Get access token](../get-access-token.md).
 
 #### Access using existing tools
 
-- [Postman](../fhir/use-postman.md)
-- [REST Client](../fhir/using-rest-client.md)
 - [.NET C#](dicomweb-standard-apis-c-sharp.md)
 - [cURL](dicomweb-standard-apis-curl.md)
 - [Python](dicomweb-standard-apis-python.md)
+- Postman
+- REST Client
 
 ### DICOMweb standard APIs and change feed
 
 You can find more details on DICOMweb standard APIs and change feed in the [DICOM service](dicom-services-overview.md) documentation.
 
-#### DICOMCast
+#### DICOMcast
 
-You can use the Open Source [DICOMCast](https://github.com/microsoft/dicom-server/tree/main/converter/dicom-cast) project to work with FHIR data. In the future, this capability will be available in the managed service.
+DICOMcast is currently available as an [open source](https://github.com/microsoft/dicom-server/blob/main/docs/concepts/dicom-cast.md) project.
 
 ## Next steps
 
@@ -77,3 +77,5 @@ This article described the basic steps to get started using the DICOM service. F
 
 >[!div class="nextstepaction"]
 >[Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

@@ -4,7 +4,8 @@ description: Learn how to set up disaster recovery for Hyper-V VMs between your 
 ms.service: site-recovery
 ms.topic: how-to
 ms.date: 11/14/2019
-
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 # Set up disaster recovery for Hyper-V VMs to a secondary on-premises site
 

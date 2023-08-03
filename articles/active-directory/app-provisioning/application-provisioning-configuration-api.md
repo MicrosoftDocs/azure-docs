@@ -3,12 +3,12 @@ title: Configure provisioning using Microsoft Graph APIs
 description: Learn how to save time by using the Microsoft Graph APIs to automate the configuration of automatic provisioning.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/03/2021
+ms.date: 10/06/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -60,7 +60,7 @@ Content-type: application/json
 {
   "value": [
   {
-  	"id": "8b1025e4-1dd2-430b-a150-2ef79cd700f5",
+    "id": "8b1025e4-1dd2-430b-a150-2ef79cd700f5",
         "displayName": "AWS Single-Account Access",
         "homePageUrl": "http://aws.amazon.com/",
         "supportedSingleSignOnModes": [

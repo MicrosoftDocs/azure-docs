@@ -1,12 +1,11 @@
 ---
-title: Modify your Azure File Sync topology | Microsoft Docs
+title: Modify your Azure File Sync topology
 description: Guidance on how to modify your Azure File Sync sync topology
-author: roygara
-ms.service: storage
+author: khdownie
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 4/23/2021
-ms.author: rogarana
-ms.subservice: files
+ms.author: kendownie
 ---
 
 # Modify your Azure File Sync topology

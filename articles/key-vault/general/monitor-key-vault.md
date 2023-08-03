@@ -40,7 +40,7 @@ You can select "additional metrics" (or the "Metrics" tab in the left-hand sideb
 
 Some services in Azure have a special focused pre-built monitoring dashboard in the Azure portal that provides a starting point for monitoring your service. These special dashboards are called "insights".
 
-Key Vault insights provides comprehensive monitoring of your key vaults by delivering a unified view of your Key Vault requests, performance, failures, and latency. For full details, see [Monitoring your key vault service with Key Vault insights](../../azure-monitor/insights/key-vault-insights-overview.md).
+Key Vault insights provides comprehensive monitoring of your key vaults by delivering a unified view of your Key Vault requests, performance, failures, and latency. For full details, see [Monitoring your key vault service with Key Vault insights](../key-vault-insights-overview.md).
 
 ## Monitoring data
 
@@ -82,6 +82,17 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 > When you select **Logs** from the Key Vault menu, Log Analytics is opened with the query scope set to the current key vault. This means that log queries will only include data from that resource. If you want to run a query that includes data from other key vaults, or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
 
 Here are some queries that you can enter into the **Log search** bar to help you monitor your Key Vault resources. These queries work with the [new language](../../azure-monitor/logs/log-query-overview.md).
+
+* Are there any clients using old TLS version (<1.2)?
+
+    ```kusto
+    AzureDiagnostics
+    | where TimeGenerated > ago(90d) 
+    | where ResourceProvider =="MICROSOFT.KEYVAULT" 
+    | where isnotempty(tlsVersion_s) and strcmp(tlsVersion_s,"TLS1_2") <0
+    | project TimeGenerated,Resource, OperationName, requestUri_s, CallerIPAddress, OperationVersion,clientInfo_s,tlsVersion_s,todouble(tlsVersion_s)
+    | sort by TimeGenerated desc
+    ```
 
 * Are there any slow requests?
 
@@ -168,7 +179,7 @@ Here are some queries that you can enter into the **Log search** bar to help you
     AzureDiagnostics
     | where TimeGenerated > ago(30d) // Time range specified in the query. Overrides time picker in portal.
     | where ResourceProvider =="MICROSOFT.KEYVAULT" 
-    | where OperationName == "VaultPut" or OperationName = "VaultPatch"
+    | where OperationName == "VaultPut" or OperationName == "VaultPatch"
     | sort by TimeGenerated desc
     ```
 
@@ -177,12 +188,12 @@ Here are some queries that you can enter into the **Log search** bar to help you
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system preemptively. You can set alerts on [metrics](../../azure-monitor/alerts/alerts-metric-overview.md), [logs](../../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../../azure-monitor/alerts/activity-log-alerts.md).  
 
-If you are creating or running an application which runs on Azure Key Vault, [Azure Monitor Application Insights](../../azure-monitor/overview.md#application-insights) may offer additional types of alerts.
+If you are creating or running an application which runs on Azure Key Vault, [Azure Monitor Application Insights](../../azure-monitor/app/app-insights-overview.md) may offer additional types of alerts.
 
 Here are some common and recommended alert rules for Azure Key Vault -
 
 - Key Vault Availability drops below 100% (Static Threshold)
-- Key Vault Latency is greater than 500ms (Static Threshold)
+- Key Vault Latency is greater than 1000ms (Static Threshold)
 - Overall Vault Saturation is greater than 75% (Static Threshold)
 - Overall Vault Saturation exceeds average (Dynamic Threshold)
 - Total Error Codes higher than average (Dynamic Threshold)
@@ -193,4 +204,4 @@ See [Alerting for Azure Key Vault](alert.md) for more details.
 
 - See [Monitoring Azure Key Vault data reference](monitor-key-vault-reference.md) for a reference of the metrics, logs, and other important values created by Key Vault.
 - See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
-- Seem [Alerting for Azure Key Vault](alert.md)
+- See [Alerting for Azure Key Vault](alert.md)

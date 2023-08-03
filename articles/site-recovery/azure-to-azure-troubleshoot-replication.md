@@ -1,10 +1,12 @@
 ---
 title: Troubleshoot replication of Azure VMs with Azure Site Recovery
 description: Troubleshoot replication in Azure VM disaster recovery with Azure Site Recovery
-author: sideeksh
+author: ankitaduttaMSFT
 manager: rochakm
 ms.topic: troubleshooting
-ms.date: 04/03/2020
+ms.date: 03/07/2022
+ms.service: site-recovery
+ms.custom: engagement-fy23
 ---
 
 # Troubleshoot replication in Azure VM disaster recovery
@@ -65,7 +67,7 @@ A spike in data change rate might come from an occasional data burst. If the dat
   1. Go to **Disks** of the affected replicated machine and copy the replica disk name.
   1. Go to this replica of the managed disk.
   1. You might see a banner in **Overview** that says an SAS URL has been generated. Select this banner and cancel the export. Ignore this step if you don't see the banner.
-  1. As soon as the SAS URL is revoked, go to **Configuration** for the managed disk. Increase the size so that Site Recovery supports the observed churn rate on the source disk.
+  1. As soon as the SAS URL is revoked, go to **Size + Performance** for the managed disk. Increase the size so that Site Recovery supports the observed churn rate on the source disk.
 
 ## Network connectivity problems
 

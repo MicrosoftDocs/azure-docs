@@ -2,15 +2,21 @@
 title: Deploy disaster recovery using VMware HCX
 description: Learn how to deploy disaster recovery of your virtual machines (VMs) with VMware HCX Disaster Recovery. Also learn how to use Azure VMware Solution as the recovery or target site.
 ms.topic: how-to
-ms.date: 06/10/2021
+ms.service: azure-vmware
+ms.date: 7/8/2023
+ms.custom: engagement-fy23
 ---
 
 # Deploy disaster recovery using VMware HCX
 
 In this article, you'll deploy disaster recovery of your virtual machines (VMs) with VMware HCX solution and using an Azure VMware Solution private cloud as the recovery or target site.
 
+The diagram shows the deployment of VMware HCX from on-premises VMware vSphere to Azure VMware Solution private cloud disaster recovery scenario.
+
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/hcx-disaster-recovery-scenario-1-diagram.png" alt-text="Diagram showing the VMware HCX manual disaster recovery solution in Azure VMware Solution with on-premises VMware vSphere." border="true" lightbox="./media/disaster-recovery-virtual-machines/hcx-disaster-recovery-scenario-1-diagram.png":::
+
 >[!IMPORTANT]
->Although part of HCX, VMware HCX Disaster Recovery (DR) is not recommended for large deployments. The disaster recovery orchestration is 100% manual, and Azure VMware Solution currently doesn't have runbooks or features to support manual HCX DR failover. For enterprise-class disaster recovery, refer to VMware Site Recovery Manager (SRM) or VMware business continuity and disaster recovery (BCDR) solutions.
+>Although part of VMware HCX, VMware HCX Disaster Recovery (DR) is not recommended for large deployments. The disaster recovery orchestration is 100% manual, and Azure VMware Solution currently doesn't have runbooks or features to support manual VMware HCX DR failover. For enterprise-class disaster recovery, refer to VMware Site Recovery Manager (SRM) or VMware business continuity and disaster recovery (BCDR) solutions.
 
 VMware HCX provides various operations that provide fine control and granularity in replication policies. Available Operations include:
 
@@ -38,15 +44,15 @@ This guide covers the following replication scenarios:
 
 1. Log into **vSphere Client** on the source site and access **HCX plugin**.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/hcx-vsphere.png" alt-text="Screenshot showing the HCX option in the vSphere Web Client." border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/hcx-vsphere.png" alt-text="Screenshot showing the VMware HCX option in the vSphere Client." border="true":::
 
 1. Enter the **Disaster Recovery** area and select **PROTECT VMS**.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png" alt-text="Screenshot showing the Disaster Recovery dashboard in the vSphere Web Client." border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png" alt-text="Screenshot showing the Disaster Recovery dashboard in the vSphere Client." border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png":::
 
 1. Select the Source and the Remote sites. The Remote site in this case should be the Azure VMware Solution private cloud.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machines.png" alt-text="Screenshot showing the HCX: Protected Virtual Machines window." border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machines.png" alt-text="Screenshot showing the VMware HCX: Protected Virtual Machines window." border="true":::
 
 1. If needed, select the **Default replication** options:
 
@@ -99,7 +105,7 @@ This guide covers the following replication scenarios:
 
 1. After selecting **Test**, the recovery operation begins.
 
-1. When finished, you can check the new VM in the Azure VMware Solution private cloud vCenter.
+1. When finished, you can check the new VM in the Azure VMware Solution private cloud vCenter Server.
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/verify-test-recovery.png" alt-text="Screenshot showing the check recovery operation summary." border="true" lightbox="./media/disaster-recovery-virtual-machines/verify-test-recovery.png":::
 

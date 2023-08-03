@@ -2,12 +2,12 @@
 title: Private link for Azure API for FHIR
 description: This article describes how to set up a private endpoint for Azure API for FHIR services
 services: healthcare-apis
-author: matjazl
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 01/20/2022
-ms.author: zxue
+ms.date: 06/03/2022
+ms.author: kesheth
 ---
 
 # Configure private link
@@ -44,11 +44,11 @@ Ensure the region for the new private endpoint is the same as the region for you
 
 ![Azure portal Basics Tab](media/private-link/private-link-portal2.png)
 
-For the resource type, search and select **Microsoft.HealthcareApis/services**. For the resource, select the FHIR resource. For target sub-resource, select **FHIR**.
+For the resource type, search and select **Microsoft.HealthcareApis/services**. For the resource, select the FHIR resource. For target subresource, select **FHIR**.
 
 ![Azure portal Resource Tab](media/private-link/private-link-portal1.png)
 
-If you do not have an existing Private DNS Zone set up, select **(New)privatelink.azurehealthcareapis.com**. If you already have your Private DNS Zone configured, you can select it from the list. It must be in the format of **privatelink.azurehealthcareapis.com**.
+If you don't have an existing Private DNS Zone set up, select **(New)privatelink.azurehealthcareapis.com**. If you already have your Private DNS Zone configured, you can select it from the list. It must be in the format of **privatelink.azurehealthcareapis.com**.
 
 ![Azure portal Configuration Tab](media/private-link/private-link-portal3.png)
 
@@ -56,7 +56,7 @@ After the deployment is complete, you can go back to **Private endpoint connecti
 
 ### Manual Approval
 
-For manual approval, select the second option under Resource, "Connect to an Azure resource by resource ID or alias". For Target sub-resource, enter "fhir" as in Auto Approval.
+For manual approval, select the second option under Resource, "Connect to an Azure resource by resource ID or alias". For Target subresource, enter "fhir" as in Auto Approval.
 
 ![Manual Approval](media/private-link/private-link-manual.png)
 
@@ -74,7 +74,7 @@ You can configure VNet peering from the portal or using PowerShell, CLI scripts,
 
 ### Add VNet link to the private link zone
 
-In the Azure portal, select the resource group of the FHIR server. Select and open the Private DNS zone, **privatelink.azurehealthcareapis.com**. Select **Virtual network links** under the *settings* section. Click the Add button to add your second VNet to the private DNS zone. Enter the link name of your choice, select the subscription and the VNet you just created. Optionally, you can enter the resource ID for the second VNet. Select **Enable auto registration**, which automatically adds a DNS record for your VM connected to the second VNet. When you delete a VNet link, the DNS record for the VM is also deleted.
+In the Azure portal, select the resource group of the FHIR server. Select and open the Private DNS zone, **privatelink.azurehealthcareapis.com**. Select **Virtual network links** under the *settings* section. Select the **Add** button to add your second VNet to the private DNS zone. Enter the link name of your choice, select the subscription and the VNet you created. Optionally, you can enter the resource ID for the second VNet. Select **Enable auto registration**, which automatically adds a DNS record for your VM connected to the second VNet. When you delete a VNet link, the DNS record for the VM is also deleted.
 
 For more information on how private link DNS zone resolves the private endpoint IP address to the fully qualified domain name (FQDN) of the resource such as the FHIR server, see [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md).
 
@@ -104,7 +104,7 @@ Private endpoints can only be deleted from the Azure portal from the **Overview*
 
 ## Test and troubleshoot private link and VNet peering
 
-To ensure that your FHIR server is not receiving public traffic after disabling public network access, select the /metadata endpoint for your server from your computer. You should receive a 403 Forbidden. 
+To ensure that your FHIR server isn't receiving public traffic after disabling public network access, select the /metadata endpoint for your server from your computer. You should receive a 403 Forbidden. 
 
 > [!NOTE]
 > It can take up to 5 minutes after updating the public network access flag before public traffic is blocked.
@@ -119,7 +119,7 @@ To ensure your private endpoint can send traffic to your server:
 
 ### Use nslookup
 
-You can use the **nslookup** tool to verify connectivity. If the private link is configured properly, you should see the FHIR server URL resolves to the valid private IP address, as shown below. Note that IP address **168.63.129.16** is a virtual public IP address used in Azure. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)
+You can use the **nslookup** tool to verify connectivity. If the private link is configured properly, you should see the FHIR server URL resolves to the valid private IP address, as shown below. Note that the IP address **168.63.129.16** is a virtual public IP address used in Azure. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)
 
 ```
 C:\Users\testuser>nslookup fhirserverxxx.azurehealthcareapis.com
@@ -132,7 +132,7 @@ Address:  172.21.0.4
 Aliases:  fhirserverxxx.azurehealthcareapis.com
 ```
 
-If the private link is not configured properly, you may see the public IP address instead and a few aliases including the Traffic Manager endpoint. This indicates that the private link DNS zone cannot resolve to the valid private IP address of the FHIR server. When VNet peering is configured, one possible reason is that the second peered VNet hasn't been added to the private link DNS zone. As a result, you will see the HTTP error 403, "Access to xxx was denied", when trying to access the /metadata endpoint of the FHIR server.
+If the private link isn't configured properly, you may see the public IP address instead and a few aliases including the Traffic Manager endpoint. This indicates that the private link DNS zone can’t resolve to the valid private IP address of the FHIR server. When VNet peering is configured, one possible reason is that the second peered VNet hasn't been added to the private link DNS zone. As a result, you'll see the HTTP error 403, "Access to xxx was denied", when trying to access the /metadata endpoint of the FHIR server.
 
 ```
 C:\Users\testuser>nslookup fhirserverxxx.azurehealthcareapis.com
@@ -159,4 +159,6 @@ Based on your private link setup and for more information about registering your
 * [Register a confidential client application](register-confidential-azure-ad-client-app.md)
 * [Register a public client application](register-public-azure-ad-client-app.md)
 * [Register a service application](register-service-azure-ad-client-app.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
 

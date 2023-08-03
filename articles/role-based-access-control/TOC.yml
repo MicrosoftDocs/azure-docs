@@ -13,6 +13,9 @@
   items:
   - name: Check access for a user
     href: check-access.md
+  - name: Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quickstart-role-assignments-bicep.md
   - name: ARM template
     displayName: Resource Manager
     href: quickstart-role-assignments-template.md
@@ -32,16 +35,18 @@
   items:
   - name: Role definitions
     href: role-definitions.md
+  - name: Role assignments
+    href: role-assignments.md
   - name: Scope
     href: scope-overview.md
   - name: Best practices
     href: best-practices.md
-  - name: Conditions
+  - name: ABAC conditions
     items:
     - name: Condition format
       href: conditions-format.md
-    - name: Example conditions
-      href: ../storage/common/storage-auth-abac-examples.md?toc=%2fazure%2frole-based-access-control%2ftoc.json
+    - name: Example conditions for Blob Storage
+      href: ../storage/blobs/storage-auth-abac-examples.md?toc=/azure/role-based-access-control/toc.json
     - name: Conditions prerequisites
       href: conditions-prerequisites.md
     - name: Conditions FAQ
@@ -90,7 +95,7 @@
     - name: ARM template
       displayName: Resource Manager
       href: role-assignments-template.md
-  - name: Add or edit conditions
+  - name: Add or edit ABAC conditions
     items:
     - name: Portal
       href: conditions-role-assignments-portal.md
@@ -130,11 +135,16 @@
       href: custom-roles-cli.md
     - name: REST API
       href: custom-roles-rest.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: custom-roles-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: custom-roles-template.md
   - name: View activity logs
     href: change-history-report.md
+  - name: Alert on privileged role assignments
+    href: role-assignments-alert.md
   - name: Elevate access
     href: elevate-access-global-admin.md
   - name: Classic administrators
@@ -142,7 +152,11 @@
   - name: Transfer subscription to different directory
     href: transfer-subscription.md
   - name: Troubleshoot
-    href: troubleshooting.md
+    items:
+    - name: Troubleshoot Azure RBAC
+      href: troubleshooting.md
+    - name: Troubleshoot Azure RBAC limits
+      href: troubleshoot-limits.md
 - name: Reference
   items:
   - name: Built-in roles
@@ -169,5 +183,5 @@
     href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-active-directory
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-active-directory

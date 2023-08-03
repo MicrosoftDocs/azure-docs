@@ -1,10 +1,11 @@
 ---
 title: Cost management guide for Azure Lab Services
 description: Understand the different ways to view costs for Lab Services.
-author: rbest
-ms.author: rbest
-ms.date: 08/16/2020
+author: RogerBestMSFT
+ms.service: lab-services
+ms.date: 07/04/2022
 ms.topic: how-to
+ms.custom: devdivchpfy22
 ---
 
 # Cost management for Azure Lab Services
@@ -13,59 +14,73 @@ For Azure Lab Services, cost management can be broken down into two distinct are
 
 ## Estimate the lab costs
 
-Each lab dashboard has a **Costs & Billing** section that lays out a rough estimate of what the lab will cost for the month. The cost estimate summarizes the hour usage with the maximum number of users by the estimated cost per hour. To get the most accurate estimate, set up the lab, including the [schedule](how-to-create-schedules.md). The dashboard will reflect the estimated cost.
+Each lab dashboard has a **Costs & Billing** section that lays out a rough estimate of what the lab will cost for the lab. The estimate uses the number [schedules](classroom-labs-concepts.md#schedule), [quota hours](classroom-labs-concepts.md#quota), [extra quota for individual students](how-to-manage-lab-users.md#set-additional-quotas-for-specific-users), and [lab capacity](how-to-manage-vm-pool.md#change-lab-capacity) when calculating the cost estimate.  Changes to the number of quota hours, schedules or lab capacity will affect the cost estimate value.
+
+If users don't consume their assigned quota hours, you are only charged for the quota hours that lab users consumed.
 
 This estimate might not show all the possible costs. A few resources aren't included:
 
-- The template preparation cost. It can vary significantly in the amount of time needed to create the template. The cost to run the template is the same as the overall lab cost per hour.
-- Any [shared image gallery](how-to-use-shared-image-gallery.md) costs, because a gallery can be shared among multiple labs.
-- Hours incurred when the lab creator starts a virtual machine (VM).
+- The [template VM preparation](how-to-create-manage-template.md#update-a-template-vm) cost. It can vary significantly in the amount of time needed to create the template. The cost to run the template is the same as running any lab VM.
+- Any [compute gallery](how-to-use-shared-image-gallery.md) costs. Compute galleries can be shared among multiple labs.
+- Cost incurred when the lab creator starts a virtual machine (VM).
+- Networking costs if the lab is using [advanced networking](how-to-connect-vnet-injection.md).
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows the dashboard cost estimate.](./media/cost-management-guide/dashboard-cost-estimation.png)
+:::image type="content" source="./media/cost-management-guide/dashboard-cost-estimation.png" alt-text="Screenshot that shows the dashboard cost estimate in Azure Lab Services.":::
 
-## Analyze the previous month's usage
+## Cost analysis
 
-The cost analysis is for reviewing the previous month's usage to help you determine any adjustments for the lab. You can find the breakdown of past costs in the [subscription cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md). In the Azure portal, you can enter **Subscriptions** in the search box and then select the **Subscriptions** option.
+The cost analysis is for reviewing the previous month's usage to help you determine any adjustments you need to make for a lab. You can find the breakdown of past costs in the [subscription cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md). 
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows the search box and the Subscriptions option.](./media/cost-management-guide/subscription-search.png)
+1. In the [Azure portal](https://portal.azure.com), select **All services**.  Select **Cost management** from the quick access list or select **Cost management + billing** from the **General** category.
 
-Select the specific subscription that you want to review.
+    :::image type="content" source="./media/cost-management-guide/all-services-cost-management.png" alt-text="Screenshot that shows the All services page.  The Cost management icon and Cost manage plus billing icon are highlighted.":::
+1. Select the **Subscription** page and select subscription you wish to analyze.
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows subscription selection.](./media/cost-management-guide/subscription-select.png)
+    :::image type="content" source="./media/cost-management-guide/subscription-select.png" alt-text="Screenshot that shows the Subscriptions page in Cost Management + Billing.  The Subscriptions menu is highlighted.":::
 
-Select **Cost Analysis** in the left pane under **Cost Management**.
+1. Select **Cost analysis** in the left pane under the **Cost management** heading.
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows a subscription cost analysis on a graph.](./media/cost-management-guide/subscription-cost-analysis.png)
+    :::image type="content" source="./media/cost-management-guide/subscription-cost-analysis.png" alt-text="Screenshot that shows a subscription cost analysis on a graph.":::
 
-This dashboard allows in-depth cost analysis, including the ability to export to different file types on a schedule. For more information, see [Cost Management + Billing overview](../cost-management-billing/cost-management-billing-overview.md).
+The Cost analysis dashboard allows in-depth cost analysis, including the ability to export to different file types on a schedule. For more information, see [Cost Management + Billing overview](../cost-management-billing/cost-management-billing-overview.md).
 
-You can filter by resource type. Using `microsoft.labservices/labaccounts` will show only the cost associated with Lab Services.
+You can filter by service or resource type. To see only costs associated with Azure Lab Services, set the **service name** filter equal to **azure lab services**.  If filtering on **resource type**, include `Microsoft.Labservices/labaccounts` resource type.  If using the [August 2022 Update](lab-services-whats-new.md), also include the `Microsoft.LabServices/labs` resource type.
 
-## Understand the usage
+### Understand the entries
 
-The following screenshot is an example of a cost analysis.
+Changing the view on **Cost Analysis** page to **Cost by resource** shows the individual charges.  By default, there are six columns: **Resource**, **Resource type**, **Location**, **Resource group name**, **Tags**, and **Cost**.   The **Resource** column contains the information about the lab plan, lab name, and VM. If the cost is associated with a template VM, the resource will be in the form `{lab account}/{lab name}/default`.  If the cost is associated with a student lab VM, the resource will be in the form `{lab account}/{lab name}/default/{vm name}`.
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows an example cost analysis for a subscription.](./media/cost-management-guide/cost-analysis.png)
+In this example, adding the first and second rows (both start with "aaalab / dockerlab") will give you the total cost for the lab "dockerlab" in the "aaalab" lab account or lab plan.
 
-By default, there are six columns: **Resource**, **Resource type**, **Location**, **Resource group name**, **Tags**, and **Cost**. The **Resource** column contains the information about the lab account, lab name, and VM. The rows that show the lab account, lab name, and default (second and third rows) are the cost for the lab. The used VMs have a cost that you can see for the rows that show the lab account, lab name, default, and VM name.
+:::image type="content" source="./media/cost-management-guide/cost-analysis.png" alt-text="Screenshot that shows an example cost analysis for a subscription for Azure Lab Services associated costs." lightbox="./media/cost-management-guide/cost-analysis.png":::
 
-In this example, adding the first and second rows (both start with **aaalab / dockerlab**) will give you the total cost for the lab "dockerlab" in the "aaalab" lab account.
+If you're using the [August 2022 Update](lab-services-whats-new.md), the entries in are formatted differently.  The **Resource** column will show entries in the form `{lab name}/{number}` for Azure Lab Services. Some tags are added automatically to each entry when using the August 2022 Update.
 
-To get the overall cost for the image gallery, change the resource type to `Microsoft.Compute/Galleries`. A shared image gallery might not show up in the costs, depending on where the gallery is stored.
+| Tag name | Value |
+| -------- | ----- |
+| ms-istemplate | Set to true if cost associated with a template VM in a lab.  Set to false, otherwise. |
+| ms-labname | Name of the lab. |
+| ms-labplanid | Full resource ID of the lab plan used when creating the lab. |
+
+:::image type="content" source="./media/cost-management-guide/cost-analysis-2.png" alt-text="Screenshot that shows an example cost analysis for a subscription using August 2022 Update for Azure Lab Services associated costs." lightbox="./media/cost-management-guide/cost-analysis-2.png":::
+
+To get the cost for the entire lab, don't forget to include external resources.  Azure Compute Gallery related charges are under the `Microsoft.Compute` namespace.  The advanced networking charges are under the `Microsoft.Network` namespace.
 
 > [!NOTE]
-> A shared image gallery is connected to the lab account. That means multiple labs can use the same image.
+> A compute gallery and virtual network can be connected to multiple labs.
 
-## Separate the costs
+### Separate the costs
 
-Some universities have used the lab account and the resource group as ways to separate the classes. Each class has its own lab account and resource group.
+Since cost entries are tied to the lab account, some schools use the lab account and the resource group as ways to separate the classes. Each class has its own lab plan and resource group.
 
-In the cost analysis pane, add a filter based on the resource group name with the appropriate resource group name for the class. Then, only the costs for that class will be visible. This allows a clearer delineation between the classes when you're viewing the costs. You can use the [scheduled export](../cost-management-billing/costs/tutorial-export-acm-data.md) feature of the cost analysis to download the costs of each class in separate files.
+In the cost analysis pane, add a filter based on the resource group name for the class. Then, only the costs for that class will be visible. Grouping by resource group allows a clearer delineation between the classes when you're viewing the costs. You can use the [scheduled export](../cost-management-billing/costs/tutorial-export-acm-data.md) feature of the cost analysis to download the costs of each class in separate files.
+
+In the [August 2022 Update](lab-services-whats-new.md):
+
+- Cost entries are tied to a lab VM, *not* the lab plan.  
+- Cost entries get tagged with the name of the lab the VM is tied to. You can filter by the lab name tag to view total cost across VM in that lab.
+- Cost entries get tagged with the ID of the lab plan when creating the lab. You can filter by the lab plan tag to view total cost across labs created from a lab plan.
+- You can set custom tags on labs or resource groups containing the labs to organize and analyze cost.
 
 ## Manage costs
 
@@ -73,87 +88,25 @@ Depending on the type of class, there are ways to manage costs to reduce instanc
 
 ### Automatic shutdown settings for cost control
 
-Automatic shutdown features enable you to prevent wasted VM usage hours in the labs. The following settings catch most of the cases where users accidentally leave their virtual machines running:
+Anytime a machine is **Running**, costs are being incurred, even if no one is connected to the VM.  You can enable several auto-shutdown features to avoid extra costs when the VMs aren't being used.  The are three auto-shutdown policies available in Azure Lab Services.
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows the three automatic shutdown settings.](./media/cost-management-guide/auto-shutdown-disconnect.png)
+- Disconnect idle virtual machines.
+- Shut down virtual machines when students disconnect from the virtual machine.
+- Shut down virtual machines when students don't connect a recently started virtual machine.
 
-You can configure these settings at both the lab account level and the lab level. If you enable them at the lab account level, they're applied to all labs within the lab account. For all new lab accounts, these settings are turned on by default.
+For more information, see [Configure automatic shutdown of VMs for a lab plan](how-to-configure-auto-shutdown-lab-plans.md). You can configure these settings at both the lab plan/lab account level and the lab level.
 
-#### Automatically disconnect users from virtual machines that the OS deems idle
+### Scheduled time and quota time
 
-> [!NOTE]
-> This setting is available only for Windows virtual machines.
+[Schedules](classroom-labs-concepts.md#schedule) and [Quota](classroom-labs-concepts.md#quota) are two ways of allowing access to the lab VMs.
 
-When the **Disconnect users when virtual machines are idle** setting is turned on, the user is disconnected from any machines in the lab when the Windows OS deems the session to be idle (including the template virtual machines). The [Windows OS definition of idle](/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) uses two criteria:
-
-- User absence: no keyboard or mouse input.
-- Lack of resource consumption: All the processors and all the disks were idle for a certain percentage of time.
-
-Users will see a message like this in the VM before they're disconnected:
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows a warning message that a session has been idle over its time limit and will be disconnected.](./media/cost-management-guide/idle-timer-expired.png)
-
-The virtual machine is still running when the user is disconnected. If the user reconnects to the virtual machine by signing in, windows or files that were open or work that was unsaved before the disconnect will still be there. In this state, because the virtual machine is running, it still counts as active and accrues cost.
-
-To automatically shut down idle Windows virtual machines that are disconnected, use the combination of **Disconnect users when virtual machines are idle** and **Shut down virtual machines when users disconnect** settings.
-
-For example, if you configure the settings as follows:
-
-- **Disconnect users when virtual machines are idle**: 15 minutes after the idle state is detected.
-- **Shut down virtual machines when users disconnect**: 5 minutes after the user disconnects.
-
-The Windows virtual machines will automatically shut down 20 minutes after the user stops using them.
-
-> [!div class="mx-imgBorder"]
-> ![Diagram that illustrates the combination of settings resulting in automatic VM shutdown.](./media/cost-management-guide/vm-idle-diagram.png)
-
-#### Automatically shut down virtual machines when users disconnect
-
-The **Shut down virtual machines when users disconnect** setting supports both Windows and Linux virtual machines. When this setting is on, automatic shutdown will occur when:
-
-- For Windows, a Remote Desktop (RDP) connection is disconnected.
-- For Linux, a SSH connection is disconnected.
-
-> [!IMPORTANT]
-> Only [specific distributions and versions of Linux](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions) are supported.  Shutdown settings are not supported by the [Data Science Virtual Machine - Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) image.
-
-You can specify how long the virtual machines should wait for the user to reconnect before automatically shutting down.
-
-#### Automatically shut down virtual machines that are started but users don't connect
-
-In a lab, a user might start a virtual machine but never connect to it. For example:
-
-- A schedule in the lab starts all virtual machines for a class session, but some students don't show up and don't connect to their machines.
-- A user starts a virtual machine but forgets to connect.
-
-The **Shut down virtual machines when users do not connect** setting will catch these cases and automatically shut down the virtual machines.
-
-For information on how to configure and enable automatic shutdown of VMs on disconnect, see these articles:
-
-- [Configure automatic shutdown of VMs for a lab account](how-to-configure-lab-accounts.md)
-- [Configure automatic shutdown of VMs for a lab](how-to-enable-shutdown-disconnect.md)
-
-### Scheduled time vs. quota time
-
-Understanding [scheduled time](classroom-labs-concepts.md#schedules) and [quota time](classroom-labs-concepts.md#quota) will help you to configure a lab to better fit the needs of the professor and the students.
-
-Scheduled time is a set time where all the student VMs have been started and are available for connection. Scheduled time is commonly used when all the students have their own VMs and are following the professor's directions at a set time during the day (like class hours). The downside is that all the student VMs are started and are accruing costs, even if a student doesn't log in to a VM.
-
-Quota time is time allocated to each student for use at their discretion and is often used for independent studying. The VMs aren't started until the student starts the VM.
-
-A lab can use either quota time or scheduled time, or a combination of both. If a class doesn't need scheduled time, then use only quota time for the most effective use of the VMs.
-
-### Scheduled event: stop only
-
-In the schedule, you can add a stop-only event type that will stop all machines at a specific time. Some lab owners have set a stop-only event for every day at midnight to reduce the cost and quota usage when a student forgets to shut down the VM they're using. The downside to this type of event is that all VMs will be shut down, even if a student is using a VM.
+In the schedule, you can add a stop-only event type that will stop all machines at a specific time. Some lab owners have set a stop-only event for every day at midnight to reduce the cost and quota usage. The downside to this type of event is that all VMs will be shut down, even if a student is using a VM.
 
 ### Other costs related to labs
 
-Some costs aren't rolled into Lab Services but can be tied to a lab service. You can connect a shared image gallery to a lab, but it won't show under the Lab Services costs and does have costs. To help keep overall costs down, you should remove any unused images from the gallery because the images have an inherent storage cost.
+Some costs aren't rolled into Lab Services but can be tied to a lab service. You can [connect a compute gallery](how-to-attach-detach-shared-image-gallery.md) to a lab, but it won't show under the Lab Services costs and does have costs. To help keep overall costs down, you should remove any unused images from the gallery because the images have associated storage costs.
 
-Labs can have connections to other Azure resources through a virtual network. When a lab is removed, you should remove the virtual network and the other resources.
+Labs can have connections to other Azure resources through a virtual network is using [advanced networking](how-to-connect-vnet-injection.md). When a lab is removed, you should remove the virtual network and the other resources.
 
 ## Conclusion
 

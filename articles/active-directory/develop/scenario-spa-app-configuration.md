@@ -1,9 +1,8 @@
 ---
-title: Configure single-page app | Azure
-titleSuffix: Microsoft identity platform
+title: Configure single-page app
 description: Learn how to build a single-page application (app's code configuration)
 services: active-directory
-author: mmacy
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/11/2020
-ms.author: marsma
+ms.author: owenrichards
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
 ---
@@ -24,7 +23,7 @@ Learn how to configure the code for your single-page application (SPA).
 
 The following Microsoft libraries support single-page apps:
 
-[!INCLUDE [active-directory-develop-libraries-spa](../../../includes/active-directory-develop-libraries-spa.md)]
+[!INCLUDE [active-directory-develop-libraries-spa](./includes/libraries/libraries-spa.md)]
 
 ## Application code configuration
 

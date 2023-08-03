@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Adobe Identity Management for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Adobe Identity Management for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Adobe Identity Management.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 6ae05dc7-1265-44b4-a20c-512b5218b9d1
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/30/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -40,7 +40,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * Review the [adobe documentation](https://helpx.adobe.com/enterprise/admin-guide.html/enterprise/using/add-azure-sync.ug.html) on user provisioning 
 
 > [!NOTE]
-> If your organization uses the User Sync Tool or a UMAPI integration, you must first pause the integration. Then, add Azure AD automatic provisioning to automate user management from the Azure Portal. Once Azure AD automatic provisioning is configured and running, you can completely remove the User Sync Tool or UMAPI integration.
+> If your organization uses the User Sync Tool or a UMAPI integration, you must first pause the integration. Then, add Azure AD automatic provisioning to automate user management from the Azure portal. Once Azure AD automatic provisioning is configured and running, you can completely remove the User Sync Tool or UMAPI integration.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -71,14 +71,17 @@ Add Adobe Identity Management from the Azure AD application gallery to start man
 
 The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* When assigning users and groups to Adobe Identity Management, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add additional roles. 
+* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
-* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 
 ## Step 5. Configure automatic user provisioning to Adobe Identity Management 
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
+
+> [!VIDEO https://www.youtube.com/embed/k2_fk7BY8Ow]
+
 
 ### To configure automatic user provisioning for Adobe Identity Management in Azure AD:
 

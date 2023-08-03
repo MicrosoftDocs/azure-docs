@@ -1,17 +1,16 @@
 ---
-title: "Quickstart: Add sign-in with Microsoft to a Java web app | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Add sign-in with Microsoft to a Java web app"
 description: In this quickstart, you'll learn how to add sign-in with Microsoft to a Java web application by using OpenID Connect.
 services: active-directory
-author: mmacy
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 11/17/2021
-ms.author: marsma 
+ms.date: 01/18/2023
+ms.author: cwerner 
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
 ---
 
@@ -28,6 +27,9 @@ To run this sample, you need:
 
 
 ## Register and download your quickstart app
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 There are two ways to start your quickstart application: express (option 1) and manual (option 2).
 
 ### Option 1: Register and automatically configure your app, and then download the code sample
@@ -201,7 +203,7 @@ Add a reference to MSAL for Java by adding the following code at the start of th
 import com.microsoft.aad.msal4j.*;
 ```
 
-[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 

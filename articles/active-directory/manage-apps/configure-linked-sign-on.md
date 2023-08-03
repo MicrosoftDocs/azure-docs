@@ -1,17 +1,17 @@
 ---
 title: Add linked single sign-on to an application
 description: Add linked single sign-on to an application in Azure Active Directory.
-titleSuffix: Azure AD
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/22/2021
-ms.author: davidmu
-ms.reviewer: ergreenl
+ms.date: 05/19/2023
+ms.author: jomondi
+ms.reviewer: alamaral
+ms.custom: enterprise-apps
 # Customer intent: As an IT admin, I need to know how to implement linked single sign-on in Azure Active Directory.
 ---
 
@@ -26,21 +26,23 @@ Some common scenarios where linked-based SSO is valuable include:
 - Add deep links to specific web pages that you want to appear on your user's access pages.
 - Add a link to an application that doesn't require authentication. The linked option doesn't provide sign-on functionality through Azure AD credentials, but you can still use some of the other features of enterprise applications. For example, you can use audit logs and add a custom logo and application name.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 To configure linked-based SSO in your Azure AD tenant, you need:
 -	An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
--	One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+-	One of the following roles: Global Administrator, Application Administrator, or owner of the service principal.
 -	An application that supports linked-based SSO.
 
 ## Configure linked-based single sign-on
 
-1.	Sign in to the [Azure portal](https://portal.azure.com) with the appropriate role.
-2.	Select **Azure Active Directory** in Azure Services, and then select **Enterprise applications**.
-3.	Search for and select the application that you want to add linked SSO.
-4.	Select **Single sign-on** and then select **Linked**.
-5.	Enter the URL for the sign-in page of the application.
-6.	Select **Save**. 
+1. Sign in to the [Azure portal](https://portal.azure.com) with the appropriate role.
+2. Select **Azure Active Directory** in Azure Services, and then select **Enterprise applications**.
+3. Search for and select the application that you want to add linked SSO.
+4. Select **Single sign-on** and then select **Linked**.
+5. Enter the URL for the sign-in page of the application.
+6. Select **Save**. 
 
 ## Next steps
 

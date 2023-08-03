@@ -2,15 +2,17 @@
 title: Convert portal template to template spec
 description: Describes how to convert an existing template in the Azure portal gallery to a template specs.
 ms.topic: conceptual
-ms.date: 02/04/2021
-ms.author: tomfitz
-author: tfitzmac
+ms.date: 06/22/2023
 ---
 # Convert template gallery in portal to template specs
 
 The Azure portal provides a way to store Azure Resource Manager templates (ARM templates) in your account. However, [template specs](template-specs.md) offers an easier way to share your templates with users in your organization, and link with other templates. This article shows how to convert existing templates in the template gallery to template specs.
 
 To see if you have any templates to convert, view the [template gallery in the portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems). These templates have the resource type `Microsoft.Gallery/myareas/galleryitems`.
+
+## Deprecation of portal feature
+
+**The template gallery in the portal is being deprecated on March 31, 2025**. To continue using a template in the template gallery, you need to migrate it to a template spec. Use one of the methods shown in this article to migrate the template.
 
 ## Convert with PowerShell script
 

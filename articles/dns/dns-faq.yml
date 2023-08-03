@@ -3,11 +3,11 @@ metadata:
   title: FAQ - Azure DNS
   description: In this article, learn about frequently asked questions about Azure DNS
   services: dns
-  author: rohinkoul
+  author: greg-lindsay
   ms.service: dns
   ms.topic: faq
-  ms.date: 01/11/2021
-  ms.author: rohink
+  ms.date: 05/22/2023
+  ms.author: greglin
 title: Azure DNS FAQ
 summary: |
 

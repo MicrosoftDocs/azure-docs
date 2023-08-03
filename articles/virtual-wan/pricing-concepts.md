@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 07/28/2023
 ms.author: cherylmc
 ms.custom: references_pricing
 
@@ -20,9 +20,11 @@ Azure Virtual WAN is a networking service that brings many networking, security,
 This article discusses three commonly deployed scenarios with Azure Virtual WAN and typical price estimates for the deployments based on the listed prices. Additionally, there can be many other scenarios where Virtual WAN may be useful.
 
 > [!IMPORTANT]
-> The pricing shown in this article is intended to be used for example purposes only. 
->  * Pricing can change at any point. For current pricing information, see the [Virtual WAN pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page. 
->  * Inter-hub  (hub-to-hub) charges do not show in the Virtual WAN pricing page because pricing is subject to Inter-Region (Intra/Inter-continental) charges. For more information, see [Azure data transfer charges](https://azure.microsoft.com/pricing/details/bandwidth/).
+> The pricing shown in this article is intended to be used for example purposes only.
+>
+>   * Pricing can change at any point. For current pricing information, see the [Virtual WAN pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
+>   * Inter-hub (hub-to-hub) charges do not show in the Virtual WAN pricing page because pricing is subject to Inter-Region (Intra/Inter-continental) charges. For more information, see [Azure data transfer charges](https://azure.microsoft.com/pricing/details/bandwidth/).
+>   * For virtual hub routing infrastructure unit pricing, see the [Virtual WAN pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
 >
 
 ## <a name="pricing"></a>Pricing components
@@ -39,8 +41,8 @@ The following diagram shows the typical data routes in a network involving Virtu
 |2'|Data transfer from a VPN Site-to-Site branch via Standard vWAN hub to ExpressRoute connected Data Center/ HQ in East US|Deployment hour ($0.25/hr) + VPN S2S Scale Unit ($0.261/hr) + VPN S2S Connection Unit ($0.05/hr) + ExpressRoute Scale Unit ($0.42/hr) + ExpressRoute Connection Unit ($0.05/hr) = $1.03/hr|ExpressRoute Metered Outbound Zone 1 ($0.025/GB) = $0.025/GB|
 |3|Data transfer from a VPN Site-to-Site branch via Standard vWAN hub to ExpressRoute connected Data Center/ HQ in East US|Deployment hour ($0.25/hr) + VPN S2S Scale Unit ($0.261/hr) + VPN S2S Connection Unit ($0.05/hr) + ExpressRoute Scale Unit ($0.42/hr) + ExpressRoute Connection Unit ($0.05/hr) = $1.03/hr|ExpressRoute Metered Outbound Zone 1 ($0.025/GB) = $0.025/GB|
 |4|Data transfer from a spoke VNet to ExpressRoute connected Data Center/ HQ via Standard vWAN hub in East US|Deployment hour ($0.25/hr) + ExpressRoute Scale Unit ($0.42/hr) + ExpressRoute Connection Unit ($0.05/hr) = $0.72/hr|VNet peering (outbound) ($0.01/GB) + ExpressRoute Metered Outbound Zone 1 ($0.025/GB) = $0.035/GB|
-|4'|Data transfer from ExpressRoute connected Data Center/ HQ  to a spoke VNet via Standard vWAN hub in East US|Deployment hour ($0.25/hr) + ExpressRoute Scale Unit ($0.42/hr) + ExpressRoute Connection Unit ($0.05/hr) = $0.72/hr|VNet peering (inbound) ($0.01/GB) = $0.01/GB|
-|4"|Data transfer from ExpressRoute connected Data Center/ HQ  to a remote spoke VNet via Standard vWAN hub in Europe|Deployment hour (2x$0.25/hr) + ExpressRoute Scale Unit ($0.42/hr) + ExpressRoute Connection Unit ($0.05/hr) = $0.97/hr|VNet peering (inbound) ($0.01/GB) + hub Data Processing (Europe) ($0.02/GB) + Inter-Region data transfer (East US to Europe) ($0.05/GB) = $0.08/GB|
+|4'|Data transfer from ExpressRoute connected Data Center/ HQ to a spoke VNet via Standard vWAN hub in East US|Deployment hour ($0.25/hr) + ExpressRoute Scale Unit ($0.42/hr) + ExpressRoute Connection Unit ($0.05/hr) = $0.72/hr|VNet peering (inbound) ($0.01/GB) = $0.01/GB|
+|4"|Data transfer from ExpressRoute connected Data Center/ HQ to a remote spoke VNet via Standard vWAN hub in Europe|Deployment hour (2x$0.25/hr) + ExpressRoute Scale Unit ($0.42/hr) + ExpressRoute Connection Unit ($0.05/hr) = $0.97/hr|VNet peering (inbound) ($0.01/GB) + hub Data Processing (Europe) ($0.02/GB) + Inter-Region data transfer (East US to Europe) ($0.05/GB) = $0.08/GB|
 |5|Data transfer from a spoke VNet to another spoke VNet via Standard vWAN hub in East US|Deployment hour ($0.25/hr) = $0.25/hr|VNet peering (outbound + inbound) (2x$0.01/GB) + hub Data Processing ($0.02/GB) = $0. 04/GB|
 |6|Data transfer from a spoke VNet connected to a hub in East US to another spoke VNet in Europe (a different region) that is connected to a hub in Europe|Deployment hour (2x$0.25/hr) = $0.50/hr|VNet peering (outbound + inbound) (2x$0.01/GB) + hub Data Processing (2x$0.02/GB) + Inter-Region data transfer (East US to Europe) ($0.05/GB) = $0. 11/GB|
 |7|Data transfer from a spoke VNet to a User VPN (Point-to-Site) via Standard vWAN hub in Europe|Deployment hour ($0.25/hr) + VPN P2S Scale Unit ($0.261/hr) + VPN P2S Connection Unit ($0.0125/hr) = $0.524/hr|VNet peering (outbound) ($0.01/GB) + Standard Outbound Zone 1 ($0.087/GB) = $0.097/GB|
@@ -101,7 +103,7 @@ In this scenario, we assumed a total of 8-TB data flowing through the global net
 
 | Value | Calculation |
 | --- | --- |
-|S2S VPN hub Singapore |(1 S2S VPN scale unit ($0.361/hr)  + 1 connection unit ($0.05/hr)) x 730 hours = $300 per month|
+|S2S VPN hub Singapore |(1 S2S VPN scale unit ($0.361/hr) + 1 connection unit ($0.05/hr)) x 730 hours = $300 per month|
 |ExpressRoute hub US E |(1 ER scale unit ($0.42/hr) + 1 connection unit ($0.05/hr)) x 730 hours = $343 per month|
 |ExpressRoute hub EU|(1 ER scale unit ($0.42/hr) + 1 connection unit ($0.05/hr)) x 730 hours = $343 per month|
 |Standard hub deployment cost |3 hubs x 730 hours x $0.25/hr = $548 per month|
@@ -164,24 +166,22 @@ A **connection unit** applies to any on-premises/non-Microsoft endpoint connecti
 
 ### <a name="data-transfer"></a>How are data transfer charges calculated?
 
-* Any traffic entering Azure is not charged. Traffic leaving Azure (via VPN, ExpressRoute, or Point-to-site User VPN connections) is subject to the standard [Azure data transfer charges](https://azure.microsoft.com/pricing/details/bandwidth/) or, in the case of ExpressRoute, [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/).
+* Any traffic entering Azure isn't charged. Traffic leaving Azure (via VPN, ExpressRoute, or Point-to-site User VPN connections) is subject to the standard [Azure data transfer charges](https://azure.microsoft.com/pricing/details/bandwidth/) or, in the case of ExpressRoute, [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 
 * Peering charges are applicable when a VNet connected to a vWAN hub sends or receives data. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 
-* For data transfer charges between a Virtual WAN  hub, and a remote Virtual WAN hub or VNet in a different region than the source hub, data transfer charges apply for traffic leaving a hub. Example: Traffic leaving an East US hub will be charged $0.02/GB going to a West US hub. There is no charge for traffic entering the West US hub. All hub to hub traffic is subject to Inter-Region (Intra/Inter-continental) charges [Azure data transfer charges](https://azure.microsoft.com/pricing/details/bandwidth/). 
+* For data transfer charges between a Virtual WAN hub, and a remote Virtual WAN hub or VNet in a different region than the source hub, data transfer charges apply for traffic leaving a hub. Example: Traffic leaving an East US hub will be charged $0.02/GB going to a West US hub. There's no charge for traffic entering the West US hub. All hub to hub traffic is subject to Inter-Region (Intra/Inter-continental) charges [Azure data transfer charges](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ### <a name="fee"></a>What is the difference between a Standard hub fee and a Standard hub processing fee?
 
 Virtual WAN comes in two flavors:
 
-* A **Basic virtual WAN**, where users can deploy multiple hubs and use VPN Site-to-site connectivity. A Basic virtual WAN does not have advanced capabilities such as fully meshed hubs, ExpressRoute connectivity, User VPN/Point-to-site VPN connectivity, VNet-to-VNet transitive connectivity, VPN and ExpressRoute transit connectivity, or Azure Firewall. There is no base fee or data processing fee for hubs in a Basic virtual WAN.
+* A **Basic virtual WAN**, where users can deploy multiple hubs and use VPN Site-to-site connectivity. A Basic virtual WAN doesn't have advanced capabilities such as fully meshed hubs, ExpressRoute connectivity, User VPN/Point-to-site VPN connectivity, VNet-to-VNet transitive connectivity, VPN and ExpressRoute transit connectivity, or Azure Firewall. There's no base fee or data processing fee for hubs in a Basic virtual WAN.
 
-* A **Standard virtual WAN** provides advanced capabilities, such as fully meshed hubs, ExpressRoute connectivity, User VPN/Point-to-site VPN connectivity, VNet-to-VNet transitive connectivity, VPN and ExpressRoute transit connectivity, and Azure Firewall, etc. All of the virtual hub routing is provided by a router that enables multiple services in a virtual hub. There is a base fee for the hub, which is priced at $0.25/hr. There is also a charge for data processing in the virtual hub router for VNet-to-VNet transit connectivity. The data processing charge in the virtual hub router is not applicable for branch-to-branch transfers (Scenario 2, 2', 3), or VNet-to-branch transfers via the same vWAN hub (Scenario 1, 1') as shown in the [Pricing Components](#pricing). 
+* A **Standard virtual WAN** provides advanced capabilities, such as fully meshed hubs, ExpressRoute connectivity, User VPN/Point-to-site VPN connectivity, VNet-to-VNet transitive connectivity, VPN and ExpressRoute transit connectivity, and Azure Firewall, etc. All of the virtual hub routing is provided by a router that enables multiple services in a virtual hub. There's a base fee for the hub, which is priced at $0.25/hr. There's also a charge for data processing in the virtual hub router for VNet-to-VNet transit connectivity. The data processing charge in the virtual hub router isn't applicable for branch-to-branch transfers (Scenario 2, 2', 3), or VNet-to-branch transfers via the same vWAN hub (Scenario 1, 1') as shown in the [Pricing Components](#pricing).
 
 ## Next steps
 
 * For current pricing, see [Virtual WAN pricing](https://azure.microsoft.com/pricing/details/virtual-wan/).
 
 * For more information about Virtual WAN, see the [FAQ](virtual-wan-faq.md).
-
-

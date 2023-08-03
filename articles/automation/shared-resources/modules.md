@@ -5,7 +5,7 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 11/01/2021
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-python
 ---
 
 # Manage modules in Azure Automation
@@ -38,7 +38,7 @@ These are known limitations with the sandbox. The recommended workaround is to d
 
 All new Automation accounts have the latest version of the PowerShell Az module imported by default. The Az module replaces AzureRM and is the recommended module to use with Azure. **Default modules** in the new Automation account includes the existing 24 AzureRM modules and 60+ Az modules.
 
-There is a native option to update modules to the latest Az module by the user for Automation accounts. The operation will handle all the module dependencies at the backend thereby removing the hassles of updating the modules [manually](../automation-update-azure-modules.md#update-az-modules) or executing the runbook to [update Azure modules](../automation-update-azure-modules.md#obtain-a-runbook-to-use-for-updates).  
+There is a native option to update modules to the latest Az module by the user for Automation accounts. The operation will handle all the module dependencies at the backend thereby removing the hassles of updating the modules [manually](../automation-update-azure-modules.md#update-az-modules) or executing the runbook to [update Azure modules](../automation-update-azure-modules.md#update-az-modules-through-runbook).  
 
 If the existing Automation account has only AzureRM modules, the [Update Az modules](../automation-update-azure-modules.md#update-az-modules) option will update the Automation account with the user selected version of the Az module.  
 

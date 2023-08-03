@@ -1,18 +1,19 @@
 ---
 title: The Azure Blob Filesystem driver for Azure Data Lake Storage Gen2
+titleSuffix: Azure Storage
 description: Learn about the Azure Blob Filesystem driver (ABFS), a dedicated Azure Storage driver for Hadoop. Access data in Azure Data Lake Storage Gen2 using this driver.
 author: normesta
+
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.date: 12/06/2018
-ms.service: storage
-ms.subservice: data-lake-storage-gen2
+ms.date: 03/09/2023
+ms.service: azure-data-lake-storage
 ---
 
 # The Azure Blob Filesystem driver (ABFS): A dedicated Azure Storage driver for Hadoop
 
-One of the primary access methods for data in Azure Data Lake Storage Gen2 is via the [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Data Lake Storage Gen2 allows users of Azure Blob Storage access to a new driver, the Azure Blob File System driver or `ABFS`. ABFS is part of Apache Hadoop and is included in many of the commercial distributions of Hadoop. Using this driver, many applications and frameworks can access data in Azure Blob Storage without any code explicitly referencing Data Lake Storage Gen2.
+One of the primary access methods for data in Azure Data Lake Storage Gen2 is via the [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Data Lake Storage Gen2 allows users of Azure Blob Storage access to a new driver, the Azure Blob File System driver or `ABFS`. ABFS is part of Apache Hadoop and is included in many of the commercial distributions of Hadoop. By the ABFS driver, many applications and frameworks can access data in Azure Blob Storage without any code explicitly referencing Data Lake Storage Gen2.
 
 ## Prior capability: The Windows Azure Storage Blob driver
 
@@ -20,15 +21,15 @@ The Windows Azure Storage Blob driver or [WASB driver](https://hadoop.apache.org
 
 ## The Azure Blob File System driver
 
-The [Azure Data Lake Storage REST interface](/rest/api/storageservices/data-lake-storage-gen2) is designed to support file system semantics over Azure Blob Storage. Given that the Hadoop FileSystem is also designed to support the same semantics there is no requirement for a complex mapping in the driver. Thus, the Azure Blob File System driver (or ABFS) is a mere client shim for the REST API.
+The [Azure Data Lake Storage REST interface](/rest/api/storageservices/data-lake-storage-gen2) is designed to support file system semantics over Azure Blob Storage. Given that the Hadoop file system is also designed to support the same semantics there's no requirement for a complex mapping in the driver. Thus, the Azure Blob File System driver (or ABFS) is a mere client shim for the REST API.
 
 However, there are some functions that the driver must still perform:
 
 ### URI scheme to reference data
 
-Consistent with other FileSystem implementations within Hadoop, the ABFS driver defines its own URI scheme so that resources (directories and files) may be distinctly addressed. The URI scheme is documented in [Use the Azure Data Lake Storage Gen2 URI](./data-lake-storage-introduction-abfs-uri.md). The structure of the URI is: `abfs[s]://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>`
+Consistent with other file system implementations within Hadoop, the ABFS driver defines its own URI scheme so that resources (directories and files) may be distinctly addressed. The URI scheme is documented in [Use the Azure Data Lake Storage Gen2 URI](./data-lake-storage-introduction-abfs-uri.md). The structure of the URI is: `abfs[s]://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>`
 
-Using the above URI format, standard Hadoop tools and frameworks can be used to reference these resources:
+By using this URI format, standard Hadoop tools and frameworks can be used to reference these resources:
 
 ```bash
 hdfs dfs -mkdir -p abfs://fileanalysis@myanalytics.dfs.core.windows.net/tutorials/flightdelays/data

@@ -1,11 +1,15 @@
 ---
 title: Create a .NET app on Service Fabric in Azure 
 description: In this tutorial, you learn how to create an application with an ASP.NET Core front-end and a reliable service stateful back-end and deploy the application to a cluster.
-
 ms.topic: tutorial
-ms.date: 07/10/2019
-ms.custom: "mvc, devx-track-js, devx-track-csharp"
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-dotnet
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Create and deploy an application with an ASP.NET Core Web API front-end service and a stateful back-end service
 
 This tutorial is part one of a series.  You will learn how to create an Azure Service Fabric application with an ASP.NET Core Web API front end and a stateful back-end service to store your data. When you're finished, you have a voting application with an ASP.NET Core web front-end that saves voting results in a stateful back-end service in the cluster. This tutorial series requires a Windows developer machine. If you don't want to manually create the voting application, you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application and skip ahead to [Walk through the voting sample application](#walkthrough_anchor).  If you prefer, you can also watch a [video walk-through](/Events/Connect/2017/E100) of this tutorial.
@@ -143,7 +147,7 @@ Open **Views/Home/Index.cshtml**, the view specific to the Home controller.  Rep
                 </div>
                 <div class="row top-buffer" ng-repeat="vote in votes.data">
                     <div class="col-xs-8">
-                        <button class="btn btn-success text-left btn-block" ng-click="add(vote.key)">
+                        <button class="btn btn-success text-left btn-block" ng-click="add(vote.Key)">
                             <span class="pull-left">
                                 {{vote.key}}
                             </span>
@@ -153,7 +157,7 @@ Open **Views/Home/Index.cshtml**, the view specific to the Home controller.  Rep
                         </button>
                     </div>
                     <div class="col-xs-4">
-                        <button class="btn btn-danger pull-right btn-block" ng-click="remove(vote.key)">
+                        <button class="btn btn-danger pull-right btn-block" ng-click="remove(vote.Key)">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                             Remove
                         </button>

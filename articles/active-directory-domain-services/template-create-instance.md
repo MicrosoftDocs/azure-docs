@@ -3,16 +3,15 @@ title: Enable Azure DS Domain Services using a template | Microsoft Docs
 description: Learn how to configure and enable Azure Active Directory Domain Services using an Azure Resource Manager template
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
+ms.custom: devx-track-arm-template
 ms.topic: sample
-ms.date: 07/09/2020
+ms.date: 06/01/2023
 ms.author: justinha 
-ms.custom: devx-track-azurepowershell
-
 ---
 # Create an Azure Active Directory Domain Services managed domain using an Azure Resource Manager template
 
@@ -25,13 +24,13 @@ This article shows you how to create a managed domain using an Azure Resource Ma
 To complete this article, you need the following resources:
 
 * Install and configure Azure PowerShell.
-    * If needed, follow the instructions to [install the Azure PowerShell module and connect to your Azure subscription](/powershell/azure/install-az-ps).
+    * If needed, follow the instructions to [install the Azure PowerShell module and connect to your Azure subscription](/powershell/azure/install-azure-powershell).
     * Make sure that you sign in to your Azure subscription using the [Connect-AzAccount][Connect-AzAccount] cmdlet.
 * Install and configure Azure AD PowerShell.
     * If needed, follow the instructions to [install the Azure AD PowerShell module and connect to Azure AD](/powershell/azure/active-directory/install-adv2).
     * Make sure that you sign in to your Azure AD tenant using the [Connect-AzureAD][Connect-AzureAD] cmdlet.
-* You need *global administrator* privileges in your Azure AD tenant to enable Azure AD DS.
-* You need *Contributor* privileges in your Azure subscription to create the required Azure AD DS resources.
+* You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Azure AD roles in your tenant to enable Azure AD DS.
+* You need Domain Services Contributor Azure role to create the required Azure AD DS resources.
 
 ## DNS naming requirements
 
@@ -68,10 +67,10 @@ First, register the Azure AD Domain Services resource provider using the [Regist
 Register-AzResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
-Create an Azure AD service principal using the [New-AzureADServicePrincipal][New-AzureADServicePrincipal] cmdlet for Azure AD DS to communicate and authenticate itself. A specific application ID is used named *Domain Controller Services* with an ID of *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Don't change this application ID.
+Create an Azure AD service principal using the [New-AzureADServicePrincipal][New-AzureADServicePrincipal] cmdlet for Azure AD DS to communicate and authenticate itself. A specific application ID is used named *Domain Controller Services* with an ID of *2565bd9d-da50-47d4-8b85-4c97f669dc36* for Azure Global. For other Azure clouds, search for AppId value *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. 
 
 ```powershell
-New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
+New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 ```
 
 Now create an Azure AD group named *AAD DC Administrators* using the [New-AzureADGroup][New-AzureADGroup] cmdlet. Users added to this group are then granted permissions to perform administration tasks on the managed domain.
@@ -338,7 +337,7 @@ To see the managed domain in action, you can [domain-join a Windows VM][windows-
 [windows-join]: join-windows-vm.md
 [tutorial-ldaps]: tutorial-configure-ldaps.md
 [tutorial-phs]: tutorial-configure-password-hash-sync.md
-[availability-zones]: ../availability-zones/az-overview.md
+[availability-zones]: ../reliability/availability-zones-overview.md
 [portal-deploy]: ../azure-resource-manager/templates/deploy-portal.md
 [powershell-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 [scoped-sync]: scoped-synchronization.md

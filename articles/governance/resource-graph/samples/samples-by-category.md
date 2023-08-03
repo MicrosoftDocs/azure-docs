@@ -1,10 +1,11 @@
 ---
 title: List of sample Azure Resource Graph queries by category
 description: List sample queries for Azure Resource-Graph. Categories include Tags, Azure Advisor, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 01/20/2022
+ms.date: 07/07/2022
 ms.topic: sample
 ms.custom: generated
 ---
+
 # Azure Resource Graph sample queries by category
 
 This page is a collection of Azure Resource Graph sample queries grouped by general and service
@@ -51,9 +52,17 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-policy-guest-configuration](../../../../includes/resource-graph/samples/bycat/azure-policy-guest-configuration.md)]
 
-## Azure Security Center
+## Azure RBAC
 
-[!INCLUDE [azure-resource-graph-samples-cat-azure-security-center](../../../../includes/resource-graph/samples/bycat/azure-security-center.md)]
+[!INCLUDE [authorization-resources-role-assignments-key-properties](../../includes/resource-graph/query/authorization-resources-role-assignments-key-properties.md)]
+
+[!INCLUDE [authorization-resources-role-definitions-key-properties](../../includes/resource-graph/query/authorization-resources-role-definitions-key-properties.md)]
+
+[!INCLUDE [authorization-resources-role-definitions-actions-list.md](../../includes/resource-graph/query/authorization-resources-role-definitions-actions-list.md)]
+
+[!INCLUDE [authorization-resources-role-definitions-permissions-list](../../includes/resource-graph/query/authorization-resources-role-definitions-permissions-list.md)]
+
+[!INCLUDE [authorization-resources-troubleshoot-rbac-limits](../../includes/resource-graph/query/authorization-resources-troubleshoot-rbac-limits.md)]
 
 ## Azure Service Health
 
@@ -82,6 +91,10 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 ## Management groups
 
 [!INCLUDE [azure-resource-graph-samples-cat-management-groups](../../../../includes/resource-graph/samples/bycat/management-groups.md)]
+
+## Microsoft Defender
+
+[!INCLUDE [azure-resource-graph-samples-cat-microsoft-defender](../../../../includes/resource-graph/samples/bycat/microsoft-defender.md)]
 
 ## Networking
 

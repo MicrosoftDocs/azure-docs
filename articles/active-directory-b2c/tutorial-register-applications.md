@@ -1,17 +1,17 @@
 ---
-title: "Tutorial: Register an application"
+title: "Tutorial: Register a web application in Azure Active Directory B2C"
 titleSuffix: Azure AD B2C
 description: Follow this tutorial to learn how to register a web application in Azure Active Directory B2C using the Azure portal.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/20/2021
+ms.date: 10/26/2022
 ms.custom: project-no-code
-ms.author: kengaderdus
+ms.author: godonnell
 ms.subservice: B2C
 ---
 
@@ -19,7 +19,7 @@ ms.subservice: B2C
 
 Before your [applications](application-types.md) can interact with Azure Active Directory B2C (Azure AD B2C), they must be registered in a tenant that you manage. This tutorial shows you how to register a web application using the Azure portal. 
 
-A "web application" refers to a traditional web application that performs most of the application logic on the server. They may be built using frameworks like ASP.NET Core, Maven (Java), Flask (Python), and Express (Node.js).
+A "web application" refers to a traditional web application that performs most of the application logic on the server. They may be built using frameworks like ASP.NET Core, Spring (Java), Flask (Python), and Express (Node.js).
 
 > [!IMPORTANT]
 > If you're using a single-page application ("SPA") instead (e.g. using Angular, Vue, or React), learn [how to register a single-page application](tutorial-register-spa.md).
@@ -50,8 +50,9 @@ To register a web application in your Azure AD B2C tenant, you can use our new u
 
     The following restrictions apply to redirect URIs:
 
-    * The reply URL must begin with the scheme `https`.
+    * The reply URL must begin with the scheme `https`, unless you use a localhost redirect URL.
     * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the reply URL. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
+    * The reply URL should include or exclude the trailing forward slash as your application expects it. For example, `https://contoso.com/auth-response` and `https://contoso.com/auth-response/` might be treated as nonmatching URLs in your application.
 
 1. Under **Permissions**, select the *Grant admin consent to openid and offline_access permissions* check box.
 1. Select **Register**.
@@ -71,6 +72,7 @@ To register a web application in your Azure AD B2C tenant, you can use our new u
 
     * The reply URL must begin with the scheme `https`, unless using `localhost`.
     * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the reply URL. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
+    * The reply URL should include or exclude the trailing forward slash as your application expects it. For example, `https://contoso.com/auth-response` and `https://contoso.com/auth-response/` might be treated as nonmatching URLs in your application.
 
 1. Select **Create** to complete the application registration.
 
@@ -105,10 +107,12 @@ For a web application, you need to create an application secret. The client secr
 
 ## Enable ID token implicit grant
 
-The defining characteristic of the implicit grant is that tokens, such as ID and access tokens, are returned directly from Azure AD B2C to the application. For web apps, such as ASP.NET Core web apps and [https://jwt.ms](https://jwt.ms), that request an ID token directly from the authorization endpoint, enable the implicit grant flow in the app registration.
+If you register this app and configure it with [https://jwt.ms/](https://jwt.ms/) app for testing a user flow or custom policy, you need to enable the implicit grant flow in the app registration:
 
 1. In the left menu, under **Manage**, select **Authentication**.
-1. Under Implicit grant, select both the **Access tokens** and **ID tokens** check boxes.
+
+1. Under **Implicit grant and hybrid flows**, select both the **Access tokens (used for implicit flows)** and **ID tokens (used for implicit and hybrid flows)** check boxes.
+
 1. Select **Save**.
 
 ## Next steps

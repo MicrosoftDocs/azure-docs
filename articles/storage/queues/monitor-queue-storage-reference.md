@@ -2,12 +2,11 @@
 title: Azure Queue Storage monitoring data reference
 description: Log and metrics reference for monitoring data from Azure Queue Storage.
 author: normesta
-services: azure-monitor
+services: storage
 ms.author: normesta
 ms.date: 04/20/2021
 ms.topic: reference
-ms.service: azure-monitor
-ms.subservice: logs
+ms.service: azure-queue-storage
 ms.custom: subject-monitoring
 ---
 

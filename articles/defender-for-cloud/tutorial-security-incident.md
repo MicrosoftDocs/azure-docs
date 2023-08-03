@@ -1,31 +1,33 @@
 ---
-title: Alert response tutorial - Microsoft Defender for Cloud
+title: Alert response tutorial
 description: In this tutorial, you'll learn how to triage security alerts and determine the root cause & scope of an alert.
 ms.assetid: 181e3695-cbb8-4b4e-96e9-c4396754862f
 ms.topic: tutorial
-ms.date: 11/09/2021
+ms.date: 06/26/2023
 ---
 
 # Tutorial: Triage, investigate, and respond to security alerts
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Microsoft Defender for Cloud continuously analyzes your hybrid cloud workloads using advanced analytics and threat intelligence to alert you about potentially malicious activities in your cloud resources. You can also integrate alerts from other security products and services into Defender for Cloud. Once an alert is raised, swift action is needed to investigate and remediate the potential security issue. 
 
 In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
-> * Triage security alerts
-> * Investigate a security alert to determine the root cause
-> * Respond to a security alert and mitigate that root cause
+> * [Triage security alerts](#triage-security-alerts)
+> * [Investigate a security alert to determine the root cause](#investigate-a-security-alert)
+> * [Respond to a security alert and mitigate that root cause](#respond-to-a-security-alert)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
-To step through the features covered in this tutorial, you must have Defender for Cloud's enhanced security features enabled. You can try these at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). The quickstart [Get started with Defender for Cloud](get-started.md) walks you through how to upgrade.
+
+- You'll need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
+
+- You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
 
 ## Triage security alerts
+
 Defender for Cloud provides a unified view of all security alerts. Security alerts are ranked based on the severity of the detected activity. 
 
 Triage your alerts from the **Security alerts** page:
@@ -42,13 +44,17 @@ When triaging security alerts, prioritize alerts based on the alert severity by 
 
 ## Investigate a security alert
 
-When you've decided which alert to investigate first:
+Once you have selected an alert, you will then be able to investigate it.
+
+**To investigate a security alert**: 
 
 1. Select the desired alert.
+
 1. From the alert overview page, select the resource to investigate first.
+
 1. Begin your investigation from the left pane, which shows the high-level information about the security alert.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="The left pane of the alert details page highlighting the high-level information.":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="Screenshot of the left pane of the alert details page highlighting the high-level information." lightbox="media/tutorial-security-incident/alert-details-left-pane.png":::
 
     This pane shows:
     - Alert severity, status, and activity time
@@ -90,34 +96,13 @@ After you've investigated a security alert and understood its scope, you can res
     > [!TIP]
     > We review your feedback to improve our algorithms and provide better security alerts.
 
-## End the tutorial
+## Clean up resources
 
-Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue to work with subsequent quickstarts and tutorials, keep automatic provisioning and Defender for Cloud's enhanced security features enabled. 
-
-If you don't plan to continue, or you want to disable either of these features:
-
-1. From Defender for Cloud's menu, open **Environment settings**.
-1. Select the relevant subscription.
-1. Select **Defender plans** and select **Enhanced security off**.
-
-    :::image type="content" source="./media/enable-enhanced-security/disable-plans.png" alt-text="Enable or disable Defender for Cloud's enhanced security features.":::
-
-1. Select **Save**.
-
-    > [!NOTE]
-    > After you disable enhanced security features - whether you disable a single plan or all plans at once - data collection may continue for a short period of time. 
-
-1. From Defender for Cloud's menu, open **Environment settings**.
-1. Select the relevant subscription.
-1. Select **Auto provisioning**.
-1. Disable the relevant extensions.
-
-    >[!NOTE]
-    > Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs that already have the agent. Disabling automatic provisioning limits security monitoring for your resources.
+There's no need to clean up any resources for this tutorial.
 
 ## Next steps
 In this tutorial, you learned about Defender for Cloud features to be used when responding to a security alert. For related material see:
 
 - [Respond to Microsoft Defender for Key Vault alerts](defender-for-key-vault-usage.md)
 - [Security alerts - a reference guide](alerts-reference.md)
-- [Introduction to Defender for Cloud](defender-for-cloud-introduction.md)
+- [What is Microsoft Defender for Cloud?](defender-for-cloud-introduction.md)

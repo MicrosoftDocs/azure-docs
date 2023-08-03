@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/29/2021
+ms.date: 04/05/2023
 ms.author: banders
 ---
 
@@ -85,6 +85,15 @@ Custom spending limits aren't available.
 [Some external services published in the Azure Marketplace](../understand/understand-azure-marketplace-charges.md) can't be used with your subscription credits, and can incur separate charges even when your spending limit is set. Examples include Visual Studio licenses, Azure Active Directory premium, support plans, and most third-party branded services. When you create a new external service, a warning is shown to let you know the services are billed separately:
 
 ![Marketplace purchase warning](./media/spending-limit/marketplace-warning01.png)
+
+## Troubleshoot spending limit banner
+
+If the spending limit banner doesn't appear, you can manually navigate to your subscription's URL.
+
+1. Ensure that you've navigated to the correct tenant/directory in the Azure portal.
+1. Navigate to `https://portal.azure.com/#blade/Microsoft_Azure_Billing/RemoveSpendingLimitBlade/subscriptionId/11111111-1111-1111-1111-111111111111` and replace the example subscription ID with your subscription ID.
+
+The spending limit banner should appear.
 
 ## Need help? Contact us.
 

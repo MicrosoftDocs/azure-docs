@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about digital twins, and how their relationships form a digital twin graph.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/20/2021
+ms.date: 02/06/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Digital twins and their twin graph
 
-This article describes what **digital twins** are in the context of Azure Digital Twins, and how relationships between them can form a **twin graph**. In an Azure Digital Twins solution, the entities in your environment are represented by **digital twins**. A digital twin is an instance of one of your custom-defined [models](concepts-models.md). It can be connected to other digital twins via **relationships** to form a **twin graph**: this twin graph is the representation of your entire environment.
+This article describes what digital twins are in the context of Azure Digital Twins, and how relationships between them can form a twin graph. In an Azure Digital Twins solution, the entities in your environment are represented by *digital twins*. A digital twin is an instance of one of your custom-defined [models](concepts-models.md). It can be connected to other digital twins via *relationships* to form a *twin graph*: this twin graph is the representation of your entire environment.
 
 > [!TIP]
 > "Azure Digital Twins" refers to this Azure service as a whole. "Digital twin(s)" or just "twin(s)" refers to individual twin nodes inside your instance of the service.
@@ -34,7 +34,7 @@ After creating and uploading a model, your client app can create an instance of 
 
 Twins are connected into a twin graph by their relationships. The relationships that a twin can have are defined as part of its model.  
 
-For example, the model Floor might define a *contains* relationship that targets twins of type Room. With this definition, Azure Digital Twins will allow you to create *contains* relationships from any Floor twin to any Room twin (including twins that are of Room subtypes). 
+For example, the model Floor might define a `contains` relationship that targets twins of type Room. With this definition, Azure Digital Twins will allow you to create `contains` relationships from any Floor twin to any Room twin (including twins that are of Room subtypes). 
 
 The result of this process is a set of nodes (the digital twins) connected via edges (their relationships) in a graph.
 
@@ -44,7 +44,7 @@ The result of this process is a set of nodes (the digital twins) connected via e
 
 ## Create with the APIs
 
-This section shows what it looks like to create digital twins and relationships from a client application. It contains .NET code examples that use the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), to provide more context on what goes on inside each of these concepts.
+This section shows what it looks like to create digital twins and relationships from a client application. It contains [.NET SDK](/dotnet/api/overview/azure/digitaltwins.core-readme) examples that use the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), to provide more context on what goes on inside each of these concepts.
 
 ### Create digital twins
 
@@ -54,16 +54,20 @@ You can initialize the properties of a twin when it's created, or set them later
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_noHelper":::
 
-You can also use a helper class called `BasicDigitalTwin` to store property fields in a "twin" object more directly, as an alternative to using a dictionary. For more information about the helper class and examples of its use, see the [Create a digital twin](how-to-manage-twin.md#create-a-digital-twin) section of *How-to: Manage digital twins*.
+You can also use a helper class called `BasicDigitalTwin` to store property fields in a "twin" object more directly, as an alternative to using a dictionary. For more information about the helper class and examples of its use, see [Create a digital twin](how-to-manage-twin.md#create-a-digital-twin).
 
 >[!NOTE]
->While twin properties are treated as optional and thus don't have to be initialized, any [components](concepts-models.md#elements-of-a-model) on the twin **do** need to be set when the twin is created. They can be empty objects, but the components themselves must exist.
+>While twin properties are treated as optional and thus don't have to be initialized, any [components](concepts-models.md#model-attributes) on the twin need to be set when the twin is created. They can be empty objects, but the components themselves must exist.
 
 ### Create relationships
 
 Here's some example client code that uses the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) to build a relationship from one digital twin (the "source" twin) to another digital twin (the "target" twin).
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_short":::
+
+### Create twins and relationships in bulk with the Jobs API
+
+You can upload many twins and relationships in a single API call using the [Jobs API](concepts-apis-sdks.md#bulk-import-with-the-jobs-api). Twins and relationships created with this API can optionally include initialization of their properties. For detailed instructions and examples that use this API, see [bulk import instructions for twins](how-to-manage-twin.md#create-twins-in-bulk-with-the-jobs-api) and [relationships](how-to-manage-graph.md#create-relationships-in-bulk-with-the-jobs-api).
 
 ## JSON representations of graph elements
 
@@ -79,6 +83,8 @@ When represented as a JSON object, a digital twin will display the following fie
 | `$etag` | Standard HTTP field assigned by the web server |
 | `$metadata.$model` | The ID of the model interface that characterizes this digital twin |
 | `$metadata.<property-name>` | Other metadata information about properties of the digital twin |
+| `$metadata.<property-name>.lastUpdateTime` | The date/time the property update message was processed by Azure Digital Twins |
+| `$metadata.<property-name>.sourceTime` | An optional, writable property representing the timestamp when the property update was observed in the real world. This property can only be written using the **2022-05-31** version of the [Azure Digital Twins APIs/SDKs](concepts-apis-sdks.md) and the value must comply to ISO 8601 date and time format. For more information about how to update this property, see [Update a property's sourceTime](how-to-manage-twin.md#update-a-propertys-sourcetime). |
 | `<property-name>` | The value of a property in JSON (`string`, number type, or object) |
 | `$relationships` | The URL of the path to the relationships collection. This field is absent if the digital twin has no outgoing relationship edges. |
 | `<component-name>` | A JSON object containing the component's property values and metadata, similar to those of the root object. This object exists even if the component has no properties. |

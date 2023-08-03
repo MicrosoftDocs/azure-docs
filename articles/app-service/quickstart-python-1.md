@@ -19,7 +19,7 @@ In this quickstart, you deploy a Python web app to [App Service on Linux](overvi
 ## Set up your initial environment
 
 1. Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-1. Install <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 or higher</a>.
+1. Install <a href="https://www.python.org/downloads/" target="_blank">Python</a>.
 1. Install the <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 or higher, with which you run commands in any shell to provision and configure Azure resources.
 
 Open a terminal window and check your Python version is 3.6 or higher:
@@ -106,7 +106,7 @@ az webapp up --sku B1 --name <app-name>
 - If the `webapp` command isn't recognized, because that your Azure CLI version is 2.0.80 or higher. If not, [install the latest version](/cli/azure/install-azure-cli).
 - Replace `<app_name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
 - The `--sku B1` argument creates the web app on the Basic pricing tier, which incurs a small hourly cost. Omit this argument to use a faster premium tier.
-- You can optionally include the argument `--location <location-name>` where `<location_name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [az account list-locations](/cli/azure/appservice#az_appservice_list_locations) command.
+- You can optionally include the argument `--location <location-name>` where `<location_name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [az account list-locations](/cli/azure/appservice#az-appservice-list-locations) command.
 - If you see the error, "Could not auto-detect the runtime stack of your app," make sure you're running the command in the *python-docs-hello-world* folder (Flask) or the *python-docs-hello-django* folder (Django) that contains the *requirements.txt* file. (See [Troubleshooting auto-detect issues with az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub).)
 
 The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan and hosting app, configuring logging, then performing ZIP deployment. It then gives the message, "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure.
@@ -239,7 +239,7 @@ Once deployment is complete, switch back to the browser window open to `http://<
 
 You can access the console logs generated from inside the app and the container in which it runs. Logs include any output generated using `print` statements.
 
-To stream logs, run the [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail) command:
+To stream logs, run the [az webapp log tail](/cli/azure/webapp/log#az-webapp-log-tail) command:
 
 ```azurecli
 az webapp log tail
@@ -302,3 +302,6 @@ The `--no-wait` argument allows the command to return before the operation is co
 
 > [!div class="nextstepaction"]
 > [Tutorial: Run Python app in custom container](tutorial-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

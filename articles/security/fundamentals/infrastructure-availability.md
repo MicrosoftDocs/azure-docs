@@ -4,8 +4,7 @@ description: This article provides information about what Microsoft does to secu
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
-editor: TomSh
+manager: rkarlin
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -13,7 +12,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2019
+ms.date: 01/20/2023
 ms.author: terrylan
 
 ---
@@ -31,7 +30,7 @@ High-speed and robust fiber optic networks connect datacenters with other major 
 Microsoft ensures high availability through advanced monitoring and incident response, service support, and backup failover capability. Geographically distributed Microsoft operations centers operate 24/7/365. The Azure network is one of the largest in the world. The fiber optic and content distribution network connects datacenters and edge nodes to ensure high performance and reliability.
 
 ## Disaster recovery
-Azure keeps your data durable in two locations. You can choose the location of the backup site. In both locations, Azure constantly maintains three healthy replicas of your data.
+Azure keeps your data durable in two locations. You can choose the location of the backup site. In the primary location, Azure constantly maintains three healthy replicas of your data.
 
 ## Database availability
 Azure ensures that a database is internet accessible through an internet gateway with sustained database availability. Monitoring assesses the health and state of the active databases at five-minute time intervals.

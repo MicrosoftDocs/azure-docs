@@ -2,15 +2,13 @@
 title: Template functions - date
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with dates.
 ms.topic: conceptual
-ms.date: 02/11/2022
+ms.custom: devx-track-arm-template
+ms.date: 05/22/2023
 ---
 
 # Date functions for ARM templates
 
-Resource Manager provides the following functions for working with dates in your Azure Resource Manager template (ARM template):
-
-* [dateTimeAdd](#datetimeadd)
-* [utcNow](#utcnow)
+This article describes the functions for working with dates in your Azure Resource Manager template (ARM template).
 
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [date](../bicep/bicep-functions-date.md) functions.
@@ -20,6 +18,8 @@ Resource Manager provides the following functions for working with dates in your
 `dateTimeAdd(base, duration, [format])`
 
 Adds a time duration to a base value. ISO 8601 format is expected.
+
+In Bicep, use the [dateTimeAdd](../bicep/bicep-functions-date.md#datetimeadd) function.
 
 ### Parameters
 
@@ -51,11 +51,129 @@ The next example template shows how to set the start time for an Automation sche
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/date/datetimeadd-automation.json":::
 
+## dateTimeFromEpoch
+
+`dateTimeFromEpoch(epochTime)`
+
+Converts an epoch time integer value to an ISO 8601 datetime.
+
+In Bicep, use the [dateTimeFromEpoch](../bicep/bicep-functions-date.md#datetimefromepoch) function.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| epochTime | Yes | int | The epoch time to convert to a datetime string. |
+
+### Return value
+
+An ISO 8601 datetime string.
+
+### Example
+
+The following example shows output values for the epoch time functions.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "convertedEpoch": {
+      "type": "int",
+      "defaultValue": "[dateTimeToEpoch(dateTimeAdd(utcNow(), 'P1Y'))]"
+    }
+  },
+  "variables": {
+    "convertedDatetime": "[dateTimeFromEpoch(parameters('convertedEpoch'))]"
+  },
+  "resources": [],
+  "outputs": {
+    "epochValue": {
+      "type": "int",
+      "value": "[parameters('convertedEpoch')]"
+    },
+    "datetimeValue": {
+      "type": "string",
+      "value": "[variables('convertedDatetime')]"
+    }
+  }
+}
+```
+
+The output is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| datetimeValue | String | 2023-05-02T15:16:13Z |
+| epochValue | Int | 1683040573 |
+
+## dateTimeToEpoch
+
+`dateTimeToEpoch(dateTime)`
+
+Converts an ISO 8601 datetime string to an epoch time integer value.
+
+In Bicep, use the [dateTimeToEpoch](../bicep/bicep-functions-date.md#datetimetoepoch) function.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| dateTime | Yes | string | The datetime string to convert to an epoch time. |
+
+### Return value
+
+An integer that represents the number of seconds from midnight on January 1, 1970.
+
+### Examples
+
+The following example shows output values for the epoch time functions.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "convertedEpoch": {
+      "type": "int",
+      "defaultValue": "[dateTimeToEpoch(dateTimeAdd(utcNow(), 'P1Y'))]"
+    }
+  },
+  "variables": {
+    "convertedDatetime": "[dateTimeFromEpoch(parameters('convertedEpoch'))]"
+  },
+  "resources": [],
+  "outputs": {
+    "epochValue": {
+      "type": "int",
+      "value": "[parameters('convertedEpoch')]"
+    },
+    "datetimeValue": {
+      "type": "string",
+      "value": "[variables('convertedDatetime')]"
+    }
+  }
+}
+```
+
+The output is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| datetimeValue | String | 2023-05-02T15:16:13Z |
+| epochValue | Int | 1683040573 |
+
+The next example uses the epoch time value to set the expiration for a key in a key vault.
+
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.storage/storage-blob-encryption-with-cmk/azuredeploy.json" highlight="54,104":::
+
 ## utcNow
 
 `utcNow(format)`
 
 Returns the current (UTC) datetime value in the specified format. If no format is provided, the ISO 8601 (`yyyyMMddTHHmmssZ`) format is used. **This function can only be used in the default value for a parameter.**
+
+In Bicep, use the [utcNow](../bicep/bicep-functions-date.md#utcnow) function.
 
 ### Parameters
 

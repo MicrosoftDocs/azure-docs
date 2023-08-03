@@ -3,7 +3,7 @@ title: Connect your Java function to Azure Storage
 description: Learn how to connect an HTTP-triggered Java function to Azure Storage by using a Queue storage output binding.
 author: KarlErickson
 ms.devlang: java
-ms.custom: devx-track-java, mode-api
+ms.custom: devx-track-java, mode-api, devx-track-extended-java
 ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
@@ -61,7 +61,7 @@ gradle azureFunctionsRun
 ---
 
 > [!NOTE]  
-> Because you enabled extension bundles in the host.json, the [Storage binding extension](functions-bindings-storage-blob.md#add-to-your-functions-app) was downloaded and installed for you during startup, along with the other Microsoft binding extensions.
+> Because you enabled extension bundles in the host.json, the [Storage binding extension](functions-bindings-storage-blob.md#install-extension) was downloaded and installed for you during startup, along with the other Microsoft binding extensions.
 
 As before, trigger the function from the command line using cURL in a new terminal window:
 

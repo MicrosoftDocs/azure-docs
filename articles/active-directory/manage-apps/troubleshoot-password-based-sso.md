@@ -1,16 +1,16 @@
 ---
 title: Troubleshoot password-based single sign-on
 description: Troubleshoot issues with an Azure AD app that's configured for password-based single sign-on.
-titleSuffix: Azure AD
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: davidmu
-ms.reviewer: ergreenl
+ms.author: jomondi
+ms.reviewer: alamaral
+ms.custom: enterprise-apps
 ---
 
 # Troubleshoot password-based single sign-on
@@ -83,11 +83,13 @@ There are two ways to capture sign-in fields for your custom apps:
 
 In general, if automatic sign-in field capture doesn't work, try the manual option.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ### Automatically capture sign-in fields for an app
 
 To configure password-based SSO by using automatic sign-in field capture, follow these steps:
 
-1. Open the [Azure portal](https://portal.azure.com/). Sign in as a global administrator or co-admin.
+1. Sign in to the [Azure portal](https://portal.azure.com/). Sign in as a global administrator or co-admin.
 2. In the navigation pane on the left side, select **All services** to open the Azure AD extension.
 3. Type **Azure Active Directory** in the filter search box, and then select **Azure Active Directory**.
 4. Select **Enterprise Applications** in the Azure AD navigation pane.
@@ -107,7 +109,7 @@ To manually capture sign-in fields, you must have the My Apps browser extension 
 
 To configure password-based SSO for an app by using manual sign-in field capture, follow these steps:
 
-1. Open the [Azure portal](https://portal.azure.com/). Sign in as a global administrator or co-admin.
+1. Sign in to the [Azure portal](https://portal.azure.com/). Sign in as a global administrator or co-admin.
 2. In the navigation pane on the left side, select **All services** to open the Azure AD extension.
 3. Type **Azure Active Directory** in the filter search box, and then select **Azure Active Directory**.
 4. Select **Enterprise Applications** in the Azure AD navigation pane.

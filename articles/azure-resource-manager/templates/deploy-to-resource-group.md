@@ -2,8 +2,8 @@
 title: Deploy resources to resource groups
 description: Describes how to deploy resources in an Azure Resource Manager template. It shows how to target more than one resource group.
 ms.topic: conceptual
-ms.date: 01/19/2022
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-arm-template
+ms.date: 08/05/2022
 ---
 
 # Resource group deployments with ARM templates
@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 This article describes how to scope your deployment to a resource group. You use an Azure Resource Manager template (ARM template) for the deployment. The article also shows how to expand the scope beyond the resource group in the deployment operation.
 
 > [!TIP]
-> For an improved authoring experience, you can use Bicep rather than JSON to develop templates. For more information about Bicep syntax, see [resource group deployments](../bicep/deploy-to-resource-group.md).
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [resource group deployments](../bicep/deploy-to-resource-group.md).
 
 ## Supported resources
 
@@ -43,7 +43,7 @@ To deploy to a resource group, use the resource group deployment commands.
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create). The following example deploys a template to create a resource group:
+For Azure CLI, use [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create). The following example deploys a template to create a resource group. The resource group you specify in the `--resource-group` parameter is the **target resource group**.
 
 ```azurecli-interactive
 az deployment group create \
@@ -55,7 +55,7 @@ az deployment group create \
 
 # [PowerShell](#tab/azure-powershell)
 
-For the PowerShell deployment command, use [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). The following example deploys a template to create a resource group:
+For the PowerShell deployment command, use [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). The following example deploys a template to create a resource group. The resource group you specify in the `-ResourceGroupName` parameter is the **target resource group**.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment `

@@ -2,10 +2,10 @@
 title: Authenticate with an Azure container registry using a Kubernetes pull secret
 description: Learn how to provide a Kubernetes cluster with access to images in your Azure container registry by creating a pull secret using a service principal
 ms.topic: article
+ms.custom: devx-track-azurecli
 author: karolz-ms
 ms.author: karolz
-ms.reviewer: danlep
-ms.date: 06/02/2021
+ms.date: 10/11/2022
 ---
 
 # Pull images from an Azure container registry to a Kubernetes cluster using a pull secret
@@ -33,7 +33,7 @@ This command returns a new, valid password for your service principal.
 
 ## Create an image pull secret
 
-Kubernetes uses an *image pull secret* to store information needed to authenticate to your registry. To create the pull secret for an Azure container registry, you provide the service principal ID, password, and the registry URL. 
+Kubernetes uses an *image pull secret* to store information needed to authenticate to your registry. To create the pull secret for an Azure container registry, you provide the service principal ID, password, and the registry URL.
 
 Create an image pull secret with the following `kubectl` command:
 
@@ -44,6 +44,7 @@ kubectl create secret docker-registry <secret-name> \
     --docker-username=<service-principal-ID> \
     --docker-password=<service-principal-password>
 ```
+
 where:
 
 | Value | Description |
@@ -75,17 +76,15 @@ spec:
 
 In the preceding example, `my-awesome-app:v1` is the name of the image to pull from the Azure container registry, and  `acr-secret` is the name of the pull secret you created to access the registry. When you deploy the pod, Kubernetes automatically pulls the image from your registry, if it is not already present on the cluster.
 
-
 ## Next steps
 
 * For more about working with service principals and Azure Container Registry, see [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md)
 * Learn more about image pull secrets in the [Kubernetes documentation](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod)
 
-
 <!-- IMAGES -->
 
 <!-- LINKS - External -->
-[acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry
+[acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry/create-registry/create-registry-service-principal-assign-role.sh
 [acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->

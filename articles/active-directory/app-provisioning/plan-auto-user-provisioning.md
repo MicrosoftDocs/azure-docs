@@ -3,19 +3,19 @@ title: Plan an automatic user provisioning deployment for Azure Active Directory
 description: Guidance for planning and executing automatic user provisioning in Azure Active Directory
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/13/2021
+ms.date: 04/17/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
 # Plan an automatic user provisioning deployment in Azure Active Directory
 
-Many organizations rely on software as a service (SaaS) applications such as ServiceNow, Zscaler, and Slack for end-user productivity. Historically IT staff have relied on manual provisioning methods such as uploading CSV files, or using custom scripts to securely manage user identities in each SaaS application. These processes are error prone, insecure, and hard to manage.
+Many organizations rely on software as a service (SaaS) applications such as ServiceNow, Zscaler, and Slack for end-user productivity. Historically IT staff has relied on manual provisioning methods such as uploading CSV files, or using custom scripts to securely manage user identities in each SaaS application. These processes are error prone, insecure, and hard to manage.
 
 Azure Active Directory (Azure AD) automatic user provisioning simplifies this process by securely automating the creation, maintenance, and removal of user identities in SaaS applications based on business rules. This automation allows you to effectively scale your identity management systems on both cloud-only and hybrid environments as you expand their dependency on cloud-based solutions.
 
@@ -33,7 +33,7 @@ The key benefits of enabling automatic user provisioning are:
 
 * **Manage risk**. You can increase security by automating changes based on employee status or group memberships that define roles and/or access.
 
-* **Address compliance and governance**. Azure AD supports native audit logs for every user provisioning request. Requests are executed in both the source and target systems. This enables you to track who has access to applications from a single screen.
+* **Address compliance and governance**. Azure AD supports native audit logs for every user provisioning request. Requests are executed in both the source and target systems. Audit logs let you track who has access to applications from a single screen.
 
 * **Reduce cost**. Automatic user provisioning reduces costs by avoiding inefficiencies and human error associated with manual provisioning. It reduces the need for custom-developed user provisioning solutions, scripts, and audit logs.
 
@@ -43,7 +43,7 @@ Azure AD provides self-service integration of any application using templates pr
 
 #### Application licensing
 
-You'll need the appropriate licenses for the application(s) you want to automatically provision. Discuss with the application owners whether the users assigned to the application have the proper licenses for their application roles. If Azure AD manages automatic provisioning based on roles, the roles assigned in Azure AD must align to application licenses. Incorrect licenses owned in the application may lead to errors during the provisioning/updating of a user.
+You need the appropriate licenses for the application(s) you want to automatically provision. Discuss with the application owners whether the users assigned to the application have the proper licenses for their application roles. If Azure AD manages automatic provisioning based on roles, the roles assigned in Azure AD must align to application licenses. Incorrect licenses owned in the application may lead to errors during the provisioning/updating of a user.
 
 ### Terms
 
@@ -53,19 +53,19 @@ This article uses the following terms:
 
 * Single sign-on (SSO) - The ability for a user to sign-on once and access all SSO enabled applications. In the context of user provisioning, SSO is a result of users having a single account to access all systems that use automatic user provisioning.
 
-* Source system - The repository of users that the Azure AD provisions from. Azure AD is the source system for most pre-integrated provisioning connectors. However, there are some exceptions for cloud applications such as SAP, Workday, and AWS. For example, see [User provisioning from Workday to AD](../saas-apps/workday-inbound-tutorial.md).
+* Source system - The repository of users that the Azure AD provisions from. Azure AD is the source system for most preintegrated provisioning connectors. However, there are some exceptions for cloud applications such as SAP, Workday, and AWS. For example, see [User provisioning from Workday to AD](../saas-apps/workday-inbound-tutorial.md).
 
 * Target system - The repository of users that the Azure AD provisions to. The Target system is typically a SaaS application such as ServiceNow, Zscaler, and Slack. The target system can also be an on-premises system such as AD.
 
-* [System for Cross-domain Identity Management (SCIM)](https://aka.ms/scimoverview) -  An open standard that allows for the automation of user provisioning. SCIM communicates user identity data between identity providers such as Microsoft, and service providers like Salesforce or other SaaS apps that require user identity information.
+* [System for Cross-domain Identity Management (SCIM)](https://aka.ms/scimoverview) -  An open standard that allows for the automation of user provisioning. SCIM communicates user identity data between identity providers and service providers. Microsoft is an example of an identity provider. Salesforce is an example of a service provider. Service providers require user identity information and an identity provider fulfills that need. SCIM is the mechanism the identity provider and service provider use to send information back and forth.
 
 ### Training resources
 
 | Resources| Link and Description |
 | - | - |
 | On-demand webinars| [Manage your Enterprise Applications with Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>‎Learn how Azure AD can help you achieve SSO to your enterprise SaaS applications and best practices for controlling access. |
-| Videos| [What is user provisioning in Active Azure Directory?](https://youtu.be/_ZjARPpI6NI) <br> [How to deploy user provisioning in Active Azure Directory?](https://youtu.be/pKzyts6kfrw) <br> [Integrating Salesforce with Azure AD: How to automate User Provisioning](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
-| Online courses| SkillUp Online:  [Managing Identities](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Learn how to integrate Azure AD with many SaaS applications and to secure user access to those applications. |
+| Videos| [What is user provisioning in Active Azure Directory?](https://youtu.be/_ZjARPpI6NI) <br> [How to deploy user provisioning in Active Azure Directory?](https://youtu.be/pKzyts6kfrw) <br> [Integrating Salesforce with Azure AD: How to automate User Provisioning](https://youtu.be/MAy8s5WSe3A) 
+| Online courses| SkillUp Online:  [Managing Identities](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/) <br> Learn how to integrate Azure AD with many SaaS applications and to secure user access to those applications. |
 | Books| [Modern Authentication with Azure Active Directory for Web Applications (Developer Reference) 1st Edition](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> ‎This is an authoritative, deep-dive guide to building Active Directory authentication solutions for these new environments. |
 | Tutorials| See the [list of tutorials on how to integrate SaaS apps with Azure AD](../saas-apps/tutorial-list.md). |
 | FAQ| [Frequently asked questions](../app-provisioning/user-provisioning.md) on automated user provisioning |
@@ -106,17 +106,17 @@ In this example, user creation occurs in Azure AD and the  Azure AD provisioning
 
 #### Automatic user provisioning for cloud HR applications 
 
-In this example, the users and or groups are created in a cloud HR application like such as Workday and SuccessFactors. The Azure AD provisioning service and Azure AD Connect provisioning agent provisions the user data from the cloud HR app tenant into AD. Once the accounts are updated in AD, it is synced with Azure AD through Azure AD Connect, and the email addresses and username attributes can be written back to the cloud HR app tenant.
+In this example, the users and or groups are created in a cloud HR application like such as Workday and SuccessFactors. The Azure AD provisioning service and Azure AD Connect provisioning agent provisions the user data from the cloud HR app tenant into AD. Once the accounts are updated in AD, it's synced with Azure AD through Azure AD Connect, and the email addresses and username attributes can be written back to the cloud HR app tenant.
 
 ![Picture 2](./media/plan-auto-user-provisioning/workdayprovisioning.png)
 
-1.	**HR team** performs the transactions in the cloud HR app tenant.
-2.	**Azure AD provisioning service** runs the scheduled cycles from the cloud HR app tenant and identifies changes that need to be processed for sync with AD.
-3.	**Azure AD provisioning service** invokes the Azure AD Connect provisioning agent with a request payload containing AD account create/update/enable/disable operations.
-4.	**Azure AD Connect provisioning agent** uses a service account to manage AD account data.
-5.	**Azure AD Connect** runs delta sync to pull updates in AD.
-6.	**AD** updates are synced with Azure AD. 
-7.	**Azure AD provisioning service** writebacks email attribute and username from Azure AD to the cloud HR app tenant.
+1. **HR team** performs the transactions in the cloud HR app tenant.
+2. **Azure AD provisioning service** runs the scheduled cycles from the cloud HR app tenant and identifies changes that need to be processed for sync with AD.
+3. **Azure AD provisioning service** invokes the Azure AD Connect provisioning agent with a request payload containing AD account create/update/enable/disable operations.
+4. **Azure AD Connect provisioning agent** uses a service account to manage AD account data.
+5. **Azure AD Connect** runs delta sync to pull updates in AD.
+6. **AD** updates are synced with Azure AD. 
+7. **Azure AD provisioning service** writebacks email attribute and username from Azure AD to the cloud HR app tenant.
 
 ## Plan the deployment project
 
@@ -124,15 +124,15 @@ Consider your organizational needs to determine the strategy for deploying user 
 
 ### Engage the right stakeholders
 
-When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
+When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure you're engaging the right stakeholders](../fundamentals/deployment-plans.md) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
 
 ### Plan communications
 
-Communication is critical to the success of any new service. Proactively communicate with your users how their experience will change, when it will change, and how to gain support if they experience issues.
+Communication is critical to the success of any new service. Proactively communicate to your users about their experience, how the experience is changing, when to expect any change, and how to gain support if they experience issues.
 
 ### Plan a pilot
 
-We recommend that the initial configuration of automatic user provisioning be in a test environment with a small subset of users before scaling it to all users in production. See [best practices](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) for running a pilot.
+We recommend that the initial configuration of automatic user provisioning is in a test environment with a small subset of users before scaling it to all users in production. See [best practices](../fundamentals/deployment-plans.md#best-practices-for-a-pilot) for running a pilot.
 
 #### Best practices for a pilot  
 
@@ -140,21 +140,21 @@ A pilot allows you to test with a small group before deploying a capability for 
 
 In your first wave, target IT, usability, and other appropriate users who can test and provide feedback. Use this feedback to further develop the communications and instructions you send to your users, and to give insights into the types of issues your support staff may see.
 
-Widen the rollout to larger groups of users by increasing the scope of the group(s) targeted. This can be done through [dynamic group membership](../enterprise-users/groups-dynamic-membership.md), or by manually adding users to the targeted group(s).
+Widen the rollout to larger groups of users by increasing the scope of the group(s) targeted. Increasing the scope of the group(s) is done through [dynamic group membership](../enterprise-users/groups-dynamic-membership.md), or by manually adding users to the targeted group(s).
 
 ## Plan application connections and administration
 
-Use the Azure AD portal to view and manage all the applications that support provisioning. See [Finding your apps in the portal](../app-provisioning/configure-automatic-user-provisioning-portal.md).
+Use the Azure portal to view and manage all the applications that support provisioning. See [Finding your apps in the portal](../app-provisioning/configure-automatic-user-provisioning-portal.md).
 
 ### Determine the type of connector to use
 
-The actual steps required to enable and configure automatic provisioning vary depending on the application. If the application you wish to automatically provision is listed in the [Azure AD SaaS app gallery](../saas-apps/tutorial-list.md), then you should select the [app-specific integration tutorial](../saas-apps/tutorial-list.md) to configure its pre-integrated user provisioning connector.
+The actual steps required to enable and configure automatic provisioning vary depending on the application. If the application you wish to automatically provision is listed in the [Azure AD SaaS app gallery](../saas-apps/tutorial-list.md), then you should select the [app-specific integration tutorial](../saas-apps/tutorial-list.md) to configure its preintegrated user provisioning connector.
 
-If not, follow the steps below:
+If not, follow the steps:
 
-1. [Create a request](../manage-apps/v2-howto-app-gallery-listing.md) for a pre-integrated user provisioning connector. Our team will work with you and the application developer to onboard your application to our platform if it supports SCIM.
+1. [Create a request](../manage-apps/v2-howto-app-gallery-listing.md) for a preintegrated user provisioning connector. Our team works with you and the application developer to onboard your application to our platform if it supports SCIM.
 
-1. Use the [BYOA SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) generic user provisioning support for the app. This is a requirement for Azure AD to provision users to the app without a pre-integrated provisioning connector.
+1. Use the [BYOA SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) generic user provisioning support for the app. Using SCIM is a requirement for Azure AD to provision users to the app without a preintegrated provisioning connector.
 
 1. If the application is able to utilize the BYOA SCIM connector, then refer to [BYOA SCIM integration tutorial](../app-provisioning/use-scim-to-provision-users-and-groups.md) to configure the BYOA SCIM connector for the application.
 
@@ -164,7 +164,7 @@ For more information, see [What applications and systems can I use with Azure AD
 
 Setting up automatic user provisioning is a per-application process. For each application, you need to provide [administrator credentials](../app-provisioning/configure-automatic-user-provisioning-portal.md) to connect to the target system’s user management endpoint.
 
-The image below shows one version of the required admin credentials:
+The image shows one version of the required admin credentials:
 
 ![Provisioning screen to manage user account provisioning settings](./media/plan-auto-user-provisioning/userprovisioning-admincredentials.png)
 
@@ -194,13 +194,13 @@ Before implementing automatic user provisioning, you must determine the users an
 
 * Use [scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) to define attribute-based rules that determine which users are provisioned to an application.
 
-* Next, use [user and group assignments](../manage-apps/assign-user-or-group-access-portal.md) as needed for additional filtering.
+* Next, use [user and group assignments](../manage-apps/assign-user-or-group-access-portal.md) as needed for more filtering.
 
 ### Define user and group attribute mapping
 
-To implement automatic user provisioning, you need to define the user and group attributes that are needed for the application. There's a pre-configured set of attributes and [attribute-mappings](../app-provisioning/configure-automatic-user-provisioning-portal.md) between Azure AD user objects, and each SaaS application’s user objects. Not all SaaS apps enable group attributes.
+To implement automatic user provisioning, you need to define the user and group attributes that are needed for the application. There's a preconfigured set of attributes and [attribute-mappings](../app-provisioning/configure-automatic-user-provisioning-portal.md) between Azure AD user objects, and each SaaS application’s user objects. Not all SaaS apps enable group attributes.
 
-Azure AD supports by direct attribute-to-attribute mapping, providing constant values, or [writing expressions for attribute mappings](../app-provisioning/functions-for-customizing-application-data.md). This flexibility gives you fine control of what will be populated in the targeted system's attribute. You can use [Microsoft Graph API](../app-provisioning/export-import-provisioning-configuration.md) and Graph Explorer to export your user provisioning attribute mappings and schema to a JSON file and import it back into Azure AD.
+Azure AD supports by direct attribute-to-attribute mapping, providing constant values, or [writing expressions for attribute mappings](../app-provisioning/functions-for-customizing-application-data.md). This flexibility gives you fine control over what is populated in the targeted system's attribute. You can use [Microsoft Graph API](../app-provisioning/export-import-provisioning-configuration.md) and Graph Explorer to export your user provisioning attribute mappings and schema to a JSON file and import it back into Azure AD.
 
 For more information, see [Customizing User Provisioning Attribute-Mappings for SaaS Applications in Azure Active Directory](../app-provisioning/customize-application-attributes.md).
 
@@ -220,14 +220,14 @@ At each stage of your deployment ensure that you’re testing that results are a
 
 ### Plan testing
 
-Once you have configured automatic user provisioning for the application, you'll run test cases to verify this solution meets your organization’s requirements.
+First, configure automatic user provisioning for the application. Then run test cases to verify the solution meets your organization’s requirements.
 
 | Scenarios| Expected results |
 | - | - |
-| User is added to a group assigned to the target system | User object is provisioned in target system. <br>User can sign-in to target system and perform the desired actions. |
-| User is removed from a group that is assigned to target system | User object is deprovisioned in the target system.<br>User can't sign-in to target system. |
-| User information is updated in Azure AD by any method | Updated user attributes are reflected in target system after an incremental cycle |
-| User is out of scope | User object is disabled or deleted. <br>Note: This behavior is overridden for [Workday provisioning](skip-out-of-scope-deletions.md). |
+| User is added to a group assigned to the target system. | User object is provisioned in target system. <br>User can sign-in to target system and perform the desired actions. |
+| User is removed from a group that is assigned to target system. | User object is deprovisioned in the target system.<br>User can't sign-in to target system. |
+| User information updates in Azure AD by any method. | Updated user attributes reflect in the target system after an incremental cycle. |
+| User is out of scope. | User object is disabled or deleted. <br>Note: This behavior is overridden for [Workday provisioning](skip-out-of-scope-deletions.md). |
 
 ### Plan security
 
@@ -235,9 +235,9 @@ It's common for a security review to be required as part of a deployment. If you
 
 ### Plan rollback
 
-If the automatic user provisioning implementation fails to work as desired in the production environment, the following rollback steps below can assist you in reverting to a previous known good state:
+If the automatic user provisioning implementation fails to work as desired in the production environment, the following rollback steps can assist you in reverting to a previous known good state:
 
-1. Review the [provisioning summary report](../app-provisioning/check-status-user-account-provisioning.md) and [provisioning logs](../app-provisioning/check-status-user-account-provisioning.md#provisioning-logs-preview) to determine what incorrect operations occurred on the affected users and/or groups.
+1. Review the [provisioning logs](../app-provisioning/check-status-user-account-provisioning.md) to determine what incorrect operations occurred on the affected users and/or groups.
 
 1. Use provisioning audit logs to determine the last known good state of the users and/or groups affected. Also review the source systems (Azure AD or AD).
 
@@ -251,13 +251,13 @@ Choose the steps that align to your solution requirements.
 
 When the Azure AD provisioning service runs for the first time, the initial cycle against the source system and target systems creates a snapshot of all user objects for each target system.
 
-When enabling automatic provisioning for an application, the initial cycle can take anywhere from 20 minutes to several hours. The duration depends on the size of the Azure AD directory and the number of users in scope for provisioning.
+When you enable automatic provisioning for an application, the initial cycle takes anywhere from 20 minutes to several hours. The duration depends on the size of the Azure AD directory and the number of users in scope for provisioning.
 
 The provisioning service stores the state of both systems after the initial cycle, improving performance of subsequent incremental cycles.
 
 ### Configure automatic user provisioning
 
-Use the [Azure portal](https://portal.azure.com/) to manage automatic user account provisioning and de-provisioning for applications that support it. Follow the steps in [How do I set up automatic provisioning to an application?](../app-provisioning/user-provisioning.md)
+Use the [Azure portal](https://portal.azure.com/) to manage automatic user account provisioning and deprovisioning for applications that support it. Follow the steps in [How do I set up automatic provisioning to an application?](../app-provisioning/user-provisioning.md)
 
 The Azure AD user provisioning service can also be configured and managed using the [Microsoft Graph API](/graph/api/resources/synchronization-overview).
 
@@ -271,9 +271,9 @@ After a successful [initial cycle](../app-provisioning/user-provisioning.md), th
 
 * The service is manually stopped, and a new initial cycle is triggered using the [Azure portal](https://portal.azure.com/), or using the appropriate [Microsoft Graph API](/graph/api/resources/synchronization-overview) command.
 
-* A new initial cycle is triggered by a change in attribute mappings or scoping filters.
+* A new initial cycle triggers a change in attribute mappings or scoping filters.
 
-* The provisioning process goes into quarantine due to a high error rate and stays in quarantine for more than four weeks when it will be automatically disabled.
+* The provisioning process goes into quarantine due to a high error rate and stays in quarantine for more than four weeks then it's automatically disabled.
 
 To review these events, and all other activities performed by the provisioning service, refer to Azure AD [provisioning logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).
 
@@ -281,7 +281,7 @@ To understand how long the provisioning cycles take and monitor the progress of 
 
 ### Gain insights from reports
 
-Azure AD can provide [additional insights](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) into your organization’s user provisioning usage and operational health through audit logs and reports.
+Azure AD can provide more insights into your organization’s user provisioning usage and operational health through audit logs and reports. To learn more about user insights, see [Check the status of user provisioning](application-provisioning-when-will-provisioning-finish-specific-user.md).
 
 Admins should check the  provisioning summary report to monitor the operational health of the provisioning job. All activities performed by the provisioning service are recorded in the Azure AD audit logs. See [Tutorial: Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 

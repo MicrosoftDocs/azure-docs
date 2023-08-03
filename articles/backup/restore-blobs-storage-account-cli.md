@@ -2,7 +2,10 @@
 title: Restore Azure Blobs via Azure CLI
 description: Learn how to restore Azure Blobs to any point-in-time using Azure CLI.
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 06/18/2021
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Restore Azure Blobs to point-in-time using Azure CLI
@@ -29,11 +32,13 @@ We'll refer to an existing Backup vault _TestBkpVault_, under the resource group
 
 As the operational backup for blobs is continuous, there are no distinct points to restore from. Instead, we need to fetch the valid time-range under which blobs can be restored to any point-in-time. In this example, let's check for valid time-ranges to restore within the last 30 days.
 
-First, we need to fetch the relevant backup instance ID. List all backup instances within a vault using the [az dataprotection backup-instance list](/cli/azure/dataprotection/backup-instance#az_dataprotection_backup_instance_list) command, and then fetch the relevant instance using [az dataprotection backup-instance show](/cli/azure/dataprotection/backup-instance#az_dataprotection_backup_instance_show) command. Alternatively, for at-scale scenarios, you can list backup instances across vaults and subscriptions using the [az dataprotection backup-instance list-from-resourcegraph](/cli/azure/dataprotection/backup-instance#az_dataprotection_backup_instance_list_from_resourcegraph) command.
+First, we need to fetch the relevant backup instance ID. List all backup instances within a vault using the [az dataprotection backup-instance list](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-list) command, and then fetch the relevant instance using [az dataprotection backup-instance show](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-show) command. Alternatively, for at-scale scenarios, you can list backup instances across vaults and subscriptions using the [az dataprotection backup-instance list-from-resourcegraph](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-list-from-resourcegraph) command.
 
 ```azurecli-interactive
 az dataprotection backup-instance list-from-resourcegraph --datasource-type AzureBlob --datasource-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA"
+```
 
+```output
 [
   {
     "datasourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA",
@@ -95,11 +100,13 @@ az dataprotection backup-instance list-from-resourcegraph --datasource-type Azur
 ]
 ```
 
-Once the instance is identified, fetch the relevant recovery range using the [az dataprotection restorable-time-range find](/cli/azure/dataprotection/restorable-time-range#az_dataprotection_restorable_time_range_find) command.
+Once the instance is identified, fetch the relevant recovery range using the [az dataprotection restorable-time-range find](/cli/azure/dataprotection/restorable-time-range#az-dataprotection-restorable-time-range-find) command.
 
 ```azurecli-interactive
 az dataprotection restorable-time-range find --start-time 2021-05-30T00:00:00 --end-time 2021-05-31T00:00:00 --source-data-store-type OperationalStore -g testBkpVaultRG --vault-name TestBkpVault --backup-instances CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036
+```
 
+```output
 {
   "id": "CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036",
   "name": null,
@@ -124,11 +131,13 @@ Once the point-in-time to restore is fixed, there are multiple options to restor
 
 #### Restoring all the blobs to a point-in-time
 
-Using this option, you can restore all block blobs in the storage account by rolling them back to the selected point in time. Storage accounts containing large amounts of data or witnessing a high churn may take longer times to restore. To restore all block blobs, use the [az dataprotection backup-instance restore initialize-for-data-recovery](/cli/azure/dataprotection/backup-instance/restore#az_dataprotection_backup_instance_restore_initialize_for_data_recovery) command. The restore location and the target resource ID will be the same as the protected storage account.
+Using this option, you can restore all block blobs in the storage account by rolling them back to the selected point in time. Storage accounts containing large amounts of data or witnessing a high churn may take longer times to restore. To restore all block blobs, use the [az dataprotection backup-instance restore initialize-for-data-recovery](/cli/azure/dataprotection/backup-instance/restore#az-dataprotection-backup-instance-restore-initialize-for-data-recovery) command. The restore location and the target resource ID will be the same as the protected storage account.
 
 ```azurecli-interactive
 az dataprotection backup-instance restore initialize-for-data-recovery --datasource-type AzureBlob --restore-location southeastasia --source-datastore OperationalStore --target-resource-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA" --point-in-time 2021-06-02T18:53:44.4465407Z
+```
 
+```output
 {
   "object_type": "AzureBackupRecoveryTimeBasedRestoreRequest",
   "recovery_point_time": "2021-06-02T18:53:44.4465407Z.0000000Z",
@@ -148,18 +157,21 @@ az dataprotection backup-instance restore initialize-for-data-recovery --datasou
   },
   "source_data_store_type": "OperationalStore"
 }
+```
 
-
+```azurecli-interactive
 az dataprotection backup-instance restore initialize-for-data-recovery --datasource-type AzureBlob --restore-location southeastasia --source-datastore OperationalStore --target-resource-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA" --point-in-time 2021-06-02T18:53:44.4465407Z > restore.json
 ```
 
 #### Restoring selected containers
 
-Using this option, you can browse and select up to 10 containers to restore. To restore selected containers, use the [az dataprotection backup-instance restore initialize-for-item-recovery](/cli/azure/dataprotection/backup-instance/restore#az_dataprotection_backup_instance_restore_initialize_for_item_recovery) command.
+Using this option, you can browse and select up to 10 containers to restore. To restore selected containers, use the [az dataprotection backup-instance restore initialize-for-item-recovery](/cli/azure/dataprotection/backup-instance/restore#az-dataprotection-backup-instance-restore-initialize-for-item-recovery) command.
 
 ```azurecli-interactive
 az dataprotection backup-instance restore initialize-for-item-recovery --datasource-type AzureBlob --restore-location southeastasia --source-datastore OperationalStore --backup-instance-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupInstances/CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036" --point-in-time 2021-06-02T18:53:44.4465407Z --container-list container1 container2
+```
 
+```output
 {
   "object_type": "AzureBackupRecoveryTimeBasedRestoreRequest",
   "recovery_point_time": "2021-06-02T18:53:44.4465407Z.0000000Z",
@@ -191,8 +203,9 @@ az dataprotection backup-instance restore initialize-for-item-recovery --datasou
   },
   "source_data_store_type": "OperationalStore"
 }
+```
 
-
+```azurecli-interactive
 az dataprotection backup-instance restore initialize-for-item-recovery --datasource-type AzureBlob --restore-location southeastasia --source-datastore OperationalStore --backup-instance-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupInstances/CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036" --point-in-time 2021-06-02T18:53:44.4465407Z --container-list container1 container2 > restore.json
 ```
 
@@ -205,11 +218,13 @@ This option lets you restore a subset of blobs using a prefix match. You can spe
 
 [Learn more](blob-restore.md#use-prefix-match-for-restoring-blobs) about using prefixes to restore blob ranges.
 
-To restore selected containers, use the [az dataprotection backup-instance restore initialize-for-item-recovery](/cli/azure/dataprotection/backup-instance/restore#az_dataprotection_backup_instance_restore_initialize_for_item_recovery) command.
+To restore selected containers, use the [az dataprotection backup-instance restore initialize-for-item-recovery](/cli/azure/dataprotection/backup-instance/restore#az-dataprotection-backup-instance-restore-initialize-for-item-recovery) command.
 
 ```azurecli-interactive
 az dataprotection backup-instance restore initialize-for-item-recovery --datasource-type AzureBlob --restore-location southeastasia --source-datastore OperationalStore --backup-instance-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupInstances/CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036" --point-in-time 2021-06-02T18:53:44.4465407Z --from-prefix-pattern container1/text1 container2/text4 --to-prefix-pattern container1/text4 container2/text41
+```
 
+```output
 {
   "object_type": "AzureBackupRecoveryTimeBasedRestoreRequest",
   "recovery_point_time": "2021-06-02T18:53:44.4465407Z.0000000Z",
@@ -241,15 +256,15 @@ az dataprotection backup-instance restore initialize-for-item-recovery --datasou
   },
   "source_data_store_type": "OperationalStore"
 }
+```
 
-
-
+```azurecli-interactive
 az dataprotection backup-instance restore initialize-for-item-recovery --datasource-type AzureBlob --restore-location southeastasia --source-datastore OperationalStore --backup-instance-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupInstances/CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036" --point-in-time 2021-06-02T18:53:44.4465407Z --from-prefix-pattern container1/text1 container2/text4 --to-prefix-pattern container1/text4 container2/text41 > restore.json
 ```
 
 ### Trigger the restore
 
-Use the [az dataprotection backup-instance restore trigger](/cli/azure/dataprotection/backup-instance/restore#az_dataprotection_backup_instance_restore_trigger) command to trigger the restore with the request prepared above.
+Use the [az dataprotection backup-instance restore trigger](/cli/azure/dataprotection/backup-instance/restore#az-dataprotection-backup-instance-restore-trigger) command to trigger the restore with the request prepared above.
 
 ```azurecli-interactive
 az dataprotection backup-instance restore trigger -g testBkpVaultRG --vault-name TestBkpVault --backup-instance-name CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036 --restore-request-object restore.json
@@ -257,11 +272,11 @@ az dataprotection backup-instance restore trigger -g testBkpVaultRG --vault-name
 
 ## Tracking job
 
-Track all the jobs using the [az dataprotection job list](/cli/azure/dataprotection/job#az_dataprotection_job_list) command. You can list all jobs and fetch a particular job detail.
+Track all the jobs using the [az dataprotection job list](/cli/azure/dataprotection/job#az-dataprotection-job-list) command. You can list all jobs and fetch a particular job detail.
 
-You can also use Az.ResourceGraph to track all jobs across all Backup vaults. Use the [az dataprotection job list-from-resourcegraph](/cli/azure/dataprotection/job#az_dataprotection_job_list_from_resourcegraph) command to get the relevant job which can be across any Backup vault.
+You can also use Az.ResourceGraph to track all jobs across all Backup vaults. Use the [az dataprotection job list-from-resourcegraph](/cli/azure/dataprotection/job#az-dataprotection-job-list-from-resourcegraph) command to get the relevant job which can be across any Backup vault.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az dataprotection job list-from-resourcegraph --datasource-type AzureBlob --operation Restore
 ```
 

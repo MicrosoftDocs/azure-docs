@@ -1,62 +1,44 @@
 ---
-title: Uninstall the Open Service Mesh (OSM) add-on
-description: Deploy Open Service Mesh on Azure Kubernetes Service (AKS) using Azure CLI
-services: container-service
+title: Uninstall the Open Service Mesh (OSM) add-on from your Azure Kubernetes Service (AKS) cluster
+description: How to uninstall the Open Service Mesh on Azure Kubernetes Service (AKS) using Azure CLI.
 ms.topic: article
-ms.date: 11/10/2021
-ms.author: pgibson
+ms.custom: devx-track-azurecli
+ms.date: 06/19/2023
 ---
 
 # Uninstall the Open Service Mesh (OSM) add-on from your Azure Kubernetes Service (AKS) cluster
 
-This article shows you how to uninstall the OMS add-on and related resources from you AKS cluster.
+This article shows you how to uninstall the OMS add-on and related resources from your AKS cluster.
 
 ## Disable the OSM add-on from your cluster
 
-Disable the OSM add-on in your cluster using `az aks disable-addon`. For example:
+* Disable the OSM add-on from your cluster using the [`az aks disable-addon`][az-aks-disable-addon] command and the `--addons` parameter.
 
-```azurecli-interactive
-az aks disable-addons \
-  --resource-group myResourceGroup \
-  --name myAKSCluster \
-  --addons open-service-mesh
-```
+    ```azurecli-interactive
+    az aks disable-addons \
+      --resource-group myResourceGroup \
+      --name myAKSCluster \
+      --addons open-service-mesh
+    ```
 
-The above example removes the OSM add-on from the *myAKSCluster* in *myResourceGroup*.
+## Remove OSM resources
 
-## Remove additional OSM resources
+* Uninstall the remaining resources on the cluster using the `osm uninstall cluster-wide-resources` command.
 
-After the OSM add-on is disabled, the following resources remain on the cluster:
+    ```console
+    osm uninstall cluster-wide-resources
+    ```
 
-1. OSM meshconfig custom resource
-2. OSM control plane secrets
-3. OSM mutating webhook configuration
-4. OSM validating webhook configuration
-5. OSM CRDs
+    > [!NOTE]
+    > For version 1.1, the command is `osm uninstall mesh --delete-cluster-wide-resources`
 
-> [!IMPORTANT]
-> You must remove these additional resources after you disable the OSM add-on. Leaving these resources on your cluster may cause issues if you enable the OSM add-on again in the future.
+    > [!IMPORTANT]
+    > You must remove these additional resources after you disable the OSM add-on. Leaving these resources on your cluster may cause issues if you enable the OSM add-on again in the future.
 
-To remove these remaining resources:
+## Next steps
 
-1. Delete the meshconfig config resource
-```azurecli-interactive
-kubectl delete --ignore-not-found meshconfig -n kube-system osm-mesh-config
-```
+Learn more about [Open Service Mesh][osm].
 
-2. Delete the OSM control plane secrets
-```azurecli-interactive
-kubectl delete --ignore-not-found secret -n kube-system osm-ca-bundle mutating-webhook-cert-secret validating-webhook-cert-secret crd-converter-cert-secret
-```
-
-3. Delete the OSM mutating webhook configuration
-```azurecli-interactive
-kubectl delete mutatingwebhookconfiguration -l app.kubernetes.io/name=openservicemesh.io,app.kubernetes.io/instance=osm,app=osm-injector --ignore-not-found
-```
-
-4. Delete the OSM validating webhook configuration
-```azurecli-interactive
-kubectl delete validatingwebhookconfiguration -l app.kubernetes.io/name=openservicemesh.io,app.kubernetes.io/instance=osm,app=osm-controller --ignore-not-found
-```
-
-5. Delete the OSM CRDs: For guidance on OSM's CRDs and how to delete them, refer to [this documentation](https://release-v0-11.docs.openservicemesh.io/docs/getting_started/uninstall/#removal-of-osm-cluster-wide-resources).
+<!-- LINKS - Internal -->
+[az-aks-disable-addon]: /cli/azure/aks#az_aks_disable_addons
+[osm]: ./open-service-mesh-about.md

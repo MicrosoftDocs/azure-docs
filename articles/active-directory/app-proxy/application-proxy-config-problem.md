@@ -1,14 +1,14 @@
 ---
 title: Problem creating an Azure Active Directory Application Proxy application
-description: How to troubleshoot issues creating Application Proxy applications in the Azure Active Directory Admin portal
+description: How to troubleshoot issues creating Application Proxy applications in the Azure portal
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 04/27/2021
+ms.date: 11/17/2022
 ms.author: kenwith
 ms.reviewer: asteen
 ---

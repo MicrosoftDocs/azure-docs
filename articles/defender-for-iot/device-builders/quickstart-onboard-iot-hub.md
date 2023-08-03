@@ -27,7 +27,7 @@ You can create a hub in the Azure portal. For all new IoT hubs, Defender for IoT
 
 **To create an IoT Hub**:
 
-1. Follow the steps in [this article](../../iot-hub/iot-hub-create-through-portal.md#create-an-iot-hub).
+1. Follow the steps to [create an IoT hub using the Azure portal](../../iot-hub/iot-hub-create-through-portal.md#create-an-iot-hub).
 
 1. Under the **Management** tab, ensure that **Defender for IoT** is set to **On**. By default, Defender for IoT will be set to **On** .
 
@@ -47,7 +47,7 @@ You can onboard Defender for IoT to an existing IoT Hub, where you can then moni
 
     :::image type="content" source="media/quickstart-onboard-iot-hub/secure-your-iot-solution.png" alt-text="Select the secure your IoT solution button to secure your solution." lightbox="media/quickstart-onboard-iot-hub/secure-your-iot-solution-expanded.png":::
 
-The **Secure your IoT solution** button will only appear if the IoT Hub has not already been onboarded, or if you set the Defender for IoT toggle to **Off** while onboarding.
+The **Secure your IoT solution** button will only appear if the IoT Hub hasn't already been onboarded, or if you set the Defender for IoT toggle to **Off** while onboarding.
 
 :::image type="content" source="media/quickstart-onboard-iot-hub/toggle-is-off.png" alt-text="If your toggle was set to off during onboarding.":::
 
@@ -59,13 +59,35 @@ The **Secure your IoT solution** button will only appear if the IoT Hub has not 
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Overview**.
 
-1. The Threat prevention, and Threat detection screen will appear.
+    The Threat prevention and Threat detection screen will appear.
 
     :::image type="content" source="media/quickstart-onboard-iot-hub/threat-prevention.png" alt-text="Screenshot showing that Defender for IoT is enabled." lightbox="media/quickstart-onboard-iot-hub/threat-prevention-expanded.png":::
 
+## Configure data collection
+
+Configure data collection settings for Defender for IoT in your IoT hub, such as a Log Analytics workspace and other advanced settings.
+
+**To configure Defender for IoT data collection**:
+
+1. In your IoT hub, select **Defender for IoT > Settings**. The **Enable Microsoft Defender for IoT** option is toggled on by default.
+
+1. In the **Workspace configuration** area, toggle the **On** option to connect to a Log Analytics workspace, and then select the Azure subscription and Log Analytics workspace you want to connect to.
+
+    If you need to create a new workspace, select the **Create New Workspace** link.
+
+    Select **Access to raw security data** to export raw security events from your devices to the Log Analytics workspace that you'd selected above.
+
+1. In the **Advanced settings** area, the following options are selected by default. Clear the selection as needed:
+
+    - **In-depth security recommendations and custom alerts**. Allows Defender for IoT access to the device's twin data in order to generate alerts based on that data.
+
+    - **IP data collection**. Allows Defender for IoT access to the device's incoming and outgoing IP addresses to generate alerts based on suspicious connections.
+
+1. Select **Save** to save your settings.
+
 ## Next steps
 
-Advance to the next article to add a resource group to your solution...
+Advance to the next article to add a resource group to your solution.
 
 > [!div class="nextstepaction"]
 > [Add a resource group to your IoT solution](tutorial-configure-your-solution.md)

@@ -1,12 +1,15 @@
 ---
 title: Get started with Azure Service Fabric CLI 
 description: Learn how to use the Azure Service Fabric CLI. Learn how to connect to a cluster and how to manage applications.
-author: jeffj6123
-
-ms.topic: conceptual
-ms.date: 5/19/2020
-ms.author: jejarry
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-python
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Azure Service Fabric CLI
 
 The Azure Service Fabric command-line interface (CLI) is a command-line utility for interacting with and managing Service Fabric entities. The Service Fabric CLI can be used with either Windows or Linux clusters. The Service Fabric CLI runs on any platform where Python is supported.

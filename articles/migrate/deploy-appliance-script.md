@@ -5,7 +5,9 @@ ms.topic: how-to
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.date: 11/02/2021
+ms.service: azure-migrate
+ms.date: 07/10/2023
+ms.custom: engagement-fy23
 ---
 
 
@@ -29,8 +31,8 @@ You can use the script to deploy the Azure Migrate appliance on an existing serv
 
 Scenario | Requirements
 --- | ---
-VMware | Windows Server 2016, with 32 GB of memory, eight vCPUs, around 80 GB of disk storage.
-Hyper-V | Windows Server 2016, with 16 GB of memory, eight vCPUs, around 80 GB of disk storage.
+VMware | Windows Server 2022, with 32 GB of memory, eight vCPUs, around 80 GB of disk storage.
+Hyper-V | Windows Server 2022, with 16 GB of memory, eight vCPUs, around 80 GB of disk storage.
 
 - The server also needs an external virtual switch. It requires a static or dynamic IP address. 
 - Before you deploy the appliance, review detailed appliance requirements for [VMware](migrate-appliance.md#appliance---vmware) and [Hyper-V](migrate-appliance.md#appliance---hyper-v).
@@ -40,7 +42,7 @@ Hyper-V | Windows Server 2016, with 16 GB of memory, eight vCPUs, around 80 GB o
 
 ## Set up the appliance for VMware
 
-1. To set up the appliance, you download the zipped file named AzureMigrateInstaller.zip either from the portal or from [here](https://go.microsoft.com/fwlink/?linkid=2116601).
+1. To set up the appliance, you download the zipped file named AzureMigrateInstaller.zip either from the portal or from [here](https://go.microsoft.com/fwlink/?linkid=2191847).
 1. Extract the contents on the server where you want to deploy the appliance.
 1. Execute the PowerShell script to launch the appliance configuration manager.
 1. Set up the appliance and configure it for the first time.
@@ -57,7 +59,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2116601) | 30d4f4e06813ceb83602a220fc5fe2278fa6aafcbaa36a40a37f3133f882ee8c
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 967FC3B8A5C467C303D86C8889EB4E0D4A8A7798865CBFBDF23E425D4EE425CA 
 
 > [!NOTE]
 > The same script can be used to set up VMware appliance for either Azure public or Azure Government cloud.
@@ -78,7 +80,7 @@ Check that the zipped file is secure, before you deploy it.
 
 5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover, assess and migrate **servers running in your VMware environment** to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure public cloud**.
 
-   :::image type="content" source="./media/deploy-appliance-script/script-vmware-default-inline.png" alt-text="Screenshot that shows how to set up Vmware appliance with desired configuration." lightbox="./media/deploy-appliance-script/script-vmware-default-expanded.png":::
+   :::image type="content" source="./media/deploy-appliance-script/script-vmware-default-inline.png" alt-text="Screenshot that shows how to set up VMware appliance with desired configuration." lightbox="./media/deploy-appliance-script/script-vmware-default-expanded.png":::
 
 6. The installer script does the following:
 
@@ -101,7 +103,7 @@ Make sure that the appliance can connect to Azure URLs for the [public](migrate-
 
 ## Set up the appliance for Hyper-V
 
-1. To set up the appliance, you download the zipped file named AzureMigrateInstaller.zip either from the portal or from [here](https://go.microsoft.com/fwlink/?linkid=2116657).
+1. To set up the appliance, you download the zipped file named AzureMigrateInstaller.zip either from the portal or from [here](https://go.microsoft.com/fwlink/?linkid=2191847).
 1. Extract the contents on the server where you want to deploy the appliance.
 1. Execute the PowerShell script to launch the appliance configuration manager.
 1. Set up the appliance and configure it for the first time.
@@ -118,7 +120,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2116657) | 30d4f4e06813ceb83602a220fc5fe2278fa6aafcbaa36a40a37f3133f882ee8c
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 967FC3B8A5C467C303D86C8889EB4E0D4A8A7798865CBFBDF23E425D4EE425CA 
 
 > [!NOTE]
 > The same script can be used to set up Hyper-V appliance for either Azure public or Azure Government cloud.

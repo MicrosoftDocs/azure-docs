@@ -1,10 +1,10 @@
 ---
-title: Use managed identities on an Azure VM for sign-in - Azure ADV
+title: Use managed identities on an Azure VM for sign-inV
 description: Step-by-step instructions and examples for using an Azure VM-managed identities for Azure resources service principal for script client sign-in and resource access.
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.subservice: msi
@@ -14,8 +14,9 @@ ms.workload: identity
 ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.tool: azure-cli, azure-powershell
 ms.devlang: azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # How to use managed identities for Azure resources on an Azure VM for sign-in 
@@ -29,7 +30,7 @@ This article provides PowerShell and CLI script examples for sign-in using manag
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-If you plan to use the Azure PowerShell or Azure CLI examples in this article, be sure to install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli). 
+If you plan to use the Azure PowerShell or Azure CLI examples in this article, be sure to install the latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli). 
 
 > [!IMPORTANT]
 > - All sample script in this article assumes the command-line client is running on a VM with managed identities for Azure resources enabled. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling managed identities for Azure resources on a VM, see [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 

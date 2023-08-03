@@ -1,24 +1,24 @@
 ---
-title: Remove users or groups from an administrative unit - Azure Active Directory
-description: Remove users or groups from an administrative unit in Azure Active Directory
+title: Remove users, groups, or devices from an administrative unit
+description: Remove users, groups, or devices from an administrative unit in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 12/17/2021
+ms.date: 06/09/2023
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ---
 
-# Remove users or groups from an administrative unit
+# Remove users, groups, or devices from an administrative unit
 
-When users or groups no longer need access, you can remove users or groups from an administrative unit.
+When users, groups, or devices in an administrative unit no longer need access, you can remove them.
 
 ## Prerequisites
 
@@ -26,49 +26,62 @@ When users or groups no longer need access, you can remove users or groups from 
 - Azure AD Free licenses for administrative unit members
 - Privileged Role Administrator or Global Administrator
 - AzureAD module when using PowerShell
+- AzureADPreview module when using PowerShell for devices
 - Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
 ## Azure portal
 
-You can remove users or groups from administrative units individually using the Azure portal. You can also remove users in a bulk operation.
+You can remove users, groups, or devices from administrative units individually using the Azure portal. You can also remove users in a bulk operation.
 
-### Remove a single user or group from administrative units
+### Remove a single user, group, or device from administrative units
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.
 
-1. Select **Users** or **Groups** and then select the user or group you want to remove from an administrative unit.
+1. Select one of the following:
+
+    - **Users**
+    - **Groups**
+    - **Devices** > **All devices**
+
+1. Select the user, group, or device you want to remove from an administrative unit.
 
 1. Select **Administrative units**.
 
-1. Add check marks next to the administrative units you want to remove the user or group from.
+1. Add check marks next to the administrative units you want to remove the user, group, or device from.
 
 1. Select **Remove from administrative unit**.
 
-    ![Screenshot showing how to remove a user from an administrative unit from the user's profile pane.](./media/admin-units-members-remove/user-remove-admin-units.png)
+    ![Screenshot of Devices and Administrative units page with Remove from administrative unit option.](./media/admin-units-members-remove/device-admin-unit-remove.png)
 
-### Remove users or groups from a single administrative unit
+### Remove users, groups, or devices from a single administrative unit
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.
 
-1. Select **Administrative units** and then select the administrative unit that you want to remove users or groups from.
+1. Select **Administrative units** and then select the administrative unit that you want to remove users, groups, or devices from.
 
-1. Select **Users** or **Groups**.
+1. Select one of the following:
 
-1. Add check marks next to the users or groups you want to remove.
+    - **Users**
+    - **Groups**
+    - **Devices**
 
-1. Select **Remove member** or **Remove**.
+1. Add check marks next to the users, groups, or devices you want to remove.
 
-    ![Screenshot showing how to remove a user at the administrative unit level.](./media/admin-units-members-remove/admin-units-remove-user.png)
+1. Select **Remove member**, **Remove**, or **Remove device**.
+
+    ![Screenshot showing a list users in an administrative unit with check marks and a Remove member option.](./media/admin-units-members-remove/admin-units-remove-user.png)
 
 ### Remove users from an administrative unit in a bulk operation
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.
 
@@ -92,6 +105,8 @@ You can remove users or groups from administrative units individually using the 
 
 Use the [Remove-AzureADMSAdministrativeUnitMember](/powershell/module/azuread/remove-azureadmsadministrativeunitmember) command to remove users or groups from an administrative unit.
 
+Use the [Remove-AzureADMSAdministrativeUnitMember (Preview)](/powershell/module/azuread/remove-azureadmsadministrativeunitmember?view=azureadps-2.0-preview&preserve-view=true) command to remove devices from an administrative unit.
+
 ### Remove users from an administrative unit
 
 ```powershell
@@ -108,23 +123,22 @@ $groupObj = Get-AzureADGroup -Filter "displayname eq 'TestGroup'"
 Remove-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.Id -MemberId $groupObj.ObjectId
 ```
 
+### Remove devices from an administrative unit
+
+```powershell
+Remove-AzureADMSAdministrativeUnitMember -ObjectId $adminUnitId -MemberId $deviceObjId
+```
 ## Microsoft Graph API
 
-Use the [Remove a member](/graph/api/administrativeunit-delete-members) API to remove users or groups from an administrative unit.
+Use the [Remove a member](/graph/api/administrativeunit-delete-members) API to remove users, groups, or devices from an administrative unit. For `{member-id}`, specify the user, group, or device ID.
 
-### Remove users from an administrative unit
-
-```http
-DELETE https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-unit-id}/members/{user-id}/$ref
-```
-
-### Remove groups from an administrative unit
+### Remove users, groups, or devices from an administrative unit
 
 ```http
-DELETE https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-unit-id}/members/{group-id}/$ref
+DELETE https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-unit-id}/members/{member-id}/$ref
 ```
 
 ## Next steps
 
-- [Add users or groups to an administrative unit](admin-units-members-add.md)
+- [Add users, groups, or devices to an administrative unit](admin-units-members-add.md)
 - [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)

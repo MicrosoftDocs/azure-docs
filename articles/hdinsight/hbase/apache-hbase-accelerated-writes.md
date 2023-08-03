@@ -3,7 +3,7 @@ title: Azure HDInsight Accelerated Writes for Apache HBase
 description: Gives an overview of the Azure HDInsight Accelerated Writes feature, which uses premium managed disks to improve performance of the Apache HBase Write Ahead Log.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 01/24/2020
+ms.date: 07/18/2022
 ---
 
 # Azure HDInsight Accelerated Writes for Apache HBase
@@ -32,7 +32,15 @@ To create a new HBase cluster with the Accelerated Writes feature, follow the st
 
 :::image type="content" source="./media/apache-hbase-accelerated-writes/azure-portal-create-hbase-wals.png" alt-text="Enable accelerated writes option for HDInsight Apache HBase" border="true":::
 
-## Other considerations
+## Verify Accelerated Writes feature was enabled
+
+You can use the Azure portal to verify if the Accelerated Writes feature is enabled on an HBASE cluster. 
+
+1. Search for your HBASE cluster in the Azure portal.
+2. Select the **Cluster Size** blade.
+3. **Premium disks per worker node** will be displayed.
+
+## Scaling HBASE clusters
 
 To preserve data durability, create a cluster with a minimum of three worker nodes. Once created, you can't scale down the cluster to less than three worker nodes.
 

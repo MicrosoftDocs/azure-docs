@@ -1,15 +1,14 @@
 ---
-title: "Quickstart: Call Microsoft Graph from a Node.js console app | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Call Microsoft Graph from a Node.js console app"
 description: In this quickstart, you download and run a code sample that shows how a Node.js console application can get an access token and call an API protected by a Microsoft identity platform endpoint, using the app's own identity
 services: active-directory
-author: mmacy
+author: cilwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
-ms.date: 01/10/2022
-ms.author: marsma
+ms.date: 09/09/2022
+ms.author: cwerner
 #Customer intent: As an application developer, I want to learn how my Node.js app can get an access token and call an API that is protected by a Microsoft identity platform endpoint using client credentials flow.
 ms.custom: mode-other
 ---
@@ -29,9 +28,12 @@ This quickstart uses the [Microsoft Authentication Library for Node.js (MSAL Nod
 Follow the steps below to get started.
 
 #### Step 1: Register the application
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To register your application and add the app's registration information to your solution manually, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
@@ -61,9 +63,12 @@ To register your application and add the app's registration information to your 
    - `Enter_the_Application_Id_Here` - is the **Application (client) ID** of the application you registered earlier. Find this ID on the app registration's **Overview** pane in the Azure portal.
    - `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant ID** or **Tenant name** (for example, contoso.microsoft.com).  Find these values on the app registration's **Overview** pane in the Azure portal.
    - `Enter_the_Client_Secret_Here` - replace this value with the client secret you created earlier. To generate a new key, use **Certificates & secrets** in the app registration settings in the Azure portal.
+   
+   Using a plaintext secret in the source code poses an increased security risk for your application. Although the sample in this quickstart uses a plaintext client secret, it's only for simplicity. We recommend using [certificate credentials](../../active-directory-certificate-credentials.md) instead of client secrets in your confidential client applications, especially those apps you intend to deploy to production.
 
-> [!WARNING]
-> Any plaintext secret in source code poses an increased security risk. This article uses a plaintext client secret for simplicity only. Use [certificate credentials](../../active-directory-certificate-credentials.md) instead of client secrets in your confidential client applications, especially those apps you intend to deploy to production.
+3. Edit *.env* and replace the Azure AD and Microsoft Graph endpoints with the following values:
+   - For the Azure AD endpoint, replace `Enter_the_Cloud_Instance_Id_Here` with `https://login.microsoftonline.com`.
+   - For the Microsoft Graph endpoint, replace `Enter_the_Graph_Endpoint_Here` with `https://graph.microsoft.com/`.
 
 #### Step 4: Admin consent
 
@@ -71,7 +76,7 @@ If you try to run the application at this point, you'll receive *HTTP 403 - Forb
 
 ##### Global tenant administrator
 
-If you are a global tenant administrator, go to **API Permissions** page in the Azure portal's Application Registration and select **Grant admin consent for {Tenant Name}** (where {Tenant Name} is the name of your directory).
+If you're a global tenant administrator, go to **API Permissions** page in the Azure portal's Application Registration and select **Grant admin consent for {Tenant Name}** (where {Tenant Name} is the name of your directory).
 
 ##### Standard user
 
@@ -87,7 +92,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 #### Step 5: Run the application
 
-Locate the sample's root folder (where `package.json` resides) in a command prompt or console. You'll need to install the dependencies of this sample once:
+Locate the sample's root folder (where `package.json` resides) in a command prompt or console. You'll need to install the dependencies your sample app requires before running it for the first time:
 
 ```console
 npm install
@@ -161,7 +166,7 @@ const tokenResponse = await cca.acquireTokenByClientCredential(tokenRequest);
 | `tokenRequest` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under **Expose an API** section in Azure portal's Application Registration. |
 | `tokenResponse` | The response contains an access token for the scopes requested. |
 
-[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 

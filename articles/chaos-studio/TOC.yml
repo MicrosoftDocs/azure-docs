@@ -26,6 +26,8 @@
       href: sample-template-targets.md
     - name: Experiments
       href: sample-template-experiment.md
+  - name: Bicep 
+    href: chaos-studio-bicep.md
   - name: Azure policy definitions
     href: sample-policy-targets.md
 - name: Concepts
@@ -38,6 +40,10 @@
     href: chaos-studio-targets-capabilities.md
   - name: Permissions and security
     href: chaos-studio-permissions-security.md
+  - name: Private networking
+    href: chaos-studio-private-networking.md
+  - name: Regional availability
+    href: chaos-studio-region-availability.md
 - name: How-to guides
   items:
   - name: Create and run experiment - Service-direct faults
@@ -58,6 +64,12 @@
       href: chaos-studio-tutorial-aks-portal.md
     - name: CLI
       href: chaos-studio-tutorial-aks-cli.md
+  - name: Create and run experiment - Dynamic targeting
+    items:
+    - name: Portal
+      href: chaos-studio-tutorial-dynamic-target-portal.md
+    - name: CLI 
+      href: chaos-studio-tutorial-dynamic-target-cli.md
   - name: Troubleshoot common issues
     href: troubleshooting.md
 - name: Reference
@@ -73,7 +85,11 @@
   - name: REST API documentation
     href: /rest/api/chaosstudio/
   - name: Python SDK
-    href: /python/api/azure-mgmt-chaos/?view=azure-python-preview
+    href: /python/api/azure-mgmt-chaos/
+  - name: .NET SDK
+    href: /dotnet/api/overview/azure/resourcemanager.chaos-readme?view=azure-dotnet-preview&preserve-view=true
+  - name: JavaScript SDK
+    href: https://www.npmjs.com/package/@azure/arm-chaos/
 - name: Resources
   items:
   - name: Azure roadmap

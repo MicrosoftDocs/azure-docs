@@ -1,21 +1,22 @@
 ---
 title: 'Quickstart: Create a server - Azure CLI - Azure Database for MySQL - Flexible Server'
-description: This quickstart describes how to use the Azure CLI to create an Azure Database for MySQL Flexible Server in an Azure resource group.
-author: savjani
-ms.author: pariks
+description: This quickstart describes how to use the Azure CLI to create an Azure Database for MySQL - Flexible Server in an Azure resource group.
 ms.service: mysql
-ms.devlang: azurecli
+ms.subservice: flexible-server
 ms.topic: quickstart
-ms.date: 9/21/2020
+author: shreyaaithal
+ms.author: shaithal
+ms.devlang: azurecli
 ms.custom: mvc, devx-track-azurecli, mode-api
+ms.date: 9/21/2020
 ---
 
-# Quickstart: Create an Azure Database for MySQL Flexible Server using Azure CLI
+# Quickstart: Create an Azure Database for MySQL - Flexible Server using Azure CLI
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 
-This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create an Azure Database for MySQL Flexible Server in five minutes. 
+This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create an Azure Database for MySQL - Flexible Server in five minutes. 
 
 [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
@@ -30,13 +31,13 @@ If you prefer to install and use the CLI locally, this quickstart requires Azure
 
 ## Prerequisites
 
-You'll need to log in to your account using the [az login](/cli/azure/reference-index#az_login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
+You'll need to log in to your account using the [az login](/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
 
 ```azurecli-interactive
 az login
 ```
 
-Select the specific subscription under your account using [az account set](/cli/azure/account#az_account_set) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](/cli/azure/account#az_account_list).
+Select the specific subscription under your account using [az account set](/cli/azure/account#az-account-set) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli-interactive
 az account set --subscription <subscription id>
@@ -50,7 +51,7 @@ Create an [Azure resource group](../../azure-resource-manager/management/overvie
 az group create --name myresourcegroup --location eastus2
 ```
 
-Create a flexible server with the `az mysql flexible-server create` command. A server can contain multiple databases. The following command creates a server using service defaults and values from your Azure CLI's [local context](/cli/azure/local-context):
+Create a flexible server with the `az mysql flexible-server create` command. A server can contain multiple databases. The following command creates a server using service defaults and values from your Azure CLI's local context:
 
 ```azurecli-interactive
 az mysql flexible-server create
@@ -146,7 +147,7 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
 
 ## Connect and test the connection using Azure CLI
 
-Azure Database for MySQL Flexible Server enables you to connect to your mysql server with Azure CLI ```az mysql flexible-server connect``` command. This command allows you test connectivity to your database server, create a quick starter database and run queries directly against your server without having to install mysql.exe or MySQL Workbench.  You can also use run the command in an interactive mode for running multiple queries.
+Azure Database for MySQL - Flexible Server enables you to connect to your mysql server with Azure CLI ```az mysql flexible-server connect``` command. This command allows you test connectivity to your database server, create a quick starter database and run queries directly against your server without having to install mysql.exe or MySQL Workbench.  You can also use run the command in an interactive mode for running multiple queries.
 
 Run the following script to test and validate the connection to the database from your development environment.
 
@@ -187,7 +188,7 @@ If you created your flexible server by using private access (VNet Integration), 
 
 If you created your flexible server by using public access (allowed IP addresses), you can add your local IP address to the list of firewall rules on your server. Refer [create or manage firewall rules documentation](how-to-manage-firewall-portal.md) for step by step guidance.
 
-You can use either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) or [MySQL Workbench](./connect-workbench.md) to connect to the server from your local environment. Azure Database for MySQL Flexible Server supports connecting your client applications to the MySQL service using Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL). TLS is an industry standard protocol that ensures encrypted network connections between your database server and client applications, allowing you to adhere to compliance requirements.To connect with your MySQL flexible server, you will require to download the [public SSL certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) for certificate authority verification. To learn more about connecting with encrypted connections or disabling SSL, refer to [Connect to Azure Database for MySQL - Flexible Server with encrypted connections](how-to-connect-tls-ssl.md) documentation.
+You can use either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) or [MySQL Workbench](./connect-workbench.md) to connect to the server from your local environment. Azure Database for MySQL - Flexible Server supports connecting your client applications to the MySQL service using Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL). TLS is an industry standard protocol that ensures encrypted network connections between your database server and client applications, allowing you to adhere to compliance requirements.To connect with your MySQL flexible server, you will require to download the [public SSL certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) for certificate authority verification. To learn more about connecting with encrypted connections or disabling SSL, refer to [Connect to Azure Database for MySQL - Flexible Server with encrypted connections](how-to-connect-tls-ssl.md) documentation.
 
 The following example shows how to connect to your flexible server using the mysql command-line interface. You will first install the mysql command-line if it is not installed already. You will download the DigiCertGlobalRootCA certificate required for SSL connections. Use the --ssl-mode=REQUIRED connection string setting to enforce TLS/SSL certificate verification. Pass the local certificate file path to the --ssl-ca parameter. Replace values with your actual server name and password.
 

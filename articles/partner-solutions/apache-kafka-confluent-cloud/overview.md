@@ -1,13 +1,19 @@
 ---
-title: Apache Kafka on Confluent Cloud overview - Azure partner solutions
+title: Apache Kafka on Confluent Cloud overview
 description: Learn about using Apache Kafka on Confluent Cloud in the Azure Marketplace.
 ms.topic: conceptual
-ms.date: 12/14/2021
+ms.date: 02/22/2022
+author: flang-msft
+ms.author: franlanglois
 ---
 
-# What is Apache Kafka for Confluent Cloud?
+# What is Apache Kafka on Confluent Cloud - Azure Native ISV Service?
 
-Apache Kafka for Confluent Cloud is an Azure Marketplace offering that provides Apache Kafka as a service. It's fully managed so you can focus on building your applications rather than managing the clusters.
+Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. This Azure Native ISV Service is developed and managed by Microsoft and Confluent.
+
+You can find Apache Kafka on Confluent Cloud - Azure Native ISV Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview).
+
+Apache Kafka on Confluent Cloud is an Azure Marketplace offering that provides Apache Kafka as a service. It's fully managed so you can focus on building your applications rather than managing the clusters.
 
 To reduce the burden of cross-platform management, Microsoft partnered with Confluent Cloud to build an integrated provisioning layer from Azure to Confluent Cloud. It provides a consolidated experience for using Confluent Cloud on Azure. You can easily integrate and manage Confluent Cloud with your Azure applications.
 
@@ -67,8 +73,22 @@ To learn about managing the solutions, see:
 For support and terms, see:
 
 * [Confluent support](https://support.confluent.io)
-* [Terms of Service](https://www.confluent.io/confluent-cloud-tos).
+* [Terms of Service](https://www.confluent.io/confluent-cloud-tos)
+
+To learn more, see Confluent blog articles about Azure services that integrate with Confluent Cloud:
+
+* [Use Azure Cosmos DB sink connector](https://www.confluent.io/blog/announcing-confluent-cloud-azure-cosmos-db-connector)
+* [Set up secure networking with Azure Private Link](https://www.confluent.io/blog/how-to-set-up-secure-networking-in-confluent-with-azure-private-link)
+* [Search using Azure Cache for Redis and Azure Spring Cloud](https://www.confluent.io/blog/real-time-search-and-analytics-with-confluent-cloud-azure-redis-spring-cloud)
+* [Consume data with Confluent and Azure Databricks](https://www.confluent.io/blog/consume-avro-data-from-kafka-topics-and-secured-schema-registry-with-databricks-confluent-cloud-on-azure)
 
 ## Next steps
 
-To create an instance of Apache Kafka for Confluent Cloud, see [QuickStart: Get started with Confluent Cloud on Azure](create.md).
+- To create an instance of Apache Kafka on Confluent Cloud, see [QuickStart: Get started with Confluent Cloud on Azure](create.md).
+- Get started with Apache Kafka on Confluent Cloud - Azure Native ISV Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview)

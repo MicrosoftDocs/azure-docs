@@ -1,10 +1,10 @@
 ---
-title: Assign a managed identity access to a resource using Azure CLI - Azure AD
+title: Assign a managed identity access to a resource using Azure CLI
 description: Step-by-step instructions for assigning a managed identity on one resource, access to another resource, using Azure CLI.
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: 
 
 ms.service: active-directory
@@ -30,13 +30,13 @@ If you don't already have an Azure account, [sign up for a free account](https:/
 
 - If you're unfamiliar with managed identities for Azure resources, see [What are managed identities for Azure resources?](overview.md). To learn about system-assigned and user-assigned managed identity types, see [Managed identity types](overview.md#managed-identity-types).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Use Azure RBAC to assign a managed identity access to another resource
 
 After you've enabled managed identity on an Azure resource, such as an [Azure virtual machine](qs-configure-cli-windows-vm.md) or [Azure virtual machine scale set](qs-configure-cli-windows-vmss.md): 
 
-1. In this example, we are giving an Azure virtual machine access to a storage account. First we use [az resource list](/cli/azure/resource/#az_resource_list) to get the service principal for the virtual machine named myVM:
+1. In this example, we are giving an Azure virtual machine access to a storage account. First we use [az resource list](/cli/azure/resource/#az-resource-list) to get the service principal for the virtual machine named myVM:
 
    ```azurecli-interactive
    spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
@@ -47,7 +47,7 @@ After you've enabled managed identity on an Azure resource, such as an [Azure vi
    spID=$(az resource list -n DevTestVMSS --query [*].identity.principalId --out tsv)
    ```
 
-1. Once you have the service principal ID, use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to give the virtual machine or virtual machine scale set "Reader" access to a storage account called "myStorageAcct":
+1. Once you have the service principal ID, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to give the virtual machine or virtual machine scale set "Reader" access to a storage account called "myStorageAcct":
 
    ```azurecli-interactive
    az role assignment create --assignee $spID --role 'Reader' --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/myStorageAcct

@@ -2,9 +2,14 @@
 title: Polymorphism in the Reliable Actors framework 
 description: Build hierarchies of .NET interfaces and types in the Reliable Actors framework to reuse functionality and API definitions.
 ms.topic: conceptual
-ms.date: 11/02/2017
-ms.custom: devx-track-csharp
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-dotnet
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Polymorphism in the Reliable Actors framework
 The Reliable Actors framework allows you to build actors using many of the same techniques that you would use in object-oriented design. One of those techniques is polymorphism, which allows types and interfaces to inherit from more generalized parents. Inheritance in the Reliable Actors framework generally follows the .NET model with a few additional constraints. In case of Java/Linux, it follows the Java model.
 

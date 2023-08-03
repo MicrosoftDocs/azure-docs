@@ -5,15 +5,15 @@ summary: Learn how to use Event Hubs to ingest millions of events per second fro
 
 metadata:
   title: Azure Event Hubs documentation
-  description: Learn how to use Event Hubs to ingest millions of events per second from connected devices and applications. # Required; article description that is displayed in search results. < 160 chars.
+  description: Learn how to use Event Hubs to ingest millions of events per second from connected devices and applications.
   services: event-hubs
-  ms.service: event-hubs #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: event-hubs
   ms.subservice: 
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   ms.collection: collection
-  author: spelluru #Required; your GitHub user alias, with correct capitalization.
-  ms.author: spelluru #Required; microsoft alias of author; optional team alias.
-  ms.date: 01/11/2022 #Required; mm/dd/yyyy format.
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 01/12/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -27,13 +27,15 @@ landingContent:
         links:
           - text: What is Event Hubs?
             url: event-hubs-about.md
-          - text: What is Event Hubs for Apache Kafka?
-            url: event-hubs-for-kafka-ecosystem-overview.md
-          - text: What is Event Hubs Capture?
+          - text: Event Hubs for Apache Kafka
+            url: azure-event-hubs-kafka-overview.md
+          - text: Schema Registry
+            url: schema-registry-overview.md
+          - text: Event Hubs Capture
             url: event-hubs-capture-overview.md            
-          - text: What is Event Hubs Premium?            
+          - text: Event Hubs Premium            
             url: event-hubs-premium-overview.md
-          - text: What is Event Hubs Dedicated?
+          - text: Event Hubs Dedicated
             url: event-hubs-dedicated-overview.md
 
   # Card
@@ -49,6 +51,10 @@ landingContent:
             url: event-hubs-quickstart-powershell.md
           - text: Azure Resource Manager template
             url: event-hubs-resource-manager-namespace-event-hub.md
+          - text: Bicep
+            url: event-hubs-bicep-namespace-event-hub.md
+          - text: Azure Resource Manager template
+            url: event-hubs-resource-manager-namespace-event-hub.md
 
   # Card
   - title: Learn modules
@@ -56,11 +62,11 @@ landingContent:
       - linkListType: learn
         links:
           - text: Explore Azure Event Hubs
-            url: /learn/modules/azure-event-hubs/
+            url: /training/modules/azure-event-hubs/
           - text: Enable reliable messaging for Big Data applications using Azure Event Hubs
-            url: /learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
+            url: /training/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
           - text: Choose a messaging model in Azure to loosely connect your services
-            url: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+            url: /training/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
 
   # Card
   - title: Create a dedicated cluster
@@ -80,19 +86,21 @@ landingContent:
       - linkListType: overview      
         links:
           - text: What is Event Hubs for Apache Kafka?
-            url: event-hubs-for-kafka-ecosystem-overview.md    
+            url: azure-event-hubs-kafka-overview.md    
       - linkListType: quickstart
         links:
           - text: Stream into Event Hubs for Apache Kafka
             url: event-hubs-quickstart-kafka-enabled-event-hubs.md
+          - text: Use Spring Kafka with Azure Event Hubs
+            url: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
       - linkListType: tutorial
         links:
           - text: Process events using Stream Analytics
             url: event-hubs-kafka-stream-analytics.md      
       - linkListType: how-to-guide
         links:
-          - text: Mirror a Kafka broker in an event hub
-            url: event-hubs-kafka-mirror-maker-tutorial.md                          
+          - text: Migrate existing Kafka workloads to Event Hubs
+            url: event-hubs-kafka-mirrormaker-2-tutorial.md                          
           - text: Connect Apache Spark to an event hub
             url: event-hubs-kafka-spark-tutorial.md
           - text: Connect Apache Flink to an event hub
@@ -111,6 +119,8 @@ landingContent:
             url: event-hubs-dotnet-standard-getstarted-send.md
           - text: Java
             url: event-hubs-java-get-started-send.md
+          - text: Spring
+            url: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?toc=/azure/event-hubs/TOC.json
           - text: Python
             url: event-hubs-python-get-started-send.md
           - text: JavaScript
@@ -140,7 +150,7 @@ landingContent:
           - text: Installation (operator)
             url: /azure-stack/operator/event-hubs-rp-install            
           - text: Use Blob Storage as checkpoint store
-            url: use-blob-storage-checkpoint-store-azure-stack-hub.md
+            url: troubleshoot-checkpoint-store-issues.md
       - linkListType: quickstart
         links:
           - text: Create Event Hubs cluster
@@ -167,8 +177,6 @@ landingContent:
     linkLists:
       - linkListType: tutorial      
         links:
-          - text: Visualize data anomalies on Event Hubs data streams
-            url: event-hubs-tutorial-visualize-anomalies.md
           - text: Process Event Hubs for Apache Kafka events using Stream Analytics
             url: event-hubs-kafka-stream-analytics.md
           - text: Stream data into Azure Databricks using Event Hubs
@@ -199,4 +207,6 @@ landingContent:
           - text: Use private endpoints
             url: private-link-service.md            
           - text: Configure customer-managed keys for encrypting data at rest
-            url: configure-customer-managed-key.md            
+            url: configure-customer-managed-key.md     
+          - text: Enforce minimum required TLS version
+            url: transport-layer-security-enforce-minimum-version.md    

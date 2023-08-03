@@ -2,28 +2,27 @@
 title: Deprecated Cognitive Skills
 titleSuffix: Azure Cognitive Search
 description: This page contains a list of cognitive skills that are considered deprecated and will not be supported in the near future in Azure Cognitive Search skillsets.
-
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 09/16/2021
+ms.date: 08/17/2022
 ---
 
 # Deprecated Cognitive Skills in Azure Cognitive Search
 
-This document describes cognitive skills that are considered deprecated. Use the following guide for the contents:
+This document describes cognitive skills that are considered deprecated (retired). Use the following guide for the contents:
 
 * Skill Name: The name of the skill that will be deprecated; it maps to the @odata.type attribute.
 * Last available api version: The last version of the Azure Cognitive Search public API through which skillsets containing the corresponding deprecated skill can be created/updated. Indexers with attached skillsets with these skills will continue to run even in future API versions until the "End of support" date, at which point they will start failing.
 * End of support: The day after which the corresponding skill is considered unsupported and will stop working. Previously created skillsets should still continue to function, but users are recommended to migrate away from a deprecated skill.
 * Recommendations: Migration path forward to use a supported skill. Users are advised to follow the recommendations to continue to receive support.
 
-If you're using the [Microsoft.Skills.Text.EntityRecognitionSkill](#microsoftskillstextentityrecognitionskill), this article will help you upgrade your skillset to use the [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md) which is generally available and introduces new features. 
+If you're using the [Microsoft.Skills.Text.EntityRecognitionSkill](#microsoftskillstextentityrecognitionskill) (Entity Recognition cognitive skill (v2)), this article will help you upgrade your skillset to use the [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md) which is generally available and introduces new features. 
 
-If you're using the [Microsoft.Skills.Text.SentimentSkill](#microsoftskillstextsentimentskill), this article will help you upgrade your skillset to use the [Microsoft.Skills.Text.V3.SentimentSkill](cognitive-search-skill-sentiment-v3.md) which is generally available and introduces new features. 
+If you're using the [Microsoft.Skills.Text.SentimentSkill](#microsoftskillstextsentimentskill) (Sentiment cognitive skill (v2)), this article will help you upgrade your skillset to use the [Microsoft.Skills.Text.V3.SentimentSkill](cognitive-search-skill-sentiment-v3.md) which is generally available and introduces new features. 
 
-If you're using the [Microsoft.Skills.Text.NamedEntityRecognitionSkill](#microsoftskillstextnamedentityrecognitionskill), this article will help you upgrade your skillset to use the [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md) which is generally available and introduces new features.
+If you're using the [Microsoft.Skills.Text.NamedEntityRecognitionSkill](#microsoftskillstextnamedentityrecognitionskill) (Named Entity Recognition cognitive skill (v2)), this article will help you upgrade your skillset to use the [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md) which is generally available and introduces new features.
 
 ## Microsoft.Skills.Text.EntityRecognitionSkill
 

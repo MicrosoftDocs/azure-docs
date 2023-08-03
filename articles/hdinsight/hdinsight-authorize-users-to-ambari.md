@@ -4,7 +4,7 @@ description: 'How to manage Ambari user and group permissions for HDInsight clus
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 11/27/2019
+ms.date: 06/08/2023
 ---
 
 # Authorize users for Apache Ambari Views
@@ -130,22 +130,22 @@ Write-Output $zookeeperHosts
 Edit the variables below by replacing `CLUSTERNAME`, `ADMINPASSWORD`, `NEWUSER`, and `USERPASSWORD` with the appropriate values. The script is designed to be executed with bash. Slight modifications would be needed for a Windows command prompt.
 
 ```bash
-export clusterName="CLUSTERNAME"
-export adminPassword='ADMINPASSWORD'
-export user="NEWUSER"
-export userPassword='USERPASSWORD'
+export CLUSTER_NAME="CLUSTERNAME"
+export ADMIN_PASSWORD='ADMINPASSWORD'
+export USER="NEWUSER"
+export USER_PASSWORD='USERPASSWORD'
 
 # create user
-curl -k -u admin:$adminPassword -H "X-Requested-By: ambari" -X POST \
--d "{\"Users/user_name\":\"$user\",\"Users/password\":\"$userPassword\",\"Users/active\":\"true\",\"Users/admin\":\"false\"}" \
-https://$clusterName.azurehdinsight.net/api/v1/users
+curl -k -u admin:$ADMIN_PASSWORD -H "X-Requested-By: ambari" -X POST \
+-d "{\"Users/user_name\":\"$USER\",\"Users/password\":\"$USER_PASSWORD\",\"Users/active\":\"true\",\"Users/admin\":\"false\"}" \
+https://$CLUSTER_NAME.azurehdinsight.net/api/v1/users
 
-echo "user created: $user"
+echo "user created: $USER"
 
 # grant permissions
-curl -k -u admin:$adminPassword -H "X-Requested-By: ambari" -X POST \
--d '[{"PrivilegeInfo":{"permission_name":"CLUSTER.USER","principal_name":"'$user'","principal_type":"USER"}}]' \
-https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/privileges
+curl -k -u admin:$ADMIN_PASSWORD -H "X-Requested-By: ambari" -X POST \
+-d '[{"PrivilegeInfo":{"permission_name":"CLUSTER.USER","principal_name":"'$USER'","principal_type":"USER"}}]' \
+https://$CLUSTER_NAME.azurehdinsight.net/api/v1/clusters/$CLUSTER_NAME/privileges
 
 echo "Privilege is granted"
 
@@ -153,8 +153,8 @@ echo "Pausing for 100 seconds"
 sleep 10s
 
 # perform query using new user account
-curl -k -u $user:$userPassword -H "X-Requested-By: ambari" \
--X GET "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER"
+curl -k -u $USER:$USER_PASSWORD -H "X-Requested-By: ambari" \
+-X GET "https://$CLUSTER_NAME.azurehdinsight.net/api/v1/clusters/$CLUSTER_NAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER"
 ```
 
 ## Grant permissions to Apache Hive views

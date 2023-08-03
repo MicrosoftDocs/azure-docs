@@ -1,9 +1,9 @@
 ---
 title: Create multiple resource instances in Bicep
 description: Use different methods to create multiple resource instances in Bicep
-ms.date: 12/06/2021
+ms.date: 06/23/2023
 ms.topic: quickstart
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-bicep
 #Customer intent: As a developer new to Azure deployment, I want to learn how to create multiple resources in Bicep.
 ---
 
@@ -124,7 +124,7 @@ After deploying the preceding sample, you create two storage accounts that are s
 
 ## Use dictionary object
 
-To iterate over elements in a dictionary object, use the [items function](./bicep-functions-array.md#items), which converts the object to an array. Use the `value` property to get properties on the objects.
+To iterate over elements in a dictionary object, use the [items function](./bicep-functions-object.md#items), which converts the object to an array. Use the `value` property to get properties on the objects.
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopObject.bicep" highlight="3-12,14,15,18":::
 
@@ -165,4 +165,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bicep in Microsoft Learn](learn-bicep.md)
+> [Learn modules for Bicep](learn-bicep.md)

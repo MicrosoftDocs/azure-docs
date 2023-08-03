@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 06/18/2019
+ms.date: 09/09/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
 ---
@@ -18,9 +18,11 @@ The Microsoft Azure Data Box Disk solution lets you send terabytes of on-premise
 
 You can quickly configure, connect, and unlock the disks through the Data Box service in Azure portal. Copy your data to disks and ship the disks back to Azure. In the Azure datacenter, your data is automatically uploaded from drives to the cloud using a fast, private network upload link.
 
+If you want to import data to Azure Blob storage and Azure Files, you can use Azure Import/Export service. This service can also be used to transfer data from Azure Blob storage to disk drives and ship to your on-premises sites. Data from one or more disk drives can be imported either to Azure Blob storage or Azure Files. You can supply your own disk drives and transfer data with the Azure Import/Export service, or you can also use disk drives supplied by Microsoft. For more information, go to [Azure Import/Export service](../import-export/storage-import-export-service.md).
+
 ## Use cases
 
-Use Data Box Disk to transfer TBs of data in scenarios with no to limited network connectivity. The data movement can be one-time, periodic, or an initial bulk data transfer followed by periodic transfers.
+Use Data Box Disk to transfer TBs of data in scenarios with limited network connectivity. The data movement can be one-time, periodic, or an initial bulk data transfer followed by periodic transfers.
 
 - **One time migration** - when large amount of on-premises data is moved to Azure. For example, moving data from offline tapes to archival data in Azure cool storage.
 - **Incremental transfer** - when an initial bulk transfer is done using Data Box Disk (seed) followed by incremental transfers over the network. For example, Commvault and Data Box Disk are used to move backup copies to Azure. This migration is followed by copying incremental data using network to Azure Storage.
@@ -60,6 +62,9 @@ A typical flow includes the following steps:
 5. **Upload** - Data is automatically copied from the disks to Azure. The disks are securely erased as per the National Institute of Standards and Technology (NIST) guidelines.
 
 Throughout this process, you are notified through email on all status changes. For more information about the detailed flow, go to [Deploy Data Box Disks in Azure portal](data-box-disk-quickstart-portal.md).
+
+> [!NOTE]
+> Only import is supported for Data Box Disk. Export functionality is not available. If you want to export data from Azure, you can use [Azure Data Box](data-box-overview.md).
 
 ## Benefits
 

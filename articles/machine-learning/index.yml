@@ -14,9 +14,8 @@ metadata:
   ms.collection: collection
   ms.author: sgilley
   author: sdgilley
-  ms.date: 02/04/2022
-  ms.custom: jordan-changes
-
+  ms.date: 03/10/2023
+  ms.custom: jordan-changes, event-tier1-build-2022, ignite-2022
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -26,51 +25,72 @@ landingContent:
         links:  
           - text: "What is Azure Machine Learning?"       
             url: overview-what-is-azure-machine-learning.md
-          - text: "What is Azure Machine Learning studio?"
-            url:  overview-what-is-machine-learning-studio.md
-          - text:  Architecture & terms
-            url: concept-azure-machine-learning-architecture.md 
   # Card
-  - title: Get Started
+  - title: Setup & quickstart
     linkLists:
-      - linkListType: tutorial
+      - linkListType: quickstart
         links:   
-        - text: Set up resources
+        - text: Create resources 
           url: quickstart-create-resources.md
-        - text: "Train with the v2 CLI (preview)"
-          url: how-to-train-cli.md   
-        - text: "Day 1: Get started with Python"
-          url: tutorial-1st-experiment-hello-world.md
-        - text: "Migrate from ML Studio (classic)"
-          url: migrate-overview.md
+        - text: Get started with Azure Machine Learning
+          url: tutorial-azure-ml-in-a-day.md
+  # Card
+  - title: "Start with the basics"
+    linkLists:
+    - linkListType: tutorial
+      links:
+      - text: Prepare and explore data
+        url: tutorial-explore-data.md
+      - text: Develop on a cloud workstation
+        url: tutorial-cloud-workstation.md
+      - text: Train a model
+        url: tutorial-train-model.md
+      - text: Deploy a model
+        url: tutorial-deploy-model.md
+      - text: Set up a reusable pipeline
+        url: tutorial-pipeline-python-sdk.md
+
+  # Card
+  - title: Work with data
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Use Apache Spark in Azure Machine Learning
+          url: interactive-data-wrangling-with-apache-spark-azure-ml.md
+        - text: Create data assets
+          url: how-to-create-data-assets.md
+        - text: Work with tables
+          url: how-to-mltable.md
+
   # Card
   - title: Train models
     linkLists:
       - linkListType: how-to-guide
         links:            
-          - text: Run training code in the cloud (v2 CLI preview)
-            url: how-to-train-cli.md
-          - text: Train and deploy a model in Jupyter notebook
-            url:  tutorial-train-deploy-notebook.md
+          - text: Run training with CLI, SDK, or REST API
+            url: how-to-train-model.md
           - text: Tune hyperparameters for model training
             url: how-to-tune-hyperparameters.md
           - text: Build pipelines from reuseable components
-            url: how-to-create-machine-learning-pipelines.md
-          - text: "AutoML: Train a classification model"
+            url: tutorial-pipeline-python-sdk.md
+          - text: Use automated ML in studio
             url: tutorial-first-experiment-automated-ml.md
+          - text: Train with R
+            url: how-to-r-train-model.md
   # Card
   - title: Deploy models
     linkLists:
       - linkListType: deploy
         links:
-        - text: Streamline model deployment with endpoints (preview)
+        - text: Streamline model deployment with endpoints 
           url: concept-endpoints.md
-        - text: Real-time scoring with a managed endpoint (preview)
-          url: how-to-deploy-managed-online-endpoints.md
-        - text: Batch scoring with managed endpoints (preview)
-          url: how-to-use-batch-endpoint.md
-        - text: Options for deploying models without using endpoints            
-          url: how-to-deploy-and-where.md
+        - text: Real-time scoring with online endpoints
+          url: how-to-deploy-online-endpoints.md
+        - text: Batch scoring with batch endpoints 
+          url: batch-inference/how-to-use-batch-endpoint.md
+        - text: Deploy R models
+          url: how-to-r-deploy-r-model.md
+  
   # Card
   - title: "Manage the ML lifecycle (MLOps)"
     linkLists:
@@ -78,10 +98,9 @@ landingContent:
       links:
       - text: Track, monitor, analyze training runs
         url: how-to-track-monitor-analyze-runs.md
-      - text: Model management, deployment, lineage & monitoring
+      - text: Model management, deployment & monitoring
         url: concept-model-management-and-deployment.md
-      - text: DevOps for a data ingestion pipeline
-        url: how-to-cicd-data-ingestion.md
+
   # Card
   - title: "Security for ML projects"
     linkLists:
@@ -98,22 +117,24 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-        - text: Python SDK
-          url: /python/api/overview/azure/ml/
+        - text: Python SDK (v2)
+          url: /python/api/overview/azure/ai-ml-readme
+        - text: CLI (v2)
+          url: /cli/azure/ml/
         - text: REST API 
           url: /rest/api/azureml/
-        - text: V2 CLI (preview)
-          url: /cli/azure/ml/
-        - text: Algorithm & component reference 
+        - text: Algorithm & component reference
           url: ./algorithm-module-reference/module-reference.md
   # Card
   - title: Resources
     linkLists:
       - linkListType: reference
         links:
-        - text: Python SDK code examples
-          url: https://github.com/Azure/azureml-examples/blob/main/python-sdk/README.md
-        - text: v2 CLI code examples (preview)
+        - text: Upgrade to v2
+          url: how-to-migrate-from-v1.md 
+        - text: Python SDK (v2) code examples
+          url: https://github.com/Azure/azureml-examples/blob/main/sdk/python/README.md
+        - text: CLI (v2) code examples
           url: https://github.com/Azure/azureml-examples/blob/main/cli/README.md
         - text: ML Studio (classic) documentation
           url: ./classic/index.yml

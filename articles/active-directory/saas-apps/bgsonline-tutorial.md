@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with BGS Online | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with BGS Online'
 description: Learn how to configure single sign-on between Azure Active Directory and BGS Online.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/07/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with BGS Online
@@ -108,7 +108,7 @@ To configure Azure AD single sign-on with BGS Online, perform the following step
     For test environment, use this pattern `https://millwardbrown.marketingtracker.nl/mt5/sso/saml/AssertionConsumerService.aspx`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [BGS Online support team](mailTo:bgsdashboardteam@millwardbrown.com) to get these values.
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [BGS Online support team](mailto:bgsdashboardteam@millwardbrown.com) to get these values.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 

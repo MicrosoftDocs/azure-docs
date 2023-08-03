@@ -1,21 +1,16 @@
 ---
-title: Diagnose an Azure virtual machine routing problem | Microsoft Docs
+title: Diagnose an Azure virtual machine routing problem
 description: Learn how to diagnose a virtual machine routing problem by viewing the effective routes for a virtual machine.
 services: virtual-network
-documentationcenter: na
-author: KumudD    
+author: asudbring    
 manager: twooley
-editor: ''
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-network
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
-ms.author: kumud 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.author: allensu 
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---
 
@@ -50,7 +45,7 @@ Though effective routes were viewed through the VM in the previous steps, you ca
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. If you run PowerShell from your computer, you need the Azure PowerShell module, version 1.0.0 or later. Run `Get-Module -ListAvailable Az` on your computer, to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to log into Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
+You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. If you run PowerShell from your computer, you need the Azure PowerShell module, version 1.0.0 or later. Run `Get-Module -ListAvailable Az` on your computer, to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to log into Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
 
 Get the effective routes for a network interface with [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable). The following example gets the effective routes for a network interface named *myVMNic1*, that is in a resource group named *myResourceGroup*:
 
@@ -85,7 +80,7 @@ In the previous output, the network interface name is *myVMNic1*.
 
 You can run the commands that follow in the  [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This article requires the Azure CLI version 2.0.32 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` and log into Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
 
-Get the effective routes for a network interface with [az network nic show-effective-route-table](/cli/azure/network/nic#az_network_nic_show_effective_route_table). The following example gets the effective routes for a network interface named *myVMNic1* that is in a resource group named *myResourceGroup*:
+Get the effective routes for a network interface with [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table). The following example gets the effective routes for a network interface named *myVMNic1* that is in a resource group named *myResourceGroup*:
 
 ```azurecli-interactive
 az network nic show-effective-route-table \

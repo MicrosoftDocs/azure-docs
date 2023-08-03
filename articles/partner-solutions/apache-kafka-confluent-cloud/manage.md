@@ -1,8 +1,11 @@
 ---
-title: Manage a Confluent Cloud - Azure partner solutions
+title: Manage a Confluent Cloud
 description: This article describes management of a Confluent Cloud on the Azure portal. How to set up single sign-on, delete a Confluent organization, and get support.
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 06/07/2021
+author: flang-msft
+ms.author: franlanglois
 ---
 
 # Manage the Confluent Cloud resource
@@ -54,9 +57,9 @@ To delete the resources in Azure:
 
 Start by preparing your environment for the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-After you sign in, use the [az confluent organization delete](/cli/azure/confluent#az_confluent_organization_delete) command to delete the organization resource by name:
+After you sign in, use the [az confluent organization delete](/cli/azure/confluent#az-confluent-organization-delete) command to delete the organization resource by name:
 
 ```azurecli
 az confluent organization delete --name "myOrganization" --resource-group "myResourceGroup"
@@ -78,6 +81,14 @@ You're billed for prorated usage up to the time of cluster deletion. After your 
 
 ## Next steps
 
-For help with troubleshooting, see [Troubleshooting Apache Kafka for Confluent Cloud solutions](troubleshoot.md).
+- For help with troubleshooting, see [Troubleshooting Apache Kafka on Confluent Cloud solutions](troubleshoot.md).
 
-If you need to contact support, see [Get support for Confluent Cloud resource](get-support.md).
+- If you need to contact support, see [Get support for Confluent Cloud resource](get-support.md).
+
+- Get started with Apache Kafka on Confluent Cloud - Azure Native ISV Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview)

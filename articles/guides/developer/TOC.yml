@@ -22,15 +22,15 @@
       href: ../../service-fabric/service-fabric-tutorial-create-dotnet-app.md
     - name: Container Service
       href: /previous-versions/azure/container-service/dcos-swarm/container-service-intro
-    - name: Azure Spring Cloud
-      href: ../../spring-cloud/quickstart.md
+    - name: Azure Spring Apps
+      href: ../../spring-apps/quickstart.md
 - name: Tutorials
   items:
   - name: Create and deploy a web app
     items:
     - name: .NET with SQL DB
       href: ../../app-service/app-service-web-tutorial-dotnet-sqldatabase.md
-    - name: Node.js with Mongo DB
+    - name: Node.js with MongoDB
       href: ../../app-service/tutorial-nodejs-mongodb-app.md
     - name: PHP with MySQL
       href: ../../app-service/tutorial-php-mysql-app.md
@@ -116,6 +116,8 @@
     items:
     - name: Blobs
       href: ../../storage/blobs/storage-quickstart-blobs-dotnet.md
+    - name: Queues
+      href: ../../storage/queues/storage-quickstart-queues-dotnet.md
     - name: File shares
       href: ../../storage/files/storage-dotnet-how-to-use-files.md
     - name: Key-value pairs
@@ -123,9 +125,7 @@
     - name: JSON documents
       href: ../../cosmos-db/create-sql-api-dotnet.md
     - name: Relational tables
-      href: ../../azure-sql/database/single-database-create-quickstart.md
-    - name: Message queues
-      href: ../../storage/queues/storage-dotnet-how-to-use-queues.md
+      href: /azure/azure-sql/database/single-database-create-quickstart
   - name: Scale
     items:
     - name: Web and mobile apps
@@ -148,8 +148,6 @@
     items:
     - name: Web and mobile apps
       href: ../../app-service/troubleshoot-diagnostic-logs.md
-    - name: Windows VM
-      href: ../../virtual-machines/windows/tutorial-monitor.md
     - name: Microservices
       href: ../../service-fabric/service-fabric-diagnostics-overview.md
     - name: Billing alerts
@@ -182,8 +180,8 @@
       href: /cli/azure/
     - name: Azure PowerShell
       href: /powershell/
-  - name: Billing
-    href: ../../cost-management-billing/manage/consumption-api-overview.md
+  - name: Cost Management + Billing
+    href: ../../cost-management-billing/automate/automation-overview.md
 - name: Resources
   items:
   - name: Azure limits and quotas

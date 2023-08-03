@@ -2,7 +2,7 @@
 title: Diagnostics logs for Hybrid Connections
 description: This article provides an overview of all the activity and diagnostics logs that are available for Azure Relay. 
 ms.topic: how-to
-ms.date: 06/23/2021
+ms.date: 06/21/2022
 ---
 # Enable diagnostics logs for Azure Relay Hybrid Connections
 When you start using your Azure Relay Hybrid Connections, you might want to monitor how and when your listeners and senders are opened and closed, and how your Hybrid Connections are created and messages are sent. This article provides an overview of activity and diagnostics logs provided by the Azure Relay service. 

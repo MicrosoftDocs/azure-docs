@@ -2,8 +2,6 @@
 title: Tutorial - custom actions & resources
 description: This tutorial describes how to create an Azure Managed Application with an Azure Custom Provider.
 ms.topic: tutorial
-ms.author: lazinnat
-author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---

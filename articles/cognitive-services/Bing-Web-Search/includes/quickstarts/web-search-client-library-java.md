@@ -1,6 +1,6 @@
 ---
 title: Bing Web Search Java client library quickstart 
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -38,7 +38,7 @@ Create a new Java project using Maven or your favorite build automation tool. As
         <version>1.4.0</version>
         <configuration>
           <!--Your comment
-            Replace the mainClass with the path to your java application.
+            Replace the mainClass with the path to your Java application.
             It should begin with com and doesn't require the .java extension.
             For example: com.bingwebsearch.app.BingWebSearchSample. This maps to
             The following directory structure:
@@ -70,7 +70,7 @@ Create a new Java project using Maven or your favorite build automation tool. As
               <archive>
                 <manifest>
                   <!--Your comment
-                    Replace the mainClass with the path to your java application.
+                    Replace the mainClass with the path to your Java application.
                     For example: com.bingwebsearch.app.BingWebSearchSample.java.
                     This maps to the following directory structure:
                     src/main/java/com/bingwebsearch/app/BingWebSearchSample.java.
@@ -286,7 +286,7 @@ When you're done with this project, make sure to remove your subscription key fr
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Cognitive Services Java SDK samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch)
+> [Azure AI services Java SDK samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch)
 
 ## See also
 

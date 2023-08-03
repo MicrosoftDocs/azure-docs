@@ -86,20 +86,35 @@ Through [Arc-enabled servers](../azure-arc/servers/overview.md), it provides a c
 Azure Automation supports management throughout the lifecycle of your infrastructure and applications. Common scenarios include:
 
 * **Schedule tasks** - stop VMs or services at night and turn on during the day, weekly or monthly recurring maintenance workflows.
-* **Write runbooks** - Author PowerShell, PowerShell Workflow, graphical, Python 2 and 3, and DSC runbooks in common languages.
 * **Build and deploy resources** - Deploy virtual machines across a hybrid environment using runbooks and Azure Resource Manager templates. Integrate into development tools, such as Jenkins and Azure DevOps.
-* **Configure VMs** - Assess and configure Windows and Linux machines with configurations for the infrastructure and application.
-* **Share knowledge** - Transfer knowledge into the system on how your organization delivers and maintains workloads.
-* **Retrieve inventory** - Get a complete inventory of deployed resources for targeting, reporting, and compliance.
-* **Find changes** - Identify and isolate machine changes that can cause misconfiguration and improve operational compliance. Remediate or escalate them to management systems.
 * **Periodic maintenance** - to execute tasks that need to be performed at set timed intervals like purging stale or old data, or reindex a SQL database.
 * **Respond to alerts** - Orchestrate a response when cost-based, system-based, service-based, and/or resource utilization alerts are generated.
 * **Hybrid automation** - Manage or automate on-premises servers and services like SQL Server, Active Directory, SharePoint Server, etc.
 * **Azure resource lifecycle management** - for IaaS and PaaS services.
+    - Resource provisioning and deprovisioning.
+    - Add correct tags, locks, NSGs, UDRs per business rules. 
+    - Resource group creation, deletion & update.
+    - Start container group. 
+    - Register DNS record.
+    - Encrypt Virtual machines.
+    - Configure disk (disk snapshot, delete old snapshots). 
+    - Subscription management.
+    - Start-stop resources to save cost.
+* **Monitoring & integrate** with 1st party (through Azure Monitor) or 3rd party external systems.
+    - Ensure resource creation\deletion operations is captured to SQL. 
+    - Send resource usage data to web API.
+    - Send monitoring data to ServiceNow, Event Hub, New Relic and so on.
+    - Collect and store information about Azure resources. 
+    - Perform SQL monitoring checks & reporting.
+    - Check website availability. 
 * **Dev/test automation scenarios** - Start and start resources, scale resources, etc.
 * **Governance related automation** - Automatically apply or update tags, locks, etc.
 * **Azure Site Recovery** - orchestrate pre/post scripts defined in a Site Recovery DR workflow.
 * **Azure Virtual Desktop** - orchestrate scaling of VMs or start/stop VMs based on utilization.
+* **Configure VMs** - Assess and configure Windows and Linux machines with configurations for the infrastructure and application.
+* **Retrieve inventory** - Get a complete inventory of deployed resources for targeting, reporting, and compliance.
+* **Find changes** - Identify and isolate machine changes that can cause misconfiguration and improve operational compliance. Remediate or escalate them to management systems.
+
 
 Depending on your requirements, one or more of the following Azure services integrate with or compliment Azure Automation to help fullfil them:
 
@@ -120,9 +135,12 @@ These Azure services can work with Automation job and runbook resources using an
 
 ## Pricing for Azure Automation
 
+Process automation includes runbook jobs and watchers. Billing for jobs is based on the number of job run time minutes used in the month, and for watchers, it is on the number of hours used in a month. The charges for process automation are incurred whenever a [job](./start-runbooks.md) or [watcher](./automation-scenario-using-watcher-task.md) runs. 
+You create Automation accounts with a Basic SKU, wherein the first 500 job run time minutes are free per subscription. You are billed only for minutes/hours that exceed the 500 mins free included units.
+
 You can review the prices associated with Azure Automation on the [pricing](https://azure.microsoft.com/pricing/details/automation/) page.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Automation account](./quickstarts/create-account-portal.md)
+> [Create an Automation account](./quickstarts/create-azure-automation-account-portal.md)

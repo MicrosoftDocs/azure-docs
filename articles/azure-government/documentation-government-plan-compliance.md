@@ -4,11 +4,11 @@ description: Provides an overview of the available compliance assurances for Azu
 ms.service: azure-government
 ms.topic: article
 ms.workload: azure-government
-ms.custom: references_regions
 ms.author: stevevi
 author: stevevi
+ms.custom: references_regions
 recommendations: false
-ms.date: 01/28/2022
+ms.date: 04/02/2023
 ---
 
 # Azure Government compliance
@@ -25,7 +25,7 @@ Azure Government maintains the following authorizations that pertain to Azure Go
 - [DoD IL4](/azure/compliance/offerings/offering-dod-il4) PA issued by DISA
 - [DoD IL5](/azure/compliance/offerings/offering-dod-il5) PA issued by DISA
 
-For links to additional Azure Government compliance assurances, see [Azure compliance](../compliance/index.yml). For example, Azure Government can help you meet your compliance obligations with many US government requirements, including:
+For links to extra Azure Government compliance assurances, see [Azure compliance](../compliance/index.yml). For example, Azure Government can help you meet your compliance obligations with many US government requirements, including:
 
 - [Criminal Justice Information Services (CJIS)](/azure/compliance/offerings/offering-cjis)
 - [Internal Revenue Service (IRS) Publication 1075](/azure/compliance/offerings/offering-irs-1075)
@@ -40,12 +40,12 @@ For links to additional Azure Government compliance assurances, see [Azure compl
 - [Electronic Prescriptions for Controlled Substances (EPCS)](/azure/compliance/offerings/offering-epcs-us)
 - And many more US government, global, and industry standards
 
-For current Azure Government regions and available services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
+For current Azure Government regions and available services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
 
 > [!NOTE]
 >
 > - Some Azure services deployed in Azure Government regions (US Gov Arizona, US Gov Texas, and US Gov Virginia) require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in **[Isolation guidelines for Impact Level 5 workloads](./documentation-government-impact-level-5.md).**
-> - For DoD IL5 PA compliance scope in Azure Government DoD regions (US DoD Central and US DoD East), see **[Azure Government DoD regions IL5 audit scope](./documentation-government-overview-dod.md#azure-government-dod-regions-il5-audit-scope).**
+> - For DoD IL5 PA compliance scope in Azure Government DoD regions (US DoD Central and US DoD East), see **[Azure Government DoD regions IL5 audit scope](./documentation-government-overview-dod.md#us-dod-regions-il5-audit-scope).**
 
 ## Services in audit scope
 
@@ -56,31 +56,20 @@ For a detailed list of Azure, Dynamics 365, Microsoft 365, and Power Platform se
 
 ## Audit documentation
 
-You can access Azure and Azure Government audit reports and related documentation via the [Service Trust Portal](https://servicetrust.microsoft.com) (STP) in the following sections:
-
-- STP [Audit Reports](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3), which has a subsection for FedRAMP Reports.
-- STP [Data Protection Resources](https://servicetrust.microsoft.com/ViewPage/TrustDocumentsV3), which is further divided into Compliance Guides, FAQ and White Papers, and Pen Test and Security Assessments subsections.
-
-You must sign in to access audit reports on the STP. For more information, see [Get started with the Microsoft Service Trust Portal](/microsoft-365/compliance/get-started-with-service-trust-portal).
-
-Alternatively, you can access certain audit reports and certificates in the Azure or Azure Government portal by navigating to *Home > Security Center > Regulatory compliance > Audit reports* or using direct links based on your subscription (sign in required):
-
-- Azure portal [audit reports blade](https://portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade)
-- Azure Government portal [audit reports blade](https://portal.azure.us/#blade/Microsoft_Azure_Security/AuditReportsBlade)
-
-You must have an existing subscription or free trial account in [Azure](https://azure.microsoft.com/free/) or [Azure Government](https://azure.microsoft.com/global-infrastructure/government/request/) to download audit documents.
+For information on how to access Azure and Azure Government audit reports and related documentation, see [Azure compliance offerings audit documentation](/azure/compliance/offerings/#audit-documentation).
 
 ## Azure Policy regulatory compliance built-in initiatives
 
-For additional customer assistance, Microsoft provides **Azure Policy regulatory compliance built-in initiatives**, which map to **compliance domains** and **controls** in key US government standards, including:
+For extra customer assistance, Microsoft provides Azure Policy regulatory compliance built-in initiatives, which map to **compliance domains** and **controls** in key US government standards, including:
 
 - [FedRAMP High](../governance/policy/samples/gov-fedramp-high.md)
 - [DoD IL4](../governance/policy/samples/gov-dod-impact-level-4.md)
 - [DoD IL5](../governance/policy/samples/gov-dod-impact-level-5.md)
+- And others
 
-For additional regulatory compliance built-in initiatives that pertain to Azure Government, see [Azure Policy samples](../governance/policy/samples/index.md#regulatory-compliance).
+For more regulatory compliance built-in initiatives that pertain to Azure Government, see [Azure Policy samples](../governance/policy/samples/index.md#regulatory-compliance).
 
-Regulatory compliance in Azure Policy provides built-in initiative definitions to view a list of the controls and compliance domains based on responsibility - customer, Microsoft, or shared. For Microsoft-responsible controls, we provide additional audit result details based on third-party attestations and our control implementation details to achieve that compliance. Each control is associated with one or more Azure Policy definitions. These policies may help you [assess compliance](../governance/policy/how-to/get-compliance-data.md) with the control; however, compliance in Azure Policy is only a partial view of your overall compliance status. Azure Policy helps to enforce organizational standards and assess compliance at scale. Through its compliance dashboard, it provides an aggregated view to evaluate the overall state of the environment, with the ability to drill down to more granular status.
+Regulatory compliance in Azure Policy provides built-in initiative definitions to view a list of the controls and compliance domains based on responsibility – customer, Microsoft, or shared. For Microsoft-responsible controls, we provide extra audit result details based on third-party attestations and our control implementation details to achieve that compliance. Each control is associated with one or more Azure Policy definitions. These policies may help you [assess compliance](../governance/policy/how-to/get-compliance-data.md) with the control; however, compliance in Azure Policy is only a partial view of your overall compliance status. Azure Policy helps to enforce organizational standards and assess compliance at scale. Through its compliance dashboard, it provides an aggregated view to evaluate the overall state of the environment, with the ability to drill down to more granular status.
 
 ## Next steps
 

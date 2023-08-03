@@ -4,6 +4,8 @@ description: In this article, learn how to use PowerShell to set up Azure Backup
 ms.topic: conceptual
 ms.date: 08/24/2021 
 ms.custom: devx-track-azurepowershell
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell
@@ -14,7 +16,7 @@ This article shows you how to use PowerShell to set up Azure Backup on Windows S
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-To get started, [install the latest PowerShell release](/powershell/azure/install-az-ps).
+To get started, [install the latest PowerShell release](/powershell/azure/install-azure-powershell).
 
 ## Create a Recovery Services vault
 

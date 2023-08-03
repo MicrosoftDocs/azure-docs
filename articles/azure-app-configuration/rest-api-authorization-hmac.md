@@ -1,8 +1,8 @@
 ---
 title: Azure App Configuration REST API - HMAC authorization
 description: Use HMAC for authorization against Azure App Configuration using the REST API
-author: AlexandraKemperMS
-ms.author: alkemper
+author: mcleanbyron
+ms.author: mcleans
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
@@ -23,4 +23,5 @@ HTTP/1.1 403 Forbidden
 ```
 
 **Reason:** The access key used to authenticate the request does not provide the required permissions to perform the requested operation.
+
 **Solution:** Obtain an access key that provides permission to perform the requested operation and use it to authenticate the request.

@@ -3,9 +3,10 @@ title: Restore Azure PostgreSQL databases via Azure CLI
 description: Learn how to restore Azure PostgreSQL databases using Azure CLI.
 ms.topic: conceptual
 ms.date: 01/24/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+ms.custom: devx-track-azurecli
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Restore Azure PostgreSQL databases using Azure CLI
@@ -34,7 +35,7 @@ To restore the recovery point as files to a storage account, the [Backup vault's
 
 ### Fetch the relevant recovery point
 
-To list all backup instances within a vault, use [az dataprotection backup-instance list](/cli/azure/dataprotection/backup-instance#az_dataprotection_backup_instance_list) command. Then fetch the relevant instance using the [az dataprotection backup-instance show](/cli/azure/dataprotection/backup-instance#az_dataprotection_backup_instance_show) command. Alternatively, for _at-scale_ scenarios, you can list backup instances across vaults and subscriptions using the [az dataprotection backup-instance list-from-resourcegraph](/cli/azure/dataprotection/backup-instance#az_dataprotection_backup_instance_list_from_resourcegraph) command.
+To list all backup instances within a vault, use [az dataprotection backup-instance list](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-list) command. Then fetch the relevant instance using the [az dataprotection backup-instance show](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-show) command. Alternatively, for _at-scale_ scenarios, you can list backup instances across vaults and subscriptions using the [az dataprotection backup-instance list-from-resourcegraph](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-list-from-resourcegraph) command.
 
 ```azurecli
 az dataprotection backup-instance list-from-resourcegraph --datasource-type AzureDatabaseForPostgreSQL -subscriptions "xxxxxxxx-xxxx-xxxx-xxxx"
@@ -114,7 +115,7 @@ az dataprotection backup-instance list-from-resourcegraph --datasource-type Azur
 .
 ```
 
-Once the instance is identified, fetch the relevant recovery point using the [az dataprotection recovery-point list](/cli/azure/dataprotection/recovery-point#az_dataprotection_recovery_point_list) command.
+Once the instance is identified, fetch the relevant recovery point using the [az dataprotection recovery-point list](/cli/azure/dataprotection/recovery-point#az-dataprotection-recovery-point-list) command.
 
 ```azurecli
 az dataprotection recovery-point list --backup-instance-name testpostgresql-empdb11-957d23b1-c679-4c94-ade6-c4d34635e149 -g testBkpVaultRG --vault-name TestBkpVault
@@ -166,7 +167,7 @@ Construct the Azure Resource Manager ID (ARM ID) of the new PostgreSQL database.
 $targetOssId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targetrg/providers/providers/Microsoft.DBforPostgreSQL/servers/targetossserver/databases/emprestored21"
 ```
 
-Use the [az dataprotection backup-instance restore initialize-for-data-recovery](/cli/azure/dataprotection/backup-instance/restore#az_dataprotection_backup_instance_restore_initialize_for_data_recovery) command to prepare the restore request with all relevant details.
+Use the [az dataprotection backup-instance restore initialize-for-data-recovery](/cli/azure/dataprotection/backup-instance/restore#az-dataprotection-backup-instance-restore-initialize-for-data-recovery) command to prepare the restore request with all relevant details.
 
 ```azurecli
 az dataprotection backup-instance restore initialize-for-data-recovery --datasource-type AzureDatabaseForPostgreSQL  --restore-location {location} --source-datastore VaultStore --target-resource-id $targetOssId --recovery-point-id 9da55e757af94261afa009b43cd3222a --secret-store-type AzureKeyVault --secret-store-uri "https://restoreoss-test.vault.azure.net/secrets/dbauth3" > OssRestoreReq.JSON
@@ -194,7 +195,7 @@ Fetch the Uniform Resource Identifier (URI) of the container, within the storage
 $contURI = "https://testossstorageaccount.blob.core.windows.net/testcontainerrestore"
 ```
 
-Use the [az dataprotection backup-instance restore initialize-for-data-recovery-as-files](/cli/azure/dataprotection/backup-instance/restore#az_dataprotection_backup_instance_restore_initialize_for_data_recovery_as_files) command to prepare the restore request with all relevant details.
+Use the [az dataprotection backup-instance restore initialize-for-data-recovery-as-files](/cli/azure/dataprotection/backup-instance/restore#az-dataprotection-backup-instance-restore-initialize-for-data-recovery-as-files) command to prepare the restore request with all relevant details.
 
 ```azurecli
 az dataprotection backup-instance restore initialize-for-data-recovery-as-files --datasource-type AzureDatabaseForPostgreSQL  --restore-location {location} --source-datastore VaultStore -target-blob-container-url $contURI --target-file-name "empdb11_postgresql-westus_1628853549768" --recovery-point-id 9da55e757af94261afa009b43cd3222a > OssRestoreAsFilesReq.JSON
@@ -209,11 +210,11 @@ For archive-based recovery point, in the following script:
 az dataprotection backup-instance restore initialize-for-data-recovery-as-files --datasource-type AzureDatabaseForPostgreSQL  --restore-location {location} --source-datastore ArchiveStore -target-blob-container-url $contURI --target-file-name "empdb11_postgresql-westus_1628853549768" --recovery-point-id 9da55e757af94261afa009b43cd3222a --rehydration-priority Standard --rehydration-duration 12 > OssRestoreAsFilesReq.JSON
 ```
 
-To validate if the JSON file will succeed to create new resources, use the [az dataprotection backup-instance validate-for-restore](/cli/azure/dataprotection/backup-instance#az_dataprotection_backup_instance_validate_for_restore) command.
+To validate if the JSON file will succeed to create new resources, use the [az dataprotection backup-instance validate-for-restore](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-validate-for-restore) command.
 
 ### Trigger the restore
 
-Use the [az dataprotection backup-instance restore trigger](/cli/azure/dataprotection/backup-instance/restore#az_dataprotection_backup_instance_restore_trigger) command to trigger the restore operation with the previously prepared request.
+Use the [az dataprotection backup-instance restore trigger](/cli/azure/dataprotection/backup-instance/restore#az-dataprotection-backup-instance-restore-trigger) command to trigger the restore operation with the previously prepared request.
 
 ```azurecli-interactive
 az dataprotection backup-instance restore trigger -g testBkpVaultRG --vault-name TestBkpVault --backup-instance-name testpostgresql-empdb11-957d23b1-c679-4c94-ade6-c4d34635e149 --restore-request-object OssRestoreReq.JSON
@@ -221,9 +222,9 @@ az dataprotection backup-instance restore trigger -g testBkpVaultRG --vault-name
 
 ## Tracking job
 
-Track all jobs using the [az dataprotection job list](/cli/azure/dataprotection/job#az_dataprotection_job_list) command. You can list all jobs and fetch a particular job detail.
+Track all jobs using the [az dataprotection job list](/cli/azure/dataprotection/job#az-dataprotection-job-list) command. You can list all jobs and fetch a particular job detail.
 
-You can also use _Az.ResourceGraph_ to track jobs across all Backup vaults. Use the [az dataprotection job list-from-resourcegraph](/cli/azure/dataprotection/job#az_dataprotection_job_list_from_resourcegraph) command to get the relevant job that is across all Backup vaults.
+You can also use _Az.ResourceGraph_ to track jobs across all Backup vaults. Use the [az dataprotection job list-from-resourcegraph](/cli/azure/dataprotection/job#az-dataprotection-job-list-from-resourcegraph) command to get the relevant job that is across all Backup vaults.
 
 ```azurecli
 az dataprotection job list-from-resourcegraph --datasource-type AzureDatabaseForPostgreSQL --operation Restore

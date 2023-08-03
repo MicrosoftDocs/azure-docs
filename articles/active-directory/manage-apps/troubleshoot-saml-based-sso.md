@@ -1,22 +1,24 @@
 ---
 title: Troubleshoot SAML-based single sign-on
 description: Troubleshoot issues with an Azure AD app that's configured for SAML-based single sign-on.
-titleSuffix: Azure AD
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: davidmu
-ms.reviewer: ergreenl
+ms.author: jomondi
+ms.reviewer: alamaral
+ms.custom: enterprise-apps
 ---
 
 # Troubleshoot SAML-based single sign-on
 
 If you encounter a problem when configuring an application. Verify you have followed all the steps in the tutorial for the application. In the application’s configuration, you have inline documentation on how to configure the application. Also, you can access the [List of tutorials on how to integrate SaaS apps with Azure Active Directory](../saas-apps/tutorial-list.md) for a detail step-by-step guidance.
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Can’t add another instance of the application
 
@@ -44,7 +46,7 @@ To know the patterns pre-configured for the application:
 8. Select **SAML-based Sign-on** from the **Mode** dropdown.
 9. Go to the **Identifier** or **Reply URL** textbox, under the **Domain and URLs section.**
 10. There are three ways to know the supported patterns for the application:
-    - In the textbox, you see the supported pattern(s) as a placeholder *Example:* <https://contoso.com>.
+    - In the textbox, you see the supported pattern(s) as a placeholder, for example: `https://contoso.com`.
     - if the pattern is not supported, you see a red exclamation mark when you try to enter the value in the textbox. If you hover your mouse over the red exclamation mark, you see the supported patterns.
     - In the tutorial for the application, you can also get information about the supported patterns. Under the **Configure Azure AD single sign-on** section. Go to the step for configured the values under the **Domain and URLs** section.
 

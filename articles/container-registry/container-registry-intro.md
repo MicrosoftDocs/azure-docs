@@ -1,15 +1,15 @@
 ---
 title: Managed container registries
-description: Introduction to the Azure Container Registry service, providing cloud-based, managed, private Docker registries.
-author: stevelas
+description: Introduction to the Azure Container Registry service, providing cloud-based, managed registries.
+author: tejaswikolli-web
 ms.topic: overview
-ms.date: 02/10/2020
-ms.author: stevelas
+ms.date: 10/11/2022
+ms.author: tejaswikolli
 ms.custom: "seodec18, mvc"
 ---
-# Introduction to private Docker container registries in Azure
+# Introduction to Container registries in Azure
 
-Azure Container Registry is a managed, private Docker registry service based on the open-source Docker Registry 2.0. Create and maintain Azure container registries to store and manage your private Docker container images and related artifacts.
+Azure Container Registry is a managed registry service based on the open-source Docker Registry 2.0. Create and maintain Azure container registries to store and manage your container images and related artifacts.
 
 Use Azure container registries with your existing container development and deployment pipelines, or use Azure Container Registry Tasks to build container images in Azure. Build on demand, or fully automate builds with triggers such as source code commits and base image updates.
 

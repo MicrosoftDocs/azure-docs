@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Bizagi Studio for Digital Process Automation for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Bizagi Studio for Digital Process Automation for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and deprovision user accounts from Azure AD to Bizagi Studio for Digital Process Automation.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 2fbff65a-5345-4c08-a6c7-60b80d867a3e
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 10/20/2020
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -60,7 +60,7 @@ To configure Bizagi Studio for Digital Process Automation to support provisionin
 
 5. Copy and save the **Client Secret**. In the Azure portal, for your Bizagi Studio for Digital Process Automation application, on the **Provisioning** tab, the client secret value is entered in the **Secret Token** field.
 
-   ![Screenshot of Oauth, with Client Secret highlighed.](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/secret.png)
+   ![Screenshot of Oauth, with Client Secret highlighted.](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/secret.png)
 
 ## Add the application from the Azure AD gallery
 
@@ -72,9 +72,8 @@ With the Azure AD provisioning service, you can scope who is provisioned based o
 
 Note the following points about scoping:
 
-* When you're assigning users and groups to Bizagi Studio for Digital Process Automation, you must select a role other than **Default Access**. Users with the default access role are excluded from provisioning, and are marked in the provisioning logs as will be marked as not effectively entitled. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add more roles. 
-
-* Start small. Test with a small set of users and groups before rolling out to everyone. When the scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When the scope is set to all users and groups, you can specify an [attribute-based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 
 ## Configure automatic user provisioning 

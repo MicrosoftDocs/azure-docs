@@ -3,7 +3,7 @@ title: Pegged CPU in Apache HBase cluster - Azure HDInsight
 description: Troubleshoot pegged CPU on region server in Apache HBase cluster in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 08/01/2019
+ms.date: 12/26/2022
 ---
 
 # Scenario: Pegged CPU on region server in Apache HBase cluster in Azure HDInsight
@@ -36,7 +36,7 @@ If you are running HBase cluster v3.4, you might have been hit by a potential bu
 
 1. Depending on the data on cluster, it might take a few minutes to up to an hour for the cluster to reach stable state. The way you confirm the cluster reaches stable state is by either checking HMaster UI (all region servers should be active) from Ambari (refresh) or from headnode run HBase shell and then run status command.
 
-To verify that your upgrade was successful, check that the relevant HBase processes are started using the appropriate java version - for instance for region server check as:
+To verify that your upgrade was successful, check that the relevant HBase processes are started using the appropriate Java version - for instance for region server check as:
 
 ```
 ps -aux | grep regionserver, and verify the version like '''/usr/lib/jvm/java-8-openjdk-amd64/bin/java

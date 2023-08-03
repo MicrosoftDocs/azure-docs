@@ -1,10 +1,10 @@
 ---
 title: Partner integrations with Microsoft Sentinel
 description: This article describes best practices for creating your own integrations with Microsoft Sentinel.
-author: batamig
-ms.author: bagol
+author: limwainstein
+ms.author: lwainstein
 ms.topic: conceptual
-ms.date: 11/15/2021
+ms.date: 01/09/2023
 ---
 
 # Best practices for partners integrating with Microsoft Sentinel
@@ -35,7 +35,7 @@ Microsoft Sentinel works with the following types of data:
 |**Security conclusions**     | Creates alert visibility and opportunity for correlation. <br><br>Alerts and detections are conclusions that have already been made about threats.  Putting detections in context with all the activities and other detections visible in Microsoft Sentinel investigations, saves time for analysts and creates a more complete picture of an incident, resulting in better prioritization and better decisions.    <br><br>Examples: anti-malware alerts, suspicious processes, communication with known bad hosts, network traffic that was blocked and why, suspicious logons, detected password spray attacks, identified phishing attacks, data exfiltration events, and more.    |
 |**Reference data**     | Builds context with referenced environments, saving investigation effort and increasing efficiency. <br><br>Examples: CMDBs, high value asset databases, application dependency databases, IP assignment logs, threat intelligence collections for enrichment, and more.|
 |**Threat intelligence**     | Powers threat detection by contributing indicators of known threats. <br><br>Threat intelligence can include current indicators that represent immediate threats or historical indicators that are kept for future prevention. Historical data sets are often large and are best referenced ad-hoc, in place, instead of importing them directly to Microsoft Sentinel.|
-|     |         |
+
 
 Each type of data supports different activities in Microsoft Sentinel, and many security products work with multiple types of data at the same time.
 
@@ -114,7 +114,7 @@ The following sections describe common partner integration scenarios, and recomm
 |**Required**     |  - A Microsoft Sentinel data connector to deliver the data and link other customizations in the portal.  <br><br>Sample data queries     |
 |**Recommended**     | - Workbooks <br><br>- Analytics rules, to build detections based your data in Microsoft Sentinel       |
 |**Optional**     |  - Hunting queries, to provide hunters with out-of-the-box queries to use when hunting <br><br>- Notebooks, to deliver a fully guided, repeatable hunting experience       |
-|     |         |
+
 
 ### Your product provides detections
 
@@ -130,7 +130,7 @@ The following sections describe common partner integration scenarios, and recomm
 |---------|---------|
 |**Required**     |  A Microsoft Sentinel data connector to deliver the data and link other customizations in the portal.   |
 |**Recommended**     | Analytics rules, to create Microsoft Sentinel incidents from your detections that are helpful in investigations |
-|     |         |
+
 
 
 ### Your product supplies threat intelligence indicators
@@ -148,7 +148,7 @@ The following sections describe common partner integration scenarios, and recomm
 |---------|---------|
 |**Current threat intelligence**     |  Build a GSAPI data connector to push indicators to Microsoft Sentinel. <br><br>Provide a STIX 2.0 or 2.1 TAXII Server that customers can use with the out-of-the-box TAXII data connector. |
 |**Historical indicators and/or reference datasets**     | Provide a logic app connector to access the data and an enrichment workflow playbook that directs the data to the correct places.|
-|     |         |
+
 
 ### Your product provides extra context for investigations
 

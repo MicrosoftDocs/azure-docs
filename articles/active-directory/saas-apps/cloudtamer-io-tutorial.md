@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/11/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 
 ---
@@ -33,11 +33,10 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Kion supports **SP and IDP** initiated SSO.
+* Kion supports **IDP** initiated SSO.
 * Kion supports **Just In Time** user provisioning.
 
-
-## Adding Kion (formerly cloudtamer.io) from the gallery
+## Add Kion (formerly cloudtamer.io) from the gallery
 
 To configure the integration of Kion into Azure AD, you need to add Kion from the gallery to your list of managed SaaS apps.
 
@@ -48,6 +47,7 @@ To configure the integration of Kion into Azure AD, you need to add Kion from th
 1. In the **Add from the gallery** section, type **Kion** in the search box.
 1. Select **Kion** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Kion (formerly cloudtamer.io)
 
@@ -81,19 +81,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Kion** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Identifier** text box, paste the **SERVICE PROVIDER ISSUER (ENTITY ID)** from Kion into this box.
 
     b. In the **Reply URL** text box, paste the **SERVICE PROVIDER ACS URL** from Kion into this box.
-
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, paste the **SERVICE PROVIDER ACS URL** from Kion into this box.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -155,26 +151,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click **Create IDMS**.
 
-
 ### Create Kion test user
 
 In this section, a user called Britta Simon is created in Kion. Kion supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Kion, a new one is created after authentication.
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Azure AD single sign-on configuration with following options.
 
-#### SP initiated:
+* Click on Test this application in Azure portal and you should be automatically signed in to the Kion for which you set up the SSO.
 
-* Click on **Test this application** in Azure portal. This will redirect to Kion Sign on URL where you can initiate the login flow.  
-
-* Go to Kion Sign-on URL directly and initiate the login flow from there.
-
-#### IDP initiated:
-
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Kion for which you set up the SSO 
-
-You can also use Microsoft My Apps to test the application in any mode. When you click the Kion tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Kion for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+* You can use Microsoft My Apps. When you click the Kion tile in the My Apps, you should be automatically signed in to the Kion for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Group assertions
 

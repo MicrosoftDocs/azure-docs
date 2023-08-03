@@ -6,11 +6,11 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/07/2022
+ms.date: 03/13/2023
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
@@ -44,7 +44,8 @@ When users sign in to an application or service and receive an MFA prompt, they 
 
 The following additional forms of verification can be used with Azure AD Multi-Factor Authentication:
 
-* Microsoft Authenticator app
+* Microsoft Authenticator 
+* Authenticator Lite (in Outlook)
 * Windows Hello for Business
 * FIDO2 security key
 * OATH hardware token (preview)
@@ -54,7 +55,7 @@ The following additional forms of verification can be used with Azure AD Multi-F
 
 ## How to enable and use Azure AD Multi-Factor Authentication
 
-You can use [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) in Azure AD tenants to quickly enable Microsoft Authenticator for all users. You can enable Azure AD Multi-Factor Authentication to prompt users and groups for additional verification during sign-in. 
+You can use [security defaults](../fundamentals/security-defaults.md) in Azure AD tenants to quickly enable Microsoft Authenticator for all users. You can enable Azure AD Multi-Factor Authentication to prompt users and groups for additional verification during sign-in. 
 
 For more granular controls, you can use [Conditional Access](../conditional-access/overview.md) policies to define events or applications that require MFA. These policies can allow regular sign-in when the user is on the corporate network or a registered device but prompt for additional verification factors when the user is remote or on a personal device.
 

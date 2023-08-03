@@ -1,101 +1,98 @@
 ---
-title: Stream Azure Active Directory logs to Azure Monitor logs | Microsoft Docs
-description: Learn how to integrate Azure Active Directory logs with Azure Monitor logs
+title: Integrate Azure Active Directory logs with Azure Monitor | Microsoft Docs
+description: Learn how to integrate Azure Active Directory logs with Azure Monitor
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
-ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/09/2021
-ms.author: markvi
+ms.date: 06/26/2023
+ms.author: sarahlipsey
 ms.reviewer: besiler
-ms.custom: has-adal-ref
-
 ms.collection: M365-identity-device-management
 ---
 
-# Integrate Azure AD logs with Azure Monitor logs
+# How to integrate Azure AD logs with Azure Monitor logs
 
-Follow the steps in this article to integrate Azure Active Directory (Azure AD) logs with Azure Monitor.
+Using **Diagnostic settings** in Azure Active Directory (Azure AD), you can integrate logs with Azure Monitor so sign-in activity and the audit trail of changes within your tenant can be analyzed along with other Azure data. Integrating Azure AD logs with Azure Monitor logs enables rich visualizations, monitoring, and alerting on the connected data.
 
-Use the integration of Azure AD activity logs in Azure Monitor logs to perform tasks like:
+This article provides the steps to integrate Azure Active Directory (Azure AD) logs with Azure Monitor Logs. 
 
- * Compare your Azure AD sign-in logs against security logs published by Microsoft Defender for Cloud.
-  
- * Troubleshoot performance bottlenecks on your application’s sign-in page by correlating application performance data from Azure Application Insights.
+## Roles and licenses
 
- * Analyze Identity Protection risky users and risk detections logs to detect threats in your environment (public preview)
- 
- * Identify sign-ins from applications that use the Active Directory Authentication Library (ADAL) for authentication. [ADAL is nearing end-of-support](../develop/msal-migration.md).
+To integrate Azure AD logs with Azure Monitor, you need the following roles and licenses:
 
-This Microsoft Ignite session video shows the benefits of using Azure Monitor logs for Azure AD logs in practical scenarios:
+* **An Azure subscription:** If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
 
-> [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
+* **An Azure AD Premium P1 or P2 tenant:** You can find the license type of your tenant on the [Overview](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) page in Azure AD.
 
-## Supported reports
+* **Security Administrator access for the Azure AD tenant:** This role is required to set up the Diagnostics settings.
 
-You can route audit activity logs and sign-in activity logs to Azure Monitor logs for further analysis. 
+* **Permission to access data in a Log Analytics workspace:** See [Manage access to log data and workspaces in Azure Monitor](../../azure-monitor/logs/manage-access.md) for information on the different permission options and how to configure permissions.
 
-* **Audit logs**: The [audit logs activity report](concept-audit-logs.md) gives you access to the history of every task that's performed in your tenant.
-* **Sign-in logs**: With the [sign-in activity report](concept-sign-ins.md), you can determine who performed the tasks that are reported in the audit logs.
-* **Provisioning logs**: With the [provisioning logs](../app-provisioning/application-provisioning-log-analytics.md), you can monitor which users have been created, updated, and deleted in all your third-party applications. 
-* **Risky users logs (public preview)**: With the [risky users logs](../identity-protection/howto-identity-protection-investigate-risk.md#risky-users), you can monitor changes in user risk level and remediation activity. 
-* **Risk detections logs (public preview)**: With the [risk detections logs](../identity-protection/howto-identity-protection-investigate-risk.md#risk-detections), you can monitor user's risk detections and analyze trends in risk activity detected in your organization. 
+## Integrate logs with Azure Monitor logs
 
+To send Azure AD logs to Azure Monitor Logs you must first have a [Log Analytics workspace](../../azure-monitor/logs/log-analytics-overview.md). Then you can set up the Diagnostics settings in Azure AD to send your activity logs to that workspace. 
 
-## Prerequisites 
+### Create a Log Analytics workspace 
 
-To use this feature, you need:
+A Log Analytics workspace allows you to collect data based on a variety or requirements, such as geographic location of the data, subscription boundaries, or access to resources. Learn how to [create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md). 
 
-* An Azure subscription. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
-* An Azure AD tenant.
-* A user who's a *global administrator* or *security administrator* for the Azure AD tenant.
-* A Log Analytics workspace in your Azure subscription. Learn how to [create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
+Looking for how to set up a Log Analytics workspace for Azure resources outside of Azure AD? Check out the [Collect and view resource logs for Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md) article.
 
-## Licensing requirements
+### Set up Diagnostics settings
 
-Using this feature requires an Azure AD Premium P1 or P2 tenant. 
-You can find the license type of your tenant on the **[Overview](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)** page in **Azure Active Directory**.
+Once you have a Log Analytics workspace created, follow the steps below to send logs from Azure Active Directory to that workspace. 
 
-![Tenant information](./media/howto-integrate-activity-logs-with-log-analytics/tenant-information.png)
- 
-If you want to know for how long the activity data is stored in a Premium tenant, see: [How long does Azure AD store the data?](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data)
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-## Send logs to Azure Monitor
+Follow the steps below to send logs from Azure Active Directory to Azure Monitor. Looking for how to set up Log Analytics workspace for Azure resources outside of Azure AD? Check out the [Collect and view resource logs for Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md) article.
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com) as a **Security Administrator**.
 
-2. Select **Azure Active Directory** > **Diagnostic settings** -> **Add diagnostic setting**. You can also select **Export Settings** from the **Audit Logs** or **Sign-ins** page to get to the diagnostic settings configuration page.  
-    
-3. In the **Diagnostic settings** menu, select the **Send to Log Analytics workspace** check box, and then select **Configure**.
+1. Go to **Azure Active Directory** > **Diagnostic settings**. You can also select **Export Settings** from the Audit logs or Sign-in logs.
 
-4. Select the Log Analytics workspace you want to send the logs to, or create a new workspace in the provided dialog box.  
+1. Select **+ Add diagnostic setting** to create a new integration or select **Edit setting** to change an existing integration.
 
-5. Do any or all of the following:
-    * To send audit logs to the Log Analytics workspace, select the **AuditLogs** check box. 
-    * To send sign-in logs to the Log Analytics workspace, select the **SignInLogs** check box.
-    * To send non-interactive user sign-in logs to the Log Analytics workspace, select the **NonInteractiveUserSignInLogs** check box.
-    * To send service principle sign-in logs to the Log Analytics workspace, select the **ServicePrincipleSignInLogs** check box.
-    * To send managed identity sign-in logs to the Log Analytics workspace, select the **ManagedIdentitySignInLogs** check box.
-    * To send provisioning logs to the Log Analytics workspace, select the **ProvisioningLogs** check box.
-    * To send Active Directory Federation Services (ADFS) sign-in logs to the Log Analytics workspace, select **ADFSSignInLogs**.
-    * To send risky users logs to the Log Analytics workspace, select the **RiskyUsers** check box. (public preview)
-    * To send risk detections logs to the Log Analytics workspace, select the **UserRiskEvents** check box. (public preview)
+1. Enter a **Diagnostic setting name**. If you're editing an existing integration, you can't change the name.
 
-6. Select **Save** to save the setting.
+1. Any or all of the following logs can be sent to the Log Analytics workspace. Some logs may be in public preview but still visible in the portal.
+    * `AuditLogs`
+    * `SignInLogs`
+    * `NonInteractiveUserSignInLogs`
+    * `ServicePrincipalSignInLogs`
+    * `ManagedIdentitySignInLogs`
+    * `ProvisioningLogs`
+    * `ADFSSignInLogs` Active Directory Federation Services (ADFS)
+    * `RiskyServicePrincipals`   
+    * `RiskyUsers`
+    * `ServicePrincipalRiskEvents` 
+    * `UserRiskEvents`
 
-    ![Diagnostics settings](./media/howto-integrate-activity-logs-with-log-analytics/Configure.png)
+1.  The following logs are in preview but still visible in Azure AD. At this time, selecting these options will not add new logs to your workspace unless your organization was included in the preview.
+    * `EnrichedOffice365AuditLogs`
+    * `MicrosoftGraphActivityLogs`
+    * `NetworkAccessTrafficLogs`
 
-7. After about 15 minutes, verify that events are streamed to your Log Analytics workspace.
+1. In the **Destination details**, select **Send to Log Analytics workspace** and choose the appropriate details from the menus that appear.
+    * You can also send logs to any or all of the following destinations. Additional fields appear, depending on your selection.
+        * **Archive to a storage account:** Provide the number of days you'd like to retain the data in the **Retention days** boxes that appear next to the log categories. Select the appropriate details from the menus that appear.
+        * **Stream to an event hub:** Select the appropriate details from the menus that appear.
+        * **Send to partner solution:** Select the appropriate details from the menus that appear.
+
+1. Select **Save** to save the setting.
+
+    ![Screenshot of the Diagnostics settings with some destination details shown.](./media/howto-integrate-activity-logs-with-log-analytics/Configure.png)
+
+If you do not see logs appearing in the selected destination after 15 minutes, sign out and back into Azure to refresh the logs.
+
+> [!NOTE]
+> Integrating Azure Active Directory logs with Azure Monitor will automatically enable the Azure Active Directory data connector within Microsoft Sentinel.
 
 ## Next steps
 
 * [Analyze Azure AD activity logs with Azure Monitor logs](howto-analyze-activity-logs-log-analytics.md)
-* [Install and use the log analytics views for Azure Active Directory](howto-install-use-log-analytics-views.md)
+* [Learn about the data sources you can analyze with Azure Monitor](../../azure-monitor/data-sources.md)
+* [Automate creating diagnostic settings with Azure Policy](../../azure-monitor/essentials/diagnostic-settings-policy.md)

@@ -1,16 +1,16 @@
 ---
-title: Choose how to authorize access to blob data with Azure CLI
+title: Authorize access to blob data with Azure CLI
 titleSuffix: Azure Storage
 description: Specify how to authorize data operations against blob data with the Azure CLI. You can authorize data operations using Azure AD credentials, with the account access key, or with a shared access signature (SAS) token.
-services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 07/12/2021
 ms.author: tamram
-ms.reviewer: ozgun
-ms.subservice: common
+ms.reviewer: nachakra
+ms.subservice: storage-common-concepts
+ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ---
 
@@ -59,7 +59,7 @@ The following example shows how to create a container from Azure CLI using your 
     > [!IMPORTANT]
     > Azure role assignments may take a few minutes to propagate.
 
-1. Call the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command with the `--auth-mode` parameter set to `login` to create the container using your Azure AD credentials. Remember to replace placeholder values in angle brackets with your own values:
+1. Call the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command with the `--auth-mode` parameter set to `login` to create the container using your Azure AD credentials. Remember to replace placeholder values in angle brackets with your own values:
 
     ```azurecli
     az storage container create \
@@ -100,15 +100,15 @@ az storage container create \
 
 You can specify authorization parameters in environment variables to avoid including them on every call to an Azure Storage data operation. The following table describes the available environment variables.
 
-| Environment variable                  | Description                                                                                                                                                                                                                                                                                                                                                                     |
-|---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    AZURE_STORAGE_ACCOUNT              |    The storage account name. This variable should be used in conjunction with either the storage account key or a SAS token. If neither are present, the Azure CLI attempts to retrieve the storage account access key by using the authenticated Azure AD account. If a large number of commands are executed at one time, the Azure Storage resource provider throttling limit may be reached. For more information about resource provider limits, see [Scalability and performance targets for the Azure Storage resource provider](../common/scalability-targets-resource-provider.md).             |
-|    AZURE_STORAGE_KEY                  |    The storage account key. This variable must be used in conjunction with the storage account name.                                                                                                                                                                                                                                                                          |
-|    AZURE_STORAGE_CONNECTION_STRING    |    A connection string that includes the storage account key or a SAS token. This variable must be used in conjunction with the storage account name.                                                                                                                                                                                                                       |
-|    AZURE_STORAGE_SAS_TOKEN            |    A shared access signature (SAS) token. This variable must be used in conjunction with the storage account name.                                                                                                                                                                                                                                                            |
-|    AZURE_STORAGE_AUTH_MODE            |    The authorization mode with which to run the command. Permitted values are `login` (recommended) or `key`. If you specify `login`, the Azure CLI uses your Azure AD credentials to authorize the data operation. If you specify the legacy `key` mode, the Azure CLI attempts to query for the account access key and to authorize the command with the key.    |
+| Environment variable | Description |
+|---|---|
+| AZURE_STORAGE_ACCOUNT | The storage account name. This variable should be used in conjunction with either the storage account key or a SAS token. If neither are present, the Azure CLI attempts to retrieve the storage account access key by using the authenticated Azure AD account. If a large number of commands are executed at one time, the Azure Storage resource provider throttling limit may be reached. For more information about resource provider limits, see [Scalability and performance targets for the Azure Storage resource provider](../common/scalability-targets-resource-provider.md). |
+| AZURE_STORAGE_KEY | The storage account key. This variable must be used in conjunction with the storage account name. |
+| AZURE_STORAGE_CONNECTION_STRING | A connection string that includes the storage account key or a SAS token. This variable must be used in conjunction with the storage account name. |
+| AZURE_STORAGE_SAS_TOKEN | A shared access signature (SAS) token. This variable must be used in conjunction with the storage account name. |
+| AZURE_STORAGE_AUTH_MODE | The authorization mode with which to run the command. Permitted values are `login` (recommended) or `key`. If you specify `login`, the Azure CLI uses your Azure AD credentials to authorize the data operation. If you specify the legacy `key` mode, the Azure CLI attempts to query for the account access key and to authorize the command with the key. |
 
 ## Next steps
 
 - [Assign an Azure role for access to blob data](assign-azure-role-data-access.md)
-- [Authorize access to blob data with managed identities for Azure resources](authorize-managed-identity.md)
+- [Authorize access to data in Azure Storage](../common/authorize-data-access.md)

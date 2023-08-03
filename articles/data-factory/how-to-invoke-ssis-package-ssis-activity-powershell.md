@@ -5,10 +5,10 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
-ms.author: sawinark
-author: swinarko
+ms.author: chugu
+author: chugugrace
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 10/22/2021
+ms.date: 07/17/2023
 ---
 
 # Run an SSIS package with the Execute SSIS Package activity in Azure Data Factory with PowerShell

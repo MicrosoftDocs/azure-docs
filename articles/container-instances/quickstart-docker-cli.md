@@ -1,9 +1,13 @@
 ---
 title: Quickstart - Deploy Docker container to container instance - Docker CLI
 description: In this quickstart, you use the Docker CLI to quickly deploy a containerized web app that runs in an isolated Azure container instance
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
 ms.topic: quickstart
-ms.date: 09/14/2020
-ms.custom: devx-track-js, mode-api
+ms.date: 05/11/2022
+ms.custom: mode-api
 ---
 
 # Quickstart: Deploy a container instance in Azure using the Docker CLI

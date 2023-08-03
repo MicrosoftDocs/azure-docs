@@ -2,7 +2,8 @@
 title: Define multiple instances of a property
 description: Use copy operation in an Azure Resource Manager template (ARM template) to iterate multiple times when creating a property on a resource.
 ms.topic: conceptual
-ms.date: 12/20/2021
+ms.custom: devx-track-arm-template
+ms.date: 05/22/2023
 ---
 
 # Property iteration in ARM templates
@@ -12,6 +13,9 @@ This article shows you how to create more than one instance of a property in you
 You can only use copy loop with top-level resources, even when applying copy loop to a property. To learn about changing a child resource to a top-level resource, see [Iteration for a child resource](copy-resources.md#iteration-for-a-child-resource).
 
 You can also use copy loop with [resources](copy-resources.md), [variables](copy-variables.md), and [outputs](copy-outputs.md).
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [loops](../bicep/loops.md).
 
 ## Syntax
 
@@ -69,7 +73,7 @@ The following example shows how to apply copy loop to the `dataDisks` property o
   "resources": [
     {
       "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2022-11-01",
       ...
       "properties": {
         "storageProfile": {
@@ -149,7 +153,7 @@ The following example template creates a failover group for databases that are p
     }
   },
   "variables": {
-    "failoverName": "[concat(parameters('primaryServerName'),'/', parameters('primaryServerName'),'failovergroups')]"
+    "failoverName": "[format('{0}/{1}failovergroups', parameters('primaryServerName'), parameters('primaryServerName'))]"
   },
   "resources": [
     {
@@ -218,7 +222,7 @@ You can use resource and property iterations together. Reference the property it
 {
   "type": "Microsoft.Network/virtualNetworks",
   "apiVersion": "2018-04-01",
-  "name": "[concat(parameters('vnetname'), copyIndex())]",
+  "name": "[format('{0}{1}', parameters('vnetname'), copyIndex())]",
   "copy":{
     "count": 2,
     "name": "vnetloop"
@@ -235,7 +239,7 @@ You can use resource and property iterations together. Reference the property it
         "name": "subnets",
         "count": 2,
         "input": {
-          "name": "[concat('subnet-', copyIndex('subnets'))]",
+          "name": "[format('subnet-{0}', copyIndex('subnets'))]",
           "properties": {
             "addressPrefix": "[variables('subnetAddressPrefix')[copyIndex('subnets')]]"
           }

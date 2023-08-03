@@ -2,6 +2,9 @@
 title: Create and deploy labs with Azure Resource Manager (ARM) templates
 description: Learn how Azure DevTest Labs uses Azure Resource Manager (ARM) templates to create and configure lab virtual machines (VMs) and environments.
 ms.topic: how-to
+ms.custom: devx-track-arm-template, UpdateFrequency2
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 01/11/2022
 ---
 
@@ -62,7 +65,7 @@ Or to access DevTest Labs quickstart template from the Azure portal:
 
 Lab administrators can deploy ARM templates with Azure CLI or Azure PowerShell to automate VM creation and management.
 
-In Azure CLI, use the commands [az lab vm create](/cli/azure/lab/vm#az_lab_vm_create) and [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) to automate VM creation with ARM templates. For more information and instructions, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+In Azure CLI, use the commands [az lab vm create](/cli/azure/lab/vm#az-lab-vm-create) and [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) to automate VM creation with ARM templates. For more information and instructions, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
 In Azure PowerShell, use [New-AzResource](/powershell/module/az.resources/new-azresource) and [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) to provision VMs with ARM templates.
 

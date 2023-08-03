@@ -3,12 +3,12 @@ title: 'Tutorial: URL path-based redirection using CLI'
 titleSuffix: Azure Application Gateway
 description: In this tutorial, you learn how to create an application gateway with URL path-based redirected traffic using the Azure CLI.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 03/05/2021
-ms.author: victorh
-ms.custom: mvc, devx-track-azurecli
+ms.date: 04/27/2023
+ms.author: greglin
+ms.custom: mvc, devx-track-azurecli, devx-track-linux
 #Customer intent: As an IT administrator, I want to use Azure CLI to set up URL path redirection of web traffic to specific pools of servers so I can ensure my customers have access to the information they need.
 ---
 
@@ -32,7 +32,7 @@ If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -89,7 +89,8 @@ az network application-gateway create \
   --frontend-port 80 \
   --http-settings-port 80 \
   --http-settings-protocol Http \
-  --public-ip-address myAGPublicIPAddress
+  --public-ip-address myAGPublicIPAddress \
+  --priority 100
 ```
 
  It may take several minutes for the application gateway to be created. After the application gateway is created, you can see these new features:
@@ -216,7 +217,8 @@ az network application-gateway rule create \
   --http-listener backendListener \
   --rule-type PathBasedRouting \
   --url-path-map urlpathmap \
-  --address-pool appGatewayBackendPool
+  --address-pool appGatewayBackendPool \
+  --priority 100
 
 az network application-gateway rule create \
   --gateway-name myAppGateway \
@@ -225,7 +227,8 @@ az network application-gateway rule create \
   --http-listener redirectedListener \
   --rule-type PathBasedRouting \
   --url-path-map redirectpathmap \
-  --address-pool appGatewayBackendPool
+  --address-pool appGatewayBackendPool \
+  --priority 100
 ```
 
 ## Create virtual machine scale sets
@@ -282,7 +285,7 @@ done
 
 ## Test the application gateway
 
-To get the public IP address of the application gateway, use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copy the public IP address, and then paste it into the address bar of your browser. Such as, `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, `http://40.121.222.19:8080/video/test.htm`, or `http://40.121.222.19:8081/images/test.htm`.
+To get the public IP address of the application gateway, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copy the public IP address, and then paste it into the address bar of your browser. Such as, `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, `http://40.121.222.19:8080/video/test.htm`, or `http://40.121.222.19:8081/images/test.htm`.
 
 ```azurecli-interactive
 az network public-ip show \

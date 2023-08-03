@@ -1,18 +1,18 @@
 ---
-title: 'Tutorial: Configure routing preference for an Azure Kubernetes service - Azure CLI'
+title: 'Tutorial: Configure routing preference for an Azure Kubernetes Service - Azure CLI'
 titlesuffix: Azure virtual network
-description: Use this tutorial to learn how to configure routing preference for an Azure Kubernetes service.
+description: Use this tutorial to learn how to configure routing preference for an Azure Kubernetes Service.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: tutorial
 ms.date: 10/01/2021
-ms.custom: template-tutorial #Required; leave this attribute/value as-is., devx-track-azurecli 
+ms.custom: template-tutorial, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
-# Tutorial: Configure routing preference for an Azure Kubernetes service using the Azure CLI
+# Tutorial: Configure routing preference for an Azure Kubernetes Service using the Azure CLI
 
 This article shows you how to configure routing preference via ISP network (**Internet** option) for a Kubernetes cluster using Azure CLI. Routing preference is set by creating a public IP address of routing preference type **Internet** and then using it while creating the AKS cluster.
 
@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 > * Create a public IP address with the **Internet** routing preference.
 > * Create Azure Kubernetes cluster with **Internet** routing preference public IP.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. The following example creates a resource group in the **East US** Azure region:
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group in the **East US** Azure region:
 
 ```azurecli-interactive
   az group create \
@@ -41,7 +41,7 @@ Create a resource group with the [az group create](/cli/azure/group#az_group_cre
 
 ## Create public IP with Internet routing preference
 
-Create a public IP address with routing preference of **Internet** type using command [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create).
+Create a public IP address with routing preference of **Internet** type using command [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create).
 
 The following command creates a new public IP with **Internet** routing preference in the **East US** Azure region.
 
@@ -59,7 +59,7 @@ The following command creates a new public IP with **Internet** routing preferen
 
 ## Create Kubernetes cluster with public IP
 
-Place the ID of the public IP created previously into a variable for later use. Use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) to retrieve the public IP ID.
+Place the ID of the public IP created previously into a variable for later use. Use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) to retrieve the public IP ID.
 
 The following command retrieves the public IP ID and places it in a variable to use in the next command.
 
@@ -71,7 +71,7 @@ The following command retrieves the public IP ID and places it in a variable to 
     --output tsv)
 ```
 
-Use [az aks create](/cli/azure/aks#az_aks_create) to create the Kubernetes cluster.
+Use [az aks create](/cli/azure/aks#az-aks-create) to create the Kubernetes cluster.
 
 The following command creates the Kubernetes cluster and uses the variable for the public IP created in the previous step.
 
@@ -92,7 +92,7 @@ To validate, search for the public IP created in the earlier step in Azure porta
 
 ## Clean up resources
 
-When no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, public IP, AKS cluster, and all related resources.
+When no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, public IP, AKS cluster, and all related resources.
 
 ```azurecli-interactive
   az group delete \

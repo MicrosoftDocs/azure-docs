@@ -30,12 +30,17 @@ sections:
           What is the Azure Dedicated HSM offering?
         answer: |
           Azure Dedicated HSM is a cloud-based service that provides HSMs hosted in Azure datacenters that are directly connected to a customer's virtual network. These HSMs are dedicated [Thales Luna 7 HSM](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) network appliances. They are deployed directly to a customers' private IP address space and Microsoft does not have any access to the cryptographic functionality of the HSMs. Only the customer has full administrative and cryptographic control over these devices. Customers are responsible for the management of the device and they can get full activity logs directly from their devices. Dedicated HSMs help customers meet compliance/regulatory requirements such as FIPS 140-2 Level 3, HIPAA, PCI-DSS, and eIDAS and many others.
+
+      - question: |
+          What are the onboarding and use restrictions for Dedicated HSM?
+        answer: |
+          Customers must have an assigned Microsoft Account Manager and meet the monetary requirement of five million ($5M) USD or greater in overall committed Azure revenue annually to qualify for onboarding and use of Azure Dedicated HSM. 
           
       - question: |
           What hardware is used for Dedicated HSM?
         answer: |
           Microsoft has partnered with Thales to deliver the Azure Dedicated HSM service. The specific device used is the [Thales Luna 7 HSM model A790](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms). This device not only provides [FIPS 140-2 Level-3](https://csrc.nist.gov/publications/detail/fips/140/2/final) validated firmware, but also offers low-latency, high performance, and high capacity via 10 partitions. 
-          
+
       - question: |
           What is an HSM used for?
         answer: |
@@ -62,8 +67,13 @@ sections:
       - question: |
           Does Azure Dedicated HSM offer Password-based and PED-based authentication?
         answer: |
-          At this time, Azure Dedicated HSM only provides HSMs with password-based authentication.
+          No. Azure Dedicated HSM only provides HSMs with password-based authentication.
 
+      - question: |
+          Does Azure Dedicated HSM support functionality modules?
+        answer: |
+          No. Azure Dedicated HSM service does not support functionality modules.
+          
       - question: |
           Will Azure Dedicated HSM host my HSMs for me?
         answer: |
@@ -77,15 +87,16 @@ sections:
       - question: |
           Which Azure regions is Dedicated HSM available in?
         answer: |
-          As of late March 2019, Dedicated HSM is available in the 14 regions listed below. Further regions are planned and can be discussed via your Microsoft Account Representative.
+          As of October 2022, Dedicated HSM is available in the 22 regions listed below. Further regions are planned and can be discussed via your Microsoft Account Representative.
           
           * East US
           * East US 2
           * West US
           * West US 2
+          * Canada East
+          * Canada Central
           * South Central US
           * Southeast Asia
-          * East Asia
           * India Central
           * India South
           * Japan East
@@ -94,7 +105,6 @@ sections:
           * West Europe
           * UK South
           * UK West
-          * Canada Central
           * Australia East
           * Australia Southeast
           * Switzerland North
@@ -154,18 +164,23 @@ sections:
           Can I import/migrate keys from Luna 5/6 HSMs to Azure Dedicated HSMs?
         answer: |
           Yes. Contact your Thales representative for the appropriate Thales migration guide. 
+          
+      - question: |
+          Can I install functionality modules to Azure Dedicated HSMs?
+        answer: |
+          No. Azure Dedicated HSM service does not support functionality modules. 
 
   - name: Using your HSM
     questions:
       - question: |
           How do I decide whether to use Azure Key Vault or Azure Dedicated HSM?
         answer: |
-          Azure Dedicated HSM is the appropriate choice for enterprises migrating to Azure on-premises applications that use HSMs. Dedicated HSMs present an option to migrate an application with minimal changes. If cryptographic operations are performed in the application's code running in an Azure VM or Web App, they can use Dedicated HSM. In general, shrink-wrapped software running in IaaS (infrastructure as a service) models, that support HSMs as a key store can use Dedicate HSM, such as traffic manager for keyless TLS, ADCS (Active Directory Certificate Services), or similar PKI tools, tools/applications used for document signing, code signing, or a SQL Server (IaaS) configured with TDE (transparent database encryption) with master key in an HSM using an EKM (extensible key management) provider. Azure Key Vault is suitable for "born-in-cloud" applications or for encryption at rest scenarios where customer data is processed by PaaS (platform as a service) or SaaS (Software as a service) scenarios such as Office 365 Customer Key, Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store encryption with customer-managed key, Azure Storage encryption with customer managed key, and Azure SQL with customer managed key.
+          Azure Dedicated HSM is the appropriate choice for enterprises migrating to Azure on-premises applications that use HSMs. Dedicated HSMs present an option to migrate an application with minimal changes. If cryptographic operations are performed in the application's code running in an Azure VM or Web App, they can use Dedicated HSM. In general, shrink-wrapped software running in IaaS (infrastructure as a service) models that support HSMs as a key store can use Dedicate HSM, such as traffic manager for keyless TLS, ADCS (Active Directory Certificate Services), or similar PKI tools, tools/applications used for document signing, code signing, or a SQL Server (IaaS) configured with TDE (transparent database encryption) with master key in an HSM using an EKM (extensible key management) provider. Azure Key Vault is suitable for "born-in-cloud" applications or for encryption at rest scenarios where customer data is processed by PaaS (platform as a service) or SaaS (Software as a service) scenarios such as Office 365 Customer Key, Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store encryption with customer-managed key, Azure Storage encryption with customer managed key, and Azure SQL with customer managed key.
 
       - question: |
           What usage scenarios best suit Azure Dedicated HSM?
         answer: |
-          Azure Dedicated HSM is most suitable for migration scenarios. This means that if you are migrating on-premises applications to Azure that are already using HSMs. This provides a low-friction option to migrate to Azure with minimal changes to the application. If cryptographic operations are performed in the application's code running in Azure VM or Web App, Dedicated HSM may be used. In general, shrink-wrapped software running in IaaS (infrastructure as a service) models, that support HSMs as a key store can use Dedicate HSM, such as:
+          Azure Dedicated HSM is most suitable for migration scenarios. This means that if you are migrating on-premises applications to Azure that are already using HSMs. This provides a low-friction option to migrate to Azure with minimal changes to the application. If cryptographic operations are performed in the application's code running in Azure VM or Web App, Dedicated HSM may be used. In general, shrink-wrapped software running in IaaS (infrastructure as a service) models that support HSMs as a key store can use Dedicate HSM, such as:
           
           * Traffic Manager for Keyless TLS
           * ADCS (Active Directory Certificate Services)
@@ -200,6 +215,11 @@ sections:
           Can Microsoft or anyone at Microsoft access keys in my Dedicated HSM?
         answer: |
           No. Microsoft does not have any access to the keys stored in customer allocated Dedicated HSM.
+
+      - question: |
+          Does Azure Dedicated HSM store customer data?
+        answer: |
+          No. Azure Dedicated HSM is a baremetal HSM for lease service. Our service does not store customer data. All key materials and data is stored within the customers HSM appliance. Each HSM appliance is fully dedicated to one single customer which they have full administrative control.  
 
       - question: |
           Can I upgrade software/firmware on HSMs allocated to me?

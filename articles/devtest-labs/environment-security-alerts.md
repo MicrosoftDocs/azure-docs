@@ -2,7 +2,10 @@
 title: Security alerts for environments
 description: This article shows you how to view security alerts for an environment in DevTest Labs and take an appropriate action. 
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 06/26/2020
+ms.custom: UpdateFrequency2
 ---
 
 # Security alerts for environments in Azure DevTest Labs

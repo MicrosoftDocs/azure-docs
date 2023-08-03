@@ -1,23 +1,23 @@
 ---
 title: Problems signing in to a Microsoft application
-titleSuffix: Azure AD
 description: Troubleshoot common problems faced when signing in to first-party Microsoft Applications using Azure AD (like Microsoft 365).
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: jomondi
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps
 ---
 
 # Problems signing in to a Microsoft application
 
-Microsoft Applications (like Exchange, SharePoint, Yammer, etc.) are assigned and managed a bit differently than 3rd party SaaS applications or other applications you integrate with Azure AD for single sign on.
+Microsoft Applications (like Exchange, SharePoint, Yammer, etc.) are assigned and managed a bit differently than third-party SaaS applications or other applications you integrate with Azure AD for single sign-on.
 
 There are three main ways that a user can get access to a Microsoft-published application.
 
@@ -25,7 +25,7 @@ There are three main ways that a user can get access to a Microsoft-published ap
 
 - For applications that Microsoft or a Third Party publishes freely for anyone to use, users may be granted access through **user consent**. This means that they sign in to the application with their Azure AD Work or School account and allow it to have access to some limited set of data on their account.
 
-- For applications that Microsoft or a 3rd party publishes freely for anyone to use, users may also be granted access through **administrator consent**. This means that an administrator has determined the application may be used by everyone in the organization, so they sign in to the application with a Global Administrator account and grant access to everyone in the organization.
+- For applications that Microsoft or a third-party publishes freely for anyone to use, users may also be granted access through **administrator consent**. This means that an administrator has determined the application may be used by everyone in the organization, so they sign in to the application with a Global Administrator account and grant access to everyone in the organization.
 
 To troubleshoot your issue, start with the [General Problem Areas with Application Access to consider](#general-problem-areas-with-application-access-to-consider) and then read the Walkthrough: Steps to troubleshoot Microsoft Application access to get into the details.
 
@@ -43,7 +43,7 @@ Following is a list of the general problem areas that you can drill into if you 
 
 ## Steps to troubleshoot Microsoft Application access
 
-Following are some common issues folks run into when their users cannot sign in to a Microsoft application.
+Following are some common issues folks run into when their users can't sign in to a Microsoft application.
 
 - General issues to check first
 
@@ -57,13 +57,13 @@ Following are some common issues folks run into when their users cannot sign in 
 
   * Make sure the user’s **password is not expired or forgotten.** [Reset a user’s password](#reset-a-users-password) or [Enable self-service password reset](../authentication/tutorial-enable-sspr.md)
 
-  * Make sure **Multi-Factor Authentication** is not blocking user access. [Check a user’s multi-factor authentication status](#check-a-users-multi-factor-authentication-status) or [Check a user’s authentication contact info](#check-a-users-authentication-contact-info)
+  * Make sure **Multi-Factor Authentication** isn't blocking user access. [Check a user’s multi-factor authentication status](#check-a-users-multi-factor-authentication-status) or [Check a user’s authentication contact info](#check-a-users-authentication-contact-info)
 
-  * Make sure a **Conditional Access policy** or **Identity Protection** policy is not blocking user access. [Check a specific Conditional Access policy](#problems-with-conditional-access-policies) or [Check a specific application’s Conditional Access policy](#check-a-specific-applications-conditional-access-policy) or [Disable a specific Conditional Access policy](#disable-a-specific-conditional-access-policy)
+  * Make sure a **Conditional Access policy** or **Identity Protection** policy isn't blocking user access. [Check a specific Conditional Access policy](#problems-with-conditional-access-policies) or [Check a specific application’s Conditional Access policy](#check-a-specific-applications-conditional-access-policy) or [Disable a specific Conditional Access policy](#disable-a-specific-conditional-access-policy)
 
   * Make sure that a user’s **authentication contact info** is up to date to allow Multi-Factor Authentication or Conditional Access policies to be enforced. [Check a user’s multi-factor authentication status](#check-a-users-multi-factor-authentication-status) or [Check a user’s authentication contact info](#check-a-users-authentication-contact-info)
 
-- For **Microsoft** **applications that require a license** (like Office365), here are some specific issues to check once you have ruled out the general issues above:
+- For **Microsoft** **applications that require a license** (like Office365), here are some specific issues to check once you've ruled out the general issues above:
 
   * Ensure the user or has a **license assigned.** [Check a user’s assigned licenses](#check-a-users-assigned-licenses) or [Check a group’s assigned licenses](#check-a-groups-assigned-licenses)
 
@@ -75,7 +75,7 @@ Following are some common issues folks run into when their users cannot sign in 
 
   *  Once you make sure the license is assigned, make sure the license is **not expired**.
 
-  *  Make sure the license is **for the application** they are accessing.
+  *  Make sure the license is **for the application** they're accessing.
 
 - For **Microsoft** **applications that don’t require a license**, here are some other things to check:
 
@@ -105,6 +105,8 @@ Application access can be blocked due to a problem with a user that is assigned 
 
 - [Assign a user a license](#assign-a-user-a-license)
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ### Check if a user account exists in Azure Active Directory
 
 To check if a user’s account is present, follow these steps:
@@ -119,7 +121,7 @@ To check if a user’s account is present, follow these steps:
 
 5. Select **All users**.
 
-6. **Search** for the user you are interested in and **click the row** to select.
+6. **Search** for the user you're interested in and **click the row** to select.
 
 7. Check the properties of the user object to be sure that they look as you expect and no data is missing.
 
@@ -137,7 +139,7 @@ To check a user’s account status, follow these steps:
 
 5. Select **All users**.
 
-6. **Search** for the user you are interested in and **click the row** to select.
+6. **Search** for the user you're interested in and **click the row** to select.
 
 7. Select **Profile**.
 
@@ -157,7 +159,7 @@ To reset a user’s password, follow these steps:
 
 5. Select **All users**.
 
-6. **Search** for the user you are interested in and **click the row** to select.
+6. **Search** for the user you're interested in and **click the row** to select.
 
 7. Select the **Reset password** button at the top of the user pane.
 
@@ -165,7 +167,7 @@ To reset a user’s password, follow these steps:
 
 9. Copy the **temporary password** or **enter a new password** for the user.
 
-10. Communicate this new password to the user, they be required to change this password during their next sign in to Azure Active Directory.
+10. Communicate this new password to the user, they be required to change this password during their next sign-in to Azure Active Directory.
 
 ### Enable self-service password reset
 
@@ -197,7 +199,7 @@ To check a user’s multi-factor authentication status, follow these steps:
 
 9. Select the user from the list of users and **Enable**, **Disable**, or **Enforce** multi-factor authentication as desired.
 
-   * **Note**: If a user is in an **Enforced** state, you may set them to **Disabled** temporarily to let them back into their account. Once they are back in, you can then change their state to **Enabled** again to require them to re-register their contact information during their next sign in. Alternatively, you can follow the steps in the [Check a user’s authentication contact info](#check-a-users-authentication-contact-info) to verify or set this data for them.
+   * **Note**: If a user is in an **Enforced** state, you may set them to **Disabled** temporarily to let them back into their account. Once they're back in, you can then change their state to **Enabled** again to require them to re-register their contact information during their next sign-in. Alternatively, you can follow the steps in the [Check a user’s authentication contact info](#check-a-users-authentication-contact-info) to verify or set this data for them.
 
 ### Check a user’s authentication contact info
 
@@ -213,7 +215,7 @@ To check a user’s authentication contact info used for Multi-factor authentica
 
 5. Select **All users**.
 
-6. **Search** for the user you are interested in and **click the row** to select.
+6. **Search** for the user you're interested in and **click the row** to select.
 
 7. Select **Profile**.
 
@@ -235,7 +237,7 @@ To check a user’s group memberships, follow these steps:
 
 5. Select **All users**.
 
-6. **Search** for the user you are interested in and **click the row** to select.
+6. **Search** for the user you're interested in and **click the row** to select.
 
 7. Select **Groups** to see which groups the user is a member of.
 
@@ -253,7 +255,7 @@ To check a user’s assigned licenses, follow these steps:
 
 5. Select **All users**.
 
-6. **Search** for the user you are interested in and **click the row** to select.
+6. **Search** for the user you're interested in and **click the row** to select.
 
 7. Select **Licenses** to see which licenses the user currently has assigned.
 
@@ -271,7 +273,7 @@ To assign a license to a user, follow these steps:
 
 5. Select **All users**.
 
-6. **Search** for the user you are interested in and **click the row** to select.
+6. **Search** for the user you're interested in and **click the row** to select.
 
 7. Select **Licenses** to see which licenses the user currently has assigned.
 
@@ -279,7 +281,7 @@ To assign a license to a user, follow these steps:
 
 9. Select **one or more products** from the list of available products.
 
-10. **Optional** click the **assignment options** item to granularly assign products. Click **Ok** when this is completed.
+10. **Optional** select the **assignment options** item to granularly assign products. Select **Ok** when this is completed.
 
 11. Select the **Assign** button to assign these licenses to this user.
 
@@ -311,7 +313,7 @@ To check a group’s membership, follow these steps:
 
 5. Select **All groups**.
 
-6. **Search** for the group you are interested in and **click the row** to select.
+6. **Search** for the group you're interested in and **click the row** to select.
 
 7. Select **Members** to review the list of users assigned to this group.
 
@@ -329,7 +331,7 @@ To check a dynamic group’s membership criteria, follow these steps:
 
 5. Select **All groups**.
 
-6. **Search** for the group you are interested in and **click the row** to select.
+6. **Search** for the group you're interested in and **click the row** to select.
 
 7. Select **Dynamic membership rules.**
 
@@ -349,7 +351,7 @@ To check a group’s assigned licenses, follow these steps:
 
 5. Select **All groups**.
 
-6. **Search** for the group you are interested in and **click the row** to select.
+6. **Search** for the group you're interested in and **click the row** to select.
 
 7. Select **Licenses** to see which licenses the group currently has assigned.
 
@@ -367,7 +369,7 @@ To reprocess a group’s assigned licenses, follow these steps:
 
 5. Select **All groups**.
 
-6. **Search** for the group you are interested in and **click the row** to select.
+6. **Search** for the group you're interested in and **click the row** to select.
 
 7. Select **Licenses** to see which licenses the group currently has assigned.
 
@@ -392,7 +394,7 @@ To assign a license to a group, follow these steps:
 
 5. Select **All groups**.
 
-6. **Search** for the group you are interested in and **click the row** to select.
+6. **Search** for the group you're interested in and **click the row** to select.
 
 7. Select **Licenses** to see which licenses the group currently has assigned.
 
@@ -400,7 +402,7 @@ To assign a license to a group, follow these steps:
 
 9. Select **one or more products** from the list of available products.
 
-10. **Optional** click the **assignment options** item to granularly assign products. Click **Ok** when this is completed.
+10. **Optional** select the **assignment options** item to granularly assign products. Select **Ok** when this is completed.
 
 11. Select the **Assign** button to assign these licenses to this group. This may take a long time, depending on the size and complexity of the group.
 
@@ -425,7 +427,7 @@ To check or validate a single Conditional Access policy:
 
 5. Select the **Conditional Access** navigation item.
 
-6. Select the policy you are interested in inspecting.
+6. Select the policy you're interested in inspecting.
 
 7. Review that there are no specific conditions, assignments, or other settings that may be blocking user access.
 
@@ -448,7 +450,7 @@ To check or validate a single application’s currently configured Conditional A
 
 5. Select **All applications**.
 
-6. Search for the application you are interested in, or the user is attempting to sign in to by application display name or application ID.
+6. Search for the application you're interested in, or the user is attempting to sign in to by application display name or application ID.
 
      >[!NOTE]
      >If you don’t see the application you are looking for, click the **Filter** button and expand the scope of the list to **All applications**. If you want to see more columns, click the **Columns** button to add additional details for your applications.
@@ -457,9 +459,9 @@ To check or validate a single application’s currently configured Conditional A
 
 7. Select the **Conditional Access** navigation item.
 
-8. Select the policy you are interested in inspecting.
+8. Select the policy you're interested in inspecting.
 
-9. Review that there are no specific conditions, assignments, or other settings which may be blocking user access.
+9. Review that there are no specific conditions, assignments, or other settings that may be blocking user access.
 
      >[!NOTE]
      >You may wish to temporarily disable this policy to ensure it is not affecting sign-ins. To do this, set the **Enable policy** toggle to **No** and click the **Save** button.
@@ -480,13 +482,13 @@ To check or validate a single Conditional Access policy:
 
 5. Select the **Conditional Access** navigation item.
 
-6. Select the policy you are interested in inspecting.
+6. Select the policy you're interested in inspecting.
 
-7. Disable the policy by setting the **Enable policy** toggle to **No** and click the **Save** button.
+7. Disable the policy by setting the **Enable policy** toggle to **No** and select the **Save** button.
 
 ## Problems with application consent
 
-Application access can be blocked because the proper permissions consent operation has not occurred. Following are some ways you can troubleshoot and solve application consent issues:
+Application access can be blocked because the proper permissions consent operation hasn't occurred. Following are some ways you can troubleshoot and solve application consent issues:
 
 - [Perform a user-level consent operation](#perform-a-user-level-consent-operation)
 
@@ -498,19 +500,19 @@ Application access can be blocked because the proper permissions consent operati
 
 ### Perform a user-level consent operation
 
-- For any Open ID Connect-enabled application that requests permissions, navigating to the application’s sign in screen performs a user level consent to the application for the signed-in user.
+- For any Open ID Connect-enabled application that requests permissions, navigating to the application’s sign-in screen performs a user level consent to the application for the signed-in user.
 
 - If you wish to do this programmatically, see [Requesting individual user consent](../develop/v2-permissions-and-consent.md#requesting-individual-user-consent).
 
 ### Perform administrator-level consent operation for any application
 
-- For **only applications developed using the V1 application model**, you can force this administrator level consent to occur by adding “**?prompt=admin\_consent**” to the end of an application’s sign in URL.
+- For **only applications developed using the V1 application model**, you can force this administrator level consent to occur by adding “**?prompt=admin\_consent**” to the end of an application’s sign-in URL.
 
 - For **any application developed using the V2 application model**, you can enforce this administrator-level consent to occur by following the instructions under the **Request the permissions from a directory admin** section of [Using the admin consent endpoint](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ### Perform administrator-level consent for a single-tenant application
 
-- For **single-tenant applications** that request permissions (like those you are developing or own in your organization), you can perform an **administrative-level consent** operation on behalf of all users by signing in as a Global Administrator and clicking on the **Grant permissions** button at the top of the **Application Registry -&gt; All Applications -&gt; Select an App -&gt; Required Permissions** pane.
+- For **single-tenant applications** that request permissions (like those you're developing or own in your organization), you can perform an **administrative-level consent** operation on behalf of all users by signing in as a Global Administrator and clicking on the **Grant permissions** button at the top of the **Application Registry -&gt; All Applications -&gt; Select an App -&gt; Required Permissions** pane.
 
 - For **any application developed using the V1 or V2 application model**, you can enforce this administrator-level consent to occur by following the instructions under the **Request the permissions from a directory admin** section of [Using the admin consent endpoint](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 07/17/2023
 ---
 
 # Pivot transformation in mapping data flow
@@ -27,7 +27,7 @@ The pivot transformation requires three different inputs: group by columns, the 
 
 ### Group by
 
-:::image type="content" source="media/data-flow/pivot2.png" alt-text="Group by options":::
+:::image type="content" source="media/data-flow/pivot-2.png" alt-text="Group by options":::
 
 Select which columns to aggregate the pivoted columns over. The output data will group all rows with the same group by values into one row. The aggregation done in the pivoted column will occur over each group.
 
@@ -47,7 +47,7 @@ In the section labeled **Value**, you can enter specific row values to be pivote
 
 For each unique pivot key value that becomes a column, generate an aggregated row value for each group. You can create multiple columns per pivot key. Each pivot column must contain at least one [aggregate function](data-flow-aggregate-functions.md).
 
-**Column name pattern:** Select how to format the column name of each pivot column. The outputted column name will be a combination of the pivot key value, column prefix and optional prefix, suffice, middle characters. 
+**Column name pattern:** Select how to format the column name of each pivot column. The outputted column name will be a combination of the pivot key value, column prefix and optional prefix, suffix, middle characters. 
 
 **Column arrangement:** If you generate more than one pivot column per pivot key, choose how you want the columns to be ordered. 
 

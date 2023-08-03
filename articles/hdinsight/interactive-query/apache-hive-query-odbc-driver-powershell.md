@@ -4,9 +4,7 @@ description: Use the Microsoft Hive ODBC driver and PowerShell to query Apache H
 keywords: hive,hive odbc,powershell
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 06/27/2019 
-ms.custom: devx-track-azurepowershell
-
+ms.date: 05/24/2023
 #Customer intent: As a HDInsight user, I want to query data from my Apache Hive datasets so that I can view and interpret the data.
 ---
 
@@ -54,10 +52,10 @@ The following steps show you how to create an Apache Hive ODBC data source.
    |  Port |Use **443**.|
    |  Database |Use **default**. |
    |  Mechanism |Select **Windows Azure HDInsight Service** |
-   |  User Name |Enter HDInsight cluster HTTP user username. The default username is **admin**. |
+   |  User Name |Enter HDInsight cluster HTTP user username. The default username is `admin`. |
    |  Password |Enter HDInsight cluster user password. Select the checkbox **Save Password (Encrypted)**.|
 
-1. Optional: Select **Advanced Options**.  
+1. Optional: Select **Advanced Options**.
 
    | Parameter | Description |
    | --- | --- |

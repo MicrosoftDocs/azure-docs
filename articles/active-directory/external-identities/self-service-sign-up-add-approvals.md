@@ -1,17 +1,19 @@
 ---
-title: Add custom approvals to self-service sign-up flows - Azure AD
-description: Add API connectors for custom approval workflows in External Identities self-service sign-up - Azure Active Directory (Azure AD)
+title: Add custom approvals to self-service sign-up flows
+description: Add API connectors for custom approval workflows in External Identities self-service sign-up
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: article
-ms.date: 07/13/2021
+ms.topic: how-to
+ms.date: 01/09/2023
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: "it-pro"
-ms.collection: M365-identity-device-management
+ms.collection: engagement-fy23, M365-identity-device-management
+
+# Customer intent: As a tenant administrator, I want to add API connectors for custom approval workflows in self-service sign-up.
 ---
 
 # Add a custom approval workflow to self-service sign-up
@@ -30,31 +32,30 @@ This article gives an example of how to integrate with an approval system. In th
 
 ## Register an application for your approval system
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You need to register your approval system as an application in your Azure AD tenant so it can authenticate with Azure AD and have permission to create users. Learn more about [authentication and authorization basics for Microsoft Graph](/graph/auth/auth-concepts).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **App registrations**, and then select **New registration**.
 4. Enter a **Name** for the application, for example, _Sign-up Approvals_.
-
-   <!-- ![Register an application for the approval system](./self-service-sign-up-add-approvals/approvals/register-an-approvals-application.png) -->
-
 5. Select **Register**. You can leave other fields at their defaults.
 
-   ![Screenshot that highlights the Register button.](media/self-service-sign-up-add-approvals/register-approvals-app.png)
+:::image type="content" source="media/self-service-sign-up-add-approvals/register-approvals-app.png" alt-text="Screenshot that highlights the Register button.":::
 
 6. Under **Manage** in the left menu, select **API permissions**, and then select **Add a permission**.
 7. On the **Request API permissions** page, select **Microsoft Graph**, and then select **Application permissions**.
 8. Under **Select permissions**, expand **User**, and then select the **User.ReadWrite.All** check box. This permission allows the approval system to create the user upon approval. Then select **Add permissions**.
 
-   ![Register an application page](media/self-service-sign-up-add-approvals/request-api-permissions.png)
+:::image type="content" source="media/self-service-sign-up-add-approvals/request-api-permissions.png" alt-text="Screenshot of requesting API permissions.":::
 
 9. On the **API permissions** page, select **Grant admin consent for (your tenant name)**, and then select **Yes**.
 10. Under **Manage** in the left menu, select **Certificates & secrets**, and then select **New client secret**.
 11. Enter a **Description** for the secret, for example _Approvals client secret_, and select the duration for when the client secret **Expires**. Then select **Add**.
-12. Copy the value of the client secret.
+12. Copy the value of the client secret. Client secret values can be viewed only immediately after creation. Make sure to save the secret when created, before leaving the page.
 
-    ![Copy the client secret for use in the approval system](media/self-service-sign-up-add-approvals/client-secret-value-copy.png)
+:::image type="content" source="media/self-service-sign-up-add-approvals/client-secret-value-copy.png" alt-text="Screenshot of copying the client secret. ":::
 
 13. Configure your approval system to use the **Application ID** as the client ID and the **client secret** you generated to authenticate with Azure AD.
 
@@ -64,11 +65,11 @@ Next you'll [create the API connectors](self-service-sign-up-add-api-connector.m
 
 - **Check approval status**. Send a call to the approval system immediately after a user signs-in with an identity provider to check if the user has an existing approval request or has already been denied. If your approval system only does automatic approval decisions, this API connector may not be needed. Example of a "Check approval status" API connector.
 
-  ![Check approval status  API connector configuration](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
+:::image type="content" source="media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png" alt-text="Screenshot of check approval status API connector configuration.":::
 
 - **Request approval** - Send a call to the approval system after a user completes the attribute collection page, but before the user account is created, to request approval. The approval request can be automatically granted or manually reviewed. Example of a "Request approval" API connector. 
 
-  ![Request approval API connector configuration](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
+:::image type="content" source="media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png" alt-text="Screenshot of request approval API connector configuration.":::
 
 To create these connectors, follow the steps in [create an API connector](self-service-sign-up-add-api-connector.md#create-an-api-connector).
 
@@ -76,7 +77,7 @@ To create these connectors, follow the steps in [create an API connector](self-s
 
 Now you'll add the API connectors to a self-service sign-up user flow with these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **External Identities**.
 4. Select **User flows**, and then select the user flow you want to enable the API connector for.
@@ -85,13 +86,14 @@ Now you'll add the API connectors to a self-service sign-up user flow with these
    - **After federating with an identity provider during sign-up**: Select your approval status API connector, for example _Check approval status_.
    - **Before creating the user**: Select your approval request API connector, for example _Request approval_.
 
-   ![Add APIs to the user flow](./media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png)
+:::image type="content" source="media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png" alt-text="Screenshot of API connector in a user flow.":::
+
 
 6. Select **Save**.
 
 ## Control the sign-up flow with API responses
 
-Your approval system can use its responses when called to control the sign up flow. 
+Your approval system can use its responses when called to control the sign-up flow. 
 
 ### Request and responses for the "Check approval status" API connector
 
@@ -117,13 +119,13 @@ Content-type: application/json
 }
 ```
 
-The exact claims sent to the API depends on which information is provided by the identity provider. 'email' is always sent.
+The exact claims sent to the API depend on which information is provided by the identity provider. 'email' is always sent.
 
 #### Continuation response for "Check approval status"
 
 The **Check approval status** API endpoint should return a continuation response if:
 
-- The user has not previously requested an approval.
+- The user hasn't previously requested an approval.
 
 Example of the continuation response:
 
@@ -200,7 +202,7 @@ Content-type: application/json
 }
 ```
 
-The exact claims sent to the API depends on which information is collected from the user or is provided by the identity provider.
+The exact claims sent to the API depend on which information is collected from the user or is provided by the identity provider.
 
 #### Continuation response for "Request approval"
 
@@ -385,5 +387,7 @@ Content-type: application/json
 
 ## Next steps
 
-- Get started with our [Azure Function quickstart samples](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
-- Checkout the [self-service sign-up for guest users with manual approval sample](code-samples-self-service-sign-up.md#custom-approval-workflows).
+- [Add a self-service sign-up user flow](self-service-sign-up-user-flow.md)
+- [Add an API connector](self-service-sign-up-add-api-connector.md)
+- [Secure your API connector](self-service-sign-up-secure-api-connector.md)
+- [self-service sign-up for guest users with manual approval sample](code-samples-self-service-sign-up.md#custom-approval-workflows).

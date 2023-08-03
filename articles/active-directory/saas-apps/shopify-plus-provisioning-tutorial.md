@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Shopify Plus for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Shopify Plus for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Shopify Plus.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: e2fa3ac8-a30f-4dcd-8073-ed7c65909feb
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 12/07/2020
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -60,9 +60,9 @@ Add Shopify Plus from the Azure AD application gallery to start managing provisi
 
 The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* When assigning users and groups to Shopify Plus, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add additional roles. 
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 
 ## Step 5. Configure automatic user provisioning to Shopify Plus 
@@ -101,12 +101,13 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to Shopify Plus in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Shopify Plus for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Shopify Plus API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-   |Attribute|Type|Supported for Filtering|
-   |---|---|---|
-   |userName|String|&check;|
+   |Attribute|Type|Supported for Filtering|Required by Shopify Plus
+   |---|---|---|---
+   |userName|String|&check;|&check;
+   |roles|String||
    |active|Boolean|
-   |name.givenName|String|
-   |name.familyName|String|
+   |name.givenName|String||&check;
+   |name.familyName|String||&check;
    
 
 10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -130,7 +131,10 @@ Once you've configured provisioning, use the following resources to monitor your
 
 1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
-3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
+
+## Change log
+06/22/2023 - Added support for **roles**.
 
 ## Additional resources
 

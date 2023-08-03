@@ -3,7 +3,7 @@ metadata:
   title: General questions about the Azure Site Recovery service
   description: This article discusses popular general questions about Azure Site Recovery.
   ms.topic: faq
-  ms.service: azure
+  ms.service: site-recovery
   ms.date: 05/27/2021
 
 
@@ -33,6 +33,16 @@ sections:
          What does Site Recovery do to ensure data integrity?
         answer: |
              There are various measures taken by Site Recovery to ensure data integrity. A secure connection is established between all services by using the HTTPS protocol. This makes sure that any malware or outside entities can't tamper the data. Another measure taken is using checksums. The data transfer between source and target is executed by computing checksums of data between them. This ensures that the transferred data is consistent.
+
+      - question: |
+         How can I migrate/protect software which requires a persistent MAC address on the virtual machine?
+        answer: |
+             Azure does not support persistent MAC addresses and so software with MAC based license models cannot be used for both on-premises to Azure migration or disaster recovery.
+
+      - question: |
+         Does Azure Site Recovery currently support Ephemeral Disks?
+        answer: |
+             No, Azure Site Recovery currently does not support Ephemeral Disks.
 
   - name: Service providers
     questions:
@@ -142,6 +152,9 @@ sections:
          How can I enforce TLS 1.2 on VMware-to-Azure and Physical Server-to-Azure Site Recovery scenarios?
         answer: |
               Mobility agents installed on the replicated items communicate to Process Server only on TLS 1.2. However, communication from Configuration Server to Azure and from Process Server to Azure could be on TLS 1.1 or 1.0. Please follow the [guidance](https://support.microsoft.com/en-us/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi) to enforce TLS 1.2 on all Configuration Servers and Process Servers set up by you.
+              
+              >[!Note]
+              >The modernized experience uses TLS 1.2 for all the communication and enforces it by default. 
 
       - question: |
          How can I enforce TLS 1.2 on HyperV-to-Azure Site Recovery scenarios?
@@ -162,6 +175,12 @@ sections:
               - Classic storage accounts:
                 - [Classic Storage Account Contributor](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
                 - [Classic Storage Account Key Operator Service Role](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
+
+      - question: |
+         Can Azure Site Recovery track source VM changes outside the Source OS?
+        answer: |
+              Azure Site Recovery doesn't track source VM changes outside the Source OS.
+              For example, If you are using Azure to Azure replication and change the size of the source VM, the change in size of source VM is not replicated to the target VM.
 
   - name: Disaster recovery
     questions:
@@ -216,12 +235,14 @@ sections:
       - question: |
          Can I replicate over a site-to-site VPN to Azure?
         answer: |
-             Azure Site Recovery replicates data to an Azure storage account or managed disks, over a public endpoint. Replication isn't over a site-to-site VPN.
-
-      - question: |
-         Why can't I replicate over VPN?
-        answer: |
-             When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage. Thus you can only replicate over the public internet or via ExpressRoute (Microsoft peering or an existing public peering).
+             Azure Site Recovery replicates data to an Azure storage account or managed disks, over a public endpoint. However, replication can be performed over Site-to-Site VPN as well. Site-to-Site VPN connectivity allows organizations to connect existing networks to Azure, or Azure networks to each other. Site-to-Site VPN occurs over IPSec tunneling over the internet, leveraging existing on-premises edge network equipment and network appliances in Azure, either native features like Azure Virtual Private Network (VPN) Gateway or 3rd party options such as Check Point CloudGaurd, Palo Alto NextGen Firewall.
+                
+             - Private connectivity over the public Internet to Microsoft Edge
+             - Recovery Service Vaults configured for security with Private Endpoints
+             - Replication over customer private Virtual Network connection
+             - Easy transition to "Future State"
+             - No SLA and potentially higher latency
+             - Requires an on-premises VPN device availability
 
       - question: |
          Can I use Riverbed SteelHeads for replication?
@@ -247,7 +268,7 @@ sections:
       - question: |
          How often can I replicate data?
         answer: |
-              * **Hyper-V:** Hyper-V VMs can be replicated every 30 seconds (except for premium storage), five minutes or 15 minutes.
+              * **Hyper-V:** Hyper-V VMs can be replicated every 30 seconds (except for premium storage) or five minutes.
               * **Azure VMs, VMware VMs, physical servers:** A replication frequency isn't relevant here. Replication is continuous.
 
       - question: |
@@ -447,7 +468,7 @@ sections:
       - question: |
          Can I automate Site Recovery scenarios with an SDK?
         answer: |
-              Yes. You can automate Site Recovery workflows using the Rest API, PowerShell, or the Azure SDK. Currently supported scenarios for deploying Site Recovery using PowerShell:
+              Yes. You can automate Site Recovery workflows using the REST API, PowerShell, or the Azure SDK. Currently supported scenarios for deploying Site Recovery using PowerShell:
 
               * [Replicate Hyper-V VMs in VMMs clouds to Azure PowerShell Resource Manager](hyper-v-vmm-powershell-resource-manager.md)
               * [Replicate Hyper-V VMs without VMM to Azure PowerShell Resource Manager](hyper-v-azure-powershell-resource-manager.md)

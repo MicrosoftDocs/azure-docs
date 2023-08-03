@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure monday.com for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure monday.com for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to monday.com.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 7dba523e-c75a-4895-bad4-82239a263afe
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 11/24/2020
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -63,9 +63,9 @@ Add monday.com from the Azure AD application gallery to start managing provision
 
 The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* When assigning users and groups to monday.com, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add additional roles. 
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 
 ## Step 5. Configure automatic user provisioning to monday.com 
@@ -104,24 +104,24 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to monday.com in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in monday.com for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the monday.com API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-   |Attribute|Type|Supported for filtering|
-   |---|---|---|
-   |userName|String|&check;|
-   |userType|String|
-   |displayName|String|
-   |title|String|
-   |emails[type eq "work"].value|String|
-   |locale|String|
-   |timezone|String|
+   |Attribute|Type|Supported for filtering|Required by monday.com|
+   |---|---|---|---|
+   |userName|String|&check;|&check;
+   |userType|String|||
+   |displayName|String||&check;
+   |title|String|||
+   |locale|String|||
+   |timezone|String|||
+   |roles|String|||
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to monday.com**.
 
 11. Review the group attributes that are synchronized from Azure AD to monday.com in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in monday.com for update operations. Select the **Save** button to commit any changes.
 
-      |Attribute|Type|Supported for filtering|
-      |---|---|---|
-      |displayName|String|&check;|
-      |members|Reference|
+      |Attribute|Type|Supported for filtering|Required by monday.com|
+      |---|---|---|---|
+      |displayName|String|&check;|&check;|
+      |members|Reference|||
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -151,6 +151,7 @@ Once you've configured provisioning, use the following resources to monitor your
 
 ## Change log
 * 1/21/2021 - Added support for core attribute "userType" for users.
+* 12/08/2022 - Dropped core user attribute **emails[type eq "work"].value**.Update **userName** , so that it get provisioned **"always"** and not **"only on object creation"**.Removed the mapping for **userType**.Added core user attribute **roles** and it's corresponding mapping.
 
 ## Additional resources
 

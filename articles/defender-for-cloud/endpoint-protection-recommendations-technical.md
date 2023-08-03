@@ -1,14 +1,14 @@
 ---
-title: Endpoint protection recommendations in Microsoft Defender for Clouds
+title: Endpoint protection recommendations
 description: How the endpoint protection solutions are discovered and identified as healthy.
 ms.topic: conceptual
-ms.date: 12/14/2021
+ms.author: dacurwin
+author: dcurwin
+ms.date: 06/15/2023
 ---
 # Endpoint protection assessment and recommendations in Microsoft Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-Microsoft Defender for Cloud provides health assessments of [supported](supported-machines-endpoint-solutions-clouds.md#endpoint-supported) versions of Endpoint protection solutions. This article explains the scenarios that lead Defender for Cloud to generate the following two recommendations:
+Microsoft Defender for Cloud provides health assessments of [supported](supported-machines-endpoint-solutions-clouds-servers.md#endpoint-supported) versions of Endpoint protection solutions. This article explains the scenarios that lead Defender for Cloud to generate the following two recommendations:
 
 - [Endpoint protection should be installed on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439)
 - [Endpoint protection health issues should be resolved on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000)
@@ -106,14 +106,14 @@ Defender for Cloud recommends **Endpoint protection health issues should be reso
 
 Defender for Cloud recommends **Endpoint protection should be installed on your machines** when any of the following checks aren't met:
 
-- File **/opt/isec/ens/threatprevention/bin/isecav** exists
-- **"/opt/isec/ens/threatprevention/bin/isecav --version"** output is: **McAfee name = McAfee Endpoint Security for Linux Threat Prevention and McAfee version >= 10**
+- File **/opt/McAfee/ens/tp/bin/mfetpcli** exists
+- **"/opt/McAfee/ens/tp/bin/mfetpcli --version"** output is: **McAfee name = McAfee Endpoint Security for Linux Threat Prevention and McAfee version >= 10**
 
 Defender for Cloud recommends **Endpoint protection health issues should be resolved on your machines** when any of the following checks aren't met:
 
-- **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** returns **Quick scan, Full scan** and both of the scans <= 7 days
-- **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** returns **DAT and engine Update time** and both of them <= 7 days
-- **"/opt/isec/ens/threatprevention/bin/isecav --getoasconfig --summary"** returns **On Access Scan** status
+- **"/opt/McAfee/ens/tp/bin/mfetpcli --listtask"** returns **Quick scan, Full scan** and both of the scans <= 7 days
+- **"/opt/McAfee/ens/tp/bin/mfetpcli --listtask"** returns **DAT and engine Update time** and both of them <= 7 days
+- **"/opt/McAfee/ens/tp/bin/mfetpcli --getoasconfig --summary"** returns **On Access Scan** status
 
 ## Sophos Antivirus for Linux 
 
@@ -137,4 +137,4 @@ Microsoft Antimalware extension logs are available at:
 
 ### Support
 
-For more help, contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Or file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
+For more help, contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Or file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support common questions](https://azure.microsoft.com/support/faq/).

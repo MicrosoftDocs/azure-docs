@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Active Directory reports and monitoring documentation
-summary: Learn how to use reports in Azure AD.
+summary: Learn how to use reports, monitoring, workbooks, and recommendations in Azure Active Directory (Azure AD).
 
 metadata:
   title: Azure Active Directory reports and monitoring documentation
@@ -10,9 +10,9 @@ metadata:
   ms.service: active-directory
   ms.subservice: devices
   ms.topic: landing-page
-  author: MarkusVi
-  ms.author: markvi
-  ms.date: 08/29/2019
+  author: shlipsey3
+  ms.author: sarahlipsey
+  ms.date: 12/16/2022
   ms.collection: M365-identity-device-management
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -21,13 +21,13 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Azure Active Directory reports and monitoring
+  - title: About Azure AD reports and monitoring
     linkLists:
       - linkListType: overview
         links:
-          - text: What are Azure Active Directory reports?
+          - text: What are Azure AD reports?
             url: overview-reports.md
-          - text: What is Azure Active Directory monitoring?
+          - text: What is Azure AD monitoring?
             url: overview-monitoring.md
       - linkListType: concept
         links:
@@ -35,23 +35,19 @@ landingContent:
            url: concept-audit-logs.md
          - text: Sign-in logs
            url: concept-sign-ins.md
-         - text: Risky sign-in logs
-           url: ../identity-protection/overview-identity-protection.md
-         - text: Users flagged for risk logs
-           url: ../identity-protection/overview-identity-protection.md
          - text: Provisioning logs
            url: concept-provisioning-logs.md
   # Card
-  - title: Use reports in Azure AD
+  - title: Use logs and reports in Azure AD
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Find activity reports
-            url: howto-find-activity-reports.md
-          - text: Remediate users flagged for risk
-            url: howto-remediate-users-flagged-for-risk.md
-          - text: Use Azure AD workbooks
-            url: howto-use-azure-monitor-workbooks.md
+          - text: Access activity logs
+            url: howto-access-activity-logs.md
+          - text: Download activity logs
+            url: howto-download-logs.md
+          - text: How to manage inactive user accounts
+            url: howto-manage-inactive-user-accounts.md
   # Card
   - title: Use monitoring in Azure AD
     linkLists:
@@ -59,5 +55,41 @@ landingContent:
         links:
           - text: Analyze activity logs in Azure Monitor logs
             url: howto-analyze-activity-logs-log-analytics.md
-          - text: Install and use the log analytics views for Azure AD
-            url: howto-install-use-log-analytics-views.md
+
+  # Card
+  - title: Use workbooks in Azure AD
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are Azure Active Directory workbooks?
+            url: overview-reports.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use Azure AD workbooks
+            url: howto-use-azure-monitor-workbooks.md
+
+  # Card
+  - title: Use recommendations in Azure AD
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are Azure Active Directory recommendations?
+            url: overview-recommendations.md
+      - linkListType: reference
+        links:
+          - text: Convert per-user MFA to Conditional Access
+            url: recommendation-turn-off-per-user-mfa.md
+          - text: Migrate to Microsoft Authenticator
+            url: recommendation-migrate-to-authenticator.md           
+
+  # Card
+  - title: Common scenarios for using reports and monitoring
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Azure AD log integrations
+            url: concept-activity-logs-azure-monitor.md
+          - text: Explore basic info on the sign-in logs
+            url: reference-basic-info-sign-in-logs.md
+          - text: Troubleshoot sign-in errors
+            url: howto-troubleshoot-sign-in-errors.md

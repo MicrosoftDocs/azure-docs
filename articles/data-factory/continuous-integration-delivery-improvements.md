@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 07/20/2023
 ---
 
 # Automated publishing for continuous integration and delivery
@@ -32,6 +32,9 @@ This article focuses on the continuous deployment improvements and the automated
 ## Continuous deployment improvements
 
 The automated publish feature takes the **Validate all** and **Export ARM template** features from the Data Factory user experience and makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). For this reason, you can programmatically trigger these actions instead of having to go to the Data Factory UI and select a button manually. This capability will give your CI/CD pipelines a truer continuous integration experience.
+
+> [!NOTE]
+> Be sure to use the latest versions of node and npm to avoid errors that can occur due to package incompatibility with older versions.
 
 ### Current CI/CD flow
 
@@ -65,9 +68,6 @@ In the current CI/CD flow, the user experience is the intermediary to create the
 > [!NOTE]
 > You can continue to use the existing mechanism, which is the `adf_publish` branch, or you can use the new flow. Both are supported.
 
-> [!WARNING]
-> When using automated publishing, the **Include in ARM template** configuration for global parameters is not supported and will result in the factory’s Git configuration being removed after the ARM template deployment. Instead, use the [PowerShell script method](author-global-parameters.md#cicd) to deploy global parameters in your Azure pipelines.
-
 ## Package overview
 
 Two commands are currently available in the package:
@@ -77,7 +77,7 @@ Two commands are currently available in the package:
 
 ### Export ARM template
 
-Run `npm run build export <rootFolder> <factoryId> [outputFolder]` to export the ARM template by using the resources of a given folder. This command also runs a validation check prior to generating the ARM template. Here's an example:
+Run `npm run build export <rootFolder> <factoryId> [outputFolder]` to export the ARM template by using the resources of a given folder. This command also runs a validation check prior to generating the ARM template. Here's an example using a resource group named **testResourceGroup**:
 
 ```dos
 npm run build export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory ArmTemplateOutput
@@ -87,8 +87,11 @@ npm run build export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxx
 - `FactoryId` is a mandatory field that represents the Data Factory resource ID in the format `/subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.DataFactory/factories/<dfName>`.
 - `OutputFolder` is an optional parameter that specifies the relative path to save the generated ARM template.
 
+The ability to stop/start only the updated triggers is now generally available and is merged into the command shown above. 
+
 > [!NOTE]
 > The ARM template generated isn't published to the live version of the factory. Deployment should be done by using a CI/CD pipeline.
+
 
 ### Validate
 
@@ -119,7 +122,7 @@ Follow these steps to get started:
            "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index"
        },
        "dependencies":{
-           "@microsoft/azure-data-factory-utilities":"^0.1.5"
+           "@microsoft/azure-data-factory-utilities":"^1.0.0"
        }
    } 
    ```
@@ -144,7 +147,7 @@ Follow these steps to get started:
    
    - task: NodeTool@0
      inputs:
-       versionSpec: '10.x'
+       versionSpec: '14.x'
      displayName: 'Install Node.js'
    
    - task: Npm@1
@@ -155,13 +158,13 @@ Follow these steps to get started:
      displayName: 'Install npm package'
    
    # Validates all of the Data Factory resources in the repository. You'll get the same validation errors as when "Validate All" is selected.
-   # Enter the appropriate subscription and name for the source factory.
+   # Enter the appropriate subscription and name for the source factory. Either of the "Validate" or "Validate and Generate ARM temmplate" options are required to perform validation. Running both is unnecessary.
    
    - task: Npm@1
      inputs:
        command: 'custom'
        workingDir: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>' #replace with the package.json folder
-       customCommand: 'run build validate $(Build.Repository.LocalPath)/<Root-folder-from-Git-configuration-settings-in-ADF> /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/<Your-Factory-Name>'
+       customCommand: 'run build validate $(Build.Repository.LocalPath)/<Root-folder-from-Git-configuration-settings-in-ADF> /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/<Your-ResourceGroup-Name>/providers/Microsoft.DataFactory/factories/<Your-Factory-Name>'
      displayName: 'Validate'
    
    # Validate and then generate the ARM template into the destination folder, which is the same as selecting "Publish" from the UX.
@@ -171,7 +174,9 @@ Follow these steps to get started:
      inputs:
        command: 'custom'
        workingDir: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>' #replace with the package.json folder
-       customCommand: 'run build export $(Build.Repository.LocalPath)/<Root-folder-from-Git-configuration-settings-in-ADF> /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/<Your-Factory-Name> "ArmTemplate"'
+       customCommand: 'run build export $(Build.Repository.LocalPath)/<Root-folder-from-Git-configuration-settings-in-ADF> /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/<Your-ResourceGroup-Name>/providers/Microsoft.DataFactory/factories/<Your-Factory-Name> "ArmTemplate"'
+   #For using preview that allows you to only stop/ start triggers that are modified, please comment out the above line and uncomment the below line. Make sure the package.json contains the build-preview command. 
+   	#customCommand: 'run build-preview export $(Build.Repository.LocalPath) /subscriptions/222f1459-6ebd-4896-82ab-652d5f6883cf/resourceGroups/GartnerMQ2021/providers/Microsoft.DataFactory/factories/Dev-GartnerMQ2021-DataFactory "ArmTemplate"'
      displayName: 'Validate and Generate ARM template'
    
    # Publish the artifact to be used as a source for a release pipeline.
@@ -182,10 +187,15 @@ Follow these steps to get started:
        artifact: 'ArmTemplates'
        publishLocation: 'pipeline'
    ```
+> [!NOTE]
+> Node version 10.x is currently still supported but may be deprected in the future. We highly recommend upgrading to the latest version.
 
 4. Enter your YAML code. We recommend that you use the YAML file as a starting point.
 
 5. Save and run. If you used the YAML, it gets triggered every time the main branch is updated.
+
+> [!NOTE]
+> The generated artifacts already contain pre and post deployment scripts for the triggers so it isn't necessary to add these manually. However, when deploying one would still need to reference the [documentation on stopping and starting triggers](continuous-integration-delivery-sample-script.md#script-execution-and-parameters) to execute the provided script.
 
 ## Next steps
 

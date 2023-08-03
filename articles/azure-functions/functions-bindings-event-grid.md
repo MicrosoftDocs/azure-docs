@@ -1,73 +1,208 @@
 ---
 title: Azure Event Grid bindings for Azure Functions
 description: Understand how to handle Event Grid events in Azure Functions.
-author: craigshoemaker
 
 ms.topic: reference
-ms.date: 02/14/2020
-ms.author: cshoe
-ms.custom: fasttrack-edit
+ms.date: 03/04/2022
+ms.custom: fasttrack-edit, devx-track-extended-java, devx-track-js, devx-track-python
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure Event Grid bindings for Azure Functions
 
-This reference explains how to handle [Event Grid](../event-grid/overview.md) events in Azure Functions. For details on how to handle Event Grid messages in an HTTP end point, see [Receive events to an HTTP endpoint](../event-grid/receive-events.md).
+This reference shows how to connect to Azure Event Grid using Azure Functions triggers and bindings.  
 
-Event Grid is an Azure service that sends HTTP requests to notify you about events that happen in *publishers*. A publisher is the service or resource that originates the event. For example, an Azure blob storage account is a publisher, and [a blob upload or deletion is an event](../storage/blobs/storage-blob-event-overview.md). Some [Azure services have built-in support for publishing events to Event Grid](../event-grid/overview.md#event-sources).
-
-Event *handlers* receive and process events. Azure Functions is one of several [Azure services that have built-in support for handling Event Grid events](../event-grid/overview.md#event-handlers). In this reference, you learn to use an Event Grid trigger to invoke a function when an event is received from Event Grid, and to use the output binding to send events to an [Event Grid custom topic](../event-grid/post-to-custom-topic.md).
-
-If you prefer, you can use an HTTP trigger to handle Event Grid Events; see [Receive events to an HTTP endpoint](../event-grid/receive-events.md). Currently, you can't use an Event Grid trigger for an Azure Functions app when the event is delivered in the [CloudEvents schema](../event-grid/cloudevents-schema.md#azure-functions). Instead, use an HTTP trigger.
+[!INCLUDE [functions-event-grid-intro](../../includes/functions-event-grid-intro.md)] 
 
 | Action | Type |
 |---------|---------|
-| Run a function when an Event Grid event is dispatched | [Trigger](./functions-bindings-event-grid-trigger.md) |
-| Sends an Event Grid event |[Output binding](./functions-bindings-event-grid-output.md) |
+| Run a function when an Event Grid event is dispatched | [Trigger][trigger] |
+| Sends an Event Grid event | [Output binding][binding] |
+| Control the returned HTTP status code |  [HTTP endpoint](../event-grid/receive-events.md) | 
 
-The code in this reference defaults to .NET Core syntax, used in Functions version 2.x and higher. For information on the 1.x syntax, see the [1.x functions templates](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
-## Add to your Functions app
+::: zone pivot="programming-language-csharp"
 
-### Functions 2.x and higher
+## Install extension
 
-Working with the trigger and bindings requires that you reference the appropriate package. The NuGet package is used for .NET class libraries while the extension bundle is used for all other application types.
+The extension NuGet package you install depends on the C# mode you're using in your function app: 
 
-| Language | Add by... | Remarks |
-|---|---|---|
-| C# | Installing the [NuGet package], version 2.x | |
-| C# Script, Java, JavaScript, Python, PowerShell | Registering the [extension bundle] | The [Azure Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) is recommended to use with Visual Studio Code. |
-| C# Script (online-only in Azure portal) | Adding a binding | To update existing binding extensions without having to republish your function app, see [Update your extensions]. |
+# [In-process](#tab/in-process)
 
-[core tools]: ./functions-run-local.md
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
-[NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid
-[Update your extensions]: ./functions-bindings-register.md
-[Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
+Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
-#### Event Grid extension 3.x and higher
+In a variation of this model, Functions can be run using [C# scripting], which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
 
-A new version of the Event Grid bindings extension is now available. For .NET applications, it changes the types that you can bind to, replacing the types from `Microsoft.Azure.EventGrid.Models` with newer types from [Azure.Messaging.EventGrid](/dotnet/api/azure.messaging.eventgrid). [Cloud events](/dotnet/api/azure.messaging.cloudevent) are also supported in the new Event Grid extension.
+# [Isolated process](#tab/isolated-process)
 
-This extension version is available by installing the [NuGet package], version 3.x, or it can be added from the extension bundle v3 by adding the following in your `host.json` file:
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[3.3.0, 4.0.0)"
-  }
-}
-```
+---
 
-[!INCLUDE [functions-bindings-bundle-v3-tables-note](../../includes/functions-bindings-bundle-v3-tables-note.md)]
+The functionality of the extension varies depending on the extension version:
+
+# [Extension v3.x](#tab/extensionv3/in-process)
+
+_This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 3.x._
+
+This version of the extension supports updated Event Grid binding parameter types of [Azure.Messaging.CloudEvent][CloudEvent] and [Azure.Messaging.EventGrid.EventGridEvent][EventGridEvent].
+
+Add this version of the extension to your project by installing the [NuGet package], version 3.x.
+
+# [Extension v2.x](#tab/extensionv2/in-process)
+
+_This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 2.x._
+
+Supports the default Event Grid binding parameter type of [Microsoft.Azure.EventGrid.Models.EventGridEvent](/dotnet/api/microsoft.azure.eventgrid.models.eventgridevent). Event Grid extension versions earlier than 3.x don't support [CloudEvents schema](../event-grid/cloudevents-schema.md#azure-functions). To consume this schema, instead use an HTTP trigger, or switch to **Extension v3.x**.
+
+Add the extension to your project by installing the [NuGet package], version 2.x.
+
+# [Functions 1.x](#tab/functionsv1/in-process)
+
+Functions 1.x apps automatically have a reference to the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x. Event Grid extension versions earlier than 3.x don't support [CloudEvents schema](../event-grid/cloudevents-schema.md#azure-functions). To consume this schema, instead use an HTTP trigger, or switch to **Extension v3.x**. To do so, you will need to [upgrade your application to Functions 4.x].
+
+
+The Event Grid output binding is only available for Functions 2.x and higher.
+
+# [Extension v3.x](#tab/extensionv3/isolated-process)
+
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventGrid), version 3.x.
+
+# [Extension v2.x](#tab/extensionv2/isolated-process)
+
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventGrid), version 2.x. Event Grid extension versions earlier than 3.x don't support [CloudEvents schema](../event-grid/cloudevents-schema.md#azure-functions). To consume this schema, instead use an HTTP trigger.
+
+# [Functions 1.x](#tab/functionsv1/isolated-process)
+
+Functions version 1.x doesn't support the isolated worker process. 
+
+The Event Grid output binding is only available for Functions 2.x and higher.
+
+---
+
+::: zone-end  
+
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
+
+## Install bundle
+
+The Event Grid extension is part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the Event Grid binding, or if bundles aren't already installed. To learn more, see [extension bundle].
+
+# [Bundle v3.x](#tab/extensionv3)
+
+You can add this version of the extension from the extension bundle v3 by adding or replacing the following configuration in your `host.json` file:
+
+[!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
 
 To learn more, see [Update your extensions].
 
-### Functions 1.x
+# [Bundle v2.x](#tab/extensionv2)
 
-Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
+You can install this version of the extension in your function app by registering the [extension bundle], version 2.x. Event Grid extension versions earlier than 3.x don't support [CloudEvents schema](../event-grid/cloudevents-schema.md#azure-functions). To consume this schema, instead use an HTTP trigger.
+
+# [Functions 1.x](#tab/functionsv1)
+
+The Event Grid output binding is only available for Functions 2.x and higher. Event Grid extension versions earlier than 3.x don't support [CloudEvents schema](../event-grid/cloudevents-schema.md#azure-functions). To consume this schema, instead use an HTTP trigger.
+
+---
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+## Binding types
+
+The binding types supported for .NET depend on both the extension version and C# execution mode, which can be one of the following: 
+   
+# [In-process](#tab/in-process)
+
+An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
+ 
+# [Isolated process](#tab/isolated-process)
+
+An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
+
+---
+
+Choose a version to see binding type details for the mode and version.
+
+# [Extension v3.x](#tab/extensionv3/in-process)
+
+The Event Grid extension supports parameter types according to the table below.
+
+| Binding | Parameter types |
+|-|-|
+| Event Grid trigger | [CloudEvent]<br/>[EventGridEvent]<br/>[BinaryData]<br/>[Newtonsoft.Json.Linq.JObject][JObject]<br/>`string` |
+| Event Grid output (single event) | [CloudEvent]<br/>[EventGridEvent]<br/>[BinaryData]<br/>[Newtonsoft.Json.Linq.JObject][JObject]<br/>`string` |
+| Event Grid output (multiple events) | `ICollector<T>` or `IAsyncCollector<T>` where `T` is one of the single event types |
+
+# [Extension v2.x](#tab/extensionv2/in-process)
+
+This version of the extension supports parameter types according to the table below. It doesn't support for the [CloudEvents schema], which is exclusive to **Extension v3.x**.
+
+| Binding | Parameter types |
+|-|-|
+| Event Grid trigger | [Microsoft.Azure.EventGrid.Models.EventGridEvent]<br/>[Newtonsoft.Json.Linq.JObject][JObject]<br/>`string` |
+| Event Grid output | [Microsoft.Azure.EventGrid.Models.EventGridEvent]<br/>[Newtonsoft.Json.Linq.JObject][JObject]<br/>`string` |
+
+# [Functions 1.x](#tab/functionsv1/in-process)
+
+This version of the extension supports parameter types according to the table below. It doesn't support for the [CloudEvents schema], which is exclusive to **Extension v3.x**.
+
+| Binding | Parameter types |
+|-|-|
+| Event Grid trigger | [Newtonsoft.Json.Linq.JObject][JObject]<br/>`string` |
+| Event Grid output | [Newtonsoft.Json.Linq.JObject][JObject]<br/>`string` |
+
+# [Extension v3.x](#tab/extensionv3/isolated-process)
+
+The isolated worker process supports parameter types according to the tables below. Support for binding to `Stream`, and to types from [Azure.Messaging] is in preview.
+
+**Event Grid trigger**
+
+[!INCLUDE [functions-bindings-event-grid-trigger-dotnet-isolated-types](../../includes/functions-bindings-event-grid-trigger-dotnet-isolated-types.md)]
+
+**Event Grid output binding**
+
+[!INCLUDE [functions-bindings-event-grid-output-dotnet-isolated-types](../../includes/functions-bindings-event-grid-output-dotnet-isolated-types.md)]
+
+# [Extension v2.x](#tab/extensionv2/isolated-process)
+
+Earlier versions of this extension in the isolated worker process only support binding to strings and plain-old CLR object (POCO) types. Additional options are available to **Extension v3.x**.
+
+# [Functions 1.x](#tab/functionsv1/isolated-process)
+
+Functions version 1.x doesn't support isolated worker process. To use the isolated worker model, [upgrade your application to Functions 4.x].
+
+---
+
+[CloudEvent]: /dotnet/api/azure.messaging.cloudevent
+[EventGridEvent]: /dotnet/api/azure.messaging.eventgrid.eventgridevent
+[BinaryData]: /dotnet/api/system.binarydata
+
+[JObject]: https://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm
+[Microsoft.Azure.EventGrid.Models.EventGridEvent]: /dotnet/api/microsoft.azure.eventgrid.models.eventgridevent
+[upgrade your application to Functions 4.x]: ./migrate-version-1-version-4.md
+
+:::zone-end
 
 ## Next steps
+
+* If you have questions, submit an issue to the team [here](https://github.com/Azure/azure-sdk-for-net/issues)
+* [Event Grid trigger][trigger]
+* [Event Grid output binding][binding]
 * [Run a function when an Event Grid event is dispatched](./functions-bindings-event-grid-trigger.md)
 * [Dispatch an Event Grid event](./functions-bindings-event-grid-trigger.md)
+
+[Azure.Messaging]: /dotnet/api/azure.messaging
+[Azure.Messaging.EventGrid]: /dotnet/api/azure.messaging.eventgrid
+
+[binding]: functions-bindings-event-grid-output.md
+[trigger]: functions-bindings-event-grid-trigger.md
+[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid
+[Update your extensions]: ./functions-bindings-register.md
+
+[CloudEvents schema]: ../event-grid/cloudevents-schema.md#azure-functions
+
+[C# scripting]: ./functions-reference-csharp.md

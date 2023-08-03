@@ -1,12 +1,12 @@
 ---
-title: Find errors & resume jobs with logs in AzCopy (Azure Storage) | Microsoft Docs
+title: Find errors & resume jobs with logs in AzCopy (Azure Storage)
 description: Learn how to use logs to diagnose errors, and to resume jobs that are paused by using plan files. 
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.reviewer: dineshm
 ---
 
@@ -108,7 +108,7 @@ Use the `azcopy env` to check the current value of this variable. If the value i
 
 By default, AzCopy log level is set to `INFO`. If you would like to reduce the log verbosity to save disk space, overwrite this setting by using the ``--log-level`` option.
 
-Available log levels are: `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC`, and `FATAL`.
+Available log levels are: `DEBUG`, `INFO`, `WARNING`, `ERROR`, and `NONE`.
 
 ## Remove plan and log files
 

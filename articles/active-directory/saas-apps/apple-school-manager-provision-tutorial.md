@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Apple School Manager for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Apple School Manager for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Apple School Manager.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: f006c177-7b35-4af1-84f2-db4a4e2bf96a
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 09/08/2020
+ms.date: 11/21/2022
 ms.author: thwimmer
 
 ---
@@ -29,6 +29,7 @@ This tutorial describes the steps you need to perform in both Apple School Manag
 > * Create users in Apple School Manager
 > * Remove users in Apple School Manager when they do not require access anymore
 > * Keep specific user attributes synchronized between Azure AD and Apple School Manager
+> * [Single sign-on](../manage-apps/add-application-portal-setup-oidc-sso.md) to Apple School Manager (recommended).
 
 ## Prerequisites
 
@@ -52,53 +53,57 @@ The scenario outlined in this tutorial assumes that you already have the followi
 2. Click Settings at the bottom of the sidebar click Data Source below Organization Settings, then click Connect to Data Source.
 3. Click Connect next to SCIM, carefully read the warning, click Copy, then click Close.
 [The Connect to SCIM window, which provides a token and a Copy button under it.]
-Leave this window open to copy the Tenant URL from Apple Business Manager to Azure AD, which is: 'https://federation.apple.com/feeds/school/scim'
+Leave this window open to copy the Tenant URL from Apple School Manager to Azure AD, which is: `https://federation.apple.com/feeds/school/scim`
 
-    ![Apple School Manager](media/appleschoolmanager-provisioning-tutorial/scim-token.png)
+    ![Screenshot of Apple School Manager token generation.](media/apple-school-manager-provision-tutorial/scim-token.png)
 
-> [!NOTE]
-> The secret token shouldn’t be shared with anyone other than the Azure AD administrator.
+    > [!NOTE]
+    > The secret token shouldn’t be shared with anyone other than the Azure AD administrator.
 
 ## Step 3. Add Apple School Manager from the Azure AD application gallery
 
-Add Apple School Manager from the Azure AD application gallery to start managing provisioning to Apple School Manager. If you have previously setup Apple School Manager for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md).
+* Add Apple School Manager from the Azure AD application gallery to start managing provisioning to Apple School Manager. If you have previously setup Apple School Manager for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially.
 
+* To add the Apple School Manager Azure AD app with Microsoft tenants, the administrator of the tenants must go through the federated authentication setup process, including testing authentication. When authentication has succeeded, the Apple School Manager Azure AD app is populated in the tenant and the administrator can federate domains and configure Apple School Manager to use SCIM (System for Cross-domain Identity Management) for directory sync.
+
+   [Use federated authentication with MS Azure AD in Apple School Manager](https://support.apple.com/en-ke/guide/apple-school-manager/axmb02f73f18/web)
+   
 ## Step 4. Define who will be in scope for provisioning 
 
 The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* When assigning users to Apple School Manager, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add additional roles. 
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 ## Step 5. Configure automatic user provisioning to Apple School Manager
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
-    ![Enterprise applications blade](common/enterprise-applications.png)
+    ![Screenshot of Enterprise applications blade.](common/enterprise-applications.png)
 
 2. In the applications list, select **Apple School Manager**.
 
-    ![The Apple School Manager in the Applications list](common/all-applications.png)
+    ![Screenshot of Apple School Manager in the Applications list.](common/all-applications.png)
 
 3. Select the **Provisioning** tab.
 
-    ![Provisioning tab](common/provisioning.png)
+    ![Screenshot of Provisioning tab.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-    ![Provisioning tab automatic](common/provisioning-automatic.png)
+    ![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input the **SCIM 2.0 base URL and Access Token** values retrieved from Apple School Manager in **Tenant URL** and **Secret Token** respectively.. Click **Test Connection** to ensure Azure AD can connect to Apple School Manager. If the connection fails, ensure your Apple School Manager account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input the **SCIM 2.0 base URL and Access Token** values retrieved from Apple School Manager in **Tenant URL** and **Secret Token** respectively. Click **Test Connection** to ensure Azure AD can connect to Apple School Manager. If the connection fails, ensure your Apple School Manager account has Admin permissions and try again.
 
-    ![Token](common/provisioning-testconnection-tenanturltoken.png)
+    ![Screenshot of Token.](common/provisioning-testconnection-tenanturltoken.png)
 
 > [!NOTE]
 >If the connection is successful, Apple School Manager shows the SCIM connection as active. This process can take up to 60 seconds for Apple School Manager to reflect the latest connection status.
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
 
-    ![Notification Email](common/provisioning-notification-email.png)
+    ![Screenshot of Notification Email.](common/provisioning-notification-email.png)
 
 7. Click **Save**.
 
@@ -125,15 +130,15 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 11. To enable the Azure AD provisioning service for Apple School Manager, change the **Provisioning Status** to **On** in the Settings section.
 
-    ![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
+    ![Screenshot of Provisioning Status Toggled On.](common/provisioning-toggle-on.png)
 
 12. Define the users and/or groups that you would like to provision to Apple School Manager by choosing the desired values in **Scope** in the **Settings** section.
 
-    ![Provisioning Scope](common/provisioning-scope.png)
+    ![Screenshot of Provisioning Scope.](common/provisioning-scope.png)
 
 13. When you are ready to provision, click **Save**.
 
-    ![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
+    ![Screenshot of Saving Provisioning Configuration.](common/provisioning-configuration-save.png)
 
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running.
 

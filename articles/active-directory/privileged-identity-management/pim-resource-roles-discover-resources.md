@@ -1,24 +1,24 @@
 ---
-title: Discover Azure resources to manage in PIM - Azure AD | Microsoft Docs
+title: Discover Azure resources to manage in PIM
 description: Learn how to discover Azure resources to manage in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: billmath
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 12/07/2021
-ms.author: curtand
+ms.date: 06/27/2022
+ms.author: billmath
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ---
 
 # Discover Azure resources to manage in Privileged Identity Management
 
-Using Azure Active Directory (Azure AD) Privileged Identity Management (PIM), you can improve the protection of your Azure resources. This is helpful to:
+You can use Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, to improve the protection of your Azure resources. This helps:
 
 - Organizations that already use Privileged Identity Management to protect Azure AD roles
 - Management group and subscription owners who are trying to secure production resources
@@ -31,7 +31,9 @@ You can view and manage the management groups or subscriptions to which you have
 
 ## Discover resources
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Open **Azure AD Privileged Identity Management**.
 

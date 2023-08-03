@@ -2,14 +2,14 @@
 title: 'Use Azure Firewall to inspect traffic destined to a private endpoint'
 titleSuffix: Azure Private Link
 description: Learn how you can inspect traffic destined to a private endpoint using Azure Firewall.
-services: private-link
-author: jocortems
+author: asudbring
 ms.service: private-link
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 04/27/2023
 ms.author: allensu
-
+ms.custom: template-how-to, devx-track-linux
 ---
+
 # Use Azure Firewall to inspect traffic destined to a private endpoint
 
 > [!NOTE]
@@ -23,21 +23,25 @@ You may need to inspect or block traffic from clients to the services exposed vi
 
 The following limitations apply:
 
-* Network security groups (NSG) are bypassed by traffic coming from private endpoints
-* User-defined routes (UDR) are bypassed by traffic coming from private endpoints. User-defined routes can be used to override traffic destined for the private endpoint.
+* Network security groups (NSG) traffic is bypassed from private endpoints due to network policies being disabled for a subnet in a virtual network by default. To utilize network policies like User-Defined Routes and Network Security Groups support, network policy support must be enabled for the subnet. This setting is only applicable to private endpoints within the subnet. This setting affects all private endpoints within the subnet. For other resources in the subnet, access is controlled based on security rules in the network security group.
+
+* User-defined routes (UDR) traffic is bypassed from private endpoints. User-defined routes can be used to override traffic destined for the private endpoint.
+
 * A single route table can be attached to a subnet
+
 * A route table supports up to 400 routes
 
 Azure Firewall filters traffic using either:
 
 * [FQDN in network rules](../firewall/fqdn-filtering-network-rules.md) for TCP and UDP protocols
+
 * [FQDN in application rules](../firewall/features.md#application-fqdn-filtering-rules) for HTTP, HTTPS, and MSSQL. 
 
 > [!IMPORTANT] 
-> The use of application rules over network rules is recommended when inspecting traffic destined to private endpoints in order to maintain flow symmetry. If network rules are used, or an NVA is used instead of Azure Firewall, SNAT must be configured for traffic destined to private endpoints.
+> The use of application rules over network rules is recommended when inspecting traffic destined to private endpoints in order to maintain flow symmetry. If network rules are used, or an NVA is used instead of Azure Firewall, SNAT must be configured for traffic destined to private endpoints in order to maintain flow symmetry.
 
 > [!NOTE]
-> SQL FQDN filtering is supported in [proxy-mode](../azure-sql/database/connectivity-architecture.md#connection-policy) only (port 1433). **Proxy** mode can result in more latency compared to *redirect*. If you want to continue using redirect mode, which is the default for clients connecting within Azure, you can filter access using FQDN in firewall network rules.
+> SQL FQDN filtering is supported in [proxy-mode](/azure/azure-sql/database/connectivity-architecture#connection-policy) only (port 1433). **Proxy** mode can result in more latency compared to *redirect*. If you want to continue using redirect mode, which is the default for clients connecting within Azure, you can filter access using FQDN in firewall network rules.
 
 ## Scenario 1: Hub and spoke architecture - Dedicated virtual network for private endpoints
 
@@ -45,7 +49,7 @@ Azure Firewall filters traffic using either:
 
 This scenario is the most expandable architecture to connect privately to multiple Azure services using private endpoints. A route pointing to the network address space where the private endpoints are deployed is created. This configuration reduces administrative overhead and prevents running into the limit of 400 routes.
 
-Connections from a client virtual network to the Azure Firewall in a hub virtual network will incur charges if the virtual networks are peered. Connections from Azure Firewall in a hub virtual network to private endpoints in a peered virtual network are not charged.
+Connections from a client virtual network to the Azure Firewall in a hub virtual network incurs charges if the virtual networks are peered. Connections from Azure Firewall in a hub virtual network to private endpoints in a peered virtual network aren't charged.
 
 For more information on charges related to connections with peered virtual networks, see the FAQ section of the [pricing](https://azure.microsoft.com/pricing/details/private-link/) page.
 
@@ -59,13 +63,13 @@ This scenario is implemented when:
 
 * When only a few services are exposed in the virtual network using private endpoints
 
-The virtual machines will have /32 system routes pointing to each private endpoint. One route per private endpoint is configured to route traffic through Azure Firewall. 
+The virtual machines have /32 system routes pointing to each private endpoint. One route per private endpoint is configured to route traffic through Azure Firewall. 
 
 The administrative overhead of maintaining the route table increases as services are exposed in the virtual network. The possibility of hitting the route limit also increases.
 
 Depending on your overall architecture, it's possible to run into the 400 routes limit. It's recommended to use scenario 1 whenever possible.
 
-Connections from a client virtual network to the Azure Firewall in a hub virtual network will incur charges if the virtual networks are peered. Connections from Azure Firewall in a hub virtual network to private endpoints in a peered virtual network are not charged.
+Connections from a client virtual network to the Azure Firewall in a hub virtual network incurs charges if the virtual networks are peered. Connections from Azure Firewall in a hub virtual network to private endpoints in a peered virtual network aren't charged.
 
 For more information on charges related to connections with peered virtual networks, see the FAQ section of the [pricing](https://azure.microsoft.com/pricing/details/private-link/) page.
 
@@ -82,37 +86,40 @@ Use this pattern when a migration to a hub and spoke architecture isn't possible
 This architecture can be implemented if you have configured connectivity with your on-premises network using either: 
 
 * [ExpressRoute](..\expressroute\expressroute-introduction.md)
+
 * [Site to Site VPN](../vpn-gateway/tutorial-site-to-site-portal.md) 
 
 If your security requirements require client traffic to services exposed via private endpoints to be routed through a security appliance, deploy this scenario.
 
-The same considerations as in scenario 2 above apply. In this scenario, there aren't virtual network peering charges. For more information about how to configure your DNS servers to allow on-premises workloads to access private endpoints, see [On-Premises workloads using a DNS forwarder](./private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).
+The same considerations as in scenario 2 above apply. In this scenario, there aren't virtual network peering charges. For more information about how to configure your DNS servers to allow on-premises workloads to access private endpoints, see [on-premises workloads using a DNS forwarder](./private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).
 
 ## Prerequisites
 
 * An Azure subscription.
+
 * A Log Analytics workspace.  
 
 See, [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md) to create a workspace if you don't have one in your subscription.
 
-
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a VM
 
-In this section, you'll create a virtual network and subnet to host the VM used to access your private link resource. An Azure SQL database is used as the example service.
+In this section, you create a virtual network and subnet to host the VM used to access your private link resource. An Azure SQL database is used as the example service.
 
 ## Virtual networks and parameters
 
 Create three virtual networks and their corresponding subnets to:
 
 * Contain the Azure Firewall used to restrict communication between the VM and the private endpoint.
+
 * Host the VM that is used to access your private link resource.
+
 * Host the private endpoint.
 
-Replace the following parameters in the steps with the information below:
+Replace the following parameters in the steps with the following information:
 
 ### Azure Firewall network
 
@@ -175,7 +182,7 @@ Replace the following parameters in the steps with the information below:
     | Confirm Password | Reenter password. |
     | **Inbound port rules** |  |
     | Public inbound ports | Select **None**. |
-    |||
+
 
 3. Select **Next: Disks**.
 
@@ -266,9 +273,9 @@ In this section, you create a private SQL Database.
     | Resource group | Select **myResourceGroup**. You created this resource group in the previous section.|
     | **Database details** |  |
     | Database name  | Enter **mydatabase**.  |
-    | Server | Select **Create new** and enter the information below.    |
+    | Server | Select **Create new** and enter the following information.    |
     | Server name | Enter **mydbserver**. If this name is taken, enter a unique name.   |
-    | Server admin login | Enter a name of your choosing. |
+    | Server admin sign in | Enter a name of your choosing. |
     | Password    |    Enter a password of your choosing.    |
     | Confirm Password | Reenter password    |
     | Location    | Select **(US) South Central US**.    |
@@ -313,7 +320,7 @@ In this section, you create a private endpoint for the Azure SQL database in the
     | Subscription | Select your subscription. |
     | Resource type | Select **Microsoft.Sql/servers**. |
     | Resource | Select **mydbserver** or the name of the server you created in the previous step.
-    | Target sub-resource | Select **sqlServer**. |
+    | Target subresource | Select **sqlServer**. |
 
 8. Select the **Configuration** tab or select **Next: Configuration** at the bottom of the page.
 
@@ -341,7 +348,7 @@ In this section, you create a private endpoint for the Azure SQL database in the
 
 ## Connect the virtual networks using virtual network peering
 
-In this section, we'll connect virtual networks **myVMVNet** and **myPEVNet** to **myAzFwVNet** using peering. There won't be direct connectivity between **myVMVNet** and **myPEVNet**.
+In this section, we connect virtual networks **myVMVNet** and **myPEVNet** to **myAzFwVNet** using peering. There isn't direct connectivity between **myVMVNet** and **myPEVNet**.
 
 1. In the portal's search bar, enter **myAzFwVNet**.
 
@@ -367,7 +374,6 @@ In this section, we'll connect virtual networks **myVMVNet** and **myPEVNet** to
     | Allow forwarded traffic from myAzFwVNet to remote virtual network | Select **Enabled**. |
     | **Configure gateway transit settings** | |
     | Allow gateway transit | Leave unchecked |
-    |||
 
 4. Select **OK**.
 
@@ -398,7 +404,7 @@ In this section, we'll connect virtual networks **myVMVNet** and **myPEVNet** to
 
 ## Link the virtual networks to the private DNS zone
 
-In this section, we'll link virtual networks **myVMVNet** and **myAzFwVNet** to the **privatelink.database.windows.net** private DNS zone. This zone was created when we created the private endpoint. 
+In this section, we link virtual networks **myVMVNet** and **myAzFwVNet** to the **privatelink.database.windows.net** private DNS zone. This zone was created when we created the private endpoint. 
 
 The link is required for the VM and firewall to resolve the FQDN of database to its private endpoint address. Virtual network **myPEVNet** was automatically linked when the private endpoint was created.
 
@@ -424,7 +430,6 @@ The link is required for the VM and firewall to resolve the FQDN of database to 
     | Virtual network | Select **myVMVNet**. |
     | **CONFIGURATION** | |
     | Enable auto registration | Leave unchecked.    |
-
 
 6. Select **OK**.
 
@@ -463,7 +468,6 @@ This rule allows communication through the firewall that we created in the previ
     | Source | Enter **10.1.0.0/16**. |
     | Protocol: Port | Enter **mssql:1433**. |
     | Target FQDNs | Enter **mydbserver.database.windows.net**. |
-    |||
 
 7. Select **Add**.
 
@@ -471,7 +475,7 @@ This rule allows communication through the firewall that we created in the previ
 
 We didn't create a virtual network peering directly between virtual networks **myVMVNet** and **myPEVNet**. The virtual machine **myVM** doesn't have a route to the private endpoint we created. 
 
-In this section, we'll create a route table with a custom route. 
+In this section, we create a route table with a custom route. 
 
 The route sends traffic from the **myVM** subnet to the address space of virtual network **myPEVNet**, through the Azure Firewall.
 
@@ -551,13 +555,13 @@ Connect to the VM **myVm** from the internet as follows:
 
 ## Access SQL Server privately from the virtual machine
 
-In this section, you'll connect privately to the SQL Database using the private endpoint.
+In this section, you connect privately to the SQL Database using the private endpoint.
 
 1. Enter `nslookup mydbserver.database.windows.net`
     
-    You'll receive a message similar to below:
+    You receive a message similar to the following output:
 
-    ```bash
+    ```output
     Server:         127.0.0.53
     Address:        127.0.0.53#53
 
@@ -578,7 +582,7 @@ In this section, you'll connect privately to the SQL Database using the private 
     ```bash
     sqlcmd -S mydbserver.database.windows.net -U '<ServerAdmin>' -P '<YourPassword>'
     ```
-4. A SQL command prompt will be displayed on successful login. Enter **exit** to exit the **sqlcmd** tool.
+4. A SQL command prompt is displayed on successful sign in. Enter **exit** to exit the **sqlcmd** tool.
 
 5. Close the connection to **myVM** by entering **exit**.
 

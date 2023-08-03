@@ -3,7 +3,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 03/31/2021
+ms.date: 06/06/2023
 ---
 
 [![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples)
@@ -22,11 +22,13 @@ To complete the steps in this article, you need the following resources:
 
 In the copy of the Microsoft Azure IoT SDK for Node.js you downloaded previously, open the *azure-iot-sdk-node/device/samples/javascript/pnp_temperature_controller.js* file in a text editor.
 
+The sample implements the multiple-component [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) Digital Twin Definition Language model.
+
 When you run the sample to connect to IoT Central, it uses the Device Provisioning Service (DPS) to register the device and generate a connection string. The sample retrieves the DPS connection information it needs from the command-line environment.
 
 The `main` method:
 
-* Creates a `client` object and sets the `dtmi:com:example:TemperatureController;2` model ID before it opens the connection. IoT Central uses the model ID to identify or generate the device template for this device. To learn more, see [Associate a device with a device template](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
+* Creates a `client` object and sets the `dtmi:com:example:TemperatureController;2` model ID before it opens the connection. IoT Central uses the model ID to identify or generate the device template for this device. To learn more, see [Assign a device to a device template](../articles/iot-central/core/concepts-device-templates.md#assign-a-device-to-a-device-template).
 * Creates command handlers for three commands.
 * Starts a loop for each thermostat component to send temperature telemetry every 5 seconds.
 * Starts a loop for the default component to send working set size telemetry every 6 seconds.
@@ -116,14 +118,14 @@ async function main() {
 }
 ```
 
-The `provisionDevice` function shows how the device uses DPS to register and connect to IoT Central. The payload includes the model ID that IoT Central uses to [associate the device with a device template](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template):
+The `provisionDevice` function shows how the device uses DPS to register and connect to IoT Central. The payload includes the model ID that IoT Central uses to [Assign a device to a device template](../articles/iot-central/core/concepts-device-templates.md#assign-a-device-to-a-device-template):
 
 ```javascript
 async function provisionDevice(payload) {
   var provSecurityClient = new SymmetricKeySecurityClient(registrationId, symmetricKey);
   var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvProtocol(), provSecurityClient);
 
-  if (!!(payload)) {
+  if (payload) {
     provisioningClient.setProvisioningPayload(payload);
   }
 
@@ -144,13 +146,13 @@ The `sendTelemetry` function shows how the device sends the temperature telemetr
 
 ```javascript
 async function sendTelemetry(deviceClient, data, index, componentName) {
-  if (!!(componentName)) {
+  if componentName) {
     console.log('Sending telemetry message %d from component: %s ', index, componentName);
   } else {
     console.log('Sending telemetry message %d from root interface', index);
   }
   const msg = new Message(data);
-  if (!!(componentName)) {
+  if (componentName) {
     msg.properties.add(messageSubjectProperty, componentName);
   }
   msg.contentType = 'application/json';
@@ -159,7 +161,7 @@ async function sendTelemetry(deviceClient, data, index, componentName) {
 }
 ```
 
-The `main` method uses a helper method called `helperCreateReportedPropertiesPatch` to create property update messages. This method takes an optional parameter to specify the component sending the property.:
+The `main` method uses a helper method called `helperCreateReportedPropertiesPatch` to create property update messages. This method takes an optional parameter to specify the component sending the property:
 
 ```javascript
 const helperCreateReportedPropertiesPatch = (propertiesToReport, componentName) => {
@@ -316,7 +318,7 @@ Sending telemetry message 0 from root interface
 
 [!INCLUDE [iot-central-monitor-thermostat](iot-central-monitor-thermostat.md)]
 
-You can see how the device responds to commands and property updates. The `getMaxMinReport` command is in the `thermostat2` component, the `reboot` command is in the default component. The `targetTemperature` writable property was set for the 'thermostat2` component:
+You can see how the device responds to commands and property updates. The `getMaxMinReport` command is in the `thermostat2` component, the `reboot` command is in the default component. The `targetTemperature` writable property was set for the `thermostat2` component:
 
 ```output
 Received command request for command name: thermostat2*getMaxMinReport

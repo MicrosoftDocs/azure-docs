@@ -2,11 +2,11 @@
 title: Azure EA portal administration for partners
 description: Describes portal administration topics pertaining to Partners 
 author: bandersmsft
-ms.reviewer: baolcsva
+ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 04/05/2023
 ms.author: banders
 ---
 

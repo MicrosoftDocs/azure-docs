@@ -1,53 +1,52 @@
 ---
 title: Weather services concepts in Microsoft Azure Maps
 description: Learn about the concepts that apply to Microsoft Azure Maps Weather services.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-
 ---
 
 # Weather services in Azure Maps
 
-This article introduces concepts that apply to Azure Maps [Weather services](/rest/api/maps/weather). We recommend going through this article before starting out with the weather APIs.
+This article introduces concepts that apply to Azure Maps [Weather services]. We recommend going through this article before starting out with the weather APIs.
 
 ## Unit types
 
-Some of the Weather service (Preview) APIs allow user to specify if the data is returned either in metric or in imperial units. The returned responses for these APIs include unitType and a numeric value that can be used for unit translations. See table below to interpret these values.
+Some of the Weather service APIs allow user to specify if the data is returned either in metric or in imperial units. The returned responses for these APIs include unitType and a numeric value that can be used for unit translations. See the following table to interpret these values.
 
-|unitType|Description         |
-|--------|--------------------|
-|0       |feet                |
-|1       |inches              |
-|2       |miles               |
-|3       |millimeter          |
-|4       |centimeter          |
-|5       |meter               |
-|6       |kilometer           |
-|7       |kilometersPerHour   |
-|8       |knots               |
-|9       |milesPerHour        |
-|10      |metersPerSecond     |
-|11      |hectoPascals        |
-|12      |inchesOfMercury     |
-|13      |kiloPascals         |
-|14      |millibars           |
-|15      |millimetersOfMercury|
-|16      |poundsPerSquareInch |
-|17      |celsius             |
-|18      |fahrenheit          |
-|19      |kelvin              |
-|20      |percent             |
-|21      |float               |
-|22      |integer             |
-|31      |MicrogramsPerCubicMeterOfAir             |
+|unitType|Description                 |
+|--------|----------------------------|
+|0       |feet                        |
+|1       |inches                      |
+|2       |miles                       |
+|3       |millimeter                  |
+|4       |centimeter                  |
+|5       |meter                       |
+|6       |kilometer                   |
+|7       |kilometersPerHour           |
+|8       |knots                       |
+|9       |milesPerHour                |
+|10      |metersPerSecond             |
+|11      |hectoPascals                |
+|12      |inchesOfMercury             |
+|13      |kiloPascals                 |
+|14      |millibars                   |
+|15      |millimetersOfMercury        |
+|16      |poundsPerSquareInch         |
+|17      |celsius                     |
+|18      |fahrenheit                  |
+|19      |kelvin                      |
+|20      |percent                     |
+|21      |float                       |
+|22      |integer                     |
+|31      |MicrogramsPerCubicMeterOfAir|
 
 ## Weather icons
 
-Some of the Weather service (Preview) APIs return the `iconCode` in the response. The `iconCode` is a numeric value used to define the icon. Don't link directly to these images from your applications, the URLs can and will change.
+Some of the Weather service APIs return the `iconCode` in the response. The `iconCode` is a numeric value used to define the icon. Don't link directly to these images from your applications, the URLs can change.
 
 | Icon Number |Icon| Day | Night | Text |
 |-------------|:----:|-----|-------|------|
@@ -92,14 +91,13 @@ Some of the Weather service (Preview) APIs return the `iconCode` in the response
 | 43           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries-night.png"::: | No  |  Yes   | Mostly Cloudy with Flurries|
 | 44           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | No  |  Yes   | Mostly Cloudy with Snow|
 
-
 ## Radar and satellite imagery color scale
 
-Via [Get Map Tile v2 API](/rest/api/maps/render-v2/get-map-tile) users can request latest radar and infrared satellite images. See below guide to help interpret colors used for radar and satellite tiles.
+Via [Get Map Tile v2 API] users can request latest radar and infrared satellite images. See the following guide to help interpret colors used for radar and satellite tiles.
 
 ### Radar Images
 
-The table below provides guidance to interpret the radar images and create a map legend for Radar tile data.
+The following table provides guidance to interpret the radar images and create a map legend for Radar tile data.
 
 | Hex color code | Color sample | Weather condition |
 |----------------|--------------|-------------------|
@@ -120,7 +118,7 @@ The table below provides guidance to interpret the radar images and create a map
 | #8a32d7        | ![Color for mix-heavy.](./media/weather-services-concepts/color-8a32d7.png) | Mix-Heavy |
 | #6500ba        | ![Color for mix-severe.](./media/weather-services-concepts/color-6500ba.png) | Mix-Severe |
 
-Detailed color palette for radar tiles with Hex color codes and dBZ values is shown below. dBZ represents precipitation intensity in weather radar. 
+Detailed color palette for radar tiles with Hex color codes and dBZ values is shown in the following table. dBZ represents precipitation intensity in weather radar.
 
 | **RAIN**             | **ICE**              | **SNOW**              | **MIXED**             |
 |----------------------|----------------------|-----------------------|-----------------------|
@@ -130,7 +128,7 @@ Detailed color palette for radar tiles with Hex color codes and dBZ values is sh
 | 3.75       (#92BE01) | 3.75       (#E69FC5) | 3.75       (#93C3EF)  | 3.75        (#BD8EE6) |
 | 5          (#92BA02) | 5          (#E69DC4) | 5          (#8DC1EE)  | 5           (#BB8BE6) |
 | 6.25       (#92B502) | 6.25       (#E69AC2) | 6.25       (#88BFEC)  | 6.25        (#BA87E6) |
-| 6.75       (#92B403) | 7.5       (#E697C1)  | 7.5        (#82BDEB)   | 7.5         (#B883E6) |
+| 6.75       (#92B403) | 7.5       (#E697C1)  | 7.5        (#82BDEB)  | 7.5         (#B883E6) |
 | 8          (#80AD02) | 8.75       (#E695C0) | 8.75       (#7DBAEA)  | 8.75        (#B680E6) |
 | 9.25       (#6FA602) | 10         (#E692BE) | 10         (#77B8E8)  | 10          (#B47CE6) |
 | 10.5       (#5EA002) | 11.25      (#E68FBD) | 11.25      (#72B6E7)  | 11.25       (#B378E6) |
@@ -138,7 +136,7 @@ Detailed color palette for radar tiles with Hex color codes and dBZ values is sh
 | 12.25      (#479702) | 13.75      (#E68ABA) | 13.75      (#67B2E5)  | 13.75       (#AF71E6) |
 | 13.5       (#3D9202) | 15         (#E687B9) | 15         (#61AEE4)  | 15          (#AE6EE6) |
 | 14.75      (#338D02) | 16.25      (#E685B8) | 16.25      (#5BABE3)  | 16.25       (#AB6AE4) |
-| 16         (#298802)  | 17.5       (#E682B6) | 17.5       (#56A8E2)  | 17.5        (#A967E3) |
+| 16         (#298802)  | 17.5       (#E682B6) | 17.5       (#56A8E2) | 17.5        (#A967E3) |
 | 17.25      (#1F8302) | 18.75      (#E67FB5) | 18.75      (#50A5E1)  | 18.75       (#A764E2) |
 | 17.75      (#1B8103) | 20         (#E67DB4) | 20         (#4BA2E0)  | 20          (#A560E1) |
 | 19         (#187102) | 21.25      (#E275B0) | 21.25       (#459EDF) | 21.25       (#A35DE0) |
@@ -186,15 +184,13 @@ Detailed color palette for radar tiles with Hex color codes and dBZ values is sh
 | 73.75      (#bf9bc4) | 73.75      (#7C1571) | 73.75      (#020298)  | 73.75       (#6500B9) |
 | 75         (#c9b5c2) | 75         (#7A1570) | 75         (#020096)  | 75          (#6500BA) |
 
-
-
 ### Satellite Images
 
-The table below provides guidance to interpret the infrared satellite images showing clouds by their temperature and how to create a map legend for these tiles. 
+The following table  provides guidance to interpret the infrared satellite images showing clouds by their temperature and how to create a map legend for these tiles.
 
 | Hex color code | Color sample | Cloud Temperature |
 |----------------|--------------|-------------------|
-| #b5b5b5        | ![Color tile for #b5b5b5.](./media/weather-services-concepts/color-b5b5b5.png) | Temperature-Low | 
+| #b5b5b5        | ![Color tile for #b5b5b5.](./media/weather-services-concepts/color-b5b5b5.png) | Temperature-Low |
 | #d24fa0        | ![Color tile for #d24fa0.](./media/weather-services-concepts/color-d24fa0.png) |  |
 | #8a32d7        | ![Color tile for #8a32d7.](./media/weather-services-concepts/color-8a32d7.png) |  |
 | #144bed        | ![Color tile for #144bed.](./media/weather-services-concepts/color-144bed.png) |  |
@@ -207,8 +203,7 @@ The table below provides guidance to interpret the infrared satellite images sho
 | #ba0808        | ![Color tile for #ba0808.](./media/weather-services-concepts/color-ba0808.png) |  |
 | #1f1f1f        | ![Color tile for #1f1f1f.](./media/weather-services-concepts/color-1f1f1f.png) | Temperature-High |
 
-
-Detailed color palette for infrared satellite tiles is shown below.
+Detailed color palette for infrared satellite tiles is shown in the following table.
 
 |**Temp (K)**|**Hex color code**|
 |--------|--------------|
@@ -470,11 +465,9 @@ Detailed color palette for infrared satellite tiles is shown below.
 
 ## Index IDs and Index Groups IDs
 
-[Get Daily Indices API](/rest/api/maps/weather) allows users to
-restrict returned results to specific index types or index
-groups.
+[Get Daily Indices API] allows users to restrict returned results to specific index types or index groups.
 
-Below is a table of available index IDs, their names, and a link to their range sets. Below this table is a table listing the various index groups.
+The following table lists the available index IDs, their names, and a link to their range sets. Below this table is a table listing the various index groups.
 
   Index Name |  ID  | Value Range
   -------------------------- |---|-----
@@ -524,7 +517,7 @@ Below is a table of available index IDs, their names, and a link to their range 
   Soil Moisture              | 34| [Poor-Excellent 1](#poor-excellent-1)
   Stargazing                 | 12| [Poor-Excellent 1](#poor-excellent-1)
 
-Below is the list of available Index groups (indexGroupId):
+The following table lists the available Index groups (indexGroupId):
 
   ID   | Group Name | Indices in this group |
   -------- | ------------------|------
@@ -544,94 +537,113 @@ Below is the list of available Index groups (indexGroupId):
 
 ## Daily index range sets
 
-[Get Daily Indices API](/rest/api/maps/weather) returns the ranged value and its associated category name for each index ID. Range sets are not the same for all indices. The tables below show the various range sets used by the supported indices listed in [Index IDs and index groups IDs](#index-ids-and-index-groups-ids). To find out which indices use which range sets, go to the [Index IDs and Index Groups IDs](#index-ids-and-index-groups-ids) section of this document.
+[Get Daily Indices API] returns the ranged value and its associated category name for each index ID. Range sets aren't the same for all indices. The following tables show the various range sets used by the supported indices listed in [Index IDs and index groups IDs]. To find out which indices use which range sets, go to the [Index IDs and Index Groups IDs] section of this document.
 
 ### Poor-Excellent 1
 
   | Category Name | Begin Range | End Range |
-  ----------------|--------------|------------
-  Poor              |  0 |                2.99
-  Fair              |  3  |               4.99
-  Good              |  5  |              6.99
-  Very Good         |  7  |               8.99
-  Excellent         |  9  |               10
+  ----------------|-------------|------------
+  Poor            |  0          |  2.99
+  Fair            |  3          |  4.99
+  Good            |  5          |  6.99
+  Very Good       |  7          |  8.99
+  Excellent       |  9          |  10
 
 ### Poor-Excellent 2
 
  | Category Name | Begin Range | End Range |
-  ----------------|--------------|------------
-  Poor           |0              |  3
-  Fair           |3.01           |  6
-  Good           |6.01           |  7.5
-  Very Good      |7.51           |  8.99
-  Excellent      |9              |  10
+  ---------------|-------------|-----------
+  Poor           | 0           |  3
+  Fair           | 3.01        |  6
+  Good           | 6.01        |  7.5
+  Very Good      | 7.51        |  8.99
+  Excellent      | 9           |  10
 
 ### Excellent-Poor
 
  | Category Name | Begin Range | End Range |
-  ----------------|--------------|------------
-  Excellent      |     0.00        |    1.00
-  Very Good        |   1.01          |  3.00
-  Good             |   3.01          |  5.00
-  Fair             |   5.01          |  7.00
-  Poor             |   7.01          |  10.00
+  ---------------|-------------|------------
+  Excellent      |   0.00      |   1.00
+  Very Good      |   1.01      |   3.00
+  Good           |   3.01      |   5.00
+  Fair           |   5.01      |   7.00
+  Poor           |   7.01      |   10.00
 
 ### Low-Extreme 1
 
-   | Category Name | Begin Range | End Range |
-  ----------------|--------------|------------
-  Low                |  0         |        1.99
-  Moderate           |  2         |        3.99
-  High               |  4         |        5.99
-  Very High          |  6         |        7.99
-  Extreme            |  8         |        10
+  | Category Name | Begin Range | End Range |
+  ----------------|-------------|------------
+  Low             |  0          |  1.99
+  Moderate        |  2          |  3.99
+  High            |  4          |  5.99
+  Very High       |  6          |  7.99
+  Extreme         |  8          |  10
 
 ### Low-Extreme 2
 
-   | Category Name | Begin Range | End Range |
-  ----------------|--------------|------------
-  Low                |  0            |      2.99
-  Moderate           |  3            |      4.99
-  High               |  5            |      6.99
-  Very High          |  7            |      8.99
-  Extreme            |  9            |      10
+  | Category Name | Begin Range | End Range |
+   ---------------|-------------|-----------
+  Low             |  0          |  2.99
+  Moderate        |  3          |  4.99
+  High            |  5          |  6.99
+  Very High       |  7          |  8.99
+  Extreme         |  9          |  10
 
 ### Very Unlikely-Very Likely
 
  | Category Name | Begin Range | End Range |
-  ----------------|--------------|------------
-  Very Unlikely      | 0     |           1.99
-  Unlikely           | 2     |           3.99
-  Possibly           | 4     |           5.99
-  Likely             | 6     |           7.99
-  Very Likely        | 8     |           10
+  ---------------|-------------|-----------
+  Very Unlikely  | 0           |   1.99
+  Unlikely       | 2           |   3.99
+  Possibly       | 4           |   5.99
+  Likely         | 6           |   7.99
+  Very Likely    | 8           |   10
 
 ### Very Unlikely-Very Likely 2
 
  | Category Name | Begin Range | End Range |
-  ----------------|--------------|------------
-  Very Unlikely      |  0.00     |         1.00
-  Unlikely           |  1.01     |         3.00
-  Possibly           |  3.01     |         5.00
-  Likely             |  5.01     |         7.00
-  Very Likely        |  7.01     |         10.00
+  ---------------|-------------|------------
+  Very Unlikely  |  0.00       |    1.00
+  Unlikely       |  1.01       |    3.00
+  Possibly       |  3.01       |    5.00
+  Likely         |  5.01       |    7.00
+  Very Likely    |  7.01       |    10.00
 
 ### Unlikely-Emergency
 
 | Category Name | Begin Range | End Range |
-  ----------------|--------------|------------
-  Unlikely         |  0     |          2.99
-  Watch            |  3     |          4.99
-  Advisory         |  5     |          6.99
-  Warning          |  7     |          8.99
-  Emergency        |  9     |          10
+  --------------|-------------|-----------
+  Unlikely      |  0          |     2.99
+  Watch         |  3          |     4.99
+  Advisory      |  5          |     6.99
+  Warning       |  7          |     8.99
+  Emergency     |  9          |     10
 
 ### Beneficial-At Extreme Risk
 
-| Category Name | Begin Range | End Range |
-  ----------------|--------------|------------
-  Beneficial        |    0        |        1.99
-  Neutral           |    2        |        3.99
-  At Risk           |    4        |        5.99
-  At High Risk      |    6        |        7.99
-  At Extreme Risk   |    8        |        10
+| Category Name   | Begin Range | End Range |
+  ----------------|-------------|------------
+  Beneficial      |    0        |   1.99
+  Neutral         |    2        |   3.99
+  At Risk         |    4        |   5.99
+  At High Risk    |    6        |   7.99
+  At Extreme Risk |    8        |   10
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Azure Maps Weather services frequently asked questions (FAQ)]
+
+> [!div class="nextstepaction"]
+> [Azure Maps Weather services coverage]
+
+> [!div class="nextstepaction"]
+> [Weather services API]
+
+[Azure Maps Weather services coverage]: weather-coverage.md
+[Azure Maps Weather services frequently asked questions (FAQ)]: weather-services-faq.yml
+[Get Daily Indices API]: /rest/api/maps/weather
+[Get Map Tile v2 API]: /rest/api/maps/render-v2/get-map-tile
+[Index IDs and index groups IDs]: #index-ids-and-index-groups-ids
+[Weather services API]: /rest/api/maps/weather
+[Weather services]: /rest/api/maps/weather

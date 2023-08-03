@@ -1,22 +1,20 @@
 ---
-title: Entity Linking cognitive skill
+title: Entity Linking cognitive skill (v3)
 titleSuffix: Azure Cognitive Search
 description: Extract different linked entities from text in an enrichment pipeline in Azure Cognitive Search.
-
-manager: jennmar
-author: ayokande
-ms.author: aakande
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 12/09/2021
+ms.date: 08/17/2022
 ---
 
-# Entity Linking cognitive skill
+# Entity Linking cognitive skill (v3)
 
-The **Entity Linking** skill returns a list of recognized entities with links to articles in a well-known knowledge base (Wikipedia).
+The **Entity Linking** skill (v3) returns a list of recognized entities with links to articles in a well-known knowledge base (Wikipedia).
 
 > [!NOTE]
-> This skill is bound to the [Entity Linking](../cognitive-services/language-service/entity-linking/overview.md) machine learning models in [Azure Cognitive Services for Language](../cognitive-services/language-service/overview.md) and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
+> This skill is bound to the [Entity Linking](../ai-services/language-service/entity-linking/overview.md) machine learning models in [Azure AI Language](../ai-services/language-service/overview.md) and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Azure AI services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
 >
 
 ## @odata.type
@@ -25,7 +23,7 @@ Microsoft.Skills.Text.V3.EntityLinkingSkill
 
 ## Data limits
 
-The maximum size of a record should be 50,000 characters as measured by [`String.Length`](/dotnet/api/system.string.length). If you need to break up your data before sending it to the EntityLinking skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
+The maximum size of a record should be 50,000 characters as measured by [`String.Length`](/dotnet/api/system.string.length). If you need to break up your data before sending it to the EntityLinking skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md). If you do use a text split skill, set the page length to 5000 for the best performance.
 
 ## Skill parameters
 
@@ -33,15 +31,15 @@ Parameter names are case-sensitive and are all optional.
 
 | Parameter name     | Description |
 |--------------------|-------------|
-| `defaultLanguageCode` |    Language code of the input text. If the default language code is not specified,  English (en) will be used as the default language code. <br/> See the [full list of supported languages](../cognitive-services/language-service/entity-linking/language-support.md). |
+| `defaultLanguageCode` |    Language code of the input text. If the default language code is not specified,  English (en) will be used as the default language code. <br/> See the [full list of supported languages](../ai-services/language-service/entity-linking/language-support.md). |
 | `minimumPrecision` | A value between 0 and 1. If the confidence score (in the `entities` output) is lower than this value, the entity is not returned. The default is 0. |
-| `modelVersion` | (Optional) Specifies the [version of the model](../cognitive-services/language-service/entity-linking/how-to/call-api.md#determine-how-to-process-the-data-optional) to use when calling entity linking. It will default to the latest available when not specified. We recommend you do not specify this value unless it's necessary.|
+| `modelVersion` | (Optional) Specifies the [version of the model](../ai-services/language-service/concepts/model-lifecycle.md) to use when calling entity linking. It will default to the latest available when not specified. We recommend you do not specify this value unless it's necessary.|
 
 ## Skill inputs
 
 | Input name      | Description                   |
 |---------------|-------------------------------|
-| `languageCode`    | A string indicating the language of the records. If this parameter is not specified, the default language code will be used to analyze the records. <br/>See the [full list of supported languages](../cognitive-services/language-service/entity-linking/language-support.md). |
+| `languageCode`    | A string indicating the language of the records. If this parameter is not specified, the default language code will be used to analyze the records. <br/>See the [full list of supported languages](../ai-services/language-service/entity-linking/language-support.md). |
 | `text`          | The text to analyze.          |
 
 ## Skill outputs
@@ -127,7 +125,7 @@ Parameter names are case-sensitive and are all optional.
 }
 ```
 
-The offsets returned for entities in the output of this skill are directly returned from the [Language Service APIs](../cognitive-services/language-service/overview.md), which means if you are using them to index into the original string, you should use the [StringInfo](/dotnet/api/system.globalization.stringinfo) class in .NET in order to extract the correct content. For more information, see [Multilingual and emoji support in Language service features](../cognitive-services/language-service/concepts/multilingual-emoji-support.md).
+The offsets returned for entities in the output of this skill are directly returned from the [Language Service APIs](../ai-services/language-service/overview.md), which means if you are using them to index into the original string, you should use the [StringInfo](/dotnet/api/system.globalization.stringinfo) class in .NET in order to extract the correct content. For more information, see [Multilingual and emoji support in Language service features](../ai-services/language-service/concepts/multilingual-emoji-support.md).
 
 ## Warning cases
 

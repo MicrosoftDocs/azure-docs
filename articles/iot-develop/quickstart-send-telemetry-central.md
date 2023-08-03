@@ -1,20 +1,20 @@
 ---
 title: Quickstart - connect a device and send telemetry to Azure IoT Central
-description: "This quickstart shows device developers how to connect a device securely to Azure IoT Central. You use an Azure IoT device SDK for C, C#, Python, Node.js, or Java, to build a device client for Windows, Linux, or Raspberry Pi (Raspbian), then you connect and send telemetry."
+description: "This quickstart shows device developers how to connect a device securely to Azure IoT Central. You use an Azure IoT device SDK for C, C#, Python, Node.js, or Java, to build a device client for Windows, Linux, or Raspberry Pi (Raspbian). Then you connect and send telemetry."
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: quickstart
-ms.date: 04/27/2021
+ms.date: 04/27/2023
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
-ms.custom: mode-other, contperf-fy22q2
+ms.custom: mode-other, engagement-fy23, devx-track-extended-java, devx-track-js, devx-track-python
 #Customer intent: As a device application developer, I want to learn the basic workflow of using an Azure IoT device SDK to build a client app on a device, connect the device securely to Azure IoT Central, and send telemetry.
 ---
 
 # Quickstart: Send telemetry from a device to Azure IoT Central
 
-**Applies to**: [Device application developers](about-iot-develop.md#device-application-development)
+**Applies to**: [General device developers](about-iot-develop.md#general-device-development)
 
 :::zone pivot="programming-language-ansi-c"
 
@@ -49,7 +49,7 @@ ms.custom: mode-other, contperf-fy22q2
 ## View telemetry
 After the device connects to IoT Central, it begins sending telemetry. You can view the telemetry and other details about connected devices in IoT Central. 
 
-In IoT Central, select **Devices**, click your device name, then select the **Overview** tab. This view displays a graph of the temperatures from the two thermostat devices.
+In IoT Central, select **Devices**, select your device name, then select the **Overview** tab. This view displays a graph of the temperatures from the two thermostat devices.
 
 :::image type="content" source="media/quickstart-send-telemetry-central/iot-central-telemetry-output-overview.png" alt-text="IoT Central device telemetry overview":::
 

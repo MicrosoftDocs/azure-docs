@@ -5,13 +5,13 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: matjazl
-ms.author: cavoeg
-author: caitlinv39
-ms.date: 01/03/2020
+ms.author: kesheth
+author: expekesheth
+ms.date: 06/03/2022
 ---
 
 # Write Azure web application to read FHIR data in Azure API for FHIR
+
 Now that you're able to connect to your FHIR server and POST data, you’re ready to write a web application that will read FHIR data. In this final step of the tutorial, we’ll walk through writing and accessing the web application.
 
 ## Create web application
@@ -143,10 +143,13 @@ Included is the code that you can input into **index.html**. You’ll need to up
 From here, you can go back to your web application resource and open the URL found on the Overview page. Sign in to see the patient James Tiberious Kirk that you previously created.
 
 ## Next Steps
+
 You’ve successfully deployed the Azure API for FHIR, registered a public client application, tested access, and created a small web application. Check out the Azure API for FHIR supported features as a next step.
 
 >[!div class="nextstepaction"]
 >[Supported Features](fhir-features-supported.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
 
 
 

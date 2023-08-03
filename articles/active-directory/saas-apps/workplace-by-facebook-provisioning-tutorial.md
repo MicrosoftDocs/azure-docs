@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Workplace by Facebook for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Workplace by Facebook for automatic user provisioning with Azure Active Directory'
 description: Learn the steps you need to do in both Workplace by Facebook and Azure Active Directory (Azure AD) to configure automatic user provisioning.
 services: active-directory
 author: twimmers
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/22/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -65,10 +65,9 @@ Add Workplace by Facebook from the Azure AD application gallery to start managin
 
 The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* When assigning users to Workplace by Facebook, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add more roles. 
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* Start small. Test with a small set of users before rolling out to everyone. When scope for provisioning is set to assigned users, you can control this by assigning one or two users to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
-
+* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 ## Step 5. Configure automatic user provisioning to Workplace by Facebook
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users in Workplace by Facebook App based on user assignments in Azure AD.
 
@@ -92,7 +91,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
  	![Screenshot shows Admin Credentials dialog box with an Authorize option.](./media/workplace-by-facebook-provisioning-tutorial/provisionings.png)
 
- 	![authorize](./media/workplace-by-facebook-provisioning-tutorial/workplace-login.png)
+ 	![Authorize](./media/workplace-by-facebook-provisioning-tutorial/workplace-login.png)
 
 > [!NOTE]
 > Failure to change the URL to https://scim.workplace.com/ will result in a failure when trying to save the configuration 
@@ -178,8 +177,8 @@ In December 2021, Facebook released a SCIM 2.0 connector. Completing the steps b
 > [!NOTE]
 > Be sure to note any changes that have been made to the settings listed above before completing the steps below. Failure to do so will result in the loss of customized settings. 
 
-1. Sign into the Azure portal at https://portal.azure.com 
-2. Navigate to your current Workplace by Facebook app under Azure Active Directory > Enterprise Applications
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Navigate to your current Workplace by Facebook app under Azure Active Directory > Enterprise Applications.
 3. In the Properties section of your new custom app, copy the Object ID.
 
 	![Screenshot of Workplace by Facebook app in the Azure portal](./media/workplace-by-facebook-provisioning-tutorial/app-properties.png)

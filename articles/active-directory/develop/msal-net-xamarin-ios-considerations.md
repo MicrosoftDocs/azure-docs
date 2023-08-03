@@ -1,9 +1,8 @@
 ---
-title: Xamarin iOS considerations (MSAL.NET) | Azure
-titleSuffix: Microsoft identity platform
+title: Xamarin iOS considerations (MSAL.NET)
 description: Learn about considerations for using Xamarin iOS with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-author: jmprieur
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,9 +10,9 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/09/2020
-ms.author: marsma
+ms.author: dmwendia
 ms.reviewer: saeeda
-ms.custom: "devx-track-csharp, aaddev, has-adal-ref"
+ms.custom: devx-track-csharp, aaddev, has-adal-ref, devx-track-dotnet
 #Customer intent: As an application developer, I want to learn about considerations for using Xamarin iOS and MSAL.NET.
 ---
 
@@ -78,7 +77,7 @@ For more information, see the [iOS entitlements documentation](https://developer
 
 #### Troubleshooting KeyChain access
 
-If you get an error message similar to "The application cannot access the iOS keychain for the application publisher (the TeamId is null)", this means MSAL is not able to access the KeyChain. This is a configuration issue. To troubleshoot, try to access the KeyChain on your own, for example: 
+If you get an error message similar to "The application cannot access the iOS keychain for the application publisher (the TeamId is null)", this means MSAL is not able to access the KeyChain. This is a configuration issue. To troubleshoot, try to access the KeyChain on your own, for example:
 
 ```csharp
 var queryRecord = new SecRecord(SecKind.GenericPassword)
@@ -117,7 +116,7 @@ Earlier in this article, you learned that MSAL adds `$(AppIdentifierPrefix)` whe
 Your application can use Microsoft Authenticator as a broker to enable:
 
 - **SSO**: When you enable SSO, your users don't need to sign in to each application.
-- **Device identification**: Use device identification to authenticate by accessing the device certificate. This certificate is created on the device when it's joined to the workplace. Your application will be ready if the tenant administrators enable conditional access related to the devices.
+- **Device identification**: Use device identification to authenticate by accessing the device certificate. This certificate is created on the device when it's joined to the workplace. Your application will be ready if the tenant administrators enable Conditional Access related to the devices.
 - **Application identification verification**: When an application calls the broker, it passes its redirect URL. The broker verifies the redirect URL.
 
 For details about how to enable a broker, see [Use Microsoft Authenticator or Microsoft Intune Company Portal on Xamarin iOS and Android applications](msal-net-use-brokers-with-xamarin-apps.md).
@@ -132,7 +131,7 @@ You might also see a break in ASP.NET Core OIDC authentication with iOS 12 Safar
 
 ## Known issues with iOS 13 and authentication
 
-If your app requires conditional access or certificate authentication support, enable your app to communicate with the Microsoft Authenticator broker app. MSAL is then responsible for handling requests and responses between your application and Microsoft Authenticator.
+If your app requires Conditional Access or certificate authentication support, enable your app to communicate with the Microsoft Authenticator broker app. MSAL is then responsible for handling requests and responses between your application and Microsoft Authenticator.
 
 On iOS 13, Apple made a breaking API change by removing the application's ability to read the source application when receiving a response from an external application through custom URL schemes.
 

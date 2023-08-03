@@ -1,9 +1,9 @@
 ---
-author: wesmc7777
+author: kgremban
 ms.service: redis-cache 
 ms.topic: include
 ms.date: 04/02/2019
-ms.author: wesmc
+ms.author: kgremban
 ---
 
 ### cacheSKUName

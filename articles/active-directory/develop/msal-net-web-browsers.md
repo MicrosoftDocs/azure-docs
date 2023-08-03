@@ -1,9 +1,8 @@
 ---
-title: Using web browsers (MSAL.NET) | Azure
-titleSuffix: Microsoft identity platform
+title: Using web browsers (MSAL.NET)
 description: Learn about specific considerations when using Xamarin Android with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-author: mmacy
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,9 +10,9 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/18/2020
-ms.author: marsma
+ms.author: dmwendia
 ms.reviewer: saeeda
-ms.custom: "devx-track-csharp, aaddev, has-adal-ref"
+ms.custom: devx-track-csharp, aaddev, has-adal-ref, devx-track-dotnet
 #Customer intent: As an application developer, I want to learn about web browsers MSAL.NET so I can decide if this platform meets my application development needs and requirements.
 ---
 
@@ -63,7 +62,7 @@ By default, MSAL.NET supports the system web browser on Xamarin.iOS, Xamarin.And
 
 Using the system browser has the significant advantage of sharing the SSO state with other applications and with web applications without needing a broker (Company portal / Authenticator). The system browser was used, by default, in MSAL.NET for the Xamarin iOS and Xamarin Android platforms because, on these platforms, the system web browser occupies the whole screen, and the user experience is better. The system web view isn't distinguishable from a dialog. On iOS, though, the user might have to give consent for the browser to call back the application, which can be annoying.
 
-## System browser experience on .NET 
+## System browser experience on .NET
 
 On .NET Core, MSAL.NET will start the system browser as a separate process. MSAL.NET doesn't have control over this browser, but once the user finishes authentication, the web page is redirected in such a way that MSAL.NET can intercept the URI.
 
@@ -89,28 +88,27 @@ To enable the system browser:
 IPublicClientApplication pca = PublicClientApplicationBuilder
                             .Create("<CLIENT_ID>")
                              // or use a known port if you wish "http://localhost:1234"
-                            .WithRedirectUri("http://localhost")  
+                            .WithRedirectUri("http://localhost")
                             .Build();
 ```
 
 > [!Note]
 > If you configure `http://localhost`, internally MSAL.NET will find a random open port and use it.
 
-### Linux and MAC
+### Linux and macOS
 
-On Linux, MSAL.NET will open the default OS browser using the xdg-open tool. To troubleshoot, run the tool from a terminal, for example, `xdg-open "https://www.bing.com"`. On Mac, the browser is opened by invoking `open <url>`.
+On Linux, MSAL.NET opens the default OS browser with a tool like [xdg-open](http://manpages.ubuntu.com/manpages/focal/man1/xdg-open.1.html). Opening the browser with `sudo` is unsupported by MSAL and will cause MSAL to throw an exception.
+
+On macOS, the browser is opened by invoking `open <url>`.
 
 ### Customizing the experience
 
-> [!NOTE]
-> Customization is available in MSAL.NET 4.1.0 or later.
-
-MSAL.NET is able to respond with an HTTP message when a token is received or in case of error. You can display an HTML message or redirect to an URL of your choice:
+MSAL.NET can respond with an HTTP message or HTTP redirect when a token is received or an error occurs.
 
 ```csharp
-var options = new SystemWebViewOptions() 
+var options = new SystemWebViewOptions()
 {
-    HtmlMessageError = "<p> An error occured: {0}. Details {1}</p>",
+    HtmlMessageError = "<p> An error occurred: {0}. Details {1}</p>",
     BrowserRedirectSuccess = new Uri("https://www.microsoft.com");
 }
 
@@ -125,7 +123,7 @@ await pca.AcquireTokenInteractive(s_scopes)
 You may customize the way MSAL.NET opens the browser. For example instead of using whatever browser is the default, you can force open a specific browser:
 
 ```csharp
-var options = new SystemWebViewOptions() 
+var options = new SystemWebViewOptions()
 {
     OpenBrowserAsync = SystemWebViewOptions.OpenWithEdgeBrowserAsync
 }
@@ -137,7 +135,7 @@ For desktop applications, however, launching a System Webview leads to a subpar 
 
 ## Enable embedded webviews on iOS and Android
 
-You can also enable embedded webviews in Xamarin.iOS and Xamarin.Android apps. Starting with MSAL.NET 2.0.0-preview, MSAL.NET also supports using the **embedded** webview option. 
+You can also enable embedded webviews in Xamarin.iOS and Xamarin.Android apps. Starting with MSAL.NET 2.0.0-preview, MSAL.NET also supports using the **embedded** webview option.
 
 As a developer using MSAL.NET targeting Xamarin, you may choose to use either embedded webviews or system browsers. This is your choice depending on the user experience and security concerns you want to target.
 

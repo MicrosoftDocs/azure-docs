@@ -3,18 +3,20 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 11/20/2020
+ms.date: 11/17/2022
 ---
 
-IoT Plug and Play simplifies IoT by enabling you to interact with a device's capabilities without knowledge of the underlying device implementation. This quickstart shows you how to use Java to connect to and control an IoT Plug and Play device that's connected to your solution.
+IoT Plug and Play simplifies IoT by enabling you to interact with a device's capabilities without knowledge of the underlying device implementation. This tutorial shows you how to use Java to connect to and control an IoT Plug and Play device that's connected to your solution.
 
 ## Prerequisites
 
 [!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
 
-To complete this quickstart on Windows, install the following software on your local Windows environment:
+You can run this tutorial on Linux or Windows. The shell commands in this tutorial follow the Linux convention for path separators '`/`', if you're following along on Windows be sure to swap these separators for '`\`'.
 
-* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](/java/azure/jdk/), under **Long-term support**, select **Java 8**.
+To complete this tutorial, install the following software in your local development environment:
+
+* [Java SE Development Kit 8 or later](/java/openjdk/install).
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
 ### Clone the SDK repository with the sample code
@@ -29,50 +31,46 @@ git clone https://github.com/Azure/azure-iot-sdk-java.git
 
 ## Build and run the sample device
 
+Navigate to the root folder of the thermostat sample in the cloned Java SDK repository and build it:
+
+```cmd
+cd azure-iot-sdk-java/device/iot-device-samples/pnp-device-sample/thermostat-device-sample
+mvn clean package
+```
+
 [!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
-To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-java/blob/main/device/iot-device-samples/readme.md).
+To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-java/blob/main/iothub/device/iot-device-samples/pnp-device-sample/readme.md).
 
-In this quickstart, you use a sample thermostat device that's written in Java as the IoT Plug and Play device. To run the sample device:
+From the */device/iot-device-samples/pnp-device-sample/thermostat-device-sample* folder, run the application:
 
-1. Open a terminal window and navigate to the local folder that contains the Microsoft Azure IoT SDK for Java repository you cloned from GitHub.
+```cmd/sh
+mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.Thermostat"
+```
 
-1. This terminal window is used as your **device** terminal. Go to the root folder of your cloned repository. Install all the dependencies by running the following command:
-
-1. Run the following command to build the sample device application:
-
-    ```cmd
-    mvn install -T 2C -DskipTests
-    ```
-
-1. To run the sample device application, navigate to the *device\iot-device-samples\pnp-device-sample\thermostat-device-sample* folder and run the following command:
-
-    ```cmd
-    mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.Thermostat"
-    ```
-
-The device is now ready to receive commands and property updates, and has started sending telemetry data to the hub. Keep the sample device running as you complete the next steps.
+The device is now ready to receive commands and property updates, and has started sending telemetry data to the hub. Keep the sample running as you complete the next steps.
 
 ## Run the sample solution
 
-In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](../articles/iot-develop/set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub and device:
+In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](../articles/iot-develop/set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub:
 
 * **IOTHUB_CONNECTION_STRING**: the IoT hub connection string you made a note of previously.
 * **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
 
-In this quickstart, you use a sample IoT solution written in Java to interact with the sample device you just set up.
+In this tutorial, you use a sample IoT solution written in Java to interact with the sample device you just set up.
 
 > [!NOTE]
 > This sample uses the **com.microsoft.azure.sdk.iot.service** namespace from the **IoT Hub service client**. To learn more about the APIs, including the digital twins API, see the [service developer guide](../articles/iot-develop/concepts-developer-guide-service.md).
 
 1. Open another terminal window to use as your **service** terminal.
 
-1. In the cloned Java SDK repository, navigate to the *service\iot-service-samples\pnp-service-sample\thermostat-service-sample* folder.
+1. In the cloned Java SDK repository, navigate to the *service/iot-service-samples/pnp-service-sample/thermostat-service-sample* folder.
 
-1. To run the sample service application, run the following command:
+1. To build and run the sample service application, run the following commands:
 
     ```cmd
-    mvm exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.service.Thermostat"
+    mvn clean package
+    mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.service.Thermostat"
     ```
 
 ### Get device twin

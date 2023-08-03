@@ -1,22 +1,21 @@
 ---
-title: Deprovision your Azure File Sync server endpoint | Microsoft Docs
+title: Deprovision your Azure File Sync server endpoint
 description: Guidance on how to deprovision your Azure File Sync server endpoint based on your use case
-author: mtalasila
-ms.service: storage
+author: khdownie
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 6/01/2021
-ms.author: mtalasila
-ms.subservice: files
+ms.author: kendownie
 ---
 
-# Deprovision your Azure File Sync server endpoint
+# Deprovision or delete your Azure File Sync server endpoint
 
 Removing a server endpoint means stopping sync to and from that server location with the cloud endpoint (Azure file share) in the same sync group. Before you deprovision your server endpoint, there are a few steps you should take to maintain data integrity and availability. This article covers several methods of deprovisioning and the appropriate guidance, ordered by scenario. Follow the steps for the use case that best applies to you.
 
 If it is ok to permanently lose the data that you are currently syncing, you can skip to directly deprovisioning your server endpoint.
 
 > [!Warning]
-> Don't try to resolve sync issues by deprovisioning a server endpoint. For troubleshooting help, see [Troubleshooting Azure File Sync](./file-sync-troubleshoot.md). Permanent data loss may occur if you delete your server endpoint without getting either the server or the cloud side fully in sync with the other. Removing a server endpoint is a destructive operation, and tiered files within the server endpoint will not be "reconnected" to their locations on the Azure file share after the server endpoint is recreated, which will result in sync errors. Also, tiered files that exist outside of the server endpoint namespace may be permanently lost. Tiered files may exist within your server endpoint even if cloud tiering was never enabled.
+> Don't try to resolve sync issues by deprovisioning a server endpoint. For troubleshooting help, see [Troubleshooting Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json). Permanent data loss may occur if you delete your server endpoint without getting either the server or the cloud side fully in sync with the other. Removing a server endpoint is a destructive operation, and tiered files within the server endpoint will not be "reconnected" to their locations on the Azure file share after the server endpoint is recreated, which will result in sync errors. Also, tiered files that exist outside of the server endpoint namespace may be permanently lost. Tiered files may exist within your server endpoint even if cloud tiering was never enabled.
 
 ## Scenario 1: You intend to delete your server endpoint and stop using your local server / VM
 

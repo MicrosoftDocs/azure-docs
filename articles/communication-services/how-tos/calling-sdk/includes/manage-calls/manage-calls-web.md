@@ -15,7 +15,7 @@ Call creation and start are synchronous. The `call` instance allows you to subsc
 
 ### Place a 1:n call to a user or PSTN
 
-To call another Communication Services user, use the `startCall` method on `callAgent` and pass the recipient's `CommunicationUserIdentifier` that you [created with the Communication Services administration library](../../../../quickstarts/access-tokens.md).
+To call another Communication Services user, use the `startCall` method on `callAgent` and pass the recipient's `CommunicationUserIdentifier` that you [created with the Communication Services administration library](../../../../quickstarts/identity/access-tokens.md).
 
 For a 1:1 call to a user, use the following code:
 
@@ -29,12 +29,12 @@ To place a call to a public switched telephone network (PSTN), use the `startCal
 When you call a PSTN number, specify your alternate caller ID. An alternate caller ID is a phone number (based on the E.164 standard) that identifies the caller in a PSTN call. It's the phone number the call recipient sees for an incoming call.
 
 > [!NOTE]
-> PSTN calling is currently in private preview. For access, [apply to the early adopter program](https://aka.ms/ACS-EarlyAdopter).
+> Please check [details of PSTN calling offering](../../../../concepts/numbers/sub-eligibility-number-capability.md). For preview program access, [apply to the early adopter program](https://aka.ms/ACS-EarlyAdopter).
 
 For a 1:1 call to a PSTN number, use the following code:
 ```js
 const pstnCallee = { phoneNumber: '<ACS_USER_ID>' }
-const alternateCallerId = {alternateCallerId: '<ALTERNATE_CALLER_ID>'};
+const alternateCallerId = {phoneNumber: '<ALTERNATE_CALLER_ID>'};
 const oneToOneCall = callAgent.startCall([pstnCallee], {alternateCallerId});
 ```
 
@@ -43,9 +43,20 @@ For a 1:n call to a user and a PSTN number, use the following code:
 ```js
 const userCallee = { communicationUserId: '<ACS_USER_ID>' }
 const pstnCallee = { phoneNumber: '<PHONE_NUMBER>'};
-const alternateCallerId = {alternateCallerId: '<ALTERNATE_CALLER_ID>'};
+const alternateCallerId = {phoneNumber: '<ALTERNATE_CALLER_ID>'};
 const groupCall = callAgent.startCall([userCallee, pstnCallee], {alternateCallerId});
 ```
+
+### Join a room call
+
+To join a `room` call, you can instantiate a context object with the `roomId` property as the `room` identifier. To join the call, use the `join` method and pass the context instance.
+
+```js
+const context = { roomId: '<RoomId>' }
+const call = callAgent.join(context);
+```
+
+A `room` offers application developers better control over **who** can join a call, **when** they meet and **how** they collaborate. To learn more about `rooms`, you can read the [conceptual documentation](../../../../concepts/rooms/room-concept.md) or follow the [quick start guide](../../../../quickstarts/rooms/join-rooms-call.md).
 
 ### Join a group call
 
@@ -75,7 +86,7 @@ const incomingCallHandler = async (args: { incomingCall: IncomingCall }) => {
 
     // Get information about this Call. This API is provided as a preview for developers
     // and may change based on feedback that we receive. Do not use this API in a production environment.
-    // To use this api please use 'beta' release of ACS Calling Web SDK
+    // To use this api please use 'beta' release of Azure Communication Services Calling Web SDK
     var callInfo = incomingCall.info;
 
     // Get information about caller
@@ -100,19 +111,54 @@ callAgentInstance.on('incomingCall', incomingCallHandler);
 
 The `incomingCall` event includes an `incomingCall` instance that you can accept or reject.
 
-When starting/joining/accepting a call with video on, if the specified video camera device is being used by another process or if it is disabled in the system, the call will start with video off, and a cameraStartFailed: true call diagnostic will be raised.
+When starting/joining/accepting a call with video on, if the specified video camera device is being used by another process or if it's disabled in the system, the call starts with video off, and a cameraStartFailed: true call diagnostic will be raised.
+
+## Hold and resume call
+
+> [!NOTE]
+> At any given moment of time, there should be only 1 active call ( in `Connected` state, with active media ). All other calls should be put on hold by a user, or programatically by application. This is common in scenarios like contact centers, where a user may need to handle multiple outbound and inbound calls, all inactive calls should be put on hold, and user should interact with others only in active call
+
+To hold or resume the call, you can use the `hold` and `resume` asynchronous APIs:
+
+To hold the call
+```js
+await call.hold();
+```
+When `hold` API will resolve, call state will be set to 'LocalHold' , if this is a 1:1 call, other participant will be also put on hold, and state of the call from the perspective of that participant will be set to 'RemoteHold', That participant may further put its call on hold, which would result in state change to 'LocalHold'
+If this is a group call - hold is just a local operation, it won't hold the call for other participants of that call.
+To fully resume that call all users who initiated hold must resume it.
+
+To resume call from hold:
+```
+await call.resume();
+```
+When `resume` API will resolve, call state will be set again to 'Connected'
 
 ## Mute and unmute
 
 To mute or unmute the local endpoint, you can use the `mute` and `unmute` asynchronous APIs:
 
 ```js
-//mute local device
+//mute local device (microphone / sent audio)
 await call.mute();
 
-//unmute local device
+//unmute local device (microphone / sent audio)
 await call.unmute();
 ```
+
+## Mute and unmute incoming audio
+
+Mute incoming audio sets the call volume to 0. To mute or unmute the incoming audio, you can use the `muteIncomingAudio` and `unmuteIncomingAudio` asynchronous APIs:
+
+```js
+//mute local device (speaker)
+await call.muteIncomingAudio();
+
+//unmute local device (speaker)
+await call.unmuteIncomingAudio();
+```
+
+When incoming audio is muted, the participant will still receive the call audio (remote participant's audio). The call audio will not play in the speaker and the participant will not be able to listen until 'call.unmuteIncomingAudio()' is called. However, we can apply filter on call audio and play the filtered audio.
 
 ## Manage remote participants
 
@@ -160,7 +206,7 @@ Remote participants have a set of associated properties and collections:
 
 It can be one of the following `CommunicationIdentifier` types:
 
-- `{ communicationUserId: '<ACS_USER_ID'> }`: Object representing the ACS user.
+- `{ communicationUserId: '<ACS_USER_ID'> }`: Object representing the Azure Communication Services user.
 - `{ phoneNumber: '<E.164>' }`: Object representing the phone number in E.164 format.
 - `{ microsoftTeamsUserId: '<TEAMS_USER_ID>', isAnonymous?: boolean; cloud?: "public" | "dod" | "gcch" }`: Object representing the Teams user.
 - `{ id: string }`: object representing identifier that doesn't fit any of the other identifier types
@@ -183,12 +229,14 @@ The state can be:
 - `Disconnected`: Final state. The participant is disconnected from the call. If the remote participant loses their network connectivity, their state changes to `Disconnected` after two minutes.
 
 - `callEndReason`: To learn why a participant left the call, check the `callEndReason` property:
-
     ```js
     const callEndReason = remoteParticipant.callEndReason;
     const callEndReasonCode = callEndReason.code // (number) code associated with the reason
     const callEndReasonSubCode = callEndReason.subCode // (number) subCode associated with the reason
     ```
+    Note: 
+    - This property is only set when adding a remote participant via the Call.addParticipant() API, and the remote participant declines for example.
+    - In the scenario, where for example, UserB kicks UserC, from UserA's perspective, UserA will not see this flag get set for UserC. In other words UserA will not see UserC's callEndReason property get set at all.  
 
 - `isMuted` status: To find out if a remote participant is muted, check the `isMuted` property. It returns `Boolean`.
 
@@ -222,7 +270,7 @@ const callId: string = call.id;
 ```
 Get information about the call:
 > [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK
 ```js
 const callInfo = call.info;
 ```
@@ -274,20 +322,32 @@ const isIncoming = call.direction == 'Incoming';
 const isOutgoing = call.direction == 'Outgoing';
 ```
 
+Inspect active video streams and active screen sharing streams by checking the `localVideoStreams` collection. It returns `LocalVideoStream` objects or type `Video`, `ScreenSharing` or `RawMedia`.
+
+```js
+const localVideoStreams = call.localVideoStreams;
+```
+
 Check if the current microphone is muted. It returns `Boolean`.
 
 ```js
 const muted = call.isMuted;
 ```
 
-Find out if the screen sharing stream is being sent from a given endpoint by checking the `isScreenSharingOn` property. It returns `Boolean`.
+Check if the current incoming audio (speaker) is muted. It returns `Boolean`.
+
+```js
+const incomingAudioMuted = call._isIncomingAudioMuted;
+```
+
+Check if video is on. It returns `Boolean`.
+
+```js
+const isLocalVideoStarted = call.isLocalVideoStarted;
+```
+
+Check is screen sharing is on. It returns `Boolean`.
 
 ```js
 const isScreenSharingOn = call.isScreenSharingOn;
-```
-
-Inspect active video streams by checking the `localVideoStreams` collection. It returns `LocalVideoStream` objects.
-
-```js
-const localVideoStreams = call.localVideoStreams;
 ```

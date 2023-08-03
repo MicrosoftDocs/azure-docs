@@ -1,11 +1,11 @@
 ---
 title: "PowerShell script: Set and view Azure Data Share synchronization settings"
 description: This PowerShell script sets and gets share synchronization settings.
-author: joannapea
+author: sidontha
 ms.service: data-share
 ms.topic: article
-ms.date: 01/03/2022
-ms.author: joanpo 
+ms.date: 10/31/2022
+ms.author: sidontha 
 ms.custom: devx-track-azurepowershell
 ---
 

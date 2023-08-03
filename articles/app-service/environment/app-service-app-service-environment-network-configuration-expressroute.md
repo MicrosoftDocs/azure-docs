@@ -5,12 +5,16 @@ author: madsd
 
 ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
 ms.topic: article
-ms.date: 10/14/2016
+ms.date: 03/29/2022
 ms.author: madsd
 ms.custom: seodec18
 ---
 
 # Network configuration details for App Service Environment for Power Apps with Azure ExpressRoute
+
+> [!IMPORTANT]
+> This article is about App Service Environment v1. [App Service Environment v1 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+>
 
 Customers can connect an [Azure ExpressRoute][ExpressRoute] circuit to their virtual network infrastructure to extend their on-premises network to Azure. App Service Environment is created in a subnet of the [virtual network][virtualnetwork] infrastructure. Apps that run on App Service Environment establish secure connections to back-end resources that are accessible only over the ExpressRoute connection.  
 
@@ -31,7 +35,7 @@ App Service Environment requires the following network connectivity settings to 
 
 * Outbound network connectivity to the Azure Files service on port 445.
 
-* Outbound network connectivity to Azure SQL Database endpoints that are located in the same region as App Service Environment. SQL Database endpoints resolve under the database.windows.net domain, which requires open access to ports 1433, 11000-11999, and 14000-14999. For details about SQL Database V12 port usage, see [Ports beyond 1433 for ADO.NET 4.5](../../azure-sql/database/adonet-v12-develop-direct-route-ports.md).
+* Outbound network connectivity to Azure SQL Database endpoints that are located in the same region as App Service Environment. SQL Database endpoints resolve under the database.windows.net domain, which requires open access to ports 1433, 11000-11999, and 14000-14999. For details about SQL Database V12 port usage, see [Ports beyond 1433 for ADO.NET 4.5](/azure/azure-sql/database/adonet-v12-develop-direct-route-ports).
 
 * Outbound network connectivity to the Azure management-plane endpoints (both Azure classic deployment model and Azure Resource Manager endpoints). Connectivity to these endpoints includes the management.core.windows.net and management.azure.com domains. 
 
@@ -47,7 +51,7 @@ App Service Environment requires the following network connectivity settings to 
 
 * Inbound network access to required ports for App Service Environment must be allowed. For details, see [How to control inbound traffic to App Service Environment][requiredports].
 
-To fulfill the DNS requirements, make sure a valid DNS infrastructure is configured and maintained for the virtual network. If the DNS configuration is changed after App Service Environment is created, developers can force App Service Environment to pick up the new DNS configuration. You can trigger a rolling environment reboot by using the **Restart** icon under App Service Environment management in the [Azure portal][NewPortal]. The reboot causes the environment to pick up the new DNS configuration.
+To fulfill the DNS requirements, make sure a valid DNS infrastructure is configured and maintained for the virtual network. If the DNS configuration is changed after App Service Environment is created, developers can force App Service Environment to pick up the new DNS configuration. You can trigger a rolling environment reboot by using the **Restart** icon under App Service Environment management in the [Azure portal](https://portal.azure.com). The reboot causes the environment to pick up the new DNS configuration.
 
 To fulfill the inbound network access requirements, configure a [network security group (NSG)][NetworkSecurityGroups] on the App Service Environment subnet. The NSG allows the required access [to control inbound traffic to App Service Environment][requiredports].
 
@@ -151,7 +155,5 @@ To get started with App Service Environment for Power Apps, see [Introduction to
 [DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653 
 [NetworkSecurityGroups]: ../../virtual-network/virtual-network-vnet-plan-design-arm.md
 [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md 
-[NewPortal]:  https://portal.azure.com 
-
 
 <!-- IMAGES -->

@@ -3,7 +3,7 @@ title: Apache Tez application hangs in Azure HDInsight
 description: Apache Tez application hangs in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 08/09/2019
+ms.date: 06/07/2023
 ---
 
 # Scenario: Apache Tez application hangs in Azure HDInsight

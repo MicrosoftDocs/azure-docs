@@ -1,13 +1,9 @@
 ---
- title: include file
- description: include file
- services: vpn-gateway
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 12/16/2021
+ ms.date: 05/02/2023
  ms.author: cherylmc
- ms.custom: include file
 ---
 ### Is NAT supported on all Azure VPN Gateway SKUs?
 
@@ -21,9 +17,13 @@ No, NAT is supported on **IPsec** cross-premises connections only.
 
 You can create up to 100 NAT rules (Ingress and Egress rules combined) on a VPN gateway.
 
+### Can I use / in a NAT rule name?
+
+No. You'll receive an error.
+
 ### Is NAT applied to all connections on a VPN gateway?
 
-NAT is applied to the connections with NAT rules. If a connection does not have a NAT rule, NAT will not take effect on that connection. On the same VPN gateway, you can have some connections with NAT, and other connections without NAT working together.
+NAT is applied to the connections with NAT rules. If a connection doesn't have a NAT rule, NAT won't take effect on that connection. On the same VPN gateway, you can have some connections with NAT, and other connections without NAT working together.
 
 ### What types of NAT is supported on Azure VPN gateways?
 
@@ -39,7 +39,8 @@ Yes, you can use BGP with NAT. Here are some important considerations:
 
 * Select **Enable BGP Route Translation** on the NAT Rules configuration page to ensure the learned routes and advertised routes are translated to post-NAT address prefixes (External Mappings) based on the NAT rules associated with the connections. You need to ensure the on-premises BGP routers advertise the exact prefixes as defined in the IngressSNAT rules.
 
-* If the on-premises VPN router uses APIPA (169.254.x.x) as the BGP speaker/peer IP, use the APIPA address directly in the **BGP peer IP address** field of the local network gateway. If the on-premises VPN router uses regular, non-APIPA address and it collides with the VNet address space or other on-premises network spaces, ensure the IngressSNAT rule will translate the BGP peer IP to a unique, non-overlapped address and put the post-NAT address in the **BGP peer IP address** field of the local network gateway.
+* If the on-premises VPN router uses regular, non-APIPA address and it collides with the VNet address space or other on-premises network spaces, ensure the IngressSNAT rule will translate the BGP peer IP to a unique, non-overlapped address and put the post-NAT address in the **BGP peer IP address** field of the local network gateway. 
+* NAT isn't supported with BGP APIPA addresses.
 
 ### Do I need to create the matching DNAT rules for the SNAT rule?
 
@@ -63,14 +64,22 @@ The two rules must match the prefix lengths of the corresponding address prefixe
 > [!IMPORTANT]
 > If you link only one rule to the connection above, the other address space will **NOT** be translated.
 
+### What IP ranges can I use for External Mapping?
+
+You can use any suitable IP range that you want for External Mapping, including public and private IPs.
+
 ### Can I use different EgressSNAT rules to translate my VNet address space to different prefixes to different on-premises networks?
 
-Yes, you can create multiple EgressSNAT rules for the same VNet address space, and apply the EgressSNAT rules to different connections. For the connections without an EgressSNAT rule,
+Yes, you can create multiple EgressSNAT rules for the same VNet address space, and apply the EgressSNAT rules to different connections.
 
 ### Can I use the same IngressSNAT rule on different connections?
 
-Yes, this is typically used when the connections are for the same on-premises network to provide redundancy. You cannot use the same Ingress rule if the connections are for different on-premises networks.
+Yes, this is typically used when the connections are for the same on-premises network to provide redundancy. You can't use the same Ingress rule if the connections are for different on-premises networks.
 
 ### Do I need both Ingress and Egress rules on a NAT connection?
 
-You need both Ingress and Egress rules on the same connection when the on-premise network address space overlaps with the VNet address space. If the VNet address space is unique among all connected networks, you do not need the EgressSNAT rule on those connections. You can use the Ingress rules to avoid address overlap among the on-premises networks.
+You need both Ingress and Egress rules on the same connection when the on-premises network address space overlaps with the VNet address space. If the VNet address space is unique among all connected networks, you don't need the EgressSNAT rule on those connections. You can use the Ingress rules to avoid address overlap among the on-premises networks.
+
+### What do I choose as "IP configuration ID"?
+
+"IP configuration ID" is simply the name of the IP configuration object you want the NAT rule to use. With this setting, you're simply choosing which gateway public IP address applies to the NAT rule. If you haven't specified any custom name at gateway creation time, the gateway's primary IP address is assigned to the "default" IPconfiguration, and the secondary IP is assigned to the "activeActive" IPconfiguration.

@@ -1,0 +1,39 @@
+### YamlMime:Landing
+
+title: Azure Elastic SAN documentation # < 60 chars
+summary: A cloud-native service that offers a scalable, cost-effective, high-performance, and comprehensive storage solution for a range of compute options. # < 160 chars
+
+metadata:
+  title: Azure Elastic SAN documentation
+  description: Create a virtual SAN to act as the storage for multiple compute options.
+  services: storage
+  ms.service: azure-elastic-san-storage
+  ms.custom: ignite-2022
+  ms.topic: landing-page
+  ms.collection: collection
+  author: roygara
+  ms.author: rogarana
+  ms.date: 09/20/2022
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Elastic SAN
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Elastic SAN planning guide
+            url: elastic-san-planning.md
+          - text: What is Azure Elastic SAN?
+            url: elastic-san-introduction.md
+
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Deploy an Elastic SAN
+            url: elastic-san-create.md

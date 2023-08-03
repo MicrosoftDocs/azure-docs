@@ -2,27 +2,62 @@
 title: Resource Manager template samples for Container insights
 description: Sample Azure Resource Manager templates to deploy and configureContainer insights.
 ms.topic: sample
-author: bwren
+ms.custom: devx-track-arm-template
 ms.author: bwren
-ms.date: 05/18/2020
-
+ms.date: 05/05/2022
+ms.reviewer: aulgit
 ---
 
 # Resource Manager template samples for Container insights
+
 This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to deploy and configure the Log Analytics agent for virtual machines in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
-
 ## Enable for AKS cluster
-The following sample enables Container insights on an AKS cluster.
 
+The following sample enables Container insights on an AKS cluster.
 
 ### Template file
 
+# [Bicep](#tab/bicep)
+
+```bicep
+@description('AKS Cluster Resource ID')
+param aksResourceId string
+
+@description('Location of the AKS resource e.g. "East US"')
+param aksResourceLocation string
+
+@description('Existing all tags on AKS Cluster Resource')
+param aksResourceTagValues object
+
+@description('Azure Monitor Log Analytics Resource ID')
+param workspaceResourceId string
+
+resource aksResourceId_8 'Microsoft.ContainerService/managedClusters@2022-01-02-preview' = {
+  name: split(aksResourceId, '/')[8]
+  location: aksResourceLocation
+  tags: aksResourceTagValues
+  properties: {
+    addonProfiles: {
+      omsagent: {
+        enabled: true
+        config: {
+          logAnalyticsWorkspaceResourceID: workspaceResourceId
+        }
+      }
+    }
+  }
+}
+
+```
+
+# [JSON](#tab/json)
+
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "aksResourceId": {
@@ -52,14 +87,12 @@ The following sample enables Container insights on an AKS cluster.
   },
   "resources": [
     {
-      "name": "[split(parameters('aksResourceId'),'/')[8]]",
       "type": "Microsoft.ContainerService/managedClusters",
+      "apiVersion": "2022-01-02-preview",
+      "name": "[split(parameters('aksResourceId'), '/')[8]]",
       "location": "[parameters('aksResourceLocation')]",
       "tags": "[parameters('aksResourceTagValues')]",
-      "apiVersion": "2018-03-31",
       "properties": {
-        "mode": "Incremental",
-        "id": "[parameters('aksResourceId')]",
         "addonProfiles": {
           "omsagent": {
             "enabled": true,
@@ -74,11 +107,13 @@ The following sample enables Container insights on an AKS cluster.
 }
 ```
 
+---
+
 ### Parameter file
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "aksResourceId": {
@@ -101,14 +136,108 @@ The following sample enables Container insights on an AKS cluster.
 }
 ```
 
-
 ## Enable for new Azure Red Hat OpenShift v3 cluster
 
 ### Template file
 
+# [Bicep](#tab/bicep)
+
+```bicep
+@description('Location')
+param location string
+
+@description('Unique name for the cluster')
+param clusterName string
+
+@description('number of master nodes')
+param masterNodeCount int = 3
+
+@description('number of compute nodes')
+param computeNodeCount int = 3
+
+@description('number of infra nodes')
+param infraNodeCount int = 3
+
+@description('The ID of an Azure Active Directory tenant')
+param aadTenantId string
+
+@description('The ID of an Azure Active Directory client application')
+param aadClientId string
+
+@description('The secret of an Azure Active Directory client application')
+@secure()
+param aadClientSecret string
+
+@description('The Object ID of an Azure Active Directory Group that memberships will get synced into the OpenShift group \'osa-customer-admins\'. If not specified, no cluster admin access will be granted.')
+param aadCustomerAdminGroupId string
+
+@description('Azure ResourceId of an existing Log Analytics Workspace')
+param workspaceResourceId string
+
+resource clusterName_resource 'Microsoft.ContainerService/openShiftManagedClusters@2019-10-27-preview' = {
+  location: location
+  name: clusterName
+  properties: {
+    openShiftVersion: 'v3.11'
+    networkProfile: {
+      vnetCidr: '10.0.0.0/8'
+    }
+    authProfile: {
+      identityProviders: [
+        {
+          name: 'Azure AD'
+          provider: {
+            kind: 'AADIdentityProvider'
+            clientId: aadClientId
+            secret: aadClientSecret
+            tenantId: aadTenantId
+            customerAdminGroupId: aadCustomerAdminGroupId
+          }
+        }
+      ]
+    }
+    masterPoolProfile: {
+      count: masterNodeCount
+      subnetCidr: '10.0.0.0/24'
+      vmSize: 'Standard_D4s_v3'
+    }
+    agentPoolProfiles: [
+      {
+        role: 'compute'
+        name: 'compute'
+        count: computeNodeCount
+        subnetCidr: '10.0.0.0/24'
+        vmSize: 'Standard_D4s_v3'
+        osType: 'Linux'
+      }
+      {
+        role: 'infra'
+        name: 'infra'
+        count: infraNodeCount
+        subnetCidr: '10.0.0.0/24'
+        vmSize: 'Standard_D4s_v3'
+        osType: 'Linux'
+      }
+    ]
+    routerProfiles: [
+      {
+        name: 'default'
+      }
+    ]
+    monitorProfile: {
+      workspaceResourceID: workspaceResourceId
+      enabled: true
+    }
+  }
+}
+
+```
+
+# [JSON](#tab/json)
+
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -157,7 +286,7 @@ The following sample enables Container insights on an AKS cluster.
       }
     },
     "aadClientSecret": {
-      "type": "securestring",
+      "type": "secureString",
       "metadata": {
         "description": "The secret of an Azure Active Directory client application"
       }
@@ -177,13 +306,12 @@ The following sample enables Container insights on an AKS cluster.
   },
   "resources": [
     {
-      "location": "[parameters('location')]",
-      "name": "[parameters('clusterName')]",
       "type": "Microsoft.ContainerService/openShiftManagedClusters",
-      "apiVersion": "2019-09-30-preview",
+      "apiVersion": "2019-10-27-preview",
+      "name": "[parameters('clusterName')]",
+      "location": "[parameters('location')]",
       "properties": {
         "openShiftVersion": "v3.11",
-        "fqdn": "[concat(parameters('clusterName'), '.', parameters('location'), '.', 'cloudapp.azure.com')]",
         "networkProfile": {
           "vnetCidr": "10.0.0.0/8"
         },
@@ -202,11 +330,9 @@ The following sample enables Container insights on an AKS cluster.
           ]
         },
         "masterPoolProfile": {
-          "name": "master",
           "count": "[parameters('masterNodeCount')]",
           "subnetCidr": "10.0.0.0/24",
-          "vmSize": "Standard_D4s_v3",
-          "osType": "Linux"
+          "vmSize": "Standard_D4s_v3"
         },
         "agentPoolProfiles": [
           {
@@ -241,11 +367,13 @@ The following sample enables Container insights on an AKS cluster.
 }
 ```
 
+---
+
 ### Parameter file
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
@@ -286,9 +414,36 @@ The following sample enables Container insights on an AKS cluster.
 
 ### Template file
 
+# [Bicep](#tab/bicep)
+
+```bicep
+@description('ARO Cluster Resource ID')
+param aroResourceId string
+
+@description('Location of the aro cluster resource e.g. westcentralus')
+param aroResourceLocation string
+
+@description('Azure Monitor Log Analytics Resource ID')
+param workspaceResourceId string
+
+resource aroResourceId_8 'Microsoft.ContainerService/openShiftManagedClusters@2019-10-27-preview' = {
+  name: split(aroResourceId, '/')[8]
+  location: aroResourceLocation
+  properties: {
+    openShiftVersion: 'v3.11'
+    monitorProfile: {
+      enabled: true
+      workspaceResourceID: workspaceResourceId
+    }
+  }
+}
+```
+
+# [JSON](#tab/json)
+
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "aroResourceId": {
@@ -312,13 +467,12 @@ The following sample enables Container insights on an AKS cluster.
   },
   "resources": [
     {
-      "name": "[split(parameters('aroResourceId'),'/')[8]]",
       "type": "Microsoft.ContainerService/openShiftManagedClusters",
+      "apiVersion": "2019-10-27-preview",
+      "name": "[split(parameters('aroResourceId'), '/')[8]]",
       "location": "[parameters('aroResourceLocation')]",
-      "apiVersion": "2019-09-30-preview",
       "properties": {
-        "mode": "Incremental",
-        "id": "[parameters('aroResourceId')]",
+        "openShiftVersion": "v3.11",
         "monitorProfile": {
           "enabled": true,
           "workspaceResourceID": "[parameters('workspaceResourceId')]"
@@ -329,11 +483,13 @@ The following sample enables Container insights on an AKS cluster.
 }
 ```
 
+---
+
 ### Parameter file
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "aroResourceId": {

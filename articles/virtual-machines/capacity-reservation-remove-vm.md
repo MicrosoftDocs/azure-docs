@@ -1,16 +1,16 @@
 ---
-title: Remove a virtual machine association from a Capacity Reservation group (preview)
+title: Remove a virtual machine association from a Capacity Reservation group
 description: Learn how to remove a virtual machine from a Capacity Reservation group.
 author: bdeforeest
 ms.author: bidefore
-ms.service: virtual-machines #Required
+ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 08/09/2021
-ms.reviewer: cynthn, jushiman
-ms.custom: template-how-to
+ms.date: 04/24/2023
+ms.reviewer: cynthn, jushiman, mattmcinnes
+ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
-# Remove a VM association from a Capacity Reservation group (preview)
+# Remove a VM association from a Capacity Reservation group
 
 This article walks you through the steps of removing a VM association to a Capacity Reservation group. To learn more about capacity reservations, see the [overview article](capacity-reservation-overview.md). 
 
@@ -19,11 +19,6 @@ Because both the VM and the underlying Capacity Reservation logically occupy cap
 There are two ways to change an association: 
 - Option 1: Deallocate the virtual machine, change the Capacity Reservation group property, and optionally restart the virtual machine
 - Option 2: Update the reserved quantity to zero and then change the Capacity Reservation group property
-
-> [!IMPORTANT]
-> Capacity Reservation is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Deallocate the VM
 

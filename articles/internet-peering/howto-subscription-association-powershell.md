@@ -1,21 +1,24 @@
 ---
-title: Associate peer ASN to Azure subscription using PowerShell
-titleSuffix: Azure
-description: Associate peer ASN to Azure subscription using PowerShell
+title: Associate peer ASN to Azure subscription - PowerShell
+description: Learn how to associate peer ASN to Azure subscription using PowerShell.
 services: internet-peering
-author: prmitiki
+author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 12/15/2020
-ms.author: prmitiki 
-ms.custom: devx-track-azurepowershell
+ms.date: 05/26/2023
+ms.author: halkazwini 
+ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23
 ---
 
 # Associate peer ASN to Azure subscription using PowerShell
 
-Before you submit a peering request, you should first associate your ASN with Azure subscription using the steps below.
+> [!div class="op_single_selector"]
+> - [Azure portal](howto-subscription-association-portal.md)
+> - [PowerShell](howto-subscription-association-powershell.md)
 
-If you prefer, you can complete this guide using the [portal](howto-subscription-association-portal.md).
+Before you submit a peering request, you should first associate your ASN with Azure subscription using the steps in this article.
+
+If you prefer, you can complete this guide using the [Azure portal](howto-subscription-association-portal.md).
 
 ### Working with Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
@@ -26,13 +29,13 @@ If you prefer, you can complete this guide using the [portal](howto-subscription
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
 ### Register for peering resource provider
-Register for peering resource provider in your subscription using the command below. If you do not execute this, then Azure resources required to set up peering are not accessible.
+Register for peering resource provider in your subscription using [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider). If you don't execute this, then Azure resources required to set up peering aren't accessible.
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Peering
 ```
 
-You can check the registration status using the commands below:
+You can check the registration status using [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider):
 ```powershell
 Get-AzResourceProvider -ProviderNamespace Microsoft.Peering
 ```
@@ -42,15 +45,11 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.Peering
 
 ### Update the peer information associated with this subscription
 
-Below is an example to update peer information.
+Update the peer information associated with this subscription using New-AzPeerAsn:
 
 ```powershell
-New-AzPeerAsn `
-    -Name "Contoso_1234" `
-    -PeerName "Contoso" `
-    -PeerAsn 1234 `
-    -Email noc@contoso.com, support@contoso.com `
-    -Phone "+1 (555) 555-5555"
+$contactDetails = New-AzPeerAsnContactDetail -Role Noc -Email "noc@contoso.com" -Phone "+1 (555) 555-5555"
+New-AzPeerAsn -Name "Contoso_1234" -PeerName "Contoso" -PeerAsn 1234 -ContactDetail $contactDetails
 ```
 
 > [!NOTE]
@@ -60,11 +59,11 @@ A subscription can have multiple ASNs. Update the peering information for each A
 
 Peers are expected to have a complete and up-to-date profile on [PeeringDB](https://www.peeringdb.com). We use this information during registration to validate the peer's details such as NOC information, technical contact information, and their presence at the peering facilities etc.
 
-Note that in place of **{subscriptionId}** in the output above, actual subscription ID will be displayed.
+In place of **{subscriptionId}** in the output, actual subscription ID is displayed.
 
 ## View status of a PeerASN
 
-Check for ASN Validation state using the command below:
+Check for ASN Validation state using Get-AzPeerAsn:
 
 ```powershell
 Get-AzPeerAsn
@@ -85,24 +84,19 @@ Type            : Microsoft.Peering/peerAsns
 > Wait for the ValidationState to turn "Approved" before submitting a peering request. It may take up to 12 hours for this approval.
 
 ## Modify PeerAsn
-You may modify NOC contact information anytime.
-
-Below is an example:
+You may modify NOC contact information anytime using Set-AzPeerAsn:
 
 ```powershell
-Set-PeerAsn -Name Contoso_1234 -Email "newemail@test.com" -Phone "1800-000-0000"
+Set-AzPeerAsn -Name Contoso_1234 -Email "newemail@test.com" -Phone "1800-000-0000"
 ```
 
 ## Delete PeerAsn
-Deleting a PeerASN is not currently supported. If you need to delete PeerASN, contact [Microsoft peering](mailto:peering@microsoft.com).
+Deleting a PeerASN isn't currently supported. If you need to delete PeerASN, contact [Microsoft peering](mailto:peering@microsoft.com).
 
 ## Next steps
 
-* [Create or modify a Direct peering](howto-direct-powershell.md)
-* [Convert a legacy Direct peering to Azure resource](howto-legacy-direct-powershell.md)
-* [Create or modify Exchange peering](howto-exchange-powershell.md)
-* [Convert a legacy Exchange peering to Azure resource](howto-legacy-exchange-powershell.md)
-
-## Additional resources
-
-For more information, visit [Internet peering FAQs](faqs.md)
+- [Create or modify a Direct peering using Azure PowerShell](howto-direct-powershell.md).
+- [Convert a legacy Direct peering to Azure resource using Azure PowerShell](howto-legacy-direct-powershell.md).
+- [Create or modify Exchange peering using Azure PowerShell](howto-exchange-powershell.md).
+- [Convert a legacy Exchange peering to Azure resource using Azure PowerShell](howto-legacy-exchange-powershell.md).
+- [Internet peering frequently asked questions (FAQ)](faqs.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with DocuSign | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with DocuSign'
 description: Learn how to configure single sign-on (SSO) between Azure Active Directory and DocuSign.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/26/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with DocuSign
+# Tutorial: Azure AD SSO integration with DocuSign
 
 In this tutorial, you'll learn how to integrate DocuSign with Microsoft Azure Active Directory (Azure AD). When you integrate DocuSign with Azure AD, you can:
 
@@ -27,6 +27,7 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * A DocuSign subscription that's single sign-on (SSO) enabled.
+* Control over your domain DNS. This is needed to claim domain on DocuSign. 
 
 > [!NOTE]
 > This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
@@ -41,7 +42,7 @@ In this tutorial, you'll configure and test Azure AD SSO in a test environment t
 
 * DocuSign supports [automatic user provisioning](./docusign-provisioning-tutorial.md).
 
-## Adding DocuSign from the gallery
+## Add DocuSign from the gallery
 
 To configure the integration of DocuSign into Azure AD, you must add DocuSign from the gallery to your list of managed SaaS apps:
 
@@ -52,6 +53,9 @@ To configure the integration of DocuSign into Azure AD, you must add DocuSign fr
 1. In the **Add from the gallery** section, type **DocuSign** in the search box.
 1. Select **DocuSign** from the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. You can learn more about O365 wizards [here](/microsoft-365/admin/misc/azure-ad-setup-guides?view=o365-worldwide&preserve-view=true).
 
 ## Configure and test Azure AD SSO for DocuSign
 
@@ -76,17 +80,13 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. In the **Basic SAML Configuration** section, follow these steps:
+1. In the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Sign on URL** textbox, enter a URL using the following pattern:
-
-    `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/sp/<IDPID>`
-
-    b. In the **Identifier (Entity ID)** textbox, enter a URL using the following pattern:
+    a. In the **Identifier (Entity ID)** textbox, type a URL using the following pattern:
 
     `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
 
-    c. In the **Reply URL** textbox, enter anyone of the following URL patterns:
+    b. In the **Reply URL** textbox, type a URL using one of the following patterns:
     
     | Reply URL |
     |-------------|
@@ -96,8 +96,12 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
     | QA Instance :|
     | `https://<SUBDOMAIN>.docusign.com/organizations/saml2` |
 
+    c. In the **Sign on URL** textbox, type a URL using the following pattern:
+
+    `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/sp/<IDPID>`
+
 	> [!NOTE]
-	> These bracketed values are placeholders. Replace them with the values in the actual sign-on URL, Identifier and Reply URL. These details are explained in the "View SAML 2.0 Endpoints" section later in this tutorial.
+	> These bracketed values are placeholders. Replace them with the values in the actual Identifier, Reply URL and Sign on URL. These details are explained in the "View SAML 2.0 Endpoints" section later in this tutorial.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)**. Select **Download** to download the certificate and save it on your computer.
 
@@ -132,81 +136,96 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 1. In the **Add Assignment** dialog box, select the **Assign** button.
 
 ## Configure DocuSign SSO
+1. In a different web browser window, sign in to your up DocuSign company site as an administrator
 
-1. To automate the configuration in DocuSign, you must install the My Apps Secure Sign-in browser extension by selecting **Install the extension**.
-
-    ![My apps extension](common/install-myappssecure-extension.png)
-
-2. After you add the extension to the browser, select **Setup DocuSign**. You're directed to the DocuSign application. From there, provide the admin credentials to sign in to DocuSign. The browser extension automatically configures the application and automates steps 3 through 5.
-
-    ![Setup configuration](common/setup-sso.png)
-
-3. If you want to set up DocuSign manually, open a new web browser window and sign in to your DocuSign company site as an administrator.
-
-4. In the upper-right corner of the page, select the profile logo, and then select **Go to Admin**.
+4. In the upper-left corner of the page, select the  app launcher (9 dots), and then select **Admin**.
   
-    ![Go to Admin under Profile][51]
+    ![Screenshot of Go to Admin under Profile.](media/docusign-tutorial/docusign-admin.png)
 
 5. On your domain solutions page, select **Domains**.
 
-    ![Domain Solutions/Domains][50]
+    ![Screenshot of Select_Domains.](media/docusign-tutorial/domains.png)
+
 
 6. In the **Domains** section, select **CLAIM DOMAIN**.
 
-    ![Claim Domain option][52]
+    ![Screenshot of Claim_domain.](media/docusign-tutorial/claim-domain.png)
+
 
 7. In the **Claim a Domain** dialog box, in the **Domain Name** box, type your company domain, and then select **CLAIM**. Make sure you verify the domain and that its status is active.
 
-    ![Claim a Domain/Domain Name dialog][53]
+    ![Screenshot of Claim a Domain/Domain Name dialog.](media/docusign-tutorial/claim-a-domain.png)
 
-8. On the domain solutions page, select **Identity Providers**.
+8. In the **Domains** section, select **Get Validation Token** of new domain added in the claim list.
+
+    ![Screenshot of pending_Identity_provider.](media/docusign-tutorial/pending-Identity-provider.png)
+    
+9. Copy the **TXT Token**
+
+    ![Screenshot of TXT_token.](media/docusign-tutorial/token.png)
+
+10. Configure your DNS provider with the **TXT Token** by following these steps:
+
+	a. Navigate to your domain's DNS record management page.
+	b. Add a new TXT record.
+	c. Name: @ or *
+	d. Text: paste the **TXT Token** value, which you copied from the earlier step.
+	e. TTL: Default or 1 hour / 3600 seconds
+
+
+11. On the domain solutions page, select **Identity Providers**.
   
-    ![Identity Providers option][54]
+    ![Screenshot of Identity Providers option.](media/docusign-tutorial/identity-providers.png)
 
-9. In the **Identity Providers** section, select **ADD IDENTITY PROVIDER**.
+12. In the **Identity Providers** section, select **ADD IDENTITY PROVIDER**.
 
-    ![Add Identity Provider option][55]
+    ![Screenshot of Add Identity Provider option.](media/docusign-tutorial/add-identity-provider-option.png)
 
-10. On the **Identity Provider Settings** page, follow these steps:
 
-    ![Identity Provider Settings fields][56]
+13. On the **Identity Provider Settings** page, follow these steps:
 
-    a. In the **Name** box, type a unique name for your configuration. Don't use spaces.
+    a. In the **Custom Name** box, type a unique name for your configuration. Don't use spaces.
+	
+	![Screenshot of name_Identity_provider.](media/docusign-tutorial/add-identity-providers.png)
 
     b. In the **Identity Provider Issuer box**, paste the **Azure AD Identifier** value, which you copied from the Azure portal.
+
+	![Screenshot of urls_Identity_provider.](media/docusign-tutorial/idp-urls.png)
+
 
     c. In the **Identity Provider Login URL** box, paste the **Login URL** value, which you copied from Azure portal.
 
     d. In the **Identity Provider Logout URL** box, paste the value of **Logout URL**, which you  copied from Azure portal.
+   
+       ![Screenshot of settings_Identity_provider.](media/docusign-tutorial/settings-Identity-provider.png)
 
-    e. Select **Sign AuthN request**.
 
-    f. For **Send AuthN request by**, select **POST**.
+    e. For **Send AuthN request by**, select **POST**.
 
-    g. For **Send logout request by**, select **GET**.
+    f. For **Send logout request by**, select **GET**.
 
-    h. In the **Custom Attribute Mapping** section, select **ADD NEW MAPPING**.
+    g. In the **Custom Attribute Mapping** section, select **ADD NEW MAPPING**.
 
-       ![Custom Attribute Mapping UI][62]
+       ![Screenshot of Custom Attribute Mapping UI.](media/docusign-tutorial/add-new-mapping.png)
 
-    i. Choose the field you want to map to the Azure AD claim. In this example, the **emailaddress** claim is mapped with the value of `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`. That's the default claim name from Azure AD for the email claim. Select **SAVE**.
+    h. Choose the field you want to map to the Azure AD claim. In this example, the **emailaddress** claim is mapped with the value of `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`. That's the default claim name from Azure AD for the email claim. Select **SAVE**.
 
-       ![Custom Attribute Mapping fields][57]
+       ![Screenshot of Custom Attribute Mapping fields.](media/docusign-tutorial/email-address.png)
 
        > [!NOTE]
-       > Use the appropriate **User identifier** to map the user from Azure AD to DocuSign user mapping. Select the proper field, and enter the appropriate value based on your organization settings.
+       > Use the appropriate **User identifier** to map the user from Azure AD to DocuSign user mapping. Select the proper field, and enter the appropriate value based on your organization settings. Custom Attribute Mapping setting is not mandatory.
 
-    j. In the **Identity Provider Certificates** section, select **ADD CERTIFICATE**, upload the certificate you downloaded from Azure AD portal, and select **SAVE**.
+    i. In the **Identity Provider Certificates** section, select **ADD CERTIFICATE**, upload the certificate you downloaded from Azure portal, and select **SAVE**.
 
-       ![Identity Provider Certificates/Add Certificate][58]
+       ![Screenshot of Identity Provider Certificates/Add Certificate.](media/docusign-tutorial/certificates.png)
 
-    k. In the **Identity Providers** section, select **ACTIONS**, and then select **Endpoints**.
+    j. In the **Identity Providers** section, select **ACTIONS**, and then select **Endpoints**.
 
-       ![Identity Providers/Endpoints][59]
+       ![Screenshot of Identity Providers/Endpoints.](media/docusign-tutorial/identity-providers-endpoints.png)
 
-    l. In the **View SAML 2.0 Endpoints** section of the DocuSign admin portal, follow these steps:
+    k. In the **View SAML 2.0 Endpoints** section of the DocuSign admin portal, follow these steps:
 
-       ![View SAML 2.0 Endpoints][60]
+       ![Screenshot of View SAML 2.0 Endpoints.](media/docusign-tutorial/saml-endpoints.png)
        
        1. Copy the **Service Provider Issuer URL**, and then paste it into the **Identifier** box in **Basic SAML Configuration** section in the Azure portal.
        
@@ -227,28 +246,12 @@ In this section, a user named B.Simon is created in DocuSign. DocuSign supports 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-1. Click on **Test this application** in Azure portal. This will redirect to DocuSign Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to DocuSign Sign-on URL where you can initiate the login flow. 
 
-2. Go to DocuSign Sign-on URL directly and initiate the login flow from there.
+* Go to DocuSign Sign-on URL directly and initiate the login flow from there.
 
-3. You can use Microsoft My Apps. When you click the DocuSign tile in the My Apps, you should be automatically signed in to the DocuSign for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+* You can use Microsoft My Apps. When you click the DocuSign tile in the My Apps, you should be automatically signed in to the DocuSign for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-## Next Steps
+## Next steps
 
 Once you configure DocuSign you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
-
-<!--Image references-->
-
-[50]: ./media/docusign-tutorial/tutorial-docusign-18.png
-[51]: ./media/docusign-tutorial/tutorial-docusign-21.png
-[52]: ./media/docusign-tutorial/tutorial-docusign-22.png
-[53]: ./media/docusign-tutorial/tutorial-docusign-23.png
-[54]: ./media/docusign-tutorial/tutorial-docusign-19.png
-[55]: ./media/docusign-tutorial/tutorial-docusign-20.png
-[56]: ./media/docusign-tutorial/tutorial-docusign-24.png
-[57]: ./media/docusign-tutorial/tutorial-docusign-25.png
-[58]: ./media/docusign-tutorial/tutorial-docusign-26.png
-[59]: ./media/docusign-tutorial/tutorial-docusign-27.png
-[60]: ./media/docusign-tutorial/tutorial-docusign-28.png
-[61]: ./media/docusign-tutorial/tutorial-docusign-29.png
-[62]: ./media/docusign-tutorial/tutorial-docusign-30.png

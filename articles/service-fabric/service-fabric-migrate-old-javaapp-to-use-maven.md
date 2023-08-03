@@ -1,13 +1,15 @@
 ---
 title: Migrate from Java SDK to Maven
-description: Update the older Java applications which used to use the Service Fabric Java SDK, to fetch Service Fabric Java dependencies from Maven. After completing this setup, your older Java applications would be able to build .
-author: rapatchi
-
-ms.topic: conceptual
-ms.date: 08/23/2017
-ms.custom: devx-track-java
-ms.author: rapatchi
+description: Update the older Java applications which used to use the Service Fabric Java SDK, to fetch Service Fabric Java dependencies from Maven. After completing this setup, your older Java applications would be able to build.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-extended-java
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Update your previous Java Service Fabric application to fetch Java libraries from Maven
 Service Fabric Java binaries have moved from the Service Fabric Java SDK to Maven hosting. You can use **mavencentral** to fetch the latest Service Fabric Java dependencies. This guide will help you update existing Java applications created for the Service Fabric Java SDK using either Yeoman template or Eclipse to be compatible with the Maven-based build.
 

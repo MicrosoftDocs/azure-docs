@@ -102,7 +102,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-pnp/howto-install-iot-explorer.md",
-      "redirect_url": "/azure/iot-fundamentals/howto-use-iot-explorer",
+      "redirect_url": "/azure/iot/howto-use-iot-explorer",
       "redirect_document_id": false
     },
     {
@@ -257,7 +257,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-pnp/iot-plug-and-play-glossary.md",
-      "redirect_url": "/azure/iot-fundamentals/iot-glossary/",
+      "redirect_url": "/azure/iot/iot-glossary/",
       "redirect_document_id": false
     },
     {
@@ -372,8 +372,13 @@
     },
     {
       "source_path_from_root": "/articles/iot-pnp/libraries-sdks.md",
-      "redirect_url": "/azure/iot-develop/libraries-sdks",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-develop/about-iot-sdks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/libraries-sdks.md",
+      "redirect_url": "/azure/iot-develop/about-iot-sdks",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/overview-iot-plug-and-play.md",
@@ -396,9 +401,9 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/iot-pnp/tutorial-configure-tsi.md",
-      "redirect_url": "/azure/iot-develop/tutorial-configure-tsi",
-      "redirect_document_id": true
+      "source_path_from_root": "/articles/iot-develop/tutorial-configure-tsi.md",
+      "redirect_url": "/azure/iot-develop/overview-iot-plug-and-play",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/tutorial-migrate-device-to-module.md",
@@ -417,13 +422,33 @@
     },
     {
       "source_path_from_root": "/articles/iot-pnp/howto-use-iot-explorer.md",
-      "redirect_url": "/azure/iot-fundamentals/howto-use-iot-explorer",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot/howto-use-iot-explorer",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/overview-iot-plug-and-play-current-release.md",
       "redirect_url": "/azure/iot-develop/overview-iot-plug-and-play",
       "redirect_document_id": false
-    }  
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/concepts-overview-connection-options.md",
+      "redirect_url": "/azure/iot-develop/about-iot-develop",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/how-to-use-reliability-features-in-sdks.md",
+      "redirect_url": "/azure/iot-develop/concepts-manage-device-reconnections",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-devkit-nxp-mimxrt1050-evkb.md",
+      "redirect_url": "/azure/iot-develop/quickstart-devkit-nxp-mimxrt1060-evk",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-devkit-renesas-rx65n-2mb.md",
+      "redirect_url": "/azure/iot-develop/quickstart-devkit-renesas-rx65n-cloud-kit",
+      "redirect_document_id": true
+    }
   ]
 }

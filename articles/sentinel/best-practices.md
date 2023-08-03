@@ -1,16 +1,13 @@
 ---
 title: Best practices for Microsoft Sentinel
 description: Learn about best practices to employ when managing your Microsoft Sentinel workspace.
-author: batamig
-ms.author: bagol
+author: limwainstein
+ms.author: lwainstein
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.custom: ignite-fall-2021
+ms.date: 01/09/2023
 ---
 
 # Best practices for Microsoft Sentinel
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This collection of best practices provides guidance to use when deploying, managing, and using Microsoft Sentinel, including links to other articles for more information.
 
@@ -34,6 +31,7 @@ The Microsoft Sentinel documentation has best practice guidance scattered throug
     - [Permissions in Microsoft Sentinel](roles.md)
     - [Protecting MSSP intellectual property in Microsoft Sentinel](mssp-protect-intellectual-property.md)
     - [Threat intelligence integration in Microsoft Sentinel](threat-intelligence-integration.md)
+    - [Microsoft Sentinel content and solutions](sentinel-solutions.md)
     - [Audit Microsoft Sentinel queries and activities](audit-sentinel-data.md)
 
 - **Analysts**:
@@ -72,9 +70,7 @@ Schedule the following Microsoft Sentinel activities regularly to ensure continu
 
 ### Weekly tasks
 
-- **Workbook updates**. Verify whether any workbooks have updates that need to be installed. For more information, see [Commonly used Microsoft Sentinel workbooks](top-workbooks.md).
-
-- **Microsoft Sentinel GitHub repository review**. Review the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel) to explore whether there are any new or updated resources of value for your environment, such as analytics rules, workbooks, hunting queries, or playbooks.
+- **Content review of solutions or standalone content**. Get any content updates for your installed solutions or standalone content from the [Content hub](sentinel-solutions-deploy.md). Review new solutions or standalone content that might be of value for your environment, such as analytics rules, workbooks, hunting queries, or playbooks.
 
 - **Microsoft Sentinel auditing**. Review Microsoft Sentinel activity to see who has updated or deleted resources, such as analytics rules, bookmarks, and so on. For more information, see [Audit Microsoft Sentinel queries and activities](audit-sentinel-data.md).
 
@@ -140,7 +136,7 @@ Entity behavior in Microsoft Sentinel allows users to review and investigate act
 
 - [Enable User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel](enable-entity-behavior-analytics.md)
 - [Investigate incidents with UEBA data](investigate-with-ueba.md)
-- [Microsoft Sentinel UEBA enrichments reference](ueba-enrichments.md)
+- [Microsoft Sentinel UEBA enrichments reference](ueba-reference.md)
 
 ### Handle incidents with watchlists and threat intelligence
 

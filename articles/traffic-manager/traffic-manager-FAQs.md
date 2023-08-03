@@ -1,16 +1,13 @@
 ---
-title: Azure Traffic Manager - FAQs
-description: This article provides answers to frequently asked questions about Traffic Manager
+title: Azure Traffic Manager - FAQ
+description: This article provides answers to frequently asked questions about Traffic Manager.
 services: traffic-manager
-documentationcenter: ''
-author: asudbring
+author: greg-lindsay
 ms.service: traffic-manager
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 01/31/2022
-ms.author: allensu 
-ms.custom: devx-track-azurepowershell
+ms.date: 11/30/2022
+ms.author: greglin 
 ---
 
 # Traffic Manager Frequently Asked Questions (FAQ)
@@ -39,6 +36,17 @@ As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-h
 Further investigation should therefore focus on the application.
 
 The HTTP host header sent from the client's browser is the most common source of problems. Make sure that the application is configured to accept the correct host header for the domain name you’re using. For endpoints using the Azure App Service, see [configuring a custom domain name for a web app in Azure App Service using Traffic Manager](../app-service/configure-domain-traffic-manager.md).
+
+### How can I resolve a 500 (Internal Server Error) problem when using Traffic Manager?
+
+If your client or application receives an HTTP 500 error while using Traffic Manager, this can be caused by a stale DNS query. To resolve the issue, clear the DNS cache and allow the client to issue a new DNS query.
+
+When a service endpoint is unresponsive, clients and applications that are using that endpoint do not reset until the DNS cache is refreshed. The duration of the cache is determined by the time-to-live (TTL) of the DNS record. For more information, see [Traffic Manager and the DNS cache](traffic-manager-how-it-works.md#traffic-manager-and-the-dns-cache).
+
+Also see the following related FAQs in this article:
+- [What is DNS TTL and how does it impact my users?](#what-is-dns-ttl-and-how-does-it-impact-my-users)
+- [How high or low can I set the TTL for Traffic Manager responses?](#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
+- [How can I understand the volume of queries coming to my profile?](#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)  
 
 ### What is the performance impact of using Traffic Manager?
 
@@ -307,7 +315,7 @@ Traffic View pricing is based on the number of data points used to create the ou
 
 Using endpoints from multiple subscriptions isn’t possible with Azure Web Apps. Azure Web Apps requires that any custom domain name used with Web Apps is only used within a single subscription. It isn’t possible to use Web Apps from multiple subscriptions with the same domain name.
 
-For other endpoint types, it’s possible to use Traffic Manager with endpoints from more than one subscription. In Resource Manager, endpoints from any subscription can be added to Traffic Manager, as long as the person configuring the Traffic Manager profile has read access to the endpoint. These permissions can be granted using [Azure role-based access control (Azure RBAC role)](../role-based-access-control/role-assignments-portal.md). Endpoints from other subscriptions can be added using [Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) or the [Azure CLI](/cli/azure/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_create).
+For other endpoint types, it’s possible to use Traffic Manager with endpoints from more than one subscription. In Resource Manager, endpoints from any subscription can be added to Traffic Manager, as long as the person configuring the Traffic Manager profile has read access to the endpoint. These permissions can be granted using [Azure role-based access control (Azure RBAC role)](../role-based-access-control/role-assignments-portal.md). Endpoints from other subscriptions can be added using [Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) or the [Azure CLI](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-create).
 
 ### Can I use Traffic Manager with Cloud Service 'Staging' slots?
 
@@ -315,9 +323,7 @@ Yes. Cloud Service 'staging' slots can be configured in Traffic Manager as Exter
 
 ### Does Traffic Manager support IPv6 endpoints?
 
-Traffic Manager doesn’t currently provide IPv6-addressable name servers. However, Traffic Manager can still be used by IPv6 clients connecting to IPv6 endpoints. A client doesn’t make DNS request directly to Traffic Manager. Instead, the client uses a recursive DNS service. An IPv6-only client sends requests to the recursive DNS service via IPv6. Then the recursive service should be able to contact the Traffic Manager name servers using IPv4.
-
-Traffic Manager responds with the DNS name or IP address of the endpoint. To support an IPv6 endpoint, there are two options. You can add the endpoint as a DNS name that has an associated AAAA record and Traffic Manager will health check that endpoint and return it as a CNAME record type in the query response. You can also add that endpoint directly using the IPv6 address and Traffic Manager will return a AAAA type record in the query response.
+Traffic Manager doesn’t currently provide IPv6-addressable name servers. However, Traffic Manager can still be used by IPv6 clients connecting to IPv6 endpoints if the client's recursive DNS server supports IPv4. A client doesn’t make DNS request directly to Traffic Manager. Instead, the client uses a recursive DNS service. An IPv6-only client sends requests to the recursive DNS service via IPv6. The recursive service must then be able to contact the Traffic Manager name servers using IPv4. Traffic Manager responds with the DNS name or IP address of the endpoint. 
 
 ### Can I use Traffic Manager with more than one Web App in the same region?
 

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/27/2022
+ms.date: 07/13/2023
 ---
 
 # Copy data from Square using Azure Data Factory or Synapse Analytics (Preview)
@@ -24,12 +24,16 @@ This article outlines how to use the Copy Activity in an Azure Data Factory or S
 
 ## Supported capabilities
 
-This Square connector is supported for the following activities:
+This Square connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-You can copy data from Square to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+
+For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
 The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
@@ -86,6 +90,10 @@ Square support two types of access token: **personal** and **OAuth**.
 
 - Personal access tokens are used to get unlimited Connect API access to resources in your own Square account.
 - OAuth access tokens are used to get authenticated and scoped Connect API access to any Square account. Use them when your app accesses resources in other Square accounts on behalf of account owners. OAuth access tokens can also be used to access resources in your own Square account.
+
+    >[!Important]
+    > To perform **Test connection** in the linked service, `MERCHANT_PROFILE_READ` is required to get a scoped OAuth access token. For permissions to access other tables, see [Square OAuth Permissions Reference](https://developer.squareup.com/docs/oauth-api/square-permissions).
+
 
 Authentication via personal access token only needs `accessToken`, while authentication via OAuth requires `accessToken` and `refreshToken`. Learn how to retrieve access token from [here](https://developer.squareup.com/docs/build-basics/access-tokens).
 

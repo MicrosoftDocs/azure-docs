@@ -7,21 +7,21 @@
 - name: Tutorials
   expanded: false
   items:
-  - name: Azure AD join during Windows 10 first-run experience
-    href: azuread-joined-devices-frx.md
+  - name: Azure AD join a new Windows device
+    href: device-join-out-of-box.md
 - name: Concepts
   expanded: true
   items:
   - name: Azure AD registered devices
-    href: concept-azure-ad-register.md
+    href: concept-device-registration.md
   - name: Azure AD joined devices 
-    href: concept-azure-ad-join.md
+    href: concept-directory-join.md
   - name: Hybrid Azure AD joined devices
-    href: concept-azure-ad-join-hybrid.md
+    href: concept-hybrid-join.md
   - name: Device registration flows
     href: device-registration-how-it-works.md
   - name: SSO to on-premises resources
-    href: azuread-join-sso.md
+    href: device-sso-to-on-premises-resources.md
   - name: Primary Refresh Tokens
     href: concept-primary-refresh-token.md
 - name: How-to guides
@@ -33,33 +33,40 @@
     expanded: false
     items:
     - name: Plan your Azure AD join implementation
-      href: azureadjoin-plan.md
+      href: device-join-plan.md
     - name: Assign local admins to Azure AD joined devices
       href: assign-local-admin.md
   - name: Hybrid Azure AD join
     expanded: false
     items:
     - name: Plan your hybrid Azure AD join implementation
-      href: hybrid-azuread-join-plan.md
+      href: hybrid-join-plan.md
     - name: Targeted hybrid Azure AD join deployment
-      href: hybrid-azuread-join-control.md 
+      href: hybrid-join-control.md 
     - name: Configure hybrid Azure AD join
-      href: howto-hybrid-azure-ad-join.md
+      href: how-to-hybrid-join.md
     - name: Verifying hybrid Azure AD join
-      href: howto-hybrid-join-verify.md
+      href: how-to-hybrid-join-verify.md
     - name: Troubleshoot hybrid Azure AD join
       expanded: false
       items:
       - name: Troubleshoot hybrid Azure AD joined Windows current version
         href: troubleshoot-hybrid-join-windows-current.md
       - name: Troubleshoot pending device state
-        href: /troubleshoot/azure/active-directory/pending-devices
+        href: /troubleshoot/azure/active-directory/pending-devices?toc=/azure/active-directory/fundamentals/toc.json
       - name: Troubleshoot using dsregcmd
         href: troubleshoot-device-dsregcmd.md
       - name: Troubleshoot hybrid Azure AD joined down level Windows devices
         href: troubleshoot-hybrid-join-windows-legacy.md
+  - name: Local Administrator Password Solution
+    href: howto-manage-local-admin-passwords.md
   - name: Manage device identities
-    href: device-management-azure-portal.md
+    href: manage-device-identities.md
+  - name: Troubleshoot Windows devices
+    href: troubleshoot-device-windows-joined.md
+  - name: Troubleshoot primary refresh tokens on Windows devices
+    displayName: PRT
+    href: troubleshoot-primary-refresh-token.md
   - name: Manage stale devices
     href: manage-stale-devices.md
   - name: Azure Linux VMs and Azure AD
@@ -72,11 +79,9 @@
     href: faq.yml
   - name: Enterprise state roaming
     items:
-    - name: What is enterprise state roaming?
-      href: enterprise-state-roaming-overview.md
     - name: Enable enterprise state roaming
       href: enterprise-state-roaming-enable.md
-    - name: Enable enterprise state FAQs
+    - name: Enterprise state roaming FAQs
       href: enterprise-state-roaming-faqs.yml
     - name: Troubleshoot enterprise state roaming
       href: enterprise-state-roaming-troubleshooting.md
@@ -84,18 +89,20 @@
       href: enterprise-state-roaming-group-policy-settings.md
     - name: Enterprise state roaming Windows settings
       href: enterprise-state-roaming-windows-settings-reference.md
+  - name: Troubleshoot SSO on Apple devices
+    href: troubleshoot-mac-sso-extension-plugin.md
 - name: Reference
   items:
   - name: Hybrid Azure AD join reference
     expanded: false
     items:
     - name: Configure hybrid Azure AD join manually
-      href: hybrid-azuread-join-manual.md
+      href: hybrid-join-manual.md
     - name: Enable older operating systems
-      href: howto-hybrid-join-downlevel.md
+      href: how-to-hybrid-join-downlevel.md
   - name: Enforce TLS 1.2
     href: reference-device-registration-tls-1-2.md
-  - name: Graph APIs
+  - name: Microsoft Graph APIs
     href: /graph/api/resources/device
 - name: Resources
   items:

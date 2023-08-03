@@ -27,11 +27,13 @@ Before you begin, you must have the following:
 
 + One of the following tools for creating Azure resources:
 
-    + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 5.9.0 or later.
+    + The Azure [Az PowerShell module](/powershell/azure/install-azure-powershell) version 9.4.0 or later.
 
     + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-+ The [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
++ The [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
+
++ [PowerShell 7.2](/powershell/scripting/install/installing-powershell-core-on-windows)
 
 ### Prerequisite check
 
@@ -49,7 +51,7 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 + In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
 
-+ Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later.
++ Run `(Get-Module -ListAvailable Az).Version` and verify version 9.4.0 or later.
 
 + Run `Connect-AzAccount` to sign in to Azure and verify an active subscription.
 
@@ -110,15 +112,15 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime powershell --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime powershell --functions-version 4 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
 
-    The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure.
+    The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure.
 
     # [Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime PowerShell -FunctionsVersion 3 -Location '<REGION>'
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime PowerShell -FunctionsVersion 4 -Location '<REGION>'
     ```
 
     The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure.

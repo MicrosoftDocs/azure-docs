@@ -1,13 +1,13 @@
 ---
 title: Install Update on Azure Stack Edge Pro GPU device | Microsoft Docs
-description: Describes how to apply updates using the Azure portal and local web UI for Azure Stack Edge Pro GPU device and the Kubernetes cluster on the device
+description: Describes how to apply updates using the Azure portal and local web UI for Azure Stack Edge Pro GPU device and the Kubernetes cluster on the device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 03/30/2023
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
@@ -18,24 +18,48 @@ This article describes the steps required to install update on your Azure Stack 
 
 The procedure described in this article was performed using a different version of software, but the process remains the same for the current software version. 
 
-## About latest update
+## About latest updates
 
-The current update is Update 2202. This update installs two updates, the device update followed by Kubernetes updates. The associated versions for this update are:
+The current update is Update 2303. This update installs two updates, the device update followed by Kubernetes updates. 
 
-- Device software version - **2.2.1868.4470**
-- Kubernetes server version - **v1.20.9**
-- IoT Edge version: **0.1.0-beta15**
-- Azure Arc version: **1.5.3**
-- GPU driver version: **470.57.02**
-- CUDA version: **11.4**
+The associated versions for this update are:
 
-For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2202-release-notes.md).
+- Device software version: Azure Stack Edge 2303 (2.2.2257.1113)
+- Device Kubernetes version: Azure Stack Kubernetes Edge 2303 (2.2.2257.1113)
+- Kubernetes server version: v1.24.6
+- IoT Edge version: 0.1.0-beta15
+- Azure Arc version: 1.8.14
+- GPU driver version: 515.65.01
+- CUDA version: 11.7
 
-**To apply 2202 update, your device must be running 2106 or later.** 
+For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2303-release-notes.md).
 
-- If you are not running the minimal supported version, you'll see this error: *Update package cannot be installed as its dependencies are not met*. 
-- You can update to 2106 from an older version and then install 2202.
+**To apply 2303 update, your device must be running version 2207 or later.**
 
+- If you are not running the minimum required version, you'll see this error:
+ 
+  *Update package cannot be installed as its dependencies are not met.*
+
+- You can update to 2207 from 2106 or later, and then install 2303.
+
+### Update Azure Kubernetes service on Azure Stack Edge
+
+> [!IMPORTANT]
+> Use the following procedure only if you are an SAP or a PMEC customer.
+
+If you have Azure Kubernetes service deployed and your Azure Stack Edge device and Kubernetes versions are either 2207 or 2209, you must update in multiple steps to apply 2303.
+
+Use the following steps to update your Azure Stack Edge version and Kubernetes version to 2303:
+
+1. Update your device version to 2303.
+1. Update your Kubernetes version to 2210.
+1. Update your Kubernetes version to 2303.
+
+If you are running 2210, you can update both your device version and Kubernetes version directly to 2303.
+
+In Azure portal, the process will require two clicks, the first update gets your device version to 2303 and your Kubernetes version to 2210, and the second update gets your Kubernetes version upgraded to 2303.
+
+From the local UI, you will have to run each update separately: update the device version to 2303, then update Kubernetes version to 2210, and then update Kubernetes version to 2303.
 
 ### Updates for a single-node vs two-node
 
@@ -126,7 +150,7 @@ Depending on the software version that you are running, install process may diff
    
     ![Software version after update 10](./media/azure-stack-edge-gpu-install-update/portal-update-9.png)
 
-6. As this is a 1-node device, the device restarts after the updates are installed. The critical alert during the restart indicates that the device heartbeat is lost.
+6. For a 1-node device, the device restarts after the updates are installed. The critical alert during the restart indicates that the device heartbeat is lost.
 
     ![Software version after update 11](./media/azure-stack-edge-gpu-install-update/portal-update-10.png)
 
@@ -156,7 +180,7 @@ Depending on the software version that you are running, install process may diff
 
     Go to the local web UI and then go to **Software update** page. Verify that the Kubernetes update has successfully installed and the software version reflects that.
 
-    ![Software version after update 17](./media/azure-stack-edge-gpu-install-update/portal-update-16-mod.png)
+    ![Screenshot of software version after update 17.](./media/azure-stack-edge-gpu-install-update/portal-update-17.png)
 
 
 Once the device software and Kubernetes updates are successfully installed, the banner notification disappears. 
@@ -189,11 +213,11 @@ Do the following steps to download the update from the Microsoft Update Catalog.
 
 2. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix or terms for the update you want to download. For example, enter **Azure Stack Edge**, and then click **Search**.
    
-    The update listing appears as **Azure Stack Edge Update 2202**.
+    The update listing appears as **Azure Stack Edge Update 2303**.
    
     <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2-b.png)-->
 
-4. Select **Download**. There are two packages to download for the update. The first package will have two files for the device software updates (*SoftwareUpdatePackage.0.exe*, *SoftwareUpdatePackage.1.exe*) and the second package has two files for the Kubernetes updates (*Kubernetes_Package.0.exe*, *Kubernetes_Package.1.exe*), respectively. Download the packages to a folder on the local system. You can also copy the folder to a network share that is reachable from the device. 
+4. Select **Download**. There are two packages to download for the update. The first package will have two files for the device software updates (*SoftwareUpdatePackage.0.exe*, *SoftwareUpdatePackage.1.exe*) and the second package has three files for the Kubernetes updates (*Kubernetes_Package.0.exe*, *Kubernetes_Package.1.exe*, and *Kubernetes_Package.2.exe*), respectively. Download the packages to a folder on the local system. You can also copy the folder to a network share that is reachable from the device. 
 
 
 ### Install the update or the hotfix
@@ -225,10 +249,10 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 5. The update starts. After the device is successfully updated, it restarts. The local UI is not accessible in this duration.
    
-6. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has been updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **Azure Stack Edge 2202**. 
+6. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has been updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **Azure Stack Edge 2303**. 
 
 
-7. You will now update the Kubernetes software version. Select the remaining two Kubernetes files together (file with the *Kubernetes_Package.0.exe* and *Kubernetes_Package.1.exe* suffix) and repeat the above steps to apply update.   
+7. You will now update the Kubernetes software version. Select the remaining three Kubernetes files together (file with the *Kubernetes_Package.0.exe*, *Kubernetes_Package.1.exe*, and *Kubernetes_Package.2.exe* suffix) and repeat the above steps to apply update.   
 
    ![Screenshot of files selected for the Kubernetes update.](./media/azure-stack-edge-gpu-install-update/local-ui-update-7.png)
 
@@ -240,8 +264,7 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 10. After the Kubernetes update is successfully installed, there is no change to the displayed software in **Maintenance** > **Software update**.
 
-    ![update device 6](./media/azure-stack-edge-gpu-install-update/portal-update-16-mod.png)
-
+    ![Screenshot of update device 6.](./media/azure-stack-edge-gpu-install-update/portal-update-17.png)
 
 ## Next steps
 

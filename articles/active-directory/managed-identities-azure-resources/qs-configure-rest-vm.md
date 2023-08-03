@@ -1,17 +1,17 @@
 ---
-title: Configure managed identities on Azure VM using REST - Azure AD
+title: Configure managed identities on Azure VM using REST
 description: Step-by-step instructions for configuring a system and user-assigned managed identities on an Azure VM using CURL to make REST API calls.
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2022
+ms.date: 05/25/2023
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: mode-api, devx-track-azurecli 
@@ -35,7 +35,7 @@ If you don't already have an Azure account, [sign up for a free account](https:/
 
 - If you're unfamiliar with managed identities for Azure resources, see [What are managed identities for Azure resources?](overview.md). To learn about system-assigned and user-assigned managed identity types, see [Managed identity types](overview.md#managed-identity-types).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## System-assigned managed identity
 
@@ -45,13 +45,13 @@ In this section, you learn how to enable and disable system-assigned managed ide
 
 To create an Azure VM with the system-assigned managed identity enabled, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Azure AD directory role assignments are required.
 
-1. Create a [resource group](../../azure-resource-manager/management/overview.md#terminology) for containment and deployment of your VM and its related resources, using [az group create](/cli/azure/group/#az_group_create). You can skip this step if you already have resource group you would like to use instead:
+1. Create a [resource group](../../azure-resource-manager/management/overview.md#terminology) for containment and deployment of your VM and its related resources, using [az group create](/cli/azure/group/#az-group-create). You can skip this step if you already have resource group you would like to use instead:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-2. Create a [network interface](/cli/azure/network/nic#az_network_nic_create) for your VM:
+2. Create a [network interface](/cli/azure/network/nic#az-network-nic-create) for your VM:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
@@ -305,7 +305,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
    az account get-access-token
    ```
 
-2. Create a [network interface](/cli/azure/network/nic#az_network_nic_create) for your VM:
+2. Create a [network interface](/cli/azure/network/nic#az-network-nic-create) for your VM:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic

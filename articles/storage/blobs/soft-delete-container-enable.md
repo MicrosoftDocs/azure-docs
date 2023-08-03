@@ -2,14 +2,12 @@
 title: Enable and manage soft delete for containers
 titleSuffix: Azure Storage
 description: Enable container soft delete to more easily recover your data when it is erroneously modified or deleted.
-services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 07/06/2021
-ms.author: tamram
-ms.subservice: blobs
+ms.author: normesta
 ---
 
 # Enable and manage soft delete for containers
@@ -48,7 +46,7 @@ To disable container soft delete, call the **Disable-AzStorageContainerDeleteRet
 
 # [Azure CLI](#tab/azure-cli)
 
-To enable container soft delete with Azure CLI, first install Azure CLI, version 2.26.0 or later. Next, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) command and specify the number of days for the retention period. Remember to replace the values in angle brackets with your own values:
+To enable container soft delete with Azure CLI, first install Azure CLI, version 2.26.0 or later. Next, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-update) command and specify the number of days for the retention period. Remember to replace the values in angle brackets with your own values:
 
 ```azurecli-interactive
 az storage account blob-service-properties update \
@@ -106,7 +104,7 @@ To view soft-deleted containers in the Azure portal, follow these steps:
 1. Navigate to your storage account in the Azure portal and view the list of your containers.
 1. Toggle the Show deleted containers switch to include deleted containers in the list.
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Screenshot showing how to view soft deleted containers in the Azure portal":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Screenshot showing how to view soft-deleted containers in the Azure portal.":::
 
 ## Restore a soft-deleted container
 

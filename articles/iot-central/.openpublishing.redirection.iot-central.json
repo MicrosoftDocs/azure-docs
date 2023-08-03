@@ -182,12 +182,12 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/concepts-connectivity-pnp.md",
-      "redirect_url": "/azure/iot-central/core/concepts-get-connected",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-developer/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/overview-iot-central-get-connected.md",
-      "redirect_url": "/azure/iot-central/core/concepts-get-connected/",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-developer/",
       "redirect_document_id": false
     },
     {
@@ -431,53 +431,63 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-central/core/howto-export-data.md",
+      "redirect_url": "/azure/iot-central/core/howto-export-to-blob-storage",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-central/core/howto-use-data-export.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data",
+      "redirect_url": "/azure/iot-central/core/howto-export-to-blob-storage",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-export-data-blob-storage-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data",
+      "redirect_url": "/azure/iot-central/core/howto-export-to-blob-storage",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-export-data-event-hubs-service-bus-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data",
+      "redirect_url": "/azure/iot-central/core/howto-export-to-blob-storage",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-export-data-blob-storage.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data/",
+      "redirect_url": "/azure/iot-central/core/howto-export-to-blob-storage",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-export-data-event-hubs-service-bus.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data/",
+      "redirect_url": "/azure/iot-central/core/howto-export-to-blob-storage",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-export-data-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data/",
+      "redirect_url": "/azure/iot-central/core/howto-export-to-blob-storage",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-export-data.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data/",
+      "redirect_url": "/azure/iot-central/core/howto-export-to-blob-storage",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-export-data-blob-storage.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data-blob-storage/",
+      "redirect_url": "/azure/iot-central/core/howto-export-to-blob-storage",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-export-data.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data/",
+      "redirect_url": "/azure/iot-central/core/howto-export-to-blob-storage",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-export-data-event-hubs-service-bus.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data-event-hubs-service-bus/",
+      "redirect_url": "/azure/iot-central/core/howto-export-to-blob-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-export-data-legacy.md",
+      "redirect_url": "/azure/iot-central/core/howto-export-to-blob-storage",
       "redirect_document_id": false
     },
     {
@@ -1112,12 +1122,17 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/overview-iot-options.md",
-      "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies/",
+      "redirect_url": "/azure/iot/iot-services-and-technologies/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/healthcare/howto-health-data-triage.md",
-      "redirect_url": "/azure/iot-central/healthcare/tutorial-health-data-triage/",
+      "redirect_url": "/azure/iot-central/healthcare/tutorial-continuous-patient-monitoring/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/healthcare/tutorial-health-data-triage.md",
+      "redirect_url": "/azure/iot-central/healthcare/tutorial-continuous-patient-monitoring/",
       "redirect_document_id": false
     },
     {
@@ -1322,10 +1337,33 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/concepts-best-practices.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-developer#best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/concepts-scalability-availability.md",
+      "redirect_url": "/azure/iot-central/core/concepts-faq-scalability-availability",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/preview/concepts-get-connected.md",
       "redirect_url": "/azure/iot-central/core/overview-iot-central-developer/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-migrate.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/concepts-faq-start-iot-central.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/concepts-telemetry-properties-commands.md",
+      "redirect_url": "/azure/iot-develop/concepts-message-payloads/",
       "redirect_document_id": false
     }
   ]
 }
-
-

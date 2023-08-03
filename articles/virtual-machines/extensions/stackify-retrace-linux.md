@@ -4,14 +4,12 @@ description: Deploy the Stackify Retrace Linux agent on a Linux virtual machine.
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-author:  amjads1
-ms.author: amjads
+ms.author: gabsta
+author: GabstaMSFT
 ms.collection: linux
 ms.date: 04/12/2018 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.devlang: azurecli
-
-
 ---
 # Stackify Retrace Linux Agent Extension
 
@@ -38,11 +36,15 @@ The Retrace agent can be run against these Linux distributions
 
 | Distribution | Version |
 |---|---|
-| Ubuntu | 16.04 LTS, 14.04 LTS, 16.10 and 17.04 |
-| Debian | 7.9+ and 8.2+, 9 |
-| Red Hat | 6.7+, 7.1+ |
-| CentOS | 6.3+, 7.0+ |
+| Ubuntu | 16.04 LTS |
+| Debian |  9 |
+| Red Hat | 6.10, 7.1+ |
+| CentOS | 6.10, 7.0+ |
 
+> [!IMPORTANT]
+
+> Keep in consideration Red Hat Enterprise Linux 6.X is already EOL. 
+> RHEL 6.10 has available [ELS support](https://www.redhat.com/en/resources/els-datasheet), which [will end on 06/2024]( https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204).
 ### Internet connectivity
 
 The Stackify Agent extension for Linux requires that the target virtual machine is connected to the internet. 
@@ -179,7 +181,7 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | Error code | Meaning | Possible action |
 | :---: | --- | --- |
 | 10 | Install Error | wget is required |
-| 20 | Install Error | python is required |
+| 20 | Install Error | Python is required |
 | 30 | Install Error | sudo is required |
 | 40 | Install Error | activationKey is required |
 | 51 | Install Error | OS distro not supported |

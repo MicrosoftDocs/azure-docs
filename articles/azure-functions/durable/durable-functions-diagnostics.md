@@ -3,9 +3,9 @@ title: Diagnostics in Durable Functions - Azure
 description: Learn how to diagnose problems with the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 06/29/2021
+ms.date: 12/07/2022
 ms.author: azfuncdf
-ms.devlang: csharp, javascript, python
+ms.devlang: csharp, java, javascript, python
 ---
 
 # Diagnostics in Durable Functions in Azure
@@ -62,13 +62,13 @@ The verbosity of tracking data emitted to Application Insights can be configured
 {
     "logging": {
         "logLevel": {
-          "Host.Triggers.DurableTask": "Information",
+            "Host.Triggers.DurableTask": "Information",
         },
     }
 }
 ```
 
-By default, all _non-replay_ tracking events are emitted. The volume of data can be reduced by setting `Host.Triggers.DurableTask` to `"Warning"` or `"Error"` in which case tracking events will only be emitted for exceptional situations. To enable emitting the verbose orchestration replay events, set the `logReplayEvents` to `true` in the [host.json](durable-functions-bindings.md#host-json) configuration file.
+By default, all *non-replay* tracking events are emitted. The volume of data can be reduced by setting `Host.Triggers.DurableTask` to `"Warning"` or `"Error"` in which case tracking events will only be emitted for exceptional situations. To enable emitting the verbose orchestration replay events, set the `logReplayEvents` to `true` in the [host.json](durable-functions-bindings.md#host-json) configuration file.
 
 > [!NOTE]
 > By default, Application Insights telemetry is sampled by the Azure Functions runtime to avoid emitting data too frequently. This can cause tracking information to be lost when many lifecycle events occur in a short period of time. The [Azure Functions Monitoring article](../configure-monitoring.md#configure-sampling) explains how to configure this behavior.
@@ -178,7 +178,7 @@ For more information about what log events are available, see the [Durable Task 
 
 It's important to keep the orchestrator replay behavior in mind when writing logs directly from an orchestrator function. For example, consider the following orchestrator function:
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("FunctionChain")]
@@ -186,6 +186,25 @@ public static async Task Run(
     [OrchestrationTrigger] IDurableOrchestrationContext context,
     ILogger log)
 {
+    log.LogInformation("Calling F1.");
+    await context.CallActivityAsync("F1");
+    log.LogInformation("Calling F2.");
+    await context.CallActivityAsync("F2");
+    log.LogInformation("Calling F3");
+    await context.CallActivityAsync("F3");
+    log.LogInformation("Done!");
+}
+```
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+```csharp
+[Function("FunctionChain")]
+public static async Task Run(
+    [OrchestrationTrigger] TaskOrchestrationContext context,
+    FunctionContext executionContext)
+{
+    ILogger log = executionContext.GetLogger("FunctionChain");
     log.LogInformation("Calling F1.");
     await context.CallActivityAsync("F1");
     log.LogInformation("Calling F2.");
@@ -213,6 +232,7 @@ module.exports = df.orchestrator(function*(context){
 ```
 
 # [Python](#tab/python)
+
 ```python
 import logging
 import azure.functions as func
@@ -228,6 +248,24 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     return None
 
 main = df.Orchestrator.create(orchestrator_function)
+```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("FunctionChain")
+public void functionChain(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx,
+        ExecutionContext functionContext) {
+    Logger log = functionContext.getLogger();
+    log.info("Calling F1.");
+    ctx.callActivity("F1").await();
+    log.info("Calling F2.");
+    ctx.callActivity("F2").await();
+    log.info("Calling F3.");
+    ctx.callActivity("F3").await();
+    log.info("Done!");
+}
 ```
 
 ---
@@ -252,7 +290,7 @@ Done!
 
 If you want to only write logs on non-replay executions, you can write a conditional expression to log only if the "is replaying" flag is `false`. Consider the example above, but this time with replay checks.
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("FunctionChain")]
@@ -292,6 +330,28 @@ public static async Task Run(
 > [!NOTE]
 > The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
+# [C# (Isolated)](#tab/csharp-isolated)
+
+In Durable Functions for .NET-isolated, you can create an `ILogger` that automatically filters out log statements during replay. The main difference with Durable Functions in-proc is that you do not provide an existing `ILogger`. This logger is created via the `TaskOrchestrationContext.CreateReplaySafeLogger` overloads.
+
+```csharp
+[Function("FunctionChain")]
+public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    ILogger log = context.CreateReplaySafeLogger("FunctionChain");
+    log.LogInformation("Calling F1.");
+    await context.CallActivityAsync("F1");
+    log.LogInformation("Calling F2.");
+    await context.CallActivityAsync("F2");
+    log.LogInformation("Calling F3");
+    await context.CallActivityAsync("F3");
+    log.LogInformation("Done!");
+}
+```
+
+> [!NOTE]
+> The ability to wrap an existing `ILogger` into a replay-safe logger has been removed in Durable Functions for .NET isolated worker.
+
 # [JavaScript](#tab/javascript)
 
 ```javascript
@@ -325,9 +385,28 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     if not context.is_replaying:
         logging.info("Calling F3.")
     yield context.call_activity("F3")
+    logging.info("Done!")
     return None
 
 main = df.Orchestrator.create(orchestrator_function)
+```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("FunctionChain")
+public void functionChain(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx,
+        ExecutionContext functionContext) {
+    Logger log = functionContext.getLogger();
+    if (!ctx.getIsReplaying()) log.info("Calling F1.");
+    ctx.callActivity("F1").await();
+    if (!ctx.getIsReplaying()) log.info("Calling F2.");
+    ctx.callActivity("F2").await();
+    if (!ctx.getIsReplaying()) log.info("Calling F3.");
+    ctx.callActivity("F3").await();
+    log.info("Done!");
+}
 ```
 
 ---
@@ -345,7 +424,7 @@ Done!
 
 Custom orchestration status lets you set a custom status value for your orchestrator function. This custom status is then visible to external clients via the [HTTP status query API](durable-functions-http-api.md#get-instance-status) or via language-specific API calls. The custom orchestration status enables richer monitoring for orchestrator functions. For example, the orchestrator function code can invoke the "set custom status" API to update the progress for a long-running operation. A client, such as a web page or other external system, could then periodically query the HTTP status query APIs for richer progress information. Sample code for setting a custom status value in an orchestrator function is provided below:
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("SetStatusTest")]
@@ -363,6 +442,22 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 
 > [!NOTE]
 > The previous C# example is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+```csharp
+[Function("SetStatusTest")]
+public static async Task SetStatusTest([OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    // ...do work...
+
+    // update the status of the orchestration with some arbitrary data
+    var customStatus = new { completionPercentage = 90.0, status = "Updating database records" };
+    context.SetCustomStatus(customStatus);
+
+    // ...do more work...
+}
+```
 
 # [JavaScript](#tab/javascript)
 
@@ -400,6 +495,24 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
+# [Java](#tab/java)
+
+```java
+@FunctionName("SetStatusTest")
+public void setStatusTest(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    // ...do work...
+
+    // update the status of the orchestration with some arbitrary data
+    ctx.setCustomStatus(new Object() {
+        public final double completionPercentage = 90.0;
+        public final String status = "Updating database records";
+    });
+
+    // ...do more work...
+}
+```
+
 ---
 
 While the orchestration is running, external clients can fetch this custom status:
@@ -432,7 +545,7 @@ Azure Functions supports debugging function code directly, and that same support
 * **Replay**: Orchestrator functions regularly [replay](durable-functions-orchestrations.md#reliability) when new inputs are received. This behavior means a single *logical* execution of an orchestrator function can result in hitting the same breakpoint multiple times, especially if it is set early in the function code.
 * **Await**: Whenever an `await` is encountered in an orchestrator function, it yields control back to the Durable Task Framework dispatcher. If it is the first time a particular `await` has been encountered, the associated task is *never* resumed. Because the task never resumes, stepping *over* the await (F10 in Visual Studio) is not possible. Stepping over only works when a task is being replayed.
 * **Messaging timeouts**: Durable Functions internally uses queue messages to drive execution of orchestrator, activity, and entity functions. In a multi-VM environment, breaking into the debugging for extended periods of time could cause another VM to pick up the message, resulting in duplicate execution. This behavior exists for regular queue-trigger functions as well, but is important to point out in this context since the queues are an implementation detail.
-* **Stopping and starting**: Messages in Durable functions persist between debug sessions. If you stop debugging and terminate the local host process while a durable function is executing, that function may re-execute automatically in a future debug session. This behavior can be confusing when not expected. Clearing all messages from the [internal storage queues](durable-functions-perf-and-scale.md#internal-queue-triggers) between debug sessions is one technique to avoid this behavior.
+* **Stopping and starting**: Messages in Durable functions persist between debug sessions. If you stop debugging and terminate the local host process while a durable function is executing, that function may re-execute automatically in a future debug session. This behavior can be confusing when not expected. Using a [fresh task hub](durable-functions-task-hubs.md#task-hub-management) or clearing the task hub contents between debug sessions is one technique to avoid this behavior.
 
 > [!TIP]
 > When setting breakpoints in orchestrator functions, if you want to only break on non-replay execution, you can set a conditional breakpoint that breaks only if the "is replaying" value is `false`.
@@ -450,6 +563,10 @@ This is useful for debugging because you see exactly what state an orchestration
 
 > [!NOTE]
 > Other storage providers can be configured instead of the default Azure Storage provider. Depending on the storage provider configured for your app, you may need to use different tools to inspect the underlying state. For more information, see the [Durable Functions Storage Providers](durable-functions-storage-providers.md) documentation.
+
+## Durable Functions troubleshooting guide
+
+To troubleshoot common problem symptoms such as orchestrations being stuck, failing to start, running slowly, etc., refer to this [troubleshooting guide](durable-functions-troubleshooting-guide.md). 
 
 ## 3rd party tools
 

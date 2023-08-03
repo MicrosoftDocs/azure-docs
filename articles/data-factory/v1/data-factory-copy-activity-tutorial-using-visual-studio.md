@@ -1,13 +1,13 @@
 ---
 title: 'Tutorial: Create a pipeline with Copy Activity using Visual Studio '
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using Visual Studio.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
-ms.custom: vs-azure, devx-track-azurepowershell
+ms.custom: vs-azure
 ms.topic: tutorial
-ms.date: 10/22/2021
-ms.author: jingwang
+ms.date: 04/12/2023
+ms.author: jianleishen
 robots: noindex
 ---
 # Tutorial: Create a pipeline with Copy Activity using Visual Studio
@@ -358,7 +358,7 @@ Note the following points:
 ## Monitor pipeline
 Navigate to the home page for your data factory:
 
-1. Log in to [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **More services** on the left menu, and click **Data factories**.
 
   :::image type="content" source="media/data-factory-copy-activity-tutorial-using-visual-studio/browse-data-factories.png" alt-text="Browse data factories":::

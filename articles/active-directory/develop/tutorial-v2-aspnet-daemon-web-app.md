@@ -1,9 +1,8 @@
 ---
-title: "Tutorial: Build a multi-tenant daemon that accesses Microsoft Graph business data | Azure"
-titleSuffix: Microsoft identity platform
+title: "Tutorial: Build a multi-tenant daemon that accesses Microsoft Graph business data"
 description: In this tutorial, learn how to call an ASP.NET web API protected by Azure Active Directory from a Windows desktop (WPF) application. The WPF client authenticates a user, requests an access token, and calls the web API.
 services: active-directory
-author: jmprieur
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,8 @@ ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 12/10/2019
-ms.author: jmprieur
+ms.author: henrymbugua
+ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, has-adal-ref
 #Customer intent: As an application developer, I want to know how to set up OpenId Connect authentication in a web application built using Node.js with Express.
 ---
@@ -89,6 +89,8 @@ If you want to use the automation:
 If you don't want to use the automation, use the steps in the following sections.
 
 ### Choose the Azure AD tenant
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.

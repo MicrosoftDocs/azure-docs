@@ -2,15 +2,15 @@
 title: Language customization in Azure Active Directory B2C
 description: Learn about customizing the language experience in your user flows in Azure Active Directory B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 12/28/2022
 ms.custom: project-no-code
-ms.author: kengaderdus
+ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -221,7 +221,7 @@ Open the extensions file of your policy. For example, <em>`SocialAndLocalAccount
 
 ## Provide language-specific labels
 
-The [LocalizedResources](localization.md#localizedresources) of the `Localization` element contains the list of localized strings. The localized resources element has an identifier that is used to uniquely identify localized resources. This identifer is used later in the [content definition](contentdefinitions.md) element.
+The [LocalizedResources](localization.md#localizedresources) of the `Localization` element contains the list of localized strings. The localized resources element has an identifier that is used to uniquely identify localized resources. This identifier is used later in the [content definition](contentdefinitions.md) element.
 
 You configure localized resources elements for the content definition and any language you want to support. To customize the unified sign-up or sign-in pages for English and Spanish, you add the following `LocalizedResources` elements after the close of the `</SupportedLanguages>` element.
 
@@ -232,36 +232,38 @@ You configure localized resources elements for the content definition and any la
 <!--Local account sign-up or sign-in page English-->
 <Localization Enabled="true">
   ...
-  <LocalizedResources Id="api.signuporsignin.en">
-    <LocalizedStrings>
-      <LocalizedString ElementType="UxElement" StringId="logonIdentifier_email">#Email Address</LocalizedString>
-      <LocalizedString ElementType="UxElement" StringId="requiredField_email">#Please enter your email</LocalizedString>
-      <LocalizedString ElementType="UxElement" StringId="logonIdentifier_username">#Username</LocalizedString>
-      <LocalizedString ElementType="UxElement" StringId="password">#Password</LocalizedString>
-      <LocalizedString ElementType="UxElement" StringId="createaccount_link">#Sign up now</LocalizedString>
-      <LocalizedString ElementType="UxElement" StringId="requiredField_username">#Please enter your user name</LocalizedString>
-      <LocalizedString ElementType="UxElement" StringId="createaccount_intro">#Don't have an account?</LocalizedString>
-      <LocalizedString ElementType="UxElement" StringId="forgotpassword_link">#Forgot your password?</LocalizedString>
-      <LocalizedString ElementType="UxElement" StringId="divider_title">#OR</LocalizedString>
-      <LocalizedString ElementType="UxElement" StringId="cancel_message">#The user has forgotten their password</LocalizedString>
-      <LocalizedString ElementType="UxElement" StringId="button_signin">#Sign in</LocalizedString>
-      <LocalizedString ElementType="UxElement" StringId="social_intro">#Sign in with your social account</LocalizedString>
-      <LocalizedString ElementType="UxElement" StringId="requiredField_password">#Please enter your password</LocalizedString>
-      <LocalizedString ElementType="UxElement" StringId="invalid_password">#The password you entered is not in the expected format.</LocalizedString>
-      <LocalizedString ElementType="UxElement" StringId="local_intro_username">#Sign in with your user name</LocalizedString>
-      <LocalizedString ElementType="UxElement" StringId="local_intro_email">#Sign in with your existing account</LocalizedString>
-      <LocalizedString ElementType="UxElement" StringId="invalid_email">#Please enter a valid email address</LocalizedString>
-      <LocalizedString ElementType="UxElement" StringId="unknown_error">#We are having trouble signing you in. Please try again later.</LocalizedString>
-      <LocalizedString ElementType="UxElement" StringId="email_pattern">^[a-zA-Z0-9.!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$</LocalizedString>
-      <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">#Your password is incorrect.</LocalizedString>
-      <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">#We can't seem to find your account.</LocalizedString>
-      <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">#Looks like you used an old password.</LocalizedString>
-      <LocalizedString ElementType="ErrorMessage" StringId="DefaultMessage">#Invalid username or password.</LocalizedString>
-      <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">#Your account has been locked. Contact your support person to unlock it, then try again.</LocalizedString>
-      <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountLocked">#Your account is temporarily locked to prevent unauthorized use. Try again later.</LocalizedString>
-      <LocalizedString ElementType="ErrorMessage" StringId="AADRequestsThrottled">#There are too many requests at this moment. Please wait for some time and try again.</LocalizedString>
-    </LocalizedStrings>
-  </LocalizedResources>
+ <LocalizedResources Id="api.signuporsignin.en">
+        <LocalizedStrings>
+          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Email Address</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="heading">Sign in</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="social_intro">Sign in with your social account</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Sign in with your {0}</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">Password</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="requiredField_password">Please enter your password</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="requiredField_generic">Please enter your {0}</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="invalid_generic">Please enter a valid {0}</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="createaccount_one_link">Sign up now</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="createaccount_two_links">Sign up with {0} or {1}</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="createaccount_three_links">Sign up with {0}, {1}, or {2}</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="forgotpassword_link">Forgot your password?</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="button_signin">Sign in</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="divider_title">OR</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="createaccount_intro">Don't have an account?</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="unknown_error">We are having trouble signing you in. Please try again later.</LocalizedString>
+          <!-- Uncomment the remember_me only if the keep me signed in is activated. 
+          <LocalizedString ElementType="UxElement" StringId="remember_me">Keep me signed in</LocalizedString> -->
+          <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="ResourceOwnerFlowInvalidCredentials">Your password is incorrect.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Your password is incorrect.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">We can't seem to find your account.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Looks like you used an old password.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="DefaultMessage">Invalid username or password.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">Your account has been locked. Contact your support person to unlock it, then try again.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountLocked">Your account is temporarily locked to prevent unauthorized use. Try again later.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="AADRequestsThrottled">There are too many requests at this moment. Please wait for some time and try again.</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
   <!--Local account sign-up or sign-in page Spanish-->
   <LocalizedResources Id="api.signuporsignin.es">
     <LocalizedStrings>
@@ -283,7 +285,7 @@ You configure localized resources elements for the content definition and any la
       <LocalizedString ElementType="UxElement" StringId="local_intro_email">#Iniciar sesión con su cuenta existente</LocalizedString>
       <LocalizedString ElementType="UxElement" StringId="invalid_email">#Escriba una dirección de correo electrónico válida</LocalizedString>
       <LocalizedString ElementType="UxElement" StringId="unknown_error">#Tenemos problemas para iniciar su sesión. Vuelva a intentarlo más tarde.  </LocalizedString>
-      <LocalizedString ElementType="UxElement" StringId="email_pattern">^[a-zA-Z0-9.!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$</LocalizedString>
+      <LocalizedString ElementType="UxElement" StringId="email_pattern">^[a-zA-Z0-9.!#$%&amp;'^_`\{\}~\-]+@[a-zA-Z0-9\-]+(?:\.[a-zA-Z0-9\-]+)*$</LocalizedString>
       <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">#Su contraseña es incorrecta.</LocalizedString>
       <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">#Parece que no podemos encontrar su cuenta.</LocalizedString>
       <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">#Parece que ha usado una contraseña antigua.</LocalizedString>
@@ -470,7 +472,7 @@ Chrome and Firefox both request for their set language. If it's a supported lang
 
 ## Supported languages
 
-Azure AD B2C includes support for the following languages. User flow languages are provided by Azure AD B2C. The multi-factor authentication (MFA) notification languages are provided by [Azure AD MFA](../active-directory/authentication/concept-mfa-howitworks.md).
+Azure AD B2C includes support for the following languages by using ISO 639-1 codes. User flow languages are provided by Azure AD B2C. The multi-factor authentication (MFA) notification languages are provided by [Azure AD MFA](../active-directory/authentication/concept-mfa-howitworks.md).
 
 | Language              | Language code | User flows         | MFA notifications  |
 |-----------------------| :-----------: | :----------------: | :----------------: |
@@ -525,6 +527,7 @@ Azure AD B2C includes support for the following languages. User flow languages a
 | Turkish               | tr            | ![Green check mark.](./media/user-flow-language-customization/yes.png) | ![Green check mark.](./media/user-flow-language-customization/yes.png) |
 | Ukrainian             | uk            | ![X indicating no.](./media/user-flow-language-customization/no.png) | ![Green check mark.](./media/user-flow-language-customization/yes.png) |
 | Vietnamese            | vi            | ![X indicating no.](./media/user-flow-language-customization/no.png) | ![Green check mark.](./media/user-flow-language-customization/yes.png) |
+| Welsh            | cy            | ![X indicating no.](./media/user-flow-language-customization/no.png) | ![X indicating no.](./media/user-flow-language-customization/no.png) |
 | Chinese - Simplified  | zh-hans       | ![Green check mark.](./media/user-flow-language-customization/yes.png) | ![Green check mark.](./media/user-flow-language-customization/yes.png) |
 | Chinese - Traditional | zh-hant       | ![Green check mark.](./media/user-flow-language-customization/yes.png) | ![Green check mark.](./media/user-flow-language-customization/yes.png) |
 

@@ -15,6 +15,8 @@ ms.custom: shresha
 
 # Migrating to new Azure Time Series Insights Gen2 API versions
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 ## Overview
 
 If you have created an Azure Time Series Insights Gen2 environment when it was in Public Preview (before July 16th, 2020), please update your TSI environment to use the new generally available versions of APIs by following the steps described in this article. This change does not affect any users who are using the Gen1 version of Azure Time Series Insights.

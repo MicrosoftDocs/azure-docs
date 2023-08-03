@@ -4,10 +4,10 @@ description: This PowerShell script creates an Azure-SSIS integration runtime th
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: article
-ms.author: sawinark
-author: swinarko
+ms.author: chugu
+author: chugugrace
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 10/22/2021
+ms.date: 01/25/2023
 ---
 
 # PowerShell script - deploy Azure-SSIS integration runtime

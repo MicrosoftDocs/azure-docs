@@ -2,10 +2,11 @@
 title: Delete a Microsoft Azure Recovery Services vault 
 description: In this article, learn how to remove dependencies and then delete an Azure Backup Recovery Services vault.
 ms.topic: how-to
-ms.date: 01/28/2022
-author: v-amallick
+ms.date: 05/23/2022
 ms.service: backup
-ms.author: v-amallick
+ms.custom: devx-track-azurepowershell
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Delete an Azure Backup Recovery Services vault
 
@@ -28,7 +29,7 @@ If you try to delete the vault without removing the dependencies, you'll encount
 
 ## Delete a Recovery Services vault
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWQGC5]
+> [!VIDEO https://www.youtube.com/embed/xg_TnyhK34o]
 
 Choose a client:
 
@@ -270,7 +271,7 @@ First, read the **[Before you start](#before-you-start)** section to understand 
 
 >[!Note]
 >- To download the PowerShell file to delete your vault, go to vault **Overview** -> **Delete** -> **Delete using PowerShell Script**, and then click **Generate and Download Script** as shown in the screenshot below. This generates a customized script specific to the vault, which requires no additional changes. You can run the script in the PowerShell console by switching to the downloaded script’s directory and running the file using: _.\NameofFile.ps1_
->- Ensure PowerShell version 7 or later and the latest _Az module_ are installed. To install the same, see the [instructions here](?tabs=powershell#powershell-install-az-module).
+>- Ensure PowerShell version 7 or higher is installed. To install the same, see the [instructions here](?tabs=powershell#powershell-install-az-module).
 
 If you're sure that all the items backed up in the vault are no longer required and wish to delete them at once without reviewing, you can directly run the PowerShell script in this section. The script will delete all the backup items recursively and eventually the entire vault.
 
@@ -280,7 +281,7 @@ Follow these steps:
 
 - **Step 1**: Seek the necessary permissions from the security administrator to delete the vault if Multi-User Authorization has been enabled against the vault. [Learn more](./multi-user-authorization.md#authorize-critical-protected-operations-using-azure-ad-privileged-identity-management)
 
-- <a id="powershell-install-az-module">**Step 2**</a>: Install the _Az module_ and upgrade to PowerShell 7 version by performing these steps:
+- <a id="powershell-install-az-module">**Step 2**</a>: Upgrade to PowerShell 7 version by performing these steps:
 
   1. Upgrade to PowerShell 7: Run the following command in your console:
   
@@ -290,13 +291,6 @@ Follow these steps:
 
   1. Open PowerShell 7 as administrator.
     
-  1. Uninstall old Az module and install the latest version by running the following commands:
-  
-     ```azurepowershell-interactive
-     Uninstall-Module -Name Az.RecoveryServices
-     Set-ExecutionPolicy -ExecutionPolicy Unrestricted
-	 Install-Module -Name Az.RecoveryServices -Repository PSGallery -Force -AllowClobber
-     ```
 
 - **Step 3**: Save the PowerShell script in .ps1 format. Then, to run the script in your PowerShell console, type `./NameOfFile.ps1`. This recursively deletes all backup items and eventually the entire Recovery Services vault.
 

@@ -1,12 +1,13 @@
 ---
-title: 'Tutorial: Create a cross-region load balancer using the Azure portal'
+title: 'Tutorial: Create a cross-region load balancer - Azure portal'
 titleSuffix: Azure Load Balancer
 description: Get started with this tutorial deploying a cross-region Azure Load Balancer with the Azure portal.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 08/02/2021
+ms.date: 12/27/2022
+ms.custom: template-tutorial
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
 
@@ -23,11 +24,6 @@ In this tutorial, you learn how to:
 > * Test the load balancer.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-> [!IMPORTANT]
-> Cross-region Azure Load Balancer is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 

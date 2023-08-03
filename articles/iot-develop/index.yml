@@ -11,7 +11,8 @@ metadata:
   ms.topic: landing-page
   author: timlt
   ms.author: timlt
-  ms.date: 07/15/2021
+  ms.date: 03/28/2023
+  ms.custom: engagement-fy23
 
 landingContent:
   - title: About IoT device development
@@ -20,49 +21,53 @@ landingContent:
       links:
         - text: What is Azure IoT device development?
           url: about-iot-develop.md
-        - text: Review IoT device types
-          url: concepts-iot-device-types.md
-        - text: What is IoT Plug and Play?
-          url: overview-iot-plug-and-play.md
-  - title: Get started with device application development
+        - text: Get started with Azure IoT device development
+          url: about-getting-started-device-development.md
+        - text: Overview of Azure IoT Device SDKs
+          url: about-iot-sdks.md
+  - title: Get started with general device development
     linkLists:
     - linkListType: quickstart
       links:
-        - text: Send device telemetry to IoT Central
-          url: quickstart-send-telemetry-central.md
-        - text: Send device telemetry to IoT Hub
+        - text: Connect a device to IoT Hub
           url: quickstart-send-telemetry-iot-hub.md
-  - title: Get started with embedded device development
+        - text: Connect a device to IoT Central
+          url: quickstart-send-telemetry-central.md
+  - title: Get started with Azure RTOS development
     linkLists:
     - linkListType: quickstart
       links:
-        - text: Connect an MXCHIP AZ3166 to Azure IoT
-          url: quickstart-devkit-mxchip-az3166.md
-        - text: Connect an MXCHIP AZ3166 to Azure IoT Hub
-          url: quickstart-devkit-mxchip-az3166-iot-hub.md
-        - text: Connect a Microchip ATSAME54-XPro to Azure IoT
-          url: quickstart-devkit-microchip-atsame54-xpro.md
-        - text: Connect an STMicroelectronics B-L475E/L4S5I-IOT01A to Azure IoT
-          url: quickstart-devkit-stm-b-l475e.md
+        - text: Connect an STMicroelectronics B-L475E-IOT01A to IoT Hub
+          url: quickstart-devkit-stm-b-l475e-iot-hub.md
+        - text: Connect a Microchip ATSAME54-XPro to IoT Hub
+          url: quickstart-devkit-microchip-atsame54-xpro-iot-hub.md
+        - text: Connect a Renesas RX65N Cloud Kit to IoT Hub
+          url: quickstart-devkit-renesas-rx65n-cloud-kit-iot-hub.md
+        - text: Connect an NXP MIMXRT1060-EVK to IoT Hub
+          url: quickstart-devkit-nxp-mimxrt1060-evk-iot-hub.md
   - title: Build device solutions
     linkLists:
     - linkListType: tutorial
       links:
+        - text: Use MQTT to connect without a device SDK
+          url: tutorial-use-mqtt.md
         - text: Connect a sample device to IoT Hub
           url: tutorial-connect-device.md
-        - text: Securely connect IoT devices to the cloud
-          url: /learn/paths/securely-connect-iot-devices/?wt.mc_id=iothub_connect_docs_tutorials
+    - linkListType: concept
+      links:
+        - text: Manage device reconnections
+          url: concepts-manage-device-reconnections.md
   - title: Device development framework
     linkLists:
     - linkListType: concept
       links: 
-        - text: Overview of device types
-          url: concepts-iot-device-types.md
+        - text: What is IoT Plug and Play?
+          url: overview-iot-plug-and-play.md
         - text: Developer guide
           url: concepts-developer-guide-device.md
-        - text: Modeling guide
-          url: concepts-modeling-guide.md
-        - text: IoT Plug and Play conventions
-          url: concepts-convention.md  
-        - text: IoT Plug and Play bridge
-          url: concepts-iot-pnp-bridge.md
+  - title: Get started with FreeRTOS development
+    linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Connect an ESPRESSIF ESP-32 to Azure IoT Hub
+          url: quickstart-devkit-espressif-esp32-freertos-iot-hub.md

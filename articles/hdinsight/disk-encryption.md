@@ -4,7 +4,7 @@ titleSuffix: Azure HDInsight
 description: This article describes the two layers of encryption available for data at rest on Azure HDInsight clusters.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/10/2020 
+ms.date: 05/23/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -116,6 +116,36 @@ Beginning with the November 2020 release, HDInsight supports the creation of clu
 
 For clusters created before the November 2020 release, you will have to perform key rotation manually using the versioned key URI.
 
+### VM types that support disk encryption
+
+| Size | vCPU | Memory: GiB |
+|-------------------|-----------|-------------|
+| Standard_D4a_v4 | 4    | 16
+| Standard_D8a_v4 | 8    | 32
+| Standard_D16a_v4 | 16  | 64
+| Standard_D32a_v4 | 32  | 128
+| Standard_D48a_v4 | 48  | 192
+| Standard_D64a_v4 | 64  | 256
+| Standard_D96a_v4 | 96  | 384
+| Standard_E64is_v3 | 64  | 432
+| Standard_E20s_V3 | 20  | 160
+| Standard_E2s_V3 | 2  | 16
+| Standard_E2a_v4 | 2  | 16
+| Standard_E4a_v4 | 4  | 32
+| Standard_E8a_v4 | 8  | 64
+| Standard_E16a_v4 | 16  | 128
+| Standard_E20a_v4 | 20  | 160
+| Standard_E32a_v4 | 32  | 256
+| Standard_E48a_v4 | 48  | 384
+| Standard_E64a_v4 | 64  | 512
+| Standard_E96a_v4 | 96  | 672
+| Standard_DS3_v2 | 4  | 14
+| Standard_DS4_v2 | 8  | 28
+| Standard_DS5_v2 | 16  | 56
+| Standard_DS12_v2 | 4  | 28
+| Standard_DS13_v2 | 8  | 56
+| Standard_DS14_v2 | 16  | 112
+
 #### Using the Azure portal
 
 During cluster creation, you can either use a versioned key, or a versionless key in the following way:
@@ -129,7 +159,7 @@ You also need to assign the managed identity to the cluster.
 
 #### Using Azure CLI
 
-The following example shows how to use Azure CLI to create a new Apache Spark cluster with disk encryption enabled. For more information, see [Azure CLI az hdinsight create](/cli/azure/hdinsight#az_hdinsight_create). The parameter `encryption-key-version` is optional.
+The following example shows how to use Azure CLI to create a new Apache Spark cluster with disk encryption enabled. For more information, see [Azure CLI az hdinsight create](/cli/azure/hdinsight#az-hdinsight-create). The parameter `encryption-key-version` is optional.
 
 ```azurecli
 az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
@@ -367,7 +397,7 @@ To rotate the key, you need the base key vault URI. Once you've done that, go to
 
 #### Using Azure CLI
 
-The following example shows how to rotate the disk encryption key for an existing HDInsight cluster. For more information, see [Azure CLI az hdinsight rotate-disk-encryption-key](/cli/azure/hdinsight#az_hdinsight_rotate_disk_encryption_key).
+The following example shows how to rotate the disk encryption key for an existing HDInsight cluster. For more information, see [Azure CLI az hdinsight rotate-disk-encryption-key](/cli/azure/hdinsight#az-hdinsight-rotate-disk-encryption-key).
 
 ```azurecli
 az hdinsight rotate-disk-encryption-key \
@@ -400,7 +430,7 @@ If the cluster loses access to the key, warnings will be shown in the Apache Amb
 
 **How can I recover the cluster if the keys are deleted?**
 
-Since only "Soft Delete" enabled keys are supported, if the keys are recovered in the key vault, the cluster should regain access to the keys. To recover an Azure Key Vault key, see [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) or [az-keyvault-key-recover](/cli/azure/keyvault/key#az_keyvault_key_recover).
+Since only "Soft Delete" enabled keys are supported, if the keys are recovered in the key vault, the cluster should regain access to the keys. To recover an Azure Key Vault key, see [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) or [az-keyvault-key-recover](/cli/azure/keyvault/key#az-keyvault-key-recover).
 
 
 **If a cluster is scaled up, will the new nodes support customer-managed keys seamlessly?**

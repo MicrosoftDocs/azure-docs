@@ -3,6 +3,7 @@ title: 'Quickstart: Create a blueprint with the Azure CLI'
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts by using the Azure CLI.
 ms.date: 08/17/2021
 ms.topic: quickstart
+ms.custom: devx-track-azurecli
 ---
 # Quickstart: Define and assign an Azure blueprint with the Azure CLI
 
@@ -115,7 +116,7 @@ assignment on the resource group.
      ```
 
      > [!NOTE]
-     > Use the filename _blueprint.json_ when you import your blueprint definitions. This file name is used when you call [az blueprint import](/cli/azure/blueprint#az_blueprint_import).
+     > Use the filename _blueprint.json_ when you import your blueprint definitions. This file name is used when you call [az blueprint import](/cli/azure/blueprint#az-blueprint-import).
 
      The blueprint object is created in the default subscription by default. To specify the
      management group, use the parameter `managementgroup`. To specify the subscription, use the parameter `subscription`.

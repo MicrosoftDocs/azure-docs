@@ -1,9 +1,9 @@
 ---
 title: Querying logs for Azure resources
 description: In Log Analytics, queries typically execute in the context of a workspace. A workspace may contain data for many resources, making it difficult to isolate data for a particular resource.
-author: bwren
-ms.author: bwren
 ms.date: 12/07/2021
+author: guywi-ms
+ms.author: guywild
 ms.topic: article
 ---
 # Querying logs for Azure resources
@@ -25,7 +25,7 @@ Consider an Azure resource with a fully qualified identifier:
 A query for this resource's logs against the direct API endpoint would go to the following URL:
 
 ```
-    https://api.loganalytics.io/v1/subscriptions/<sid>/resourceGroups/<rg>/providers/<providerName>/<resourceType>/<resourceName>/query
+    https://api.loganalytics.azure.com/v1/subscriptions/<sid>/resourceGroups/<rg>/providers/<providerName>/<resourceType>/<resourceName>/query
 ```
 
 A query to the same resource via ARM would use the following URL:

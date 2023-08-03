@@ -7,10 +7,10 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: overview
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 ---
 
-# Introduction to Azure Data Factory 
+# Introduction to Azure Data Factory V1
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-introduction.md)
 > * [Version 2 (current version)](../introduction.md)

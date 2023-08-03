@@ -5,13 +5,13 @@ description: Use Azure portal, PowerShell, or Azure CLI to check how encryption 
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 03/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.subservice: storage-common-concepts
+ms.custom: devx-track-azurecli
 ---
 
 # Determine which Azure Storage encryption key model is in use for the storage account
@@ -58,7 +58,7 @@ If the value of the **KeySource** property is `Microsoft.Storage`, then the acco
 
 # [Azure CLI](#tab/cli)
 
-To check the encryption model for the storage account by using Azure CLI, call the [az storage account show](/cli/azure/storage/account#az_storage_account_show) command, then check the **keySource** property for the account.
+To check the encryption model for the storage account by using Azure CLI, call the [az storage account show](/cli/azure/storage/account#az-storage-account-show) command, then check the **keySource** property for the account.
 
 ```azurecli-interactive
 key_source=$(az storage account show \

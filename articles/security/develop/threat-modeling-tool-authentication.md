@@ -8,14 +8,14 @@ manager: jegeib
 editor: jegeib
 
 ms.assetid: na
-ms.service: security
-ms.subservice: security-develop
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
+ms.custom: devx-track-csharp
 ---
 
 # Security Frame: Authentication | Mitigations
@@ -23,7 +23,7 @@ ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
 | Product/Service | Article |
 | --------------- | ------- |
 | **Web Application**    | <ul><li>[Consider using a standard authentication mechanism to authenticate to Web Application](#standard-authn-web-app)</li><li>[Applications must handle failed authentication scenarios securely](#handle-failed-authn)</li><li>[Enable step up or adaptive authentication](#step-up-adaptive-authn)</li><li>[Ensure that administrative interfaces are appropriately locked down](#admin-interface-lockdown)</li><li>[Implement forgot password functionalities securely](#forgot-pword-fxn)</li><li>[Ensure that password and account policy are implemented](#pword-account-policy)</li><li>[Implement controls to prevent username enumeration](#controls-username-enum)</li></ul> |
-| **Database** | <ul><li>[When possible, use Windows Authentication for connecting to SQL Server](#win-authn-sql)</li><li>[When possible use Azure Active Directory Authentication for Connecting to SQL Database](#aad-authn-sql)</li><li>[When SQL authentication mode is used, ensure that account and password policy are enforced on SQL server](#authn-account-pword)</li><li>[Do not use SQL Authentication in contained databases](#autn-contained-db)</li></ul> |
+| **Database** | <ul><li>[When possible, use Windows Authentication for connecting to SQL Server](#win-authn-sql)</li><li>[When possible use Azure Active Directory Authentication for Connecting to SQL Database](#aad-authn-sql)</li><li>[When SQL authentication mode is used, ensure that account and password policy are enforced on SQL server](#authn-account-pword)</li><li>[Don't use SQL Authentication in contained databases](#autn-contained-db)</li></ul> |
 | **Azure Event Hub** | <ul><li>[Use per device authentication credentials using SaS tokens](#authn-sas-tokens)</li></ul> |
 | **Azure Trust Boundary** | <ul><li>[Enable Azure AD Multi-Factor Authentication for Azure Administrators](#multi-factor-azure-admin)</li></ul> |
 | **Service Fabric Trust Boundary** | <ul><li>[Restrict anonymous access to Service Fabric Cluster](#anon-access-cluster)</li><li>[Ensure that Service Fabric client-to-node certificate is different from node-to-node certificate](#fabric-cn-nn)</li><li>[Use AAD to authenticate clients to service fabric clusters](#aad-client-fabric)</li><li>[Ensure that service fabric certificates are obtained from an approved Certificate Authority (CA)](#fabric-cert-ca)</li></ul> |
@@ -31,7 +31,7 @@ ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
 | **Machine Trust Boundary** | <ul><li>[Ensure that deployed application's binaries are digitally signed](#binaries-signed)</li></ul> |
 | **WCF** | <ul><li>[Enable authentication when connecting to MSMQ queues in WCF](#msmq-queues)</li><li>[WCF-Do not set Message clientCredentialType to none](#message-none)</li><li>[WCF-Do not set Transport clientCredentialType to none](#transport-none)</li></ul> |
 | **Web API** | <ul><li>[Ensure that standard authentication techniques are used to secure Web APIs](#authn-secure-api)</li></ul> |
-| **Azure AD** | <ul><li>[Use standard authentication scenarios supported by Azure Active Directory](#authn-aad)</li><li>[Override the default ADAL token cache with a scalable alternative](#adal-scalable)</li><li>[Ensure that TokenReplayCache is used to prevent the replay of ADAL authentication tokens](#tokenreplaycache-adal)</li><li>[Use ADAL libraries to manage token requests from OAuth2 clients to AAD (or on-premises AD)](#adal-oauth2)</li></ul> |
+| **Azure AD** | <ul><li>[Use standard authentication scenarios supported by Azure Active Directory](#authn-aad)</li><li>[Override the default MSAL token cache with a distributed cache](#msal-distributed-cache)</li><li>[Ensure that TokenReplayCache is used to prevent the replay of inbound authentication tokens](#tokenreplaycache-msal)</li><li>[Use MSAL libraries to manage token requests from OAuth2 clients to AAD (or on-premises AD)](#msal-oauth2)</li></ul> |
 | **IoT Field Gateway** | <ul><li>[Authenticate devices connecting to the Field Gateway](#authn-devices-field)</li></ul> |
 | **IoT Cloud Gateway** | <ul><li>[Ensure that devices connecting to Cloud gateway are authenticated](#authn-devices-cloud)</li><li>[Use per-device authentication credentials](#authn-cred)</li></ul> |
 | **Azure Storage** | <ul><li>[Ensure that only the required containers and blobs are given anonymous read access](#req-containers-anon)</li><li>[Grant limited access to objects in Azure storage using SAS or SAP](#limited-access-sas)</li></ul> |
@@ -56,7 +56,7 @@ ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| Details | <p>Applications that explicitly authenticate users must handle failed authentication scenarios securely.The authentication mechanism must:</p><ul><li>Deny access to privileged resources when authentication fails</li><li>Display a generic error message after failed authentication and access denied occurs</li></ul><p>Test for:</p><ul><li>Protection of privileged resources after failed logins</li><li>A generic error message is displayed on failed authentication and access denied event(s)</li><li>Accounts are disabled after an excessive number of failed attempts</li><ul>|
+| Details | <p>Applications that explicitly authenticate users must handle failed authentication scenarios securely. The authentication mechanism must:</p><ul><li>Deny access to privileged resources when authentication fails</li><li>Display a generic error message after failed authentication and access denied occurs</li></ul><p>Test for:</p><ul><li>Protection of privileged resources after failed logins</li><li>A generic error message is displayed on failed authentication and access denied event(s)</li><li>Accounts are disabled after an excessive number of failed attempts</li><ul>|
 
 ## <a id="step-up-adaptive-authn"></a>Enable step up or adaptive authentication
 
@@ -78,7 +78,7 @@ ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| Details | The first solution is to grant access only from a certain source IP range to the administrative interface. If that solution would not be possible than it is always recommended to enforce a step-up or adaptive authentication for logging in into the administrative interface |
+| Details | The first solution is to grant access only from a certain source IP range to the administrative interface. If that solution wouldn't be possible then it's always recommended to enforce a step-up or adaptive authentication for logging in into the administrative interface |
 
 ## <a id="forgot-pword-fxn"></a>Implement forgot password functionalities securely
 
@@ -89,7 +89,7 @@ ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| Details | <p>The first thing is to verify that forgot password and other recovery paths send a link including a time-limited activation token rather than the password itself. Additional authentication based on soft-tokens (e.g. SMS token, native mobile applications, etc.) can be required as well before the link is sent over. Second, you should not lock out the users account whilst the process of getting a new password is in progress.</p><p>This could lead to a Denial of service attack whenever an attacker decides to intentionally lock out the users with an automated attack. Third, whenever the new password request was set in progress, the message you display should be generalized in order to prevent username enumeration. Fourth, always disallow the use of old passwords and implement a strong password policy.</p> |
+| Details | <p>The first thing is to verify that forgot password and other recovery paths send a link including a time-limited activation token rather than the password itself. Additional authentication based on soft-tokens (e.g. SMS token, native mobile applications, etc.) can be required as well before the link is sent over. Second, you shouldn't lock out the users account whilst the process of getting a new password is in progress.</p><p>This could lead to a Denial of service attack whenever an attacker decides to intentionally lock out the users with an automated attack. Third, whenever the new password request was set in progress, the message you display should be generalized in order to prevent username enumeration. Fourth, always disallow the use of old passwords and implement a strong password policy.</p> |
 
 ## <a id="pword-account-policy"></a>Ensure that password and account policy are implemented
 
@@ -111,7 +111,7 @@ ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | All error messages should be generalized in order to prevent username enumeration. Also sometimes you cannot avoid information leaking in functionalities such as a registration page. Here you need to use rate-limiting methods like CAPTCHA to prevent an automated attack by an attacker. |
+| **Steps** | All error messages should be generalized in order to prevent username enumeration. Also sometimes you can't avoid information leaking in functionalities such as a registration page. Here you need to use rate-limiting methods like CAPTCHA to prevent an automated attack by an attacker. |
 
 ## <a id="win-authn-sql"></a>When possible, use Windows Authentication for connecting to SQL Server
 
@@ -132,7 +132,7 @@ ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
 | **SDL Phase**               | Build |
 | **Applicable Technologies** | SQL Azure |
 | **Attributes**              | SQL Version - V12 |
-| **References**              | [Connecting to SQL Database By Using Azure Active Directory Authentication](../../azure-sql/database/authentication-aad-overview.md) |
+| **References**              | [Connecting to SQL Database By Using Azure Active Directory Authentication](/azure/azure-sql/database/authentication-aad-overview) |
 | **Steps** | **Minimum version:** Azure SQL Database V12 required to allow Azure SQL Database to use AAD Authentication against the Microsoft Directory |
 
 ## <a id="authn-account-pword"></a>When SQL authentication mode is used, ensure that account and password policy are enforced on SQL server
@@ -144,7 +144,7 @@ ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [SQL Server password policy](/previous-versions/sql/sql-server-2012/ms161959(v=sql.110)) |
-| **Steps** | When using SQL Server Authentication, logins are created in SQL Server that are not based on Windows user accounts. Both the user name and the password are created by using SQL Server and stored in SQL Server. SQL Server can use Windows password policy mechanisms. It can apply the same complexity and expiration policies used in Windows to passwords used inside SQL Server. |
+| **Steps** | When using SQL Server Authentication, logins are created in SQL Server that aren't based on Windows user accounts. Both the user name and the password are created by using SQL Server and stored in SQL Server. SQL Server can use Windows password policy mechanisms. It can apply the same complexity and expiration policies used in Windows to passwords used inside SQL Server. |
 
 ## <a id="autn-contained-db"></a>Do not use SQL Authentication in contained databases
 
@@ -177,7 +177,7 @@ ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [What is Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md) |
-| **Steps** | <p>Multi-factor authentication (MFA) is a method of authentication that requires more than one verification method and adds a critical second layer of security to user sign-ins and transactions. It works by requiring any two or more of the following verification methods:</p><ul><li>Something you know (typically a password)</li><li>Something you have (a trusted device that is not easily duplicated, like a phone)</li><li>Something you are (biometrics)</li><ul>|
+| **Steps** | <p>Multi-factor authentication (MFA) is a method of authentication that requires more than one verification method and adds a critical second layer of security to user sign-ins and transactions. It works by requiring any two or more of the following verification methods:</p><ul><li>Something you know (typically a password)</li><li>Something you have (a trusted device that isn't easily duplicated, like a phone)</li><li>Something you are (biometrics)</li><ul>|
 
 ## <a id="anon-access-cluster"></a>Restrict anonymous access to Service Fabric Cluster
 
@@ -350,7 +350,7 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 | **References**              | [Authentication Scenarios for Azure AD](../../active-directory/develop/authentication-vs-authorization.md), [Azure Active Directory Code Samples](../../active-directory/azuread-dev/sample-v1-code.md), [Azure Active Directory developer's guide](../../active-directory/develop/index.yml) |
 | **Steps** | <p>Azure Active Directory (Azure AD) simplifies authentication for developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect. Below are the five primary application scenarios supported by Azure AD:</p><ul><li>Web Browser to Web Application: A user needs to sign in to a web application that is secured by Azure AD</li><li>Single Page Application (SPA): A user needs to sign in to a single page application that is secured by Azure AD</li><li>Native Application to Web API: A native application that runs on a phone, tablet, or PC needs to authenticate a user to get resources from a web API that is secured by Azure AD</li><li>Web Application to Web API: A web application needs to get resources from a web API secured by Azure AD</li><li>Daemon or Server Application to Web API: A daemon application or a server application with no web user interface needs to get resources from a web API secured by Azure AD</li></ul><p>Please refer to the links in the references section for low-level implementation details</p>|
 
-## <a id="adal-scalable"></a>Override the default ADAL token cache with a scalable alternative
+## <a id="msal-distributed-cache"></a>Override the default MSAL token cache with a distributed cache
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -358,10 +358,10 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 | **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Modern Authentication with Azure Active Directory for Web Applications](/archive/blogs/microsoft_press/new-book-modern-authentication-with-azure-active-directory-for-web-applications), [Using Redis as ADAL token cache](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)  |
-| **Steps** | <p>The default cache that ADAL (Active Directory Authentication Library) uses is an in-memory cache that relies on a static store, available process-wide. While this works for native applications, it does not scale for mid tier and backend applications for the following reasons:</p><ul><li>These applications are accessed by many users at once. Saving all access tokens in the same store creates isolation issues and presents challenges when operating at scale: many users, each with as many tokens as the resources the app accesses on their behalf, can mean huge numbers and very expensive lookup operations</li><li>These applications are typically deployed on distributed topologies, where multiple nodes must have access to the same cache</li><li>Cached tokens must survive process recycles and deactivations</li></ul><p>For all the above reasons, while implementing web apps, it is recommended to override the default ADAL token cache with a scalable alternative such as Azure Cache for Redis.</p>|
+| **References**              | [Token cache serialization in MSAL.NET](../../active-directory/develop/msal-net-token-cache-serialization.md)  |
+| **Steps** | <p>The default cache that MSAL (Microsoft Authentication Library) uses is an in-memory cache, and is scalable. However there are different options available that you can use as an alternative, such as a distributed token cache. These have L1/L2 mechanisms, where L1 is in memory and L2 is the distributed cache implementation. These can be accordingly configured to limit L1 memory, encrypt or set eviction policies. Other alternatives include Redis, SQL Server or Azure Comsos DB caches. An implementation of a distributed token cache can be found in the following [Tutorial: Get started with ASP.NET Core MVC](/aspnet/core/tutorials/first-mvc-app/start-mvc).</p>|
 
-## <a id="tokenreplaycache-adal"></a>Ensure that TokenReplayCache is used to prevent the replay of ADAL authentication tokens
+## <a id="tokenreplaycache-msal"></a>Ensure that TokenReplayCache is used to prevent the replay of MSAL authentication tokens
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -374,7 +374,7 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 
 ### Example
 ```csharp
-// ITokenReplayCache defined in ADAL
+// ITokenReplayCache defined in MSAL
 public interface ITokenReplayCache
 {
 bool TryAdd(string securityToken, DateTime expiresOn);
@@ -422,7 +422,7 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 
 Please note that to test the effectiveness of this configuration, login into your local OIDC-protected application and capture the request to `"/signin-oidc"` endpoint in fiddler. When the protection is not in place, replaying this request in fiddler will set a new session cookie. When the request is replayed after the TokenReplayCache protection is added, the application will throw an exception as follows: `SecurityTokenReplayDetectedException: IDX10228: The securityToken has previously been validated, securityToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ1......`
 
-## <a id="adal-oauth2"></a>Use ADAL libraries to manage token requests from OAuth2 clients to AAD (or on-premises AD)
+## <a id="msal-oauth2"></a>Use MSAL libraries to manage token requests from OAuth2 clients to AAD (or on-premises AD)
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -430,8 +430,12 @@ Please note that to test the effectiveness of this configuration, login into you
 | **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [ADAL](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) |
-| **Steps** | <p>The Azure AD authentication Library (ADAL) enables client application developers to easily authenticate users to cloud or on-premises Active Directory (AD), and then obtain access tokens for securing API calls.</p><p>ADAL has many features that make authentication easier for developers, such as asynchronous support, a configurable token cache that stores access tokens and refresh tokens, automatic token refresh when an access token expires and a refresh token is available, and more.</p><p>By handling most of the complexity, ADAL can help a developer focus on business logic in their application and easily secure resources without being an expert on security. Separate libraries are available for .NET, JavaScript (client and Node.js), Python, iOS, Android and Java.</p>|
+| **References**              | [MSAL](../../active-directory/develop/msal-overview.md) |
+| **Steps** | <p>The Microsoft Authentication Library (MSAL) enables developers to acquire security tokens from the Microsoft identity platform to authenticate users and access secured web APIs. It can be used to provide secure access to Microsoft Graph, other Microsoft APIs, third-party web APIs, or your own web API. MSAL supports many different application architectures and platforms including .NET, JavaScript, Java, Python, Android, and iOS. 
+
+MSAL gives you many ways to get tokens, with a consistent API for many platforms. There is no need to directly use the OAuth libraries or code against the protocol in your application, and can acquire tokens on behalf of a user or application (when applicable to the platform). 
+
+MSAL also maintains a token cache and refreshes tokens for you when they're close to expiring. MSAL can also help you specify which audience you want your application to sign in, and help you set up your application from configuration files, and troubleshoot your app.
 
 ## <a id="authn-devices-field"></a>Authenticate devices connecting to the Field Gateway
 

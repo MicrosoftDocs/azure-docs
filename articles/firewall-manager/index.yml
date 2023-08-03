@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 06/30/2021
+  ms.date: 11/14/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -30,7 +30,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Firewall Manager
-            url: /learn/modules/intro-to-azure-firewall-manager/
+            url: /training/modules/intro-to-azure-firewall-manager/
   # Card
   - title: Learn about secured virtual hubs
     linkLists:
@@ -58,3 +58,11 @@ landingContent:
         links:
           - text: Secure your cloud network using the Azure portal
             url: secure-cloud-network.md
+
+# Card
+  - title: Learn about Azure network security
+    linkLists:
+      - linkListType: overview
+        links:
+         - text: Azure network security
+           url: ../networking/security/index.yml

@@ -3,15 +3,15 @@ title: Set up sign-up and sign-in with a Facebook account
 titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with Facebook accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 03/10/2022
 ms.custom: project-no-code
-ms.author: kengaderdus
+ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -53,7 +53,7 @@ If you don't already have a Facebook account, sign up at [https://www.facebook.c
 1. Select **Save Changes**.
 1. From the menu, select the **plus** sign or **Add Product** link next to **PRODUCTS**. Under the **Add Products to Your App**, select **Set up** under **Facebook Login**.
 1. From the menu, select **Facebook Login**, select **Settings**.
-1. In **Valid OAuth redirect URIs**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your tenant, and `your-domain-name` with your custom domain. 
+1. In **Valid OAuth redirect URIs**, enter `https://your-tenant-name.b2clogin.com/your-tenant-id.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-id.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-id` with the id of your tenant, and `your-domain-name` with your custom domain. 
 1. Select **Save Changes** at the bottom of the page.
 1. To make your Facebook application available to Azure AD B2C, select the Status selector at the top right of the page and turn it **On** to make the Application public, and then select **Switch Mode**. At this point, the Status should change from **Development** to **Live**. For more information, see [Facebook App Development](https://developers.facebook.com/docs/development/release).
 
@@ -130,8 +130,9 @@ Update the relying party (RP) file that initiates the user journey that you crea
 
 If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
-::: zone-end
-
 ## Next steps
 
-Learn how to [pass Facebook token to your application](idp-pass-through-user-flow.md).
+- Learn how to [pass Facebook token to your application](idp-pass-through-user-flow.md).
+- Check out the Facebook federation [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#facebook), and how to pass Facebook access token [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#facebook-with-access-token)
+
+::: zone-end

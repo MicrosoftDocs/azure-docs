@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/05/2020
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: jsimmons
 
 ms.collection: M365-identity-device-management
@@ -28,6 +28,8 @@ For more information on how Azure AD Password Protection works in an on-premises
 This article shows you how to enable Azure AD Password Protection for your on-premises environment. Before you complete this article, [install and register the Azure AD Password Protection proxy service and DC agents](howto-password-ban-bad-on-premises-deploy.md) in your on-premises AD DS environment.
 
 ## Enable on-premises password protection
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Password protection**.
 1. Set the option for **Enable password protection on Windows Server Active Directory** to *Yes*.

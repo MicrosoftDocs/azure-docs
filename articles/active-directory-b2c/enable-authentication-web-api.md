@@ -6,8 +6,8 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
-ms.date: 10/26/2021
+ms.topic: how-to
+ms.date: 01/10/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -15,7 +15,7 @@ ms.custom: "b2c-support"
 
 # Enable authentication in your own web API by using Azure AD B2C
 
-To authorize access to a web API, serve only requests that include a valid Azure Active Directory B2C (Azure AD B2C)-issued access token. This article shows you how to enable Azure AD B2C authorization to your web API. After you complete the steps in this article, only users who obtain a valid access token will be authorized to call your web API endpoints.  
+To authorize access to a web API, you can serve only requests that include a valid access token that's issued by Azure Active Directory B2C (Azure AD B2C). This article shows you how to enable Azure AD B2C authorization to your web API. After you complete the steps in this article, only users who obtain a valid access token will be authorized to call your web API endpoints.  
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ The app does the following:
 1. It passes the access token as a bearer token in the authentication header of the HTTP request by using this format: 
 
     ```http
-    Authorization: Bearer <token>
+    Authorization: Bearer <access token>
     ```    
 
 The web API does the following:
@@ -49,7 +49,7 @@ The web API does the following:
 
 ### App registration overview
 
-To enable your app to sign in with Azure AD B2C and call a web API, you must register two applications in the Azure AD B2C directory.  
+To enable your app to sign in with Azure AD B2C and call a web API, you need to register two applications in the Azure AD B2C directory.  
 
 - The *web, mobile, or SPA application* registration enables your app to sign in with Azure AD B2C. The app registration process generates an *Application ID*, also known as the *client ID*, which uniquely identifies your application (for example, *App ID: 1*).
 
@@ -126,7 +126,7 @@ npm install passport-azure-ad
 npm install morgan
 ```
  
-The [morgen package](https://www.npmjs.com/package/morgan) is an HTTP request logger middleware for Node.js.
+The [morgan package](https://www.npmjs.com/package/morgan) is an HTTP request logger middleware for Node.js.
 
 ---
 
@@ -262,7 +262,7 @@ Add two endpoints to your web API:
 
 # [ASP.NET Core](#tab/csharpclient)
 
-Under the */Controllers* folder, add a *PublicController.cs* file, and then add to it the following code snippet:
+Under the */Controllers* folder, add a *PublicController.cs* file, and then add it to the following code snippet:
 
 ```csharp
 using System;
@@ -307,7 +307,7 @@ app.get('/public', (req, res) => res.send( {'date': new Date() } ));
 
 # [ASP.NET Core](#tab/csharpclient)
 
-Under the */Controllers* folder, add a *HelloController.cs* file, and then add to it the following code:
+Under the */Controllers* folder, add a *HelloController.cs* file, and then add it to the following code:
 
 ```csharp
 using Microsoft.AspNetCore.Authorization;
@@ -431,19 +431,19 @@ In the *appsettings.json* file, update the following properties:
 
 |Section  |Key  |Value  |
 |---------|---------|---------|
-|AzureAdB2C|Instance| The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com`).|
-|AzureAdB2C|Domain| Your Azure AD B2C tenant full [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
+|AzureAdB2C|Instance| The first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com`).|
+|AzureAdB2C|Domain| Your Azure AD B2C tenant full [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
 |AzureAdB2C|ClientId| The web API application ID. In the [preceding diagram](#app-registration-overview), it's the application with *App ID: 2*. To learn how to get your web API application registration ID, see [Prerequisites](#prerequisites). |
 |AzureAdB2C|SignUpSignInPolicyId|The user flows, or custom policy. To learn how to get your user flow or policy, see [Prerequisites](#prerequisites).  |
 
 # [Node.js](#tab/nodejsgeneric)
 
-Under the project root folder, create a *config.json* file, and then add to it the following JSON snippet:  
+Under the project root folder, create a *config.json* file, and then add it to the following JSON snippet:  
 
 ```json
 {
     "credentials": {
-        "tenantName": "<your-tenant-name>",
+        "tenantName": "<your-tenant-name>.onmicrosoft.com",
         "clientID": "<your-webapi-application-ID>",
         "issuer": "https://<your-tenant-name>.b2clogin.com/<your-tenant-ID>/v2.0/"
     },
@@ -470,9 +470,9 @@ In the *config.json* file, update the following properties:
 
 |Section  |Key  |Value  |
 |---------|---------|---------|
-| credentials | tenantName | The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso`).|
+| credentials | tenantName | Your Azure AD B2C [tenant name/domain name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
 | credentials |clientID | The web API application ID. In the [preceding diagram](#app-registration-overview), it's the application with *App ID: 2*. To learn how to get your web API application registration ID, see [Prerequisites](#prerequisites). |
-| credentials | issuer| The token issuer `iss` claim value. By default, Azure AD B2C returns the token in the following format: `https://<your-tenant-name>.b2clogin.com/<your-tenant-ID>/v2.0/`. Replace `<your-tenant-name>` with the first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). Replace `<your-tenant-ID>` with your [Azure AD B2C tenant ID](tenant-management.md#get-your-tenant-id). |
+| credentials | issuer| The token issuer `iss` claim value. By default, Azure AD B2C returns the token in the following format: `https://<your-tenant-name>.b2clogin.com/<your-tenant-ID>/v2.0/`. Replace `<your-tenant-name>` with the first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name). Replace `<your-tenant-ID>` with your [Azure AD B2C tenant ID]( tenant-management-read-tenant-name.md#get-your-tenant-id). |
 | policies | policyName | The user flows, or custom policy. To learn how to get your user flow or policy, see [Prerequisites](#prerequisites).|
 | resource | scope | The scopes of your web API application registration. To learn how to get your web API scope, see [Prerequisites](#prerequisites).|
 

@@ -6,9 +6,8 @@ ms.author: franlanglois
 ms.service: cache
 ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: devx-track-csharp, mvc, mode-other
-ms.date: 06/18/2020
-#Customer intent: As a .NET developer, new to Azure Cache for Redis, I want to create a new .NET app that uses Azure Cache for Redis.
+ms.custom: devx-track-csharp, mvc, mode-other, devx-track-dotnet
+ms.date: 03/25/2022
 ---
 # Quickstart: Use Azure Cache for Redis in .NET Framework
 
@@ -16,7 +15,7 @@ In this quickstart, you incorporate Azure Cache for Redis into a .NET Framework 
 
 ## Skip to the code on GitHub
 
-If you want to skip straight to the code, see the [.NET Framework quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet) on GitHub.
+Clone the repo from [(https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet) on GitHub.
 
 ## Prerequisites
 
@@ -25,49 +24,43 @@ If you want to skip straight to the code, see the [.NET Framework quickstart](ht
 - [.NET Framework 4 or higher](https://dotnet.microsoft.com/download/dotnet-framework), which is required by the StackExchange.Redis client.
 
 ## Create a cache
+
 [!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
-Create a file on your computer named *CacheSecrets.config* and place it in a location where it won't be checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located here, *C:\AppSecrets\CacheSecrets.config*.
+1. Create a file on your computer named *CacheSecrets.config* and place it *C:\AppSecrets\CacheSecrets.config*. 
 
-Edit the *CacheSecrets.config* file and add the following contents:
+1. Edit the *CacheSecrets.config* file and add the following contents:
 
-```xml
-<appSettings>
-    <add key="CacheConnection" value="<host-name>,abortConnect=false,ssl=true,allowAdmin=true,password=<access-key>"/>
-</appSettings>
-```
+    ```xml
+    <appSettings>
+        <add key="CacheConnection" value="<host-name>,abortConnect=false,ssl=true,allowAdmin=true,password=<access-key>"/>
+    </appSettings>
+    ```
 
-Replace `<host-name>` with your cache host name.
+1. Replace `<host-name>` with your cache host name.
 
-Replace `<access-key>` with the primary key for your cache.
+1. Replace `<access-key>` with the primary key for your cache.
 
-
-## Create a console app
-
-In Visual Studio, select **File** > **New** > **Project**.
-
-Select **Console App (.NET Framework)**, and **Next** to configure your app. Type a **Project name**, verify that **.NET Framework 4.6.1** or higher is selected, and then select **Create** to create a new console application.
-
-<a name="configure-the-cache-clients"></a>
+1. Save the file.
 
 ## Configure the cache client
 
-In this section, you will configure the console application to use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client for .NET.
+<!-- this section was removed from the core sample -->
+In this section, you prepare the console application to use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client for .NET.
 
-In Visual Studio, select **Tools** > **NuGet Package Manager** > **Package Manager Console**, and run the following command from the Package Manager Console window.
+1. In Visual Studio, select **Tools** > **NuGet Package Manager** > **Package Manager Console**, and run the following command from the Package Manager Console window.
 
-```powershell
-Install-Package StackExchange.Redis
-```
+    ```powershell
+    Install-Package StackExchange.Redis
+    ```
+    
+1. Once the installation is completed, the *StackExchange.Redis* cache client is available to use with your project.
 
-Once the installation is completed, the *StackExchange.Redis* cache client is available to use with your project.
+## Connect to the Secrets cache
 
-
-## Connect to the cache
-
-In Visual Studio, open your *App.config* file and update it to include an `appSettings` `file` attribute that references the *CacheSecrets.config* file.
+In Visual Studio, open your *App.config* file to verify it contains an `appSettings` `file` attribute that references the *CacheSecrets.config* file.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -80,329 +73,104 @@ In Visual Studio, open your *App.config* file and update it to include an `appSe
 </configuration>
 ```
 
-In Solution Explorer, right-click **References** and select **Add a reference**. Add a reference to the **System.Configuration** assembly.
+Never store credentials in source code. To keep this sample simple, we use an external secrets config file. A better approach would be to use [Azure Key Vault with certificates](/rest/api/keyvault/certificate-scenarios).
 
-Add the following `using` statements to *Program.cs*:
+## Connect to the cache with RedisConnection
 
-```csharp
-using StackExchange.Redis;
-using System.Configuration;
-```
-
-The connection to the Azure Cache for Redis is managed by the `ConnectionMultiplexer` class. This class should be shared and reused throughout your client application. Do not create a new connection for each operation. 
-
-Never store credentials in source code. To keep this sample simple, I’m only using an external secrets config file. A better approach would be to use [Azure Key Vault with certificates](/rest/api/keyvault/certificate-scenarios).
-
-In *Program.cs*, add the following members to the `Program` class of your console application:
+The connection to your cache is managed by the `RedisConnection` class. The connection is first made in this statement from `Program.cs`:
 
 ```csharp
-private static Lazy<ConnectionMultiplexer> lazyConnection = CreateConnection();
+     _redisConnection = await RedisConnection.InitializeAsync(connectionString: ConfigurationManager.AppSettings["CacheConnection"].ToString());
 
-public static ConnectionMultiplexer Connection
-{
-    get
-    {
-        return lazyConnection.Value;
-    }
-}
 
-private static Lazy<ConnectionMultiplexer> CreateConnection()
-{
-    return new Lazy<ConnectionMultiplexer>(() =>
-    {
-        string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
-        return ConnectionMultiplexer.Connect(cacheConnection);
-    });
-}
 ```
-
-This approach to sharing a `ConnectionMultiplexer` instance in your application uses a static property that returns a connected instance. The code provides a thread-safe way to initialize only a single connected `ConnectionMultiplexer` instance. `abortConnect` is set to false, which means that the call succeeds even if a connection to the Azure Cache for Redis is not established. One key feature of `ConnectionMultiplexer` is that it automatically restores connectivity to the cache once the network issue or other causes are resolved.
 
 The value of the *CacheConnection* appSetting is used to reference the cache connection string from the Azure portal as the password parameter.
 
-## Handle RedisConnectionException and SocketException by reconnecting
-
-A recommended best practice when calling methods on `ConnectionMultiplexer` is to attempt to resolve `RedisConnectionException` and `SocketException` exceptions automatically by closing and reestablishing the connection.
-
-Add the following `using` statements to *Program.cs*:
+In `RedisConnection.cs`, you see the `StackExchange.Redis` namespace with the `using` keyword. This is needed for the `RedisConnection` class.
 
 ```csharp
-using System.Net.Sockets;
-using System.Threading;
+using StackExchange.Redis;
 ```
 
-In *Program.cs*, add the following members to the `Program` class:
+<!-- Is this right Philo -->
+The `RedisConnection` code ensures that there is always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from `StackExchange.Redis`. The `RedisConnection` class recreates the connection when a connection is lost and unable to reconnect automatically.
 
-```csharp
-private static long _lastReconnectTicks = DateTimeOffset.MinValue.UtcTicks;
-private static DateTimeOffset _firstErrorTime = DateTimeOffset.MinValue;
-private static DateTimeOffset _previousErrorTime = DateTimeOffset.MinValue;
-private static SemaphoreSlim _reconnectSemaphore = new SemaphoreSlim(initialCount: 1, maxCount: 1);
-private static SemaphoreSlim _initSemaphore = new SemaphoreSlim(initialCount: 1, maxCount: 1);
-private static ConnectionMultiplexer _connection;
-private static bool _didInitialize = false;
-// In general, let StackExchange.Redis handle most reconnects,
-// so limit the frequency of how often ForceReconnect() will
-// actually reconnect.
-public static TimeSpan ReconnectMinInterval => TimeSpan.FromSeconds(60);
-// If errors continue for longer than the below threshold, then the
-// multiplexer seems to not be reconnecting, so ForceReconnect() will
-// re-create the multiplexer.
-public static TimeSpan ReconnectErrorThreshold => TimeSpan.FromSeconds(30);
-public static TimeSpan RestartConnectionTimeout => TimeSpan.FromSeconds(15);
-public static int RetryMaxAttempts => 5;
-public static ConnectionMultiplexer Connection { get { return _connection; } }
-private static async Task InitializeAsync()
-{
-    if (_didInitialize)
-    {
-        throw new InvalidOperationException("Cannot initialize more than once.");
-    }
-    _connection = await CreateConnectionAsync();
-    _didInitialize = true;
-}
-// This method may return null if it fails to acquire the semaphore in time.
-// Use the return value to update the "connection" field
-private static async Task<ConnectionMultiplexer> CreateConnectionAsync()
-{
-    if (_connection != null)
-    {
-        // If we already have a good connection, let's re-use it
-        return _connection;
-    }
-    try
-    {
-        await _initSemaphore.WaitAsync(RestartConnectionTimeout);
-    }
-    catch
-    {
-        // We failed to enter the semaphore in the given amount of time. Connection will either be null, or have a value that was created by another thread.
-        return _connection;
-    }
-    // We entered the semaphore successfully.
-    try
-    {
-        if (_connection != null)
-        {
-            // Another thread must have finished creating a new connection while we were waiting to enter the semaphore. Let's use it
-            return _connection;
-        }
-        // Otherwise, we really need to create a new connection.
-        string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
-        return await ConnectionMultiplexer.ConnectAsync(cacheConnection);
-    }
-    finally
-    {
-        _initSemaphore.Release();
-    }
-}
-private static async Task CloseConnectionAsync(ConnectionMultiplexer oldConnection)
-{
-    if (oldConnection == null)
-    {
-        return;
-    }
-    try
-    {
-        await oldConnection.CloseAsync();
-    }
-    catch (Exception)
-    {
-        // Ignore any errors from the oldConnection
-    }
-}
-/// <summary>
-/// Force a new ConnectionMultiplexer to be created.
-/// NOTES:
-///     1. Users of the ConnectionMultiplexer MUST handle ObjectDisposedExceptions, which can now happen as a result of calling ForceReconnectAsync().
-///     2. Call ForceReconnectAsync() for RedisConnectionExceptions and RedisSocketExceptions. You can also call it for RedisTimeoutExceptions,
-///         but only if you're using generous ReconnectMinInterval and ReconnectErrorThreshold. Otherwise, establishing new connections can cause
-///         a cascade failure on a server that's timing out because it's already overloaded.
-///     3. The code will:
-///         a. wait to reconnect for at least the "ReconnectErrorThreshold" time of repeated errors before actually reconnecting
-///         b. not reconnect more frequently than configured in "ReconnectMinInterval"
-/// </summary>
-public static async Task ForceReconnectAsync()
-{
-    var utcNow = DateTimeOffset.UtcNow;
-    long previousTicks = Interlocked.Read(ref _lastReconnectTicks);
-    var previousReconnectTime = new DateTimeOffset(previousTicks, TimeSpan.Zero);
-    TimeSpan elapsedSinceLastReconnect = utcNow - previousReconnectTime;
-    // If multiple threads call ForceReconnectAsync at the same time, we only want to honor one of them.
-    if (elapsedSinceLastReconnect < ReconnectMinInterval)
-    {
-        return;
-    }
-    try
-    {
-        await _reconnectSemaphore.WaitAsync(RestartConnectionTimeout);
-    }
-    catch
-    {
-        // If we fail to enter the semaphore, then it is possible that another thread has already done so.
-        // ForceReconnectAsync() can be retried while connectivity problems persist.
-        return;
-    }
-    try
-    {
-        utcNow = DateTimeOffset.UtcNow;
-        elapsedSinceLastReconnect = utcNow - previousReconnectTime;
-        if (_firstErrorTime == DateTimeOffset.MinValue)
-        {
-            // We haven't seen an error since last reconnect, so set initial values.
-            _firstErrorTime = utcNow;
-            _previousErrorTime = utcNow;
-            return;
-        }
-        if (elapsedSinceLastReconnect < ReconnectMinInterval)
-        {
-            return; // Some other thread made it through the check and the lock, so nothing to do.
-        }
-        TimeSpan elapsedSinceFirstError = utcNow - _firstErrorTime;
-        TimeSpan elapsedSinceMostRecentError = utcNow - _previousErrorTime;
-        bool shouldReconnect =
-            elapsedSinceFirstError >= ReconnectErrorThreshold // Make sure we gave the multiplexer enough time to reconnect on its own if it could.
-            && elapsedSinceMostRecentError <= ReconnectErrorThreshold; // Make sure we aren't working on stale data (e.g. if there was a gap in errors, don't reconnect yet).
-        // Update the previousErrorTime timestamp to be now (e.g. this reconnect request).
-        _previousErrorTime = utcNow;
-        if (!shouldReconnect)
-        {
-            return;
-        }
-        _firstErrorTime = DateTimeOffset.MinValue;
-        _previousErrorTime = DateTimeOffset.MinValue;
-        ConnectionMultiplexer oldConnection = _connection;
-        await CloseConnectionAsync(oldConnection);
-        _connection = null;
-        _connection = await CreateConnectionAsync();
-        Interlocked.Exchange(ref _lastReconnectTicks, utcNow.UtcTicks);
-    }
-    finally
-    {
-        _reconnectSemaphore.Release();
-    }
-}
-// In real applications, consider using a framework such as
-// Polly to make it easier to customize the retry approach.
-private static async Task<T> BasicRetryAsync<T>(Func<T> func)
-{
-    int reconnectRetry = 0;
-    int disposedRetry = 0;
-    while (true)
-    {
-        try
-        {
-            return func();
-        }
-        catch (Exception ex) when (ex is RedisConnectionException || ex is SocketException)
-        {
-            reconnectRetry++;
-            if (reconnectRetry > RetryMaxAttempts)
-                throw;
-            await ForceReconnectAsync();
-        }
-        catch (ObjectDisposedException)
-        {
-            disposedRetry++;
-            if (disposedRetry > RetryMaxAttempts)
-                throw;
-        }
-    }
-}
-public static Task<IDatabase> GetDatabaseAsync()
-{
-    return BasicRetryAsync(() => Connection.GetDatabase());
-}
-public static Task<System.Net.EndPoint[]> GetEndPointsAsync()
-{
-    return BasicRetryAsync(() => Connection.GetEndPoints());
-}
-public static Task<IServer> GetServerAsync(string host, int port)
-{
-    return BasicRetryAsync(() => Connection.GetServer(host, port));
-}
-```
+For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
+
+<!-- :::code language="csharp" source="~/samples-cache/quickstart/dotnet/Redistest/RedisConnection.cs"::: -->
 
 ## Executing cache commands
 
-Add the following code for the `Main` procedure of the `Program` class for your console application:
+In `program.cs`, you can see the following code for the `RunRedisCommandsAsync` method in the `Program` class for the console application:
 
 ```csharp
-static void Main(string[] args)
-{
-    IDatabase cache = GetDatabase();
-
-    // Perform cache operations using the cache object...
-
-    // Simple PING command
-    string cacheCommand = "PING";
-    Console.WriteLine("\nCache command  : " + cacheCommand);
-    Console.WriteLine("Cache response : " + cache.Execute(cacheCommand).ToString());
-
-    // Simple get and put of integral data types into the cache
-    cacheCommand = "GET Message";
-    Console.WriteLine("\nCache command  : " + cacheCommand + " or StringGet()");
-    Console.WriteLine("Cache response : " + cache.StringGet("Message").ToString());
-
-    cacheCommand = "SET Message \"Hello! The cache is working from a .NET console app!\"";
-    Console.WriteLine("\nCache command  : " + cacheCommand + " or StringSet()");
-    Console.WriteLine("Cache response : " + cache.StringSet("Message", "Hello! The cache is working from a .NET console app!").ToString());
-
-    // Demonstrate "SET Message" executed as expected...
-    cacheCommand = "GET Message";
-    Console.WriteLine("\nCache command  : " + cacheCommand + " or StringGet()");
-    Console.WriteLine("Cache response : " + cache.StringGet("Message").ToString());
-
-    // Get the client list, useful to see if connection list is growing...
-    // Note that this requires allowAdmin=true in the connection string
-    cacheCommand = "CLIENT LIST";
-    Console.WriteLine("\nCache command  : " + cacheCommand);
-    var endpoint = (System.Net.DnsEndPoint)GetEndPoints()[0];
-    IServer server = GetServer(endpoint.Host, endpoint.Port);
-    ClientInfo[] clients = server.ClientList();
-
-    Console.WriteLine("Cache response :");
-    foreach (ClientInfo client in clients)
+private static async Task RunRedisCommandsAsync(string prefix)
     {
-        Console.WriteLine(client.Raw);
+        // Simple PING command
+        Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: PING");
+        RedisResult pingResult = await _redisConnection.BasicRetryAsync(async (db) => await db.ExecuteAsync("PING"));
+        Console.WriteLine($"{prefix}: Cache response: {pingResult}");
+
+        // Simple get and put of integral data types into the cache
+        string key = "Message";
+        string value = "Hello! The cache is working from a .NET console app!";
+
+        Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: GET {key} via StringGetAsync()");
+        RedisValue getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync(key));
+        Console.WriteLine($"{prefix}: Cache response: {getMessageResult}");
+
+        Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: SET {key} \"{value}\" via StringSetAsync()");
+        bool stringSetResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringSetAsync(key, value));
+        Console.WriteLine($"{prefix}: Cache response: {stringSetResult}");
+
+        Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: GET {key} via StringGetAsync()");
+        getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync(key));
+        Console.WriteLine($"{prefix}: Cache response: {getMessageResult}");
+
+        // Store serialized object to cache
+        Employee e007 = new Employee("007", "Davide Columbo", 100);
+        stringSetResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringSetAsync("e007", JsonSerializer.Serialize(e007)));
+        Console.WriteLine($"{Environment.NewLine}{prefix}: Cache response from storing serialized Employee object: {stringSetResult}");
+
+        // Retrieve serialized object from cache
+        getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync("e007"));
+        Employee e007FromCache = JsonSerializer.Deserialize<Employee>(getMessageResult);
+        Console.WriteLine($"{prefix}: Deserialized Employee .NET object:{Environment.NewLine}");
+        Console.WriteLine($"{prefix}: Employee.Name : {e007FromCache.Name}");
+        Console.WriteLine($"{prefix}: Employee.Id   : {e007FromCache.Id}");
+        Console.WriteLine($"{prefix}: Employee.Age  : {e007FromCache.Age}{Environment.NewLine}");
     }
 
-    CloseConnection(lazyConnection);
-}
+
 ```
 
-Azure Cache for Redis has a configurable number of databases (default of 16) that can be used to logically separate the data within an Azure Cache for Redis. The code connects to the default database, DB 0. For more information, see [What are Redis databases?](cache-development-faq.yml#what-are-redis-databases-) and [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).
+Cache items can be stored and retrieved by using the `StringSetAsync` and `StringGetAsync` methods.
 
-Cache items can be stored and retrieved by using the `StringSet` and `StringGet` methods.
+In the example, you can see the `Message` key is set to value. The app updated that cached value. The app also executed the `PING` and command.
 
-Redis stores most data as Redis strings, but these strings can contain many types of data, including serialized binary data, which can be used when storing .NET objects in the cache.
+### Work with .NET objects in the cache
 
-Press **Ctrl+F5** to build and run the console app.
+The Redis server stores most data as strings, but these strings can contain many types of data, including serialized binary data, which can be used when storing .NET objects in the cache.
 
-In the example below, you can see the `Message` key previously had a cached value, which was set using the Redis Console in the Azure portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
+Azure Cache for Redis can cache both .NET objects and primitive data types, but before a .NET object can be cached it must be serialized.
 
-![Console app partial](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-partial.png)
+This .NET object serialization is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer.
 
+One simple way to serialize objects is to use the `JsonConvert` serialization methods in `System.text.Json`.
 
-## Work with .NET objects in the cache
+Add the `System.text.Json` namespace to Visual Studio:
 
-Azure Cache for Redis can cache both .NET objects and primitive data types, but before a .NET object can be cached it must be serialized. This .NET object serialization is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer.
+1. Select **Tools** > **NuGet Package Manager** > *Package Manager Console**.
 
-One simple way to serialize objects is to use the `JsonConvert` serialization methods in [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) and serialize to and from JSON. In this section, you will add a .NET object to the cache.
+1. Then, run the following command from the Package Manager Console window.
+    ```powershell
+    Install-Package system.text.json
+    ```
+    
+<!-- :::image type="content" source="media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-partial.png" alt-text="Console app partial"::: -->
 
-In Visual Studio, select **Tools** > **NuGet Package Manager** > **Package Manager Console**, and run the following command from the Package Manager Console window.
-
-```powershell
-Install-Package Newtonsoft.Json
-```
-
-Add the following `using` statement to the top of *Program.cs*:
-
-```csharp
-using Newtonsoft.Json;
-```
-
-Add the following `Employee` class definition to *Program.cs*:
+The following `Employee` class was defined in *Program.cs*  so that the sample could also show how to get and set a serialized object :
 
 ```csharp
 class Employee
@@ -420,32 +188,17 @@ class Employee
 }
 ```
 
-At the bottom of `Main()` procedure in *Program.cs*, and before the call to `CloseConnection()`, add the following lines of code to cache and retrieve a serialized .NET object:
+## Run the sample
 
-```csharp
-    // Store .NET object to cache
-    Employee e007 = new Employee("007", "Davide Columbo", 100);
-    Console.WriteLine("Cache response from storing Employee .NET object : " + 
-    cache.StringSet("e007", JsonConvert.SerializeObject(e007)));
+Press **Ctrl+F5** to build and run the console app to test serialization of .NET objects.
 
-    // Retrieve .NET object from cache
-    Employee e007FromCache = JsonConvert.DeserializeObject<Employee>(cache.StringGet("e007"));
-    Console.WriteLine("Deserialized Employee .NET object :\n");
-    Console.WriteLine("\tEmployee.Name : " + e007FromCache.Name);
-    Console.WriteLine("\tEmployee.Id   : " + e007FromCache.Id);
-    Console.WriteLine("\tEmployee.Age  : " + e007FromCache.Age + "\n");
-```
-
-Press **Ctrl+F5** to build and run the console app to test serialization of .NET objects. 
-
-![Console app completed](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-complete.png)
-
+:::image type="content" source="media/cache-dotnet-core-quickstart/cache-console-app-complete.png" alt-text="Console app completed":::
 
 ## Clean up resources
 
-If you will be continuing to the next tutorial, you can keep the resources created in this quickstart and reuse them.
+If you continuing to the use this quickstart, you can keep the resources created and reuse them.
 
-Otherwise, if you are finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges. 
+Otherwise, if you are finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges.
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually on the left instead of deleting the resource group.
@@ -455,24 +208,13 @@ Sign in to the [Azure portal](https://portal.azure.com) and select **Resource gr
 
 In the **Filter by name...** textbox, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, select **...** then **Delete resource group**.
 
-![Delete](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-delete-resource-group.png)
+:::image type="content" source="media/cache-dotnet-core-quickstart/cache-delete-resource-group.png" alt-text="Delete":::
 
-You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and select **Delete**.
+You are asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and select **Delete**.
 
 After a few moments, the resource group and all of its contained resources are deleted.
 
-
-
-<a name="next-steps"></a>
-
 ## Next steps
 
-In this quickstart, you learned how to use Azure Cache for Redis from a .NET application. Continue to the next quickstart to use Azure Cache for Redis with an ASP.NET web app.
-
-> [!div class="nextstepaction"]
-> [Create an ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
-
-Want to optimize and save on your cloud spending?
-
-> [!div class="nextstepaction"]
-> [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Connection resilience](cache-best-practices-connection.md)
+- [Best Practices Development](cache-best-practices-development.md)

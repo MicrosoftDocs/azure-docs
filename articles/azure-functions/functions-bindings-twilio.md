@@ -1,13 +1,11 @@
 ---
 title: Azure Functions Twilio binding
 description: Understand how to use Twilio bindings with Azure Functions.
-author: craigshoemaker
-
 ms.topic: reference
-ms.date: 07/09/2018
-ms.author: cshoe
+ms.date: 03/04/2022
 ms.devlang: csharp, java, javascript, python
-ms.custom: "devx-track-csharp, H1Hack27Feb2017"
+ms.custom: devx-track-csharp, H1Hack27Feb2017, devx-track-extended-java, devx-track-js, devx-track-python
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Twilio binding for Azure Functions
@@ -16,23 +14,81 @@ This article explains how to send text messages by using [Twilio](https://www.tw
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## Packages - Functions 1.x
+::: zone pivot="programming-language-csharp"
 
-The Twilio bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet package, version 1.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.Twilio/) GitHub repository.
+## Install extension
 
-[!INCLUDE [functions-package](../../includes/functions-package.md)]
+The extension NuGet package you install depends on the C# mode you're using in your function app: 
 
-## Packages - Functions 2.x and higher
+# [In-process](#tab/in-process)
 
-The Twilio bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) GitHub repository.
+Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
-[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
+# [Isolated process](#tab/isolated-process)
 
-<a id="example"></a>
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
-## Example - Functions 2.x and higher
+# [C# script](#tab/csharp-script)
 
-# [C#](#tab/csharp)
+Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
+
+---
+
+The functionality of the extension varies depending on the extension version:
+
+# [Functions v2.x+](#tab/functionsv2/in-process)
+
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio), version 3.x.
+
+# [Functions v1.x](#tab/functionsv1/in-process)
+
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio), version 1.x.
+
+# [Functions v2.x+](#tab/functionsv2/isolated-process)
+
+There is currently no support for Twilio for an isolated worker process app.
+
+# [Functions v1.x](#tab/functionsv1/isolated-process)
+
+Functions 1.x doesn't support running in an isolated worker process.
+
+# [Functions v2.x+](#tab/functionsv2/csharp-script)
+
+This version of the extension should already be available to your function app with [extension bundle], version 2.x. 
+
+# [Functions 1.x](#tab/functionsv1/csharp-script)
+
+You can add the extension to your project by explicitly installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio), version 1.x. To learn more, see [Explicitly install extensions](functions-bindings-register.md#explicitly-install-extensions).
+
+---
+
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
+
+## Install bundle
+
+Starting with Functions version 2.x, the HTTP extension is part of an [extension bundle], which is specified in your host.json project file. To learn more, see [extension bundle].
+
+# [Bundle v2.x](#tab/functionsv2)
+
+This version of the extension should already be available to your function app with [extension bundle], version 2.x. 
+
+# [Functions 1.x](#tab/functionsv1)
+
+You can add the extension to your project by explicitly installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid), version 2.x. To learn more, see [Explicitly install extensions](functions-bindings-register.md#explicitly-install-extensions).
+
+---
+
+::: zone-end
+
+## Example
+
+Unless otherwise noted, these examples are specific to version 2.x and later version of the Functions runtime.
+
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
+
+# [In-process](#tab/in-process)    
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that sends a text message when triggered by a queue message.
 
@@ -66,6 +122,10 @@ namespace TwilioQueueOutput
 ```
 
 This example uses the `TwilioSms` attribute with the method return value. An alternative is to use the attribute with an `out CreateMessageOptions` parameter or an `ICollector<CreateMessageOptions>` or `IAsyncCollector<CreateMessageOptions>` parameter.
+
+# [Isolated process](#tab/isolated-process)
+
+The Twilio binding isn't currently supported for a function app running in an isolated worker process.
 
 # [C# Script](#tab/csharp-script)
 
@@ -153,8 +213,10 @@ public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOp
 }
 ```
 
-# [JavaScript](#tab/javascript)
+---
 
+::: zone-end
+::: zone pivot="programming-language-javascript"
 The following example shows a Twilio output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding.
 
 Here's binding data in the *function.json* file:
@@ -196,7 +258,12 @@ module.exports = async function (context, myQueueItem) {
 };
 ```
 
-# [Python](#tab/python)
+::: zone-end  
+::: zone pivot="programming-language-powershell" 
+ 
+Complete PowerShell examples aren't currently available for SendGrid bindings.
+::: zone-end 
+::: zone pivot="programming-language-python"  
 
 The following example shows how to send an SMS message using the output binding as defined in the following *function.json*.
 
@@ -234,8 +301,8 @@ def main(req: func.HttpRequest, twilioMessage: func.Out[str]) -> func.HttpRespon
     return func.HttpResponse(f"Message sent")
 ```
 
-# [Java](#tab/java)
-
+::: zone-end
+::: zone pivot="programming-language-java"
 The following example shows how to use the [TwilioSmsOutput](/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) annotation to send an SMS message. Values for `to`, `from`, and `body` are required in the attribute definition even if you override them programmatically.
 
 ```java
@@ -278,60 +345,79 @@ public class TwilioOutput {
 }
 ```
 
----
+::: zone-end
+::: zone pivot="programming-language-csharp"
+## Attributes
 
-## Attributes and annotations
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the output binding. C# script instead uses a function.json configuration file.  
 
-# [C#](#tab/csharp)
+# [In-process](#tab/in-process)
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) attribute.
+In [in-process](functions-dotnet-class-library.md) function apps, use the [TwilioSmsAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs), which supports the following parameters.
 
-For information about attribute properties that you can configure, see [Configuration](#configuration). Here's a `TwilioSms` attribute example in a method signature:
+| Attribute/annotation property | Description | 
+|-------------------------------|-------------|
+| **AccountSidSetting**| This value must be set to the name of an app setting that holds your Twilio Account Sid (`TwilioAccountSid`). When not set, the default app setting name is `AzureWebJobsTwilioAccountSid`. |
+|**AuthTokenSetting**| This value must be set to the name of an app setting that holds your Twilio authentication token (`TwilioAccountAuthToken`). When not set, the default app setting name is `AzureWebJobsTwilioAuthToken`. |
+| **To**| This value is set to the phone number that the SMS text is sent to.|
+| **From**| This value is set to the phone number that the SMS text is sent from.|
+| **Body**| This value can be used to hard code the SMS text message if you don't need to set it dynamically in the code for your function. |
 
-```csharp
-[FunctionName("QueueTwilio")]
-[return: TwilioSms(AccountSidSetting = "TwilioAccountSid", AuthTokenSetting = "TwilioAuthToken", From = "+1425XXXXXXX")]
-public static CreateMessageOptions Run(
-[QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] JObject order, ILogger log)
-{
-    ...
-}
-```
 
-For a complete example, see [C# example](#example).
+# [Isolated process](#tab/isolated-process)
+
+The Twilio binding isn't currently supported for a function app running in an isolated worker process.
 
 # [C# Script](#tab/csharp-script)
 
-Attributes are not supported by C# Script.
+---
 
-# [JavaScript](#tab/javascript)
+::: zone-end
+::: zone pivot="programming-language-java"
+## Annotations
 
-Attributes are not supported by JavaScript.
+The [TwilioSmsOutput](/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) annotation allows you to declaratively configure the Twilio output binding by providing the following configuration values:
 
-# [Python](#tab/python)
+ + 
 
-Attributes are not supported by Python.
+Place the [TwilioSmsOutput](/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) annotation on an [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) parameter, where `T` may be any native Java type such as `int`, `String`, `byte[]`, or a POJO type.
 
-# [Java](#tab/java)
+::: zone-end 
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
+## Configuration
 
-Place [TwilioSmsOutput](/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) annotation on an [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) parameter where `T` may be any native Java type such as `int`, `String`, `byte[]`, or a POJO type.
+The following table explains the binding configuration properties that you set in the *function.json* file, which differs by runtime version:
+
+# [Functions v2.x+](#tab/functionsv2)
+ 
+| function.json property | Description|
+|---------|------------------------|
+|**type**| must be set to `twilioSms`.|
+|**direction**| must be set to `out`.|
+|**name**| Variable name used in function code for the Twilio SMS text message. |
+|**accountSidSetting**| This value must be set to the name of an app setting that holds your Twilio Account Sid (`TwilioAccountSid`). When not set, the default app setting name is `AzureWebJobsTwilioAccountSid`. |
+|**authTokenSetting**| This value must be set to the name of an app setting that holds your Twilio authentication token (`TwilioAccountAuthToken`). When not set, the default app setting name is `AzureWebJobsTwilioAuthToken`. |
+|**from** |  This value is set to the phone number that the SMS text is sent from.|
+|**body** |  This value can be used to hard code the SMS text message if you don't need to set it dynamically in the code for your function. |
+
+In version 2.x, you set the `to` value in your code.
+
+# [Functions 1.x](#tab/functionsv1)
+
+| function.json property | Description|
+|---------|-----------------------|
+|**type**|must be set to `twilioSms`.|
+|**direction**| must be set to `out`.|
+|**name**| Variable name used in function code for the Twilio SMS text message. |
+|**accountSid**| This value must be set to the name of an app setting that holds your Twilio Account Sid (`TwilioAccountSid`). When not set, the default app setting name is `AzureWebJobsTwilioAccountSid`. |
+|**authToken**|This value must be set to the name of an app setting that holds your Twilio authentication token (`TwilioAccountAuthToken`). When not set, the default app setting name is `AzureWebJobsTwilioAuthToken`. |
+|**to**| This value is set to the phone number that the SMS text is sent to.|
+|**from**|  This value is set to the phone number that the SMS text is sent from.|
+|**body**|  This value can be used to hard code the SMS text message if you don't need to set it dynamically in the code for your function. |
 
 ---
 
-## Configuration
-
-The following table explains the binding configuration properties that you set in the *function.json* file and the `TwilioSms` attribute.
-
-| v1 function.json property | v2 function.json property | Attribute property |Description|
-|---------|---------|---------|----------------------|
-|**type**|**type**| must be set to `twilioSms`.|
-|**direction**|**direction**| must be set to `out`.|
-|**name**|**name**| Variable name used in function code for the Twilio SMS text message. |
-|**accountSid**|**accountSidSetting**| **AccountSidSetting**| This value must be set to the name of an app setting that holds your Twilio Account Sid (`TwilioAccountSid`). If not set, the default app setting name is "AzureWebJobsTwilioAccountSid". |
-|**authToken**|**authTokenSetting**|**AuthTokenSetting**| This value must be set to the name of an app setting that holds your Twilio authentication token (`TwilioAccountAuthToken`). If not set, the default app setting name is "AzureWebJobsTwilioAuthToken". |
-|**to**| N/A - specify in code | **To**| This value is set to the phone number that the SMS text is sent to.|
-|**from**|**from** | **From**| This value is set to the phone number that the SMS text is sent from.|
-|**body**|**body** | **Body**| This value can be used to hard code the SMS text message if you don't need to set it dynamically in the code for your function. |
+::: zone-end
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -339,3 +425,6 @@ The following table explains the binding configuration properties that you set i
 
 > [!div class="nextstepaction"]
 > [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
+
+[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[Update your extensions]: ./functions-bindings-register.md

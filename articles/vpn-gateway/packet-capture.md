@@ -2,14 +2,11 @@
 title: 'Configure packet capture for VPN Gateway'
 titleSuffix: Azure VPN Gateway
 description: Learn about packet capture functionality that you can use on VPN gateways to help narrow down the cause of a problem.  
-services: vpn-gateway
-author: anzaman
-
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 01/31/2022
-ms.author: alzam 
-ms.custom: devx-track-azurepowershell
+ms.author: cherylmc
 ---
 
 # Configure packet capture for VPN gateways
@@ -31,6 +28,9 @@ The following examples of JSON and a JSON schema provide explanations of each pr
 - You can't run multiple packet captures on a single connection at the same time. You can run multiple packet captures on different connections at the same time.
 - A maximum of five packet captures can be run in parallel per gateway. These packet captures can be a combination of gateway-wide packet captures and per-connection packet captures.
 - The unit for MaxPacketBufferSize is bytes and MaxFileSize is megabytes
+
+> [!NOTE]  
+> Set the **CaptureSingleDirectionTrafficOnly** option to **false** if you want to capture both inner and outer packets.
 
 ### Example JSON
 ```JSON-interactive
@@ -320,6 +320,9 @@ The following examples of JSON and a JSON schema provide explanations of each pr
 
 You can set up packet capture in the Azure portal by navigating to the VPN Gateway Packet Capture blade in the Azure portal and clicking the **Start Packet Capture button**
 
+> [!NOTE]  
+> Do not select the **Capture Single Direction Traffic Only** option if you want to capture both inner and outer packets.
+
 :::image type="content" source="./media/packet-capture/portal.jpg" alt-text="Screenshot of start packet capture in the portal." lightbox="./media/packet-capture/portal.jpg":::
 
 ## Stop packet capture - portal
@@ -386,7 +389,9 @@ For more information on parameter options, see [Stop-AzVirtualNetworkGatewayConn
 - Suggested minimum packet capture duration is 600 seconds. Because of sync issues among multiple components on the path, shorter packet captures might not provide complete data.
 - Packet capture data files are generated in PCAP format. Use Wireshark or other commonly available applications to open PCAP files.
 - Packet captures aren't supported on policy-based gateways.
+- The maximum filesize of packet capture data files is 500MB.
 - If the `SASurl` parameter isn't configured correctly, the trace might fail with Storage errors. For examples of how to correctly generate an `SASurl` parameter, see [Stop-AzVirtualNetworkGatewayPacketCapture](/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture).
+- If you are configuring a User Delegated SAS, make sure the user account is granted proper RBAC permissions on the storage account such as Storage Blob Data Owner.
 
 
 

@@ -2,13 +2,13 @@
 metadata:
   title: Dedicated SQL pool (formerly SQL DW) frequently asked questions 
   description: This article lists out frequently asked questions about dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics from customers and developers.
-  author: mlee3gsd
+  author: WilliamDAssafMSFT 
   ms.service: synapse-analytics
   ms.topic: faq
   ms.subservice: sql-dw 
-  ms.date: 11/04/2019
-  ms.author: martinle
-  ms.reviewer: igorstan
+  ms.date: 08/24/2022
+  ms.author: wiassaf
+  ms.reviewer: wiassaf
 title: Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics frequently asked questions
 summary: |
 
@@ -28,7 +28,12 @@ sections:
       - question: |
           What is a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics?
         answer: |
-          Dedicated SQL pool (formerly SQL DW) refers to the enterprise data warehousing features that are generally available with Azure Synapse. For more information, see, [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+          Dedicated SQL pool refers to the standalone platform of enterprise data warehousing features that are generally available with Azure Synapse. For more information, see [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md). A dedicated SQL pool (formerly SQL DW) is a standalone or connected service outside of an Azure Synapse workspace. You can also create dedicated SQL pools in your Azure Synapse workspace.
+          
+      - question: |
+          What is the difference between dedicated SQL pools (SQL DW) and dedicated SQL pools in Azure Synapse workspaces?
+        answer: |
+          Not all features of the dedicated SQL pool in Azure Synapse workspaces apply to a standalone dedicated SQL pool (formerly SQL DW), and vice versa. For more information, see [What's the difference between Azure Synapse dedicated SQL pools (formerly SQL DW) and dedicated SQL pools in an Azure Synapse Analytics workspace?](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/msft-docs-what-s-the-difference-between-synapse-formerly-sql-dw/ba-p/3597772). To enable Azure Synapse workspace features for an existing dedicated SQL pool (formerly SQL DW), refer to [How to enable a workspace for your dedicated SQL pool (formerly SQL DW)](workspace-connected-create.md). 
           
       - question: |
           How do I get started with Azure Synapse?

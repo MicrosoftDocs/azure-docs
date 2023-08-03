@@ -2,8 +2,7 @@
 title: Deployment quota exceeded
 description: Describes how to resolve the error of having more than 800 deployments in the resource group history.
 ms.topic: troubleshooting
-ms.date: 11/30/2021
-ms.custom: devx-track-azurepowershell
+ms.date: 04/05/2023
 ---
 
 # Resolve error when deployment count exceeds 800
@@ -28,7 +27,7 @@ During deployment, you receive an error that states the current deployment will 
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az deployment group delete](/cli/azure/deployment/group#az_deployment_group_delete) command to delete deployments from the history.
+Use the [az deployment group delete](/cli/azure/deployment/group#az-deployment-group-delete) command to delete deployments from the history.
 
 ```azurecli-interactive
 az deployment group delete --resource-group exampleGroup --name deploymentName

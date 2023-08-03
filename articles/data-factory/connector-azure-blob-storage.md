@@ -1,5 +1,5 @@
 ---
-title: Copy and transform data in Azure Blob storage
+title: Copy and transform data in Azure Blob Storage
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data to and from Blob storage, and transform data in Blob storage using Azure Data Factory or Azure Synapse Analytics.
 ms.author: jianleishen
@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/13/2021
+ms.date: 10/23/2022
 ---
 
-# Copy and transform data in Azure Blob storage by using Azure Data Factory or Azure Synapse Analytics
+# Copy and transform data in Azure Blob Storage by using Azure Data Factory or Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
 > - [Version 1](v1/data-factory-azure-blob-connector.md)
@@ -19,20 +19,24 @@ ms.date: 12/13/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Azure Blob storage. It also describes how to use the Data Flow activity to transform data in Azure Blob storage. To learn more read the [Azure Data Factory](introduction.md) and the [Azure Synapse Analytics](..\synapse-analytics\overview-what-is.md) introduction articles.
+This article outlines how to use the Copy activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Azure Blob Storage. It also describes how to use the Data Flow activity to transform data in Azure Blob Storage. To learn more read the [Azure Data Factory](introduction.md) and the [Azure Synapse Analytics](..\synapse-analytics\overview-what-is.md) introduction articles.
 
 >[!TIP]
 >To learn about a migration scenario for a data lake or a data warehouse, see the article [Migrate data from your data lake or data warehouse to Azure](data-migration-guidance-overview.md).
 
 ## Supported capabilities
 
-This Azure Blob storage connector is supported for the following activities:
+This Azure Blob Storage connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Mapping data flow](concepts-data-flow-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
-- [GetMetadata activity](control-flow-get-metadata-activity.md)
-- [Delete activity](delete-activity.md)
+| Supported capabilities|IR | Managed private endpoint|
+|---------| --------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ <small> Exclude storage account V1|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
+|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
+|[Delete activity](delete-activity.md)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
 For the Copy activity, this Blob storage connector supports:
 
@@ -76,6 +80,7 @@ The following sections provide details about properties that are used to define 
 
 This Blob storage connector supports the following authentication types. See the corresponding sections for details.
 
+- [Anonymous authentication](#anonymous-authentication)
 - [Account key authentication](#account-key-authentication)
 - [Shared access signature authentication](#shared-access-signature-authentication)
 - [Service principal authentication](#service-principal-authentication)
@@ -83,11 +88,49 @@ This Blob storage connector supports the following authentication types. See the
 - [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
 
 >[!NOTE]
->- If want to use the public Azure integration runtime to connect to your Blob storage by leveraging the **Allow trusted Microsoft services to access this storage account** option enabled on Azure Storage firewall, you must use [managed identity authentication](#managed-identity).
+>- If want to use the public Azure integration runtime to connect to your Blob storage by leveraging the **Allow trusted Microsoft services to access this storage account** option enabled on Azure Storage firewall, you must use [managed identity authentication](#managed-identity). For more information about the Azure Storage firewalls settings, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
 >- When you use PolyBase or COPY statement to load data into Azure Synapse Analytics, if your source or staging Blob storage is configured with an Azure Virtual Network endpoint, you must use managed identity authentication as required by Azure Synapse. See the [Managed identity authentication](#managed-identity) section for more configuration prerequisites.
 
 >[!NOTE]
->Azure HDInsight and Azure Machine Learning activities only support authentication that uses Azure Blob storage account keys.
+>Azure HDInsight and Azure Machine Learning activities only support authentication that uses Azure Blob Storage account keys.
+
+### Anonymous authentication
+
+The following properties are supported for storage account key authentication in Azure Data Factory or Synapse pipelines:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The `type` property must be set to `AzureBlobStorage` (suggested) or `AzureStorage` (see the following notes). | Yes |
+| containerUri | Specify the Azure Blob container URI which has enabled Anonymous read access by taking this format `https://<AccountName>.blob.core.windows.net/<ContainerName>` and [Configure anonymous public read access for containers and blobs](../storage/blobs/anonymous-read-access-configure.md#set-the-public-access-level-for-a-container) | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
+
+**Example:**
+
+```json
+
+{
+    "name": "AzureBlobStorageAnonymous",
+    "properties": {
+        "annotations": [],
+        "type": "AzureBlobStorage",
+        "typeProperties": {
+            "containerUri": "https:// <accountname>.blob.core.windows.net/ <containername>",
+            "authenticationType": "Anonymous"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Examples UI**:
+
+The UI experience will be like below. This sample will use the Azure open dataset as the source. If you want to get the open [dataset bing_covid-19_data.csv](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.csv), you just need to choose **Authentication type** as **Anonymous** and fill in Container URI with `https://pandemicdatalake.blob.core.windows.net/public`.
+
+:::image type="content" source="media/connector-azure-blob-storage/anonymous-ui.png" alt-text="Screenshot of configuration for Anonymous examples UI.":::
+
 
 ### Account key authentication
 
@@ -234,26 +277,27 @@ For general information about Azure Storage service principal authentication, se
 
 To use service principal authentication, follow these steps:
 
-1. Register an application entity in Azure Active Directory (Azure AD) by following [Register your application with an Azure AD tenant](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Make note of these values, which you use to define the linked service:
+1. Register an application with the Microsoft Identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
 
     - Application ID
     - Application key
     - Tenant ID
 
-2. Grant the service principal proper permission in Azure Blob storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/blobs/assign-azure-role-data-access.md).
+2. Grant the service principal proper permission in Azure Blob Storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/blobs/assign-azure-role-data-access.md).
 
     - **As source**, in **Access control (IAM)**, grant at least the **Storage Blob Data Reader** role.
     - **As sink**, in **Access control (IAM)**, grant at least the **Storage Blob Data Contributor** role.
 
-These properties are supported for an Azure Blob storage linked service:
+These properties are supported for an Azure Blob Storage linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureBlobStorage**. | Yes |
-| serviceEndpoint | Specify the Azure Blob storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. | Yes |
+| serviceEndpoint | Specify the Azure Blob Storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. | Yes |
 | accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/><br/>When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
 | servicePrincipalId | Specify the application's client ID. | Yes |
-| servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securelyFactory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| servicePrincipalCredentialType | The credential type to use for service principal authentication. Allowed values are **ServicePrincipalKey** and **ServicePrincipalCert**. | Yes |
+| servicePrincipalCredential | The service principal credential. <br/> When you use **ServicePrincipalKey** as the credential type, specify the application's key. Mark this field as **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br/> When you use **ServicePrincipalCert** as the credential, reference a certificate in Azure Key Vault, and ensure the certificate content type is **PKCS #12**.| Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering over the upper-right corner of the Azure portal. | Yes |
 | azureCloudType | For service principal authentication, specify the type of Azure cloud environment, to which your Azure Active Directory application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory or Synapse pipeline's cloud environment is used. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
@@ -299,17 +343,17 @@ For general information about Azure Storage authentication, see [Authenticate ac
 
 1. [Retrieve system-assigned managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the system-assigned managed identity object ID generated along with your factory or Synapse workspace.
 
-2. Grant the managed identity permission in Azure Blob storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/blobs/assign-azure-role-data-access.md).
+2. Grant the managed identity permission in Azure Blob Storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/blobs/assign-azure-role-data-access.md).
 
     - **As source**, in **Access control (IAM)**, grant at least the **Storage Blob Data Reader** role.
     - **As sink**, in **Access control (IAM)**, grant at least the **Storage Blob Data Contributor** role.
 
-These properties are supported for an Azure Blob storage linked service:
+These properties are supported for an Azure Blob Storage linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureBlobStorage**. | Yes |
-| serviceEndpoint | Specify the Azure Blob storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. | Yes |
+| serviceEndpoint | Specify the Azure Blob Storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. | Yes |
 | accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/><br/>When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
 
@@ -337,7 +381,7 @@ A data factory can be assigned with one or multiple [user-assigned managed ident
 
 For general information about Azure storage authentication, see [Authenticate access to Azure Storage using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md). To use user-assigned managed identity authentication, follow these steps:
 
-1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant permission in Azure Blob storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/blobs/assign-azure-role-data-access.md).
+1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant permission in Azure Blob Storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/blobs/assign-azure-role-data-access.md).
 
     - **As source**, in **Access control (IAM)**, grant at least the **Storage Blob Data Reader** role.
     - **As sink**, in **Access control (IAM)**, grant at least the **Storage Blob Data Contributor** role.
@@ -345,12 +389,12 @@ For general information about Azure storage authentication, see [Authenticate ac
 2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity. 
 
 
-These properties are supported for an Azure Blob storage linked service:
+These properties are supported for an Azure Blob Storage linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureBlobStorage**. | Yes |
-| serviceEndpoint | Specify the Azure Blob storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. | Yes |
+| serviceEndpoint | Specify the Azure Blob Storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. | Yes |
 | accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/><br/>When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
 | credentials | Specify the user-assigned managed identity as the credential object. | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
@@ -379,7 +423,7 @@ These properties are supported for an Azure Blob storage linked service:
 ```
 
 >[!IMPORTANT]
->If you use PolyBase or COPY statement to load data from Blob storage (as a source or as staging) into Azure Synapse Analytics, when you use managed identity authentication for Blob storage, make sure you also follow steps 1 to 3 in [this guidance](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Those steps will register your server with Azure AD and assign the Storage Blob Data Contributor role to your server. Data Factory handles the rest. If you configure Blob storage with an Azure Virtual Network endpoint, you also need to have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu as required by Azure Synapse.
+>If you use PolyBase or COPY statement to load data from Blob storage (as a source or as staging) into Azure Synapse Analytics, when you use managed identity authentication for Blob storage, make sure you also follow steps 1 to 3 in [this guidance](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Those steps will register your server with Azure AD and assign the Storage Blob Data Contributor role to your server. Data Factory handles the rest. If you configure Blob storage with an Azure Virtual Network endpoint, you also need to have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu as required by Azure Synapse.
 
 > [!NOTE]
 >
@@ -395,7 +439,7 @@ For a full list of sections and properties available for defining datasets, see 
 
 [!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
-The following properties are supported for Azure Blob storage under `location` settings in a format-based dataset:
+The following properties are supported for Azure Blob Storage under `location` settings in a format-based dataset:
 
 | Property   | Description                                                  | Required |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -439,7 +483,7 @@ For a full list of sections and properties available for defining activities, se
 
 [!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
-The following properties are supported for Azure Blob storage under `storeSettings` settings in a format-based copy source:
+The following properties are supported for Azure Blob Storage under `storeSettings` settings in a format-based copy source:
 
 | Property                 | Description                                                  | Required                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -510,7 +554,7 @@ The following properties are supported for Azure Blob storage under `storeSettin
 
 [!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)] 
 
-The following properties are supported for Azure Blob storage under `storeSettings` settings in a format-based copy sink:
+The following properties are supported for Azure Blob Storage under `storeSettings` settings in a format-based copy sink:
 
 | Property                 | Description                                                  | Required |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -605,11 +649,11 @@ This section describes the resulting behavior of the Copy operation for differen
 
 ## Preserving metadata during copy
 
-When you copy files from Amazon S3, Azure Blob storage, or Azure Data Lake Storage Gen2 to Azure Data Lake Storage Gen2 or Azure Blob storage, you can choose to preserve the file metadata along with data. Learn more from [Preserve metadata](copy-activity-preserve-metadata.md#preserve-metadata).
+When you copy files from Amazon S3, Azure Blob Storage, or Azure Data Lake Storage Gen2 to Azure Data Lake Storage Gen2 or Azure Blob Storage, you can choose to preserve the file metadata along with data. Learn more from [Preserve metadata](copy-activity-preserve-metadata.md#preserve-metadata).
 
 ## Mapping data flow properties
 
-When you're transforming data in mapping data flows, you can read and write files from Azure Blob storage in the following formats:
+When you're transforming data in mapping data flows, you can read and write files from Azure Blob Storage in the following formats:
 
 - [Avro](format-avro.md#mapping-data-flow-properties)
 - [Delimited text](format-delimited-text.md#mapping-data-flow-properties)
@@ -622,9 +666,9 @@ Format specific settings are located in the documentation for that format. For m
 
 ### Source transformation
 
-In source transformation, you can read from a container, folder, or individual file in Azure Blob storage. Use the **Source options** tab to manage how the files are read. 
+In source transformation, you can read from a container, folder, or individual file in Azure Blob Storage. Use the **Source options** tab to manage how the files are read. 
 
-:::image type="content" source="media/data-flow/sourceOptions1.png" alt-text="Source options":::
+:::image type="content" source="media/data-flow/source-options-1.png" alt-text="Screenshot of source options tab in mapping data flow source transformation.":::
 
 **Wildcard paths:** Using a wildcard pattern will instruct the service to loop through each matching folder and file in a single source transformation. This is an effective way to process multiple files within a single flow. Add multiple wildcard matching patterns with the plus sign that appears when you hover over your existing wildcard pattern.
 
@@ -646,7 +690,7 @@ Wildcard examples:
 
 First, set a wildcard to include all paths that are the partitioned folders plus the leaf files that you want to read.
 
-:::image type="content" source="media/data-flow/partfile2.png" alt-text="Partition source file settings":::
+:::image type="content" source="media/data-flow/part-file-2.png" alt-text="Screenshot of partition source file settings in mapping data flow source transformation.":::
 
 Use the **Partition root path** setting to define what the top level of the folder structure is. When you view the contents of your data via a data preview, you'll see that the service will add the resolved partitions found in each of your folder levels.
 
@@ -679,13 +723,13 @@ In this case, all files that were sourced under `/data/sales` are moved to `/bac
 
 **Filter by last modified:** You can filter which files you process by specifying a date range of when they were last modified. All datetimes are in UTC. 
 
-**Enable change data capture (Preview):** If true, you will get new or changed files only from the last run. Initial load of full snapshot data will always be gotten in the first run, followed by capturing new or changed files only in next runs. For more details, see [Change data capture (preview)](#change-data-capture-preview).
+**Enable change data capture:** If true, you will get new or changed files only from the last run. Initial load of full snapshot data will always be gotten in the first run, followed by capturing new or changed files only in next runs. 
 
-:::image type="content" source="media/data-flow/enable-change-data-capture-preview.png" alt-text="Screenshot showing Enable change data capture (Preview).":::
+:::image type="content" source="media/data-flow/enable-change-data-capture.png" alt-text="Screenshot showing Enable change data capture.":::
 
 ### Sink properties
 
-In the sink transformation, you can write to either a container or a folder in Azure Blob storage. Use the **Settings** tab to manage how the files get written.
+In the sink transformation, you can write to either a container or a folder in Azure Blob Storage. Use the **Settings** tab to manage how the files get written.
 
 :::image type="content" source="media/data-flow/file-sink-settings.png" alt-text="Sink options":::
 
@@ -740,7 +784,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
     "properties": {
         "type": "AzureBlob",
         "linkedServiceName": {
-            "referenceName": "<Azure Blob storage linked service name>",
+            "referenceName": "<Azure Blob Storage linked service name>",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -842,15 +886,11 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 ]
 ```
 
-## Change data capture (preview) 
+## Change data capture 
 
-Azure Data Factory can get new or changed files only from Azure Blob Storage by enabling **Enable change data capture (Preview)** in the mapping data flow source transformation. With this connector option, you can read new or updated files only and apply transformations before loading transformed data into destination datasets of your choice.
+Azure Data Factory can get new or changed files only from Azure Blob Storage by enabling **Enable change data capture ** in the mapping data flow source transformation. With this connector option, you can read new or updated files only and apply transformations before loading transformed data into destination datasets of your choice. Pleaser refer to [Change Data Capture](concepts-change-data-capture.md) for details.
  
-Make sure you keep the pipeline and activity name unchanged, so that the checkpoint can always be recorded from the last run to get changes from there. If you change your pipeline name or activity name, the checkpoint will be reset, and you will start from the beginning in the next run.
-
-When you debug the pipeline, the **Enable change data capture (Preview)** works as well. Be aware that the checkpoint will be reset when you refresh your browser during the debug run. After you are satisfied with the result from debug run, you can publish and trigger the pipeline. It will always start from the beginning regardless of the previous checkpoint recorded by debug run. 
-
-In the monitoring section, you always have the chance to rerun a pipeline. When you are doing so, the changes are always gotten from the checkpoint record in your selected pipeline run. 
+. 
 
 ## Next steps
 

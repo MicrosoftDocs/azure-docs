@@ -1,10 +1,13 @@
 ---
 title: Quickly deploy an existing app to a cluster 
 description: Use an Azure Service Fabric cluster to host an existing Node.js application with Visual Studio.
-
-ms.topic: conceptual
-ms.date: 12/06/2017
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
 ms.custom: devx-track-js
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Host a Node.js application on Azure Service Fabric
@@ -13,7 +16,7 @@ This quickstart helps you deploy an existing application (Node.js in this exampl
 
 ## Prerequisites
 
-Before you get started, make sure that you have [set up your development environment](service-fabric-get-started.md). Which includes installing the Service Fabric SDK and Visual Studio 2019 or 2015.
+Before you get started, make sure that you have [set up your development environment](service-fabric-get-started.md), which includes installing the Service Fabric SDK and Visual Studio 2019 or 2015.
 
 You also need to have an existing Node.js application for deployment. This quickstart uses a simple Node.js website that can be downloaded [here][download-sample]. Extract this file to your `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` folder after you create the project in the next step.
 

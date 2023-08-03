@@ -4,19 +4,22 @@ titleSuffix: Azure Machine Learning
 description: Learn how deep learning relates to machine learning and AI. In Azure Machine Learning, use deep learning models for fraud detection, object detection, and more.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.topic: conceptual
 ms.author: lagayhar
 author: lgayhardt
-ms.date: 04/12/2021
-ms.custom: contperf-fy21q1,contperfq1
+ms.reviewer: lagayhar
+ms.date: 11/04/2022
+ms.custom: contperf-fy21q1,contperfq1, contperf-fy23q2
 ---
 
 # Deep learning vs. machine learning in Azure Machine Learning
 
 This article explains deep learning vs. machine learning and how they fit into the broader category of artificial intelligence. Learn about deep learning solutions you can build on Azure Machine Learning, such as fraud detection, voice and facial recognition, sentiment analysis, and time series forecasting.
 
-For guidance on choosing algorithms for your solutions, see the [Machine Learning Algorithm Cheat Sheet](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri).
+For guidance on choosing algorithms for your solutions, see the [Machine Learning Algorithm Cheat Sheet](./v1/algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri).
+
+Foundation Models in Azure Machine Learning are pre-trained deep learning models that can be fine-tuned for specific use cases. Learn more about [Foundation Models (preview) in Azure Machine Learning](concept-foundation-models.md), and [how to use Foundation Models in Azure Machine Learning (preview)](how-to-use-foundation-models.md).
 
 ## Deep learning, machine learning, and AI
 
@@ -33,8 +36,10 @@ Consider the following definitions to understand deep learning vs. machine learn
    1. Test and deploy the model.
    1. Consume the deployed model to do an automated predictive task. (In other words, call and use the deployed model to receive the predictions returned by the model.)
 
-- **Artificial intelligence (AI)** is a technique that enables computers to mimic human intelligence. It includes machine learning. 
- 
+- **Artificial intelligence (AI)** is a technique that enables computers to mimic human intelligence. It includes machine learning.
+
+- **Generative AI** is a subset of artificial intelligence that uses techniques (such as deep learning) to generate new content. For example, you can use generative AI to create images, text, or audio. These models leverage massive pre-trained knowledge to generate this content.
+
 By using machine learning and deep learning techniques, you can build computer systems and applications that do tasks that are commonly associated with human intelligence. These tasks include image recognition, speech recognition, and language translation.
 
 ## Techniques of deep learning vs. machine learning 
@@ -66,7 +71,7 @@ Learn how to apply transfer learning for image classification using an open-sour
 
 Because of the artificial neural network structure, deep learning excels at identifying patterns in unstructured data such as images, sound, video, and text. For this reason, deep learning is rapidly transforming many industries, including healthcare, energy, finance, and transportation. These industries are now rethinking traditional business processes. 
 
-Some of the most common applications for deep learning are described in the following paragraphs. In Azure Machine Learning, you can use a model from you build from an open-source framework or build the model using the tools provided.
+Some of the most common applications for deep learning are described in the following paragraphs. In Azure Machine Learning, you can use a model you built from an open-source framework or build the model using the tools provided.
 
 ### Named-entity recognition
 
@@ -74,7 +79,7 @@ Named-entity recognition is a deep learning method that takes a piece of text as
 
 ### Object detection
 
-Deep learning has been applied in many object detection use cases. Object detection comprises two parts: image classification and then image localization. Image _classification_ identifies the image's objects, such as cars or people. Image _localization_ provides the specific location of these objects. 
+Deep learning has been applied in many object detection use cases. Object detection is used to identify objects in an image (such as cars or people) and provide specific location for each object with a bounding box.
 
 Object detection is already used in industries such as gaming, retail, tourism, and self-driving cars.
 
@@ -142,5 +147,3 @@ The following articles show you more options for using open-source deep learning
 - [Classify handwritten digits by using a TensorFlow model](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri) 
 
 - [Classify handwritten digits by using a TensorFlow estimator and Keras](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
-
-- [Classify handwritten digits by using a Chainer model](./how-to-set-up-training-targets.md?WT.mc_id=docs-article-lazzeri)

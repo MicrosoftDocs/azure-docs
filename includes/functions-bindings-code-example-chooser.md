@@ -13,6 +13,8 @@ ms.custom: fasttrack-edit
 | ---- | ----- | ------ | 
 | Blob storage | [Trigger](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=csharp#example)<br/>[Input](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=csharp#example)<br/>[Output](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=csharp#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=C%23) |
 | Azure Cosmos DB |[Trigger](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=csharp#example)<br/>[Input](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=csharp#example)<br/>[Output](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=csharp#example) | [Link](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=C%23) |
+| Azure Data Explorer |[Input](../articles/azure-functions/functions-bindings-azure-data-explorer-input.md?pivots=programming-language-csharp#examples)<br/>[Output](../articles/azure-functions/functions-bindings-azure-data-explorer-output.md?pivots=programming-language-csharp#examples) | [Link](https://github.com/Azure/Webjobs.Extensions.Kusto/tree/main/samples/samples-csharp) |
+| Azure SQL |[Trigger (preview)](../articles/azure-functions/functions-bindings-azure-sql-trigger.md?tabs=csharp#example)<br/>[Input](../articles/azure-functions/functions-bindings-azure-sql-input.md?tabs=csharp#example)<br/>[Output](../articles/azure-functions/functions-bindings-azure-sql-output.md?tabs=csharp#example) | [Link](/samples/azure-samples/azure-sql-binding-func-dotnet-todo/todo-backend-dotnet-azure-sql-bindings-azure-functions/) |
 | Event Grid |[Trigger](../articles/azure-functions/functions-bindings-event-grid-trigger.md?tabs=csharp#example)<br/>[Output](../articles/azure-functions/functions-bindings-event-grid-output.md?tabs=csharp#example) | [Link](https://www.serverlesslibrary.net/?technology=Event%20Grid&language=C%23) |
 | Event Hubs |[Trigger](../articles/azure-functions/functions-bindings-event-hubs-trigger.md?tabs=csharp#example)<br/>[Output](../articles/azure-functions/functions-bindings-event-hubs-output.md?tabs=csharp#example) | |
 | IoT Hub |[Trigger](../articles/azure-functions/functions-bindings-event-iot-trigger.md?tabs=csharp#example)<br/>[Output](../articles/azure-functions/functions-bindings-event-iot-output.md?tabs=csharp#example) | |
@@ -24,7 +26,7 @@ ms.custom: fasttrack-edit
 | SignalR| [Trigger](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=csharp#example)<br/>[Input](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=csharp#example)<br/>[Output](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=csharp) | |
 | Table storage| [Input](../articles/azure-functions/functions-bindings-storage-table-input.md?tabs=csharp)<br/>[Output](../articles/azure-functions/functions-bindings-storage-table-output.md?tabs=csharp) | |
 | Timer | [Trigger](../articles/azure-functions/functions-bindings-timer.md?tabs=csharp#example) | [Link](https://www.serverlesslibrary.net/?language=C%23&filtertext=timer) |
-| Twilio | [Output](../articles/azure-functions/functions-bindings-twilio.md?tabs=csharp#example---functions-2x-and-higher) | [Link](https://www.serverlesslibrary.net/?language=C%23&filtertext=twilio) |
+| Twilio | [Output](../articles/azure-functions/functions-bindings-twilio.md?tabs=csharp#example) | [Link](https://www.serverlesslibrary.net/?language=C%23&filtertext=twilio) |
 
 # [Java](#tab/java)
 
@@ -32,6 +34,8 @@ ms.custom: fasttrack-edit
 | ---- | ----- | ------ | 
 | Blob storage | [Trigger](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=java#example)<br/>[Input](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=java#example)<br/>[Output](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=java#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=Java) |
 | Azure Cosmos DB |[Trigger](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=java#example)<br/>[Input](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=java#example)<br/>[Output](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=java#example) | [Link](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=Java) |
+| Azure Data Explorer |[Input](../articles/azure-functions/functions-bindings-azure-data-explorer-input.md?pivots=programming-language-java#examples)<br/>[Output](../articles/azure-functions/functions-bindings-azure-data-explorer-output.md?pivots=programming-language-java#examples) | [Link](https://github.com/Azure/Webjobs.Extensions.Kusto/tree/main/samples/samples-java) |
+| Azure SQL |[Trigger (preview)](../articles/azure-functions/functions-bindings-azure-sql-trigger.md?tabs=java#example)<br/>[Input](../articles/azure-functions/functions-bindings-azure-sql-input.md?tabs=java#example)<br/>[Output](../articles/azure-functions/functions-bindings-azure-sql-output.md?tabs=java#example) | |
 | Event Grid |[Trigger](../articles/azure-functions/functions-bindings-event-grid-trigger.md?tabs=java#example)<br/>[Output](../articles/azure-functions/functions-bindings-event-grid-output.md?tabs=java#example) | [Link](https://www.serverlesslibrary.net/?technology=Event%20Grid&language=Java) |
 | Event Hubs |[Trigger](../articles/azure-functions/functions-bindings-event-hubs-trigger.md?tabs=java#example)<br/>[Output](../articles/azure-functions/functions-bindings-event-hubs-output.md?tabs=java#example) | |
 | IoT Hub |[Trigger](../articles/azure-functions/functions-bindings-event-iot-trigger.md?tabs=java#example)<br/>[Output](../articles/azure-functions/functions-bindings-event-iot-output.md?tabs=java#example) | |
@@ -43,7 +47,7 @@ ms.custom: fasttrack-edit
 | SignalR| [Trigger](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=java#example)<br/>[Input](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=java#example)<br/>[Output](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=java) | |
 | Table storage| [Input](../articles/azure-functions/functions-bindings-storage-table-input.md?tabs=java)<br/>[Output](../articles/azure-functions/functions-bindings-storage-table-output.md?tabs=java) | |
 | Timer | [Trigger](../articles/azure-functions/functions-bindings-timer.md?tabs=java#example) | [Link](https://www.serverlesslibrary.net/?language=Java&filtertext=timer) |
-| Twilio | [Output](../articles/azure-functions/functions-bindings-twilio.md?tabs=java#example---functions-2x-and-higher) | [Link](https://www.serverlesslibrary.net/?language=Java&filtertext=twilio) |
+| Twilio | [Output](../articles/azure-functions/functions-bindings-twilio.md?tabs=java#example) | [Link](https://www.serverlesslibrary.net/?language=Java&filtertext=twilio) |
 
 # [JavaScript](#tab/javascript)
 
@@ -51,6 +55,8 @@ ms.custom: fasttrack-edit
 | ---- | ----- | ------ | 
 | Blob storage | [Trigger](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=javascript#example)<br/>[Input](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=javascript#example)<br/>[Output](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=javascript#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=JavaScript) |
 | Azure Cosmos DB |[Trigger](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=javascript#example)<br/>[Input](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=javascript#example)<br/>[Output](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=javascript#example) | [Link](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=JavaScript) |
+| Azure Data Explorer |[Input](../articles/azure-functions/functions-bindings-azure-data-explorer-input.md?pivots=programming-language-javascript#examples)<br/>[Output](../articles/azure-functions/functions-bindings-azure-data-explorer-output.md?pivots=programming-language-javascript#examples) | |
+| Azure SQL |[Trigger (preview)](../articles/azure-functions/functions-bindings-azure-sql-trigger.md?tabs=javascript#example)<br/>[Input](../articles/azure-functions/functions-bindings-azure-sql-input.md?tabs=javascript#example)<br/>[Output](../articles/azure-functions/functions-bindings-azure-sql-output.md?tabs=javascript#example) | [Link](https://github.com/Azure/Webjobs.Extensions.Kusto/tree/main/samples/samples-node) |
 | Event Grid |[Trigger](../articles/azure-functions/functions-bindings-event-grid-trigger.md?tabs=javascript#example)<br/>[Output](../articles/azure-functions/functions-bindings-event-grid-output.md?tabs=javascript#example) | [Link](https://www.serverlesslibrary.net/?technology=Event%20Grid&language=JavaScript) |
 | Event Hubs |[Trigger](../articles/azure-functions/functions-bindings-event-hubs-trigger.md?tabs=javascript#example)<br/>[Output](../articles/azure-functions/functions-bindings-event-hubs-output.md?tabs=javascript#example) | |
 | IoT Hub |[Trigger](../articles/azure-functions/functions-bindings-event-iot-trigger.md?tabs=javascript#example)<br/>[Output](../articles/azure-functions/functions-bindings-event-iot-output.md?tabs=javascript#example) | |
@@ -62,7 +68,7 @@ ms.custom: fasttrack-edit
 | SignalR| [Trigger](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=javascript#example)<br/>[Input](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=javascript#example)<br/>[Output](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=javascript) | |
 | Table storage| [Input](../articles/azure-functions/functions-bindings-storage-table-input.md?tabs=javascript)<br/>[Output](../articles/azure-functions/functions-bindings-storage-table-output.md?tabs=javascript) | |
 | Timer | [Trigger](../articles/azure-functions/functions-bindings-timer.md?tabs=javascript#example) | [Link](https://www.serverlesslibrary.net/?language=JavaScript&filtertext=timer) |
-| Twilio | [Output](../articles/azure-functions/functions-bindings-twilio.md?tabs=javascript#example---functions-2x-and-higher) | [Link](https://www.serverlesslibrary.net/?language=JavaScript&filtertext=twilio) |
+| Twilio | [Output](../articles/azure-functions/functions-bindings-twilio.md?tabs=javascript#example) | [Link](https://www.serverlesslibrary.net/?language=JavaScript&filtertext=twilio) |
 
 # [PowerShell](#tab/powershell)
 
@@ -70,6 +76,7 @@ ms.custom: fasttrack-edit
 | ---- | ----- | ------ | 
 | Blob storage | [Trigger](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=powershell#example)<br/>[Input](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=powershell#example)<br/>[Output](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=powershell#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=PowerShell) |
 | Azure Cosmos DB |[Trigger](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=powershell#example)<br/>[Input](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=powershell#example)<br/>[Output](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=powershell#example) | [Link](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=PowerShell) |
+| Azure SQL |[Trigger (preview)](../articles/azure-functions/functions-bindings-azure-sql-trigger.md?tabs=powershell#example)<br/>[Input](../articles/azure-functions/functions-bindings-azure-sql-input.md?tabs=powershell#example)<br/>[Output](../articles/azure-functions/functions-bindings-azure-sql-output.md?tabs=powershell#example) | |
 | Event Grid |[Trigger](../articles/azure-functions/functions-bindings-event-grid-trigger.md?tabs=powershell#example)<br/>[Output](../articles/azure-functions/functions-bindings-event-grid-output.md?tabs=powershell#example) | [Link](https://www.serverlesslibrary.net/?technology=Event%20Grid&language=PowerShell) |
 | Event Hubs |[Trigger](../articles/azure-functions/functions-bindings-event-hubs-trigger.md?tabs=powershell#example)<br/>[Output](../articles/azure-functions/functions-bindings-event-hubs-output.md?tabs=powershell#example) | |
 | IoT Hub |[Trigger](../articles/azure-functions/functions-bindings-event-iot-trigger.md?tabs=powershell#example)<br/>[Output](../articles/azure-functions/functions-bindings-event-iot-output.md?tabs=powershell#example) | |
@@ -81,7 +88,7 @@ ms.custom: fasttrack-edit
 | SignalR| [Trigger](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=powershell#example)<br/>[Input](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=powershell#example)<br/>[Output](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=powershell) | |
 | Table storage| [Input](../articles/azure-functions/functions-bindings-storage-table-input.md?tabs=powershell)<br/>[Output](../articles/azure-functions/functions-bindings-storage-table-output.md?tabs=powershell) | |
 | Timer | [Trigger](../articles/azure-functions/functions-bindings-timer.md?tabs=powershell#example) | [Link](https://www.serverlesslibrary.net/?language=PowerShell&filtertext=timer) |
-| Twilio | [Output](../articles/azure-functions/functions-bindings-twilio.md?tabs=powershell#example---functions-2x-and-higher) | [Link](https://www.serverlesslibrary.net/?language=PowerShell&filtertext=twilio) |
+| Twilio | [Output](../articles/azure-functions/functions-bindings-twilio.md?tabs=powershell#example) | [Link](https://www.serverlesslibrary.net/?language=PowerShell&filtertext=twilio) |
 
 # [Python](#tab/python)
 
@@ -89,6 +96,8 @@ ms.custom: fasttrack-edit
 | ---- | ----- | ------ | 
 | Blob storage | [Trigger](../articles/azure-functions/functions-bindings-storage-blob-trigger.md?tabs=python#example)<br/>[Input](../articles/azure-functions/functions-bindings-storage-blob-input.md?tabs=python#example)<br/>[Output](../articles/azure-functions/functions-bindings-storage-blob-output.md?tabs=python#example) | [Link](https://www.serverlesslibrary.net/?technology=Blob%20Storage&language=Python) |
 | Azure Cosmos DB |[Trigger](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md?tabs=python#example)<br/>[Input](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md?tabs=python#example)<br/>[Output](../articles/azure-functions/functions-bindings-cosmosdb-v2-output.md?tabs=python#example) | [Link](https://www.serverlesslibrary.net/?technology=Cosmos%2CCosmos%20DB&language=Python) |
+| Azure Data Explorer |[Input](../articles/azure-functions/functions-bindings-azure-data-explorer-input.md?pivots=programming-language-python#examples)<br/>[Output](../articles/azure-functions/functions-bindings-azure-data-explorer-output.md?pivots=programming-language-python#examples) | |
+| Azure SQL |[Trigger (preview)](../articles/azure-functions/functions-bindings-azure-sql-trigger.md?tabs=python#example)<br/>[Input](../articles/azure-functions/functions-bindings-azure-sql-input.md?tabs=python#example)<br/>[Output](../articles/azure-functions/functions-bindings-azure-sql-output.md?tabs=python#example) | [Link](https://github.com/Azure/Webjobs.Extensions.Kusto/tree/main/samples/samples-python) |
 | Event Grid |[Trigger](../articles/azure-functions/functions-bindings-event-grid-trigger.md?tabs=python#example)<br/>[Output](../articles/azure-functions/functions-bindings-event-grid-output.md?tabs=python#example) | [Link](https://www.serverlesslibrary.net/?technology=Event%20Grid&language=Python) |
 | Event Hubs |[Trigger](../articles/azure-functions/functions-bindings-event-hubs-trigger.md?tabs=python#example)<br/>[Output](../articles/azure-functions/functions-bindings-event-hubs-output.md?tabs=python#example) | |
 | IoT Hub |[Trigger](../articles/azure-functions/functions-bindings-event-iot-trigger.md?tabs=python#example)<br/>[Output](../articles/azure-functions/functions-bindings-event-iot-output.md?tabs=python#example) | |
@@ -100,7 +109,7 @@ ms.custom: fasttrack-edit
 | SignalR| [Trigger](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=python#example)<br/>[Input](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=python#example)<br/>[Output](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=python) | |
 | Table storage| [Input](../articles/azure-functions/functions-bindings-storage-table-input.md?tabs=python)<br/>[Output](../articles/azure-functions/functions-bindings-storage-table-output.md?tabs=python) | |
 | Timer | [Trigger](../articles/azure-functions/functions-bindings-timer.md?tabs=python#example) | [Link](https://www.serverlesslibrary.net/?language=Python&filtertext=timer) |
-| Twilio | [Output](../articles/azure-functions/functions-bindings-twilio.md?tabs=python#example---functions-2x-and-higher) | [Link](https://www.serverlesslibrary.net/?language=Python&filtertext=twilio) |
+| Twilio | [Output](../articles/azure-functions/functions-bindings-twilio.md?tabs=python#example) | [Link](https://www.serverlesslibrary.net/?language=Python&filtertext=twilio) |
 
 ---
 

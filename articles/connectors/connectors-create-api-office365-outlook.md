@@ -1,10 +1,10 @@
 ---
 title: Connect to Office 365 Outlook
-description: Automate tasks and workflows that manage email, contacts, and calendars in Office 365 Outlook by using Azure Logic Apps
+description: Automate tasks and workflows that manage email, contacts, and calendars in Office 365 Outlook by using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/11/2021
 tags: connectors
 ---
@@ -34,7 +34,7 @@ You can use any trigger to start your workflow, for example, when a new email ar
 
 * An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The logic app where you want to access your Outlook account. To start your workflow with an Office 365 Outlook trigger, you need to have a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To add an Office 365 Outlook action to your workflow, your logic app workflow needs to already have a trigger.
+* The logic app where you want to access your Outlook account. To start your workflow with an Office 365 Outlook trigger, you need to have a blank logic app workflow. To add an Office 365 Outlook action to your workflow, your logic app workflow needs to already have a trigger.
 
 ## Connector reference
 
@@ -54,7 +54,7 @@ A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an event
 
    > [!NOTE]
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
-   > For more information, see [Configurable token lifetimes in Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
+   > For more information, see [Configurable token lifetimes in Azure Active Directory](../active-directory/develop/configurable-token-lifetimes.md).
 
    This example selects the calendar that the trigger checks, for example:
 
@@ -88,7 +88,7 @@ An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an opera
 
    > [!NOTE]
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
-   > For more information, see [Configurable token lifetimes in Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
+   > For more information, see [Configurable token lifetimes in Azure Active Directory](../active-directory/develop/configurable-token-lifetimes.md).
 
    This example selects the contacts folder where the action creates the new contact, for example:
 
@@ -124,4 +124,6 @@ If you try connecting to Outlook by using a different account than the one curre
 
 ## Next steps
 
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](managed.md)
+* [Built-in connectors for Azure Logic Apps](built-in.md)
+* [What are connectors in Azure Logic Apps](introduction.md)

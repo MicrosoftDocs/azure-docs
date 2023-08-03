@@ -2,14 +2,15 @@
 title: Module setting for Bicep config
 description: Describes how to customize configuration values for modules in Bicep deployments.
 ms.topic: conceptual
-ms.date: 01/03/2022
+ms.custom: devx-track-bicep
+ms.date: 01/18/2023
 ---
 
 # Add module settings in the Bicep config file
 
-In a **bicepconfig.json** file, you can create aliases for module paths and configure credential precedence for restoring a module.
+In a **bicepconfig.json** file, you can create aliases for module paths and configure profile and credential precedence for publishing and restoring modules.
 
-This article describes the settings that are available for working with [modules](modules.md).
+This article describes the settings that are available for working with [Bicep modules](modules.md).
 
 ## Aliases for modules
 
@@ -99,22 +100,66 @@ For a template spec, use:
 module stgModule  'ts/CoreSpecs:storage:v1' = {
 ```
 
-## Credentials for publishing/restoring modules
+An alias has been predefined for the [public module registry](./modules.md#path-to-module). To reference a public module, you can use the format:
 
-To [publish](bicep-cli.md#publish) modules to a private module registry or to [restore](bicep-cli.md#restore) external modules to the local cache, the account must have the correct permissions to access the registry. You can configure the credential precedence for authenticating to the registry. By default, Bicep uses the credentials from the user authenticated in Azure CLI or Azure PowerShell. To customize the credential precedence, add `cloud` and `credentialPrecedence` elements to the config file.
+```bicep
+br/public:<file>:<tag>
+```
+
+You can override the public module registry alias definition in the bicepconfig.json file:
 
 ```json
 {
-    "cloud": {
-      "credentialPrecedence": [
-        "AzureCLI",
-        "AzurePowerShell"
-      ]
+  "moduleAliases": {
+    "br": {
+      "public": {
+        "registry": "<your_module_registry>",
+        "modulePath": "<optional_module_path>"
+      }
     }
+  }
 }
 ```
 
-The available credentials are:
+## Configure profiles and credentials
+
+To [publish](bicep-cli.md#publish) modules to a private module registry or to [restore](bicep-cli.md#restore) external modules to the local cache, the account must have the correct permissions to access the registry. You can configure the profile and the credential precedence for authenticating to the registry. By default, Bicep uses the `AzureCloud` profile and the credentials from the user authenticated in Azure CLI or Azure PowerShell. You can customize `currentProfile` and `credentialPrecedence` in the config file.
+
+```json
+{
+  "cloud": {
+    "currentProfile": "AzureCloud",
+    "profiles": {
+      "AzureCloud": {
+        "resourceManagerEndpoint": "https://management.azure.com",
+        "activeDirectoryAuthority": "https://login.microsoftonline.com"
+      },
+      "AzureChinaCloud": {
+        "resourceManagerEndpoint": "https://management.chinacloudapi.cn",
+        "activeDirectoryAuthority": "https://login.chinacloudapi.cn"
+      },
+      "AzureUSGovernment": {
+        "resourceManagerEndpoint": "https://management.usgovcloudapi.net",
+        "activeDirectoryAuthority": "https://login.microsoftonline.us"
+      }
+    },
+    "credentialPrecedence": [
+      "AzureCLI",
+      "AzurePowerShell"
+    ]
+  }
+}
+```
+
+The available profiles are:
+
+- AzureCloud
+- AzureChinaCloud
+- AzureUSGovernment
+
+You can customize these profiles, or add new profiles for your on-premises environments.
+
+The available credential types are:
 
 - AzureCLI
 - AzurePowerShell
@@ -122,6 +167,8 @@ The available credentials are:
 - ManagedIdentity
 - VisualStudio
 - VisualStudioCode
+
+[!INCLUDE [vscode authentication](../../../includes/resource-manager-vscode-authentication.md)]
 
 ## Next steps
 

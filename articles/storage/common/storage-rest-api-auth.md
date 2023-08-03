@@ -3,14 +3,15 @@ title: Call REST API operations with Shared Key authorization
 titleSuffix: Discover how to call Azure Storage REST API operations with Shared Key authorization. Get detailed information about each step of the sample operation.
 description: Use the Azure Storage REST API to make a request to Blob storage using Shared Key authorization.
 services: storage
-author: tamram
+author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 10/01/2019
-ms.author: tamram
+ms.author: pauljewell
 ms.reviewer: ozge
-ms.subservice: common
+ms.subservice: storage-common-concepts
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -356,7 +357,7 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
 ### Canonicalized resource
 
 This part of the signature string represents the storage account targeted by the request. Remember that the Request URI is
-`<http://contosorest.blob.core.windows.net/?comp=list>`, with the actual account name (`contosorest` in this case). In this example, this is returned:
+`http://contosorest.blob.core.windows.net/?comp=list`, with the actual account name (`contosorest` in this case). In this example, this is returned:
 
 ```
 /contosorest/\ncomp:list

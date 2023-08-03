@@ -12,6 +12,7 @@ metadata:
   ms.topic: landing-page
   ms.collection: na
   author: rolyon
+  manager: amycolannino
   ms.author: rolyon
   ms.date: 02/15/2021
 
@@ -47,7 +48,7 @@ landingContent:
       - linkListType: learn
         links: 
           - text: Secure your Azure resources with Azure RBAC
-            url: /learn/modules/secure-azure-resources-with-rbac/
+            url: /training/modules/secure-azure-resources-with-rbac/
   # Card
   - title: Assign roles
     linkLists: 

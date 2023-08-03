@@ -1,12 +1,12 @@
 ---
 title: Encode X12 messages
-description: Validate EDI and convert XML-encoded messages with X12 message encoder in Azure Logic Apps with Enterprise Integration Pack
+description: Validate EDI and convert XML-encoded messages with X12 message encoder in Azure Logic Apps with Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 01/27/2017
 ---
 
@@ -32,7 +32,11 @@ that's already defined in your integration account
 
 ## Encode X12 messages
 
-1. [Create a logic app](quickstart-create-first-logic-app-workflow.md).
+1. Create a logic app workflow. For more information, see the following documentation:
+
+   * [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
+
+   * [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
 
 2. The Encode X12 message connector doesn't have triggers, 
 so you must add a trigger for starting your logic app, like a Request trigger. 

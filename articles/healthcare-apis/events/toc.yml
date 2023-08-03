@@ -1,0 +1,45 @@
+items:
+- name: Events
+  href: index.yml
+- name: Overview
+  expanded: true
+  items: 
+  - name: What are Events?
+    href: events-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Deploy Events using the Azure portal
+    href: events-deploy-portal.md
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Consume FHIR events with Logic Apps
+    href: events-consume-logic-apps.md 
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Monitor
+    expanded: true
+    items:
+    - name: Use metrics
+      href: events-use-metrics.md 
+    - name: Enable diagnostic settings
+      href: events-enable-diagnostic-settings.md
+  - name: Disable Events and delete workspaces
+    href: events-disable-delete-workspace.md 
+  - name: Troubleshoot
+    expanded: true
+    items:
+    - name: Troubleshoot Events  
+      href: events-troubleshooting-guide.md
+- name: Concepts
+  expanded: true
+  items:
+  - name: Events message structures
+    href: events-message-structure.md
+- name: Resources
+  expanded: true
+  items:
+    - name: FAQs - Events
+      href: events-faqs.md

@@ -7,14 +7,15 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/25/2022
-ms.author: tamram 
-ms.custom: devx-track-azurepowershell
+ms.date: 03/22/2023
+ms.author: tamram
+ms.reviewer: nachakra 
+ms.custom: engagement-fy23
 ---
 
 # Manage storage account access keys
 
-When you create a storage account, Azure generates two 512-bit storage account access keys for that account. These keys can be used to authorize access to data in your storage account via Shared Key authorization.
+When you create a storage account, Azure generates two 512-bit storage account access keys for that account. These keys can be used to authorize access to data in your storage account via Shared Key authorization, or via SAS tokens that are signed with the shared key.
 
 Microsoft recommends that you use Azure Key Vault to manage your access keys, and that you regularly rotate and regenerate your keys. Using Azure Key Vault makes it easy to rotate your keys without interruption to your applications. You can also manually rotate your keys.
 
@@ -55,7 +56,7 @@ $storageAccountKey = `
 
 ### [Azure CLI](#tab/azure-cli)
 
-To list your account access keys with Azure CLI, call the [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values.
+To list your account access keys with Azure CLI, call the [az storage account keys list](/cli/azure/storage/account/keys#az-storage-account-keys-list) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values.
 
 ```azurecli
 az storage account keys list \
@@ -67,7 +68,7 @@ az storage account keys list \
 
 You can use either of the two keys to access Azure Storage, but in general it's a good practice to use the first key, and reserve the use of the second key for when you are rotating keys.
 
-To view or read an account's access keys, the user must either be a Service Administrator, or must be assigned an Azure role that includes the **Microsoft.Storage/storageAccounts/listkeys/action**. Some Azure built-in roles that include this action are the **Owner**, **Contributor**, and **Storage Account Key Operator Service Role** roles. For more information about the Service Administrator role, see [Classic subscription administrator roles, Azure roles, and Azure AD roles](../../role-based-access-control/rbac-and-directory-admin-roles.md). For detailed information about built-in roles for Azure Storage, see the **Storage** section in [Azure built-in roles for Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
+To view or read an account's access keys, the user must either be a Service Administrator, or must be assigned an Azure role that includes the **Microsoft.Storage/storageAccounts/listkeys/action**. Some Azure built-in roles that include this action are the **Owner**, **Contributor**, and **Storage Account Key Operator Service Role** roles. For more information about the Service Administrator role, see [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md). For detailed information about built-in roles for Azure Storage, see the **Storage** section in [Azure built-in roles for Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
 
 ## Use Azure Key Vault to manage your access keys
 
@@ -123,7 +124,7 @@ To rotate your storage account access keys with PowerShell:
 To rotate your storage account access keys with Azure CLI:
 
 1. Update the connection strings in your application code to reference the secondary access key for the storage account.
-1. Call the [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) command to regenerate the primary access key, as shown in the following example:
+1. Call the [az storage account keys renew](/cli/azure/storage/account/keys#az-storage-account-keys-renew) command to regenerate the primary access key, as shown in the following example:
 
     ```azurecli
     az storage account keys renew \
@@ -140,7 +141,7 @@ To rotate your storage account access keys with Azure CLI:
 > [!CAUTION]
 > Microsoft recommends using only one of the keys in all of your applications at the same time. If you use Key 1 in some places and Key 2 in others, you will not be able to rotate your keys without some application losing access.
 
-To rotate an account's access keys, the user must either be a Service Administrator, or must be assigned an Azure role that includes the **Microsoft.Storage/storageAccounts/regeneratekey/action**. Some Azure built-in roles that include this action are the **Owner**, **Contributor**, and **Storage Account Key Operator Service Role** roles. For more information about the Service Administrator role, see [Classic subscription administrator roles, Azure roles, and Azure AD roles](../../role-based-access-control/rbac-and-directory-admin-roles.md). For detailed information about Azure built-in roles for Azure Storage, see the **Storage** section in [Azure built-in roles for Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
+To rotate an account's access keys, the user must either be a Service Administrator, or must be assigned an Azure role that includes the **Microsoft.Storage/storageAccounts/regeneratekey/action**. Some Azure built-in roles that include this action are the **Owner**, **Contributor**, and **Storage Account Key Operator Service Role** roles. For more information about the Service Administrator role, see [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md). For detailed information about Azure built-in roles for Azure Storage, see the **Storage** section in [Azure built-in roles for Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
 
 ## Create a key expiration policy
 
@@ -198,7 +199,7 @@ $account.KeyPolicy
 
 ### [Azure CLI](#tab/azure-cli)
 
-To create a key expiration policy with Azure CLI, use the [az storage account update](/cli/azure/storage/account#az_storage_account_update) command and set the `--key-exp-days` parameter to the interval in days until the access key should be rotated.
+To create a key expiration policy with Azure CLI, use the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and set the `--key-exp-days` parameter to the interval in days until the access key should be rotated.
 
 The `keyCreationTime` property indicates when the account access keys were created or last rotated. Older accounts may have a null value for the `keyCreationTime` property because it has not yet been set. If the `keyCreationTime` property is null, you cannot create a key expiration policy until you rotate the keys. For this reason, it's a good idea to check the `keyCreationTime` property for the storage account before you attempt to set the key expiration policy.
 
@@ -227,9 +228,9 @@ else
 fi
 ```
 
-You can also set the key expiration policy as you create a storage account by setting the `--key-exp-days` parameter of the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
+You can also set the key expiration policy as you create a storage account by setting the `--key-exp-days` parameter of the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command.
 
-To verify that the policy has been applied, call the [az storage account show](/cli/azure/storage/account#az_storage_account_show) command, and use the string `{KeyPolicy:keyPolicy}` for the `-query` parameter.
+To verify that the policy has been applied, call the [az storage account show](/cli/azure/storage/account#az-storage-account-show) command, and use the string `{KeyPolicy:keyPolicy}` for the `-query` parameter.
 
 ```azurecli
 az storage account show \
@@ -287,3 +288,4 @@ To bring a storage account into compliance, rotate the account access keys.
 
 - [Azure storage account overview](storage-account-overview.md)
 - [Create a storage account](storage-account-create.md)
+- [Prevent Shared Key authorization for an Azure Storage account](shared-key-authorization-prevent.md)

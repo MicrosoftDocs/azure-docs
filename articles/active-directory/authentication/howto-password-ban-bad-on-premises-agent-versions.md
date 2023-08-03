@@ -1,21 +1,36 @@
 ---
-title: Password protection agent release history - Azure Active Directory
+title: Password protection agent release history
 description: Documents version release and behavior change history
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 06/04/2021
+ms.date: 06/02/2023
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: jsimmons
 
 ms.collection: M365-identity-device-management
 ---
 # Azure AD Password Protection agent version history
+
+To download the most recent version, see [Azure AD Password Protection for Windows Server Active Directory](https://www.microsoft.com/download/details.aspx?id=57071).
+
+## 1.2.177.1
+
+Release date: March 28, 2022
+
+* Fixed software version being incorrect
+
+## 1.2.177.0
+
+Release date: March 14, 2022
+
+* Minor bugfixes
+* Fixed issue with Azure AD Connect Agent Updater not being updated
 
 ## 1.2.176.0
 

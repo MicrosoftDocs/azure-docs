@@ -3,12 +3,11 @@ title: Upload a VHD to Azure or copy a disk across regions - Azure PowerShell
 description: Learn how to upload a VHD to an Azure managed disk and copy a managed disk across regions, using Azure PowerShell, via direct upload.    
 author: roygara
 ms.author: rogarana
-ms.date: 02/01/2022
+ms.date: 03/31/2023
 ms.topic: how-to
-ms.service: storage
+ms.service: azure-disk-storage
 ms.tgt_pltfrm: linux
-ms.subservice: disks 
-ms.custom: devx-track-azurepowershell
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
 # Upload a VHD to Azure or copy a managed disk to another region - Azure PowerShell
@@ -19,11 +18,32 @@ This article explains how to either upload a VHD from your local machine to an A
 
 If you're providing a backup solution for IaaS VMs in Azure, you should use direct upload to restore customer backups to managed disks. When uploading a VHD from a source external to Azure, speeds depend on your local bandwidth. When uploading or copying from an Azure VM, your bandwidth would be the same as standard HDDs.
 
-## Getting started
+## Secure uploads with Azure AD
 
-There are two ways you can upload a VHD with the Azure PowerShell module: You can either use the [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0) command, which will automate most of the process for you, or you can perform the upload manually with AzCopy.
+If you're using [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) to control resource access, you can now use it to restrict uploading of Azure managed disks. This feature is available as a GA offering in all regions. When a user attempts to upload a disk, Azure validates the identity of the requesting user in Azure AD, and confirms that user has the required permissions. At a higher level, a system administrator could set a policy at the Azure account or subscription level to ensure that an Azure AD identity has the necessary permissions for uploading before allowing a disk or a disk snapshot to be uploaded. If you have any questions on securing uploads with Azure AD, reach out to this email: azuredisks@microsoft .com
 
-Generally, you should use [Add-AzVHD](#use-add-azvhd). However, if you need to upload a VHD that is larger than 50 GiB, consider [uploading the VHD manually with AzCopy](#manual-upload). VHDs 50 GiB and larger will upload faster using AzCopy.
+### Prerequisites
+[!INCLUDE [disks-azure-ad-upload-download-prereqs](../../../includes/disks-azure-ad-upload-download-prereqs.md)]
+
+### Restrictions
+[!INCLUDE [disks-azure-ad-upload-download-restrictions](../../../includes/disks-azure-ad-upload-download-restrictions.md)]
+
+### Assign RBAC role
+
+To access managed disks secured with Azure AD, the requesting user must have either the [Data Operator for Managed Disks](../../role-based-access-control/built-in-roles.md#data-operator-for-managed-disks) role, or a [custom role](../../role-based-access-control/custom-roles-powershell.md) with the following permissions: 
+
+- **Microsoft.Compute/disks/download/action**
+- **Microsoft.Compute/disks/upload/action**
+- **Microsoft.Compute/snapshots/download/action**
+- **Microsoft.Compute/snapshots/upload/action**
+
+For detailed steps on assigning a role, see [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md). To create or update a custom role, see [Create or update Azure custom roles using Azure PowerShell](../../role-based-access-control/custom-roles-powershell.md).
+
+## Get started
+
+There are two ways you can upload a VHD with the Azure PowerShell module: You can either use the [Add-AzVHD](/powershell/module/az.compute/add-azvhd) command, which will automate most of the process for you, or you can perform the upload manually with AzCopy.
+
+Generally, you should use [Add-AzVHD](#use-add-azvhd). However, if you need to upload a VHD that is larger than 50 GiB, consider [uploading the VHD manually with AzCopy](#manual-upload). VHDs 50 GiB and larger upload faster using AzCopy.
 
 For guidance on how to copy a managed disk from one region to another, see [Copy a managed disk](#copy-a-managed-disk).
 
@@ -31,7 +51,7 @@ For guidance on how to copy a managed disk from one region to another, see [Copy
 
 ### Prerequisites
 
-- [Install the Azure PowerShell module](/powershell/azure/install-Az-ps).
+- [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
 - A VHD [has been prepared for Azure](prepare-for-upload-vhd-image.md), stored locally.
     - On Windows: You don't need to convert your VHD to VHDx, convert it a fixed size, or resize it to include the 512-byte offset. `Add-AZVHD` performs these functions for you.
         - [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) must be enabled for Add-AzVHD to perform these functions.
@@ -39,7 +59,22 @@ For guidance on how to copy a managed disk from one region to another, see [Copy
 
 ### Upload a VHD
 
-The following example uploads a VHD from your local machine to a new Azure managed disk using [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0). Replace `<your-filepath-here>`, `<your-resource-group-name>`,`<desired-region>`, and `<desired-managed-disk-name>` with your parameters:
+### (Optional) Grant access to the disk
+
+If Azure AD is used to enforce upload restrictions on a subscription or at the account level, [Add-AzVHD](/powershell/module/az.compute/add-azvhd) only succeeds if attempted by a user that has the [appropriate RBAC role or necessary permissions](#assign-rbac-role). You'll need to [assign RBAC permissions](../../role-based-access-control/role-assignments-powershell.md) to grant access to the disk and generate a writeable SAS.
+
+```azurepowershell
+New-AzRoleAssignment -SignInName <emailOrUserprincipalname> `
+-RoleDefinitionName "Data Operator for Managed Disks" `
+-Scope /subscriptions/<subscriptionId>
+```
+
+### Use Add-AzVHD
+
+The following example uploads a VHD from your local machine to a new Azure managed disk using [Add-AzVHD](/powershell/module/az.compute/add-azvhd). Replace `<your-filepath-here>`, `<your-resource-group-name>`,`<desired-region>`, and `<desired-managed-disk-name>` with your parameters:
+
+> [!NOTE]
+> If you're using Azure AD to enforce upload restrictions, add `DataAccessAuthMode 'AzureActiveDirectory'` to the end of your `Add-AzVhd` command.
 
 ```azurepowershell
 # Required parameters
@@ -51,6 +86,8 @@ $name = <desired-managed-disk-name>
 # Optional parameters
 # $Zone = <desired-zone>
 # $sku=<desired-SKU>
+# -DataAccessAuthMode 'AzureActiveDirectory'
+# -DiskHyperVGeneration = V1 or V2. This applies only to OS disks.
 
 # To use $Zone or #sku, add -Zone or -DiskSKU parameters to the command
 Add-AzVhd -LocalFilePath $path -ResourceGroupName $resourceGroup -Location $location -DiskName $name
@@ -61,7 +98,7 @@ Add-AzVhd -LocalFilePath $path -ResourceGroupName $resourceGroup -Location $loca
 ### Prerequisites
 
 - Download the latest [version of AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
-- [Install the Azure PowerShell module](/powershell/azure/install-Az-ps).
+- [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
 - A fixed size VHD that [has been prepared for Azure](prepare-for-upload-vhd-image.md), stored locally.
 
 To upload your VHD to Azure, you'll need to create an empty managed disk that is configured for this upload process. Before you create one, there's some additional information you should know about these disks.
@@ -83,7 +120,9 @@ Now, on your local shell, create an empty standard HDD for uploading by specifyi
 Replace `<yourdiskname>`, `<yourresourcegroupname>`, and `<yourregion>` then run the following commands:
 
 > [!TIP]
-> If you are creating an OS disk, add `-HyperVGeneration '<yourGeneration>'` to `New-AzDiskConfig`.
+> If you're creating an OS disk, add `-HyperVGeneration '<yourGeneration>'` to `New-AzDiskConfig`.
+> 
+> If you're using Azure AD to secure your uploads, add `-dataAccessAuthMode 'AzureActiveDirectory'` to `New-AzDiskConfig`.  
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length
@@ -93,7 +132,9 @@ $diskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -OsType 'Windows' -Upload
 New-AzDisk -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>' -Disk $diskconfig
 ```
 
-If you would like to upload either a premium SSD or a standard SSD, replace **Standard_LRS** with either **Premium_LRS** or **StandardSSD_LRS**. Ultra disks are not yet supported.
+If you would like to upload either a premium SSD or a standard SSD, replace **Standard_LRS** with either **Premium_LRS** or **StandardSSD_LRS**. Ultra disks aren't currently supported.
+
+### Generate writeable SAS
 
 Now that you've created an empty managed disk that is configured for the upload process, you can upload a VHD to it. To upload a VHD to the disk, you'll need a writeable SAS, so that you can reference it as the destination for your upload.
 
@@ -146,13 +187,14 @@ $sourceDiskName = <sourceDiskNameHere>
 $targetDiskName = <targetDiskNameHere>
 $targetRG = <targetResourceGroupHere>
 $targetLocate = <yourTargetLocationHere>
+$targetVmGeneration = "V1" # either V1 or V2
 #Expected value for OS is either "Windows" or "Linux"
 $targetOS = <yourOSTypeHere>
 
 $sourceDisk = Get-AzDisk -ResourceGroupName $sourceRG -DiskName $sourceDiskName
 
 # Adding the sizeInBytes with the 512 offset, and the -Upload flag
-$targetDiskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -osType $targetOS -UploadSizeInBytes $($sourceDisk.DiskSizeBytes+512) -Location $targetLocate -CreateOption 'Upload'
+$targetDiskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -osType $targetOS -UploadSizeInBytes $($sourceDisk.DiskSizeBytes+512) -Location $targetLocate -CreateOption 'Upload' -HyperVGeneration $targetVmGeneration
 
 $targetDisk = New-AzDisk -ResourceGroupName $targetRG -DiskName $targetDiskName -Disk $targetDiskconfig
 
@@ -172,3 +214,5 @@ Revoke-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName
 Now that you've successfully uploaded a VHD to a managed disk, you can attach your disk to a VM and begin using it.
 
 To learn how to attach a data disk to a VM, see our article on the subject: [Attach a data disk to a Windows VM with PowerShell](attach-disk-ps.md). To use the disk as the OS disk, see [Create a Windows VM from a specialized disk](create-vm-specialized.md#create-the-new-vm).
+
+If you've additional questions, see the section on [uploading a managed disk](../faq-for-disks.yml#uploading-to-a-managed-disk) in the FAQ.

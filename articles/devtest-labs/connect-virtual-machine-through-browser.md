@@ -1,36 +1,36 @@
 ---
-title: Enable browser access to lab virtual machines
-description: Learn how to connect to your virtual machines through a browser.
+title: Connect to lab virtual machines through Browser connect
+description: Learn how to connect to lab virtual machines (VMs) through a browser if Browser connect is enabled for the lab.
 ms.topic: how-to
-ms.date: 10/29/2021
+ms.author: rosemalcolm
+author: RoseHJM
+ms.date: 06/14/2023
+ms.custom: UpdateFrequency2
 ---
 
-# Connect to your lab virtual machines through a browser 
+# Connect to DevTest Labs VMs through a browser with Azure Bastion
 
-DevTest Labs integrates with [Azure Bastion](../bastion/index.yml), which enables you to connect to your lab virtual machines (VM) through a browser. Once **Browser connect** is enabled, lab users can access their virtual machines through a browser.  
+This article describes how to connect to DevTest Labs virtual machines (VMs) through a browser by using [Azure Bastion](../bastion/index.yml). Azure Bastion provides secure remote desktop protocol (RDP) or secure shell (SSH) access without using public IP addresses or exposing RDP or SSH ports to the internet.
 
-In this how-to guide, you'll connect to a lab VM using **Browser connect**.
+> [!IMPORTANT]
+> The VM's lab must be in a [Bastion-configured virtual network](enable-browser-connection-lab-virtual-machines.md#option-1-connect-a-lab-to-an-azure-bastion-enabled-virtual-network) and have [Browser connect enabled](enable-browser-connection-lab-virtual-machines.md#connect-to-lab-vms-through-azure-bastion). For more information, see [Enable browser connection to DevTest Labs VMs with Azure Bastion](enable-browser-connection-lab-virtual-machines.md).
 
-## Prerequisites
+To connect to a lab VM through a browser:
 
-- A lab VM, with a [Bastion-configured virtual network and the **Browser connect** setting turned on](enable-browser-connection-lab-virtual-machines.md).
+1. In the [Azure portal](https://portal.azure.com), search for and select **DevTest Labs**.
 
-- A web browser configured to allow pop-ups from `https://portal.azure.com:443`.
+1. On the **DevTest Labs** page, select your lab.
 
-## Launch virtual machine in a browser
+1. On the lab's **Overview** page, select the VM you want to connect to from the list under **My virtual machines**.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. On the VM's **Overview** page, from the top menu, select **Browser connect**.
 
-1. Navigate to your lab in **DevTest Labs**.
+1. In the **Browser connect** pane, enter the username and password for the VM, and select whether you want the VM to open in a new browser window.
 
-1. Select a virtual machine.
+1. Select **Connect**.
 
-1. From the top menu, select **Browser connect**.
+   :::image type="content" source="./media/connect-virtual-machine-through-browser/lab-vm-browser-connect.png" alt-text="Screenshot of the V M Overview screen with the Browser connect button highlighted.":::
 
-1. In the **Browser connect** section, enter your credentials and then select **Connect**.
+> [!NOTE]
+> If you don't see **Browser connect** on the VM's top menu, the lab isn't set up for Browser connect. You can select **Connect** to connect via [RDP](connect-windows-virtual-machine.md) or [SSH](connect-linux-virtual-machine.md).
 
-    :::image type="content" source="./media/connect-virtual-machine-through-browser/lab-vm-browser-connect.png" alt-text="Screenshot of browser connect button.":::
-
-## Next Steps
-
-[Add a VM to a lab in Azure DevTest Labs](devtest-lab-add-vm.md)

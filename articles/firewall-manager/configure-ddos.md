@@ -5,22 +5,18 @@ author: vhorne
 ms.author: victorh
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 09/30/2021
+ms.date: 06/15/2022
 ms.custom: template-how-to
 ---
 
-# Configure an Azure DDoS Protection Plan using Azure Firewall Manager (preview)
+# Configure an Azure DDoS Protection Plan using Azure Firewall Manager
 
 Azure Firewall Manager is a platform to manage and protect your network resources at scale. You can associate your virtual networks with a DDoS protection plan within Azure Firewall Manager.
 
-> [!IMPORTANT]
-> Using Azure Firewall Manager to configure an Azure DDoS Protection Plan is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
-
 > [!TIP]
-> DDoS Protection Standard currently does not support virtual WANs. However, you can workaround this limitation by force tunneling Internet traffic to an Azure Firewall in a virtual network that has a DDoS Protection Plan associated with it.
+> DDoS Protection currently does not support virtual WANs. However, you can workaround this limitation by force tunneling Internet traffic to an Azure Firewall in a virtual network that has a DDoS Protection Plan associated with it.
 
-Under a single tenant, DDoS protection plans can be applied to virtual networks across multiple subscriptions. For more information about DDoS protection plans, see  [Azure DDoS Protection Standard overview](../ddos-protection/ddos-protection-overview.md).
+Under a single tenant, DDoS protection plans can be applied to virtual networks across multiple subscriptions. For more information about DDoS protection plans, see  [Azure DDoS Protection overview](../ddos-protection/ddos-protection-overview.md).
 
 To see how this works, you'll create a firewall policy and then a virtual network secured with an Azure Firewall. Then you'll create a DDoS Protection Plan and then associate it with the virtual network.
 
@@ -91,6 +87,5 @@ You should now see that the virtual network has an associated DDoS Protection Pl
 
 ## Next steps
 
-To learn more about DDoS Protection Plans, see:
-
-- [Azure DDoS Protection Standard overview](../ddos-protection/ddos-protection-overview.md)
+- [Azure DDoS Protection overview](../ddos-protection/ddos-protection-overview.md)
+- [Learn more about Azure network security](../networking/security/index.yml)

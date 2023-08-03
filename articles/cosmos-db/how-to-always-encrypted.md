@@ -2,34 +2,25 @@
 title: Use client-side encryption with Always Encrypted for Azure Cosmos DB
 description: Learn how to use client-side encryption with Always Encrypted for Azure Cosmos DB
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 01/26/2022
-ms.author: thweiss
-author: ThomasWeiss
+ms.date: 04/04/2022
+ms.author: sidandrews
+author: seesharprun
 ---
 
-# Use client-side encryption with Always Encrypted for Azure Cosmos DB (Preview)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+# Use client-side encryption with Always Encrypted for Azure Cosmos DB
+[!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
-Always Encrypted is a feature designed to protect sensitive data, such as credit card numbers or national identification numbers (for example, U.S. social security numbers), stored in Azure Cosmos DB. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the database.
+> [!IMPORTANT]
+> A breaking change has been introduced with the 1.0 release of our encryption packages. If you created data encryption keys and encryption-enabled containers with prior versions, you will need to re-create your databases and containers after migrating your client code to 1.0 packages.
+
+Always Encrypted is a feature designed to protect sensitive data, such as credit card numbers or national/regional identification numbers (for example, U.S. social security numbers), stored in Azure Cosmos DB. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the database.
 
 Always Encrypted brings client-side encryption capabilities to Azure Cosmos DB. Encrypting your data client-side can be required in the following scenarios:
 
 - **Protecting sensitive data that has specific confidentiality characteristics**: Always Encrypted allows clients to encrypt sensitive data inside their applications and never reveal the plain text data or encryption keys to the Azure Cosmos DB service.
 - **Implementing per-property access control**: Because the encryption is controlled with keys that you own and manage from Azure Key Vault, you can apply access policies to control which sensitive properties each client has access to.
-
-> [!IMPORTANT]
-> Always Encrypted for Azure Cosmos DB is currently in preview. This preview version is provided without a Service Level Agreement and is not recommended for production workloads. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## Prerequisites
-
-To start using the preview of Always Encrypted for Azure Cosmos DB, you can:
-
-- Use the 2.11.13.0 or higher version of [Azure Cosmos DB local emulator](local-emulator.md).
-- Request the preview to be enabled on your Azure Cosmos DB account by filling [this form](https://ncv.microsoft.com/poTcF52I6N).
-
-> [!TIP]
-> Do you have any feedback to share regarding the preview of Always Encrypted for Azure Cosmos DB? Reach out to [azurecosmosdbcse@service.microsoft.com](mailto:azurecosmosdbcse@service.microsoft.com).
 
 ## Concepts
 
@@ -48,7 +39,7 @@ You can:
 
 #### Customer-managed keys
 
-Before DEKs get stored in Azure Cosmos DB, they are wrapped by a customer-managed key (CMK). By controlling the wrapping and unwrapping of DEKs, CMKs effectively control the access to the data that's encrypted with their corresponding DEKs. CMK storage is designed as an extensible/plug-in model, with a default implementation that expects them to be stored in Azure Key Vault.
+Before DEKs get stored in Azure Cosmos DB, they are wrapped by a customer-managed key (CMK). By controlling the wrapping and unwrapping of DEKs, CMKs effectively control the access to the data that's encrypted with their corresponding DEKs. CMK storage is designed as an extensible, with a default implementation that expects them to be stored in Azure Key Vault.
 
 :::image type="content" source="./media/how-to-always-encrypted/encryption-keys.png" alt-text="Encryption keys" border="true":::
 
@@ -62,11 +53,6 @@ For each property that you want to encrypt, the encryption policy defines:
 - The ID of the [DEK](#data-encryption-keys) to use when encrypting and decrypting the property.
 - An encryption type. It can be either randomized or deterministic.
 - The encryption algorithm to use when encrypting the property. The specified algorithm can override the algorithm defined when creating the key if they are compatible.
-
-> [!NOTE]
-> The following properties can't be encrypted:
-> - ID
-> - The container's partition key
 
 #### Randomized vs. deterministic encryption
 
@@ -99,7 +85,7 @@ To make sure you don't lose access to your encrypted data after accidental delet
 
 If you create a new Azure Key Vault instance, enable these properties during creation:
 
-:::image type="content" source="./media/how-to-setup-cmk/portal-akv-prop.png" alt-text="Enable soft delete and purge protection for a new Azure Key Vault instance":::
+:::image type="content" source="./media/how-to-always-encrypted/key-vault-properties.png" alt-text="Screenshot of the soft delete and purge protection properties for a new Azure Key Vault instance.":::
 
 If you're using an existing Azure Key Vault instance, you can verify that these properties are enabled by looking at the **Properties** section on the Azure portal. If any of these properties isn't enabled, see the "Enabling soft-delete" and "Enabling Purge Protection" sections in one of the following articles:
 
@@ -113,73 +99,95 @@ If you're using an existing Azure Key Vault instance, you can verify that these 
 > - In **.NET** with the [Microsoft.Azure.Cosmos.Encryption package](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Encryption).
 > -	In **Java** with the [azure.cosmos.encryption package](https://mvnrepository.com/artifact/com.azure/azure-cosmos-encryption).
 
-To use Always Encrypted, an instance of an `EncryptionKeyWrapProvider` must be attached to your Azure Cosmos DB SDK instance. This object is used to interact with the key store hosting your CMKs. The default key store provider for Azure Key Vault is named `AzureKeyVaultKeyWrapProvider`.
-
-The following snippets use the `DefaultAzureCredential` class to retrieve the Azure AD identity to use when accessing your Azure Key Vault instance. You can find examples of creating different kinds of `TokenCredential` classes:
-
-- [In .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
-- [In Java](/java/api/overview/azure/identity-readme#credential-classes)
-
 # [.NET](#tab/dotnet)
+
+To use Always Encrypted, an instance of a `KeyResolver` must be attached to your Azure Cosmos DB SDK instance. This class, defined in the `Azure.Security.KeyVault.Keys.Cryptography` namespace, is used to interact with the key store hosting your CMKs.
+
+The following snippets use the `DefaultAzureCredential` class to retrieve the Azure AD identity to use when accessing your Azure Key Vault instance. You can find examples of creating different kinds of `TokenCredential` classes [here](/dotnet/api/overview/azure/identity-readme#credential-classes).
 
 > [!NOTE]
 > You will need the additional [Azure.Identity package](https://www.nuget.org/packages/Azure.Identity/) to access the `TokenCredential` classes.
 
 ```csharp
 var tokenCredential = new DefaultAzureCredential();
-var keyWrapProvider = new AzureKeyVaultKeyWrapProvider(tokenCredential);
+var keyResolver = new KeyResolver(tokenCredential);
 var client = new CosmosClient("<connection-string>")
-    .WithEncryption(keyStoreProvider);
+    .WithEncryption(keyResolver, KeyEncryptionKeyResolverName.AzureKeyVault);
 ```
 
 # [Java](#tab/java)
 
+To use Always Encrypted, an instance of a `KeyEncryptionKeyClientBuilder` must be attached to your Azure Cosmos DB SDK instance. This class, defined in the `com.azure.security.keyvault.keys.cryptography` namespace, is used to interact with the key store hosting your CMKs.
+
+The following snippets use the `DefaultAzureCredential` class to retrieve the Azure AD identity to use when accessing your Azure Key Vault instance. You can find examples of creating different kinds of `TokenCredential` classes [here](/java/api/overview/azure/identity-readme#credential-classes).
+
 ```java
 TokenCredential tokenCredential = new DefaultAzureCredentialBuilder()
     .build();
-AzureKeyVaultKeyStoreProvider encryptionKeyStoreProvider =
-    new AzureKeyVaultKeyStoreProvider(tokenCredential);
+KeyEncryptionKeyClientBuilder keyEncryptionKeyClientBuilder =
+    new KeyEncryptionKeyClientBuilder().credential(tokenCredentials);
 CosmosAsyncClient client = new CosmosClientBuilder()
     .endpoint("<endpoint>")
     .key("<primary-key>")
     .buildAsyncClient();
-EncryptionAsyncCosmosClient encryptionClient =
-    EncryptionAsyncCosmosClient.buildEncryptionAsyncClient(client, encryptionKeyStoreProvider);
+CosmosEncryptionAsyncClient cosmosEncryptionAsyncClient =
+    new CosmosEncryptionClientBuilder().cosmosAsyncClient(client).keyEncryptionKeyResolver(keyEncryptionKeyClientBuilder)
+        .keyEncryptionKeyResolverName(CosmosEncryptionClientBuilder.KEY_RESOLVER_NAME_AZURE_KEY_VAULT).buildAsyncClient();
 ```
 ---
 
 ## Create a data encryption key
 
-Before data can be encrypted in a container, a [data encryption key](#data-encryption-keys) must be created in the parent database. This operation is done by calling the `CreateClientEncryptionKeyAsync` method and passing:
+Before data can be encrypted in a container, a [data encryption key](#data-encryption-keys) must be created in the parent database.
+
+# [.NET](#tab/dotnet)
+
+Creating a new data encryption key is done by calling the `CreateClientEncryptionKeyAsync` method and passing:
 
 - A string identifier that will uniquely identify the key in the database.
 - The encryption algorithm intended to be used with the key. Only one algorithm is currently supported.
-- The key identifier of the [CMK](#customer-managed-keys) stored in Azure Key Vault. This parameter is passed in a generic `EncryptionKeyWrapMetadata` object where the `name` can be any friendly name you want, and the `value` must be the key identifier.
-
-# [.NET](#tab/dotnet)
+- The key identifier of the [CMK](#customer-managed-keys) stored in Azure Key Vault. This parameter is passed in a generic `EncryptionKeyWrapMetadata` object where:
+  - The `type` defines the type of key resolver (for example, Azure Key Vault).
+  - The `name` can be any friendly name you want.
+  - The `value` must be the key identifier.
+  - The `algorithm` defines which algorithm shall be used to wrap the key encryption key with the customer-managed key.
 
 ```csharp
 var database = client.GetDatabase("my-database");
 await database.CreateClientEncryptionKeyAsync(
     "my-key",
-    DataEncryptionKeyAlgorithm.AeadAes256CbcHmacSha256,
+    DataEncryptionAlgorithm.AeadAes256CbcHmacSha256,
     new EncryptionKeyWrapMetadata(
-        keyWrapProvider.ProviderName,
+        KeyEncryptionKeyResolverName.AzureKeyVault,
         "akvKey",
-        "https://<my-key-vault>.vault.azure.net/keys/<key>/<version>"));
+        "https://<my-key-vault>.vault.azure.net/keys/<key>/<version>",
+        EncryptionAlgorithm.RsaOaep.ToString()));
 ```
 
 # [Java](#tab/java)
 
+Creating a new data encryption key is done by calling the `createClientEncryptionKey` method and passing:
+
+- A string identifier that will uniquely identify the key in the database.
+- The encryption algorithm intended to be used with the key. Only one algorithm is currently supported.
+- The key identifier of the [CMK](#customer-managed-keys) stored in Azure Key Vault. This parameter is passed in a generic `EncryptionKeyWrapMetadata` object where:
+  - The `type` defines the type of key resolver (for example, Azure Key Vault).
+  - The `name` can be any friendly name you want.
+  - The `value` must be the key identifier.
+  - The `algorithm` defines which algorithm shall be used to wrap the key encryption key with the customer-managed key.
+
 ```java
-EncryptionCosmosAsyncDatabase database =
-    client.getEncryptedCosmosAsyncDatabase("my-database");
+CosmosEncryptionAsyncDatabase database =
+    cosmosEncryptionAsyncClient.getCosmosEncryptionAsyncDatabase("my-database");
+EncryptionKeyWrapMetadata metadata = new EncryptionKeyWrapMetadata(
+    cosmosEncryptionAsyncClient.getKeyEncryptionKeyResolverName(), 
+    "akvKey", 
+    "https://<my-key-vault>.vault.azure.net/keys/<key>/<version>",
+    EncryptionAlgorithm.RSA_OAEP.toString());
 database.createClientEncryptionKey(
     "my-key",
-    CosmosEncryptionAlgorithm.AEAES_256_CBC_HMAC_SHA_256,
-    new EncryptionKeyWrapMetadata(
-        "akvKey",
-        "https://<my-key-vault>.vault.azure.net/keys/<key>/<version>"));
+    CosmosEncryptionAlgorithm.AEAD_AES_256_CBC_HMAC_SHA256.getName(),
+    metadata);
 ```
 ---
 
@@ -195,14 +203,14 @@ var path1 = new ClientEncryptionIncludedPath
     Path = "/property1",
     ClientEncryptionKeyId = "my-key",
     EncryptionType = EncryptionType.Deterministic.ToString(),
-    EncryptionAlgorithm = DataEncryptionKeyAlgorithm.AeadAes256CbcHmacSha256
+    EncryptionAlgorithm = DataEncryptionAlgorithm.AeadAes256CbcHmacSha256
 };
 var path2 = new ClientEncryptionIncludedPath
 {
     Path = "/property2",
     ClientEncryptionKeyId = "my-key",
     EncryptionType = EncryptionType.Randomized.ToString(),
-    EncryptionAlgorithm = DataEncryptionKeyAlgorithm.AeadAes256CbcHmacSha256
+    EncryptionAlgorithm = DataEncryptionAlgorithm.AeadAes256CbcHmacSha256
 };
 await database.DefineContainer("my-container", "/partition-key")
     .WithClientEncryptionPolicy()
@@ -216,16 +224,16 @@ await database.DefineContainer("my-container", "/partition-key")
 
 ```java
 ClientEncryptionIncludedPath path1 = new ClientEncryptionIncludedPath();
-path1.clientEncryptionKeyId = "my-key":
-path1.path = "/property1";
-path1.encryptionType = CosmosEncryptionType.DETERMINISTIC;
-path1.encryptionAlgorithm = CosmosEncryptionAlgorithm.AEAES_256_CBC_HMAC_SHA_256;
+path1.setClientEncryptionKeyId("my-key"):
+path1.setPath("/property1");
+path1.setEncryptionType(CosmosEncryptionType.DETERMINISTIC.getName());
+path1.setEncryptionAlgorithm(CosmosEncryptionAlgorithm.AEAES_256_CBC_HMAC_SHA_256.getName());
 
 ClientEncryptionIncludedPath path2 = new ClientEncryptionIncludedPath();
-path2.clientEncryptionKeyId = "my-key":
-path2.path = "/property2";
-path2.encryptionType = CosmosEncryptionType.RANDOMIZED;
-path2.encryptionAlgorithm = CosmosEncryptionAlgorithm.AEAES_256_CBC_HMAC_SHA_256;
+path2.setClientEncryptionKeyId("my-key"):
+path2.setPath("/property2");
+path2.setEncryptionType(CosmosEncryptionType.RANDOMIZED.getName());
+path2.setEncryptionAlgorithm(CosmosEncryptionAlgorithm.AEAES_256_CBC_HMAC_SHA_256.getName());
 
 List<ClientEncryptionIncludedPath> paths = new ArrayList<>();
 paths.add(path1);
@@ -261,7 +269,7 @@ Note that the resolution of encrypted properties and their subsequent decryption
 
 ### Filter queries on encrypted properties
 
-When writing queries that filter on encrypted properties, the `AddParameterAsync` method must be used to pass the value of the query parameter. This method takes the following arguments:
+When writing queries that filter on encrypted properties, a specific method must be used to pass the value of the query parameter. This method takes the following arguments:
 
 - The name of the query parameter.
 - The value to use in the query.
@@ -284,10 +292,10 @@ await queryDefinition.AddParameterAsync(
 # [Java](#tab/java)
 
 ```java
-EncryptionSqlQuerySpec encryptionSqlQuerySpec = new EncryptionSqlQuerySpec(
-    new SqlQuerySpec("SELECT * FROM c where c.property1 = @Property1"), container);
-encryptionSqlQuerySpec.addEncryptionParameterAsync(
-    new SqlParameter("@Property1", 1234), "/property1")
+SqlQuerySpecWithEncryption sqlQuerySpecWithEncryption = new SqlQuerySpecWithEncryption(
+    new SqlQuerySpec("SELECT * FROM c where c.property1 = @Property1"));
+sqlQuerySpecWithEncryption.addEncryptionParameter(
+    "/property1", new SqlParameter("@Property1", 1234))
 ```
 ---
 
@@ -305,22 +313,39 @@ You may want to "rotate" your CMK (that is, use a new CMK instead of the current
 await database.RewrapClientEncryptionKeyAsync(
     "my-key",
     new EncryptionKeyWrapMetadata(
-        keyWrapProvider.ProviderName,
+        KeyEncryptionKeyResolverName.AzureKeyVault,
         "akvKey",
-        " https://<my-key-vault>.vault.azure.net/keys/<new-key>/<version>"));
+        "https://<my-key-vault>.vault.azure.net/keys/<new-key>/<version>",
+        EncryptionAlgorithm.RsaOaep.ToString()));
 ```
 
 # [Java](#tab/java)
 
 ```java
-database. rewrapClientEncryptionKey(
+EncryptionKeyWrapMetadata metadata = new EncryptionKeyWrapMetadata(
+    cosmosEncryptionAsyncClient.getKeyEncryptionKeyResolverName(), 
+    "akvKey", 
+    "https://<my-key-vault>.vault.azure.net/keys/<new-key>/<version>",
+    EncryptionAlgorithm.RSA_OAEP.toString());
+database.rewrapClientEncryptionKey(
     "my-key",
-    new EncryptionKeyWrapMetadata(
-        "akvKey", " https://<my-key-vault>.vault.azure.net/keys/<new-key>/<version>"));
+    metadata);
 ```
 ---
 
+## DEK rotation
+
+Performing a rotation of a data encryption key isn't offered as a turnkey capability. This is because updating a DEK requires a scan of all containers where this key is used and a re-encryption of all properties encrypted with this key. This operation can only happen client-side as the Azure Cosmos DB service does not store or ever accesses the plain text value of the DEK.
+
+In practice, a DEK rotation can be done by performing a data migration from the impacted containers to new ones. The new containers can be created the exact same way as the original ones. To help you with such a data migration, you can find [a standalone migration tool on GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ReEncryption).
+
+## Adding additional encrypted properties
+
+Adding additional encrypted properties to an existing encryption policy isn't supported for the same reasons explained in the section just above. This operation requires a full scan of the container to ensure that all instances of the properties are properly encrypted, and this is an operation that can only happen client-side. Just like a DEK rotation, adding additional encrypted properties can be done by performing a data migration to a new container with an appropriate encryption policy.
+
+If you have flexibility in the way new encrypted properties can be added from a schema standpoint, you can also leverage the schema-agnostic nature of Azure Cosmos DB. If you use a property defined in your encryption policy as a "property bag", you can add more properties below with no constraint. For example, let's imagine that `property1` is defined in your encryption policy and you initially write `property1.property2` in your documents. If, at a later stage, you need to add `property3` as an encrypted property, you can start writing `property1.property3` in your documents and the new property will automatically be encrypted as well. This approach doesn't require any data migration.
+
 ## Next steps
 
-- Get an overview of [secure access to data in Cosmos DB](secure-access-to-data.md).
-- Learn more about [customer-managed keys](how-to-setup-cmk.md)
+- Get an overview of [secure access to data in Azure Cosmos DB](secure-access-to-data.md).
+- Learn more about [customer-managed keys for encryption-at-rest](how-to-setup-cmk.md)

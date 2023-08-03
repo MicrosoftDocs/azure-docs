@@ -2,8 +2,11 @@
 title: Scale up your Azure DevTest Labs infrastructure
 description: See information and guidance about scaling up your Azure DevTest Labs infrastructure.  
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
+ms.custom: UpdateFrequency2
 ---
 
 # Scale up your Azure DevTest Labs infrastructure

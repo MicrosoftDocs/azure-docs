@@ -2,15 +2,12 @@
 title: Azure Monitor Workbooks - Move Regions
 description: How to move a workbook to a different region
 services: azure-monitor
-author: gardnerjr
-manager: acearun
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 08/12/2020
-ms.author: jgardner
+ms.date: 06/21/2023
+ms.reviewer: jgardner
 
 #Customer intent: As an Azure service administrator, I want to move my resources to another Azure region
 ---

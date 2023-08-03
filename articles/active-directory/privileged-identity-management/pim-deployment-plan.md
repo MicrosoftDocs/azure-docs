@@ -1,17 +1,17 @@
 ---
-title: Plan a Privileged Identity Management deployment - Azure AD | Microsoft Docs
+title: Plan a Privileged Identity Management deployment
 description: Learn how to deploy Privileged Identity Management (PIM) in your Azure AD organization.
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: billmath
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: conceptual
-ms.date: 12/10/2021
-ms.author: curtand
+ms.date: 2/3/2023
+ms.author: billmath
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -25,7 +25,7 @@ PIM enables you to allow a specific set of actions at a particular scope. Key fe
 
 * Provide **just-in-time** privileged access to resources
 
-* Assign **eligibility for membership or ownership** of privileged access groups
+* Assign **eligibility for membership or ownership** of PIM for Groups
 
 * Assign **time-bound** access to resources using start and end dates
 
@@ -55,16 +55,16 @@ Today, you can use PIM with:
 
 * **Azure roles** – The role-based access control (RBAC) roles in Azure that grants access to management groups, subscriptions, resource groups, and resources.
 
-* **Privileged Access Groups** – To set up just-in-time access to member and owner role of an Azure AD security group. Privileged Access Groups not only gives you an alternative way to set up PIM for Azure AD roles and Azure roles, but also allows you to set up PIM for other permissions across Microsoft online services like Intune, Azure Key Vaults, and Azure Information Protection. 
+* **PIM for Groups** – To set up just-in-time access to member and owner role of an Azure AD security group. PIM for Groups not only gives you an alternative way to set up PIM for Azure AD roles and Azure roles, but also allows you to set up PIM for other permissions across Microsoft online services like Intune, Azure Key Vaults, and Azure Information Protection. 
 
 You can assign the following to these roles or groups: 
 
-* **Users**- To get just-in-time access to Azure AD roles, Azure roles, and Privileged Access Groups. 
+* **Users**- To get just-in-time access to Azure AD roles, Azure roles, and PIM for Groups. 
 
-* **Groups**- Anyone in a group to get just-in-time access to Azure AD roles and Azure roles. For Azure AD roles, the group must be a newly created cloud group that’s marked as assignable to a role while for Azure roles, the group can be any Azure AD security group. We do not recommend assigning/nesting a group to a Privileged Access Groups. 
+* **Groups**- Anyone in a group to get just-in-time access to Azure AD roles and Azure roles. For Azure AD roles, the group must be a newly created cloud group that’s marked as assignable to a role while for Azure roles, the group can be any Azure AD security group. We do not recommend assigning/nesting a group to a PIM for Groups. 
 
 > [!NOTE] 
->You cannot assign service principals as eligible to Azure AD roles, Azure roles, and Privileged Access groups but you can grant a time limited active assignment to all three.
+>You cannot assign service principals as eligible to Azure AD roles, Azure roles, and PIM for Groups but you can grant a time limited active assignment to all three.
 
 ### Principle of least privilege
 
@@ -93,15 +93,15 @@ In case the role expires, you can **extend** or **renew** these assignments.
 
 ## Plan the project
 
-When technology projects fail, it’s typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you’re engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md#include-the-right-stakeholders) and that stakeholder roles in the project are well understood.
+When technology projects fail, it’s typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you’re engaging the right stakeholders](../fundamentals/deployment-plans.md) and that stakeholder roles in the project are well understood.
 
 ### Plan a pilot
 
-At each stage of your deployment ensure that you are evaluating that the results are as expected. See [best practices for a pilot](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot).
+At each stage of your deployment ensure that you are evaluating that the results are as expected. See [best practices for a pilot](../fundamentals/deployment-plans.md#best-practices-for-a-pilot).
 
 * Start with a small set of users (pilot group) and verify that the PIM behaves as expected.
 
-* Verify whether all the configuration you set up for the roles or privileged access groups are working correctly. 
+* Verify whether all the configuration you set up for the roles or PIM for Groups are working correctly. 
 
 * Roll it to production only after it’s thoroughly tested. 
 
@@ -128,13 +128,13 @@ The following table shows an example test case:
 
 For both Azure AD and Azure resource role, make sure that you’ve users represented who will take those roles. In addition, consider the following roles when you test PIM in your staged environment:
 
-| Roles| Azure AD roles| Azure Resource roles| Privileged Access Groups |
+| Roles| Azure AD roles| Azure Resource roles| PIM for Groups |
 | --- | --- | --- |--- |
 | Member of a group| | | x |
 | Members of a role| x| x|  |
 | IT service owner| x| | x |
 | Subscription or resource owner| | x| x |
-| Privileged access group owner| | | x |
+| PIM for Groups owner| | | x |
 
 ### Plan rollback
 
@@ -164,7 +164,7 @@ The following table shows example settings:
 
 | Role| Require MFA| Notification| Incident ticket| Require approval| Approver| Activation duration| Perm admin |
 | --- | --- | --- |--- |--- |--- |--- |--- |
-| Global Admin| :heavy_check_mark:| :heavy_check_mark:| :heavy_check_mark:| :heavy_check_mark:| Other Global Admin| 1 Hour| Emergency access accounts |
+| Global Administrator| :heavy_check_mark:| :heavy_check_mark:| :heavy_check_mark:| :heavy_check_mark:| Other Global Administrator| 1 Hour| Emergency access accounts |
 | Exchange Admin| :heavy_check_mark:| :heavy_check_mark:| :x:| :x:| None| 2 Hour| None |
 | Helpdesk Admin| :x:| :x:| :heavy_check_mark:| :x:| None| 8 Hour| None |
 
@@ -264,21 +264,21 @@ When these important events occur in Azure resource roles, PIM sends [email noti
 
 [Configure security alerts for the Azure resource roles](pim-resource-roles-configure-alerts.md) which will trigger an alert in case of any suspicious and unsafe activity.
 
-## Plan and implement PIM for privileged access groups
+## Plan and implement PIM for PIM for Groups
 
-Follow these tasks to prepare PIM to manage privileged access groups.
+Follow these tasks to prepare PIM to manage PIM for Groups.
 
-### Discover privileged access groups
+### Discover PIM for Groups
 
 It may be the case that an individual has five or six eligible assignments to Azure AD roles through PIM. They will have to activate each role individually, which can reduce productivity. Worse still, they can also have tens or hundreds of Azure resources assigned to them, which aggravates the problem.
 
-In this case, you should use privileged access groups. Create a privileged access group and grant it permanent active access to multiple roles. See [privileged access groups management capabilities](groups-features.md).
+In this case, you should use PIM for Groups. Create a PIM for Groups and grant it permanent active access to multiple roles. See [Privileged Identity Management (PIM) for Groups (preview)](concept-pim-for-groups.md).
 
-To manage an Azure AD role-assignable group as a privileged access group, you must [bring it under management in PIM](groups-discover-groups.md).
+To manage an Azure AD role-assignable group as a PIM for Groups, you must [bring it under management in PIM](groups-discover-groups.md).
 
-### Configure PIM settings for privileged access groups
+### Configure PIM settings for PIM for Groups
 
-[Draft and configure settings](groups-role-settings.md) for the privileged access groups that you’ve planned to protect with PIM.
+[Draft and configure settings](groups-role-settings.md) for the PIM for Groups that you’ve planned to protect with PIM.
 
 The following table shows example settings:
 
@@ -287,31 +287,31 @@ The following table shows example settings:
 | Owner| :heavy_check_mark:| :heavy_check_mark:| :heavy_check_mark:| Other owners of the resource| 1 Hour| None| n/a| 3 months |
 | Member| :heavy_check_mark:| :heavy_check_mark:| :x:| None| 5 Hour| None| n/a| 3 months |
 
-### Assign eligibility for privileged access groups
+### Assign eligibility for PIM for Groups
 
-You can [assign eligibility to members or owners of the privileged access groups.](groups-assign-member-owner.md) With just one activation, they will have access to all the linked resources. 
+You can [assign eligibility to members or owners of the PIM for Groups.](groups-assign-member-owner.md) With just one activation, they will have access to all the linked resources. 
 
 >[!NOTE] 
->You can assign the privileged group to one or more Azure AD and Azure resource roles in the same way as you assign roles to users. A maximum of 400 role-assignable groups can be created in a single Azure AD organization (tenant).
+>You can assign the group to one or more Azure AD and Azure resource roles in the same way as you assign roles to users. A maximum of 400 role-assignable groups can be created in a single Azure AD organization (tenant).
 
-![Assign eligibility for privileged access groups](media/pim-deployment-plan/privileged-access-groups.png)
+![Diagram of assign eligibility for PIM for Groups.](media/pim-deployment-plan/pim-for-groups.png)
 
 
-When privileged group assignment nears its expiration, use [PIM to extend or renew the group assignment](groups-renew-extend.md). You’ll require an approval from the group owner.
+When group assignment nears its expiration, use [PIM to extend or renew the group assignment](groups-renew-extend.md). You’ll require an approval from the group owner.
 
 ### Approve or deny PIM activation request
 
-Configure privileged access group members and owners to require approval for activation and choose users or groups from your Azure AD organization as delegated approvers. We recommend selecting two or more approvers for each group to reduce workload for the privileged role administrator. 
+Configure PIM for Groups members and owners to require approval for activation and choose users or groups from your Azure AD organization as delegated approvers. We recommend selecting two or more approvers for each group to reduce workload for the privileged role administrator. 
 
-[Approve or deny role activation requests for Privileged Access groups](groups-approval-workflow.md). As a delegated approver, you'll receive an email notification when a request is pending for your approval.
+[Approve or deny role activation requests for PIM for Groups](groups-approval-workflow.md). As a delegated approver, you'll receive an email notification when a request is pending for your approval.
 
-### View audit history for privileged access groups
+### View audit history for PIM for Groups
 
-[View audit history for all assignments and activations](groups-audit.md) within past 30 days for privileged access groups.
+[View audit history for all assignments and activations](groups-audit.md) within past 30 days for PIM for Groups.
 
 ## Next steps
 
 * If there is PIM-related issues, see [Troubleshooting a problem with PIM](pim-troubleshoot.md).
 
-* [Deploy other identity features](../fundamentals/active-directory-deployment-plans.md)
+* [Deploy other identity features](../fundamentals/deployment-plans.md)
 

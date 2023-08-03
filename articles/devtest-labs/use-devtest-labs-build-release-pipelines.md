@@ -2,7 +2,10 @@
 title: Use DevTest Labs in Azure Pipelines build and release pipelines
 description: Learn how to use Azure DevTest Labs in Azure Pipelines build and release pipelines.  
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 06/26/2020
+ms.custom: UpdateFrequency2
 ---
 
 # Use DevTest Labs in Azure Pipelines build and release pipelines

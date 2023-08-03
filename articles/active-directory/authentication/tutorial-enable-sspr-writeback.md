@@ -6,14 +6,15 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 11/11/2021
+ms.date: 06/03/2023
 
 ms.author: justinha
 author: justinha
-ms.reviewer: rhicock
+ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
+adobe-target: true
 
 # Customer intent: As an Azure AD Administrator, I want to learn how to enable and use password writeback so that when end-users reset their password through a web browser their updated password is synchronized back to my on-premises AD environment.
 ---
@@ -42,7 +43,7 @@ To complete this tutorial, you need the following resources and privileges:
 * A working Azure AD tenant with at least an Azure AD Premium P1 or trial license enabled.
     * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     * For more information, see [Licensing requirements for Azure AD SSPR](concept-sspr-licensing.md).
-* An account with *global administrator* privileges.
+* An account with [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator).  
 * Azure AD configured for self-service password reset.
     * If needed, [complete the previous tutorial to enable Azure AD SSPR](tutorial-enable-sspr.md).
 * An existing on-premises AD DS environment configured with a current version of Azure AD Connect.
@@ -56,6 +57,7 @@ Azure AD Connect lets you synchronize users, groups, and credential between an o
 To correctly work with SSPR writeback, the account specified in Azure AD Connect must have the appropriate permissions and options set. If you're not sure which account is currently in use, open Azure AD Connect and select the **View current configuration** option. The account that you need to add permissions to is listed under **Synchronized Directories**. The following permissions and options must be set on the account:
 
 * **Reset password**
+* **Change password**
 * **Write permissions** on `lockoutTime`
 * **Write permissions** on `pwdLastSet`
 * **Extended rights** for "Unexpire Password" on the root object of *each domain* in that forest, if not already set.
@@ -82,6 +84,12 @@ To set up the appropriate permissions for password writeback to occur, complete 
 
     [ ![Set the appropriate permissions in Active Users and Computers for the account that is used by Azure AD Connect](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions-cropped.png) ](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions.png#lightbox)
 
+1. When ready, select **Apply / OK** to apply the changes.
+1. From the **Permissions** tab, select **Add**.
+1. For **Principal**, select the account that permissions should be applied to (the account used by Azure AD Connect).
+1. In the **Applies to** drop-down list, select **This object and all descendant objects**
+1. Under *Permissions*, select the box for the following option:
+   * **Unexpire Password**
 1. When ready, select **Apply / OK** to apply the changes and exit any open dialog boxes.
 
 When you update permissions, it might take up to an hour or more for these permissions to replicate to all the objects in your directory.
@@ -91,7 +99,7 @@ Password policies in the on-premises AD DS environment may prevent password rese
 If you update the group policy, wait for the updated policy to replicate, or use the `gpupdate /force` command.
 
 > [!Note]
-> For passwords to be changed immediately, *Minimum password age* must be set to 0. However, if users adhere to the on-premises policies, and the *Minimum password age* is set to a value greater than zero, password writeback still works after the on-premises policies are evaluated.
+> If you need to allow users to change or reset passwords more than one time per day, *Minimum password age* must be set to 0. Password writeback will work after on-premises password policies are successfully evaluated.
 
 ## Enable password writeback in Azure AD Connect
 
@@ -114,16 +122,20 @@ To enable SSPR writeback, first enable the writeback option in Azure AD Connect.
 
 ## Enable password writeback for SSPR
 
-With password writeback enabled in Azure AD Connect, now configure Azure AD SSPR for writeback. When you enable SSPR to use password writeback, users who change or reset their password have that updated password synchronized back to the on-premises AD DS environment as well.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+With password writeback enabled in Azure AD Connect, now configure Azure AD SSPR for writeback. SSPR can be configured to writeback through Azure AD Connect sync agents and Azure AD Connect provisioning agents (cloud sync).   When you enable SSPR to use password writeback, users who change or reset their password have that updated password synchronized back to the on-premises AD DS environment as well.
 
 To enable password writeback in SSPR, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a global administrator account.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Hybrid Identity Administrator account.
 1. Search for and select **Azure Active Directory**, select **Password reset**, then choose **On-premises integration**.
-1. Set the option for **Write back passwords to your on-premises directory?** to *Yes*.
-1. Set the option for **Allow users to unlock accounts without resetting their password?** to *Yes*.
+1. Check the option for **Write back passwords to your on-premises directory** .
+1. (optional) If Azure AD Connect provisioning agents are detected, you can additionally check the option for **Write back passwords with Azure AD Connect cloud sync**.   
+3. Check the option for **Allow users to unlock accounts without resetting their password** to *Yes*.
 
-    ![Enable Azure AD self-service password reset for password writeback](media/tutorial-enable-sspr-writeback/enable-sspr-writeback.png)
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of how to manage settings password writeback.](media/tutorial-enable-sspr-writeback/manage-settings.png)
 
 1. When ready, select **Save**.
 
@@ -133,8 +145,16 @@ If you no longer want to use the SSPR writeback functionality you have configure
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for and select **Azure Active Directory**, select **Password reset**, then choose **On-premises integration**.
-1. Set the option for **Write back passwords to your on-premises directory?** to *No*.
-1. Set the option for **Allow users to unlock accounts without resetting their password?** to *No*.
+1. Uncheck the option for **Write back passwords to your on-premises directory**.
+1. Uncheck the option for **Write back passwords with Azure AD Connect cloud sync**.
+1. Uncheck the option for **Allow users to unlock accounts without resetting their password**.
+1. When ready, select **Save**.
+
+If you no longer want to use the Azure AD Connect cloud sync for SSPR writeback functionality but want to continue using Azure AD Connect sync agent for writebacks complete the following steps:
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for and select **Azure Active Directory**, select **Password reset**, then choose **On-premises integration**.
+1. Uncheck the option for **Write back passwords with Azure AD Connect cloud sync**.
+1. When ready, select **Save**.
 
 If you no longer want to use any password functionality, complete the following steps from your Azure AD Connect server:
 
@@ -146,6 +166,9 @@ If you no longer want to use any password functionality, complete the following 
 1. On the **Optional features** page, deselect the box next to **Password writeback** and select **Next**.
 1. On the **Ready to configure** page, select **Configure** and wait for the process to finish.
 1. When you see the configuration finish, select **Exit**.
+
+> [!IMPORTANT]
+> Enabling password writeback for the first time may trigger password change events 656 and 657, even if a password change has not occurred. This is because all password hashes are re-synchronized after a password hash synchronization cycle has run.
 
 ## Next steps
 

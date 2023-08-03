@@ -1,21 +1,17 @@
 ---
-title: Create an Azure AMD-based confidential VM in the Azure portal (preview)
+title: Create an Azure AMD-based confidential VM in the Azure portal
 description: Learn how to quickly create an AMD-based confidential virtual machine (confidential VM) in the Azure portal using Azure Marketplace images.
 author: RunCai
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: quickstart
-ms.date: 11/15/2021
+ms.date: 3/27/2022
 ms.author: RunCai
-ms.custom: mode-ui
+ms.custom: mode-ui, devx-track-linux
 ---
 
-# Quickstart: Create confidential VM on AMD in the Azure portal (preview)
-
-> [!IMPORTANT]
-> Confidential virtual machines (confidential VMs) in Azure Confidential Computing is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Quickstart: Create confidential VM on AMD in the Azure portal
 
 You can use the Azure portal to create a [confidential VM](confidential-vm-overview.md) based on an Azure Marketplace image quickly.There are multiple [confidential VM options on AMD](virtual-machine-solutions-amd.md) with AMD SEV-SNP technology.
 
@@ -23,7 +19,13 @@ You can use the Azure portal to create a [confidential VM](confidential-vm-overv
 ## Prerequisites
 
 - An Azure subscription. Free trial accounts don't have access to the VMs used in this tutorial. One option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
-- If you're using a Linux-based confidential VM, have a BASH shell to use for SSH or install an SSH client, such as [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+- If you're using a Linux-based confidential VM, use a BASH shell for SSH or install an SSH client, such as [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+- If Confidential disk encryption with a customer-managed key is required, please run below command to opt in service principal `Confidential VM Orchestrator` to your tenant. 
+
+    ```azurecli
+    Connect-AzureAD -Tenant "your tenant ID"
+    New-AzureADServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"    
+    ```
 
 ## Create confidential VM
 
@@ -50,10 +52,7 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
     1. For **Security Type**, select **Confidential virtual machines**.
 
-    1. For **Image**, select the OS image to use for your VM. For this tutorial, select **Ubuntu Server 20.04 LTS (Confidential VM preview)**, **Windows Server 2019 [Small disk] Data Center**, or **Windows Server 2022 [Small disk] Data Center**.
-
-        > [!TIP]
-        > Optionally, select **See all images** to open Azure Marketplace. Select the filter **Security Type** &gt; **Confidential** to show all available confidential VM images.
+    1. For **Image**, select the OS image to use for your VM. Select **See all images** to open Azure Marketplace. Select the filter **Security Type** &gt; **Confidential** to show all available confidential VM images.
 
     1. Toggle [Generation 2](../virtual-machines/generation-2.md) images. Confidential VMs only run on Generation 2 images. To ensure, under **Image**, select **Configure VM generation**. In the pane **Configure VM generation**, for **VM generation**, select **Generation 2**. Then, select **Apply**.
 
@@ -80,6 +79,52 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
     1. Under **Disk options**, enable **Confidential compute encryption** if you want to encrypt your VM's OS disk during creation.
 
     1. For **Confidential compute encryption type**, select the type of encryption to use. 
+    
+    1. If **Confidential disk encryption with a customer-managed key** is selected, create a **Confidential disk encryption set** before creating your confidential VM. 
+
+1. (Optional) If necessary, you need to create a **Confidential disk encryption set** as follows.
+
+    1. [Create an Azure Key Vault](../key-vault/general/quick-create-portal.md) selecting the **Premium** pricing tier that includes support for HSM-backed keys. Alternatively, you can create an [Azure Key Vault managed Hardware Security Module (HSM)](../key-vault/managed-hsm/quick-create-cli.md).
+        
+    1. In the Azure portal, search for and select **Disk Encryption Sets**. 
+
+    1. Select **Create**. 
+
+    1. For **Subscription**, select which Azure subscription to use. 
+
+    1. For **Resource group**, select or create a new resource group to use.
+    
+    1. For **Disk encryption set name**, enter a name for the set.
+
+    1. For **Region**, select an available Azure region. 
+
+    1. For **Encryption type**, select **Confidential disk encryption with a customer-managed key**.
+
+    1. For **Key Vault**, select the key vault you already created. 
+
+    1. Under **Key Vault**, select **Create new** to create a new key.
+
+        > [!NOTE]
+        > If you selected an Azure managed HSM previously, [use PowerShell or the Azure CLI to create the new key](../confidential-computing/quick-create-confidential-vm-arm-amd.md) instead.
+
+    1. For **Name**, enter a name for the key.
+
+    1. For the key type, select **RSA-HSM**
+
+    1. Select your key size
+  
+    n. Under Confidential Key Options select **Exportable** and set the Confidential operation policy as **CVM confidential operation policy**.
+
+    o. Select **Create** to finish creating the key.
+
+    p. Select **Review + create** to create new disk encryption set. Wait for the resource creation to complete successfully.
+ 
+    q. Go to the disk encryption set resource in the Azure portal.
+
+    r. Select the pink banner to grant permissions to Azure Key Vault.
+   
+   > [!IMPORTANT]
+   > You must perform this step to successfully create the confidential VM.
 
 1. As needed, make changes to settings under the tabs **Networking**, **Management**, **Guest Config**, and **Tags**.
 

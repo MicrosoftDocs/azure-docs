@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Workday for automatic user provisioning with on-premises Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Workday for automatic user provisioning with on-premises Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Workday.
 services: active-directory
 author: cmmdesai
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 01/19/2021
+ms.date: 11/21/2022
 ms.author: chmutali
 ---
 # Tutorial: Configure Workday for automatic user provisioning
@@ -19,6 +19,10 @@ The objective of this tutorial is to show the steps you need to perform to provi
 >Use this tutorial, if the users you want to provision from Workday need an on-premises AD account and an Azure AD account. 
 >* If the users from Workday only need Azure AD account (cloud-only users), then please refer to the tutorial on [configure Workday to Azure AD](workday-inbound-cloud-only-tutorial.md) user provisioning. 
 >* To configure writeback of attributes such as email address, username and phone number from Azure AD to Workday, please refer to the tutorial on [configure Workday writeback](workday-writeback-tutorial.md).
+
+The following video provides a quick overview of the steps involved when planning your provisioning integration with Workday. 
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/TfndXBlhlII]
 
 ## Overview
 
@@ -79,7 +83,7 @@ This section describes the end-to-end user provisioning solution architecture fo
 Configuring Workday to Active Directory user provisioning requires considerable planning covering different aspects such as:
 * Setup of the Azure AD Connect provisioning agent 
 * Number of Workday to AD user provisioning apps to deploy
-* Selecting the the right matching identifier, attribute mapping, transformation and scoping filters
+* Selecting the right matching identifier, attribute mapping, transformation and scoping filters
 
 Please refer to the [cloud HR deployment plan](../app-provisioning/plan-cloud-hr-provision.md) for comprehensive guidelines and recommended best practices. 
 
@@ -153,7 +157,7 @@ In this step, you'll grant "domain security" policy permissions for the worker d
    >[!div class="mx-imgBorder"]
    >![Select Security Group](./media/workday-inbound-tutorial/select-security-group-workday.png)
 
-1. Click on the ellipsis (...) next to the group name and from the menu, select **Security Group > Maintain Domain Permissions for Security Group**
+1. Click on the ellipsis (`...`) next to the group name and from the menu, select **Security Group > Maintain Domain Permissions for Security Group**
    >[!div class="mx-imgBorder"]
    >![Select Maintain Domain Permissions](./media/workday-inbound-tutorial/select-maintain-domain-permissions.png)
 
@@ -238,7 +242,7 @@ This section provides steps for user account provisioning from Workday to each A
 
 **To configure Workday to Active Directory provisioning:**
 
-1. Go to <https://portal.azure.com>.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the Azure portal, search for and select **Azure Active Directory**.
 
@@ -340,8 +344,7 @@ In this section, you will configure how user data flows from Workday to Active D
 
 1. In the **Attribute mappings** section, you can define how individual Workday attributes map to Active Directory attributes.
 
-1. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new
-        mappings. An individual attribute mapping supports these properties:
+1. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new mappings. An individual attribute mapping supports these properties:
 
       * **Mapping Type**
 
@@ -358,11 +361,9 @@ In this section, you will configure how user data flows from Workday to Active D
 
       * **Target attribute** – The user attribute in Active  Directory.
 
-      * **Match objects using this attribute** – Whether or not this mapping should be used to uniquely identify users between
-            Workday and Active Directory. This value is typically set on the  Worker ID field for Workday, which is typically mapped to one of the Employee ID attributes in Active Directory.
+      * **Match objects using this attribute** – Whether or not this mapping should be used to uniquely identify users between Workday and Active Directory. This value is typically set on the  Worker ID field for Workday, which is typically mapped to one of the Employee ID attributes in Active Directory.
 
-      * **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they are evaluated in the
-            order defined by this field. As soon as a match is found, no  further matching attributes are evaluated.
+      * **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they are evaluated in the order defined by this field. As soon as a match is found, no  further matching attributes are evaluated.
 
       * **Apply this mapping**
 
@@ -387,7 +388,7 @@ In this section, you will configure how user data flows from Workday to Active D
 | **WorkerID**  |  EmployeeID | **Yes** | Written on create only |
 | **PreferredNameData**    |  cn    |   |   Written on create only |
 | **SelectUniqueValue( Join("\@", Join(".",  \[FirstName\], \[LastName\]), "contoso.com"), Join("\@", Join(".",  Mid(\[FirstName\], 1, 1), \[LastName\]), "contoso.com"), Join("\@", Join(".",  Mid(\[FirstName\], 1, 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | Written on create only 
-| `Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )`      |    sAMAccountName            |     |         Written on create only |
+| `Replace(Mid(Replace([UserID], , "([\\/\\\\\\[\\]\\:\\;\\|\\=\\,\\+\\*\\?\\<\\>])", , "", , ), 1, 20), , "(\\.)*$", , "", , )`      |    sAMAccountName            |     |         Written on create only |
 | **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | Create + update |
 | **FirstName**   | givenName       |     |    Create + update |
 | **LastName**   |   sn   |     |  Create + update |
@@ -645,7 +646,7 @@ The solution currently does not support setting binary attributes such as *thumb
 
 #### How do I format display names in AD based on the user's department/country/city attributes and handle regional variances?
 
-It is a common requirement to configure the *displayName* attribute in AD so that it also provides information about the user's department and country/region. For e.g. if John Smith works in the Marketing Department in US, you might want his *displayName* to show up as *Smith, John (Marketing-US)*.
+It is a common requirement to configure the *displayName* attribute in AD so that it also provides information about the user's department and country/region. For example, if John Smith works in the Marketing Department in US, you might want his *displayName* to show up as *Smith, John (Marketing-US)*.
 
 Here is how you can handle such requirements for constructing *CN* or *displayName* to include attributes such as company, business unit, city, or country/region.
 

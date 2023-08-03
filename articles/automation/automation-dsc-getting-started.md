@@ -3,16 +3,17 @@ title: Get started with Azure Automation State Configuration
 description: This article tells how to do the most common tasks in Azure Automation State Configuration.
 services: automation
 ms.subservice: dsc
-ms.date: 04/15/2019
+ms.custom: devx-track-arm-template
+ms.date: 01/03/2022
 ms.topic: conceptual
 ---
 
 # Get started with Azure Automation State Configuration
 
-This article provides a step-by-step guide for doing the most common tasks with Azure Automation State Configuration, such as creating, importing, and compiling configurations, enabling machines to manage, and viewing reports. For an overview State Configuration, see [State Configuration overview](automation-dsc-overview.md). For Desired State Configuration (DSC) documentation, see [Windows PowerShell Desired State Configuration Overview](/powershell/dsc/overview).
-
 > [!NOTE]
-> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now available in preview, managed by a feature of Azure Policy named [guest configuration](../governance/policy/concepts/guest-configuration.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../azure-arc/servers/overview.md).
+> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [guest configuration](../governance/machine-configuration/overview.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../azure-arc/servers/overview.md).
+
+This article provides a step-by-step guide for doing the most common tasks with Azure Automation State Configuration, such as creating, importing, and compiling configurations, enabling machines to manage, and viewing reports. For an overview State Configuration, see [State Configuration overview](automation-dsc-overview.md). For Desired State Configuration (DSC) documentation, see [Windows PowerShell Desired State Configuration Overview](/powershell/dsc/overview).
 
 If you want a sample environment that is already set up without following the steps described in this
 article, you can use the [Azure Automation Managed Node template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.automation/automation-configuration). This template sets up a complete State Configuration (DSC) environment, including an Azure VM that is managed by State Configuration (DSC).
@@ -182,6 +183,22 @@ account in the **Nodes** tab of the State configuration (DSC) page.
 1. On the left, click **All resources** and then the name of your Automation account.
 1. On the Automation account page, click **State configuration (DSC)** under **Configuration Management**.
 1. On the State configuration (DSC) page, click the **Nodes** tab.
+
+
+### DSC nodes status values
+
+The DSC node can take any of the following six values as follows:
+
+- **Failed** - This status is displayed when an error occurs while applying one or more configurations on a node.
+- **Not compliant** - This status is displayed when drift occurs on a node and it requires a close review if it is systematic.
+- **Unresponsive** - This status is displayed when a node has not been checked in for more than 24 hours.
+- **Pending** - This status is displayed when a node has a new configuration to apply and the pull server is awaiting node check in.
+- **In progress** - This status is displayed when a node applies configuration, and the pull server is awaiting status.
+- **Compliant** - This status is displayed when a node has a valid configuration, and no drift occurs presently.
+
+>[!NOTE]
+>- **RefreshFrequencyMins** - It defines the frequency of node contacting the agent service and can be provided as part of onboarding to DSC. It takes a maximum value of 10080 minutes.
+>- Node will be marked as **Unresponsive** if the node does not contact the agent service for 1440 minutes (1 Day). We recommend that you use **RefreshFrequencyMins** value < 1440 minutes, else the node would show in a false **Unresponsive** state. 
 
 ## View reports for managed nodes
 

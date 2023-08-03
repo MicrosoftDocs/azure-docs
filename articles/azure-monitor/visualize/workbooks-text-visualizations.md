@@ -5,60 +5,62 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 06/21/2023
 ---
-# Text visualizations
 
-Workbooks allow authors to include text blocks in their workbooks. The text can be human analysis of telemetry, information to help users interpret your data, section headings, etc.
+# Text Visualization
 
-[![Screenshot of Apdex table of text](./media/workbooks-text-visualizations/apdex.png)](./media/workbooks-text-visualizations/apdex.png#lightbox)
+The text *visualization* in query steps is different from the [text *step*](workbooks-create-workbook.md#add-text). A text step is a top level item in a workbook, and supports replacing parameters in the content, and allows for error/warning styling.
 
-Text is added through a Markdown control, which provides full formatting control. These include different heading and font styles, hyperlinks, tables, etc.
+The text *visualization* is similar to the Azure Data Explorer [`render card`](/azure/data-explorer/kusto/query/renderoperator?pivots=azuredataexplorer) behavior, where the first cell value returned by the query (and *only* the first cell value: row 0, column 0) is displayed in the visualization.
 
-Edit Mode:
+The text visualization has a style setting to change the style of the text displayed in the workbook.
 
-![Screenshot of a text step in edit mode.](./media/workbooks-text-visualizations/text-edit-mode.png)
+### Text styles
+The following text styles are available for text steps:
 
-Preview Mode:
+|Style   |Explanation   |
+|----------|-----------|
+|`plain`     |No additional formatting is applied, the text value is presumed to be plain text and no special formatting is applied       |
+|`header`|The text is formatted with the same styling as step headers   |
+|`bignumber`     |The text is formatted in the "big number" style used in [Tile](workbooks-tile-visualizations.md) and [Graph](workbooks-graph-visualizations.md) based visualizations.       |
+|`markdown`|The text value is rendered in a markdown section, any markdown content in the text content will be interpreted as such and used for formatting.   |
+|`editor`     |The text value is displayed in an editor control, respecting newlines, tab formatting.       |
 
-![Screenshot of a text step in edit mode on the preview tab.](./media/workbooks-text-visualizations/text-edit-mode-preview.png)
+### Examples
 
-## Add a text control
+Given a query that returns text in a cell, showing in the standard grid visualization:
 
-1. Switch the workbook to edit mode by clicking on the **Edit** toolbar item.
-2. Use the **Add text** link to add a text control to the workbook.
-3. Add Markdown in the editor field.
-4. Use the *Text Style* option to switch between plain markdown and markdown wrapped with the Azure portal's standard info/warning/success/error styling.
-5. Use the **Preview** tab to see how your content will look. While editing, the preview will show the content inside a scrollbar area to limit its size; however, at runtime the markdown content will expand to fill whatever space it needs, with no scrollbars.
-6. Select the **Done Editing** button to complete editing the step.
+:::image type="content" source="./media/workbooks-text-visualizations/workbooks-text-visualization-grid-result.png" alt-text="Screenshot of a workbook in the Azure portal. The screenshot shows a text result returned by a query." lightbox="./media/workbooks-text-visualizations/workbooks-text-visualization-grid-result.png":::
 
-> [!TIP]
-> Use this [Markdown cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) to learn about different formatting options.
+You can see that this query returned a single column of data, which appears to be a very long string. In all examples the query step has the same header set.
 
-## Text styles
+### Plain example
+When the visualization is set to `Text` and the `Plain` style is selected, the text appears as a standard portal text block:
 
-The following text styles are available for text step:
+:::image type="content" source="./media/workbooks-text-visualizations/workbooks-text-visualization-example.png" alt-text="Screenshot of a workbook in the Azure portal. The screenshot shows an example of a text visualization in plain style." lightbox="./media/workbooks-text-visualizations/workbooks-text-visualization-example.png":::
 
-| Style     | Explanation                                                                               |
-|-----------|-------------------------------------------------------------------------------------------|
-| `plain`   | No additional formatting is applied.                                                      |
-| `info`    | The portal's "info" style, with a  `ℹ` or similar icon and generally blue background.      |
-| `error`   | The portal's "error" style, with a `❌` or similar icon and generally red background.     |
-| `success` | The portal's "success" style, with a `✔` or similar icon and generally green background.  |
-| `upsell`  | The portal's "upsell" style, with a `🚀` or similar icon and generally purple background. |
-| `warning` | The portal's "warning" style, with a `⚠` or similar icon and generally blue background.   |
+Text will wrap, and any special formatting values will be displayed as is, with no formatting.
 
-Instead of picking a specific style, you may also choose a text parameter as the source of the style. The parameter value must be one of the above text values. The absence of a value or any unrecognized value will be treated as `plain` style.
+### Header example
+:::image type="content" source="./media/workbooks-text-visualizations/workbooks-text-visualization-header.png" alt-text="Screenshot of a workbook in the Azure portal. The screenshot shows an example of a text visualization in header style." lightbox="./media/workbooks-text-visualizations/workbooks-text-visualization-header.png":::
 
-Info style example:
+Text will be displayed in the same style as step headers.
 
-![Screenshot of what the info style looks like.](./media/workbooks-text-visualizations/text-preview-info-style.png)
+### Big Number example
+:::image type="content" source="./media/workbooks-text-visualizations/workbooks-text-visualization-big-number.png" alt-text="Screenshot of a workbook in the Azure portal. The screenshot shows an example of a text visualization in big number style." lightbox="./media/workbooks-text-visualizations/workbooks-text-visualization-big-number.png":::
 
-Warning style example:
+Text will be displayed in big number style.
 
-![Screenshot of what the warning style looks like.](./media/workbooks-text-visualizations/text-warning-style.png)
 
-## Next steps
+### Markdown example
+For the markdown example, the query response has been adjusted to have markdown formatting elements inside. Without any markdown formatting in the text, the display will be similar to the plain style.
 
-* Learn how to create a [chart in workbooks](workbooks-chart-visualizations.md).
-* Learn how to create a [grid in workbooks](workbooks-grid-visualizations.md).
+:::image type="content" source="./media/workbooks-text-visualizations/workbooks-text-visualization-markdown.png" alt-text="Screenshot of a workbook in the Azure portal. The screenshot shows an example of a text visualization in the markdown style." lightbox="./media/workbooks-text-visualizations/workbooks-text-visualization-markdown.png":::
+
+### Editor example:
+For the editor example, newline `\n` and tab `\t` characters have been added to the text to create multiple lines.
+
+:::image type="content" source="./media/workbooks-text-visualizations/workbooks-text-visualization-editor.png" alt-text="Screenshot of a workbook in the Azure portal. The screenshot shows an example of a text visualization in editor style." lightbox="./media/workbooks-text-visualizations/workbooks-text-visualization-editor.png":::
+
+Notice how in this example, the editor has horizontal scrollbar, indicating that some of the lines in this text are wider than the control.

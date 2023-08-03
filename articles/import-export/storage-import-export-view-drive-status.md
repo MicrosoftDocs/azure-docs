@@ -3,11 +3,10 @@ title: View status of Azure Import/Export jobs | Microsoft Docs
 description: Learn how to view the status of Azure Import/Export jobs and the drives used. Understand the factors that affect how long it takes to process a job.
 author: alkohli
 services: storage
-ms.service: storage
+ms.service: azure-import-export
 ms.topic: how-to
-ms.date: 12/22/2021
+ms.date: 03/14/2022
 ms.author: alkohli
-ms.subservice: common
 ms.custom: contperf-fy21q3
 ---
 # View the status of Azure Import/Export jobs
@@ -37,7 +36,7 @@ If you created your import or export job in Azure Data Box (the Preview experien
 
     A list of Import/Export jobs appears on the page.
 
-    [ ![Screenshot of Data Box resources in the Azure portal filtered to Import Export jobs. The job name, transfer type, status, and model are highlighted.](./media/storage-import-export-view-drive-status/preview-jobs-list.png) ](./media/storage-import-export-view-drive-status/preview-jobs-list.png)
+    [ ![Screenshot of Data Box resources in the Azure portal filtered to Import Export jobs. The job name, transfer type, status, and model are highlighted.](./media/storage-import-export-view-drive-status/preview-jobs-list.png) ](./media/storage-import-export-view-drive-status/preview-jobs-list.png#lightbox)
 
 4. Select a job name to view job details.
 

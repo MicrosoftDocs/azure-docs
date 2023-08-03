@@ -8,13 +8,11 @@ manager: rajvijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 05/06/2020
+ms.date: 01/17/2023
 ms.author: mbaldwin
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurecli
-
+ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-dotnet
 #Customer intent: As a developer, I want to use Azure Key Vault to store secrets for my app to help keep them secure.
-
 ---
 
 # Tutorial: Use a managed identity to connect Key Vault to an Azure web app in .NET
@@ -85,7 +83,7 @@ git commit -m "first commit"
 
 You can use FTP and local Git to deploy an Azure web app by using a *deployment user*. After you configure your deployment user, you can use it for all your Azure deployments. Your account-level deployment user name and password are different from your Azure subscription credentials. 
 
-To configure the deployment user, run the [az webapp deployment user set](/cli/azure/webapp/deployment/user?#az_webapp_deployment_user_set) command. Choose a user name and password that adheres to these guidelines: 
+To configure the deployment user, run the [az webapp deployment user set](/cli/azure/webapp/deployment/user?#az-webapp-deployment-user-set) command. Choose a user name and password that adheres to these guidelines: 
 
 - The user name must be unique within Azure. For local Git pushes, it can't contain the at sign symbol (@). 
 - The password must be at least eight characters long and contain two of the following three elements: letters, numbers, and symbols. 
@@ -100,7 +98,7 @@ Record your user name and password so you can use it to deploy your web apps.
 
 ### Create a resource group
 
-A resource group is a logical container into which you deploy Azure resources and manage them. Create a resource group to contain both your key vault and your web app by using the [az group create](/cli/azure/group?#az_group_create) command:
+A resource group is a logical container into which you deploy Azure resources and manage them. Create a resource group to contain both your key vault and your web app by using the [az group create](/cli/azure/group?#az-group-create) command:
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" -l "EastUS"
@@ -243,7 +241,7 @@ In this section, you'll configure web access to Key Vault and update your applic
 
 In this tutorial, we'll use [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to authenticate to Key Vault. Managed identity automatically manages application credentials.
 
-In the Azure CLI, to create the identity for the application, run the [az webapp-identity assign](/cli/azure/webapp/identity?#az_webapp_identity_assign) command:
+In the Azure CLI, to create the identity for the application, run the [az webapp-identity assign](/cli/azure/webapp/identity?#az-webapp-identity-assign) command:
 
 ```azurecli-interactive
 az webapp identity assign --name "<your-webapp-name>" --resource-group "myResourceGroup"
@@ -259,7 +257,7 @@ The command will return this JSON snippet:
 }
 ```
 
-To give your web app permission to do **get** and **list** operations on your key vault, pass the `principalId` to the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?#az_keyvault_set_policy) command:
+To give your web app permission to do **get** and **list** operations on your key vault, pass the `principalId` to the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?#az-keyvault-set-policy) command:
 
 ```azurecli-interactive
 az keyvault set-policy --name "<your-keyvault-name>" --object-id "<principalId>" --secret-permissions get list
@@ -282,7 +280,7 @@ dotnet add package Azure.Security.KeyVault.Secrets
 
 #### Update the code
 
-Find and open the Startup.cs file in your akvwebapp project. 
+Find and open the Startup.cs file for .NET 5.0 or earlier, or Program.cs file for .NET 6.0 in your akvwebapp project. 
 
 Add these lines to the header:
 
@@ -292,7 +290,7 @@ using Azure.Security.KeyVault.Secrets;
 using Azure.Core;
 ```
 
-Add the following lines before the `app.UseEndpoints` call, updating the URI to reflect the `vaultUri` of your key vault. This code uses  [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential) to authenticate to Key Vault, which uses a token from managed identity to authenticate. For more information about authenticating to Key Vault, see the [Developer's Guide](./developers-guide.md#authenticate-to-key-vault-in-code). The code also uses exponential backoff for retries in case Key Vault is being throttled. For more information about Key Vault transaction limits, see [Azure Key Vault throttling guidance](./overview-throttling.md).
+Add the following lines before the `app.UseEndpoints` call (.NET 5.0 or earlier) or `app.MapGet` call (.NET 6.0), updating the URI to reflect the `vaultUri` of your key vault. This code uses  [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential) to authenticate to Key Vault, which uses a token from managed identity to authenticate. For more information about authenticating to Key Vault, see the [Developer's Guide](./developers-guide.md#authenticate-to-key-vault-in-code). The code also uses exponential backoff for retries in case Key Vault is being throttled. For more information about Key Vault transaction limits, see [Azure Key Vault throttling guidance](./overview-throttling.md).
 
 ```csharp
 SecretClientOptions options = new SecretClientOptions()
@@ -312,11 +310,22 @@ KeyVaultSecret secret = client.GetSecret("<mySecret>");
 string secretValue = secret.Value;
 ```
 
+##### .NET 5.0 or earlier
+
 Update the line `await context.Response.WriteAsync("Hello World!");` to look like this line:
 
 ```csharp
 await context.Response.WriteAsync(secretValue);
 ```
+
+##### .NET 6.0
+
+Update the line `app.MapGet("/", () => "Hello World!");` to look like this line:
+
+```csharp
+app.MapGet("/", () => secretValue);
+```
+
 
 Be sure to save your changes before continuing to the next step.
 

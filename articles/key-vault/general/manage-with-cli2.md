@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 08/12/2019
+ms.date: 01/11/2023
 ms.author: mbaldwin 
 ms.custom: devx-track-azurecli
 
@@ -143,15 +143,15 @@ If you have an existing key in a .pem file, you can upload it to Azure Key Vault
 az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
-You can now reference the key that you created or uploaded to Azure Key Vault, by using its URI. Use `https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey` to always get the current version. Use https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] to get this specific version. For example, `https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87`. 
+You can now reference the key that you created or uploaded to Azure Key Vault, by using its URI. Use `https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey` to always get the current version. Use `https://<keyvault-name>.vault.azure.net/keys/<keyname>/<key-unique-id>` to get this specific version. For example, `https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87`.
 
-Add a secret to the vault, which is a password named SQLPassword, and that has the value of "hVFkk965BuUv" to Azure Key Vaults. 
+Add a secret to the vault, which is a password named SQLPassword, and that has the value of "hVFkk965BuUv" to Azure Key Vaults.
 
 ```azurecli
 az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "hVFkk965BuUv "
 ```
 
-Reference this password by using its URI. Use **https://ContosoVault.vault.azure.net/secrets/SQLPassword** to always get the current version, and https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id] to get this specific version. For example, **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
+Reference this password by using its URI. Use **https://ContosoVault.vault.azure.net/secrets/SQLPassword** to always get the current version, and `https://<keyvault-name>.vault.azure.net/secret/<secret-name>/<secret-unique-id>` to get this specific version. For example, `https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d`.
 
 Import a certificate to the vault using a .pem or .pfx.
 
@@ -161,19 +161,19 @@ az keyvault certificate import --vault-name "ContosoKeyVault" --file "c:\cert\ce
 
 Let's view the key, secret, or certificate that you created:
 
-* To view your keys, type: 
+* To view your keys, type:
 
 ```azurecli
 az keyvault key list --vault-name "ContosoKeyVault"
 ```
 
-* To view your secrets, type: 
+* To view your secrets, type:
 
 ```azurecli
 az keyvault secret list --vault-name "ContosoKeyVault"
 ```
 
-* To view certificates, type: 
+* To view certificates, type:
 
 ```azurecli
 az keyvault certificate list --vault-name "ContosoKeyVault"
@@ -195,7 +195,7 @@ For detailed steps on registering an application with Azure Active Directory you
 To register an application in Azure Active Directory:
 
 ```azurecli
-az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv" --role Contributor
+az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv" --role Contributor --scopes /subscriptions/<subscription id>
 # If you don't specify a password, one will be created for you.
 ```
 
@@ -215,9 +215,9 @@ To authorize the same application to read secrets in your vault, type the follow
 az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
 
-## <a name="bkmk_KVperCLI"></a> Setting key vault advanced access policies
+## Setting key vault advanced access policies
 
-Use [az keyvault update](/cli/azure/keyvault#az_keyvault_update) to enable advanced policies for the key vault.
+Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable advanced policies for the key vault.
 
  Enable Key Vault for deployment: Allows virtual machines to retrieve certificates stored as secrets from the vault.
 

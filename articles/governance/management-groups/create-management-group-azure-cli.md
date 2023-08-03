@@ -4,6 +4,7 @@ description: In this quickstart, you use the Azure CLI to create a management gr
 ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
+ms.tool: azure-cli
 ---
 # Quickstart: Create a management group with the Azure CLI
 
@@ -43,7 +44,7 @@ directory. You receive a notification when the process is complete. For more inf
 ### Create in the Azure CLI
 
 For Azure CLI, use the
-[az account management-group create](/cli/azure/account/management-group#az_account_management_group_create)
+[az account management-group create](/cli/azure/account/management-group#az-account-management-group-create)
 command to create a new management group. In this example, the management group **name** is
 _Contoso_.
 
@@ -73,7 +74,7 @@ az account management-group create --name 'ContosoSubGroup' --parent 'Contoso'
 ## Clean up resources
 
 To remove the management group created above, use the
-[az account management-group delete](/cli/azure/account/management-group#az_account_management_group_delete)
+[az account management-group delete](/cli/azure/account/management-group#az-account-management-group-delete)
 command:
 
 ```azurecli-interactive

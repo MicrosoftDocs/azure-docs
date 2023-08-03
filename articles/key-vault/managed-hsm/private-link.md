@@ -3,7 +3,7 @@ title: Configure Azure Key Vault Managed HSM with private endpoints
 description: Learn how to integrate Azure Key Vault Managed HSM with Azure Private Link Service
 author: mbaldwin
 ms.author: mbaldwin
-ms.date: 06/21/2021
+ms.date: 11/14/2022
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: how-to
@@ -108,7 +108,7 @@ az keyvault private-endpoint-connection delete --resource-group {RG} --hsm-name 
 az network private-endpoint show -g {RG} -n {PE NAME}      # look for the property networkInterfaces then id; the value must be placed on {PE NIC} below.
 az network nic show --ids {PE NIC}                         # look for the property ipConfigurations then privateIpAddress; the value must be placed on {NIC IP} below.
 
-# https://docs.microsoft.com/en-us/azure/dns/private-dns-getstarted-cli#create-an-additional-dns-record
+# https://learn.microsoft.com/azure/dns/private-dns-getstarted-cli#create-an-additional-dns-record
 az network private-dns zone list -g {RG}
 az network private-dns record-set a add-record -g {RG} -z "privatelink.managedhsm.azure.net" -n {HSM NAME} -a {NIC IP}
 az network private-dns record-set list -g {RG} -z "privatelink.managedhsm.azure.net"

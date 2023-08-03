@@ -1,18 +1,18 @@
 ---
 
-title: Resolve group license assignment problems - Azure Active Directory | Microsoft Docs
+title: Resolve group license assignment problems
 description: How to identify and resolve license assignment problems when you're using Azure Active Directory group-based licensing
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/21/2021
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: barclayn
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -20,9 +20,9 @@ ms.collection: M365-identity-device-management
 
 # Identify and resolve license assignment problems for a group in Azure Active Directory
 
-Group-based licensing in Azure Active Directory (Azure AD) introduces the concept of users in a licensing error state. In this article, we explain the reasons why users might end up in this state.
+Group-based licensing in Azure Active Directory (Azure AD), part of Microsoft Entra, introduces the concept of users in a licensing error state. In this article, we explain the reasons why users might end up in this state.
 
-When you assign licenses directly to individual users, without using group-based licensing, the assignment operation might fail. For example, when you execute the PowerShell cmdlet `Set-MsolUserLicense` on a user system, the cmdlet can fail for many reasons that are related to business logic. For example, there might be an insufficient number of licenses or a conflict between two service plans that can't be assigned at the same time. The problem is immediately reported back to you.
+When you assign licenses directly to individual users, without using group-based licensing, the assignment operation might fail for reasons that are related to business logic. For example, there might be an insufficient number of licenses or a conflict between two service plans that can't be assigned at the same time. The problem is immediately reported back to you.
 
 When you're using group-based licensing, the same errors can occur, but they happen in the background while the Azure AD service is assigning licenses. For this reason, the errors can't be communicated to you immediately. Instead, they're recorded on the user object and then reported via the administrative portal. The original intent to license the user is never lost, but it's recorded in an error state for future investigation and resolution.
 
@@ -62,11 +62,9 @@ To see which users and groups are consuming licenses, select a product. Under **
 
 **Problem:** One of the products that's specified in the group contains a service plan that conflicts with another service plan that's already assigned to the user via a different product. Some service plans are configured in a way that they can't be assigned to the same user as another, related service plan.
 
-Consider the following example. A user has a license for Office 365 Enterprise *E1* assigned directly, with all the plans enabled. The user has been added to a group that has the Office 365 Enterprise *E3* product assigned to it. The E3 product contains service plans that can't overlap with the plans that are included in E1, so the group license assignment fails with the “Conflicting service plans” error. In this example, the conflicting service plans are:
-
-- Exchange Online (Plan 2) conflicts with Exchange Online (Plan 1).
-
-To solve this conflict, you need to disable one of the plans. You can disable the E1 license that's directly assigned to the user. Or, you need to modify the entire group license assignment and disable the plans in the E3 license. Alternatively, you might decide to remove the E1 license from the user if it's redundant in the context of the E3 license.
+> [!TIP]
+> Exchange Online Plan1 and Plan2 were previously non-duplicable service plans. However, now they are service plans that can be duplicated.
+> If you are experiencing conflicts with these service plans, please try reprocessing them.
 
 The decision about how to resolve conflicting product licenses always belongs to the administrator. Azure AD doesn't automatically resolve license conflicts.
 

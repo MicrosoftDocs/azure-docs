@@ -1,6 +1,6 @@
 ---
-title: Enterprise-grade edge (preview) in Azure Static Web Apps
-description: Learn about Azure Static Web Apps enterprise-grade edge (Preview)
+title: Enterprise-grade edge in Azure Static Web Apps
+description: Learn about Azure Static Web Apps enterprise-grade edge
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
@@ -9,9 +9,9 @@ ms.date: 01/11/2021
 ms.author: cshoe
 ---
 
-# Enterprise-grade edge (Preview)
+# Enterprise-grade edge
 
-Use Azure Static Web Apps enterprise-grade edge (Preview) to enable faster page loads, enhance security, and optimize reliability for your global applications. Enterprise edge combines the capabilities of Azure Static Web Apps, Azure Front Door, and Azure Content Delivery Network (CDN) into a single secure cloud CDN platform.
+Use Azure Static Web Apps enterprise-grade edge to enable faster page loads, enhance security, and optimize reliability for your global applications. Enterprise edge combines the capabilities of Azure Static Web Apps, Azure Front Door, and Azure Content Delivery Network (CDN) into a single secure cloud CDN platform.
 
 Key features of Azure Static Web Apps enterprise-grade edge include:
 
@@ -24,9 +24,6 @@ Key features of Azure Static Web Apps enterprise-grade edge include:
 * Native support of end-to-end IPv6 connectivity and [HTTP/2 protocol](../frontdoor/front-door-http2.md).
 
 * Optimized file compression.
-
-> [!NOTE]
-> Static Web Apps enterprise-grade edge is currently in preview.
 
 ## Caching
 
@@ -42,7 +39,7 @@ For further control, you can also create [custom cache control headers](configur
 
 ## Configuration types
 
-You can enable enterprise-grade edge powered by Azure Front Door via a managed experience through the Azure portal, or you [can set it up manually](front-door-manual.md).
+You can enable enterprise-grade edge powered by Azure Front Door via a managed experience through the Azure portal, or you [can set it up manually](front-door-manual.md?pivots=swa-afd-manual-afd).
 
 A managed experience provides:
 
@@ -65,7 +62,7 @@ A manual setup gives you full control over the CDN configuration including the c
 
 # [Azure portal](#tab/azure-portal)
 
-1. Navigate to your static web app in the Azure portal.
+1. Go to your static web app in the Azure portal.
 
 1. Select **Enterprise-grade edge** in the left menu.
 
@@ -87,6 +84,10 @@ az staticwebapp enterprise-edge enable -n my-static-webapp -g my-resource-group
 ```
 
 ---
+
+## Limitations
+
+- Private Endpoint can't be used with enterprise-grade edge. 
 
 ## Next steps
 

@@ -1,20 +1,17 @@
 ---
-title:  Using DICOMweb&trade;Standard APIs with cURL - Azure Healthcare APIs 
+title:  Using DICOMweb&trade;Standard APIs with cURL - Azure Health Data Services
 description: In this tutorial, you'll learn how to use DICOMweb Standard APIs with cURL. 
-author: stevewohl
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 07/16/2021
-ms.author: aersoy
+ms.date: 02/15/2022
+ms.author: mmitrik
 ---
 
 # Using DICOMWeb&trade; Standard APIs with cURL
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-This tutorial uses cURL to demonstrate working with the DICOM Service.
+This tutorial uses cURL to demonstrate working with the DICOM service.
 
 In this tutorial, we'll use the following [sample .dcm DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
 
@@ -40,17 +37,17 @@ To use the DICOMWeb&trade; Standard APIs, you must have an instance of the DICOM
 
 Once you've deployed an instance of the DICOM service, retrieve the URL for your App service:
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search **Recent resources** and select your DICOM service instance.
 3. Copy the **Service URL** of your DICOM service. 
 4. If you haven't already obtained a token, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md). 
 
-For this code, we'll be accessing an Public Preview Azure service. It is important that you don't upload any private health information (PHI).
+For this code, we'll be accessing an Public Preview Azure service. It's important that you don't upload any private health information (PHI).
 
 
 ## Working with the DICOM service
  
-The DICOMweb&trade; Standard makes heavy use of `multipart/related` HTTP requests combined with DICOM specific accept headers. Developers familiar with other REST-based APIs often find working with the DICOMweb&trade; Standard awkward. However, once you have it up and running, it's easy to use. It just takes a little familiarity to get started.
+The DICOMweb&trade; Standard makes heavy use of `multipart/related` HTTP requests combined with DICOM specific accept headers. Developers familiar with other REST-based APIs often find working with the DICOMweb&trade; Standard awkward. However, once you've it up and running, it's easy to use. It just takes a little familiarity to get started.
 
 The cURL commands each contain at least one, and sometimes two, variables that must be replaced. To simplify running the commands, search and replace the following variables by replacing them with your specific values:
 
@@ -116,7 +113,7 @@ Some programming languages and tools behave differently. For instance, some requ
 ```
 curl --request POST "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420"
 --header "Accept: application/dicom+json"
---header "Content-Type: multipart/related; type=\"application/dicom\"
+--header "Content-Type: multipart/related; type=\"application/dicom\""
 --header "Authorization: Bearer {token value}"
 --form "file1=@{path-to-dicoms}/blue-circle.dcm;type=application/dicom"
 ```
@@ -166,7 +163,7 @@ curl --request GET "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.1
 --output "suppressWarnings.txt"
 ```
 
-This cURL command will show the downloaded bytes in the output file (suppressWarnings.txt), but these are not direct DICOM files, only a text representation of the multipart/related download.
+This cURL command will show the downloaded bytes in the output file (suppressWarnings.txt), but these aren't direct DICOM files, only a text representation of the multipart/related download.
 
 ### Retrieve metadata of all instances in study
 
@@ -179,7 +176,7 @@ _Details:_
    * Accept: application/dicom+json
    * Authorization: Bearer {token value}
 
-This cURL command will show the downloaded bytes in the output file (suppressWarnings.txt), but these are not direct DICOM files, only a text representation of the multipart/related download.
+This cURL command will show the downloaded bytes in the output file (suppressWarnings.txt), but these aren't direct DICOM files, only a text representation of the multipart/related download.
 
 ```
 curl --request GET "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/metadata"
@@ -287,7 +284,7 @@ In the following examples, we'll search for items using their unique identifiers
 
 This request enables searches for one or more studies by DICOM attributes.
 
-For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement.md).
+For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md).
 
 _Details:_
 * Path: ../studies?StudyInstanceUID={study}
@@ -306,7 +303,7 @@ curl --request GET "{Service URL}/v{version}/studies?StudyInstanceUID=1.2.826.0.
 
 This request enables searches for one or more series by DICOM attributes.
 
-For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement.md).
+For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md).
 
 _Details:_
 * Path: ../series?SeriesInstanceUID={series}
@@ -325,7 +322,7 @@ curl --request GET "{Service URL}/v{version}/series?SeriesInstanceUID=1.2.826.0.
 
 This request enables searches for one or more series within a single study by DICOM attributes.
 
-For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement.md).
+For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md).
 
 _Details:_
 * Path: ../studies/{study}/series?SeriesInstanceUID={series}
@@ -344,7 +341,7 @@ curl --request GET "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.1
 
 This request enables searches for one or more instances by DICOM attributes.
 
-For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement.md).
+For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md).
 
 _Details:_
 * Path: ../instances?SOPInstanceUID={instance}
@@ -363,7 +360,7 @@ curl --request GET "{Service URL}/v{version}/instances?SOPInstanceUID=1.2.826.0.
 
 This request enables searches for one or more instances within a single study by DICOM attributes.
 
-For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement.md).
+For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md).
 
 _Details:_
 * Path: ../studies/{study}/instances?SOPInstanceUID={instance}
@@ -382,7 +379,7 @@ curl --request GET "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.1
 
 This request enables searches for one or more instances within a single study and single series by DICOM attributes.
 
-For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement.md)
+For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md)
 
 _Details:_
 * Path: ../studies/{study}/series/{series}/instances?SOPInstanceUID={instance}
@@ -404,7 +401,7 @@ curl --request GET "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.1
 
 This request deletes a single instance within a single study and single series.
 
-Delete is not part of the DICOM standard, but it's been added for convenience.
+Delete isn't part of the DICOM standard, but it's been added for convenience.
 
 _Details:_
 * Path: ../studies/{study}/series/{series}/instances/{instance}
@@ -421,7 +418,7 @@ curl --request DELETE "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.49
 
 This request deletes a single series (and all child instances) within a single study.
 
-Delete is not part of the DICOM standard, but it's been added for convenience.
+Delete isn't part of the DICOM standard, but it's been added for convenience.
 
 _Details:_
 * Path: ../studies/{study}/series/{series}
@@ -438,7 +435,7 @@ curl --request DELETE "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.49
 
 This request deletes a single study (and all child series and instances).
 
-Delete is not part of the DICOM standard, but it has been added for convenience.
+Delete isn't part of the DICOM standard, but it has been added for convenience.
 
 _Details:_
 * Path: ../studies/{study}

@@ -1,10 +1,10 @@
 ---
 title: Azure API Management compute platform
-description: Learn about the compute platform used to host your API Management service instance
+description: Learn about the compute platform used to host your API Management service instance. Instances in the dedicated service tiers of API Management are hosted on the stv1 or stv2 compute platform.
 author: dlepow
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 08/23/2021
+ms.date: 04/17/2023
 ms.author: danlep
 ms.custom: 
 ---
@@ -14,47 +14,55 @@ As a cloud platform-as-a-service (PaaS), Azure API Management abstracts many det
 
 To enhance service capabilities, we're upgrading the API Management compute platform version - the Azure compute resources that host the service - for instances in several [service tiers](api-management-features.md). This article gives you context about the upgrade and the major versions of API Management's compute platform: `stv1` and `stv2`.
 
-We've minimized impacts of this upgrade on your operation of your API Management instance. However, if your instance is connected to an [Azure virtual network](virtual-network-concepts.md), you'll need to change some network configuration settings when the instance upgrades to the `stv2` platform version.
+Most new instances created in service tiers other than the Consumption tier are hosted on the `stv2` platform. However, for existing instances hosted on the `stv1` platform, you have options to migrate to the `stv2` platform.
 
-## Compute platform versions
+## What are the compute platforms for API Management?
 
-| Version | Description | Architecture | API Management tiers |
-| -------| ----------| ----------- | ------- |
-| `stv2` | Single-tenant v2 | [Virtual machine scale sets](../virtual-machine-scale-sets/overview.md) | Developer, Basic, Standard, and Premium |
-| `stv1` |  Single-tenant v1 | [Cloud Service (classic)](../cloud-services/cloud-services-choose-me.md) | Developer, Basic, Standard, and Premium |
-| `mtv1` | Multi-tenant v1 |  [App service](../app-service/overview.md) | Consumption |
+The following table summarizes the compute platforms currently used for instances in the different API Management service tiers. 
 
+| Version | Description | Architecture | Tiers |
+| -------| ----------| ----------- | ---- |
+| `stv2` | Single-tenant v2 | Azure-allocated compute infrastructure that supports added resiliency and security features. See [What are the benefits of the `stv2` platform?](#what-are-the-benefits-of-the-stv2-platform) in this article. | Developer, Basic, Standard, Premium<sup>1</sup> |
+| `stv1` |  Single-tenant v1 | Azure-allocated compute infrastructure |  Developer, Basic, Standard, Premium | 
+| `mtv1` | Multi-tenant v1 |  Shared infrastructure that supports native autoscaling and scaling down to zero in times of no traffic |  Consumption |
+
+<sup>1</sup> Newly created instances in these tiers and some existing instances in Developer and Premium tiers configured with virtual networks or availability zones.
+
+> [!NOTE]
+> Currently, the `stv2` platform isn't available in the US Government cloud or in the following Azure regions: China East, China East 2, China North, China North 2.
+> 
+> Also, as Qatar Central is a recently established Azure region, only the `stv2` platform is supported for API Management services deployed in this region.
 
 ## How do I know which platform hosts my API Management instance?
 
-### Developer, Basic, Standard, and Premium tiers
+Starting with API version `2021-04-01-preview`, the API Management instance exposes a read-only `platformVersion` property with this platform information. 
 
-* Instances with virtual network connections created or updated using the Azure portal after **April 2021**, or using the API Management REST API version **2021-01-01-preview** or later, are hosted on the `stv2` platform
-* If you enabled [zone redundancy](zone-redundancy.md) in your Premium tier instance, it's hosted on the `stv2` platform
-* Otherwise, the instance is hosted on the `stv1` platform
+You can find the platform version of your instance using the portal, the API Management [REST API](/rest/api/apimanagement/current-ga/api-management-service/get), or other Azure tools.
 
-> [!TIP]
-> Starting with API version `2021-04-01-preview`, the API Management instance has a read-only `PlatformVersion` property that shows this platform information. 
+To find the platform version in the portal:
 
-### Consumption tier
+1. Sign in to the [portal](https://portal.azure.com) and go to your API Management instance.
+1. On the **Overview** page, under **Essentials**, the **Platform Version** is displayed.
 
-* All instances are hosted on the `mtv1` platform
+    :::image type="content" source="media/compute-infrastructure/platformversion-property.png" alt-text="Screenshot of the API Management platform version in the portal.":::
 
-## How do I upgrade to the `stv2` platform? 
+## What are the benefits of the `stv2` platform?
 
-Update is only possible for an instance in the Developer, Basic, Standard, or  Premium tier. 
+The `stv2` platform infrastructure supports several resiliency and security features of API Management that aren't available on the `stv1` platform, including:
 
-Create or update the virtual network connection, or availability zone configuration, in an API Management instance using:
+* [Availability zones](zone-redundancy.md)
+* [Private endpoints](private-endpoint.md)
+* [Protection with Azure DDoS](protect-with-ddos-protection.md)
 
-* [Azure portal](https://portal.azure.com)
-* Azure REST API, or ARM template, specifying API version **2021-01-01-preview** or later
+
+## How do I migrate to the `stv2` platform? 
 
 > [!IMPORTANT]
-> When you update the compute platform version of an instance connected to an Azure [virtual network](virtual-network-concepts.md):
-> * You must provide a Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource
-> * The VIP address(es) of your API Management instance will change.
+> Support for API Management instances hosted on the `stv1` platform will be [retired by 31 August 2024](breaking-changes/stv1-platform-retirement-august-2024.md). To ensure proper operation of your API Management instance, you should migrate any instance hosted on the `stv1` platform to `stv2` before that date.
+
+Migration steps depend on features enabled in your API Management instance. If the instance isn't injected in a VNet, you can use a migration API. For instances that are VNet-injected, follow manual steps. For details, see the [migration guide](migrate-stv1-to-stv2.md).
 
 ## Next steps
 
-* Learn more about using a [virtual network](virtual-network-concepts.md) with API Management.
-* Learn more about [zone redundancy](zone-redundancy.md).
+* [Migrate an API Management instance to the stv2 platform](migrate-stv1-to-stv2.md).
+* Learn more about [upcoming breaking changes](breaking-changes/overview.md) in API Management.

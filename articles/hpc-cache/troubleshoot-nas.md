@@ -1,23 +1,29 @@
 ---
 title: Troubleshoot Azure HPC Cache NFS storage targets
 description: Tips to avoid and fix configuration errors and other problems that can cause failure when creating an NFS storage target
-author: femila
+author: ekpgh    
 ms.service: hpc-cache
 ms.topic: troubleshooting
-ms.date: 03/18/2020
-ms.author: femila
+ms.date: 08/29/2022
+ms.author: rohogue
 ---
 
 # Troubleshoot NAS configuration and NFS storage target issues
 
 This article gives solutions for some common configuration errors and other issues that could prevent Azure HPC Cache from adding an NFS storage system as a storage target.
 
-This article includes details about how to check ports and how to enable root access to a NAS system. It also includes detailed information about less common issues that might cause NFS storage target creation to fail.
+This article includes details about how to check ports and how to enable needed access to a NAS system. It also includes detailed information about less common issues that might cause NFS storage target creation to fail.
 
 > [!TIP]
 > Before using this guide, read [prerequisites for NFS storage targets](hpc-cache-prerequisites.md#nfs-storage-requirements).
 
 If the solution to your problem is not included here, please [open a support ticket](hpc-cache-support-ticket.md) so that Microsoft Service and Support can work with you to investigate and solve the problem.
+
+## Provide sufficient connection threads
+
+Large HPC Cache systems make multiple connection requests to a storage target. For example, if your storage target uses the Ubuntu Linux `nfs-kernel-server` module, the default number of NFS daemon threads can be as low as eight. Increase the number of threads to 128 or 256, which are more reasonable numbers to support a medium or large HPC Cache.
+
+You can check or set the number of threads in Ubuntu by using the RPCNFSDCOUNT value in `/etc/init.d/nfs-kernel-server`.
 
 ## Check port settings
 
@@ -47,26 +53,42 @@ Make sure that all of the ports returned by the ``rpcinfo`` query allow unrestri
 
 Check these settings both on the NAS itself and also on any firewalls between the storage system and the cache subnet.
 
-## Check root access
+## Check root squash settings
 
-Azure HPC Cache needs access to your storage system's exports to create the storage target. Specifically, it mounts the exports as user ID 0.
+Root squash settings can disrupt file access if they are improperly configured. You should check that the settings on each storage export and on the matching HPC Cache client access policies are appropriate.
 
-Different storage systems use different methods to enable this access:
+Root squash prevents requests sent by a local superuser root on the client from being sent to a back-end storage system as root. It reassigns requests from root to a non-privileged user ID (UID) like 'nobody'.
 
-* Linux servers generally add ``no_root_squash`` to the exported path in ``/etc/exports``.
-* NetApp and EMC systems typically control access with export rules that are tied to specific IP addresses or networks.
+> [!TIP]
+>
+> Previous versions of Azure HPC Cache required NAS storage systems to allow root access from the HPC Cache. Now, you don't need to allow root access on a storage target export unless you want HPC Cache clients to have root access to the export.
 
-If using export rules, remember that the cache can use multiple different IP addresses from the cache subnet. Allow access from the full range of possible subnet IP addresses.
+Root squash can be configured in an HPC Cache system in these places:
 
-> [!NOTE]
-> Although the cache needs root access to the back-end storage system, you can restrict access for clients that connect through the cache. Read [Control client access](access-policies.md#root-squash) for details.
+* At the Azure HPC Cache - Use [client access policies](access-policies.md#root-squash) to configure root squash for clients that match specific filter rules. A client access policy is part of each NFS storage target namespace path.
 
-Work with your NAS storage vendor to enable the right level of access for the cache.
+  The default client access policy does not squash root.
 
-### Allow root access on directory paths
-<!-- linked in prereqs article -->
+* At the storage export - You can configure your storage system to reassign incoming requests from root to a non-privileged user ID (UID).
 
-For NAS systems that export hierarchical directories, Azure HPC Cache needs root access to each export level.
+If your storage system export squashes root, you should update the HPC Cache client access rule for that storage target to also squash root. If not, you can have access problems when you try to read or write to the back-end storage system through the HPC Cache.
+
+This table illustrates the behavior for different root squash scenarios when a client request is sent as UID 0 (root). The scenario marked with * is ***not recommended*** because it can cause access problems.
+
+| Setting | UID sent from client | UID sent from HPC Cache | Effective UID on back-end storage |
+|--|--|--|--|
+| no root squash | 0 (root) | 0 (root) | 0 (root) |
+| root squash at HPC Cache only | 0 (root) | 65534 (nobody) | 65534 (nobody) |
+| *root squash at NAS storage only | 0 (root) | 0 (root) | 65534 (nobody) |
+| root squash at HPC Cache and NAS | 0 (root) | 65534 (nobody) | 65534 (nobody) |
+
+(UID 65534 is an example; when you turn on root squash in a client access policy you can customize the UID.)
+
+## Check access on directory paths
+<!-- previously linked in prereqs article as allow-root-access-on-directory-paths -->
+<!-- check if this is still accurate - 05-2022 -->
+
+For NAS systems that export hierarchical directories, check that Azure HPC Cache has appropriate access to each export level in the path to the files you are using.
 
 For example, a system might show three exports like these:
 
@@ -76,7 +98,7 @@ For example, a system might show three exports like these:
 
 The export ``/ifs/accounting/payroll`` is a child of ``/ifs/accounting``, and ``/ifs/accounting`` is itself a child of ``/ifs``.
 
-If you add the ``payroll`` export as an HPC Cache storage target, the cache actually mounts ``/ifs/`` and accesses the payroll directory from there. So Azure HPC Cache needs root access to ``/ifs`` in order to access the ``/ifs/accounting/payroll`` export.
+If you add the ``payroll`` export as an HPC Cache storage target, the cache actually mounts ``/ifs/`` and accesses the payroll directory from there. So Azure HPC Cache needs sufficient access to ``/ifs`` in order to access the ``/ifs/accounting/payroll`` export.
 
 This requirement is related to the way the cache indexes files and avoids file collisions, using file handles that the storage system provides.
 
@@ -84,7 +106,7 @@ A NAS system with hierarchical exports can give different file handles for the s
 
 The back-end storage system keeps internal aliases for file handles, but Azure HPC Cache cannot tell which file handles in its index reference the same item. So it is possible that the cache can have different writes cached for the same file, and apply the changes incorrectly because it does not know that they are the same file.
 
-To avoid this possible file collision for files in multiple exports, Azure HPC Cache automatically mounts the shallowest available export in the path (``/ifs`` in the example) and uses the file handle given from that export. If multiple exports use the same base path, Azure HPC Cache needs root access to that path.
+To avoid this possible file collision for files in multiple exports, Azure HPC Cache automatically mounts the shallowest available export in the path (``/ifs`` in the example) and uses the file handle given from that export. If multiple exports use the same base path, Azure HPC Cache needs access to that path.
 
 <!-- ## Enable export listing
 
