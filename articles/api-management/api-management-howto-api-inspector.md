@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 > * Trace an example call
 > * Review request processing steps
 
-:::image type="content" source="media/api-management-howto-api-inspector/api-inspector-002.png" alt-text="API inspector" lightbox="media/api-management-howto-api-inspector/api-inspector-002.png":::
+:::image type="content" source="media/api-management-howto-api-inspector/api-inspector-002.png" alt-text="Screenshot showing the API inspector." lightbox="media/api-management-howto-api-inspector/api-inspector-002.png":::
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ To trace request processing, you must enable the **Allow tracing** setting for t
 
 1. Navigate to your API Management instance and select **Subscriptions** to review the settings.
 
-   :::image type="content" source="media/api-management-howto-api-inspector/allow-tracing-1.png" alt-text="Allow tracing for subscription" lightbox="media/api-management-howto-api-inspector/allow-tracing-1.png":::
+   :::image type="content" source="media/api-management-howto-api-inspector/allow-tracing-1.png" alt-text="Screenshot showing how to allow tracing for subscription." lightbox="media/api-management-howto-api-inspector/allow-tracing-1.png":::
 1. If tracing isn't enabled for the subscription you're using, select the subscription and enable **Allow tracing**.
 
 [!INCLUDE [api-management-tracing-alert](../../includes/api-management-tracing-alert.md)]
