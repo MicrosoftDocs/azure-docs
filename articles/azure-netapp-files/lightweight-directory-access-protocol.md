@@ -44,7 +44,7 @@ Currently, Azure NetApp Files only uses LDAP for user and group information – 
 LDAP offers various benefits for your UNIX users and groups as an identity source.
 
 * **LDAP is future-proof.**  
-    As more NFS clients add support for NFSv4.x, the need for NFSv4 ID domains that contain an up-to-date list of users and groups accessible from clients and storage is needed to ensure optimal security and guaranteed access when access is defined. Having an identity-management server that provides one-to-one name mappings for SMB and NFS users alike greatly simplifies life for storage administrators, not just in the present, but for years to come. 
+    As more NFS clients add support for NFSv4.x, NFSv4.x ID domains that contain an up-to-date list of users and groups accessible from clients and storage are needed to ensure optimal security and guaranteed access when access is defined. Having an identity-management server that provides one-to-one name mappings for SMB and NFS users alike greatly simplifies life for storage administrators, not just in the present, but for years to come. 
 * **LDAP is scalable.**  
     LDAP servers offer the ability to contain millions of user and group objects, and with Microsoft Active Directory, multiple servers can be used to replicate across multiple sites for both performance and resiliency scale. 
 * **LDAP is secure.**  
