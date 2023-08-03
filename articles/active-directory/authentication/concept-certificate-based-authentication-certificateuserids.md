@@ -35,8 +35,7 @@ The values stored in **certificateUserIds** should be in the format described in
 
 ## Roles to update certificateUserIds
 
-For cloud-only users, only users with roles **Global Administrators**, **Privileged Authentication Administrator** can write into certificateUserIds.
-For synched users, AD users with role **Hybrid Identity Administrator** can write into the attribute.
+For cloud-only users, only users with roles **Global Administrators**, **Privileged Authentication Administrator** can write into certificateUserIds. Cloud-only users can use both UX and MSGraph to write into certificateUserIds. For synched users, AD users with role **Hybrid Identity Administrator** can write into the attribute. Only Azure ADConnect can be used to update CertificateUserIds by syncing the value from on-prem for synched users. 
 
 >[!NOTE]
 >Active Directory Administrators (including accounts with delegated administrative privilege over synched user accounts as well as administrative rights over the Azure >AD Connect Servers) can make changes that impact the certificateUserIds value in Azure AD for any synched accounts.

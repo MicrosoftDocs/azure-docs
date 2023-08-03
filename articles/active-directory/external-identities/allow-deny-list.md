@@ -39,6 +39,8 @@ By default, the **Allow invitations to be sent to any domain (most inclusive)** 
 
 ### Add a blocklist
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 This is the most typical scenario, where your organization wants to work with almost any organization, but wants to prevent users from specific domains to be invited as B2B users.
 
 To add a blocklist:
@@ -102,12 +104,12 @@ If the module is not installed, or you don't have a required version, do one of 
 
 - If no results are returned, run the following command to install the latest version of the AzureADPreview module:
   
-   ```powershell  
+   ```powershell
    Install-Module AzureADPreview
    ```
 - If only the AzureAD module is shown in the results, run the following commands to install the AzureADPreview module: 
 
-   ```powershell 
+   ```powershell
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
    ```

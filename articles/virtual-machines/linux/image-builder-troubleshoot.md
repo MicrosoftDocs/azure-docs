@@ -4,11 +4,11 @@ description: This article helps you troubleshoot common problems and errors you 
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: erd
-ms.date: 06/07/2023
+ms.date: 07/31/2023
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ---
 
 # Troubleshoot Azure VM Image Builder
@@ -755,6 +755,32 @@ PACKER ERR 2022/03/07 18:43:06 packer-plugin-azure plugin: 2022/03/07 18:43:06 R
 These error log messages are mostly harmless, because resource deletions are retried several times and, ordinarily, they eventually succeed. You can verify this by continuing to follow the deletion logs until you observe a success message. Alternatively, you can inspect the staging resource group to confirm whether the resource has been deleted.
 
 Making these observations is especially important in build failures, where these error messages might lead you to conclude that they're the reason for the failures, even when the actual errors might be elsewhere.
+
+#### Error
+
+When images are stuck in template deletion, the customization log may show the below error:
+
+```output
+error deleting resource id /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Network/networkInterfaces/<networkInterfacName>: resources.Client#DeleteByID: Failure sending request: StatusCode=400 -- 
+Original Error: Code="NicInUseWithPrivateEndpoint"
+Message="Network interface /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Network/networkInterfaces/<networkInterfacName> cannot be deleted because it is currently in use with an private endpoint (/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Network/privateEndpoints/<pIname>)." Details=[]
+```
+
+#### Cause
+
+The error occurs because the network interface is currently in use with a private endpoint.
+
+#### Solution
+
+To resolve the issue, delete the below resources one by one in the specific order:
+
+1. Private endpoint connection. You can find this in the private link service resource by going to the "private endpoint connections" tab on the private link service resource page.
+1. Private link service.
+1. Network interface and load balancer.
+1. Resource Group.
+1. Image template.
+
+For additional assistance, you can [contact Azure support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to resolve the stuck deletion error.
 
 ## DevOps tasks
 

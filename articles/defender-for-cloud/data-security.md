@@ -4,7 +4,7 @@ description: Learn how data is managed and safeguarded in Microsoft Defender for
 ms.topic: overview
 ms.author: dacurwin
 author: dcurwin
-ms.date: 11/09/2021
+ms.date: 07/18/2023
 ---
 # Microsoft Defender for Cloud data security
 
@@ -20,6 +20,10 @@ Defender for Cloud analyzes data from the following sources to provide visibilit
 - **Network traffic**: Uses sampled network traffic metadata from Microsoft’s infrastructure, such as source/destination IP/port, packet size, and network protocol.
 - **Partner solutions**: Uses security alerts from integrated partner solutions, such as firewalls and antimalware solutions.
 - **Your machines**: Uses configuration details and information about security events, such as Windows event and audit logs, and syslog messages from your machines.
+
+## Data sharing
+
+When you enable Defender for Storage Malware Scanning, it may share metadata, including metadata classified as customer data (e.g. SHA-256 hash), with Microsoft Defender for Endpoint.
 
 ## Data protection
 
@@ -51,9 +55,9 @@ You can specify the workspace and region where data collected from your machines
 |---------------------------------------------|----------------|
 | United States, Brazil, South Africa         | United States  |
 | Canada                                      | Canada         |
-| Europe (Excluding United Kingdom)           | Europe         |
+| Europe (excluding United Kingdom)           | Europe         |
 | United Kingdom                              | United Kingdom |
-| Asia (Excluding India, Japan, Korea, China) | Asia Pacific   |
+| Asia (excluding India, Japan, Korea, China) | Asia Pacific   |
 | Korea                                       | Asia Pacific   |
 | India                                       | India          |
 | Japan                                       | Japan          |
@@ -81,4 +85,4 @@ Customers can access Defender for Cloud related data from the following data str
 
 In this document, you learned how data is managed and safeguarded in Microsoft Defender for Cloud.
 
-To learn more about Microsoft Defender for Cloud, see [What is Microsoft Defender for Cloud?](defender-for-cloud-introduction.md)
+To learn more about Microsoft Defender for Cloud, see [What is Microsoft Defender for Cloud?](defender-for-cloud-introduction.md).

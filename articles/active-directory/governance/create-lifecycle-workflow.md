@@ -28,6 +28,8 @@ You can create and customize workflows for common scenarios by using templates, 
 
 ## Create a lifecycle workflow by using a template in the Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 If you're using the Azure portal to create a workflow, you can customize existing templates to meet your organization's needs. These templates include one for pre-hire common scenarios.
 
 To create a workflow based on a template:

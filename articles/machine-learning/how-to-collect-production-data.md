@@ -53,7 +53,7 @@ If you're interested in collecting production inference data for a MLFlow model 
 
 ## Perform custom logging for model monitoring
 
-Data collection with custom logging allows you to log pandas DataFrames directly from your scoring script before, during, and after any data transformations. With custom logging, tabular data is logged in real-time to your workspace Blob storage, where it can be seamlessly consumed by your model monitors.
+Data collection with custom logging allows you to log pandas DataFrames directly from your scoring script before, during, and after any data transformations. With custom logging, tabular data is logged in real-time to your workspace Blob storage or a custom Blob storage container. From storage, it can be consumed by your model monitors.
 
 ### Update your scoring script with custom logging code
 
@@ -74,6 +74,7 @@ First, you'll need to add custom logging code to your scoring script (`score.py`
     global inputs_collector, outputs_collector
     inputs_collector = Collector(name='model_inputs')          
     outputs_collector = Collector(name='model_outputs')
+    inputs_outputs_collector = Collector(name='model_inputs_outputs')
     ```
 
     By default, Azure Machine Learning raises an exception if there's a failure during data collection. Optionally, you can use the `on_error` parameter to specify a function to run if logging failure happens. For instance, using the `on_error` parameter in the following code, Azure Machine Learning logs the error rather than throwing an exception:
@@ -106,6 +107,7 @@ def init():
   # instantiate collectors with appropriate names, make sure align with deployment spec
   inputs_collector = Collector(name='model_inputs')                    
   outputs_collector = Collector(name='model_outputs')
+  inputs_outputs_collector = Collector(name='model_inputs_outputs') #note: this is used to enable Feature Attribution Drift
 
 def run(data): 
   # json data: { "data" : {  "col1": [1,2,3], "col2": [2,3,4] } }
@@ -122,6 +124,13 @@ def run(data):
 
   # collect outputs data, pass in correlation_context so inputs and outputs data can be correlated later
   outputs_collector.collect(output_df, context)
+
+  # create a dataframe with inputs/outputs joined - this creates a URI folder (not mltable) 
+  # input_output_df = input_df.merge(output_df, context)
+  input_output_df = input_df.join(output_df)
+
+  # collect both your inputs and output  
+  inputs_outputs_collector.collect(input_output_df, context)
   
   return output_df.to_dict()
   
@@ -195,6 +204,39 @@ Optionally, you can adjust the following additional parameters for your `data_co
 - `data_collector.collections.<collection_name>.data.name`: The name of the data asset to register with the collected data.
 - `data_collector.collections.<collection_name>.data.path`: The full Azure Machine Learning datastore path where the collected data should be registered as a data asset.
 - `data_collector.collections.<collection_name>.data.version`: The version of the data asset to be registered with the collected data in blob storage.
+
+#### Collect data to a custom Blob storage container
+
+If you need to collect your production inference data to a custom Blob storage container, you can do so with the data collector.
+
+To use the data collector with a custom Blob storage container, connect the storage container to an Azure Machine Learning datastore. To learn how to do so, see [create datastores](how-to-datastore.md).
+
+Next, ensure that your Azure Machine Learning endpoint has the necessary permissions to write to the datastore destination. The data collector supports both system assigned managed identities (SAMIs) and user assigned managed identities (UAMIs). Add the identity to your endpoint. Assign the role `Storage Blob Data Contributor` to this identity with the Blob storage container which will be used as the data destination. To learn how to use managed identities in Azure, see [assign Azure roles to a managed identity](/azure/role-based-access-control/role-assignments-portal-managed-identity).
+
+Then, update your deployment YAML to include the `data` property within each collection. The `data.name` is a required parameter used to specify the name of the data asset to be registered with the collected data. The `data.path` is a required parameter used to specify the fully-formed Azure Machine Learning datastore path, which is connected to your Azure Blob storage container. The `data.version` is an optional parameter used to specify the version of the data asset (defaults to 1).
+
+Here is an example YAML configuration of how you would do so:
+
+```yml
+data_collector:
+  collections:
+    model_inputs:
+      enabled: 'True'
+      data: 
+        name: my_model_inputs_data_asset
+        path: azureml://datastores/workspaceblobstore/paths/modelDataCollector/my_endpoint/blue/model_inputs
+        version: 1
+    model_outputs:
+      enabled: 'True'
+      data: 
+        name: my_model_outputs_data_asset
+        path: azureml://datastores/workspaceblobstore/paths/modelDataCollector/my_endpoint/blue/model_outputs 
+        version: 1
+```
+
+**Note**: You can also use the `data.path` parameter to point to datastores in different Azure subscriptions. To do so, ensure your path looks like this: `azureml://subscriptions/<sub_id>/resourcegroups/<rg_name>/workspaces/<ws_name>/datastores/<datastore_name>/paths/<path>`
+
+### Create your deployment with data collection
 
 Deploy the model with custom logging enabled:
 

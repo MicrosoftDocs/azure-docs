@@ -8,6 +8,7 @@ ms.author: nicktrog
 author: ntrogh
 ms.date: 05/12/2023
 ms.topic: how-to
+ms.custom: references_regions
 ---
 
 # Test private endpoints by deploying Azure Load Testing in an Azure virtual network
@@ -67,7 +68,7 @@ If you plan to further restrict access to your virtual network with a network se
 
 To configure outbound access for Azure Load Testing: 
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Go to your network security group.
 

@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 06/21/2023
 ms.author: jomondi
 ms.reviewer: sureshja
-ms.custom: enterprise-apps
+ms.custom: enterprise-apps, devx-track-extended-java, devx-track-go, devx-track-js
 zone_pivot_groups: enterprise-apps-minus-portal
 #Customer intent: As an administrator of an Azure AD tenant, I want to restore a soft deleted enterprise application.
 ---
@@ -21,7 +21,7 @@ zone_pivot_groups: enterprise-apps-minus-portal
 In this article, you learn how to restore a soft deleted enterprise application in your Azure Active Directory (Azure AD) tenant. Soft deleted enterprise applications can be restored from the recycle bin within the first 30 days after their deletion. After the 30-day window, the enterprise application is permanently deleted and can't be restored.
 
 >[!IMPORTANT]
->If you deleted an [application registration](../develop/howto-remove-app.md) in its home tenant through app registrations in the Azure portal, the enterprise application, which is its corresponding service principal also got deleted. If you restore the deleted application registration through the Azure portal, its corresponding service principal, is also restored. You'll therefore be able to recover the service principal's previous configurations, except its previous policies such as conditional access policies, which aren't restored.
+>If you deleted an [application registration](../develop/howto-remove-app.md) in its home tenant through app registrations in the Azure portal, the enterprise application, which is its corresponding service principal also got deleted. If you restore the deleted application registration through the Azure portal, its corresponding service principal, is also restored. You'll therefore be able to recover the service principal's previous configurations, except its previous policies such as Conditional Access policies, which aren't restored.
 
 [!INCLUDE [portal updates](../includes/portal-update.md)]
 

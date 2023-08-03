@@ -145,7 +145,7 @@ Follow these steps to run the app:
 1. In Visual Studio Solution Explorer, select either the **VisualProvision.Android** project or the **VisualProvision.iOS** project. Choose a corresponding emulator or connected mobile device from the drop-down menu on the main toolbar. Then run the app.
 
     > [!NOTE]
-    > You will need a MacOS device to run an iOS emulator.
+    > You will need a macOS device to run an iOS emulator.
 
 1. On the first screen, enter your service principal client ID, tenant ID, and password. Select the **Login** button.
 
@@ -170,7 +170,7 @@ Follow these steps to run the app:
 
 ## Clean up resources
 
-If you've followed all of the steps of this scenario and used the app to deploy Azure services to your account, go to the [Azure portal](https://portal.azure.com/). There, cancel the services you don't want to use.
+If you've followed all of the steps of this scenario and used the app to deploy Azure services to your account, sign in to the [Azure portal](https://portal.azure.com). There, cancel the services you don't want to use.
 
 If you plan to create your own object detection project with Custom Vision, you might want to delete the logo detection project you created in this tutorial. A free subscription for Custom Vision allows for only two projects. To delete the logo detection project, on the [Custom Vision website](https://customvision.ai), open **Projects** and then select the trash icon under **My New Project**.
 

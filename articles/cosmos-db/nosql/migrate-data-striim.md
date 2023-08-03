@@ -26,7 +26,7 @@ This article shows how to use Striim to migrate data from an **Oracle database**
 
 ## Deploy the Striim marketplace solution
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Create a resource** and search for **Striim** in the Azure marketplace. Select the first option and **Create**.
 

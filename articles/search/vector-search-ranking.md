@@ -30,7 +30,7 @@ If a query request is about dogs, the model maps the query into a vector that ex
 
 Commonly used similarity metrics include `cosine`, `euclidean` (also known as `l2 norm`), and `dotProduct`, which are summarized here:
 
-+ `cosine` calculates the angle between two vectors. Cosine is the similarity metric used by [Azure OpenAI embedding models](/azure/cognitive-services/openai/concepts/understand-embeddings#cosine-similarity).
++ `cosine` calculates the angle between two vectors. Cosine is the similarity metric used by [Azure OpenAI embedding models](/azure/ai-services/openai/concepts/understand-embeddings#cosine-similarity).
 
 + `euclidean` calculates the Euclidean distance between two vectors, which is the l2-norm of the difference of the two vectors.
 

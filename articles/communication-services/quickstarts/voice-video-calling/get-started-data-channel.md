@@ -9,7 +9,7 @@ ms.date: 05/04/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-js
 ---
 
 # Quickstart: Add Data Channel messaging to your calling app

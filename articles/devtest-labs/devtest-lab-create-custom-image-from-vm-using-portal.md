@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 02/15/2022
+ms.custom: UpdateFrequency2
 ---
 
 # Create a custom image from a VM

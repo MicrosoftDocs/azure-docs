@@ -1,9 +1,9 @@
 ---
 title: The Global Secure Access Client for Windows (preview)
-description: Install the Global Secure Access Client for Windows to enable client connectivity.
+description: Install the Global Secure Access Client for Windows to enable connectivity to Microsoft's Security Edge Solutions, Microsoft Entra Internet Access and Microsoft Entra Private Access.
 ms.service: network-access
 ms.topic: how-to
-ms.date: 06/23/2023
+ms.date: 07/27/2023
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
@@ -43,7 +43,7 @@ There are several other limitations based on the traffic forwarding profile in u
 
 The most current version of the Global Secure Access Client can be downloaded from the Microsoft Entra admin center.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](../active-directory/roles/permissions-reference.md).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](/azure/active-directory/roles/permissions-reference).
 1. Browse to **Global Secure Access (Preview)** > **Devices** > **Clients**.
 1. Select **Download**.
 

@@ -6,6 +6,7 @@ manager: paulmey
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
+ms.custom: devx-track-linux
 ms.date: 04/11/2023
 ms.author: frdavid
 ms.reviewer: azmetadatadev

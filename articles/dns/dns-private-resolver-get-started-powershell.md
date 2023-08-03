@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create and manage your first p
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 07/17/2023
+ms.date: 07/19/2023
 ms.topic: quickstart
 ms.service: dns
 ms.custom: devx-track-azurepowershell, mode-api, ignite-2022
@@ -114,7 +114,8 @@ Create an inbound endpoint to enable name resolution from on-premises or another
 
 > [!TIP]
 > Using PowerShell, you can specify the inbound endpoint IP address to be dynamic or static.<br> 
-> If the endpoint IP address is specified as dynamic, the address does not change unless the endpoint is deleted and reprovisioned. If the endpoint IP address is specified as static, it can be retained during reprovisioning.
+> If the endpoint IP address is specified as dynamic, the address does not change unless the endpoint is deleted and reprovisioned. Typically the same IP address will be assigned again during reprovisioning.<br>
+> If the endpoint IP address is static, it can be specified and reused if the endpoint is reprovisioned. The IP address that you choose can't be a [reserved IP address in the subnet](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
 
 The following commands provision a dynamic IP address:
 ```Azure PowerShell

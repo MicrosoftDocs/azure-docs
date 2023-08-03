@@ -1,5 +1,5 @@
 ---
-title: Support for the Defender for Servers plan in Microsoft Defender for Cloud
+title: Support for the Defender for Servers plan
 description: Review support requirements for the Defender for Servers plan in Microsoft Defender for Cloud.
 ms.topic: limits-and-quotas
 author: dcurwin
