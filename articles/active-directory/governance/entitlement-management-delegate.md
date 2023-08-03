@@ -162,7 +162,11 @@ For managing external collaboration, where the individual external users for a c
 
 You can also configure what happens when an external user brought in by entitlement management loses their last assignment to any access packages. You can block them from signing in to this directory, or have their guest account removed, in the settings to [manage the lifecycle of external users](entitlement-management-external-users.md#manage-the-lifecycle-of-external-users).
 
-If you wish to prevent delegated employees from bringing in new guests by configuring entitlement management with a catalog and policy for external collaboration, then be sure to communicate this constraint to all global administrators, identity governance administrators, catalog creators, and catalog owners.
+### Restricting delegated administrators from configuring policies for users not in directory
+
+You can prevent users who are not in administrative roles from inviting individual guests, in the [external collaboration settings](../external-identities/external-collaboration-settings-configure.md), by changing the **Guest invite settings** setting to specific admin roles, and have **Enable guest self-service sign up** set to **No**.
+
+To prevent delegated employees from configuring entitlement management to let external users request for external collaboration, then be sure to communicate this constraint to all global administrators, identity governance administrators, catalog creators, and catalog owners, as they are able to change catalogs, so that they do not inadvertently permit new collaboration in new or updated catalogs. They should ensure that catalogs are set with **Enabled for external users** to **No**, and do not have any access packages with policies for allowing a user not in the directory to request.
 
 You can view the list of catalogs currently enabled for external users in the Azure portal.
 
