@@ -1,7 +1,7 @@
 ---
 title: Get started with custom claims providers (preview)
 titleSuffix: Microsoft identity platform
-description: Learn how to develop and register an Azure Active Directory custom extensions REST API. The custom extension allows you to source claims from a data store that is external to Azure Active Directory.  
+description: Learn how to develop and register an Azure Active Directory custom authentication extensions REST API. The custom authentication extension allows you to source claims from a data store that is external to Azure Active Directory.  
 services: active-directory
 author: yoelhor
 manager: CelesteDG
@@ -33,9 +33,11 @@ This how-to guide demonstrates the token issuance start event with a REST API ru
 
 ## Step 1. Create an Azure Function app
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 In this step, you create an HTTP trigger function API in the Azure portal. The function API is the source of extra claims for your token. Follow these steps to create an Azure Function:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with your administrator account.
+1. Sign in to the [Azure portal](https://portal.azure.com) with your administrator account.
 1. From the Azure portal menu or the **Home** page, select **Create a resource**.
 1. In the **New** page, select **Compute** > **Function App**.
 1. On the **Basics** page, use the function app settings as specified in the following table:
@@ -58,7 +60,7 @@ In this step, you create an HTTP trigger function API in the Azure portal. The f
 
 ### 1.1 Create an HTTP trigger function
 
-After the Azure Function app is created, create an HTTP trigger function. The HTTP trigger lets you invoke a function with an HTTP request. This HTTP trigger will be referenced and called by your Azure AD custom extension.
+After the Azure Function app is created, create an HTTP trigger function. The HTTP trigger lets you invoke a function with an HTTP request. This HTTP trigger will be referenced and called by your Azure AD custom authentication extension.
 
 1. Within your **Function App**, from the menu select **Functions**.
 1. From the top menu, select **+ Create**.
@@ -151,24 +153,24 @@ The following screenshot demonstrates how to configure the Azure HTTP trigger fu
 
 1. From the top menu, select **Get Function Url**, and copy the URL. In the next step, the function URL will be used and referred to as `{Function_Url}`.
 
-## Step 2. Register a custom extension
+## Step 2. Register a custom authentication extension
 
-In this step, you configure a custom extension, which will be used by Azure AD to call your Azure function. The custom extension contains information about your REST API endpoint, the claims that it parses from your REST API, and how to authenticate to your REST API. Follow these steps to register a custom extension:
+In this step, you configure a custom authentication extension, which will be used by Azure AD to call your Azure function. The custom authentication extension contains information about your REST API endpoint, the claims that it parses from your REST API, and how to authenticate to your REST API. Follow these steps to register a custom authentication extension:
 
 # [Azure portal](#tab/azure-portal)
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Under **Azure services**, select **Azure Active Directory**.
 1. Ensure your user account has the Global Administrator or Application Administrator and Authentication Extensibility Administrator role. Otherwise, learn how to [assign a role](../roles/manage-roles-portal.md).
 1. From the menu, select **Enterprise applications**.
 1. Under **Manage**, select the **Custom authentication extensions**.
-1. Select **Create a custom extension**.
+1. Select **Create a custom authentication extension**.
 1. In **Basics**, select the **tokenIssuanceStart** event and select **Next**.
 1. In **Endpoint Configuration**, fill in the following properties:
 
-    - **Name** - A name for your custom extension. For example, *Token issuance event*.
+    - **Name** - A name for your custom authentication extension. For example, *Token issuance event*.
     - **Target Url** - The `{Function_Url}` of your Azure Function URL.
-    - **Description** - A description for your custom extensions.
+    - **Description** - A description for your custom authentication extensions.
 
 1. Select **Next**.
 
@@ -178,20 +180,20 @@ In this step, you configure a custom extension, which will be used by Azure AD t
 
 1. Select **Next**.
 
-1. In **Claims**, enter the attributes that you expect your custom extension to parse from your REST API and will be merged into the token. Add the following claims:
+1. In **Claims**, enter the attributes that you expect your custom authentication extension to parse from your REST API and will be merged into the token. Add the following claims:
 
     - dateOfBirth
     - customRoles
     - apiVersion
     - correlationId
 
-1. Select **Next** and **Create**, which registers the custom extension and the associated application registration.
+1. Select **Next** and **Create**, which registers the custom authentication extension and the associated application registration.
 
 # [Microsoft Graph](#tab/microsoft-graph)
 
-Create an Application Registration to authenticate your custom extension to your Azure Function.
+Create an Application Registration to authenticate your custom authentication extension to your Azure Function.
 
-1. Sign in to the [Microsoft Graph Explorer](https://aka.ms/ge) using an account whose home tenant is the tenant you wish to manage your custom extension in.
+1. Sign in to the [Microsoft Graph Explorer](https://aka.ms/ge) using an account whose home tenant is the tenant you wish to manage your custom authentication extension in.
 1. Set the HTTP method to **POST**.
 1. Paste the URL: `https://graph.microsoft.com/v1.0/applications`
 1. Select **Request Body** and paste the following JSON:
@@ -262,9 +264,9 @@ Update the newly created application to set the application ID URI value, the ac
 
 1. Select **Run Query** to submit the request.
 
-### Register a custom extension
+### Register a custom authentication extension
 
-Next, you register the custom extension. You register the custom extension by associating it with the App Registration for the Azure Function, and your Azure Function endpoint `{Function_Url}`.
+Next, you register the custom authentication extension. You register the custom authentication extension by associating it with the App Registration for the Azure Function, and your Azure Function endpoint `{Function_Url}`.
 
 1. Set the HTTP method to **POST**.
 1. Paste the URL: `https://graph.microsoft.com/beta/identity/customAuthenticationExtensions`
@@ -304,9 +306,9 @@ Record the ID value of the created custom claims provider object. The ID is need
 
 ### 2.2 Grant admin consent
 
-After your custom extension is created, you'll be taken to the **Overview** tab of the new custom extension.
+After your custom authentication extension is created, you'll be taken to the **Overview** tab of the new custom authentication extension.
 
-From the **Overview** page, select the **Grant permission** button to give admin consent to the registered app, which allows the custom extension to authenticate to your API. The custom extension uses `client_credentials` to authenticate to the Azure Function App using the `Receive custom authentication extension HTTP requests` permission.
+From the **Overview** page, select the **Grant permission** button to give admin consent to the registered app, which allows the custom authentication extension to authenticate to your API. The custom authentication extension uses `client_credentials` to authenticate to the Azure Function App using the `Receive custom authentication extension HTTP requests` permission.
 
 The following screenshot shows how to grant permissions.
 
@@ -314,7 +316,7 @@ The following screenshot shows how to grant permissions.
 
 ## Step 3. Configure an OpenID Connect app to receive enriched tokens
 
-To get a token and test the custom extension, you can use the <https://jwt.ms> app. It's a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser).
+To get a token and test the custom authentication extension, you can use the <https://jwt.ms> app. It's a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser).
 
 Follow these steps to register the **jwt.ms** web application:
 
@@ -347,7 +349,7 @@ The **jwt.ms** test application uses the implicit flow. Enable implicit flow in 
 
 ### 3.3 Enable your App for a claims mapping policy
 
-A claims mapping policy is used to select which attributes returned from the custom extension are mapped into the token. To allow tokens to be augmented, you must explicitly enable the application registration to accept mapped claims:
+A claims mapping policy is used to select which attributes returned from the custom authentication extension are mapped into the token. To allow tokens to be augmented, you must explicitly enable the application registration to accept mapped claims:
 
 1. In your *My Test application* registration, under **Manage**, select **Manifest**.
 1. In the manifest, locate the `acceptMappedClaims` attribute, and set the value to `true`.
@@ -369,13 +371,13 @@ The following JSON snippet demonstrates how to configure these properties.
 
 ## Step 4. Assign a custom claims provider to your app
 
-For tokens to be issued with claims incoming from the custom extension, you must assign a custom claims provider to your application. The custom claims provider relies on the custom extension configured with the **token issuance start** event listener. You can choose whether all, or a subset of claims, from the custom claims provider are mapped into the token.
+For tokens to be issued with claims incoming from the custom authentication extension, you must assign a custom claims provider to your application. The custom claims provider relies on the custom authentication extension configured with the **token issuance start** event listener. You can choose whether all, or a subset of claims, from the custom claims provider are mapped into the token.
 
-Follow these steps to connect the *My Test application* with your custom extension:
+Follow these steps to connect the *My Test application* with your custom authentication extension:
 
 # [Azure portal](#tab/azure-portal)
 
-First assign the custom extension as a custom claims provider source:
+First assign the custom authentication extension as a custom claims provider source:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Azure Active Directory**.
 1. Select **App registrations**, and find the *My Test application* registration you created.
@@ -402,14 +404,14 @@ Next, assign the attributes from the custom claims provider, which should be iss
 
 # [Microsoft Graph](#tab/microsoft-graph)
 
-First create an event listener to trigger a custom extension using the token issuance start event:
+First create an event listener to trigger a custom authentication extension using the token issuance start event:
 
-1. Sign in to the [Microsoft Graph Explorer](https://aka.ms/ge) using an account whose home tenant is the tenant you wish to manage your custom extension in.
+1. Sign in to the [Microsoft Graph Explorer](https://aka.ms/ge) using an account whose home tenant is the tenant you wish to manage your custom authentication extension in.
 1. Set the HTTP method to **POST**.
 1. Paste the URL: `https://graph.microsoft.com/beta/identity/authenticationEventListeners`
 1. Select **Request Body** and paste the following JSON:
 
-    Replace `{App_to_enrich_ID}` with the app ID of *My Test application* recorded earlier. Replace `{customExtensionObjectId}` with the custom extension ID recorded earlier.
+    Replace `{App_to_enrich_ID}` with the app ID of *My Test application* recorded earlier. Replace `{customExtensionObjectId}` with the custom authentication extension ID recorded earlier.
 
     ```json
     {
@@ -479,18 +481,19 @@ Assign the claims mapping policy to the `servicePrincipal` of *My Test Applicati
 
 ## Step 5. Protect your Azure Function
 
-Azure AD custom extension uses server to server flow to obtain an access token that is sent in the HTTP `Authorization` header to your Azure function. When publishing your function to Azure, especially in a production environment, you need to validate the token sent in the authorization header.
+Azure AD custom authentication extension uses server to server flow to obtain an access token that is sent in the HTTP `Authorization` header to your Azure function. When publishing your function to Azure, especially in a production environment, you need to validate the token sent in the authorization header.
 
 To protect your Azure function, follow these steps to integrate Azure AD authentication, for validating incoming tokens with your *Azure Functions authentication events API* application registration.
 
 > [!NOTE]
-> If the Azure function app is hosted in a different Azure tenant than the tenant in which your custom extension is registered, skip to [using OpenID Connect identity provider](#51-using-openid-connect-identity-provider) step.
+> If the Azure function app is hosted in a different Azure tenant than the tenant in which your custom authentication extension is registered, skip to [using OpenID Connect identity provider](#51-using-openid-connect-identity-provider) step.
 
-1. In the [Azure portal](https://portal.azure.com), navigate and select the function app you previously published.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Navigate and select the function app you previously published.
 1. Select **Authentication** in the menu on the left.
 1. Select **Add Identity provider**.  
 1. Select **Microsoft** as the identity provider.
-1. Under **App registration**->**App registration type**, select **Pick an existing app registration in this directory** and pick the *Azure Functions authentication events API* app registration you [previously created](#step-2-register-a-custom-extension) when registering the custom claims provider.
+1. Under **App registration**->**App registration type**, select **Pick an existing app registration in this directory** and pick the *Azure Functions authentication events API* app registration you [previously created](#step-2-register-a-custom-authentication-extension) when registering the custom claims provider.
 1. Under **Unauthenticated requests**, select **HTTP 401 Unauthorized** as the identity provider.
 1. Unselect the **Token store** option.
 1. Select **Add** to add authentication to your Azure Function.
@@ -499,9 +502,9 @@ To protect your Azure function, follow these steps to integrate Azure AD authent
 
 ### 5.1 Using OpenID Connect identity provider
 
-If you configured the [Microsoft identity provider](#step-5-protect-your-azure-function), skip this step. Otherwise, if the Azure Function is hosted under a different tenant than the tenant in which your custom extension is registered, follow these steps to protect your function:
+If you configured the [Microsoft identity provider](#step-5-protect-your-azure-function), skip this step. Otherwise, if the Azure Function is hosted under a different tenant than the tenant in which your custom authentication extension is registered, follow these steps to protect your function:
 
-1. In the [Azure portal](https://portal.azure.com), navigate and select the function app you previously published.
+1. Sign in to the [Azure portal](https://portal.azure.com), then navigate and select the function app you previously published.
 1. Select **Authentication** in the menu on the left.
 1. Select **Add Identity provider**.  
 1. Select **OpenID Connect** as the identity provider.
@@ -512,10 +515,10 @@ If you configured the [Microsoft identity provider](#step-5-protect-your-azure-f
     https://login.microsoftonline.com/{tenantId}/v2.0/.well-known/openid-configuration
     ```
 
-1. Under the **App registration**, enter the application ID (client ID) of the *Azure Functions authentication events API* app registration [you created previously](#step-2-register-a-custom-extension).
+1. Under the **App registration**, enter the application ID (client ID) of the *Azure Functions authentication events API* app registration [you created previously](#step-2-register-a-custom-authentication-extension).
 
-1. Go to your Azure AD tenant in which your custom extension is registered, and select **Azure Active Directory** > **App registrations**.
-    1. Select the *Azure Functions authentication events API* app registration [you created previously](#step-2-register-a-custom-extension).
+1. Go to your Azure AD tenant in which your custom authentication extension is registered, and select **Azure Active Directory** > **App registrations**.
+    1. Select the *Azure Functions authentication events API* app registration [you created previously](#step-2-register-a-custom-authentication-extension).
     1. Select **Certificates & secrets** > **Client secrets** > **New client secret**.
     1. Add a description for your client secret.
     1. Select an expiration for the secret or specify a custom lifetime.
@@ -545,4 +548,4 @@ To test your custom claim provider, follow these steps:
 
 - Learn more about custom claims providers with the [custom claims provider reference](custom-claims-provider-reference.md) article.
 
-- Learn how to [troubleshoot your custom extensions API](custom-extension-troubleshoot.md).
+- Learn how to [troubleshoot your custom authentication extensions API](custom-extension-troubleshoot.md).

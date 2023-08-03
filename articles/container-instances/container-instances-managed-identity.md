@@ -269,7 +269,7 @@ az container exec \
   --exec-command "/bin/bash"
 ```
 
-Run the following commands in the bash shell in the container. First log in to the Azure CLI using the managed identity:
+Run the following commands in the bash shell in the container. First, sign in to the Azure CLI using the managed identity:
 
 ```azurecli-interactive
 az login --identity

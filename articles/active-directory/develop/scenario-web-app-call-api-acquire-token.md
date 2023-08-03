@@ -73,7 +73,7 @@ The `AuthorizeForScopes` attribute on top of the controller action (or of the Ra
 There are other complex variations, such as:
 
 - Calling several APIs.
-- Processing incremental consent and conditional access.
+- Processing incremental consent and Conditional Access.
 
 These advanced steps are covered in chapter 3 of the [3-WebApp-multi-APIs](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/3-WebApp-multi-APIs) tutorial.
 
