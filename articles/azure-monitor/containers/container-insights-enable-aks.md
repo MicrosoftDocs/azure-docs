@@ -453,7 +453,7 @@ Use the following procedure if you're not using managed identity authentication.
 
 ## Limitations
 
-- When you enable managed identity authentication, a data collection rule is created with the name *MSCI-<cluster-region>-<\cluster-name>*. Currently, this name can't be modified.
+- When you enable managed identity authentication, a data collection rule is created with the name *MSCI-\<cluster-region\>-<\cluster-name\>*. Currently, this name can't be modified.
 
 - You must be on a machine on the same private network to access live logs from a private cluster.
 
