@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 > * Trace an example call
 > * Review request processing steps
 
-:::image type="content" source="media/api-management-howto-api-inspector/api-inspector-002.png" alt-text="API inspector":::
+:::image type="content" source="media/api-management-howto-api-inspector/api-inspector-002.png" alt-text="API inspector" lightbox="media/api-management-howto-api-inspector/api-inspector-002.png":::
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ To trace request processing, you must enable the **Allow tracing** setting for t
     * If your subscription doesn't already allow tracing, you're prompted to enable it if you want to trace the call. 
     * You can also choose to send the request without tracing.
 
-      :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call-1.png" alt-text="Screenshot showing configure API tracing.":::
+      :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call-1.png" alt-text="Screenshot showing configure API tracing." lightbox="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call-1.png":::
 
 ## Review trace information
 
