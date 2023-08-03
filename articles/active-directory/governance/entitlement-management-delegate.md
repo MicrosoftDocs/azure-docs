@@ -149,6 +149,32 @@ For a user who isn't a global administrator, to add groups, applications, or Sha
 
 To determine the least privileged role for a task, you can also reference [Administrator roles by admin task in Azure Active Directory](../roles/delegate-by-task.md#entitlement-management).
 
+## Delegated management of guest user lifecycle
+
+Typically, a user in a role with Guest Inviter privileges can invite individual external users to an organization, and this setting can be changed using the [external collaboration settings](../external-identities/external-collaboration-settings-configure.md).
+
+For managing external collaboration, where the individual external users for a collaboration project may not be known in advance, assigning users who are working with external organizations into  entitlement management roles can allow them to configure catalogs, access packages and policies for their external collaboration. These configurations will allow the users they are collaborating with to request and be added to your organization's directory and access packages.
+
+* To allow users in external directories from connected organizations to be able to request access packages in a catalog, the catalog setting of **Enabled for external users** needs to be set to **Yes**.  This can be done by an administrator or a catalog owner of the catalog.
+* The access package must also have a policy set [for users not in your directory](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory).  This policy can be created by an administrator, catalog owner or access package manager of the catalog.
+* An access package with that policy will allow users in scope to be able to request access, including users not already in your directory. If their request is approved, or does not require approval, then the user will be automatically be added to your directory.
+* If the policy setting was for **All users**, and the user was not part of an existing connected organization, then a new proposed connected organization is automatically created.  You can [view the list of connected organizations](entitlement-management-organization.md#view-the-list-of-connected-organizations) and remove organizations that are no longer needed.
+
+You can also configure what will happen once an external user brought in by entitlement management loses their last assignment to any access packages. You can block them from signing in to this directory, or have their guest account removed, in the settings to [manage the lifecycle of external users](entitlement-management-external-users.md#manage-the-lifecycle-of-external-users).
+
+If you wish to prevent delegated employees from bringing in new guests by configuring entitlement management with a catalog and policy for external collaboration, then be sure to communicate this contstraint to all global administrators, identity governance administrators, catalog creators, and catalog owners.
+
+You can view the list of catalogs currently enabled for external users in the Azure portal.
+
+1. In the Azure portal, select **Azure Active Directory** > **Identity Governance**.
+
+1. On the left menu, select **Catalogs**.
+
+1. Change the filter setting for **Enabled for external users** to **Yes**.
+
+1. If any of those catalogs have a non-zero number of access packages, those access packages may have a policy for users not in directory.
+
+
 ## Manage role assignments to entitlement management roles programmatically (preview)
 
 You can also view and update catalog creators and entitlement management catalog-specific role assignments using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the Graph API to [list the role definitions](/graph/api/rbacapplication-list-roledefinitions) of entitlement management, and [list role assignments](/graph/api/rbacapplication-list-roleassignments) to those role definitions.
