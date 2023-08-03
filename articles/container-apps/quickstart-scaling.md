@@ -264,10 +264,10 @@ For more information, see [az containerapp logs](/cli/azure/containerapp/logs).
 Open a new bash shell using Windows Subsystem for Linux or a Linux virtual machine. Run the following command, replacing `<YOUR_CONTAINER_APP_FQDN>` with the fully qualified domain name for your container app that you saved from the [Create and deploy the container app](#create-and-deploy-the-container-app) section.
 
 ```bash
-seq 1 20 | xargs -Iname -P20 curl "<YOUR_CONTAINER_APP_FQDN>/albums"
+seq 1 20 | xargs -Iname -P20 curl "<YOUR_CONTAINER_APP_FQDN>"
 ```
 
-This command sends 20 concurrent requests to the `/albums` endpoint of your container app.
+This command sends 20 concurrent requests to your container app.
 
 - `seq 1 20` generates a sequence from one to 20.
 - The pipe operator `|` sends this sequence to the `xargs` command.
@@ -285,7 +285,7 @@ For more information, see the documentation for:
 Open a new command prompt and enter PowerShell. Run the following commands, replacing `<YOUR_CONTAINER_APP_FQDN>` with the fully qualified domain name for your container app that you saved from the [Create and deploy the container app](#create-and-deploy-the-container-app) section.
 
 ```powershell
-$url="<YOUR_CONTAINER_APP_FQDN>/albums"
+$url="<YOUR_CONTAINER_APP_FQDN>"
 $Runspace = [runspacefactory]::CreateRunspacePool(1,20)
 $Runspace.Open()
 1..20 | % {
@@ -296,7 +296,7 @@ $Runspace.Open()
 }
 ```
 
-These commands send 20 asynchronous requests to the `albums` endpoint of your container app.
+These commands send 20 asynchronous requests to your container app.
 
 - `[runspacefactory]::CreateRunspacePool(1,20)` creates a `RunspacePool` that allows up to 20 runspaces to run concurrently.
 - `1..20 | % {  }` runs the code enclosed in the curly braces 20 times. 
