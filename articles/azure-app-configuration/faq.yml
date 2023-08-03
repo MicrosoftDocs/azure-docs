@@ -142,7 +142,7 @@ sections:
 
           Finally, let's put it together. Assuming you updated the sentinel key twice within an hour, your App Configuration store will thus receive 7,000 (=6,000+500x2) total requests for that hour. Note that out of these requests, only about 1,000 (=500x2) requests will use the available hourly quota. Update the numbers in this example to match your specific setup and design accordingly so you have a sufficient buffer against the hourly throttling limit. For more information, see [how to reduce requests made to App Configuration](./howto-best-practices.md#reduce-requests-made-to-app-configuration).
           
-          †Free stores do not have frequent, repeated requests excluded from their daily limit.
+          †Free tier stores do not have frequent, repeated requests excluded from their daily limit.
 
       - question: Why can't I create an App Configuration store with the same name as one that I just deleted?
         answer: |
