@@ -40,6 +40,7 @@ The table summarizes support for data-aware posture management.
 |Do I need to install an agent? | No, discovery is agentless.|
 |What's the cost? | The feature is included with the Defender CSPM and Defender for Storage plans, and doesn’t include other costs except for the respective plan costs.|
 |What permissions do I need to view/edit data sensitivity settings? | You need one of these Azure Active directory roles: Global Administrator,  Compliance Administrator, Compliance Data Administrator, Security Administrator, Security Operator.|
+| What permissions do I need to perform onboarding? | You need one of these Azure Active directory roles: Security Admin, Contributor, Owner on the subscription level (where the GCP project/s reside in). For consuming the security findings: Security Reader,Security Admin,Reader, Contributor, Owner on the subscription level (where the GCP project/s reside in). |
 
 ## Configuring data sensitivity settings
 
@@ -75,7 +76,6 @@ In order to protect GCP resources in Defender for Cloud, you can set up an Googl
 - To discover GCP storage buckets, Defender for Cloud updates the script template.
 - The script template creates a new role in the Google account to allow permission for the Defender for Cloud scanner to access data in the GCP storage buckets.
 - To connect Google accounts, you need Administrator permissions on the account.
-
 
 ## Exposed to the internet/allows public access
 
