@@ -22,11 +22,11 @@ A direct peering type conversion for a peering connection can only be requested 
 -  The redundant connections must be of equal bandwidth 
 -  Connections must be fully provisioned (Connection State should be set to "Active")
 -  All connections in the peering must be fully provisioned (with the property 'ConnectionState' = Active) that is, none of the connections must be undergoing provisioning or decommission or an internal device migration.
--  Peering must be represented as an Azure Resource with a valid Subscription. Otherwise follow this [link](howto-legacy-direct-portal.md) to onboard your peering to an Azure subscription, before requesting a conversion. Create a Peer ASN resource under this subscription. See [Associate peer ASN to Azure subscription](howto-subscription-association-portal.md) using the Azure portal to learn how to Associate your public ASN with your Azure subscription.
+-  The peering must be represented as an Azure resource with a valid subscription. To onboard your peering as a resource, refer to: [Convert a legacy Direct peering to an Azure resource using the Azure portal](howto-legacy-direct-portal.md)
 -  Bandwidth updates can't be requested to other connections in the peering during the conversion
 -  No adding or removing of connections can occur during the conversion
 -  The type conversion will run during the business hours of Pacific Daylight Time.
--  For Voice conversions, the connection session addresses will be provided by Microsoft and enabled with BFD(Bidirectional Forwarding Detection). It is expected that the partners set up their configurations accordingly.
+-  For Voice conversions, the connection session addresses will be provided by Microsoft and enabled with BFD (Bidirectional Forwarding Detection). It is expected that the partners set up their configurations accordingly.
 
 > [!NOTE]
 > If your peering is not currently an Azure Resource please refer to the [legacy subscription conversion document](./howto-legacy-direct-portal.md).
@@ -37,11 +37,8 @@ A peering with standard PNI(s) or PNI(s) enabled for MAPS can be converted to Vo
 
 Go to the "Configuration" Page under the Settings section of your Peering's Page
 
-Select the "(with Voice)" option.
+Select the "AS8075 (with Voice) option and click Save
 :::image type="content" source="./media/walkthrough-type-conversion/conversionselection.png" alt-text="Screenshot shows how to select within the Conversions tab in the Azure portal." lightbox="./media/walkthrough-type-conversion/conversionselection.png":::
-
-Hit Save.
-:::image type="content" source="./media/walkthrough-type-conversion/savepage.png" alt-text="Screenshot shows how to save the changes within the  Conversions tab in the Azure portal." lightbox="./media/walkthrough-type-conversion/savepage.png":::
 
 ### Enabling Peering Service on a Connection
 A standard PNI within a peering can be enabled for Peering Service and can be requested per connection.
@@ -85,12 +82,12 @@ Once the connection is completed its state returns to Active.
 **Q.** Will there be an interruption to my connection?
 
 **A.** We do our absolute best and take various steps to prevent any interruption to service. These steps include:
--  Guaranteeing a redundant connection with equivalent bandwidth is up at time of conversion.
+-  Guaranteeing a redundant connection with equivalent bandwidth is up at the time of conversion.
 -  Performing any conversions one connection at a time.
 -  Only bringing down old connections if it's necessary.
 -  Only bringing down old connections once the new connection is established 
 -  Only bringing down old connections once the traffic has ceased.
--  Only performing conversions at times were engineers are online and capable of helping remedy any unlikely issues.  
+-  Only performing conversions at times where engineers are online and capable of helping remedy any unlikely issues.  
 
 **Q.** Why has my request to convert the type of direct peering been rejected?
 
