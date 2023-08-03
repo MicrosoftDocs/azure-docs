@@ -607,9 +607,9 @@ The following example template references a storage account that isn't deployed 
 
 ## references
 
-`reference(symbolic name of a resource collection, ['Full'])`
+`references(symbolic name of a resource collection, ['Full', 'Properties])`
 
-The `references` function works similarly as [`reference`](#reference). In stead of returning an object presenting a resource's runtime state, the `references` function returns an array of objects representing a collection of resource's runtime states. This function requires ARM template language version `1.10-experimental` and with [symbolic name](../bicep/file.md#resources) enabled:
+The `references` function works similarly as [`reference`](#reference). Instead of returning an object presenting a resource's runtime state, the `references` function returns an array of objects representing a collection of resource's runtime states. This function requires ARM template language version `1.10-experimental` and with [symbolic name](../bicep/file.md#resources) enabled:
 
 ```json
 {
@@ -627,21 +627,32 @@ In Bicep, there is no explicit `references` function. Instead, symbolic collecti
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | Symbolic name of a resource collection |Yes |string |Symbolic name of a resource collection that is defined in the current template. The `references` function does not support referencing resources external to the current template. |
-| 'Full' |No |string |Value that specifies whether to return an array of the full resource objects. The default value is `'Full'`. If you don't specify `'Full'`, only the properties objects of the resources are returned. The full object includes values such as the resource ID and location. |
+| 'Full', 'Properties' |No |string |Value that specifies whether to return an array of the full resource objects. The default value is `'Properties'`. If you don't specify `'Full'`, only the properties objects of the resources are returned. The full object includes values such as the resource ID and location. |
 
 ### Return value
 
 An array of the resource collection. Every resource type returns different properties for the `reference` function. Also, the returned value differs based on the value of the `'Full'` argument. For more information, see [reference](#reference).
 
-The output order of `references` is always arranged in ascending order based on the copy index. Therefore, the first resource in the collection with index 0 is displayed first, followed by index 1, and so son. For instance, *[worker-0, worker-1, worker-2, ...]*.
+The output order of `references` is always arranged in ascending order based on the copy index. Therefore, the first resource in the collection with index 0 is displayed first, followed by index 1, and so on. For instance, *[worker-0, worker-1, worker-2, ...]*.
 
 In the preceding example, if *worker-0* and *worker-2* are deployed while *worker-1* is not due to a false condition, the output of `references` will omit the non-deployed resource and display the deployed ones, ordered by their numbers. The output of `references` will be *[worker-0, worker-2, ...]*. If all of the resources are omitted, the function returns an empty array.
 
 ### Valid uses
 
-The `references` function can only be used in the outputs section of a template or deployment and properties object of a resource definition. It cannot be used for resource properties such as `type`, `name`, `location` and other top level properties of the resource definition. When used with [property iteration](copy-properties.md), you can use the `references` function for `input` because the expression is assigned to the resource property.
+The `references` function can't be used within [resource copy loops](./copy-resources.md) or [Bicep for loop](../bicep/loops.md). For example, `references` is not allowed in the following scenario:
 
-You can't use the `references` function to set the value of the `count` property in a copy loop. You can use to set other properties in the loop. Reference is blocked for the count property because that property must be determined before the `references` function is resolved.
+```json
+{
+  resources: {
+    "resourceCollection": {
+       "copy": { ... },
+       "properties": {
+         "prop": "[references(...)]"
+       }
+    }
+  }
+}
+```
 
 To use the `references` function or any `list*` function in the outputs section of a nested template, you must set the `expressionEvaluationOptions` to use [inner scope](linked-templates.md#expression-evaluation-scope-in-nested-templates) evaluation or use a linked instead of a nested template.
 
