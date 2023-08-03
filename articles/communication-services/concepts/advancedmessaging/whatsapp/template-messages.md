@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 # Send WhatsApp Template Messages
 
-This document goes over general information about WhatsApp template messages and the syntax to send varies messages templates.   
+This document goes over general information about WhatsApp template messages and the syntax to send various messages templates.   
 
 ## Why do I need to send a template message?
 
