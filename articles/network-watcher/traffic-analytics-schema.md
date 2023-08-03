@@ -101,7 +101,7 @@ The following table lists the fields in the schema and what they signify.
 | **FlowIntervalEndTime_t** | Date and time in UTC | Ending time of the flow log processing interval. |
 | **FlowStartTime_t** |	Date and time in UTC |	First occurrence of the flow (which gets aggregated) in the flow log processing interval between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t`. This flow gets aggregated based on aggregation logic. |
 | **FlowEndTime_t** | Date and time in UTC | Last occurrence of the flow (which gets aggregated) in the flow log processing interval between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t`. In terms of flow log v2, this field contains the time when the last flow with the same four-tuple started (marked as **B** in the raw flow record). |
-| **FlowType_s** |  - IntraVNet <br> - InterVNet <br> - S2S <br> - P2S <br> - AzurePublic <br> - ExternalPublic <br> - MaliciousFlow <br> - Unknown Private <br> - Unknown | Definition in notes below the table. |
+| **FlowType_s** |  - IntraVNet <br> - InterVNet <br> - S2S <br> - P2S <br> - AzurePublic <br> - ExternalPublic <br> - MaliciousFlow <br> - Unknown Private <br> - Unknown | See [Notes](#notes) for definitions. |
 | **SrcIP_s** | Source IP address |	Blank in AzurePublic and ExternalPublic flows. |
 | **DestIP_s** | Destination IP address | Blank in AzurePublic and ExternalPublic flows. |
 | **VMIP_s** | IP of the VM | Used for AzurePublic and ExternalPublic flows. |
@@ -167,7 +167,7 @@ The following table lists the fields in the schema and what they signify.
 | **FlowIntervalEndTime**| Date and time in UTC | Ending time of the flow log processing interval. |
 | **FlowStartTime** | Date and time in UTC | First occurrence of the flow (which gets aggregated) in the flow log processing interval between `FlowIntervalStartTime` and `FlowIntervalEndTime`. This flow gets aggregated based on aggregation logic. |
 | **FlowEndTime** | Date and time in UTC | Last occurrence of the flow (which gets aggregated) in the flow log processing interval between `FlowIntervalStartTime` and `FlowIntervalEndTime`. In terms of flow log v2, this field contains the time when the last flow with the same four-tuple started (marked as **B** in the raw flow record). |
-| **FlowType**  | - IntraVNet <br> - InterVNet <br> - S2S <br> - P2S  <br> - AzurePublic <br> - ExternalPublic <br> - MaliciousFlow  <br> - Unknown Private <br> - Unknown | Definition in notes below the table. |
+| **FlowType**  | - IntraVNet <br> - InterVNet <br> - S2S <br> - P2S  <br> - AzurePublic <br> - ExternalPublic <br> - MaliciousFlow  <br> - Unknown Private <br> - Unknown | See [Notes](#notes) for definitions. |
 | **SrcIP** | Source IP address | Blank in AzurePublic and ExternalPublic flows. |
 | **DestIP** | Destination IP address | Blank in AzurePublic and ExternalPublic flows. |
 | **TargetResourceId** | ResourceGroupName/ResourceName | The ID of the resource at which flow logging and traffic analytics is enabled. |
@@ -237,7 +237,7 @@ The following table details public IP schema:
 | **FASchemaVersion_s** | 2 | Schema version. Doesn't reflect NSG flow log version. |
 | **FlowIntervalStartTime_t** | Date and Time in UTC | Start time of the flow log processing interval (time from which flow interval is measured). |
 | **FlowIntervalEndTime_t** | Date and Time in UTC | End time of the flow log processing interval. |
-| **FlowType_s** | - AzurePublic <br> - ExternalPublic <br> - MaliciousFlow | Definition in notes below the table. |
+| **FlowType_s** | - AzurePublic <br> - ExternalPublic <br> - MaliciousFlow | See [Notes](#notes) for definitions. |
 | **IP** | Public IP | Public IP whose information is provided in the record. |
 | **Location** | Location of the IP | - For Azure Public IP: Azure region of virtual network/network interface/virtual machine to which the IP belongs OR Global for IP [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). <br> - For External Public IP and Malicious IP: 2-letter country code where IP is located (ISO 3166-1 alpha-2). |
 | **PublicIPDetails** | Information about IP | - For AzurePublic IP: Azure Service owning the IP or Microsoft virtual public IP for [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). <br> - ExternalPublic/Malicious IP: WhoIS information of the IP. |
@@ -254,10 +254,10 @@ The following table details public IP schema:
 | **FASchemaVersion** | 2  | Schema version. Doesn't reflect NSG flow Log version. |
 | **FlowIntervalStartTime**| Date and time in UTC | Start time of the flow log processing interval (the time from which flow interval is measured). |
 | **FlowIntervalEndTime**| Date and time in UTC | End time of the flow log processing interval. |
-| **FlowType** | - AzurePublic <br> - ExternalPublic <br> - MaliciousFlow | For the definition, see the table below. |
+| **FlowType** | - AzurePublic <br> - ExternalPublic <br> - MaliciousFlow | See [Notes](#notes) for definitions. |
 | **IP**| Public IP | Public IP whose information is provided in the record. |
 | **PublicIPDetails** | Information about IP | **For AzurePublic IP**: Azure Service owning the IP or **Microsoft Virtual Public IP** for the IP 168.63.129.16. <br> **ExternalPublic/Malicious IP**: WhoIS information of the IP. |
-| **ThreatType** | Threat posed by malicious IP | *For Malicious IPs only*. One of the threats from the list of currently allowed values (described in the table below). |
+| **ThreatType** | Threat posed by malicious IP | *For Malicious IPs only*. One of the threats from the list of currently allowed values. For more information, see [Notes](#notes). |
 | **DNSDomain** | DNS domain | *For Malicious IPs only*. Domain name associated with this IP. |
 | **ThreatDescription** |Description of the threat | *For Malicious IPs only*. Description of the threat posed by the malicious IP. |
 | **Location** | Location of the IP | **For Azure Public IP**: Azure region of virtual network / network interface / virtual machine to which the IP belongs or Global for IP 168.63.129.16. <br> **For External Public IP and Malicious IP**: two-letter country code (ISO 3166-1 alpha-2) where IP is located. |
