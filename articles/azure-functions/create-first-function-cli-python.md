@@ -28,8 +28,6 @@ Before you begin, you must have the following requirements in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ The [Azure Functions Core Tools](functions-run-local.md#v2) version 4.x.
-
 + One of the following tools for creating Azure resources:
 
   + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
@@ -42,6 +40,8 @@ Before you begin, you must have the following requirements in place:
 ::: zone-end  
 
 [!INCLUDE [functions-x86-emulation-on-arm64-note](../../includes/functions-x86-emulation-on-arm64-note.md)]
+
+[!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)]
 
 ## <a name="create-venv"></a>Create and activate a virtual environment
 

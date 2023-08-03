@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 07/26/2022
+ms.date: 07/26/2023
 ms.author: glenga
 ---
 
@@ -12,6 +12,4 @@ ms.author: glenga
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
-+ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
-
-+ [Azure Functions Core Tools 4.x](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools).
++ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. This extension installs [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md) for you the first time you locally run your functions.

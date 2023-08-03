@@ -12,8 +12,6 @@ zone_pivot_groups: programming-languages-set-functions
 
 Azure Functions Core Tools lets you develop and test your functions on your local computer. Core Tools includes a version of the same runtime that powers Azure Functions. This runtime means your local functions run as they would in Azure and can connect to live Azure services during local development and debugging. You can even deploy your code project to Azure using Core Tools.
 
-[!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
-
 Core Tools can be used with all [supported languages](supported-languages.md). Select your language at the top of the article.
 
 ::: zone pivot="programming-language-csharp"
@@ -46,6 +44,10 @@ To be able to publish to Azure from Core Tools, you must have one of the followi
 
 These tools are required to authenticate with your Azure account from your local computer.
 
+[!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)]
+
+When upgrading to the latest version of Core Tools, you should use the same package manager as the original installation to perform the upgrade.  
+
 ## <a name="v2"></a>Core Tools versions
 
 Major versions of Azure Functions Core Tools are linked to specific major versions of the Azure Functions runtime. For example, version 4.x of Core Tools supports version 4.x of the Functions runtime. This is the recommended major version of both the Functions runtime and Core Tools. You can find the latest Core Tools release version on [this release page](https://github.com/Azure/azure-functions-core-tools/releases/latest). 
@@ -58,103 +60,14 @@ func --version
 
 Unless otherwise noted, the examples in this article are for version 4.x. 
 
-The following considerations apply to Core Tools versions:
+The following considerations apply to Core Tools installations:
 
 + You can only install one version of Core Tools on a given computer. 
 
 + Version 2.x and 3.x of Core Tools were used with versions 2.x and 3.x of the Functions runtime, which have reached their end of life (EOL). For more information, see [Azure Functions runtime versions overview](functions-versions.md).  
 ::: zone pivot="programming-language-csharp,programming-language-javascript"  
-+ Version 1.x of Core Tools is required when using version 1.x of the Functions Runtime, which is still supported. This version of Core Tools can only be run locally on Windows computers. If you're currently running on version 1.x, you should consider [migrating your app to version 4.x](migrate-version-1-version-4.md) today. 
-::: zone-end
-
-## Install the Azure Functions Core Tools
-
-The recommended way to install Core Tools depends on the operating system of your local development computer.
-
-# [Windows](#tab/windows)
-
-The following steps use a Windows installer (MSI) to install Core Tools v4.x. For more information about other package-based installers, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/v4.x/README.md#windows).
-
-Download and run the Core Tools installer, based on your version of Windows:
-
-- [v4.x - Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2174087) (Recommended. [Visual Studio Code debugging](functions-develop-vs-code.md#debugging-functions-locally) requires 64-bit.)
-- [v4.x - Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2174159)
-
-If you previously used Windows installer (MSI) to install Core Tools on Windows, you should uninstall the old version from Add Remove Programs before installing the latest version.
-
-If you need to install version 1.x of the Core Tools, see the [GitHub repository](https://github.com/Azure/azure-functions-core-tools/blob/v1.x/README.md#installing) for more information.
-
-# [macOS](#tab/macos)
-
-[!INCLUDE [functions-x86-emulation-on-arm64-note](../../includes/functions-x86-emulation-on-arm64-note.md)]
-
-The following steps use Homebrew to install the Core Tools on macOS.
-
-1. Install [Homebrew](https://brew.sh/), if it's not already installed.
-
-1. Install the Core Tools package:
-
-    ```bash
-    brew tap azure/functions
-    brew install azure-functions-core-tools@4
-    # if upgrading on a machine that has 2.x or 3.x installed:
-    brew link --overwrite azure-functions-core-tools@4
-    ```
-# [Linux](#tab/linux)
-
-The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools on your Ubuntu/Debian Linux distribution. For other Linux distributions, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/v4.x/README.md#linux).
-
-1. Install the Microsoft package repository GPG key, to validate package integrity:
-
-    ```bash
-    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-    sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-    ```
-
-1. Set up the APT source list before doing an APT update.
-
-    ##### Ubuntu
-
-    ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
-    ```
-
-    ##### Debian
-
-    ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs | cut -d'.' -f 1)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
-    ```
-
-1. Check the `/etc/apt/sources.list.d/dotnetdev.list` file for one of the appropriate Linux version strings in the following table:
-
-    | Linux distribution         | Version    |
-    | -------------------------- | ---------- |
-    | Debian 11                  | `bullseye` |
-    | Debian 10                  | `buster`   |
-    | Debian 9                   | `stretch`  |
-    | Ubuntu 22.04               | `jammy`    |
-    | Ubuntu 20.04               | `focal`    |
-    | Ubuntu 19.04               | `disco`    |
-    | Ubuntu 18.10               | `cosmic`   |
-    | Ubuntu 18.04               | `bionic`   |
-    | Ubuntu 17.04               | `zesty`    |
-    | Ubuntu 16.04/Linux Mint 18 | `xenial`   |
-
-1. Start the APT source update:
-
-    ```bash
-    sudo apt-get update
-    ```
-
-1. Install the Core Tools package:
-
-    ```bash
-    sudo apt-get install azure-functions-core-tools-4
-    ```
-
----
-
-When upgrading to the latest version of Core Tools, you should use the same package manager as the original installation to perform the upgrade. Visual Studio and Visual Studio Code may also install Azure Functions Core Tools, depending on your specific tools installation. 
++ Version 1.x of Core Tools is required when using version 1.x of the Functions Runtime, which is still supported. This version of Core Tools can only be run locally on Windows computers. If you're currently running on version 1.x, you should consider [migrating your app to version 4.x](migrate-version-1-version-4.md) today. If you still need to install version 1.x of the Core Tools, see the [GitHub repository](https://github.com/Azure/azure-functions-core-tools/blob/v1.x/README.md#installing) for more information.
+::: zone-end  
 
 ## Create a local Functions project
 
