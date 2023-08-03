@@ -27,7 +27,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 We observed an issue where $import kept on retrying when NDJSON file size is greater than 2GB. The issue is fixed, for details visit [3342](https://github.com/microsoft/fhir-server/pull/3342).
 
 **Bug Fix: Patient and Group level export job restart on interruption**
-Patient and Group level exports on interruption would restrat from the beginning. Bug is fixed to restart the export jobs from the last sucessfully completed page of results. For more details visit [3205](https://github.com/microsoft/fhir-server/pull/3205).
+Patient and Group level exports on interruption would restart from the beginning. Bug is fixed to restart the export jobs from the last sucessfully completed page of results. For more details visit [3205](https://github.com/microsoft/fhir-server/pull/3205).
 
 
 ## June 2023
