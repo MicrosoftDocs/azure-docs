@@ -101,11 +101,11 @@ Once the connection is completed its state will return to Active.
 
 **Q.** How long does it take for the conversion to complete?
 
-**A.** For conversions that do not involve any IP address changes, if the expected setup is done by the peering partner, the conversion should be completed in ~2 business days. For conversions involving IP addresses change, there is an extra delay in reserving new addresses internally and considering the delay in peering partner finishing their end of the configuration, expect the process to take ~5 business days.
+**A.** For conversions that do not involve any IP address changes, if the expected setup is done by the peering partner, the conversion should be completed in ~two business days. For conversions involving IP addresses change, there is an extra delay in reserving new addresses internally and considering the delay in peering partner finishing their end of the configuration, expect the process to take ~five business days.
 
 **Q.** Is there an impact on traffic for the whole-time conversion happens?
 
-**A.** Conversion process involves several stages and not all stages have traffic impact. Draining the traffic, configuring new policies pertaining to the type of peering, and allowing the traffic back once BGP and BFD come up are done serially. Combined these steps usually take ~2hrs given the peering partner complete their end of the configurations. For Voice conversions, ensure that the BFD setup is done on time to ensure minimal downtime. For conversions involving change in IP addresses, there is almost zero downtime, since the traffic is seamlessly shifted to the session with the new addresses from the old session after which the old session is shut down.
+**A.** Conversion process involves several stages and not all stages have traffic impact. Draining the traffic, configuring new policies pertaining to the type of peering, and allowing the traffic back once BGP and BFD come up are done serially. Combined these steps usually take ~two hrs given the peering partner complete their end of the configurations. For Voice conversions, ensure that the BFD setup is done on time to ensure minimal downtime. For conversions involving change in IP addresses, there is almost zero downtime, since the traffic is seamlessly shifted to the session with the new addresses from the old session after which the old session is shut down.
 
 **Q.** How do I know which connection to configure the new Microsoft provided IP addresses?
 
@@ -115,9 +115,9 @@ Once the connection is completed its state will return to Active.
 
 **A.** This state could be either due to a configuration or an internal error or the process could be waiting for the peering partner side of configurations. We monitor and catch these issues and give you an email notification promptly. If you have further questions, contact peeringservice@microsoft.com for resolution.
 
-**Q.** I have 2 different peerings, Peering A with standard PNI(s) connections and peering B with Voice connections. I would like to convert the standard PNI peering connections to Voice. What happens to the peering resources in this case?
+**Q.** I have two different peerings, Peering A with standard PNI(s) connections and peering B with Voice connections. I would like to convert the standard PNI peering connections to Voice. What happens to the peering resources in this case?
 
-**A.** Once peering A is converted from PNIs to Voice, the connections from Peering A are moved to Peering B and Peering A will be deleted. For example: If peering A with 2 PNI connections are converted to Voice, and peering B already has 2 connections, the process will result in Peering B which is the Voice peering having 4 connections now and the Peering A resource will be removed. This is by design that Peering as a resource provider maintains only one peering for a given provider and type of direct peering at a given location.
+**A.** Once peering A is converted from PNIs to Voice, the connections from Peering A are moved to Peering B and Peering A will be deleted. For example: If peering A with two PNI connections are converted to Voice, and peering B already has two connections, the process will result in Peering B which is the Voice peering having four connections now and the Peering A resource will be removed. This is by design that Peering as a resource provider maintains only one peering for a given provider and type of direct peering at a given location.
 
 **Q.** I have more questions what is a good place to contact you at?
 
