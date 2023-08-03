@@ -6,7 +6,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: conceptual
-ms.date: 08/01/2023
+ms.date: 08/03/2023
 ---
 
 # What's new in the Azure Storage Mover service
@@ -55,7 +55,7 @@ Azure Storage Mover is a hybrid service, which continuously introduces new featu
 Refresh release notes for:
 
 - Service version: August 5, 2023
-- Agent version: x.x.xxxx
+- Agent version: 2.0.287
 
 ### Migration scenarios
 Azure Storage mover can migrate your SMB share to Azure Files shares (in public preview).

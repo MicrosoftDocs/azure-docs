@@ -2,7 +2,7 @@
 author: stevenmatthew
 ms.author: shaas
 ms.topic: include
-ms.date: 07/22/2023
+ms.date: 08/03/2023
 ms.service: azure-storage-mover
 ---
 <!-- 
@@ -29,5 +29,5 @@ The following table identifies the currently supported source-to-destination sce
 
 |Protocol   |Source        |Target                          |Agent version required |
 |-----------|--------------|--------------------------------|-----------------------|
-|SMB        |SMB mount     |Azure file share                |2.0.277                |
+|SMB        |SMB mount     |Azure file share                |2.0.287                |
 |NFS        |NFS mount     |Azure blob storage container    |1.1.256                |
