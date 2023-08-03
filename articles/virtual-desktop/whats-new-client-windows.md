@@ -32,7 +32,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.4485
 
-*Date published: July 25, 2023*
+*Date published: July 11, 2023*
 
 Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17f1J), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17mKo), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17sgF)
 

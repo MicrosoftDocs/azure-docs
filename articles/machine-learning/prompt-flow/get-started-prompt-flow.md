@@ -97,7 +97,7 @@ At the right, it's the graph view for visualization only. You can zoom in, zoom 
 
 :::image type="content" source="./media/get-started-prompt-flow/graph-view.png" alt-text="Screenshot of web classification highlighting graph view area." lightbox = "./media/get-started-prompt-flow/graph-view.png":::
 
-In this guide, we use **Web Classification** sample to walk you through the main user journey. Web Classification is a flow demonstrating multi-class classification with LLM. Given a URL, it will classify the URL into a web category with just a few shots, simple summarization and classification prompts. For example, given \"https://www.imbd.com/\", it will classify this URL into \"Movie\".
+In this guide, we use **Web Classification** sample to walk you through the main user journey. Web Classification is a flow demonstrating multi-class classification with LLM. Given a URL, it will classify the URL into a web category with just a few shots, simple summarization and classification prompts. For example, given \"https://www.imdb.com/\", it will classify this URL into \"Movie\".
 
 In the graph view, you can see how the sample flow looks like. The input is a URL to classify, then it uses a Python script to fetch text content from the URL, use LLM to summarize the text content within 100 words, then classify based on the URL and summarized text content, last use Python script to convert LLM output into a dictionary. The prepare_examples node is to feed few-shot examples to classification node's prompt.
 
@@ -113,7 +113,7 @@ When unfolding **Inputs** section, you can create and view inputs. For Web Class
 
 :::image type="content" source="./media/get-started-prompt-flow/flow-input.png" alt-text="Screenshot of Web classification highlighting the inputs." lightbox = "./media/get-started-prompt-flow/flow-input.png":::
 
-The input schema (name: url; type: string) and value are already set when cloning samples. You can change to another value manually, for example \"https://www.imbd.com/\".
+The input schema (name: url; type: string) and value are already set when cloning samples. You can change to another value manually, for example \"https://www.imdb.com/\".
 
 ### Set up LLM nodes
 

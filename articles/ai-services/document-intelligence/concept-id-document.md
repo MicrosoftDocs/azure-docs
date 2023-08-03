@@ -119,7 +119,7 @@ Extract data, including name, birth date, and expiration date, from ID documents
 
 * An [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
- :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+ :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 ::: moniker range=">=doc-intel-3.0.0"
 
@@ -132,7 +132,7 @@ Extract data, including name, birth date, and expiration date, from ID documents
 
 1. Select the **Analyze** button:
 
-    :::image type="content" source="media/studio/id-document-analyze.png" alt-text="Screenshot: analyze ID document menu.":::
+    :::image type="content" source="media/studio/id-document-analyze.png" alt-text="Screenshot of analyze ID document menu.":::
 
     > [!div class="nextstepaction"]
     > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)
@@ -165,7 +165,7 @@ Extract data, including name, birth date, and expiration date, from ID documents
 
 1. In the **key** field, paste  the key you obtained from your Document Intelligence resource.
 
-    :::image type="content" source="media/fott-select-form-type.png" alt-text="Screenshot: select document type dropdown menu.":::
+    :::image type="content" source="media/fott-select-form-type.png" alt-text="Screenshot of select document type dropdown menu.":::
 
 1. Select **Run analysis**. The Document Intelligence Sample Labeling tool calls the Analyze Prebuilt API and analyzes the document.
 
