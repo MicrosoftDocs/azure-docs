@@ -35,7 +35,7 @@ All of the virtual machines created for virtual network function (VNF) or contai
 
 ### CPU isolation
 
-CPU isolation provides a clear separation between the CPUs allocated for workloads from the CPUs allocated for control plane and platform activities. CPU isolation prevents interference and limits the performance predictability for critical workloads. By isolating CPU cores or groups of cores, operators can mitigate the effect of noisy neighbors. It guarantees the required processing power for latency-sensitive applications.
+CPU isolation provides a clear separation between the CPUs allocated for workloads and the CPUs allocated for control plane and platform activities. CPU isolation prevents interference and limits the performance predictability for critical workloads. By isolating CPU cores or groups of cores, operators can mitigate the effect of noisy neighbors. It helps guarantee the required processing power for latency-sensitive applications.
 
 Azure Operator Nexus reserves a small set of CPUs for the host operating system and other platform applications. The remaining CPUs are available for running actual workloads.
 
@@ -100,6 +100,6 @@ Multiple properties reflect the operational state of BMMs. They include:
 > [!NOTE]
 > Customers can't create or delete BMMs directly. These machines are created only as the realization of the cluster lifecycle. Implementation blocks creation or deletion requests from any user, and it allows only internal/application-driven creation or deletion operations.
 
-## Form-factor specific information
+## Form-factor-specific information
 
-Azure Operator Nexus offers a group of on-premises cloud solutions catering to both [near-edge](reference-near-edge-compute.md) and far-edge environments. For more information about the compute offerings and the respective configurations, see the following reference links for more details.
+Azure Operator Nexus offers a group of on-premises cloud solutions that cater to both [near-edge](reference-near-edge-compute.md) and far-edge environments. For more information about the compute offerings and the respective configurations, see the following reference links.
