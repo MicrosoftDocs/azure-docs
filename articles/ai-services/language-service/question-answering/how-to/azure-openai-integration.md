@@ -1,0 +1,71 @@
+---
+title: Integrate Azure OpenAI with question answering
+titleSuffix: Azure AI services
+description: Learn how to use question answering with Azure OpenAI.
+ms.service: cognitive-services
+ms.subservice: language-service
+author: jboback
+ms.author: jboback
+ms.topic: how-to
+ms.date: 08/02/2023
+---
+
+# Integrate Azure OpenAI on your data with question-answer pairs from Custom Question Answering
+
+Custom Question Answering enables you to create a conversational layer on your data based on sophisticated Natural Language Processing (NLP) capabilities with enhanced relevance using a deep learning ranker, precise answers, and end-to-end region support. Most use cases for Custom Question Answering rely on finding appropriate answers for inputs by integrating it with chat bots, social media applications and speech-enabled desktop applications. 
+
+AI runtimes however, are evolving due to the development of Large Language Models (LLMs), such as GPT-35-Turbo and GPT-4 offered by [Azure Open AI](../../../openai/overview.md) can address many chat-based use cases, which you may want to migrate to.
+
+At the same time, LLMs are not perfect and customers often require Custom question answering's premium authoring experience to achieve more granular control over the quality and content of question-answer pairs, and allow them to address content issues in production. Read this article to learn how to migrate your Custom Question Answering project to Azure OpenAI On Your Data (Preview), using your project's underlying Azure Cognitive Search indexes.
+
+## Prerequisites
+
+* An existing Azure Open AI resource. If you don't already have an Azure Open AI resource, then [create one and deploy a model](../../../openai/how-to/create-resource.md).
+
+    * Azure OpenAI requires registration and is currently only available to approved enterprise customers and partners. See [Limited access to Azure OpenAI Service](/legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context) for more information. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue.
+    * Be sure that you are assigned at least the [Cognitive Services OpenAI Contributor role](/azure/role-based-access-control/built-in-roles#cognitive-services-openai-contributor) for the Azure OpenAI resource.
+
+* An Azure Language Service resource and Custom Question Answering project. If you don’t have one already, then [create one](../quickstart/sdk.md). 
+
+## Migrate to Azure OpenAI on your data
+
+1.	Sign in to [Language Studio](https://aka.ms/languageStudio) and navigate to your Custom Question Answering project.
+
+    :::image type="content" source="../media/question-answering/deployment-sources.png" alt-text="A screenshot showing a Custom Question Answering deployment." lightbox="../media/question-answering/deployment-sources.png":::
+
+1. Select the **Azure Search** tab on the navigation menu to the left.
+
+1. Make a note of your Azure Search details, such as Azure Search resource name, subscription, and location. You will need this information when you connect your Azure Cognitive Search index to Azure Open AI.
+
+    :::image type="content" source="../media/question-answering/azure-search.png" alt-text="A screenshot showing the Azure search section for a Custom Question Answering project." lightbox="../media/question-answering/azure-search.png":::
+
+1. Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with credentials that have access to your Azure OpenAI resource.
+
+1. Select the **Chat playground** tile.
+
+    :::image type="content" source="../../../openai/media/quickstarts/chat-playground-card.png" alt-text="A screenshot of the Azure OpenAI Studio landing page." lightbox="../../../openai/media/quickstarts/chat-playground-card.png":::
+
+1. On the **Assistant setup** tile, select **Add your data (preview)** > **+ Add a data source**.
+
+    :::image type="content" source="../../../openai/media/quickstarts/chatgpt-playground-add-your-data.png" alt-text="A screenshot showing the button for adding your data in Azure OpenAI Studio." lightbox="../../../openai/media/quickstarts/chatgpt-playground-add-your-data.png":::
+
+1. In the pane that appears, select **Upload files** under **Select data source**. Select **Azure Cognitive Search**. This will update the screen with **Data field mapping** options depending on your data source.
+
+1. Select the subscription, Azure Cognitive Search service and Azure Cognitive Search Index associated with your Custom Question Answering project. Select the acknowledgment that connecting it will incur usage on your account. Then select **Next**.
+
+    :::image type="content" source="../media/question-answering/azure-search-data-source.png" alt-text="A screenshot showing selection information for Azure Cognitive Search in Azure OpenAI Studio." lightbox="../media/question-answering/azure-search-data-source.png":::
+
+1. On the **Index data field mapping** screen, select *answer* for **Content data** field. The input for other fields such as **File name**, **Title** and **URL** are optional depending on the nature of your data source.
+
+    :::image type="content" source="../media/question-answering/data-field-mapping.png" alt-text="A screenshot showing selection information for Azure Cognitive Search in Azure OpenAI Studio." lightbox="../media/question-answering/data-field-mapping.png":::
+
+1. Select **Next**. You can skip the **Add an existing Semantic Search configuration** if it isn't applicable. Review the information you entered, and select **Save and close**.
+
+1. Your data source has now been added. Select your model's deployment name under the **Configuration** > **Deployment** tab on the menu to the right. 
+
+    :::image type="content" source="../media/quickstarts/chat-playground.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/quickstarts/chat-playground.png":::
+
+You can now start exploring Azure OpenAI capabilities with a no-code approach through the chat playground. It's simply a text box where you can submit a prompt to generate a completion. From this page, you can quickly iterate and experiment with the capabilities. 
+
+## Next steps
+* [Using Azure OpenAI on your data](../../../openai/concepts/use-your-data.md) 
