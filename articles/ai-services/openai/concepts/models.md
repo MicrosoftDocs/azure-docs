@@ -5,7 +5,7 @@ description: Learn about the different model capabilities that are available wit
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual 
-ms.date: 07/27/2023
+ms.date: 08/02/2023
 ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -29,7 +29,7 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 
  GPT-4 can solve difficult problems with greater accuracy than any of OpenAI's previous models. Like GPT-3.5 Turbo, GPT-4 is optimized for chat and works well for traditional completions tasks. Use the Chat Completions API to use GPT-4. To learn more about how to interact with GPT-4 and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
 
-Due to high demand, access to this model series is currently only available by request. To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4)
+To request access to GPT-4, Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4)
 
 - `gpt-4`
 - `gpt-4-32k`
@@ -71,7 +71,7 @@ The DALL-E models, currently in preview, generate images from text prompts that 
 > Due to high demand:
 >
 > - South Central US is temporarily unavailable for creating new resources and deployments.
-> - East US is temporarily unavailable for new deployments of GPT-4 version 0314 models.
+> - East US and France Central are temporarily unavailable for new deployments of GPT-4 version 0314 models.
 
 ### GPT-4 models
 
@@ -81,8 +81,8 @@ These models can only be used with the Chat Completion API.
 |  --- |  --- | --- | --- | --- |
 | `gpt-4` <sup>1,</sup><sup>2</sup> (0314)     |  East US, France Central |  N/A                | 8,192                | September 2021         |
 | `gpt-4-32k` <sup>1,</sup><sup>2</sup> (0314)  |  East US, France Central |  N/A                | 32,768               | September 2021         |
-| `gpt-4` <sup>1</sup> (0613)     |  East US, France Central |  N/A                | 8,192                | September 2021         |
-| `gpt-4-32k` <sup>1</sup> (0613)  |  East US, France Central |  N/A                | 32,768               | September 2021         |
+| `gpt-4` <sup>1</sup> (0613)     |  Canada East, East US, East US 2, France Central, Japan East, UK South |  N/A                | 8,192                | September 2021         |
+| `gpt-4-32k` <sup>1</sup> (0613)  |  Canada East, East US, East US 2, France Central, Japan East, UK South |  N/A                | 32,768               | September 2021         |
 
 <sup>1</sup> The model is [only available by request](https://aka.ms/oai/get-gpt4).<br>
 <sup>2</sup> Version `0314` of gpt-4 and gpt-4-32k will be retired no earlier than July 5, 2024.  See [model updates](#model-updates) for model upgrade behavior.
@@ -109,7 +109,7 @@ These models can only be used with Embedding API requests.
 
 |  Model ID  |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --- | --- | --- | --- | --- |
-| text-embedding-ada-002 (version 2) | Canada East, East US, South Central US, West Europe | N/A |8,191 | Sep 2021 |
+| text-embedding-ada-002 (version 2) | Canada East, East US, France Central, Japan East, North Central US, South Central US, West Europe | N/A |8,191 | Sep 2021 |
 | text-embedding-ada-002 (version 1) | East US, South Central US, West Europe | N/A |2,046 | Sep 2021 |
 
 ### DALL-E models (Preview)

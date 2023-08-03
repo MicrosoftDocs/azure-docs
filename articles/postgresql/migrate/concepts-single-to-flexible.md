@@ -247,18 +247,18 @@ In general, a powerful SKU is recommended for the target as the migration tool r
 
 If the data distribution on the source is highly skewed, with most of the data present in one table, the allocated compute for migration is not fully utilized and it creates a bottleneck. So, we will split large tables into smaller chunks which are then migrated in parallel. This is applicable to tables that have more than 10000000 (10m) tuples. Splitting the table into smaller chunks is possible is possible if one of the following conditions are satisfied.  
 
-1. The table must have a column with a primary key or unique index of type int or big int.
+1. The table must have a column with a simple (not composite) primary key or unique index of type int or big int.
 
 > [!NOTE]  
 > In case of approaches #2 or #3 below, the user must carefully evaluate the implications of adding a unique index column to the source schema. Only after confirmation that adding a unique index column will not affect the application should the user go ahead with the changes.
 
-2. If the table does not have a primary key or unique index of type int or big int, but has a column that meets the data type criteria, the column can be converted into a unique index using the below command. Note that this command does not require a lock on the table.
+2. If the table does not have a simple primary key or unique index of type int or big int, but has a column that meets the data type criteria, the column can be converted into a unique index using the below command. Note that this command does not require a lock on the table.
 
 ```sql
     create unique index concurrently partkey_idx on <table name> (column name);
 ```
 
-3. If the table has neither an int/big int primary key or unique index nor any column that meets the data type criteria, you can add such a column using [ALTER](https://www.postgresql.org/docs/current/sql-altertable.html) and drop it post-migration. Note that running the ALTER command requires a lock on the table.
+3. If the table has neither a simple int/big int primary key or unique index nor any column that meets the data type criteria, you can add such a column using [ALTER](https://www.postgresql.org/docs/current/sql-altertable.html) and drop it post-migration. Note that running the ALTER command requires a lock on the table.
 
 ```sql
     alter table <table name> add column <column name> bigserial unique;
@@ -273,7 +273,7 @@ If any of the above conditions are satisfied, the table will be migrated in mult
 
 In summary, the Single to Flexible migration tool will migrate a table in parallel threads and reduce the migration time if:
 
-1. The table has a column with a primary key or unique index of type int or big int.
+1. The table has a column with a simple primary key or unique index of type int or big int.
 2. The table has at least 10000000 (10m) rows so that the difference between the minimum and maximum value of the primary key is more than 10000000 (10m).
 3. The SKU used has idle cores which can be leveraged for migrating the table in parallel.
 
