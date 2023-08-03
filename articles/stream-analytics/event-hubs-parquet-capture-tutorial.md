@@ -73,7 +73,7 @@ Before you start, make sure you've completed the following steps:
 1. Locate the Azure Data Lake Storage Gen2 account you had used in the previous step.
 2. Select the container you had used in the previous step. You'll see parquet files created based on the *{date}/{time}* path pattern used in the previous step.
 
-    :::image type="content" source="./media/stream-analytics-no-code/capture-parquet-files.png" alt-text="Screenshot showing the captured parquet files in Azure Data Lake Storage Gen 2":::
+    :::image type="content" source="./media/stream-analytics-no-code/capture-parquet-files.png" alt-text="Screenshot showing the captured parquet files in Azure Data Lake Storage Gen 2.":::
 
 ## Query captured data in Parquet format with Azure Synapse Analytics
 ### Query using Azure Synapse Spark
