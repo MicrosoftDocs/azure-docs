@@ -10,7 +10,7 @@ ms.date: 08/01/2023
 We recommend that you enable Defender for Storage on the subscription level. Doing so ensures all storage accounts in the subscription will be protected, including future ones.
 
 > [!TIP]
-> You can always [configure specific storage accounts](https://learn.microsoft.com/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-subscription#override-defender-for-storage-subscription-level-settings) with custom configurations that differ from the settings configured at the subscription level (override subscription-level settings).
+> You can always [configure specific storage accounts](/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-subscription#override-defender-for-storage-subscription-level-settings) with custom configurations that differ from the settings configured at the subscription level (override subscription-level settings).
 
 ## Use REST API to enable on a subscription (recommended)
 
@@ -46,7 +46,7 @@ If you want to turn off the On-upload malware scanning or Sensitive data threat 
 
 To disable the entire Defender plan, set the pricingTier property value to Free and remove the subPlan and extensions properties.
 
-Learn more about [updating Defender plans with the REST API](https://learn.microsoft.com/rest/api/defenderforcloud/pricings/update?tabs=HTTP) in HTTP, Java, Go and JavaScript.
+Learn more about [updating Defender plans with the REST API](/rest/api/defenderforcloud/pricings/update) in HTTP, Java, Go and JavaScript.
 
 ## Use REST API to enable on a storage account
 
@@ -83,12 +83,12 @@ If you want to turn off the On-upload malware scanning or Sensitive data threat 
 
 To disable the entire Defender plan for the storage account, set the isEnabled property value to false and remove the malwareScanning and sensitiveDataDiscovery sections from the properties.
 
-Learn more about the [Microsoft.Security/DefenderForStorageSettings API](https://learn.microsoft.com/rest/api/defenderforcloud/defender-for-storage/create?tabs=HTTP) documentation.
+Learn more about the [Microsoft.Security/DefenderForStorageSettings API](/rest/api/defenderforcloud/defender-for-storage/create) documentation.
 
 > [!TIP]
-> Malware Scanning can be configured to send scanning results to the following: - **Event Grid custom topic** - for near-real time automatic response based on every scanning result. Learn more how to [configure Malware Scanning to send scanning events to an Event Grid custom topic](https://learn.microsoft.com/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-storage-account#setting-up-event-grid-for-malware-scanning); **Log Analytics workspace** - for storing every scan result in a centralized log repository for compliance and audit. Learn more how to [configure Malware Scanning to send scanning results to a Log Analytics workspace](https://learn.microsoft.com/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-storage-account#setting-up-logging-for-malware-scanning).
+> Malware Scanning can be configured to send scanning results to the following: - **Event Grid custom topic** - for near-real time automatic response based on every scanning result. Learn more how to [configure Malware Scanning to send scanning events to an Event Grid custom topic](/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-storage-account#setting-up-event-grid-for-malware-scanning); **Log Analytics workspace** - for storing every scan result in a centralized log repository for compliance and audit. Learn more how to [configure Malware Scanning to send scanning results to a Log Analytics workspace](/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-storage-account#setting-up-logging-for-malware-scanning).
 
-Learn more on how to [set up response for malware scanning](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-storage-configure-malware-scan) results.
+Learn more on how to [set up response for malware scanning](/azure/defender-for-cloud/defender-for-storage-configure-malware-scan) results.
 
 ## Next Steps
 
