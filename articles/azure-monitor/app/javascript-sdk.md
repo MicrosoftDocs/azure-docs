@@ -14,7 +14,7 @@ The Microsoft Azure Monitor Application Insights JavaScript SDK collects usage d
 
 The Application Insights JavaScript SDK has a base SDK and several plugins for additional capabilities.
 
-:::image type="content" source="media/javascript-sdk/conceptual-diagram-javascript-sdk.svg" alt-text="Conceptual diagram that shows the Application Insights JavaScript SDK, its plugins/extensions, and their relationship to each other." lightbox="media/javascript-sdk/conceptual-diagram-javascript-sdk.svg":::
+:::image type="content" source="media/javascript-sdk/conceptual-diagram-javascript-sdk.png" alt-text="Conceptual diagram that shows the Application Insights JavaScript SDK, its plugins/extensions, and their relationship to each other." lightbox="media/javascript-sdk/conceptual-diagram-javascript-sdk.png":::
 
 We collect page views by default. But if you want to also collect clicks by default, consider adding the [Click Analytics Auto-Collection plug-in](./javascript-feature-extensions.md): 
 
