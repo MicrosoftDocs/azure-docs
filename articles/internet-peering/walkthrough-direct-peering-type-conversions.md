@@ -27,7 +27,7 @@ A direct peering type conversion for a peering connection can only be requested 
 -  Type conversions run during the business hours of Pacific Daylight Time.
 -  For Voice conversions, the connection session addresses are provided by Microsoft and enabled with BFD (Bidirectional Forwarding Detection). It's expected that the partners set up their configurations accordingly.
 
-## 1. Configure the new Type on a Direct Peering
+## 1. Configure the new type on a Direct Peering
 ### Converting from PNI to Voice
 A peering with standard PNI(s) or PNI(s) enabled for MAPS can be converted to Voice PNI(s); this request must be made at the peering level, which means all the connections within the peering are converted.
 
@@ -44,7 +44,7 @@ You need to be a Peering Service Partner to enable Peering Service on a connecti
 Navigate to the Connection tab under settings and click edit on a connection.
 :::image type="content" source="./media/walkthrough-type-conversion/viewconnection.png" alt-text="Screenshot shows how to select within the Connections tab in the Azure portal." lightbox="./media/walkthrough-type-conversion/viewconnection.png":::
 
-Then edit the "Use for Peering Service" section to enabled and click Save.
+Then set the "Use for Peering Service" flag to 'Enabled' and click 'Save'.
 :::image type="content" source="./media/walkthrough-type-conversion/editconnection.png" alt-text="Screenshot shows how to edit a connection." lightbox="./media/walkthrough-type-conversion/editconnection.png":::
 
 Once the request is received, the 'Connection State' on each of the connections change to 'TypeChangeRequested'.
@@ -52,9 +52,7 @@ Once the request is received, the 'Connection State' on each of the connections 
 ## 2. Conversion approval
 Your request is reviewed and approved by someone from the internal team.
 
-Connections go through the TypeChangeRequested state until the type change is approved. 
-
-After approval, the connections will be converted one at a time to ensure that the redundant connection(s) are always up and carrying traffic.
+Connections remain in the 'TypeChangeRequested' state until they are approved. After approval, the connections will be converted one at a time to ensure that the redundant connection(s) are always up and carrying traffic.
 
 Now, the 'Connection State' on the connection(s) change to 'TypeChangeInProgress'.
 You can see this state in the Connection tab in the same location where you selected to edit the connection.
@@ -68,10 +66,10 @@ You're kept up to date through emails at the following steps:
 -  Session Address Changes (if any)
 -  Conversion complete
 -  Peering Azure Resource removal (if any)
+-  Request rejected
+-  Action required from peering partner
 
-In the case of a request rejection or any action needed by you from our team you'll also receive an email
-
-The peer email contact provided during the 'Peer Asn' resource creation will also receive a notification for each of the above steps. If there are any questions, contact peering@microsoft.com
+The email notifications will be sent to the peer email contact provided during the 'Peer Asn' resource creation. You can either reply back to the emails or contact peeringservice@microsoft.com in case of questions.
 
 If a conversion to Voice is requested and the connections already have IP addresses provided by Microsoft, please set up BFD on your sessions as early as possible to avoid any downtime. The conversion process for Voice waits for both the BGP and BFD sessions to come up before allowing any traffic on the sessions.
 
@@ -84,12 +82,9 @@ Once the connection is completed its state returns to Active.
 **Q.** Will there be an interruption to my connection?
 
 **A.** We do our absolute best and take various steps to prevent any interruption to service. These steps include:
--  Guaranteeing a redundant connection with equivalent bandwidth is up at the time of conversion.
+-  Guaranteeing that a redundant connection with equivalent bandwidth is up at the time of conversion.
 -  Performing any conversions one connection at a time.
--  Only bringing down old connections if:
-    -  it's necessary (for example in the case of an IP Address change).
-    -  the new connection has been established.
-    -  the traffic has completely drained and moved to the redundant connection.
+-  Only bringing down old connections if it's absolutely necessary (in the case of a type conversion while the IP address stays the same).
 -  Only performing conversions at times where engineers are online and capable of helping remedy any unlikely issues.  
 
 **Q.** Why has my request to convert the type of direct peering been rejected?
