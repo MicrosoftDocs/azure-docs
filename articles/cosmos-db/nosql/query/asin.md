@@ -48,5 +48,5 @@ The following example calculates the arcsine of the specified angle using the fu
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`SIN`](sin.md)

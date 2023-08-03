@@ -9,11 +9,11 @@ ms.subservice: openai
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 05/22/2023
+ms.date: 07/26/2023
 keywords: 
 ---
 
-[Source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai) | [Artifact (Maven)](https://central.sonatype.com/artifact/com.azure/azure-ai-openai/1.0.0-beta.1) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai/src/samples)
+[Source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai) | [Artifact (Maven)](https://central.sonatype.com/artifact/com.azure/azure-ai-openai/1.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai/src/samples)
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ mkdir "quickstart/src/main/java/com/azure/ai/openai/usage"
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-openai</artifactId>
-        <version>1.0.0-beta.1</version>
+        <version>1.0.0-beta.3</version>
     </dependency>
 </dependencies>
 </project>
@@ -155,7 +155,7 @@ public class GetCompletionsSample {
 
         Completions completions = client.getCompletions(deploymentOrModelId, new CompletionsOptions(prompt));
 
-        System.out.printf("Model ID=%s is created at %d.%n", completions.getId(), completions.getCreated());
+        System.out.printf("Model ID=%s is created at %s.%n", completions.getId(), completions.getCreatedAt());
         for (Choice choice : completions.getChoices()) {
             System.out.printf("Index: %d, Text: %s.%n", choice.getIndex(), choice.getText());
         }

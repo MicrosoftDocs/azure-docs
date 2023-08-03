@@ -51,7 +51,7 @@ The following Azure regions are currently supported for this feature:
 
 - Azure Global
 - Azure Government
-- Azure China 21Vianet
+- Microsoft Azure operated by 21Vianet
 
 Use of the SSH extension for Azure CLI on Azure Kubernetes Service (AKS) clusters is not supported. For more information, see [Support policies for AKS](../../aks/support-policies.md).
 
@@ -82,7 +82,7 @@ Azure Government:
 - `https://login.microsoftonline.us`: For PAM-based authentication flows.
 - `https://pasff.usgovcloudapi.net`: For Azure RBAC flows.
 
-Azure China 21Vianet:
+Microsoft Azure operated by 21Vianet:
 
 - `https://packages.microsoft.com`: For package installation and upgrades.
 - `http://169.254.169.254`: Azure Instance Metadata Service endpoint.
@@ -119,6 +119,8 @@ There are two ways to enable Azure AD login for your Linux VM:
 - The Azure Cloud Shell experience when you're creating a Linux VM or using an existing one
 
 ### Azure portal
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 You can enable Azure AD login for any of the [supported Linux distributions](#supported-linux-distributions-and-azure-regions) by using the Azure portal.
 
@@ -454,7 +456,7 @@ To uninstall old packages:
 1. If the command fails, try the low-level tools with scripts disabled:
    1. For Ubuntu/Debian, run `sudo dpkg --purge aadlogin`. If it's still failing because of the script, delete the `/var/lib/dpkg/info/aadlogin.prerm` file and try again.
    1. For everything else, run `rpm -e --noscripts aadogin`.
-1.	Repeat steps 3-4 for package `aadlogin-selinux`.
+1. Repeat steps 3-4 for package `aadlogin-selinux`.
 
 ### Extension installation errors
 

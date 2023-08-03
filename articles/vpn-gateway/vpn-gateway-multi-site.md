@@ -4,7 +4,7 @@ description: Learn how to connect multiple on-premises sites to a classic virtua
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ms.topic: how-to
 ms.date: 06/09/2023
 ms.author: cherylmc

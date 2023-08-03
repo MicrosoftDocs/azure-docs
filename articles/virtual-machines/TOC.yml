@@ -710,7 +710,7 @@
         href: image-builder-reliability.md
       - name: Image Optimization
         displayName: Image builder, images, building, boot, optimization, prefetch
-        href: image-builder-prefetch.md
+        href: vm-boot-optimization.md
     - name: Build image with Packer
       items:
       - name: Linux
@@ -1377,6 +1377,8 @@
       href: ephemeral-os-disks-faq.md
   - name: Securely import/export a disk
     items:
+    - name: Options for restricting access
+      href: disks-restrict-import-export-overview.md
     - name: Configure private links for disks - CLI
       href: ./linux/disks-export-import-private-links-cli.md
     - name: Configure private links for disks - Portal
