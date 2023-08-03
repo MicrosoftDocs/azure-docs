@@ -268,11 +268,11 @@ seq 1 4 | xargs -Iname -P4 curl "<YOUR_CONTAINER_APP_FQDN>/albums"
 
 This command sends four concurrent requests to the `/albums` endpoint of your container app.
 
-- `seq 1 4` generates a sequence from 1 to 4.
+- `seq 1 4` generates a sequence from one to four.
 - The pipe operator `|` sends this sequence to the `xargs` command.
 - `xargs` then runs `curl` with the specified URL.
-- The `-Iname` argument to `xargs` simply acts as a placeholder for the output of `seq`, which is not used.
-- The `-P4` argument to `xargs` tells it to run up to 4 processes at a time.
+- The `-Iname` argument to `xargs` acts as a placeholder for the output of `seq`. This prevents it being sent to the `curl` command.
+- The `-P4` argument to `xargs` tells it to run up to four processes at a time.
 
 For more information, see the manual pages for:
 - [seq](https://www.man7.org/linux/man-pages/man1/seq.1.html)
@@ -297,7 +297,7 @@ $Runspace.Open()
 
 These commands send four asynchronous requests to the `albums` endpoint of your container app.
 
-`[runspacefactory]::CreateRunspacePool(1,4)` creates a `RunspacePool` that allows up to 4 runspaces to run concurrently.
+`[runspacefactory]::CreateRunspacePool(1,4)` creates a `RunspacePool` that allows up to four runspaces to run concurrently.
 `1..4 | % {  }` runs the code enclosed in the curly braces four times. 
 `$ps = [powershell]::Create()` creates a new PowerShell instance.
 `$ps.RunspacePool = $Runspace` tells the PowerShell instance to run in our `RunspacePool`.
