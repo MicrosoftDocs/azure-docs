@@ -62,7 +62,9 @@ Microsoft CSS provides support for Community Gallery images.
 
 
 ## Platform Image Partners
+
 |Linux Publisher / Distribution|Images (Offers)|Microsoft Support Policy|Description|
+
 |---|---|---|---|
 |**Canonical / Ubuntu**|[Ubuntu Server 20.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-focal?tab=Overview) <br/><br/> [Ubuntu Server 22.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-jammy?tab=Overview)|Microsoft CSS provides commercially reasonable support these images.|Canonical produces official Ubuntu images for Microsoft Azure and continuously tracks and delivers updates to these, ensuring security and stability are built from the moment your virtual machines launch. <br/><br/> Canonical works closely with Microsoft to optimize Ubuntu images on Azure and ensure Ubuntu supports the latest cloud features as they are released. Ubuntu powers more mission-critical workloads on Azure than any other operating system. <br/><br/> https://ubuntu.com/azure |
 
