@@ -353,6 +353,73 @@ The following steps describe enable public IP on your node.
     az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
     ```
 
+    The command outputs in JSON format.
+
+    ```json
+    [
+      {
+        "etag": "etag_0",
+        "id": "<id_0/name>",
+        "idleTimeoutInMinutes": 15,
+        "ipAddress": "<ip_address_0>",
+        "ipConfiguration": {
+          "id": "<configuration_id_0>",
+          "resourceGroup": "<your_resource_group"
+        },
+        "ipTags": [],
+        "name": "<name>",
+        "provisioningState": "Succeeded",
+        "publicIPAddressVersion": "IPv4",
+        "publicIPAllocationMethod": "Static",
+        "resourceGroup": "<your_resource_group",
+        "resourceGuid": "resource_guid_0",
+        "sku": {
+          "name": "Standard"
+        }
+      },
+      {
+        "etag": "etag_1",
+        "id": "/<id_1/name>",
+        "idleTimeoutInMinutes": 15,
+        "ipAddress": "<ip_address_1>",
+        "ipConfiguration": {
+          "id": "<configuration_id_1>",
+          "resourceGroup": "<your_resource_group"
+        },
+        "ipTags": [],
+        "name": "<name>",
+        "provisioningState": "Succeeded",
+        "publicIPAddressVersion": "IPv4",
+        "publicIPAllocationMethod": "Static",
+        "resourceGroup": "<your_resource_group>",
+        "resourceGuid": "resource_guid_1",
+        "sku": {
+          "name": "Standard"
+        }
+      },
+      {
+        "etag": "etag_2",
+        "id": "<id_2/name>",
+        "idleTimeoutInMinutes": 15,
+        "ipAddress": "<ip_address_2>",
+        "ipConfiguration": {
+          "id": "<configuration_id_2>",
+          "resourceGroup": "<your_resource_group"
+        },
+        "ipTags": [],
+        "name": "<name>",
+        "provisioningState": "Succeeded",
+        "publicIPAddressVersion": "IPv4",
+        "publicIPAllocationMethod": "Static",
+        "resourceGroup": "<your_resource_group>",
+        "resourceGuid": "resource_guid_2",
+        "sku": {
+          "name": "Standard"
+        }
+      }
+    ]
+    ```
+
 <a id="ipv6"></a>
 ## Enable IPv6
 Managed clusters don't enable IPv6 by default. This feature will enable full dual stack IPv4/IPv6 capability from the Load Balancer frontend to the backend resources. Any changes you make to the managed cluster load balancer config or NSG rules will affect both the IPv4 and IPv6 routing.
