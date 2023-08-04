@@ -50,7 +50,7 @@
         href: migrate-storage.md
       - name: Azure SQL managed instance
         href: migrate-sql-managed-instance.md
-      - name: Azure Virtual Machines and virtual machine scale sets
+      - name: Azure Virtual machines and Virtual machine scale sets
         href: migrate-vm.md
       - name: Workload - Azure Kubernetes and MySQL
         href: migrate-workload-aks-mysql.md
@@ -248,7 +248,7 @@
       - name: Azure Web Application Firewall
         href: ../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Virtual Machine Scale Sets
-        href: ../virtual-machines/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: reliability-virtual-machine-scale-sets.md
       - name: Azure Virtual Machines
         href: reliability-virtual-machines.md
       - name: Azure Virtual Network
