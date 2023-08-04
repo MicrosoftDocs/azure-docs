@@ -31,6 +31,14 @@ The `spec.target` property has the following child property.
 |Name|Description|Required|Type|
 |---|---|---|---|
 |configMapName|The name of the ConfigMap to be created|true|string|
+|fileStyleConfigMap|The settings for creating a ConfigMap that all selected key-values are bundled as a single data item in designated format|false|object|
+
+The `spec.target.fileStyleConfigMap` property has the following child property.
+
+|Name|Description|Required|Type|
+|---|---|---|---|
+|format|The data item format of how the key-values are bundled, `json`, `yaml` and `properties` formats are supported|true|string|
+|key|The data item key of the bundled key-values|true|string|
 
 If the `spec.auth` property isn't set, the system-assigned managed identity is used. It has the following child properties. Only one authentication method should be set.
 
@@ -283,4 +291,43 @@ spec:
             label: common
           - key: sentinelKey
             label: development
+```
+
+### File-style ConfigMap
+
+Setting the `fileStyleConfigMap` property, all selected key-values are bundled as a single item in a ConfigMap that use the `fileStyleConfigMap.key` as key, all bundled key-values as the value.
+
+Creating a ConfigMap with file-style data is useful when you want to mount the ConfigMap as a file in a Pod. For example, you can create an `AzureAppConfigurationProvider` with following settings.
+
+``` yaml
+apiVersion: azconfig.io/v1beta1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+    fileStyleConfigMap:
+      format: json
+      key: appSettings.json
+  keyValues:
+    selectors:
+      - keyFilter: key1, key2, key3
+```
+
+Assume these key-values are selected from Azure App Configuration
+
+|key|value|
+|---|---|
+|key1|value1|
+|key2|value2|
+|key3|value3|
+
+The data of ConfigMap created by the provider will be
+
+``` json
+data:
+  appSettings.json: >-
+    {"key1":"value1","key2":"value2","key3":"value3"}
 ```
