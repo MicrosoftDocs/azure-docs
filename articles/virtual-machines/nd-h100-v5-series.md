@@ -3,12 +3,12 @@
 # For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
 # For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
 
-title:       # ND H100 v5-series- Azure Virtual Machines
-description: # Specifications for the ND H100 v5-series VMs
+title:       ND H100 v5-series- Azure Virtual Machines
+description: Specifications for the ND H100 v5-series VMs
 author:      iamwilliew 
 ms.author:   wwilliams 
-ms.service:  # virtual-machines
-ms.topic:    # conceptual
+ms.service:  virtual-machines
+ms.topic:    conceptual
 ms.date:     08/04/2023
 ---
 
