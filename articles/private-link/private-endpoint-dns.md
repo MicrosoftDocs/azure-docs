@@ -93,7 +93,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Cache for Redis (Microsoft.Cache/Redis) | redisCache | privatelink.redis.cache.windows.net | redis.cache.windows.net |
 | Azure Cache for Redis Enterprise (Microsoft.Cache/RedisEnterprise) | redisEnterprise | privatelink.redisenterprise.cache.azure.net | redisenterprise.cache.azure.net |
 | Microsoft Purview (Microsoft.Purview) | account | privatelink.purview.azure.com | purview.azure.com |
-| Microsoft Purview (Microsoft.Purview) | portal | privatelink.purviewstudio.azure.com | purview.azure.com |
+| Microsoft Purview (Microsoft.Purview) | portal | privatelink.purviewstudio.azure.com | purview.azure.com </br> purviewstudio.azure.com |
 | Azure Digital Twins (Microsoft.DigitalTwins) | digitalTwinsInstances | privatelink.digitaltwins.azure.net | digitaltwins.azure.net |
 | Azure HDInsight (Microsoft.HDInsight/clusters) | N/A | privatelink.azurehdinsight.net | azurehdinsight.net |
 | Azure Arc (Microsoft.HybridCompute) | hybridcompute | privatelink.his.arc.azure.com <br/> privatelink.guestconfiguration.azure.com </br> privatelink.kubernetesconfiguration.azure.com | his.arc.azure.com <br/> guestconfiguration.azure.com </br> kubernetesconfiguration.azure.com |
