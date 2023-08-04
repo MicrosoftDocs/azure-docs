@@ -58,16 +58,16 @@ Use the optical character recognition (OCR) client library to read printed and h
 
 1. As an optional step, see [Determine how to process the data](../../how-to/call-read-api.md#determine-how-to-process-the-data-optional). For example, to explicitly specify the latest GA model, edit the `read` statement as shown. Skipping the parameter or using `"latest"` automatically uses the most recent GA model.
 
-  ```python
-     # Call API with URL and raw response (allows you to get the operation location)
-     read_response = computervision_client.read(read_image_url,  raw=True, model_version="2022-04-30")
-  ```
+   ```python
+      # Call API with URL and raw response (allows you to get the operation location)
+      read_response = computervision_client.read(read_image_url,  raw=True, model_version="2022-04-30")
+   ```
 
 1. Run the application with the `python` command on your quickstart file.
 
-  ```console
-  python quickstart-file.py
-  ```
+   ```console
+   python quickstart-file.py
+   ```
 
 ## Output
 

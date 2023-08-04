@@ -38,50 +38,50 @@ Use the optical character recognition (OCR) client library to read printed and h
 
 1. Create a new C# application.
 
-   #### [Visual Studio IDE](#tab/visual-studio)
+    #### [Visual Studio IDE](#tab/visual-studio)
 
-   Using Visual Studio, create a **Console App (.NET Framework)** project for **C#, Windows, Console**.
+    Using Visual Studio, create a **Console App (.NET Framework)** project for **C#, Windows, Console**.
 
-   After you create a new project, install the client library:
+    After you create a new project, install the client library:
 
-   1. Right-click on the project solution in the **Solution Explorer** and select **Manage NuGet Packages for Solution**.
-   1. In the package manager that opens, select **Browse**. Select **Include prerelease**.
-   1. Search for and select `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`.
-   1. In the details dialog box, select your project and select the latest stable version. Then select **Install**.
+    1. Right-click on the project solution in the **Solution Explorer** and select **Manage NuGet Packages for Solution**.
+    1. In the package manager that opens, select **Browse**. Select **Include prerelease**.
+    1. Search for and select `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`.
+    1. In the details dialog box, select your project and select the latest stable version. Then select **Install**.
 
-   #### [CLI](#tab/cli)
+    #### [CLI](#tab/cli)
 
-   1. In a console window, use the `dotnet new` command to create a new console app with the name `computer-vision-quickstart`.
+    1. In a console window, use the `dotnet new` command to create a new console app with the name `computer-vision-quickstart`.
 
-      ```console
-      dotnet new console -n computer-vision-quickstart
-      ```
+       ```console
+       dotnet new console -n computer-vision-quickstart
+       ```
 
-      This command creates a simple Hello World C# project with a single source file: *Program.cs*.
+       This command creates a simple Hello World C# project with a single source file: *Program.cs*.
 
-   1. Change directory to the newly created app folder, and then build the application:
+    1. Change directory to the newly created app folder, and then build the application:
 
-      ```console
-      dotnet build
-      ```
+       ```console
+       dotnet build
+       ```
 
-      The build output should contain no warnings or errors.
+       The build output should contain no warnings or errors.
 
-      ```output
-      ...
-      Build succeeded.
-       0 Warning(s)
-       0 Error(s)
-      ...
-      ```
+       ```output
+       ...
+       Build succeeded.
+        0 Warning(s)
+        0 Error(s)
+       ...
+       ```
 
-   1. In the application directory, install the Azure AI Vision client library for .NET by using the following command:
+    1. In the application directory, install the Azure AI Vision client library for .NET by using the following command:
 
-      ```console
-      dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
-      ```
+       ```console
+       dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
+       ```
 
-   ---
+    ---
 
 1. From the project directory, open the *Program.cs* file in your preferred editor or IDE. Replace the contents of *Program.cs* with the following code.
 
