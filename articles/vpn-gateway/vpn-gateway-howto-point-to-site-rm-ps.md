@@ -10,13 +10,15 @@ ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
 
 ---
-# Configure server settings for P2S - certificate authentication - Azure PowerShell
+# Configure server settings for P2S VPN certificate authentication - PowerShell
 
-This article helps you configure a point-to-site (P2S) VPN to securely connect individual clients running Windows, Linux, or macOS to an Azure virtual network (VNet). P2S VPN connections are useful when you want to connect to your VNet from a remote location, such when you're telecommuting from home or a conference. You can also use P2S instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. P2S connections don't require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), or IKEv2.
+This article helps you configure a point-to-site (P2S) VPN to securely connect individual clients running Windows, Linux, or macOS to an Azure virtual network (VNet). P2S VPN connections are useful when you want to connect to your VNet from a remote location, such when you're telecommuting from home or a conference. 
+
+You can also use P2S instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. P2S connections don't require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), or IKEv2.
 
 :::image type="content" source="./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png" alt-text="Diagram of a point-to-site connection.":::
 
-For more information about P2S VPN, see [About P2S VPN](P2S-about.md). To create this configuration using the Azure portal, see [Configure a point-to-site VPN using the Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+For more information about P2S VPN, see [About P2S VPN](point-to-site-about.md). To create this configuration using the Azure portal, see [Configure a point-to-site VPN using the Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
 [!INCLUDE [P2S basic architecture](../../includes/vpn-gateway-p2s-architecture.md)]
 
@@ -35,25 +37,6 @@ You can either use Azure Cloud Shell, or you can run PowerShell locally. For mor
 ## <a name="signin"></a>Sign in
 
 [!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
-
-## <a name="declare"></a>Declare variables
-
-We use variables for this article so that you can easily change the values to apply to your own environment without having to change the examples themselves. Declare the variables that you want to use. You can use the following sample, substituting the values for your own when necessary. If you close your PowerShell/Cloud Shell session at any point during the exercise, just copy and paste the values again to redeclare the variables.
-
-```azurepowershell-interactive
-$VNetName  = "VNet1"
-$FESubName = "FrontEnd"
-$GWSubName = "GatewaySubnet"
-$VNetPrefix = "10.1.0.0/16"
-$FESubPrefix = "10.1.0.0/24"
-$GWSubPrefix = "10.1.255.0/27"
-$VPNClientAddressPool = "172.16.201.0/24"
-$RG = "TestRG1"
-$Location = "EastUS"
-$GWName = "VNet1GW"
-$GWIPName = "VNet1GWpip"
-$GWIPconfName = "gwipconf"
-```
 
 ## <a name="ConfigureVNet"></a>Create a VNet
 
@@ -95,7 +78,7 @@ $GWIPconfName = "gwipconf"
 
 ## <a name="creategateway"></a>Create the VPN gateway
 
-## Request a public IP address
+### Request a public IP address
 
 A VPN gateway must have a Public IP address. You first request the IP address resource, and then refer to it when creating your virtual network gateway. The IP address is statically assigned to the resource when the VPN gateway is created. The only time the Public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway.
 
@@ -167,7 +150,9 @@ Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddressPoo
 
 Certificates are used by Azure to authenticate VPN clients for P2S VPNs. You upload the public key information of the root certificate to Azure. The public key is then considered 'trusted'. Client certificates must be generated from the trusted root certificate, and then installed on each client computer in the Certificates-Current User/Personal certificate store. The certificate is used to authenticate the client when it initiates a connection to the VNet.
 
-If you use self-signed certificates, they must be created using specific parameters. You can create a self-signed certificate using the instructions for [PowerShell and Windows 10 or later](vpn-gateway-certificates-point-to-site.md), or, if you don't have Windows 10 or later, you can use [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md). It's important that you follow the steps in the instructions when generating self-signed root certificates and client certificates. Otherwise, the certificates you generate won't be compatible with P2S connections and you receive a connection error.
+If you use self-signed certificates, they must be created using specific parameters. You can create a self-signed certificate using the instructions for [PowerShell](vpn-gateway-certificates-point-to-site.md) for Windows computers running Windows 10 or later. If you aren't running Windows 10 or later, use [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) instead. 
+
+It's important that you follow the steps in the instructions when generating self-signed root certificates and client certificates. Otherwise, the certificates you generate won't be compatible with P2S connections and you receive a connection error.
 
 ### <a name="cer"></a>Root certificate
 
