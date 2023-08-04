@@ -3,7 +3,7 @@ title: Migrate from a Run As account to Managed identities
 description: This article describes how to migrate from a Run As account to managed identities in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/03/2023
+ms.date: 08/04/2023
 ms.topic: conceptual 
 ms.custom:
 ---
@@ -205,7 +205,7 @@ The following steps include an example to show how a graphical runbook that uses
 
 1. Replace the Run As connection that uses `AzureRunAsConnection` and the connection asset that internally uses the PowerShell `Get-AutomationConnection` cmdlet with the `Connect-AzAccount` cmdlet.
 
-1. Select **Delete** to delete the `Get-Run As Connection` and `connect to the Azure` activities.
+1. Select **Delete** to delete the `Get Run As Connection` and `Connect to Azure` activities.
     
     :::image type="content" source="./media/migrate-run-as-account-managed-identity/connect-azure-graphical-runbook-inline.png" alt-text="Screenshot to connect to the Azure activities." lightbox="./media/migrate-run-as-account-managed-identity/connect-azure-graphical-runbook-expanded.png":::
     
