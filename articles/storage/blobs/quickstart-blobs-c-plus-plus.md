@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to use the Azure Blob Storage cli
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 06/21/2021
+ms.date: 08/04/2023
 ms.service: azure-storage
 ms.topic: quickstart
 ms.devlang: cpp
@@ -28,7 +28,7 @@ Get started with the Azure Blob Storage client library for C++. Azure Blob Stora
 
 ## Setting up
 
-This section walks you through preparing a project to work with the Azure Blob Storage client library for C++.
+This section walks you through preparing a project to work with the Azure Blob Storage client library for C++. The easiest way to acquire the Azure SDK for C++ is to use the `vcpkg` package manager
 
 ### Install the packages
 
@@ -51,8 +51,6 @@ For more information on project setup and working with the Azure SDK for C++, se
 In Visual Studio, create a new C++ console application for Windows called *BlobQuickstart*.
 
 :::image type="content" source="./media/quickstart-blobs-c-plus-plus/vs-create-project.jpg" alt-text="Visual Studio dialog for configuring a new C++ Windows console app":::
-
-[!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
 ## Object model
 
@@ -104,7 +102,7 @@ You can also authorize requests to Azure Blob Storage by using the account acces
 
 ### [Passwordless (Recommended)](#tab/managed-identity)
 
-The `ChainedTokenCredential` class allows you to link together multiple credential instances to be tried sequentially when authenticating.
+The Azure Identity library provides Azure Active Directory (Azure AD) token authentication support across the Azure SDK. It provides a set of `TokenCredential` implementations which can be used to construct Azure SDK clients which support Azure AD token authentication. The `ChainedTokenCredential` class allows you to link together multiple credential instances to be tried sequentially when authenticating.
 
 The following code example attempts to authenticate using a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), and falls back to Azure CLI sign-in credentials if a managed identity isn't available in the current environment.
 
