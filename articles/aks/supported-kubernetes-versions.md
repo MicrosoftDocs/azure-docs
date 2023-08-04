@@ -48,6 +48,7 @@ For the past release history, see [Kubernetes history](https://github.com/kubern
 | 1.25 | Aug 2022 | Oct 2022 | Dec 2022 | Dec 2023
 | 1.26 | Dec 2022 | Feb 2023 | Apr 2023 | Mar 2024
 | 1.27 | Apr 2023 | Jun 2023 | Jul 2023 | Jul 2024
+| 1.28 | Aug 2023 | Aug 2023 | Sep 2023 ||
 
 ### AKS Kubernetes release schedule Gantt chart
 
@@ -211,7 +212,7 @@ AKS provides a Long Term Support (LTS) version of Kubernetes for a two-year peri
 The upstream community maintains a minor release of Kubernetes for one year from release. After this period, Microsoft creates and applies security updates to the LTS version of Kubernetes to provide a total of two years of support on AKS.
 
 > [!IMPORTANT]
-> AKS will begin its support for the LTS version of Kubernetes upon the release of Kubernetes version 1.27.
+> Kubernetes version 1.27 will be the first supported LTS version of Kubernetes on AKS. It is not yet available.
 
 ## Release and deprecation process
 
