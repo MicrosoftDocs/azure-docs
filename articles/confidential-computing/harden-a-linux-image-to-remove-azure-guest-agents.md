@@ -19,11 +19,14 @@ This "how to" shows you steps to remove guest agent from the Linux image and dep
 
 The objective of this article is to create an agent-less Linux image for confidential VM deployments.
 
-Azure supports two provisioning agents [cloud-init](https://github.com/canonical/cloud-init), and the [Azure Linux Agent](https://github.com/Azure/WALinuxAgent) (WALA), which forms the pre-requisites for creating the generalized images.
+Azure supports two provisioning agents [cloud-init](https://github.com/canonical/cloud-init), and the [Azure Linux Agent](https://github.com/Azure/WALinuxAgent) (WALA), which forms the prerequisites for creating the generalized images.
 
-The Linux Agent contains Provisioning Agent Code and Extension Handling code in one package. The provisioning agents, provide support for all endorsed Azure Linux distributions. The Extension Handling code is responsible for communicating with the Azure fabric, and handling the VM extensions operations such as installs, reporting status, updating the individual extensions, and removing them.
+The Linux Agent contains Provisioning Agent Code and Extension Handling code in one package.
 
-It's crucial to comprehend what functionalities the VM will lose before deciding to remove the Linux Agent.
+The provisioning agents, provide support for all endorsed Azure Linux distributions.
+The Extension Handling code is responsible for communicating with the Azure fabric, and handling the VM extensions operations such as installs, reporting status, updating the individual extensions, and removing them.
+
+It's crucial to comprehend what functionalities the VM loses before deciding to remove the Linux Agent.
 
 Removal of the guest agent removes the functionality enumerated at [Azure linux VM Agent](/azure/virtual-machines/extensions/agent-linux).
 
@@ -36,14 +39,14 @@ Removal of the guest agent removes the functionality enumerated at [Azure linux 
 - If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - An Ubuntu image - you can choose one from the [Azure Marketplace](/azure/virtual-machines/linux/cli-ps-findimage).
 
-### Remove azure linux agent and prepare a generalized Linux image
+### Remove Azure linux agent and prepare a generalized Linux image
 
 The proposed solution results in a Linux image without Azure Linux agent.
 
 > [!NOTE]
-> We can create an admin-less and agent-less image by removing the sudo users from the linux image [Remove sudo users from the Linux Image](/azure/confidential-computing/harden-the-linux-image-to-remove-sudo-users), and then follow the steps below to remove the agent for the same image.
+> We can create an admin-less and agent-less image by removing the sudo users from the linux image [remove sudo users from the Linux Image](/azure/confidential-computing/harden-the-linux-image-to-remove-sudo-users), and then follow the steps to remove the agent for the same image.
 
-Steps to create a generalized image that removes the azure guest agents are as follows:
+Steps to create a generalized image that removes the Azure guest agents are as follows:
 
 1. Download an Ubuntu image.
 [Create a custom image for Azure confidential VM](/azure/confidential-computing/how-to-create-custom-image-confidential-vm)
@@ -74,7 +77,7 @@ Steps to create a generalized image that removes the azure guest agents are as f
 
 5. Create a systemd service to provision the VM.
 
-    Since we are removing the Azure Linux Agent we need to provide a mechanism to report ready. Copy the contents of the [bash script]((/azure/virtual-machines/linux/no-agent#:~:text=)%0A%0Awireserver_conn.close()-,Bash%20script,-Copy) or [python script](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/no-agent#:~:text=to%20report%20ready.-,Python%20script,-Python) to the mounted image and make the file executable.
+    Since we are removing the Azure Linux Agent, we need to provide a mechanism to report ready. Copy the contents of the [bash script]((/azure/virtual-machines/linux/no-agent#:~:text=)%0A%0Awireserver_conn.close()-,Bash%20script,-Copy) or [python script](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/no-agent#:~:text=to%20report%20ready.-,Python%20script,-Python) to the mounted image and make the file executable.
     ```
     sudo chmod +x /mnt/dev/$imagedevice/usr/local/azure-provisioning.sh
     ```
@@ -84,7 +87,7 @@ Steps to create a generalized image that removes the azure guest agents are as f
     ```
     sudo chroot /mnt/dev/$imagedevice/ systemctl enable azure-provisioning.service
     ```
-    Now the image is generalized and have a VM created from it.
+    Now the image is generalized and can be used to create a VM.
 
 6. Unmount the image.
     ```

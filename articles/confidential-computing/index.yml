@@ -93,7 +93,7 @@ landingContent:
           - text: Harden the Linux image to remove sudo users
             url: harden-the-linux-image-to-remove-sudo-users.md
           - text: Harden a Linux image to remove azure guest agents
-            url: harden-the-linux-image-to-remove-azure-guest-agents.md
+            url: harden-a-linux-image-to-remove-azure-guest-agents.md
       - linkListType: reference
         links:
           - text: AMD confidential VMs FAQ 
