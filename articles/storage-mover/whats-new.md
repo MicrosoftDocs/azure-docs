@@ -62,16 +62,17 @@ Azure Storage mover can migrate your SMB share to Azure Files shares (in public 
 
 ### Service
 
-- Two new endpoints have been introduced.
-- Error messages have been improved.
+- [Two new endpoints](endpoint-manage.md) have been introduced.
+- [Error messages](status-code.md) have been improved.
 
 ### Agent
 
-- Handling credentials via Azure Key Vault.
+- Changes to include handling of SMB sources and the data plane transfer to Az Files
+- Handling SMB credentials via Azure Key Vault.
 
 ### Limitations
 
-- Folder ACLs are not updated after migration sync.
+- Folder ACLs are not updated on incremental transfers.
 - Last modified dates on folders are not preserved.
 
 ## 2023 June 14
