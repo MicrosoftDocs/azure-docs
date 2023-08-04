@@ -49,6 +49,8 @@ items:
         href: inbound-provisioning-api-postman.md
       - name: Quickstart with Graph Explorer
         href: inbound-provisioning-api-graph-explorer.md
+      - name: Sync custom attributes
+        href: inbound-provisioning-api-custom-attributes.md
       - name: Quickstart with Powershell
         href: inbound-provisioning-api-powershell.md
       - name: Quickstart with Azure Logic Apps
