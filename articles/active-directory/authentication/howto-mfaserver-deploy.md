@@ -56,7 +56,7 @@ Make sure the server that you're using for Azure Multi-Factor Authentication mee
 | Software |<li>Windows Server 2019<sup>1</sup</li><li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008/R2 (with [ESU](/lifecycle/faq/extended-security-updates) only)</li><li>Windows 10</li><li>Windows 8.1, all editions</li><li>Windows 8, all editions</li><li>Windows 7, all editions (with [ESU](/lifecycle/faq/extended-security-updates) only)</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 or greater if installing the user portal or web service SDK</li> |
 | Permissions | Domain Administrator or Enterprise Administrator account to register with Active Directory |
 
-<sup>1</sup>Azure MFA Server may not run correctly on an Azure VM that runs Windows Server 2019.
+<sup>1</sup>If Azure MFA Server fails to activate on an Azure VM that runs Windows Server 2019, try using another version of Windows Server.
 
 ### Azure MFA Server Components
 
