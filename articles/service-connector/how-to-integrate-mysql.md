@@ -48,8 +48,6 @@ Use the connection details below to connect compute services to Azure Database f
 
 ### [Connection String](#secret)
 
-
-
 #### [.NET(MySqlConnector)](#tab/secret-dotnet)
 
 | Default environment variable name | Description                     | Example value                                                                                                                                                  |
@@ -191,7 +189,7 @@ db, err := sql.Open("mysql", connectionString)
 |-----------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `AZURE_MYSQL_CONNECTIONSTRING `     | ADO.NET MySQL connection string | `Server=<MySQL-DB-name>.mysql.database.azure.com;Database=<MySQL-DB-name>;Port=3306;User Id=<MySQL-DBusername>;SSL Mode=Required;` |
 
-[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md#dotnet)]
+[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md#tab/dotnet)]
 
 
 #### [Java(JDBC)](#tab/systemmi-java)
@@ -207,9 +205,9 @@ db, err := sql.Open("mysql", connectionString)
 
 | Application properties                   | Description                           | Example value                                                                                 |
 |------------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------|
-| `spring.datasource.azure.passwordless-enabled` | Enable passwordless authentication    | `true |
+| `spring.datasource.azure.passwordless-enabled` | Enable passwordless authentication    | `true` |
 | `spring.datasource.url`                  | Spring Boot JDBC database URL         | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required` |
-| `spring.datasource.username`             | Database username                     | `<MySQL-DB-username>`  |
+| `spring.datasource.username`             | Database username        | `<MySQL-DB-username>`  |
 
 [!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md#spring)]
 
@@ -374,7 +372,6 @@ db, err := sql.Open("mysql", connectionString)
 
 [!INCLUDE [code sample for mysql aad connection](./includes/code-mysql-aad.md#dotnet)]
 
-
 #### [Java(JDBC)](#tab/sp-java)
 
 | Default environment variable name   | Description                  | Example value                                           |
@@ -473,7 +470,6 @@ db, err := sql.Open("mysql", connectionString)
 | `AZURE_MYSQL_TENANTID`              | Your tenant ID    | `<tenant-ID>`                              |
 
 ---
-
 
 ## Next steps
 

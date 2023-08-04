@@ -83,7 +83,6 @@ await connection.OpenAsync();
 // do something
 ```
 
-
 ### [Go](#tab/go)
 
 1. Install dependencies.
@@ -139,7 +138,6 @@ func main() {
   db, err := sql.Open("mysql", connectionString)
 }
 ```
-
 
 ### [Others](#tab/others)
 
