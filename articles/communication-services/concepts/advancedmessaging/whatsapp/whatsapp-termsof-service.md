@@ -1,5 +1,5 @@
 ---
-title: Advanced Messaging for WhatsApp Terms of Services
+title: Advanced Messaging for WhatsApp Data Transfer and Independent Terms of Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Service WhatsApp terms of service concepts.
 author: darmour
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Advanced Messaging For WhatsApp Data Transfer and Independent Terms of Services
+# Advanced Messaging for WhatsApp Data Transfer and Independent Terms of Services
 
 ## Overview
 

@@ -66,7 +66,7 @@ When you no longer want to use the WhatsApp Business account with Azure Communic
 In this quickstart, you have learned, how to register your WhatsApp Business Account with Azure Communication Services. Now, you're ready to send and receive WhatsApp messages.
 
 > [!div class="nextstepaction"]
-> [Get Started With AdvancedMessages](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)
+> [Get Started With Advanced Messaging](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)
 
 You might also want to see the following articles: 
 

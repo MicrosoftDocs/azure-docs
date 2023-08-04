@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Handle Advanced Messaging and delivery report events
+title: Handle Advanced Messaging Events
 titleSuffix: Azure Communication Services
 description: "In this quickstart, you learn how to subscribe for AdvancedMessaging for WhatsApp events."
 author: shamkh
@@ -8,10 +8,10 @@ ms.author: shamkh
 ms.service: azure-communication-services
 ms.topic: quickstart 
 ms.date: 07/03/2023
-ms.custom: template-quickstart 
+ms.custom: template-quickstart
 ---
 
-# Quickstart: Handle Advance Messaging Events
+# Quickstart: Handle Advanced Messaging Events
 
 Azure Communication Services now enables you to send and receive WhatsApp messages using the Advanced Messaging SDK. Get started with setting up Event Grid events for receiving WhatsApp messages send/receive status reports. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -25,7 +25,7 @@ Azure Communication Services now enables you to send and receive WhatsApp messag
 
 [Event Grid](../../../../event-grid/overview.md) is a cloud-based eventing service. In this article, you learn how to subscribe to [communication service events](../../../../event-grid/event-schema-communication-services.md), and trigger an event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. In this article, we send the events to a web app that collects and displays the messages.
 
-## [Setup Event Grid Viewer]
+## Setup Event Grid Viewer
 
 The Event Grid Viewer is a sample site that allows you to view incoming events from Event Grid.
 
@@ -50,7 +50,7 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
 6.  The URL for the Event Grid Viewer is the Site Name you used to create the deployment with the path "/api/update" appended.
     For example: "https://{{site-name}}.azurewebsites.net/api/updates". You'll need it in the next step and during the creation of the demo app.
 
-## [Subscribe to Advanced Messaging Events]
+## Subscribe to Advanced Messaging Events
 
 1.  Open your Communication Services resource in the Azure portal, navigate to the **Events** option in left panel, and select **+Event Subscription**.
     

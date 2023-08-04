@@ -50,13 +50,13 @@ using System;
 using Azure;
 using Azure.Communication.Messages;
 
-namespace AdvancedMessagesQuickstart
+namespace AdvancedMessagingQuickstart
 {
     class Program
     {
         public static async Task Main(string[] args)
         {
-            Console.WriteLine("Azure Communication Services - Send Advanced Messages");
+            Console.WriteLine("Azure Communication Services - Send Advanced Messaging Messages");
 
             // Quickstart code goes here
         }

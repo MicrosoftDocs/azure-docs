@@ -195,7 +195,9 @@ items:
           href: quickstarts/advancedmessaging/whatsapp/connecting-whatsapp-business-account.md
         - name: Send WhatsApp Messages
           href: quickstarts/advancedmessaging/whatsapp/get-started.md
-        - name: Try AdvancedMessaging Sandbox
+        - name: Handle Advanced Messaging Events
+          href: quickstarts/advancedmessaging/whatsapp/handle-advanced-messaging-events.md
+        - name: Try Advanced Messaging Sandbox
           href: quickstarts/advancedmessaging/whatsapp/whatsapp-sandbox-quickstart.md
 - name: Tutorials
   items:
@@ -903,7 +905,7 @@ items:
       items:
       - name: Overview
         href: concepts/advancedmessaging/whatsapp/whatsapp-overview.md
-      - name: WhatsAppTermsOfService
+      - name: WhatsApp Terms of Service
         href: concepts/advancedmessaging/whatsapp/whatsapp-termsof-service.md
       - name: Pricing
         href: concepts/advancedmessaging/whatsapp/pricing.md
