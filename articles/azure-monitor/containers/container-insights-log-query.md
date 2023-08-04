@@ -620,6 +620,12 @@ The required tables for this chart include KubeNodeInventory, KubePodInventory, 
 | project ClusterName, NodeName, LastReceivedDateTime, Status, ContainerCount, UpTimeMs = UpTimeMs_long, Aggregation = Aggregation_real, LimitValue = LimitValue_real, list_TrendPoint, Labels, ClusterId 
 ```
 
+## Resource logs
+
+For details on resource logs for AKS clusters, see [Collect control plane logs](../../aks/monitor-aks.md#resource-logs).
+
+
+
 ## Prometheus metrics
 
 The following example is a Prometheus metrics query showing disk reads per second per disk per node.
