@@ -117,7 +117,7 @@ landingContent:
           - text: Create a Document Intelligence resource
             url: create-document-intelligence-resource.md
           - text: Migrate to Document Intelligence v3.0
-            url: v3-migration-guide.md
+            url: v3-1-migration-guide.md
           - text: Use the read model
             url: how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true
           - text: Create SAS tokens for storage containers
