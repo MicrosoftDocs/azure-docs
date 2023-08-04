@@ -47,19 +47,19 @@ Telco workloads that involve large data sets or intensive memory operations, suc
 
 All virtual machines created on Azure Operator Nexus can make use of either 2-MB or 1-GB huge pages, depending on the type of virtual machine.
 
-### Dual stack support
+### Dual-stack support
 
-Dual stack support refers to the ability of networking equipment and protocols to simultaneously handle both IPv4 and IPv6 traffic. With the depletion of available IPv4 addresses and the growing adoption of IPv6, dual stack support is crucial for seamless transition and coexistence between the two protocols.
+Dual-stack support refers to the ability of networking equipment and protocols to simultaneously handle both IPv4 and IPv6 traffic. With the depletion of available IPv4 addresses and the growing adoption of IPv6, dual-stack support is crucial for seamless transition and coexistence between the two protocols.
 
-Telco operators utilize dual stack support to ensure compatibility, interoperability, and future-proofing of their networks. It allows them to accommodate both IPv4 and IPv6 devices and services while gradually transitioning toward full IPv6 deployment.
+Telco operators utilize dual-stack support to ensure compatibility, interoperability, and future-proofing of their networks. It allows them to accommodate both IPv4 and IPv6 devices and services while gradually transitioning toward full IPv6 deployment.
 
-Dual stack support ensures uninterrupted connectivity and smooth service delivery to customers regardless of their network addressing protocols. Azure Operator Nexus provides support for both IPv4 and IPv6 configuration across all layers of the stack.
+Dual-stack support helps ensure uninterrupted connectivity and smooth service delivery to customers regardless of their network addressing protocols. Azure Operator Nexus provides support for both IPv4 and IPv6 configuration across all layers of the stack.
 
 ### Network interface cards
 
 Computes in Azure Operator Nexus are designed to meet the requirements for running critical applications that are telco grade. They can perform fast and efficient data transfer between servers and networks.
 
-Workloads can make use of single-root I/O virtualization (SR-IOV). It enables the direct assignment of physical I/O resources, such as network interfaces, to virtual machines. This direct assignment bypasses the hypervisor's virtual switch layer.
+Workloads can make use of single-root I/O virtualization (SR-IOV). SR-IOV enables the direct assignment of physical I/O resources, such as network interfaces, to virtual machines. This direct assignment bypasses the hypervisor's virtual switch layer.
 
 This direct hardware access improves network throughput, reduces latency, and enables more efficient utilization of resources. It makes SR-IOV an ideal choice for operators running virtualized and containerized network functions.
 
@@ -75,11 +75,11 @@ Multiple properties reflect the operational state of BMMs. They include:
 
 - `Detailed Status` reflects the current status of the machine:
 
-  - `Preparing`: The system is preparing for provisioning of the machine. This is a transitory state.
+  - `Preparing`: The machine is being prepared for provisioning. This is a transitory state.
   - `Provisioning`: Provisioning is in progress. This is a transitory state.
   - `Provisioned`: The operating system is provisioned to the machine. This is an end-state status.
   - `Available`: The machine is available to participate in the cluster. The machine was successfully provisioned but is currently turned off. This is an end-state status.
-  - `Error`: The system couldn't provision the machine. This is an end-state status.
+  - `Error`: The machine couldn't be provisioned. This is an end-state status.
 
 ## BMM operations
 
