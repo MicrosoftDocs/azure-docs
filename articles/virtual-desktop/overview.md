@@ -21,7 +21,7 @@ Here's what you can do when you run Azure Virtual Desktop on Azure:
 
 ## Introductory video
 
-Learn about Azure Virtual Desktop (formerly Windows Virtual Desktop), why it's unique, and what's new in this video:<br />
+Learn about Azure Virtual Desktop (formerly Windows Virtual Desktop), why it's unique, and what's new in this video:
 
 > [!VIDEO https://www.youtube.com/embed/aPEibGMvxZw]
 
