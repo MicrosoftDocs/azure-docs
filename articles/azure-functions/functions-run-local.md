@@ -35,15 +35,6 @@ If you want to get started right away, complete the [Core Tools quickstart artic
 
 Core Tools enables the integrated local development and debugging experience for your functions provided by both Visual Studio and Visual Studio Code. 
 
-## Prerequisites
-
-To be able to publish to Azure from Core Tools, you must have one of the following Azure tools installed locally: 
-
-+ [Azure CLI](/cli/azure/install-azure-cli) 
-+ [Azure PowerShell](/powershell/azure/install-azure-powershell)
-
-These tools are required to authenticate with your Azure account from your local computer.
-
 [!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)]
 
 When upgrading to the latest version of Core Tools, you should use the same package manager as the original installation to perform the upgrade.  
