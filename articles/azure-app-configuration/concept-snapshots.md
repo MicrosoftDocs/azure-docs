@@ -40,14 +40,14 @@ As snapshots are immutable entities, snapshots can only be created and archived.
 
 * **Archive snapshot**: Archiving a snapshot puts it in an archived state. While a snapshot is archived, it's still fully functional. When the snapshot is archived, an expiration time is set based on the retention period configured during the snapshot's creation. If the snapshot remains in the archived state up until the expiration time, then it automatically disappears from the system when the expiration time passes. Archival is used for phasing out snapshots that are no longer in use.
 
-* **Recover snapshot**: Recover snapshot resets a snapshot back to the active state. At this point, the snapshot is no longer subject to expiration based on its configured retention period. Recovery is only possible in the retention period after archival.
+* **Recover snapshot**: Recovering a snapshot puts it back in an active state. At this point, the snapshot is no longer subject to expiration based on its configured retention period. Recovery is only possible in the retention period after archival.
 
 > [!NOTE]
 > The retention period can only be set during the creation of a snapshot. The default value for retention period is 30 days for Standard stores and 7 days for Free stores.
 
 ## Requirements for snapshot operations
 
-If the store uses Azure Active Directory (Azure AD) for access, check the Azure AD permissions. If the store uses access keys, check the HMAC section.
+The following sections detail the permissions required to perform snapshot related operations with Azure AD and HMAC authentication.
 
 ### Create a snapshot
 
@@ -55,14 +55,14 @@ To create a snapshot in stores using Azure Active Directory (Azure AD) authentic
 - `Microsoft.AppConfiguration/configurationStores/keyvalues/read`
 - `Microsoft.AppConfiguration/configurationStores/snapshots/write`
 
-For stores using HMAC authentication, snapshots can be created with read-write access keys.
+To archive and/or recover a snapshot using HMAC authentication, a read-write access key must be used.
 
 ### Archive and recover a snapshot
 
-To archive and/or recover a snapshot in stores using Azure AD authentication, the following permission is needed. The App Configuration Data Owner role already has this permission.
+To archive and/or recover a snapshot using Azure AD authentication, the following permission is needed. The App Configuration Data Owner role already has this permission.
 - `Microsoft.AppConfiguration/configurationStores/snapshots/archive/action`
 
-For stores using HMAC authentication, snapshots can be archived or recovered with read-write access keys.
+To archive and/or recover a snapshot using HMAC authentication, a read-write access key must be used.
 
 ### Read and list snapshots
 
