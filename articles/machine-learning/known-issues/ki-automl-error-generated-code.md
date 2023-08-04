@@ -1,6 +1,6 @@
 ---
 title: Known issue - AutoML Error retrieving generated code FilesharePermissionFailure:Unable to copy files
-description: A known issue is posted where you may not be able to update the credentials for that data source even with owner permission.
+description: A known issue is posted when a workspace has public IP but the storage is private then the workspace cannot interact with the storage account directly.
 author: s-polly
 ms.author: scottpolly
 ms.topic: troubleshooting  
@@ -10,18 +10,17 @@ ms.date: 08/04/2023
 ms.custom: known-issue
 ---
 
-# Known issue  - AutoML | Error retrieving generated code FilesharePermissionFailure:Unable to copy files
+# Known issue  - AutoML | Error retrieving generated code FilesharePermissionFailure:Unable to copy files to fileshare because authorization failed.
 
 
-If you have owner permission but no gateway level permission on a data source, you may not be able to update the credentials for that data source.  The page will just show as loading and the credentials won't update.
+When a workspace has a public IP but the storage is private, then the workspace cannot interact with the storage account directly.
 
-[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](/articles/machine-learning/includes/machine-learning-dev-v2.md)]
 
 **Status:** Open
 
 
-**Problem area:** [Option]
-<!--- Current options are 'Workspace RP', 'Compute', 'Inferencing',  or 'Pipelines and Designer' --->
+**Problem area:** Workspace RP
 
 
 ## Cause
@@ -34,4 +33,4 @@ Starting from the **Outputs+Logs** tab, navigate to the *generated_code* folder 
 
 ## Next steps
 
-- [About known issues](/articles/machine-learning/azureml-known-issues.md
+- [About known issues](/articles/machine-learning/azureml-known-issues.md)

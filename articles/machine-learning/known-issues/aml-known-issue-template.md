@@ -1,6 +1,6 @@
 ---
 title: Known issue - [title] 
-description: A known issue is posted where you may not be able to update the credentials for that data source even with owner permission.
+description: Describe the known issue to provide for search optimization
 author: s-polly
 ms.author: scottpolly
 ms.topic: troubleshooting  
@@ -15,7 +15,7 @@ ms.custom: known-issue
 
 If you have owner permission but no gateway level permission on a data source, you may not be able to update the credentials for that data source.  The page will just show as loading and the credentials won't update.
 
-**APPLIES TO:** :::image type="icon" source="../../includes/media/yes-icon.svg" border="false"::: Power BI Gateway
+[!INCLUDE [dev v2](/articles/machine-learning/includes/machine-learning-dev-v2.md)]
 
 **Status:** Fixed: September 2, 2022
 <!--- options are 'Open', 'Fixed: <date fixed>' --->
@@ -34,4 +34,4 @@ If you have owner permission but no gateway level permission on a data source, y
 
 ## Next steps
 
-- [About known issues](/articles/machine-learning/azureml-known-issues.md
+- [About known issues](/articles/machine-learning/azureml-known-issues.md)
