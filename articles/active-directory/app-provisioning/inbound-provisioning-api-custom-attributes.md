@@ -15,11 +15,10 @@ ms.reviewer: cmmdesai
 
 # Extend API-driven provisioning to sync custom attributes (Public preview)
 
-This is an advanced tutorial that describes how to extend API-driven provisioning to include additional custom attributes. It assumes that you have completed *any one* of the following quick start tutorials. 
+By default, API-driven provisioning apps support processing attributes that are part of the standard SCIM Core User and Enterprise User schema. Your system of record may have custom attributes that you may want to include as part of API-driven provisioning. This advanced tutorial describes how to extend your API-driven provisioning app to process additional custom attributes. 
 
-* [Quick start with Graph Explorer](inbound-provisioning-api-graph-explorer.md) 
-* [Quick start with cURL](inbound-provisioning-api-curl-tutorial.md)
-* [Quick start with Postman](inbound-provisioning-api-postman.md)
+> [!NOTE]
+> Before trying this advanced scenario, we recommend verifying that your out-of-the-box provisioning app configuration works as expected using one of the following API clients [Graph Explorer](inbound-provisioning-api-graph-explorer.md), [cURL](inbound-provisioning-api-curl-tutorial.md) or [Postman](inbound-provisioning-api-postman.md).
 
 ## Example scenario
 
