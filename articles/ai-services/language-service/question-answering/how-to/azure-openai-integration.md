@@ -16,7 +16,7 @@ Custom Question Answering enables you to create a conversational layer on your d
 
 AI runtimes however, are evolving due to the development of Large Language Models (LLMs), such as GPT-35-Turbo and GPT-4 offered by [Azure Open AI](../../../openai/overview.md) can address many chat-based use cases, which you may want to migrate to.
 
-At the same time, LLMs are not perfect and customers often require Custom question answering's premium authoring experience to achieve more granular control over the quality and content of question-answer pairs, and allow them to address content issues in production. Read this article to learn how to integrate Azure OpenAI On Your Data (Preview) with question-answer pairs from your Custom Question Answering project, using your project's underlying Azure Cognitive Search indexes.
+At the same time, customers often require a custom question answer authoring experience to achieve more granular control over the quality and content of question-answer pairs, and allow them to address content issues in production. Read this article to learn how to integrate Azure OpenAI On Your Data (Preview) with question-answer pairs from your Custom Question Answering project, using your project's underlying Azure Cognitive Search indexes.
 
 ## Prerequisites
 
