@@ -339,7 +339,7 @@ Ensure that you have quota for at least one public IP address available in your 
 
 ### Starting the load test fails with `Subnet with name "AzureFirewallSubnet" cannot be used for load testing (ALTVNET017)`
 
-The subnet name *AzureFirewallSubnet* is a reserved name. Use another name for your subnet.
+The subnet *AzureFirewallSubnet* is reserved and you can't use it for Azure Load Testing. Select another subnet for your load test.
 
 ## Next steps
 
