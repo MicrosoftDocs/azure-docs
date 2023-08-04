@@ -37,7 +37,7 @@ To set up an Azure failover group between two Azure Arc-enabled SQL managed inst
 
 The following image shows a properly configured distributed availability group:
 
-![Diagram showing a properly configured distributed availability group](..\media\business-continuity\distributed-availability-group.png)
+![Diagram showing a properly configured distributed availability group.](..\media\business-continuity\distributed-availability-group.png)
 
 ## Synchronization modes
 

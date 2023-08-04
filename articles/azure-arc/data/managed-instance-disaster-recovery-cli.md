@@ -36,8 +36,8 @@ az sql instance-failover-group-arc create --name sql-fog --mi sql1 --partner-mi 
 
 The above command:
 
-1. Creates the required custom resources on both primary and secondary sites
-1. Copies the mirroring certificates and configures the failover group between the instances 
+- Creates the required custom resources on both primary and secondary sites
+- Copies the mirroring certificates and configures the failover group between the instances 
 
 ## Configure Azure failover group - indirect mode
 
