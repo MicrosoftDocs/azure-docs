@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 12/28/2022
+ms.date: 08/02/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -29,7 +29,7 @@ When considering Azure NetApp Files for the SAP Netweaver and SAP HANA, be aware
 - The minimum capacity pool is 4 TiB  
 - The minimum volume size is 100 GiB
 - ANF-based NFS shares and the virtual machines that mount those share must be in the same Azure Virtual Network or in [peered virtual networks](../../virtual-network/virtual-network-peering-overview.md) in the same region
-- The selected virtual network must have a subnet, delegated to Azure NetApp Files. The subnet requires a minimum of a /28 IP address range. Ideally a /26 would be better if many ANF volumes should be mounted to VMs in the specific VNET
+- The selected virtual network must have a subnet, delegated to Azure NetApp Files. **For SAP workload, it is highly recommended to configure a /25 range for the subnet delegeated to ANF.** 
 - It's important to have the virtual machines deployed sufficient proximity to the Azure NetApp storage for lower latency as, for example, demanded by SAP HANA for redo log writes.
     - Azure NetApp Files meanwhile has functionality to deploy NFS volumes into specific Azure Availability Zones. Such a zonal proximity is going to be sufficient in the majority of cases to achieve a latency of less than 1 millisecond. The functionality is in public preview and described in the article [Manage availability zone volume placement for Azure NetApp Files](../../azure-netapp-files/manage-availability-zone-volume-placement.md). This functionality isn't requiring any interactive process with Microsoft to achieve proximity between your VM and the NFS volumes you allocate.
     - To achieve most optimal proximity, the functionality of [Application Volume Groups](../../azure-netapp-files/application-volume-group-introduction.md) is available. This functionality isn't only looking for most optimal proximity, but for most optimal placement of the NFS volumes, so, that HANA data and redo log volumes are handled by different controllers. The disadvantage is that this method needs some interactive process with Microsoft to pin your VMs. 
