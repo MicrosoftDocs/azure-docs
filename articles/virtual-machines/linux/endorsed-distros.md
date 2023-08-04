@@ -37,7 +37,8 @@ For more information on support by distribution, see [Support for Linux images
 Azure Linux images can be grouped into three categories: 
 
 ### Marketplace Images  
-Images published and maintained by either Microsoft or partners. There are a large variety of images from multiple publishers for various use case (security hardened, full database / application stack, etc.), and can be available free, pay-as-you-go for BYOL (bring your own license/subscription). 
+Images published and maintained by either Microsoft or partners. There are a large variety of images from multiple publishers for various use cases (security hardened, full database / application stack, etc.), and can be available free, pay-as-you-go for BYOL (bring your own license/subscription). 
+
  
 Platform Images are a type of Marketplace images for which Microsoft has partnered with several mainstream publishers (see table below about Partners) to create a set of “platform images” that undergo additional testing and receive predictable updates (see section below on Image Update Cadence). These platform images can be used for building your own custom images and solution stacks. These images are published by the endorsed Linux distribution partners such as Canonical (Ubunutu), Red Hat (RHEL), and Credativ (Debian). 
 
