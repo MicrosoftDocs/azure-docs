@@ -2511,7 +2511,7 @@ Assign the Viva Pulse Administrator role to users who need to do the following t
 - Read messages in Message Center in the Microsoft 365 admin center, excluding security messages
 - Read usage reports in the Microsoft 365 admin center
 
-[Learn more](/viva/pulse/setup-admin-access/assign-a-viva-pulse-admin-in-m365-admin-center)
+For more information, see [Assign a Viva Pulse admin in the Microsoft 365 admin center](/viva/pulse/setup-admin-access/assign-a-viva-pulse-admin-in-m365-admin-center).
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
