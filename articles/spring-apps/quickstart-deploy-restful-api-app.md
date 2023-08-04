@@ -28,9 +28,13 @@ the Anonymous user cant's access any data,
 - Write, with this permission can add or update the ToDo data.
 - Delete, with this permission can delete the ToDO data.
 
+After the deployment is successful, you can view and test the APIs through the Swagger UI:
+
+:::image type="content" source="media/quickstart-deploy-restful-api-app/swagger-ui.png" alt-text="Image that shows the API document of Swagger UI." lightbox="media/quickstart-deploy-restful-api-app/swagger-ui.png":::
+
 The following diagram shows the architecture of the system:
 
-  :::image type="content" source="media/quickstart-deploy-restful-api-app/diagram.png" alt-text="Image that shows the architecture of a Spring web application." lightbox="media/quickstart-deploy-restful-api-app/diagram.png":::
+:::image type="content" source="media/quickstart-deploy-restful-api-app/diagram.png" alt-text="Image that shows the architecture of a Spring web application." lightbox="media/quickstart-deploy-restful-api-app/diagram.png":::
 
 [!INCLUDE [quickstart-tool-introduction](includes/quickstart-deploy-restful-api-app/quickstart-tool-introduction.md)]
 
@@ -92,10 +96,6 @@ This section provides the steps to register an application in Azure AD, which is
 
    :::image type="content" source="media/quickstart-deploy-restful-api-app/api-permissions.png" alt-text="Image that shows the API permissions of a web application." lightbox="media/quickstart-deploy-restful-api-app/api-permissions.png":::
 
-1. Navigate to **Certificates & secrets** and select the **New client secret**. On the **Add a client secret** page, enter a description for the secret, select an expiration date, and select **Add**. 
-
-1. Look for the **Value** of the secret, and then record it for later use. You need it to acquire access token.
-
 #### Add user to access the RESTful APIs
 
 This section provides the steps to create a member user in your Azure AD, then the user can manage the data of ToDo application through RESTful APIs.
@@ -114,122 +114,151 @@ This section provides the steps to create a member user in your Azure AD, then t
 
 1. Select **Review + create** to review your selections. Select **Create** to create the user.
 
-#### Obtain the access token
+#### Update the OAuth2 configuration for Swagger UI authorization
 
-This section provides the steps to use [OAuth 2.0 Resource Owner Password Credentials](../active-directory/develop/v2-oauth-ropc.md) method to obtain an access token in Azure AD, then access the RESTful APIs of the app `ToDo`.
+This section provides the steps to update the OAuth2 configuration for Swagger UI authorization, then you can authorize users through the app `ToDoWeb` to acquire access tokens.
 
-1. Request an access token using the following command. Be sure to replace the placeholders with your own values you created in the previous step.
+1. Open the Azure Spring Apps instance in the Azure portal.
 
-   ```bash
-   export CLIENT_ID=<client-ID-of-your-app-ToDoWeb>
-   export CLIENT_SECRET=<client-secret-of-your-app-ToDoWeb>
-   export USERNAME=<user-principal-name>
-   export PASSWORD='<user-password>'
-   export TENANT_ID=<tenant-ID-of-your-Azure-AD>
-   export SCOPE=api://simple-todo/ToDo.Read%20api://simple-todo/ToDo.Write%20api://simple-todo/ToDo.Delete
-   curl -X POST "https://login.microsoftonline.com/${TENANT_ID}/oauth2/v2.0/token" \
-    -H "Content-Type: application/x-www-form-urlencoded" \
-    -d "grant_type=password&client_id=${CLIENT_ID}&scope=${SCOPE}&client_secret=${CLIENT_SECRET}&username=${USERNAME}&password=${PASSWORD}"
+1. Go to the created app `simple-todo-api` on Portal, expand **Settings** and select **Configuration** from the navigation pane, select **Environment variables** to set environment variables.
+
+1. Add the following environment variable for the Swagger UI OAuth2 configuration, then select **Save** to finish the app configuration update. Be sure to replace the url with your own value you got in the previous step.
+
+   ```shell
+   SPRING_APPS_PUBLIC_URL=<your-app-exposed-application-url-or-endpoint>
    ```
 
-1. Look for the **access_token** value, and then record it for later use. You need it to access RESTful APIs.
+   The public url is similar to `https://simple-todo-api.xxxxxxxx-xxxxxxxx.xxxxxx.azurecontainerapps.io`.
+
+1. Open your **Azure Active Directory** tenant, go to the registered app `ToDoWeb`.
+
+1. Under **Manage**, select **Authentication**, select **Add a platform**, and then select **Single-page application**; 
+   use this format `<your-app-exposed-application-url-or-endpoint>/swagger-ui/oauth2-redirect.html` as the OAuth2
+   redirect url in the **Redirect URIs** field, such as `https://simple-todo-api.xxxxxxxx-xxxxxxxx.xxxxxx.azurecontainerapps.io/swagger-ui/oauth2-redirect.html`, then select **Configure**.
+
+   :::image type="content" source="media/quickstart-deploy-restful-api-app/aad-spa-auth.png" alt-text="Image that shows the API permissions of a web application." lightbox="media/quickstart-deploy-restful-api-app/aad-spa-auth.png":::
+
+#### Obtain the access token
+
+This section provides the steps to use [OAuth 2.0 authorization code flow](../active-directory/develop/v2-oauth2-auth-code-flow.md) method to obtain an access token in Azure AD, then access the RESTful APIs of the app `ToDo`.
+
+1. Open the URL exposed by the app, then select **Authorize** to prepare the OAuth2 authentication.
+
+1. In the pop-up **Available authorizations** window, enter the client id of the app `ToDoWeb` in the **client_id** field, and select all the scopes for **Scopes** field, 
+   ignore the **client_secret** field, then select **Authorize** to redirect to the Azure AD login page.
+
+1. After completing the login with the previous user, you will be returned to the following pop-up window:
+
+   :::image type="content" source="media/quickstart-deploy-restful-api-app/swagger-ui-logged.png" alt-text="Image that shows the logged of Swagger UI authorization." lightbox="media/quickstart-deploy-restful-api-app/swagger-ui-logged.png":::
 
 ### Access the RESTful APIs
 
-This section provides the steps to access the RESTful APIs of the app `ToDo`.
+This section provides the steps to access the RESTful APIs of the app `ToDo` in Swagger UI.
 
-1. Define the following variables for HTTP requests:
-   
-   ```shell
-   export EXPOSED_APPLICATION_URL=<your-app-exposed-application-url-or-endpoint>
-   export BEARER_TOKEN=<access-token-from-previous-step>
-   ```
-   
-1. Ordinary users create a ToDo list:
-
-   ```shell
-   curl -X POST ${EXPOSED_APPLICATION_URL}/api/simple-todo/lists \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer ${BEARER_TOKEN}" \
-    -d "{\"name\":\"My List\"}"
-   ```
-
-   After the addition is successful, the ToDo list information will be returned.
+1. Select the API **POST /api/simple-todo/lists**, then select **Try it out**. Enter the following request body, then select **Execute** to create a ToDo list.
 
    ```json
-   {"id":"<ID-of-the-ToDo-list>","name":"My List","description":null}
-   ```
-   
-1. Ordinary users create a ToDo item within a list:
-
-   ```shell
-   export LIST_ID=<ID-of-the-ToDo-list>
-   curl -X POST ${EXPOSED_APPLICATION_URL}/api/simple-todo/lists/${LIST_ID}/items \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer ${BEARER_TOKEN}" \
-    -d "{\"name\":\"My first ToDo item\",\"listId\":\"${LIST_ID}\",\"state\":\"todo\"}"
+   {
+     "name": "My List"
+   }
    ```
 
-   After the addition is successful, the ToDo list information will be returned.
+   After the execution is complete, you will see the following **Response body**:
 
    ```json
-   {"id":"<ID-of-the-ToDo-item>","listId":<ID-of-the-ToDo-list>,"name":"My first ToDo item","description":null,"state":"todo","dueDate":"2023-07-11T13:59:24.9033069+08:00","completedDate":null}
+   {
+     "id": "<ID-of-the-ToDo-list>",
+     "name": "My List",
+     "description": null
+   }
    ```
-
-1. Anonymous users query ToDo list:
-
-   ```shell
-   curl -X GET ${EXPOSED_APPLICATION_URL}/api/simple-todo/lists
-   ```
-
-   Return ToDo list:
+   
+1. Select the API **POST /api/simple-todo/lists/{listId}/items**, then select **Try it out**. Enter the ToDo list ID you created in previous step for **listId** field, and enter the following request body, then select **Execute** to create a ToDo list.
 
    ```json
-   [{"id":<ID-of-the-ToDo-list>,"name":"My List","description":null}]
+   {
+     "name": "My first ToDo item", 
+     "listId": "<ID-of-the-ToDo-list>",
+     "state": "todo"
+   }
    ```
-
-1. Anonymous users query Todo items within the specified list:
-
-   ```shell
-   curl -X GET ${EXPOSED_APPLICATION_URL}/api/simple-todo/lists/${LIST_ID}/items
-   ```
-
-   Return ToDo item:
+   
+   Return the ToDo item:
 
    ```json
-   [{"id":"<ID-of-the-ToDo-item>","listId":<ID-of-the-ToDo-list>,"name":"My first ToDo item","description":null,"state":"todo","dueDate":"2023-07-11T13:59:24.903307+08:00","completedDate":null}]
-   ```
-   
-1. Ordinary users modify a ToDo item within a list:
-
-   ```shell
-   export ITEM_ID=<ID-of-the-ToDo-item>
-   curl -X PUT ${EXPOSED_APPLICATION_URL}/api/simple-todo/lists/${LIST_ID}/items/${ITEM_ID} \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer ${BEARER_TOKEN}" \
-    -d "{\"id\":\"${ITEM_ID}\",\"listId\":\"${LIST_ID}\",\"name\":\"My first ToDo item\",\"description\":\"Updated description.\",\"dueDate\":\"2023-07-11T13:59:24.903307+08:00\",\"state\":\"inprogress\"}"
+   {
+     "id": "<ID-of-the-ToDo-item>",
+     "listId": "<ID-of-the-ToDo-list>",
+     "name": "My first ToDo item",
+     "description": null,
+     "state": "todo",
+     "dueDate": "2023-07-11T13:59:24.9033069+08:00",
+     "completedDate": null
+   }
    ```
 
-   After the modification is successful, the latest ToDo item information will be returned.
+1. Select the API **GET /api/simple-todo/lists**, then select **Execute** to query ToDo list.
+
+   Return the ToDo list:
 
    ```json
-   {"id":"<ID-of-the-ToDo-item>","listId": <ID-of-the-ToDo-list>,"name":"My first ToDo item","description":"Updated description.","state":"inprogress","dueDate":"2023-07-11T05:59:24.903307Z","completedDate":null}
+   [
+     {
+       "id": "<ID-of-the-ToDo-list>",
+       "name": "My List",
+       "description": null
+     }
+   ]
    ```
-   
-1. Admin users delete a ToDo item within a list:
 
-   ```shell
-   curl -i -X DELETE ${EXPOSED_APPLICATION_URL}/api/simple-todo/lists/${LIST_ID}/items/${ITEM_ID} \
-    -H "Authorization: Bearer ${BEARER_TOKEN}"
+1. Select the API **GET /api/simple-todo/lists/{listId}/items**, then select **Try it out**. Enter the ToDo list ID you created in previous step for **listId** field, then select **Execute** to query ToDo items.
+
+   Return the ToDo item:
+
+   ```json
+   [
+     {
+       "id": "<ID-of-the-ToDo-item>",
+       "listId": "<ID-of-the-ToDo-list>",
+       "name": "My first ToDo item",
+       "description": null,
+       "state": "todo",
+       "dueDate": "2023-07-11T13:59:24.903307+08:00",
+       "completedDate": null
+     }
+   ]
    ```
-   
-   You should see an output like the following snippet:
-   
-   ```output
-   HTTP/1.1 204
-   ...
-   ...
+
+1. Select the API **PUT /api/simple-todo/lists/{listId}/items/{itemId}**, then select **Try it out**. 
+   Enter the ToDo list ID for **listId** field and ToDo item ID for **itemId** field, then select **Execute** to update the ToDo item.
+
+   ```json
+   {
+     "id": "<ID-of-the-ToDo-item>",
+     "listId": "<ID-of-the-ToDo-list>",
+     "name": "My first ToDo item",
+     "description": "Updated description.",
+     "dueDate": "2023-07-11T13:59:24.903307+08:00",
+     "state": "inprogress"
+   }
    ```
+
+   Return the new ToDo item:
+
+   ```json
+   {
+     "id": "<ID-of-the-ToDo-item>",
+     "listId": "<ID-of-the-ToDo-list>",
+     "name": "My first ToDo item",
+     "description": "Updated description.",
+     "state": "inprogress",
+     "dueDate": "2023-07-11T05:59:24.903307Z",
+     "completedDate": null
+   }
+   ```
+
+1. Select the API **DELETE /api/simple-todo/lists/{listId}/items/{itemId}**, then select **Try it out**.
+   Enter the ToDo list ID for **listId** field and ToDo item ID for **itemId** field, then select **Execute** to delete the ToDo item. You should see that the server response code is `204`.
 
 [!INCLUDE [clean-up-resources](includes/quickstart-deploy-restful-api-app/clean-up-resources.md)]
 

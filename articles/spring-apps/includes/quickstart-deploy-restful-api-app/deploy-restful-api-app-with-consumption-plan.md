@@ -230,6 +230,8 @@ spring:
   cloud:
     azure:
       active-directory:
+        profile:
+          tenant-id: <your-Azure-AD-tenant-ID>
         credential:
           client-id: <your-application-ID-of-ToDo>
         app-id-uri: <your-application-ID-URI-of-ToDo>
