@@ -43,7 +43,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Enable SCIM Provisioning in the Tanium Cloud Management Portal (CMP)
 
-* Follow the steps in the [Tanium Cloud Deployment Guide: Configure SCIM Provisioning](https://docs.tanium.com/cloud/cloud/configuring_identity_providers.html#configure_scim) to enable automatic user provisioniong in Tanium Cloud.
+* Follow the steps in the [Tanium Cloud Deployment Guide: Configure SCIM Provisioning](https://docs.tanium.com/cloud/cloud/configuring_identity_providers.html#configure_scim) to enable automatic user provisioning in Tanium Cloud.
 * Retain the **Token** and **SCIM API URL** values for later use in configuring Tanium SSO. Copy the entire token string, formatted like `token-\<58 alphanumeric characters\>`.
 
 ## Step 3. Add Tanium SSO from the Azure AD application gallery
