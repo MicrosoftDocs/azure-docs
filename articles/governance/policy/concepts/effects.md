@@ -189,6 +189,14 @@ definitions as `constraintTemplate` is deprecated.
 
       > [!WARNING]
       > Don't use SAS URIs or tokens in `url` or anything else that could expose a secret.
+- **mutationInfo** (optional)
+  - Can't be used with `constraint`, `constraintTemplate`, `apiGroups`, or `kinds`.
+  - If `constraintInfo` isn't provided, the constraint can be generated from `templateInfo` and policy.
+  - **sourceType** (required)
+    - Defines the type of source for the constraint. Allowed values: _PublicURL_ or _Base64Encoded_.
+    - If _PublicURL_, paired with property `url` to provide location of the mutation template. The location must be publicly accessible.
+      > [!WARNING]
+      > Don't use SAS URIs or tokens in `url` or anything else that could expose a secret.
 - **namespaces** (optional)
   - An _array_ of
     [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
