@@ -25,7 +25,7 @@ The platform is self-service. Operators use the Azure portal, the Azure CLI, SDK
 Azure Operator Nexus includes the following benefits for operating secure carrier-grade network functions at scale:
 
 * **Reduced operational complexity and costs**: Operators can manage their Azure Operator Nexus infrastructure and tenants from Azure. They can build automation to streamline deployment, which helps them decrease time to market and innovate to provide value-add services to their customers.
-* **Integrated platform for compute, network, and storage**: Operators no longer need to provision compute, network, and storage separately. Azure Operator Nexus provides an end-to-end platform from the infrastructure to the tenant for applications. For example, the networks associated with the compute infrastructure can be provisioned automatically across the compute and network infrastructure without requiring additional teams.
+* **Integrated platform for compute, network, and storage**: Operators no longer need to provision compute, network, and storage separately. Azure Operator Nexus provides an end-to-end platform from the infrastructure to the tenant for applications. For example, the networks associated with the compute infrastructure can be provisioned automatically across the compute and network infrastructure without requiring more teams.
 * **Expanding network function (NF) ecosystem**: Azure Operator Nexus supports Microsoft and partner NFs via the Azure Operator Nexus Ready program. These NFs are tested for deployment and lifecycle management on Azure Operator Nexus before they become available in Azure Marketplace.
 * **Access to key Azure services**: Because Azure Operator Nexus is connected to Azure, operators can access most Azure services through the same connection as the on-premises network. Operators can monitor logs and metrics via Azure Monitor. They can analyze telemetry data by using Log Analytics or the Azure Machine Learning framework.
 * **Unified governance and compliance**: Azure Operator Nexus extends Azure management and services to operators' premises. Operators can unify data governance and enforce security and compliance policies by using [Azure role-based access control](../role-based-access-control/overview.md) and [Azure Policy](../governance/policy/overview.md).
@@ -60,9 +60,9 @@ When Microsoft identifies a security vulnerability, it makes the latest security
 
 ### Bare metal and cluster management
 
-Azure Operator Nexus includes capabilities to manage the bare metal hosts in operators' premises. Operators can provision the bare metal hosts by using Azure Operator Nexus. They can interact to restart, shut down, or re-image, for example.
+Azure Operator Nexus includes capabilities to manage the bare metal hosts in operators' premises. Operators can provision the bare metal hosts by using Azure Operator Nexus. They can interact to restart, shut down, or reimage, for example.
 
-One important component of the service is the [cluster manager](./howto-cluster-manager.md). It provides the lifecycle management of Kubernetes clusters that contain the bare metal hosts.  
+One important component of the service is the [cluster manager](./howto-cluster-manager.md). It provides the lifecycle management of Kubernetes clusters that comprise the bare metal hosts.  
 
 ### Network fabric automation
 
@@ -74,7 +74,7 @@ The reliable and distributed cloud services model supports the operators' telco 
 
 The network packet broker is an integral part of the network fabric in Azure Operator Nexus. The network packet broker enables scenarios like network performance monitoring and security intrusion detection.
 
-Operators can monitor every packet in Azure Operator Nexus and replicate it. They can apply packet filters dynamically and send filtered packets to multiple destinations for further processing.
+Operators can monitor every packet in Azure Operator Nexus and replicate it. They can apply packet filters dynamically and send filtered packets to multiple destinations for more processing.
 
 ### Nexus Kubernetes
 

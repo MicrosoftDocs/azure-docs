@@ -23,7 +23,7 @@ The Azure Operator Nexus software Kubernetes stack offers two types of storage. 
 
 ### StorageClass: nexus-volume
 
-The default storage mechanism, known as *nexus-volume*, is the preferred choice for most users. It provides the highest levels of performance and availability. However, volumes can't be simultaneously shared across multiple worker nodes. Operators can access and manage these volumes by using the Azure API and portal, through the volume resource.
+The default storage mechanism, *nexus-volume*, is the preferred choice for most users. It provides the highest levels of performance and availability. However, volumes can't be simultaneously shared across multiple worker nodes. Operators can access and manage these volumes by using the Azure API and portal, through the volume resource.
 
 ### StorageClass: nexus-shared
 
@@ -33,7 +33,7 @@ Although the performance and availability of *nexus-shared* are sufficient for m
 
 ## Storage appliance status
 
-Multiple properties reflect the operational state of storage appliance. They include:
+The following properties reflect the operational state of a storage appliance:
 
 - `Status` indicates the state as derived from the storage appliance. The state can be `Available`, `Error`, or `Provisioning`.
 

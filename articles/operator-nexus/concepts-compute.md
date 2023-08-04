@@ -15,7 +15,7 @@ Azure Operator Nexus is built on basic constructs like compute servers, storage 
 
 These BMMs are deployed as part of the Azure Operator Nexus automation suite. They exist as nodes in a Kubernetes cluster to serve various virtualized and containerized workloads in the ecosystem.
 
-Each BMM in an Azure Operator Nexus instance is represented as an Azure resource. Operators get access to perform various operations to manage its lifecycle like any other Azure resource.
+Each BMM in an Azure Operator Nexus instance is represented as an Azure resource. Operators get access to perform various operations to manage the BMM's lifecycle like any other Azure resource.
 
 ## Key capabilities of Azure Operator Nexus compute
 
@@ -23,7 +23,7 @@ Each BMM in an Azure Operator Nexus instance is represented as an Azure resource
 
 Nonuniform memory access (NUMA) alignment is a technique to optimize performance and resource utilization in multiple-socket servers. It involves aligning memory and compute resources to reduce latency and improve data access within a server system.
 
-Through the strategic placement of software components and workloads in a NUMA-aware manner, Operators can enhance the performance of network functions, such as virtualized routers and firewalls. This placement leads to improved service delivery and responsiveness in their telco cloud environments.
+Through the strategic placement of software components and workloads in a NUMA-aware way, Operators can enhance the performance of network functions, such as virtualized routers and firewalls. This placement leads to improved service delivery and responsiveness in their telco cloud environments.
 
 By default, all the workloads deployed in an Azure Operator Nexus instance are NUMA aligned.
 
@@ -51,7 +51,7 @@ All virtual machines created on Azure Operator Nexus can make use of either 2-MB
 
 Dual-stack support refers to the ability of networking equipment and protocols to simultaneously handle both IPv4 and IPv6 traffic. With the depletion of available IPv4 addresses and the growing adoption of IPv6, dual-stack support is crucial for seamless transition and coexistence between the two protocols.
 
-Telco operators utilize dual-stack support to ensure compatibility, interoperability, and future-proofing of their networks. It allows them to accommodate both IPv4 and IPv6 devices and services while gradually transitioning toward full IPv6 deployment.
+Telco operators use dual-stack support to ensure compatibility, interoperability, and future-proofing of their networks. It allows them to accommodate both IPv4 and IPv6 devices and services while gradually transitioning toward full IPv6 deployment.
 
 Dual-stack support helps ensure uninterrupted connectivity and smooth service delivery to customers regardless of their network addressing protocols. Azure Operator Nexus provides support for both IPv4 and IPv6 configuration across all layers of the stack.
 
@@ -65,21 +65,23 @@ This direct hardware access improves network throughput, reduces latency, and en
 
 ## BMM status
 
-Multiple properties reflect the operational state of BMMs. They include:
+The following properties reflect the operational state of a BMM:
 
 - `Power State` indicates the state as derived from a bare metal controller (BMC). The state can be either `On` or `Off`.
 
-- `Ready State` provides an overall assessment of the BMM readiness. It looks at a combination of `Detailed Status`, `Power State`, and the provisioning state of the resource to determine whether the BMM is ready or not. When `Ready State` is `True`, the BMM is turned on, `Detailed Status` is `Provisioned`, and the node that represents the BMM has successfully joined the undercloud Kubernetes cluster. If any of those conditions aren't met, `Ready State` is set to `False`.
+- `Ready State` provides an overall assessment of BMM readiness. It looks at a combination of `Detailed Status`, `Power State`, and the provisioning state of the resource to determine whether the BMM is ready or not. When `Ready State` is `True`, the BMM is turned on, `Detailed Status` is `Provisioned`, and the node that represents the BMM has successfully joined the undercloud Kubernetes cluster. If any of those conditions aren't met, `Ready State` is set to `False`.
 
 - `Cordon State` reflects the ability to run any workloads on a machine. Valid values are `Cordoned` and `Uncordoned`. `Cordoned` seizes creation of any new workloads on the machine. `Uncordoned` ensures that workloads can now run on this BMM.
 
 - `Detailed Status` reflects the current status of the machine:
 
-  - `Preparing`: The machine is being prepared for provisioning. This is a transitory state.
-  - `Provisioning`: Provisioning is in progress. This is a transitory state.
-  - `Provisioned`: The operating system is provisioned to the machine. This is an end-state status.
-  - `Available`: The machine is available to participate in the cluster. The machine was successfully provisioned but is currently turned off. This is an end-state status.
-  - `Error`: The machine couldn't be provisioned. This is an end-state status.
+  - `Preparing`: The machine is being prepared for provisioning.
+  - `Provisioning`: Provisioning is in progress.
+  - `Provisioned`: The operating system is provisioned to the machine.
+  - `Available`: The machine is available to participate in the cluster. The machine was successfully provisioned but is currently turned off.
+  - `Error`: The machine couldn't be provisioned.
+
+  `Preparing` and `Provisioning` are transitory states. `Provisioned`, `Available`, and `Error` are end-state statuses.
 
 ## BMM operations
 
