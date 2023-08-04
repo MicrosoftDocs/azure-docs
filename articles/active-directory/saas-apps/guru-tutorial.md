@@ -66,7 +66,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     `https://api.getguru.com/samlsso/<TeamID>`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Guru support team](mailto:support@getguru.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier and Reply URL. You can get `TeamID` from **[Configure Guru SSO](#configure-guru-sso)** section. If you have any queries, please contact [Guru support team](mailto:support@getguru.com). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Guru application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -97,8 +97,19 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
     ![Screenshot shows the administration portal.](media/guru-tutorial/manage.png "Admin")
 
+    1. Copy **Team ID** and save it to your computer.
 
+    1. Copy **Single Sign On Url**, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
 
+    1. Copy **Audience URI**, paste this value into the **Identifier** text box in the **Basic SAML Configuration** section in the Azure portal.
+
+    1. In the **Identity Provider Single Sign-On Url** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
+
+    1. In the **Identity Provider Issuer** textbox, paste the **Azure AD Identifier** value, which you have copied from the Azure portal.
+
+    1. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the  **X.509 Certificate** textbox.
+
+    1. Click **Enable SSO**.
 
 ### Create Guru test user
 
