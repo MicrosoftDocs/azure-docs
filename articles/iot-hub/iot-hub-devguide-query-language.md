@@ -166,8 +166,9 @@ GROUP BY <group_by_element>
 ### Query results pagination
 
 > [!IMPORTANT]
-> A **query object** is instantiated with a max page size of **less than** or **equal to** 100 records. To obtain multiple pages, call the [nextAsTwin](device-twins-node.md#create-a-service-app-that-updates-desired-properties-and-queries-twins) [Node.js SDK] or [GetNextAsTwinAsync](device-twins-dotnet.md#create-a-service-app-that-updates-desired-properties-and-queries-twins) [.Net SDK] method multiple times. 
-> A **query object** can expose multiple **Next** values, depending on the deserialization option required by the query. For example, a query object can return device twin or job objects, or plain JSON when using projections.
+> A **query object** is instantiated with a max page size of **less than** or **equal to** 100 records. To obtain multiple pages, call the [nextAsTwin](device-twins-node.md#create-a-service-app-that-updates-desired-properties-and-queries-twins) on Node.js SDK or [GetNextAsTwinAsync](device-twins-dotnet.md#create-a-service-app-that-updates-desired-properties-and-queries-twins) on .Net SDK method multiple times.
+>A **query object** can expose multiple **Next** values, depending on the deserialization option required by the query. For example, a query object can return device twin or job objects, or plain JSON when using projections.
+
 ## Expressions and conditions
 
 At a high level, an *expression*:
@@ -328,4 +329,5 @@ The **query object** is instantiated with the parameters mentioned in the [query
 
 * Learn about routing messages based on message properties or message body with the [IoT Hub message routing query syntax](iot-hub-devguide-routing-query-syntax.md).
 * Get specific examples of [Queries for device and module twins](query-twins.md) or [Queries for jobs](query-jobs.md).
+
 
