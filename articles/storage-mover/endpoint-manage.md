@@ -264,15 +264,15 @@ Target endpoints identify locations to which your data is migrated.
 
    1. Select **Create endpoint** to expand the **Endpoint type** menu. Select **Create target endpoint** to open the **Create target endpoint** pane as shown in the following image.
 
-      :::image type="content" source="media/endpoint-manage/endpoint-target-create.png" alt-text="Screenshot of the Endpoint Overview page highlighting the location of the Create Endpoint list" lightbox="media/endpoint-manage/endpoint-target-create-lrg.png":::
+      :::image type="content" source="media/endpoint-manage/endpoint-target-pane.png" alt-text="Screenshot of the Endpoint Overview page highlighting the location of the Create Endpoint list" lightbox="media/endpoint-manage/endpoint-target-pane-lrg.png":::
 
    1. Within the **Create target endpoint** pane, select your subscription and destination storage account from within the **Subscription** and **Storage account** lists, respectively. Next, select the appropriate **Target type** option corresponding to your target endpoint.
 
       [!INCLUDE [protocol-endpoint-agent](includes/protocol-endpoint-agent.md)]
 
-      Finally, you may add an optional **Description** value for your taregt of up to 1024 characters in length.
+      Depending on the you choose, select either your **Blob container** or your **File share** from the corresponding drop-down list. Finally, you may add an optional **Description** value for your taregt of up to 1024 characters in length and select **Create** to deploy your endpoint.
 
-      :::image type="content" source="media/endpoint-manage/secrets.png" alt-text="Screenshot of the Create Endpoint pane showing the location of the Secrets options."  lightbox="media/endpoint-manage/secrets-lrg.png":::
+      :::image type="content" source="media/endpoint-manage/endpoint-target-create.png" alt-text="Screenshot of the Create Endpoint pane showing the location of the required fields and Create button."  lightbox="media/endpoint-manage/endpoint-target-create-lrg.png":::
 
    Your new endpoint is deployed and now appears within your list of endpoints as show in the following example image.
 

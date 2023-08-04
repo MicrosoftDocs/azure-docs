@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 08/01/2023
+ms.date: 08/04/2023
 ---
 
 <!-- 
@@ -171,9 +171,9 @@ The agent is automatically authorized to converse with the Storage Mover service
 
 #### Just-in-time authorization
 
-Perhaps the most important resource the agent needs to be authorized for access is the Azure Storage that is the target for a migration job. Authorization takes place through [Role-based access control](../role-based-access-control/overview.md). For an Azure blob container as a target, the registered agent's managed identity is assigned to the built-in role "Storage Blob Data Contributor" of the target container (not the whole storage account).
+For a migration job, access to the target endpoint is perhaps the most important resource for which an agent must be authorized. Authorization takes place through [Role-based access control](../role-based-access-control/overview.md). For an Azure blob container as a target, the registered agent's managed identity is assigned to the built-in role `Storage Blob Data Contributor` of the target container (not the whole storage account). Similarly, when accessing an Azure File share target, the registered agent's managed identity is assigned to the built-in role `Storage File Data Privileged Contributor`.
 
-This assignment is made in the admin's sign-in context in the Azure portal. Therefore, the admin must be a member of the role-based access control (RBAC) control plane role "Owner" for the target container. This assignment is made just-in-time when you start a migration job. It is at this point that you've selected an agent to execute a migration job. As part of this start action, the agent is given permissions to the data plane of the target container. The agent isn't authorized to perform any management plane actions, such as deleting the target container or configuring any features on it.
+These assignments are made in the admin's sign-in context in the Azure portal. Therefore, the admin must be a member of the role-based access control (RBAC) control plane role "Owner" for the target container. This assignment is made just-in-time when you start a migration job. It is at this point that you've selected an agent to execute a migration job. As part of this start action, the agent is given permissions to the data plane of the target container. The agent isn't authorized to perform any management plane actions, such as deleting the target container or configuring any features on it.
 
 > [!WARNING]
 > Access is granted to a specific agent just-in-time for running a migration job. However, the agent's authorization to access the target is not automatically removed. You must either manually remove the agent's managed identity from a specific target or unregister the agent to destroy the service principal. This action removes all target storage authorization as well as the ability of the agent to communicate with the Storage Mover and Azure ARC services.
