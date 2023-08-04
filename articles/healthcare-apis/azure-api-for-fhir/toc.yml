@@ -1,12 +1,7 @@
 items:
-- name: Azure Health Data Services documentation
-  href: ../index.yml
-- name: Azure API for FHIR documentation
+- name: Azure API for FHIR
   href: index.yml
 - name: Overview
-  expanded: true
-  items:
-  - name: About Azure API for FHIR
     href: overview.md
 - name: Quickstarts
   expanded: true
@@ -14,7 +9,7 @@ items:
   - name: Get started with Azure API for FHIR
     href: get-started-with-azure-api-fhir.md
   - name: Deploy Azure API for FHIR
-    expanded: false
+    expanded: true
     items:
     - name: Using Portal
       href: fhir-paas-portal-quickstart.md
@@ -29,7 +24,7 @@ items:
   expanded: true
   items:
   - name: Deploy JavaScript application
-    expanded: false
+    expanded: true
     items:
     - name: 1. Initial setup and FHIR deployment
       href: tutorial-web-app-fhir-server.md
@@ -41,24 +36,24 @@ items:
       href: tutorial-web-app-write-web-app.md
   - name: SMART on FHIR 
     href: smart-on-fhir.md
-  - name: Interoperability and Patient Access
-    expanded: false
+  - name: Interoperability and patient access
+    expanded: true
     items:
-    - name: CMS Interoperability and Patient Access rule introduction
+    - name: CMS interoperability and patient access rule 
       href: centers-for-medicare-tutorial-introduction.md
-    - name: CARIN Implementation Guide for Blue Button
+    - name: CARIN implementation for Blue Button
       href: carin-implementation-guide-blue-button-tutorial.md
-    - name: Da Vinci Drug Formulary
+    - name: Da Vinci drug formulary
       href: davinci-drug-formulary-tutorial.md
     - name: Da Vinci PDex
       href: davinci-pdex-tutorial.md
-    - name: Da Vinci Plan Net
+    - name: Da Vinci plan net
       href: davinci-plan-net.md
-- name: How-to guides
+- name: How-tos
   expanded: true
   items:
   - name: Registering applications
-    expanded: false
+    expanded: true
     items:
     - name: Register applications for Azure API for FHIR overview
       href: fhir-app-registration.md
@@ -71,11 +66,11 @@ items:
     - name: Service client application
       href: register-service-azure-ad-client-app.md
   - name: Configure settings
-    expanded: false
+    expanded: true
     items:
     - name: Configure Azure RBAC
       href: configure-azure-rbac.md
-    - name: Configure Local RBAC
+    - name: Configure local RBAC
       href: configure-local-rbac.md
     - name: Configure database settings
       href: configure-database.md
@@ -85,17 +80,14 @@ items:
       href: configure-cross-origin-resource-sharing.md
     - name: Configure Private Link
       href: configure-private-link.md
-    - name: Autoscale for Azure API for FHIR
+    - name: Autoscale 
       href: autoscale-azure-api-fhir.md
-    - name: Disaster recovery for Azure API for FHIR
+    - name: Disaster recovery
       href: disaster-recovery.md 
-  - name: Diagnostic logging
-    expanded: false
-    items:
-    - name: Enable diagnostic logging in Azure API for FHIR
+    - name: Enable diagnostic logging
       href: enable-diagnostic-logging.md
   - name: Search
-    expanded: false
+    expanded: true
     items:
     - name: Overview of FHIR search
       href: overview-of-search.md
@@ -103,15 +95,15 @@ items:
       href: how-to-do-custom-search.md
     - name: How to run a reindex job
       href: how-to-run-a-reindex.md
-    - name: Search examples for Azure API for FHIR
+    - name: Search examples
       href: search-samples.md
   - name: FHIR operations
-    expanded: false
+    expanded: true
     items:
     - name: $export
-      expanded: false
+      expanded: true
       items:
-      - name: Configure Export
+      - name: Configure export
         href: configure-export-data.md
       - name: Export data
         href: export-data.md
@@ -124,13 +116,13 @@ items:
     - name: $purge-history operation
       href: purge-history.md
     - name: $validate
-      expanded: false
+      expanded: true
       items:  
       - name: Store profiles
         href: store-profiles-in-fhir.md
       - name: Use $validate
         href: validation-against-profiles.md
-  - name: How to convert data to FHIR 
+  - name: Convert data to FHIR 
     href: convert-data.md
   - name: Copy data to Synapse
     href: copy-to-synapse.md
@@ -143,24 +135,19 @@ items:
 - name: Concepts
   expanded: true
   items:
-  - name: Azure AD and Azure API for FHIR Overview
+  - name: Overview of Azure AD and Azure API for FHIR 
     href: azure-active-directory-identity-configuration.md
   - name: Access token validation
     href: azure-api-fhir-access-token-validation.md
-  - name: Use Custom HTTP headers to add data to Audit Logs
+  - name: Use Custom HTTP headers to add data to audit logs
     href: use-custom-headers.md
   - name: FHIR REST API capabilities
     href: fhir-rest-api-capabilities.md
-  - name: Security
-    expanded: false
-    items:
-    - name: Security controls by Azure Policy
-      href: ./security-controls-policy.md
+  - name: Security controls by Azure Policy
+    href: ./security-controls-policy.md
 - name: Resources
   expanded: true
   items:
-  - name: FAQs - Azure API for FHIR
-    href: fhir-faq.yml
   - name: GitHub Projects
     href: fhir-github-projects.md
   - name: Release notes
@@ -173,3 +160,5 @@ items:
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
+- name: FAQ
+    href: fhir-faq.yml
