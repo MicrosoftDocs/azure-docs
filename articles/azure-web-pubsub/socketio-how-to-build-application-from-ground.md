@@ -14,7 +14,7 @@ Our purpose is to build a realtime editor. There are two types of roles: the fir
 
 # Prerequisites
 1. Create a Web PubSub for Socket.IO resource
-The recommended way is to use Azure CLI Tools:
+The recommended way is to use [Azure CLI Tool](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli):
 ```bash
 az webpubsub create -n <resource-name> \
                     -l <resource-location> \
@@ -218,7 +218,7 @@ Now, the writer part is finished. Let's go to the watcher client part.
 let [socket, editor] = await initialize(`/register?room_id=${room_id}`)
 socket.on("login", () => {
     updateStatus('Connected');
-    joinRoom(socket, `${id}`);
+    joinRoom(socket, `${room_id}`);
 });
 ```
 
