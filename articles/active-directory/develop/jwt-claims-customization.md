@@ -468,7 +468,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
 
 ## Update the application manifest
-For single tenant apps, you can set the `acceptMappedClaims` property to `true` in the [application manifest](reference-app-manifest.md). As documented on the [apiApplication resource type](/graph/api/resources/apiapplication?view=graph-rest-1.0#properties), this allows an application to use claims mapping without specifying a custom signing key.
+For single tenant apps, you can set the `acceptMappedClaims` property to `true` in the [application manifest](reference-app-manifest.md). As documented on the [apiApplication resource type](/graph/api/resources/apiapplication?view=graph-rest-1.0&preserve-view=true#properties), this allows an application to use claims mapping without specifying a custom signing key.
 
 >[!WARNING]
 >Do not set the acceptMappedClaims property to true for multi-tenant apps, which can allow malicious actors to create claims-mapping policies for your app.
