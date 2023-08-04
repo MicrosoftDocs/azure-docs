@@ -1,6 +1,7 @@
 - name: Azure Virtual Desktop
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Azure Virtual Desktop?
     displayName: overview, get started
