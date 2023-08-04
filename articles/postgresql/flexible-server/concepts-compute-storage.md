@@ -91,7 +91,7 @@ Storage is available in the following fixed sizes:
 | 16 TiB | 18,000 |
 | 32 TiB | 20,000 |
 
-IOPS are also constrained by your VM type. Even though you can select any storage size independently from the server type, you might not be able to use all IOPS that the storage provides, especially when you choose a server with a small number of vCores.
+Your VM type also constrains IOPS. Even though you can select any storage size independently from the server type, you might not be able to use all IOPS that the storage provides, especially when you choose a server with a small number of vCores.
 
 You can add storage capacity during and after the creation of the server.
 
@@ -204,7 +204,7 @@ For servers that have less than 1 TiB of provisioned storage, the auto-grow feat
 
 For example, assume that you allocate 256 GiB of storage and turn on storage auto-grow. When the utilization reaches 80 percent (205 GB), the server's storage size automatically increases to the next available premium disk tier, which is 512 GiB. But if the disk size is 1 TiB or larger, the scaling threshold is set at 90 percent. In such cases, the scaling process begins when the utilization reaches 922 GiB, and the disk is resized to 2 TiB.
 
-Azure Database for PostgreSQL - Flexible Server uses Azure managed disks. The default behavior is to increase the disk size to the next premium tier. This increase is always double in both size and cost, regardless of whether you start the storage scaling operation manually or through storage auto-grow. Enabling storage auto-grow is particularly valuable when you're managing unpredictable workloads, because it automatically detects low-storage conditions and scales up the storage accordingly.
+Azure Database for PostgreSQL - Flexible Server uses Azure managed disks. The default behavior is to increase the disk size to the next premium tier. This increase is always double in both size and cost, regardless of whether you start the storage scaling operation manually or through storage auto-grow. Enabling storage auto-grow is valuable when you're managing unpredictable workloads, because it automatically detects low-storage conditions and scales up the storage accordingly.
 
 The process of scaling storage is performed online without causing any downtime, except when the disk is provisioned at 4,096 GiB. This exception is a limitation of Azure managed disks. If a disk is already 4,096 GiB, the storage scaling activity won't be triggered, even if storage auto-grow is turned on. In such cases, you need to manually scale your storage. Manual scaling is an offline operation that you should plan according to your business requirements.
 
@@ -238,7 +238,7 @@ When you change the number of vCores or the compute tier, the server is restarte
 
 The time it takes to restart your server depends on the crash recovery process and database activity at the time of the restart. Restarting typically takes one minute or less. But it can be higher and can take several minutes, depending on transactional activity at time of the restart. Scaling the storage works the same way and requires a restart.
 
-To improve the restart time, we recommend that you perform scale operations during off-peak hours. That approach will reduce the time needed to restart the database server.
+To improve the restart time, we recommend that you perform scale operations during off-peak hours. That approach reduces the time needed to restart the database server.
 
 Changing the backup retention period is an online operation.
 
