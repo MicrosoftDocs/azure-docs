@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Add sign-in with Microsoft to a Java web app"
+title: "Quickstart: Sign in users and call the Microsoft Graph API from a Java web app"
 description: In this quickstart, you'll learn how to add sign-in with Microsoft to a Java web application by using OpenID Connect.
 services: active-directory
 author: cilwerner
@@ -13,7 +13,7 @@ ms.author: cwerner
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
 ---
 
-# Quickstart: Add sign-in with Microsoft to a Java web app
+# Quickstart: Sign in users and call the Microsoft Graph API from a Java web app
 
 In this quickstart, you download and run a code sample that demonstrates how a Java web application can sign in users and call the Microsoft Graph API. Users from any Azure Active Directory (Azure AD) organization can sign in to the application.
 

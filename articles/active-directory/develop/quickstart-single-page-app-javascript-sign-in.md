@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Sign in users in single-page apps (SPA) via the authorization code flow with Proof Key for Code Exchange (PKCE) using JavaScript
+title: "Quickstart: Sign in users in a single-page app (SPA) and call the Microsoft Graph API using JavaScript"
 description: In this quickstart, learn how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow.
 services: active-directory
 author: henrymbuguakiarie
@@ -16,7 +16,7 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-tra
 #Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 
-# Quickstart: Sign in users in single-page apps (SPA) via the authorization code flow with Proof Key for Code Exchange (PKCE) using JavaScript
+# Quickstart: Sign in users in a single-page app (SPA) and call the Microsoft Graph API using JavaScript
 
 In this quickstart, you download and run a code sample that demonstrates how a JavaScript single-page application (SPA) can sign in users and call Microsoft Graph using the authorization code flow with Proof Key for Code Exchange (PKCE). The code sample demonstrates how to get an access token to call the Microsoft Graph API or any web API.
 

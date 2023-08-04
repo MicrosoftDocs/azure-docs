@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Sign in users in single-page apps (SPA) via the authorization code flow with Proof Key for Code Exchange (PKCE) using Angular"
+title: "Quickstart: Sign in users in a single-page app (SPA) and call the Microsoft Graph API using Angular"
 description: In this quickstart, learn how a JavaScript Angular single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow and call Microsoft Graph.
 services: active-directory
 author: henrymbuguakiarie
@@ -15,7 +15,7 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-tra
 #Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform so that my JavaScript Angular app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 
-# Quickstart: Sign in users in single-page apps (SPA) via the authorization code flow with Proof Key for Code Exchange (PKCE) using Angular
+# Quickstart: Sign in users in a single-page app (SPA) and call the Microsoft Graph API using Angular
 
 In this quickstart, you download and run a code sample that demonstrates how a JavaScript Angular single-page application (SPA) can sign in users and call Microsoft Graph using the authorization code flow. The code sample demonstrates how to get an access token to call the Microsoft Graph API or any web API.
 

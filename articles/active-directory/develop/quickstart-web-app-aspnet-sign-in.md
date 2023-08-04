@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Add sign-in with Microsoft to an ASP.NET web app"
+title: "Quickstart: Sign in users and call the Microsoft Graph API from an ASP.NET web app"
 description: Download and run a code sample that shows how an ASP.NET web app can sign in Azure AD users.
 services: active-directory
 author: cilwerner
@@ -16,7 +16,7 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-
 # Customer intent: As an application developer, I want to see a sample ASP.NET web app that can sign in Azure AD users.
 ---
 
-# Quickstart: Add sign-in with Microsoft to an ASP.NET web app
+# Quickstart: Sign in users and call the Microsoft Graph API from an ASP.NET web app
 
 In this quickstart, you download and run a code sample that demonstrates an ASP.NET web application that can sign in users with Azure Active Directory (Azure AD) accounts. 
 
