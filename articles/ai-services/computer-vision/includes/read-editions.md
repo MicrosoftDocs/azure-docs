@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.custom: ignite-2022
 ms.topic: include
-ms.date: 09/23/2022
+ms.date: 08/07/2023
 ms.author: pafarley
 ---
 
@@ -24,4 +24,4 @@ ms.author: pafarley
 >
 > **About Azure AI Vision v3.2 GA Read**
 >
-> Looking for the most recent Azure AI Vision v3.2 GA Read? Note that all future Read OCR enhancements will be part of the two new services listed above. There will be no further updates to the Azure AI Vision v3.2. To continue, see the Azure AI Vision v3.2 GA Read [overview](../how-to/call-read-api.md) and [quickstart](../quickstarts-sdk/client-library.md).
+> Looking for the most recent Azure AI Vision v3.2 GA Read? All future Read OCR enhancements are part of the two services listed previously. There are no further updates to the Azure AI Vision v3.2. For more information, see [Call the Azure AI Vision 3.2 GA Read API](../how-to/call-read-api.md) and [Quickstart: Azure AI Vision v3.2 GA Read](../quickstarts-sdk/client-library.md).

@@ -3,13 +3,13 @@ author: PatrickFarley
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: include
-ms.date: 02/22/2023
+ms.date: 08/07/2023
 ms.author: pafarley
 ---
 
 ## Create environment variables 
 
-In this example, you'll write your credentials to environment variables on the local machine running the application.
+In this example, write your credentials to environment variables on the local machine that runs the application.
 
 [!INCLUDE [find key and endpoint](./find-key.md)]
 
