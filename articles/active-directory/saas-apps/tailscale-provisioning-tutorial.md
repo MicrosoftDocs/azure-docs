@@ -44,7 +44,7 @@ Contact Tailscale support to configure Tailscale to support provisioning with Az
 
 ## Step 3. Add Tailscale from the Azure AD application gallery
 
-Add Tailscale from the Azure AD application gallery to start managing provisioning to Tailscale. If you have previously setup Tailscale for SSO you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add Tailscale from the Azure AD application gallery to start managing provisioning to Tailscale. If you have previously setup Tailscale for SSO, you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
