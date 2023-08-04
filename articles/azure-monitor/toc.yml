@@ -494,13 +494,13 @@ items:
       items:
       - name: Enable on AKS cluster
         displayName: Prometheus
-        href: essentials/prometheus-metrics-enable.md
+        href: containers/prometheus-metrics-enable.md
       - name: Disable on AKS cluster
         displayName: Prometheus
-        href: essentials/prometheus-metrics-disable.md
+        href: containers/prometheus-metrics-disable.md
       - name: Enable on Arc-enabled Kubernetes cluster
         displayName: Prometheus
-        href: essentials/prometheus-metrics-from-arc-enabled-cluster.md    
+        href: containers/prometheus-metrics-from-arc-enabled-cluster.md    
       - name: Customize collection
         items:
         - name: Default configuration
