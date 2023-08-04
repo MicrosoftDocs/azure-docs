@@ -141,7 +141,7 @@ Devices integrated with Azure AD are hybrid-joined devices or Azure AD joined de
 
 * [Plan your Azure AD device deployment](../devices/plan-device-deployment.md)
 * [Hybrid Azure AD joined devices](../devices/concept-hybrid-join.md)
-* [Azure AD joined devices](../devices/concept-azure-ad-join.md)
+* [Azure AD joined devices](../devices/concept-directory-join.md)
 * [Log in to a Windows virtual machine in Azure by using Azure AD including passwordless](../devices/howto-vm-sign-in-azure-ad-windows.md)
 * [Log in to a Linux virtual machine in Azure by using Azure AD and OpenSSH](../devices/howto-vm-sign-in-azure-ad-linux.md)
 * [Azure AD join for Azure Virtual Desktop](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join)

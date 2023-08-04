@@ -19,7 +19,7 @@ This article shows you how to render point data from a data source as a bubble l
 
 ## Prerequisites
 
-Be sure to complete the steps in the [Quickstart: Create an iOS app](quick-ios-app.md) document. Code blocks in this article can be inserted into the  `viewDidLoad` function of `ViewController`.
+Be sure to complete the steps in the [Quickstart: Create an iOS app] document. Code blocks in this article can be inserted into the  `viewDidLoad` function of `ViewController`.
 
 ## Add a bubble layer
 
@@ -102,3 +102,5 @@ See the following articles for more code samples to add to your maps:
 - [Add a symbol layer](add-symbol-layer-ios.md)
 - [Use data-driven style expressions](data-driven-style-expressions-ios-sdk.md)
 - [Display feature information](display-feature-information-ios-sdk.md)
+
+[Quickstart: Create an iOS app]: quick-ios-app.md

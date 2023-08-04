@@ -40,7 +40,7 @@ To set up an identity in AD DS:
 
 3. Install and configure [Azure AD Connect](../../active-directory/hybrid/how-to-connect-install-roadmap.md) on a separate domain-joined VM to sync the user accounts from Active Directory to Azure Active Directory.
 
-4. If you plan to manage the VMs using Intune, enable [Hybrid Azure AD-joined devices](../../active-directory/devices/hybrid-azuread-join-plan.md) with Azure AD Connect.
+4. If you plan to manage the VMs using Intune, enable [Hybrid Azure AD-joined devices](../../active-directory/devices/hybrid-join-plan.md) with Azure AD Connect.
 
 5. Once you've configured the environment, [create new users](/previous-versions/windows/it-pro/windows-server-2003/cc755607(v=ws.10)) in the Active Directory. These users should automatically be synced with Azure AD.
 

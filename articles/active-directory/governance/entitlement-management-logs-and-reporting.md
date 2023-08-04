@@ -188,5 +188,28 @@ $bResponse = Invoke-AzOperationalInsightsQuery -WorkspaceId $wks[0].CustomerId -
 $bResponse.Results |ft 
 ```
 
+### Using query filters
+
+You can include the `TimeGenerated` field to scope a query to a particular time range. For example, to retrieve the audit log events for entitlement management access package assignment policies being created or updated in the last 90 days, you can supply a query that includes this field as well the category and operation type.
+
+```
+AuditLogs | 
+where TimeGenerated > ago(90d) and Category == "EntitlementManagement" and Result == "success" and (AADOperationType == "CreateEntitlementGrantPolicy" or AADOperationType == "UpdateEntitlementGrantPolicy") | 
+project ActivityDateTime,OperationName, InitiatedBy, AdditionalDetails, TargetResources
+```
+
+For audit events of some services such as entitlement management, you can also expand and filter on the affected properties of the resources being changed.  For example, you can view just those audit log records for access package assignment policies being created or updated, that do not require approval for users to have an assignment added.
+
+```
+AuditLogs | 
+where TimeGenerated > ago(90d) and Category == "EntitlementManagement" and Result == "success" and (AADOperationType == "CreateEntitlementGrantPolicy" or AADOperationType == "UpdateEntitlementGrantPolicy") | 
+mv-expand TargetResources | 
+where TargetResources.type == "AccessPackageAssignmentPolicy" | 
+project ActivityDateTime,OperationName,InitiatedBy,PolicyId=TargetResources.id,PolicyDisplayName=TargetResources.displayName,MP1=TargetResources.modifiedProperties | 
+mv-expand MP1 | 
+where (MP1.displayName == "IsApprovalRequiredForAdd" and MP1.newValue == "\"False\"") |
+order by ActivityDateTime desc 
+```
+
 ## Next steps
 - [Create interactive reports with Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md)

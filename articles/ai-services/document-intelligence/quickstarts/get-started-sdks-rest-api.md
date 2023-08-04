@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 07/18/2023
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
-monikerRange: '<=doc-intel-3.0.0'
+monikerRange: '<=doc-intel-3.1.0'
 ---
 
 
 # Get started with Document Intelligence
 
-::: moniker range="doc-intel-3.0.0"
-[!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
+::: moniker range=">=doc-intel-3.0.0"
+[!INCLUDE [applies to v3.1 and v3.0](../includes/applies-to-v3-1-v3-0.md)]
 ::: moniker-end
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 Get started with the latest version of Azure AI Document Intelligence. Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine learning to extract key-value pairs, text, tables and key data from your documents. You can easily integrate Document Intelligence models into your workflows and applications by using an SDK in the programming language of your choice or calling the REST API.  For this quickstart, we recommend that you use the free service while you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
@@ -31,7 +31,7 @@ To learn more about Document Intelligence features and development options, visi
 
 ::: zone pivot="programming-language-csharp"
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 [!INCLUDE [C# SDK](includes/v3-csharp-sdk.md)]
 ::: moniker-end
 
@@ -39,7 +39,7 @@ To learn more about Document Intelligence features and development options, visi
 
 ::: zone pivot="programming-language-java"
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 [!INCLUDE [Java SDK](includes/v3-java-sdk.md)]
 ::: moniker-end
 
@@ -47,7 +47,7 @@ To learn more about Document Intelligence features and development options, visi
 
 ::: zone pivot="programming-language-javascript"
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 [!INCLUDE [NodeJS SDK](includes/v3-javascript-sdk.md)]
 ::: moniker-end
 
@@ -55,7 +55,7 @@ To learn more about Document Intelligence features and development options, visi
 
 ::: zone pivot="programming-language-python"
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 [!INCLUDE [Python SDK](includes/v3-python-sdk.md)]
 ::: moniker-end
 
@@ -63,13 +63,13 @@ To learn more about Document Intelligence features and development options, visi
 
 ::: zone pivot="programming-language-rest-api"
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 [!INCLUDE [REST API](includes/v3-rest-api.md)]
 ::: moniker-end
 
 ::: zone-end
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 That's it, congratulations!
 
 In this quickstart, you used a form Document Intelligence model to analyze various forms and documents. Next, explore the Document Intelligence Studio and reference documentation to learn about Document Intelligence API in depth.
