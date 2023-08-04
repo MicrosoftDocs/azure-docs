@@ -19,7 +19,7 @@ ms.author: anfdocs
 
 Backup vaults store the backups for your Azure NetApp Files subscription.
 
-Although you can have multiple backup vaults in an Azure NetApp Files subscription, most deployments only require one backup vault. 
+Although it's possible to create multiple backup vaults in your Azure NetApp Files account, it's recommended you have only one backup vault.
 
 >[!IMPORTANT]
 >If you have existing backups on Azure NetApp Files, you must migrate the backups to a backup vault before you can perform any operation with the backup.
