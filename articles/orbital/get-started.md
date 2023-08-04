@@ -17,9 +17,9 @@ Azure Orbital Ground Station can be used to communicate with a private satellite
 ## Learn about resources
 
 Azure Orbital Ground Station uses three different types of resources:
-- [Spacecraft](https://learn.microsoft.com/azure/orbital/spacecraft-object)
-- [Contact profile](https://learn.microsoft.com/azure/orbital/concepts-contact-profile)
-- [Contact](https://learn.microsoft.com/azure/orbital/concepts-contact)
+- [Spacecraft](spacecraft-object.md)
+- [Contact profile](concepts-contact-profile.md)
+- [Contact](concepts-contact.md)
 
 You need to create each of these resources before you can successfully contact your satellite. Click the links to learn more about each of these resources.
 
@@ -28,36 +28,36 @@ Contacts are scheduled at a designated time for a particular combination of a sp
 
 ## 1. Register a spacecraft
 
-[Register a spacecraft](https://learn.microsoft.com/azure/orbital/register-spacecraft) to add it to your subscription. This process includes creating the spacecraft resource and requesting authorization to use this spacecraft according to the spacecraft and ground station licenses.
+[Register a spacecraft](register-spacecraft.md) to add it to your subscription. This process includes creating the spacecraft resource and requesting authorization to use this spacecraft according to the spacecraft and ground station licenses.
 
    > [!NOTE] 
    > Before spacecraft resources can be created and authorized for private satellites, proper regulatory licenses for both satellites and relevant ground stations must be obtained.
 
 ## 2. Prepare the network
 
-[Set up your network](https://learn.microsoft.com/azure/orbital/prepare-network) by preparing your subnet for VNET injection, setting the endpoints, and ensuring your objects are configured correctly.
+[Set up your network](prepare-network.md) by preparing your subnet for VNET injection, setting the endpoints, and ensuring your objects are configured correctly.
 
 ## 3. Integrate partner networks
 
-If you're using one of Azure Orbital Ground Station's partner ground station networks, [integrate the partner network](https://learn.microsoft.com/azure/orbital/partner-network-integration)
+If you're using one of Azure Orbital Ground Station's partner ground station networks, [integrate the partner network](partner-network-integration.md)
 
 ## 4. Configure the modem
 
-[Configure the RF chain](https://learn.microsoft.com/azure/orbital/modem-chain), choosing to utilize a managed modem or virtual RF.
+[Configure the RF chain](modem-chain.md), choosing to utilize a managed modem or virtual RF.
 
 ## 5. Set up telemetry
 
-Use Azure Event Hubs to [set up real-time antenna telemetry](https://learn.microsoft.com/azure/orbital/receive-real-time-telemetry).
+Use Azure Event Hubs to [set up real-time antenna telemetry](receive-real-time-telemetry.md).
 
 ## 6. Configure a contact profile
 
-[Configure a contact profile](https://learn.microsoft.com/azure/orbital/contact-profile) for your spacecraft.
+[Configure a contact profile](contact-profile.md) for your spacecraft.
 
 ## 7. Schedule a contact
 
-[Schedule a contact](https://learn.microsoft.com/azure/orbital/schedule-contact) for a particular spacecraft and contact profile.
-If needed, you can [cancel a contact](https://learn.microsoft.com/azure/orbital/delete-contact).
+[Schedule a contact](schedule-contact.md) for a particular spacecraft and contact profile.
+If needed, you can [cancel a contact](delete-contact.md).
 
 ## 8. Update spacecraft TLE
 
-[Update your spacecraft's TLE](https://learn.microsoft.com/azure/orbital/update-tle) to ensure it remains current.
+[Update your spacecraft's TLE](update-tle.md) to ensure it remains current.
