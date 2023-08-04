@@ -179,7 +179,7 @@ If you use self-signed certificates, they must be created using specific paramet
 
 1. [!INCLUDE [Generate a client certificate](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
-1. After you create client certificate, [export](vpn-gateway-certificates-point-to-site.md#clientexport) it. You'll distribute the client certificate to the client computers that will connect.
+1. After you create client certificate, [export](vpn-gateway-certificates-point-to-site.md#clientexport) it. Each client computer requires a client certificate in order to connect and authenticate.
 
 ## <a name="upload"></a>Upload root certificate public key information
 
@@ -219,7 +219,7 @@ Make sure the client certificate was exported as a .pfx along with the entire ce
 
 ## <a name="connect"></a>Configure VPN clients and connect to Azure
 
-Each VPN client is configured using the files in a VPN client profile configuration package that you generate and download. The configuration package contains settings that are specific to the VPN gateway that you created. If you make changes to the gateway, such as changing a tunnel type, certificate, or authentication type, you'll need to generate another VPN client profile configuration package and install it on each client. Otherwise, your VPN clients may not be able to connect.
+Each VPN client is configured using the files in a VPN client profile configuration package that you generate and download. The configuration package contains settings that are specific to the VPN gateway that you created. If you make changes to the gateway, such as changing a tunnel type, certificate, or authentication type, you must generate another VPN client profile configuration package and install it on each client. Otherwise, your VPN clients may not be able to connect.
 
 For steps to generate a VPN client profile configuration package, configure your VPN clients, and connect to Azure, see the following articles:
 
