@@ -155,7 +155,7 @@ The following code example shows how to append data to the end of a file using t
 The following code example shows how to download a file from a directory to a local file using these steps:
 
 - Create a `DataLakeFileClient` object to represent the file that you want to download. 
-- Use the `DataLakeFileClient.read` to read the file.
+- Use the `DataLakeFileClient.readToFile` to read the file.
 - Use any Java file processing API to save bytes from the stream to a file.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_DownloadFile":::
