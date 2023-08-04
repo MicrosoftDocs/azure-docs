@@ -10,16 +10,13 @@ ms.reviewer: aul
 # Send Prometheus metrics to Log Analytics workspace with Container insights
 This article describes how to send Prometheus metrics from your Kubernetes cluster monitored by Container insights to a Log Analytics workspace. Before you perform this configuration, you should first ensure that you're [scraping Prometheus metrics from your cluster using Azure Monitor managed service for Prometheus](), which is the recommended method for monitoring your clusters. Use the configuration described in this article only if you also want to send this same data to a Log Analytics workspace where you can analyze it using [log queries](../logs/log-query-overview.md) and [log alerts](../alerts/alerts-log-query.md).
 
-This requires exposing the Prometheus metrics endpoint through your exporters or pods and then configuring the monitoring addon for the Azure Monitor agent used by Container insights as shown the following diagram.
+This configuration requires configuring the *monitoring addon* for the Azure Monitor agent, which is the same one used by Container insights to send data to a Log Analytics workspace. It requires exposing the Prometheus metrics endpoint through your exporters or pods and then configuring the monitoring addon for the Azure Monitor agent used by Container insights as shown the following diagram. 
+
 
 :::image type="content" source="media/container-insights-prometheus/monitoring-kubernetes-architecture.png" lightbox="media/container-insights-prometheus/monitoring-kubernetes-architecture.png" alt-text="Diagram of container monitoring architecture sending Prometheus metrics to Azure Monitor Logs." border="false":::
 
 
-
-## Send metrics to Azure Monitor Logs
-This requires configuring the *monitoring addon* for the Azure Monitor agent, which is the one currently used by Container insights to send data to a Log Analytics workspace.
-
-### Prometheus scraping settings (for metrics stored as logs)
+## Prometheus scraping settings (for metrics stored as logs)
 
 Active scraping of metrics from Prometheus is performed from one of two perspectives below and metrics are sent to configured log analytics workspace :
 
@@ -49,7 +46,7 @@ When a URL is specified, Container insights only scrapes the endpoint. When Kube
 | Node-wide or cluster-wide | `interval` | String | 60s | The collection interval default is one minute (60 seconds). You can modify the collection for either the *[prometheus_data_collection_settings.node]* and/or *[prometheus_data_collection_settings.cluster]* to time units such as s, m, and h. |
 | Node-wide or cluster-wide | `fieldpass`<br> `fielddrop`| String | Comma-separated array | You can specify certain metrics to be collected or not from the endpoint by setting the allow (`fieldpass`) and disallow (`fielddrop`) listing. You must set the allowlist first. |
 
-### Configure ConfigMaps to specify Prometheus scrape configuration (for metrics stored as logs)
+## Configure ConfigMaps to specify Prometheus scrape configuration (for metrics stored as logs)
 Perform the following steps to configure your ConfigMap configuration file for your cluster. ConfigMaps is a global list and there can be only one ConfigMap applied to the agent. You can't have another ConfigMaps overruling the collections.
 
 
@@ -58,7 +55,7 @@ Perform the following steps to configure your ConfigMap configuration file for y
 1. Edit the ConfigMap YAML file with your customizations to scrape Prometheus metrics.
 
 
-    #### [Cluster-wide](#tab/cluster-wide)
+    ### [Cluster-wide](#tab/cluster-wide)
 
     To collect Kubernetes services cluster-wide, configure the ConfigMap file by using the following example:
 
@@ -72,7 +69,7 @@ Perform the following steps to configure your ConfigMap configuration file for y
     kubernetes_services = ["http://my-service-dns.my-namespace:9102/metrics"]
     ```
 
-    #### [Specific URL](#tab/url)
+    ### [Specific URL](#tab/url)
 
     To configure scraping of Prometheus metrics from a specific URL across the cluster, configure the ConfigMap file by using the following example:
 
@@ -86,7 +83,7 @@ Perform the following steps to configure your ConfigMap configuration file for y
     urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
     ```
 
-    #### [DaemonSet](#tab/deamonset)
+    ### [DaemonSet](#tab/deamonset)
 
     To configure scraping of Prometheus metrics from an agent's DaemonSet for every individual node in the cluster, configure the following example in the ConfigMap:
 
@@ -102,7 +99,7 @@ Perform the following steps to configure your ConfigMap configuration file for y
 
     `$NODE_IP` is a specific Container insights parameter and can be used instead of a node IP address. It must be all uppercase.
 
-    #### [Pod annotation](#tab/pod)
+    ### [Pod annotation](#tab/pod)
 
     To configure scraping of Prometheus metrics by specifying a pod annotation:
 
@@ -134,7 +131,7 @@ Perform the following steps to configure your ConfigMap configuration file for y
 The configuration change can take a few minutes to finish before taking effect. All ama-logs pods in the cluster will restart. When the restarts are finished, a message appears that's similar to the following and includes the result `configmap "container-azm-ms-agentconfig" created`.
 
 
-### Verify configuration
+## Verify configuration
 
 To verify the configuration was successfully applied to a cluster, use the following command to review the logs from an agent pod: `kubectl logs ama-logs-fdf58 -n=kube-system`.
 
@@ -163,11 +160,11 @@ Errors prevent Azure Monitor Agent from parsing the file, causing it to restart 
 
 For Azure Red Hat OpenShift v3.x, edit and save the updated ConfigMaps by running the command `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging`.
 
-### Query Prometheus metrics data
+## Query Prometheus metrics data
 
 To view Prometheus metrics scraped by Azure Monitor and any configuration/scraping errors reported by the agent, review [Query Prometheus metrics data](container-insights-log-query.md#prometheus-metrics).
 
-### View Prometheus metrics in Grafana
+## View Prometheus metrics in Grafana
 
 Container insights supports viewing metrics stored in your Log Analytics workspace in Grafana dashboards. We've provided a template that you can download from Grafana's [dashboard repository](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker). Use the template to get started and reference it to help you learn how to query other data from your monitored clusters to visualize in custom Grafana dashboards.
 
