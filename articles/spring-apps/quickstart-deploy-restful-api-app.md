@@ -136,7 +136,7 @@ This section provides the steps to update the OAuth2 configuration for Swagger U
    use this format `<your-app-exposed-application-url-or-endpoint>/swagger-ui/oauth2-redirect.html` as the OAuth2
    redirect url in the **Redirect URIs** field, such as `https://simple-todo-api.xxxxxxxx-xxxxxxxx.xxxxxx.azurecontainerapps.io/swagger-ui/oauth2-redirect.html`, then select **Configure**.
 
-   :::image type="content" source="media/quickstart-deploy-restful-api-app/aad-spa-auth.png" alt-text="Image that shows the API permissions of a web application." lightbox="media/quickstart-deploy-restful-api-app/aad-spa-auth.png":::
+   :::image type="content" source="media/quickstart-deploy-restful-api-app/aad-spa-auth.png" alt-text="Image that shows SPA authentication in Azure AD." lightbox="media/quickstart-deploy-restful-api-app/aad-spa-auth.png":::
 
 #### Obtain the access token
 
