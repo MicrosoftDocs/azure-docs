@@ -126,16 +126,16 @@ items:
             href: app/opencensus-python-dependency.md
           - name: Requests
             href: app/opencensus-python-request.md
-        - name: JavaScript
+        - name: Client-side JavaScript
           items:
           - name: Get Started with JavaScript SDK
             displayName: browser, client-side, Javascript (Web) SDK Loader Script
             href: app/javascript-sdk.md
           - name: Configure JavaScript SDK
             href: app/javascript-sdk-configuration.md
-          - name: React, React Native, Angular
+          - name: Enable React, React Native, Angular
             href: app/javascript-framework-extensions.md
-          - name: Click Analytics Auto-Collection
+          - name: Enable Click Analytics
             href: app/javascript-feature-extensions.md
           - name: Upgrade
             href: app/javascript-sdk-upgrade.md
@@ -210,6 +210,10 @@ items:
           items:
           - name: Node.js OpenTelemetry exporter
             href: app/opentelemetry-nodejs-exporter.md
+        - name: Python (supplemental)
+          items:
+          - name: Migrate from Opencensus
+            href: app/opentelemetry-python-opencensus-migrate.md
         - name: FAQ
           href: /azure/azure-monitor/faq#opentelemetry
       - name: Create a resource
@@ -238,7 +242,7 @@ items:
           href: app/availability-private-test.md
         - name: TrackAvailability()
           href: app/availability-azure-functions.md
-          displayName: availability,azure functions,TrackAvailability(), timer function, azure gov, azure china, custom test, customized tests, contentmatch
+          displayName: availability,azure functions,TrackAvailability(), timer function, azure gov, Microsoft Azure operated by 21Vianet, custom test, customized tests, contentmatch
         - name: Availability alerts
           displayName: alerts, global, alerting
           href: app/availability-alerts.md
@@ -485,7 +489,7 @@ items:
   - name: Monitor containers
     items:
     - name: Monitor Azure Kubernetes Service (AKS)
-      href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
+      href: containers/monitor-kubernetes.md
     - name: Container insights
       items:
       - name: Overview
@@ -522,7 +526,7 @@ items:
           href: containers/container-insights-agent-config.md
         - name: Enable ContainerLogv2
           href: containers/container-insights-logging-v2.md
-        - name: Enable cost optimization settings (preview)
+        - name: Enable cost optimization settings
           href: containers/container-insights-cost-config.md
         - name: Authentication
           href: containers/container-insights-authentication.md
@@ -898,6 +902,9 @@ items:
         - name: Enable on AKS cluster
           displayName: Prometheus
           href: essentials/prometheus-metrics-enable.md
+        - name: Disable on AKS cluster
+          displayName: Prometheus
+          href: essentials/prometheus-metrics-disable.md
         - name: Enable on Arc-enabled Kubernetes cluster
           displayName: Prometheus
           href: essentials/prometheus-metrics-from-arc-enabled-cluster.md    
@@ -1444,8 +1451,6 @@ items:
         href: autoscale/autoscale-custom-metric.md
       - name: Autoscale Virtual Machine Scale Sets using PowerShell
         href: autoscale/autoscale-using-powershell.md
-      - name: Scale Virtual Machine Scale Sets using Resource Manager templates
-        href: ../virtual-machine-scale-sets/tutorial-autoscale-template.md?toc=/azure/azure-monitor/toc.json
       - name: Scale Virtual Machine Scale Sets using CLI
         href: ../virtual-machine-scale-sets/tutorial-autoscale-cli.md?toc=/azure/azure-monitor/toc.json
       - name: Use webhooks and email notifications

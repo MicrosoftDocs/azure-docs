@@ -34,7 +34,7 @@ In this article, you use the Azure CLI to do the following tasks:
 - You need an X.509 client certificate to generate the thumbprint and authenticate the client connection.
 
 ## Generate sample client certificate and thumbprint
-If you don't already have a certificate, you can create a sample certificate using the [step CLI](https://smallstep.com/docs/step-cli/installation/). Consider installing manually for Windows. After a successful installation of Step, you should open a command prompt in your user profile folder (Win+R type %USERPROFILE%).
+If you don't already have a certificate, you can create a sample certificate using the [step CLI](https://smallstep.com/docs/step-cli/installation/). Consider installing manually for Windows. 
 
 After a successful installation of Step, you should open a command prompt in your user profile folder (Win+R type %USERPROFILE%).
 

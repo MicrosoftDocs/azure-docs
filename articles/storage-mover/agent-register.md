@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 03/14/2023
+ms.date: 07/24/2023
 ---
 
 <!-- 
@@ -19,44 +19,46 @@ REVIEW Engineering: not reviewed
 EDIT PASS: COMPLETE
 
 Initial doc score: 86
-Current doc score: 100 (1654 words and 0 issues)
+Current doc score: 100 (1669 words and 0 issues)
 
 !########################################################
 -->
 
 # How to register an Azure Storage Mover agent
 
-The Azure Storage Mover service utilizes agents that carry out the migration jobs you configure in the service. The agent is a virtual machine / appliance that you run on a virtualization host, close to the source storage.
+The Azure Storage Mover service utilizes agents that carry out the migration jobs you configure in the service. The agent is a virtual machine-based appliance that you run on a virtualization host, close to the source storage.
 
 You need to register an agent to create a trust relationship with your Storage Mover resource. This trust enables your agent to securely receive migration jobs and report progress. Agent registration can occur over either the public or private endpoint of your Storage Mover resource. A private endpoint, also known as the private link to a resource, can be deployed in an Azure virtual network (VNet).
 
-You can connect to an Azure VNET from other networks, like an on-premises corporate network. This type of connection is made through a VPN connection such as Azure Express Route. To learn more about this approach, refer to the [Azure ExpressRoute documentation](/azure/expressroute/) and [Azure Private Link](/azure/private-link) documentation.
+You can connect to an Azure VNET from other networks, such as an on-premises corporate network. This type of connection is made through a VPN connection such as Azure Express Route. To learn more about this approach, refer to the [Azure ExpressRoute](/azure/expressroute/) and [Azure Private Link](/azure/private-link) documentation.
 
-[!IMPORTANT] Currently, Storage Mover can be configured to route migration data from the agent to the destination storage account over Private Link. Hybrid Compute heartbeats and certificates can also be routed to a private Azure Arc service endpoint in your virtual network (VNet). Some Storage Mover traffic can't be routed through Private Link and is routed over the public endpoint of a storage mover resource. This data includes control messages, progress telemetry, and copy logs.
+> [!IMPORTANT]
+> Currently, Storage Mover can be configured to route migration data from the agent to the destination storage account over Private Link. Hybrid Compute heartbeats and certificates can also be routed to a private Azure Arc service endpoint in your virtual network (VNet). Some Storage Mover traffic can't be routed through Private Link and is routed over the public endpoint of a storage mover resource. This data includes control messages, progress telemetry, and copy logs.
 
 In this article, you learn how to successfully register a previously deployed Storage Mover agent virtual machine (VM).
 
 ## Prerequisites
 
-There are two prerequisites before you can register an Azure Storage Mover agent:
+There are two prerequisites to be completed before you can register an Azure Storage Mover agent:
 
-1. You need to have an Azure Storage Mover resource deployed. <br />Follow the steps in the *[Create a storage mover resource](storage-mover-create.md)* article to deploy this resource in an Azure subscription and region of your choice.
+1. **You need to have an Azure Storage Mover resource deployed.** <br />Follow the steps in the *[Create a storage mover resource](storage-mover-create.md)* article to deploy this resource in an Azure subscription and region of your choice.
 
-1. You need to deploy the Azure Storage Mover agent VM. <br /> Follow the steps in the [Azure Storage Mover agent VM deployment](agent-deploy.md) article to run the agent VM and to get it connected to the internet.
+1. **You need to deploy the Azure Storage Mover agent VM.** <br /> Follow the steps in the [Azure Storage Mover agent VM deployment](agent-deploy.md) article to create the agent VM and to connect it to the internet.
 
 ## Registration overview
 
 :::image type="content" source="media/agent-register/agent-registration-title.png" alt-text="Image showing three components. The storage mover agent, deployed on-premises and close to the source data to be migrated. The storage mover cloud resource, deployed in an Azure resource group. And finally, a line connecting the two." lightbox="media/agent-register/agent-registration-title-large.png":::
 
-Registration creates trust between the agent and the cloud resource. It allows you to remotely manage the agent and to give it migration jobs to execute.
+The agent registration process creates a trust between the agent and the Storage Mover cloud resource. The trust allows you to remotely manage the agent and to assign it migration jobs to execute.
 
 Registration is always initiated from the agent. In the interest of security, only the agent can establish trust by reaching out to the Storage Mover service. The registration procedure utilizes your Azure credentials and permissions on the storage mover resource you've previously deployed. If you don't have a storage mover cloud resource or an agent VM deployed yet, refer to the [prerequisites section](#prerequisites).
 
 ## Step 1: Connect to the agent VM
 
-The agent VM is an appliance. It offers an administrative shell that limits which operations you can perform on this machine. When you connect to this VM, for instance directly from your Hyper-V host, you'd see that shell loaded and can interact with it directly.
+The agent VM is an appliance. It offers an administrative shell that limits the operations you can perform on this machine. When you connect to the agent, the shell loads and provides you with options that allow you to interact with it directly. However, the agent VM is a Linux based appliance, and copy and paste functionality often doesn't work within the default Hyper-V window.
 
-However, the agent VM is a Linux based appliance and copy/paste often doesn't work within the default Hyper-V window. Use an SSH connection instead. Advantages of an SSH connection are:
+Rather than use the Hyper-V window, use an SSH connection instead. This approach provides the following advantages:
+
 - You can connect to the agent VM's shell from any management machine and don't need to be logged into the Hyper-V host.
 - Copy / paste is fully supported.
 
@@ -64,7 +66,7 @@ However, the agent VM is a Linux based appliance and copy/paste often doesn't wo
 
 ## Step 2: Test network connectivity
 
-Your agent needs to be connected to the internet. 
+Your agent needs to be connected to the internet.
 
 When logged into the administrative shell, you can test the agents connectivity state:
 
