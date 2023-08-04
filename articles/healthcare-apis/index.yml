@@ -128,7 +128,7 @@ conceptualContent:
           links:
             - url: ./azure-api-for-fhir/overview.md
               itemType: overview
-              name: What is Azure API for FHIR?
+              text: What is Azure API for FHIR?
             - url: ./file2.md OR /file2
               itemType: how-to-guide
               text: linktext2
@@ -140,7 +140,7 @@ conceptualContent:
               text: linktext4  
             - url: ./file5.md OR /file5
               itemType: how-to-guide
-              text: linktext5    
+              text: linktext5     
           
 additionalContent:
   sections:
