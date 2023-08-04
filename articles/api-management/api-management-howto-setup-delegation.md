@@ -4,15 +4,9 @@ description: Learn how to delegate user registration and product subscription to
 services: api-management
 documentationcenter: ''
 author: dlepow
-manager: cfowler
-editor: ''
 
-ms.assetid: 8b7ad5ee-a873-4966-a400-7e508bbbe158
-ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/13/2021
+ms.date: 08/04/2023
 ms.author: danlep
 
 ---
@@ -47,22 +41,19 @@ The final workflow will be:
     * Click the **Generate** button for API Management to generate a random key for you.
 6. Click **Save**.
 
-### Create your delegation endpoint
-
->[!NOTE]
-> While the following procedure provides examples of the **SignIn** operation, you can perform account management using any of the available operations with the steps below. 
+### Create your delegation endpoint - SignIn and SignUp operations
 
 Recommended steps for creating a new delegation endpoint to implement on your site:
 
 1. Receive a request in the following form:
    
-   > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation={SignIn|SignUp}&returnUrl={URL of source page}&salt={string}&sig={string}*
    
-    Query parameters for the sign-in/sign-up case:
+    Query parameters:
 
    | Parameter | Description |
    | --------- | ----------- |
-   | **operation** | Identifies the delegation request type. Available operations: **SignIn**, **ChangePassword**, **ChangeProfile**, **CloseAccount**, and **SignOut**. |
+   | **operation** | Identifies the delegation request type. Available operations: **SignIn**, **SignUp**. |
    | **returnUrl** | The URL of where the user clicked on a sign-in or sign-up link. |
    | **salt** | A special salt string used for computing a security hash. |
    | **sig** | A computed security hash used for comparison to your own computed hash. |
@@ -75,8 +66,8 @@ Recommended steps for creating a new delegation endpoint to implement on your si
          HMAC(salt + '\n' + returnUrl)
      ```
    * Compare the above-computed hash to the value of the **sig** query parameter. If the two hashes match, move on to the next step. Otherwise, deny the request.
-4. Verify you receive a request for sign-in/sign-up.
-    * The **operation** query parameter will be set to "**SignIn**".
+4. Verify you receive a request for a sign-in/sign-up.
+    * The **operation** query parameter will be set to "**SignIn**" or "**SignUp**.
 5. Present the user with sign-in/sign-up UI.
     * If the user signs up, create a corresponding account for them in API Management. 
       * [Create a user] with the API Management REST API. 
@@ -89,6 +80,46 @@ Recommended steps for creating a new delegation endpoint to implement on your si
      > `https://contoso.developer.azure-api.net/signin-sso?token=<URL-encoded token>&returnUrl=%2Freturn%2Furl` 
      
    * Redirect the user to the above-produced URL.
+
+### Create your delegation endpoint - account management operations
+
+Recommended steps for creating a new delegation endpoint to implement on your site:
+
+1. Receive a request in the following form:
+   
+   > *http:\//www.yourwebsite.com/apimdelegation?operation={ChangePassword|ChangeProfile|CloseAccount|SignOut}&userId={user ID of account}&salt={string}&sig={string}*
+   
+    Query parameters:
+
+   | Parameter | Description |
+   | --------- | ----------- |
+   | **operation** | Available operations: **ChangePassword**, **ChangeProfile**, **CloseAccount**, **SignOut**. |
+   | **userId** | The user ID of the account you wish to manage. |
+   | **salt** | A special salt string used for computing a security hash. |
+   | **sig** | A computed security hash used for comparison to your own computed hash. |
+   
+3. Verify the request comes from Azure API Management (optional, but highly recommended for security).
+   
+   * Compute an HMAC-SHA512 hash of a string based on the **UserId** and **salt** query parameters. For more details, check our [example code].
+     
+     ```
+         HMAC(salt + '\n' + userId)
+     ```
+   * Compare the above-computed hash to the value of the **sig** query parameter. If the two hashes match, move on to the next step. Otherwise, deny the request.
+4. Verify you receive a request for an account management operation, based on the **operation** query parameter.
+5. Present the user with sign-in/sign-up UI.
+    * If the user signs up, create a corresponding account for them in API Management. 
+      * [Create a user] with the API Management REST API. 
+      * Set the user ID to either the same value in your user store or a new, easily tracked ID.
+6. When the user is successfully authenticated:
+   
+   * [Request a shared access token] via the API Management REST API.
+   * Append a **returnUrl** query parameter to the SSO URL you received from the API call above. For example:
+     
+     > `https://contoso.developer.azure-api.net/signin-sso?token=<URL-encoded token>&returnUrl=%2Freturn%2Furl` 
+     
+   * Redirect the user to the above-produced URL.
+
 
 >[!NOTE]
 > For account management operations (**ChangePassword**, **ChangeProfile**, and **CloseAccount**), pass the following query parameters:
