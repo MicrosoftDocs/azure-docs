@@ -93,7 +93,7 @@ Service Fabric supports WebAPI with Open Web Interface for .NET (OWIN) and ASP.N
 
 #### Azure Spring Apps
 
-Azure Spring Apps is a serverless app platform that enables you to build, deploy, scale and monitor your Java Spring middleware applications in the cloud. Use Spring Cloud to bring modern microservice patterns to Spring Boot apps, eliminating boilerplate code to quickly build robust Spring middleware Java apps.
+Azure Spring Apps is a serverless app platform that enables you to build, deploy, scale and monitor your Java Spring middleware applications in the cloud. Use Spring Cloud to bring modern microservice patterns to Spring Boot apps, eliminating boilerplate code to quickly build robust Java Spring middleware apps.
 
 * Leverage managed versions of Spring Cloud Service Discovery and Config Server, while we ensure those critical components are running in optimum conditions.
 * Focus on building your business logic and we will take care of your service runtime with security patches, compliance standards and high availability.
