@@ -86,7 +86,7 @@ A prompt for credentials will appear, and then a request for consent to the perm
 
 After consenting to the requested permissions, the app displays that sign-in has been successful using correct Azure Active Directory credentials. The user's account email address will be displayed in the *API result* section of the page. This was extracted using the Microsoft Graph API.
 
-:::image type="content" source="media/quickstart-v2-aspnet-core-webapp-calls-graph/webapp-02-signed-in.png" alt-text="Web browser displaying the running web app and the user signed in":::
+:::image type="content" source="media/quickstart-v2-aspnet-core-webapp-calls-graph/webapp-02-signed-in.png" alt-text="Screenshot of the web browser displaying the running web app and the user signed in.":::
 
 ## More information
 

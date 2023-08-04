@@ -35,7 +35,7 @@ There are two ways to start your quickstart application: express (option 1) and 
 
 ### Option 1: Register and automatically configure your app, and then download the code sample
 
-1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
+1. Go to the [Azure portal - App registrations]("https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/AngularSpaQuickstartPage/sourceType/docs) quickstart experience.
 1. Enter a name for your application, and then select **Register**.
 1. Follow the instructions in the portal's quickstart experience to download the automatically configured application code.
 
@@ -45,7 +45,7 @@ There are two ways to start your quickstart application: express (option 1) and 
 
 To register your application and manually add the app's registration information to it, follow these steps:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**.
