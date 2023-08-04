@@ -98,11 +98,7 @@ Upon successful execution, you'll get a `200 HTTP` response from the server alon
 The bulk request shown below uses the SCIM standard Core User and Enterprise User schema. 
 
 **Request body**
-# [HTTP](#tab/http)
-<!-- {
-  "blockType": "request",
-  "name": "Quick_start_with_Postman"
-}-->
+
 ```http
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:BulkRequest"],

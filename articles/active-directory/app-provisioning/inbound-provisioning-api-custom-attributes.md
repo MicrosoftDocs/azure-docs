@@ -32,7 +32,7 @@ In this step, we'll add the two attributes "HireDate" and "JobCode" that are not
 1. Go to **Enterprise applications** and open your API-driven provisioning app. 
 1. Open the **Provisioning** blade. 
 1. Click on the **Edit Provisioning** button. 
-1. Expand the **Mappings** section and click on the attribute mapping link.
+1. Expand the **Mappings** section and click on the attribute mapping link. <br>
     :::image type="content" border="true" source="./media/inbound-provisioning-api-custom-attributes/edit-attribute-mapping.png" alt-text="Screenshot of edit attribute mapping." lightbox="./media/inbound-provisioning-api-custom-attributes/edit-attribute-mapping.png":::
 1. Scroll down the **Attribute Mappings** page. Select **Show advanced options** and click on the **Edit attribute list for API** link.
     :::image type="content" border="true" source="./media/inbound-provisioning-api-custom-attributes/edit-api-attribute-list.png" alt-text="Screenshot of edit API attribute list." lightbox="./media/inbound-provisioning-api-custom-attributes/edit-api-attribute-list.png":::
@@ -52,7 +52,7 @@ Let's now add these extensions to the provisioning app attribute mapping.
 
 1. Click on the **Add New Mapping** link on the **Attribute mapping** page. 
     :::image type="content" border="true" source="./media/inbound-provisioning-api-custom-attributes/add-new-mapping.png" alt-text="Screenshot of add new mapping." lightbox="./media/inbound-provisioning-api-custom-attributes/add-new-mapping.png":::
-1. Map the `urn:ietf:params:scim:schemas:extension:contoso:1.0:User:HireDate` attribute to `employeeHireDate`. Click **OK**.
+1. Map the `urn:ietf:params:scim:schemas:extension:contoso:1.0:User:HireDate` attribute to `employeeHireDate`. Click **OK**. <br>
     :::image type="content" border="true" source="./media/inbound-provisioning-api-custom-attributes/hire-date-mapping.png" alt-text="Screenshot of hire date mapping." lightbox="./media/inbound-provisioning-api-custom-attributes/hire-date-mapping.png":::
 1. Next, select the existing mapping for `title` and click on it to edit the mapping.
 1. Edit the attribute mapping to an expression that will include the `urn:ietf:params:scim:schemas:extension:contoso:1.0:User:JobCode` as part of the `jobTitle` Azure AD attribute.
@@ -68,11 +68,11 @@ Let's now add these extensions to the provisioning app attribute mapping.
 
 1. Open your API client (Graph Explorer / Postman / cURL). 
 1. Copy-paste the [bulk request with custom attributes](#bulk-request-with-custom-attributes). 
-1. Send the bulk request to your provisioning API endpoint URL. 
+1. Send the bulk request to your provisioning API endpoint URL. <br>
     :::image type="content" border="true" source="./media/inbound-provisioning-api-custom-attributes/upload-bulk-request.png" alt-text="Screenshot of bulk upload request." lightbox="./media/inbound-provisioning-api-custom-attributes/upload-bulk-request.png":::
-1. After some time, you can check the provisioning logs to verify the attribute change. 
+1. After some time, you can check the provisioning logs to verify the attribute change. <br>
     :::image type="content" border="true" source="./media/inbound-provisioning-api-custom-attributes/verify-provisioning-logs.png" alt-text="Screenshot of provisioning logs." lightbox="./media/inbound-provisioning-api-custom-attributes/verify-provisioning-logs.png":::
-1. You can also verify the change in the Azure AD user profile. The value for `Employee hire date` reflects your tenant time zone. 
+1. You can also verify the change in the Azure AD user profile. The value for `Employee hire date` reflects your tenant time zone. <br>
     :::image type="content" border="true" source="./media/inbound-provisioning-api-custom-attributes/verify-user-profile.png" alt-text="Screenshot of user profile." lightbox="./media/inbound-provisioning-api-custom-attributes/verify-user-profile.png":::
 
 ## Appendix
@@ -82,11 +82,6 @@ Let's now add these extensions to the provisioning app attribute mapping.
 The bulk request includes the custom attributes configured in the steps above. 
 
 **Request body**
-# [HTTP](#tab/http)
-<!-- {
-  "blockType": "request",
-  "name": "how_to_use_custom_attributes"
-}-->
 ```http
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:BulkRequest"],
