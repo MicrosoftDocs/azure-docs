@@ -4,7 +4,7 @@ description: Overview of how Azure Monitor is billed and how to estimate and ana
 services: azure-monitor
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 08/03/2023
+ms.date: 08/04/2023
 ---
 
 # Azure Monitor cost and usage
@@ -99,7 +99,7 @@ To create a view just Azure Monitor charges, [create a filter](../cost-managemen
 >[!NOTE]
 >Usage for Azure Monitor Logs (Log Analytics) can be billed with the **Log Analytics** service (for Pay-as-you-go Data Ingestion and Data Retention), or with the **Azure Monitor** service (for Commitment Tiers, Basic Logs, Search, Search Jobs, Data Archive and Data Export) or with the **Insight and Analytics** service when using the legacy Per Node pricing tier.  Except for a small set of legacy resources, classic Application Insights data ingestion and retention are billed as the **Log Analytics** service. Note then when you change your workspace from a Pay-as-you-go pricing tier to a Commitment Tier, on your bill, the costs will appear to shift from Log Analytics to Azure Monitor, reflecting the service associated to each pricing tier. 
 
-[Classic Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/convert-classic-resource) usage is billed using Log Analytics data ingestion and retention meters. In the context of biling, the Application Insights service is only includes usage for multi-step web tests and some old Application Insights resources still using legacy classic-mode Application Insights pricing tiers.
+[Classic Application Insights](app/convert-classic-resource.md) usage is billed using Log Analytics data ingestion and retention meters. In the context of biling, the Application Insights service is only includes usage for multi-step web tests and some old Application Insights resources still using legacy classic-mode Application Insights pricing tiers.
 
 Other services such as Microsoft Defender for Cloud and Microsoft Sentinel also bill their usage against Log Analytics workspace resources, so you might want to add them to your filter. 
 
@@ -133,7 +133,7 @@ To be notified if there are significant increases in your spending, you can set 
 
 To gain more understanding of your usage and costs, create exports using Cost Analysis in Azure Cost Management + Billing. See [Tutorial: Create and manage exported data](../cost-management-billing/costs/tutorial-export-acm-data.md) to learn how to automatically create a daily export you can use for regular analysis.
 
-These exports are in CSV format and will contain a list of daily usage (billed quantity and cost) by resource, billing meter and a few more fields such as [AdditionalInfo](../cost-management-billing/automate/understand-usage-details-fields#list-of-fields-and-descriptions.md). You can use Microsoft Excel to do rich analyses of your usage not possible in the Cost Analytics experiences in the portal.
+These exports are in CSV format and will contain a list of daily usage (billed quantity and cost) by resource, billing meter and a few more fields such as [AdditionalInfo](../cost-management-billing/automate/understand-usage-details-fields.md#list-of-fields-and-descriptions). You can use Microsoft Excel to do rich analyses of your usage not possible in the Cost Analytics experiences in the portal.
 
 For instance, usage from Log Analytics can be found by first filtering on the **Meter Category** column to show 
 
