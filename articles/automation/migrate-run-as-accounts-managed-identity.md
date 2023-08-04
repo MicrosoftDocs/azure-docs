@@ -205,11 +205,7 @@ The following steps include an example to show how a graphical runbook that uses
 
 1. Replace the Run As connection that uses `AzureRunAsConnection` and the connection asset that internally uses the PowerShell `Get-AutomationConnection` cmdlet with the `Connect-AzAccount` cmdlet.
 
-1. Select **Delete** to delete the `Get-Run As Connection`.
-
-    :::image type="content" source="./media/migrate-run-as-account-managed-identity/graphical-runbook-delete-get-runas-connection-inline.png" alt-text="Screenshot to delete the get run as connection." lightbox="./media/migrate-run-as-account-managed-identity/graphical-runbook-delete-get-runas-connection-expanded.png":::
-
-1. Connect to the Azure activities.
+1. Select **Delete** to delete the `Get-Run As Connection` and connect to the Azure activities.
     
     :::image type="content" source="./media/migrate-run-as-account-managed-identity/connect-azure-graphical-runbook-inline.png" alt-text="Screenshot to connect to the Azure activities." lightbox="./media/migrate-run-as-account-managed-identity/connect-azure-graphical-runbook-expanded.png":::
     
@@ -235,19 +231,16 @@ The following steps include an example to show how a graphical runbook that uses
        throw $_.Exception 
    } 
    ```
-  
-   For example, in the runbook **Start Azure V2 VMs** in the runbook gallery, you must replace the `Get Run As Connection` and `Connect to Azure` activities with the `Connect-AzAccount` cmdlet activity.
-   For more information, see the sample runbook name **AzureAutomationTutorialWithIdentityGraphical** that's created with the Automation account.
-
+   
 1. Connect the new activity to the activities that were connected by **Connect to Azure** earlier and save the runbook.
 
     :::image type="content" source="./media/migrate-run-as-account-managed-identity/connect-activities-graphical-runbook-inline.png" alt-text="Screenshot to connect new activity to activities." lightbox="./media/migrate-run-as-account-managed-identity/connect-activities-graphical-runbook-expanded.png":::
 
-
-
+For example, in the runbook **Start Azure V2 VMs** in the runbook gallery, you must replace the `Get Run As Connection` and `Connect to Azure` activities with the `Connect-AzAccount` cmdlet activity.
+For more information, see the sample runbook name **AzureAutomationTutorialWithIdentityGraphical** that's created with the Automation account.
 
 > [!NOTE]
-> AzureRM PowerShell modules are retiring on 29 February 2024. If you are using AzureRM PowerShell modules in Graphical runbooks, you must upgrade them to use Az PowerShell modules. [Learn more](/powershell/azure/migrate-from-azurerm-to-az?view=azps-9.4.0&preserve-view=true).
+> AzureRM PowerShell modules are retiring on **29 February 2024**. If you are using AzureRM PowerShell modules in Graphical runbooks, you must upgrade them to use Az PowerShell modules. [Learn more](/powershell/azure/migrate-from-azurerm-to-az?view=azps-9.4.0&preserve-view=true).
 
 ## Next steps
 
