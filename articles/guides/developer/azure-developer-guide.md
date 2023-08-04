@@ -41,7 +41,7 @@ Azure offers services that support your application development and hosting need
 
 When you want the quickest path to publish your web-based projects, consider Azure App Service. App Service makes it easy to extend your web apps to support your mobile clients and publish easily consumed REST APIs. This platform provides authentication by using social providers, traffic-based autoscaling, testing in production, and continuous and container-based deployments.
 
-You can create web apps, mobile app back ends, and API apps.
+You can create web apps, mobile app back ends, and API apps. A large variety of runtime stacks are supported, including .NET, Java, Node, PHP, Python, and more.
 
 Because all three app types share the App Service runtime, you can host a website, support mobile clients, and expose your APIs in Azure, all from the same project or solution. To learn more about App Service, see [What is Azure Web Apps](../../app-service/overview.md).
 
@@ -93,7 +93,7 @@ Service Fabric supports WebAPI with Open Web Interface for .NET (OWIN) and ASP.N
 
 #### Azure Spring Apps
 
-Azure Spring Apps is a serverless app platform that enables you to build, deploy, scale and monitor your applications in the cloud. Use Spring Cloud to bring modern microservice patterns to Spring Boot apps, eliminating boilerplate code to quickly build robust Java apps.
+Azure Spring Apps is a serverless app platform that enables you to build, deploy, scale and monitor your Java Spring middleware applications in the cloud. Use Spring Cloud to bring modern microservice patterns to Spring Boot apps, eliminating boilerplate code to quickly build robust Spring middleware Java apps.
 
 * Leverage managed versions of Spring Cloud Service Discovery and Config Server, while we ensure those critical components are running in optimum conditions.
 * Focus on building your business logic and we will take care of your service runtime with security patches, compliance standards and high availability.
