@@ -80,10 +80,10 @@ You can embed Boolean operators in a query string to improve the precision of a 
 
 It's important to note that the NOT operator (`NOT`, `!`, or `-`) behaves differently in full syntax than it does in simple syntax.
 
-* A wildcard is implicitly added to any simple query with a negation. This means that a single negation such as the query `-luxury` is allowed in simple syntax, but isn't allowed in full syntax.
-* Wildcards cannot be combined with negations in full syntax.
-* Negations will behave as if they are always be ANDed onto the query regardless of the search mode.
-   * For example, the query `wifi -luxury` in full syntax only fetches documents that contain the term `wifi`, and then applies the negation `-luxury` to those documents.
+* In simple syntax, a wildcard is implicitly added to any query with a negation. This means that a single negation such as the query `-luxury` is allowed in simple syntax, but isn't allowed in full syntax.
+* In full syntax, wildcards cannot be combined with negations.
+* In full syntax, negations will behave as if they are always be ANDed onto the query regardless of the search mode.
+   * For example, the full syntax query `wifi -luxury` in full syntax only fetches documents that contain the term `wifi`, and then applies the negation `-luxury` to those documents.
 * If you want to use negations to search over all documents in the index, simple syntax is recommended.
 * If you want to use negations to search over a subset of documents in the index, full syntax might be a better choice.
 
