@@ -11,14 +11,14 @@ ms.date: 08/04/2023
 
 <!--#Customer intent:  I want to understand reliability support in Azure Database for PostgreSQL - Flexible Server so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->
 
-# Reliability for high availability in Azure Database for PostgreSQL - Flexible Server
+# Reliability and high availability in Azure Database for PostgreSQL - Flexible Server
 
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
-This article describes reliability support in Azure Database for PostgreSQL - Flexible Server and covers intra-regional resiliency with [availability zones](#availability-zone-support) for high availability. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in Azure Database for PostgreSQL - Flexible Server, intra-regional resiliency with [availability zones](#availability-zone-support), and high availability. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
-Azure Database for PostgreSQL: Flexible Server offers highly available zonal and zone-redundant deployment models with automatic failover capabilities. The offering is designed to ensure that committed data is never lost in the case of failures, and the database won't become a single point of failure in your software architecture. The flexible server automatically provisions and manages a standby replica when configuring availability zones.
+Azure Database for PostgreSQL: Flexible Server offers zonal and zone-redundant deployment models with automatic failover capabilities. The offering is designed to ensure that committed data is never lost in the case of failures, and the database won't become a single point of failure in your software architecture. The flexible server automatically provisions and manages a standby replica when configuring availability zones.
 
 ## Availability zone support
 
