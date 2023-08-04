@@ -113,7 +113,7 @@ The Azure Resource Manager service is designed for resiliency and continuous ava
 
 * Distributed across regions. Azure Resource Manager has a separate instance in each region of Azure, meaning that a failure of the Azure Resource Manager instance in one region won't impact the availability of Azure Resource Manager or other Azure services in another region. Although Azure Resource Manager is distributed across regions, some services are regional. This distinction means that while the initial handling of the control plane operation is resilient, the request may be susceptible to regional outages when forwarded to the service.
 
-* Distributed across Availability Zones (and regions) in locations that have multiple Availability Zones. This distribution ensures that when a region loses a single zone, Azure Resource Manager can either fail over to another zone or to another region to continue to operate. If there is a multi-zone loss, Azure Resource Manager can fail over to another region to continue to provide control plane capability for resources in the unavailable region.
+* Distributed across Availability Zones (and regions) in locations that have multiple Availability Zones. This distribution ensures that when a region loses one or more zones, Azure Resource Manager can either fail over to another zone or to another region to continue to provide control plane capability for the resources.
 
 * Not dependent on a single logical data center.
 
