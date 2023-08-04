@@ -2521,7 +2521,7 @@ For more information, see [Assign a Viva Pulse admin in the Microsoft 365 admin 
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
 > | microsoft.office365.usageReports/allEntities/allProperties/read | Read Office 365 usage reports |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
-> | microsoft.viva.pulse/allEntities/allProperties/allTasks |  |
+> | microsoft.viva.pulse/allEntities/allProperties/allTasks | Manage all aspects of Microsoft Viva Pulse |
 
 ## Windows 365 Administrator
 
