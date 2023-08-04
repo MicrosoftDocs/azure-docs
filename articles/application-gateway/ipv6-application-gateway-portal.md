@@ -17,7 +17,7 @@ ms.custom: mvc, mode-ui
 
 [Azure Application Gateway](overview.md) now supports dual stack (IPv4 and IPv6) frontend connections, providing greater flexibility and connectivity. If you are currently using Application Gateway with IPv4 addresses, you can continue to do so without any changes. However, if you want to take advantage of the benefits of IPv6 addressing, you can configure your gateway to use IPv6 addresses. Currently, we do not support connectivity to IPv6 backends.
 
-To support IPv6 connectivity, you must create a dual-stack VNet. This dual-stack VNet has subnets for both IPv4 and IPv6. Azure VNets already [provide dual-stack capability](../virtual-network/ip-services/ipv6-overview). 
+To support IPv6 connectivity, you must create a dual-stack VNet. This dual-stack VNet has subnets for both IPv4 and IPv6. Azure VNets already [provide dual-stack capability](../virtual-network/ip-services/ipv6-overview.md). 
 
 For more information about the components of an application gateway, see [Application gateway components](application-gateway-components.md).
 
@@ -25,7 +25,7 @@ For more information about the components of an application gateway, see [Applic
 > Application Gateway IPv6 frontend is currently in PREVIEW.<br>
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## In this article
+## In this quickstart
 
 The Azure portal is used to create an IPv6 Azure Application Gateway and perform testing to ensure it works correctly.
 
