@@ -56,7 +56,7 @@ Steps to create a generalized image that removes the Azure guest agents are as f
     Follow the instructions in step 2 of [remove sudo users from the Linux Image](/azure/confidential-computing/harden-the-linux-image-to-remove-sudo-users) to mount the image.
 
 3.  Remove the Azure linux agent
-    Run one as root, to [remove the Azure Linux Agent](/azure/virtual-machines/linux/disable-provisioning)
+    Run as root to [remove the Azure Linux Agent](/azure/virtual-machines/linux/disable-provisioning)
 
     For Ubuntu 18.04+
      ```
