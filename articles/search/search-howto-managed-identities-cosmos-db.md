@@ -22,10 +22,17 @@ You can use a system-assigned managed identity or a user-assigned managed identi
 
 * [Create a managed identity](search-howto-managed-identities-data-sources.md) for your search service.
 
-* [Assign a role](search-howto-managed-identities-data-sources.md#assign-a-role) in Azure Cosmos DB.
-
+* [Control plane role assignment](search-howto-managed-identities-data-sources.md#assign-a-role) in Azure Cosmos DB.
   For data reader access, you'll need the **Cosmos DB Account Reader** role and the identity used to make the request. This role works for all Azure Cosmos DB APIs supported by Cognitive Search. This is a control plane RBAC role. 
 
+* Data Plane Role assignment: Follow this https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-setup-rbac 
+to know more about data plane role assignments for CosmosDB
+
+* *Only applicable for Cosmos Sql ApiKind*:
+  [Enforcing RBAC as the only authentication method in Azure Cosmos DB](../cosmos-db/how-to-setup-rbac.md#disable-local-auth)
+is supported for Sql ApiKind and follow above link to set the `disableLocalAuth` to `true` for your cosmos account.
+
+* *For Gremlin and MongoDB ApiKinds*: 
   At this time, Cognitive Search obtains keys with the identity and uses those keys to connect to the Azure Cosmos DB account. This means that [enforcing RBAC as the only authentication method in Azure Cosmos DB](../cosmos-db/how-to-setup-rbac.md#disable-local-auth) isn't supported when using Search with managed identities to connect to Azure Cosmos DB.
 
 * You should be familiar with [indexer concepts](search-indexer-overview.md) and [configuration](search-howto-index-cosmosdb.md).
@@ -41,6 +48,7 @@ The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and th
 When you're connecting with a system-assigned managed identity, the only change to the data source definition is the format of the "credentials" property. You'll provide the database name and a ResourceId that has no account key or password. The ResourceId must include the subscription ID of Azure Cosmos DB, the resource group, and the Azure Cosmos DB account name.
 
 * For SQL collections, the connection string doesn't require "ApiKind". 
+* For SQL collections add "IdentityAuthType=AccessToken" if RBAC is enforced as the only authentication method. It is not applicable for MongoDB and Gremlin collections.
 * For MongoDB collections, add "ApiKind=MongoDb" to the connection string and use a preview REST API.
 * For Gremlin graphs, add "ApiKind=Gremlin" to the connection string and use a preview REST API.
 
@@ -55,7 +63,7 @@ api-key: [Search service admin key]
     "name": "[my-cosmosdb-ds]",
     "type": "cosmosdb",
     "credentials": {
-        "connectionString": "ResourceId=/subscriptions/[subscription-id]/resourceGroups/[rg-name]/providers/Microsoft.DocumentDB/databaseAccounts/[cosmos-account-name];Database=[cosmos-database];ApiKind=[SQL | Gremlin | MongoDB];"
+        "connectionString": "ResourceId=/subscriptions/[subscription-id]/resourceGroups/[rg-name]/providers/Microsoft.DocumentDB/databaseAccounts/[cosmos-account-name];Database=[cosmos-database];ApiKind=[SQL | Gremlin | MongoDB];IdentityAuthType=[AccessToken | AccountKey]"
     },
     "container": { "name": "[my-cosmos-collection]", "query": null },
     "dataChangeDetectionPolicy": null
@@ -71,6 +79,7 @@ The 2021-04-30-preview REST API supports connections based on a user-assigned ma
 * First, the format of the "credentials" property is the database name and a ResourceId that has no account key or password. The ResourceId must include the subscription ID of Azure Cosmos DB, the resource group, and the Azure Cosmos DB account name.
 
   * For SQL collections, the connection string doesn't require "ApiKind". 
+  * For SQL collections add "IdentityAuthType=AccessToken" if RBAC is enforced as the only authentication method. It is not applicable for MongoDB and Gremlin collections.
   * For MongoDB collections, add "ApiKind=MongoDb" to the connection string
   * For Gremlin graphs, add "ApiKind=Gremlin" to the connection string.
 
@@ -88,7 +97,7 @@ api-key: [Search service admin key]
     "name": "[my-cosmosdb-ds]",
     "type": "cosmosdb",
     "credentials": {
-        "connectionString": "ResourceId=/subscriptions/[subscription-id]/resourceGroups/[rg-name]/providers/Microsoft.DocumentDB/databaseAccounts/[cosmos-account-name];Database=[cosmos-database];ApiKind=[SQL | Gremlin | MongoDB];"
+        "connectionString": "ResourceId=/subscriptions/[subscription-id]/resourceGroups/[rg-name]/providers/Microsoft.DocumentDB/databaseAccounts/[cosmos-account-name];Database=[cosmos-database];ApiKind=[SQL | Gremlin | MongoDB];IdentityAuthType=[AccessToken | AccountKey]"
     },
     "container": { 
         "name": "[my-cosmos-collection]", "query": null 
