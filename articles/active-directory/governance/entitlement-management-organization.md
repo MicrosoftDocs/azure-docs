@@ -83,7 +83,7 @@ To add an external Azure AD directory or domain as a connected organization, fol
 
     ![The "Add connected organization" Basics pane](./media/entitlement-management-organization/organization-basics.png)
 
-1. The state will automatically be set to **Configured** when you create a new connected organization. For more information about state properties, see [State properties of connected organizations](#state-properties-of-connected-organizations)
+1. The state will automatically be set to **Configured** when you create a new connected organization. For more information about state property of a connected organization, see [State property of connected organizations](#state-property-of-connected-organizations)
 
 1. Select the **Directory + domain** tab, and then select **Add directory + domain**.
 
@@ -137,7 +137,7 @@ If the connected organization changes to a different domain, the organization's 
 
 ## Delete a connected organization
 
-If you no longer have a relationship with an external Azure AD directory or domain, you can delete the connected organization.
+If you no longer have a relationship with an external Azure AD directory or domain, or do not wish to have a proposed connected organization any longer, you can delete the connected organization.
 
 **Prerequisite role**: *Global administrator* or *User administrator*
 
@@ -173,9 +173,9 @@ foreach ($c in $co) {
 ```
 
 
-## State properties of connected organizations
+## State property of connected organizations
 
-There are two different types of state properties for connected organizations in entitlement management currently, configured and proposed: 
+There are two different states for connected organizations in entitlement management, configured and proposed:
 
 - A configured connected organization is a fully functional connected organization that allows users within that organization access to access packages. When an admin creates a new connected organization in the Azure portal, it will be in the **configured** state by default since the administrator created and wants to use this connected organization. Additionally, when a connected org is created programmatically via the API, the default state should be **configured** unless set to another state explicitly. 
 
@@ -185,7 +185,7 @@ There are two different types of state properties for connected organizations in
     
     Proposed connected organizations are not in scope for the “all configured connected organizations” setting on any policies but can be used in policies only for policies targeting specific organizations. 
 
-Only users from configured connected organizations can request access packages that are available to users from all configured organizations. Users from proposed connected organizations have an experience as if there is no connected organization for that domain; can only see and request access packages scoped to their specific organization or scoped to any user.
+Only users from configured connected organizations can request access packages that are available to users from all configured organizations. Users from proposed connected organizations have an experience as if there is no connected organization for that domain; can only see and request access packages scoped to their specific organization or scoped to any user.  If you have policies in your tenant which allow “all configured connected organizations”, ensure that you do not convert proposed connected organizations for social identity providers to configured.
 
 > [!NOTE]
 > As part of rolling out this new feature, all connected organizations created before 09/09/20 were considered **configured**. If you had an access package that allowed users from any organization to sign up, you should review your list of connected organizations that were created before that date to ensure none are miscategorized as **configured**.  In particular, social identity providers should not be indicated as **configured** if there are assignment policies which do not require approval for users from all configured connected organizations. An admin can update the **State** property as appropriate. For guidance, see [Update a connected organization](#update-a-connected-organization).
