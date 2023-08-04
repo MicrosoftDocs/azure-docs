@@ -15,10 +15,10 @@ ms.custom: known-issue
 
 When a workspace has a public IP but the storage is private, then the workspace cannot interact with the storage account directly.
 
-[!INCLUDE [dev v2](/articles/machine-learning/includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](../includes/machine-learning-dev-v2.md)]
 
 **Status:** Open
-
+S
 
 **Problem area:** Workspace RP
 
@@ -33,4 +33,4 @@ Starting from the **Outputs+Logs** tab, navigate to the *generated_code* folder 
 
 ## Next steps
 
-- [About known issues](/articles/machine-learning/azureml-known-issues.md)
+- [About known issues](azureml-known-issues.md)
