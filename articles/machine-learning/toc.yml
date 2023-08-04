@@ -1272,48 +1272,58 @@
     - name: Audit and manage
       displayName: policy
       href: how-to-integrate-azure-policy.md
-- name: Troubleshoot & debug
+- name: Troubleshoot & known issues
   items:
-    - name: Troubleshoot secure workspace connectivity
-      href: how-to-troubleshoot-secure-connection-workspace.md
-    - name: Troubleshoot SerializationError
-      href: ./v1/how-to-troubleshoot-serialization-error.md
-    - name: Troubleshoot descriptor error
-      displayName: descriptors cannot not be created directly
-      href: how-to-troubleshoot-protobuf-descriptor-error.md
-    - name: How to troubleshoot data access
-      displayName: troubleshoot, data, debug, image
-      href: how-to-troubleshoot-data-access.md
-    - name: Troubleshoot validation for schema failed error
-      href: how-to-troubleshoot-validation-for-schema-failed-error.md
-    - name: How to troubleshoot environments
-      displayName: troubleshoot, environment, debug, image
-      href: how-to-troubleshoot-environments.md
-    - name: Troubleshoot online endpoints
-      href: how-to-troubleshoot-online-endpoints.md
-    - name: Troubleshoot batch endpoints
-      href: how-to-troubleshoot-batch-endpoints.md
-    - name: Troubleshoot Kubernetes Compute
-      href: how-to-troubleshoot-kubernetes-compute.md
-    - name: Troubleshoot Azure Machine Learning extension
-      href: how-to-troubleshoot-kubernetes-extension.md
-    # v1
-    - name: Pipeline issues
+    - name: Troubleshoot
       items:
-        - name: Troubleshoot pipelines
-          displayName: designer
-          href: ./v1/how-to-debug-pipelines.md
-        - name: Log pipeline data to Application Insights
-          href: ./v1/how-to-log-pipelines-application-insights.md
-        - name: Troubleshoot the ParallelRunStep
-          displayName: debug_batch consume pipeline parallelrunstep inference
-          href: ./v1/how-to-debug-parallel-run-step.md
-    - name: Visual Studio Code
+      - name: Troubleshoot secure workspace connectivity
+        href: how-to-troubleshoot-secure-connection-workspace.md
+      - name: Troubleshoot SerializationError
+        href: ./v1/how-to-troubleshoot-serialization-error.md
+      - name: Troubleshoot descriptor error
+        displayName: descriptors cannot not be created directly
+        href: how-to-troubleshoot-protobuf-descriptor-error.md
+      - name: How to troubleshoot data access
+        displayName: troubleshoot, data, debug, image
+        href: how-to-troubleshoot-data-access.md
+      - name: Troubleshoot validation for schema failed error
+        href: how-to-troubleshoot-validation-for-schema-failed-error.md
+      - name: How to troubleshoot environments
+        displayName: troubleshoot, environment, debug, image
+        href: how-to-troubleshoot-environments.md
+      - name: Troubleshoot online endpoints
+        href: how-to-troubleshoot-online-endpoints.md
+      - name: Troubleshoot batch endpoints
+        href: how-to-troubleshoot-batch-endpoints.md
+      - name: Troubleshoot Kubernetes Compute
+        href: how-to-troubleshoot-kubernetes-compute.md
+      - name: Troubleshoot Azure Machine Learning extension
+        href: how-to-troubleshoot-kubernetes-extension.md
+      # v1
+      - name: Pipeline issues
+        items:
+          - name: Troubleshoot pipelines
+            displayName: designer
+            href: ./v1/how-to-debug-pipelines.md
+          - name: Log pipeline data to Application Insights
+            href: ./v1/how-to-log-pipelines-application-insights.md
+          - name: Troubleshoot the ParallelRunStep
+            displayName: debug_batch consume pipeline parallelrunstep inference
+            href: ./v1/how-to-debug-parallel-run-step.md
+      - name: Visual Studio Code
+        items:
+          - name: VS Code interactive debugging
+            displayName: vscode,remote,debug,pipelines,deployments,ssh
+            href: ./v1/how-to-debug-visual-studio-code.md
+      # end v1
+    - name: Known issues
       items:
-        - name: VS Code interactive debugging
-          displayName: vscode,remote,debug,pipelines,deployments,ssh
-          href: ./v1/how-to-debug-visual-studio-code.md
-    # end v1
+        - name: Active known issues for Azure Machine Learning
+          href: azureml-known-issues.md
+        - name: Workspace known issues
+          items:
+          - name: AutoML| Error retrieving generated code
+            href: ./known-issues/ki-automl-error-generated-code.md
 - name: Samples
   items:
     - name: Jupyter Notebooks
