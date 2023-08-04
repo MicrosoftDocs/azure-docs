@@ -31,6 +31,14 @@ The `spec.target` property has the following child property.
 |Name|Description|Required|Type|
 |---|---|---|---|
 |configMapName|The name of the ConfigMap to be created|true|string|
+|configMapData|The settings for the data of ConfigMap to be created|false|object|
+
+The `spec.target.configMapData` property has the following child property.
+
+|Name|Description|Required|Type|
+|---|---|---|---|
+|type|The type of data to dictate how the key-values are constructed in ConfigMap, `environmentVariables`, `json`, `yaml` and `properties` types are supported|true|string|
+|key|The key of the bundled values, required if `json`, `yaml` or `properties` type is set|conditional|string|
 
 If the `spec.auth` property isn't set, the system-assigned managed identity is used. It has the following child properties. Only one authentication method should be set.
 
@@ -283,4 +291,47 @@ spec:
             label: common
           - key: sentinelKey
             label: development
+```
+
+### Types of ConfigMap data
+
+Supporting different type of ConfigMap data is useful when you want to consume the ConfigMap through different approaches. 
+
+Key-values that are fetched from Azure App Configuration are stored in the ConfigMap as is by default, the ConfigMap you get contains the same number of data items as the key-values you selected from Azure App Configuration.
+
+Set to `json`, `yaml` or `properties` if you want to bundle all selected key-values into single data item in different types, and consume the ConfigMap as a mounted file. In this case, the ConfigMap you get contains a single data item that use the `fileStyleConfigMap.key` as key, all bundled key-values as the value.
+
+For example, you can create an `AzureAppConfigurationProvider` with following settings.
+
+``` yaml
+apiVersion: azconfig.io/v1beta1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+    fileStyleConfigMap:
+      format: json
+      key: appSettings.json
+  keyValues:
+    selectors:
+      - keyFilter: key1, key2, key3
+```
+
+Assume these key-values are selected from Azure App Configuration:
+
+|key|value|
+|---|---|
+|key1|value1|
+|key2|value2|
+|key3|value3|
+
+The data of ConfigMap created by the provider will be:
+
+``` json
+data:
+  appSettings.json: >-
+    {"key1":"value1","key2":"value2","key3":"value3"}
 ```
