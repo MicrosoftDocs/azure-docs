@@ -18,8 +18,8 @@ Environments include the following features.
 
 | Feature | Description |
 |---|---|
-| Type | There are [two different types](#types) of Container Apps environments: Workload profile and Consumption. |
-| Virtual network | An environment is a based around a virtual network. When you create an environment a virtual network is created for you, or you can provide an [existing virtual network](vnet-custom.md). |
+| Type | There are [two different types](#types) of Container Apps environments: Workload profile environments and Consumption only environments. |
+| Virtual network | Each environment is integrated with a virtual network which acts as its network boundary. When you create an environment, a virtual network is created for you which has [limited network capabilities](networking.md), or you can provide an [existing virtual network](vnet-custom.md). |
 | Multiple container apps | When multiple container apps are in the same environment, they share the same virtual network and write logs to the same logging destination. |
 | Multi-service integration | You can add [Azure Functions](https://aka.ms/functionsonaca) and [Azure Spring Apps](https://aka.ms/asaonaca) to your Azure Container Apps environment. |
 
@@ -54,7 +54,7 @@ Depending on the needs of your system, you may opt to use one or more Container 
 
 Azure Container Apps has two different pricing structures.
 
-- If you're using the Consumption only plan, or only the Consumption workload profile in the Dedicated plan then billing is relevant only to individual container apps and their resource usage. There's no cost associated with the Container Apps environment.
+- If you're using the Consumption plan, then billing is relevant only to individual container apps and their resource usage. There's no cost associated with the Container Apps environment.
 - If you're using any Dedicated workload profiles in the Dedicated plan, there's a fixed cost for the Dedicated plan management. This cost is for the entire environment regardless of how many Dedicated workload profiles you're using.
 
 ## Logs
