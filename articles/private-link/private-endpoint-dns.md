@@ -165,45 +165,45 @@ For Azure services, use the recommended zone names as described in the following
 
 ### China
 
-| Private link resource type / Subresource |Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|
-| Azure Automation / (Microsoft.Automation/automationAccounts) / Webhook, DSCAndHybridWorker | privatelink.azure-automation.cn | azure-automation.cn |
-| Azure SQL Database (Microsoft.Sql/servers) / SQL Server | privatelink.database.chinacloudapi.cn | database.chinacloudapi.cn |
-| Storage account (Microsoft.Storage/storageAccounts) / Blob (blob, blob_secondary) | privatelink.blob.core.chinacloudapi.cn | blob.core.chinacloudapi.cn |
-| Storage account (Microsoft.Storage/storageAccounts) / Table (table, table_secondary) | privatelink.table.core.chinacloudapi.cn | table.core.chinacloudapi.cn |
-| Storage account (Microsoft.Storage/storageAccounts) / Queue (queue, queue_secondary) | privatelink.queue.core.chinacloudapi.cn | queue.core.chinacloudapi.cn |
-| Storage account (Microsoft.Storage/storageAccounts) / File (file, file_secondary) | privatelink.file.core.chinacloudapi.cn | file.core.chinacloudapi.cn |
-| Storage account (Microsoft.Storage/storageAccounts) / Web (web, web_secondary) | privatelink.web.core.chinacloudapi.cn | web.core.chinacloudapi.cn |
-| Azure Data Lake File System Gen2 (Microsoft.Storage/storageAccounts) / Data Lake File System Gen2 (dfs, dfs_secondary) | privatelink.dfs.core.chinacloudapi.cn | dfs.core.chinacloudapi.cn |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Sql | privatelink.documents.azure.cn | documents.azure.cn |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / MongoDB | privatelink.mongo.cosmos.azure.cn | mongo.cosmos.azure.cn |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Cassandra | privatelink.cassandra.cosmos.azure.cn | cassandra.cosmos.azure.cn |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Gremlin | privatelink.gremlin.cosmos.azure.cn | gremlin.cosmos.azure.cn |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Table | privatelink.table.cosmos.azure.cn | table.cosmos.azure.cn |
-| Azure Batch (Microsoft.Batch/batchAccounts) / batchAccount | privatelink.batch.chinacloudapi.cn | {region}.batch.chinacloudapi.cn |
-| Azure Batch (Microsoft.Batch/batchAccounts) / nodeManagement | privatelink.batch.chinacloudapi.cn | {region}.service.batch.chinacloudapi.cn |
-| Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) / postgresqlServer | privatelink.postgres.database.chinacloudapi.cn | postgres.database.chinacloudapi.cn |
-| Azure Database for MySQL (Microsoft.DBforMySQL/servers) / mysqlServer | privatelink.mysql.database.chinacloudapi.cn  | mysql.database.chinacloudapi.cn  |
-| Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) / mariadbServer | privatelink.mariadb.database.chinacloudapi.cn | mariadb.database.chinacloudapi.cn |
-| Azure Key Vault (Microsoft.KeyVault/vaults) / vault | privatelink.vaultcore.azure.cn | vaultcore.azure.cn |
-| Azure Event Hubs (Microsoft.EventHub/namespaces) / namespace | privatelink.servicebus.chinacloudapi.cn | servicebus.chinacloudapi.cn |
-| Azure Service Bus (Microsoft.ServiceBus/namespaces) / namespace | privatelink.servicebus.chinacloudapi.cn | servicebus.chinacloudapi.cn |
-| Azure IoT Hub (Microsoft.Devices/IotHubs) / iotHub | privatelink.azure-devices.cn<br/>privatelink.servicebus.chinacloudapi.cn<sup>1</sup> | azure-devices.cn<br/>servicebus.chinacloudapi.cn |
-| Azure IoT Hub Device Provisioning Service (Microsoft.Devices/ProvisioningServices) / iotDps | privatelink.azure-devices-provisioning.cn | azure-devices-provisioning.cn |
-| Azure Relay (Microsoft.Relay/namespaces) / namespace | privatelink.servicebus.chinacloudapi.cn | servicebus.chinacloudapi.cn |
-| Azure Event Grid (Microsoft.EventGrid/topics) / topic | privatelink.eventgrid.azure.cn | eventgrid.azure.cn |
-| Azure Event Grid (Microsoft.EventGrid/domains) / domain | privatelink.eventgrid.azure.cn | eventgrid.azure.cn |
-| Azure Web Apps (Microsoft.Web/sites) / sites | privatelink.chinacloudsites.cn | chinacloudsites.cn |
-| Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) / amlworkspace | privatelink.api.ml.azure.cn<br/>privatelink.notebooks.chinacloudapi.cn | api.ml.azure.cn<br/>notebooks.chinacloudapi.cn<br/>instances.azureml.cn<br/>aznbcontent.net<br/>inference.ml.azure.cn |
-| SignalR (Microsoft.SignalRService/SignalR) / signalR | privatelink.signalr.azure.cn | service.signalr.azure.cn |
-| Azure File Sync (Microsoft.StorageSync/storageSyncServices) / afs |  privatelink.afs.azure.cn  |  afs.azure.cn  |
-| Azure Data Factory (Microsoft.DataFactory/factories) / dataFactory |  privatelink.datafactory.azure.cn  |  datafactory.azure.cn  |
-| Azure Data Factory (Microsoft.DataFactory/factories) / portal |  privatelink.adf.azure.cn  |  adf.azure.cn  |
-| Azure Cache for Redis (Microsoft.Cache/Redis) / redisCache | privatelink.redis.cache.chinacloudapi.cn | redis.cache.chinacloudapi.cn |
-| Azure HDInsight (Microsoft.HDInsight) | privatelink.azurehdinsight.cn | azurehdinsight.cn |
-| Azure Data Explorer (Microsoft.Kusto/Clusters) / cluster | privatelink.{regionName}.kusto.windows.cn | {regionName}.kusto.windows.cn |
-| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) / global  | privatelink-global.wvd.azure.cn  | wvd.azure.cn  |
-| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces and Microsoft.DesktopVirtualization/hostpools) / feed, connection  | privatelink.wvd.azure.cn | wvd.azure.cn |
+| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
+|---|---|---|--|
+| Azure Automation / (Microsoft.Automation/automationAccounts) | Webhook </br> DSCAndHybridWorker | privatelink.azure-automation.cn | azure-automation.cn |
+| Azure SQL Database (Microsoft.Sql/servers) | sqlServer | privatelink.database.chinacloudapi.cn | database.chinacloudapi.cn |
+| Storage account (Microsoft.Storage/storageAccounts) | blob </br> blob_secondary | privatelink.blob.core.chinacloudapi.cn | blob.core.chinacloudapi.cn |
+| Storage account (Microsoft.Storage/storageAccounts) | table </br> table_secondary | privatelink.table.core.chinacloudapi.cn | table.core.chinacloudapi.cn |
+| Storage account (Microsoft.Storage/storageAccounts) | queue </br> queue_secondary | privatelink.queue.core.chinacloudapi.cn | queue.core.chinacloudapi.cn |
+| Storage account (Microsoft.Storage/storageAccounts) | file </br> file_secondary | privatelink.file.core.chinacloudapi.cn | file.core.chinacloudapi.cn |
+| Storage account (Microsoft.Storage/storageAccounts) | web </br> web_secondary | privatelink.web.core.chinacloudapi.cn | web.core.chinacloudapi.cn |
+| Azure Data Lake File System Gen2 (Microsoft.Storage/storageAccounts) | dfs </br> dfs_secondary | privatelink.dfs.core.chinacloudapi.cn | dfs.core.chinacloudapi.cn |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Sql | privatelink.documents.azure.cn | documents.azure.cn |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | MongoDB | privatelink.mongo.cosmos.azure.cn | mongo.cosmos.azure.cn |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Cassandra | privatelink.cassandra.cosmos.azure.cn | cassandra.cosmos.azure.cn |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Gremlin | privatelink.gremlin.cosmos.azure.cn | gremlin.cosmos.azure.cn |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Table | privatelink.table.cosmos.azure.cn | table.cosmos.azure.cn |
+| Azure Batch (Microsoft.Batch/batchAccounts) | batchAccount | privatelink.batch.chinacloudapi.cn | {region}.batch.chinacloudapi.cn |
+| Azure Batch (Microsoft.Batch/batchAccounts) | nodeManagement | privatelink.batch.chinacloudapi.cn | {region}.service.batch.chinacloudapi.cn |
+| Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) | postgresqlServer | privatelink.postgres.database.chinacloudapi.cn | postgres.database.chinacloudapi.cn |
+| Azure Database for MySQL (Microsoft.DBforMySQL/servers) | mysqlServer | privatelink.mysql.database.chinacloudapi.cn  | mysql.database.chinacloudapi.cn  |
+| Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) | mariadbServer | privatelink.mariadb.database.chinacloudapi.cn | mariadb.database.chinacloudapi.cn |
+| Azure Key Vault (Microsoft.KeyVault/vaults) | vault | privatelink.vaultcore.azure.cn | vaultcore.azure.cn |
+| Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.chinacloudapi.cn | servicebus.chinacloudapi.cn |
+| Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace | privatelink.servicebus.chinacloudapi.cn | servicebus.chinacloudapi.cn |
+| Azure IoT Hub (Microsoft.Devices/IotHubs) | iotHub | privatelink.azure-devices.cn <br/> privatelink.servicebus.chinacloudapi.cn <sup>1</sup> | azure-devices.cn<br/>servicebus.chinacloudapi.cn |
+| Azure IoT Hub Device Provisioning Service (Microsoft.Devices/ProvisioningServices) | iotDps | privatelink.azure-devices-provisioning.cn | azure-devices-provisioning.cn |
+| Azure Relay (Microsoft.Relay/namespaces) | namespace | privatelink.servicebus.chinacloudapi.cn | servicebus.chinacloudapi.cn |
+| Azure Event Grid (Microsoft.EventGrid/topics) | topic | privatelink.eventgrid.azure.cn | eventgrid.azure.cn |
+| Azure Event Grid (Microsoft.EventGrid/domains) | domain | privatelink.eventgrid.azure.cn | eventgrid.azure.cn |
+| Azure Web Apps (Microsoft.Web/sites) | sites | privatelink.chinacloudsites.cn | chinacloudsites.cn |
+| Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) | amlworkspace | privatelink.api.ml.azure.cn<br/>privatelink.notebooks.chinacloudapi.cn | api.ml.azure.cn<br/>notebooks.chinacloudapi.cn <br/> instances.azureml.cn <br/> aznbcontent.net <br/> inference.ml.azure.cn |
+| SignalR (Microsoft.SignalRService/SignalR) | signalR | privatelink.signalr.azure.cn | service.signalr.azure.cn |
+| Azure File Sync (Microsoft.StorageSync/storageSyncServices) | afs |  privatelink.afs.azure.cn  |  afs.azure.cn  |
+| Azure Data Factory (Microsoft.DataFactory/factories) | dataFactory |  privatelink.datafactory.azure.cn  |  datafactory.azure.cn  |
+| Azure Data Factory (Microsoft.DataFactory/factories) | portal |  privatelink.adf.azure.cn  |  adf.azure.cn  |
+| Azure Cache for Redis (Microsoft.Cache/Redis) | redisCache | privatelink.redis.cache.chinacloudapi.cn | redis.cache.chinacloudapi.cn |
+| Azure HDInsight (Microsoft.HDInsight) | N/A | privatelink.azurehdinsight.cn | azurehdinsight.cn |
+| Azure Data Explorer (Microsoft.Kusto/Clusters) | cluster | privatelink.{regionName}.kusto.windows.cn | {regionName}.kusto.windows.cn |
+| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) | global  | privatelink-global.wvd.azure.cn  | wvd.azure.cn  |
+| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces and Microsoft.DesktopVirtualization/hostpools) | feed </br> connection  | privatelink.wvd.azure.cn | wvd.azure.cn |
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint)
 
