@@ -157,10 +157,10 @@ VM Image Builder has extended support for TrustedLaunchSupported and Confidentia
 
 | SecurityType | Support status |
 |--------------|----------------|
-| TrustedLaunchSupported | Supported as source and creation |
-| ConfidentialVMSupported | Supported as source |
-| TrustedLaunch | Not supported as source |
-| ConfidentialVM | Not supported |
+| TrustedLaunchSupported | Support as a source image for image builds |
+| ConfidentialVMSupported | Support as a source image for image builds |
+| TrustedLaunch | Not supported as a source image |
+| ConfidentialVM | Not supported as a source image |
 
 > [!NOTE]
 > When using TrustedLaunchSupported images, it's important that the source and distribute must both be TrustedLaunchSupported for it to be supported. If the source is normal and the distribute is TrustedLaunchSupported, or if the source is TrustedLaunchSupported and the distribute is normal Gen2, it's not supported.
