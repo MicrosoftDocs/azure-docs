@@ -16,7 +16,7 @@ ms.author: thwimmer
 
 # Tutorial: Configure Tanium SSO for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Tanium SSO and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Tanium SSO](https://www.tanium.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both Tanium SSO and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Tanium SSO](https://www.tanium.com/) using the Azure AD Provisioning service. These capabilities are supported only for Tanium Cloud customers. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Supported capabilities
@@ -36,16 +36,19 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A user account in Tanium SSO with Admin permissions.
 
 ## Step 1. Plan your provisioning deployment
+
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 1. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 1. Determine what data to [map between Azure AD and Tanium SSO](../app-provisioning/customize-application-attributes.md).
 
-## Step 2. Configure Tanium SSO to support provisioning with Azure AD
-Contact Tanium SSO support to configure Tanium SSO to support provisioning with Azure AD.
+## Step 2. Enable SCIM Provisioning in the Tanium Cloud Management Portal (CMP)
+
+* Follow the steps in the [Tanium Cloud Deployment Guide: Configure SCIM Provisioning](https://docs.tanium.com/cloud/cloud/configuring_identity_providers.html#configure_scim) to enable automatic user provisioning in Tanium Cloud.
+* Retain the **Token** and **SCIM API URL** values for later use in configuring Tanium SSO. Copy the entire token string, formatted like `token-\<58 alphanumeric characters\>`.
 
 ## Step 3. Add Tanium SSO from the Azure AD application gallery
 
-Add Tanium SSO from the Azure AD application gallery to start managing provisioning to Tanium SSO. If you have previously setup Tanium SSO for SSO you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add Tanium SSO from the Azure AD application gallery to start managing provisioning to Tanium SSO. If you have previously setup Tanium SSO for SSO you can use the same application. However, it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
@@ -55,10 +58,9 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 * If you need more roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
-
 ## Step 5. Configure automatic user provisioning to Tanium SSO 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Tanium based on user and/or group assignments in Azure AD.
 
 ### To configure automatic user provisioning for Tanium SSO in Azure AD:
 
@@ -78,9 +80,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
 
-1. Under the **Admin Credentials** section, input your Tanium SSO Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Tanium SSO. If the connection fails, ensure your Tanium SSO account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, input your Tanium SSO **Tenant URL** and **Secret Token** that you previously retrieved from the Tanium CMP. Click **Test Connection** to ensure Azure AD can connect to Tanium SSO. If the connection fails, ensure that you entered the complete token value, including the `token-` prefix.
 
- 	![Screenshot of Token.](common/provisioning-testconnection-tenanturltoken.png)
+	![Screenshot of Token.](common/provisioning-testconnection-tenanturltoken.png)
 
 1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
