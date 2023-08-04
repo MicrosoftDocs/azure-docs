@@ -337,6 +337,10 @@ When you start the load test, Azure Load Testing injects the following Azure res
 
 Ensure that you have quota for at least one public IP address available in your subscription to use in the load test.
 
+### Starting the load test fails with `Subnet with name "AzureFirewallSubnet" cannot be used for load testing (ALTVNET017)`
+
+The subnet name *AzureFirewallSubnet* is a reserved name. Use another name for your subnet.
+
 ## Next steps
 
 - Learn more about the [scenarios for deploying Azure Load Testing in a virtual network](./concept-azure-load-testing-vnet-injection.md).
