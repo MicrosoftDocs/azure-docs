@@ -126,7 +126,7 @@ You can authorize access to data in your storage account using the following ste
     az login
     ```
 
-2. To use `DefaultAzureCredential`, make sure that the **azure-identity-cpp** package is [installed](#install-the-packages) and the following `#include` is added:
+2. To use `ChainedTokenCredential`, make sure that the **azure-identity-cpp** package is [installed](#install-the-packages) and the following `#include` is added:
 
     ```cpp
     #include <azure/identity/chained_token_credential.hpp>
@@ -192,7 +192,7 @@ Add this code to the end of `main()`:
 :::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" ID="Snippet_ConnectionString":::
 
 > [!IMPORTANT]
-> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `ChainedTokenCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
 
 ---
 
