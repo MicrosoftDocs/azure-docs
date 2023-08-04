@@ -66,7 +66,7 @@ Steps to create a generalized image that removes the Azure guest agents are as f
 4. Remove the Azure Linux Agent artifacts.
 
     > [!NOTE]
-    If you know you will not ever reinstall the Linux Agent again [Remove the Azure Linux Agent artifacts](azure/virtual-machines/linux/disable-provisioning#:~:text=Step%202%3A%20(Optional)%20Remove%20the%20Azure%20Linux%20Agent%20artifacts), then you can run the following:
+    If you know you will not ever reinstall the Linux Agent again [Remove the Azure Linux Agent artifacts](/azure/virtual-machines/linux/disable-provisioning#:~:text=Step%202%3A%20(Optional)%20Remove%20the%20Azure%20Linux%20Agent%20artifacts), then you can run the following:
 
     For Ubuntu 18.04+
     ```
@@ -77,12 +77,12 @@ Steps to create a generalized image that removes the Azure guest agents are as f
 
 5. Create a systemd service to provision the VM.
 
-    Since we are removing the Azure Linux Agent, we need to provide a mechanism to report ready. Copy the contents of the [bash script]((/azure/virtual-machines/linux/no-agent#:~:text=)%0A%0Awireserver_conn.close()-,Bash%20script,-Copy) or [python script](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/no-agent#:~:text=to%20report%20ready.-,Python%20script,-Python) to the mounted image and make the file executable.
+    Since we are removing the Azure Linux Agent, we need to provide a mechanism to report ready. Copy the contents of the [bash script]((/azure/virtual-machines/linux/no-agent#:~:text=)%0A%0Awireserver_conn.close()-,Bash%20script,-Copy) or [python script](/azure/virtual-machines/linux/no-agent#:~:text=to%20report%20ready.-,Python%20script,-Python) to the mounted image and make the file executable.
     ```
     sudo chmod +x /mnt/dev/$imagedevice/usr/local/azure-provisioning.sh
     ```
 
-    To ensure report ready mechanism, create a [systemd service unit](azure/virtual-machines/linux/no-agent#:~:text=Automating%20running%20the%20code%20at%20first%20boot)
+    To ensure report ready mechanism, create a [systemd service unit](/azure/virtual-machines/linux/no-agent#:~:text=Automating%20running%20the%20code%20at%20first%20boot)
     and add the following to the /etc/systemd/system (this example names the unit file azure-provisioning.service)
     ```
     sudo chroot /mnt/dev/$imagedevice/ systemctl enable azure-provisioning.service
