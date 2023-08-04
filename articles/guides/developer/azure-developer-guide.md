@@ -41,7 +41,7 @@ Azure offers services that support your application development and hosting need
 
 When you want the quickest path to publish your web-based projects, consider Azure App Service. App Service makes it easy to extend your web apps to support your mobile clients and publish easily consumed REST APIs. This platform provides authentication by using social providers, traffic-based autoscaling, testing in production, and continuous and container-based deployments.
 
-You can create web apps, mobile app back ends, and API apps. A large variety of runtime stacks are supported, including .NET, Java, Node, PHP, Python, and more.
+You can create web apps, mobile app back ends, and API apps. Develop in your favorite language, including .NET, .NET Core, Java, Node.js, PHP, and Python. Applications run and scale with ease on both Windows and Linux-based environments.
 
 Because all three app types share the App Service runtime, you can host a website, support mobile clients, and expose your APIs in Azure, all from the same project or solution. To learn more about App Service, see [What is Azure Web Apps](../../app-service/overview.md).
 
