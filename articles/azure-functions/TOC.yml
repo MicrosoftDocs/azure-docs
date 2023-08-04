@@ -912,7 +912,9 @@
           - name: AZFD0004
             href: errors-diagnostics/diagnostic-events/azfd0004.md
           - name: AZFD0005
-            href: errors-diagnostics/diagnostic-events/azfd0005.md            
+            href: errors-diagnostics/diagnostic-events/azfd0005.md
+          - name: AZFD0006
+            href: errors-diagnostics/diagnostic-events/azfd0006.md            
     - name: host.json 2.x reference
       href: functions-host-json.md
     - name: host.json 1.x reference
