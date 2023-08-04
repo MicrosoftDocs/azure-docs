@@ -1,49 +1,71 @@
 ---
-title: Configure Application Gateway with a frontend public IPv6 address using Azure PowerShell (Public Preview)
+title: Configure Application Gateway with a frontend public IPv6 address using Azure PowerShell (Preview)
 description: Learn how to configure Application Gateway with a frontend public IPv6 address using Azure PowerShell.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 07/26/2023
+ms.date: 08/07/2023
 ms.author: greglin
 ms.custom: mvc, devx-track-azurepowershell
 ---
-# Configure Application Gateway with a frontend public IPv6 address using Azure PowerShell (Public Preview)
-
-# You can register for Public Preview  [here](ipv6-application-gateway-portal.md)
-
+# Configure Application Gateway with a frontend public IPv6 address using Azure PowerShell (Preview)
 
 ## Overview 
+
 Azure Application gateway now supports dual stack frontend connections. Application Gateway can now handle client traffic from both IPv4 and IPv6 addresses, providing greater flexibility and connectivity for our users. Azure VNETs already provides dual-stack capability. To learn more about Azure VNETs dual-stack capability check [IPv6 for Azure Virtual Network](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/ipv6-overview).
 
 If you are currently using Application Gateway with IPv4 addresses, you can continue to do so without any changes. However, if you want to take advantage of the benefits of IPv6 addressing, you can now do so by configuring your gateway to use IPv6 addresses. Currently we do not support connectivity to IPv6 backends. To support IPv6 connectivity, you must create a dual-stack VNET. This dual-stack VNET will have subnets for both IPv4 and IPv6.
 
-Limitations
-* Supported for Application Gateway Standard V2 only.
-* No support  for upgrading the existing gateways to Ipv6.
-* No support  for IPv6 private address.
-* No support for IPv6 backend.
-* No IPv6 Private Link Support
+> [!IMPORTANT]
+> Application Gateway IPv6 frontend is currently in PREVIEW.<br>
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this article, you use the powershell to create an IPv6 [Azure Application Gateway](overview.md) and test it to ensure it works correctly. Application gateway is used to manage and secure web traffic to servers that you maintain. We will use a [virtual machine scale set](../virtual-machine-scale-sets/overview.md) for backend servers to manage web traffic. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
+## In this article
 
-In this article, you learn how to:
-
-* Set up the dual-stack network
-* Create an application gateway with IPv6 frontend
-* Create a virtual machine scale set with the default backend pool
-
-
+You learn how to:
+* [Register](#register-to-the-preview) and [unregister](#unregister-from-the-preview) from the preview
+* Set up the [dual-stack network](#create-a-dual-stack-subnet)
+* Create an application gateway with [IPv6 frontend](#create-application-gateway-frontend-public-ip-addresses)
+* Create a virtual machine scale set with the default [backend pool](#create-the-backend-pool-and-settings)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-
-
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. To find the version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
 
+Azure PowerShell is used to create an IPv6 [Azure Application Gateway](overview.md) perform testing to ensure it works correctly. Application gateway can manage and secure web traffic to servers that you maintain. A [virtual machine scale set](../virtual-machine-scale-sets/overview.md) is for backend servers to manage web traffic. The scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
 
+## Regions and availability
 
+The IPv6 Application Gateway preview is available to all public cloud regions where Application Gateway v2 SKU is supported.
+
+## Limitations
+
+* Supported for Application Gateway Standard V2 only
+* Not supported for upgrading an existing gateway to IPv6
+* Not supported for IPv6 private addresses
+* Not supported for IPv6 backend
+* Not supported for IPv6 Private Link
+
+## Register to the preview
+
+> [!NOTE]
+> When you join the preview, all new Application Gateways will provision with the ability to define a dual stack frontend connection.  If you wish to opt out from the new functionality and return to the current generally available functionality of Application Gateway, you can [unregister from the preview](#unregister-from-the-preview).
+
+For more information about preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md)
+
+Use the following commands to enroll into the public preview for IPv6 Application Gateway:
+
+```azurepowershell
+Register-AzProviderFeature -FeatureName "AllowApplicationGatewayIPv6" -ProviderNamespace "Microsoft.Network"
+```
+
+To view registration status of the feature, use the Get-AzProviderFeature cmdlet.
+```Output
+FeatureName                                ProviderName        RegistrationState
+-----------                                ------------        -----------------
+AllowApplicationGatewayIPv6   Microsoft.Network   Registered
+```
 
 ## Create a resource group
 
@@ -284,13 +306,13 @@ for ($i=1; $i -le 2; $i++)
     -Location EastUS
 }
 ```
-# Find public IP address of Application Gateway
+# Find the public IP address of Application Gateway
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
-# Update the DNS with IPv4 and IPv6 address
+# Update DNS with IPv4 and IPv6 addresses
 
 Test the Application : https://{yourdomain.com}
 
@@ -302,6 +324,21 @@ When no longer needed, remove the resource group, application gateway, and all r
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroupAG
+```
+
+## Unregister from the preview
+
+Use the following commands to opt out of the public preview for IPv6 Application Gateway:
+
+```azurepowershell
+Unregister-AzProviderFeature -FeatureName "AllowApplicationGatewayIPv6" -ProviderNamespace "Microsoft.Network"
+```
+
+To view registration status of the feature, use the Get-AzProviderFeature cmdlet.
+```Output
+FeatureName                   ProviderName        RegistrationState
+-----------                   ------------        -----------------
+AllowApplicationGatewayIPv6   Microsoft.Network   Unregistered
 ```
 
 ## Next steps

@@ -5,7 +5,7 @@ description: Learn how to configure Application Gateway with a frontend private 
 services: application-gateway
 author: greg-lindsay
 ms.topic: how-to
-ms.date: 07/26/2023
+ms.date: 08/07/2023
 ms.author: greglin
 ms.service: application-gateway
 ms.custom: mvc, mode-ui
@@ -27,6 +27,7 @@ Limitations
 
 
 ## Regions and availability
+
 The IPv6  Application Gateway preview is available to all public cloud regions where Application Gateway v2 sku is supported.
 
 
