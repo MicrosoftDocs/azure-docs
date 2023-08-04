@@ -2504,8 +2504,12 @@ For more information, see [Roles and permissions in Viva Goals](/viva/goals/role
 
 Assign the Viva Pulse Administrator role to users who need to do the following tasks:
 
-- Read and update all tenant settings for Microsoft Viva Pulse
-- Delete all user-related Viva Pulse data for Data Subject Requests (DSRs)
+- Read and configure all settings of Viva Pulse
+- Read basic properties on all resources in the Microsoft 365 admin center
+- Read and configure Azure Service Health
+- Create and manage Azure support tickets
+- Read messages in Message Center in the Microsoft 365 admin center, excluding security messages
+- Read usage reports in the Microsoft 365 admin center
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2515,6 +2519,7 @@ Assign the Viva Pulse Administrator role to users who need to do the following t
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
 > | microsoft.office365.usageReports/allEntities/allProperties/read | Read Office 365 usage reports |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
+> | microsoft.viva.pulse/allEntities/allProperties/allTasks |  |
 
 ## Windows 365 Administrator
 
