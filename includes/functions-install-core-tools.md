@@ -16,14 +16,14 @@ The following steps use a Windows installer (MSI) to install Core Tools v4.x. Fo
 
 Download and run the Core Tools installer, based on your version of Windows:
 
-- [v4.x - Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2174087) (Recommended. [Visual Studio Code debugging](functions-develop-vs-code.md#debugging-functions-locally) requires 64-bit.)
+- [v4.x - Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2174087) (Recommended. [Visual Studio Code debugging](../articles/azure-functions/functions-develop-vs-code.md#debugging-functions-locally) requires 64-bit.)
 - [v4.x - Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2174159)
 
 If you previously used Windows installer (MSI) to install Core Tools on Windows, you should uninstall the old version from Add Remove Programs before installing the latest version.
 
 ### [macOS](#tab/macos)
 
-[!INCLUDE [functions-x86-emulation-on-arm64-note](../../includes/functions-x86-emulation-on-arm64-note.md)]
+[!INCLUDE [functions-x86-emulation-on-arm64-note](functions-x86-emulation-on-arm64-note.md)]
 
 The following steps use Homebrew to install the Core Tools on macOS.
 
