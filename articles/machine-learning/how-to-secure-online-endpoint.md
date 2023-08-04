@@ -13,21 +13,15 @@ ms.date: 04/26/2023
 ms.custom: event-tier1-build-2022, devx-track-azurecli
 ---
 
-# Secure managed online endpoints with network isolation
+# How to secure managed online endpoints with network isolation
 
 [!INCLUDE [SDK/CLI v2](includes/machine-learning-dev-v2.md)]
 
-When deploying a machine learning model to a managed online endpoint, you can secure communication with the online endpoint by using [private endpoints](../private-link/private-endpoint-overview.md).
-
-You can secure the inbound scoring requests from clients to an _online endpoint_. You can also secure the outbound communications between a _deployment_ and the Azure resources it uses. Security for inbound and outbound communication are configured separately. For more information on endpoints and deployments, see [What are endpoints and deployments](concept-endpoints-online.md).
-
-The following diagram shows how communications flow through private endpoints to the managed online endpoint. Incoming scoring requests from clients are received through the workspace private endpoint from your virtual network. Outbound communication with services is handled through private endpoints to those service instances from the deployment:
-
-:::image type="content" source="./media/how-to-secure-online-endpoint/endpoint-network-isolation-ingress-egress.png" alt-text="Diagram of overall ingress/egress communication.":::
+In this article, you'll create an example configuration that uses private endpoints to secure managed online endpoints in Azure Machine Learning. You can secure the inbound scoring requests from clients to an _online endpoint_. You can also secure the outbound communications between a _deployment_ and the Azure resources it uses. Security for inbound and outbound communication are configured separately. For more information about securing managed online endpoints, see [Network isolation with managed online endpoints](concept-secure-online-endpoint.md).
 
 ## Prerequisites
 
-To start with, you would need an Azure subscription, CLI or SDK to interact with Azure Machine Learning workspace and related entities, and the right permission.
+To begin, you would need an Azure subscription, CLI or SDK to interact with Azure Machine Learning workspace and related entities, and the right permission.
 
 * To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
@@ -61,137 +55,21 @@ There are additional prerequisites for workspace and its related entities.
     
 * When you use network isolation with a deployment, you can use Azure Container Registry (ACR), Storage account, Key Vault and Application Insights from a different resource group in the same subscription, but you cannot use them if they are in a different subscription. 
 
-* For online deployments with `egress_public_network_access` flag set to `disabled`, access from the deployments to Microsoft Container Registry (MCR) is restricted. If you want to leverage container images from MCR (such as when using curated environment or mlflow no-code deployment), recommendation is to build the image locally inside the virtual network ([docker build](https://docs.docker.com/engine/reference/commandline/build/)) and push the image into the private Azure Container Registry (ACR) which is attached with the workspace (for instance, using [docker push](../container-registry/container-registry-get-started-docker-cli.md#push-the-image-to-your-registry)). The images in this ACR is accessible to secured deployments via the private endpoints which are automatically created on behalf of you when you set `egress_public_network_access` flag to `disabled`. For a quick example, please refer to [build image under virtual network](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/managed/vnet/setup_vm/scripts/build_image.sh) and [end to end example for model deployment under virtual network](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet.sh).
+* For online deployments with `egress_public_network_access` flag set to `disabled`, access from the deployments to Microsoft Container Registry (MCR) is restricted. If you want to leverage container images from MCR (such as when using curated environment or mlflow no-code deployment), we recommend that you build the image locally inside the virtual network ([docker build](https://docs.docker.com/engine/reference/commandline/build/)) and push the image into the private Azure Container Registry (ACR) which is attached with the workspace (for instance, using [docker push](../container-registry/container-registry-get-started-docker-cli.md#push-the-image-to-your-registry)). The images in this ACR are accessible to secured deployments via the private endpoints which are automatically created on your behalf when you set `egress_public_network_access` flag to `disabled`. For a quick example, please refer to [build image under virtual network](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/managed/vnet/setup_vm/scripts/build_image.sh) and [end to end example for model deployment under virtual network](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet.sh).
 
 > [!NOTE]
 > Requests to create, update, or retrieve the authentication keys are sent to the Azure Resource Manager over the public network.
- 
-## Inbound (scoring)
 
-To secure scoring requests to the online endpoint to your virtual network, set the `public_network_access` flag for the endpoint to `disabled`:
+## Prepare your system
 
-# [Azure CLI](#tab/cli)
+The end-to-end example in this article comes from the files in the __azureml-examples__ GitHub repository. To clone the samples repository and switch to the repository's `cli/` directory, use the following commands:
 
 ```azurecli
-az ml online-endpoint create -f endpoint.yml --set public_network_access=disabled
+git clone https://github.com/Azure/azureml-examples
+cd azureml-examples/cli
 ```
-
-# [Python](#tab/python)
-
-```python
-from azure.ai.ml.entities import ManagedOnlineEndpoint
-
-endpoint = ManagedOnlineEndpoint(name='my-online-endpoint',  
-                         description='this is a sample online endpoint', 
-                         tags={'foo': 'bar'}, 
-                         auth_mode="key", 
-                         public_network_access="disabled" 
-                         # public_network_access="enabled" 
-)
-```
-
-# [Studio](#tab/azure-studio)
-
-1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
-1. Select the **Workspaces** page from the left navigation bar.
-1. Enter a workspace by clicking its name.
-1. Select the **Endpoints** page from the left navigation bar.
-1. Select **+ Create** to open the **Create deployment** setup wizard.
-1. Disable the **Public network access** flag at the **Create endpoint** step.
-
-    :::image type="content" source="media/how-to-secure-online-endpoint/endpoint-disable-public-network-access.png" alt-text="A screenshot of how to disable public network access for an endpoint." lightbox="media/how-to-secure-online-endpoint/endpoint-disable-public-network-access.png":::
-
----
-
-When `public_network_access` is `disabled`, inbound scoring requests are received using the [private endpoint of the Azure Machine Learning workspace](./how-to-configure-private-link.md), and the endpoint can't be reached from public networks.
-
-> [!NOTE]
-> You can update (enable or disable) the `public_network_access` flag of an online endpoint after creating it.
-
-## Outbound (resource access)
-
-To restrict communication between a deployment and external resources, including the Azure resources it uses, set the deployment's `egress_public_network_access` flag to `disabled`. Use this flag to ensure that the download of the model, code, and images needed by your deployment are secured with a private endpoint. Note that disabling the flag alone is not enough — your workspace must also have a private link that allows access to Azure resources via a private endpoint. See the [Prerequisites](#prerequisites) for more details.
-
-Secure outbound communication creates three private endpoints per deployment. One to the Azure Blob storage, one to the Azure Container Registry, and one to your workspace.
-
-> [!IMPORTANT]
-> * Each managed online endpoint deployment has its own independent Azure Machine Learning managed VNet. If the endpoint has multiple deployments, each deployment has its own managed VNet.
-> * We do not support peering between a deployment's managed VNet and your client VNet. For secure access to resources needed by the deployment, we use private endpoints to communicate with the resources.
-
-> [!WARNING]
-> * You cannot update (enable or disable) the `egress_public_network_access` flag after creating the deployment. Attempting to change the flag while updating the deployment will fail with an error.
-
-# [Azure CLI](#tab/cli)
-
-```azurecli
-az ml online-deployment create -f deployment.yml --set egress_public_network_access=disabled
-```
-
-# [Python](#tab/python)
-
-```python
-blue_deployment = ManagedOnlineDeployment(name='blue', 
-                                          endpoint_name='my-online-endpoint', 
-                                          model=model, 
-                                          code_configuration=CodeConfiguration(code_local_path='./model-1/onlinescoring/',
-                                                                               scoring_script='score.py'),
-                                          environment=env, 
-                                          instance_type='Standard_DS2_v2', 
-                                          instance_count=1, 
-                                          egress_public_network_access="disabled"
-                                          # egress_public_network_access="enabled" 
-) 
-                              
-ml_client.begin_create_or_update(blue_deployment) 
-```
-
-# [Studio](#tab/azure-studio)
-
-1. Follow the steps in the **Create deployment** setup wizard to the **Deployment** step.
-1. Disable the **Egress public network access** flag.
-
-    :::image type="content" source="media/how-to-secure-online-endpoint/deployment-disable-egress-public-network-access.png" alt-text="A screenshot of how to disable the egress public network access for a deployment." lightbox="media/how-to-secure-online-endpoint/deployment-disable-egress-public-network-access.png":::
-
----
-
-The deployment communicates with these resources over the private endpoint:
-
-* The Azure Machine Learning workspace
-* The Azure Storage blob that is associated with the workspace
-* The Azure Container Registry for the workspace
-
-When you configure the `egress_public_network_access` to `disabled`, a new private endpoint is created per deployment, per service. For example, if you set the flag to `disabled` for three deployments to an online endpoint, a total of nine private endpoints are created. Each deployment would have three private endpoints to communicate with the workspace, blob, and container registry. To confirm the creation of the private endpoints, first check the storage account and container registry associated with the workspace (see [Download a configuration file](how-to-manage-workspace.md#download-a-configuration-file)), find each resource from Azure portal and check `Private endpoint connections` tab under the `Networking` menu.
-
-> [!IMPORTANT]
-> - As mentioned earlier, outbound communication from managed online endpoint deployment is to the _workspace API_. When the endpoint is configured to use __public outbound__ (in other words, `public_network_access` flag for the endpoint is set to `enabled`), then the workspace must be able to accept that public communication (`public_network_access` flag for the workspace set to `enabled`).
-> - When online deployments are created with `egress_public_network_access` flag set to `disabled`, they will have access to above secured resources only. For instance, if the deployment uses model assets uploaded to other storage accounts, the model download will fail. Ensure model assets are on the storage account associated with the workspace.
-> - When `egress_public_network_access` is set to `disabled`, the deployment can only access the workspace-associated resources secured in the virtual network. On the contrary, when `egress_public_network_access` is set to `enabled`, the deployment can only access the resources with public access, which means it cannot access the resources secured in the virtual network.
-
-
-## Scenarios
-
-The following table lists the supported configurations when configuring inbound and outbound communications for an online endpoint:
-
-| Configuration | Inbound </br> (Endpoint property) | Outbound </br> (Deployment property) | Supported? |
-| -------- | -------------------------------- | --------------------------------- | --------- |
-| secure inbound with secure outbound | `public_network_access` is disabled | `egress_public_network_access` is disabled   | Yes |
-| secure inbound with public outbound | `public_network_access` is disabled | `egress_public_network_access` is enabled</br>The workspace must also allow public access as the deployment outbound is to the workspace API. | Yes |
-| public inbound with secure outbound | `public_network_access` is enabled | `egress_public_network_access` is disabled    | Yes |
-| public inbound with public outbound | `public_network_access` is enabled | `egress_public_network_access` is enabled</br>The workspace must also allow public access as the deployment outbound is to the workspace API. | Yes |
-
-
-## End-to-end example
-
-Use the information in this section to create an example configuration that uses private endpoints to secure online endpoints.
 
 > [!TIP]
-> The end-to-end example in this article comes from the files in the __azureml-examples__ GitHub repository. To clone the samples repository and switch to the repository's `cli/` directory, use the following commands: 
->
-> ```azurecli
-> git clone https://github.com/Azure/azureml-examples
-> cd azureml-examples/cli
-> ```
-> 
 > In this example, an Azure Virtual Machine is created inside the virtual network. You connect to the VM using SSH, and run the deployment from the VM. This configuration is used to simplify the steps in this example, and does not represent a typical secure configuration. For example, in a production environment you would most likely use a VPN client or Azure ExpressRoute to directly connect clients to the virtual network.
 
 ### Create workspace and secured resources
@@ -236,6 +114,7 @@ To create the resources, use the following Azure CLI commands. Replace `<UNIQUE_
 ```azurecli
 az deployment group create --template-file endpoints/online/managed/vnet/setup_ws/main.bicep --parameters suffix=$SUFFIX --resource-group <my-resource-group>
 ```
+
 ### Create the virtual machine jump box
 
 To create an Azure Virtual Machine that can be used to connect to the virtual network, use the following command. Replace `<your-new-password>` with the password you want to use when connecting to this VM:
@@ -350,6 +229,7 @@ az group delete --resource-group <resource-group-name>
 
 ## Next steps
 
+- [Network isolation with managed online endpoints](concept-secure-online-endpoint.md)
 - [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
 - [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
 - [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
