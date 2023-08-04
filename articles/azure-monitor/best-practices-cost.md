@@ -4,7 +4,7 @@ description: Recommendations for reducing costs in Azure Monitor.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/29/2023
+ms.date: 08/03/2023
 ms.reviewer: bwren
 ---
 
