@@ -46,7 +46,7 @@ When you create a new AKS cluster in the Azure portal, you can enable Prometheus
 
 :::image type="content" source="media/prometheus-metrics-enable/aks-integrations.png" lightbox="media/prometheus-metrics-enable/aks-integrations.png" alt-text="Screenshot of integrations tab for new AKS cluster.":::
 
-##### From the Azure Monitor workspace
+#### From the Azure Monitor workspace
 This option enables Prometheus metrics on a cluster without enabling Container insights.
 
 1. Open the **Azure Monitor workspaces** menu in the Azure portal and select your workspace.
