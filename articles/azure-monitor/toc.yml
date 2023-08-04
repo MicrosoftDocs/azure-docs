@@ -505,45 +505,45 @@ items:
         items:
         - name: Default configuration
           displayName: Prometheus
-          href: essentials/prometheus-metrics-scrape-default.md
+          href: containers/prometheus-metrics-scrape-default.md
         - name: Custom configuration
           displayName: Prometheus
-          href: essentials/prometheus-metrics-scrape-configuration.md
+          href: containers/prometheus-metrics-scrape-configuration.md
         - name: Create and validate custom scrape config
           displayName: Prometheus
-          href: essentials/prometheus-metrics-scrape-validate.md
+          href: containers/prometheus-metrics-scrape-validate.md
         - name: Minimal ingestion profile
           displayName: Prometheus
-          href: essentials/prometheus-metrics-scrape-configuration-minimal.md
+          href: containers/prometheus-metrics-scrape-configuration-minimal.md
         - name: High scale
           displayName: Prometheus
-          href: essentials/prometheus-metrics-scrape-scale.md
+          href: containers/prometheus-metrics-scrape-scale.md
         - name: Send to multiple metric workspaces
           displayName: Prometheus
-          href: essentials/prometheus-metrics-multiple-workspaces.md
+          href: containers/prometheus-metrics-multiple-workspaces.md
       - name: Troubleshoot collection
         displayName: Prometheus
-        href: essentials/prometheus-metrics-troubleshoot.md
+        href: containers/prometheus-metrics-troubleshoot.md
       - name: Enable remote write
         items:
         - name: Overview
           displayName: Prometheus,remote-write
-          href: essentials/prometheus-remote-write.md
+          href: containers/prometheus-remote-write.md
         - name: Managed identity
           displayName: Prometheus,remote-write
-          href: essentials/prometheus-remote-write-managed-identity.md
+          href: containers/prometheus-remote-write-managed-identity.md
         - name: Azure Active Directory
           displayName: Prometheus,remote-write
-          href: essentials/prometheus-remote-write-active-directory.md
+          href: containers/prometheus-remote-write-active-directory.md
         - name: Azure Active Directory pod identity
           displayName: Prometheus,remote-write
-          href: essentials/prometheus-remote-write-azure-ad-pod-identity.md  
+          href: containers/prometheus-remote-write-azure-ad-pod-identity.md  
       - name: KEDA integration
         displayName: Prometheus
-        href: essentials/integrate-keda.md    
+        href: containers/integrate-keda.md    
       - name: Prometheus Azure Active Directory authorization proxy
         displayName: Prometheus
-        href: essentials/prometheus-authorization-proxy.md
+        href: containers/prometheus-authorization-proxy.md
     - name: Container insights
       items:
       - name: Overview

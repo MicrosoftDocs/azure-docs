@@ -366,4 +366,4 @@ See the [Apply config file](prometheus-metrics-scrape-validate.md#deploy-config-
 
 ## Next steps
 
-[Learn more about collecting Prometheus metrics](prometheus-metrics-overview.md)
+[Learn more about collecting Prometheus metrics](../essentials/prometheus-metrics-overview.md)

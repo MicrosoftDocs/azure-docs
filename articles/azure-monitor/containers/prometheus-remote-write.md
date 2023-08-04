@@ -49,7 +49,7 @@ time="2022-11-02T21:32:59Z" level=info msg="Metric packets published in last 1 m
 
 
 ### PromQL queries
-Use PromQL queries in Grafana and verify that the results return expected data. See [getting Grafana setup with Managed Prometheus](prometheus-grafana.md) to configure Grafana 
+Use PromQL queries in Grafana and verify that the results return expected data. See [getting Grafana setup with Managed Prometheus](../essentials/prometheus-grafana.md) to configure Grafana 
 
 ## Troubleshoot remote write
 
@@ -90,5 +90,5 @@ az monitor data-collection rule show --name "myCollectionRule" --resource-group 
   
 ## Next steps
 
-- [Setup Grafana to use Managed Prometheus as a data source](prometheus-grafana.md).
-- [Learn more about Azure Monitor managed service for Prometheus](prometheus-metrics-overview.md).
+- [Setup Grafana to use Managed Prometheus as a data source](../essentials/prometheus-grafana.md).
+- [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md).

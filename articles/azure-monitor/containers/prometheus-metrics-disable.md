@@ -32,5 +32,5 @@ az aks update --disable-azure-monitor-metrics -n <cluster-name> -g <cluster-reso
 
 - [See the default configuration for Prometheus metrics](./prometheus-metrics-scrape-default.md)
 - [Customize Prometheus metric scraping for the cluster](./prometheus-metrics-scrape-configuration.md)
-- [Use Azure Monitor managed service for Prometheus as the data source for Grafana](./prometheus-grafana.md)
-- [Configure self-hosted Grafana to use Azure Monitor managed service for Prometheus](./prometheus-self-managed-grafana-azure-active-directory.md)
+- [Use Azure Monitor managed service for Prometheus as the data source for Grafana](../essentials/prometheus-grafana.md)
+- [Configure self-hosted Grafana to use Azure Monitor managed service for Prometheus](../essentials/prometheus-self-managed-grafana-azure-active-directory.md)
