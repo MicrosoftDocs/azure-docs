@@ -124,7 +124,7 @@ The following section discusses the basics of LDAP as it pertains to Azure NetAp
 
 Name mapping rules can be broken down into two main types: *symmetric* and *asymmetric*.
 
-* *Symmetric* name mapping is implicit name mapping between UNIX and Windows users who use the same user name; for example, Windows user `CONTOSO\user1` maps to UNIX user `user1`.  
+* *Symmetric* name mapping is implicit name mapping between UNIX and Windows users who use the same user name. For example, Windows user `CONTOSO\user1` maps to UNIX user `user1`.  
 * *Asymmetric* name mapping is name mapping between UNIX and Windows users who use **different** user names. For example, Windows user `CONTOSO\user1` maps to UNIX user `user2`.
 
 By default, Azure NetApp Files uses symmetric name mapping rules. If asymmetric name mapping rules are required, consider configuring the LDAP user objects to use them.
@@ -172,6 +172,6 @@ This RFC extension fits nicely into how Microsoft Active Directory manages users
 ## Next Steps
 
 * [Configure AD DS LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md) 
-* [Understand NFS Group memberships and supplemental groups](network-file-system-group-memberships.md)
+* [Understand NFS group memberships and supplemental groups](network-file-system-group-memberships.md)
 * [Azure NetApp Files NFS FAQ](faq-nfs.md)
 * [Azure NetApp Files SMB FAQ](faq-smb.md)

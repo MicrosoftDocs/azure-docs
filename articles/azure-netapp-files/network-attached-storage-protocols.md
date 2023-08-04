@@ -159,7 +159,7 @@ When a NAS client requests access to a dual-protocol volume in Azure NetApp File
 
 In the following illustration, `user1` authenticates to Azure NetApp Files to access a dual-protocol volume through either SMB or NFS. Azure NetApp Files finds the user’s Windows and UNIX information in Azure Active Directory and then maps the user's Windows and UNIX identities one-to-one. The user is verified as `user1` and gets `user1`'s access credentials. 
 
-In this instance, `user1` gets full control on their own folder (`user1-dir`) and no access to the HR folder. This setting is based on the security ACLs specified in the file system, and `user1` will get the expected access regardless of which protocol they're accessing the volumes from.
+In this instance, `user1` gets full control on their own folder (`user1-dir`) and no access to the `HR` folder. This setting is based on the security ACLs specified in the file system, and `user1` will get the expected access regardless of which protocol they're accessing the volumes from.
 
 :::image type="content" source="../media/azure-netapp-files/user1-dual-protocol-example.png" alt-text="Example of user accessing a dual-protocol volume with Azure NetApp Files." lightbox="../media/azure-netapp-files/user1-dual-protocol-example.png":::
 
@@ -179,9 +179,10 @@ When you use Azure NetApp Files volumes for access to both SMB and NFS, some con
 
 ## Next steps 
 
-* [Understand file locking and lock types in Azure NetApp Files](understand-file-locks.md)
+
 * [Understand dual-protocol security style and permission behaviors in Azure NetApp Files](dual-protocol-permission-behaviors.md)
 * [Understand the use of LDAP with Azure NetApp Files](lightweight-directory-access-protocol.md) 
-* [Understand NFS Group memberships and supplemental groups](network-file-system-group-memberships.md)
+* [Understand NFS group memberships and supplemental groups](network-file-system-group-memberships.md)
+* [Understand file locking and lock types in Azure NetApp Files](understand-file-locks.md)
 * [Azure NetApp Files NFS FAQ](faq-nfs.md)
 * [Azure NetApp Files SMB FAQ](faq-smb.md)
