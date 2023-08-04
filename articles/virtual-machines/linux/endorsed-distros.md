@@ -47,7 +47,8 @@ Microsoft CSS provides commercially reasonable support for these images. Additio
 
 
 ### Custom Images 
-These images are created and maintained by the customer, often based on platform images. These images can also be created from scratch and uploaded to Azure - [learn how to create custom images](https://learn.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Customers can host these images in [Azure Compute Gallery](https://learn.microsoft.com/azure/virtual-machines/azure-compute-gallery) and they can share these images with others in their organization.  
+These images are created and maintained by the customer, often based on platform images. These images can also be created from scratch and uploaded to Azure - [learn how to create custom images](tutorial-custom-images.md). Customers can host these images in [Azure Compute Gallery](../azure-compute-gallery.md) and they can share these images with others in their organization.  
+
  
 Microsoft CSS provides commercially reasonable support for custom images. 
 
