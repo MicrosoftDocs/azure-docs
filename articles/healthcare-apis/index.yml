@@ -126,9 +126,9 @@ conceptualContent:
         # Card
         - title: Azure API for FHIR
           links:
-            - url: ./file1.md OR /file1
+            - url: ./azure-api-for-fhir/overview.md
               itemType: overview
-              text: linktext1
+              name: What is Azure API for FHIR?
             - url: ./file2.md OR /file2
               itemType: how-to-guide
               text: linktext2

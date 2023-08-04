@@ -160,5 +160,6 @@ items:
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
-- name: FAQ
+  - name: FAQ
+    displayName: frequently asked questions
     href: fhir-faq.yml
