@@ -65,15 +65,16 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     b. In the **Reply URL** textbox, type a URL using the following pattern:
     `https://<InstanceName>-tanium.auth.<SUBDOMAIN>.amazoncognito.com/saml2/idpresponse`
 
-1. If you wish to configure the application in **SP** initiated mode, then perform the following step:
+   If deploying Tanium in an on-prem configuration, your values may look different than those shown here. The values to use can be retrieved from the **Administration>SAML Configuration** menu in the Tanium console. Details can be found in the [Integrating with a SAML IdP Guide](https://docs.tanium.com/platform_user/platform_user/console_using_saml.html?cloud=false "Integrating with a SAML IdP Guide").
 
-    In the **Sign on URL** textbox, type a URL using the following pattern:
+1. In the **Sign on URL** textbox, type a URL using the following pattern:
     `https://<InstanceName>.cloud.tanium.com`
 
     > [!NOTE]
     > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Tanium SSO support team](mailto:integrations@tanium.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.  
+If deploying to Tanium in an on-prem configuration, click the edit button and set the **Response Signing Option** to "Sign response and assertion".
 
 	[ ![Screenshot shows the Certificate download link.](common/copy-metadataurl.png "Certificate") ](common/copy-metadataurl.png#lightbox)
 
