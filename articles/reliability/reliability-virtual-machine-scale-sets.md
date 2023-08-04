@@ -26,9 +26,9 @@ This section contains recommendations for achieving resiliency and availability 
 
 | Category | Priority |Recommendation |  
 |---------------|--------|---|
-| [**Scalability**](#scalability) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-1: Deploy VMs with flexible orchestration mode](#-vmss-deploy-vms-with-flexible-orchestration-mode) |
+| [**Scalability**](#scalability) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-1: Deploy VMs with flexible orchestration mode](#-vmss-1-deploy-vms-with-flexible-orchestration-mode) |
 | |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VMSS-5: Configure Virtual Machine Scale Sets Autoscale to Automatic](#-vmss-5-configure-virtual-machine-scale-sets-autoscale-to-automatic) |
-| |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [VMSS-6: Set Virtual Machine Scale Sets custom scale-in policies to default](#-vmss-6-set-virtual-machine-scale-sets-custom-scale-in-to-the-default) |
+| |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [VMSS-6: Set Virtual Machine Scale Sets custom scale-in policies to default](#-vmss-6-set-virtual-machine-scale-sets-custom-scale-in-policies-to-default) |
 | [**High Availability**](#high-availability) |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VMSS-4: Enable automatic repair policy](#-vmss-4-enable-automatic-repair-policy) |
 | [**Disaster Recovery**](#disaster-recovery) |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [VMSS-2: Enable Protection Policy for all Virtual Machine Scale Set VMs](#-vmss-2-enable-protection-policy-for-all-virtual-machine-scale-set-vms) |
 | [**Monitoring**](#monitoring) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-3: Enable Virtual Machine Scale Sets application health monitoring](#-vmss-3-enable-virtual-machine-scale-sets-application-health-monitoring) |
@@ -96,7 +96,7 @@ Only use the *Newest* and *Oldest* policies when your workload requires that the
 
 #### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VMSS-4: Enable automatic repair policy** 
 
-To achieve high availability for applications, [enable automatic instance repairs](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md#requirements-for-using-automatic-instance-repairs) to maintain a set of healthy VMs. When the [Application Health extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) or [Load Balancer health probes](/load-balancer/load-balancer-custom-probe-overview) find that an instance is unhealthy, automatic instance repairs deletes the unhealthy instance and creates a new one to replace it.
+To achieve high availability for applications, [enable automatic instance repairs](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md#requirements-for-using-automatic-instance-repairs) to maintain a set of healthy VMs. When the [Application Health extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) or [Load Balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md) find that an instance is unhealthy, automatic instance repairs deletes the unhealthy instance and creates a new one to replace it.
 
 A grace period can be set using the property `automaticRepairsPolicy.gracePeriod`. The grace period, specified in minutes and in ISO 8601 format, can range between 10 to 90 minutes, and has a default value of 30 minutes.
 
@@ -126,9 +126,9 @@ As your application processes traffic, there can be situations where you want sp
 
 Monitoring your application health is an important signal for managing and upgrading your deployment. Azure Virtual Machine Scale Sets provides support for rolling upgrades, including:
 
-- [Automatic OS-Image Upgrades](/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)
-- [Automatic VM Guest Patching](/virtual-machines/automatic-vm-guest-patching), which relies on health monitoring of individual VMs to upgrade your deployment. 
-- [Load Balancer health probes](/load-balancer/load-balancer-custom-probe-overview) *or* [Application Health extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md), which both monitors the application health of each VM in your scale set and [performs instance repairs using Automatic Instance Repairs](/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
+- [Automatic OS-Image Upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md)
+- [Automatic VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md), which relies on health monitoring of individual VMs to upgrade your deployment. 
+- [Load Balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md) *or* [Application Health extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md), which both monitors the application health of each VM in your scale set and [performs instance repairs using Automatic Instance Repairs](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md).
 
 
 # [Azure Resource Graph](#tab/graph)
