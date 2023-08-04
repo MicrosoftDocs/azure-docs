@@ -24,7 +24,7 @@ Prerequisites should be in place, and you should have created a Recovery Service
 
 ## Enable replication
 
-Use the following procedure to replicate Azure VMs to another Azure region. As an example, primary Azure region is East asia, and the secondary is Southeast Asia.
+Use the following procedure to replicate Azure VMs to another Azure region. As an example, primary Azure region is East Asia, and the secondary is Southeast Asia.
 
 1. In the vault > **Site Recovery** page, under **Azure virtual machines**, select **Enable replication**.
 1. In the **Enable replication** page, under **Source**, do the following:
