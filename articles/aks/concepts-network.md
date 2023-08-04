@@ -86,7 +86,7 @@ In AKS, you can deploy a cluster that uses one of the following network models:
 
   The AKS cluster is connected to existing virtual network resources and configurations.
 
-### Kubenet (legacy) networking
+### Kubenet (basic) networking
 
 The *kubenet* networking option is the default configuration for AKS cluster creation. With *kubenet*:
 
@@ -104,7 +104,7 @@ Only the nodes receive a routable IP address. The pods use NAT to communicate wi
 
 For more information, see [Configure kubenet networking for an AKS cluster][aks-configure-kubenet-networking].
 
-### Azure CNI networking
+### Azure CNI (advanced) networking
 
 With Azure CNI, every pod gets an IP address from the subnet and can be accessed directly. These IP addresses must be planned in advance and unique across your network space. Each node has a configuration parameter for the maximum number of pods it supports. The equivalent number of IP addresses per node are then reserved up front. This approach can lead to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow, so it's important to plan properly. To mitigate these planning challenges is also possible to enable the feature [Azure CNI networking for dynamic allocation of IPs and enhanced subnet support][configure-azure-cni-dynamic-ip-allocation].
 
