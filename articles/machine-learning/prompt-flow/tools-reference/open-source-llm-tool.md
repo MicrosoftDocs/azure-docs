@@ -1,12 +1,14 @@
 ---
 title: Open Source LLM tool in Azure Machine Learning Prompt flow (preview)
+author: matthewdeguzman
+ms.author: t-madeguzman
 titleSuffix: Azure Machine Learning
 description: The Open Source LLM tool enables you to leverage widely used OSS language models from the AzureML Model Catalog. Currently, the tool supports GPT2, LLaMa2, Dolly-v2, and text generation Hugging Face Models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.date: 07/28/23
+ms.date: 8/4/2023
 ---
 
 # Open Source LLM tool (preview)
@@ -22,7 +24,7 @@ The Open Source LLM tool supports two model types:
 
 Deploy a Foundation Model:
 
-- Deploy an [open source](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-use-foundation-models?view=azureml-api-2&source=recommendations) or [Hugging Face](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-deploy-models-from-huggingface?view=azureml-api-2&source=recommendations#deploy-huggingface-hub-models-using-studio) foundation model in AzureML
+- Deploy an [open source](https://learn.microsoft.com/azure/machine-learning/how-to-use-foundation-models) or [Hugging Face](https://learn.microsoft.com/azure/machine-learning/how-to-deploy-models-from-huggingface) foundation model in AzureML
 
 ## Connections
 
@@ -54,7 +56,7 @@ Set up a custom connection to the provisioned resources in Prompt flow with the 
 
 1. Setup and select the connections for the Foundation Models
 2. Configure LLM model API and its parameters
-3. Prepare the prompt with [guidance](https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/tools-reference/prompt-tool?view=azureml-api-2#how-to-write-prompt)
+3. Prepare the prompt with [guidance](https://learn.microsoft.com/azure/machine-learning/prompt-flow/tools-reference/prompt-tool)
 
 ## Sample Flows
 
