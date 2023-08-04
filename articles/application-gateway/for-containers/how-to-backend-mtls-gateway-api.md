@@ -73,11 +73,7 @@ spec:
 EOF
 ```
 
-> [!Note]
-> When the ALB Controller creates the Application Gateway for Containers resources in ARM, it'll use the following naming convention for a frontend resource: fe-\<8 randomly generated characters\>
->
-> If you would like to change the name of the frontend created in Azure, consider following the [bring your own deployment strategy](#tab/byo).
-
+[!INCLUDE [application-gateway-for-containers-frontend-naming](../../includes/application-gateway-for-containers-frontend-naming.md)]
 
 # [Bring your own (BYO) deployment](#tab/byo)
 1. Set the following environment variables
