@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 ---
 # Configure server settings for P2S VPN certificate authentication - PowerShell
 
-This article helps you configure a point-to-site (P2S) VPN to securely connect individual clients running Windows, Linux, or macOS to an Azure virtual network (VNet). P2S VPN connections are useful when you want to connect to your VNet from a remote location, such when you're telecommuting from home or a conference. 
+This article helps you configure a point-to-site (P2S) VPN to securely connect individual clients running Windows, Linux, or macOS to an Azure virtual network (VNet). P2S VPN connections are useful when you want to connect to your VNet from a remote location, such when you're telecommuting from home or a conference.
 
 You can also use P2S instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. P2S connections don't require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), or IKEv2.
 
@@ -125,22 +125,22 @@ In this step, you configure and create the virtual network gateway for your VNet
 
 After the VPN gateway finishes creating, you can add the VPN client address pool. The VPN client address pool is the range from which the VPN clients receive an IP address when connecting. Use a private IP address range that doesn't overlap with the on-premises location that you connect from, or with the VNet that you want to connect to.
 
-Declare the following variables:
+1. Declare the following variables:
 
-```azurepowershell-interactive
-$VNetName  = "VNet1"
-$VPNClientAddressPool = "172.16.201.0/24"
-$RG = "TestRG1"
-$Location = "EastUS"
-$GWName = "VNet1GW"
-```
+   ```azurepowershell-interactive
+   $VNetName  = "VNet1"
+   $VPNClientAddressPool = "172.16.201.0/24"
+   $RG = "TestRG1"
+   $Location = "EastUS"
+   $GWName = "VNet1GW"
+   ```
 
-Add the VPN client address pool:
+1. Add the VPN client address pool:
 
-```azurepowershell-interactive
-$Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
-Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddressPool $VPNClientAddressPool
-```
+   ```azurepowershell-interactive
+   $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
+   Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddressPool $VPNClientAddressPool
+   ```
 
 ## <a name="Certificates"></a>Generate certificates
 
