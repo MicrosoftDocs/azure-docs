@@ -15,7 +15,7 @@ ms.custom: known-issue
 
 If you have owner permission but no gateway level permission on a data source, you may not be able to update the credentials for that data source.  The page will just show as loading and the credentials won't update.
 
-[!INCLUDE [dev v2](/articles/machine-learning/includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](../includes/machine-learning-dev-v2.md)]
 
 **Status:** Fixed: September 2, 2022
 <!--- options are 'Open', 'Fixed: <date fixed>' --->
@@ -29,9 +29,9 @@ If you have owner permission but no gateway level permission on a data source, y
 
 
 
-## Solutions and workarounds
+## Solutions and workaroundsS
 
 
 ## Next steps
 
-- [About known issues](/articles/machine-learning/azureml-known-issues.md)
+- [About known issues](azureml-known-issues.md)
