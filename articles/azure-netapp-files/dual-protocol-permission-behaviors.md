@@ -38,7 +38,7 @@ There are two main choices for volume security styles in Azure NetApp Files:
 
 **NTFS** - The NTFS security style provides identical functionality as [standard Windows NTFS permissions](/windows/security/identity-protection/access-control/access-control), with granular user and groups in ACLs and detailed security/audit permissions.
 
-In a dual-protocol NAS environment, only one security permission style can be active. You should evaluate the considerations for each security style before choosing one.
+In a dual-protocol NAS environment, only one security permission style can be active. You should evaluate considerations for each security style before choosing one.
 
 | Security style | Considerations |
 | - | - |
@@ -58,10 +58,10 @@ Use the following table as a decision matrix for selecting the proper volume sec
 
 In Azure NetApp Files, only users are authenticated and mapped. Groups aren't mapped. Instead, group memberships are determined by using the user identity.
 
-When a user attempts to access an Azure NetApp Files volume, that attempt passes along an identity to the service. That identity includes a user name and unique numeric identifier (which is UID number for NFSv3, name string for NFSv4, and SID for SMB).  Azure NetApp Files uses that identity to authenticate against a configured name service to verify the identity of the user.
+When a user attempts to access an Azure NetApp Files volume, that attempt passes along an identity to the service. That identity includes a user name and unique numeric identifier (UID number for NFSv3, name string for NFSv4.1, SID for SMB). Azure NetApp Files uses that identity to authenticate against a configured name service to verify the identity of the user.
 
 * LDAP search for numeric IDs is used to look up a user name in Active Directory.
-* Name strings use LDAP search to look up a user name and the client, and server consult the [configured ID domain for NFSv4.1](azure-netapp-files-configure-nfsv41-domain.md) to ensure the match.
+* Name strings use LDAP search to look up a user name and the client and server consult the [configured ID domain for NFSv4.1](azure-netapp-files-configure-nfsv41-domain.md) to ensure the match.
 * Windows users are queried using standard Windows RPC calls to Active Directory.
 * Group memberships are also queried, and everything is added to a credential cache for faster processing on subsequent requests to the volume.
 * Currently, custom local users aren't supported for use with Azure NetApp Files. Only users in Active Directory can be used with dual protocols.
@@ -79,17 +79,16 @@ The following table breaks down the different name mapping permutations and how 
 
 | Protocol | Security style | Name mapping direction | Permissions applied |
 | - | - | - | - |
-| SMB | UNIX | Windows to UNIX | UNIX (POSIX mode bits or NFSv4.x ACLs) |
-| SMB | NTFS | Windows to UNIX | NTFS permissions |
-| NFSv3 | UNIX | N/A | UNIX (POSIX mode bits or NFSv4.x ACLs)* |
-| NFSv4.1 | UNIX | Numeric user ID to user name | UNIX (POSIX mode bits or NFSv4.x ACLs)* |
-| NFSv3/4.1 | NTFS | UNIX to Windows | NTFS permissions |
+| SMB | UNIX | Windows to UNIX | UNIX <br> (mode-bits or NFSv4.x ACLs) |
+| SMB | NTFS | Windows to UNIX | NTFS ACLs <br> (based on Windows SID accessing share) |
+| NFSv3 | UNIX | None | UNIX <br> (mode-bits or NFSv4.x ACLs*) |
+| NFSv4.x | UNIX | Numeric ID to UNIX user name | UNIX <br> (mode-bits or NFSv4.x ACLs) |
+| NFS3/4.x | NTFS | UNIX to Windows | NTFS ACLs <br> (based on mapped Windows user SID) |
 
 > [!NOTE] 
 > NFSv4.x ACLs can be applied using an NFSv4.x administrative client and honored by NFSv3 clients by [switching between protocols](convert-nfsv3-nfsv41.md).
 
-> [!NOTE]
-> Name-mapping rules in Azure NetApp Files can be controlled currently only by using LDAP. There is no option to create explicit name mapping rules within the service.
+Name-mapping rules in Azure NetApp Files can currently be controlled only by using LDAP. There is no option to create explicit name mapping rules within the service.
 
 ## Name services with dual-protocol volumes
 
@@ -97,13 +96,13 @@ Regardless of what NAS protocol is used, dual-protocol volumes use name-mapping 
 
 Name services act as identity sources for users and groups accessing NAS volumes. This operation includes Active Directory, which can act as a source for both Windows and UNIX users and groups using both standard domain services and LDAP functionality.
 
-Name services aren't a hard requirement but highly recommended for Azure NetApp Files dual-protocol volumes. There's no concept of creation of custom local users and groups within the service. As such, to have proper authentication and accurate user and group owner information across protocols, LDAP is a necessity. If you have only a handful of users and you don't need to populate accurate user and group identity information, then consider using the [Allow local NFS users with LDAP to access a dual-protocol volume functionality](create-volumes-dual-protocol.md#allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume). Enabling this functionality disables the [extended group functionality](configure-ldap-extended-groups.md#considerations).
+Name services aren't a hard requirement but highly recommended for Azure NetApp Files dual-protocol volumes. There's no concept of creation of custom local users and groups within the service. As such, to have proper authentication and accurate user and group owner information across protocols, LDAP is a necessity. If you have only a handful of users and you don't need to populate accurate user and group identity information, then consider using the [Allow local NFS users with LDAP to access a dual-protocol volume functionality](create-volumes-dual-protocol.md#allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume). Keep in mind that enabling this functionality disables the [extended group functionality](configure-ldap-extended-groups.md#considerations).
 
 ### When clients, name services, and storage reside in different areas
 
 In some cases, NAS clients might live in a segmented network with multiple interfaces that have isolated connections to the storage and name services.
 
-One example is if your storage resides in Azure NetApp Files, while your NAS clients and domain services all reside on-premises (such as a [hub-spoke architecture in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)). In those scenarios, you would need to provide network access to both the NAS clients and the name services.
+One such example is if your storage resides in Azure NetApp Files, while your NAS clients and domain services all reside on-premises (such as a [hub-spoke architecture in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)). In those scenarios, you would need to provide network access to both the NAS clients and the name services.
 
 The following figure shows an example of that kind of configuration.
 

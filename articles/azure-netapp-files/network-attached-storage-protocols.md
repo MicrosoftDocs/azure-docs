@@ -116,16 +116,17 @@ Using dual-protocol volumes with Azure NetApp Files delivers several distinct ad
 * Reduce the overall storage administrator management tasks.
 * Require only a single copy of data to be stored for NAS access from multiple client types.
 * Protocol agnostic NAS allows storage administrators to control the style of ACL and access control being presented to end users.
-* Centralize identity management operations in NAS environments.
+* Centralize identity management operations in a NAS environment.
 
-### Common challenges with dual-protocol environments
+### Common considerations with dual-protocol environments
 
-Dual-protocol NAS access is desirable by many organizations for its flexibility. However, a perception of difficulty creates considerations that are unique to the concept of sharing across protocols. Some of the considerations include:
+Dual-protocol NAS access is desirable by many organizations for its flexibility. However, there is a perception of difficulty that creates a set of considerations unique to the concept of sharing across protocols. These considerations include, but are not limited to:
 
 * Requirement of knowledge across multiple protocols, operating systems and storage systems.
 * Working knowledge of name service servers, such as DNS, LDAP, and so on.
 
 In addition, external factors can come into play, such as:
+
 * Dealing with multiple departments and IT groups (such as Windows groups and UNIX groups)
 * Company acquisitions
 * Domain consolidations
@@ -137,11 +138,11 @@ Despite these considerations, dual-protocol NAS setup, configuration, and access
 
 Azure NetApp Files consolidates the infrastructure required for successful dual-protocol NAS environments into a single management plane, including storage and identity management services. 
 
-Dual-protocol configuration is straightforward. Most of the configuration tasks are shielded by the Azure NetApp Files resource management framework to simplify operations for cloud operators.
+Dual-protocol configuration is straightforward, and most of the tasks are shielded by the Azure NetApp Files resource management framework to simplify operations for cloud operators.
 
-After an Active Directory connection is established with Azure NetApp Files, dual-protocol volumes can use the connection to handle both Windows and UNIX identity management needed for proper user and group authentication with Azure NetApp Files volumes. There's no extra configuration outside of the normal user and group management within the Active Directory or LDAP services.
+After an Active Directory connection is established with Azure NetApp Files, dual-protocol volumes can use the connection to handle both the Windows and UNIX identity management needed for proper user and group authentication with Azure NetApp Files volumes without extra configuration steps outside of the normal user and group management within the Active Directory or LDAP services.
 
-Azure NetApp Files removes the extra, storage-centric steps for dual-protocol configurations. As such, it streamlines the dual-protocol deployment for organizations looking to move to Azure.
+By removing the extra storage-centric steps for dual-protocol configurations, Azure NetApp Files streamlines the overall dual-protocol deployment for organizations looking to move to Azure.
 
 ### How Azure NetApp Files dual-protocol volumes work
 
@@ -149,21 +150,22 @@ At a high level, Azure NetApp Files dual-protocol volumes use a combination of n
 
 When a NAS client requests access to a dual-protocol volume in Azure NetApp Files, the following operations occur to provide a transparent experience to the end user.
 
-1.	A NAS client makes a NAS connection to the Azure NetApp Files dual-protocol volume.
-1.	The NAS client passes user identity information to Azure NetApp Files.
-1.	Azure NetApp Files checks to make sure the NAS client/user has access to the NAS share.
-1.	Azure NetApp Files takes that user and maps it to a valid user found in name services.
-1.	Azure NetApp Files compares that user against the file-level permissions in the system.
-1.	File permissions control the level of access the user has.
+1. A NAS client makes a NAS connection to the Azure NetApp Files dual-protocol volume.
+2. The NAS client passes user identity information to Azure NetApp Files.
+3. Azure NetApp Files checks to make sure the NAS client/user has access to the NAS share.
+4. Azure NetApp Files takes that user and maps it to a valid user found in name services.
+5. Azure NetApp Files compares that user against the file-level permissions in the system.
+6. File permissions control the level of access the user has.
 
-In the following illustration, `user1` authenticates to Azure NetApp Files to access a dual-protocol volume through either SMB or NFS. Azure NetApp Files finds the user's Windows and UNIX information in Azure Active Directory and then maps the user's Windows and UNIX identities 1:1. The user is verified as `user1` and gets `user1`'s access credentials. 
-In this instance, `user1` gets full control on their own folder (`user1-dir`) and no access to the HR folder. This setting is based on the security ACLs specified in the file system, and `user1` will get the expected access, regardless of which protocol they're accessing the volumes from.
+In the following illustration, `user1` authenticates to Azure NetApp Files to access a dual-protocol volume through either SMB or NFS. Azure NetApp Files finds the user’s Windows and UNIX information in Azure Active Directory and then maps the user's Windows and UNIX identities one-to-one. The user is verified as `user1` and gets `user1`'s access credentials. 
+
+In this instance, `user1` gets full control on their own folder (`user1-dir`) and no access to the HR folder. This setting is based on the security ACLs specified in the file system, and `user1` will get the expected access regardless of which protocol they're accessing the volumes from.
 
 :::image type="content" source="../media/azure-netapp-files/user1-dual-protocol-example.png" alt-text="Example of user accessing a dual-protocol volume with Azure NetApp Files." lightbox="../media/azure-netapp-files/user1-dual-protocol-example.png":::
 
 ### Considerations for Azure NetApp Files dual-protocol volumes
 
-When you use Azure NetApp Files volumes for both SMB and NFS access, some considerations apply:
+When you use Azure NetApp Files volumes for access to both SMB and NFS, some considerations apply:
 
 * You need an Active Directory connection. As such, you need to meet the [Requirements for Active Directory connections](create-active-directory-connections.md#requirements-for-active-directory-connections).
 * Dual-protocol volumes require a reverse lookup zone in DNS with an associated pointer (PTR) record of the AD host machine to prevent dual-protocol volume creation failures.
@@ -172,7 +174,7 @@ When you use Azure NetApp Files volumes for both SMB and NFS access, some consid
 * Dual-protocol volumes don't support the use of LDAP over TLS with AADDS. See [LDAP over TLS considerations](configure-ldap-over-tls.md#considerations).
 * Supported NFS versions include: NFSv3 and NFSv4.1.
 * NFSv4.1 features such as parallel network file system (pNFS), session trunking, and referrals aren't currently supported with Azure NetApp Files volumes.
-* [Windows extended attributes](/windows/win32/api/fileapi/ns-fileapi-createfile2_extended_parameters) `set`/`get` aren't supported in dual-protocol volumes.
+* [Windows extended attributes `set`/`get`](/windows/win32/api/fileapi/ns-fileapi-createfile2_extended_parameters) aren't supported in dual-protocol volumes.
 <!-- planning to move considerations from https://learn.microsoft.com/en-us/azure/azure-netapp-files/create-volumes-dual-protocol#considerations to this subsection. Need to consolidate the items. -->
 
 ## Next steps 
