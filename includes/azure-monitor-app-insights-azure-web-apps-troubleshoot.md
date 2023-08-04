@@ -1,15 +1,11 @@
 ---
 ms.topic: include
-ms.date: 09/03/2021
-ms.author: lagayhar
-author: lgayhardt
+ms.date: 08/04/2023
+ms.author: AaronMaxwell
+author: AaronMaxwell
 services: azure-monitor
 ms.subservice: application-insights
 ---
-
-### Connection string and instrumentation key
-
-When codeless monitoring is being used, only the connection string is required. We still recommend that you set the instrumentation key to preserve backward compatibility with older versions of the SDK when manual instrumentation is being performed.
 
 ### What's the difference between standard metrics from Application Insights vs. Azure App Service metrics?
 
