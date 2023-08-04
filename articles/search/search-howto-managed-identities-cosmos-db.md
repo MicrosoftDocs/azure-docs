@@ -30,9 +30,9 @@ to know more about data plane role assignments for CosmosDB
 
 * *Only applicable for Cosmos Sql ApiKind*:
   [Enforcing RBAC as the only authentication method in Azure Cosmos DB](../cosmos-db/how-to-setup-rbac.md#disable-local-auth)
-is supported for Sql ApiKind and follow above link to set the `disableLocalAuth` to `true` for your cosmos account.
+is supported for Sql Collections and follow above link to set the `disableLocalAuth` to `true` for your cosmos account.
 
-* *For Gremlin and MongoDB ApiKinds*: 
+* *For Gremlin and MongoDB Collections*: 
   At this time, Cognitive Search obtains keys with the identity and uses those keys to connect to the Azure Cosmos DB account. This means that [enforcing RBAC as the only authentication method in Azure Cosmos DB](../cosmos-db/how-to-setup-rbac.md#disable-local-auth) isn't supported when using Search with managed identities to connect to Azure Cosmos DB.
 
 * You should be familiar with [indexer concepts](search-indexer-overview.md) and [configuration](search-howto-index-cosmosdb.md).
