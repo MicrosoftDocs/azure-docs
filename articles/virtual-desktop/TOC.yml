@@ -5,8 +5,8 @@
   - name: What is Azure Virtual Desktop?
     displayName: overview, get started
     href: overview.md
-  - name: Azure Virtual Desktop terminology
-    displayName: avd, overview
+  - name: Terminology
+    displayName: azure virtul desktop, avd, overview, what is
     href: terminology.md
   - name: Prerequisites
     displayName: overview, get started
