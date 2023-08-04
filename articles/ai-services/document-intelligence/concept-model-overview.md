@@ -255,7 +255,7 @@ A composed model is created by taking a collection of custom models and assignin
 
 ### Version migration
 
-Learn how to use Document Intelligence v3.0 in your applications by following our [**Document Intelligence v3.0 migration guide**](v3-migration-guide.md)
+Learn how to use Document Intelligence v3.0 in your applications by following our [**Document Intelligence v3.1 migration guide**](v3-1-migration-guide.md)
 
 ::: moniker-end
 
@@ -376,7 +376,7 @@ A composed model is created by taking a collection of custom models and assignin
 
 ### Version migration
 
- You can learn how to use Document Intelligence v3.0 in your applications by following our [**Document Intelligence v3.0 migration guide**](v3-migration-guide.md)
+ You can learn how to use Document Intelligence v3.0 in your applications by following our [**Document Intelligence v3.1 migration guide**](v3-1-migration-guide.md)
 
 ::: moniker-end
 
