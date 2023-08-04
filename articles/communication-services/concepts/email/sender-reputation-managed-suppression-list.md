@@ -33,7 +33,7 @@ Email bounces indicate issues with the successful delivery of an email. During t
 
 *  Temporary failure (4xx): In this case, the email can't be accepted at the moment, often referred to as a "soft bounce." It may be caused by various factors such as rate limiting or infrastructure problems.
 
-*  Permanent failure (5xx): Here, the email isn't accepted, which is commonly known as a "hard bounce." This type of bounce occurs when the email address doesn't exist.In our email delivery status, this is explictly represented as "Bounced". 
+*  Permanent failure (5xx): Here, the email isn't accepted, which is commonly known as a "hard bounce." This type of bounce occurs when the email address doesn't exist. In our email delivery status, this is explicitly represented as "Bounced". 
 
 According to the RFCs, a hard bounce (permanent failure) specifically refers to cases where the email address is nonexistent. On the other hand, a soft bounce encompasses various types of failures, while a spam bounce typically occurs due to specific policy decisions. Please note that these practices are not always uniform and standardized across different email service providers.
 
@@ -132,7 +132,7 @@ Some Email Service Providers (ESPs) generate email bounces due to reputation iss
 
 In addition to the SMTP-level bounces, there are cases where bounces occur after the message has been initially accepted by the receiving server. Initially, the response from the Email Service Provider may suggest successful email delivery, but later, a bounce response is sent. These asynchronous bounces are typically directed to the return path address mentioned in the email payload. Please be aware of these asynchronous bounces and handle them accordingly to maintain optimal email delivery performance.
 
-## Opt-out or unsubscribe management: Ensuring transparent sender reputation
+## Opt out or unsubscribe management: Ensuring transparent sender reputation
 
 Understanding your customers' interest in your email communication and monitoring opt-out or unsubscribe requests when recipients choose not to receive emails from you are crucial aspects of maintaining a positive sender reputation. Whether you have a manual or automated process in place for handling unsubscribes, it's important to provide an "unsubscribe" link in the email payload you send. When recipients decide not to receive further emails, they can simply click on the 'unsubscribe' link and remove their email address from your mailing list.
 
