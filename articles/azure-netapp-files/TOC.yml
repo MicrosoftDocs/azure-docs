@@ -223,7 +223,7 @@
       items:
       - name: Create an NFS volume
         href: azure-netapp-files-create-volumes.md
-      - name: Configure NFSv4.1 domain
+      - name: Configure NFSv4.1 ID domain
         href: azure-netapp-files-configure-nfsv41-domain.md
       - name: Configure NFSv4.1 Kerberos encryption
         href: configure-kerberos-encryption.md

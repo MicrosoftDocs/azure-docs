@@ -23,14 +23,36 @@ Use the following steps:
 
 To copy an existing VM restore point from one region to another, your first step is to create a restore point collection in the target or destination region. To do this, reference the restore point collection from the source region as detailed in [Create a VM restore point collection](create-restore-points.md#step-1-create-a-vm-restore-point-collection).
 
+```azurepowershell-interactive
+New-AzRestorePointCollection `
+    -ResourceGroupName 'myResourceGroup' `
+    -Name 'myRPCollection' `
+    -Location 'WestUS' `
+    -RestorePointCollectionId '/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RG>/providers/Microsoft.Compute/restorePointCollections/<SOURCE RESTORE POINT COLLECTION>'
+```
+
 ### Step 2: Create the destination VM restore point
 
 After the restore point collection is created, trigger the creation of a restore point in the target restore point collection. Ensure that you've referenced the restore point in the source region that you want to copy and specified the source restore point's identifier in the request body. The source VM's location is inferred from the target restore point collection in which the restore point is being created.
 See the [Restore Points - Create](/rest/api/compute/restore-points/create) API documentation to create a `RestorePoint`.
 
+```azurepowershell-interactive
+New-AzRestorePoint `
+    -ResourceGroupName 'myResourceGroup' `
+    -RestorePointCollectionName 'myRPCollection'
+    -Name 'myRestorePoint'
+```
+
 ### Step 3: Track copy status
 
 To track the status of the copy operation, follow the guidance in the [Get restore point copy or replication status](#get-restore-point-copy-or-replication-status) section below. This is only applicable for scenarios where the restore points are copied to a different region than the source VM.
+
+```azurepowershell-interactive
+Get-AzRestorePoint `
+    -ResourceGroupName 'myResourceGroup' `
+    -RestorePointCollectionName 'myRPCollection'
+    -Name 'myRestorePoint'
+```
 
 ## Get restore point copy or replication status
 
