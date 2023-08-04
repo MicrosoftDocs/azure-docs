@@ -189,7 +189,7 @@ db, err := sql.Open("mysql", connectionString)
 |-----------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `AZURE_MYSQL_CONNECTIONSTRING `     | ADO.NET MySQL connection string | `Server=<MySQL-DB-name>.mysql.database.azure.com;Database=<MySQL-DB-name>;Port=3306;User Id=<MySQL-DBusername>;SSL Mode=Required;` |
 
-[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md#tab/dotnet)]
+[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md#tab=dotnet)]
 
 
 #### [Java(JDBC)](#tab/systemmi-java)
@@ -198,7 +198,7 @@ db, err := sql.Open("mysql", connectionString)
 |-----------------------------------|------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | `AZURE_MYSQL_CONNECTIONSTRING`      | JDBC MySQL connection string | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required&user=<MySQL-DB-username>` |
 
-[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md#java)]
+[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md#jtab/ava)]
 
 
 #### [Spring Boot(JDBC)](#tab/systemmi-spring)
@@ -209,7 +209,7 @@ db, err := sql.Open("mysql", connectionString)
 | `spring.datasource.url`                  | Spring Boot JDBC database URL         | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required` |
 | `spring.datasource.username`             | Database username        | `<MySQL-DB-username>`  |
 
-[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md#spring)]
+[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md?tab=spring)]
 
 #### [Go(go-sql-driver)](#tab/systemmi-go)
 
