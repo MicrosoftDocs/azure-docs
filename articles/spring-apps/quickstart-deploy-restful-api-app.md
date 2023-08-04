@@ -26,7 +26,7 @@ These RESTful APIs are protected by applying role-based access control (RBAC), a
 the Anonymous user cant's access any data,
 - Read, with this permission can read the ToDo data.
 - Write, with this permission can add or update the ToDo data.
-- Delete, with this permission can delete the ToDO data.
+- Delete, with this permission can delete the ToDo data.
 
 After the deployment is successful, you can view and test the APIs through the Swagger UI:
 
@@ -120,17 +120,7 @@ This section provides the steps to update the OAuth2 configuration for Swagger U
 
 1. Open the Azure Spring Apps instance in the Azure portal.
 
-1. Go to the created app `simple-todo-api` on Portal, expand **Settings** and select **Configuration** from the navigation pane, select **Environment variables** to set environment variables.
-
-1. Add the following environment variable for the Swagger UI OAuth2 configuration, then select **Save** to finish the app configuration update. Be sure to replace the url with your own value you got in the previous step.
-
-   ```shell
-   SPRING_APPS_PUBLIC_URL=<your-app-exposed-application-url-or-endpoint>
-   ```
-
-   The public url is similar to `https://simple-todo-api.xxxxxxxx-xxxxxxxx.xxxxxx.azurecontainerapps.io`.
-
-1. Open your **Azure Active Directory** tenant, go to the registered app `ToDoWeb`.
+1. Open your **Azure Active Directory** tenant in Azure portal, go to the registered app `ToDoWeb`.
 
 1. Under **Manage**, select **Authentication**, select **Add a platform**, and then select **Single-page application**; 
    use this format `<your-app-exposed-application-url-or-endpoint>/swagger-ui/oauth2-redirect.html` as the OAuth2
@@ -173,7 +163,7 @@ This section provides the steps to access the RESTful APIs of the app `ToDo` in 
    }
    ```
    
-1. Select the API **POST /api/simple-todo/lists/{listId}/items**, then select **Try it out**. Enter the ToDo list ID you created in previous step for **listId** field, and enter the following request body, then select **Execute** to create a ToDo list.
+1. Select the API **POST /api/simple-todo/lists/{listId}/items**, then select **Try it out**. Enter the ToDo list ID you created in previous step for **listId** field, and enter the following request body, then select **Execute** to create a ToDo item.
 
    ```json
    {
@@ -197,9 +187,9 @@ This section provides the steps to access the RESTful APIs of the app `ToDo` in 
    }
    ```
 
-1. Select the API **GET /api/simple-todo/lists**, then select **Execute** to query ToDo list.
+1. Select the API **GET /api/simple-todo/lists**, then select **Execute** to query ToDo lists.
 
-   Return the ToDo list:
+   Return the ToDo lists:
 
    ```json
    [
@@ -230,7 +220,7 @@ This section provides the steps to access the RESTful APIs of the app `ToDo` in 
    ```
 
 1. Select the API **PUT /api/simple-todo/lists/{listId}/items/{itemId}**, then select **Try it out**. 
-   Enter the ToDo list ID for **listId** field and ToDo item ID for **itemId** field, then select **Execute** to update the ToDo item.
+   Enter the ToDo list ID for **listId** field and ToDo item ID for **itemId** field, and enter the following request body, then select **Execute** to update the ToDo item.
 
    ```json
    {
