@@ -99,7 +99,7 @@ See how data, including customer information, vendor details, and line items, is
 
 * An [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
- :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+ :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 ::: moniker range=">=doc-intel-3.0.0"
 
@@ -109,7 +109,7 @@ See how data, including customer information, vendor details, and line items, is
 
 1. Select the **Analyze** button:
 
-    :::image type="content" source="media/studio/invoice-analyze.png" alt-text="Screenshot: analyze invoice menu.":::
+    :::image type="content" source="media/studio/invoice-analyze.png" alt-text="Screenshot of analyze invoice menu.":::
 
 > [!div class="nextstepaction"]
 > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)
@@ -165,7 +165,7 @@ See how data, including customer information, vendor details, and line items, is
 
 | Supported languages | Details |
 |:----------------------|:---------|
-| &bullet; English (en) | United States (us), Australia (-au), Canada (-ca), United Kingdom (-uk), India (-in)|
+| &bullet; English (en) | United States (us), Australia (au), Canada (ca), United Kingdom (uk), India (in)|
 | &bullet; Spanish (es) |Spain (es)|
 | &bullet; German (de) | Germany (de)|
 | &bullet; French (fr) | France (fr) |
@@ -176,14 +176,14 @@ See how data, including customer information, vendor details, and line items, is
 | &bullet; Danish (da) | Denmark (dk)|
 | &bullet; Estonian (et) | Estonia (ee)|
 | &bullet; Finnish (fi) | Finland (fl)|
-| &bullet; Croation (hr) | Bosnia and Herzegovina (ba), Croatia (hr), Serbia (rs)|
+| &bullet; Croatian (hr) | Bosnia and Herzegovina (ba), Croatia (hr), Serbia (rs)|
 | &bullet; Hungarian (hu) | Hungary (hu)|
 | &bullet; Icelandic (is) | Iceland (is)|
 | &bullet; Japanese (ja) | Japan (ja)|
 | &bullet; Korean (ko) | Korea (kr)|
 | &bullet; Lithuanian (lt) | Lithuania (lt)|
 | &bullet; Latvian (lv) | Latvia (lv)|
-| &bullet; Malay (ms) | Malasia (ms)|
+| &bullet; Malay (ms) | Malaysia (ms)|
 | &bullet; Norwegian (nb) | Norway (no)|
 | &bullet; Polish (pl) | Poland (pl)|
 | &bullet; Romanian (ro) | Romania (ro)|
@@ -192,8 +192,8 @@ See how data, including customer information, vendor details, and line items, is
 | &bullet; Serbian (sr-Latn) | Serbia (latn-rs)|
 | &bullet; Albanian (sq) | Albania (al)|
 | &bullet; Swedish (sv) | Sweden (se)|
-| &bullet; Chinese (simplified (zh-hans) | China (zh-hans-cn)|
-| &bullet; Chinese (traditional (zh-hant) | Hong Kong (zh-hant-hk), Taiwan (zh-hant-tw)|
+| &bullet; Chinese (simplified (zh-hans)) | China (zh-hans-cn)|
+| &bullet; Chinese (traditional (zh-hant)) | Hong Kong (zh-hant-hk), Taiwan (zh-hant-tw)|
 
 | Supported Currency Codes | Details |
 |:----------------------|:---------|
@@ -353,7 +353,7 @@ The JSON output has three parts:
 
 ## Migration guide
 
-* Follow our [**Document Intelligence v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
+* Follow our [**Document Intelligence v3.1 migration guide**](v3-1-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
 
 ::: moniker-end
 
