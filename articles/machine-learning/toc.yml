@@ -1319,7 +1319,7 @@
     - name: Known issues
       items:
         - name: Active known issues for Azure Machine Learning
-          href: azureml-known-issues.md
+          href: ./known-issues/azureml-known-issues.md
         - name: Workspace known issues
           items:
           - name: AutoML| Error retrieving generated code
