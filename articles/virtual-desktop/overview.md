@@ -38,7 +38,7 @@ With Azure Virtual Desktop, you can set up a scalable and flexible environment:
 - Provide individual ownership through personal (persistent) desktops.
 - Use autoscale to automatically increase or decrease capacity based on time of day, specific days of the week, or as demand changes, helping to manage cost.
 
-You can deploy and manage virtual desktops:
+You can deploy and manage virtual desktops and applications:
 
 - Use the Azure portal, Azure CLI, PowerShell and REST API to configure the host pools, create application groups, assign users, and publish resources.
 - Publish a full desktop or individual applications from a single host pool, create individual application groups for different sets of users, or even assign users to multiple application groups to reduce the number of images.
@@ -46,7 +46,7 @@ You can deploy and manage virtual desktops:
 - Use the new diagnostics service to troubleshoot errors.
 - Only manage the image and virtual machines, not the infrastructure. You don't need to personally manage the Remote Desktop roles like you do with Remote Desktop Services, just the virtual machines in your Azure subscription.
 
-Connect users to your virtual desktops:
+Connect users:
 
 - Once assigned, users can launch any Azure Virtual Desktop client to connect to their published Windows desktops and applications. Connect from any device through either a native application on your device or the Azure Virtual Desktop HTML5 web client.
 - Securely establish users through reverse connections to the service, so you don't need to open any inbound ports.
