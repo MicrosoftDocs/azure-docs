@@ -84,7 +84,7 @@ const socket = io(endpoint, {
 });
 ```
 
-Using Web PubSub for Socket.IO, your clients establish connections with an Azure service. When creating a Socket.IO client, you need to endpoint to your Web PubSub for Socket.IO resource.  
+Using Web PubSub for Socket.IO, your clients establish connections with an Azure service. When creating a Socket.IO client, you need use the endpoint to your Web PubSub for Socket.IO resource.  
 
 ##### Solution
 Let Socket.IO client use the endpoint of your Web PubSub for Socket.IO resource.

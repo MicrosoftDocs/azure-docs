@@ -73,10 +73,10 @@ In this chat example, none of them are used. So no changes are needed.
 ### Client Side
 In client-side code found in `./public/main.js`
 
-1. Find where Socket.IO client is created. Then replace its endpoint with Azure Socket.IO endpoint and add add an `path` option. You can find the endpoint to your resource on Azure portal. {...Screenshot missing!!!!}
+1. Find where Socket.IO client is created. Then replace its endpoint with Azure Socket.IO endpoint and add an `path` option. You can find the endpoint to your resource on Azure portal. {...Screenshot missing!!!!}
 Here is an example:
 ```javascript
-var socket = io("<Replace with the endpoint to your Web PubSub for Socket.IO resrouce>", {
+const socket = io("<Replace with the endpoint to your Web PubSub for Socket.IO resrouce>", {
     path: "/clients/socketio/hubs/eio_hub",
 });
 ```
