@@ -72,9 +72,27 @@ You can embed Boolean operators in a query string to improve the precision of a 
 |--------------|----------- |--------|-------|
 | AND | `+` | `wifi AND luxury` | Specifies terms that a match must contain. In the example, the query engine looks for documents containing both `wifi` and `luxury`. The plus character (`+`) can also be used directly in front of a term to make it required. For example, `+wifi +luxury` stipulates that both terms must appear somewhere in the field of a single document.|
 | OR | (none) <sup>1</sup> | `wifi OR luxury` | Finds a match when either term is found. In the example, the query engine returns match on documents containing either `wifi` or `luxury` or both. Because OR is the default conjunction operator, you could also leave it out, such that `wifi luxury` is the equivalent of  `wifi OR luxury`.|
-| NOT | `!`, `-` | `wifi –luxury` | Returns a match on documents that exclude the term. For example, `wifi –luxury` searches for documents that have the `wifi` term but not `luxury`. </p>It's important to note that the NOT operator (`NOT`, `!`, or `-`) behaves differently in full syntax than it does in simple syntax. In full syntax, negations will always be ANDed onto the query such that `wifi -luxury` is interpreted as "wifi AND NOT luxury" regardless of if the `searchMode` parameter is set to `any` or `all`. This gives you a more intuitive behavior for negations by default. </p>A single negation such as the query `-luxury` isn't allowed in full search syntax and will always return an empty result set.|
+| NOT | `!`, `-` | `wifi –luxury` | Returns a match on documents that exclude the term. For example, `wifi –luxury` searches for documents that have the `wifi` term but not `luxury`. |
 
 <sup>1</sup> The `|` character isn't supported for OR operations.
+
+### <a name="bkmk_boolean_not"></a> NOT Boolean operator
+
+It's important to note that the NOT operator (`NOT`, `!`, or `-`) behaves differently in full syntax than it does in simple syntax.
+
+* A wildcard is implicitly added to any simple query with a negation. This means that a single negation such as the query `-luxury` is allowed in simple syntax, but isn't allowed in full syntax.
+* Wildcards cannot be combined with negations in full syntax.
+* Negations will behave as if they are always be ANDed onto the query regardless of the search mode.
+   * For example, the query `wifi -luxury` in full syntax only fetches documents that contain the term `wifi`, and then applies the negation `-luxury` to those documents.
+* If you want to use negations to search over all documents in the index, simple syntax is recommended.
+* If you want to use negations to search over a subset of documents in the index, full syntax might be a better choice.
+
+| Query Type | Search Mode | Example Query | Behavior |
+| ---------- | ----------- | ------------- | -------- |
+| Simple     | any         | `wifi -luxury`| Returns all documents in the index. Documents with the term "wifi" or documents missing the term "luxury" are ranked higher than other documents. A wildcard is implicitly added to the query. |
+| Simple     | all         | `wifi -luxury`| Returns only documents in the index that contain the term "wifi" and don't contain the term "luxury". A wilcard is implicitly added to the query. |
+| Full       | any         | `wifi -luxury`| Returns only documents in the index that contain the term "wifi", and then documents that contain the term "luxury" are removed from the results. No wildcard is implicitly added to the query. |
+| Full       | all         | `wifi -luxury`| Returns only documents in the index that contain the term "wifi", and then documents that contain the term "luxury" are removed from the results. No wildcard is implicitly added to the query. |
 
 ##  <a name="bkmk_fields"></a> Fielded search
 
