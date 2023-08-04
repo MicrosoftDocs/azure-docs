@@ -2,7 +2,7 @@
 title: How to migrate a self-hosted Socket.IO to fully managed on Azure
 description: A tutorial...
 author: xingsy97
-ms.author: xiyuanxing
+ms.author: siyuanxing
 ms.date: 07/21/2023
 ms.service: azure-web-pubsub
 ms.topic: how-to

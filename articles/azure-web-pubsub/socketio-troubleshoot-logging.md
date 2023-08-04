@@ -2,7 +2,7 @@
 title: How to collect logs in Azure Socket.IO
 description: This article explains how to collect logs when using Web PubSub for Socket.IO
 author: xingsy97
-ms.author: xiyuanxing
+ms.author: siyuanxing
 ms.date: 08/01/2023
 ms.service: azure-web-pubsub
 ms.topic: how-to
