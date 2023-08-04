@@ -307,9 +307,9 @@ inputs:
 
 ## Run workflow without deployment secrets
 
-In some cases, you may wish for your workflow to continue even if some secrets are missing. To enable this, you can add `SKIP_DEPLOY_ON_MISSING_SECRETS` as an environment variable and set its value to `true`.
+Sometimes you need your workflow to continue to process even when some secrets are missing. Set the `SKIP_DEPLOY_ON_MISSING_SECRETS` environment variable to `true` to configure your workflow to proceed without defined secrets.
 
-By doing so, the workflow will proceed without deploying the content, instead of stopping or failing due to the absence of any deployment secrets.
+When enabled, this feature allows the workflow to continue without deploying the site's content.
 
 # [GitHub Actions](#tab/github-actions)
 
