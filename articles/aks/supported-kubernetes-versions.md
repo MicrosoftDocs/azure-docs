@@ -48,6 +48,7 @@ For the past release history, see [Kubernetes history](https://github.com/kubern
 | 1.25 | Aug 2022 | Oct 2022 | Dec 2022 | Dec 2023
 | 1.26 | Dec 2022 | Feb 2023 | Apr 2023 | Mar 2024
 | 1.27 | Apr 2023 | Jun 2023 | Jul 2023 | Jul 2024
+| 1.28 | Aug 2023 | Aug 2023 | Sep 2023 ||
 
 ### AKS Kubernetes release schedule Gantt chart
 
@@ -64,6 +65,7 @@ Note important changes to make, before you upgrade to any of the available minor
 | 1.25 | Azure policy 1.0.1<br>Metrics-Server 0.6.3<br>KEDA 2.9.3<br>Open Service Mesh 1.2.3<br>Core DNS V1.9.4<br>0.12.0</br>Overlay VPA 0.11.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Ingress AppGateway 1.2.1<br>Eraser v1.1.1<br>Azure Workload Identity V1.1.1<br>ASC Defender 1.0.56<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.7.0<br>KMS 0.5.0| Cilium 1.12.8<br>CNI 1.4.44<br> Cluster Autoscaler 1.8.5.3<br> | OS Image Ubuntu 18.04 Cgroups V1 <br>ContainerD 1.7<br>| Ubuntu 22.04 by default with cgroupv2 and Overlay VPA 0.13.0  |CgroupsV2 - If you deploy Java applications with the JDK, prefer to use JDK 11.0.16 and later or JDK 15 and later, which fully support cgroup v2
 | 1.26 | Azure policy 1.0.1<br>Metrics-Server 0.6.3<br>KEDA 2.9.3<br>Open Service Mesh 1.2.3<br>Core DNS V1.9.4<br>0.12.0</br>Overlay VPA 0.11.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Ingress AppGateway 1.2.1<br>Eraser v1.1.1<br>Azure Workload Identity V1.1.1<br>ASC Defender 1.0.56<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.7.0<br>KMS 0.5.0| Cilium 1.12.8<br>CNI 1.4.44<br> Cluster Autoscaler 1.8.5.3<br> | OS Image Ubuntu 22.04 Cgroups V2 <br>ContainerD 1.7<br>|No Breaking Changes  |None
 | 1.27 | Azure policy 1.0.1<br>Metrics-Server 0.6.3<br>KEDA 2.10.0<br>Open Service Mesh 1.2.3<br>Core DNS V1.9.4<br>0.12.0</br>Overlay VPA 0.11.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Ingress AppGateway 1.2.1<br>Eraser v1.1.1<br>Azure Workload Identity V1.1.1<br>ASC Defender 1.0.56<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.7.0<br>KMS 0.5.0|Cilium 1.12.8<br>CNI 1.4.44<br> Cluster Autoscaler 1.8.5.3<br> | OS Image Ubuntu 22.04 Cgroups V2 <br>ContainerD 1.7 for Linux and 1.6 for Windows<br>|Keda 2.10.0  |Because of Ubuntu 22.04 FIPS certification status, we'll switch AKS FIPS nodes from 18.04 to 20.04 from 1.27 onwards.
+
 ## Alias minor version
 
 > [!NOTE]
@@ -210,7 +212,7 @@ AKS provides a Long Term Support (LTS) version of Kubernetes for a two-year peri
 The upstream community maintains a minor release of Kubernetes for one year from release. After this period, Microsoft creates and applies security updates to the LTS version of Kubernetes to provide a total of two years of support on AKS.
 
 > [!IMPORTANT]
-> AKS will begin its support for the LTS version of Kubernetes upon the release of Kubernetes version 1.27.
+> Kubernetes version 1.27 will be the first supported LTS version of Kubernetes on AKS. It is not yet available.
 
 ## Release and deprecation process
 

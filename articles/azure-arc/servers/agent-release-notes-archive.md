@@ -177,7 +177,7 @@ Download for [Windows](https://download.microsoft.com/download/f/b/1/fb143ada-1b
 
 ### New features
 
-- Added support for connecting the agent to the Azure China cloud
+- Added support for connecting the agent to the Microsoft Azure operated by 21Vianet cloud
 - Added support for Debian 10
 - Updates to the [instance metadata](agent-overview.md#instance-metadata) collected on each machine:
   - GCP VM OS is no longer collected

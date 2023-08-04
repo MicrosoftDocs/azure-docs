@@ -75,6 +75,10 @@ items:
           items:
             - name: Android (.NET MAUI) - sign in users
               href: how-to-mobile-app-maui-sample-sign-in.md
+        - name: Command-line interface (CLI) app
+          items:
+            - name: Node.js - sign in users
+              href: sample-cli-app-node-sign-in-users.md
 - name: Tutorials
   expanded: true
   items: 
@@ -215,6 +219,16 @@ items:
             href: tutorial-mobile-app-maui-sign-in-prepare-app.md
           - name: Sign in and sign out
             href: tutorial-mobile-app-maui-sign-in-sign-out.md
+      - name: Command-line interface (CLI) app
+        items:
+          - name: Node.js - sign in users
+            items:
+             - name: Prepare tenant
+               href: tutorial-cli-app-node-sign-in-prepare-tenant.md
+             - name: Prepare app
+               href: tutorial-cli-app-node-sign-in-prepare-app.md
+             - name: Sign in users
+               href: tutorial-cli-app-node-sign-in-sign-out.md
 - name: Concepts
   items: 
     - name: Planning for customer identity and access
