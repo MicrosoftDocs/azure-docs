@@ -1,7 +1,7 @@
 ---
 author: msangapu-msft
 ms.service: app-service
-ms.topic: how-to
+ms.topic: include
 ms.date: 08/04/2023
 ms.author: msangapu
 ---
@@ -36,10 +36,6 @@ The following features are supported for Windows containers:
 - Mapping `[C-Z]:\`, `[C-Z]:\home`, `/`, and `/home` to custom-mounted storage isn't supported.
 - Storage mounts aren't backed up when you [back up your app](../../manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts.
 - With VNET integration on your app, the mounted drive uses an RC1918 IP address and not an IP address from your VNET.
-
-> [!NOTE]
-> 
->
 
 ## Mount storage to Windows container
 

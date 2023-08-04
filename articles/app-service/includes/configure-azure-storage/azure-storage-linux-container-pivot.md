@@ -1,7 +1,7 @@
 ---
 author: msangapu-msft
 ms.service: app-service
-ms.topic: how-to
+ms.topic: include
 ms.date: 08/04/2023
 ms.author: msangapu
 ---
