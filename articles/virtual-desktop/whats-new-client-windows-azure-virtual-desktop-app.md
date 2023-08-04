@@ -1,10 +1,10 @@
 ---
 title: What's new in the Azure Virtual Desktop Store app for Windows (preview) - Azure Virtual Desktop
 description: Learn about recent changes to the Azure Virtual Desktop Store app for Windows.
-ms.topic: conceptual
+ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 08/02/2023
+ms.date: 08/04/2023
 ---
 
 # What's new in the Azure Virtual Desktop Store app for Windows (preview)
@@ -19,9 +19,10 @@ In this article you'll learn about the latest updates for the Azure Virtual Desk
 
 The following table lists the current version available for the public release. To enable Insider releases, see [Enable Windows Insider releases](users/client-features-windows-azure-virtual-desktop-app.md#enable-windows-insider-releases).
 
-| Release    | Latest version   | Download |
-|------------|------------------|----------|
-| Public     | 1.2.4487         | [Microsoft Store](https://aka.ms/AVDStoreClient) |
+| Release     | Latest version   | Download |
+|-------------|------------------|----------|
+| Public      | 1.2.4487         | [Microsoft Store](https://aka.ms/AVDStoreClient) |
+| Insider     | 1.2.4487         | Download the public release, then [Enable Windows Insider releases](users/client-features-windows-azure-virtual-desktop-app.md#enable-windows-insider-releases) and check for updates. |
 
 ## Updates for version 1.2.4487
 
@@ -33,7 +34,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.4485
 
-*Date published: July 25, 2023*
+*Date published: July 11, 2023*
 
 In this release, we've made the following changes: 
 
@@ -126,6 +127,3 @@ In this release, we've made the following changes:
 - Updates to Teams for Azure Virtual Desktop, including the following:
    - Fixed an issue that caused the application window sharing to freeze or show a black screen in scenarios with Topmost window occlusions.
    - Fixed an issue that caused Teams media optimizations for Azure Virtual Desktop to not load for the ARM64 version of the client.
-
->[!NOTE]
->This release was originally version 1.2.4065, but we made a hotfix after reports that UPnP was causing connectivity issues. version 1.2.4066 has replaced the previous version and has disabled UPnP.
