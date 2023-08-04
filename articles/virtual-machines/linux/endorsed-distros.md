@@ -51,7 +51,8 @@ These images are created and maintained by the customer, often based on platform
 Microsoft CSS provides commercially reasonable support for custom images. 
 
 ### Community Gallery Images
-These images are created and provided by open source projects, communities and teams. These images are provided using licensing terms set out by the publsiher, often under an open source license. They do not appear as traditional marketplace listings, however, they do appear in the portal and via command line tools. More information on community galleries can be found here: [Azure Compute Gallery](https://learn.microsoft.com/azure/virtual-machines/azure-compute-gallery#community-gallery).
+These images are created and provided by open source projects, communities and teams. These images are provided using licensing terms set out by the publisher, often under an open source license. They do not appear as traditional marketplace listings, however, they do appear in the portal and via command line tools. More information on community galleries can be found here: [Azure Compute Gallery](../azure-compute-gallery.md#community-gallery).
+
 
 Microsoft CSS provides support for Community Gallery images. 
 
