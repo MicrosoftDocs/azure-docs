@@ -23,7 +23,7 @@ This tutorial is the second part of a four-part series. The first tutorial showe
 
 Materialization computes the feature values for a feature window and then stores those values in a materialization store. All feature queries can then use the values from the materialization store.
 
-A feature set query applies the transformations to the source on the fly, to compute the features before it returns the values. This process works well for the prototyping phase. However, for training and inference operations in a production environment, we recommend that you materialize the features for greater reliability and availability.
+Without materialization, a feature set query applies the transformations to the source on the fly, to compute the features before it returns the values. This process works well for the prototyping phase. However, for training and inference operations in a production environment, we recommend that you materialize the features for greater reliability and availability.
 
 In this tutorial, you learn how to:
 
