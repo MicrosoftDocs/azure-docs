@@ -47,7 +47,7 @@ If you're using one of Azure Orbital Ground Station's partner ground station net
 
 ## 5. Set up telemetry
 
-Use Azure EventHubs to [set up real-time antenna telemetry](https://learn.microsoft.com/azure/orbital/receive-real-time-telemetry).
+Use Azure Event Hubs to [set up real-time antenna telemetry](https://learn.microsoft.com/azure/orbital/receive-real-time-telemetry).
 
 ## 6. Configure a contact profile
 
