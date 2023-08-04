@@ -712,7 +712,7 @@ sections:
         answer: |
           ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
           --- | --- | --- | --- | --- |
-          Chrome Latest ✔ |  Firefox Latest ✔ | IE 9+ & Microsoft Edge ✔<br>IE 8- Compatible | Opera Latest ✔ | Safari Latest ✔ |
+          Chrome Latest ✔ |  Firefox Latest ✔ | v3.x: IE 9+ & Microsoft Edge ✔<br>v2.x: IE 8+ Compatible & Microsoft Edge ✔ | Opera Latest ✔ | Safari Latest ✔ |
 
       - question: |
           Where can I find code examples for the JavaScript SDK?
@@ -974,11 +974,15 @@ sections:
         answer: |
           There are several advantages to using the Azure Monitor OpenTelemetry Distro over native OpenTelemetry from the community:
           - Reduces enablement effort
+          - Supported by Microsoft
           - Brings in Azure Specific features such as:
-              - Azure Active Directory (Azure AD) Authentication
-              - Offline Storage and Automatic Retries
               - Preserves traces with service components using Application Insights SDKs
-              - Live Metrics (future)
+              - [Azure Active Directory (Azure AD) Authentication](app/azure-ad-authentication.md)
+              - [Offline Storage and Automatic Retries](app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)
+              - [Statsbeat](app/statsbeat.md)
+              - [Application Insights Standard Metrics](app/standard-metrics.md)
+              - Detect resource metadata to autopopulate [Cloud Role Name](app/app-map.md#understand-the-cloud-role-name-within-the-context-of-an-application-map) on Azure
+              - [Live Metrics](app/live-stream.md) (future)
           
           In the spirit of OpenTelemetry, we've designed the distro to be open and extensible. For example, you can add:
            - An OTLP exporter and send to a second destination simultaneously
@@ -1215,7 +1219,7 @@ sections:
       - question: |
           Which ports and domains do I need to open or allow for the agent?
         answer: |
-          See the [Network firewall requirements](containers/container-insights-onboard.md#network-firewall-requirements) for the proxy and firewall configuration information that's required for the containerized agent with Azure, Azure US Government, and Azure China 21Vianet clouds.
+          See the [Network firewall requirements](containers/container-insights-onboard.md#network-firewall-requirements) for the proxy and firewall configuration information that's required for the containerized agent with Azure, Azure US Government, and Microsoft Azure operated by 21Vianet clouds.
           
       - question: |
           Is there support for collecting Kubernetes audit logs for ARO clusters?

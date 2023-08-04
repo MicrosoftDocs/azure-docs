@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/10/2023
+ms.date: 07/27/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -23,9 +23,6 @@ Strictly enforce location policies is a new enforcement mode for continuous acce
 | --- | --- | --- | --- | --- |
 | Standard (Default) | Suitable for all topologies | A short-lived token is issued only if Azure AD detects an allowed IP address. Otherwise, access is blocked | Falls back to the pre-CAE location detection mode in split tunnel network deployments where CAE enforcement would affect productivity. CAE still enforces other events and policies. | None (Default Setting) |
 | Strictly enforced location policies | Egress IP addresses are dedicated and enumerable for both Azure AD and all resource provider traffic | Access blocked | Most secure, but requires well understood network paths | 1. Test IP address assumptions with a small population <br><br> 2. Enable “Strictly enforce” under Session controls |
-
-> [!NOTE] 
-> The **IP address (seen by resource)** is blank when that IP matches the IP address.
 
 ## Configure strictly enforced location policies
 
@@ -45,14 +42,14 @@ After enabling policies requiring strict location enforcement on a subset of tes
 
 If administrators don't perform this validation, their users may be negatively impacted. If traffic to Azure AD or a CAE supported resource is through a shared or undefinable egress IP, don't enable strict location enforcement in your Conditional Access policies.
 
-### Step 3 - Identify IP addresses that should be added to your named locations 
+### Step 3 - Use the CAE Workbook to Identify IP addresses that should be added to your named locations 
 
-If the filter search of **IP address (seen by resource)** in the Azure AD Sign-in logs isn't empty, you might have a split-tunnel network configuration. To ensure your users aren't accidentally locked out by policies requiring strict location enforcement, administrators should: 
+If you haven't already, create a new Azure Workbook using the public template "Continuous Access Evaluation Insights" to identify IP mismatch between IP address seen by Azure AD and **IP address (seen by resource)**. In this case, you might have a split-tunnel network configuration. To ensure your users aren't accidentally locked out by policies requiring strict location enforcement, administrators should: 
 
-- Investigate and identify any IP addresses identified in the Sign-in logs.
+- Investigate and identify any IP addresses identified in the CAE Workbook.
 - Add public IP addresses associated with known organizational egress points to their defined [named locations](location-condition.md#named-locations).
 
-     [ ![Screenshot of sign-in logs with an example of IP address seen by resource filter.](./media/concept-continuous-access-evaluation-strict-enforcement/sign-in-logs-ip-address-seen-by-resource.png) ](./media/concept-continuous-access-evaluation-strict-enforcement/sign-in-logs-ip-address-seen-by-resource.png#lightbox)
+     [ ![Screenshot of cae-workbook with an example of IP address seen by resource filter.](./media/concept-continuous-access-evaluation-strict-enforcement/continuous-access-evaluation-workbook.png) ](./media/concept-continuous-access-evaluation-strict-enforcement/continuous-access-evaluation-workbook.png#lightbox)
 
 The following screenshot shows an example of a client’s access to a resource being blocked. This block is due to policies requiring CAE strict location enforcement being triggered revoking the client’s session. 
 
@@ -77,7 +74,7 @@ Administrators can investigate the Sign-in logs to find cases with **IP address 
 1. Sign in to the **Azure portal** as at least a Global Reader.
 1. Browse to **Azure Active Directory** > **Sign-ins**.
 1. Find events to review by adding filters and columns to filter out unnecessary information.
-   1. Add the **IP address (seen by resource)** column and filter out any blank items to narrow the scope.
+   1. Add the **IP address (seen by resource)** column and filter out any blank items to narrow the scope. The **IP address (seen by resource)** is blank when that IP seen by Azure AD matches the IP address seen by the resource.
 
       [ ![Screenshot showing an example of how to find more information in the sign-in logs.](./media/concept-continuous-access-evaluation-strict-enforcement/sign-in-logs-ip-address-seen-by-resource.png) ](./media/concept-continuous-access-evaluation-strict-enforcement/sign-in-logs-ip-address-seen-by-resource.png#lightbox)
 

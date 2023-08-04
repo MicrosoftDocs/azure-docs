@@ -27,14 +27,16 @@ You add your organization's privacy information in the **Properties** area of Az
 
 ### To access the Properties area and add your privacy information
 
-1. Sign in to the Azure portal as a tenant administrator.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as a tenant administrator.
 
 2. On the left navbar, select **Azure Active Directory**, and then select **Properties**.
 
     The **Properties** area appears.
 
-    ![Azure AD Properties area highlighting the privacy info area](media/active-directory-properties-area/properties-area.png)
-
+    :::image type="content" source="media/active-directory-properties-area/properties-area.png" alt-text="Screenshot showing the properties area highlighting the privacy info area.":::
+ 
 3. Add your privacy info for your employees:
 
     - **Technical contact.** Type the email address for the person to contact for technical support within your organization.
@@ -46,7 +48,7 @@ You add your organization's privacy information in the **Properties** area of Az
         >[!Important]
         >If you don't include either your own privacy statement or your privacy contact, your external guests will see text in the **Review Permissions** box that says, **<_your org name_> has not provided links to their terms for you to review**. For example, a guest user will see this message when they receive an invitation to access an organization through B2B collaboration.
 
-        ![B2B Collaboration Review Permissions box with message](media/active-directory-properties-area/active-directory-no-privacy-statement-or-contact.png)
+        :::image type="content" source="media/active-directory-properties-area/no-privacy-statement-or-contact.png" alt-text="Screenshot showing the B2B Collaboration Review Permissions box with message.":::
 
 4. Select **Save**.
 

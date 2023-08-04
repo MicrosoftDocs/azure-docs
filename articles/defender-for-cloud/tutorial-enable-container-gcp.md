@@ -74,6 +74,9 @@ There are two dedicated Defender for Cloud recommendations you can use to instal
 - `GKE clusters should have Microsoft Defender's extension for Azure Arc installed`
 - `GKE clusters should have the Azure Policy extension installed`
 
+> [!NOTE]
+> When installing Arc extensions, you must verify that the GCP project provided is identical to the one in the relevant connector.
+
 **To deploy the solution to specific clusters**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
