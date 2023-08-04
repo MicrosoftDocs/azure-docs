@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: include
-ms.date: 04/04/2023
+ms.date: 08/04/2023
 keywords: 
 ---
 
@@ -27,11 +27,11 @@ Use this guide to get started generating images with Azure OpenAI in your browse
 
 Navigate to Azure OpenAI Studio at <a href="https://oai.azure.com/" target="_blank">https://oai.azure.com/</a> and sign in with the credentials associated with your OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
-From the Azure OpenAI Studio landing page, select **DALL·E 2 playground** to use the image generation APIs.
+From the Azure OpenAI Studio landing page, select **DALL·E (Preview) playground** to use the image generation APIs.
 
 ## Try out image generation
 
-Start exploring Azure OpenAI capabilities with a no-code approach through the DALL-E 2 playground. Enter your image prompt into the text box and select **Generate**. When the AI-generated image is ready, it will appear on the page.
+Start exploring Azure OpenAI capabilities with a no-code approach through the DALL·E (Preview) playground. Enter your image prompt into the text box and select **Generate**. When the AI-generated image is ready, it will appear on the page.
 
 > [!NOTE]
 > The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it won't return a generated image. For more information, see the [content filter](../concepts/content-filter.md) guide.
@@ -39,7 +39,7 @@ Start exploring Azure OpenAI capabilities with a no-code approach through the DA
 :::image type="content" source="../media/quickstarts/dall-e-studio.png" alt-text="Screenshot of the Azure OpenAI Studio landing page." lightbox="../media/quickstarts/dall-e-studio.png":::
 
 
-In the DALL-E 2 playground, you can also view Python and cURL code samples, which are pre-filled according to your settings. Select **View code** near the top of the page. You can use this code to write an application that completes the same task.
+In the DALL·E (Preview) playground, you can also view Python and cURL code samples, which are pre-filled according to your settings. Select **View code** near the top of the page. You can use this code to write an application that completes the same task.
 
 ## Clean up resources
 
