@@ -4,16 +4,19 @@
 # For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
 
 title:       # ND H100 v5-series- Azure Virtual Machines
-description: # Add a meaningful description for search results
-author:      iamwilliew # GitHub alias
-ms.author:   iamwilliew # Microsoft alias
+description: # Specifications for the ND H100 v5-series VMs
+author:      iamwilliew 
+ms.author:   wwilliams 
 ms.service:  # virtual-machines
-# ms.prod:   # To use ms.prod, uncomment it and delete ms.service
 ms.topic:    # conceptual
 ms.date:     08/04/2023
 ---
 
 # ND H100 v5-series
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
+## ND H100 v5-series
 
 The ND H100 v5 series virtual machine (VM) is a new flagship addition to the Azure GPU family. It’s designed for high-end Deep Learning training and tightly coupled scale-up and scale-out Generative AI and HPC workloads. 
 
@@ -25,21 +28,21 @@ These instances provide excellent performance for many AI, ML, and analytics too
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
-[Ultra disk]: Supported(Learn more(add link) about availability, usage, and performance) <br>
+[Ultra disk](disks-types.md#ultra-disks): Supported(Learn more(https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) about availability, usage, and performance) <br>
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md)<sup>1</sup>: Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
-[Infiniband]: Supported, GPUDirect RDMA, 8x400 Gigabit NDR <br>
-[NVIDIA NVLink Interconnect]: Supported <br>
+Infiniband: Supported, GPUDirect RDMA, 8x400 Gigabit NDR <br>
+NVIDIA NVLink Interconnect: Supported <br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization):Not Supported <br>
 <br> 
 
 >[!IMPORTANT]
 >To get started with ND H100 v5 VMs, refer to HPC Workload Configuration and Optimization for steps including driver and network configuration. Due to increased GPU memory I/O footprint, the ND H100 v5 requires the use of Generation 2 VMs and marketplace images. The Azure HPC images are strongly recommended. Azure HPC Ubuntu 20.04 image is supported. 
 
-# Example
+## Example
 The ND H100 v5 series supports the following kernel version: 
 Ubuntu 20.04: 5.4.0-1046-azure 
 
@@ -47,7 +50,7 @@ Ubuntu 20.04: 5.4.0-1046-azure
 |---------------------|------|------------|------------------------|----------------------------|----------------|----------------|-----------------------------------------|------------------------------|----------|
 | Standard_ND96isr_v5 | 96   | 1900       | 1000                   | 8 H100 80 GB GPUs(NVLink)  | 80             | 32             | 40800/612                               | 2400                         | 8        |
 
-# Size table definitions
+## Size table definitions
 Storage capacity is shown in units of GiB or 1024^3 bytes. When you compare disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB.
 
 Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
@@ -69,6 +72,5 @@ Upper limits aren't guaranteed. Limits offer guidance for selecting the right VM
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
 
-Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
 More information on Disks Types: [Disk Types](./disks-types.md#ultra-disks)
