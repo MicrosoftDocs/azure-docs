@@ -5,7 +5,7 @@ metadata:
   author: roygara
   ms.service: azure-disk-storage
   ms.topic: faq
-  ms.date: 08/03/2023
+  ms.date: 05/04/2023
   ms.author: rogarana
 title: Frequently asked questions about Azure IaaS VM disks and managed and unmanaged premium disks
 summary: This article answers some frequently asked questions about Azure Managed Disks and Azure Premium SSD disks.
