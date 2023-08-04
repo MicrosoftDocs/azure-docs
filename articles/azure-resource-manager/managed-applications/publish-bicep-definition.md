@@ -2,6 +2,7 @@
 title: Use Bicep to create and publish an Azure Managed Application definition
 description: Describes how to use Bicep to create and publish an Azure Managed Application definition in your service catalog.
 ms.topic: quickstart
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 ms.date: 05/12/2023
 ---
 
@@ -19,7 +20,7 @@ To create and publish a managed application definition to your service catalog, 
 
 If your managed application definition is more than 120 MB or if you want to use your own storage account for your organization's compliance reasons, go to [Quickstart: Bring your own storage to create and publish an Azure Managed Application definition](publish-service-catalog-bring-your-own-storage.md).
 
-You can also use Bicep deploy an existing managed application definition. For more information, go to [Quickstart: Use Bicep to deploy an Azure Managed Application definition](deploy-bicep-definition.md).
+You can also use Bicep deploy a managed application definition from your service catalog. For more information, go to [Quickstart: Use Bicep to deploy an Azure Managed Application definition](deploy-bicep-definition.md).
 
 ## Prerequisites
 

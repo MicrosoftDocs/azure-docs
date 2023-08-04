@@ -1,0 +1,184 @@
+{
+    "redirections": [
+        {
+            "source_path": "articles/sentinel/data-connectors/abnormalsecurity-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/abnormalsecurity-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/alicloud-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/alicloud-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/armorblox-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/armorblox-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/atlassian-confluence-audit-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/atlassian-confluence-audit-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/atlassian-jira-audit-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/atlassian-jira-audit-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/auth0-access-management-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/auth0-access-management-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/bitglass-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/bitglass-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/cisco-duo-security-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/cisco-duo-security-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/cisco-secure-endpoint-amp-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/cisco-secure-endpoint-amp-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/cloudflare-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/cloudflare-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/cohesity-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/cohesity-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/crowdstrike-falcon-data-replicator-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/crowdstrike-falcon-data-replicator-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/cyberarkepm.md",
+            "redirect_url": "/azure/sentinel/data-connectors/cyberarkepm-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/cybersixgill-actionable-alerts-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/cybersixgill-actionable-alerts-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/digital-shadows-searchlight-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/digital-shadows-searchlight-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/google-apigeex-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/google-apigeex-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/google-cloud-platform-cloud-monitoring-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/google-cloud-platform-cloud-monitoring-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/google-cloud-platform-dns-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/google-cloud-platform-dns-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/google-cloud-platform-iam-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/google-cloud-platform-iam-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/google-workspace-g-suite-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/google-workspace-g-suite-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/holm-security-asset-data-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/holm-security-asset-data-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/imperva-cloud-waf-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/imperva-cloud-waf-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/mulesoft-cloudhub-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/mulesoft-cloudhub-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/netskope-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/netskope-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/onelogin-iam-platform-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/onelogin-iam-platform-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/oracle-cloud-infrastructure-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/oracle-cloud-infrastructure-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/proofpoint-on-demand-email-security-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/proofpoint-on-demand-email-security-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/qualys-vulnerability-management-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/qualys-vulnerability-management-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/rapid7-insight-platform-vulnerability-management-reports-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/rapid7-insight-platform-vulnerability-management-reports-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/sentinelone-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/sentinelone-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/slack-audit-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/slack-audit-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/trend-micro-vision-one-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/trend-vision-one-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/vmware-carbon-black-cloud-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/vmware-carbon-black-cloud-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/zero-networks-segment-audit-function-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/zero-networks-segment-audit-function-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/zoom-reports-using-azure-function.md",
+            "redirect_url": "/azure/sentinel/data-connectors/zoom-reports-using-azure-functions",
+            "redirect_document_id": true
+          },
+          {
+            "source_path": "articles/sentinel/store-logs-in-azure-data-explorer.md",
+            "redirect_url": "/azure/azure-monitor/logs/data-retention-archive",
+            "redirect_document_id": true
+          }
+    ]
+}

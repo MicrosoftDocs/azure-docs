@@ -250,6 +250,6 @@ We appreciate how seriously you take security and hope this document is a useful
 
 ## Next steps
 
-If you need assistance to plan and deploy the recommendations, refer to the [Azure AD project deployment plans](../../active-directory/fundamentals/active-directory-deployment-plans.md) for help.
+If you need assistance to plan and deploy the recommendations, refer to the [Azure AD project deployment plans](../../active-directory/fundamentals/deployment-plans.md) for help.
 
 If you're confident all these steps are complete, use Microsoft’s [Identity Secure Score](../../active-directory/fundamentals/identity-secure-score.md), which will keep you up to date with the [latest best practices](identity-management-best-practices.md) and security threats.

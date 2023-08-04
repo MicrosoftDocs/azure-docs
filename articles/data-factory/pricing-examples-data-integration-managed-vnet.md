@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: pricing
 ms.topic: conceptual
-ms.date: 09/22/2022
+ms.date: 06/12/2023
 ---
 
 # Pricing example: Data integration in Azure Data Factory Managed VNET
@@ -34,12 +34,12 @@ To accomplish the scenario, you need to create two pipelines with the following 
 | **Operations** | **Types and Units** |
 | --- | --- |
 | Run Pipeline | 6 Activity runs **per execution** (2 for trigger runs, 4 for activity runs) = 1440, rounded up since the calculator only allows increments of 1000.|
-| Execute Delete Activity: pipeline execution time **per execution** = 7 min. If the Delete Activity execution in the first pipeline is from 10:00 AM UTC to 10:05 AM UTC and the Delete Activity execution in second pipeline is from 10:02 AM UTC to 10:07 AM UTC. | Total 7 min / 60 min \* 240 montly executions = 28 pipeline activity execution hours in Managed VNET. Pipeline activity supports up to 50 concurrent executions in Managed VNET. There's a 60 minutes Time To Live (TTL) for pipeline activity. |
-| Copy Data Assumption: DIU execution time **per execution** = 10 min if the Copy execution in first pipeline is from 10:06 AM UTC to 10:15 AM UTC and the Copy Activity execution in second pipeline is from 10:08 AM UTC to 10:17 AM UTC. | 10 min \ 60 min * 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
+| Execute Delete Activity: pipeline execution time **per execution** = 7 min. If the Delete Activity execution in the first pipeline is from 10:00 AM UTC to 10:05 AM UTC and the Delete Activity execution in second pipeline is from 10:02 AM UTC to 10:07 AM UTC. | Total (7 min + 60 min) / 60 min * 30 monthly executions = 33.5 pipeline activity execution hours in Managed VNET. Pipeline activity supports up to 50 concurrent executions in Managed VNET. There's a 60 minutes Time To Live (TTL) for pipeline activity. |
+| Copy Data Assumption: DIU execution time **per execution** = 10 min if the Copy execution in first pipeline is from 10:06 AM UTC to 10:15 AM UTC and the Copy Activity execution in second pipeline is from 10:08 AM UTC to 10:17 AM UTC.| [(10 min + 2 min (queue time charges up to 2 minutes)) / 60 min * 4 Azure Managed VNET Integration Runtime (default DIU setting = 4)] * 2 = 1.6 daily data movement activity execution hours in Managed VNET. For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
 
 ## Pricing calculator example
 
-**Total scenario pricing for 30 days: $42.14**
+**Total scenario pricing for 30 days: $83.50**
 
 :::image type="content" source="media/pricing-concepts/scenario-5-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for data integration with Managed VNET." lightbox="media/pricing-concepts/scenario-5-pricing-calculator.png":::
 

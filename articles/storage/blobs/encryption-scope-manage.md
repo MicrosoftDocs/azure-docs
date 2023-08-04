@@ -5,12 +5,12 @@ description: Learn how to create an encryption scope to isolate blob data at the
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.date: 05/10/2023
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ---

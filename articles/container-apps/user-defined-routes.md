@@ -12,7 +12,7 @@ ms.date: 03/29/2023
 # Control outbound traffic with user defined routes (preview)
 
 >[!Note]
-> This feature is in preview and is only supported for the workload profiles architecture. User defined routes only work with an internal Azure Container Apps environment.
+> This feature is in preview and is only supported for the workload profiles environment. User defined routes only work with an internal Azure Container Apps environment.
 
 This article shows you how to use user defined routes (UDR) with [Azure Firewall](../firewall/overview.md) to lock down outbound traffic from your Container Apps to back-end Azure resources or other network resources.
 
@@ -20,11 +20,11 @@ Azure creates a default route table for your virtual networks on create. By impl
 
 You can also use a NAT gateway or any other third party appliances instead of Azure Firewall.
 
-For more information on networking concepts in Container Apps, see [Networking Architecture in Azure Container Apps](./networking.md).
+For more information on networking concepts in Container Apps, see [Networking Environment in Azure Container Apps](./networking.md).
 
 ## Prerequisites
 
-* **Internal environment**: An internal container app environment on the workload profiles architecture that's integrated with a custom virtual network. When you create an internal container app environment, your container app environment has no public IP addresses, and all traffic is routed through the virtual network. For more information, see the [guide for how to create a container app environment on the workload profiles architecture](./workload-profiles-manage-cli.md).
+* **Internal environment**: An internal container app environment on the workload profiles environment that's integrated with a custom virtual network. When you create an internal container app environment, your container app environment has no public IP addresses, and all traffic is routed through the virtual network. For more information, see the [guide for how to create a container app environment on the workload profiles environment](./workload-profiles-manage-cli.md).
 
 * **`curl` support**: Your container app must have a container that supports `curl` commands. In this how-to, you use `curl` to verify the container app is deployed correctly. If you don't have a container app with `curl` deployed, you can deploy the following container which supports `curl`, `mcr.microsoft.com/k8se/quickstart:latest`.
 

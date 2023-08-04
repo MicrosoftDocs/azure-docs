@@ -198,7 +198,7 @@ Learn how to [manage extension attributes in your Azure AD B2C tenant](microsoft
 Unlike built-in attributes, custom attributes can be removed. The extension attributes' values can also be removed. 
 
 > [!Important]
-> Before you remove the custom attribute, for each account in the directory, set the extension attribute value to `null`.  In this way you explicitly remove the extension attributes’s values. Then continue to remove the extension attribute itself. Custom attributes can be queries using Microsoft Graph API. 
+> Before you remove the custom attribute, for each account in the directory, set the extension attribute value to `null`.  That way, you explicitly remove the extension attribute’s values. Then, continue to remove the extension attribute itself. Custom attributes can be queried using Microsoft Graph API. 
 
 ::: zone pivot="b2c-user-flow"
 

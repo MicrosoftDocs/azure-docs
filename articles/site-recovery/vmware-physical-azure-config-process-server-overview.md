@@ -3,7 +3,7 @@ title: About Azure Site Recovery configuration/process/master target servers
 description: This article provides an overview of the configuration, process, and master target servers using when setting up disaster recovery of on-premises VMware VMs to Azure with Azure Site Recovery
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 08/19/2021
+ms.date: 08/01/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -26,6 +26,9 @@ For disaster recovery of on-premises VMware VMs and physical servers, deploy an 
 **VMware deployment** | We recommend that you deploy the configuration server using a downloaded OVA template. This method provides a simply way to set up a configuration server that complies with all requirements and prerequisites.<br/><br/> If for some reason you're unable to deploy a VMware VM using an OVA template, you can set up the configuration server machines manually, as described below for physical machine disaster recovery. | [Deploy](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template) with an OVA template.
 **Physical server requirements** | For disaster recovery on on-premises physical servers, you deploy the configuration server manually. | [Learn about](physical-azure-set-up-source.md#prerequisites) the prerequisites.
 **Physical server deployment** | If it can't be installed as a VMware VM, you can install it on a physical server. | [Deploy](physical-azure-set-up-source.md#set-up-the-source-environment) the configuration server manually.
+
+> [!NOTE]
+> Configuration server can be setup to run in Azure, but only if Express Route is being used to connect to the on-premises environment. 
 
 ## Process server
 

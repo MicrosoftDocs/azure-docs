@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 01/25/2023
+ms.date: 06/27/2023
 ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 ---
 # View, add, and remove assignments for an access package in entitlement management
 
-In entitlement management, you can see who has been assigned to access packages, their policy, and status. If an access package has an appropriate policy, you can also directly assign user to an access package. This article describes how to view, add, and remove assignments for access packages.
+In entitlement management, you can see who has been assigned to access packages, their policy, status, and user lifecycle (preview). If an access package has an appropriate policy, you can also directly assign user to an access package. This article describes how to view, add, and remove assignments for access packages.
 
 ## Prerequisites
 
@@ -31,6 +31,7 @@ To use entitlement management and assign users to access packages, you must have
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5 license
+- Microsoft Entra ID governance subscription
 
 ## View who has an assignment
 
@@ -86,18 +87,18 @@ In some cases, you might want to directly assign specific users to an access pac
 
     ![Assignments - Add user to access package](./media/entitlement-management-access-package-assignments/assignments-add-user.png)
 
-1.	In the **Select policy** list, select a policy that the users' future requests and lifecycle will be governed and tracked by. If you want the selected users to have different policy settings, you can select **Create new policy** to add a new policy.
+1. In the **Select policy** list, select a policy that the users' future requests and lifecycle will be governed and tracked by. If you want the selected users to have different policy settings, you can select **Create new policy** to add a new policy.
 
-1.	Once you select a policy, you’ll be able to Add users to select the users you want to assign this access package to, under the chosen policy.
+1. Once you select a policy, you’ll be able to Add users to select the users you want to assign this access package to, under the chosen policy.
 
     > [!NOTE]
     > If you select a policy with questions, you can only assign one user at a time.
 
 1. Set the date and time you want the selected users' assignment to start and end. If an end date isn't provided, the policy's lifecycle settings will be used.
 
-1.	Optionally provide a justification for your direct assignment for record keeping.
+1. Optionally provide a justification for your direct assignment for record keeping.
 
-1.	If the selected policy includes additional requestor information, select **View questions** to answer them on behalf of the users, then select **Save**.  
+1. If the selected policy includes additional requestor information, select **View questions** to answer them on behalf of the users, then select **Save**.  
 
      ![Assignments - click view questions](./media/entitlement-management-access-package-assignments/assignments-view-questions.png)
 
@@ -116,15 +117,15 @@ Entitlement management also allows you to directly assign external users to an a
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
-1.	In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
 
-1.	In the left menu, select **Access packages** and then open the access package in which you want to add a user.
+1. In the left menu, select **Access packages** and then open the access package in which you want to add a user.
 
-1.	In the left menu, select **Assignments**.
+1. In the left menu, select **Assignments**.
 
-1.	Select **New assignment** to open **Add user to access package**.
+1. Select **New assignment** to open **Add user to access package**.
 
-1.	In the **Select policy** list, select a policy that allows that is set to **For users not in your directory**
+1. In the **Select policy** list, select a policy that allows that is set to **For users not in your directory**
 
 1. Select **Any user**. You’ll be able to specify which users you want to assign to this access package.
     ![Assignments - Add any user to access package](./media/entitlement-management-access-package-assignments/assignments-add-any-user.png)
@@ -136,9 +137,9 @@ Entitlement management also allows you to directly assign external users to an a
     > - Similarly, if you set your policy to include **All configured connected organizations**, the user’s email address must be from one of your configured connected organizations. Otherwise, the user won't be added to the access package.
     > - If you wish to add any user to the access package, you'll need to ensure that you select **All users (All connected organizations + any external user)** when configuring your policy.
 
-1.	Set the date and time you want the selected users' assignment to start and end. If an end date isn't provided, the policy's lifecycle settings will be used.
-1.	Select **Add** to directly assign the selected users to the access package.
-1.	After a few moments, select **Refresh** to see the users in the Assignments list.
+1. Set the date and time you want the selected users' assignment to start and end. If an end date isn't provided, the policy's lifecycle settings will be used.
+1. Select **Add** to directly assign the selected users to the access package.
+1. After a few moments, select **Refresh** to see the users in the Assignments list.
 
 ## Directly assigning users programmatically
 ### Assign a user to an access package with Microsoft Graph
@@ -187,6 +188,37 @@ $accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Market
 $policy = $accesspackage.AssignmentPolicies[0]
 $req = New-MgEntitlementManagementAccessPackageAssignmentRequest -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -TargetEmail "sample@example.com"
 ```
+
+## Manage user lifecycle (preview)  
+
+Entitlement management also allows you to get visibility into state of a guest user's lifecycle through the following viewpoints: 
+
+- **Governed** - The user is set to be governed.  
+- **Ungoverned** - The user is set to not be governed.
+- **Blank** - The lifecycle for the user is not determined. This happens when a user had an access package assigned before managing user lifecycle was possible.
+
+> [!NOTE]
+> When a guest user is set as **Governed**, based on ELM tenant settings their account will be deleted or disabled in specified days after their last access package assignment expires.  Learn more about ELM settings here: [Manage external access with Azure Active Directory entitlement management](../fundamentals/6-secure-access-entitlement-managment.md).
+
+You can directly convert ungoverned users to governed by using the **Mark Guests as Governed ( preview)** functionality in the top menu bar. 
+
+To manage user lifecycle, you'd follow these steps:
+
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
+
+1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+
+1. In the left menu, select **Access packages** and then open the access package.
+
+1. In the left menu, select **Assignments**.
+
+1. On the assignments screen, select the user you want to manage the lifecycle for, and then select **Mark guest as governed (Preview)**.
+    :::image type="content" source="media/entitlement-management-access-package-assignments/govern-user-lifecycle.png" alt-text="Screenshot of the govern user lifecycle selection.":::
+1. Select save.
+
+## Manage user lifecycle programmatically 
+
+To manage user lifecycle programatically using Microsoft Graph, see: [accessPackageSubject resource type](/graph/api/resources/accesspackagesubject).
 
 ## Remove an assignment
 

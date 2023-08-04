@@ -27,7 +27,7 @@ Azure Arc helps you onboard Amazon Web Services (AWS), Google Cloud Platform (GC
 
 ### Foundational cloud security posture management
 
-For free foundational cloud security posture management (CSPM) features, Azure Arc running on AWS or GCP machines isn't required. For full functionality, we recommend that you *do* have Azure Arc running on AWS or GCP machines.
+The free foundational cloud security posture management (CSPM) features for AWS and GCP machines don't require Azure Arc. For full functionality, we recommend that you *do* have Azure Arc running on AWS or GCP machines.
 
 Azure Arc onboarding is required for on-premises machines.
 
@@ -42,6 +42,7 @@ You can onboard the Azure Arc agent to your AWS or GCP servers automatically wit
 To plan for Azure Arc deployment:
 
 1. Review the Azure Arc [planning recommendations](../azure-arc/servers/plan-at-scale-deployment.md) and [deployment prerequisites](../azure-arc/servers/prerequisites.md).
+1. Open the [network ports for Azure Arc](support-matrix-defender-for-servers.md#network-requirements) in your firewall.
 1. Azure Arc installs the Connected Machine agent to connect to and manage machines that are hosted outside of Azure. Review the following information:
 
     - The [agent components and data collected from machines](../azure-arc/servers/agent-overview.md#agent-resources).

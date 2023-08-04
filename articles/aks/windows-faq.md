@@ -3,8 +3,8 @@ title: Windows Server node pools FAQ
 titleSuffix: Azure Kubernetes Service
 description: See the frequently asked questions when you run Windows Server node pools and application workloads in Azure Kubernetes Service (AKS).
 ms.topic: article
+ms.custom: build-2023
 ms.date: 04/13/2023
-
 #Customer intent: As a cluster operator, I want to see frequently asked questions when running Windows node pools and application workloads.
 ---
 
@@ -33,6 +33,10 @@ Historically, Kubernetes is Linux-focused. Many examples used in the upstream [K
 ## What kind of disks are supported for Windows?
 
 Azure Disks and Azure Files are the supported volume types, and are accessed as NTFS volumes in the Windows Server container.
+
+## Do Linux and Windows support generation 2 virtual machines (VMs)?
+
+Generation 2 VMs are supported on Linux and Windows for WS2022 only. For more information, see [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
 
 ## Can I run Windows only clusters in AKS?
 
@@ -102,7 +106,7 @@ az aks update \
 ```
 
 > [!IMPORTANT]
-> Performing the `az aks update` operation upgrades only Windows Server node pools. Linux node pools are not affected.
+> Performing the `az aks update` operation upgrades only Windows Server node pools and will cause a restart. Linux node pools are not affected. 
 > 
 > When you're changing `--windows-admin-password`, the new password must be at least 14 characters and meet [Windows Server password requirements][windows-server-password].
 
@@ -119,8 +123,8 @@ $cluster | Set-AzAksCluster
 ```
 
 > [!IMPORTANT]
-> Performing the `Set-AzAksCluster` operation upgrades only Windows Server node pools. Linux node pools are not affected.
-> 
+> Performing the `Set-AzAksCluster` operation upgrades only Windows Server node pools and will cause a restart. Linux node pools are not affected.
+>
 > When you're changing the Windows administrator password, the new password must be at least 14 characters and meet [Windows Server password requirements][windows-server-password].
 
 ---
@@ -238,14 +242,14 @@ To get started with Windows Server containers in AKS, see [Create a node pool th
 <!-- LINKS - internal -->
 [azure-network-models]: concepts-network.md#azure-virtual-networks
 [configure-azure-cni]: configure-azure-cni.md
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
 [windows-node-cli]: ./learn/quick-windows-container-deploy-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [upgrade-cluster]: upgrade-cluster.md
-[upgrade-cluster-cp]: use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools
+[upgrade-cluster-cp]: manage-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
-[nodepool-limitations]: use-multiple-node-pools.md#limitations
+[nodepool-limitations]: create-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
 [azure-monitor]: ../azure-monitor/containers/container-insights-overview.md#what-does-azure-monitor-for-containers-provide

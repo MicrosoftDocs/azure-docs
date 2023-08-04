@@ -130,7 +130,7 @@ The following tables show how Cost Management features can be utilized by each r
 | --- | --- | --- |
 | **Cost Analysis / Forecast / Query / Cost Details API** | Read only | Read only |
 | **Shared Views** | Create, Read, Update, Delete | Create, Read, Update, Delete |
-| **Budgets** | Create, Read, Update, Delete | Create, Read, Update, Delete |
+| **Budgets/Reservation utilization alerts** | Create, Read, Update, Delete | Create, Read, Update, Delete |
 | **Alerts** | Read, Update | Read, Update |
 | **Exports** | Create, Read, Update, Delete | Create, Read, Update, Delete |
 | **Cost Allocation Rules** | Create, Read, Update, Delete | Create, Read, Update, Delete |
@@ -228,7 +228,7 @@ The following tables show how Cost Management features can be utilized by each r
 | --- | --- | --- | --- | --- |
 | **Cost Analysis / Forecast / Query / Cost Details API** | Read only | Read only | Read only | Read only |
 | **Shared Views** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
-| **Budgets** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
+| **Budgets/Reservation utilization alerts** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
 | **Alerts** | Read, Update | Read, Update | Read, Update | Create, Read, Update, Delete |
 | **Exports** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Read, Update |
 | **Cost Allocation Rules** | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account |

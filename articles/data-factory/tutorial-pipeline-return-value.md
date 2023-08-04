@@ -65,7 +65,7 @@ Value of object type is defined as follows:
 
 The pipeline return value of the child pipeline becomes the activity output of the Execute Pipeline Activity. You can retrieve the information with _@activity('Execute Pipeline1').output.pipelineReturnValue.keyName_. The use case is limitless. For instance, you may use
 * An _int_ value from child pipeline to define the wait period for a [wait activity](control-flow-wait-activity.md)
-* A _sting_ value to define the URL for the [Web activity](control-flow-web-activity.md)
+* A _string_ value to define the URL for the [Web activity](control-flow-web-activity.md)
 * An _expression_ value payload for a [script activity](transform-data-using-script.md) for logging purposes.
 
 :::image type="content" source="media/pipeline-return-value/pipeline-return-value-03-calling-pipeline.png" alt-text="Screenshot shows the calling pipeline.":::

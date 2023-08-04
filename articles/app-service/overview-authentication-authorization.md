@@ -21,6 +21,8 @@ Implementing a secure solution for authentication (signing-in users) and authori
 - It’s built directly into the platform and doesn’t require any particular language, SDK, security expertise, or even any code to utilize.
 - You can integrate with multiple login providers. For example, Azure AD, Facebook, Google, Twitter.
 
+Your app might need to support more complex scenarios such as Visual Studio integration or incremental consent.  There are several different authentication solutions available to support these scenarios. To learn more, read [Identity scenarios](identity-scenarios.md).
+
 ## Identity providers
 
 App Service uses [federated identity](https://en.wikipedia.org/wiki/Federated_identity), in which a third-party identity provider manages the user identities and authentication flow for you. The following identity providers are available by default:

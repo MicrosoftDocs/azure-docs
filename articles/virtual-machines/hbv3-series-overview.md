@@ -3,6 +3,7 @@ title: HBv3-series VM overview, architecture, topology - Azure Virtual Machines 
 description: Learn about the HBv3-series VM size in Azure.  
 services: virtual-machines 
 tags: azure-resource-manager 
+ms.custom: devx-track-linux
 ms.service: virtual-machines 
 ms.subservice: hpc
 ms.workload: infrastructure-services 
@@ -45,10 +46,10 @@ Each HBv3 VM size is similar in physical layout, features, and performance of a 
 | HBv3-series VM size             | NUMA domains | Cores per NUMA domain  | Similarity with AMD EPYC         |
 |---------------------------------|--------------|------------------------|----------------------------------|
 Standard_HB120rs_v3               | 4            | 30                     | Dual-socket EPYC 7773X           |
-Standard_HB120r-96s_v3            | 4            | 24                     | Dual-socket EPYC 7643            |
-Standard_HB120r-64s_v3            | 4            | 16                     | Dual-socket EPYC 7573X           |
-Standard_HB120r-32s_v3            | 4            | 8                      | Dual-socket EPYC 7373X           |
-Standard_HB120r-16s_v3            | 4            | 4                      | Dual-socket EPYC 72F3            |
+Standard_HB120-96rs_v3            | 4            | 24                     | Dual-socket EPYC 7643            |
+Standard_HB120-64rs_v3            | 4            | 16                     | Dual-socket EPYC 7573X           |
+Standard_HB120-32rs_v3            | 4            | 8                      | Dual-socket EPYC 7373X           |
+Standard_HB120-16rs_v3            | 4            | 4                      | Dual-socket EPYC 72F3            |
 
 > [!NOTE]
 > The constrained cores VM sizes only reduce the number of physical cores exposed to the VM. All global shared assets (RAM, memory bandwidth, L3 cache, GMI and xGMI connectivity, InfiniBand, Azure Ethernet network, local SSD) stay constant. This allows a customer to pick a VM size best tailored to a given set of workload or software licensing needs.

@@ -3,7 +3,7 @@ title: Plan a Privileged Identity Management deployment
 description: Learn how to deploy Privileged Identity Management (PIM) in your Azure AD organization.
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 editor: ''
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.subservice: pim
 ms.topic: conceptual
 ms.date: 2/3/2023
-ms.author: amsliu
+ms.author: billmath
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -93,11 +93,11 @@ In case the role expires, you can **extend** or **renew** these assignments.
 
 ## Plan the project
 
-When technology projects fail, it’s typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you’re engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood.
+When technology projects fail, it’s typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you’re engaging the right stakeholders](../fundamentals/deployment-plans.md) and that stakeholder roles in the project are well understood.
 
 ### Plan a pilot
 
-At each stage of your deployment ensure that you are evaluating that the results are as expected. See [best practices for a pilot](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot).
+At each stage of your deployment ensure that you are evaluating that the results are as expected. See [best practices for a pilot](../fundamentals/deployment-plans.md#best-practices-for-a-pilot).
 
 * Start with a small set of users (pilot group) and verify that the PIM behaves as expected.
 
@@ -313,5 +313,5 @@ Configure PIM for Groups members and owners to require approval for activation a
 
 * If there is PIM-related issues, see [Troubleshooting a problem with PIM](pim-troubleshoot.md).
 
-* [Deploy other identity features](../fundamentals/active-directory-deployment-plans.md)
+* [Deploy other identity features](../fundamentals/deployment-plans.md)
 

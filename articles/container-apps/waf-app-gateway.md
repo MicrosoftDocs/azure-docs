@@ -26,7 +26,7 @@ Reverse proxies allow you to place services in front of your apps that supports 
 
 This article demonstrates how to protect your container apps using a [Web Application Firewall (WAF) on Azure Application Gateway](../web-application-firewall/ag/ag-overview.md) with an internal Container Apps environment.
 
-For more information on networking concepts in Container Apps, see [Networking Architecture in Azure Container Apps](./networking.md).
+For more information on networking concepts in Container Apps, see [Networking Environment in Azure Container Apps](./networking.md).
 
 ## Prerequisites
 

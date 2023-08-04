@@ -1,0 +1,14 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/network-watcher/enable-network-watcher-flow-log-settings.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-create",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/connection-monitor.md",
+            "redirect_url": "/azure/network-watcher/monitor-vm-communication",
+            "redirect_document_id": true
+        }
+    ]
+}

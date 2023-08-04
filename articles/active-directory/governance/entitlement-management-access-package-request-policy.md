@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 01/25/2023
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -127,7 +127,7 @@ Follow these steps if you want to allow users not in your directory to request t
     | --- | --- |
     | **Specific connected organizations** | Choose this option if you want to select from a list of organizations that your administrator previously added. All users from the selected organizations can request this access package. |
     | **All configured connected organizations** | Choose this option if all users from all your configured connected organizations can request this access package. Only users from configured connected organizations can request access packages that are shown to users from all configured organizations. |
-    | **All users (All connected organizations + any new external users)** | Choose this option if any user on the internet should be able to request this access package.  If they don’t belong to a connected organization in your directory, a connected organization will automatically be created for them when they request the package. The automatically created connected organization will be in a **proposed** state. For more information about the proposed state, see [State properties of connected organizations](entitlement-management-organization.md#state-properties-of-connected-organizations). |
+    | **All users (All connected organizations + any new external users)** | Choose this option if any user on the internet should be able to request this access package.  If they don’t belong to a connected organization in your directory, a connected organization will automatically be created for them when they request the package. The automatically created connected organization will be in a **proposed** state. For more information about the proposed state, see [State property of connected organizations](entitlement-management-organization.md#state-property-of-connected-organizations). |
 
     A connected organization is an external Azure AD directory or domain that you have a relationship with.
 
@@ -230,24 +230,24 @@ Select-MgProfile -Name "beta"
 $apid = "cdd5f06b-752a-4c9f-97a6-82f4eda6c76d"
 
 $pparams = @{
-	AccessPackageId = $apid
-	DisplayName = "direct"
-	Description = "direct assignments by administrator"
-	AccessReviewSettings = $null
-	RequestorSettings = @{
-		ScopeType = "NoSubjects"
-		AcceptRequests = $true
-		AllowedRequestors = @(
-		)
-	}
-	RequestApprovalSettings = @{
-		IsApprovalRequired = $false
-		IsApprovalRequiredForExtension = $false
-		IsRequestorJustificationRequired = $false
-		ApprovalMode = "NoApproval"
-		ApprovalStages = @(
-		)
-	}
+    AccessPackageId = $apid
+    DisplayName = "direct"
+    Description = "direct assignments by administrator"
+    AccessReviewSettings = $null
+    RequestorSettings = @{
+        ScopeType = "NoSubjects"
+        AcceptRequests = $true
+        AllowedRequestors = @(
+        )
+    }
+    RequestApprovalSettings = @{
+        IsApprovalRequired = $false
+        IsApprovalRequiredForExtension = $false
+        IsRequestorJustificationRequired = $false
+        ApprovalMode = "NoApproval"
+        ApprovalStages = @(
+        )
+    }
 }
 New-MgEntitlementManagementAccessPackageAssignmentPolicy -BodyParameter $pparams
 ```

@@ -53,6 +53,9 @@
           items:
           - name: Java
             href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+        - name: Send events using Data Generator
+          href: send-and-receive-events-using-data-generator.md
+          displayName: No Code, Sample data
     - name: Capture events
       items:
         - name: Use the Azure portal to enable Event Hubs Capture
@@ -96,6 +99,8 @@
       items:
       - name: Capture event data in Event Hubs
         href: event-hubs-capture-overview.md
+      - name: Authentication modes for capture destination
+        href: event-hubs-capture-managed-identity.md
       - name: Explore captured Avro files
         href: explore-captured-avro-files.md
     - name: Log compaction
@@ -199,8 +204,6 @@
           href: add-custom-data-event.md
         - name: Dynamically add partitions
           href: dynamically-add-partitions.md
-        - name: Use Blob Storage as checkpoint store on Azure Stack Hub
-          href: use-blob-storage-checkpoint-store-azure-stack-hub.md
         - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
           href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=/azure/event-hubs/toc.json
         - name: Exchange events between applications using different protocols
@@ -264,7 +267,7 @@
         - name: Use the Spring Boot Starter for Apache Kafka
           href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
           maintainContext: true
-    - name: Integrate with Apache Kafka
+    - name: Use Kafka on Azure Event Hubs
       items:
         - name: Kafka developer guide for Event Hubs
           href: apache-kafka-developer-guide.md
@@ -278,20 +281,24 @@
             href: event-hubs-kafka-mirrormaker-2-tutorial.md
           - name: Using Apache Kafka Mirror Maker 1
             href: event-hubs-kafka-mirror-maker-tutorial.md
-        - name: Connect Apache Spark to an event hub
-          href: event-hubs-kafka-spark-tutorial.md
-        - name: Connect Apache Flink to an event hub
-          href: event-hubs-kafka-flink-tutorial.md
-        - name: Integrate Apache Kafka Connect 
-          href: event-hubs-kafka-connect-tutorial.md
-        - name: Integrate Apache Kafka Connect with Debezium
-          href: event-hubs-kafka-connect-debezium.md
-        - name: Connect Akka Streams to an event hub
-          href: event-hubs-kafka-akka-streams-tutorial.md
+        - name: Kafka Connect with Event Hubs
+          items:
+          - name: Integrate Apache Kafka Connect 
+            href: event-hubs-kafka-connect-tutorial.md
+          - name: Connect Apache Spark to an event hub
+            href: event-hubs-kafka-spark-tutorial.md
+          - name: Connect Apache Flink to an event hub
+            href: event-hubs-kafka-flink-tutorial.md
+          - name: Integrate Apache Kafka Connect with Debezium
+            href: event-hubs-kafka-connect-debezium.md
+          - name: Connect Akka Streams to an event hub
+            href: event-hubs-kafka-akka-streams-tutorial.md
         - name: FAQ - Event Hubs for Kafka
           href: apache-kafka-frequently-asked-questions.yml
     - name: Manage and monitor
       items:
+        - name: Configure properties for an event hub
+          href: configure-event-hub-properties.md
         - name: Monitor Azure Event Hubs
           href: monitor-event-hubs.md
         - name: Stream Azure Diagnostics data using Event Hubs
@@ -316,12 +323,16 @@
           href: transport-layer-security-audit-minimum-version.md
         - name: Configure TLS version for client
           href: transport-layer-security-configure-client-version.md
+        - name: Migrate to passwordless connections
+          href: passwordless-migration-event-hubs.md
     - name: Troubleshoot
       items:
         - name: Troubleshoot connectivity issues
           href: troubleshooting-guide.md
         - name: Troubleshoot authentication and authorization issues
           href: troubleshoot-authentication-authorization.md
+        - name: Troubleshoot checkpoint store issues
+          href: troubleshoot-checkpoint-store-issues.md
         - name: Kafka troubleshooting guide for Event Hubs
           href: apache-kafka-troubleshooting-guide.md
         - name: EventHubsException 
