@@ -15,7 +15,7 @@ Azure Container Apps features two different plan types.
 
 | Plan type | Description | In Preview |
 |--|--|--|
-| [Consumption only](#consumption) | Serverless environment with support for scale-to-zero and pay only for resources your apps use. | No |
+| [Consumption](#consumption) | Serverless environment with support for scale-to-zero and pay only for resources your apps use. | No |
 | [Dedicated](#dedicated) | Fully managed environment with support for scale-to-zero and pay only for resources your apps use. Optionally, run apps with customized hardware and increased cost predictability using Dedicated workload profiles. | Yes |
 
 ## Consumption
