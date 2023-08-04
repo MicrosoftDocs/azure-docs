@@ -20,10 +20,6 @@
         href: migrate-api-mgt.md
       - name: Azure App Configuration
         href: migrate-app-configuration.md
-      - name: Azure App Service Environment
-        href: migrate-app-service-environment.md
-      - name: Azure App Service
-        href: migrate-app-service.md
       - name: Azure Application Gateway
         href: migrate-app-gateway-v2.md
       - name: Azure Functions
