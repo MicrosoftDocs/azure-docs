@@ -218,7 +218,7 @@ The following steps include an example to show how a graphical runbook that uses
 
     :::image type="content" source="./media/migrate-run-as-account-managed-identity/author-activity-log-graphical-runbook-inline.png" alt-text="Screenshot to edit code activity." lightbox="./media/migrate-run-as-account-managed-identity/author-activity-log-graphical-runbook-expanded.png":::
 
-1. In the **Code Editor** page, enter the the following PowerShell code and select **OK**. 
+1. In the **Code Editor** page, enter the following PowerShell code and select **OK**. 
 
     ```powershell-interactive
    try 
