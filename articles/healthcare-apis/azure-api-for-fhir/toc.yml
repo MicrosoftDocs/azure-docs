@@ -2,7 +2,7 @@ items:
 - name: Azure API for FHIR
   href: index.yml
 - name: Overview
-    href: overview.md
+  href: overview.md
 - name: Quickstarts
   expanded: true
   items:
