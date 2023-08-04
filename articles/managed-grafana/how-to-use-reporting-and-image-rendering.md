@@ -24,7 +24,7 @@ Image rendering is a CPU-intensive operation. An Azure Managed Grafana instance 
 > [!NOTE]
 > You'll see a "Image Rendering Timeout" error if a rendering request has exceeded the 200 second limit.
 
-For screen-capturing in alerts, the Grafana software only allows 30 seconds to snapshot panel images before timing out. At most 3 screenshots can be taken within this time frame. If there is a sudden surge in alert volume, some alerts won't have screenshots even if screen-capturing has been enabled.
+For screen-capturing in alerts, the Grafana software only allows 30 seconds to snapshot panel images before timing out. At most three screenshots can be taken within this time frame. If there's a sudden surge in alert volume, some alerts may not have screenshots even if screen-capturing has been enabled.
 
 > [!NOTE]
 > Overloading the Grafana image renderer may cause it to become unstable. You can reduce the number of alerts that must include screenshots by only setting the Dashboard UID and Panel ID annotations in those alert rules.
