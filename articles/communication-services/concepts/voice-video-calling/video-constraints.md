@@ -25,7 +25,7 @@ ACS Calling SDK (Web) currently supports setting the maximum video resolution th
 
 ACS Calling SDK (Android/iOS/Windows) currently supports setting the maximum values of video resolution and framerate for outgoing video streams and setting the maximum resolution for incoming video streams. The constraints can be set at the start of the call and during the call.
 
-### Supported constraints
+## Supported constraints
 
 | Platform | Supported Constraints | 
 | ----------- | ----------- |

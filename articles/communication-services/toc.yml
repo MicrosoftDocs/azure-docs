@@ -116,6 +116,8 @@ items:
       href: quickstarts/ui-library/get-started-composites.md
     - name: Add data channel messaging to your calling app
       href: quickstarts/voice-video-calling/get-started-data-channel.md
+    - name: Set video constraints in your calling app
+      href: quickstarts/voice-video-calling/get-started-video-constraints.md
   - name: Chat
     items:
     - name: Connect to a chat 
