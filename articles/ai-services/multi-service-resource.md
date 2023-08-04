@@ -67,7 +67,7 @@ Azure AI services are represented by Azure [resources](../azure-resource-manager
 
 ## Next steps
 
-* Now that you have a resource, you can authenticate your APi requests to the following [Azure AI services](./what-are-ai-services.md). Use these links to find quickstart articles, samples and more to start using your resource.
+* Now that you have a resource, you can authenticate your API requests to the following [Azure AI services](./what-are-ai-services.md). Use these links to find quickstart articles, samples and more to start using your resource.
     * [Content Moderator](./content-moderator/index.yml) (retired) 
     * [Custom Vision](./custom-vision-service/index.yml) 
     * [Document Intelligence](./document-intelligence/index.yml)
