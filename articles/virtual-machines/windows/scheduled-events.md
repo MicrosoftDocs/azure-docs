@@ -101,6 +101,29 @@ Scheduled events are disabled by default for [VMSS Guest OS upgrades or reimages
 
 ## Use the API
 
+### High level overview
+
+There are two major components to handling Scheduled Events, preparation and recovery. All current events impacting the customer will be available via the
+Scheduled Events endpoint within 30 seconds of creation. When the event has reached a terminal state, it will be removed from the list of events. A template for how
+to manage Scheduled Events follows:
+
+```
+current_list_of_scheduled_events = get_latest_from_se_endpoint()
+
+#prepare for new events
+for each event in current_list_of_scheduled_events:
+  if event not in previous_list_of_scheduled_events:
+    prepare_for_event(event)
+
+#recover from completed events
+for each event in previous_list_of_scheduled_events:
+  if event not in current_list_of_scheduled_events:
+    receover_from_event(event)
+
+#prepare for future jobs
+previous_list_of_scheduled_events = current_list_of_scheduled_events
+```
+
 ### Headers
 When you query Metadata Service, you must provide the header `Metadata:true` to ensure the request wasn't unintentionally redirected. The `Metadata:true` header is required for all scheduled events requests. Failure to include the header in the request results in a "Bad Request" response from Metadata Service.
 
