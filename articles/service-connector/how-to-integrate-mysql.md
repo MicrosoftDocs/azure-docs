@@ -189,7 +189,7 @@ db, err := sql.Open("mysql", connectionString)
 |-----------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `AZURE_MYSQL_CONNECTIONSTRING `     | ADO.NET MySQL connection string | `Server=<MySQL-DB-name>.mysql.database.azure.com;Database=<MySQL-DB-name>;Port=3306;User Id=<MySQL-DBusername>;SSL Mode=Required;` |
 
-[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md#tab=dotnet)]
+[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
 
 
 #### [Java(JDBC)](#tab/systemmi-java)
@@ -198,7 +198,7 @@ db, err := sql.Open("mysql", connectionString)
 |-----------------------------------|------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | `AZURE_MYSQL_CONNECTIONSTRING`      | JDBC MySQL connection string | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required&user=<MySQL-DB-username>` |
 
-[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md#jtab/ava)]
+[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
 
 
 #### [Spring Boot(JDBC)](#tab/systemmi-spring)
