@@ -40,3 +40,5 @@
       href: how-to-scale-cluster.md
     - name: Restore cluster
       href: how-to-restore-cluster.md
+    - name: Perform text search
+      href: how-to-text-indexes.md
