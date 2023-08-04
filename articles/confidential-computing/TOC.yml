@@ -140,6 +140,8 @@
       items:
       - name: Remove sudo users from Linux image
         href: harden-the-linux-image-to-remove-sudo-users.md
+      - name: Remove azure agents from Linux image
+        href: harden-a-linux-image-to-remove-azure-guest-agents.md
     - name: Secure Key Release (SKR) with Azure Key Vault
       items:
       - name: SKR with Azure Confidential Computing Concept
