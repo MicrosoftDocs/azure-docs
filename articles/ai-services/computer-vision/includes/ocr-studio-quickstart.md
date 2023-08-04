@@ -30,7 +30,7 @@ ms.author: pafarley
 1. Under **Try it out**, acknowledge that this demo incurs usage to your Azure account. For more information, see [Azure AI Vision pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/).
 1. Select an image from the available set, or upload your own.
 1. If necessary, select **Please select a resource** to select your resource.
-1. After you select your image, the extracted text appear in the output window.
+1. After you select your image, the extracted text appears in the output window.
 
    You can also select the **JSON** tab to see the JSON output that the API call returns.
 
