@@ -129,16 +129,18 @@ Once you have configured your Cost Analysis view, it is strongly recommended to 
 
 To be notified if there are significant increases in your spending, you can set up [cost alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md) (specifically a budget alert) for a single workspace or group of workspaces. 
 
-### Download usage
+### Export usage details
 
 To gain more understanding of your usage and costs, create exports using Cost Analysis in Azure Cost Management + Billing. See [Tutorial: Create and manage exported data](../cost-management-billing/costs/tutorial-export-acm-data.md) to learn how to automatically create a daily export you can use for regular analysis.
 
 These exports are in CSV format and will contain a list of daily usage (billed quantity and cost) by resource, billing meter and a few more fields such as [AdditionalInfo](../cost-management-billing/automate/understand-usage-details-fields#list-of-fields-and-descriptions.md). You can use Microsoft Excel to do rich analyses of your usage not possible in the Cost Analytics experiences in the portal.
 
 For instance, usage from Log Analytics can be found by first filtering on the **Meter Category** column to show 
+
 1. **Log Analytics** (for Pay-as-you-go data ingestion and interactive Data Retention), 
 2. **Insight and Analytics** (used by some of the legacy pricing tiers), and 
 3. **Azure Monitor** (used by most other Log Analytics features such as Commitment Tiers, Basic Logs ingesting, Data Archive, Search Queries, Search Jobs, etc.) 
+
 Add a filter on the **Instance ID** column for **contains workspace** or **contains cluster**. The usage is shown in the **Consumed Quantity** column. The unit for each entry is shown in the **Unit of Measure** column.
 
 ### Legacy Application Insights meters
