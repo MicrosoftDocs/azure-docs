@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, kewear, azla
 ms.topic: how-to
 ms.custom: devx-track-dotnet
-ms.date: 07/21/2023
+ms.date: 08/04/2023
 # Customer intent: As a logic app workflow developer, I want to write and run my own .NET Framework code to perform custom integration tasks.
 ---
 
@@ -196,7 +196,7 @@ This example continues with the sample code without any changes.
 
 ## Compile and build your code
 
-After you finish writing your code, compile to make sure that no build errors exist. Your function project automatically includes build tasks, which compile and add your code to the **lib\custom\net472** folder in your logic app project where workflows look for custom code to run.
+After you finish writing your code, compile to make sure that no build errors exist. Your function project automatically includes build tasks, which compile and then add your code to the **lib\custom** folder in your logic app project where workflows look for custom code to run. These tasks put the assemblies in the **lib\custom\net472** folder.
 
 1. In Visual Studio Code, from the **Terminal** menu, select **New Terminal**.
 
@@ -212,7 +212,7 @@ After you finish writing your code, compile to make sure that no build errors ex
 
    :::image type="content" source="media/create-run-custom-code-functions/dotnet-restore-complete.png" alt-text="Screenshot shows Visual Studio Code, Terminal window, and completed dotnet restore command.":::
 
-1. After the command prompt reappears, enter **dotnet build**. Or, from the **Terminal** menu, select **Run Build Task**.
+1. After the command prompt reappears, enter **dotnet build**. Or, from the **Terminal** menu, select **Run Task** > **Build (functions)**.
 
    If your build succeeds, the **Terminal** window reports that the **Build succeeded**.
 
