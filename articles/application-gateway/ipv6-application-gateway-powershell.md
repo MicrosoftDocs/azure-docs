@@ -13,9 +13,9 @@ ms.custom: mvc, devx-track-azurepowershell
 
 ## Overview 
 
-Azure Application gateway now supports dual stack frontend connections. Application Gateway can now handle client traffic from both IPv4 and IPv6 addresses, providing greater flexibility and connectivity for our users. Azure VNETs already provides dual-stack capability. To learn more about Azure VNETs dual-stack capability check [IPv6 for Azure Virtual Network](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/ipv6-overview).
+[Azure Application Gateway](overview.md) now supports dual stack (IPv4 and IPv6) frontend connections, providing greater flexibility and connectivity. 
 
-If you are currently using Application Gateway with IPv4 addresses, you can continue to do so without any changes. However, if you want to take advantage of the benefits of IPv6 addressing, you can now do so by configuring your gateway to use IPv6 addresses. Currently we do not support connectivity to IPv6 backends. To support IPv6 connectivity, you must create a dual-stack VNET. This dual-stack VNET will have subnets for both IPv4 and IPv6.
+If you are currently using Application Gateway with IPv4 addresses, you can continue to do so without any changes. However, if you want to take advantage of the benefits of IPv6 addressing, you can configure your gateway to use IPv6 addresses. Currently, we do not support connectivity to IPv6 backends. To support IPv6 connectivity, you must create a dual-stack VNet. This dual-stack VNet has subnets for both IPv4 and IPv6. Azure VNets already [provide dual-stack capability](../virtual-network/ip-services/ipv6-overview). 
 
 > [!IMPORTANT]
 > Application Gateway IPv6 frontend is currently in PREVIEW.<br>
@@ -29,11 +29,15 @@ You learn how to:
 * Create an application gateway with [IPv6 frontend](#create-application-gateway-frontend-public-ip-addresses)
 * Create a virtual machine scale set with the default [backend pool](#create-the-backend-pool-and-settings)
 
+Azure PowerShell is used to create an IPv6 Azure Application Gateway and perform testing to ensure it works correctly. Application gateway can manage and secure web traffic to servers that you maintain. A [virtual machine scale set](../virtual-machine-scale-sets/overview.md) is for backend servers to manage web traffic. The scale set contains two virtual machine instances that are added to the default backend pool of the application gateway. For more information about the components of an application gateway, see [Application gateway components](application-gateway-components.md). 
+
+You can also complete this quickstart using [Azure portal](ipv6-application-gateway-portal.md)
+
+## Prerequisites
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. To find the version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
-
-Azure PowerShell is used to create an IPv6 [Azure Application Gateway](overview.md) perform testing to ensure it works correctly. Application gateway can manage and secure web traffic to servers that you maintain. A [virtual machine scale set](../virtual-machine-scale-sets/overview.md) is for backend servers to manage web traffic. The scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
 
 ## Regions and availability
 
@@ -50,7 +54,7 @@ The IPv6 Application Gateway preview is available to all public cloud regions wh
 ## Register to the preview
 
 > [!NOTE]
-> When you join the preview, all new Application Gateways will provision with the ability to define a dual stack frontend connection.  If you wish to opt out from the new functionality and return to the current generally available functionality of Application Gateway, you can [unregister from the preview](#unregister-from-the-preview).
+> When you join the preview, all new Application Gateways provision with the ability to define a dual stack frontend connection.  If you wish to opt out from the new functionality and return to the current generally available functionality of Application Gateway, you can [unregister from the preview](#unregister-from-the-preview).
 
 For more information about preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md)
 
@@ -243,10 +247,9 @@ New-AzApplicationGateway `
 -Force
 ```
 
-
 ## Backend servers
 
-Now that you have created the Application Gateway, create the backend virtual machines which will host the websites. A backend can be composed of NICs, virtual machine scale sets, public IP address, internal IP address, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service.
+Now that you have created the Application Gateway, create the backend virtual machines which host the websites. A backend can be composed of NICs, virtual machine scale sets, public IP address, internal IP address, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service.
 
 In this example, you create two virtual machines to use as backend servers for the application gateway. You also install IIS on the virtual machines to verify that Azure successfully created the application gateway.
 

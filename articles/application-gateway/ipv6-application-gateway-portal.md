@@ -1,5 +1,5 @@
 ---
-title: Configure Application Gateway with a IPv6 frontend IPaddress using the Azure portal
+title: Configure Application Gateway with a IPv6 frontend IPaddress using the Azure portal (Preview)
 titleSuffix: Azure Application Gateway
 description: Learn how to configure Application Gateway with a frontend private IPv6 address. 
 services: application-gateway
@@ -11,39 +11,43 @@ ms.service: application-gateway
 ms.custom: mvc, mode-ui
 ---
 
-# Configure Application Gateway with a frontend public  IPv6 address using the Azure Portal (Public Preview)
+# Configure Application Gateway with a frontend public IPv6 address using the Azure Portal (Preview)
 
 ## Overview 
-Azure Application gateway now supports dual stack frontend connections. Application Gateway can now handle client traffic from both IPv4 and IPv6 addresses, providing greater flexibility and connectivity for our users. Azure VNETs already provides dual-stack capability. To learn more about Azure VNETs dual-stack capability check [IPv6 for Azure Virtual Network](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/ipv6-overview).
 
-If you are currently using Application Gateway with IPv4 addresses, you can continue to do so without any changes. However, if you want to take advantage of the benefits of IPv6 addressing, you can now do so by configuring your gateway to use IPv6 addresses. Currently we do not support connectivity to IPv6 backends. To support IPv6 connectivity, you must create a dual-stack VNET. This dual-stack VNET will have subnets for both IPv4 and IPv6.
+[Azure Application Gateway](overview.md) now supports dual stack (IPv4 and IPv6) frontend connections, providing greater flexibility and connectivity. If you are currently using Application Gateway with IPv4 addresses, you can continue to do so without any changes. However, if you want to take advantage of the benefits of IPv6 addressing, you can configure your gateway to use IPv6 addresses. Currently, we do not support connectivity to IPv6 backends.
 
-Limitations
-* Supported for Application Gateway Standard V2 only.
-* No support  for upgrading the existing gateways to Ipv6.
-* No support  for IPv6 private address.
-* No support for IPv6 backend.
-* No IPv6 Private Link Support
-
-
-## Regions and availability
-
-The IPv6  Application Gateway preview is available to all public cloud regions where Application Gateway v2 sku is supported.
-
-
-In this article, you will  use the Azure portal to create an IPv6 [Azure Application Gateway](overview.md) and test it to ensure it works correctly. You will assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, a simple setup is used with two public frontend IP addresses (IPv4 and IPv6), a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines (VMs) in the backend pool.
-
+To support IPv6 connectivity, you must create a dual-stack VNet. This dual-stack VNet has subnets for both IPv4 and IPv6. Azure VNets already [provide dual-stack capability](../virtual-network/ip-services/ipv6-overview). 
 
 For more information about the components of an application gateway, see [Application gateway components](application-gateway-components.md).
 
+> [!IMPORTANT]
+> Application Gateway IPv6 frontend is currently in PREVIEW.<br>
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-You can also complete this quickstart using [Azure PowerShell](ipv6-application-gateway-powershell.md)
+## In this article
 
+The Azure portal is used to create an IPv6 Azure Application Gateway and perform testing to ensure it works correctly.
 
-## Onboard to public preview
+You learn how to:
+* [Register](#register-to-the-preview) and [unregister](#unregister-from-the-preview) from the preview
+* Set up the dual-stack network
+* Create an application gateway with IPv6 frontend
+* Create a virtual machine and install IIS for testing
 
-We need this like - https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-private-deployment?tabs=powershell - To be completed for feature - AllowApplicationGatewayIPv6
+You can also complete this quickstart using [Azure PowerShell](ipv6-application-gateway-powershell.md).
 
+## Regions and availability
+
+The IPv6 Application Gateway preview is available to all public cloud regions where Application Gateway v2 SKU is supported.
+
+## Limitations
+
+* Supported for Application Gateway Standard V2 only
+* Not supported for upgrading an existing gateway to IPv6
+* Not supported for IPv6 private addresses
+* Not supported for IPv6 backend
+* Not supported for IPv6 Private Link
 
 ## Prerequisites
 
@@ -51,9 +55,41 @@ An Azure account with an active subscription is required.  If you don't already 
 
 Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
+## Register to the preview
+
+> [!NOTE]
+> When you join the preview, all new Application Gateways provision with the ability to define a dual stack frontend connection.  If you wish to opt out from the new functionality and return to the current generally available functionality of Application Gateway, you can [unregister from the preview](#unregister-from-the-preview).
+
+For more information about preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md)
+
+In this article, you use the Azure portal to create an IPv6 Azure Application Gateway and test it to ensure it works correctly. You assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, a simple setup is used with two public frontend IP addresses (IPv4 and IPv6), a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines (VMs) in the backend pool.
+
+Use the following steps to enroll into the public preview for IPv6 Application Gateway using the Azure portal:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. In the search box, enter _subscriptions_ and select **Subscriptions**.
+
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/search.png" alt-text="Azure portal search.":::
+
+3. Select the link for your subscription's name.
+
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/subscriptions.png" alt-text="Select Azure subscription.":::
+
+4. From the left menu, under **Settings** select **Preview features**.
+
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-menu.png" alt-text="Azure preview features menu.":::
+
+5. You see a list of available preview features and your current registration status.
+
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-list.png" alt-text="Azure portal list of preview features.":::
+
+6. From **Preview features** type into the filter box **EnableApplicationGatewayNetworkIsolation**, check the feature, and click **Register**.
+
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/filter.png" alt-text="Azure portal filter preview features.":::
+
 ## Create an application gateway
 
-You'll create the application gateway using the tabs on the **Create application gateway** page.
+Create the application gateway using the tabs on the **Create application gateway** page.
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 2. Under **Categories**, select **Networking** and then select **Application Gateway** in the **Popular Azure services** list.
@@ -77,7 +113,7 @@ You'll create the application gateway using the tabs on the **Create application
 
     - **Name**: Enter *myVNet* for the name of the virtual network.
 
-    - **Subnet name** (Application Gateway subnet): The **Subnets** grid will show a subnet named *default*. Change the name of this subnet to *myAGSubnet*.<br>The application gateway subnet can contain only application gateways. No other resources are allowed. The default IP address range provided is 10.0.0.0/24.
+    - **Subnet name** (Application Gateway subnet): The **Subnets** grid shows a subnet named *default*. Change the name of this subnet to *myAGSubnet*.<br>The application gateway subnet can contain only application gateways. No other resources are allowed. The default IP address range provided is 10.0.0.0/24.
 
     Select **OK** to close the **Create virtual network** window and save the virtual network settings.
 
@@ -140,7 +176,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 
 4. On the **Backend targets** tab, select **myBackendPool** for the **Backend target**.
 
-5. For the **Backend setting**, select **Add new** to add a new Backend setting. The Backend setting will determine the behavior of the routing rule. In the **Add Backend setting** window that opens, enter *myBackendSetting* for the **Backend settings name** and *80* for the **Backend port**. Accept the default values for the other settings in the **Add Backend setting** window, then select **Add** to return to the **Add a routing rule** window. 
+5. For the **Backend setting**, select **Add new** to add a new Backend setting. The Backend setting determines the behavior of the routing rule. In the **Add Backend setting** window that opens, enter *myBackendSetting* for the **Backend settings name** and *80* for the **Backend port**. Accept the default values for the other settings in the **Add Backend setting** window, then select **Add** to return to the **Add a routing rule** window. 
 
      ![Create new application gateway: HTTP setting](./media/application-gateway-create-gateway-portal/application-gateway-create-backendsetting.png)
 
@@ -254,6 +290,29 @@ To delete the resource group:
 4. Enter *myResourceGroupAG* under **TYPE THE RESOURCE GROUP NAME** and then select **Delete**
 
 ## Unregister from the preview
+
+To opt out of the public preview for the enhanced Application Gateway network controls via Portal, use the following steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. In the search box, enter _subscriptions_ and select **Subscriptions**.
+
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/search.png" alt-text="Azure portal search.":::
+
+3. Select the link for your subscription's name.
+
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/subscriptions.png" alt-text="Select Azure subscription.":::
+
+4. From the left menu, under **Settings** select **Preview features**.
+
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-menu.png" alt-text="Azure preview features menu.":::
+
+5. You see a list of available preview features and your current registration status.
+
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-list.png" alt-text="Azure portal list of preview features.":::
+
+6. From **Preview features** type into the filter box **EnableApplicationGatewayNetworkIsolation**, check the feature, and click **Unregister**.
+
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/filter.png" alt-text="Azure portal filter preview features.":::
 
 ## Next steps
 
