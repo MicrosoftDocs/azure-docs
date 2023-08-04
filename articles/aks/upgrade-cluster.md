@@ -357,7 +357,7 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-provider-register]: /cli/azure/provider#az_provider_register
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
 [upgrade-cluster]:  #upgrade-an-aks-cluster
 [planned-maintenance]: planned-maintenance.md
 [aks-auto-upgrade]: auto-upgrade-cluster.md
