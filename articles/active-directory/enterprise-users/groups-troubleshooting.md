@@ -27,13 +27,26 @@ To disable group creation for non-admin users in PowerShell:
 1. Verify that non-admin users are allowed to create groups:
 
    ```powershell
-   Get-MsolCompanyInformation | Format-List UsersPermissionToCreateGroupsEnabled
+   Get-MgBetaDirectorySetting | select -ExpandProperty values
    ```
 
-2. If it returns `UsersPermissionToCreateGroupsEnabled : True`, then non-admin users can create groups. To disable this feature:
+2. If it returns `EnableGroupCreation : True`, then non-admin users can create groups. To disable this feature:
 
    ```powershell
-   Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
+    Install-Module Microsoft.Graph.Beta.Identity.DirectoryManagement
+    Import-Module Microsoft.Graph.Beta.Identity.DirectoryManagement
+    $params = @{
+	TemplateId = "62375ab9-6b52-47ed-826b-58e47e0e304b"
+	Values = @(		
+		@{
+			Name = "EnableGroupCreation"
+			Value = "false"
+		}		
+	)
+    }
+    Connect-MgGraph -Scopes "Directory.ReadWrite.All"
+    New-MgBetaDirectorySetting -BodyParameter $params
+    
    ```
 
 **I received a max groups allowed error when trying to create a Dynamic Group in PowerShell**  
