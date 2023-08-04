@@ -1,5 +1,5 @@
 ---
-title: Defender for Cloud Planning multicloud security determine data residency requirements GDPR agent considerations guidance
+title: Planning multicloud security determine data residency requirements GDPR agent considerations guidance
 description: Learn about determining data residency requirements when planning multicloud deployment with Microsoft Defender for Cloud.
 ms.topic: how-to
 author: dcurwin

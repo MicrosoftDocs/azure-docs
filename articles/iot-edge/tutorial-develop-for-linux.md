@@ -8,15 +8,14 @@ ms.date: 05/02/2023
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: ai-gen-docs
 zone_pivot_groups: iotedge-dev
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Tutorial: Develop IoT Edge modules using Visual Studio Code
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
-
-[!INCLUDE [ai-generated-attribution](../../includes/ai-generated-attribution.md)]
 
 This tutorial walks through developing and deploying your own code to an IoT Edge device. You can use Azure IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. In the [Deploy code to a Linux device](quickstart-linux.md) quickstart, you created an IoT Edge device and deployed a module from the Azure Marketplace.
 

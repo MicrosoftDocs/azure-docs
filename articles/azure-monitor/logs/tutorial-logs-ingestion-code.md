@@ -192,8 +192,8 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
 3. Replace the variables in the following sample code with values from your DCE and DCR. You might also want to replace the sample data with your own.
 
     ```javascript
-    const { isAggregateLogsUploadError, DefaultAzureCredential } = require("@azure/identity");
-    const { LogsIngestionClient } = require("@azure/monitor-ingestion");
+    const { DefaultAzureCredential } = require("@azure/identity");
+    const { LogsIngestionClient, isAggregateLogsUploadError } = require("@azure/monitor-ingestion");
     
     require("dotenv").config();
     

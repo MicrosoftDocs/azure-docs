@@ -6,8 +6,7 @@ author: pauljewellmsft
 
 ms.author: pauljewell
 ms.date: 06/21/2021
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-storage
 ms.topic: quickstart
 ms.devlang: cpp
 ms.custom: mode-api

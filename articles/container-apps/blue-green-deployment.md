@@ -4,7 +4,7 @@ description: Minimize downtime and reduce the risks associated with new releases
 services: container-apps
 author: ruslany
 ms.service: container-apps
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-bicep
 ms.topic: how-to
 ms.date: 06/23/2023
 ms.author: ruslany
@@ -324,12 +324,12 @@ The following example shows how the `traffic` section is configured after this s
 { 
   "traffic": [
     {
-      "revisionName": "<APP_NAME>--c6f1515",
+      "revisionName": "<APP_NAME>--fb699ef",
       "weight": 0,
       "label": "blue"
     },
     {
-      "revisionName": "<APP_NAME>--fb699ef",
+      "revisionName": "<APP_NAME>--c6f1515",
       "weight": 100,
       "label": "green"
     }

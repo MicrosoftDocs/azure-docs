@@ -191,14 +191,6 @@ It's not possible to edit app settings in bulk by using a JSON file with Azure P
 
 -----
 
-### Configure arrays in app settings
-
-You can also configure arrays in app settings as shown in the following table.
-
-|App setting name | App setting value |
-|-----------------|-------------------|
-|MY_ENV_VAR | ['entry1', 'entry2', 'entry3'] |
-
 ## Configure connection strings
 
 In the [Azure portal], search for and select **App Services**, and then select your app. In the app's left menu, select **Configuration** > **Application settings**.
@@ -611,7 +603,7 @@ To add a custom handler:
 <!-- URL List -->
 
 [ASP.NET SignalR]: https://www.asp.net/signalr
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Configure a custom domain name in Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Set up staging environments in Azure App Service]: ./deploy-staging-slots.md
 [How to: Monitor web endpoint status]: ./web-sites-monitor.md

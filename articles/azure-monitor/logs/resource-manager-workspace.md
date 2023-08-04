@@ -5,7 +5,7 @@ ms.topic: sample
 ms.custom: devx-track-arm-template
 author: bwren
 ms.author: bwren
-ms.date: 06/23/2022
+ms.date: 07/30/2023
 ---
 
 # Resource Manager template samples for Log Analytics workspaces in Azure Monitor

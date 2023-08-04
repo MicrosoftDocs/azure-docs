@@ -1,18 +1,18 @@
 ---
-title: Application Insights Snapshot Debugger for .NET apps
-description: Debug snapshots are automatically collected when exceptions are thrown in production .NET apps.
+title: Debug exceptions in .NET applications using Snapshot Debugger
+description: Use Snapshot Debugger to automatically collect snapshots and debug exceptions in .NET apps.
 ms.author: hannahhunter
 author: hhunter-ms
 ms.reviewer: charles.weininger
 reviewer: cweining
 ms.topic: conceptual
-ms.custom: devx-track-dotnet, devdivchpfy22
-ms.date: 04/14/2023
+ms.custom: devx-track-dotnet, devdivchpfy22, engagement
+ms.date: 07/10/2023
 ---
 
-# Debug snapshots on exceptions in .NET apps
+# Debug exceptions in .NET applications using Snapshot Debugger
 
-When an exception occurs, you can automatically collect a debug snapshot from your live web application. The debug snapshot shows the state of source code and variables at the moment the exception was thrown.
+With Snapshot Debugger, you can automatically collect a debug snapshot when an exception occurs in your live .NET application. The debug snapshot shows the state of source code and variables at the moment the exception was thrown.
 
 The Snapshot Debugger in [Application Insights](../app/app-insights-overview.md):
 
@@ -20,31 +20,31 @@ The Snapshot Debugger in [Application Insights](../app/app-insights-overview.md)
 - Collects snapshots on your top-throwing exceptions.
 - Provides information you need to diagnose issues in production.
 
-To use the Snapshot Debugger, you:
+## How Snapshot Debugger works
 
-- Include the [Snapshot Collector NuGet package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in your application.
-- Configure collection parameters in [`ApplicationInsights.config`](../app/configuration-with-applicationinsights-config.md).
+The Snapshot Debugger is implemented as an [Application Insights telemetry processor](../app/configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). When your application runs, the Snapshot Debugger telemetry processor is added to your application's system-generated logs pipeline. The Snapshot Debugger process is as follows:
 
-## How snapshots work
-
-The Snapshot Debugger is implemented as an [Application Insights telemetry processor](../app/configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). When your application runs, the Snapshot Debugger telemetry processor is added to your application's system-generated logs pipeline.
-
-Each time your application calls [TrackException](../app/asp-net-exceptions.md#exceptions), the Snapshot Debugger computes a problem ID from the type of exception being thrown and the throwing method.
-Each time your application calls `TrackException`, a counter is incremented for the appropriate problem ID. When the counter reaches the `ThresholdForSnapshotting` value, the problem ID is added to a collection plan.
-
-The Snapshot Debugger also monitors exceptions as they're thrown by subscribing to the [AppDomain.CurrentDomain.FirstChanceException](/dotnet/api/system.appdomain.firstchanceexception) event. When that event fires, the problem ID of the exception is computed and compared against the problem IDs in the collection plan.
-
-If there's a match, a snapshot of the running process is created. The snapshot is assigned a unique identifier and the exception is stamped with that identifier. After the `FirstChanceException` handler returns, the thrown exception is processed as normal. Eventually, the exception reaches the `TrackException` method again. It's reported to Application Insights, along with the snapshot identifier.
+1. Each time your application calls [`TrackException`](../app/asp-net-exceptions.md#exceptions):
+   1. The Snapshot Debugger computes a problem ID from the type of exception being thrown and the throwing method.
+   1. A counter is incremented for the appropriate problem ID. 
+   1. When the counter reaches the `ThresholdForSnapshotting` value, the problem ID is added to a collection plan.
+1. The Snapshot Debugger also monitors exceptions as they're thrown by subscribing to the [`AppDomain.CurrentDomain.FirstChanceException`](/dotnet/api/system.appdomain.firstchanceexception) event. 
+   1. When this event fires, the problem ID of the exception is computed and compared against the problem IDs in the collection plan.
+1. If there's a match between problem IDs, a snapshot of the running process is created. 
+1. The snapshot is assigned a unique identifier and the exception is stamped with that identifier. 
+1. After the `FirstChanceException` handler returns, the thrown exception is processed as normal. 
+1. Eventually, the exception reaches the `TrackException` method again. It's reported to Application Insights, along with the snapshot identifier.
 
 The main process continues to run and serve traffic to users with little interruption. Meanwhile, the snapshot is handed off to the Snapshot Uploader process. The Snapshot Uploader creates a minidump and uploads it to Application Insights along with any relevant symbol (*.pdb*) files.
 
-Snapshot creation tips:
- * A process snapshot is a suspended clone of the running process.
- * Creating the snapshot takes about 10 milliseconds to 20 milliseconds.
- * The default value for `ThresholdForSnapshotting` is 1. This value is also the minimum. Your app has to trigger the same exception *twice* before a snapshot is created.
- * Set `IsEnabledInDeveloperMode` to `true` if you want to generate snapshots while you debug in Visual Studio.
- * The snapshot creation rate is limited by the `SnapshotsPerTenMinutesLimit` setting. By default, the limit is one snapshot every 10 minutes.
- * No more than 50 snapshots per day can be uploaded.
+> [!TIP]
+> Snapshot creation tips:
+> - A process snapshot is a suspended clone of the running process.
+> - Creating the snapshot takes about 10 milliseconds to 20 milliseconds.
+> - The default value for `ThresholdForSnapshotting` is 1. This value is also the minimum. Your app has to trigger the same exception *twice* before a snapshot is created.
+> - Set `IsEnabledInDeveloperMode` to `true` if you want to generate snapshots while you debug in Visual Studio.
+> - The snapshot creation rate is limited by the `SnapshotsPerTenMinutesLimit` setting. By default, the limit is one snapshot every 10 minutes.
+> - No more than 50 snapshots per day can be uploaded.
 
 ## Supported applications and environments
 
@@ -73,9 +73,16 @@ The following environments are supported:
 
 If you enabled the Snapshot Debugger but you aren't seeing snapshots, see the [Troubleshooting guide](snapshot-debugger-troubleshoot.md).
 
-## Required permissions
+## Requirements
 
-Access to snapshots is protected by Azure role-based access control. To inspect a snapshot, you must first be added to the [Application Insights Snapshot Debugger](../../role-based-access-control/role-assignments-portal.md) role. Subscription owners can assign this role to individual users or groups for the target **Application Insights Snapshot**.
+### Packages and configurations
+
+- Include the [Snapshot Collector NuGet package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in your application.
+- Configure collection parameters in [`ApplicationInsights.config`](../app/configuration-with-applicationinsights-config.md).
+
+### Permissions
+
+Since access to snapshots is protected by Azure role-based access control, you must be added to the [Application Insights Snapshot Debugger](../../role-based-access-control/role-assignments-portal.md) role. Subscription owners can assign this role to individual users or groups for the target **Application Insights Snapshot**.
 
 For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
@@ -92,30 +99,36 @@ Debug snapshots are stored for 15 days. The default data retention policy is set
 
 ### Publish symbols
 
-The Snapshot Debugger requires symbol files on the production server to decode variables and to provide a debugging experience in Visual Studio.
+The Snapshot Debugger requires symbol files on the production server to:
+- Decode variables
+- Provide a debugging experience in Visual Studio
 
-Version 15.2 (or above) of Visual Studio 2017 publishes symbols for release builds by default when it publishes to App Service. In prior versions, you must add the following line to your publish profile `.pubxml` file so that symbols are published in release mode:
+By default, Visual Studio 2017 versions 15.2+ publishes symbols for release builds when it publishes to App Service. 
+
+In prior versions, you must add the following line to your publish profile `.pubxml` file so that symbols are published in release mode:
 
 ```xml
     <ExcludeGeneratedDebugSymbol>False</ExcludeGeneratedDebugSymbol>
 ```
 
-For Azure Compute and other types, make sure that the symbol files are in the same folder of the main application .dll (typically, `wwwroot/bin`). Or they must be available on the current path.
+For Azure Compute and other types, make sure that the symbol files are either:
+- In the same folder of the main application `.dll` (typically, `wwwroot/bin`), or
+- Available on the current path.
 
 For more information on the different symbol options that are available, see the [Visual Studio documentation](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp). For best results, we recommend that you use *Full*, *Portable*, or *Embedded*.
 
 ### Optimized builds
 
-In some cases, local variables can't be viewed in release builds because of optimizations that are applied by the JIT compiler.
+In some cases, local variables can't be viewed in release builds because of optimizations applied by the JIT compiler.
 
-However, in App Service, the Snapshot Collector can deoptimize throwing methods that are part of its collection plan.
+However, in App Service, the Snapshot Debugger can deoptimize throwing methods that are part of its collection plan.
 
 > [!TIP]
 > Install the Application Insights Site extension in your instance of App Service to get deoptimization support.
 
 ## Release notes for Microsoft.ApplicationInsights.SnapshotCollector
 
-This article contains the release notes for the `Microsoft.ApplicationInsights.SnapshotCollector` NuGet package for .NET applications, which is used by the Application Insights Snapshot Debugger.
+This section contains the release notes for the `Microsoft.ApplicationInsights.SnapshotCollector` NuGet package for .NET applications, which is used by the Application Insights Snapshot Debugger.
 
 [Learn](./snapshot-debugger.md) more about the Application Insights Snapshot Debugger for .NET applications.
 
@@ -164,8 +177,8 @@ Addressed multiple improvements and added support for Azure Active Directory (Az
 - Added back `MinidumpWithThreadInfo` when writing dumps.
 - Added `CompatibilityVersion` to improve synchronization between the Snapshot Collector agent and the Snapshot Uploader on breaking changes.
 - Changed `SnapshotUploader` LogFile naming algorithm to avoid excessive file I/O in App Service.
-- Added pid, role name, and process start time to uploaded blob metadata.
-- Used `System.Diagnostics.Process` where possible in Snapshot Collector and Snapshot Uploader.
+- Added `pid`, `role name`, and `process start time` to uploaded blob metadata.
+- Used `System.Diagnostics.Process` in Snapshot Collector and Snapshot Uploader.
 
 #### New features
 Added Azure AD authentication to `SnapshotCollector`. To learn more about Azure AD authentication in Application Insights, see [Azure AD authentication for Application Insights](../app/azure-ad-authentication.md).
@@ -211,7 +224,7 @@ Switched to using `HttpClient` for all targets except `net45` because `WebReques
 - Deoptimization support (via ReJIT on attach) for .NET Core 3.0 applications.
 - Added symbols to NuGet package.
 - Set more metadata when you upload minidumps.
-- Added an `Initialized` property to `SnapshotCollectorTelemetryProcessor`. It's a `CancellationToken`, which is canceled when the Snapshot Collector is completely initialized and connected to the service endpoint.
+- Added an `Initialized` property to `SnapshotCollectorTelemetryProcessor`. It's a `CancellationToken`, which is canceled when the Snapshot Collector is initialized and connected to the service endpoint.
 - Snapshots can now be captured for exceptions in dynamically generated methods. An example is the compiled expression trees generated by Entity Framework queries.
 
 #### Bug fixes
@@ -221,10 +234,10 @@ Switched to using `HttpClient` for all targets except `net45` because `WebReques
 - Handle `InvalidOperationException` when you're deoptimizing dynamic methods (for example, Entity Framework).
 
 ### [1.3.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.5)
-- Added support for sovereign clouds (older versions won't work in sovereign clouds).
+- Added support for sovereign clouds (older versions don't work in sovereign clouds).
 - Adding Snapshot Collector made easier by using `AddSnapshotCollector()`. For more information, see [Enable Snapshot Debugger for .NET apps in Azure App Service](./snapshot-debugger-app-service.md).
 - Use the FISMA MD5 setting for verifying blob blocks. This setting avoids the default .NET MD5 crypto algorithm, which is unavailable when the OS is set to FIPS-compliant mode.
-- Ignore .NET Framework frames when deoptimizing function calls. This behavior can be controlled by the `DeoptimizeIgnoredModules` configuration setting.
+- Ignore .NET Framework frames when deoptimizing function calls. Control this behavior with the `DeoptimizeIgnoredModules` configuration setting.
 - Added the `DeoptimizeMethodCount` configuration setting that allows deoptimization of more than one function call.
 
 ### [1.3.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.4)
@@ -254,12 +267,12 @@ Fixed bug that was causing *SnapshotUploader.exe* to stop responding and not upl
 
 ### [1.3.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.0)
 #### Changes
-- For applications that target .NET Framework, Snapshot Collector now depends on Microsoft.ApplicationInsights version 2.3.0 or above.
-It used to be 2.2.0 or above.
+- For applications that target .NET Framework, Snapshot Collector now depends on Microsoft.ApplicationInsights version 2.3.0 or later.
+It used to be 2.2.0 or later.
 We believe this change won't be an issue for most applications. Let us know if this change prevents you from using the latest Snapshot Collector.
 - Use exponential back-off delays in the Snapshot Uploader when retrying failed uploads.
 - Use `ServerTelemetryChannel` (if available) for more reliable reporting of telemetry.
-- Use `SdkInternalOperationsMonitor` on the initial connection to the Snapshot Debugger service so that it's ignored by dependency tracking.
+- Use `SdkInternalOperationsMonitor` on the initial connection to the Snapshot Debugger service so that dependency tracking ignores it.
 - Improved telemetry around initial connection to Snapshot Debugger.
 - Report more telemetry for the:
   - App Service version.

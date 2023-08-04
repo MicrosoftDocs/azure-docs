@@ -3,6 +3,7 @@ title: Quickstart - Install software for a Distributed HA SAP system with Azure 
 description: Learn how to  Install software for a Distributed HA SAP system in Azure Center for SAP solutions through Azure CLI.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
+ms.custom: devx-track-azurecli
 ms.topic: quickstart
 ms.date: 05/05/2023
 ms.author: sagarkeswani
@@ -68,4 +69,3 @@ az workloads sap-virtual-instance create -g <Resource Group Name> -n <VIS Name> 
 In this quickstart, you installed SAP software on the deployed infrastructure in Azure for an SAP system with Highly Available architecture type using Azure Center for SAP solutions. You also noted that the resource names were customized for the system while deploying infrastructure. Continue to the next article to learn how to Manage your SAP system on Azure using Virtual Instance for SAP solutions
 > [!div class="nextstepaction"]
 > [Manage a Virtual Instance for SAP solutions](manage-virtual-instance.md)
-

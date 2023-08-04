@@ -46,7 +46,7 @@ As you begin to plan your product transfer, consider the information needed to a
   - Enterprise Agreement (EA)
   - Microsoft Customer Agreement (MCA) in the Enterprise motion where you buy Azure services through a Microsoft representative. Also called an MCA enterprise agreement.
   - Microsoft Customer Agreement (MCA) that you bought through the Azure website. Also called an MCA individual agreement.
-  - Others like MSDN, BizSpark, EOPEN, Azure Pass, and Free Trial
+  - Others like MSDN, EOPEN, Azure Pass, and Free Trial
 - Do you have the required permissions on the product to accomplish a transfer? Specific permission needed for each transfer type is listed in the following product transfer support table.
   - Only the billing administrator of an account can transfer subscription ownership.
   - Only a billing administrator owner can transfer reservation or savings plan ownership.
@@ -179,7 +179,7 @@ If you have an Azure support plan and you transfer all of your Azure subscriptio
 
 Use your account administrator credentials for your old account if the credentials differ from the ones used to access your new Microsoft Customer Agreement account.
 
-1.	Sign in to the Azure portal at https://portal.azure.com.
+1.	Sign in to the [Azure portal](https://portal.azure.com).
 1.	Navigate to **Cost Management + Billing**.
 1.	Select **Billing Scopes** in the left pane.
 1.	Select the billing account associated with your Microsoft support plan.

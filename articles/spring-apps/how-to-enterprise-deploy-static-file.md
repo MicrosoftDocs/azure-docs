@@ -2,12 +2,12 @@
 title: Deploy web static files
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Learn how to deploy web static files.
-author: karlerickson
+author: KarlErickson
 ms.author: yili7
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 5/25/2023
-ms.custom: event-tier1-build-2022, devx-track-java
+ms.custom: event-tier1-build-2022, devx-track-java, devx-track-extended-java
 ---
 
 # Deploy web static files
@@ -72,7 +72,7 @@ The following command creates a new build:
 az spring build-service build create \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-instance-name> \
-    --name <app-name> \
+    --name <build-name> \
     --source-path <path-to-source-code> \
     --build-env BP_WEB_SERVER=nginx
 ```
@@ -83,7 +83,7 @@ The following command updates an existing build:
 az spring build-service build update \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-instance-name> \
-    --name <app-name> \
+    --name <build-name> \
     --source-path <path-to-source-code> \
     --build-env BP_WEB_SERVER=nginx
 ```

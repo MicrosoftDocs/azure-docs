@@ -2,7 +2,7 @@
 title: Troubleshoot Application Insights Profiler
 description: Walk through troubleshooting steps and information to enable and use Application Insights Profiler.
 ms.topic: conceptual
-ms.date: 05/11/2023
+ms.date: 07/10/2023
 ms.reviewer: charles.weininger
 ---
 
@@ -12,7 +12,7 @@ This article presents troubleshooting steps and information to enable you to use
 
 ## Are you using the appropriate Profiler endpoint?
 
-Currently, the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Azure China](/azure/china/resources-developer-guide).
+Currently, the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Microsoft Azure operated by 21Vianet](/azure/china/resources-developer-guide).
 
 |App setting    | US Government Cloud | China Cloud |
 |---------------|---------------------|-------------|
@@ -40,7 +40,7 @@ If the data you're trying to view is older than two weeks, try limiting your tim
 
 Check that a firewall or proxies aren't blocking your access to [this webpage](https://gateway.azureserviceprofiler.net).
 
-## Is Profiler running?
+## Are you seeing timeouts or do you need to check to see if Profiler is running?
 
 Profiling data is uploaded only when it can be attached to a request that happened while Profiler was running. Profiler collects data for two minutes each hour. You can also trigger Profiler by [starting a profiling session](./profiler-settings.md#profile-now).
 
@@ -66,7 +66,7 @@ Search for trace messages and custom events sent by Profiler to your Application
 
    - Profiler started and sent custom events when it detected requests that happened while Profiler was running. If the `ServiceProfilerSample` custom event is displayed, it means that a profile was captured and is available in the **Application Insights Performance** pane.
 
-   If no records are displayed, Profiler isn't running. Make sure you've [enabled Profiler on your Azure service](./profiler.md).
+   If no records are displayed, Profiler isn't running or has timed out. Make sure you've [enabled Profiler on your Azure service](./profiler.md).
 
 ## Double counting in parallel threads
 

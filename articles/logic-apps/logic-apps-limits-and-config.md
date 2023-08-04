@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
 ms.topic: reference
-ms.date: 05/31/2023
+ms.date: 07/24/2023
 ---
 
 # Limits and configuration reference for Azure Logic Apps
@@ -313,6 +313,14 @@ By default, the HTTP action and APIConnection actions follow the [standard async
 | Inbound request | 120 sec <br>(2 min) | 235 sec <br>(3.9 min) <br>(Default) | 240 sec <br>(4 min) | Examples of inbound requests include calls received by the Request trigger, HTTP Webhook trigger, and HTTP Webhook action. <p><p>**Note**: For the original caller to get the response, all steps in the response must finish within the limit unless you call another nested workflow. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). <p><p>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
 ||||||
 
+<a name="content-storage-size-limits"></a>
+
+### Content storage limits
+
+| Name | Multi-tenant | Single-tenant | Notes |
+|------|--------------|---------------|-------|
+| Request trigger (inbound) - Content storage limit per 5-minute rolling interval per workflow | 3145728 KB | None | This limit applies only to the storage content size for inbound requests received by the Request trigger. |
+
 <a name="message-size-limits"></a>
 
 ### Messages
@@ -407,7 +415,7 @@ For more information, review the following documentation:
 
 Each Azure subscription has these integration account limits:
 
-* One [Free tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration account per Azure region. This tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Azure China 21Vianet](/azure/china/overview-operations) or [Azure Government](../azure-government/documentation-government-welcome.md).
+* One [Free tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration account per Azure region. This tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Microsoft Azure operated by 21Vianet](/azure/china/overview-operations) or [Azure Government](../azure-government/documentation-government-welcome.md).
 
 * 1,000 total integration accounts, including integration accounts in any [integration service environments (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) across both [Developer and Premium SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
@@ -600,7 +608,7 @@ For Azure Logic Apps to receive incoming communication through your firewall, yo
 
 | Azure Government region | Azure Logic Apps IP |
 |-------------------------|---------------------|
-| US Gov Arizona | 52.244.67.164, 52.244.67.64, 52.244.66.82, 52.126.52.254, 52.126.53.145 |
+| US Gov Arizona | 52.244.67.164, 52.244.67.64, 52.244.66.82, 52.126.52.254, 52.126.53.145, 52.182.49.105, 52.182.49.175 |
 | US Gov Texas | 52.238.119.104, 52.238.112.96, 52.238.119.145, 52.245.171.151, 52.245.163.42 |
 | US Gov Virginia | 52.227.159.157, 52.227.152.90, 23.97.4.36, 13.77.239.182, 13.77.239.190 |
 | US DoD Central | 52.182.49.204, 52.182.52.106 |
@@ -681,7 +689,7 @@ This section lists the outbound IP addresses that Azure Logic Apps requires in y
 
 | Region | Azure Logic Apps IP |
 |--------|---------------------|
-| US DoD Central | 52.182.48.215, 52.182.92.143 |
+| US DoD Central | 52.182.48.215, 52.182.92.143, 52.182.53.147, 52.182.52.212, 52.182.49.162, 52.182.49.151 |
 | US Gov Arizona | 52.244.67.143, 52.244.65.66, 52.244.65.190, 52.126.50.197, 52.126.49.223, 52.126.53.144, 52.126.36.100 |
 | US Gov Texas | 52.238.114.217, 52.238.115.245, 52.238.117.119, 20.141.120.209, 52.245.171.152, 20.141.123.226, 52.245.163.1  |
 | US Gov Virginia | 13.72.54.205, 52.227.138.30, 52.227.152.44, 13.77.239.177, 13.77.239.140, 13.77.239.187, 13.77.239.184 |

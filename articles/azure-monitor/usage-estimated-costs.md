@@ -4,8 +4,10 @@ description: Overview of how Azure Monitor is billed and how to estimate and ana
 services: azure-monitor
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 03/15/2023
+ms.date: 08/03/2023
 ---
+
+
 # Azure Monitor cost and usage
 
 This article describes the different ways that Azure Monitor charges for usage. It also explains how to evaluate charges on your Azure bill and how to estimate charges to monitor your entire environment.
@@ -23,7 +25,7 @@ Several other features don't have a direct cost, but instead you pay for the ing
 | Logs | Ingestion, retention, and export of data in Log Analytics workspaces and legacy Application Insights resources. For most customers, this category typically incurs the bulk of Azure Monitor charges. There's no charge for querying this data except in the case of [Basic Logs](logs/basic-logs-configure.md) or [Archived Logs](logs/data-retention-archive.md).<br><br>Charges for logs can vary significantly on the configuration that you choose. For information on how charges for logs data are calculated and the different pricing tiers available, see [Azure Monitor logs pricing details](logs/cost-logs.md). |
 | Platform logs | Processing of [diagnostic and auditing information](essentials/resource-logs.md) is charged for [certain services](essentials/resource-logs-categories.md#costs) when sent to destinations other than a Log Analytics workspace. There's no direct charge when this data is sent to a Log Analytics workspace, but there's a charge for the workspace data ingestion and collection. |
 | Metrics | There's no charge for [standard metrics](essentials/metrics-supported.md) collected from Azure resources. There's a cost for collecting [custom metrics](essentials/metrics-custom-overview.md) and for retrieving metrics from the [REST API](essentials/rest-api-walkthrough.md#retrieve-metric-values). |
-| Prometheus Metrics | The service is currently free to use, with billing set to begin on 8/1/2023. Pricing for Azure Monitor managed service for Prometheus consists of data ingestion priced at $0.16/10 million samples ingested and metric queries priced at $0.001/10 million samples processed. Data is retained for 18 months at no extra charge. |
+| Prometheus Metrics | The service is currently free to use, with billing set to begin on 8/1/2023. Pricing for [Azure Monitor managed service for Prometheus](essentials/prometheus-metrics-overview.md) is based on [data samples ingested](essentials/prometheus-metrics-enable.md)  and [query samples processed](essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Data is retained for 18 months at no extra charge. |
 | Alerts | Charges are based on the type and number of signals used by the alert rule, its frequency, and the type of [notification](alerts/action-groups.md) used in response. For [Log alerts](alerts/alerts-types.md#log-alerts) configured for [at-scale monitoring](alerts/alerts-types.md#splitting-by-dimensions-in-log-alert-rules), the cost also depends on the number of time series created by the dimensions resulting from your query. |
 | Web tests | There's a cost for [standard web tests](app/availability-standard-tests.md) and [multistep web tests](/previous-versions/azure/azure-monitor/app/availability-multistep) in Application Insights. Multistep web tests have been deprecated.
 
@@ -79,7 +81,7 @@ For SDKs that don't support adaptive sampling, you can employ [ingestion samplin
 There are two primary tools to view and analyze your Azure Monitor billing and estimated charges:
 
 - [Azure Cost Management + Billing](#azure-cost-management--billing) is the primary tool you'll use to analyze your usage and costs. It gives you multiple options to analyze your monthly charges for different Azure Monitor features and their projected cost over time.
-- [Usage and estimated costs](#usage-and-estimated-costs) provides a listing of monthly charges for different Azure Monitor features. This information is useful for Log Analytics workspaces. It helps you to select your pricing tier by showing how your cost would be different at different tiers.
+- [Usage and estimated costs](#usage-and-estimated-costs) helps optimize log data ingestion costs by estimating what the data ingestion costs would be for Log Analytics in each of the available pricing tiers. 
 
 ## Azure Cost Management + Billing
 
@@ -102,6 +104,8 @@ To create a view just Azure Monitor charges, [create a filter](../cost-managemen
 
 Other services such as Microsoft Defender for Cloud and Microsoft Sentinel also bill their usage against Log Analytics workspace resources, so you might want to add them to your filter. 
 
+### Cost analysis
+
 To get the most useful view for understanding your cost trends in the **Cost analysis** view, 
 
 1. Select the date range you want to investigate 
@@ -117,6 +121,14 @@ See [Common cost analysis uses](../cost-management-billing/costs/cost-analysis-c
 >Alternatively, you can go to the overview page of a Log Analytics workspace or Application Insights resource and select **View Cost** in the upper-right corner of the **Essentials** section. This option opens **Cost Analysis** from Azure Cost Management + Billing already scoped to the workspace or application.
 >
 > :::image type="content" source="logs/media/view-bill/view-cost-option.png" lightbox="logs/media/view-bill/view-cost-option.png" alt-text="Screenshot of option to view cost for a Log Analytics workspace.":::
+
+### Get daily cost analysis emails
+
+Once you have configured your Cost Analysis view, it is strongly recommended to subscribe to get regular email updates from Cost Analysis. The "Subscribe" option is located in the list of options just above the main chart. 
+
+### Cost alerts
+
+To be notified if there are significant increases in your spending, you can set up [cost alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md) (specifically a budget alert) for a single workspace or group of workspaces. 
 
 ### Download usage
 
@@ -148,7 +160,7 @@ This view includes:
 
 - Estimated monthly charges based on usage from the past 31 days by using the current pricing tier.<br>
 - Estimated monthly charges by using different commitment tiers.<br>
-- Billable data ingestion by solution from the past 31 days.
+- Billable data ingestion by table from the past 31 days.
 
 To explore the data in more detail, select the icon in the upper-right corner of either chart to work with the query in Log Analytics.
 

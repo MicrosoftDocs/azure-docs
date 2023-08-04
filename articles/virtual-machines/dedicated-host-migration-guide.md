@@ -1,12 +1,12 @@
 ---
 title: Azure Dedicated Host SKU Retirement Migration Guide
 description: Walkthrough on how to migrate a retiring Dedicated Host SKU
-author: vamckMS
-ms.author: vakavuru
-ms.reviewer: mattmcinnes
+author: mattmcinnes
+ms.author: mattmcinnes
+ms.reviewer: vamckMS
 ms.service: azure-dedicated-host
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 07/12/2023
 ---
 
 # Azure Dedicated Host SKU Retirement Migration Guide
@@ -21,11 +21,11 @@ The main differences between the retiring Dedicated Host SKUs and the newly reco
 
 Review the [FAQs](dedicated-host-retirement.md#faqs) before you get started on migration. The next section will go over which Dedicated Host SKUs to migrate to help aid in migration planning and execution.
 
-## Azure Dedicated Host Retirement
+## Host SKUs being retired
 
 Some Azure Dedicated Host SKUs will be retired soon. Refer to the [Azure Dedicated Host SKU Retirement](dedicated-host-retirement.md#faqs) documentation to learn more.
 
-## Dsv3-Type1 and Dsv3-Type2
+### Dsv3-Type1 and Dsv3-Type2
 
 The Dsv3-Type1 and Dsv3-Type2 run Dsv3-series VMs, which offer a combination of vCPU, memory, and temporary storage best suited for most general-purpose workloads. 
 We recommend migrating your existing VMs to one of the following Dedicated Host SKUs:
@@ -35,7 +35,7 @@ We recommend migrating your existing VMs to one of the following Dedicated Host 
 
 Note that both the Dsv3-Type3 and Dsv3-Type4 won't be impacted by the 31 March 2023 retirement date. We recommend moving to either the Dsv3-Type3 or Dsv3-Type4 based on regional availability, pricing, and your organization’s needs.  
 
-## Esv3-Type1 and Esv3-Type2
+### Esv3-Type1 and Esv3-Type2
 
 The Esv3-Type1 and Esv3-Type2 run Esv3-series VMs, which offer a combination of vCPU, memory, and temporary storage best suited for most memory-intensive workloads. 
 We recommend migrating your existing VMs to one of the following Dedicated Host SKUs:
@@ -45,11 +45,19 @@ We recommend migrating your existing VMs to one of the following Dedicated Host 
 
 Note that both the Esv3-Type3 and Esv3-Type4 won't be impacted by the 31 March 2023 retirement date. We recommend moving to either the Esv3-Type3 or Esv3-Type4 based on regional availability, pricing, and your organization’s needs.
 
-## Migration steps
+## Migrating to supported hosts
 
-To migrate your workloads to avoid Dedicated Host SKU retirement, please go through the respective steps for your manually placed VMs, automatically VMs, and virtual machine scale set on your Dedicated Host:
+To migrate your workloads and avoid Dedicated Host SKU retirement, follow the directions for your migration method of choice.
 
-### [Manually Placed VMs](#tab/manualVM)
+### Automatic migration (Resize)
+
+[!INCLUDE [dedicated-hosts-resize](includes/dedicated-hosts-resize.md)]
+
+### Manual migration
+
+This includes steps for manually placed VMs, automatically placed VMs, and virtual machine scale sets on your Dedicated Hosts:
+
+#### [Manually Placed VMs](#tab/manualVM)
 
 1.	Choose a target Dedicated Host SKU to migrate to. 
 2.	Ensure you have quota for the VM family associated with the target Dedicated Host SKU in your given region.
@@ -59,7 +67,7 @@ To migrate your workloads to avoid Dedicated Host SKU retirement, please go thro
 6.	Start the VM(s).
 7.  Delete the old host.
 
-### [Automatically Placed VMs](#tab/autoVM)
+#### [Automatically Placed VMs](#tab/autoVM)
 
 1.	Choose a target Dedicated Host SKU to migrate to. 
 2.	Ensure you have quota for the VM family associated with the target Dedicated Host SKU in your given region.
@@ -68,7 +76,7 @@ To migrate your workloads to avoid Dedicated Host SKU retirement, please go thro
 5.  Delete the old Dedicated Host.
 6.	Start the VM(s).
 
-### [VMSS](#tab/VMSS)
+#### [Virtual Machine Scale Sets](#tab/VMSS)
 
 1.	Choose a target Dedicated Host SKU to migrate to. 
 2.	Ensure you have quota for the VM family associated with the target Dedicated Host SKU in your given region.
@@ -84,25 +92,25 @@ More detailed instructions can be found in the following sections.
 > [!NOTE]
 >  **Certain sections are different for automatically placed VMs or virtual machine scale set**. These differences will explicitly be called out in the respective steps.
 
-### Ensure quota for the target VM family
+#### Ensure quota for the target VM family
 
 Be sure that you have enough vCPU quota for the VM family of the Dedicated Host SKU that you'll be using. If you need quota, follow this guide to [request an increase in vCPU quota](../azure-portal/supportability/per-vm-quota-requests.md) for your target VM family in your target region. Select the Dsv3-series or Esv3-series as the VM family, depending on the target Dedicated Host SKU.
 
-### Create a new Dedicated Host
+#### Create a new Dedicated Host
 
 Within the same Host Group as the existing Dedicated Host, [create a Dedicated Host](dedicated-hosts-how-to.md#create-a-dedicated-host) of the target Dedicated Host SKU.
 
-### Stop the VM(s) or virtual machine scale set
+#### Stop the VM(s) or virtual machine scale set
 
-#### [PowerShell](#tab/PS)
+##### [PowerShell](#tab/PS)
 
 Refer to the PowerShell documentation to [stop a VM through PowerShell](/powershell/module/servicemanagement/azure/stop-azurevm) or [stop a virtual machine scale set through PowerShell](/powershell/module/az.compute/stop-azvmss).
 
-#### [CLI](#tab/CLI)
+##### [CLI](#tab/CLI)
 
 Refer to the Command Line Interface (CLI) documentation to [stop a VM through CLI](/cli/azure/vm#az-vm-stop) or [stop a virtual machine scale set through CLI](/cli/azure/vmss#az-vmss-stop).
 
-#### [Portal](#tab/Portal)
+##### [Portal](#tab/Portal)
 
 On Azure portal, go through the following steps:
 
@@ -118,19 +126,19 @@ On Azure portal, go through the following steps:
 
 Once the target Dedicated Host has been created and the VM has been stopped, [reassign the VM to the target Dedicated Host](dedicated-hosts-how-to.md#add-an-existing-vm).
 
-### Start the VM(s) or virtual machine scale set
+#### Start the VM(s) or virtual machine scale set
 
 >[!NOTE]
 >**Automatically placed VM(s) and virtual machine scale set require that you delete the old host _before_ starting the autoplaced VM(s) or virtual machine scale set.**
 
-#### [PowerShell](#tab/PS)
+##### [PowerShell](#tab/PS)
 Refer to the PowerShell documentation to [start a VM through PowerShell](/powershell/module/servicemanagement/azure/start-azurevm) or [start a virtual machine scale set through PowerShell](/powershell/module/az.compute/start-azvmss).
 
-#### [CLI](#tab/CLI)
+##### [CLI](#tab/CLI)
 
 Refer to the Command Line Interface (CLI) documentation to [start a VM through CLI](/cli/azure/vm#az-vm-start) or [start a virtual machine scale set through CLI](/cli/azure/vmss#az-vmss-start).
 
-#### [Portal](#tab/Portal)
+##### [Portal](#tab/Portal)
 
 On Azure portal, go through the following steps:
 
