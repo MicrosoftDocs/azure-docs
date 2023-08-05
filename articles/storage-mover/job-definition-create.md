@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 06/16/2023
+ms.date: 08/04/2023
 ---
 
 <!-- 
@@ -33,12 +33,12 @@ Before you begin following the examples in this article, it's important that you
 
 There are three prerequisites to the definition the migration of your source shares:
 
-1. An existing storage mover resource.<br/>
-   If you haven't deployed a storage mover resource, follow the steps in the *[Create a storage mover resource](storage-mover-create.md)* article. These steps help you deploy a storage mover resource to the desired region within your Azure subscription.
-1. At least one existing Azure Storage Mover agent virtual machine (VM).<br/>
-   The steps in the [Azure Storage Mover agent VM deployment](agent-deploy.md) and [agent registration](agent-register.md) articles guide you through the deployment and registration process.
-1. Finally, you need to create a job definition to define a migration.<br/>
-   Job definitions are organized in a migration project. You need at least one migration project in your storage mover resource. If you haven't already done so, follow the deployment steps in the [manage projects](project-manage.md) article to create a migration project.
+- **An existing storage mover resource.**<br/>
+  If you haven't deployed a storage mover resource, follow the steps in the *[Create a storage mover resource](storage-mover-create.md)* article. These steps help you deploy a storage mover resource to the desired region within your Azure subscription.
+- **At least one existing Azure Storage Mover agent virtual machine (VM).**<br/>
+  The steps in the [Azure Storage Mover agent VM deployment](agent-deploy.md) and [agent registration](agent-register.md) articles guide you through the deployment and registration process.
+- **Finally, you need to create a job definition to define a migration.**<br/>
+  Job definitions are organized in a migration project. You need at least one migration project in your storage mover resource. If you haven't already done so, follow the deployment steps in the [manage projects](project-manage.md) article to create a migration project.
 
 ## Create and start a job definition
 
@@ -104,7 +104,7 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
    [!INCLUDE [protocol-endpoint-agent](includes/protocol-endpoint-agent.md)]
 
    > [!IMPORTANT]
-   > Support for the SMB protocol is currently in public preview and some functionality may not yet be available. Currently, the only supported migration path consists of an SMB mount source to an Azure File share destination.
+   > Support for the SMB protocol is currently in public preview and some functionality may not yet be available. Currently, the only supported migration path consists of an SMB mount source to an Azure file share destination.
 
    :::image type="content" source="media/job-definition-create/endpoint-target-new-sml.png" alt-text="Screen capture of the Target tab illustrating the location of the New Target Endpoint fields." lightbox="media/job-definition-create/endpoint-target-new-lrg.png":::
 
@@ -120,7 +120,7 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
    - Files are in the target, even if they don’t exist in the source.
    - Files with matching names and paths are updated to match the source.
    - File or folder renames between copies create duplicate content in the target.
-   
+
    **Mirror source to target:**
 
    - Files in the target are deleted if they don’t exist in the source.

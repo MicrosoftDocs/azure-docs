@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: conceptual
-ms.date: 07/17/2023
+ms.date: 08/04/2023
 ---
 
 <!-- 
@@ -43,11 +43,11 @@ Only the agent is a relevant part of the service for performance testing. To omi
 
 These test results are created under ideal conditions. They're meant as a baseline of the components the Storage Mover service and agent can directly influence. Differences in source devices, disks, and network connections aren't considered in this test. Real-world performance varies.
 
-### [SMB Mount : Azure fileshare](#tab/smb)
+### [SMB Mount : Azure file share](#tab/smb)
 
-Migration from SMB mount to Azure fileshare tests were executed as follows:
+Migration from SMB mount to Azure file share tests were executed as follows:
 
-The following table describes the characteristics of the test environments that produced the performance test results from an SMB mount to an Azure fileshare.
+The following table describes the characteristics of the test environments that produced the performance test results from an SMB mount to an Azure file share.
 
 |Test No.        |No. of files    |Total files weight    |File size    |Folder structure                                               |
 |----------------|----------------|----------------------|-------------|---------------------------------------------------------------|

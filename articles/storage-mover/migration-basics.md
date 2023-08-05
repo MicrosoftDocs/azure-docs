@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: conceptual
-ms.date: 07/25/2023
+ms.date: 08/04/2023
 ---
 
 <!-- 
@@ -87,7 +87,7 @@ This insight is an important input into your cloud solutions design for storage.
 
 In the planning phase, you combine your discovered source shares with your target locations in Azure.
 
-The planning phase maps each source share to a specific destination, such as an Azure blob container or an Azure File share. To do that, you must plan and record which Azure subscription and storage accounts contain your target resources.
+The planning phase maps each source share to a specific destination, such as an Azure blob container or an Azure file share. To do that, you must plan and record which Azure subscription and storage accounts contain your target resources.
 
 In the Azure Storage Mover service, you can record each source/target pair as a [job definition](resource-hierarchy.md#job-definition). A job definition is nested in the migration project you've previously created. You need a new, distinct job definition for each source/target pair.
 

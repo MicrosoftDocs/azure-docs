@@ -2,7 +2,7 @@
 author: stevenmatthew
 ms.author: shaas
 ms.topic: include
-ms.date: 08/03/2023
+ms.date: 08/04/2023
 ms.service: azure-storage-mover
 ---
 <!-- 
@@ -23,7 +23,7 @@ Document score: 100 (99 words and 0 issues)
 > [!IMPORTANT]
 > The current version of Azure Storage Mover is in public preview and provides limited support for the SMB protocol.
 
-The current Azure Storage Mover release supports only certain, specific source-target pair migration path scenarios. One supported source-target pair consists of an NFS share on a NAS or server device within your network and an Azure blob container. Another pair consists of an SMB share and an Azure File share. Migrating data using other source-target pairs, such as an NFS share and an Azure file share, is currently unsupported.
+The current Azure Storage Mover release supports only certain, specific source-target pair migration path scenarios. One supported source-target pair consists of an NFS share on a NAS or server device within your network and an Azure blob container. Another pair consists of an SMB share and an Azure file share. Migrating data using other source-target pairs, such as an NFS share and an Azure file share, is currently unsupported.
 
 The following table identifies the currently supported source-to-destination scenarios:
 

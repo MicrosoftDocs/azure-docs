@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 08/04/2023
 ms.custom: template-how-to
 ---
 
