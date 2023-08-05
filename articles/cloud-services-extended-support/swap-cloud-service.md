@@ -21,7 +21,7 @@ After you swap the deployments, you can stage and test your new release by using
 
 You must make a cloud service swappable with another cloud service when you deploy the second of a pair of cloud services for the first time. Once the second pair of cloud service is deployed, it can not be made swappable with an existing cloud service in subsequent updates.
 
-You can swap the deployments by using an Azure Resource Manager template (ARM template), the Azure portal, or the REST API.
+You can swap the deployments by using an Azure Resource Manager template (ARM template), the Azure PowerShell, the Visual Studio, the Azure portal, or the REST API.
 
 Upon deployment of the second cloud service, both the cloud services have their SwappableCloudService property set to point to each other. Any subsequent update to these cloud services will need to specify this property failing which an error will be returned indicating that the SwappableCloudService property cannot be deleted or updated.
 
@@ -38,6 +38,24 @@ If you use an ARM template deployment method, to make the cloud services swappab
             },
         }
 ```
+
+## Azure PowerShell
+
+To make two independent cloud service deployments swappable in Microsoft Azure Cloud Services (extended support) using the [Powershell](https://learn.microsoft.com/en-us/troubleshoot/azure/cloud-services/manage-vip-swap-powershell), create a staging cloud service and make sure that you set the ID of its swappable cloud service property to the ID of an existing (production) cloud service:
+
+```powershell
+$networkProfile.SwappableCloudService.Id = (
+    Get-AzCloudService -Name $csName_pair -ResourceGroup $csRG_pair
+).Id
+```
+
+## Visual Studio
+
+In Visual Studio, you can use the swappable feature to manage VIP swap between two cloud service-extended support. This swappable feature displays lists of existing cloud service-extended support deployments in the same region as the newly created CSES in the selected subscription. To use this feature in Visual Studio:
+
+1. In the Publish Settings wizard, go to the **Advanced Settings** tab.
+2. Under **Swappable cloud service**, using the dropdown, select from the list of existing cloud services.
+3. Go to the portal menu to perform the **Swap** operation as described in the [Azure Portal](https://learn.microsoft.com/en-us/azure/cloud-services-extended-support/swap-cloud-service#azure-portal) steps below.
 
 ## Azure portal
 
