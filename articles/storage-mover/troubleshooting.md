@@ -89,5 +89,5 @@ Using the VM's host machine, enter the commands provided by the agent to fetch a
 
 You may find information in the following articles helpful:
 
-- [What's New in Azure Storage Mover](whats-new.md)
+- [Release notes](release-notes.md)
 - [Resource hierarchy](resource-hierarchy.md)
