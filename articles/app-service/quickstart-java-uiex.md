@@ -21,7 +21,7 @@ There are also IDE versions of this article. Check out [Azure Toolkit for Intell
 
 Before you begin, you must have the following:
 
-+ An  Azure account (The profile that maintains billing information for Azure usage.)+ An <abbr title subscription (The basic organizational structure in which you manage resources in Azure, typically associated with an individual or department within an organization.). [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
++ An Azure account (The profile that maintains billing information for Azure usage.) with an active subscription (The basic organizational structure in which you manage resources in Azure, typically associated with an individual or department within an organization.). [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 + The [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -292,4 +292,4 @@ This command may take a minute to run.
 > [Configure your Java app](configure-language-java.md)
 
 > [!div class="nextstepaction"]
-> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
+>Â [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
