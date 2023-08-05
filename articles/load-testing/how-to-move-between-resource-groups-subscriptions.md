@@ -24,6 +24,8 @@ When you move an Azure Load Testing resource across resource groups or subscript
 
 - Moving a resource across subscriptions is allowed only for subscriptions in the same tenant.
 
+- Resource move is not supported for Azure Load Testing resources that are encrypted with a customer-managed key.
+
 - Moving a resource only moves it to a new resource group or subscription. It doesn't change the location of the resource.
 
 - Any service principal that is currently scoped to a resource, resource group or subscription might not have access to the resource after the move.
