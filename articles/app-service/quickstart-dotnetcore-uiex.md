@@ -16,7 +16,7 @@ ROBOTS: NOINDEX,NOFOLLOW
 
 In this quickstart, you'll learn how to create and deploy your first ASP.NET Core web app to  Azure App Service (An HTTP-based service for hosting web applications, REST APIs, and mobile back-end applications.). App Service supports .NET 5.0 apps.
 
-When you're finished, you'll have an Azure  resource group (A logical container for related Azure resources that you can manage as a unit.)When you're finishe App Service plan (The plan that specifies the location, size, and features of the web server farm that hosts your app.)When you App Service app (The representation of your web app, which contains your app code, DNS hostnames, certificates, and related resources.) with a deployed sample ASP.NET Core application.
+When you're finished, you'll have an Azure  resource group (A logical container for related Azure resources that you can manage as a unit.) consisting of an App Service plan (The plan that specifies the location, size, and features of the web server farm that hosts your app.) and on App Service app (The representation of your web app, which contains your app code, DNS hostnames, certificates, and related resources.) with a deployed sample ASP.NET Core application.
 
 <hr/> 
 
@@ -174,7 +174,7 @@ Advance to the next article to learn how to create a .NET Core app and connect i
 ::: zone-end  
 
 ::: zone pivot="platform-linux"
-This quickstart shows how to create a [.NET Core](/aspnet/core/) app on  App Service on Linux (App Service on Linux provides a highly scalable, self-patching web hosting service using the Linux operating system.). You create the app using the [Azure CLI](/cli/azure/get-started-with-azure-cli), and you use Git to deploy the .NET Core code to the app.
+This quickstart shows how to create a [.NET Core](/aspnet/core/) app on App Service on Linux (App Service on Linux provides a highly scalable, self-patching web hosting service using the Linux operating system.). You create the app using the [Azure CLI](/cli/azure/get-started-with-azure-cli), and you use Git to deploy the .NET Core code to the app.
 
 <hr/> 
 
