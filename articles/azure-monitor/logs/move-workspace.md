@@ -205,13 +205,7 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroup
 
 ### [CLI](#tab/cli)
 
-Run the [az monitor log-analytics workspace linked-service delete](/cli/azure/monitor/log-analytics/workspace/linked-service) command:
-
-```azurecli
-az monitor log-analytics workspace linked-service delete -g MyResourceGroup -n cluster --workspace-name MyWorkspace
-```
-
-Specify `automation` as the name of the linkedServices resource.
+Not supported.
 
 ### [PowerShell](#tab/PowerShell)
 
