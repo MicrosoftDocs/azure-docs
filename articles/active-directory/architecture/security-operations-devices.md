@@ -20,9 +20,9 @@ Devices aren't commonly targeted in identity-based attacks, but *can* be used to
 
 * Unregistered
 
-* [Azure Active Directory (Azure AD) registered](../devices/concept-azure-ad-register.md)
+* [Azure Active Directory (Azure AD) registered](../devices/concept-device-registration.md)
 
-* [Azure AD joined](../devices/concept-azure-ad-join.md)
+* [Azure AD joined](../devices/concept-directory-join.md)
 
 * [Hybrid Azure AD joined](../devices/concept-hybrid-join.md)
 
@@ -80,7 +80,7 @@ Azure AD registered and Azure AD joined devices possess primary refresh tokens (
 | - |- |- |- |- |
 | Device registration or join completed without MFA| Medium| Sign-in logs| Activity: successful authentication to Device Registration Service. <br>And<br>No MFA required| Alert when: Any device registered or joined without MFA<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SigninLogs/SuspiciousSignintoPrivilegedAccount.yaml)<br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 | Changes to the Device Registration MFA toggle in Azure AD| High| Audit log| Activity: Set device registration policies| Look for: The toggle being set to off. There isn't audit log entry. Schedule periodic checks.<br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
-| Changes to Conditional Access policies requiring domain joined or compliant device.| High| Audit log| Changes to CA policies<br>| Alert when: Change to any policy requiring domain joined or compliant, changes to trusted locations, or accounts or devices added to MFA policy exceptions. |
+| Changes to Conditional Access policies requiring domain joined or compliant device.| High| Audit log| Changes to Conditional Access policies<br>| Alert when: Change to any policy requiring domain joined or compliant, changes to trusted locations, or accounts or devices added to MFA policy exceptions. |
 
 You can create an alert that notifies appropriate administrators when a device is registered or joined without MFA by using Microsoft Sentinel.
 ~~~

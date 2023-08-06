@@ -6,8 +6,8 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 05/11/2023
-ms.service: storage
+ms.date: 08/02/2023
+ms.service: azure-storage
 ms.topic: how-to
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
@@ -16,6 +16,13 @@ ms.custom: devx-track-python, devguide-python
 # Delete and restore a blob with Python
 
 This article shows how to delete blobs using the [Azure Storage client library for Python](/python/api/overview/azure/storage). If you've enabled [soft delete for blobs](soft-delete-blob-overview.md), you can restore deleted blobs during the retention period.
+
+## Prerequisites
+
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Python. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to delete a blob, or to restore a soft-deleted blob. To learn more, see the authorization guidance for the following REST API operations:
+    - [Delete Blob](/rest/api/storageservices/delete-blob#authorization)
+    - [Undelete Blob](/rest/api/storageservices/undelete-blob#authorization)
 
 ## Delete a blob
 

@@ -190,7 +190,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[T-Mobile/Sprint](https://www.t-mobile.com/business/solutions/networking/cloud-networking )** |Supported |Supported | Chicago<br/>Silicon Valley<br/>Washington DC |
 | **[T-Systems](https://geschaeftskunden.telekom.de/vernetzung-digitalisierung/produkt/intraselect)** | Supported | Supported | Frankfurt |
 | **UOLDIVEO** | Supported | Supported | Sao Paulo |
-| **[UIH](https://www.uih.co.th/en/network-solutions/global-network/cloud-direct-for-microsoft-azure-expressroute)** | Supported | Supported | Bangkok |
+| **[UIH](https://www.uih.co.th/products-services/managed-services/cloud-direct/)** | Supported | Supported | Bangkok |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** | Supported | Supported | Amsterdam<br/>Chicago<br/>Dallas<br/>Frankfurt<br/>Hong Kong<br/>London<br/>Mumbai<br/>Paris<br/>Silicon Valley<br/>Singapore<br/>Sydney<br/>Tokyo<br/>Toronto<br/>Washington DC |
 | **[Viasat](https://news.viasat.com/newsroom/press-releases/viasat-introduces-direct-cloud-connect-a-new-service-providing-fast-secure-private-connections-to-business-critical-cloud-services)** | Supported | Supported | Washington DC2 |
 | **[Vocus Group NZ](https://www.vocus.co.nz/business/cloud-data-centres)** | Supported | Supported | Auckland<br/>Sydney |
@@ -269,7 +269,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Axtel](https://alestra.mx/landing/expressrouteazure/)** |Equinix |Dallas|
 | **[Beanfield Metroconnect](https://www.beanfield.com/business/cloud-exchange)** |Megaport |Toronto|
 | **[Bezeq International Ltd.](https://www.bezeqint.net/english)** | euNetworks | London |
-| **[BICS](https://www.bics.com/services/capacity-solutions/cloud-connect/)** | Equinix | Amsterdam<br/>Frankfurt<br/>London<br/>Singapore<br/>Washington DC |
+| **[BICS](https://www.bics.com/cloud-connect/)** | Equinix | Amsterdam<br/>Frankfurt<br/>London<br/>Singapore<br/>Washington DC |
 | **[BroadBand Tower, Inc.](https://www.bbtower.co.jp/product-service/network/)** | Equinix | Tokyo |
 | **[C3ntro Telecom](https://www.c3ntro.com/)** | Equinix<br/>Megaport | Dallas |
 | **[Chief](https://www.chief.com.tw/)** | Equinix | Hong Kong |
@@ -313,7 +313,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Telekom Deutschland GmbH](https://cloud.telekom.de/de/infrastruktur/managed-it-services/managed-hybrid-infrastructure-mit-microsoft-azure)** | Interxion | Amsterdam<br/>Frankfurt |
 | **[Telia](https://www.telia.se/foretag/losningar/produkter-tjanster/datanet)** | Equinix | Amsterdam |
 | **[ThinkTel](https://www.thinktel.ca/services/agile-ix-data/expressroute/)** | Equinix | Toronto | 
-| **[United Information Highway (UIH)](https://www.uih.co.th/en/network-solutions/global-network/cloud-direct-for-microsoft-azure-expressroute)**| Equinix | Singapore |
+| **[United Information Highway (UIH)](https://www.uih.co.th/products-services/managed-services/cloud-direct/)**| Equinix | Singapore |
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | Equinix | Sao Paulo |
 | **[Webair](https://opti9tech.com/partners/)**| Megaport | New York |
 | **[Windstream](https://www.windstreamenterprise.com/solutions/)**| Equinix | Chicago<br/>Silicon Valley<br/>Washington DC |

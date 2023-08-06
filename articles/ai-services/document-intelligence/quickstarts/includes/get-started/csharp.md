@@ -35,7 +35,7 @@ In this quickstart, you use the following APIs to extract structured data from f
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Document Intelligence API. You paste your key and endpoint into the code later in the quickstart:
 
-  :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+  :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 ## Set up
 
@@ -43,7 +43,7 @@ In this quickstart, you use the following APIs to extract structured data from f
 
 1. On the start page, choose Create a new project.
 
-    :::image type="content" source="../../../media/quickstarts/start-window.png" alt-text="Screenshot: Visual Studio start window.":::
+    :::image type="content" source="../../../media/quickstarts/start-window.png" alt-text="Screenshot of Visual Studio start window.":::
 
 1. On the **Create a new project page**, enter **console** in the search box. Choose the **Console Application** template, then choose **Next**.
 
@@ -51,11 +51,11 @@ In this quickstart, you use the following APIs to extract structured data from f
 
 1. In the **Configure your new project** dialog window, enter `formRecognizer_quickstart` in the Project name box. Then choose Next.
 
-    :::image type="content" source="../../../media/quickstarts/configure-new-project.png" alt-text="Screenshot: Visual Studios configure new project dialog window.":::
+    :::image type="content" source="../../../media/quickstarts/configure-new-project.png" alt-text="Screenshot of Visual Studios configure new project dialog window.":::
 
 1. In the **Additional information** dialog window, select **.NET 5.0 (Current)**, and then select **Create**.
 
-    :::image type="content" source="../../../media/quickstarts/additional-information.png" alt-text="Screenshot: Visual Studio additional information dialog window.":::
+    :::image type="content" source="../../../media/quickstarts/additional-information.png" alt-text="Screenshot of Visual Studio additional information dialog window.":::
 
 ### Install the client library with NuGet
 
@@ -101,7 +101,7 @@ private static readonly AzureKeyCredential credential = new AzureKeyCredential(k
 
 1. Delete the line, `Console.Writeline("Hello World!");` , and add one of the **Try It** code samples to **Program.cs** file:
 
-    :::image type="content" source="../../../media/quickstarts/add-code-here.png" alt-text="Screenshot: add the sample code to the Main method.":::
+    :::image type="content" source="../../../media/quickstarts/add-code-here.png" alt-text="Screenshot of add the sample code to the Main method.":::
 
 1. Select a code sample to copy and paste into your application's Main method:
 
@@ -173,7 +173,7 @@ private static FormRecognizerClient AuthenticateClient()
 
 ## **Try it**: Prebuilt model
 
-This sample demonstrates how to analyze data from certain types of common documents with pre-trained models, using an invoice as an example.
+This sample demonstrates how to analyze data from certain types of common documents with pretrained models, using an invoice as an example.
 
 > [!div class="checklist"]
 >
@@ -295,6 +295,6 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
 
 Choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
-  :::image type="content" source="../../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
+  :::image type="content" source="../../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot of run your Visual Studio program.":::
 
 <!-- --- -->

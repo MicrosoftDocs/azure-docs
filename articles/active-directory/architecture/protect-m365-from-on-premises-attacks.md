@@ -192,7 +192,7 @@ Use Azure AD Conditional Access to interpret signals and use them to make authen
 
 - Implement the recommended identity and device access configurations. See [Common Zero Trust identity and device access policies](/microsoft-365/security/office-365-security/identity-access-policies).
 
-- If you're using a version of Azure AD that doesn't include Conditional Access, use [Security defaults in Azure AD](../fundamentals/concept-fundamentals-security-defaults.md).
+- If you're using a version of Azure AD that doesn't include Conditional Access, use [Security defaults in Azure AD](../fundamentals/security-defaults.md).
 
   For more information about Azure AD feature licensing, see the [Azure AD pricing guide](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 

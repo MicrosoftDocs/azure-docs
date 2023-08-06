@@ -89,12 +89,9 @@ In this scenario, we recommend that you increase the allocated compute resources
 
 ### Intermittent activity execution
 
-If you notice that the available capacity percentage fluctuates between low and high within a specific time period, it's likely due to the intermittent execution of your activities. That is, the TTL period that you configured is shorter than the interval between your activities. This problem can have a significant impact on the performance of your workflow and can increase costs, because we charge for the warm-up time of the compute for up to 2 minutes.
-
-To address this problem, there are two possible solutions:
-
-- Queue more activities to maintain a consistent workload and utilize the available compute resources more effectively. By keeping the compute continuously engaged, you can avoid the warm-up time and achieve better performance.
-- Consider enlarging the TTL period to align with the interval between your activities. This approach keeps the compute resources available for a longer duration, which reduces the frequency of warm-up periods and optimizes cost efficiency.
+If you notice that the Available Capacity Percentage fluctuates between low and high within a specific time period, it's likely due to the intermittent execution of your activities, where the Time-To-Live (TTL) period you have configured is shorter than the interval between your activities. This can have a significant impact on the performance of your workflow.
+To address this issue, there are two possible solutions. First, you can queue more activities to maintain a consistent workload and utilize the available compute resources more effectively. By keeping the compute continuously engaged, you can avoid the warm-up time and achieve better performance.
+Alternatively, you can consider enlarging the TTL period to align with the interval between your activities. This ensures that the compute resources remain available for a longer duration, reducing the frequency of warm-up periods and optimizing cost-efficiency.
 
 By implementing either of these solutions, you can enhance the performance of your workflow, minimize cost implications, and ensure a smoother execution of your intermittent activities.
 

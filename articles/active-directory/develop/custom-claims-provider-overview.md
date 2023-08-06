@@ -19,12 +19,13 @@ ms.custom: aaddev
 
 # Custom claims provider (preview)
 
-This article provides an overview to the Azure Active Directory (Azure AD) custom claims provider. 
-When a user authenticates to an application, a custom claims provider can be used to add  claims into the token. A custom claims provider is made up of a custom extension that calls an external REST API, to fetch claims from external systems. A custom claims provider can be assigned to one or many applications in your directory.
+This article provides an overview to the Azure Active Directory (Azure AD) custom claims provider.
+When a user authenticates to an application, a custom claims provider can be used to add  claims into the token. A custom claims provider is made up of a custom authentication extension that calls an external REST API, to fetch claims from external systems. A custom claims provider can be assigned to one or many applications in your directory.
 
 Key data about a user is often stored in systems external to Azure AD. For example, secondary email, billing tier, or sensitive information. Some applications may rely on these attributes for the application to function as designed. For example, the application may block access to certain features based on a claim in the token.
 
-The following short video provides an excellent overview of the Azure AD custom extensions and custom claims providers:
+The following short video provides an excellent overview of the Azure AD custom authentication extensions and custom claims providers:
+
 > [!VIDEO https://www.youtube.com/embed/1tPA7B9ztz0]
 
 Use a custom claims provider for the following scenarios:
@@ -34,7 +35,7 @@ Use a custom claims provider for the following scenarios:
 
 ## Token issuance start event listener
 
-An event listener is a procedure that waits for an event to occur. The custom extension uses the **token issuance start** event listener. The  event is triggered when a token is about to be issued to your application. When the event is triggered the custom extension REST API is called to fetch attributes from external systems.
+An event listener is a procedure that waits for an event to occur. The custom authentication extension uses the **token issuance start** event listener. The  event is triggered when a token is about to be issued to your application. When the event is triggered the custom authentication extension REST API is called to fetch attributes from external systems.
 
 For an example using a custom claims provider with the **token issuance start** event listener, check out the [get started with custom claims providers](custom-extension-get-started.md) article.
 
@@ -43,3 +44,5 @@ For an example using a custom claims provider with the **token issuance start** 
 - Learn how to [create and register a custom claims provider](custom-extension-get-started.md) with a sample Open ID Connect application.
 - If you already have a custom claims provider registered, you can configure a [SAML application](custom-extension-configure-saml-app.md) to receive tokens with claims sourced from an external store.
 - Learn more about custom claims providers with the [custom claims provider reference](custom-claims-provider-reference.md) article.
+
+
