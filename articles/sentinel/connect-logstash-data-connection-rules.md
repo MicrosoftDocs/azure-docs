@@ -14,7 +14,7 @@ ms.author: lwainstein
 
 Microsoft Sentinel's new Logstash output plugin supports pipeline transformations and advanced configuration via Data Collection Rules (DCRs). The plugin forwards any type of logs from external data sources into custom or standard tables in Log Analytics or Microsoft Sentinel. 
 
-In this article, you learn how to set up the new Logstash plugin to stream the data into Log Analytics using DCRs, with full control over the output schema. Learn how to **[deploy the plugin](#deploy-the-microsoft-sentinel-log-analytics-output-plugin-in-logstash)**.
+In this article, you learn how to set up the new Logstash plugin to stream the data into Log Analytics or Microsoft Sentinel using DCRs, with full control over the output schema. Learn how to **[deploy the plugin](#deploy-the-microsoft-sentinel-output-plugin-in-logstash)**.
 
 > [!NOTE]
 > A [previous version of the Logstash plugin](connect-logstash.md) allows you to connect data sources through Logstash via the Data Collection API. 
@@ -49,7 +49,7 @@ The Logstash engine is comprised of three components:
 
 The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to your Log Analytics workspace, using the Log Analytics Log Ingestion API. The data is ingested into custom logs or standard table.
 
-- Learn more about the [Logs ingestion API](../azure-monitor/logs/logs-ingestion-api-overview).
+- Learn more about the [Logs ingestion API](../azure-monitor/logs/logs-ingestion-api-overview.md).
 
 ## Deploy the Microsoft Sentinel output plugin in Logstash
 
@@ -122,7 +122,7 @@ input {
     The plugin writes ten records to a sample file named `sampleFile<epoch seconds>.json` in the configured path. For example: *c:\temp\sampleFile1648453501.json*. 
     Here is part of a sample file that the plugin creates:
     
-    ```
+    ```json
     [
             {
                 "host": "logstashMachine",
@@ -174,7 +174,7 @@ In this scenario, you configure the Logstash input plugin to send syslog events 
 
     The plugin writes ten records to a sample file named `sampleFile<epoch seconds>.json` in the configured path. For example: *c:\temp\sampleFile1648453501.json*. 
     Here is part of a sample file that the plugin creates:
-    ```
+    ```json
     [
         	{
         		"logsource": "logstashMachine",
@@ -252,7 +252,7 @@ Note that:
 - The `dataflows` property transforms the input to the Syslog table format, and sets the `outputStream` to `Microsoft-Syslog`.
 
 
-```
+```json
 {
 	"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
 	"contentVersion": "1.0.0.0",
