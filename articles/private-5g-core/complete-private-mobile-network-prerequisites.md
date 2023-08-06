@@ -156,6 +156,8 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 | Port | ASE interface | Description|
 |--|--|--|
 | TCP 443 Inbound      | Management (LAN)        | Access to local monitoring tools (packet core dashboards and distributed tracing). |
+| 5671 In/Outbound    | Management (LAN) | Communication to Azure Event Hub, AMQP Protocol |
+| 5672 In/Outbound    | Management (LAN) | Communication to Azure Event Hub, AMQP Protocol |
 | SCTP 38412 Inbound   | Port 3 (Access network) | Control plane access signaling (N2 interface). </br>Only required for 5G deployments. |
 | SCTP 36412 Inbound   | Port 3 (Access network) | Control plane access signaling (S1-MME interface). </br>Only required for 4G deployments. |
 | UDP 2152 In/Outbound | Port 3 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G). |
@@ -167,13 +169,15 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 
 The following tables contains the ports you need to open for Azure Private 5G Core local access. This includes local management access and control plane signaling.
 
-You must set these up in addition to the [ports required for Azure Stack Edge (ASE)](/azure/databox-online/azure-stack-edge-pro-2-system-requirements#networking-port-requirements).
+You must set these up in addition to the [ports required for Azure Stack Edge (ASE)](/azure/databox-online/azure-stack-edge-gpu-system-requirements#networking-port-requirements).
 
 #### Azure Private 5G Core
 
 | Port | ASE interface | Description|
 |--|--|--|
 | TCP 443 Inbound      | Management (LAN)        | Access to local monitoring tools (packet core dashboards and distributed tracing). |
+| 5671 In/Outbound    | Management (LAN) | Communication to Azure Event Hub, AMQP Protocol |
+| 5672 In/Outbound    | Management (LAN) | Communication to Azure Event Hub, AMQP Protocol |
 | SCTP 38412 Inbound   | Port 5 (Access network) | Control plane access signaling (N2 interface). </br>Only required for 5G deployments. |
 | SCTP 36412 Inbound   | Port 5 (Access network) | Control plane access signaling (S1-MME interface). </br>Only required for 4G deployments. |
 | UDP 2152 In/Outbound | Port 5 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G). |
@@ -209,9 +213,16 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 
 Review and apply the firewall recommendations for the following services:
 
+:::zone pivot="ase-pro-gpu"
 - [Azure Stack Edge](../databox-online/azure-stack-edge-gpu-system-requirements.md#url-patterns-for-firewall-rules)
 - [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/network-requirements.md?tabs=azure-cloud)
 - [Azure Network Function Manager](../network-function-manager/requirements.md)
+:::zone-end
+:::zone pivot="ase-pro-2"
+- [Azure Stack Edge](../databox-online/azure-stack-edge-pro-2-system-requirements.md#url-patterns-for-firewall-rules)
+- [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/network-requirements.md?tabs=azure-cloud)
+- [Azure Network Function Manager](../network-function-manager/requirements.md)
+:::zone-end
 
 The following table contains the URL patterns for Azure Private 5G Core's outbound traffic.
 

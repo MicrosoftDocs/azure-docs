@@ -1,51 +1,44 @@
 ---
-title: Subscribe to Azure Kubernetes Service (AKS) events with Azure Event Grid
-description: Learn how to use Azure Event Grid to subscribe to Azure Kubernetes Service (AKS) events.
+title: Subscribe to Azure Kubernetes Service events with Azure Event Grid
+description: Use Azure Event Grid to subscribe to Azure Kubernetes Service events
 ms.topic: article
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.date: 06/16/2023
+ms.date: 06/22/2023
 ---
 
 # Quickstart: Subscribe to Azure Kubernetes Service (AKS) events with Azure Event Grid
 
 Azure Event Grid is a fully managed event routing service that provides uniform event consumption using a publish-subscribe model.
 
-In this quickstart, you create an Azure Kubernetes Service (AKS) cluster and subscribe to AKS events with Azure Event Grid.
+In this quickstart, you create an AKS cluster and subscribe to AKS events.
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI][azure-cli-install] or [Azure PowerShell][azure-powershell-install] installed.
 
+> [!NOTE]
+> In case there are issues specifically with EventGrid notifications, as can be seen here [Service Outages](https://azure.status.microsoft/status), please note that AKS operations wont be impacted and they are independent of Event Grid outages. 
+
 ## Create an AKS cluster
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Create an Azure resource group using the [`az group create`][az-group-create] command.
+Create an AKS cluster using the [`az aks create`][az-aks-create] command. The following example creates a resource group *MyResourceGroup* and a cluster named *MyAKS* with one node in the *MyResourceGroup* resource group:
 
-    ```azurecli-interactive
-    az group create --name myResourceGroup --location eastus
-    ```
-
-2. Create an AKS cluster using the [`az aks create`][az-aks-create] command.
-
-    ```azurecli-interactive
-    az aks create -g myResourceGroup -n myManagedCluster --location eastus --node-count 1 --generate-ssh-keys
-    ```
+```azurecli-interactive
+az group create --name MyResourceGroup --location eastus
+az aks create -g MyResourceGroup -n MyAKS --location eastus  --node-count 1 --generate-ssh-keys
+```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-1. Create an Azure resource group using the [`New-AzResourceGroup`][new-azresourcegroup] cmdlet.
+Create an AKS cluster using the [`New-AzAksCluster`][new-azakscluster] command. The following example creates a resource group *MyResourceGroup* and a cluster named *MyAKS* with one node in the *MyResourceGroup* resource group:
 
-    ```azurepowershell-interactive
-    New-AzResourceGroup -Name myResourceGroup -Location eastus
-    ```
-
-2. Create an AKS cluster using the [`New-AzAksCluster`][new-azakscluster] cmdlet.
-
-    ```azurepowershell-interactive
-    New-AzAksCluster -ResourceGroupName MyResourceGroup -Name MyAKS -Location eastus -NodeCount 1 -GenerateSshKey
-    ```
+```azurepowershell-interactive
+New-AzResourceGroup -Name MyResourceGroup -Location eastus
+New-AzAksCluster -ResourceGroupName MyResourceGroup -Name MyAKS -Location eastus -NodeCount 1 -GenerateSshKey
+```
 
 ---
 
@@ -53,168 +46,159 @@ In this quickstart, you create an Azure Kubernetes Service (AKS) cluster and sub
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Create a namespace using the [`az eventhubs namespace create`][az-eventhubs-namespace-create] command. Your namespace name must be unique.
+Create a namespace and event hub using [`az eventhubs namespace create`][az-eventhubs-namespace-create] and [`az eventhubs eventhub create`][az-eventhubs-eventhub-create]. The following example creates a namespace *MyNamespace* and an event hub *MyEventGridHub* in *MyNamespace*, both in the *MyResourceGroup* resource group.
 
-    ```azurecli-interactive
-    az eventhubs namespace create --location eastus --name myNamespace -g myResourceGroup
-    ```
+```azurecli-interactive
+az eventhubs namespace create --location eastus --name MyNamespace -g MyResourceGroup
+az eventhubs eventhub create --name MyEventGridHub --namespace-name MyNamespace -g MyResourceGroup
+```
 
-2. Create an event hub using the [`az eventhubs eventhub create`][az-eventhubs-eventhub-create] command.
+> [!NOTE]
+> The *name* of your namespace must be unique.
 
-    ```azurecli-interactive
-    az eventhubs eventhub create --name myEventGridHub --namespace-name myNamespace -g myResourceGroup
-    ```
+Subscribe to the AKS events using [`az eventgrid event-subscription create`][az-eventgrid-event-subscription-create]:
 
-3. Subscribe to the AKS events using the [`az eventgrid event-subscription create`][az-eventgrid-event-subscription-create] command.
+```azurecli-interactive
+SOURCE_RESOURCE_ID=$(az aks show -g MyResourceGroup -n MyAKS --query id --output tsv)
+ENDPOINT=$(az eventhubs eventhub show -g MyResourceGroup -n MyEventGridHub --namespace-name MyNamespace --query id --output tsv)
+az eventgrid event-subscription create --name MyEventGridSubscription \
+--source-resource-id $SOURCE_RESOURCE_ID \
+--endpoint-type eventhub \
+--endpoint $ENDPOINT
+```
 
-    ```azurecli-interactive
-    SOURCE_RESOURCE_ID=$(az aks show -g MyResourceGroup -n MyAKS --query id --output tsv)
+Verify your subscription to AKS events using `az eventgrid event-subscription list`:
 
-    ENDPOINT=$(az eventhubs eventhub show -g MyResourceGroup -n MyEventGridHub --namespace-name MyNamespace --query id --output tsv)
+```azurecli-interactive
+az eventgrid event-subscription list --source-resource-id $SOURCE_RESOURCE_ID
+```
 
-    az eventgrid event-subscription create --name MyEventGridSubscription \
-    --source-resource-id $SOURCE_RESOURCE_ID \
-    --endpoint-type eventhub \
-    --endpoint $ENDPOINT
-    ```
+The following example output shows you're subscribed to events from the *MyAKS* cluster and those events are delivered to the *MyEventGridHub* event hub:
 
-4. Verify your subscription to AKS events using the [`az eventgrid event-subscription list`][az-eventgrid-event-subscription-list] command.
-
-    ```azurecli-interactive
-    az eventgrid event-subscription list --source-resource-id $SOURCE_RESOURCE_ID
-    ```
-
-    The following example output shows you're subscribed to events from the `myManagedCluster` cluster and those events are delivered to the `myEventGridHub` event hub:
-
-    ```output
-    [
-      {
-        "deadLetterDestination": null,
-        "deadLetterWithResourceIdentity": null,
-        "deliveryWithResourceIdentity": null,
-        "destination": {
-          "deliveryAttributeMappings": null,
-          "endpointType": "EventHub",
-          "resourceId": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/myResourceGroup/providers/Microsoft.EventHub/namespaces/myNamespace/eventhubs/myEventGridHub"
-        },
-        "eventDeliverySchema": "EventGridSchema",
-        "expirationTimeUtc": null,
-        "filter": {
-          "advancedFilters": null,
-          "enableAdvancedFilteringOnArrays": null,
-          "includedEventTypes": [
-            "Microsoft.ContainerService.NewKubernetesVersionAvailable"
-          ],
-          "isSubjectCaseSensitive": null,
-          "subjectBeginsWith": "",
-          "subjectEndsWith": ""
-        },
-        "id": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myManagedCluster/providers/Microsoft.EventGrid/eventSubscriptions/myEventGridSubscription",
-        "labels": null,
-        "name": "myEventGridSubscription",
-        "provisioningState": "Succeeded",
-        "resourceGroup": "myResourceGroup",
-        "retryPolicy": {
-          "eventTimeToLiveInMinutes": 1440,
-          "maxDeliveryAttempts": 30
-        },
-        "systemData": null,
-        "topic": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/myResourceGroup/providers/microsoft.containerservice/managedclusters/myManagedCluster",
-        "type": "Microsoft.EventGrid/eventSubscriptions"
-      }
-    ]
-    ```
+```output
+[
+  {
+    "deadLetterDestination": null,
+    "deadLetterWithResourceIdentity": null,
+    "deliveryWithResourceIdentity": null,
+    "destination": {
+      "deliveryAttributeMappings": null,
+      "endpointType": "EventHub",
+      "resourceId": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/MyResourceGroup/providers/Microsoft.EventHub/namespaces/MyNamespace/eventhubs/MyEventGridHub"
+    },
+    "eventDeliverySchema": "EventGridSchema",
+    "expirationTimeUtc": null,
+    "filter": {
+      "advancedFilters": null,
+      "enableAdvancedFilteringOnArrays": null,
+      "includedEventTypes": [
+        "Microsoft.ContainerService.NewKubernetesVersionAvailable","Microsoft.ContainerService.ClusterSupportEnded","Microsoft.ContainerService.ClusterSupportEnding","Microsoft.ContainerService.NodePoolRollingFailed","Microsoft.ContainerService.NodePoolRollingStarted","Microsoft.ContainerService.NodePoolRollingSucceeded"
+      ],
+      "isSubjectCaseSensitive": null,
+      "subjectBeginsWith": "",
+      "subjectEndsWith": ""
+    },
+    "id": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/MyResourceGroup/providers/Microsoft.ContainerService/managedClusters/MyAKS/providers/Microsoft.EventGrid/eventSubscriptions/MyEventGridSubscription",
+    "labels": null,
+    "name": "MyEventGridSubscription",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "MyResourceGroup",
+    "retryPolicy": {
+      "eventTimeToLiveInMinutes": 1440,
+      "maxDeliveryAttempts": 30
+    },
+    "systemData": null,
+    "topic": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/MyResourceGroup/providers/microsoft.containerservice/managedclusters/MyAKS",
+    "type": "Microsoft.EventGrid/eventSubscriptions"
+  }
+]
+```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-1. Create a namespace using the [`New-AzEventHubNamespace`][new-azeventhubnamespace] cmdlet. Your namespace name must be unique.
+Create a namespace and event hub using [New-AzEventHubNamespace][new-azeventhubnamespace] and [New-AzEventHub][new-azeventhub]. The following example creates a namespace *MyNamespace* and an event hub *MyEventGridHub* in *MyNamespace*, both in the *MyResourceGroup* resource group.
 
-    ```azurepowershell-interactive
-    New-AzEventHubNamespace -Location eastus -Name MyNamespace -ResourceGroupName MyResourceGroup
-    ```
+```azurepowershell-interactive
+New-AzEventHubNamespace -Location eastus -Name MyNamespace -ResourceGroupName MyResourceGroup
+New-AzEventHub -Name MyEventGridHub -Namespace MyNamespace -ResourceGroupName MyResourceGroup
+```
 
-2. Create an event hub using the [`New-AzEventHub`][new-azeventhub] cmdlet.
+> [!NOTE]
+> The *name* of your namespace must be unique.
 
-    ```azurepowershell-interactive
-    New-AzEventHub -Name MyEventGridHub -Namespace MyNamespace -ResourceGroupName MyResourceGroup
-    ```
+Subscribe to the AKS events using [New-AzEventGridSubscription][new-azeventgridsubscription]:
 
-3. Subscribe to the AKS events using the [`New-AzEventGridSubscription`][new-azeventgridsubscription] cmdlet.
+```azurepowershell-interactive
+$SOURCE_RESOURCE_ID = (Get-AzAksCluster -ResourceGroupName MyResourceGroup -Name MyAKS).Id
+$ENDPOINT = (Get-AzEventHub -ResourceGroupName MyResourceGroup -EventHubName MyEventGridHub -Namespace MyNamespace).Id
+$params = @{
+    EventSubscriptionName = 'MyEventGridSubscription'
+    ResourceId            = $SOURCE_RESOURCE_ID
+    EndpointType          = 'eventhub'
+    Endpoint              = $ENDPOINT 
+}
+New-AzEventGridSubscription @params
+```
 
-    ```azurepowershell-interactive
-    $SOURCE_RESOURCE_ID = (Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myManagedCluster).Id
+Verify your subscription to AKS events using `Get-AzEventGridSubscription`:
 
-    $ENDPOINT = (Get-AzEventHub -ResourceGroupName myResourceGroup -EventHubName myEventGridHub -Namespace myNamespace).Id
+```azurepowershell-interactive
+Get-AzEventGridSubscription -ResourceId $SOURCE_RESOURCE_ID | Select-Object -ExpandProperty PSEventSubscriptionsList
+```
 
-    $params = @{
-        EventSubscriptionName = 'myEventGridSubscription'
-        ResourceId            = $SOURCE_RESOURCE_ID
-        EndpointType          = 'eventhub'
-        Endpoint              = $ENDPOINT
-    }
+The following example output shows you're subscribed to events from the *MyAKS* cluster and those events are delivered to the *MyEventGridHub* event hub:
 
-    New-AzEventGridSubscription @params
-    ```
-
-4. Verify your subscription to AKS events using the [`Get-AzEventGridSubscription`][get-azeventgridsubscription] cmdlet.
-
-    ```azurepowershell-interactive
-    Get-AzEventGridSubscription -ResourceId $SOURCE_RESOURCE_ID | Select-Object -ExpandProperty PSEventSubscriptionsList
-    ```
-
-    The following example output shows you're subscribed to events from the `myManagedCluster` cluster and those events are delivered to the `myEventGridHub` event hub:
-
-    ```Output
-    EventSubscriptionName : myEventGridSubscription
-    Id                    : /subscriptions/SUBSCRIPTION_ID/resourceGroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myManagedCluster/providers/Microsoft.EventGrid/eventSubscriptions/myEventGridSubscription
-    Type                  : Microsoft.EventGrid/eventSubscriptions
-    Topic                 : /subscriptions/SUBSCRIPTION_ID/resourceGroups/myResourceGroup/providers/microsoft.containerservice/managedclusters/myManagedCluster
-    Filter                : Microsoft.Azure.Management.EventGrid.Models.EventSubscriptionFilter
-    Destination           : Microsoft.Azure.Management.EventGrid.Models.EventHubEventSubscriptionDestination
-    ProvisioningState     : Succeeded
-    Labels                : 
-    EventTtl              : 1440
-    MaxDeliveryAttempt    : 30
-    EventDeliverySchema   : EventGridSchema
-    ExpirationDate        : 
-    DeadLetterEndpoint    : 
-    Endpoint              : /subscriptions/SUBSCRIPTION_ID/resourceGroups/myResourceGroup/providers/Microsoft.EventHub/namespaces/myNamespace/eventhubs/myEventGridHub
-    ```
+```Output
+EventSubscriptionName : MyEventGridSubscription
+Id                    : /subscriptions/SUBSCRIPTION_ID/resourceGroups/MyResourceGroup/providers/Microsoft.ContainerService/managedClusters/MyAKS/providers/Microsoft.EventGrid/eventSubscriptions/MyEventGridSubscription
+Type                  : Microsoft.EventGrid/eventSubscriptions
+Topic                 : /subscriptions/SUBSCRIPTION_ID/resourceGroups/myresourcegroup/providers/microsoft.containerservice/managedclusters/myaks
+Filter                : Microsoft.Azure.Management.EventGrid.Models.EventSubscriptionFilter
+Destination           : Microsoft.Azure.Management.EventGrid.Models.EventHubEventSubscriptionDestination
+ProvisioningState     : Succeeded
+Labels                : 
+EventTtl              : 1440
+MaxDeliveryAttempt    : 30
+EventDeliverySchema   : EventGridSchema
+ExpirationDate        : 
+DeadLetterEndpoint    : 
+Endpoint              : /subscriptions/SUBSCRIPTION_ID/resourceGroups/MyResourceGroup/providers/Microsoft.EventHub/namespaces/MyNamespace/eventhubs/MyEventGridHub
+```
 
 ---
 
-When AKS events occur, the events appear in your event hub. For example, when the list of available Kubernetes versions for your clusters changes, you see a `Microsoft.ContainerService.NewKubernetesVersionAvailable` event. For more information on the events AKS emits, see [Azure Kubernetes Service (AKS) as an Event Grid source][aks-events].
+When AKS events occur, you see those events appear in your event hub. For example, when the list of available Kubernetes versions for your clusters changes, you see a `Microsoft.ContainerService.NewKubernetesVersionAvailable` event. There are also new events available now for upgrades and cluster within support. For more information on the events AKS emits, see [Azure Kubernetes Service (AKS) as an Event Grid source][aks-events].
 
 ## Delete the cluster and subscriptions
 
 ### [Azure CLI](#tab/azure-cli)
 
-* Remove the resource group, AKS cluster, namespace, event hub, and all related resources using the [`az group delete`][az-group-delete] command.
+Use the [az group delete][az-group-delete] command to remove the resource group, the AKS cluster, namespace, and event hub, and all related resources.
 
-    ```azurecli-interactive
-    az group delete --name myResourceGroup --yes --no-wait
-    ```
+```azurecli-interactive
+az group delete --name MyResourceGroup --yes --no-wait
+```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-* Remove the resource group, AKS cluster, namespace, event hub, and all related resources using the [`Remove-AzResourceGroup`][remove-azresourcegroup] cmdlet.
+Use the [`Remove-AzResourceGroup`][remove-azresourcegroup] cmdlet to remove the resource group, the AKS cluster, namespace, and event hub, and all related resources.
 
-    ```azurepowershell-interactive
-    Remove-AzResourceGroup -Name myResourceGroup
-    ```
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name MyResourceGroup
+```
 
 ---
 
-  > [!NOTE]
-  > When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster isn't removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete].
-  >
-  > If you used a managed identity, the identity is managed by the platform and doesn't require removal.
+> [!NOTE]
+> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete].
+> 
+> If you used a managed identity, the identity is managed by the platform and does not require removal.
 
 ## Next steps
 
 In this quickstart, you deployed a Kubernetes cluster and then subscribed to AKS events in Azure Event Hubs.
 
-To learn more about AKS, and walk through a complete code to deployment example, continue to the following Kubernetes cluster tutorial.
+To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
 > [AKS tutorial][aks-tutorial]
@@ -234,7 +218,3 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [az-group-delete]: /cli/azure/group#az_group_delete
 [sp-delete]: kubernetes-service-principal.md#other-considerations
 [remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
-[az-group-create]: /cli/azure/group#az_group_create
-[az-eventgrid-event-subscription-list]: /cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-list
-[get-azeventgridsubscription]: /powershell/module/az.eventgrid/get-azeventgridsubscription
-[new-azresourcegroup]: /powershell/module/az.resources/new-azresourcegroup

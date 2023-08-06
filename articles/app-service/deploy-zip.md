@@ -2,8 +2,8 @@
 title: Deploy files to App Service
 description: Learn to deploy various app packages or discrete libraries, static files, or startup scripts to Azure App Service
 ms.topic: article
-ms.date: 08/13/2021
-ms.reviewer: sisirap
+ms.date: 07/21/2023
+ms.author: msangapu
 ms.custom: seodec18
 ---
 
@@ -66,10 +66,14 @@ Publish-AzWebApp -ResourceGroupName Default-Web-WestUS -Name MyApp -ArchivePath 
 
 # [Kudu API](#tab/api)
 
-The following example uses the cURL tool to deploy a ZIP package. Replace the placeholders `<username>`, `<zip-package-path>`, and `<app-name>`. When prompted by cURL, type in the [deployment password](deploy-configure-credentials.md).
+The following example uses the cURL tool to deploy a ZIP package. Replace the placeholders `<username>`, `<password>`, `<zip-package-path>`, and `<app-name>`. Use the [deployment credentials](deploy-configure-credentials.md) for authentication.
 
 ```bash
-curl -X POST -u <username:password> -T "@<zip-package-path>" https://<app-name>.scm.azurewebsites.net/api/publish?type=zip
+curl -X POST \
+     -H "Content-Type: application/octet-stream" \
+     -u '<username>:<password>' \
+     -T "<zip-package-path>" \
+     "https://<app-name>.scm.azurewebsites.net/api/zipdeploy"
 ```
 
 [!INCLUDE [deploying to network secured sites](../../includes/app-service-deploy-network-secured-sites.md)]
@@ -77,7 +81,11 @@ curl -X POST -u <username:password> -T "@<zip-package-path>" https://<app-name>.
 The following example uses the `packageUri` parameter to specify the URL of an Azure Storage account that the web app should pull the ZIP from.
 
 ```bash
-curl -X POST -u <username:password> https://<app-name>.scm.azurewebsites.net/api/publish -d '{"packageUri": "https://storagesample.blob.core.windows.net/sample-container/myapp.zip?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3"}'
+curl -X PUT \
+     -H "Content-Type: application/json" \
+     -u '<username>:<password>' \
+     -d '{"packageUri": "https://storagesample.blob.core.windows.net/sample-container/myapp.zip?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3"}' \
+     "https://<app-name>.scm.azurewebsites.net/api/zipdeploy"
 ```
 
 # [Kudu UI](#tab/kudu-ui)

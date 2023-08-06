@@ -4,7 +4,7 @@ titleSuffix: Azure Maps
 description: "Learn about two ways of authenticating requests in Azure Maps: shared key authentication and Azure Active Directory (Azure AD) authentication."
 author: eriklindeman
 ms.author: eriklind
-ms.date: 05/25/2021
+ms.date: 07/05/2023
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -112,11 +112,12 @@ When you configure Azure RBAC, you choose a security principal and apply it to a
 The following role definition types exist to support application scenarios.
 
 | Azure Role Definition                    | Description                                                                                                    |
-| :--------------------------------------- | :------------------------------------------------------------------------------------------------------------- |
+| :--------------------------------------- | :------------------------------------------------- |
 | Azure Maps Search and Render Data Reader | Provides access to only search and render Azure Maps REST APIs to limit access to basic web browser use cases. |
-| Azure Maps Data Reader                   | Provides access to immutable Azure Maps REST APIs.                                                             |
-| Azure Maps Data Contributor              | Provides access to mutable Azure Maps REST APIs. Mutability, defined by the actions: write and delete.         |
-| Custom Role Definition                   | Create a crafted role to enable flexible restricted access to Azure Maps REST APIs.                            |
+| Azure Maps Data Reader                   | Provides access to immutable Azure Maps REST APIs. |
+| Azure Maps Data Contributor              | Provides access to mutable Azure Maps REST APIs. Mutability, defined by the actions: write and delete. |
+| Azure Maps Data Read and Batch Role      |  This role can be used to assign read and batch actions on Azure Maps. |
+| Custom Role Definition                   | Create a crafted role to enable flexible restricted access to Azure Maps REST APIs. |
 
 Some Azure Maps services may require elevated privileges to perform write or delete actions on Azure Maps REST APIs. Azure Maps Data Contributor role is required for services, which provide write or delete actions. The following table describes what services Azure Maps Data Contributor is applicable when using write or delete actions. When only read actions are required, the Azure Maps Data Reader role can be used in place of the Azure Maps Data Contributor role.
 
@@ -168,10 +169,6 @@ Disabling local authentication doesn't take effect immediately. Allow a few minu
 ```
 
 ## Shared access signature token authentication
-
-[!INCLUDE [preview features callout](./includes/preview-callout.md)]
-
-Shared Access Signature token authentication is in preview.
 
 Shared access signature (SAS) tokens are authentication tokens created using the JSON Web token (JWT) format and are cryptographically signed to prove authentication for an application to the Azure Maps REST API. A SAS token, created by integrating a [user-assigned managed identity] with an Azure Maps account in your Azure subscription. The user-assigned managed identity is given authorization to the Azure Maps account through Azure RBAC using either built-in or custom role definitions.
 

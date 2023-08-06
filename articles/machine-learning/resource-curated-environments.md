@@ -101,4 +101,4 @@ Azure Machine Learning pipeline training workflows that use AutoML automatically
 For more information on AutoML and Azure Machine Learning pipelines, see [use automated ML in an Azure Machine Learning pipeline in Python SDK v1](v1/how-to-use-automlstep-in-pipelines.md).
 
 ## Support
-Version updates for supported environments, including the base images they reference, are released every two weeks to address vulnerabilities no older than 30 days. Based on usage, some environments may be deprecated (hidden from the product but usable) to support more common machine learning scenarios.
+Version updates for supported environments, including the base images they reference, are released every quarter to address vulnerabilities. Based on usage, some environments may be deprecated (hidden from the product but usable) to support more common machine learning scenarios.

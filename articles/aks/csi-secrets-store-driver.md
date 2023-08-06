@@ -5,7 +5,7 @@ author: nickomang
 ms.author: nickoman
 ms.topic: how-to 
 ms.date: 02/10/2023
-ms.custom: template-how-to, devx-track-azurecli
+ms.custom: template-how-to, devx-track-azurecli, devx-track-linux
 ---
 
 # Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster
@@ -75,7 +75,9 @@ A container using subPath volume mount won't receive secret updates when it's ro
 
     ```bash
     kubectl get pods -n kube-system -l 'app in (secrets-store-csi-driver,secrets-store-provider-azure)'
+    ```
 
+    ```output
     NAME                                     READY   STATUS    RESTARTS   AGE
     aks-secrets-store-csi-driver-4vpkj       3/3     Running   2          4m25s
     aks-secrets-store-csi-driver-ctjq6       3/3     Running   2          4m21s
@@ -129,13 +131,16 @@ After the pod starts, the mounted content at the volume path that you specified 
 
 * Use the following commands to validate your secrets and print a test secret.
 
+To show secrets held in the secrets store:
     ```bash
-    ## show secrets held in secrets-store
     kubectl exec busybox-secrets-store-inline -- ls /mnt/secrets-store/
-
-    ## print a test secret 'ExampleSecret' held in secrets-store
-    kubectl exec busybox-secrets-store-inline -- cat /mnt/secrets-store/ExampleSecret
     ```
+
+To display a secret in the store, for example this command shows the test secret `ExampleSecret`:
+
+```
+kubectl exec busybox-secrets-store-inline -- cat /mnt/secrets-store/ExampleSecret
+```
 
 ## Obtain certificates and keys
 
@@ -208,13 +213,17 @@ A key vault certificate also contains public x509 certificate metadata. The key 
 
 * To disable autorotation, first disable the addon. Then, re-enable the addon without the `enable-secret-rotation` parameter.
 
-    ```azurecli-interactive
-    # disable the addon
-    az aks addon disable -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider
+Disable the secrets provider addon:
 
-    # re-enable the addon without the `enable-secret-rotation` parameter
-    az aks addon enable -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider
-    ```
+```azurecli-interactive
+az aks addon disable -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider
+```
+
+Re-enable the secrets provider addon, but without the `enable-secret-rotation` parameter:
+
+```bash
+az aks addon enable -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider
+```
 
 ### Sync mounted content with a Kubernetes secret
 
@@ -339,17 +348,30 @@ In this article, you learned how to use the Azure Key Vault Provider for Secrets
 
 <!-- LINKS INTERNAL -->
 [az-aks-create]: /cli/azure/aks#az-aks-create
+
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
+
 [az-aks-disable-addons]: /cli/azure/aks#az-aks-disable-addons
+
 [csi-storage-drivers]: ./csi-storage-drivers.md
+
 [identity-access-methods]: ./csi-secrets-store-identity-access.md
+
 [aad-pod-identity]: ./use-azure-ad-pod-identity.md
+
 [aad-workload-identity]: workload-identity-overview.md
+
 [az-keyvault-create]: /cli/azure/keyvault#az-keyvault-create.md
+
 [az-keyvault-secret-set]: /cli/azure/keyvault#az-keyvault-secret-set.md
+
 [az-aks-addon-update]: /cli/azure/aks#addon-update.md
 
 <!-- LINKS EXTERNAL -->
 [kube-csi]: https://kubernetes-csi.github.io/docs/
+
 [reloader]: https://github.com/stakater/Reloader
+
 [kubernetes-version-support]: ./supported-kubernetes-versions.md?tabs=azure-cli#kubernetes-version-support-policy
+
+

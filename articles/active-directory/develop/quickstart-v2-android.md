@@ -20,7 +20,7 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. We're currently working on a fix, but for now, please use the link below - it should take you to the right article:
 > 
-> > [Quickstart: Android app with user sign-in](mobile-app-quickstart.md?pivots=devlang-android)
+> > [Quickstart: Sign in users and call Microsoft Graph from an Android app](quickstart-mobile-app-android-sign-in.md)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
@@ -476,7 +476,7 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > }
 > ```
 > 
-> [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 > 
 > ## Next steps
 > 

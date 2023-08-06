@@ -48,7 +48,7 @@ map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
 }), 'labels');
 ```
 
-The [Simple Heat Map Layer] sample demonstrates how to create a simple heat map from a data set of point features.
+The [Simple Heat Map Layer] sample demonstrates how to create a simple heat map from a data set of point features. For the source code for this sample, see [Simple Heat Map Layer source code].
 
 :::image type="content" source="./media/map-add-heat-map-layer/add-a-heat-map-layer.png" alt-text="Screenshot showing a map displaying a heat map.":::
 
@@ -79,7 +79,7 @@ The previous example customized the heat map by setting the radius and opacity o
   However, if you use an expression, the weight of each data point can be based on the properties of each data point. For example, suppose each data point represents an earthquake. The magnitude value has been an important metric for each earthquake data point. Earthquakes happen all the time, but most have a low magnitude, and aren't noticed. Use the magnitude value in an expression to assign the weight to each data point. By using the magnitude value to assign the weight, you get a better representation of the significance of earthquakes within the heat map.
 - `source` and `source-layer`: Enable you to update the data source.
 
-The [Heat Map Layer Options] sample shows how the different options of the heat map layer that affects rendering.
+The [Heat Map Layer Options] sample shows how the different options of the heat map layer that affects rendering. For the source code for this sample, see [Heat Map Layer Options source code].
 
 :::image type="content" source="./media/map-add-heat-map-layer/heat-map-layer-options.png" alt-text="Screenshot showing a map displaying a heat map, and a panel with editable settings that show how the different options of the heat map layer affect rendering.":::
 
@@ -96,7 +96,7 @@ Use a `zoom` expression to scale the radius for each zoom level, such that each 
 
 Scaling the radius so that it doubles with each zoom level creates a heat map that looks consistent on all zoom levels. To apply this scaling, use `zoom` with a base 2 `exponential interpolation` expression, with the pixel radius set for the minimum zoom level and a scaled radius for the maximum zoom level calculated as `2 * Math.pow(2, minZoom - maxZoom)` as shown in the following sample. Zoom the map to see how the heat map scales with the zoom level.
 
-The [Consistent zoomable Heat Map] sample shows how to create a heat map where the radius of each data point covers the same physical area on the ground, creating a more consistent user experience when zooming the map. The heat map in this sample scales consistently between zoom levels 10 and 22. Each zoom level of the map has twice as many pixels vertically and horizontally as the previous zoom level. Doubling the radius with each zoom level creates a heat map that looks consistent across all zoom levels.
+The [Consistent zoomable Heat Map] sample shows how to create a heat map where the radius of each data point covers the same physical area on the ground, creating a more consistent user experience when zooming the map. The heat map in this sample scales consistently between zoom levels 10 and 22. Each zoom level of the map has twice as many pixels vertically and horizontally as the previous zoom level. Doubling the radius with each zoom level creates a heat map that looks consistent across all zoom levels. For the source code for this sample, see [Consistent zoomable Heat Map source code].
 
 :::image type="content" source="./media/map-add-heat-map-layer/consistent-zoomable-heat-map.png" alt-text="Screenshot showing a map displaying a heat map that uses a zoom expression that scales the radius for each zoom level.":::
 
@@ -151,3 +151,7 @@ For more code examples to add to your maps, see the following articles:
 [Simple Heat Map Layer]: https://samples.azuremaps.com/heat-map-layer/simple-heat-map-layer
 [Heat Map Layer Options]: https://samples.azuremaps.com/heat-map-layer/heat-map-layer-options
 [Consistent zoomable Heat Map]: https://samples.azuremaps.com/heat-map-layer/consistent-zoomable-heat-map
+
+[Simple Heat Map Layer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Heat%20Map%20Layer/Simple%20Heat%20Map%20Layer/Simple%20Heat%20Map%20Layer.html
+[Heat Map Layer Options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Heat%20Map%20Layer/Heat%20Map%20Layer%20Options/Heat%20Map%20Layer%20Options.html
+[Consistent zoomable Heat Map source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Heat%20Map%20Layer/Consistent%20zoomable%20Heat%20Map/Consistent%20zoomable%20Heat%20Map.html

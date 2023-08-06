@@ -43,7 +43,7 @@ The following table has authenticator types permitted for AAL2:
 | Password <br>**AND**<br>- Azure AD joined with hardware TPM <br>- **OR**<br>- Hybrid Azure AD joined with hardware TPM| Memorized secret <br>**AND**<br>Single-factor crypto hardware |
 
 > [!NOTE]
-> Today, Microsoft Authenticator by itself is not phishing resistant. To gain protection from external phishing threats when using Microsoft Authenticator you must additionally configure conditional access policy requiring a managed device.
+> Today, Microsoft Authenticator by itself is not phishing resistant. To gain protection from external phishing threats when using Microsoft Authenticator you must additionally configure Conditional Access policy requiring a managed device.
 
 ### AAL2 recommendations
 
