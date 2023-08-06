@@ -31,8 +31,8 @@ This extension supports the following OS distros, depending on driver support fo
 
 | Distribution | Version |
 |---|---|
-| Linux: Ubuntu | 20.04 LTS, 22.04 LTS |
-| Linux: Red Hat Enterprise Linux | 7.9, 8.8, 9.2 |
+| Linux: Ubuntu | 20.04 LTS |
+| Linux: Red Hat Enterprise Linux | 7.9 |
 | Linux: CentOS | 7 |
 
 > [!NOTE]
