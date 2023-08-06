@@ -242,7 +242,7 @@ items:
           href: app/availability-private-test.md
         - name: TrackAvailability()
           href: app/availability-azure-functions.md
-          displayName: availability,azure functions,TrackAvailability(), timer function, azure gov, azure china, custom test, customized tests, contentmatch
+          displayName: availability,azure functions,TrackAvailability(), timer function, azure gov, Microsoft Azure operated by 21Vianet, custom test, customized tests, contentmatch
         - name: Availability alerts
           displayName: alerts, global, alerting
           href: app/availability-alerts.md

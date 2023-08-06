@@ -122,7 +122,7 @@ Follow these steps to create a new console application for conversation transcri
                     System.out.println("\n    Session stopped event.");
                 });
     
-                //conversationTranscriber.startTranscribingAsync().get();
+                conversationTranscriber.startTranscribingAsync().get();
     
                 // Waits for completion.
                 stopRecognitionSemaphore.acquire();

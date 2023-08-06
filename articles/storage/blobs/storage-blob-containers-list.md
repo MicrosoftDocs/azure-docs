@@ -23,7 +23,7 @@ When you list the containers in an Azure Storage account from your code, you can
 - The [authorization mechanism](../common/authorize-data-access.md) must have permissions to list blob containers. To learn more, see the authorization guidance for the following REST API operation:
     - [List Containers](/rest/api/storageservices/list-containers2#authorization)
 
-## Understand container listing options
+## About container listing options
 
 To list containers in your storage account, call one of the following methods:
 

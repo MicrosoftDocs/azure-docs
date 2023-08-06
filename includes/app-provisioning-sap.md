@@ -26,9 +26,8 @@ The computer that runs the provisioning agent should have:
 - A Windows Server 2016 or a later version. 
 
 Prior to configuring provisioning, ensure that you:
-- Expose the necessary APIs in SAP ECC 7.0 to create, update, and delete users. The [guide](https://www.microsoft.com/download/details.aspx?id=51495) here walks through how you can expose the necessary APIs.
-- Create a web services connector template for the ECMA host. You can use the template provided [here](https://www.microsoft.com/download/details.aspx?id=51495) as a reference. Before deploying in production, you will need to customize the template to meet the needs of your specific environment.  
-
+- Expose the necessary APIs in SAP ECC 7.0 to create, update, and delete users. The [guide](https://www.microsoft.com/download/details.aspx?id=51495) `Deploying SAP NetWeaver AS ABAP 7.pdf` walks through how you can expose the necessary APIs.
+- Create a web services connector template for the ECMA host. You can use the [guide](https://www.microsoft.com/download/details.aspx?id=51495) `Authoring SAP ECC 7 Template for ECMA2Host.pdf` as a reference to build your template. The download center provides a template `sapecc.wsconfig` as a reference. Before deploying in production, you will need to customize the template to meet the needs of your specific environment. Make sure that the ServiceName, EndpointName, and the OperationName are correct. 
 
 Configuration of the connection to SAP ECC 7.0 is done using a wizard. Depending on the options you select, some of the wizard screens might not be available and the information might be slightly different. Use the following information to guide you in your configuration.
 
