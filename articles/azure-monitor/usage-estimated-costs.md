@@ -170,7 +170,7 @@ Here is a list of the meters used to bill for log data ingestion, and whether th
 | Premium (legacy tier)  | Log Analytics | Premium Data Analyzed | no |
 
 
-The "Standard Data Included per Node" meter is used both for the Log Analytics [Per Node tier](logs/cost-logs#per-node-pricing-tier) data allowance, and also the [Defender for Servers data allowance](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud), for workspaces in any pricing tier. 
+The "Standard Data Included per Node" meter is used both for the Log Analytics [Per Node tier](logs/cost-logs.md#per-node-pricing-tier) data allowance, and also the [Defender for Servers data allowance](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud), for workspaces in any pricing tier. 
 
 Other Azure Monitor logs meters:
 
