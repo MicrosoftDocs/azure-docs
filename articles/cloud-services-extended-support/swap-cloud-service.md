@@ -51,7 +51,7 @@ $networkProfile.SwappableCloudService.Id = (
 
 ## Visual Studio
 
-In Visual Studio, you can use the swappable feature to manage VIP swap between two cloud service-extended support. This swappable feature displays lists of existing cloud service-extended support deployments in the same region as the newly created CSES in the selected subscription. To use this feature in Visual Studio:
+In Visual Studio, you can use the swappable feature to manage VIP Swap between two cloud service-extended support. This swappable feature displays lists of existing cloud service-extended support deployments in the same region as the newly created CSES in the selected subscription. To use this feature in Visual Studio:
 
 1. In the Publish Settings wizard, go to the **Advanced Settings** tab.
 2. Under **Swappable cloud service**, using the dropdown, select from the list of existing cloud services.
