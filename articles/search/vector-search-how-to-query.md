@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 07/14/2023
+ms.date: 07/31/2023
 ---
 
 # Query vector data in a search index
@@ -17,7 +17,9 @@ ms.date: 07/14/2023
 
 In Azure Cognitive Search, if you added vector fields to a search index, this article explains how to query those fields. It also explains how to combine vector queries with full text search and semantic search for hybrid query combination scenarios.
 
-Query execution in Cognitive Search doesn't include vector conversion. Encoding (text-to-vector) of the query string requires that you pass the text to an embedding model for vectorization. You would then pass the output of the call to the embedding model to the search engine for similarity search over vector fields.
+Query execution in Cognitive Search doesn't include vector conversion of the input string. Encoding (text-to-vector) of the query string requires that you pass the text to an embedding model for vectorization. You would then pass the output of the call to the embedding model to the search engine for similarity search over vector fields.
+
+All results are returned in plain text, including vectors. If you use Search Explorer in the Azure portal to query an index that contains vectors, the numeric vectors are returned in plain text. Because numeric vectors aren't useful in search results, choose other fields in the index as a proxy for the vector match. For example, if an index has "descriptionVector" and "descriptionText" fields, the query can match on "descriptionVector" but the search result shows "descriptionText". Use the `select` parameter to specify only human-readable fields in the results.
 
 ## Prerequisites
 

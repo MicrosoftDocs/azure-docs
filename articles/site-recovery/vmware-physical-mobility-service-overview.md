@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: how-to
 ms.author: ankitadutta
-ms.date: 05/02/2023
+ms.date: 08/01/2023
 ms.custom: engagement-fy23, devx-track-linux
 ---
 
@@ -78,13 +78,13 @@ Locate the installer files for the server’s operating system using the followi
 
 **Use the following steps to install the mobility service:**
 
-1. Copy the installation file to the location *C:\Program Files (x86)\Microsoft Azure Site Recovery*, and run it. This will launch the installer UI:
+1. Copy the installation file to the location *C:\Program Files (x86)\Microsoft Azure Site Recovery*, and run it. This will launch the installer UI: 
+
+   ![Image showing Install UI option for  Mobility Service](./media/vmware-physical-mobility-service-overview-modernized/mobility-service-install.png) 
 
 2. Provide the install location in the UI. This should be *C:\Program Files (x86)\Microsoft Azure Site Recovery*. 
 
 4. Click **Install**. This will start the installation of Mobility Service. Wait till the installation has been completed. 
-
-   ![Image showing Install UI option for  Mobility Service](./media/vmware-physical-mobility-service-overview-modernized/mobility-service-install.png)
 
    ![Image showing Installation progress for  Mobility Service](./media/vmware-physical-mobility-service-overview-modernized/installation-progress.png)
 
@@ -112,7 +112,7 @@ Locate the installer files for the server’s operating system using the followi
    ```
 2. Run the following command to extract the installer file:
    ```cmd
-       .\Microsoft-ASR_UA*Windows*release.exe /q /x:C:\Program Files (x86)\Microsoft Azure Site Recovery
+       .\Microsoft-ASR_UA*Windows*release.exe /q /x:"C:\Program Files (x86)\Microsoft Azure Site Recovery"
     ```
 3. To proceed with the installation, run the following command:
 
@@ -127,7 +127,7 @@ Locate the installer files for the server’s operating system using the followi
 4. After successfully installing, register the source machine with the above appliance using the following command:
 
    ```cmd
-   "C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime /CredentialLessDiscovery true
+   "C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CredentialLessDiscovery true /CSType CSPrime
    ```
 
 #### Installation settings
@@ -139,7 +139,7 @@ Syntax | `.\UnifiedAgentInstaller.exe /Platform vmware /Role MS /CSType CSPrime 
 `/InstallLocation`| Optional. Specifies the Mobility service installation location (any folder).
 `/Platform` | Mandatory. Specifies the platform on which the Mobility service is installed: <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.<br/><br/> If you're treating Azure VMs as physical machines, specify **VMware**.
 `/Silent`| Optional. Specifies whether to run the installer in silent mode.
-`/CSType`| Mandatory. Used to define modernized or legacy architecture. (CSPrime or CSLegacy)
+`/CSType`| Optional. Used to define modernized or classic architecture. By default for all agents on or above the version 9.55, modernized architecture would be launched. (CSPrime or CSLegacy)
 
 #### Registration settings
 
@@ -147,7 +147,7 @@ Setting | Details
 --- | ---
 Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime /CredentialLessDiscovery true`
 `/SourceConfigFilePath` | Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
-`/CSType` |  Mandatory. Used to define modernized or legacy architecture. (CSPrime or CSLegacy).
+`/CSType` |  Optional. Used to define modernized or legacy architecture. By default for all agents on or above the version 9.55, modernized architecture would be launched. (CSPrime or CSLegacy).
 `/CredentialLessDiscovery` | Optional. Specifies whether credential-less discovery will be performed or not.  
 
 
@@ -170,7 +170,7 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
 3. After successfully installing, register the source machine with the above appliance using the following command:
 
    ```bash
-        <InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -c CSPrime -S config.json -q
+        <InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -S config.json -q -c CSPrime
     ```
 #### Installation settings
 
@@ -181,15 +181,15 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
     `-d` | Optional. Specifies the Mobility service installation location: `/usr/local/ASR`.
     `-v` | Mandatory. Specifies the platform on which Mobility service is installed. <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.
     `-q` | Optional. Specifies whether to run the installer in silent mode.
-    `-c` | Mandatory. Used to define modernized or legacy architecture. (CSPrime or CSLegacy).
+    `-c` | Optional. Used to define modernized or legacy architecture. By default for all agents on or above the version 9.55, modernized architecture would be launched. (CSPrime or CSLegacy).
 
 #### Registration settings
 
   Setting | Details
   --- | ---
-    Syntax | `<InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -c CSPrime -S config.json -q -D true`  
+    Syntax | `<InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -S config.json -q -D true -c CSPrime`  
     `-S` |  Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
-    `-c` |  Mandatory. Used to define modernized and legacy architecture. (CSPrime or CSLegacy).
+    `-c` |  Optional. Used to define modernized and legacy architecture. By default for all agents on or above the version 9.55, modernized architecture would be launched. (CSPrime or CSLegacy).
     `-q` |  Optional. Specifies whether to run the installer in silent mode.
     `-D` |  Optional. Specifies whether credential-less discovery will be performed or not. 
 
@@ -276,7 +276,7 @@ See information about [upgrading the mobility services](upgrade-mobility-service
 - Run this command to install the agent.
 
   ```cmd
-  UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
+  UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent  /CSType CSLegacy
   ```
 
 - Run these commands to register the agent with the configuration server.
@@ -290,12 +290,13 @@ See information about [upgrading the mobility services](upgrade-mobility-service
 
 Setting | Details
 --- | ---
-Syntax | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Platform "VmWare" /Silent`
+Syntax | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Platform "VmWare" /Silent /CSType CSLegacy`
 Setup logs | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
 `/Role` | Mandatory installation parameter. Specifies whether the mobility service (MS) or master target (MT) should be installed. 
 `/InstallLocation`| Optional parameter. Specifies the Mobility service installation location (any folder).
 `/Platform` | Mandatory. Specifies the platform on which the Mobility service is installed: <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.<br/><br/> If you're treating Azure VMs as physical machines, specify **VMware**.
 `/Silent`| Optional. Specifies whether to run the installer in silent mode.
+` /CSType` | Required. Used to define modernized or classic architecture. By default, modernized architecture would be launched. (CSPrime or CSLegacy)
 
 #### Registration settings
 Setting | Details
@@ -317,32 +318,34 @@ Agent configuration logs | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurat
 2. Install as follows (root account is not required, but root permissions are required):
 
    ```bash
-   sudo ./install -r MS -v VmWare -d <Install Location> -q
+   sudo ./install -r MS -v VmWare -d <Install Location> -q -c CSLegacy
    ```
 
 3. After the installation is finished, the Mobility service must be registered to the configuration server. Run the following command to register the Mobility service with the configuration server.
 
    ```bash
-   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
+   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt -c CSLegacy
    ```
 
 #### Installation settings
 
 Setting | Details
 --- | ---
-Syntax | `./install -r MS -v VmWare [-d <Install Location>] [-q]`
+Syntax | `./install -r MS -v VmWare [-d <Install Location>] [-q] -c CSLegacy`
 `-r` | Mandatory installation parameter. Specifies whether the mobility service (MS) or master target (MT) should be installed.
 `-d` | Optional parameter. Specifies the Mobility service installation location: `/usr/local/ASR`.
 `-v` | Mandatory. Specifies the platform on which Mobility service is installed. <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.
 `-q` | Optional. Specifies whether to run the installer in silent mode.
+`-c` | Required. Used to define modernized or classic architecture. By default, modernized architecture would be launched. (CSPrime or CSLegacy)
 
 #### Registration settings
 
 Setting | Details
 --- | ---
-Syntax | `cd /usr/local/ASR/Vx/bin`</br> `UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>`
+Syntax | `cd /usr/local/ASR/Vx/bin`</br> `UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath> -c CSLegacy`
 `-i` | Mandatory parameter. `<CSIP>` specifies the configuration server's IP address. Use any valid IP address.
 `-P` |  Mandatory. Full file path of the file in which the passphrase is saved. [Learn more](./vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase).
+`-c` | Required. Used to define modernized or classic architecture. By default, modernized architecture would be launched.(CSPrime or CSLegacy)
 
 ## Azure Virtual Machine agent
 

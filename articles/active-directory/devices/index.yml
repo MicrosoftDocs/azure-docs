@@ -34,13 +34,13 @@ landingContent:
       - linkListType: concept
         links:
           - text: Azure AD registered devices
-            url: concept-azure-ad-register.md
+            url: concept-device-registration.md
           - text: Azure AD joined devices
-            url: concept-azure-ad-join.md
+            url: concept-directory-join.md
           - text: Hybrid Azure AD joined devices
-            url: concept-azure-ad-join-hybrid.md
+            url: concept-hybrid-join.md
           - text: SSO to on-premises resources
-            url: azuread-join-sso.md
+            url: device-sso-to-on-premises-resources.md
           - text: Primary Refresh Tokens
             url: concept-primary-refresh-token.md
 
@@ -50,7 +50,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Plan your Azure AD join implementation
-            url: azureadjoin-plan.md
+            url: device-join-plan.md
           - text: Manage the local administrators group on Azure AD joined devices
             url: assign-local-admin.md
           - text: Find and manage stale devices in Azure AD
@@ -62,6 +62,6 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Plan your hybrid Azure AD join implementation
-            url: hybrid-azuread-join-plan.md
+            url: hybrid-join-plan.md
           - text: Troubleshooting hybrid Azure AD joined devices
             url: troubleshoot-hybrid-join-windows-current.md

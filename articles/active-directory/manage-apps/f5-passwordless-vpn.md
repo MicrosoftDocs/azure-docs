@@ -323,7 +323,7 @@ Your SSL-VPN service is published and accessible via SHA, either with its URL or
     ![Screenshot of the Contoso Network Portal page with network access indicator.](media/f5-passwordless-vpn/vpn-launcher.png)
 
 >[!NOTE]
->Select the VPN tile to install the BIG-IP Edge client and establish a VPN connection configured for SHA. The F5 VPN application is visible as a target resource in Azure AD Conditional Access. See [conditional access policies](../conditional-access/concept-conditional-access-policies.md) to enable users for Azure AD [password-less authentication](https://www.microsoft.com/security/business/identity/passwordless).
+>Select the VPN tile to install the BIG-IP Edge client and establish a VPN connection configured for SHA. The F5 VPN application is visible as a target resource in Azure AD Conditional Access. See [Conditional Access policies](../conditional-access/concept-conditional-access-policies.md) to enable users for Azure AD [password-less authentication](https://www.microsoft.com/security/business/identity/passwordless).
 
 
 ## Resources
