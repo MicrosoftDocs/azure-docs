@@ -19,7 +19,9 @@ In Azure Cognitive Search, vector data is indexed as *vector fields* within a [s
 
 + A vector field is of type `Collection(Edm.Single)` so that it can hold  single-precision floating-point values. It also has a "dimensions" property and a "vectorConfiguration" property.
 
-+ A vector configuration specifies the algorithm and parameters used during query execution to find the nearest neighbors in a similarity search. You can have multiple configurations within an index, but each vector field is assigned to just one.
++ A vector configuration specifies the algorithm and parameters used during indexing to create the proximity graph. The supported algorithm is Hierarchical Navigable Small World (HNSW).
+
+During indexing, HNSW determines how closely the vectors match and stores the neighborhood information among vectors in the index. You can have multiple configurations within an index if you want different parameter combinations. As long as the vector fields contain embeddings from the same model, having a different vector configuration per field is insignificant at query time.
 
 ## Prerequisites
 
@@ -87,7 +89,7 @@ Although you can add a field definition, there's no portal support for loading v
    **Key points**:
 
    + Name the configuration. The name must be unique within the index.
-   + "hnsw" is the Approximate Nearest Neighbors (ANN) algorithm used to find similar vectors. Currently, only Hierarchical Navigable Small World (HNSW) is supported. 
+   + "hnsw" is the Approximate Nearest Neighbors (ANN) algorithm used to create the proximity graph during indexing. Currently, only Hierarchical Navigable Small World (HNSW) is supported. 
    + "Bi-directional link count" default is 4. The range is 2 to 100. Lower values should return less noise in the results. 
    + "efConstruction" default is 400. It's the number of nearest neighbors used during indexing.
    + "efSearch default is 500. It's the number of nearest neighbors used during search.

@@ -44,7 +44,7 @@ sudo apt-get update
 sudo apt-get install build-essential libssl-dev ca-certificates libasound2 wget
 ```
 
-# [Debian 9/10/11](#tab/debian)
+# [Debian 10/11](#tab/debian)
 
 To use the Speech SDK in Alpine Linux, create a Debian chroot environment as documented in the Alpine Linux Wiki on [running glibc programs](https://wiki.alpinelinux.org/wiki/Running_glibc_programs). Then follow the Debian instructions here.
 

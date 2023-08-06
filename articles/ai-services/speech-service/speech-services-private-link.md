@@ -156,7 +156,7 @@ https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions
 ```
 
 > [!NOTE]
-> See [this article](sovereign-clouds.md) for Azure Government and Azure China endpoints.
+> See [this article](sovereign-clouds.md) for Azure Government and Microsoft Azure operated by 21Vianet endpoints.
 
 After you turn on a custom domain for a Speech resource (which is necessary for private endpoints), that resource will use the following DNS name pattern for the basic REST API endpoint: <p/>`{your custom name}.cognitiveservices.azure.com`
 
@@ -182,7 +182,7 @@ The [Speech to text REST API for short audio](rest-speech-to-text-short.md) and 
 - Special endpoints for all other operations
 
 > [!NOTE]
-> See [this article](sovereign-clouds.md) for Azure Government and Azure China endpoints.
+> See [this article](sovereign-clouds.md) for Azure Government and Azure operated by 21Vianet endpoints.
 
 The detailed description of the special endpoints and how their URL should be transformed for a private-endpoint-enabled Speech resource is provided in [this subsection](#construct-endpoint-url) about usage with the Speech SDK. The same principle described for the SDK applies for the Speech to text REST API for short audio and the Text to speech REST API.
 
@@ -227,12 +227,12 @@ An example DNS name is:
 
 `westeurope.stt.speech.microsoft.com`
 
-All possible values for the region (first element of the DNS name) are listed in [Speech service supported regions](regions.md). (See [this article](sovereign-clouds.md) for Azure Government and Azure China endpoints.) The following table presents the possible values for the Speech service offering (second element of the DNS name):
+All possible values for the region (first element of the DNS name) are listed in [Speech service supported regions](regions.md). (See [this article](sovereign-clouds.md) for Azure Government and Azure operated by 21Vianet endpoints.) The following table presents the possible values for the Speech service offering (second element of the DNS name):
 
 | DNS name value | Speech service offering                                    |
 |----------------|-------------------------------------------------------------|
 | `commands`     | [Custom Commands](custom-commands.md)                       |
-| `convai`       | [Conversation Transcription](conversation-transcription.md) |
+| `convai`       | [Meeting Transcription](meeting-transcription.md) |
 | `s2s`          | [Speech Translation](speech-translation.md)                 |
 | `stt`          | [Speech to text](speech-to-text.md)                         |
 | `tts`          | [Text to speech](text-to-speech.md)                         |
