@@ -22,6 +22,7 @@ In this tutorial, you add an HTTP scale rule to your container app and observe h
 | Requirement  | Instructions |
 |--|--|
 | Azure account | If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). <br><br>You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md?tabs=current) for details. |
+| GitHub Account | Get one for [free](https://github.com/join). |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli). |
 
 ## Setup
@@ -99,6 +100,12 @@ az provider register --namespace Microsoft.OperationalInsights
 
 ---
 
+## Prepare the GitHub repository
+
+In a browser window, go to the GitHub repository and fork the repository. For this tutorial, we will simply use the C# repository, because the programming language does not matter to the tutorial.
+
+Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-csharp) to fork the repo to your account.
+
 ## Create and deploy the container app
 
 Create and deploy your container app with the `containerapp up` command. This command creates:
@@ -111,6 +118,8 @@ If any of these resources already exist, the command uses them instead of creati
 
 Lastly, the command creates and deploys the container app using a public container image.
 
+Replace the `<YOUR_GITHUB_REPOSITORY_NAME>` with your GitHub repository name in the form of `https://github.com/<owner>/containerapps-albumapi-csharp` or `<owner>/containerapps-albumapi-csharp`.
+
 # [Bash](#tab/bash)
 
 ```azurecli
@@ -119,10 +128,11 @@ az containerapp up \
   --resource-group my-container-apps \
   --location centralus \
   --environment 'my-container-apps' \
-  --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
   --target-port 80 \
   --ingress external \
-  --query properties.configuration.ingress.fqdn
+  --query properties.configuration.ingress.fqdn \
+  --context-path ./src \
+  --repo <YOUR_GITHUB_REPOSITORY_NAME>
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -133,10 +143,11 @@ az containerapp up `
   --resource-group my-container-apps `
   --location centralus `
   --environment my-container-apps `
-  --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest `
   --target-port 80 `
-  --ingress external `
-  --query properties.configuration.ingress.fqdn
+  --ingress external  `
+  --query properties.configuration.ingress.fqdn `
+  --context-path ./src `
+  --repo <YOUR_GITHUB_REPOSITORY_NAME>
 ```
 
 ---
