@@ -94,7 +94,7 @@ To add standards to your dashboard:
 1. From the **Add regulatory compliance standards** page, you can search for any of the available standards:
 :::image type="content" source="media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png" alt-text="Screenshot showing adding regulatory standards to regulatory compliance dashboard. "lightbox="media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png":::
 
-1. Select **Create** and enter all the necessary details for the specific initiative such as scope, parameters, and remediation.
+1. Select **Add** and enter all the necessary details for the specific initiative such as scope, parameters, and remediation.
 
 1. From Defender for Cloud's menu, select **Regulatory compliance** again to go back to the regulatory compliance dashboard.
 
@@ -107,13 +107,13 @@ To add standards to your dashboard:
 To add regulatory compliance standards on AWS accounts:
 
 1. Navigate to **Environment settings**.
-1. Select the AWS relevant account.
+1. Select the relevant AWS account.
 1. Select **Standards**.
-1. Select **Create** and choose **Standard**.
+1. Select the three dots alongside the standard and select **Assign standard**.
 1. Enter all the necessary details for the specific initiative such as scope, parameters, and remediationChoose a standard from the drop-down menu.
 1. Select **Create**.
 
-    :::image type="content" source="media/update-regulatory-compliance-packages/add-AWS-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/add-aws-regulatory-compliance.png":::
+    :::image type="content" source="media/update-regulatory-compliance-packages/assign-standard-aws.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/assign-standard-aws.png":::
 
 
 ### Add a standard to your GCP projects
@@ -123,10 +123,10 @@ To add regulatory compliance standards on GCP projects:
 1. Navigate to **Environment settings**.
 1. Select the relevant GCP project.
 1. Select **Standards**.
-1. Select **Create** and choose **Standard**.
+1. Select the three dots alongside the standard and select  **Assign Standard**.
 1. Enter all the necessary details and select **Create**.
 
-    :::image type="content" source="media/update-regulatory-compliance-packages/add-gcp-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to GCP project." lightbox="media/update-regulatory-compliance-packages/add-gcp-regulatory-compliance.png":::
+    :::image type="content" source="media/update-regulatory-compliance-packages/assign-standard-gcp.png" alt-text="Screenshot of adding regulatory compliance standard to GCP project." lightbox="media/update-regulatory-compliance-packages/assign-standard-gcp.png":::
 
 1. Your new standard appears in your list of Industry & regulatory standards.
 
