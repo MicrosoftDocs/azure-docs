@@ -1,8 +1,4 @@
 ---
-# Required metadata
-# For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
-# For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
-
 title:       ND H100 v5-series- Azure Virtual Machines
 description: Specifications for the ND H100 v5-series VMs
 author:      iamwilliew 
@@ -16,7 +12,6 @@ ms.date:     08/04/2023
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-## ND H100 v5-series
 
 The ND H100 v5 series virtual machine (VM) is a new flagship addition to the Azure GPU family. It’s designed for high-end Deep Learning training and tightly coupled scale-up and scale-out Generative AI and HPC workloads. 
 
