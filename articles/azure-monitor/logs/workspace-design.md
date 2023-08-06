@@ -84,7 +84,7 @@ You might need to split billing between different parties or perform charge back
 - **If you need to split billing or perform charge back:** Consider whether [Azure Cost Management + Billing](../usage-estimated-costs.md#azure-cost-management--billing) or a log query provides cost reporting that's granular enough for your requirements. If not, use a separate workspace for each cost owner.
 
 ### Data retention and archive
-You can configure default [data retention and archive settings](data-retention-archive.md) for a workspace or [configure different settings for each table](data-retention-archive.md#set-retention-and-archive-policy-by-table). You might require different settings for different sets of data in a particular table. If so, you need to separate that data into different workspaces, each with unique retention settings.
+You can configure default [data retention and archive settings](data-retention-archive.md) for a workspace or [configure different settings for each table](data-retention-archive.md#configure-retention-and-archive-at-the-table-level). You might require different settings for different sets of data in a particular table. If so, you need to separate that data into different workspaces, each with unique retention settings.
 
 - **If you can use the same retention and archive settings for all data in each table:** Use a single workspace for all resources.
 - **If you require different retention and archive settings for different resources in the same table:** Use a separate workspace for different resources.
