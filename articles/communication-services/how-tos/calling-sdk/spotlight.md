@@ -49,7 +49,7 @@ Since the video stream resolution of a participant is increased when spotlighted
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Spotlight Client-side Android](./includes/spotlight/spotlight-android.md)]
+[!INCLUDE [Spotlight Client-side IOS](./includes/spotlight/spotlight-ios.md)]
 ::: zone-end
 
 ::: zone pivot="platform-windows"
