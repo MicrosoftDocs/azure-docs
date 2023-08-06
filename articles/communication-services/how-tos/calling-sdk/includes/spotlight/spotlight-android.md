@@ -17,6 +17,7 @@ Communication Services or Microsoft 365 users can call the spotlight APIs based 
 | stopSpotlight | ✔️ | ✔️ | ✔️ |
 | stopAllSpotlight |  ✔️ | ✔️ | ✔️ |
 | getSpotlightedParticipants |  ✔️ | ✔️ | ✔️ |
+| maxSupported |  ✔️ | ✔️ | ✔️ |
 
 **For meeting scenario the following APIs are supported for both Communication Services and Microsoft 365 users**
 
@@ -26,6 +27,7 @@ Communication Services or Microsoft 365 users can call the spotlight APIs based 
 | stopSpotlight | ✔️ | ✔️ | ✔️ |
 | stopAllSpotlight |  ✔️ | ✔️ |  |
 | getSpotlightedParticipants |  ✔️ | ✔️ | ✔️ |
+| maxSupported |  ✔️ | ✔️ | ✔️ |
 
 Spotlight is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
 

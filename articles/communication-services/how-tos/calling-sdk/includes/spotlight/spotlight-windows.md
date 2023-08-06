@@ -17,6 +17,7 @@ Communication Services or Microsoft 365 users can call the spotlight APIs based 
 | StopSpotlightAsync | ✔️ | ✔️ | ✔️ |
 | StopAllSpotlightAsync |  ✔️ | ✔️ | ✔️ |
 | SpotlightedParticipants |  ✔️ | ✔️ | ✔️ |
+| MaxSupported |  ✔️ | ✔️ | ✔️ |
 
 **For meeting scenario the following APIs are supported for both Communication Services and Microsoft 365 users**
 
@@ -26,6 +27,7 @@ Communication Services or Microsoft 365 users can call the spotlight APIs based 
 | StopSpotlightAsync | ✔️ | ✔️ | ✔️ |
 | StopAllSpotlightAsync |  ✔️ | ✔️ |  |
 | SpotlightedParticipants |  ✔️ | ✔️ | ✔️ |
+| MaxSupported |  ✔️ | ✔️ | ✔️ |
 
 Spotlight is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
 
@@ -105,5 +107,5 @@ foreach (SpotlightedParticipant participant in currentSpotlightedParticipants)
 ### Get the maximum supported spotlight:
 The following API can be used to get the maximum number of participants that can be spotlighted using the Calling SDK
 ``` csharp
-spotlightCallFeature.MaxSupportedAsync();
+spotlightCallFeature.MaxSupported();
 ```
