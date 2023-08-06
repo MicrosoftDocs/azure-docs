@@ -73,7 +73,7 @@ In this article, you learn how to:
 
 #### [Azure CLI](#tab/azure-cli)
 
-1. Get the Azure key vault name.
+1. Get the Azure Key Vault name.
 
     ```console
     azurerm_key_vault_name=$(terraform output -raw azurerm_key_vault_name)
@@ -87,7 +87,7 @@ In this article, you learn how to:
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
-1. Get the Azure key vault name.
+1. Get the Azure Key Vault name.
 
     ```console
     $azurerm_key_vault_name=$(terraform output -raw azurerm_key_vault_name)
