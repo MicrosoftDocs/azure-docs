@@ -157,9 +157,9 @@ For the full Azure CLI documentation for this command, see the [Azure CLI docume
 
 ### Azure PowerShell
 
-Starting with version 8.0 or higher of [Azure PowerShell](https://learn.microsoft.com/powershell/azure/what-is-azure-powershell), you can use the  `Update-AzApplicationInsights` PowerShell command to migrate a classic Application Insights resource to workspace based.
+Starting with version 8.0 or higher of [Azure PowerShell](/powershell/azure/what-is-azure-powershell), you can use the  `Update-AzApplicationInsights` PowerShell command to migrate a classic Application Insights resource to workspace based.
 
-To use this cmdlet, you need to specify the name and resource group of the Application Insights resource that you want to update. Use the `IngestionMode` and `WorkspaceResoruceId` parameters to migrate your classic instance to workspace-based. For more information on the parameters and syntax of this cmdlet, see [Update-AzApplicationInsights](https://learn.microsoft.com/powershell/module/az.applicationinsights/update-azapplicationinsights).
+To use this cmdlet, you need to specify the name and resource group of the Application Insights resource that you want to update. Use the `IngestionMode` and `WorkspaceResoruceId` parameters to migrate your classic instance to workspace-based. For more information on the parameters and syntax of this cmdlet, see [Update-AzApplicationInsights](/powershell/module/az.applicationinsights/update-azapplicationinsights).
 
 #### Example
 
