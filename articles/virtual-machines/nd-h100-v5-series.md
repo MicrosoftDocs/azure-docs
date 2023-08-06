@@ -3,7 +3,7 @@ title:       ND H100 v5-series- Azure Virtual Machines
 description: Specifications for the ND H100 v5-series VMs
 author:      iamwilliew 
 ms.author:   wwilliams 
-ms.service:  virtual-machines
+ms.service:  
 ms.topic:    conceptual
 ms.date:     08/04/2023
 ---
@@ -23,7 +23,7 @@ These instances provide excellent performance for many AI, ML, and analytics too
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
-[Ultra disk](disks-types.md#ultra-disks): Supported [Learn more](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) about availability, usage, and performance) <br>
+[Ultra disk](disks-types.md#ultra-disks): Supported [Learn more](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) about availability, usage, and performance <br>
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 2<br>
