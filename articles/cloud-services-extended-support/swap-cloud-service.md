@@ -41,7 +41,7 @@ If you use an ARM template deployment method, to make the cloud services swappab
 
 ## Azure PowerShell
 
-To make two independent cloud service deployments swappable in Microsoft Azure Cloud Services (extended support) using the [Powershell](https://learn.microsoft.com/en-us/troubleshoot/azure/cloud-services/manage-vip-swap-powershell), create a staging cloud service and make sure that you set the ID of its swappable cloud service property to the ID of an existing (production) cloud service:
+To make two independent cloud service deployments swappable in Microsoft Azure Cloud Services (extended support) using the [Powershell](/troubleshoot/azure/cloud-services/manage-vip-swap-powershell), create a staging cloud service and make sure that you set the ID of its swappable cloud service property to the ID of an existing (production) cloud service:
 
 ```powershell
 $networkProfile.SwappableCloudService.Id = (
@@ -55,7 +55,7 @@ In Visual Studio, you can use the swappable feature to manage VIP swap between t
 
 1. In the Publish Settings wizard, go to the **Advanced Settings** tab.
 2. Under **Swappable cloud service**, using the dropdown, select from the list of existing cloud services.
-3. Go to the portal menu to perform the **Swap** operation as described in the [Azure Portal](https://learn.microsoft.com/en-us/azure/cloud-services-extended-support/swap-cloud-service#azure-portal) steps below.
+3. Go to the portal menu to perform the **Swap** operation as described in the [Azure Portal](/azure/cloud-services-extended-support/swap-cloud-service#azure-portal) steps below.
    
 ## Azure portal
 
