@@ -9,15 +9,16 @@ ms.date: 6/28/2023
 
 # Data retention and archive in Azure Monitor Logs
 
-Data is retained in Azure Monitor Logs in two modes:
-* **Interactive Retention**: Allow you to retain Analytics logs for [interactive queries](../logs/get-started-queries.md) of up to 2 years.
-* **Archive**: Let you keep older, less used data in your workspace at a reduced cost. Data in archive can be accessed by [Search Jobs](../logs/search-jobs.md) and [Restore](../logs/restore.md). You can keep in Archive logs up to 7 years. In the coming months, it would be possible to extend archive to 12 years.
+Azure Monitor Logs retains data in two states:
+
+* **Interactive retention**: Lets you retain Analytics logs for [interactive queries](../logs/get-started-queries.md) of up to 2 years.
+* **Archive**: Lets you keep older, less used data in your workspace at a reduced cost. You can access data in the archived state by using [search jobs](../logs/search-jobs.md) and [restore](../logs/restore.md). You can currently keep data in archived state for up to 7 years. In the coming months, it will be possible to extend archive to 12 years.
 
 This article describes how to configure data retention and archiving.
 
 ## How retention and archiving work
 
-Each workspace has a default retention that's applied to all tables. You can set a different retention setting on individual tables.
+Each workspace has a default retention setting that's applied to all tables. You can configure a different retention setting on individual tables.
 
 :::image type="content" source="media/data-retention-configure/retention-archive.png" alt-text="Diagram that shows an overview of data retention and archive periods.":::
 
@@ -29,22 +30,21 @@ You can access archived data by [running a search job](search-jobs.md) or [resto
 
 > [!NOTE]
 > The archive period can only be set at the table level, not at the workspace level.
-
-## Permissions
-
-To configure set data retention and archiving, you must have at least [contributor rights](../logs/manage-access.md#azure-rbac).
-
 ### Adjustments to retention and archive settings
 
-When you shorten an existing retention setting, Azure Monitor waits 30 days before removing the data, so you can revert the change and prevent data loss in the event of an error in configuration. You can [purge data](#purge-retained-data) immediately when required. 
+When you shorten an existing retention setting, Azure Monitor waits 30 days before removing the data, so you can revert the change and avoid data loss in the event of an error in configuration. You can [purge data](#purge-retained-data) immediately when required. 
 
 When you increase the retention setting, the new retention period applies to all data that's already been ingested into the table and hasn't yet been purged or removed.   
 
 If you change the archive settings on a table with existing data, the relevant data in the table is also affected immediately. For example, you might have an existing table with 180 days of interactive retention and no archive period. You decide to change the retention setting to 90 days of interactive retention without changing the total retention period of 180 days. Log Analytics immediately archives any data that's older than 90 days and none of the data is deleted.
 
+## Permissions
+
+To configure set data retention and archiving, you must have at least [contributor rights](../logs/manage-access.md#azure-rbac).
+
 ## Configure the default workspace retention
 
-You can set the workspace default retention in the Azure portal to 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. You can set a different for specific tables by [configuring the retention and archive policy at the table level](#set-retention-and-archive-policy-by-table). If you're on the *free* tier, you'll need to upgrade to the paid tier to change the data retention period.
+You can set a Log Analytics workspace's default retention in the Azure portal to 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. You can apply a different setting to specific tables by [configuring retention and archive at the table level](#configure-retention-and-archive-at-the-table-level). If you're on the *free* tier, you need to upgrade to the paid tier to change the data retention period.
 
 To set the default workspace retention:
 
@@ -56,11 +56,14 @@ To set the default workspace retention:
 
 1. Move the slider to increase or decrease the number of days, and then select **OK**.
 
-## Set retention and archive by table
+## Configure retention and archive at the table level
 
 By default, all tables in your workspace inherit the workspace's interactive retention setting and have no archive. You can modify the retention and archive settings of individual tables, except for workspaces in the legacy Free Trial pricing tier.
 
-The Analytics log data plan includes 30 days of interactive retention. You can increase the interactive retention period to up to 730 days at an [additional cost](https://azure.microsoft.com/pricing/details/monitor/). If needed, you can reduce the interactive retention period to as low as four days using the API or CLI, however, since 30 days are included in the ingestion price, lowering the retention period below 30 days does not reduce costs. You can set the archive period to a total retention time of up to 2,556 days (seven years).
+The Analytics log data plan includes 30 days of interactive retention. You can increase the interactive retention period to up to 730 days at an [additional cost](https://azure.microsoft.com/pricing/details/monitor/). If needed, you can reduce the interactive retention period to as little as four days using the API or CLI. However, since 30 days are included in the ingestion price, lowering the retention period below 30 days doesn't reduce costs. You can set the archive period to a total retention time of up to 2,556 days (seven years).
+
+> [!NOTE]
+> In the coming months, new settings will enable retaining data for up to 12 years.
 
 # [Portal](#tab/portal-1)
 
@@ -100,12 +103,8 @@ The request body includes the values in the following table.
 
 |Name | Type | Description |
 | --- | --- | --- |
-|properties.retentionInDays | integer  | The table's data retention in days. This value can be between 4 and 730. <br/>Setting this property to null will default to the workspace retention. For a Basic Logs table, the value is always 8. |
+|properties.retentionInDays | integer  | The table's data retention in days. This value can be between 4 and 730. <br/>Setting this property to null applies the workspace retention period. For a Basic Logs table, the value is always 8. |
 |properties.totalRetentionInDays | integer  | The table's total data retention including archive period. This value can be between 4 and 730; or 1095, 1460, 1826, 2191, or 2556. Set this property to null if you don't want to archive data.  |
-
-> [!NOTE]
-> In the coming months, additional settings will be available to allow retention of up to 12 years.
-
 
 **Example**
 
