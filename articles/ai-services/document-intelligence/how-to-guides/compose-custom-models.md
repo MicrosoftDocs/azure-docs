@@ -153,7 +153,7 @@ Once the training process has successfully completed, you can begin to build you
 
 When you train models using the [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/), the model ID is located in the models menu under a project:
 
-:::image type="content" source="../media/studio/composed-model.png" alt-text="Screenshot: model configuration window in Document Intelligence Studio.":::
+:::image type="content" source="../media/studio/composed-model.png" alt-text="Screenshot of model configuration window in Document Intelligence Studio.":::
 
 #### Compose your custom models
 
@@ -302,7 +302,7 @@ Try extracting data from custom forms using our Sample Labeling tool. You need t
 
 * An [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
- :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+ :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 > [!div class="nextstepaction"]
 > [Try it](https://fott-2-1.azurewebsites.net/projects/create)
@@ -370,13 +370,13 @@ Once the training process has successfully completed, your custom model is assig
 
 When you train models using the [**Document Intelligence Sample Labeling tool**](https://fott-2-1.azurewebsites.net/), the model ID is located in the Train Result window:
 
-:::image type="content" source="../media/fott-training-results.png" alt-text="Screenshot: training results window.":::
+:::image type="content" source="../media/fott-training-results.png" alt-text="Screenshot of training results window.":::
 
 ### [**REST API**](#tab/rest)
 
 The [**REST API**](build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true#train-your-model) returns a `201 (Success)` response with a **Location** header. The value of the last parameter in this header is the model ID for the newly trained model:
 
-:::image type="content" source="../media/model-id.png" alt-text="Screenshot: the returned location header containing the model ID.":::
+:::image type="content" source="../media/model-id.png" alt-text="Screenshot of the returned location header containing the model ID.":::
 
 ### [**Client-library SDKs**](#tab/sdks)
 
@@ -449,7 +449,7 @@ Use the programming language code of your choice to create a composed model that
 
 1. The tool applies tags in bounding boxes and reports the confidence percentage for each tag.
 
-:::image type="content" source="../media/analyze.png" alt-text="Screenshot: Document Intelligence tool analyze-a-custom-form window.":::
+:::image type="content" source="../media/analyze.png" alt-text="Screenshot of Document Intelligence tool analyze-a-custom-form window.":::
 
 ### [**REST API**](#tab/rest)
 

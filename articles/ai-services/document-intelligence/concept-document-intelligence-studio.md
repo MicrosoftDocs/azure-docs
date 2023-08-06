@@ -71,10 +71,6 @@ The following image shows the landing page for Document Intelligence Studio.
 
 * Share custom extraction projects with ease. For more information, see [Project sharing with custom models](how-to-guides/project-share-custom-models.md).
 
-✔️ **Query fields**
-
-* With Document Intelligence [General documents](concept-general-document.md) model, utilize the query fields feature to add fields to the extraction process without the need for added training. For more information, see [Document Intelligence query field extraction](concept-query-fields.md).
-
 ## Document Intelligence model support
 
 * **Read**: Try out Document Intelligence's Read feature to extract text lines, words, detected languages, and handwritten style if detected. Start with the [Studio Read feature](https://formrecognizer.appliedai.azure.com/studio/read). Explore with sample documents and your documents. Use the interactive visualization and JSON output to understand how the feature works. See the [Read overview](concept-read.md) to learn more and get started with the [Python SDK quickstart for Layout](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true).
