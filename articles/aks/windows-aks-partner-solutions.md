@@ -14,10 +14,10 @@ Our 3rd party partners featured below have published introduction guides to star
 
 | Solutions          | Partners                                            |
 |--------------------|-----------------------------------------------------|
-| Networking         | [NGINX](#f5-nginx) <br> [Calico](#calico)           |
-| Security           | [Prisma](#prisma)                                   |
 | DevOps             | [GitLab](#gitlab) <br> [CircleCI](#circleci)        |
-| Observability      | [New Relic](#new-relic) <br> [Datadog](#datadog)    |
+| Networking         | [NGINX](#f5-nginx) <br> [Calico](#calico)           |
+| Observability      | [Datadog](#datadog) <br> [New Relic](#new-relic)    |
+| Security           | [Prisma](#prisma)                                   |
 | Storage            | [NetApp](#netapp)                                   |
 | Config Management  | [Chef](#chef)                                       |
 
@@ -25,12 +25,6 @@ Our 3rd party partners featured below have published introduction guides to star
 ## DevOps 
 
 DevOps streamlines the delivery process, improves collaboration across teams, and enhances software quality, ensuring swift, reliable, and continuous deployment of your Windows-based applications. 
-
-### CircleCI 
-
-CircleCI’s integration with Azure Kubernetes Services (AKS) allows you to automate, build, validate, and ship containerized Windows applications, ensuring faster and more reliable software deployment. You can easily integrate your pipeline with AKS using CircleCI orbs, which are prepacked snippets of YAML configuration.  
- 
-Follow this [tutorial](https://techcommunity.microsoft.com/t5/containers/continuous-deployment-of-windows-containers-with-circleci-and/ba-p/3841220) to learn how to set up a CI/CD pipeline to build a Dockerized ASP.NET application and deploy it to an AKS cluster. 
 
 ### GitLab 
 
@@ -40,17 +34,15 @@ As an extensible platform, GitLab also allows you to plug-in your own tooling fo
 
 To learn more, please our see our [joint blog](https://techcommunity.microsoft.com/t5/containers/using-gitlab-to-build-and-deploy-windows-containers-on-azure/ba-p/3889929).
 
+### CircleCI 
+
+CircleCI’s integration with Azure Kubernetes Services (AKS) allows you to automate, build, validate, and ship containerized Windows applications, ensuring faster and more reliable software deployment. You can easily integrate your pipeline with AKS using CircleCI orbs, which are prepacked snippets of YAML configuration.  
+ 
+Follow this [tutorial](https://techcommunity.microsoft.com/t5/containers/continuous-deployment-of-windows-containers-with-circleci-and/ba-p/3841220) to learn how to set up a CI/CD pipeline to build a Dockerized ASP.NET application and deploy it to an AKS cluster. 
+
 ## Networking 
 
 Ensure efficient traffic management, enhanced security, and optimal network performance with these solutions to achieve smooth application connectivity and communication. 
-
-### Calico 
-
-Tigera provides an active security platform with full-stack observability for containerized workloads and Microsoft AKS as a fully managed SaaS (Calico Cloud) or a self-managed service (Calico Enterprise). The platform prevents, detects, troubleshoots, and automatically mitigates exposure risks of security breaches for workloads in Microsoft AKS.   
-
-Its open-source offering, Calico Open Source, is the most widely adopted container networking and security solution. It specifies security and observability as code to ensure consistent enforcement of security policies, which enables DevOps, platform, and security teams to protect workloads, detect threats, achieve continuous compliance, and troubleshoot service issues in real-time.  
-
-To learn more, [click here](https://techcommunity.microsoft.com/t5/containers/securing-windows-workloads-on-azure-kubernetes-service-with/ba-p/3815429). 
 
 ### F5 NGINX 
 
@@ -59,6 +51,14 @@ NGINX Ingress Controller deployed in AKS, on-premises, and in the cloud implemen
 Running at the edge of a Kubernetes cluster, NGINX Ingress Controller ensures holistic app security with user and service identities, authorization, access control, encrypted communications, and additional NGINX App Protect modules for Layer 7 WAF and DoS app protection. 
 
 Learn how to manage connectivity to your Windows applications running on Windows nodes in a mixed-node AKS clusters with NGINX Ingress controller in this [blog](https://techcommunity.microsoft.com/t5/containers/improving-customer-experiences-with-f5-nginx-and-windows-on/ba-p/3820344). 
+
+### Calico 
+
+Tigera provides an active security platform with full-stack observability for containerized workloads and Microsoft AKS as a fully managed SaaS (Calico Cloud) or a self-managed service (Calico Enterprise). The platform prevents, detects, troubleshoots, and automatically mitigates exposure risks of security breaches for workloads in Microsoft AKS.   
+
+Its open-source offering, Calico Open Source, is the most widely adopted container networking and security solution. It specifies security and observability as code to ensure consistent enforcement of security policies, which enables DevOps, platform, and security teams to protect workloads, detect threats, achieve continuous compliance, and troubleshoot service issues in real-time.  
+
+To learn more, [click here](https://techcommunity.microsoft.com/t5/containers/securing-windows-workloads-on-azure-kubernetes-service-with/ba-p/3815429). 
 
 ## Observability 
 
