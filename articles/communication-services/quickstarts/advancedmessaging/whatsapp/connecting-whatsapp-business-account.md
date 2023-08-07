@@ -56,17 +56,18 @@ You see the account and status listed in the Azure portal along with the other W
 
 When you no longer want to use the WhatsApp Business account with Azure Communication Services, you can select the account and click the **Disconnect** button. This option disconnects the account from Azure Communication Services but doesn't delete the account and the account can be reconnected later.
 
-## Creating New MetaBusiness Account
-    Provide the company details to be used in your Meta Business Account then click the **Next** button.
-    -  Company Name: How you want your company identified to your WhatsApp users.
-    -  Website: A legitimate web page that verifies your business. 
-    -  Business Email: You can use the email associated with your Facebook login.
-    -  Business Phone Number: The phone number that customers can use to contact you.
-    
-    :::image type="content" source="../../media/register-whatsapp-account/creating-new-business-account.png" alt-text="Screenshot that shows Filling out the details of your Meta Business account.":::
+## Create New MetaBusiness Account
 
->[NOTE!]
-> More Details on process and required information can be found [here] (https://www.facebook.com/business/tools/meta-business-suite)
+Provide the company details to be used in your Meta Business Account then click the **Next** button.
+-  Company Name: How you want your company identified to your WhatsApp users.
+-  Website: A legitimate web page that verifies your business. 
+-  Business Email: You can use the email associated with your Facebook login.
+-  Business Phone Number: The phone number that customers can use to contact you.
+    
+:::image type="content" source="../../media/register-whatsapp-account/creating-new-business-account.png" alt-text="Screenshot that shows Filling out the details of your Meta Business account.":::
+
+> [!NOTE]
+> More details on how-to and required information can be found [Here](https://www.facebook.com/business/tools/meta-business-suite)
 
 ## Next Steps
 
