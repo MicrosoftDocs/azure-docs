@@ -8,7 +8,7 @@
 - name: Migrate lab accounts
   expanded: true
   items:
-  - name: Why migrate lab accounts to lab plans?
+  - name: Lab accounts versus lab plans
     href: concept-lab-accounts-versus-lab-plans.md
   - name: Migrate lab acounts to lab plans
     href: how-to-migrate-lab-acounts-to-lab-plans.md
