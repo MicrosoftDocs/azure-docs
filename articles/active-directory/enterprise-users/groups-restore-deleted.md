@@ -88,7 +88,7 @@ To verify that you’ve successfully restored a Microsoft 365 group, run the `Ge
 - The group appears in the Left navigation bar on Exchange
 - The plan for the group will appear in Planner
 - Any SharePoint sites and all of their contents will be available
-- The group can be accessed from any of the Exchange endpoints and other Microsoft365 workloads that support Microsoft 365 groups
+- The group can be accessed from any of the Exchange endpoints and other Microsoft 365 workloads that support Microsoft 365 groups
 
 ## Next steps
 
