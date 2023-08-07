@@ -49,10 +49,10 @@
         href: ddos-configure-log-analytics-workspace.md
       - name: Configure metric alerts through portal
         href: alerts.md  
-      - name: Configure diagnostic logging alerts
-        href: ddos-diagnostic-alert-templates.md
       - name: Configure diagnostic logging
-        href: diagnostic-logging.md    
+        href: diagnostic-logging.md   
+      - name: Configure diagnostic logging alerts
+        href: ddos-diagnostic-alert-templates.md 
   - name: View Monitoring and Logging
     items: 
       - name: View alerts in Microsoft Defender for Cloud
