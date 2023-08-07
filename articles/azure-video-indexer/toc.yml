@@ -80,7 +80,7 @@
       href: observed-matched-people.md
     - name: Topics inference
       href: topics-inference.md
-    - name: Emotions detection
+    - name: Text-based emotion detection
       href: emotions-detection.md
   - name: Customizing content models
     displayName: customize, customizing
