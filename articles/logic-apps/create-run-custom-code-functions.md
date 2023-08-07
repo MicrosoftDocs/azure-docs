@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, kewear, azla
 ms.topic: how-to
 ms.custom: devx-track-dotnet
-ms.date: 08/04/2023
+ms.date: 08/07/2023
 # Customer intent: As a logic app workflow developer, I want to write and run my own .NET Framework code to perform custom integration tasks.
 ---
 
@@ -64,7 +64,7 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
 
 > [!NOTE]
 >
-> You can't use the same project for both your code and workflows.
+> You can't use the same project folder for both your code and workflows.
 
 1. Open Visual Studio Code. On the Activity Bar, select the **Azure** icon. (Keyboard: Shift+Alt+A)
 
@@ -212,7 +212,7 @@ After you finish writing your code, compile to make sure that no build errors ex
 
    :::image type="content" source="media/create-run-custom-code-functions/dotnet-restore-complete.png" alt-text="Screenshot shows Visual Studio Code, Terminal window, and completed dotnet restore command.":::
 
-1. After the command prompt reappears, enter **dotnet build**. Or, from the **Terminal** menu, select **Run Task** > **Build (functions)**.
+1. After the command prompt reappears, enter **dotnet build**. Or, from the **Terminal** menu, select **Run Task**. From the task list, select **build (Functions)**.
 
    If your build succeeds, the **Terminal** window reports that the **Build succeeded**.
 
