@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for New Zealand ISM Restricted
 description: Details of the New Zealand ISM Restricted Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 07/20/2023
+ms.date: 08/03/2023
 ms.topic: sample
 ms.custom: generated
 ---
