@@ -79,6 +79,9 @@
         href: tutorial-enable-container-aws.md
       - name: Protect your Google Cloud Platform (GCP) project containers
         href: tutorial-enable-container-gcp.md
+      - name: How to enable Defender for Containers components
+        displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
+        href: defender-for-containers-enable.md
     - name: Protect your key vaults with Defender for Key Vault
       displayName: enable, key, vault, key vault
       href: tutorial-enable-key-vault-plan.md
@@ -544,9 +547,6 @@
     - name: How does Defender for Containers work?
       displayName: containers
       href: defender-for-containers-architecture.md
-    - name: Enable Defender for Containers
-      displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
-      href: defender-for-containers-enable.md
     - name: Vulnerability assessment for Azure powered by Qualys
       displayName: ACR, registry, images, qualys
       href: defender-for-containers-vulnerability-assessment-azure.md
