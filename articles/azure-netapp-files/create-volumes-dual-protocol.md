@@ -83,6 +83,8 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 * You don't need a server root CA certificate for creating a dual-protocol volume. It is required only if LDAP over TLS is enabled.
 
+* To understand Azure NetApp Files dual protocols and related considerations, see the [Dual Protocols section in Understand NAS protocols in Azure NetApp Files](network-attached-storage-protocols.md#dual-protocols).
+
 ## Create a dual-protocol volume
 
 1.	Click the **Volumes** blade from the Capacity Pools blade. Click **+ Add volume** to create a volume. 
