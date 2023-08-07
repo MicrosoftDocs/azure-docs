@@ -249,7 +249,7 @@ Update your GitHub Actions workflow to run a load test for your Azure load testi
 
 1. Edit your GitHub Actions workflow or [create a new workflow](https://docs.github.com/actions/quickstart) in your GitHub repository.
 
-1. Use the `actions/checkout` action to checkout the repository with the load test input files.
+1. Use the `actions/checkout` action to check out the repository with the load test input files.
 
     ```yml
         - name: Checkout
