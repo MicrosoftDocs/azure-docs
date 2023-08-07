@@ -41,8 +41,8 @@ To verify that the agent is running, follow these steps:
 To verify that the version of the agent running, follow these steps:
 
 1.  Navigate to 'C:\Program Files\Microsoft Azure AD Connect'
-2.  Right-click on 'AzureADConnect.exe' and select properties.
-3.  Click the details tab and the version number will be displayed next to Product version.
+2.  Right-click on **AzureADConnect.exe** and select **properties**.
+3.  Click the **details** tab and the version number will be displayed next to Product version.
 
 ## Next steps
 - [Common scenarios](common-scenarios.md)
