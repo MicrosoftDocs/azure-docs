@@ -23,7 +23,7 @@ There are scenarios in which it is required to create or modify large numbers of
 
 This article explains how to perform a large number of operations on a notification hub, or to export all registrations, in bulk.
 
-> **_NOTE:_** Bulk import/export is only available for the 'standard' tier
+> **_NOTE:_** Bulk import/export is only available for the 'standard' pricing tier
 
 ## High-level flow
 
