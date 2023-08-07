@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 # Load testing your Azure App Service applications
 
-In this article, you'll learn about how Azure Load Testing can be used to test applications hosted on Azure App Service.  Azure App Service is a fully-managed service that enables you to build, deploy, and scale web applications and APIs in the cloud. 
+In this article, you'll learn about how Azure Load Testing can be used to test applications hosted on Azure App Service.  Azure App Service is a fully managed service that enables you to build, deploy, and scale web applications and APIs in the cloud. 
 
 With Azure Load Testing, you can simulate real-world, large-scale traffic to your application and services. Even though [Azure App Service](/azure/app-service/overview) can scale automatically, when you run load tests with Azure Load Testing, you'll experience **increased reliability, performance, and cost optimization** and you'll:
 
