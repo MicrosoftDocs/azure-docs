@@ -159,15 +159,15 @@ Communication between a WhatsApp Business Account and a WhatsApp user can be ini
 - The business sends a template message to the WhatsApp user.
 - The WhatsApp user sends any message to the business number.
 
-### Initiate Conversation from Business - Send a Template Message
+### (Option 1) Initiate Conversation from Business - Send a Template Message
 Initiate a conversation by sending a template message.
 
-1. Set template
-Create a MessageTemplate using the values for a template. 
+First, create a MessageTemplate using the values for a template. 
 > [!NOTE]
-> If you don't have a template to use, proceed to [Option 2](#initiate-conversation-from-user).
+> To check which templates you have available, see the instructions at [List templates](../../../../../concepts/advancedmessaging/whatsapp/template-messages.md#list-templates).
+> If you don't have any template to use, proceed to [Option 2](#option-2-initiate-conversation-from-user).
 
-Here's MessageTemplate creation using a default template, sample_template.
+Here's MessageTemplate creation using a default template, `sample_template`:
 ```csharp
 string templateName = "sample_template";
 string templateLanguage = "en_us";
@@ -176,7 +176,6 @@ var messageTemplate = new MessageTemplate(templateName, templateLanguage);
 
 For more examples of how to assemble your MessageTemplate and how to create your own template, see [Send WhatsApp Template Messages](../../../../../concepts/advancedmessaging/whatsapp/template-messages.md)
 
-2. Send a template message
 
 Assemble the template message:
 ```csharp
@@ -188,14 +187,12 @@ Then send the template message:
 Response<SendMessageResult> sendTemplateMessageResult = await notificationMessagesClient.SendMessageAsync(sendTemplateMessageOptions);
 ```
 
-3. User responds to template message
-
-From the WhatsApp user account, reply to the template message received from the WhatsApp Business Account. The content of the message is irrelevant for this scenario.
+Now, the user needs to respond to template message. From the WhatsApp user account, reply to the template message received from the WhatsApp Business Account. The content of the message is irrelevant for this scenario.
 
 > [!NOTE]
 > The recipient must respond to the template message to initiate the conversation before text or media message can be delivered to the recipient.
 
-### Initiate Conversation from User
+### (Option 2) Initiate Conversation from User
 
 The other option to initiate a conversation between a WhatsApp Business Account and a WhatsApp user is to have the user initiate the conversation.
 To do so, from your personal WhatsApp account, send a message to your business number (Sender ID).
@@ -204,7 +201,7 @@ To do so, from your personal WhatsApp account, send a message to your business n
 
 
 ## Send a Text Message to WhatsApp User
- To send a text message, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user. For more information, see [Initiate Conversation between Business and User](#start-sending-messages-between-business-and-whatsapp-user).
+ To send a text message, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user. For more information, see [Start Sending Messages between Business and WhatsApp User](#start-sending-messages-between-business-and-whatsapp-user).
 
 In the text message, provide text to send to the recipient. In this example, we reply to the WhatsApp user with the text “Thanks for your feedback.”.
 
@@ -219,7 +216,7 @@ Response<SendMessageResult> sendTextMessageResult = await notificationMessagesCl
 ```
 
 ## Send a Media Message to WhatsApp User
-To send a text message, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user. For more information, see [Initiate Conversation between Business and User](#start-sending-messages-between-business-and-whatsapp-user).
+To send a media message, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user. For more information, see [Start Sending Messages between Business and WhatsApp User](#start-sending-messages-between-business-and-whatsapp-user).
 
 To send a media message, provide a URI to an image.
 As an example, create a URI:
