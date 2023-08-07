@@ -1,0 +1,4 @@
+- name: Canonical Images on Azure
+  items:
+  - name: Ubuntu Pro in-place upgrade
+    href: ubuntu-pro-in-place-upgrade.md
