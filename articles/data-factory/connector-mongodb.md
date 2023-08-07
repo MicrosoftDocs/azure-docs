@@ -251,7 +251,7 @@ To achieve such schema-agnostic copy, skip the "structure" (also called *schema*
 
 To copy data from MongoDB to tabular sink or reversed, refer to [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
-## Upgrade the MongoDB linked service to the latest version
+## Upgrade the MongoDB linked service
 
 Here are steps that help you upgrade your linked service and related queries:
 
