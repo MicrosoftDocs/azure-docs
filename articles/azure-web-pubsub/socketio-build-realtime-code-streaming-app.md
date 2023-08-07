@@ -47,10 +47,8 @@ In order to follow the step-by-step guide, you need
 > * [Azure CLI](/cli/azure/install-azure-cli) (version 2.29.0 or higher) or [Azure Cloud Shell](../cloud-shell/quickstart.md) to manage Azure resources.
 > * Familiarity of [Socket.IO's APIs](https://socket.io/docs/v4/)
 
-
-## Prerequisites
-1. Create a Web PubSub for Socket.IO resource
-The recommended way is to use [Azure CLI Tool](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli):
+## Create a Web PubSub for Socket.IO resource
+We are going to use Azure CLI to create the resource. 
 ```bash
 az webpubsub create -n <resource-name> \
                     -l <resource-location> \
@@ -58,13 +56,14 @@ az webpubsub create -n <resource-name> \
                     --kind SocketIO \
                     --sku Free_F1
 ```
-
-## Create Azure resources
-###
-
-###
-
-
+## Get connection string
+A connection string allows you to connect with Web PubSub for Socket.IO. Keep the returned connection string somewhere for use when we run the application later.
+```bash
+az webpubsub key show -n <resource-name> \ 
+                      -g <resource-group> \ 
+                      --query primaryKey \
+                      -o tsv
+```
 
 ## Write the application
 >[!NOTE]
