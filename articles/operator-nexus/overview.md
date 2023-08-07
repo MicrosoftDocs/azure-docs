@@ -62,7 +62,7 @@ When Microsoft identifies a security vulnerability, it makes the latest security
 
 Azure Operator Nexus includes capabilities to manage the bare metal hosts in operators' premises. Operators can provision the bare metal hosts by using Azure Operator Nexus. They can interact to restart, shut down, or reimage, for example.
 
-One important component of the service is the [cluster manager](./howto-cluster-manager.md). It provides the lifecycle management of Kubernetes clusters that comprise the bare metal hosts.  
+One important component of the service is the [cluster manager](./howto-cluster-manager.md). It provides the lifecycle management of Kubernetes clusters that are made of the bare metal hosts.  
 
 ### Network fabric automation
 
