@@ -17,13 +17,13 @@ ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
-## August 10, 2023
+## August 8, 2023
 
 ### Image tag
 
 `v1.22.0_2023-08-08`
 
-For complete release version information, review [Version log](version-log.md#august-10-2023).
+For complete release version information, review [Version log](version-log.md#august-8-2023).
 
 ### Release notes
 
