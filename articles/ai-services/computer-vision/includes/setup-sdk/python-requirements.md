@@ -6,7 +6,7 @@ ms.date: 08/01/2023
 ms.author: pafarley
 ---
 
-The Vision SDK for Python is compatible with Windows, Linux, and macOS.
+The Vision SDK for Python is compatible with Windows and Linux.
 
 # [Windows](#tab/windows)
 
@@ -19,16 +19,14 @@ You must install the [Microsoft Visual C++ Redistributable for Visual Studio 201
 
 # [Linux](#tab/linux)
 
-The Vision SDK for Python only supports **Ubuntu 18.04/20.04/22.04**, **Debian 9/10/11**, **Red Hat Enterprise Linux (RHEL) 8**, and **CentOS 8** on the x64 and ARM64 architectures when used with Linux.
+The Vision SDK for C# only supports **Ubuntu 18.04/20.04/22.04** and **Debian 9/10/11** on the x64 architecture when used with Linux.
 
 [!INCLUDE [Linux distributions](linux-distributions.md)]
 
-# [macOS](#tab/macos)
-
-A macOS version 10.14 or later is required.
-
 ---
 
-Install a version of [Python from 3.7 or later](https://www.python.org/downloads/). 
+Install a version of [Python from 3.7 or later](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-To check your installation, open a terminal and run the command `python --version`. If it's installed properly, you'll get a response like "Python 3.8.10". If you're using macOS or Linux, you might need to run the command `python3 --version` instead. To enable use of `python` instead of `python3`, run `alias python='python3'` to set up an alias. The Vision SDK quickstart samples specify `python` usage. 
+To check your installation, open a terminal and run the command `python --version`. If it's installed properly, you'll get a response like "Python 3.8.10". If you're using Linux, you might need to run the command `python3 --version` instead. To enable use of `python` instead of `python3`, run `alias python='python3'` to set up an alias. The Vision SDK quickstart samples specify `python` usage. 
+
+Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check if you have pip installed by running `pip --version` on the command line.

@@ -39,7 +39,7 @@ Notes on installation:
 
 ```Bash
 sudo apt-get update
-sudo apt-get install build-essential libssl-dev libasound2 wget
+sudo apt-get install build-essential libssl-dev wget
 ```
 
 # [Debian 9/10/11](#tab/debian)
@@ -48,21 +48,7 @@ To use the Vision SDK in Alpine Linux, create a Debian chroot environment as doc
 
 ```Bash
 sudo apt-get update
-sudo apt-get install build-essential libssl-dev libasound2 wget
+sudo apt-get install build-essential libssl-dev wget
 ```
-
-# [RHEL 7/8 and CentOS 7/8](#tab/rhel-centos)
-
-Install the development tools and libraries:
-
-```Bash
-sudo yum update
-sudo yum groupinstall "Development tools"
-sudo yum install alsa-lib openssl wget
-```
-
-> [!IMPORTANT]
-> - On RHEL/CentOS 7, follow the instructions on [how to configure RHEL/CentOS 7 for Speech SDK](~/articles/ai-services/speech-service/how-to-configure-rhel-centos-7.md).
-> - On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/ai-services/speech-service/how-to-configure-openssl-linux.md).
 
 ---

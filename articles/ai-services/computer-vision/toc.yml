@@ -102,7 +102,7 @@ items:
   items:
   - name: Image Analysis overview
     href: overview-image-analysis.md
-  - name: Image Analysis SDK
+  - name: Vision SDK
     href: how-to/install-sdk.md
   - name: Quickstarts
     items:

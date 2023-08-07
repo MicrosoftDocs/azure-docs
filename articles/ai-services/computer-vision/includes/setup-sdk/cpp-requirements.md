@@ -6,7 +6,7 @@ ms.date: 08/01/2023
 ms.author: pafarley
 ---
 
-The Vision SDK for C++ is compatible with Windows, Linux, and macOS.
+The Vision SDK for C++ is compatible with Windows and Linux.
 
 # [Windows](#tab/windows)
 
@@ -16,12 +16,8 @@ You must install the [Microsoft Visual C++ Redistributable for Visual Studio 201
 
 # [Linux](#tab/linux)
 
-The Vision SDK for C++ only supports **Ubuntu 18.04/20.04/22.04**, **Debian 9/10/11**, **Red Hat Enterprise Linux (RHEL) 7/8**, and **CentOS 7/8** on the following architectures when used with Linux: x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) 
+The Vision SDK for C# only supports **Ubuntu 18.04/20.04/22.04** and **Debian 9/10/11** on the x64 architecture when used with Linux.
 
 [!INCLUDE [Linux distributions](linux-distributions.md)]
-
-# [macOS](#tab/macos)
-
-A macOS version 10.14 or later is required.
 
 ---

@@ -10,8 +10,6 @@ ms.author: pafarley
 
 This guide shows how to install the Vision SDK for C#. 
 
-Code samples in the documentation are written in C# 8 and run on .NET standard 2.0.
-
 ## Platform requirements
 
 [!INCLUDE [Requirements](csharp-requirements.md)]
@@ -23,7 +21,7 @@ The Vision SDK for C# is available as a NuGet package and implements .NET Standa
 
 # [Terminal](#tab/dotnetcli)
 
-The Vision SDK for C# can be installed from the .NET CLI with the following `dotnet add` command:
+The Vision SDK for C# can be installed from the .NET CLI. To add a package reference in your project file, run this command:
 
 ```dotnetcli
 dotnet add package  Azure.AI.Vision.ImageAnalysis --prerelease
