@@ -69,7 +69,7 @@ The following diagram shows the highlights from example workflow:
     > [limits](logic-apps-limits-and-config.md#integration-account-limits), and 
     > [pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-  * Standard: Requires [Node.js versions 12.x.x or 14.x.x](https://nodejs.org/en/download/releases/), but no integration account.
+  * Standard: Requires [Node.js versions 16.x.x](https://nodejs.org/en/download/releases/), but no integration account.
 
 ## Add the Execute JavaScript Code action
 
