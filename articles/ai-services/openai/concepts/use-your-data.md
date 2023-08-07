@@ -152,7 +152,7 @@ Avoid asking long questions and break them down into multiple questions if possi
 
 * If you have documents in multiple languages, we recommend building a new index for each language and connecting them separately to Azure OpenAI.  
 
-### Using the Power Virtual Assistant
+### Using Power Virtual Agents
 
 You can deploy your model to [Power Virtual Agents](/power-virtual-agents/fundamentals-what-is-power-virtual-agents), letting you create a chatbot that will respond using your data, and that you can expand and integrate using Microsoft Power Platform.
 
