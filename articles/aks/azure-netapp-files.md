@@ -90,7 +90,7 @@ This section describes how to set up Azure NetApp Files for AKS workloads. It's 
         --resource-group $RESOURCE_GROUP \
         --vnet-name $VNET_NAME \
         --name $SUBNET_NAME \
-        --delegations "Microsoft.NetApp/volumes" \
+        --delegations "Microsoft.Netapp/volumes" \
         --address-prefixes $ADDRESS_PREFIX
     ```
 
