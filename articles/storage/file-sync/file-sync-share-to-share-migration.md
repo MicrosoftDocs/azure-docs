@@ -109,7 +109,7 @@ Follow these instructions if cloud tiering is on and you're migrating to a file 
 
 You can now start the [initial copy](#initial-copy) between the source and target shares on the target Azure File Sync VM.
 
-## Initial copy
+### Initial copy
 
 Use Robocopy, a tool that's built into Windows, to copy the files from source to target shares.
 
@@ -129,7 +129,7 @@ Use Robocopy, a tool that's built into Windows, to copy the files from source to
 
 1. Wait for the initial Robocopy run to complete successfully and for the sync from source to target to complete. We recommend waiting for one additional hour to make sure all remaining changes are synced. To check that all changes have been synced, see [How do I monitor the progress of a current sync session?](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?tabs=portal1%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)
 
-## Sync final changes
+### Sync final changes
 
 Before syncing the final changes, turn off SMB sharing for the existing share or at least make it read-only. After turning off SMB sharing, wait one hour to make sure all remaining changes are synced to Azure.
 
@@ -147,13 +147,13 @@ robocopy s:\ t:\target /mir /copyall /mt:16 /DCOPY:DAT
 
 Once your IaaS VM sync completes, the local target agent will also be up to date.
 
-## Enable sharing on the new server endpoint
+### Enable sharing on the new server endpoint
 
 If you're migrating to a new Azure File Sync server, you should rename the old server to a random name, then rename the new server to the same name as the old server. This way, the file share URL will be the same for your end users.
 
 Enable the new share T:\cache. All the same file ACLs will be there. You'll need to recreate any share-level permissions that existed on the old share.
 
-## Remove the old server endpoint and sync group
+### Remove the old server endpoint and sync group
 
 Once you've confirmed everything is working correctly with the new sync group, you can deprovision the old sync group. [Remove the server endpoints](file-sync-server-endpoint-delete.md) first. You don't need to recall all the data to the old server before removing the server endpoint.
 
