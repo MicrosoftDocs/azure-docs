@@ -5,15 +5,17 @@ description: This quickstart shows how to create a NAT gateway by using the Azur
 author: asudbring
 ms.service: nat-gateway
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 07/21/2023
 ms.author: allensu
-ms.custom: subject-armqs, devx-track-arm-template
+ms.custom: subject-armqs, devx-track-arm-template, devx-track-azurecli, devx-track-linux
 # Customer intent: I want to create a NAT gateway by using an Azure Resource Manager template so that I can provide outbound connectivity for my virtual machines.
 ---
 
 # Quickstart: Create a NAT gateway - ARM template
 
 Get started with Azure NAT Gateway by using an Azure Resource Manager template (ARM template). This template deploys a virtual network, a NAT gateway resource, and Ubuntu virtual machine. The Ubuntu virtual machine is deployed to a subnet that is associated with the NAT gateway resource.
+
+:::image type="content" source="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png" alt-text="Diagram of resources created in nat gateway quickstart.":::
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -37,7 +39,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 - Ensure your `Az.Network` module is 4.3.0 or later. To verify the installed module, use the command `Get-InstalledModule -Name "Az.Network"`. If the module requires an update, use the command `Update-Module -Name Az.Network` if necessary.
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 # [**Azure CLI**](#tab/create-nat-cli)
 

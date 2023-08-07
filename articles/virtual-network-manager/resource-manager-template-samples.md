@@ -5,6 +5,7 @@ description: This article has links to Azure Resource Manager template examples 
 services: virtual-network-manager
 author: mbender-ms
 ms.service: virtual-network-manager
+ms.custom: devx-track-arm-template
 ms.topic: sample
 ms.date: 03/28/2023
 ms.author: mbender
@@ -24,4 +25,4 @@ For the JSON syntax and properties to use in templates, see [Microsoft.Network r
 ## Samples
 | Example | Description |
 |-------- | ----------- |
-| [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=portal#use-virtual-network-manager-connected-groups) | Creates a hub-spoke network pattern with customer-managed hub infrastructure components. |
+| [Hub-spoke network topology in Azure](/samples/mspnp/samples/hub-and-spoke-deployment-with-connected-groups/) | Creates a hub-spoke network pattern with customer-managed hub infrastructure components. |

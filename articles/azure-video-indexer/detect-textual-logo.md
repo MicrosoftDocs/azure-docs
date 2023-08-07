@@ -1,6 +1,6 @@
 ---
-title: Detect textual logo with Azure Video Indexer
-description: This article gives an overview of Azure Video Indexer textual logo detection.
+title: Detect textual logo with Azure AI Video Indexer
+description: This article gives an overview of Azure AI Video Indexer textual logo detection.
 ms.topic: how-to
 ms.date: 01/22/2023
 ms.author: juliako
@@ -9,7 +9,7 @@ ms.author: juliako
 # How to detect textual logo (preview)
 
 > [!NOTE]
-> Textual logo detection (preview) creation process is currently available through API. The result can be viewed through the Azure Video Indexer [website](https://www.videoindexer.ai/). 
+> Textual logo detection (preview) creation process is currently available through API. The result can be viewed through the Azure AI Video Indexer [website](https://www.videoindexer.ai/). 
 
 **Textual logo detection** insights are based on the OCR textual detection, which matches a specific predefined text.
 
@@ -59,8 +59,8 @@ In this tutorial we use the example supplied as default:
 
 Insert the following:
 
-* `Location`: The location of the Azure Video Indexer account.
-* `Account ID`: The ID of the Azure Video Indexer account.
+* `Location`: The location of the Azure AI Video Indexer account.
+* `Account ID`: The ID of the Azure AI Video Indexer account.
 * `Access token`: The token, at least at a contributor level permission. 
 
 The default body is: 
@@ -81,7 +81,7 @@ The default body is:
 
 |Key|Value|
 |---|---|
-|Name|Name of the logo, would be used in the Azure Video Indexer website.|
+|Name|Name of the logo, would be used in the Azure AI Video Indexer website.|
 |wikipediaSearchTerm|Used to create a description in the Video Indexer website.|
 |text|The text the model will compare too, make sure to add the obvious name as part of the variations. (e.g Microsoft)|
 |caseSensitive| true/false according to the variation.|
@@ -120,8 +120,8 @@ Use the [Create Logo Group](https://api-portal.videoindexer.ai/api-details#api=O
  
 Insert the following: 
 
-* `Location`: The location of the Azure Video Indexer account.
-* `Account ID`: The ID of the Azure Video Indexer account.
+* `Location`: The location of the Azure AI Video Indexer account.
+* `Account ID`: The ID of the Azure AI Video Indexer account.
 * `Access token`: The token, at least at a contributor level permission. 
 
 > [!div class="mx-imgBorder"]
@@ -168,8 +168,8 @@ Use the upload API call:
 
 Specify the following:
 
-* `Location`: The location of the Azure Video Indexer account.
-* `Account`: The ID of the Azure Video Indexer account. 
+* `Location`: The location of the Azure AI Video Indexer account.
+* `Account`: The ID of the Azure AI Video Indexer account. 
 * `Name`: The name of the media file you're indexing. 
 * `Language`: `en-US`. For more information, see [Language support](language-support.md)
 * `IndexingPreset`: Select **Advanced Video/Audio+video**.  
@@ -179,7 +179,7 @@ Specify the following:
  
 ## Inspect the output 
 
-Assuming the textual logo model has found a match, you'll be able to view the result in the [Azure Video Indexer website](https://www.videoindexer.ai/).
+Assuming the textual logo model has found a match, you'll be able to view the result in the [Azure AI Video Indexer website](https://www.videoindexer.ai/).
  
 ### Insights  
 

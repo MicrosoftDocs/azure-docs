@@ -2,8 +2,8 @@
 ms.service: defender-for-cloud
 ms.topic: include
 ms.date: 07/06/2022
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ---
 
 ## Default Log Analytics workspace for AKS
@@ -22,7 +22,7 @@ When you enable the auto-provision option, a default workspace will be automatic
 
 **To check if you have a workspace assigned**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for and select **Policy**.
 

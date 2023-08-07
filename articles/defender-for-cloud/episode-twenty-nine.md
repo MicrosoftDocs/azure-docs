@@ -1,6 +1,6 @@
 ---
 title: Security policy enhancements in Defender for Cloud | Defender for Cloud in the field 
-titleSuffix: Microsoft Defender for Cloud
+
 description: Learn about security policy enhancements and dashboard in Defender for Cloud
 ms.topic: reference
 ms.date: 04/27/2023
@@ -36,4 +36,4 @@ ms.date: 04/27/2023
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [New Custom Recommendations for AWS and GCP in Defender for Cloud](episode-thirty.md)

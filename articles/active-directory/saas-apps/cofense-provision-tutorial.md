@@ -46,11 +46,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Login to Cofense PhishMe. Navigate to **Recipients > Recipient Sync**. 
 2. Accept the terms and conditions and then click **Get Started**.
 
-	![Recepient Sync tnc](media/cofense-provisioning-tutorial/recipient-sync-toc.png)
+	![Recipient Sync tnc](media/cofense-provisioning-tutorial/recipient-sync-toc.png)
 
 3. Copy the values from the **URL** and **Token** fields.
 
-	![Recepient Sync](media/cofense-provisioning-tutorial/recipient-sync-getting-started.png)
+	![Recipient Sync](media/cofense-provisioning-tutorial/recipient-sync-getting-started.png)
 
 
 ## Step 3. Add Cofense Recipient Sync from the Azure AD application gallery

@@ -17,8 +17,8 @@ ms.author: kpunjabi
 - Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - Obtain the NuGet package from the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed).
-- Create and connect [Azure Cognitive Services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
-- Create a [custom subdomain](../../../../../articles/cognitive-services/cognitive-services-custom-subdomains.md) for your Azure Cognitive Services resource. 
+- Create and connect [Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
+- Create a [custom subdomain](../../../../../articles/cognitive-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
 
 ## Technical specifications
 
@@ -29,8 +29,8 @@ The following parameters are available to customize the Recognize function:
 | Prompt <br/><br/> *(for details on Play action, refer to [this how-to guide](../play-ai-action.md))* | FileSource, TextSource | Not set |This will be the message you wish to play before recognizing input. | Optional |
 | InterToneTimeout | TimeSpan | 2 seconds <br/><br/>**Min:** 1 second <br/>**Max:** 60 seconds | Limit in seconds that ACS will wait for the caller to press another digit (inter-digit timeout). | Optional |
 | InitialSegmentationSilenceTimeoutInSeconds | Integer | 0.5 seconds | How long recognize action will wait for input before considering it a timeout. [Read more here](../../../../../articles/cognitive-services/Speech-Service/how-to-recognize-speech.md). | Optional |
-| RecognizeInputsType | Enum | dtmf | Type of input that will be recognized. Options will be dtmf and choices. | Required |
-| InitialSilenceTimeout | TimeSpan | 5 seconds<br/><br/>**Min:** 0 seconds <br/>**Max:** 300 seconds (DTMF) <br/>**Max:** 20 seconds (Choices)| Initial silence timeout adjusts how much non-speech audio is allowed before a phrase before the recognition attempt ends in a "no match" result. [Read more here](../../../../../articles/cognitive-services/Speech-Service/how-to-recognize-speech.md). | Optional |
+| RecognizeInputsType | Enum | dtmf | Type of input that will be recognized. Options will be dtmf, choices, speech and speechordtmf. | Required |
+| InitialSilenceTimeout | TimeSpan | 5 seconds<br/><br/>**Min:** 0 seconds <br/>**Max:** 300 seconds (DTMF) <br/>**Max:** 20 seconds (Choices) <br/>**Max:** 20 seconds (Speech)| Initial silence timeout adjusts how much non-speech audio is allowed before a phrase before the recognition attempt ends in a "no match" result. [Read more here](../../../../../articles/cognitive-services/Speech-Service/how-to-recognize-speech.md). | Optional |
 | MaxTonesToCollect | Integer | No default<br/><br/>**Min:** 1|Number of digits a developer expects as input from the participant.| Required |
 | StopTones |IEnumeration\<DtmfTone\> | Not set | The digit participants can press to escape out of a batch DTMF event. | Optional |
 | InterruptPrompt | Bool | True | If the participant has the ability to interrupt the playMessage by pressing a digit. | Optional |
@@ -40,6 +40,7 @@ The following parameters are available to customize the Recognize function:
 | Tone | String | Not set | The tone to recognize if user decides to press a number instead of using speech. | Optional |
 | Label | String | Not set | The key value for recognition. | Required |
 | Language | String | En-us | The language that will be used for recognizing speech. | Optional |
+| EndSilenceTimeout| TimeSpan | 0.5 seconds | The final pause of the speaker used to detect the final result that gets generated as speech. | Optional |
 
 >[!NOTE] 
 >In situations where both dtmf and speech are in the recognizeInputsType, the recognize action will action on the first input type received, i.e. if the user presses a keypad number first then the recognize action will consider it a dtmf event and continue listening for dtmf tones. If the user speaks first then the recognize action will consider it a speech recognition and listen for voice input. 
@@ -122,6 +123,31 @@ var targetParticipant = new PhoneNumberIdentifier("+1XXXXXXXXXXX");
                                     .StartRecognizingAsync(recognizeOptions)
                                     .ConfigureAwait(false);
 ```                                    
+
+### Speech-To-Text
+``` csharp
+var prompt = “Hi, how can I help you today?”
+var ssml = <speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="{locale}">" +
+        $ "<voice name=\"{voiceName}\">" +
+        $ "<mstts:express-as style="{expression}">{payload}</mstts:express-as><s />" +
+        "</voice>" +
+        "</speak>";
+      var greetingPrompt = new SsmlSource(ssml) {
+        PlaySourceId = "playSourceId"
+      };
+
+var recognizeOptions = new CallMediaRecognizeSpeechOptions(
+                                                   targetParticipant: targetParticipant)
+{
+      InterruptCallMediaOperation = true,
+      InterrupPrompt = false, 
+      Prompt = greetingPrompt,
+      EndSilenceTimeoutInMS = TimeSpan.FromMilliseconds(1000),
+      OperationContext = “OpenQuestionSpeech”
+};
+
+await callConnectionMedia.StartRecognizingAsync(recognizeOptions)
+```
 **Note:** If parameters aren't set, the defaults will be applied where possible.
 
 ## Receiving recognize event updates
@@ -146,9 +172,12 @@ Developers can subscribe to the *RecognizeCompleted* and *RecognizeFailed* event
                     // if choice is detected using dtmf tone, phrase will be null
                     break;
                 //Take action for Recongition through DTMF
-                case CollectTonesResult collectTonesResult: 
-                    var tones = collectTonesResult.Tones;
+                case DtmfResult dtmfResult: 
+                    var tones = dtmfResult.Tones;
                     break;
+               //Take action for Recognition through Speech
+               case SpeechResult speechResult:
+                    var address = ((SpeechResult)((RecognizeCompletedEventData) @event).RecognizeResult).Speech;
 
                 default:
                     logger.LogError($"Unexpected recognize event result identified for connection id: {@event.CallConnectionId}");

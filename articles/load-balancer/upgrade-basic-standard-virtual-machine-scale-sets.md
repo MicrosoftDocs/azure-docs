@@ -55,7 +55,7 @@ The PowerShell module performs the following functions:
 
 - Install the latest version of [PowerShell](/powershell/scripting/install/installing-powershell)
 - Determine whether you have the latest Az PowerShell module installed (8.2.0)
-  - Install the latest [Az PowerShell module](/powershell/azure/install-az-ps)
+  - Install the latest [Az PowerShell module](/powershell/azure/install-azure-powershell)
 
 ## Install the 'AzureBasicLoadBalancerUpgrade' module
 

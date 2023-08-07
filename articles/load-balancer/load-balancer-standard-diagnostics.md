@@ -5,7 +5,7 @@ description: Use the available metrics, alerts, and resource health information 
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
-ms.date: 05/03/2022
+ms.date: 06/27/2023
 ms.author: mbender
 ms.custom: template-concept, seodec18, engagement-fy23
 ---
@@ -300,7 +300,7 @@ To alert for inbound availability,  you can create two separate alerts using the
 
 Using data path availability, you can fire alerts whenever a specific load-balancing rule becomes unavailable. You can configure this alert by setting an alert condition for the data path availability and splitting by all current values and future values for both frontend port and frontend IP address. Setting the alert logic to be less than or equal to 0 will cause this alert to be fired whenever any load-balancing rule becomes unresponsive. Set the aggregation granularity and frequency of evaluation according to your desired evaluation. 
 
-With health probe status, you can alert when a given backend instance fails to respond to the health probe for a significant amount of time. Set up your alert condition to use the health probe status metric and split by backend IP address and backend port. This will ensure that you can alert separately for each individual backend instance’s ability to serve traffic on a specific port. Use the **Average** aggregation type and set the threshold value according to how frequently your backend instance is probed and your considered healthy threshold. 
+With health probe status, you can alert when a given backend instance fails to respond to the health probe for a significant amount of time. Set up your alert condition to use the health probe status metric and split by backend IP address and backend port. This ensures that you can alert separately for each individual backend instance’s ability to serve traffic on a specific port. Use the **Average** aggregation type and set the threshold value according to how frequently your backend instance is probed and your considered healthy threshold. 
 
 You can also alert on a backend pool level by not splitting by any dimensions and using the **Average** aggregation type. This allows you to set up alert rules such as alert when 50% of my backend pool members are unhealthy.
 
@@ -344,6 +344,28 @@ To view the health of your public standard load balancer resources:
    *Figure: Resource health status*
  
 A generic description of a resource health status is available in the [resource health documentation](../service-health/resource-health-overview.md). 
+
+### Resource health alerts
+
+Azure Resource Health alerts can notify you in near real-time when the health state of your Load balancer resource changes. It's recommended that you set resource health alerts to notify you when your Load balancer resource is in a **Degraded** or **Unavailable** state.
+
+When you create Azure resource health alerts for Load balancer, Azure sends resource health notifications to your Azure subscription. You can create and customize alerts based on:
+* The subscription affected
+* The resource group affected
+* The resource type affected (Load balancer)
+* The specific resource (any Load balancer resource you choose to set up an alert for)
+* The event status of the Load balancer resource affected
+* The current status of the Load balancer resource affected
+* The previous status of the Load balancer resource affected
+* The reason type of the Load balancer resource affected
+
+You can also configure who the alert should be sent to:
+* A new action group (that can be used for future alerts)
+* An existing action group
+
+For more information on how to set up these resource health alerts, see:
+* [Resource health alerts using Azure portal](/azure/service-health/resource-health-alert-monitor-guide#create-a-resource-health-alert-rule-in-the-azure-portal)
+* [Resource health alerts using Resource Manager templates](/azure/service-health/resource-health-alert-arm-template-guide)
 
 ## Next steps
 

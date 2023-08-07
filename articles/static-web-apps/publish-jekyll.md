@@ -29,6 +29,7 @@ In this tutorial, you learn how to:
   - You can use the Windows Subsystem for Linux and follow Ubuntu instructions, if necessary.
 - An Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
 - A GitHub account. If you don't have one, you can [create an account for free](https://github.com/join).
+- A Git setup installed. If you don't have one, you can [install Git](https://www.git-scm.com/downloads). 
 
 ## Create Jekyll App
 
@@ -111,6 +112,10 @@ The following steps show you how to create a new static site app and deploy it t
     | _Organization_ | Select your desired GitHub organization. |
     | _Repository_ | Select **jekyll-static-app**. |
     | _Branch_ | Select **main**. |
+
+    > [!NOTE]
+    > If you don't see any repositories, you may need to authorize Azure Static Web Apps on GitHub.
+    > Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**. For organization repositories, you must be an owner of the organization to grant the permissions.
 
 1. In the _Build Details_ section, select **Custom** from the _Build Presets_ drop-down and keep the default values.
 

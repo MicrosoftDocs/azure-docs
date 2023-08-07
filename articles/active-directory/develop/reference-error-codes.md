@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/14/2023
+ms.date: 06/07/2023
 ms.author: ryanwi
 ms.reviewer: ludwignick
 ms.custom: aaddev
@@ -84,6 +84,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS20001 | WsFedSignInResponseError - There's an issue with your federated Identity Provider. Contact your IDP to resolve this issue. |
 | AADSTS20012 | WsFedMessageInvalid - There's an issue with your federated Identity Provider. Contact your IDP to resolve this issue. |
 | AADSTS20033 | FedMetadataInvalidTenantName - There's an issue with your federated Identity Provider. Contact your IDP to resolve this issue. |
+| AADSTS230109 | CachedCredentialNonGWAuthNRequestsNotSupported - Backup Auth Service only allows AuthN requests from AAD Gateway. This error is returned when traffic targets the backup auth service directly instead of going through the reverse proxy.  |
 | AADSTS28002 | Provided value for the input parameter scope '{scope}' isn't valid when requesting an access token. Specify a valid scope. |
 | AADSTS28003 | Provided value for the input parameter scope can't be empty when requesting an access token using the provided authorization code. Specify a valid scope.|
 | AADSTS40008 | OAuth2IdPUnretryableServerError - There's an issue with your federated Identity Provider. Contact your IDP to resolve this issue. |
@@ -101,6 +102,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS50006 | InvalidSignature - Signature verification failed because of an invalid signature. |
 | AADSTS50007 | PartnerEncryptionCertificateMissing - The partner encryption certificate was not found for this app. [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) with Microsoft to get this fixed. |
 | AADSTS50008 | InvalidSamlToken - SAML assertion is missing or misconfigured in the token. Contact your federation provider. |
+| AADSTS5000819 | InvalidSamlTokenEmailMissingOrInvalid - SAML Assertion is invalid. Email address claim is missing or does not match domain from an external realm. |
 | AADSTS50010 | AudienceUriValidationFailed - Audience URI validation for the app failed since no token audiences were configured. |
 | AADSTS50011 | InvalidReplyTo - The reply address is missing, misconfigured, or doesn't match reply addresses configured for the app.  As a resolution ensure to add this missing reply address to the Azure Active Directory application or have someone with the permissions to manage your application in Active Directory do this for you. To learn more, see the troubleshooting article for error [AADSTS50011](/troubleshoot/azure/active-directory/error-code-aadsts50011-reply-url-mismatch).|
 | AADSTS50012 | AuthenticationFailed - Authentication failed for one of the following reasons:<ul><li>The subject name of the signing certificate isn't authorized</li><li>A matching trusted authority policy was not found for the authorized subject name</li><li>The certificate chain isn't valid</li><li>The signing certificate isn't valid</li><li>Policy isn't configured on the tenant</li><li>Thumbprint of the signing certificate isn't authorized</li><li>Client assertion contains an invalid signature</li></ul> |
@@ -195,7 +197,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS53000 | DeviceNotCompliant - Conditional Access policy requires a compliant device, and the device isn't compliant. The user must enroll their device with an approved MDM provider like Intune. For additional information, please visit [Conditional Access device remediation](../conditional-access/troubleshoot-conditional-access.md). |
 | AADSTS53001 | DeviceNotDomainJoined - Conditional Access policy requires a domain joined device, and the device isn't domain joined. Have the user use a domain joined device. |
 | AADSTS53002 | ApplicationUsedIsNotAnApprovedApp - The app used isn't an approved app for Conditional Access. User needs to use one of the apps from the list of approved apps to use in order to get access. |
-| AADSTS53003 | BlockedByConditionalAccess - Access has been blocked by Conditional Access policies. The access policy does not allow token issuance. If this is unexpected, see the conditional access policy that applied to this request in the Azure Portal or contact your administrator. For additional information, please visit [troubleshooting sign-in with Conditional Access](../conditional-access/troubleshoot-conditional-access.md). |
+| AADSTS53003 | BlockedByConditionalAccess - Access has been blocked by Conditional Access policies. The access policy does not allow token issuance. If this is unexpected, see the Conditional Access policy that applied to this request in the Azure portal or contact your administrator. For additional information, please visit [troubleshooting sign-in with Conditional Access](../conditional-access/troubleshoot-conditional-access.md). |
 | AADSTS53004 | ProofUpBlockedDueToRisk - User needs to complete the multi-factor authentication registration process before accessing this content. User should register for multi-factor authentication. |
 | AADSTS53010 | ProofUpBlockedDueToSecurityInfoAcr - Cannot configure multi-factor authentication methods because the organization requires this information to be set from specific locations or devices. |
 | AADSTS53011 | User blocked due to risk on home tenant. |
@@ -203,7 +205,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS54005 | OAuth2 Authorization code was already redeemed, please retry with a new valid code or use an existing refresh token. |
 | AADSTS65001 | DelegationDoesNotExist - The user or administrator has not consented to use the application with ID X. Send an interactive authorization request for this user and resource. |
-| AADSTS65002 | Consent between first party application '{applicationId}' and first party resource '{resourceId}' must be configured via preauthorization - applications owned and operated by Microsoft must get approval from the API owner before requesting tokens for that API.  A developer in your tenant may be attempting to reuse an App ID owned by Microsoft. This error prevents them from impersonating a Microsoft application to call other APIs. They must move to another app ID they register in https://portal.azure.com.|
+| AADSTS65002 | Consent between first party application '{applicationId}' and first party resource '{resourceId}' must be configured via preauthorization - applications owned and operated by Microsoft must get approval from the API owner before requesting tokens for that API.  A developer in your tenant may be attempting to reuse an App ID owned by Microsoft. This error prevents them from impersonating a Microsoft application to call other APIs. They must move to another app ID they register in the [Azure portal](https://portal.azure.com).|
 | AADSTS65004 | UserDeclinedConsent - User declined to consent to access the app. Have the user retry the sign-in and consent to the app|
 | AADSTS65005 | MisconfiguredApplication - The app required resource access list does not contain apps discoverable by the resource or The client app has requested access to resource, which was not specified in its required resource access list or Graph service returned bad request or resource not found. If the app supports SAML, you may have configured the app with the wrong Identifier (Entity). To learn more, see the troubleshooting article for error [AADSTS650056](/troubleshoot/azure/active-directory/error-code-aadsts650056-misconfigured-app). |
 | AADSTS650052 | The app needs access to a service `(\"{name}\")` that your organization `\"{organization}\"` has not subscribed to or enabled. Contact your IT Admin to review the configuration of your service subscriptions. |
@@ -231,7 +233,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS70016 | AuthorizationPending - OAuth 2.0 device flow error. Authorization is pending. The device will retry polling the request. |
 | AADSTS70018 | BadVerificationCode - Invalid verification code due to User typing in wrong user code for device code flow. Authorization isn't approved. |
 | AADSTS70019 | CodeExpired - Verification code expired. Have the user retry the sign-in. |
-| AADSTS70043 | The refresh token has expired or is invalid due to sign-in frequency checks by conditional access. The token was issued on {issueDate} and the maximum allowed lifetime for this request is {time}. |
+| AADSTS70043 | The refresh token has expired or is invalid due to sign-in frequency checks by Conditional Access. The token was issued on {issueDate} and the maximum allowed lifetime for this request is {time}. |
 | AADSTS75001 | BindingSerializationError - An error occurred during SAML message binding. |
 | AADSTS75003 | UnsupportedBindingError - The app returned an error related to unsupported binding (SAML protocol response can't be sent via bindings other than HTTP POST). |
 | AADSTS75005 | Saml2MessageInvalid - Azure AD doesn’t support the SAML request sent by the app for SSO. To learn more, see the troubleshooting article for error [AADSTS75005](/troubleshoot/azure/active-directory/error-code-aadsts75005-not-a-valid-saml-request). |
@@ -240,6 +242,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS75008 | RequestDeniedError - The request from the app was denied since the SAML request had an unexpected destination. |
 | AADSTS75011 | NoMatchedAuthnContextInOutputClaims - The authentication method by which the user authenticated with the service doesn't match requested authentication method. To learn more, see the troubleshooting article for error [AADSTS75011](/troubleshoot/azure/active-directory/error-code-aadsts75011-auth-method-mismatch). |
 | AADSTS75016 | Saml2AuthenticationRequestInvalidNameIDPolicy - SAML2 Authentication Request has invalid NameIdPolicy. |
+| AADSTS76021 | ApplicationRequiresSignedRequests - The request sent by client is not signed while the application requires signed requests|
 | AADSTS76026 | RequestIssueTimeExpired - IssueTime in an SAML2 Authentication Request is expired. |
 | AADSTS80001 | OnPremiseStoreIsNotAvailable - The Authentication Agent is unable to connect to Active Directory. Make sure that agent servers are members of the same AD forest as the users whose passwords need to be validated and they are able to connect to Active Directory. |
 | AADSTS80002 | OnPremisePasswordValidatorRequestTimedout - Password validation request timed out. Make sure that Active Directory is available and responding to requests from the agents. |
@@ -360,6 +363,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS7000215 | Invalid client secret is provided. Developer error - the app is attempting to sign in without the necessary or correct authentication parameters.|
 | AADSTS7000218 | The request body must contain the following parameter: 'client_assertion' or 'client_secret'. |
 | AADSTS7000222 | InvalidClientSecretExpiredKeysProvided - The provided client secret keys are expired. Visit the Azure portal to create new keys for your app, or consider using certificate credentials for added security: [https://aka.ms/certCreds](./active-directory-certificate-credentials.md) |
+| AADSTS700229 | ForbiddenTokenType- Only app-only tokens may be used as Federated Identity Credentials for AAD issuer.  Use an app-only access token (generated during a client credentials flow) instead of a user-delegated access token (representing a request coming from a user context).  |
 | AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant - Provided Authorization Code is intended to use against other tenant, thus rejected. OAuth2 Authorization Code must be redeemed against same tenant it was acquired for (/common or /{tenant-ID} as appropriate) |
 | AADSTS1000000 | UserNotBoundError - The Bind API requires the Azure AD user to also authenticate with an external IDP, which hasn't happened yet. |
 | AADSTS1000002 | BindCompleteInterruptError - The bind completed successfully, but the user must be informed. |

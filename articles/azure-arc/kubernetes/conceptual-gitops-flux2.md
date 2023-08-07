@@ -1,7 +1,7 @@
 ---
 title: "GitOps Flux v2 configurations with AKS and Azure Arc-enabled Kubernetes"
 description: "This article provides a conceptual overview of GitOps in Azure for use in Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters."
-ms.date: 04/27/2023
+ms.date: 05/08/2023
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, references-regions
 ---
@@ -37,7 +37,7 @@ Starting with [`microsoft.flux` version 1.7.0](extensions-release.md#170-march-2
 > [!NOTE]
 > If you have been using Flux v1, we recommend [migrating to Flux v2](conceptual-gitops-flux2.md#migrate-from-flux-v1) as soon as possible.
 >
-> Support for Flux v1-based cluster configuration resources created prior to May 1, 2023 will end on [May 24, 2025](https://azure.microsoft.com/updates/migrate-your-gitops-configurations-from-flux-v1-to-flux-v2-by-24-may-2025/). Starting on May 1, 2023, you won't be able to create new Flux v1-based cluster configuration resources.
+> Support for Flux v1-based cluster configuration resources created prior to January 1, 2024 will end on [May 24, 2025](https://azure.microsoft.com/updates/migrate-your-gitops-configurations-from-flux-v1-to-flux-v2-by-24-may-2025/). Starting on January 1, 2024, you won't be able to create new Flux v1-based cluster configuration resources.
 
 ### Controllers
 
@@ -234,7 +234,7 @@ If you use `azblob` source, here are the blob-specific command arguments.
 | `--sp_client_cert_send_chain` | String | Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate |
 | `--account_key` | String | The Azure Blob Shared Key for authentication |
 | `--sas_token` | String | The Azure Blob SAS Token for authentication |
-| `--mi_client_id` | String | The client ID of the managed identity for authentication with Azure Blob |
+| `--managed-identity-client-id` | String | The client ID of the managed identity for authentication with Azure Blob |
 
 > [!IMPORTANT]
 > When using managed identity authentication for AKS clusters and `azblob` source, the managed identity must be assigned at minimum the [Storage Blob Data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) role. Authentication using a managed identity is not yet available for Azure Arc-enabled Kubernetes clusters.

@@ -27,7 +27,7 @@ Learn to implement secure hybrid access (SHA) with single sign-on (SSO) to heade
 
 Learn more:
 
-* [Integrate F5 BIG-IP with Azure AD](./f5-aad-integration.md)
+* [Integrate F5 BIG-IP with Azure AD](./f5-integration.md)
 * [Enable SSO for an enterprise application](add-application-portal-setup-sso.md)
 
 ## Scenario description
@@ -86,6 +86,8 @@ The following instructions are an advanced configuration method, a flexible way 
 
 ## Add F5 BIG-IP from the Azure AD gallery
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To implement SHA, the first step is to set up a SAML federation trust between BIG-IP APM and Azure AD. The trust establishes the integration for BIG-IP to hand off preauthentication and Conditional Access to Azure AD, before granting access to the published service.
 
 Learn more: [What is Conditional Access?](../conditional-access/overview.md)
@@ -114,7 +116,7 @@ Learn more: [What is Conditional Access?](../conditional-access/overview.md)
    >[!NOTE]
    >In this configuration, the SAML flow operates in IdP mode: Azure AD issues the user a SAML assertion before being redirected to the BIG-IP service endpoint for the application. The BIG-IP APM supports IdP and SP modes.
 
-9. For **Logout URI** enter the BIG-IP APM Single Logout (SLO) endpoint, prepended by the service host header. The SLO URI ensures user BIG-IP APM sessions end after Azure AD sign out. For example, `https://mytravel.contoso.com/saml/sp/profile/redirect/slr`
+9. For **Logout URI** enter the BIG-IP APM Single Logout (SLO) endpoint, prepended by the service host header. The SLO URI ensures user BIG-IP APM sessions end after Azure AD sign-out. For example, `https://mytravel.contoso.com/saml/sp/profile/redirect/slr`
 
    ![Screenshot of Basic SAML Configuration input for Identifier, Reply URL, Sign on URL, etc.](./media/f5-big-ip-header-advanced/basic-saml-configuration.png)
 
@@ -185,7 +187,7 @@ Create the BIG-IP SAML service provider and corresponding SAML IdP objects to fe
 5. Scroll down to select the new SAML SP object.
 6. Select **Bind/UnBind IdP Connectors**.
 
-   ![Screenshot of the Bind Unbind IdP Connectors option under the SAML Services Provder tab.](./media/f5-big-ip-header-advanced/idp-connectors.png)
+   ![Screenshot of the Bind Unbind IdP Connectors option under the SAML Services Provider tab.](./media/f5-big-ip-header-advanced/idp-connectors.png)
 
 7. Select **Create New IdP Connector**. 
 8. From the drop-down, select **From Metadata**.

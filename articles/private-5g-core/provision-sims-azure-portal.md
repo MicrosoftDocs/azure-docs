@@ -2,8 +2,8 @@
 title: Provision new SIMs - Azure portal
 titleSuffix: Azure Private 5G Core
 description: In this how-to guide, learn how to provision new SIMs for an existing private mobile network using the Azure portal. 
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 01/16/2022
@@ -48,7 +48,7 @@ To begin, collect the values in the following table for each SIM you want to pro
 | Value | Field name in Azure portal | JSON file parameter name |
 |--|--|--|
 | SIM name. The SIM name must only contain alphanumeric characters, dashes, and underscores. | **SIM name** | `simName` |
-| The Integrated Circuit Card Identification Number (ICCID). The ICCID identifies a specific physical SIM or eSIM, and includes information on the SIM's country and issuer. The ICCID is a unique numerical value between 19 and 20 digits in length, beginning with 89. | **ICCID** | `integratedCircuitCardIdentifier` |
+| The Integrated Circuit Card Identification Number (ICCID). The ICCID identifies a specific physical SIM or eSIM, and includes information on the SIM's country/region and issuer. The ICCID is a unique numerical value between 19 and 20 digits in length, beginning with 89. | **ICCID** | `integratedCircuitCardIdentifier` |
 | The international mobile subscriber identity (IMSI). The IMSI is a unique number (usually 15 digits) identifying a device or user in a mobile network. | **IMSI** | `internationalMobileSubscriberIdentity` |
 | The Authentication Key (Ki). The Ki is a unique 128-bit value assigned to the SIM by an operator, and is used with the derived operator code (OPc) to authenticate a user. It must be a 32-character string, containing hexadecimal characters only. | **Ki** | `authenticationKey` |
 | The derived operator code (OPc). The OPc is taken from the SIM's Ki and the network's operator code (OP). The packet core instance uses it to authenticate a user using a standards-based algorithm. The OPc must be a 32-character string, containing hexadecimal characters only. | **Opc** | `operatorKeyCode` |
@@ -213,7 +213,8 @@ In this step, you'll enter provisioning values for your SIMs directly into the A
 
 In this step, you'll provision SIMs using a JSON file.
 
-1. In **Add SIMs** on the right, select **Browse** and then select one of the JSON files you created or edited in [Create or edit JSON files](#create-or-edit-json-files).
+1. In **Add SIMs** on the right, select **Browse** and then select one of the JSON files you created or edited in [Create or edit JSON files](#create-or-edit-json-files).  
+:::image type="content" source="media/provision-sims-azure-portal/add-sims-json.png" alt-text="Screenshot of the Add SIMs view. It shows Encrypted has been selected as the file type, a JSON file has been uploaded and SIMGroup1 has been selected as the SIM group name." lightbox="media/provision-sims-azure-portal/add-sims-json.png":::
 1. Set the **SIM group** field to an existing SIM group, or select **Create new** to create a new one.
 1. Select **Add**. If the **Add** button is greyed out, check your JSON file to confirm that it's correctly formatted.
 1. The Azure portal will now begin deploying the SIMs. When the deployment is complete, select **Go to resource group**.

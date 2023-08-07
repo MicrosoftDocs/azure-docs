@@ -7,7 +7,7 @@ ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 11/09/2021
-ms.custom: devx-track-java, event-tier1-build-2022, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, devx-track-azurecli
 ---
 
 # Expose applications to the internet with TLS Termination at Application Gateway
@@ -35,7 +35,7 @@ To configure Application Gateway in front of Azure Spring Apps in a private VNET
 1. Follow the instructions in [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 1. Follow the instructions in [Access your application in a private network](access-app-virtual-network.md).
 1. Acquire a certificate for your domain of choice and store that in Key Vault. For more information, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md).
-1. Configure a custom domain and corresponding certificate from Key Vault on an app deployed onto Azure Spring Apps. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](tutorial-custom-domain.md).
+1. Configure a custom domain and corresponding certificate from Key Vault on an app deployed onto Azure Spring Apps. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](how-to-custom-domain.md).
 1. Deploy Application Gateway in a virtual network configured according to the following list:
    - Use Azure Spring Apps in the backend pool, referenced by the domain suffixed with `private.azuremicroservices.io`.
    - Include an HTTPS listener using the same certificate from Key Vault.
@@ -47,15 +47,15 @@ To configure Application Gateway in front of Azure Spring Apps in a private VNET
 Next, use the following commands to define variables for the resource group and virtual network you created as directed in [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md). Replace the *\<...>* placeholders with real values based on your actual environment. When you define `SPRING_APP_PRIVATE_FQDN`, remove `https://` from the URI.
 
 ```bash
-SUBSCRIPTION='<subscription-id>'
-RESOURCE_GROUP='<resource-group-name>'
-LOCATION='eastus'
-SPRING_CLOUD_NAME='<name-of-Azure-Spring-Apps-instance>'
-APPNAME='<name-of-app-in-Azure-Spring-Apps>'
-SPRING_APP_PRIVATE_FQDN='$APPNAME.private.azuremicroservices.io'
-VIRTUAL_NETWORK_NAME='azure-spring-apps-vnet'
-APPLICATION_GATEWAY_SUBNET_NAME='app-gw-subnet'
-APPLICATION_GATEWAY_SUBNET_CIDR='10.1.2.0/24'
+export SUBSCRIPTION='<subscription-id>'
+export RESOURCE_GROUP='<resource-group-name>'
+export LOCATION='eastus'
+export SPRING_CLOUD_NAME='<name-of-Azure-Spring-Apps-instance>'
+export APPNAME='<name-of-app-in-Azure-Spring-Apps>'
+export SPRING_APP_PRIVATE_FQDN='$APPNAME.private.azuremicroservices.io'
+export VIRTUAL_NETWORK_NAME='azure-spring-apps-vnet'
+export APPLICATION_GATEWAY_SUBNET_NAME='app-gw-subnet'
+export APPLICATION_GATEWAY_SUBNET_CIDR='10.1.2.0/24'
 ```
 
 ## Sign in to Azure
@@ -72,10 +72,10 @@ az account set --subscription $SUBSCRIPTION
 Traffic will enter the application deployed on Azure Spring Apps using the public domain name. To configure your application to listen to this host name over HTTP, use the following commands to add a custom domain to your app, replacing the *\<...>* placeholders with real values:
 
 ```azurecli
-KV_NAME='<name-of-key-vault>'
-KV_RG='<resource-group-name-of-key-vault>'
-CERT_NAME_IN_KV='<name-of-certificate-with-intermediaries-in-key-vault>'
-DOMAIN_NAME=myapp.mydomain.com
+export KV_NAME='<name-of-key-vault>'
+export KV_RG='<resource-group-name-of-key-vault>'
+export CERT_NAME_IN_KV='<name-of-certificate-with-intermediaries-in-key-vault>'
+export DOMAIN_NAME=myapp.mydomain.com
 
 az spring app custom-domain bind \
     --resource-group $RESOURCE_GROUP \
@@ -89,7 +89,7 @@ az spring app custom-domain bind \
 The application gateway to be created will join the same virtual network as the Azure Spring Apps service instance. First, create a new subnet for the application gateway in the virtual network, then create a public IP address as the frontend of the application gateway, as shown in the following example.
 
 ```azurecli
-APPLICATION_GATEWAY_PUBLIC_IP_NAME='app-gw-public-ip'
+export APPLICATION_GATEWAY_PUBLIC_IP_NAME='app-gw-public-ip'
 az network vnet subnet create \
     --name $APPLICATION_GATEWAY_SUBNET_NAME \
     --resource-group $RESOURCE_GROUP \
@@ -108,7 +108,7 @@ az network public-ip create \
 Your application gateway will need to be able to access Key Vault to read the certificate. To do this, the application gateway will use a user-assigned managed identity. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md). Create the managed identity by using the following command, replacing the *\<...>* placeholder:
 
 ```azurecli
-APPGW_IDENTITY_NAME='<name-for-appgw-managed-identity>'
+export APPGW_IDENTITY_NAME='<name-for-appgw-managed-identity>'
 az identity create \
     --resource-group $RESOURCE_GROUP \
     --name $APPGW_IDENTITY_NAME
@@ -117,8 +117,15 @@ az identity create \
 Then, use the following command to fetch the `objectId` for the managed identity. This value will be used later on to give rights to access the certificate in Key Vault.
 
 ```azurecli
-APPGW_IDENTITY_CLIENTID=$(az identity show --resource-group $RESOURCE_GROUP --name $APPGW_IDENTITY_NAME --query clientId --output tsv)
-APPGW_IDENTITY_OID=$(az ad sp show --id $APPGW_IDENTITY_CLIENTID --query objectId --output tsv)
+export APPGW_IDENTITY_CLIENTID=$(az identity show \
+    --resource-group $RESOURCE_GROUP \
+    --name $APPGW_IDENTITY_NAME \
+    --query clientId \
+    --output tsv)
+export APPGW_IDENTITY_OID=$(az ad sp show \
+    --id $APPGW_IDENTITY_CLIENTID \
+    --query objectId \
+    --output tsv)
 ```
 
 ### Set policy on Key Vault
@@ -141,9 +148,13 @@ az keyvault set-policy \
 Create an application gateway using `az network application-gateway create` and specify your application's private fully qualified domain name (FQDN) as servers in the backend pool. Be sure to use the user-assigned managed identity and point to the certificate in Key Vault using the certificate's secret ID.
 
 ```azurecli
-APPGW_NAME='<name-for-application-gateway>'
-CERT_NAME_IN_KV='<name-of-certificate-in-key-vault>'
-KEYVAULT_SECRET_ID_FOR_CERT=$(az keyvault certificate show --name $CERT_NAME_IN_KV --vault-name $KV_NAME --query sid --output tsv)
+export APPGW_NAME='<name-for-application-gateway>'
+export CERT_NAME_IN_KV='<name-of-certificate-in-key-vault>'
+export KEYVAULT_SECRET_ID_FOR_CERT=$(az keyvault certificate show \
+    --name $CERT_NAME_IN_KV \
+    --vault-name $KV_NAME \
+    --query sid \
+    --output tsv)
 
 az network application-gateway create \
     --name $APPGW_NAME \

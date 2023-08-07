@@ -3,6 +3,7 @@ title: Configure storage provider - Netherite
 description: Configure a Durable Functions app to use Netherite
 author: sebastianburckhardt
 ms.topic: quickstart
+ms.custom: devx-track-dotnet
 ms.date: 11/14/2022
 ms.reviewer: azfuncdf
 ---

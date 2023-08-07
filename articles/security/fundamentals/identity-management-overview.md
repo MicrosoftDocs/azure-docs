@@ -120,14 +120,14 @@ Learn more:
 
 ## Device registration
 
-Azure AD device registration is the foundation for device-based [Conditional Access](../../active-directory/devices/device-management-azure-portal.md) scenarios. When a device is registered, Azure AD device registration provides the device with an identity that it uses to authenticate the device when a user signs in. The authenticated device  and the attributes of the device can then be used to enforce Conditional Access policies for applications that are hosted in the cloud and on-premises.
+Azure AD device registration is the foundation for device-based [Conditional Access](../../active-directory/devices/manage-device-identities.md) scenarios. When a device is registered, Azure AD device registration provides the device with an identity that it uses to authenticate the device when a user signs in. The authenticated device  and the attributes of the device can then be used to enforce Conditional Access policies for applications that are hosted in the cloud and on-premises.
 
 When combined with a mobile device management solution such as Intune, the device attributes in Azure AD are updated with additional information about the device. You can then create Conditional Access rules that enforce access from devices to meet your standards for security and compliance.
 
 Learn more:
 
-* [Get started with Azure AD device registration](../../active-directory/devices/device-management-azure-portal.md)
-* [Automatic device registration with Azure AD for Windows domain-joined devices](../../active-directory/devices/hybrid-azuread-join-plan.md#review-supported-devices)
+* [Get started with Azure AD device registration](../../active-directory/devices/manage-device-identities.md)
+* [Automatic device registration with Azure AD for Windows domain-joined devices](../../active-directory/devices/hybrid-join-plan.md#review-supported-devices)
 
 ## Privileged identity management
 

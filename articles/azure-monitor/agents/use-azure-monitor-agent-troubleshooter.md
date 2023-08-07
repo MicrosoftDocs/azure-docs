@@ -2,11 +2,11 @@
 title: Use Azure Monitor Troubleshooter
 description: Detailed instructions on using the on agent monitoring tool to diagnose potential issue.
 ms.topic: conceptual
-author: JeffreyWolford
-ms.author: jeffwo
+author: guywi-ms
+ms.author: guywild
 ms.date: 4/28/2023
 ms.custom: references_regions
-ms.reviewer: guywild
+ms.reviewer: jeffwo
 
 # customer-intent: As an IT manager, I want to investigate agent issue on a particular virtual machine and determine if I can resolve the issue on my own.
 ---
@@ -18,7 +18,8 @@ The Azure Monitor Agent isn't a service that runs in the context of an Azure Res
 
 
 ## Prerequisites
-The linux Troubleshooter requires Python 2.6+ or any Python3 installed on the machine. In addition, the following Python packages are required to run (all should be present on a default install of Python2 or Python3):
+- Ensure that the AMA agent is installed by looking for the directory C:/Packages/Plugins/Microsoft.Azure.Monitor.AzureMonitorWindowsAgent on the Windows OS and /var/lib/waagent/Microsoft.Azure.Monitor.AzureMonitorLinuxAgent-* on the Linux agent. 
+- The linux Troubleshooter requires Python 2.6+ or any Python3 installed on the machine. In addition, the following Python packages are required to run (all should be present on a default install of Python2 or Python3):
 
 |Python Package|	Required for Python2?	|Required for Python3?|
 |:---|:---|:---|
@@ -38,7 +39,7 @@ The linux Troubleshooter requires Python 2.6+ or any Python3 installed on the ma
 ### Run Windows Troubleshooter
 1. Log in to the machine to be diagnosed
 2. Go to the location where the troubleshooter is automatically installed: C:/Packages/Plugins/Microsoft.Azure.Monitor.AzureMonitorWindowsAgent/{version}/Troubleshooter
-3. Run the Troubleshooter: > Troubleshooter --ama
+3. Run the Troubleshooter: > AgentTroubleshooter --ama
 
 ### Evaluate the Windows Results
 The Troubleshooter runs two tests and collects several diagnostic logs.

@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: virtual-network
 ms.topic: how-to
 ms.date: 12/30/2022
-ms.custom: template-how-to, FY23 content-maintenance, devx-track-azurepowershell, devx-track-azurecli
+ms.custom: template-how-to, FY23 content-maintenance, devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
 ---
 
 # Create a virtual network peering - Resource Manager, different subscriptions and Azure Active Directory tenants
@@ -64,7 +64,7 @@ This tutorial peers virtual networks in the same region. You can also peer virtu
 
 - Ensure your `Az.Network` module is 4.3.0 or later. To verify the installed module, use the command `Get-InstalledModule -Name "Az.Network"`. If the module requires an update, use the command `Update-Module -Name Az.Network` if necessary.
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 # [**Azure CLI**](#tab/create-peering-cli)
 

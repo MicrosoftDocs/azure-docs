@@ -2,11 +2,10 @@
 title: Deploy Azure File Sync
 description: Learn how to deploy Azure File Sync from start to finish using the Azure portal, PowerShell, or the Azure CLI.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 02/03/2023
 ms.author: kendownie
-ms.subservice: files 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -76,7 +75,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
     > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
     > ```
 
-7. The Az PowerShell module, which can be installed by following the instructions here: [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+7. The Az PowerShell module, which can be installed by following the instructions here: [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
     > [!NOTE]
     > The Az.StorageSync module is now installed automatically when you install the Az PowerShell module.

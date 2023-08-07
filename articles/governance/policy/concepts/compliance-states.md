@@ -123,12 +123,11 @@ Assume an initiative contains 10 policies, and a resource is exempt from one pol
 
 ### Compliance percentage 
 
-The compliance percentage is determined by dividing **Compliant**, **Exempt**, and **Unknown** resources by _total resources_. _Total resources_ include **Compliant**, **Non-compliant**,
-**Exempt**, and **Conflicting** resources. The overall compliance numbers are the sum of distinct
-resources that are **Compliant**, **Exempt**, and **Unknown** divided by the sum of all distinct resources. 
+The compliance percentage is determined by dividing **Compliant**, **Exempt**, and **Unknown** resources by _total resources_. _Total resources_ include resources with **Compliant**, **Non-compliant**, **Unknown**, 
+**Exempt**, **Conflicting**, and **Error** states. 
 
 ```text
-overall compliance % = (compliant + exempt + unknown)  / (compliant + non-compliant + exempt + conflicting)
+overall compliance % = (compliant + exempt + unknown)  / (compliant + exempt + unknown + non-compliant + conflicting + error)
 ```
 
 In the image shown, there are 20 distinct resources that are applicable and only one is **Non-compliant**.

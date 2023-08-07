@@ -53,9 +53,11 @@ You can configure CAs by using the Azure portal or PowerShell.
 
 ### Configure certification authorities using the Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To enable the certificate-based authentication and configure user bindings in the Azure portal, complete the following steps:
 
-1. Sign in to the Azure portal as a Global Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
 1. Click **Azure Active Directory** > **Security**.
 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/certificate-authorities.png" alt-text="Screenshot of certification authorities.":::
@@ -136,14 +138,14 @@ For more information, see [Understanding the certificate revocation process](./c
 ## Step 2: Enable CBA on the tenant
 
 >[!IMPORTANT]
->A user is considered capable for MFA when the user is in scope for **Certificate-based authentication** in the Authentication methods policy. This policy requirement means a user can't use proof up as part of their authentication to register other available methods. For more information, see [Azure AD MFA](concept-mfa-howitworks.md).
+>A user is considered capable for **MFA** when the user is in scope for **Certificate-based authentication** in the Authentication methods policy. This policy requirement means a user can't use proof up as part of their authentication to register other available methods. If the users do not have access to certificates they will be locked out and not be able to register other methods for MFA. So the admin needs to enable users who have a valid certificate into the CBA scope. Do not use all users for CBA target and use groups of users who have valid certificates available. For more information, see [Azure AD MFA](concept-mfa-howitworks.md).
 
 To enable the certificate-based authentication in the Azure portal, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an Authentication Policy Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as an Authentication Policy Administrator.
 1. Select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
 1. Under **Manage**, select **Authentication methods** > **Certificate-based Authentication**.
-1.	Under **Enable and Target**, click **Enable**.
+1. Under **Enable and Target**, click **Enable**.
 1. Click **All users**, or click **Add groups** to select specific groups.
 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/enable.png" alt-text="Screenshot of how to enable CBA.":::
@@ -246,7 +248,7 @@ As a first configuration test, you should try to sign in to the [MyApps portal](
 
 1. Select **Sign in with a certificate**.
 
-1.	Pick the correct user certificate in the client certificate picker UI and click **OK**.
+1. Pick the correct user certificate in the client certificate picker UI and click **OK**.
 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/picker.png" alt-text="Screenshot of the certificate picker UI.":::
 

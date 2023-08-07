@@ -1,5 +1,5 @@
 ---
-title: Collect and process Aqua satellite data - Azure Orbital
+title: Process Aqua satellite data using NASA-provided tools - Azure Orbital
 description: An end-to-end walk-through of using the Azure Orbital Ground Station (AOGS) to capture and process Aqua satellite imagery.
 ms.service: orbital
 author: EliotSeattle
@@ -9,7 +9,7 @@ ms.date: 07/13/2022
 ms.custom: template-overview 
 ---
 
-# Tutorial: Collect and process Aqua satellite data using Azure Orbital Ground Station (AOGS)
+# Tutorial: Process Aqua satellite data using NASA-provided tools
 
 This article is a comprehensive walk-through showing how to use the [Azure Orbital Ground Station (AOGS)](https://azure.microsoft.com/services/orbital/) to capture and process satellite imagery. It introduces the AOGS and its core concepts and shows how to schedule contacts. The article also steps through an example in which we collect and process NASA Aqua satellite data in an Azure virtual machine (VM) using NASA-provided tools.
 
@@ -29,7 +29,7 @@ Optional setup steps for capturing the ground station telemetry are included the
 
 ## Step 1: Use AOGS to schedule a contact and collect Aqua data
 
-Execute steps listed in [Tutorial: Downlink data from NASA's AQUA public satellite](downlink-aqua.md) 
+Execute steps listed in [Tutorial: Downlink data from NASA's Aqua public satellite](downlink-aqua.md) 
 
 The above tutorial provides a walkthrough for scheduling a contact with Aqua and collecting the direct broadcast data on an Azure VM.
 

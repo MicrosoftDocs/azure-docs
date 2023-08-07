@@ -1,9 +1,9 @@
 ---
 title: Use the REST API to manage data export in Azure IoT Central
-description: How to use the IoT Central REST API to manage data export in an application
+description: How to use the IoT Central REST API to manage data export in an application. Export data to desinations such as blob storage, event hubs, and service bus.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/15/2022
+ms.date: 06/13/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -12,7 +12,7 @@ services: iot-central
 
 # How to use the IoT Central REST API to manage data exports
 
-The IoT Central REST API lets you develop client applications that integrate with IoT Central applications. You can use the REST API to create and manage [data exports](howto-export-to-blob-storage.md).
+The IoT Central REST API lets you develop client applications that integrate with IoT Central applications. You can use the REST API to create and manage [data exports](howto-export-to-blob-storage.md)
  in your IoT Central application.
 
 Every IoT Central REST API call requires an authorization header. To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
@@ -37,7 +37,7 @@ Use the following request to create or update a destination definition:
 PUT https://{your app subdomain}/api/dataExport/destinations/{destinationId}?api-version=2022-10-31-preview
 ```
 
-* destinationId - Unique ID for the destination.
+`destinationId` is a  unique ID for the destination.
 
 The following example shows a request body that creates a blob storage destination:
 
@@ -62,10 +62,13 @@ The response to this request looks like the following example:
 ```json
 {
     "id": "8dbcdb53-c6a7-498a-a976-a824b694c150",
-    "displayName": "Blob Storage Destination",
+    "displayName": "Blob Storage",
     "type": "blobstorage@v1",
-    "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=********;EndpointSuffix=core.windows.net",
-    "containerName": "central-data",
+    "authorization": {
+      "type": "connectionString",
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=*****;EndpointSuffix=core.windows.net",
+      "containerName": "central-data"
+    },
     "status": "waiting"
 }
 ```
@@ -83,10 +86,13 @@ The response to this request looks like the following example:
 ```json
 {
     "id": "8dbcdb53-c6a7-498a-a976-a824b694c150",
-    "displayName": "Blob Storage Destination",
+    "displayName": "Blob Storage",
     "type": "blobstorage@v1",
-    "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=********;EndpointSuffix=core.windows.net",
-    "containerName": "central-data",
+    "authorization": {
+      "type": "connectionString",
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=*****;EndpointSuffix=core.windows.net",
+      "containerName": "central-data"
+    },
     "status": "waiting"
 }
 ```
@@ -110,7 +116,7 @@ The response to this request looks like the following example:
             "type": "blobstorage@v1",
             "authorization": {
                 "type": "connectionString",
-                "connectionString": DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=********;EndpointSuffix=core.windows.net",
+                "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=********;EndpointSuffix=core.windows.net",
                 "containerName": "central-data"
             },
             "status": "waiting"
@@ -121,8 +127,7 @@ The response to this request looks like the following example:
             "type": "webhook@v1",
             "url": "https://eofnjsh68jdytan.m.pipedream.net",
             "headerCustomizations": {},
-            "status": "error",
-        }
+            "status": "error"
         }
     ]
 }
@@ -134,14 +139,11 @@ The response to this request looks like the following example:
 PATCH https://{your app subdomain}/api/dataExport/destinations/{destinationId}?api-version=2022-10-31-preview
 ```
 
-You can use this call to perform an incremental update to an export. The sample request body looks like the following example that updates the `displayName` to a destination:
+You can use this call to perform an incremental update to an export. The sample request body looks like the following example that updates the `connectionString` of a destination:
 
 ```json
 {
-  "displayName": "Blob Storage",
-  "type": "blobstorage@v1",
-  "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=********;EndpointSuffix=core.windows.net",
-  "containerName": "central-data"
+  "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=********;EndpointSuffix=core.windows.net"
 }
 ```
 
@@ -152,10 +154,13 @@ The response to this request looks like the following example:
     "id": "8dbcdb53-c6a7-498a-a976-a824b694c150",
     "displayName": "Blob Storage",
     "type": "blobstorage@v1",
-    "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=********;EndpointSuffix=core.windows.net",
-    "containerName": "central-data",
+    "authorization": {
+      "type": "connectionString",
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=*****;EndpointSuffix=core.windows.net",
+      "containerName": "central-data"
+    },
     "status": "waiting"
-}   
+}
 ```
 
 ### Delete a destination
@@ -225,6 +230,95 @@ The response to this request looks like the following example:
         }
     ],
     "status": "starting"
+}
+```
+
+#### Enrichments
+
+There are three types of enrichment that you can add to an export: custom strings, system properties, and custom properties:
+
+The following example shows how to use the `enrichments` node to add a custom string to the outgoing message:
+
+```json
+"enrichments": {
+  "My custom string": {
+    "value": "My value"
+  },
+  //...
+}
+```
+
+The following example shows how to use the `enrichments` node to add a system property to the outgoing message:
+
+```json
+"enrichments": {
+  "Device template": {
+    "path": "$templateDisplayName"
+  },
+  //...
+}
+```
+
+You can add the following system properties:
+
+| Property | Description |
+| -------- | ----------- |
+| `$enabled` | Is the device enabled? |
+| `$displayName` | The device name. |
+| `$templateDisplayName` | The device template name. |
+| `$organizations` | The organizations the device belongs to. |
+| `$provisioned` | Is the device provisioned? |
+| `$simulated` | Is the device simulated? |
+
+The following example shows how to use the `enrichments` node to add a custom property to the outgoing message. Custom properties are properties defined in the device template the device is associated with:
+
+```json
+"enrichments": {
+  "Device model": {
+    "target": "dtmi:azure:DeviceManagement:DeviceInformation;1",
+    "path": "model"
+  },
+  //...
+}
+```
+
+#### Filters
+
+You can filter the exported messages based on telemetry or property values.
+
+The following example shows how to use the `filter` field to export only messages where the accelerometer-X telemetry value is greater than 0:
+
+```json
+{
+  "id": "export-001",
+  "displayName": "Enriched Export",
+  "enabled": true,
+  "source": "telemetry",
+  "filter": "SELECT * FROM dtmi:azurertos:devkit:gsgmxchip;1 WHERE accelerometerX > 0",
+  "destinations": [
+    {
+      "id": "dest-001"
+    }
+  ],
+  "status": "healthy"
+}
+```
+
+The following example shows how to use the `filter` field to export only messages where the `temperature` telemetry value is greater than the `targetTemperature` property:
+
+```json
+{
+  "id": "export-001",
+  "displayName": "Enriched Export",
+  "enabled": true,
+  "source": "telemetry",
+  "filter": "SELECT * FROM dtmi:azurertos:devkit:gsgmxchip;1 AS A, dtmi:contoso:Thermostat;1 WHERE A.temperature > targetTemperature",
+  "destinations": [
+    {
+      "id": "dest-001"
+    }
+  ],
+  "status": "healthy"
 }
 ```
 
@@ -310,19 +404,11 @@ You can use this call to perform an incremental update to an export. The sample 
 
 ```json
 {
-    "displayName": "Enriched Export",
-    "enabled": true,
-    "source": "telemetry",
     "enrichments": {
         "Custom data": {
             "value": "My value 2"
         }
-    },
-    "destinations": [
-        {
-            "id": "9742a8d9-c3ca-4d8d-8bc7-357bdc7f39d9"
-        }
-    ]
+    }
 }
 ```
 
@@ -336,7 +422,7 @@ The response to this request looks like the following example:
     "source": "telemetry",
     "enrichments": {
         "Custom data": {
-            "value": "My"
+            "value": "My value 2"
         }
     },
     "destinations": [

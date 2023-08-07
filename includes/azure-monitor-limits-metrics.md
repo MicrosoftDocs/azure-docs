@@ -58,13 +58,12 @@ Based on query time range and range vectors in query over a 30-second window.
 | Query hours per Azure Monitor workspace | 2,000,000 |
 | Query hours per Azure tenant | 20,000,000 |
 
-#### Alert rules 
-Prometheus alert rules are defined in PromQL. They're performed on the managed Ruler service as part of Azure Monitor managed service for Prometheus.
+#### Alert and recording rules 
+Prometheus alert rules and recording rules are defined in PromQL. They're performed on the managed Ruler service as part of Azure Monitor managed service for Prometheus.
 
 | Limit | Value |
 |:---|:---|
-| Rule groups per Azure Monitor workspace  | 100<br>You can request an increase. |
-| Rule groups per Azure subscription  | 100<br>You can request an increase. |
+| Rule groups per Azure Monitor workspace, in an Azure subscription  | 500<br>You can request an increase. |
 | Rules per rule group | 20<br>You can request an increase. |
 | Rule group evaluation interval | Between 1-15 minutes.<br>Default is 1 minute. |
 | Active alerts | No limit at this time. |

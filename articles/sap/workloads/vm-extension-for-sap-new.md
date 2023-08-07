@@ -53,7 +53,7 @@ ms.author: oldoll
 
 ### <a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Deploy Azure PowerShell cmdlets
 
-Follow the steps described in the article [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
+Follow the steps described in the article [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell)
 
 Check frequently for updates to the PowerShell cmdlets, which usually are updated monthly. Follow the steps described in [this](/powershell/azure/install-az-ps#update-the-azure-powershell-module) article. Unless stated otherwise in SAP Note [1928533] or SAP Note [2015553], we recommend that you work with the latest version of Azure PowerShell cmdlets.
 
@@ -86,7 +86,7 @@ The new VM Extension for SAP uses a managed identity that's assigned to the VM t
 1. Make sure to uninstall the standard version of the VM Extension for SAP. It is not supported to install both versions of the VM Extension for SAP on the same virtual machine.
 1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet (at least 4.3.0). For more information, see [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].
 1. Run the following PowerShell cmdlet.
-    For a list of available environments, run cmdlet `Get-AzEnvironment`. If you want to use global Azure, your environment is **AzureCloud**. For Azure China 21Vianet, select **AzureChinaCloud**.
+    For a list of available environments, run cmdlet `Get-AzEnvironment`. If you want to use global Azure, your environment is **AzureCloud**. For Microsoft Azure operated by 21Vianet, select **AzureChinaCloud**.
 
     The VM Extension for SAP supports configuring a proxy that the extension should use to connect to external resources, for example the Azure Resource Manager API. Please use parameter -ProxyURI to set the proxy.
 
@@ -370,7 +370,7 @@ If some of the infrastructure data is not delivered correctly as indicated by th
 ### Health checks using PowerShell
 
 1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet, as described in [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].
-1. Run the following PowerShell cmdlet. For a list of available environments, run the cmdlet `Get-AzEnvironment`. To use global Azure, select the **AzureCloud** environment. For Azure China 21Vianet, select **AzureChinaCloud**.
+1. Run the following PowerShell cmdlet. For a list of available environments, run the cmdlet `Get-AzEnvironment`. To use global Azure, select the **AzureCloud** environment. For Microsoft Azure operated by 21Vianet, select **AzureChinaCloud**.
 
    ```powershell
    $env = Get-AzEnvironment -Name <name of the environment>

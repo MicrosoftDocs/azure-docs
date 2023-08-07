@@ -7,7 +7,7 @@ ms.reviewer: charles.weininger
 reviewer: cweining
 ms.topic: conceptual
 ms.date: 03/20/2023
-ms.custom: devdivchpfy22
+ms.custom: devdivchpfy22, devx-track-dotnet
 ---
 
 # <a id="troubleshooting"></a> Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots
@@ -26,7 +26,7 @@ Below you can find scenarios where Snapshot Collector isn't supported:
 
 ## Make sure you're using the appropriate Snapshot Debugger Endpoint
 
-Currently the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Azure China](/azure/china/resources-developer-guide).
+Currently the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Microsoft Azure operated by 21Vianet](/azure/china/resources-developer-guide).
 
 For App Service and applications using the Application Insights SDK, you have to update the connection string using the supported overrides for Snapshot Debugger as defined below:
 
@@ -329,3 +329,7 @@ If you still don't see an exception with that snapshot ID, then the exception re
 If your application connects to the Internet via a proxy or a firewall, you may need to update the rules to communicate with the Snapshot Debugger service.
 
 The IPs used by Application Insights Snapshot Debugger are included in the Azure Monitor service tag. For more information, see [Service Tags documentation](../../virtual-network/service-tags-overview.md).
+
+## Are there any billing costs when using snapshots?
+
+There are no charges against your subscription specific to Snapshot Debugger. The snapshot files collected are stored separately from the telemetry collected by the Application Insights SDKs and there are no charges for the snapshot ingestion or storage. 

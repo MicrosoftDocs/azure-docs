@@ -14,6 +14,7 @@ ms.custom: devx-track-azurepowershell
 
 You can use Azure Firewall to access a storage account container via SFTP. Azure PowerShell is used to deploy a firewall in a virtual network and configured with DNAT rules to translate the SFTP traffic to the storage account container. The storage account container is configured with a private endpoint to allow access from the firewall. To connect to the container, you use the firewall public IP address and the storage account container name.
 
+:::image type="content" source="media/firewall-sftp/accessing-storage-using-sftp.png" alt-text="Diagram showing SFTP to firewall to access a storage account container.":::
 
 In this article, you:
 
@@ -29,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-This article requires the latest Azure PowerShell modules. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
+This article requires the latest Azure PowerShell modules. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
 
 ## Deploy the network infrastructure
 
@@ -53,7 +54,7 @@ Create the network infrastructure. This includes a virtual network, subnets and 
 ```azurepowershell
 
 # Create a new resource group
-New-AzResourceGroup -Name "$rg" -Location $location
+New-AzResourceGroup -Name $rg -Location $location
 
 # Create new subnets for the firewall
 $FWsub = New-AzVirtualNetworkSubnetConfig -Name AzureFirewallSubnet -AddressPrefix 10.0.1.0/26
@@ -65,7 +66,7 @@ $testVnet = New-AzVirtualNetwork -Name test-fw-vn -ResourceGroupName $rg -Locati
 # Create a public IP address for the firewall
 $pip = New-AzPublicIpAddress `
     -ResourceGroupName $rg `
-    -Location eastus `
+    -Location $location `
     -AllocationMethod Static `
     -Sku Standard `
     -Name fw-pip

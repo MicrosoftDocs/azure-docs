@@ -25,6 +25,9 @@ requirements for the storage account, but it's a good idea to host the file in a
 machines. If you prefer to not make the package public, you can include a [SAS token][02] in the
 URL or implement a [service endpoint][03] for machines in a private network.
 
+To publish your configuration package to Azure blob storage, you can follow these steps, which use
+the **Az.Storage** module.
+
 If you don't have a storage account, use the following example to create one.
 
 ```azurepowershell-interactive
@@ -39,69 +42,87 @@ $newAccountParams = @{
     Name              = '<storage-account-name>'
     SkuName           = 'Standard_LRS'
 }
-New-AzStorageAccount @newAccountParams |
-    New-AzStorageContainer -Name guestconfiguration -Permission Blob
+$container = New-AzStorageAccount @newAccountParams |
+    New-AzStorageContainer -Name machine-configuration -Permission Blob
 ```
 
-To publish your configuration package to Azure blob storage, you can follow these steps, which use
-the **Az.Storage** module.
+Next, get the context of the storage account you want to store the package in. If you created
+the storage account in the earlier example, you can get the context from the storage container
+object saved in the `$container` variable:
 
-First, obtain the context of the storage account you want to store the package in. This example
-creates a context by specifying a connection string and saves the context in the variable
-`$Context`.
+```azurepowershell-interactive
+$context = $container.Context
+```
+
+If you're using an existing storage container, you can use the container's [connection string][04]
+with the `New-AzStorageContext` cmdlet:
 
 ```azurepowershell-interactive
 $connectionString = @(
     'DefaultEndPointsProtocol=https'
-    'AccountName=ContosoGeneral'
-    'AccountKey=<storage-key-for-ContosoGeneral>' # ends with '=='
+    'AccountName=<storage-account-name>'
+    'AccountKey=<storage-key-for-the-account>' # ends with '=='
 ) -join ';'
-$Context = New-AzStorageContext -ConnectionString $connectionString
+$context = New-AzStorageContext -ConnectionString $connectionString
 ```
 
 Next, add the configuration package to the storage account. This example uploads the zip file
-`./MyConfig.zip` to the blob `machineConfiguration`.
+`./MyConfig.zip` to the blob container `machine-configuration`.
 
 ```azurepowershell-interactive
 $setParams = @{
-    Container = 'machineConfiguration'
+    Container = 'machine-configuration'
     File      = './MyConfig.zip'
-    Context   = $Context
+    Context   = $context
 }
-Set-AzStorageBlobContent @setParams
+$blob = Set-AzStorageBlobContent @setParams
+$contentUri = $blob.ICloudBlob.Uri.AbsoluteUri
 ```
 
-Optionally, you can add a SAS token in the URL to ensure the content package is accessed securely.
-The below example generates a blob SAS token with read access and returns the full blob URI with
-the shared access signature token. In this example, the token has a time limit of three years.
+> [!NOTE]
+> If you're running these examples in Cloudshell but created your zip file locally, you can
+> [upload the file to Cloudshell][05].
+
+While this next step is optional, you should add a shared access signature (SAS) token in the URL
+to ensure secure access to the package. The below example generates a blob SAS token with read
+access and returns the full blob URI with the shared access signature token. In this example, the
+token has a time limit of three years.
 
 ```azurepowershell-interactive
-$StartTime = Get-Date
-$EndTime   = $startTime.AddYears(3)
+$startTime = Get-Date
+$endTime   = $startTime.AddYears(3)
 
 $tokenParams = @{
-    StartTime  = $StartTime
-    EndTime    = $EndTime
-    Container  = 'machineConfiguration'
+    StartTime  = $startTime
+    ExpiryTime = $endTime
+    Container  = 'machine-configuration'
     Blob       = 'MyConfig.zip'
     Permission = 'r'
-    Context    = $Context
+    Context    = $context
     FullUri    = $true
 }
-$contenturi = New-AzStorageBlobSASToken @tokenParams
+$contentUri = New-AzStorageBlobSASToken @tokenParams
 ```
+
+> [!IMPORTANT]
+> After you create the SAS token, note the returned URI. You can't retrieve the token after you
+> create it. You can only create new tokens. For more information about SAS tokens, see
+> [Grant limited access to Azure Storage resources using shared access signatures (SAS)][06].
 
 ## Next steps
 
-- [Test the package artifact][04] from your development environment.
-- Use the **GuestConfiguration** module to [create an Azure Policy definition][05] for at-scale
+- [Test the package artifact][07] from your development environment.
+- Use the **GuestConfiguration** module to [create an Azure Policy definition][08] for at-scale
   management of your environment.
-- [Assign your custom policy definition][06] using Azure portal.
+- [Assign your custom policy definition][09] using Azure portal.
 
 <!-- Reference link definitions -->
 [01]: ./overview.md
 [02]: ../../storage/common/storage-sas-overview.md
 [03]: ../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network
-[04]: ./how-to-test-package.md
-[05]: ./how-to-create-policy-definition.md
-[06]: ../policy/assign-policy-portal.md
+[04]: ../../storage/common/storage-configure-connection-string.md#configure-a-connection-string-for-an-azure-storage-account
+[05]: /azure/cloud-shell/using-the-shell-window#upload-and-download-files
+[06]: ../../storage/common/storage-sas-overview.md
+[07]: ./how-to-test-package.md
+[08]: ./how-to-create-policy-definition.md
+[09]: ../policy/assign-policy-portal.md

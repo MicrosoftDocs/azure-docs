@@ -5,7 +5,7 @@ ms.topic: tutorial
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
-ms.custom: devx-track-js, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Automate container image builds when a base image is updated in another private container registry 

@@ -2,11 +2,12 @@
 title: How to create Azure Maps applications using the Python REST SDK (preview)
 titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the Python SDK Developers Guide.
-author: sinnypan
-ms.author: sipa
+author: dubiety
+ms.author: yuchungchen 
 ms.date: 01/15/2021
 ms.topic: how-to
 ms.service: azure-maps
+ms.custom: devx-track-python
 services: azure-maps
 ---
 

@@ -9,9 +9,9 @@ ms.service: active-directory
 ms.subservice: msi
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/08/2022
+ms.date: 05/10/2023
 ms.author: barclayn
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 zone_pivot_groups: identity-mi-methods
 ---
 
@@ -30,8 +30,9 @@ In this article, you learn how to create, list, delete, or assign a role to a us
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#managed-identity-types).
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
 
-
 ## Create a user-assigned managed identity
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 To create a user-assigned managed identity, your account needs the [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
 
@@ -57,7 +58,7 @@ To list or read a user-assigned managed identity, your account needs to have eit
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search box, enter **Managed Identities**. Under **Services**, select **Managed Identities**.
 1. A list of the user-assigned managed identities for your subscription is returned. To see the details of a user-assigned managed identity, select its name.
-1. You can now view the details about the managed identity as shown in the image below.
+1. You can now view the details about the managed identity as shown in the image.
 
    :::image type="content" source="media/how-manage-user-assigned-managed-identities/list-user-assigned-managed-identity-portal.png" alt-text="Screenshot that shows the list of user-assigned managed identity.":::
 
@@ -76,7 +77,7 @@ Deleting a user-assigned identity doesn't remove it from the VM or resource it w
 
 ## Manage access to user-assigned managed identities
 
-In some environments, administrators choose to limit who can manage user-assigned managed identities. You do this by using [built-in](../../role-based-access-control/built-in-roles.md#identity) RBAC roles. You can use these roles to grant a user or group in your organization rights over a user-assigned managed identity.
+In some environments, administrators choose to limit who can manage user-assigned managed identities. Administrators can implement this limitation using [built-in](../../role-based-access-control/built-in-roles.md#identity) RBAC roles. You can use these roles to grant a user or group in your organization rights over a user-assigned managed identity.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search box, enter **Managed Identities**. Under **Services**, select **Managed Identities**.
@@ -174,7 +175,7 @@ In this article, you learn how to create, list, and delete a user-assigned manag
 
 To use Azure PowerShell locally for this article instead of using Cloud Shell:
 
-1. Install [the latest version of Azure PowerShell](/powershell/azure/install-az-ps) if you haven't already.
+1. Install [the latest version of Azure PowerShell](/powershell/azure/install-azure-powershell) if you haven't already.
 
 1. Sign in to Azure.
 

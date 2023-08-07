@@ -35,8 +35,13 @@ This article describes resolutions to issues you might have when managing capaci
 |  The pool change cannot be completed because a volume called `'{source pool name}'` already exists in the target pool `'{target pool name}'` | This error occurs because the volume with same name already exists in the target capacity pool.  Select another capacity pool that does not have a volume with same name.   | 
 | Error changing volume's pool. Pool: `'{target pool name}'` not available or does not exit | You cannot change a volume's capacity pool when the destination capacity pool is not healthy. Check the status of the destination capacity pool. If the pool is in a failed state (not "Succeeded"), try performing an update on the capacity pool by adding a tag name and value pair, then save. |
 | Cannot change the volume's pool because the selected pool is the same as the existing pool: `'{Pool Name}'` | Confirm you're moving the volume to the correct destination capacity pool and try again. |
-| Cannot change QoS type from manual to auto | Once the QoS type is changed to manual, you cannot change it to auto. Given this, there are three options: <ul><li> Do not move the volume if it must be in a capacity pool with QoS type auto.</li><li> Create a new capacity pool with QoS type manual enabled, then you can move the volume to the new capacity pool. </li><li> Change the destination pool to QoS type manual from auto. Then perform the move. </li></ul> For information about QoS, see [Storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md#qos_types). | 
 | Cannot change a volume from a Double Encrypted Pool to a Single Encrypted Pool or from a Single Encrypted Pool to a Double Encrypted Pool | The destination pool must be of the same encryption type as the source pool. |
+
+## Issues for double-encryption capacity pools  
+
+|     Error condition    |     Resolution    |
+|-|-|
+| Out of storage capacity when creating or resizing volumes under double-encryption capacity pools: `There are currently insufficient resources available to create [or extend] a volume in this region. Please retry the operation. If the problem persists, contact Support.` |  The error indicates insufficient resources in the region to support hardware-level data encryption. Retry the operation after some time. Resources may have been freed in the cluster, region, or zone in the interim.  |
 
 ## Next steps  
 

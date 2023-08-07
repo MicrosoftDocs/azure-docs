@@ -3,7 +3,7 @@ title: How to integrate Azure SignalR with reverse proxies
 description: This article provides information about the general practice integrating Azure SignalR with reverse proxies
 author: vicancy
 ms.author: lianwei
-ms.date: 08/16/2022
+ms.date: 06/16/2023
 ms.service: signalr
 ms.topic: how-to
 ---
@@ -41,10 +41,10 @@ There are several general practices to follow when using a reverse proxy in fron
       ```
 
 * When a client goes through your reverse proxy to Azure SignalR, there are two types of requests:
-  * HTTP post request to `<reverse-proxy-URL>/client/negotiate`, which we call as **negotiate request**
-  * WebSocket/SSE/LongPolling connection request depending on your transport type to `<reverse-proxy-URL>/client`, which we call as **connect request**.
+  * HTTP post request to `<reverse-proxy-URL>/client/negotiate/`, which we call as **negotiate request**
+  * WebSocket/SSE/LongPolling connection request depending on your transport type to `<reverse-proxy-URL>/client/`, which we call as **connect request**.
   
-  Make sure that your reverse proxy supports both transport types for `/client` subpath. For example, when your transport type is WebSocket, make sure your reverse proxy supports both HTTP and WebSocket for `/client` subpath.
+  Make sure that your reverse proxy supports both transport types for `/client/` subpath. For example, when your transport type is WebSocket, make sure your reverse proxy supports both HTTP and WebSocket for `/client/` subpath.
 
   If you have configured multiple SignalR services behind your reverse proxy, make sure `negotiate` request and `connect` request with the same `asrs_request_id` query parameter(meaning they are for the same connection) are routed to the same SignalR service instance.
   
@@ -53,5 +53,7 @@ There are several general practices to follow when using a reverse proxy in fron
 ## Next steps
 
 - Learn [how to work with Application Gateway](./signalr-howto-work-with-app-gateway.md).
+
+- Learn [how to work with API Management](./signalr-howto-work-with-apim.md).
 
 - Learn more about [the internals of Azure SignalR](./signalr-concept-internals.md).

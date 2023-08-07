@@ -18,11 +18,9 @@
   items:
   - name: Develop modules
     items:
-    - name: Develop with Linux containers
+    - name: Develop modules using VS Code
       href: tutorial-develop-for-linux.md
-    - name: Develop and debug with VS Code
-      href: how-to-vs-code-develop-module.md
-    - name: Develop and debug with Visual Studio
+    - name: Develop modules with Visual Studio
       href: how-to-visual-studio-develop-module.md
   - name: Deploy Azure services as modules
     items:
@@ -129,6 +127,8 @@
           href: how-to-use-create-options.md
         - name: Give modules access to a device's local storage
           href: how-to-access-host-storage-from-module.md
+    - name: Debug modules with VS Code
+      href: debug-module-vs-code.md
   - name: Deploy modules
     items:
     - name: Deploy to individual devices
