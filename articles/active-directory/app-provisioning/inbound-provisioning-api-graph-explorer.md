@@ -84,11 +84,7 @@ You can inspect the processing using the provisioning logs API URL returned as p
 The bulk request shown below uses the SCIM standard Core User and Enterprise User schema. 
 
 **Request body**
-# [HTTP](#tab/http)
-<!-- {
-  "blockType": "request",
-  "name": "Quick_start_with_Graph_Explorer"
-}-->
+
 ```http
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:BulkRequest"],

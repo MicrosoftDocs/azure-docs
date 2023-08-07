@@ -89,7 +89,7 @@ See how data, including text, tables, table headers, selection marks, and struct
 
 * An [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
- :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+ :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 ::: moniker range=">=doc-intel-3.0.0"
 
@@ -100,7 +100,7 @@ See how data, including text, tables, table headers, selection marks, and struct
 
 ***Sample document processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
-:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot: Layout processing a newspaper page in Document Intelligence Studio.":::
+:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of Layout processing a newspaper page in Document Intelligence Studio.":::
 
 1. On the Document Intelligence Studio home page, select **Layout**
 
@@ -108,7 +108,7 @@ See how data, including text, tables, table headers, selection marks, and struct
 
 1. Select the **Analyze** button:
 
-    :::image type="content" source="media/studio/layout-analyze.png" alt-text="Screenshot: analyze layout menu.":::
+    :::image type="content" source="media/studio/layout-analyze.png" alt-text="Screenshot of analyze layout menu.":::
 
    > [!div class="nextstepaction"]
    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
@@ -137,7 +137,7 @@ See how data, including text, tables, table headers, selection marks, and struct
 
 1. Select **Run Layout**. The Document Intelligence Sample Labeling tool calls the Analyze Layout API and analyze the document.
 
-    :::image type="content" source="media/fott-layout.png" alt-text="Screenshot: Layout dropdown window.":::
+    :::image type="content" source="media/fott-layout.png" alt-text="Screenshot of Layout dropdown window.":::
 
 1. View the results - see the highlighted text extracted, selection marks detected and tables detected.
 

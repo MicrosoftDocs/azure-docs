@@ -52,7 +52,7 @@ The SLA attainment is truncated at three places after the decimal. Numbers aren'
 | April     | 99.999% | 99.999% | 99.999% |
 | May       | 99.999% | 99.999% | 99.999% |
 | June      | 99.999% | 99.999% | 99.999% |
-| July      | 99.999% | 99.999% | |
+| July      | 99.999% | 99.999% | 99.999% |
 | August    | 99.999% | 99.999% | |
 | September | 99.999% | 99.998% | |
 | October   | 99.999% | 99.999% | |
