@@ -1,16 +1,14 @@
 ---
-title: Moving from lab accounts to lab plans
+title: Migrate lab accounts to lab plans
 titleSuffix: Azure Lab Services
-description: 'Learn how to transition from Azure Lab Services to Azure Lab Services August 2022 Update.'
+description: 'Learn how to migrate lab accounts to lab plans in Azure Lab Services.'
 ms.topic: how-to
 author: ntrogh
 ms.author: nicktrog
-ms.date: 11/30/2022
+ms.date: 08/07/2023
 ---
 
-# Transition from lab accounts to the improved Azure Lab Services August 2022 Update 
-
-This article applies to users of Azure Lab Services with labs created with a lab account. If you're a brand new user to Azure Lab Services, start with [create a lab plan](quick-create-resources.md).
+# Migrate from lab accounts to lab plans
 
 In this article, you'll learn the sequence to getting started using the features and resources made available beginning in the August 2022 update. The important update to Azure Lab Services August 2022 includes enhancements that boost performance, reliability, and scalability. It also gives you more flexibility in the way you manage labs, use capacity, and track costs. 
 

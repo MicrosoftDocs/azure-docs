@@ -1,12 +1,16 @@
 ---
-title: What's New in Azure Lab Services | Microsoft Docs
+title: Lab accounts versus lab plans
+titleSuffix: Azure Lab Services
 description: Learn what's new in the Azure Lab Services August 2022 Updates. 
-ms.topic: overview
-ms.date: 07/04/2022
-ms.custom: devdivchpfy22
+services: lab-services
+ms.service: lab-services
+author: ntrogh
+ms.author: nicktrog
+ms.topic: conceptual
+ms.date: 08/07/2023
 ---
 
-# What's new in Azure Lab Services August 2022 Update
+# Why migrate lab accounts to lab plans?
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
 
