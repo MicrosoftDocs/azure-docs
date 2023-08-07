@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/21/2023
+ms.date: 08/04/2023
 ms.author: jeedes
 
 ---
@@ -108,11 +108,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure CloudBees CI SSO
 
-To configure single sign-on on **CloudBees CI** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [CloudBees CI support team](mailto:support@cloudbees.com). They set this setting to have the SAML SSO connection set properly on both sides.
-
-### Create CloudBees CI test user
-
-In this section, you create a user called Britta Simon at CloudBees CI SSO. Work with [CloudBees CI support team](mailto:support@cloudbees.com) to add the users in the CloudBees CI SSO platform. Users must be created and activated before you use single sign-on.
+To configure single sign-on in CloudBees CI, please follow [Configure Azure](https://github.com/jenkinsci/saml-plugin/blob/main/doc/CONFIGURE_AZURE.md) using the Federation Metadata XML and copied URLs from the Azure portal.
 
 ## Test SSO 
 
