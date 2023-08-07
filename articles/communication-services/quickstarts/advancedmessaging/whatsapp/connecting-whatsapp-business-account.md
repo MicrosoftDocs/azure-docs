@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 
 # Quickstart: Register WhatsApp Business Account
 
-Getting started with the Azure Communication Services Advanced Message, which extends messaging to users on WhatsApp. This feature allows your organization to send and receive messages with WhatsApp users using a WhatsApp Business Account. The Message SDK extends your communications to interact with the large global WhatsApp community for common scenarios:
+Get started with the Azure Communication Services Advanced Message, which extends messaging to users on WhatsApp. This feature allows your organization to send and receive messages with WhatsApp users using a WhatsApp Business Account. The Message SDK extends your communications to interact with the large global WhatsApp community for common scenarios:
 
 -   Receiving inquiries from your customers for product feedback or support, price quotes, and rescheduling appointments.
 -   Sending your customer's notifications like appointment reminders, product discounts, transaction receipts, and one-time passcodes.
@@ -33,7 +33,7 @@ Getting started with the Azure Communication Services Advanced Message, which ex
     -  Company Name: How you want your company identified to your WhatsApp users
     -  Website: A web page that verifies your business
     -  Business email: You can use the email associated with your Facebook login.
-    -  Business phone number: The phone number that customers can use to contact you. You can use the phone number described in the step two.
+    -  Business phone number: The phone number that customers can use to contact you. You can use the phone number described in step 2.
 5.  [Active WhatsApp Business Account](https://www.facebook.com/business/tools/meta-business-suite)
 
 ## WhatsApp Business Account Sign-up

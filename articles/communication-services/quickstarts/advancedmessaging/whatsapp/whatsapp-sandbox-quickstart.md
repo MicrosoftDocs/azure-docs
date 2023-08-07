@@ -18,7 +18,7 @@ Getting started to enable Contoso developers to try out the Advanced Messaging f
 ## Prerequisites 
 
 - [Create an Azure Communication Services resource](../../create-communication-resource.md).
-- [WhatsApp enabled phonenumber]()
+- [WhatsApp enabled phone number]()
 
 ## Setting up
 
@@ -39,7 +39,7 @@ Getting started to enable Contoso developers to try out the Advanced Messaging f
 :::image type="content" source="./media/whatsapp-sandbox/connection-established.png" alt-text="Screenshot that shows Advanced Messaging WhatsApp connection established in the Azure portal.":::
 
 ## Send Text Message 
-Once connected, you're able to send either a template message or a text message. Here is an example of text message.
+Once connected, you're able to send either a template message or a text message. Here's an example of text message.
 
 :::image type="content" source="./media/whatsapp-sandbox/send-message.png" alt-text="Screenshot that shows WhatsApp Send text message in the Azure portal.":::
 

@@ -28,7 +28,7 @@ The Azure Communication Services Advanced Messaging usage fee is based on the nu
 
 **WhatsApp**
 
-When you connect your WhatsApp Business account to Azure, Azure Communication Services becomes the billing entity for your WhatsApp usage. WhatsApp provides these rates and it is included in your Azure bill. The information given summarizes the key aspects of WhatsApp pricing. WhatsApp describes their pricing in detail here: [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
+When you connect your WhatsApp Business account to Azure, Azure Communication Services becomes the billing entity for your WhatsApp usage. WhatsApp provides these rates and it's included in your Azure bill. The information given summarizes the key aspects of WhatsApp pricing. WhatsApp describes their pricing in detail here: [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
 
 WhatsApp charges per conversation, not individual message. Conversations are message threads between a business and its customers that last 24 or 72 hours based on the conversation category. Conversations are categorized with one of the following categories:
 
