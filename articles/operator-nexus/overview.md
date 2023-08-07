@@ -12,7 +12,7 @@ ms.service: azure-operator-nexus
 
 Azure Operator Nexus is a carrier-grade, next-generation hybrid cloud platform for telecommunication operators. Azure Operator Nexus is purpose-built for operators' network-intensive workloads and mission-critical applications.
 
-Azure Operator Nexus supports a wide variety of virtualized and containerized network functions from both Microsoft and partners. The platform automates lifecycle management (LCM) of the infrastructure, including network fabric, bare metal hosts, and storage appliances. It also automates LCM of tenant workloads for containerized network functions (CNFs) and virtualized network functions (VNFs).
+Azure Operator Nexus supports a wide variety of virtualized and containerized network functions from both Microsoft and partners. The platform automates the lifecycle management (LCM) of the infrastructure, including network fabric, bare metal hosts, and storage appliances. It also automates the LCM of tenant workloads for containerized network functions (CNFs) and virtualized network functions (VNFs).
 
 Azure Operator Nexus meets operators' security, resiliency, observability, and performance requirements to achieve meaningful business results. The platform seamlessly integrates compute, network, and storage.
 
@@ -26,7 +26,7 @@ Azure Operator Nexus includes the following benefits for operating secure carrie
 
 * **Reduced operational complexity and costs**: Operators can manage their Azure Operator Nexus infrastructure and tenants from Azure. They can build automation to streamline deployment, which helps them decrease time to market and innovate to provide value-add services to their customers.
 * **Integrated platform for compute, network, and storage**: Operators no longer need to provision compute, network, and storage separately. Azure Operator Nexus provides an end-to-end platform from the infrastructure to the tenant for applications. For example, the networks associated with the compute infrastructure can be provisioned automatically across the compute and network infrastructure without requiring more teams.
-* **Expanding network function (NF) ecosystem**: Azure Operator Nexus supports Microsoft and partner NFs via the Azure Operator Nexus Ready program. These NFs are tested for deployment and lifecycle management on Azure Operator Nexus before they become available in Azure Marketplace.
+* **Expanding network function (NF) ecosystem**: Azure Operator Nexus supports Microsoft and partner NFs via the Azure Operator Nexus Ready program. These NFs are tested for deployment and LCM on Azure Operator Nexus before they become available in Azure Marketplace.
 * **Access to key Azure services**: Because Azure Operator Nexus is connected to Azure, operators can access most Azure services through the same connection as the on-premises network. Operators can monitor logs and metrics via Azure Monitor. They can analyze telemetry data by using Log Analytics or the Azure Machine Learning framework.
 * **Unified governance and compliance**: Azure Operator Nexus extends Azure management and services to operators' premises. Operators can unify data governance and enforce security and compliance policies by using [Azure role-based access control](../role-based-access-control/overview.md) and [Azure Policy](../governance/policy/overview.md).
 
@@ -41,7 +41,7 @@ The service that manages the Azure Operator Nexus infrastructure is hosted in Az
 Here are important points about the architecture:
 
 * The management layer of Azure Operator Nexus is built on Azure Resource Manager to provide a consistent user experience in the Azure portal and Azure APIs.
-* Azure resource providers provide modeling and lifecycle management of [Azure Operator Nexus resources](./concepts-resource-types.md) such as bare metal machines, clusters, and network devices.
+* Azure resource providers provide modeling and LCM of [Azure Operator Nexus resources](./concepts-resource-types.md) such as bare metal machines, clusters, and network devices.
 * Azure Operator Nexus controllers include a cluster manager and a network fabric controller, which are deployed in a managed virtual network that's connected to an operator's on-premises network. These controllers enable functionalities such as infrastructure bootstrapping, configurations, and service upgrades.
 * Azure Operator Nexus is integrated with many Azure services, such as Azure Monitor, Azure Container Registry, and Azure Kubernetes Service (AKS).
 * Azure ExpressRoute is a network connectivity service that bridges Azure regions and operators' locations.
@@ -62,7 +62,7 @@ When Microsoft identifies a security vulnerability, it makes the latest security
 
 Azure Operator Nexus includes capabilities to manage the bare metal hosts in operators' premises. Operators can provision the bare metal hosts by using Azure Operator Nexus. They can interact to restart, shut down, or reimage, for example.
 
-One important component of the service is the [cluster manager](./howto-cluster-manager.md). It provides the lifecycle management of Kubernetes clusters that are made of the bare metal hosts.  
+One important component of the service is the [cluster manager](./howto-cluster-manager.md). It provides the LCM of Kubernetes clusters that are made of the bare metal hosts.  
 
 ### Network fabric automation
 
