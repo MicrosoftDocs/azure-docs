@@ -152,7 +152,7 @@ curl -X POST "http://localhost:5000/translate?api-version=3.0&from=en&to=zh-HANS
 
 There are several ways to validate that the container is running:
 
-* The container provides a homepage at `\` as a visual validation that the container is running.
+* The container provides a homepage at `/` as a visual validation that the container is running.
 
 * You can open your favorite web browser and navigate to the external IP address and exposed port of the container in question. Use the following request URLs to validate the container is running. The example request URLs listed point to `http://localhost:5000`, but your specific container may vary. Keep in mind that you're  navigating to your container's **External IP address** and exposed port.
 
