@@ -19,7 +19,8 @@ Instance Readiness Testing (IRT) is a framework built to orchestrate real-world 
 - Knowledge of networks to use for the test
     * Networks to use for the test are specified in a "networks-blueprint.yml" file, see [Input Configuration](#input-configuration).
 - curl to download IRT package
-- the User Access Admin & Contributor roles for the execution subscription
+- The User Access Admin & Contributor roles for the execution subscription
+- The ability to create security groups in your Active Directory tenant 
 
 ## One Time Setup
 
@@ -66,7 +67,7 @@ Executing `create-managed-identity.sh` requires the following environment variab
 MI_RESOURCE_GROUP="<your resource group>" MI_NAME="<your managed identity name>" SUBSCRIPTION="<your subscription ID>" ./create-managed-identity.sh
 ```
 
-**RESULT:** This script will print a value for `MANAGED_IDENTITY_ID`, which should be recorded in the irt-input.yml for use
+**RESULT:** This script will print a value for `MANAGED_IDENTITY_ID`, which should be recorded in the irt-input.yml for use. See [Input Configuration](#input-configuration).
 
 
 #### Service Principal & AAD Security Group
@@ -86,14 +87,18 @@ Executing `create-service-principal` requires the following environment variable
 SERVICE_PRINCIPAL_NAME="<your service principal name>" AAD_GROUP_NAME="<your security group name>" ./create-service-principal.sh
 ```
 
-**RESULT:** This script will print values for `AAD_GROUP_ID`, `SP_ID`, `SP_PASSWORD`, and `SP_TENANT`, which should be recoreded in irt-input.yml for use.
+**RESULT:** This script will print values for `AAD_GROUP_ID`, `SP_ID`, `SP_PASSWORD`, and `SP_TENANT`, which should be recoreded in irt-input.yml for use. See [Input Configuration](#input-configuration).
 
 
-#### [If Necessary] Create Isolation Domains
-They aren't lifecycled as part of this test scenario.
-   * **Note:** if deploying isolation domains, your network blueprint must define at least one external network per isolation domain. see `networks-blueprint.example.yml` for help with configuring your network blueprint.
-   * `create-l3-isolation-domains.sh` takes one parameter, a path to your networks blueprint file; here's an example of the script being invoked:
-     * `create-l3-isolation-domains.sh ./networks-blueprint.yml`
+#### Create Isolation Domains
+Isolation domains are not created, destroyed, or manipulated by the testing framework. Therefore, existing Isolation Domains can be used. Each Isolation Domain will require at least one external network. The supplemental script, `create-l3-isolation-domains.sh`. Internal networks are created, manipulated, and destroy through the course of testing. They will be created using the data provided in the networks blueprint.
+
+Executing `create-l3-isolation-domains.sh` requires one **parameter**, a path to your networks blueprint file;
+  
+```bash
+# Example of the script being invoked:
+./create-l3-isolation-domains.sh ./networks-blueprint.yml
+```
 
 #### [Optional] Create Storage to Archive Results
 IRT creates an html test report after running a test scenario. These reports can optionally be uploaded to a blob storage container. the supplementary script `create-archive-storage.sh` to create a storage container, storage account, and resource group if they don't already exist.
@@ -111,7 +116,7 @@ Executing `create-managed-identity.sh` requires the following environment variab
 RESOURCE_GROUP="<your resource group>" STORAGE_ACCOUNT_NAME="<your storage account name>" STORAGE_CONTAINER_NAME="<your container name>" ./create-archive-storage.sh
 ```
 
-**RESULT:** This script will print values for `PUBLISH_RESULTS_TO` which should be recoreded in irt-input.yml for use.
+**RESULT:** This script will print values for `PUBLISH_RESULTS_TO` which should be recoreded in irt-input.yml for use. See [Input Configuration](#input-configuration).
 
 
 ### Input configuration
