@@ -344,8 +344,8 @@ Grants full access to manage all resources, but does not allow you to assign rol
 > | [Microsoft.Blueprint](resource-provider-operations.md#microsoftblueprint)/blueprintAssignments/write | Create or update any blueprint assignments |
 > | [Microsoft.Blueprint](resource-provider-operations.md#microsoftblueprint)/blueprintAssignments/delete | Delete any blueprint assignments |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/galleries/share/action | Shares a Gallery to different scopes |
-> | Microsoft.Purview/consents/write | Create or Update a Consent Resource. |
-> | Microsoft.Purview/consents/delete | Delete the Consent Resource. |
+> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/consents/write | Create or Update a Consent Resource. |
+> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/consents/delete | Delete the Consent Resource. |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
