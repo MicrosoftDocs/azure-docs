@@ -1,5 +1,5 @@
 ---
-title: Install and run Docker containers for Document Intelligence
+title: Install and run Docker containers for Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Use the Docker containers for Document Intelligence on-premises to identify and extract key-value pairs, selection marks, tables, and structure from forms and documents.
 author: laujan

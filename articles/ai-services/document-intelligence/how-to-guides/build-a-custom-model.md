@@ -1,5 +1,5 @@
 ---
-title: "Build and train a custom model"
+title: "Build and train a custom model - Document Intelligence (formerly Form Recognizer)"
 titleSuffix: Azure AI services
 description: Learn how to build, label, and train a custom model.
 author: laujan
