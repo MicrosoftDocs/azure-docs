@@ -249,6 +249,8 @@ items:
       items:
       - name: Blob inventory
         href: blob-inventory.md
+      - name: Blob inventory FAQ
+        href: blob-inventory-faq.md
       - name: Blob index tags
         href: storage-manage-find-blobs.md
       - name: Full text search
