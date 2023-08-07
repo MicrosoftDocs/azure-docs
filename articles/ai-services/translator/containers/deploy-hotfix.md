@@ -20,10 +20,13 @@ keywords: on-premises, Docker, container, identify, hotfix, phrasefix, sentfix, 
 # Container hotfix for sentence and phrase files
 
 Microsoft Translator containers enable you to run several features of the Translator service in your own environment and are great for specific security and data governance requirements.
+There may be times when you're running a container with a multi-layered ingestion process when you discover that you need to implement an update to sentence and/or phrase files. Since the standard phrase and sentence files are encrypted and read directly in memory at runtime, you need to implement a quick-fix engineering solution to implement a dynamic update. This update can be implemented using our hotfix folder feature:
 
-There may be times when you're running a container with a multi-layered ingestion process when you discover that you need to implement an update to sentence and/or phrase files. Since the standard phrase and sentence files are encrypted and read directly in memory at runtime, you need to implement a quick-fix engineering solution to implement a dynamic update. This update can be implemented using our hotfix folder feature.
+* To deploy the **phrase&#8203;fix** hotfix solution, you need to create a **phrase&#8203;fix** glossary file to specify that a listed phrase is translated in a specified way.
 
-To deploy the hotfix solution, you need to create a **phrase&#8203;fix** glossary file to specify that a listed phrase is translated in a specified way and/or a **sent&#8203;fix** glossary file to specify an exact target translation for a source sentence. The **phrase&#8203;fix** and **sent&#8203;fix** files are then included with your translation request, and read directly into memory at runtime.
+* To deploy the **sent&#8203;fix** hotfix solution, you need to create a **sent&#8203;fix** glossary file to specify an exact target translation for a source sentence.
+
+* The **phrase&#8203;fix** and **sent&#8203;fix** files are then included with your translation request and read directly into memory at runtime.
 
 ## Hotfix feature workflow
 
