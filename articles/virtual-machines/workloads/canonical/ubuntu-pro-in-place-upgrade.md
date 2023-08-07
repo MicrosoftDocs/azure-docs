@@ -61,7 +61,7 @@ sudo pro auto-attach
 ## Validating the license 
 Expected output:
 
-![PNG Image for the expected output.](./ubuntu_pro_expected_output.png)
+![PNG Image for the expected output.](./expected-output.png)
 
 ## Creating an Ubuntu Pro VM using the Azure CLI
 You can also create a new VM using the Ubuntu Sever images and apply Ubuntu Pro at create time.
