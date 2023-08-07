@@ -27,6 +27,9 @@ In Microsoft Sentinel, the Defender for IoT data connector and solution brings o
 
 Install the Defender for IoT data connector alone to stream your OT network alerts to Microsoft Sentinel. Then, also install the **Microsoft Defender for IoT** solution the extra value of IoT/OT-specific analytics rules, workbooks, and SOAR playbooks, as well as incident mappings to [MITRE ATT&CK for ICS techniques](https://attack.mitre.org/techniques/ics/).
 
+> [!NOTE]
+> Some features of Microsoft Sentinel might incur a fee. For more information, see [Plan costs and understand Microsoft Sentinel pricing and billing](/azure/sentinel/billing).
+
 ### Integrated detection and response
 
 The following table shows how both the OT team, on the Defender for IoT side, and the SOC team, on the Microsoft Sentinel side, can detect and respond to threats fast across the entire attack timeline.

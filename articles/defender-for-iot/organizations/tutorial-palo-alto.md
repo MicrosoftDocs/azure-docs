@@ -1,6 +1,6 @@
 ---
-title: Integrate Palo Alto with Microsoft Defender for IoT
-description: This article describes how to integrate Palo Alto with Microsoft Defender for IoT using Defender for IoT's integration.
+title: Integrate Palo Alto with Microsoft Defender for IoT (legacy)
+description: This article describes how to integrate Palo Alto with Microsoft Defender for IoT using Defender for IoT's legacy, on-premises integration.
 ms.date: 06/26/2023
 ms.topic: how-to
 ---
@@ -8,19 +8,19 @@ ms.topic: how-to
 # Integrate Palo-Alto with Microsoft Defender for IoT
 
 > [!IMPORTANT]
-> Defender for IoT plans to end support for the legacy Palo Alto Panorama integration with an upcoming patch version of 23.1.x.
+> In line with our focus on cloud integrations, Defender for IoT plans to end support for the legacy, on-premises Palo Alto Panorama integration with an upcoming patch version of 23.1.x.
 >
-> We recommend transitioning your integration connecting to [Microsoft Sentinel](concept-sentinel-integration.md), and installing one or more of the following solutions instead:
+> We recommend that you connect to [Microsoft Sentinel](concept-sentinel-integration.md), and then install one or more of the following solutions instead:
 >- [Palo Alto PAN-OS Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltopanos?tab=Overview)
 >- [Palo Alto Networks Cortex Data Lake Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltocdl?tab=Overview)
 >- [Palo Alto Prisma Cloud CSPM solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltoprisma?tab=Overview) 
 >
-> For more information, see our [TechCommunity blog](tbd) and the following Microsoft Sentinel documentation: 
+> For more information, see the following Microsoft Sentinel documentation: 
 >- [Palo Alto Networks (Firewall) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-networks-firewall)
 >- [Palo Alto Networks Cortex Data Lake (CDL) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-networks-cortex-data-lake-cdl)
 >- [Palo Alto Prisma Cloud CSPM (using Azure Function) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-prisma-cloud-cspm-using-azure-function)
->- [Plan costs and understand Microsoft Sentinel pricing and billing](/azure/sentinel/billing)
 >
+> Even after integration support ends, you can continue to send syslog files to Palo Alto. For more information, see [Configure alert forwarding rule actions](how-to-forward-alert-information-to-partners.md#configure-alert-forwarding-rule-actions).
 
 This article helps you learn how to integrate and use Palo Alto with Microsoft Defender for IoT.
 

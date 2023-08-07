@@ -1,21 +1,20 @@
 ---
-title: Integrate ClearPass with Microsoft Defender for IoT
-description: In this tutorial, you learn how to integrate Microsoft Defender for IoT with ClearPass using Defender for IoT's integration.
+title: Integrate ClearPass with Microsoft Defender for IoT (legacy)
+description: In this tutorial, you learn how to integrate Microsoft Defender for IoT with ClearPass using Defender for IoT's legacy, on-premises integration.
 ms.topic: how-to
-ms.date: 06/26/2023
+ms.date: 08/07/2023
 ms.custom: how-to
 ---
 
 # Integrate ClearPass with Microsoft Defender for IoT
 
-
 > [!IMPORTANT]
-> Defender for IoT plans to end support for the legacy Aruba ClearPass integration with an upcoming patch version of 23.1.x.
+> In line with our focus on cloud integrations, Defender for IoT plans to end support for the legacy, on-premises Aruba ClearPass integration with an upcoming patch version of 23.1.x.
 >
-> We recommend that you connect to [Microsoft Sentinel](concept-sentinel-integration.md), and then install the [Aruba ClearPass data connector](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-arubaclearpass?tab=Overview) instead.
+> We recommend that you connect to [Microsoft Sentinel](concept-sentinel-integration.md), and then install the [Aruba ClearPass data connector](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-arubaclearpass?tab=Overview) instead. For more information, see [Microsoft Sentinel documentation](/azure/sentinel/data-connectors/aruba-clearpass).
 >
-> For more information, see [Microsoft Sentinel documentation](/azure/sentinel/data-connectors/aruba-clearpass) and our [TechCommunity blog](TBD).
->
+> Note that after integration support ends, you can continue to send syslog files to ClearPass. For more information, see [Configure alert forwarding rule actions](how-to-forward-alert-information-to-partners.md#configure-alert-forwarding-rule-actions).
+
 
 This article helps you learn how to integrate ClearPass Policy Manager (CPPM) with Microsoft Defender for IoT.
 

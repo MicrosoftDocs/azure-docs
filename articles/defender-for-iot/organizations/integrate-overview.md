@@ -11,9 +11,10 @@ ms.custom: enterprise-iot
 Integrate Microsoft Defender for Iot with partner services to view partner data in Defender for IoT, or to view Defender for IoT data in a partner service.
 
 > [!IMPORTANT]
-> In line with our focus on cloud integrations, Defender for IoT plans to end support for the legacy, on-premises Aruba ClearPass, Palo Alto Panorama, and Splunk integrations with an upcoming patch version of 23.1.x. We recommend transitioning to cloud integrations, such as via [Microsoft Sentinel](concept-sentinel-integration.md) instead.
+> In line with our focus on cloud integrations, Defender for IoT plans to end support for the legacy, on-premises [Aruba ClearPass](#aruba-clearpass), [Palo Alto Panorama](#palo-alto), and [Splunk](#splunk) integrations with an upcoming patch version of 23.1.x.
 >
-> Some features of Microsoft Sentinel might incur a fee. For more information, see [Plan costs and understand Microsoft Sentinel pricing and billing](/azure/sentinel/billing). <!--do we need this here?-->
+> We recommend transitioning to cloud integrations, such as via [Microsoft Sentinel](concept-sentinel-integration.md) instead, as detailed below.
+>
 
 ## Aruba ClearPass
 
@@ -110,8 +111,8 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-| **Splunk** | Send Defender for IoT alerts to Splunk using one of the following methods: <br>- Via the [OT Security Add-on for Splunk](https://apps.splunk.com/app/5151), which widens your capacity to ingest and monitor OT assets and provides OT vulnerability management reports that help you comply with and audit for NERC CIP. <br>- Via a SIEM that supports Event Hub, such as Microsoft Sentinel  | - OT networks <br>- Cloud connected sensors | Microsoft |- Splunk documentation on [The OT Security Add-on for Splunk](https://splunk.github.io/ot-security-solution/integrationguide/) and [installing add-ins](https://docs.splunk.com/Documentation/AddOns/released/Overview/Distributedinstall) <br>- [Stream Defender for IoT cloud alerts to a partner SIEM](integrations/send-cloud-data-to-partners.md) |
-|**Splunk**     |  Send Defender for IoT alerts to Splunk       |   - OT networks<br>- Locally managed sensors and on-premises management consoles       |  Microsoft       | [Integrate Splunk with Microsoft Defender for IoT](tutorial-splunk.md)   |
+| **Splunk** (cloud integration) | Send Defender for IoT alerts to Splunk using one of the following methods: <br>- Via the [OT Security Add-on for Splunk](https://apps.splunk.com/app/5151), which widens your capacity to ingest and monitor OT assets and provides OT vulnerability management reports that help you comply with and audit for NERC CIP. <br>- Via a SIEM that supports Event Hub, such as Microsoft Sentinel  | - OT networks <br>- Cloud connected sensors | Microsoft |- Splunk documentation on [The OT Security Add-on for Splunk](https://splunk.github.io/ot-security-solution/integrationguide/) and [installing add-ins](https://docs.splunk.com/Documentation/AddOns/released/Overview/Distributedinstall) <br>- [Stream Defender for IoT cloud alerts to a partner SIEM](integrations/send-cloud-data-to-partners.md) |
+|**Splunk** (on-premises, legacy integration)    |  Send Defender for IoT alerts to Splunk       |   - OT networks<br>- Locally managed sensors and on-premises management consoles       |  Microsoft       | [Integrate Splunk with Microsoft Defender for IoT](tutorial-splunk.md)   |
 
 ## Next steps
 
