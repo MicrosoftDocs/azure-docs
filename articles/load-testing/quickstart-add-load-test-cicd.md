@@ -33,7 +33,7 @@ In this section, you'll create a CI/CD pipeline in Azure Pipelines to run an exi
 
 1. Select your test from the list by selecting the checkbox, and then select **Set up CI/CD**.
 
-    :::image type="content" source="media/how-to-set-up-cicd-pipeline-from-portal/list-of-tests.png" alt-text="Screenshot that shows the list of tests in Azure portal":::
+    :::image type="content" source="media/how-to-set-up-cicd-pipeline-from-portal/list-of-tests.png" alt-text="Screenshot that shows the list of tests in Azure portal.":::
 
 1. Enter the details for configuring the pipeline. Select the Azure DevOps organization where you want to run the pipeline from.
 
@@ -51,11 +51,11 @@ In this section, you'll create a CI/CD pipeline in Azure Pipelines to run an exi
 
 1. If you already have a service connection with *Load Test Contributor* role on the resource, select existing service connection from the dropdown.
 
-    :::image type="content" source="media/how-to-set-up-cicd-pipeline-from-portal/set-up-cicd-pipeline.png" alt-text="Screenshot that shows the settings to be configured to set up a CI/cD pipeline":::
+    :::image type="content" source="media/how-to-set-up-cicd-pipeline-from-portal/set-up-cicd-pipeline.png" alt-text="Screenshot that shows the settings to be configured to set up a CI/CD pipeline.":::
 
 1. Click on Create Pipeline.
 
-The JMeter script and test configuration YAML will be committed to the repository. A pipeline will be automatically created and will be triggered whenever you push an update to the branch selected. You will get a notification with the link to th pipeline. You can click and modify the pipeline if needed..
+The JMeter script and test configuration YAML will be committed to the repository. A pipeline will be automatically created and will be triggered whenever you push an update to the branch selected. You will get a notification with the link to th pipeline. You can click and modify the pipeline if needed.
 
 ## Next steps
 
