@@ -46,11 +46,11 @@ The following containers support DocumentIntelligence v3.0 models and features:
 
 :::moniker-end
 
-:::moniker range="form-recog-2.1.0"
+:::moniker range="doc-intel-2.1.0"
 
 > [!IMPORTANT]
 >
-> Form Recognizer v3.0 containers are now generally available. If you are getting started with containers, consider using the v3 containers.
+> Document Intelligence v3.0 containers are now generally available. If you are getting started with containers, consider using the v3 containers.
 The following containers:
 
 ## Feature containers
@@ -70,7 +70,7 @@ Document Intelligence containers support the following features:
 :::moniker-end
 
 > [!IMPORTANT]
-> The Form Recognizer v1.0 container is retired.
+> The Document Intelligence v1.0 container is retired.
 
 ## Next steps
 
