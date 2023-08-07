@@ -471,7 +471,7 @@ for (const item of resources) {
 }
 ```
 
-Or specify [partitionKey](javascript/api/@azure/cosmos/feedoptions.md#@azure-cosmos-feedoptions-partitionkey) in `FeedOptions` and pass it as argument:
+Or specify [partitionKey](/javascript/api/@azure/cosmos/feedoptions#@azure-cosmos-feedoptions-partitionkey) in `FeedOptions` and pass it as argument:
 
 ```javascript
 const querySpec = {
