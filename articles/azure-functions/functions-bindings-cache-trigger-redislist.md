@@ -104,7 +104,6 @@ From `function.json`, here is the binding data:
   "scriptFile": "index.js"
 }
 ```
-<!--Content and samples from the JavaScript tab in ##Examples go here.-->
 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
@@ -139,9 +138,6 @@ From `function.json`, here is the binding data:
   "scriptFile": "run.ps1"
 }
 ```
-
-TBD
-<!--Content and samples from the PowerShell tab in ##Examples go here.-->
 
 ::: zone-end
 ::: zone pivot="programming-language-python"
@@ -217,7 +213,6 @@ From `function.json`, here is the binding data:
 | `count`                   | Number of entries to read from Redis at one time. These are processed in parallel.                                                                          | Optional | `10`    |
 | `listPopFromBeginning`    | Whether to delete the stream entries after the function has run.                                                                                            | Yes      | `true`  |
 
-<!-- Equivalent values for the annotation parameters in Java.-->
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
 
@@ -247,7 +242,7 @@ The `RedisListTrigger` pops new elements from a list and surfaces those entries 
 
 ### Output
 
-During preview, the output bindings are present with the trigger functions.
+During preview, the output bindings are presented here with the trigger functions.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -257,8 +252,6 @@ StackExchange.Redis.RedisValue
 |------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
 | [`StackExchange.Redis.RedisValue`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/RedisValue.cs) | `string`, `byte[]`, `ReadOnlyMemory<byte>`: The entry from the list.                                          |
 | `Custom`                                                                                                                                 | The trigger uses Json.NET serialization to map the message from the channel from a `string` to a custom type. |
-
-<!--Any usage information specific to isolated worker process, including types. -->
 
 ::: zone-end
 
@@ -272,38 +265,23 @@ During preview, the output bindings are present with the trigger functions.
 | `string`    | The message from the channel.                                                                                   |
 | `Custom`    | The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type. |
 
-<!--Any usage information specific to isolated worker process, including types. -->
-
 ::: zone-end
-<!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-java"
 
-<!-- TBD -->
-
-<!--Any usage information from the Java tab in ## Usage. -->
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-powershell"
-
-<!-- TBD -->
-<!--Any usage information from the JavaScript tab in ## Usage. -->
 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 
-<!-- TBD -->
-<!--Any usage information from the PowerShell tab in ## Usage. -->
-
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-<!-- TBD -->
-<!--Any usage information from the Python tab in ## Usage. -->
-
 ::: zone-end
 
-## Next steps
+## Related content
 
 - [Introduction to Azure Functions](functions-overview.md)
-- [Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
-- [Using Azure Functions and Azure Cache for Redis to create a write-behind cache](/azure/azure-cache-for-redis/cache-tutorial-write-behind)
+- [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
+- [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-write-behind)
 - [Redis lists](https://redis.io/docs/data-types/lists/)

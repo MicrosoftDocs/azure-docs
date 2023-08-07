@@ -149,7 +149,7 @@ From `function.json`, here is the binding data:
 
 # [v2](#tab/python-v2)
 
-The Python v2 programming model is not available in Preview.
+The Python v2 programming model is not available in preview.
 
 # [v1](#tab/python-v1)
 
@@ -219,7 +219,6 @@ From `function.json`, here is the binding data:
 | `count`                   | Number of entries to read from Redis at one time. These are processed in parallel.                                                                       | Optional | `10`    |
 | `deleteAfterProcess`      | Whether to delete the stream entries after the function has run.                                                                                         | Optional | `false` |
 
-<!-- Equivalent values for the annotation parameters in Java.-->
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
 
@@ -268,7 +267,7 @@ During preview, the output bindings are present with the trigger functions.
 
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
-During preview, the output bindings are present with the trigger functions.
+During preview, the output bindings are presented here with the trigger functions.
 
 | Output Type | Description                                                                                                     |
 |-------------|-----------------------------------------------------------------------------------------------------------------|
@@ -276,31 +275,20 @@ During preview, the output bindings are present with the trigger functions.
 | `string`    | The message from the channel.                                                                                   |
 | `Custom`    | The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type. |
 
-
-<!--Any usage information specific to isolated worker process, including types. -->
-
 ::: zone-end
-<!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-java"
 
-<!--Any usage information from the Java tab in ## Usage. -->
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-powershell"
-
-<!-- TBD -->
-<!--Any usage information from the JavaScript tab in ## Usage. -->
 
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-<!-- TBD -->
-
-<!--Any usage information from the Python tab in ## Usage. -->
 ::: zone-end
 
-## Next steps
+## Related content
 
 - [Introduction to Azure Functions](functions-overview.md)
-- [Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
+- [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
 - [Using Azure Functions and Azure Cache for Redis to create a write-behind cache](/azure/azure-cache-for-redis/cache-tutorial-write-behind)
 - [Redis streams](https://redis.io/docs/data-types/streams/)

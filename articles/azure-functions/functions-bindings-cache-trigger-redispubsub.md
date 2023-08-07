@@ -344,7 +344,7 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 
 | Parameter                 | Description                                                                                                                                   | Required   | Default    |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|:-----:| -----:|
-| `ConnectionStringSetting` | Name of the setting in the `appsettings` that holds the cache connection string. For example,`<cacheName>.redis.cache.windows.net:6380,password=...`). |   Yes  |     |
+| `ConnectionStringSetting` | Name of the setting in the `appsettings` that holds the cache connection string. For example,`<cacheName>.redis.cache.windows.net:6380,password=...`. |   Yes  |     |
 | `Channel`                 | The pubsub channel that the trigger should listen to. Supports glob-style channel patterns. This field can be resolved using `INameResolver`.       |  Yes   |     |
 
 ::: zone-end
@@ -362,8 +362,6 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
 
 ## Configuration
-
-<!-- Equivalent values for the annotation parameters in Java.-->
 
 | function.json property    | Description                                                                                                                                               | Required   | Default    |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------| :-----:| -----:|
@@ -426,7 +424,7 @@ During preview, the output bindings are present with the trigger functions.
 
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
-During preview, the output bindings are present with the trigger functions.
+During preview, the output bindings are presented here with the trigger functions.
 
 | Output Type | Description                                                                                                     |
 |-------------|-----------------------------------------------------------------------------------------------------------------|
@@ -434,40 +432,23 @@ During preview, the output bindings are present with the trigger functions.
 | `string`    | The message from the channel.                                                                                   |
 | `Custom`    | The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type. |
 
-<!--Any usage information specific to isolated worker process, including types. -->
-
-<!--Any usage information specific to isolated worker process, including types. -->
-
 ::: zone-end
-<!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-java"
 
-<!-- TBD -->
-
-<!--Any usage information from the Java tab in ## Usage. -->
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-powershell"
-
-<!-- TBD -->
-<!--Any usage information from the JavaScript tab in ## Usage. -->
 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 
-<!-- TBD -->
-<!--Any usage information from the PowerShell tab in ## Usage. -->
-
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-<!-- TBD -->
-<!--Any usage information from the Python tab in ## Usage. -->
-
 ::: zone-end
 
-## Next steps
+## Related content
 
 - [Introduction to Azure Functions](functions-overview.md)
-- [Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
-- [Using Azure Functions and Azure Cache for Redis to create a write-behind cache](/azure/azure-cache-for-redis/cache-tutorial-write-behind)
+- [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
+- [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-write-behind)
 - [Redis pubsub messages](https://redis.io/docs/manual/pubsub/)
