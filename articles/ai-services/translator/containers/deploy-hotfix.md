@@ -94,7 +94,7 @@ There may be times when you're running a container with a multi-layered ingestio
 
     ```dockerfile
 
-    docker run -rm -d -p 5000:5000 \
+    docker run -rm -it -p 5000:5000 \
     -v /mnt/d/models:/usr/local/models -v /mnt/d /customerhotfix:/usr/local/customhotfix \
     -e EULA=accept \
     -e billing={ENDPOINT_URI} \
