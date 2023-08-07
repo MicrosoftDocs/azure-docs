@@ -203,11 +203,16 @@ Also see the following SAP resources:
 
 Protect your data, apps, and infrastructure against rapidly evolving cyber threats with cloud security services from Microsoft. Artificial intelligence (AI) and device learning (ML) backed capabilities are required to keep up with the pace.
 
-Use [Microsoft Defender for Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux) and [Windows](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) to secure your endpoints surrounding the SAP system. Complimenting that, use the [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) Microsoft Sentinel solution to protect your SAP system from within using signals from the SAP Audit Log among others.
+Use [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) to secure your endpoints surrounding the SAP system.
+
+Complimenting that, use the [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) Microsoft Sentinel solution to protect your SAP system from within using signals from the SAP Audit Log among others.
 
 #### Microsoft Defender for Cloud
 
 The Defender product family consist of multiple products that are offered through the `Defender for Servers` plan. Microsoft Defender for Endpoint (MDE) is relevant to SAP systems operating on Windows and Linux.
+
+- [Microsoft Defender for Endpoint on Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux)
+- [Microsoft Defender for Endpoint on Windows](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint)
 
 See SAP's recommendation to use AntiVirus software for SAP hosts and systems on both Linux and Windows based platforms [here](https://wiki.scn.sap.com/wiki/display/Basis/Protecting+SAP+systems+using+antivirus+softwares).
 
@@ -222,7 +227,7 @@ Also see the following SAP resources:
 - [1730997 - Unrecommended versions of antivirus software](https://me.sap.com/notes/1730997)
 
 > [!Note]
-> It is not recommended to exclude files, paths or processes from EDR. If required open a support case with Microsoft Support via the Defender365 Portal specifying executables and/or paths to exclude and tuning of real-time scans.
+> It is **not recommended** to exclude files, paths or processes from EDR because it creates a blind spot. If exclusions are required nevertheless open a support case with Microsoft Support via the Defender365 Portal specifying executables and/or paths to exclude. Follow the same process for tuning of real-time scans.
 
 > [!Note]
 > Certification for the SAP Virus Scan Interface (NW-VSI) doesn't apply to MDE, because it operates outside of the SAP system. It complements Microsoft Sentinel for SAP, which interacts with the SAP system directly. See more details and the SAP certification note for Sentinel below.
