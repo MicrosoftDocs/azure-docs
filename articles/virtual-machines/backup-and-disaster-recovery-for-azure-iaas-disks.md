@@ -6,7 +6,6 @@
   ms.topic: conceptual
   ms.date: 08/01/2023
   ms.author: rogarana
-  ms.subservice: disks
 ---
 
 # Backup and disaster recovery for Azure managed disks
