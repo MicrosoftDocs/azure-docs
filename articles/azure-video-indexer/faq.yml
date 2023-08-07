@@ -226,7 +226,7 @@ sections:
         answer: When sending a video to be indexed, the user will define the indexing to be video analysis, audio analysis or both. This will determine which SKUs will be charged. If there is a critical level error during processing, an error code will be returned as a response. In such a case, no billing occurs. A critical error can be caused by a bug in our code or a critical failure in an internal dependency the service has. Errors such as wrong identification or insight extraction are not considered as critical and a response is returned. In any case where a valid (non-error code) response is returned, billing occurs.
 
       - question: Does Azure AI Video Indexer offer a trial account?
-        answer: •	Yes, Azure AI Video Indexer offers a trial account that that provides you with 2,400 free indexing minutes when using the [Azure AI Video Indexer](https://www.videoindexer.ai/) website or the Azure AI Video Indexer API (see [developer portal](https://api-portal.videoindexer.ai/)).
+        answer: Yes, Azure AI Video Indexer offers a trial account that that provides you with 2,400 free indexing minutes when using the [Azure AI Video Indexer](https://www.videoindexer.ai/) website or the Azure AI Video Indexer API (see [developer portal](https://api-portal.videoindexer.ai/)).
 
   - name: How to opt-out results for specific AI models 
     questions:
