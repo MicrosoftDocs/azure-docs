@@ -34,7 +34,7 @@ You can create a load test to simulate traffic to your application on Azure App 
 - Create a URL-based quick test
 - Use an Apache JMeter script (JMX file)
 
-After you create and run a load test, you can [monitor the resource metrics](#monitor-application-metrics) for the web application and all dependent Azure components to identify performance and scalability issues.
+After you create and run a load test, you can [monitor the resource metrics](#monitor) for the web application and all dependent Azure components to identify performance and scalability issues.
 
 ### Create a URL-based quick test
 
@@ -63,6 +63,7 @@ Get started [create a load test by uploading a JMeter script](./how-to-create-an
 
 If you previously created a [URL-based test](#create-a-url-based-quick-test), Azure Load Testing generates a JMeter test script. You can download this generated test script, modify or extend it, and then reupload the script.
 
+<a name="monitor"/>
 ## Monitor your apps for bottlenecks and provisioning issues 
 
 During a load test, Azure Load Testing collects [metrics](./concept-load-testing-concepts.md#metrics) about the test run:
