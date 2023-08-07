@@ -14,19 +14,14 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-|**Aruba ClearPass**      |   Share Defender for IoT data with ClearPass Security Exchange and update the ClearPass Policy Manager Endpoint Database with Defender for IoT data.      |  - OT networks<br>- Locally managed sensors and on-premises management consoles     |   Microsoft      |  [Integrate ClearPass with Microsoft Defender for IoT](tutorial-clearpass.md)  |
+| **Aruba ClearPass** (cloud integration) | Connect to [Microsoft Sentinel](concept-sentinel-integration.md), and install the [Aruba ClearPass data connector](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-arubaclearpass?tab=Overview). <br><br>More info here about the integration from Sentinel docs: [Microsoft Sentinel documentation](/azure/sentinel/data-connectors/aruba-clearpass) |
+|**Aruba ClearPass** (on-premises, legacy)      |   Share Defender for IoT data with ClearPass Security Exchange and update the ClearPass Policy Manager Endpoint Database with Defender for IoT data.      |  - OT networks<br>- Locally managed sensors and on-premises management consoles     |   Microsoft      |  [Integrate ClearPass with Microsoft Defender for IoT](tutorial-clearpass.md)  |
 
 > [!IMPORTANT]
-> Defender for IoT plans to end support for the legacy Aruba ClearPass integration with an upcoming patch version of 23.1.x.
->
-> We recommend transitioning your integration connecting to [Microsoft Sentinel](concept-sentinel-integration.md), and installing the [Aruba ClearPass data connector](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-arubaclearpass?tab=Overview) instead.
->
-> For more information, see:
->
->- [Microsoft Sentinel documentation](/azure/sentinel/data-connectors/aruba-clearpass)
->- Our [TechCommunity blog](TBD)
->- [Plan costs and understand Microsoft Sentinel pricing and billing](/azure/sentinel/billing)
->
+> Defender for IoT plans to end support for the legacy Aruba ClearPass integration with an upcoming patch version of 23.1.x. We recommend transitioning to the cloud integration via [Microsoft Sentinel](concept-sentinel-integration.md) instead.
+
+Note re Sentinel's costs and billing [Plan costs and understand Microsoft Sentinel pricing and billing](/azure/sentinel/billing)
+
 ## Axonius
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
