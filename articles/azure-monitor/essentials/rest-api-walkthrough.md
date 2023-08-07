@@ -174,6 +174,15 @@ The result should be similar to the following example:
 >
 ---
 
+## API endpoints
+
+The API endpoints use the following pattern:  
+`/<resource URI>/providers/microsoft.insights/<metrics|metricDefinitions>?api-version=<apiVersion>`  
+The `resource URI` is comprised of the following:  
+`/subscriptions/<subscription id>/resourcegroups/<resourceGroupName>/providers/<resourceProviderNamespace>/<resourceType>/<resourceName>/`
+
+> [!IMPORTANT]
+> Be sure to include `/providers/microsoft.insights/` after the resource URI when you make an API call to retrieve metrics or metric definitions.
 ## Retrieve metric definitions
 
 Use the [Azure Monitor Metric Definitions REST API](/rest/api/monitor/metricdefinitions) to access the list of metrics that are available for a service.
