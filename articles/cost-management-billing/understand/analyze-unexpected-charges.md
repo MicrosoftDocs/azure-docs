@@ -7,7 +7,7 @@ ms.reviewer: micflan
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: conceptual
-ms.date: 07/07/2023
+ms.date: 08/07/2023
 ms.author: banders
 ---
 
@@ -31,9 +31,9 @@ Whether you know if you have any existing cost anomalies or not, Cost analysis i
 
 ### View anomalies in Cost analysis
 
-Anomaly detection is available in Cost analysis (preview) when you select a subscription scope. You can view your anomaly status as part of **[Insights](https://azure.microsoft.com/blog/azure-cost-management-and-billing-updates-february-2021/#insights)**.
+Anomaly detection is available in Cost analysis smart views when you select a subscription scope. You can view your anomaly status as part of **[Insights](https://azure.microsoft.com/blog/azure-cost-management-and-billing-updates-february-2021/#insights)**.
 
-In the Azure portal, navigate to Cost Management from Azure Home. Select a subscription scope and then in the left menu, select **Cost analysis**. In the view list, select any view under **Preview views**. In the following example, the **Resources** preview view is selected. If you have a cost anomaly, you see an insight.
+In the Azure portal, navigate to Cost Management from Azure Home. Select a subscription scope and then in the left menu, select **Cost analysis**. In the view list, select any view under **Smart views**. In the following example, the **Resources** smart view is selected. If you have a cost anomaly, you see an insight.
 
 :::image type="content" source="./media/analyze-unexpected-charges/insight-recommendation-01.png" alt-text="Example screenshot showing an insight." lightbox="./media/analyze-unexpected-charges/insight-recommendation-01.png" :::
 
@@ -55,7 +55,7 @@ Cost anomalies are evaluated for subscriptions daily and compare the day's total
 
 The anomaly detection model is a univariate time-series, unsupervised prediction and reconstruction-based model that uses 60 days of historical usage for training, then forecasts expected usage for the day. Anomaly detection forecasting uses a deep learning algorithm called [WaveNet](https://www.deepmind.com/blog/wavenet-a-generative-model-for-raw-audio). It's different than the Cost Management forecast. The total normalized usage is determined to be anomalous if it falls outside the expected range based on a predetermined confidence interval.
 
-Anomaly detection is available to every subscription monitored using the cost analysis preview. To enable anomaly detection for your subscriptions, open the cost analysis preview and select your subscription from the scope selector at the top of the page. You see a notification informing you that your subscription is onboarded and you start to see your anomaly detection status within 24 hours.
+Anomaly detection is available to every subscription monitored using the cost analysis. To enable anomaly detection for your subscriptions, open a cost analysis smart view and select your subscription from the scope selector at the top of the page. You see a notification informing you that your subscription is onboarded and you start to see your anomaly detection status within 24 hours.
 
 ## Create an anomaly alert
 
