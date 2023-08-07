@@ -10,7 +10,7 @@ ms.date: 08/04/2023
 
 # Permission requirement for Service Connector
 
-Service Connector creates connection between compute service and target service with the [On-Behalf-Of token](../active-directory/develop/v2-oauth2-on-behalf-of-flow.md), which uses intersection of permissions between Service Connector and users. User needs the corresponding permissions when creating connection to the specific Azure resource.
+Service Connector creates connection between compute service and target service with the [On-Behalf-Of token](../active-directory/develop/v2-oauth2-on-behalf-of-flow.md). Creating a connection to a specific Azure resource requires its corresponding permissions.
 
 ### App service  
 
@@ -274,7 +274,7 @@ Service Connector creates connection between compute service and target service 
 
 ### Managed Identity/Service principal related connection
 
-If you create a connection with managed identity or service principal as the authentication type. Service Connector may need to grant permission for your identity or service principal, so that it can access the resource you want to connect to. The following table lists the permissions that you need to create connection.
+Service Connector may need to grant permissions to Managed Identity or Service Principal if a connection is created with those as authentication types. The following table lists the permission requirements for creating a connection in this scenario.
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -285,7 +285,7 @@ If you create a connection with managed identity or service principal as the aut
 
 ### User-assigned managed identities connection
 
-If you create a connection with User-assigned managed identity as the authentication type. Service Connector may need to grant permission for your identity, so that it can access the resource you want to connect to. The following table lists the permissions that you need to create connection.
+Service Connector may need to grant permissions to User-assigned Managed Identity if a connection is created with it as the authentication type. The following table lists the permission requirements for creating a connection in this scenario.
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -298,7 +298,7 @@ If you create a connection with User-assigned managed identity as the authentica
 
 ### Private Endpoint/service endpoint related permission 
 
-If you create a connection with private endpoint or service endpoint as network solution. Service Connector may need to grant permission for your identity, so that it can access the resource you want to connect to. The following table lists the permissions that you need to create connection.
+Service Connector may need to grant permissions to your identity if a connection is created with private endpoint or service endpoint as the network solution. The following table lists the permission requirements for creating a connection in this scenario.
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
