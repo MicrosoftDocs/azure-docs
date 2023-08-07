@@ -240,12 +240,9 @@ In such cases, use the **Actions** area to enter credentials and other informati
 For more information, see:
 
 - [Integrate Qradar with Microsoft Defender for IoT](tutorial-qradar.md)
-- [Integrate Splunk with Microsoft Defender for IoT](tutorial-splunk.md)
 - [Integrate CyberArk with Microsoft Defender for IoT](tutorial-cyberark.md)
 - [Integrate Fortinet with Microsoft Defender for IoT](tutorial-fortinet.md)
-- [Integrate ClearPass with Microsoft Defender for IoT](tutorial-clearpass.md)
 - [Integrate Forescout with Microsoft Defender for IoT](tutorial-forescout.md)
-- [Integrate Palo-Alto with Microsoft Defender for IoT](tutorial-palo-alto.md)
 
 ## Configure alert groups in partner services
 
