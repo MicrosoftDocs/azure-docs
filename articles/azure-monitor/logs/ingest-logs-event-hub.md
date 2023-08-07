@@ -112,7 +112,7 @@ To create a custom table into which to ingest events, in the Azure portal:
     ```
 
 > [!IMPORTANT]
-> - Column names must start with a letter and can consist of up to 45 alphanumeric characters and the characters `_` and `-`. 
+> - Column names must start with a letter and can consist of up to 45 alphanumeric characters and underscores (`_`). 
 > - The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. 
 > - Column names are case-sensitive. Make sure to use the correct case in your data collection rule. 
 
