@@ -28,15 +28,7 @@ To execute a query, a query plan needs to be built. This in general represents a
 
 Azure Cosmos DB NoSQL has an optimization called Optimistic Direct Execution (ODE), which can improve the efficiency of certain NoSQL queries. Specifically, queries that don’t require distribution include those that can be executed on a single physical partition or that have responses that don't require [pagination](query/pagination.md). Queries that don’t require distribution can confidently skip some processes, such as client-side query plan generation and query rewrite, thereby reducing query latency and RU cost. If you specify the partition key in the request or query itself (or have only one physical partition), and the results of your query don’t require pagination, then ODE can improve your queries.
 
-ODE is now available and enabled by default in the .NET SDK (preview) version 3.35.0-preview and later. When you execute a query and specify a partition key in the request or query itself, or your database has only one physical partition, your query execution can leverage the benefits of ODE. 
-
->[!NOTE]
-> Using ODE can potentially cause a new type of continuation token to be generated. Such a token is not recognized by the older SDKs by design and this could result in a Malformed Continuation Token Exception. If you have a scenario where tokens generated from the newer SDKs are used by an older SDK, we recommend a 2 step approach to upgrade:
->
->- Upgrade to the new SDK and disable ODE, both together as part of a single deployment. Wait for all nodes to upgrade.
->    - In order to disable ODE, set EnableOptimisticDirectExecution to false in the QueryRequestOptions. 
->- Enable ODE as part of second deployment for all nodes.
-
+ODE is now available and enabled by default in the .NET SDK (preview) version 3.35.0-preview and later. When you execute a query and specify a partition key in the request or query itself, or your database has only one physical partition, your query execution can leverage the benefits of ODE. To disable ODE, set EnableOptimisticDirectExecution to false in the QueryRequestOptions. 
 
 Single partition queries that feature GROUP BY, ORDER BY, DISTINCT, and aggregation functions (like sum, mean, min, and max) can significantly benefit from using ODE. However, in scenarios where the query is targeting multiple partitions or still requires pagination, the latency of the query response and RU cost might be higher than without using ODE. Therefore, when using ODE, we recommend to:
 -	Specify the partition key in the call or query itself. 
@@ -70,6 +62,13 @@ Some complex queries can always require distribution, even if targeting a single
 ```
 
 It's important to note that ODE might not always retrieve the query plan and, as a result, is not able to disallow or turn off for unsupported queries. For example, after partition split, such queries are no longer eligible for ODE and, therefore, won't run because client-side query plan evaluation will block those. To ensure compatibility/service continuity, it's critical to ensure that only queries that are fully supported in scenarios without ODE (that is, they execute and produce the correct result in the general multi-partition case) are used with ODE.
+
+>[!NOTE]
+> Using ODE can potentially cause a new type of continuation token to be generated. Such a token is not recognized by the older SDKs by design and this could result in a Malformed Continuation Token Exception. If you have a scenario where tokens generated from the newer SDKs are used by an older SDK, we recommend a 2 step approach to upgrade:
+>
+>- Upgrade to the new SDK and disable ODE, both together as part of a single deployment. Wait for all nodes to upgrade.
+>    - In order to disable ODE, set EnableOptimisticDirectExecution to false in the QueryRequestOptions. 
+>- Enable ODE as part of second deployment for all nodes.
 
 
 ### Use local Query Plan generation
