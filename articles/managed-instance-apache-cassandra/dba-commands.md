@@ -76,7 +76,23 @@ The `sstable` commands require read/write access to the cassandra data directory
     "exitCode": 0
     }
 ```
-
+## How to run other commands
+The `cassandra-reset-password` command lets a user change their password for the cassandra user.
+```azurecli-interactive
+    az managed-cassandra cluster invoke-command --resource-group <rg> --cluster-name <cluster> --host <ip of data node> --command-name cassandra-reset-password --arguments password="<password>"
+```
+The `cassandra-reset-auth-replication` command lets a user change their schema for the cassandra user. Seperate the datacenter names by space.
+```azurecli-interactive
+    az managed-cassandra cluster invoke-command --resource-group <rg> --cluster-name <cluster> --host <ip of data node> --command-name cassandra-reset-auth-replication --arguments password="<datacenters>"
+```
+The `tree` command lets a user see their sstables.
+```azurecli-interactive
+    az managed-cassandra cluster invoke-command --resource-group <rg> --cluster-name <cluster> --host <ip of data node> --command-name tree
+```
+The `sstable-delete` command lets a user delete their sstables made before a certain time.
+```azurecli-interactive
+    az managed-cassandra cluster invoke-command --resource-group <rg> --cluster-name <cluster> --host <ip of data node> --command-name sstable-delete --arguments datetime="<YYYY-MM-DD hh:mm:ss>"
+```
 ## List of supported `sstable` commands
 
 For more information on each command, see https://cassandra.apache.org/doc/latest/cassandra/tools/sstable/index.html
