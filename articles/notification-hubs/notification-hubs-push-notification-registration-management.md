@@ -86,7 +86,7 @@ An installation can contain the following properties. For a complete listing of 
 
 Registrations and installations must contain a valid PNS handle for each device/channel. Because PNS handles can only be obtained in a client app on the device, one pattern is to register directly on that device with the client app. On the other hand, security considerations and business logic related to tags might require you to manage device registration in the app back-end.
 
-When the push is made to an expired handle, Azure Notification Hubs automatically cleans the associated installation/registration record based on the response received from the PNS server. To clean expired records from a secondary notification hub, add custom logic that processes feedback from each send. Then, expire installation/registration in the secondary notification hub.
+When the push is made to a handle that has been expired by the PNS, Azure Notification Hubs automatically cleans the associated installation/registration record based on the response received from the PNS server. To clean expired records from a secondary notification hub, add custom logic that processes feedback from each send. Then, expire installation/registration in the secondary notification hub.
 
 > [!NOTE]
 > The Installations API does not support the Baidu service (although the Registrations API does). 
