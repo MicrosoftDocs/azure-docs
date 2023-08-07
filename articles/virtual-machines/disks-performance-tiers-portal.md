@@ -4,7 +4,7 @@ description: Learn how to change performance tiers for new and existing managed 
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 08/30/2022
+ms.date: 08/01/2023
 ms.author: rogarana
 ms.custom: references_regions
 ---
@@ -42,7 +42,7 @@ A disk's performance tier can be changed without downtime, so you don't have to 
 
 1. Navigate to the VM containing the disk you'd like to change.
 1. Select your disk
-1. Select **Size + Performance**.
+1. Select **Size + Performance** under **Settings**.
 1. In the **Performance tier** dropdown, select a tier other than the disk's current performance tier.
 1. Select **Resize**.
 

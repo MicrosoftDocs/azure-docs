@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 05/17/2023
+ms.date: 08/03/2023
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -118,6 +118,10 @@ No. When you connect to a VM using Azure Bastion, you don't need a public IP on 
 ### <a name="rdpssh"></a>Do I need an RDP or SSH client?
 
 No. You can access your virtual machine from the Azure portal using your browser. For available connections and methods, see [About VM connections and features](vm-about.md).
+
+### <a name="rdpusers"></a>Do users need specific rights on a target VM for RDP connections?
+
+[!INCLUDE [Remote Desktop Users](../../includes/bastion-remote-desktop-users.md)]
 
 ### <a name="native-client"></a>Can I connect to my VM using a native client?
 

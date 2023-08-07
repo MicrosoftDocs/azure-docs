@@ -35,9 +35,9 @@ Azure DDoS Protection applies three auto-tuned mitigation policies (TCP SYN, TCP
 ### Azure DDoS Rapid Response
  During an active attack, Azure DDoS Protection customers have access to the DDoS Rapid Response (DRR) team, who can help with attack investigation during an attack and post-attack analysis. For more information, see [Azure DDoS Rapid Response](ddos-rapid-response.md).
  
-## SKU
+## Tier
 
-Azure DDoS Protection is offered in two available SKUs, DDoS IP Protection and DDoS Network Protection. For more information about the SKUs, see [SKU comparison](ddos-protection-sku-comparison.md).
+Azure DDoS Protection is offered in two available tiers, DDoS IP Protection and DDoS Network Protection. For more information about the tiers, see [Tier comparison](ddos-protection-sku-comparison.md).
 
 
 ### Native platform integration
