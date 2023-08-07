@@ -31,7 +31,7 @@ This article provides suggestions to troubleshoot common problems with the Mongo
 ## Migrate to the new version of MongoDB Connector
 
 - **Message**:
-    `The legacy MongoDB connector has been deprecated. To ensure your pipeline works, please create a new MongoDB linked service. Detailed instructions can be found in this documentation: https://learn.microsoft.com/en-us/azure/data-factory/connector-mongodb?tabs=data-factory#upgrade-the-mongodb-linked-service-to-the-latest-version`
+    `The legacy MongoDB connector has been deprecated. To ensure your pipeline works, please create a new MongoDB linked service. Detailed instructions can be found in this documentation: https://learn.microsoft.com/azure/data-factory/connector-mongodb?tabs=data-factory#upgrade-the-mongodb-linked-service-to-the-latest-version`
 
 - **Cause**: 
     Your pipeline is still running on a legacy MongoDB connector that causes the error. 
