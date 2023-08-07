@@ -1,11 +1,13 @@
 ---
 title: Connect OT network sensors to an on-premises management console - Microsoft Defender for IoT 
 description: Learn how to connect your OT network sensors to an on-premises management console.
-ms.date: 01/16/2023
+ms.date: 08/07/2023
 ms.topic: install-set-up-deploy
 ---
 
 # Connect OT network sensors to the on-premises management console
+
+[!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 
 This article is one in a series of articles describing the [deployment path](air-gapped-deploy.md) for a Microsoft Defender for IoT on-premises management console for air-gapped OT sensors.
 

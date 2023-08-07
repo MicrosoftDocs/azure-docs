@@ -1,11 +1,13 @@
 ---
 title: Install Microsoft Defender for IoT on-premises management console software - Microsoft Defender for IoT
 description: Learn how to install Microsoft Defender for IoT on-premises management console software. Use this article if you're reinstalling software on a pre-configured appliance, or if you've chosen to install software on your own appliances.
-ms.date: 04/18/2023
+ms.date: 08/07/2023
 ms.topic: install-set-up-deploy
 ---
 
 # Install Microsoft Defender for IoT on-premises management console software
+
+[!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 
 This article is one in a series of articles describing the [deployment path](air-gapped-deploy.md) for a Microsoft Defender for IoT on-premises management console for air-gapped OT sensors.
 

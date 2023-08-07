@@ -1,11 +1,13 @@
 ---
 title: Manage OT sensors from the on-premises management console
 description: Learn how to manage OT sensors from the on-premises management console, such as pushing system settings to OT sensors across your network.
-ms.date: 03/09/2023
+ms.date: 08/07/2023
 ms.topic: how-to
 ---
 
 # Manage sensors from the on-premises management console
+
+[!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 
 This article describes how you can manage OT sensors from an on-premises management console, such as pushing system settings to OT sensors across your network.
 

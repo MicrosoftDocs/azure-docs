@@ -1,11 +1,13 @@
 ---
 title: Create and manage users on an on-premises management console - Microsoft Defender for IoT
 description: Create and manage users on a Microsoft Defender for IoT on-premises management console.
-ms.date: 09/11/2022
+ms.date: 08/07/2023
 ms.topic: how-to
 ---
 
 # Create and manage users on an on-premises management console
+
+[!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 
 Microsoft Defender for IoT provides tools for managing on-premises user access in the [OT network sensor](manage-users-sensor.md), and the on-premises management console. Azure users are managed [at the Azure subscription level](manage-users-overview.md) using Azure RBAC.
 

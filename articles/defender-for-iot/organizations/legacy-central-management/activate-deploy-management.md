@@ -1,19 +1,13 @@
 ---
 title: Activate and set up an on-premises management console - Microsoft Defender for IoT 
 description: Learn how to activate and set up an on-premises management console when deploying your Microsoft Defender for IoT system for OT network monitoring.
-ms.date: 05/17/2023
+ms.date: 08/07/2023
 ms.topic: install-set-up-deploy
 ---
 
 # Activate and set up an on-premises management console
 
-> [!IMPORTANT]
-> Defender for IoT now recommends using Microsoft cloud services or existing IT infrastructure for central monitoring and sensor management. 
->
-> The [legacy on-premises management console](../legacy-central-management/legacy-air-gapped-deploy.md) is planned for deprecation on **September 1, 2023**.
->
-> For more information, see [New architecture for hybrid and air-gapped support](../whats-new.md#new-architecture-for-hybrid-and-air-gapped-support).
->
+[!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 
 This article is one in a series of articles describing the [deployment path](air-gapped-deploy.md) for a Microsoft Defender for IoT on-premises management console for air-gapped OT sensors.
 

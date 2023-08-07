@@ -2,11 +2,13 @@
 title: Manage your OT device inventory from an on-premises management console
 description: Learn how to view and manage OT devices (assets) from the Device Inventory page on an on-premises management console.
 ms.topic: how-to
-ms.date: 05/17/2023
+ms.date: 08/07/2023
 
 ---
 
 # Manage your OT device inventory from an on-premises management console
+
+[!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 
 Use the **Device inventory** page from an on-premises management console to manage all OT and IT devices detected by sensors connected to that console. Identify new devices detected, devices that might need troubleshooting, and more.
 

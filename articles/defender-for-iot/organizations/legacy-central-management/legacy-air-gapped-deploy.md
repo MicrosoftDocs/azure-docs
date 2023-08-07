@@ -2,10 +2,12 @@
 title: On-premises management console deployment path - Microsoft Defender for IoT
 description: Learn about the steps involved in deploying a Microsoft Defender for IoT on-premises management console to centrally manage and view data from multiple locally-managed, air-gapped OT sensors.
 ms.topic: install-set-up-deploy
-ms.date: 02/22/2023
+ms.date: 08/07/2023
 ---
 
 # Deploy air-gapped OT sensor management
+
+[!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 
 When you're working with multiple, air-gapped OT sensors that can't be managed by the Azure portal, we recommend deploying an on-premises management console to manage your air-gapped OT sensors.
 

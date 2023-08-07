@@ -1,11 +1,13 @@
 ---
 title: Maintain the on-premises management console from the GUI - Microsoft Defender for IoT
 description: Learn about on-premises management console options like backup and restore, defining the host name, and setting up a proxy to sensors.
-ms.date: 05/17/2023
+ms.date: 08/07/2023
 ms.topic: how-to
 ---
 
 # Maintain the on-premises management console
+
+[!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 
 This article describes extra on-premises management console activities that you might perform outside of a larger deployment process.
 

@@ -2,11 +2,13 @@
 title: Prepare an on-premises management console appliance - Microsoft Defender for IoT
 description: Learn about how to prepare an on-premises management console appliance to manage air-gapped and locally managed OT sensors with Microsoft Defender for IoT.
 ms.topic: install-set-up-deploy
-ms.date: 02/22/2023
+ms.date: 08/07/2023
 ---
 
 
 # Prepare an on-premises management console appliance
+
+[!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 
 This article is one in a series of articles describing the [deployment path](air-gapped-deploy.md) for a Microsoft Defender for IoT on-premises management console for air-gapped OT sensors.
 

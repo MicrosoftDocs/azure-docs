@@ -1,10 +1,12 @@
 ---
 title: Troubleshoot the sensor and on-premises management console
 description: Troubleshoot your sensor and on-premises management console to eliminate any problems you might be having.
-ms.date: 06/15/2022
+ms.date: 08/07/2023
 ms.topic: troubleshooting
 ---
 # Troubleshoot the on-premises management console
+
+[!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 
 This article describes basic troubleshooting tools for the on-premises management console. In addition to the items described here, you can forward alerts about failed sensor backups and disconnected sensors.
 

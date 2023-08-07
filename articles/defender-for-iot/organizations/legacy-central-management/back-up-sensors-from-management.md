@@ -1,11 +1,13 @@
 ---
 title: Back up OT network sensors from the on-premises management console - Microsoft Defender for IoT
 description: Learn how to back up Microsoft Defender for IoT OT network sensors from the on-premises management console.
-ms.date: 03/09/2023
+ms.date: 08/07/2023
 ms.topic: how-to
 ---
 
 # Back up OT network sensors from the on-premises management console
+
+[!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 
 Back up your OT network sensors from the on-premises management console to help protect against hard drive failures and data loss. In this article, learn how to:
 

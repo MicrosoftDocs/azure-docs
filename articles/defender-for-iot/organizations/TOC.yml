@@ -126,21 +126,6 @@
         href: ot-deploy/update-device-inventory.md
       - name: Create a learned baseline of OT alerts
         href: ot-deploy/create-learned-baseline.md
-  - name: Deploy air-gapped OT sensor management
-    items:
-    - name: Air-gapped management deployment path
-      href: ot-deploy/air-gapped-deploy.md
-    - name: Prepare an appliance
-      href: ot-deploy/prepare-management-appliance.md
-    - name: Install an on-premises management console
-      href: ot-deploy/install-software-on-premises-management-console.md
-    - name: Activate and set up an on-premises management console
-      href: ot-deploy/activate-deploy-management.md
-    - name: Connect OT sensors to an on-premises management console
-      href: ot-deploy/connect-sensors-to-management.md
-    - name: Configure on-premises sites and zones
-      href: ot-deploy/sites-and-zones-on-premises.md
-      displayName: site, zone, Zero Trust
   - name: Deploy Enterprise IoT monitoring
     items:
     - name: Enable Enterprise IoT security
@@ -176,9 +161,6 @@
       - name: OT sensor console
         href: how-to-investigate-sensor-detections-in-a-device-inventory.md
         displayName: devices, assets, inventory, device
-      - name: On-premises management console
-        href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
-        displayName: devices, assets, inventory, device
     - name: View OT device mapping
       href: how-to-work-with-the-sensor-device-map.md
       displayName: notification, notifications
@@ -192,9 +174,6 @@
     - name: Sensor console
       href: how-to-view-alerts.md
       displayName: alert, alerts
-    - name: On-premises management console
-      displayName: alert, alerts
-      href: how-to-work-with-alerts-on-premises-management-console.md
     - name: Accelerate on-premises alert workflows
       displayName: alerts, supression, exclusion
       href: how-to-accelerate-alert-incident-response.md
@@ -229,8 +208,6 @@
     - name: Stream cloud alerts to a partner SIEM
       href: integrations/send-cloud-data-to-partners.md
       displayName: Splunk
-    - name: Aruba ClearPass
-      href: tutorial-clearpass.md
     - name: CyberArk
       href: tutorial-cyberark.md
     - name: Forescout
@@ -245,12 +222,8 @@
       href: integrations/arcsight.md
     - name: Microsoft Sentinel (on-premises data)
       href: integrations/on-premises-sentinel.md
-    - name: Palo Alto
-      href: tutorial-palo-alto.md
     - name: RSA NetWitness
       href: integrations/netwitness.md
-    - name: Splunk
-      href: tutorial-splunk.md
     - name: ServiceNow
       items:
       - name: ServiceNow integrations
@@ -274,9 +247,6 @@
         displayName: users, user
       - name: OT sensor console
         href: manage-users-sensor.md
-        displayName: users, user
-      - name: On-premises management console
-        href: manage-users-on-premises-management-console.md
         displayName: users, user
       - name: Audit user activity
         href: track-user-activity.md
@@ -310,12 +280,6 @@
         - name: OT sensors from the sensor console
           href: back-up-restore-sensor.md
           displayName: backup, restore, back up
-        - name: OT sensors from an on-premises management console
-          href: back-up-sensors-from-management.md
-          displayName: backup, back up
-        - name: On-premises management console
-          href: back-up-restore-management.md
-          displayName: backup, restore, back up
       - name: OT sensor maintenance
         items:
         - name: Configure OT sensor settings from the Azure portal
@@ -332,17 +296,6 @@
           href: how-to-work-with-threat-intelligence-packages.md
         - name: Troubleshoot OT sensors
           href: how-to-troubleshoot-sensor.md
-      - name: System maintenance with an on-premises management console
-        items:
-        - name: Set up high availability
-          href: how-to-set-up-high-availability.md
-        - name: Manage sensors from the on-premises management console
-          href: how-to-manage-sensors-from-the-on-premises-management-console.md
-        - name: Maintain an on-premises management console
-          displayName: activation, SMTP, VLAN, hostname
-          href: how-to-manage-the-on-premises-management-console.md
-        - name: Troubleshoot on-premises management consoles
-          href: how-to-troubleshoot-on-premises-management-console.md
     - name: Maintain IoT on-premises resources
       items:
       - name: Discover Enterprise IoT devices
@@ -351,6 +304,55 @@
       - name: Extra deployment steps and samples
         href: extra-deploy-enterprise-iot.md
         displayName: Enterprise IoT sensor
+- name: Legacy on-premises management
+  items:
+  - name: Deploy air-gapped OT sensor management
+    items:
+    - name: Air-gapped management deployment path
+      href: ot-deploy/air-gapped-deploy.md
+    - name: Prepare an appliance
+      href: ot-deploy/prepare-management-appliance.md
+    - name: Install an on-premises management console
+      href: ot-deploy/install-software-on-premises-management-console.md
+    - name: Activate and set up an on-premises management console
+      href: ot-deploy/activate-deploy-management.md
+    - name: Connect OT sensors to an on-premises management console
+      href: ot-deploy/connect-sensors-to-management.md
+    - name: Configure on-premises sites and zones
+      href: ot-deploy/sites-and-zones-on-premises.md
+      displayName: site, zone, Zero Trust
+  - name: Manage devices from the on-premises management console
+    href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+    displayName: devices, assets, inventory, device
+  - name: Manage alerts from the on-premises management console
+    displayName: alert, alerts
+    href: how-to-work-with-alerts-on-premises-management-console.md
+  - name: Integrate with Aruba ClearPass
+    href: tutorial-clearpass.md
+  - name: Integrate with Splunk
+    href: tutorial-splunk.md
+  - name: Integrate with Palo Alto
+    href: tutorial-palo-alto.md
+  - name: System maintenance with an on-premises management console
+    items:
+    - name: Manage users on the on-premises management console
+      href: manage-users-on-premises-management-console.md
+      displayName: users, user
+    - name: Back up sensors from an on-premises management console
+      href: back-up-sensors-from-management.md
+      displayName: backup, back up
+    - name: Back up an on-premises management console
+      href: back-up-restore-management.md
+      displayName: backup, restore, back up
+    - name: Set up high availability
+      href: how-to-set-up-high-availability.md
+    - name: Manage sensors from the on-premises management console
+      href: how-to-manage-sensors-from-the-on-premises-management-console.md
+    - name: Maintain an on-premises management console
+      displayName: activation, SMTP, VLAN, hostname
+      href: how-to-manage-the-on-premises-management-console.md
+    - name: Troubleshoot on-premises management consoles
+      href: how-to-troubleshoot-on-premises-management-console.md
 - name: Reference
   items:
   - name: Supported protocols

@@ -1,11 +1,13 @@
 ---
 title: View and manage OT alerts on the on-premises management console - Microsoft Defender for IoT
 description: Learn how to view and manage OT alerts collected from all connected OT network sensors on a Microsoft Defender for IoT on-premises management console.
-ms.date: 01/01/2023
+ms.date: 08/07/2023
 ms.topic: how-to
 ---
 
 # View and manage alerts on the on-premises management console
+
+[!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 
 Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. OT alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that needs your attention.
 
