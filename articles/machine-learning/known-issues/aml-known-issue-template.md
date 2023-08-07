@@ -13,12 +13,14 @@ ms.custom: known-issue
 # Known issue  - [title]
 <!--- Update the above text with the title of the ki. Make sure it matches the title in the metadata --->
 
-<!--- Provide a summary of the issue. This is used for search. What you put here wil display in the search results---> If you have owner permission but no gateway level permission on a data source, you may not be able to update the credentials for that data source.  The page will just show as loading and the credentials won't update.
+<!--- Provide a summary of the issue. This is used for search. What you put here wil display in the search results---> 
+
+ 
 
 [!INCLUDE [dev v2](../includes/machine-learning-dev-v2.md)]
 <!--- Choose the correct include --->
 
-**Status:** Fixed: September 2, 2022
+**Status:** Open
 <!--- options are 'Open', 'Fixed: <date fixed>' --->
 
 **Problem area:** [Option]
