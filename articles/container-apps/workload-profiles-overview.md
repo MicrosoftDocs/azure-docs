@@ -72,7 +72,7 @@ When demand for new apps or more replicas of an existing app exceeds the profile
 
 ## Networking
 
-When you use workload profiles in the Dedicated plan, extra networking features to fully secure your ingress/egress networking traffic such as user defined routes are available. To learn more about what networking features are supported, see [networking concepts](./networking.md), and for steps on how to secure your network with Container Apps, see the [lock down your Container App environment section](./networking.md#lock-down-your-container-app-environment).
+When you use the workload profiles environment, extra networking features to fully secure your ingress/egress networking traffic such as user defined routes are available. To learn more about what networking features are supported, see [networking concepts](./networking.md), and for steps on how to secure your network with Container Apps, see the [lock down your Container App environment section](./networking.md#lock-down-your-container-app-environment).
 
 ## Next steps
 

@@ -94,7 +94,7 @@ Use the following commands to create an environment with workload profile suppor
 
     ::: zone-end
 
-1. Create *Dedicated* environment with workload profile support
+1. Create *workload profiles* environment
 
     ::: zone pivot="aca-vnet-custom"
 

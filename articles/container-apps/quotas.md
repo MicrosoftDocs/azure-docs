@@ -33,7 +33,7 @@ The *Is Configurable* column in the following tables denotes a feature maximum m
 | Cores | Replica | 2 | No | Maximum number of cores available to a revision replica. |
 | Cores | Environment | 100 | Yes | Maximum number of cores an environment can accommodate. Calculated by the sum of cores requested by each active replica of all revisions in an environment. |
 
-## Dedicated plan
+## Workload Profiles Environments
 
 ### Consumption workload profile
 
