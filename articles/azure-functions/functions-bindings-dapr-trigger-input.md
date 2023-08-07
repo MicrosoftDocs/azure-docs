@@ -212,23 +212,14 @@ The following table explains the parameters for the `DaprBindingTrigger`.
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript, programming-language-powershell, programming-language-python"
 
 ## Configuration
-The following table explains the binding configuration properties that you set in the function.json file.
-
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprBindingTrigger`. |
-|**bindingName** | The name of the binding. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**direction** | Must be set to `in`. |
 
 ::: zone-end
 
-::: zone pivot="programming-language-powershell"
+::: zone pivot="programming-language-javascript, programming-language-powershell"
 
-## Configuration
 The following table explains the binding configuration properties that you set in the function.json file.
 
 |function.json property | Description|
@@ -241,8 +232,6 @@ The following table explains the binding configuration properties that you set i
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-
-## Configuration
 
 # [Python v2](#tab/v2)
 

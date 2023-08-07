@@ -198,7 +198,7 @@ Learn how to use the Dapr Functions extension via the provided samples.
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python"
 
 ## Demo
 
