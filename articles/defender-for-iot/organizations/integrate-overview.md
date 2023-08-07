@@ -10,17 +10,18 @@ ms.custom: enterprise-iot
 
 Integrate Microsoft Defender for Iot with partner services to view partner data in Defender for IoT, or to view Defender for IoT data in a partner service.
 
+> [!IMPORTANT]
+> In line with our focus on cloud integrations, Defender for IoT plans to end support for the legacy, on-premises Aruba ClearPass, Palo Alto Panorama, and Splunk integrations with an upcoming patch version of 23.1.x. We recommend transitioning to cloud integrations, such as via [Microsoft Sentinel](concept-sentinel-integration.md) instead.
+>
+> Some features of Microsoft Sentinel might incur a fee. For more information, see [Plan costs and understand Microsoft Sentinel pricing and billing](/azure/sentinel/billing). <!--do we need this here?-->
+
 ## Aruba ClearPass
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-| **Aruba ClearPass** (cloud integration) | Connect to [Microsoft Sentinel](concept-sentinel-integration.md), and install the [Aruba ClearPass data connector](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-arubaclearpass?tab=Overview). <br><br>More info here about the integration from Sentinel docs: [Microsoft Sentinel documentation](/azure/sentinel/data-connectors/aruba-clearpass) |
-|**Aruba ClearPass** (on-premises, legacy)      |   Share Defender for IoT data with ClearPass Security Exchange and update the ClearPass Policy Manager Endpoint Database with Defender for IoT data.      |  - OT networks<br>- Locally managed sensors and on-premises management consoles     |   Microsoft      |  [Integrate ClearPass with Microsoft Defender for IoT](tutorial-clearpass.md)  |
+| **Aruba ClearPass** (cloud integration) | <!--NEEDS MORE INFO?--> Connect to [Microsoft Sentinel](concept-sentinel-integration.md), and install the [Aruba ClearPass data connector](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-arubaclearpass?tab=Overview). | - OT networks <br>- Cloud managed OT sensors | Microsoft |  [Microsoft Sentinel documentation](/azure/sentinel/data-connectors/aruba-clearpass) |
+|**Aruba ClearPass** (on-premises, legacy)      |   Share Defender for IoT data directly with ClearPass Security Exchange and update the ClearPass Policy Manager Endpoint Database with Defender for IoT data.   |  - OT networks<br>- Locally managed sensors and on-premises management consoles     |   Microsoft      |  [Integrate ClearPass with Microsoft Defender for IoT](tutorial-clearpass.md)  |
 
-> [!IMPORTANT]
-> Defender for IoT plans to end support for the legacy Aruba ClearPass integration with an upcoming patch version of 23.1.x. We recommend transitioning to the cloud integration via [Microsoft Sentinel](concept-sentinel-integration.md) instead.
-
-Note re Sentinel's costs and billing [Plan costs and understand Microsoft Sentinel pricing and billing](/azure/sentinel/billing)
 
 ## Axonius
 
@@ -82,22 +83,8 @@ Note re Sentinel's costs and billing [Plan costs and understand Microsoft Sentin
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-|**Palo Alto**     |   Use Defender for IoT data to block critical threats with Palo Alto firewalls, either with automatic blocking or with blocking recommendations.      |  - OT networks<br>- Locally managed sensors and on-premises management consoles       |     Microsoft    | [Integrate Palo-Alto with Microsoft Defender for IoT](tutorial-palo-alto.md)   |
-
-> [!IMPORTANT]
-> Defender for IoT plans to end support for the legacy Palo Alto Panorama integration with an upcoming patch version of 23.1.x.
->
-> We recommend transitioning your integration connecting to [Microsoft Sentinel](concept-sentinel-integration.md), and installing one or more of the following solutions instead:
->- [Palo Alto PAN-OS Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltopanos?tab=Overview)
->- [Palo Alto Networks Cortex Data Lake Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltocdl?tab=Overview)
->- [Palo Alto Prisma Cloud CSPM solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltoprisma?tab=Overview) 
->
-> For more information, see our [TechCommunity blog](tbd) and the following Microsoft Sentinel documentation: 
->- [Palo Alto Networks (Firewall) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-networks-firewall)
->- [Palo Alto Networks Cortex Data Lake (CDL) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-networks-cortex-data-lake-cdl)
->- [Palo Alto Prisma Cloud CSPM (using Azure Function) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-prisma-cloud-cspm-using-azure-function)
->- [Plan costs and understand Microsoft Sentinel pricing and billing](/azure/sentinel/billing)
->
+| **Palo Alto Panorama** (cloud integration) | <!--NEEDS MORE INFO?--> Connect to [Microsoft Sentinel](concept-sentinel-integration.md), and install one or more of the following solutions instead: <br>- [Palo Alto PAN-OS Solution](/azure/sentinel/data-connectors/palo-alto-networks-firewall) <br>- [Palo Alto Networks Cortex Data Lake Solution](/azure/sentinel/data-connectors/palo-alto-networks-cortex-data-lake-cdl) <br>- [Palo Alto Prisma Cloud CSPM solution](/azure/sentinel/data-connectors/palo-alto-prisma-cloud-cspm-using-azure-function)  | - OT networks <br>- Cloud managed OT sensors | Microsoft |Microsoft Sentinel documentation: <br>- [Palo Alto PAN-OS Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltopanos?tab=Overview) <br>- [Palo Alto Networks Cortex Data Lake Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltocdl?tab=Overview) <br>- [Palo Alto Prisma Cloud CSPM solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltoprisma?tab=Overview) |
+|**Palo Alto**  (on-premises, legacy)   |   Use Defender for IoT data to block critical threats with Palo Alto firewalls, either with automatic blocking or with blocking recommendations.      |  - OT networks<br>- Locally managed sensors and on-premises management consoles       |     Microsoft    | [Integrate Palo-Alto with Microsoft Defender for IoT](tutorial-palo-alto.md)   |
 
 ## RSA NetWitness
 
@@ -123,18 +110,8 @@ Note re Sentinel's costs and billing [Plan costs and understand Microsoft Sentin
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-| **Splunk** | Send Defender for IoT alerts to Splunk | - OT networks <br>- Cloud connected sensors | Microsoft | [Stream Defender for IoT cloud alerts to a partner SIEM](integrations/send-cloud-data-to-partners.md) |
+| **Splunk** | Send Defender for IoT alerts to Splunk using one of the following methods: <br>- Via the [OT Security Add-on for Splunk](https://apps.splunk.com/app/5151) <br>- Via a SIEM that supports Event Hub, such as Microsoft Sentinel  | - OT networks <br>- Cloud connected sensors | Microsoft |- Splunk documentation on [The OT Security Add-on for Splunk](https://splunk.github.io/ot-security-solution/integrationguide/) and [installing add-ins](https://docs.splunk.com/Documentation/AddOns/released/Overview/Distributedinstall) <br>- [Stream Defender for IoT cloud alerts to a partner SIEM](integrations/send-cloud-data-to-partners.md) |
 |**Splunk**     |  Send Defender for IoT alerts to Splunk       |   - OT networks<br>- Locally managed sensors and on-premises management consoles       |  Microsoft       | [Integrate Splunk with Microsoft Defender for IoT](tutorial-splunk.md)   |
-
-> [!IMPORTANT]
-> Defender for IoT plans to end support for the legacy Splunk integration with an upcoming patch version of 23.1.x.
->
-> We recommend transitioning any legacy integrations to the [OT Security Add-on for Splunk](https://apps.splunk.com/app/5151) instead. For more information, see:
->
->- [The Splunk documentation on installing add-ins](https://docs.splunk.com/Documentation/AddOns/released/Overview/Distributedinstall)
->- [The Splunk documentation on the OT Security Add-on for Splunk](https://splunk.github.io/ot-security-solution/integrationguide/)
->- Our [TechCommunity blog](TBD)  
->
 
 ## Next steps
 
