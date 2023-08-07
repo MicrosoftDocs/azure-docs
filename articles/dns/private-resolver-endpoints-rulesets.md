@@ -72,6 +72,9 @@ For example, resources in the vnet `myeastspoke` can resolve records in the priv
 - The ruleset provisioned in `myeastvnet` is linked to `myeastspoke`
 - A ruleset rule is configured and enabled in the linked ruleset to resolve `azure.contoso.com` using the inbound endpoint in `myeastvnet`
 
+> [!NOTE]
+> You can also link a ruleset to a virtual network in another Azure subscription.  However, the resource group specified must be in the same region as the private resolver. 
+
 ### Rules
 
 DNS forwarding rules (ruleset rules) have the following properties:
