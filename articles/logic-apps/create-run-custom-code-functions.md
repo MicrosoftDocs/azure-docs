@@ -216,13 +216,11 @@ After you finish writing your code, compile to make sure that no build errors ex
 
    If your build succeeds, the **Terminal** window reports that the **Build succeeded**.
 
-1. In your workspace, expand the following nodes: **LogicApp** > **lib\custom** > **net472**.
+1. Confirm that the following items exist in your logic app project:
 
-1. Confirm that the following items exist in your logic app project
+   - In your workspace, expand the folowing folders: **LogicApp** > **lib\custom** > **net472**. Confirm that the subfolder named **net472** contains the multiple assembly (DLL) files required to run your code, including a file named **<*function-name*>.dll**.
 
-   - Multiple assembly (DLL) files that are required to run your code, including a file named **<*function-name*>.dll**.
-
-   - A subfolder named **<*function-name*>** that contains a **function.json** file. This file contains the metadata about the function code that you wrote. The workflow designer uses this file to determine the necessary inputs and outputs when calling your code.
+   - In your workspace, expand the folowing folders: **LogicApp** > **lib\custom** > **<*function-name*>**. Confirm that the subfolder named **<*function-name*>** contains a **function.json** file, which includes the metadata about the function code that you wrote. The workflow designer uses this file to determine the necessary inputs and outputs when calling your code.
 
    The following example shows sample generated assemblies and other files in the logic app project:
 
