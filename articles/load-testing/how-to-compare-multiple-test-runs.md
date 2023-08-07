@@ -75,7 +75,7 @@ After you've selected the test runs you want to compare, you can visually compar
 
 To view metrics trends across test runs in Azure Load Testing, you'll need to have at least two test runs in the *Done*, or *Stopped* state. You can only view trends from runs that belong to the same load test.
 
-Use the following steps to View metrics trends across test runs:
+Use the following steps to view metrics trends across test runs:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) by using the credentials for your Azure subscription.
 
@@ -86,9 +86,9 @@ Use the following steps to View metrics trends across test runs:
     You can also use the filters to find your load test.
 1. Select the test for which you want to view metrics trends by selecting its name.
 
-1. On the Test details pane, select **Trends**
+1. On the **Test details** pane, select **Trends**
 
-    Graphs showing the trends in Total requests, Response time, Error percentage, Throughput across the most recent ten test runs are shown.
+    The graphs show the trends for total requests, response time, error percentage, and throughput for the ten most recent test runs.
 
     :::image type="content" source="media/how-to-compare-multiple-test-runs/choose-trends-from-test-details.png" alt-text="Screenshot that shows the details of a Test in a Load Testing resource.":::
    
@@ -98,21 +98,23 @@ Use the following steps to View metrics trends across test runs:
 
     You can select a test run that you want to analyze and open the results dashboard for that test run.
 
+### Use a baseline test run
+
 You can mark a test run as baseline to compare the client-side metrics of the recent test runs with those of the baseline. 
 
 Use the following steps to mark a test run as baseline:
 
-1. On the Trends pane, select **Mark baseline**
+1. On the **Trends** pane, select **Mark baseline**
 
     :::image type="content" source="media/how-to-compare-multiple-test-runs/select-mark-baseline.png" alt-text="Screenshot that shows Mark baseline button in the Trends pane.":::
 
-1. In the right context pane, select the check box for the test run that you want to mark as baseline and Select **Mark baseline**
+1. In the right context pane, select the checkbox for the test run that you want to mark as baseline, and then select **Mark baseline**
 
     :::image type="content" source="media/how-to-compare-multiple-test-runs/mark-test-run-as-baseline.png" alt-text="Screenshot that shows the context pane to mark a test run as baseline.":::
    
     You can also use the filters to find your load test run.
 
-    When you have a test run marked as baseline, a horizontal line with the baseline metric value is added to the charts that show client-side metrics from recent test runs. In the table view, an addiitonal row 
+    The baseline value is shown as a horizontal line in the charts. In the table view, an additonal row 
     with the baseline test run details is shown. For the recent test runs, an arrow mark next to the metrics value indicates whether the metric is trending favorably or unfavorably as compared to the baseline 
     metric value. 
 
