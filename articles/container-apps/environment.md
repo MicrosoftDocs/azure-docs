@@ -12,14 +12,14 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022, build-2023
 
 # Azure Container Apps environments
 
-A Container Apps environment is a secure context and boundary around container apps. The Container Apps runtime fully manages an environment by handling OS upgrades, scale operations, failover procedures, and resource balancing.
+A Container Apps environment is a secure boundary around one or more container apps. The Container Apps runtime manages environments by handling OS upgrades, scale operations, failover procedures, and resource balancing.
 
-Environments include the following features.
+Environments include the following features:
 
 | Feature | Description |
 |---|---|
 | Type | There are [two different types](#types) of Container Apps environments: Workload profile environments and Consumption only environments. |
-| Virtual network | Each environment is integrated with a virtual network which acts as its network boundary. When you create an environment, a virtual network is created for you which has [limited network capabilities](networking.md), or you can provide an [existing virtual network](vnet-custom.md). |
+| Virtual network | Each environment is integrated with a virtual network, which acts as its network boundary. When you create an environment, a virtual network is created for you that has [limited network capabilities](networking.md). Alternatively, you can provide an [existing virtual network](vnet-custom.md) for more fine-grained control over your network. |
 | Multiple container apps | When multiple container apps are in the same environment, they share the same virtual network and write logs to the same logging destination. |
 | Multi-service integration | You can add [Azure Functions](https://aka.ms/functionsonaca) and [Azure Spring Apps](https://aka.ms/asaonaca) to your Azure Container Apps environment. |
 
