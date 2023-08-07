@@ -142,11 +142,6 @@ The following diagram shows the highlights from example workflow:
 
 1. In the **Code** box, enter your code. Write the code that you'd put inside a method, but without the method signature.
 
-   > [!TIP]
-   >
-   > When your cursor is in the **Code** box, the option to open the dynamic content list or expression editor appears. You can ignore the choice to 
-   > select an option for now.
-
    If you start typing a recognized keyword, the autocomplete list appears so that you can select from available keywords, for example:
 
    ![Screenshot showing the Standard workflow, Execute JavaScript Code action, and keyword autocomplete list.](./media/logic-apps-add-run-inline-code/auto-complete-standard.png)
@@ -157,7 +152,7 @@ The following diagram shows the highlights from example workflow:
 
 1. With your cursor still in the **Code** box, follow these steps:
 
-   1. In the lower right corner, select **Dynamic content** to open the dynamic content list.
+   1. In the **Code** box's lower right corner, select **Dynamic content** to open the dynamic content list.
 
    1. From the opened list, find the **When a new email arrives** section, and select the **Body** token, which references the email's message body.
 
