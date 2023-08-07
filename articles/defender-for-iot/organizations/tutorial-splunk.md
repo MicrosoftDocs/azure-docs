@@ -6,7 +6,7 @@ ms.date: 08/07/2023
 ms.custom: how-to
 ---
 
-# Integrate Splunk with Microsoft Defender for IoT
+# Integrate Splunk with Microsoft Defender for IoT (on-premises integration)
 
 > [!IMPORTANT]
 > In line with our focus on cloud integrations, Defender for IoT plans to end support for the legacy, on-premises Splunk integration with an upcoming patch version of 23.1.x.
@@ -19,7 +19,7 @@ ms.custom: how-to
 > Note that after integration support ends, you can continue to send syslog files to ClearPass. For more information, see [Configure alert forwarding rule actions](how-to-forward-alert-information-to-partners.md#configure-alert-forwarding-rule-actions).
 
 
-This article helps you learn how to integrate, and use Splunk with Microsoft Defender for IoT.
+This article helps you learn how to integrate and use Splunk with Microsoft Defender for IoT via the on-premises, legacy integration.
 
 Defender for IoT mitigates IIoT, ICS, and SCADA risk with patented, ICS-aware self-learning engines that deliver immediate insights about ICS devices, vulnerabilities, and threats in less than an image hour and without relying on agents, rules or signatures, specialized skills, or prior knowledge of the environment.
 

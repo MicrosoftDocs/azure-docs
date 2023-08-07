@@ -5,7 +5,7 @@ ms.date: 06/26/2023
 ms.topic: how-to
 ---
 
-# Integrate Palo-Alto with Microsoft Defender for IoT
+# Integrate Palo-Alto with Microsoft Defender for IoT (on-premises integration)
 
 > [!IMPORTANT]
 > In line with our focus on cloud integrations, Defender for IoT plans to end support for the legacy, on-premises Palo Alto Panorama integration with an upcoming patch version of 23.1.x.
@@ -22,7 +22,7 @@ ms.topic: how-to
 >
 > Even after integration support ends, you can continue to send syslog files to Palo Alto. For more information, see [Configure alert forwarding rule actions](how-to-forward-alert-information-to-partners.md#configure-alert-forwarding-rule-actions).
 
-This article helps you learn how to integrate and use Palo Alto with Microsoft Defender for IoT.
+This article helps you learn how to integrate and use Palo Alto with Microsoft Defender for IoT via the on-premises, legacy integration.
 
 Defender for IoT has integrated its continuous ICS threat monitoring platform with Palo Alto’s next-generation firewalls to enable blocking of critical threats, faster and more efficiently.
 
