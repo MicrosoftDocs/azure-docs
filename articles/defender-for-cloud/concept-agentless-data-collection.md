@@ -44,4 +44,4 @@ This article explains how agentless scanning works and how it helps you collect 
 - Learn more about how to [enable agentless scanning for VMs](enable-vulnerability-assessment-agentless.md).
 
 - Check out Defender for Cloud's [common questions](faq-data-collection-agents.yml) for more information on agentless scanning for machines.
-- See common questions about agentless scanning and [how it affects the subscription/account](faq-cspm.md#how-does-scanning-affect-the-account-subscription-), [agentless data collection](faq-data-collection-agents.md#agentless), and [permissions used by agentless](faq-permissions,md#which-permissions-are-used-by-agentless-scanning-).
+- See common questions about agentless scanning and [how it affects the subscription/account](faq-cspm.yml#how-does-scanning-affect-the-account-subscription-), [agentless data collection](faq-data-collection-agents.yml#agentless), and [permissions used by agentless](faq-permissions.yml#which-permissions-are-used-by-agentless-scanning-).
