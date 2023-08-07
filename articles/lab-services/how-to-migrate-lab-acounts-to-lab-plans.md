@@ -10,23 +10,19 @@ ms.date: 08/07/2023
 
 # Migrate from lab accounts to lab plans
 
-In this article, you'll learn the sequence to getting started using the features and resources made available beginning in the August 2022 update. The important update to Azure Lab Services August 2022 includes enhancements that boost performance, reliability, and scalability. It also gives you more flexibility in the way you manage labs, use capacity, and track costs. 
+Lab plans replace lab accounts in Azure Lab Services. This article lists the steps needed to migrate your lab accounts to lab plans. Lab plans bring improvements in performance, reliability, and scalability. Lab plans also give you more flexibility for managing labs, using capacity, and tracking costs.
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
 
-## What's different in the update?
+## Difference between lab plans and lab accounts
 
-A significant part of the August 2022 update is centered around the fact that the concept *lab plans* replaces *lab accounts* in the August 2022 Update.  Although similar in functionality, there are some fundamental differences between the two concepts. The lab plan serves as a collection of configurations and settings that apply to the labs created from it. Also since the August 2022 update, a lab is an Azure resource in its own right and a sibling resource to lab plans.  You can read more about the [differences between lab plans and lab accounts](./concept-lab-accounts-versus-lab-plans.md).
+In Azure Lab Services, lab plans replace lab accounts and there some fundamental differences between the two concepts. A lab plan serves as a collection of configurations and settings that apply to the labs you create from it. Also, a lab is now an Azure resource in its own right and a sibling resource to lab plans. Learn more about [the difference between lab plans and lab accounts](./concept-lab-accounts-versus-lab-plans.md#difference-between-lab-plans-and-lab-accounts).
 
-If you're moving from the current version of Azure Lab Services to the August 2022 Update, there's likely to be a time when you're using both your existing lab accounts and using the newer lab plans. And that's ok as both are still supported, can coexist in your Azure subscription, and can even share the same external resources.
+If you're moving from lab accounts to lab plans, there's likely to be a time when you're using both your existing lab accounts and using the newer lab plans. Both are still supported, can coexist in your Azure subscription, and can even share the same external resources.
 
-For a full description of the update, read the article, [What's new in Lab Services?](./concept-lab-accounts-versus-lab-plans.md).
+## Migration process at-a-glance
 
-## Transition path at-a-glance
-
-There is a bit of a mental shift to transitioning to the Azure Lab Services Update from August 2022. 
-
-This checklist highlights the sequence at a high-level:
+This checklist highlights the high-level migration process:
 
 > [!div class="checklist"]
 > - Create a lab plan
@@ -36,7 +32,6 @@ This checklist highlights the sequence at a high-level:
 > - Validate images
 > - Create and publish labs
 > - Update cost management reports
-
 
 ## 1. Create a lab plan
 
@@ -108,22 +103,22 @@ Once you have capacity assigned to your subscription, you can [create and publis
 Creating a selection of representative labs as a proof of concept is an optional but highly recommended step, which enables you to validate performance based on common student workloads. After a successful proof of concept is completed, you can submit capacity requests based on your immediate upcoming need, building incrementally to your full capacity requirement over time. 
 ### Lab strategies
 
-You cannot migrate existing labs to the August 2022 Update. Instead, you must create new labs. Along with all the new enhancements, the requirement to create new labs provides a good opportunity to revisit your overall lab structure and plan changes where necessary.
+You cannot migrate existing labs to a lab plan. Instead, you must create new labs. Along with all the new enhancements, the requirement to create new labs provides a good opportunity to revisit your overall lab structure and plan changes where necessary.
 
 - **Delete and recreate labs**
 
-  Most schools delete their labs and recreate them each semester (or class session). You can schedule the move to the August 2022 Update during one of these transitions.  
+  Most organizations delete their labs and recreate them each semester (or class session). You can schedule the move to lab plans during one of these transitions.  
 
 - **Reuse existing labs**
 
-  Some schools reuse the same labs each class session and change the student roster. With this approach, you must plan the creation of new labs to transition to, typically at the start of a new session.
+  Some organizations reuse the same labs each class session and change the lab user roster. With this approach, you must plan the creation of new labs to migrate to, typically at the start of a new session.
 
 > [!NOTE]
 > Although you cannot migrate existing labs, you can still reuse other assets such as Compute Galleries and images, and any licensing servers.
 
 ## 7. Update cost management reports
 
-Update reports to include the new cost entry type, `Microsoft.LabServices/labs`, for labs created using the August 2022 Update. [Built-in and custom tags](./cost-management-guide.md#understand-the-entries) allow for [grouping](/azure/cost-management-billing/costs/quick-acm-cost-analysis) in cost analysis. For more information about tracking costs, see [Cost management for Azure Lab Services](./cost-management-guide.md).
+Update reports to include the new cost entry type, `Microsoft.LabServices/labs`, for labs created using lab plans. [Built-in and custom tags](./cost-management-guide.md#understand-the-entries) allow for [grouping](/azure/cost-management-billing/costs/quick-acm-cost-analysis) in cost analysis. For more information about tracking costs, see [Cost management for Azure Lab Services](./cost-management-guide.md).
 
 ## Next steps
 
