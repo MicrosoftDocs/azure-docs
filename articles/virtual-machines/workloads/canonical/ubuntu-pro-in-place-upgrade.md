@@ -4,7 +4,7 @@ description: Learn how to do an in-place upgrade from Ubuntu Server to Ubuntu Pr
 author: vvarshney06
 manager: gachandw
 ms.service: virtual-machines
-ms.subservice: canonical
+ms.subservice: billing
 ms.custom: devx-track-linux
 ms.collection: linux
 ms.topic: article
@@ -89,10 +89,10 @@ az vm get-instance-view -g MyResourceGroup -n MyVm
 ```
 
 ## Check the licensing model of an Ubuntu Pro enabled VM using Azure Instance Metadata Service
-From within the virtual machine itself, you can query the attested metadata in Azure Instance Metadata Service to determine the virtual machine's licenseType value. A licenseType value of UBUNTU_PRO indicates that your virtual machine has Ubuntu Pro enabled. [Learn more about attested metadata](https://learn.microsoft.com/en-us/azure/virtual-machines/instance-metadata-service?tabs=windows#attested-data).
+From within the virtual machine itself, you can query the attested metadata in Azure Instance Metadata Service to determine the virtual machine's licenseType value. A licenseType value of UBUNTU_PRO indicates that your virtual machine has Ubuntu Pro enabled. [Learn more about attested metadata](../../instance-metadata-service.md).
 
 ## Billing
-Please note that you will be charged for Ubuntu Pro as part of the Preview. Visit the [pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/) for more details on Ubuntu Pro pricing. To cancel the Pro subscription during the preview period please open a support tickets thru the Azure portal.
+Please note that you will be charged for Ubuntu Pro as part of the Preview. Visit the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) for more details on Ubuntu Pro pricing. To cancel the Pro subscription during the preview period please open a support tickets thru the Azure portal.
 
 ## Frequently Asked Questions
 
