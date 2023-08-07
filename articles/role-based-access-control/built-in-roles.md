@@ -14798,11 +14798,11 @@ Read and create quota requests, get quota request status, and create support tic
 > | [Microsoft.Capacity](resource-provider-operations.md#microsoftcapacity)/resourceProviders/locations/serviceLimits/write | Create service limit or quota for the specified resource and location |
 > | [Microsoft.Capacity](resource-provider-operations.md#microsoftcapacity)/resourceProviders/locations/serviceLimitsRequests/read | Get any service limit request for the specified resource and location |
 > | [Microsoft.Capacity](resource-provider-operations.md#microsoftcapacity)/register/action | Registers the Capacity resource provider and enables the creation of Capacity resources. |
-> | Microsoft.Quota/usages/read | Get the usages for resource providers |
-> | Microsoft.Quota/quotas/read | Get the current Service limit or quota of the specified resource |
-> | Microsoft.Quota/quotas/write | Creates the service limit or quota request for the specified resource |
-> | Microsoft.Quota/quotaRequests/read | Get any service limit request for the specified resource |
-> | Microsoft.Quota/register/action | Register the subscription with Microsoft.Quota Resource Provider |
+> | [Microsoft.Quota](resource-provider-operations.md#microsoftquota)/usages/read | Get the usages for resource providers |
+> | [Microsoft.Quota](resource-provider-operations.md#microsoftquota)/quotas/read | Get the current Service limit or quota of the specified resource |
+> | [Microsoft.Quota](resource-provider-operations.md#microsoftquota)/quotas/write | Creates the service limit or quota request for the specified resource |
+> | [Microsoft.Quota](resource-provider-operations.md#microsoftquota)/quotaRequests/read | Get any service limit request for the specified resource |
+> | [Microsoft.Quota](resource-provider-operations.md#microsoftquota)/register/action | Register the subscription with Microsoft.Quota Resource Provider |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
