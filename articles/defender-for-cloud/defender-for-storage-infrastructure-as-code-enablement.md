@@ -1,7 +1,7 @@
 ---
 title: Infrastructure as Code Enablement | Microsoft Defender for Storage
 description: Learn how to enable and configure Microsoft Defender for Storage with IaC templates.
-ms.date: 08/01/2023
+ms.date: 08/07/2023
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
@@ -44,17 +44,17 @@ resource StorageAccounts 'Microsoft.Security/pricings@2023-01-01' = {
 }
 ```
 
-To modify the monthly cap for malware scanning per storage account, simply adjust the CapGBPerMonthPerStorageAccount parameter to your preferred value. This parameter sets a cap on the maximum data that can be scanned for malware each month per storage account. If you want to permit unlimited scanning, assign the value -1. The default limit is set at 5,000 GB.
+To modify the monthly cap for malware scanning per storage account, simply adjust the `CapGBPerMonthPerStorageAccount` parameter to your preferred value. This parameter sets a cap on the maximum data that can be scanned for malware each month per storage account. If you want to permit unlimited scanning, assign the value -1. The default limit is set at 5,000 GB.
 
-If you want to turn off the On-upload malware scanning or Sensitive data threat detection features, you can change the isEnabled value to False under Sensitive data discovery.
+If you want to turn off the On-upload malware scanning or Sensitive data threat detection features, you can change the `isEnabled` value to False under Sensitive data discovery.
 
-To disable the entire Defender for Storage plan, set the pricingTier property value to Free and remove the subPlan and extensions properties.
+To disable the entire Defender for Storage plan, set the `pricingTier` property value to Free and remove the subPlan and extensions properties.
 
 Learn more about the [Bicep template in the Microsoft security/pricings documentation](/azure/templates/microsoft.security/pricings?pivots=deployment-language-bicep&source=docs).
 
 ### ARM template
 
-To enable and configure Microsoft Defender for Storage at the subscription level using an ARM template, add this JSON snippet to the resources section of your ARM template:
+To enable and configure Microsoft Defender for Storage at the subscription level using an ARM (Azure Resource Manager) template, add this JSON snippet to the resources section of your ARM template:
 
 ```
 {
@@ -81,11 +81,11 @@ To enable and configure Microsoft Defender for Storage at the subscription level
 }
 ```
 
-To modify the monthly threshold for malware scanning in your storage accounts, simply adjust the CapGBPerMonthPerStorageAccount parameter to your preferred value. This parameter sets a cap on the maximum data that can be scanned for malware each month, per storage account. If you want to permit unlimited scanning, assign the value -1. The default limit is set at 5,000 GB.
+To modify the monthly threshold for malware scanning in your storage accounts, simply adjust the `CapGBPerMonthPerStorageAccount` parameter to your preferred value. This parameter sets a cap on the maximum data that can be scanned for malware each month, per storage account. If you want to permit unlimited scanning, assign the value -1. The default limit is set at 5,000 GB.
 
-If you want to turn off the On-upload malware scanning or Sensitive data threat detection features, you can change the isEnabled value to False under Sensitive data discovery.
+If you want to turn off the on-upload malware scanning or Sensitive data threat detection features, you can change the `isEnabled` value to **False** under Sensitive data discovery.
 
-To disable the entire Defender plan, set the pricingTier property value to Free and remove the subPlan and extensions properties.
+To disable the entire Defender plan, set the `pricingTier` property value to **Free** and remove the subPlan and extensions properties.
 
 Learn more about the ARM template in the Microsoft.Security/Pricings documentation.
 
@@ -119,14 +119,14 @@ resource defenderForStorageSettings 'Microsoft.Security/DefenderForStorageSettin
 
 To modify the monthly threshold for malware scanning in your storage accounts, simply adjust the capGBPerMonth parameter to your preferred value. This parameter sets a cap on the maximum data that can be scanned for malware each month, per storage account. If you want to permit unlimited scanning, assign the value -1. The default limit is set at 5,000 GB.
 
-If you want to turn off the On-upload malware scanning or Sensitive data threat detection features, you can change the isEnabled value to false under the malwareScanning or sensitiveDataDiscovery properties sections.
+If you want to turn off the On-upload malware scanning or Sensitive data threat detection features, you can change the `isEnabled` value to **false** under the `malwareScanning` or `sensitiveDataDiscovery` properties sections.
 
-To disable the entire Defender plan for the storage account, set the isEnabled property value to false and remove the malwareScanning and sensitiveDataDiscovery sections from the properties.
+To disable the entire Defender plan for the storage account, set the `isEnabled` property value to **false** and remove the `malwareScanning` and `sensitiveDataDiscovery` sections from the properties.
 
-Learn more about the Microsoft.Security/DefenderForStorageSettings API documentation.
+Learn more about the [Microsoft.Security/DefenderForStorageSettings API](/defenderforcloud/defender-for-storage/create) documentation.
 
 >[!TIP]
-> Malware Scanning can be configured to send scanning results to the following: * Event Grid custom topic - for near-real time automatic response based on every scanning result. Learn more how to configure Malware Scanning to send scanning events to an Event Grid custom topic. <br> * Log Analytics workspace - for storing every scan result in a centralized log repository for compliance and audit. Learn more how to configure Malware Scanning to send scanning results to a Log Analytics workspace.
+> Malware Scanning can be configured to send scanning results to the following: <br>  **Event Grid custom topic** - for near-real time automatic response based on every scanning result. Learn more how to configure Malware Scanning to send scanning events to an Event Grid custom topic. <br> **Log Analytics workspace** - for storing every scan result in a centralized log repository for compliance and audit. Learn more how to configure Malware Scanning to send scanning results to a Log Analytics workspace.
 
 Learn more on how to set up response for malware scanning results.
 
