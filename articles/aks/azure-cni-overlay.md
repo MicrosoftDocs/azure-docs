@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli
-ms.date: 06/14/2023
+ms.date: 08/07/2023
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -90,9 +90,6 @@ Azure CNI offers two IP addressing options for pods: the traditional configurati
 Azure CNI Overlay has the following limitations:
 
 - You can't use Application Gateway as an Ingress Controller (AGIC) for an Overlay cluster.
-- Windows support is still in Preview.
-  - Windows Server 2019 node pools are **not** supported for Overlay
-  - Traffic from host network pods isn't able to reach Windows Overlay pods.
 - Virtual Machine Availability Sets (VMAS) aren't supported for Overlay.
 - Dual stack networking isn't supported in Overlay.
 - You can't use [DCsv2-series](/azure/virtual-machines/dcv2-series) virtual machines in node pools. To meet Confidential Computing requirements, consider using [DCasv5 or DCadsv5-series confidential VMs](/azure/virtual-machines/dcasv5-dcadsv5-series) instead.
