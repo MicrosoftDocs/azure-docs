@@ -1324,6 +1324,8 @@
           items:
           - name: AutoML| Error retrieving generated code
             href: ./known-issues/ki-automl-error-generated-code.md
+          - name: Create workspace with BYOS does not work in SDK V2
+            href: ./known-issues/ki-workspace-storage-different-subscription.md
 - name: Samples
   items:
     - name: Jupyter Notebooks
