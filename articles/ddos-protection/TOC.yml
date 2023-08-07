@@ -43,6 +43,10 @@
   items:
   - name: View and configure DDoS telemetry
     href: telemetry.md
+  - name: Configure Monitoring and Logging
+    items:
+      - name: Configure Log Analytics workspace 
+        href: ddos-configure-log-analytics-workspace.md
 - name: Concepts
   items:
   - name: Azure DDoS Protection features
@@ -75,8 +79,6 @@
       href: ddos-switch-ddos-protection-tier.md
     - name: Configure Monitoring and Logging
       items:
-        - name: Configure Log Analytics workspace 
-          href: ddos-configure-log-analytics-workspace.md
         - name: Configure metric alerts through portal
           href: alerts.md  
         - name: Configure diagnostic logging alerts
