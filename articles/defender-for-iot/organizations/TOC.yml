@@ -230,7 +230,11 @@
       href: integrations/send-cloud-data-to-partners.md
       displayName: Splunk
     - name: Aruba ClearPass
-      href: tutorial-clearpass.md
+      items:
+      - name: Aruba ClearPass cloud integration
+        href: integrate-overview.md#aruba-clearpass
+      - name: Aruba ClearPass on-premises integration (legacy)
+        href: tutorial-clearpass.md
     - name: CyberArk
       href: tutorial-cyberark.md
     - name: Forescout
@@ -243,14 +247,22 @@
       href: integrations/logrhythm.md
     - name: Micro Focus ArcSight
       href: integrations/arcsight.md
-    - name: Microsoft Sentinel (on-premises data)
+    - name: Microsoft Sentinel (on-premises integration)
       href: integrations/on-premises-sentinel.md
     - name: Palo Alto
-      href: tutorial-palo-alto.md
+      items:
+      - name: Palo Alto cloud integrations
+        href: integrate-overview.md#palo-alto
+      - name: Palo Alto on-premises integration (legacy)
+        href: tutorial-palo-alto.md
     - name: RSA NetWitness
       href: integrations/netwitness.md
     - name: Splunk
-      href: tutorial-splunk.md
+      items:
+      - name: Palo Alto cloud integrations
+        href: integrate-overview.md#splunk
+      - name: Splunk on-premises integration (legacy)
+        href: tutorial-splunk.md
     - name: ServiceNow
       items:
       - name: ServiceNow integrations

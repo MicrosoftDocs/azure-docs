@@ -42,10 +42,8 @@ Instead, we recommend that you transition to cloud integration methods, as descr
 
 ## July 2023
 
-<<<<<<< HEAD
-## July 2023
-
-
+|Service area  |Updates  |
+|---------|---------|
 | **OT networks** | **Version 23.1.2**: <br>- [OT sensor installation and setup enhancements](#ot-sensor-installation-and-setup-enhancements) <br>- [Analyze and fine tune your deployment](#analyze-and-fine-tune-your-deployment) <br>- [Simplified privileged users](#simplified-privileged-users) <br><br>[Migrate to site-based licenses](#migrate-to-site-based-licenses) |
 
 ### OT sensor installation and setup enhancements
@@ -89,11 +87,9 @@ For more information, see [Update a sensor's monitoring interfaces (configure ER
 In new sensor installations of version 23.1.2, only the privileged *support* user is available by default. The *cyberx* and *cyberx_host* users are available, but are disabled by default. If you need to use these users, such as for [Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md) access, [change the user password](manage-users-sensor.md#change-a-sensor-users-password).
 
 In sensors that have been updated from previous versions to 23.1.2, the *cyberx* and *cyberx_host* users remain enabled as before.
-=======
 |Service area  |Updates  |
 |---------|---------|
 | **OT networks** | [Migrate to site-based licenses](#migrate-to-site-based-licenses) |
->>>>>>> f2296515ec7aaf57bdcfbc4c1d496f49ee5ed3be
 
 
 ### Migrate to site-based licenses
