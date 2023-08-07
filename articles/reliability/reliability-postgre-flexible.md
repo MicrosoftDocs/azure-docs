@@ -275,8 +275,8 @@ Application downtime is expected to start after step #1 and persists until step 
 
 * The overall end-to-end operation time may be seen as longer than the actual downtime experienced by the application.  
 
->[!IMPORTANT] 
-> Alwahys observe the downtime from the application perspective!
+    >[!IMPORTANT] 
+    > Alwahys observe the downtime from the application perspective!
 
 * Don't perform immediate, back-to-back failovers. Wait for at least 15-20 minutes between failovers, allowing the new standby server to be fully established.
 
