@@ -61,4 +61,4 @@ The JMeter script and test configuration YAML will be committed to the repositor
 
 You've configured a CI/CD pipeline for an existing load test. You can view the load test results in the output logs after the test run.
 
-- Learn how to [view load test results in CI/CD pipeline](/azure/load-testing/how-to-add-load-test-cicd?tabs=pipelines#view-load-test-results).
+- Learn how to [view load test results in CI/CD pipeline](/azure/load-testing/how-to-configure-load-test-cicd#view-load-test-results).
