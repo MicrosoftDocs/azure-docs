@@ -77,4 +77,4 @@ To get the latest WhatsApp rates, refer to WhatsApp’s pricing documentation: [
 -   [Advanced Messaging for WhatsApp Terms of Services](./whatsapp-termsof-service.md)
 -   [Trying WhatsApp Sandbox](../../../quickstarts//advancedmessaging/whatsapp//whatsapp-sandbox-quickstart.md)
 -   [Get Started With AdvancedMessages SDK](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)
--   [Messaging Policy](../../sms/messaging-policy.md)
+-   [Messaging Policy](../messaging-policy.md)

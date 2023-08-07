@@ -29,22 +29,17 @@ Getting started with the Azure Communication Services Advanced Message, which ex
 3.  Or bring your own phone number
     -  With the ability to receive SMS and calls
     -  Phonenumber isn't associated with a WhatsApp Business Account
-4.  Your company details to be used in your WhatsApp Business Account including:
-    -  Company Name: How you want your company identified to your WhatsApp users
-    -  Website: A web page that verifies your business
-    -  Business email: You can use the email associated with your Facebook login.
-    -  Business phone number: The phone number that customers can use to contact you. You can use the phone number described in the step two.
-5.  [Active WhatsApp Business Account](https://www.facebook.com/business/tools/meta-business-suite)
+4.  [Active Meta Business Account](https://www.facebook.com/business/tools/meta-business-suite)
 
 ## WhatsApp Business Account Sign-up
 [!INCLUDE [WhatsApp Signup](./includes/register-whatsapp-account/whatsapp-signup.md)]
 
-## Creating a new Meta Business Account
+## Selecting a new Meta Business Account
 [!INCLUDE [Add WhatsApp Business Account](./includes/register-whatsapp-account/create-new-metabusiness-account.md)]
 
-## Creating a WhatsApp Business Profile
+## Selecting a WhatsApp Business Profile
 
-1. Now that you have created a Meta Business Account, you need to create a WhatsApp Business profile. Fill out the required information.
+1. Now that you have selected Meta Business Account, you need to **create/select** a WhatsApp Business profile. Fill out the required information.
 
 :::image type="content" source="./media/register-whatsapp-account/whatsapp-business-account-details.png" alt-text="Screenshot that shows Providing WhatsApp Business account details.":::
 
@@ -60,6 +55,18 @@ You see the account and status listed in the Azure portal along with the other W
 :::image type="content" source="./media/register-whatsapp-account/list-whatsapp-accounts.png" alt-text="Screenshot that shows Listing your WhatsApp accounts in the Azure portal.":::
 
 When you no longer want to use the WhatsApp Business account with Azure Communication Services, you can select the account and click the **Disconnect** button. This option disconnects the account from Azure Communication Services but doesn't delete the account and the account can be reconnected later.
+
+## Creating New MetaBusiness Account
+    Provide the company details to be used in your Meta Business Account then click the **Next** button.
+    -  Company Name: How you want your company identified to your WhatsApp users.
+    -  Website: A legitimate web page that verifies your business. 
+    -  Business Email: You can use the email associated with your Facebook login.
+    -  Business Phone Number: The phone number that customers can use to contact you.
+    
+    :::image type="content" source="../../media/register-whatsapp-account/creating-new-business-account.png" alt-text="Screenshot that shows Filling out the details of your Meta Business account.":::
+
+>[NOTE!]
+> More Details on process and required information can be found [here] (https://www.facebook.com/business/tools/meta-business-suite)
 
 ## Next Steps
 
