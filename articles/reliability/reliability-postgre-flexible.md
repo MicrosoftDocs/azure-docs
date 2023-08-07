@@ -55,7 +55,7 @@ You can choose the region and the availability zones for both primary and standb
 >[!NOTE]
 >Both zonal and zone-redundant deployment models architecturally behave the same. Various discussions in the following sections apply to both unless called out otherwise.
 
-### Prerequisites
+## Prerequisites
 
 **Zone redundancy:**
 
@@ -72,7 +72,7 @@ You can choose the region and the availability zones for both primary and standb
 - The **zonal** deployment option is available in all [Azure regions](../postgresql/flexible-server/overview.md#azure-regions) where you can deploy Flexible Server. 
 
 
-### Availability zones - features
+## Availability zones - features
 
 * A standby replica is deployed in the same VM configuration - including vCores, storage, network settings - as the primary server.
 
@@ -94,7 +94,7 @@ You can choose the region and the availability zones for both primary and standb
   
 * Periodic maintenance activities such as minor version upgrades happen at the standby first and the service failed to reduce downtime.  
 
-### Availability zones - limitations
+## Availability zones - limitations
 
 * Due to synchronous replication to the standby server, especially with a zone-redundant configuration, applications can experience elevated write and commit latency.
 
@@ -120,7 +120,7 @@ You can choose the region and the availability zones for both primary and standb
 
 *  Availability zones are configured only within a single region. Availability zones cannot be configured across regions. 
 
-### SLA
+## SLA
 
 -  **Zone-Redundancy** model offers uptime [SLA of 99.95%](https://azure.microsoft.com/support/legal/sla/postgresql).
 
@@ -139,22 +139,22 @@ To learn how to enable or disable high availability configuration in your flexib
 <!-- can you change availability zone of primary server -->
 
 
-### High availability components and workflow
+## High availability components and workflow
 
-#### Transaction completion
+### Transaction completion
 
 Application transaction-triggered writes and commits are first logged to the WAL on the primary server. It is then streamed to the standby server using the Postgres streaming protocol. Once the logs are persisted on the standby server storage, the primary server is acknowledged for write completion. Only then and the application confirmed the writes. This additional round-trip adds more latency to your application. The percentage of impact depends on the application. This acknowledgment process does not wait for the logs to be applied to the standby server. The standby server is permanently in recovery mode until it is promoted.
 
-#### Health check 
+### Health check 
 
 Flexible server health monitoring periodically checks for both the primary and standby health. If, after multiple pings, health monitoring detects that a primary server isn't reachable, the service then initiates an automatic failover to the standby server. The health monitoring algorithm is based on multiple data points to avoid false positive situations. 
 
-#### Failover modes
+### Failover modes
 
 Flexible server supports two failover modes, [**Planned failover**](#planned-failover) and [**Unplanned failover**](#unplanned-failover). In both modes, once the replication is severed, the standby server runs the recovery before being promoted as a primary and opens for read/write. With automatic DNS entries updated with the new primary server endpoint, applications can connect to the server using the same endpoint. A new standby server is established in the background, so that your application can maintain connectivity.
 
 
-#### High availability status
+### High availability status
 
 The health of primary and standby servers are continuously monitored, and appropriate actions are taken to remediate issues, including triggering a failover to the standby server. The high availability statuses are listed below:
 
@@ -171,7 +171,7 @@ The health of primary and standby servers are continuously monitored, and approp
 >[!NOTE]
 > You can enable high availability during server creation or at a later time as well. If you are enabling or disabling high availability during the post-create stage, operating when the primary server activity is low is recommended.
 
-#### Steady-state operations
+### Steady-state operations
 
 PostgreSQL client applications are connected to the primary server using the DB server name. Application reads are served directly from the primary server. At the same time, commits and writes are confirmed to the application only after the log data is persisted on both the primary server and the standby replica. Due to this additional round-trip, applications can expect elevated latency for writes and commits. You can monitor the health of the high availability on the portal.
 
@@ -182,7 +182,7 @@ PostgreSQL client applications are connected to the primary server using the DB 
 3. Primary receives an acknowledgment.
 4. Writes/commits are acknowledged.
 
-#### Point-in-time restore of high availability servers
+### Point-in-time restore of high availability servers
 
 For flexible servers configured with high availability, log data is replicated in real-time to the standby server. Any user errors on the primary server - such as an accidental drop of a table or incorrect data updates, are replicated to the standby replica. So, you cannot use standby to recover from such logical errors. To recover from such errors, you have to perform a point-in-time restore from the backup. Using a flexible server's point-in-time restore capability, you can restore to the time before the error occurred. A new database server will be restored as a single-zone flexible server with a new user-provided server name for databases configured with high availability. You can use the restored server for a few use cases:
 
@@ -190,9 +190,9 @@ For flexible servers configured with high availability, log data is replicated i
 2. If you want to restore an object, export it from the restored database server and import it to your production database server.
 3. If you want to clone your database server for testing and development purposes or to restore for any other purposes, you can perform the point-in-time restore.
 
-### Failover Support
+## Failover Support
 
-#### Planned failover
+### Planned failover
 
 Planned downtime events include Azure scheduled periodic software updates and minor version upgrades.You can also use a planned failover to return the primary server to a preferred availability zone.  When configured in high availability, these operations are first applied to the standby replica while the applications continue to access the primary server. Once the standby replica is updated, primary server connections are drained, and a failover is triggered, which activates the standby replica to be the primary with the same database server name. Client applications will have to reconnect with the same database server name to the new primary server and can resume their operations. A new standby server will be established in the same zone as the old primary. 
 
@@ -223,7 +223,7 @@ Application downtime starts at step #3 and can resume operation post step #5. Th
  
 >These Azure-initiated maintenance activities are also performed on the standby replica for flexible servers that are configured with availability zones.
 
-#### Unplanned failover
+### Unplanned failover
 
 An unplanned failover can happen when the primary server becomes unavailable due to, for example, software bugs or infrastructure component failures. When the health monitoring system detects the unavailability of the primary server, it initiates the unplanned failover process.  The process includes a few seconds of wait time to ensure it's not a false positive. The replication to the standby replica is severed, and the standby replica is activated as the primary database server. That includes the standby to recover any residual WAL files. Once it is fully recovered, DNS for the same endpoint is updated with the standby server's IP address. Clients can then retry connecting to the database server using the exact connection string and resume operations. 
 
@@ -243,7 +243,7 @@ After the failover, while a new standby server is provisioned (usually 5-10 minu
 3. Standby server is established in the same zone as the old primary server, and the streaming replication is initiated. 
 4. Once the steady-state replication is established, the client application commits, and writes are acknowledged after the data is persisted on both sites.
 
-#### Failover testings (forced failover)
+### Failover testings (forced failover)
 
  With a forced failover, you can simulate an unplanned outage scenario while running your production workload and observe your application downtime. You can also use a forced failover when your primary server becomes unresponsive.
 
@@ -271,7 +271,7 @@ Application downtime is expected to start after step #1 and persists until step 
 >The end-to-end failover process includes (a) failing over to the standby server after the primary failure and (b) establishing a new standby server in a steady state. As your application incurs downtime until the failover to the standby is complete, **please measure the downtime from your application/client perspective** instead of the overall end-to-end failover process. 
 
 
-##### Considerations while performing forced failovers
+#### Considerations while performing forced failovers
 
 * The overall end-to-end operation time may be seen as longer than the actual downtime experienced by the application.  
 
