@@ -317,7 +317,7 @@ If you don't plan to use any of the resources that you created, delete them so y
         1. Select **Pipelines**, and then select your pipeline.
         1. Select the ellipsis, and then select **Delete**.
 
-            :::image type="content" source="./media/quickstart-add-load-test-cicd/azure-pipelines-delete.png" alt-text="Screenshot that shows how to delete an Azure Pipelines definition.":::
+            :::image type="content" source="./media/quickstart-add-load-test-cicd/azure-pipelines-delete.png" alt-text="Screenshot that shows how to delete an Azure Pipelines definition." lightbox="./media/quickstart-add-load-test-cicd/azure-pipelines-delete.png":::
 
         1. Enter the pipeline name, and then select **Delete** to delete the pipeline.
 
