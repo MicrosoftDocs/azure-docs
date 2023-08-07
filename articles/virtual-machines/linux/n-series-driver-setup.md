@@ -132,7 +132,7 @@ With Secure Boot enabled, all Linux kernel modules are required to be signed by 
    
    If `add-apt-repository` command is not found, run `sudo apt-get install software-properties-common` to install it.
 
-4. Install the kernel headers and development packages, and remove outdated signing key
+4. Install kernel headers and development packages, and remove outdated signing key
 
    ```bash
    sudo apt-get install linux-headers-$(uname -r)
@@ -148,7 +148,7 @@ With Secure Boot enabled, all Linux kernel modules are required to be signed by 
 
    Note: When prompt on different versions of cuda-keyring, select `Y or I  : install the package maintainer's version` to proceed.
    
-6. Update the APT repository cache and Install NVIDIA GPUDirect Storage
+6. Update APT repository cache and install NVIDIA GPUDirect Storage
 
    ```bash
    sudo apt-get update
