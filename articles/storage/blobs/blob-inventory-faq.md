@@ -39,9 +39,9 @@ No, the change happens seamlessly.
 
 Your required actions depend on how you currently process blob inventory results:
 
-1. If your current processing assumes a single inventory results file, then you need to modify your code to accommodate multiple inventory results files.
+- If your current processing assumes a single inventory results file, then you need to modify your code to accommodate multiple inventory results files.
 
-2. However, if your current processing involves reading the list of results files from the manifest file, there's no need to make any changes to how you process the results. The existing approach continues to work seamlessly with the updated feature.
+- However, if your current processing involves reading the list of results files from the manifest file, there's no need to make any changes to how you process the results. The existing approach continues to work seamlessly with the updated feature.
 
 ### Can I revert to the previous behavior if I don't like the change?
 
