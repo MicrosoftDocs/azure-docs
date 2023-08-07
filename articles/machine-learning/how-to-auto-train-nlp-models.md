@@ -362,9 +362,9 @@ Note that the large models are larger than their base counterparts. They are typ
 
 ## Supported model algorithms - HuggingFace (preview)
 
-With the new backend that runs on [AzureML Pipelines](concept-ml-pipelines.md), you can additionally use any text/token classification model from the [HuggingFace Hub](https://huggingface.co/models?pipeline_tag=text-classification&library=transformers) which is part of the transformers library (such as microsoft/deberta-large-mnli). 
+With the new backend that runs on [AzureML Pipelines](concept-ml-pipelines.md), you can additionally use any text/token classification model from the HuggingFace Hub for [Text Classification](https://huggingface.co/models?pipeline_tag=text-classification&library=transformers), [Token Classification](https://huggingface.co/models?pipeline_tag=token-classification&sort=trending) which is part of the transformers library (such as microsoft/deberta-large-mnli). You may also find a curated list of models in [AzureML Model Registry](https://learn.microsoft.com/en-us/azure/machine-learning/concept-foundation-models?view=azureml-api-2) that have been validated with the pipeline components.
 
-Using any HuggingFace model will trigger runs using pipeline components. If both legacy and HuggingFace models are used, all runs/trials will be triggered using components.
+Using any HuggingFace model will trigger runs using pipeline components. If both legacy and HuggingFace models are used, all runs/trials will be triggered using components.  
 
 ## Supported hyperparameters 
 
