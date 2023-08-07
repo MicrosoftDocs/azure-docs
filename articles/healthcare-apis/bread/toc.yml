@@ -10,7 +10,7 @@
       tocHref: /azure/healthcare-apis/fhir/
       topicHref: /azure/healthcare-apis/overview
     - name: DICOM service
-      tocHref: /azure/healthcare-apis/DICOM
+      tocHref: /azure/healthcare-apis/DICOM/
       topicHref: /azure/healthcare-apis/dicom-services-overview
     - name: MedTech service
       tocHref: /azure/healthcare-apis/iot/
@@ -19,5 +19,5 @@
       tocHref: /azure/healthcare-apis/events/
       topicHref: /azure/healthcare-apis/events/events-overview
     - name: Azure API for FHIR
-      tocHref: /azure/healthcare-apis//azure-api-for-fhir/
+      tocHref: /azure/healthcare-apis/azure-api-for-fhir/
       topicHref: /azure/healthcare-apis/azure-api-for-fhir/overview
