@@ -12,9 +12,8 @@ ms.custom:
 
 # Azure Machine Learning known issues
 
-This page lists known issues for Azure Machine Learning features. Before submitting a Support request, review this list to see if the issue that you are experiencing is already known and being addressed. Known issues are also available as an [interactive Power BI report](https://support.fabric.microsoft.com/en-US/known-issues/).
+This page lists known issues for Azure Machine Learning features. Before submitting a Support request, review this list to see if the issue that you are experiencing is already known and being addressed. 
 
-For service level outages or degradation notifications, check [https://support.powerbi.com](https://support.powerbi.com).  
 
 ## Currently active known issues
 
@@ -23,8 +22,8 @@ Select the **Title** to view more information about that specific known issue.
 
 |Area  |Title  |Issue publish date  |
 |---------|---------|---------|
-|Workspace RP     | ([Known issue  - AutoML | Error retrieving generated code](ki-automl-error-generated-code.md))       | June 6, 2023       |
-|Row2     |         |         |
+|Workspace RP     | [Known issue  - AutoML | Error retrieving generated code](ki-automl-error-generated-code.md)       | June 6, 2023       |
+|Workspace RP     |  [Known issue  - Workspace RP | Create workspace with bring your own storage scenario does not work in SDK V2](ki-workspace-storage-different-subscription.md)       |  April 19, 2023       |
 |Row3     |         |         |
 |Row4     |         |         |
 |Row5     |         |         |
@@ -47,6 +46,6 @@ Select the **Title** to view more information about that specific known issue. F
 
 ## Next steps
 
-- [Go to the Power BI report version of this page](https://support.fabric.microsoft.com/known-issues/)
-- [Service level outages](https://support.powerbi.com)
-- [Get your questions answered by the Power BI community](https://community.powerbi.com)
+- 
+- [See Azure service level outages](https://azure.status.microsoft/en-us/status)
+- [Get your questions answered by the Azure Machine Learning community](https://learn.microsoft.com/en-us/answers/tags/75/azure-machine-learning)
