@@ -39,7 +39,7 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
   - `Region` - Select the resource group that contains your Azure Communication Services resource. This specific region isn't required, but is recommended.
   - 'Site Name' - Create a name that is globally unique. This site name is used to create a domain to connect to your Event Grid Viewer.
   - 'Hosting Plan Name' - Create any name to identify your hosting plan.
-  - 'Sku' - The sku F1 can be used for development and testing purposes. If you encounter validation errors creating your Event Grid Viewer that say there's no more capacity for the F1 plan, try selecting a different region. For more information about skus, see [App Service pricing](https://azure.microsoft.com/en-us/pricing/details/app-service/windows/)
+  - 'Sku' - The sku F1 can be used for development and testing purposes. If you encounter validation errors creating your Event Grid Viewer that say there's no more capacity for the F1 plan, try selecting a different region. For more information about skus, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/)
 
     :::image type="content" source="./media/handle-advanced-messaging-events/customdeployment.png" alt-text="Screenshot that shows Custom deployment of Events Viewer web app and properties you need to provide to successfully deploy.":::
 
