@@ -41,9 +41,12 @@ In some parts of this article, the steps you must take depend on whether your de
     1. Azure Communications Gateway is preconfigured to support the DigiCert Global Root G2 certificate and the Baltimore CyberTrust Root certificate as root certificate authority (CA) certificates. If the certificate that your network presents to Azure Communications Gateway uses a different root CA certificate, provide your onboarding team with this root CA certificate.
     1. The root CA certificate for Azure Communications Gateway's certificate is the DigiCert Global Root G2 certificate. If your network doesn't have this root certificate, download it from https://www.digicert.com/kb/digicert-root-certificates.htm and install it in your network.
 1. Configure your infrastructure to meet the call routing requirements described in [Reliability in Azure Communications Gateway](reliability-communications-gateway.md).
-1. Configure your network devices to send and receive SIP traffic from Azure Communications Gateway. You might need to configure SBCs, softswitches and access control lists (ACLs). To find the hostnames to use for SIP traffic:
-    1. Go to the **Overview** page for your Azure Communications Gateway resource.
-    1. In each **Service Location** section, find the **Hostname** field. You need to validate TLS connections against this hostname to ensure secure connections.
+1. Configure your network devices to send and receive SIP traffic from Azure Communications Gateway.
+    * Depending on your network, you might need to configure SBCs, softswitches and access control lists (ACLs).
+    * Your network needs to send SIP traffic to per-region FQDNs for Azure Communications Gateway. To find these FQDNs:
+        1. Go to the **Overview** page for your Azure Communications Gateway resource.
+        1. In each **Service Location** section, find the **Hostname** field. You need to validate TLS connections against this hostname to ensure secure connections.
+    * We recommend configuring an SRV lookup for each region, using `_sip._tls.<regional-FQDN-from-portal>`. Replace *`<regional-FQDN-from-portal>`* with the per-region FQDNs that you found in the **Overview** page for your resource.
 1. If your Azure Communications Gateway includes integrated MCP, configure the connection to MCP:
     1. Go to the **Overview** page for your Azure Communications Gateway resource.
     1. In each **Service Location** section, find the **MCP hostname** field.
