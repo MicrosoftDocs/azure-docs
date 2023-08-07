@@ -175,7 +175,7 @@ When you use Azure NetApp Files volumes for access to both SMB and NFS, some con
 * Supported NFS versions include: NFSv3 and NFSv4.1.
 * NFSv4.1 features such as parallel network file system (pNFS), session trunking, and referrals aren't currently supported with Azure NetApp Files volumes.
 * [Windows extended attributes `set`/`get`](/windows/win32/api/fileapi/ns-fileapi-createfile2_extended_parameters) aren't supported in dual-protocol volumes.
-* See also [considerations for creating a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md#considerations)
+* See additional [considerations for creating a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md#considerations).
 <!-- planning to consolidate and move considerations from the Create article to this subsection. -->
 
 ## Next steps 
