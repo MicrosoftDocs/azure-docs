@@ -28,11 +28,11 @@ This article provides suggestions to troubleshoot common problems with the Mongo
 
 - **Resolution**: In the MongoDB connection string, add the *uuidRepresentation=standard* option. For more information, see [MongoDB connection string](connector-mongodb.md#linked-service-properties).
 
-## Migrate to the new version of MongoDB Connector
+## Migrate to the new version of MongoDB connector
 
 - **Symptoms**: You meet the following error code and error message:
     - **Error code**: `DeprecatedMongoDbOdbcConnector`
-    - **Error message**: `The legacy MongoDB connector has been deprecated. To ensure your pipeline works, please create a new MongoDB linked service. Detailed instructions can be found in this documentation: https://learn.microsoft.com/azure/data-factory/connector-mongodb?tabs=data-factory#upgrade-the-mongodb-linked-service`
+    - **Error message**: `The legacy MongoDB connector has been deprecated. To ensure your pipeline works, please create a new MongoDB linked service. Detailed instructions can be found in this documentation: https://learn.microsoft.com/azure/data-factory/connector-mongodb#upgrade-the-mongodb-linked-service`
 
 - **Cause**: 
     Your pipeline is still running on a legacy MongoDB connector that causes the error. 
