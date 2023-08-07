@@ -42,7 +42,7 @@ For more information, see [Application DDoS protection](../shared/application-dd
 
 You can configure a [WAF policy](waf-front-door-create-portal.md) and associate that policy to one or more Azure Front Door front ends for protection. A WAF policy consists of two types of security rules:
 
-- Custom rules that are authored by the customer.
+- Custom rules that the customer created.
 - Managed rule sets that are a collection of Azure-managed preconfigured sets of rules.
 
 When both are present, custom rules are processed before processing the rules in a managed rule set. A rule is made of a match condition, a priority, and an action. Action types supported are ALLOW, BLOCK, LOG, and REDIRECT. You can create a fully customized policy that meets your specific application protection requirements by combining managed and custom rules.
@@ -77,18 +77,18 @@ A WAF policy can consist of two types of security rules:
 
 ### Custom-authored rules
 
-To configure custom rules for a WAF:
+To configure custom rules for a WAF, use the following controls:
 
 - **IP allow list and block list**: You can control access to your web applications based on a list of client IP addresses or IP address ranges. Both IPv4 and IPv6 address types are supported. This list can be configured to either block or allow those requests where the source IP matches an IP in the list.
 - **Geographic-based access control**: You can control access to your web applications based on the country code that's associated with a client's IP address.
 - **HTTP parameters-based access control**: You can base rules on string matches in HTTP/HTTPS request parameters. Examples include query strings, POST args, Request URI, Request Header, and Request Body.
 - **Request method-based access control**: You base rules on the HTTP request method of the request. Examples include GET, PUT, or HEAD.
-- **Size constraint**: You can base rules on the lengths of specific parts of a request, such as query string, Uri, or request body.
+- **Size constraint**: You can base rules on the lengths of specific parts of a request, such as query string, Uri, or Request Body.
 - **Rate limiting rules**: A rate control rule limits abnormally high traffic from any client IP address. You might configure a threshold on the number of web requests allowed from a client IP during a one-minute duration. This rule is distinct from an IP list-based allow/block custom rule that either allows all or blocks all requests from a client IP. Rate limits can be combined with other match conditions, such as HTTP(S) parameter matches for granular rate control.
 
 ### Azure-managed rule sets
 
-Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. These rule sets are managed by Azure, so the rules are updated as needed to protect against new attack signatures. The Azure-managed Default Rule Set includes rules against the following threat categories:
+Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Because Azure manages these rule sets, the rules are updated as needed to protect against new attack signatures. The Azure-managed Default Rule Set includes rules against the following threat categories:
 
 - Cross-site scripting
 - Java attacks
@@ -108,9 +108,9 @@ For more information, see [Web Application Firewall Default Rule Set rule groups
 
 You can enable a managed bot protection rule set to take custom actions on requests from known bot categories.
 
-Three bot categories are supported: Bad, Good, and Unknown. Bot signatures are managed and dynamically updated by the WAF platform.
+Three bot categories are supported: Bad, Good, and Unknown. The WAF platform manages and dynamically updates bot signatures.
 
-Bad bots include bots from malicious IP addresses and bots that have falsified their identities. Malicious IP addresses are sourced from the Microsoft Threat Intelligence feed and updated every hour. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) powers Microsoft Threat Intelligence and is used by multiple services including Microsoft Defender for Cloud.
+Bad bots include bots from malicious IP addresses and bots that have falsified their identities. Malicious IP addresses are sourced from the Microsoft Threat Intelligence feed and updated every hour. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) powers Microsoft Threat Intelligence and is used by multiple services, including Microsoft Defender for Cloud.
 
 Good bots include validated search engines. Unknown categories include other bot groups that have identified themselves as bots. Examples include market analyzer, feed fetchers, and data collection agents.
 
