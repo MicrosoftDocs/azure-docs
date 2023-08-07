@@ -24,8 +24,8 @@ Select the **Title** to view more information about that specific known issue.
 |---------|---------|---------|
 |Workspace RP     | [AutoML | Error retrieving generated code](ki-automl-error-generated-code.md)       | June 6, 2023       |
 |Workspace RP     |  [Workspace RP | Create workspace with bring your own storage scenario does not work in SDK V2](ki-workspace-storage-different-subscription.md)       |  April 19, 2023       |
-|Compute | [[Jupyter R Kernel does not start in new compute instance images]](ki-jupyter-r-kernel-not-starting.md)        |   August 2, 2023      |
-|Row4     |         |         |
+|Compute | [Jupyter R Kernel does not start in new compute instance images](ki-jupyter-r-kernel-not-starting.md)        |   August 2, 2023      |
+|Inferencing     | [CORS error when invoking a managed online endpoint](ki-inferencing-cors-error.md)        | May 25, 2023        |
 |Row5     |         |         |
 
 

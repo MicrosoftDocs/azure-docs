@@ -1330,7 +1330,10 @@
           items:
           - name: Jupyter R Kernel does not start in new compute instance images
             href: ./known-issues/ki-jupyter-r-kernel-not-starting.md
-
+        - name: Inferencing known issues
+          items:
+          - name: CORS error when invoking a managed online endpoint
+            href: ./known-issues/ki-inferencing-cors-error.md
 - name: Samples
   items:
     - name: Jupyter Notebooks
