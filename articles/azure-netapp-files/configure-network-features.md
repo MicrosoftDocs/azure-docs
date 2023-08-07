@@ -86,17 +86,6 @@ See [regions supported for this feature](azure-netapp-files-network-topologies.m
 This feature currently doesn't support SDK.
 
 > [!IMPORTANT]
-> The option to edit network features is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files standard networking features (edit volumes) Public Preview Request Form](https://aka.ms/anfeditnetworkfeaturespreview)**. This feature is expected to be enabled within a week after you submit the waitlist request. You can check the status of feature registration by using the following command: 
->
-> ```azurepowershell-interactive
-> Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBasicToStdNetworkFeaturesUpgrade                                                      
-> 
-> FeatureName                         ProviderName     RegistrationState   
-> -----------                         ------------     -----------------   
-> ANFBasicToStdNetworkFeaturesUpgrade Microsoft.NetApp Registered
-> ```
-
-> [!IMPORTANT]
 > Updating the network features option might cause a network disruption on the volumes for up to 5 minutes. 
 
 1. Navigate to the volume that you want to change the network features option. 

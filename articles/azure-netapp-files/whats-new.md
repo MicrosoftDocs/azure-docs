@@ -21,6 +21,12 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+<!-- Date TBD -->
+
+* The [Standard network features - Edit volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes) feature is now generally available (GA).
+
+    You no longer need to register this feature before using it.
+
 ## August 2023
 
 * [Backup vault](backup-vault-manage.md) (Preview)
