@@ -20,23 +20,29 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [Deprecation notice for legacy Splunk, Aruba ClearPass, and Palo Alto integrations](#deprecation-notice-for-legacy-splunk-aruba-clearpass-and-palo-alto-integrations) |
+| **OT networks** | [Updated partner integration guidance](#updated-partner-integration-guidance) |
 
+## Updated partner integration recommendations
 
-## Deprecation notice for legacy integrations
+Defender for IoT's recommendations for partner integrations now focuses on cloud-based solutions, such synchronizing data via Microsoft Sentinel. Integrating with partner services enhances your system's scalability, robustness, and effectiveness, allowing you to synchronize data between partner services and your security stack.
 
-Defender for IoT plans to end support for the legacy Splunk, Aruba ClearPass, and Palo Alto Panorama integrations with an upcoming patch version of 23.1.x. We recommend that you transition to more updated integration methods instead, as described in the following table:
+In line with our focus on cloud-based integrations, Defender for IoT plans to end support for legacy, on-premises  integrations with Splunk, Aruba ClearPass, and Palo Alto Panorama in an upcoming patch version of 23.1.x. Once support ends, you'll be able to continue sending syslog files to the listed services, but advanced integrations, such as TBD, will no longer be available.
+
+Instead, we recommend that you transition to cloud integration methods, as described in the following table:
 
 |Integration  |Recommended method  | Legacy method
 |---------|---------|---------|
-|**Splunk**     | Use the [OT Security Add-on for Splunk](https://apps.splunk.com/app/5151).  <br><br>For more information, see: <br>- [The Splunk documentation on installing add-ins](https://docs.splunk.com/Documentation/AddOns/released/Overview/Distributedinstall)<br>- [The Splunk documentation on the OT Security Add-on for Splunk](https://splunk.github.io/ot-security-solution/integrationguide/)<br>- Our [TechCommunity blog](TBD)      | [Integrate Splunk with Microsoft Defender for IoT (legacy)](tutorial-splunk.md) |
-|**Palo Alto**     |  Connect to [Microsoft Sentinel](concept-sentinel-integration.md), and then install the one or more of the following solutions: <br><br>- [Palo Alto PAN-OS Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltopanos?tab=Overview)<br>- [Palo Alto Networks Cortex Data Lake Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltocdl?tab=Overview) <br>- [Palo Alto Prisma Cloud CSPM solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltoprisma?tab=Overview)  <br><br>For more information, see our [TechCommunity blog](tbd) and the following Microsoft Sentinel documentation: <br>- [Palo Alto Networks (Firewall) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-networks-firewall)<br>- [Palo Alto Networks Cortex Data Lake (CDL) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-networks-cortex-data-lake-cdl) <br>- [Palo Alto Prisma Cloud CSPM (using Azure Function) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-prisma-cloud-cspm-using-azure-function)  | [Integrate Palo-Alto with Microsoft Defender for IoT (legacy)](tutorial-palo-alto.md) |
 |**Aruba ClearPass**     | Connect to [Microsoft Sentinel](concept-sentinel-integration.md), and then install the [Aruba ClearPass data connector](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-arubaclearpass?tab=Overview).  <br><br>For more information, see the [Microsoft Sentinel documentation](/azure/sentinel/data-connectors/aruba-clearpass) and our [TechCommunity blog](TBD).      | [Integrate ClearPass with Microsoft Defender for IoT (legacy)](tutorial-clearpass.md) |
+|**Palo Alto**     |  Connect to [Microsoft Sentinel](concept-sentinel-integration.md), and then install the one or more of the following solutions: <br><br>- [Palo Alto PAN-OS Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltopanos?tab=Overview)<br>- [Palo Alto Networks Cortex Data Lake Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltocdl?tab=Overview) <br>- [Palo Alto Prisma Cloud CSPM solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltoprisma?tab=Overview)  <br><br>For more information, see our [TechCommunity blog](tbd) and the following Microsoft Sentinel documentation: <br>- [Palo Alto Networks (Firewall) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-networks-firewall)<br>- [Palo Alto Networks Cortex Data Lake (CDL) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-networks-cortex-data-lake-cdl) <br>- [Palo Alto Prisma Cloud CSPM (using Azure Function) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-prisma-cloud-cspm-using-azure-function)  | [Integrate Palo-Alto with Microsoft Defender for IoT (legacy)](tutorial-palo-alto.md) |
+|**Splunk**     | Use the [OT Security Add-on for Splunk](https://apps.splunk.com/app/5151).  <br><br>For more information, see: <br>- [The Splunk documentation on installing add-ins](https://docs.splunk.com/Documentation/AddOns/released/Overview/Distributedinstall)<br>- [The Splunk documentation on the OT Security Add-on for Splunk](https://splunk.github.io/ot-security-solution/integrationguide/)<br>- Our [TechCommunity blog](TBD)      | [Integrate Splunk with Microsoft Defender for IoT (legacy)](tutorial-splunk.md) |
 
 > [!NOTE]
-> Some features of Microsoft Sentinel might incur a fee. For more information, see [Plan costs and understand Microsoft Sentinel pricing and billing](/azure/sentinel/billing).
+> - Some features of Microsoft Sentinel might incur a fee. For more information, see [Plan costs and understand Microsoft Sentinel pricing and billing](/azure/sentinel/billing).
+>
 
+## July 2023
 
+<<<<<<< HEAD
 ## July 2023
 
 
@@ -83,6 +89,11 @@ For more information, see [Update a sensor's monitoring interfaces (configure ER
 In new sensor installations of version 23.1.2, only the privileged *support* user is available by default. The *cyberx* and *cyberx_host* users are available, but are disabled by default. If you need to use these users, such as for [Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md) access, [change the user password](manage-users-sensor.md#change-a-sensor-users-password).
 
 In sensors that have been updated from previous versions to 23.1.2, the *cyberx* and *cyberx_host* users remain enabled as before.
+=======
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | [Migrate to site-based licenses](#migrate-to-site-based-licenses) |
+>>>>>>> f2296515ec7aaf57bdcfbc4c1d496f49ee5ed3be
 
 
 ### Migrate to site-based licenses
