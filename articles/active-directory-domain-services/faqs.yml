@@ -11,7 +11,7 @@ metadata:
   ms.subservice: domain-services
   ms.workload: identity
   ms.topic: faq
-  ms.date: 05/09/2023
+  ms.date: 08/01/2023
   ms.author: justinha
 title: Frequently asked questions (FAQs) about Azure Active Directory (AD) Domain Services
 summary: This page answers frequently asked questions about Azure Active Directory Domain Services.
@@ -159,6 +159,10 @@ sections:
           Why do my domain controllers change names?
         answer: |
           It is possible that during the maintenance of domain controllers there is a change in their names. To avoid problems with this type of change, it is recommended to not use the names of the domain controllers hardcoded in applications and/or other domain resources, but the FQDN of the domain. This way, no matter what the names of the domain controllers are, you won't need to reconfigure anything after a name change.
+      - question: |
+          Is the password of the KRBTGT account in a managed domain rolled periodically? If so, what is the frequency?
+        answer: |
+          The password of the KRBTGT account in a managed domain is rolled over every seven (7) days.
 
   - name: Billing and availability
     questions:

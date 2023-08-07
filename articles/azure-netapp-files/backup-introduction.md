@@ -60,10 +60,10 @@ Azure NetApp Files backup is supported for the following regions:
 
 Backup vaults are organizational units to manage backups. You must create a backup vault before you can create a backup. 
 
+Although it's possible to create multiple backup vaults in your Azure NetApp Files account, it's recommended you have only one backup vault.
+
 >[!IMPORTANT]
 >If you have existing backups on Azure NetApp Files, you must migrate the backups to a backup vault before you can perform any operation with the backup. To learn how to migrate, see [Manage backup vaults](backup-vault-manage.md#migrate-backups-to-a-backup-vault).
-
-<!-- You can have multiple backup vaults in an Azure NetApp Files subscription. Most deployments, however, will only require one backup vault. -->
 
 ## Cost model for Azure NetApp Files backup
 

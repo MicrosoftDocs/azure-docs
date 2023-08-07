@@ -19,6 +19,8 @@ ms.author: anfdocs
 
 Backup vaults store the backups for your Azure NetApp Files subscription.
 
+Although it's possible to create multiple backup vaults in your Azure NetApp Files account, it's recommended you have only one backup vault.
+
 >[!IMPORTANT]
 >If you have existing backups on Azure NetApp Files, you must migrate the backups to a backup vault before you can perform any operation with the backup.
 
@@ -36,17 +38,11 @@ If you have existing backups, you must migrate them to a backup vault before you
 
 1. Navigate to **Backups**.
 1. From the banner above the backups, select **Assign Backup Vault**.
-1. Select a backup vault from the dropdown menu. If you have not created a backup vault, select **Create New** and follow the steps in [Create a backup vault](#create-a-backup-vault).
+1. To bulk migrate all the volumes, select **Assign to Backup Vault and Enable Backup**.
 
-  :::image type="content" source="../media/azure-netapp-files/backup-vault-assign.png" alt-text="Screenshot of backup vault assignment." lightbox="../media/azure-netapp-files/backup-vault-assign.png":::
+    If there are backups from volumes that have been deleted that you want to migrate, select **Include backups from Deleted Volumes**. This option will only be enabled if backups from deleted volumes are present. 
 
-1. Select that volume with backups you want to migrate. You can migrate individual backups or bulk migrate all the volumes. 
-
-    If there are backups from volumes that have been deleted that you want to migrate, select **Deleted Volumes**. This option will only be enabled if backups from deleted volumes are present. 
-
-1. Select **Assign to Backup Vault**.
-
-  :::image type="content" source="../media/azure-netapp-files/backup-vault-select.png" alt-text="Screenshot of backup vault selection." lightbox="../media/azure-netapp-files/backup-vault-select.png":::
+   :::image type="content" source="../media/azure-netapp-files/backup-vault-assign.png" alt-text="Screenshot of backup vault assignment." lightbox="../media/azure-netapp-files/backup-vault-assign.png":::
 
 1. Navigate to the **Backup Vault** menu to view and manage your backups.
 
