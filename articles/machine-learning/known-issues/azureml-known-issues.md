@@ -47,5 +47,5 @@ Select the **Title** to view more information about that specific known issue. F
 ## Next steps
 
 - 
-- [See Azure service level outages](https://azure.status.microsoft/en-us/status)
-- [Get your questions answered by the Azure Machine Learning community](https://learn.microsoft.com/en-us/answers/tags/75/azure-machine-learning)
+- [See Azure service level outages](https://azure.status.microsoft/status)
+- [Get your questions answered by the Azure Machine Learning community](https://learn.microsoft.com/answers/tags/75/azure-machine-learning)

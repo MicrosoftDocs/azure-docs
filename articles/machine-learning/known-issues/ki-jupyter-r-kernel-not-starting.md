@@ -1,6 +1,6 @@
 ---
 title: Known issue - Compute instance | Jupyter R Kernel does not start in new compute instance images 
-description: Describe the known issue to provide for search optimization
+description: When trying to launch an R kernel in JupyterLab or a notebook in a new compute instance, the kernel fails to start
 author: s-polly
 ms.author: scottpolly
 ms.topic: troubleshooting  
@@ -21,7 +21,6 @@ When trying to launch an R kernel in JupyterLab or a notebook in a new compute i
 
 
 **Problem area:** Compute
-<!--- Current options are 'Workspace RP', 'Compute', 'Inferencing',  or 'Pipelines and Designer' --->
 
 
 ## Symptoms

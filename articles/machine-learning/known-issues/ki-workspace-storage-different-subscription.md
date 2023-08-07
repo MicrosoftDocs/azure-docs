@@ -59,7 +59,9 @@ Unable to check existing role assignments on resource /subscriptions/,sub id of 
 ## Solutions and workarounds
 Currently SDK(v2) does not support creating a workspace with bring-your-own storage in another subscription. The code tries to look for storage in same subscription as the workspace.
 
-A workaround is to use the API to create the workspace. The API does not have this limitation. The API can be found at [Create or update workspace](https://docs.microsoft.com/rest/api/machinelearning/Workspaces/CreateOrUpdateWorkspace)
+A workaround is to use the API to create the workspace. The API does not have this limitation. The API can be found at [Create or update workspace](https://learn.microsoft.com/rest/api/azureml/2023-04-01/workspaces/create-or-update?tabs=HTTP)
+
+
 ## Next steps
 
 - [About known issues](azureml-known-issues.md)

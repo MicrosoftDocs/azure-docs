@@ -1326,10 +1326,10 @@
             href: ./known-issues/ki-automl-error-generated-code.md
           - name: Create workspace with BYOS does not work in SDK V2
             href: ./known-issues/ki-workspace-storage-different-subscription.md
-         - name: Compute instance known issues
-           items:
-           - name: Jupyter R Kernel does not start in new compute instance images
-             href: ./known-issues/ki-jupyter-r-kernel-not-starting.md
+        - name: Compute instance known issues
+          items:
+          - name: Jupyter R Kernel does not start in new compute instance images
+            href: ./known-issues/ki-jupyter-r-kernel-not-starting.md
 
 - name: Samples
   items:
