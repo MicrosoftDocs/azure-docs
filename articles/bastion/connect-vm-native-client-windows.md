@@ -39,6 +39,8 @@ The steps in the following sections help you connect to a VM from a Windows nati
 
 ### <a name="connect-windows"></a>RDP to a Windows VM
 
+[!INCLUDE [Remote Desktop Users](../../includes/bastion-remote-desktop-users.md)]
+
 1. Sign in to your Azure account using `az login`. If you have more than one subscription, you can view them using `az account list` and select the subscription containing your Bastion resource using `az account set --subscription "<subscription ID>"`.
 
 1. To connect via RDP, use the following example.

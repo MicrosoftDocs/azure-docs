@@ -33,7 +33,7 @@ To complete the procedures in this article, you need:
 - **Contributor** permission for the relevant Azure subscription, and **Administrator** permission on the AWS account.
 
 > [!NOTE]
-> The AWS connector is not available on the national government clouds (Azure Government, Azure China 21Vianet).
+> The AWS connector is not available on the national government clouds (Azure Government, Microsoft Azure operated by 21Vianet).
 
 ### Defender for Containers
 
