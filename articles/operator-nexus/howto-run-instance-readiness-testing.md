@@ -18,7 +18,8 @@ Instance Readiness Testing (IRT) is a framework built to orchestrate real-world 
 - A Linux environment (Ubuntu suggested) capable of calling Azure APIs
 - Knowledge of networks to use for the test
     * Networks to use for the test are specified in a "networks-blueprint.yml" file, see [Input Configuration](#input-configuration).
-1. curl to download IRT package
+- curl to download IRT package
+- the User Access Admin & Contributor roles for the execution subscription
 
 ## One Time Setup
 
@@ -58,44 +59,59 @@ A managed identity with the following role assignments is needed to execute test
 Executing `create-managed-identity.sh` requires the following environment variables to be set;
    1. **MI_RESOURCE_GROUP** - The resource group the Managed Identity will be created in. The resource group will be created in `eastus` if the resource group provided does not yet exist.
    1. **MI_NAME** - The name of the Managed Identity to be created.
-   1. **[Optional] SUBSCRIPTION** - to set the subscription, script with use az cli context for the subscription.
+   1. **[Optional] SUBSCRIPTION** - to set the subscription. Alternatively, the script will use az CLI context to lookup the subscription.
 
-**NOTE:** This script will print a value for MANAGED_IDENTITY_ID, which should be recorded in the irt-input.yml for use
+```bash
+# Example execution of the script
+MI_RESOURCE_GROUP="<your resource group>" MI_NAME="<your managed identity name>" SUBSCRIPTION="<your subscription ID>" ./create-managed-identity.sh
+```
+
+**RESULT:** This script will print a value for `MANAGED_IDENTITY_ID`, which should be recorded in the irt-input.yml for use
 
 
-#### Service Principal
+#### Service Principal & AAD Security Group
 A service principal with the following role assignments. The supplemental script, `create-service-principal.sh` will create a service principal with these role assignments, or add role assignments to an existing service principal. 
    1. `Contributor` - For creating and manipulating resources
    1. `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
    1. `Azure ARC Kubernetes Admin` - For ARC enrolling the NAKS cluster
 
+Additionally, it will create the necessary security group, and add the service principal to the security group. If the security group exists, it will add the service principal to the existing security group.
 
-#### AAD Security Group
-An AAD Security Group containing the service principal - To add to the NAKS cluster, giving it the ability to access the cluster
+Executing `create-service-principal` requires the following environment variables to be set;
+    1. SERVICE_PRINCIPAL_NAME - The name of the service principal, created with the `az ad sp create-for-rbac` command.
+    1. AAD_GROUP_NAME - The name of the security group.
+
+```bash
+# Example execution of the script
+SERVICE_PRINCIPAL_NAME="<your service principal name>" AAD_GROUP_NAME="<your security group name>" ./create-service-principal.sh
+```
+
+**RESULT:** This script will print values for `AAD_GROUP_ID`, `SP_ID`, `SP_PASSWORD`, and `SP_TENANT`, which should be recoreded in irt-input.yml for use.
 
 
-Running IRT requires the following parameters:
-1. `AAD_GROUP_ID` - The object ID of the group the service principal belongs to. 
-1. `SP_ID` - The principal ID of the service principal used for testing
-1. `SP_PASSWORD` - The password of the service principal used for testing
-1. `SP_TENANT` - The tenant ID of the service principal used for testing
-
-1. Log into Azure, if not already logged in: `az login --use-device`
-    * User should have `Contributor` role and ``
-1. Create an Azure Managed Identity for the container to use.
-    * Using the provided script: `MI_RESOURCE_GROUP="<your resource group> MI_NAME="<managed identity name>" SUBSCRIPTION="<subscription>" ./create-managed-identity.sh`
-    * Can be created manually via the Azure portal, refer to the script for needed permissions
-1. Create a service principal and security group. The service principal is used as the executor of the test. The group informs the kubernetes cluster of valid users. The service principal must be a part of the security group, so it has the ability to log into the cluster.
-    * You can provide your own, or use our provided script, here's an example of how it could be executed; `AAD_GROUP_NAME=external-test-aad-group-8 SERVICE_PRINCIPAL_NAME=external-test-sp-8 ./irt/create-service-principal.sh`.
-    * This script prints four key/value pairs for you to include in your input file.
-
-**[If Necessary] Create Isolation Domains** - They aren't lifecycled as part of this test scenario.
+#### [If Necessary] Create Isolation Domains
+They aren't lifecycled as part of this test scenario.
    * **Note:** if deploying isolation domains, your network blueprint must define at least one external network per isolation domain. see `networks-blueprint.example.yml` for help with configuring your network blueprint.
    * `create-l3-isolation-domains.sh` takes one parameter, a path to your networks blueprint file; here's an example of the script being invoked:
      * `create-l3-isolation-domains.sh ./networks-blueprint.yml`
 
-**[Optional] Create Storage to Archive Results** - IRT creates an html test report after running a test scenario. These reports can optionally be uploaded to a blob storage container
-1.  Set up a storage account to archive test results over time. For help, see the [instructions](#uploading-results-to-your-own-archive)
+#### [Optional] Create Storage to Archive Results
+IRT creates an html test report after running a test scenario. These reports can optionally be uploaded to a blob storage container. the supplementary script `create-archive-storage.sh` to create a storage container, storage account, and resource group if they don't already exist.
+
+
+Executing `create-managed-identity.sh` requires the following environment variables to be set;
+   1. **RESOURCE_GROUP** - The resource group the Managed Identity will be created in. The resource group will be created in `eastus` if the resource group provided does not yet exist.
+   1. **STORAGE_ACCOUNT_NAME** - The name of the Azure storage account to be created.
+   1. **STORAGE_CONTAINER_NAME** - The name of the blob storage container to be created.
+   1. **[Optional] SUBSCRIPTION** - to set the subscription. Alternatively, the script will use az CLI context to lookup the subscription.
+
+
+```bash
+# Example execution of the script
+RESOURCE_GROUP="<your resource group>" STORAGE_ACCOUNT_NAME="<your storage account name>" STORAGE_CONTAINER_NAME="<your container name>" ./create-archive-storage.sh
+```
+
+**RESULT:** This script will print values for `PUBLISH_RESULTS_TO` which should be recoreded in irt-input.yml for use.
 
 
 ### Input configuration
@@ -124,15 +140,4 @@ The network blueprint input schema for IRT is defined in the networks-blueprint.
     1. From any browser
     1. Using elinks or lynx to view from the command line; for example:
        1.  `elinks summary-<cluster_name>-<timestamp>..html`
-    1. When an SAS Token is provided for the `PUBLISH_RESULTS_TO` parameter the results are uploaded to the blob container you specified. It can be previewed by navigating to the link presented to you at the end of the IRT run.
-
-### Uploading results to your own archive
-
-1. We offer a supplementary script, `create-archive-storage.sh` to allow you to set up a storage container to store your results. The script generates an SAS Token for a storage container that is valid for three days. The script creates a storage container, storage account, and resource group if they don't already exist.
-   1. The script expects the following environment variables to be defined:
-      1. RESOURCE_GROUP
-      1. SUBSCRIPTION
-      1. STORAGE_ACCOUNT_NAME
-      1. STORAGE_CONTAINER_NAME
-1. Copy the last output from the script, into your IRT YAML input. The output looks like this:
-   * `PUBLISH_RESULTS_TO="<sas-token>"`
+ 1. If the `PUBLISH_RESULTS_TO` parameter was provided, the results are uploaded to the blob container you specified. It can be previewed by navigating to the link presented to you at the end of the IRT run.
