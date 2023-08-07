@@ -6,7 +6,7 @@ In certain situations, it might be useful to have all your client traffic proxie
 > The proxy feature will be available in a future public preview version of the Calling SDK. 
 ## Proxy signaling traffic
 
-To provide the URL of a proxy server, you need to pass it in as part of `CallClientOptions` while initializing the `CallClient`. For more details how to setup a call see [Azure Communication Services iOS SDK](../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-ios)) for the Quickstart on how to setup Voice and Video.
+To provide the URL of a proxy server, you need to pass it in as part of `CallClientOptions` through its property `CallNetworkOptions` while initializing the `CallClient`. For more details how to setup a call see [Azure Communication Services iOS SDK](../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-ios)) for the Quickstart on how to setup Voice and Video.
 
 ```swift
 let callClientOptions = CallClientOptions()
