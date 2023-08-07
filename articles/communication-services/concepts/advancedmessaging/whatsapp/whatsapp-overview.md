@@ -1,5 +1,5 @@
 ---
-title: Advanced Messaging for WhatsApp overview
+title: Advanced Messaging for WhatsApp in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Service WhatsApp concepts.
 author: darmour
@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Advanced Messaging For WhatsApp in Azure Communication Services
+# Advanced Messaging for WhatsApp in Azure Communication Services
 
-Azure Communication Services enables you to send and receive WhatsApp messages using the Communication Services Messaging SDK. This SDK can be used to engage in conversation with a customer for product inquiry and customer service scenarios. It can also be used to send out messages like appointment reminders, shipping updates, two-factor authentication, and other notification scenarios.
+Azure Communication Services enables you to send and receive WhatsApp messages using the Azure Communication Services Messaging SDK. This SDK can be used to engage in conversation with a customer for product inquiry and customer service scenarios. It can also be used to send out messages like appointment reminders, shipping updates, two-factor authentication, and other notification scenarios.
 
-## Advanced Messaging For WhatsApp Features
+## Advanced Messaging for WhatsApp Features
 
 The key features of Azure Communications Services Advanced Messaging for WhatsApp include:
 
@@ -33,7 +33,7 @@ The following documents help you get started with Advanced Messaging for WhatsAp
 -   [Register WhatsApp Business Account](../../../quickstarts/advancedmessaging/whatsapp/connecting-whatsapp-business-account.md)
 -   [Advanced Messaging for WhatsApp Terms of Services](./whatsapp-termsof-service.md)
 -   [Trying WhatsApp Sandbox](../../../quickstarts//advancedmessaging/whatsapp//whatsapp-sandbox-quickstart.md)
--   [Get Started With AdvancedMessages SDK](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)
--   [Get Started With Handle Advanced Messaging and delivery report events](../../../quickstarts/advancedmessaging/whatsapp/handle-advanced-messaging-events.md)
+-   [Get Started With Advanced Communication Messages SDK](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)
+-   [Handle Advanced Messaging Events](../../../quickstarts/advancedmessaging/whatsapp/handle-advanced-messaging-events.md)
 -   [Messaging Policy](../messaging-policy.md)
 -   [Pricing for Advanced Messaging for WhatsApp](./pricing.md)

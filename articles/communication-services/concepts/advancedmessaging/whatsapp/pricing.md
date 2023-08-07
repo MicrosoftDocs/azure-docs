@@ -1,5 +1,5 @@
 ---
-title: Pricing for Advanced Messaging for WhatsApp
+title: Advanced Messaging Pricing in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Service WhatsApp pricing concepts.
 author: darmour
@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Advanced Messaging pricing in Azure Communication Services #
+# Advanced Messaging Pricing in Azure Communication Services
 
 Prices for Advanced Messaging in Azure Communication Services consist of two components: the usage fee and the channel fee.
 
-## Advanced Messaging usage fee ##
+## Advanced Messaging usage fee
 
 The Azure Communication Services Advanced Messaging usage fee is based on the number of messages exchanged between the platform and an end user.
 
@@ -24,18 +24,18 @@ The Azure Communication Services Advanced Messaging usage fee is based on the nu
 | Inbound Message  | \$0.005/message |
 | Outbound Message | \$0.005/message |
 
-## Advanced Messaging channel price ##
+## Advanced Messaging channel price
 
 **WhatsApp**
 
-When you connect your WhatsApp Business account to Azure, Azure Communication Services becomes the billing entity for your WhatsApp usage. WhatsApp provides these rates and is included in your Azure bill. The information given summarizes the key aspects of WhatsApp pricing. WhatsApp describes their pricing in detail here: [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
+When you connect your WhatsApp Business account to Azure, Azure Communication Services becomes the billing entity for your WhatsApp usage. WhatsApp provides these rates and it's included in your Azure bill. The information given summarizes the key aspects of WhatsApp pricing. WhatsApp describes their pricing in detail here: [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
 
 WhatsApp charges per conversation, not individual message. Conversations are message threads between a business and its customers that last 24 or 72 hours based on the conversation category. Conversations are categorized with one of the following categories:
 
--   **Marketing**—Marketing conversations include promotions or offers, informational updates, or invitations for customers to respond or take action.
--   **Utility**—Utility conversations facilitate a specific, agreed-upon request or transaction, or update a customer about an ongoing transaction. These conversations may include transaction confirmations, transaction updates, and/or post-purchase notifications.
--   **Authentication**—Authentication conversations enable you to authenticate users with one-time passcodes, potentially at multiple steps in the login process (for example, account verification, account recovery, integrity challenges).
--   **Service**—Service conversations help you resolve customer inquiries.
+-   **Marketing** — Marketing conversations include promotions or offers, informational updates, or invitations for customers to respond or take action.
+-   **Utility** — Utility conversations facilitate a specific, agreed-upon request or transaction, or update to a customer about an ongoing transaction. These conversations may include transaction confirmations, transaction updates, and/or post-purchase notifications.
+-   **Authentication** — Authentication conversations enable you to authenticate users with one-time passcodes, potentially at multiple steps in the login process (for example, account verification, account recovery, integrity challenges).
+-   **Service** — Service conversations help you resolve customer inquiries.
 
 For service conversations, WhatsApp provides 1,000 free conversations each month across all business phone numbers. Marketing, utility and authentication conversations aren't part of the free tier.
 
@@ -47,7 +47,7 @@ Alice is managing a virtual visit solution for her organization’s patients. Al
 
 Alice sends appointment reminders to 2,000 patients in North America each month and the pricing would be:
 
-### Advanced Messaging Usage for messages ###
+### Advanced Messaging usage for messages
 
 2,000 WhatsApp Conversations = 2,000 messages x \$0.005/message = \$10 USD
 
@@ -63,7 +63,7 @@ Contoso is a business that provides a contact center for customers to seek produ
 
 Contoso manages 2,000 cases in North America each month and the pricing would be:
 
-### Advanced Messaging Usage For Conversation ###
+### Advanced Messaging usage for conversation
 
 2,000 WhatsApp Conversations \* 20 messages/conversation x \$0.005/message = \$200 USD
 
@@ -71,7 +71,7 @@ Contoso manages 2,000 cases in North America each month and the pricing would be
 
 To get the latest WhatsApp rates, refer to WhatsApp’s pricing documentation: [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
 
-## Next steps ##
+## Next steps
 
 -   [Register WhatsApp Business Account](../../../quickstarts/advancedmessaging/whatsapp/connecting-whatsapp-business-account.md)
 -   [Advanced Messaging for WhatsApp Terms of Services](./whatsapp-termsof-service.md)

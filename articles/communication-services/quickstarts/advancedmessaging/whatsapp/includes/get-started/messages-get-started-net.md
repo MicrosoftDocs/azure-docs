@@ -50,13 +50,13 @@ using System;
 using Azure;
 using Azure.Communication.Messages;
 
-namespace AdvancedMessagesQuickstart
+namespace AdvancedMessagingQuickstart
 {
     class Program
     {
         public static async Task Main(string[] args)
         {
-            Console.WriteLine("Azure Communication Services - Send Advanced Messages");
+            Console.WriteLine("Azure Communication Services - Send Advanced Messaging Messages");
 
             // Quickstart code goes here
         }
@@ -66,8 +66,8 @@ namespace AdvancedMessagesQuickstart
 
 ### Configure Environment Variables
 
-In this section, you'll setup Environment variable for Azure Communication Service Resource Connection.
-Get the connection string from your ACS resource in the Azure portal. On the left, navigate to the `Keys` tab, copy the `Connection string` field for the `Primary key`. The connection string is in the format `endpoint=https://{your ACS resource name}.communication.azure.com/;accesskey={secret key}`.
+In this section, you set up an Environment Variable for Azure Communication Service Resource Connection.
+Get the connection string from your Azure Communication Services resource in the Azure portal. On the left, navigate to the `Keys` tab, copy the `Connection string` field for the `Primary key`. The connection string is in the format `endpoint=https://{your ACS resource name}.communication.azure.com/;accesskey={secret key}`.
 
 :::image type="content" source="../../media/get-started/get-acs-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Keys' tab. Attention is placed on the copy action of the 'Connection string' field in the 'Primary key' section.":::
 
@@ -123,7 +123,7 @@ NotificationMessagesClient notificationMessagesClient = new NotificationMessages
 ```
 
 ## Set channel registration ID   
-The Channel Registration ID GUID was created during channel registration. You can look it up in the portal on the Channels tab of your ACS resource.
+The Channel Registration ID GUID was created during channel registration. You can look it up in the portal on the Channels tab of your Azure Communication Services resource.
 
 :::image type="content" source="../../media/get-started/get-messages-channel-id.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Channels' tab. Attention is placed on the copy action of the 'Channel ID' field.":::
 
@@ -133,10 +133,10 @@ string channelRegistrationId = "<your channel registration id GUID>";
 ```
 
 ## Set recipient list
-You need to supply a real phone number that has a WhatsApp account associated with it. This WhatsApp account will receive the text and media messages sent in this quickstart.
+You need to supply a real phone number that has a WhatsApp account associated with it. This WhatsApp account receives the text and media messages sent in this quickstart.
 For the purpose of this quickstart, this phone number may be your personal phone number.   
 
-The recipient phone number cannot be the business phone number (Sender ID) associated with the WhatsApp channel registration. The Sender ID will appear as the sender of the text and media messages sent to the recipient.
+The recipient phone number can't be the business phone number (Sender ID) associated with the WhatsApp channel registration. The Sender ID appears as the sender of the text and media messages sent to the recipient.
 
 The phone number must include the country code. For more information on phone number formatting, see WhatsApp documentation for [Phone Number Formats](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/phone-numbers#phone-number-formats).
 
@@ -185,7 +185,7 @@ var sendTemplateMessageOptions = new SendMessageOptions(channelRegistrationId, r
 
 Then send the template message:
 ```csharp
-Response<SendMessageResult> templateResponse = await notificationMessagesClient.SendMessageAsync(sendTemplateMessageOptions);
+Response<SendMessageResult> sendTemplateMessageResult = await notificationMessagesClient.SendMessageAsync(sendTemplateMessageOptions);
 ```
 
 3. User responds to template message
@@ -215,7 +215,7 @@ var sendTextMessageOptions = new SendMessageOptions(channelRegistrationId, recip
 
 Then send the text message:
 ```csharp
-Response<SendMessageResult> textResponse = await notificationMessagesClient.SendMessageAsync(sendTextMessageOptions);
+Response<SendMessageResult> sendTextMessageResult = await notificationMessagesClient.SendMessageAsync(sendTextMessageOptions);
 ```
 
 ## Send a Media Message to WhatsApp User

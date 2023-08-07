@@ -1,5 +1,5 @@
 ---
-title: Try WhatsApp Sandbox
+title: Try AdvancedMessaging for WhatsApp Sandbox
 titleSuffix: An Azure Communication Services quickstart document
 description: Learn about Communication Service WhatsApp sandbox
 author: shamkh
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-# Quickstart: Try AdvancedMessaging For WhatsApp Sandbox
+# Quickstart: Try Advanced Messaging for WhatsApp Sandbox
 
 Getting started to enable Contoso developers to try out the Advanced Messaging for WhatsApp quickly, Advanced Messaging is providing WhatsApp Business Account enabled sandbox. This WhatsApp Sandbox is available on the Azure portal and Contoso developers can play around the Advanced Messaging functionalities including sending template messages and text messages.  
 
 ## Prerequisites 
 
 - [Create an Azure Communication Services resource](../../create-communication-resource.md).
-- [WhatsApp enabled phonenumber]()
+- [WhatsApp enabled phone number]()
 
 ## Setting up
 
@@ -39,7 +39,7 @@ Getting started to enable Contoso developers to try out the Advanced Messaging f
 :::image type="content" source="./media/whatsapp-sandbox/connection-established.png" alt-text="Screenshot that shows Advanced Messaging WhatsApp connection established in the Azure portal.":::
 
 ## Send Text Message 
-Once connected, you're able to send either a template message or a text message. Here is an example of text message.
+Once connected, you're able to send either a template message or a text message. Here's an example of text message.
 
 :::image type="content" source="./media/whatsapp-sandbox/send-message.png" alt-text="Screenshot that shows WhatsApp Send text message in the Azure portal.":::
 
@@ -55,6 +55,6 @@ Our sandbox also have a few preconfigured templates for you to try out. Fill in 
 
 In this quickstart, you have tried out Advanced Messaging for WhatsApp sandbox. Next you might also want to see the following articles:
 
-- [Get Started With AdvancedMessages](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)
--    [AdvancedMessaging For WhatsApp Overview](../../../concepts/advancedmessaging/whatsapp/whatsapp-overview.md)
--    [Advanced Messaging for WhatsApp Terms of Services](../../../concepts/advancedmessaging/whatsapp/whatsapp-termsof-service.md)
+- [Get Started With Advanced Messaging](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)
+- [AdvancedMessaging for WhatsApp Overview](../../../concepts/advancedmessaging/whatsapp/whatsapp-overview.md)
+- [Advanced Messaging for WhatsApp Terms of Services](../../../concepts/advancedmessaging/whatsapp/whatsapp-termsof-service.md)
