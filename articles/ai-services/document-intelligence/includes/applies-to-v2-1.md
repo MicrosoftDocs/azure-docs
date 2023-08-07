@@ -1,5 +1,5 @@
 ---
-title: Document Intelligence v2.1 content
+title: Document Intelligence (formerly Form Recognizer) v2.1 content
 description: include file
 author: laujan
 ms.author: lajanuar
