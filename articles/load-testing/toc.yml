@@ -46,7 +46,7 @@ items:
         - name: Customize tests with JMeter plugins
           href: how-to-use-jmeter-plugins.md
         - name: Configure a CI/CD pipeline from Azure portal
-          href: how-to-set-up-cicd-pipeline-from-portal.md
+          href: how-to-configure-load-test-cicd.md
     - name: Run tests
       items:
         - name: Create a load test with a JMeter script
