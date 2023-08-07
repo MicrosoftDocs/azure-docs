@@ -121,6 +121,7 @@ Data connectors are available as part of the following offerings:
 - [Cisco ASA/FTD via AMA (Preview)](data-connectors/cisco-asa-ftd-via-ama.md)
 - [Cisco Duo Security (using Azure Functions)](data-connectors/cisco-duo-security-using-azure-functions.md)
 - [Cisco Identity Services Engine](data-connectors/cisco-identity-services-engine.md)
+- [Cisco Meraki](data-connectors/cisco-meraki.md)
 - [Cisco Secure Email Gateway](data-connectors/cisco-secure-email-gateway.md)
 - [Cisco Secure Endpoint (AMP) (using Azure Functions)](data-connectors/cisco-secure-endpoint-amp-using-azure-functions.md)
 - [Cisco Stealthwatch](data-connectors/cisco-stealthwatch.md)

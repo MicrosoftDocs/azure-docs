@@ -24,8 +24,8 @@ ms.custom: "include file"
 | Maximum size of a  node configuration file | 1 MB | Applies to state configuration |
 | Job run time, Free tier |500 minutes per subscription per calendar month ||
 | Maximum amount of disk space allowed per sandbox<sup>1</sup> |1 GB |Applies to Azure sandboxes only.|
-| Maximum amount of memory given to a sandbox<sup>1</sup> |400 MB |Applies to Azure sandboxes only.|
-| Maximum number of network sockets allowed per sandbox<sup>1</sup> |1,000 |Applies to Azure sandboxes only.|
+| Maximum amount of memory given to a sandbox<sup>1</sup> |900 MB |Applies to Azure sandboxes only.|
+| Maximum number of network sockets allowed per sandbox<sup>1</sup> |1,500 |Applies to Azure sandboxes only.|
 | Maximum runtime allowed per runbook<sup>1</sup> |3 hours |Applies to Azure sandboxes only.|
 | Maximum number of Automation accounts in a subscription |No limit ||
 | Maximum number of system hybrid runbook workers per Automation Account|4,000||

@@ -89,7 +89,7 @@ If after investigation, an account is confirmed compromised:
       1. [Request a password reset](#manual-password-reset).
       1. Block the user if you suspect the attacker can reset the password or do multifactor authentication for the user.
       1. Revoke refresh tokens.
-      1. [Disable any devices](../devices/device-management-azure-portal.md) that are considered compromised.
+      1. [Disable any devices](../devices/manage-device-identities.md) that are considered compromised.
       1. If using [continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md), revoke all access tokens.
 
 For more information about what happens when confirming compromise, see the section [How should I give risk feedback and what happens under the hood?](howto-identity-protection-risk-feedback.md#how-should-i-give-risk-feedback-and-what-happens-under-the-hood).
