@@ -42,7 +42,7 @@ Customers can choose to continue to be on Ubuntu 18.04 LTS by upgrading to Ubunt
 
 2. Validating the license
 
-> [!NOTE]
+>[!NOTE]
 > Converting to UBUNTU_PRO is an irreversible process. You cannot even downgrade a VM by running detach. Please raise support tickets for any exceptions.**
 
 ## Converting to Ubuntu Pro using the Azure CLI 
@@ -79,7 +79,7 @@ sudo apt install ubuntu-advantage-tools
 sudo pro auto-attach 
 ```
 
-> [!NOTE]
+>[!NOTE]
 > For systems with advantage tools version 28 or higher installed the system will perform a pro attach during a reboot.
 
 ## Check licensing model using the Azure CLI
