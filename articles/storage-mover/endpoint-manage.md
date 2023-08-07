@@ -1,5 +1,5 @@
 ---
-title: How to manage Azure Mover endpoints
+title: How to manage Azure Storage Mover endpoints
 description: Learn how to manage Azure Storage Mover endpoints
 author: stevenmatthew
 ms.author: shaas
@@ -345,17 +345,15 @@ Follow the steps in this section to view endpoints accessible to your Storage Mo
 
 ### [Azure portal](#tab/portal)
 
-   1. To create an endpoint using the Navigate to the [Azure portal](https://portal.azure.com), navigate to the **Storage mover** resource page. Select **Storage endpoints** from within the navigation pane as shown in the sample image to access your endpoints.
+   1. To create an endpoint using the Navigate to the [Azure portal](https://portal.azure.com), navigate to the **Storage mover** resource page. Select **Storage endpoints** from within the navigation pane to access your endpoints as shown in the sample image.
 
       :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Screenshot of the Storage Mover resource page within the Azure portal showing the location of the Storage Endpoints link." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
 
-   1. After the portal becomes functional, select the checkbox corresponding to the name of the endpoint whose details you want to view. The **Endpoint overview** pane opens, displaying the endpoint's details.
+   1. On the **Storage endpoints** page, the default **Storage endpoints** view displays the names of any provisioned source endpoints and a summary of their associated properties. To view provisioned destination endpoint, select **Target endpoints**. You can filter the results further by selecting the **Protocol** or **Host** filters and the relevant option.
 
-       :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Screenshot of the Create Endpoint screen." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
+      :::image type="content" source="media/endpoint-manage/endpoint-filter.png" alt-text="Screenshot of the Storage Endpoints page within the Azure portal showing the endpoint details and the location of the target endpoint filters." lightbox="media/endpoint-manage/endpoint-filter-lrg.png":::
 
-   1. Update the value that you want to edit. Confirm that all data is correct and select **Update** to save your changes.
-
-       :::image type="content" source="media/endpoint-manage/storage-mover.png" alt-text="Screenshot of the Create Endpoint screen." lightbox="media/endpoint-manage/storage-mover-lrg.png":::
+   At this time, the Azure Portal doesn't provide the ability to to directly modify provisioned endpoints. An endpoint's description, however, can be modified using Azure PowerShell by following [this example](endpoint-manage?tabs=powershell#view-and-edit-an-endpoints-properties). Endpoint resources that require updating within the Azure Portal should be deleted and recreated.
 
 ### [PowerShell](#tab/powershell)
 

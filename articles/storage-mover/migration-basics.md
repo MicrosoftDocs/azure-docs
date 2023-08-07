@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: conceptual
-ms.date: 08/04/2023
+ms.date: 08/07/2023
 ---
 
 <!-- 
@@ -111,8 +111,8 @@ The work of copying of your files and folders to an Azure target location occurs
 
 There are two main considerations for the migration phase:
 
-1. Minimize the downtime of your workload.
-1. Determine the correct migration mode.
+- Minimize the downtime of your workload.
+- Determine the correct migration mode.
 
 ### Minimize downtime
 

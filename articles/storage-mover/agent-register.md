@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 08/04/2023
+ms.date: 08/07/2023
 ---
 
 <!-- 
@@ -136,10 +136,10 @@ The agent displays detailed progress. Once the registration is complete, you're 
 
 ## Authentication and Authorization
 
-To accomplish seamless authentication with Azure and authorization to various Azure resources, the agent is registered with two Azure services:
+To accomplish seamless authentication with Azure and authorization to various Azure resources, the agent is registered with the following Azure services:
 
-1. Azure Storage Mover (Microsoft.StorageMover)
-1. Azure ARC (Microsoft.HybridCompute)
+- Azure Storage Mover (Microsoft.StorageMover)
+- Azure ARC (Microsoft.HybridCompute)
 
 ### Azure Storage Mover service
 

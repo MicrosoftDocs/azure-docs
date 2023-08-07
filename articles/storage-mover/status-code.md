@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 08/04/2023
+ms.date: 08/07/2023
 ms.custom: template-how-to
 ---
 
@@ -67,5 +67,5 @@ Each of these scopes further divides statuses into categories and subcategories.
 | <a name="AZSM2062"></a>**AZSM2062** |Failed to read source file due to permission issues. | Verify that the agent has been granted permissions to the source location. |
 | <a name="AZSM2063"></a>**AZSM2063** |Encountered I/O error while reading source file.  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, please create a support ticket for further assistance. |
 | <a name="AZSM2069"></a>**AZSM2069** |Failed to read target file due to permission issues.  | Verify that the agent has been granted permissions to the target location. |
-| <a name="AZSM2070"></a>**AZSM2070** |Cannot write blob because it has an active lease. This error may be caused by another agent writing to the location. Ensure no other job is running against the target. Retry or create support ticket. |
+| <a name="AZSM2070"></a>**AZSM2070** |Cannot write blob because it has an active lease. | This error may be caused by another agent writing to the location. Ensure no other job is running against the target. Retry or create support ticket. |
 | <a name="AZSM2080"></a>**AZSM2080** |Copy failed due to an unknown error.  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, please create a support ticket for further assistance. |
