@@ -25,7 +25,6 @@ If you're moving from lab accounts to lab plans, there's likely to be a time whe
 This checklist highlights the high-level migration process:
 
 > [!div class="checklist"]
-> - Create a lab plan
 > - Request capacity for your lab plans
 > - Configure shared resources
 > - Create additional lab plans
@@ -33,43 +32,71 @@ This checklist highlights the high-level migration process:
 > - Create and publish labs
 > - Update cost management reports
 
-## 1. Create a lab plan
+## 1. Request capacity
 
-To begin using the update, you'll need to create a lab plan. 
+When you use lab plans, you're now assigned your own [dedicated VM cores quota](./capacity-limits.md#per-customer-assigned-capacity).  This quota is assigned per-subscription. The initial number of VM cores assigned to your subscription is limited, so you need to request a core limit increase. 
+
+Even if you're already using lab accounts, you still need to request capacity because your VM cores are not automatically available for creating labs with lab plans. You can request your capacity to be transferred to lab plans.
+
+### 1a. Transfer VM cores from lab accounts
+
+If you're currently using lab accounts, when you create a lab for a lab plan, you can view the VM sizes that were previously available for your lab account. In the Azure Lab Services user interface, these VM sizes are marked as *classic* VM sizes.
+
+:::image type="content" source="./media/how-to-migrate-lab-acounts-to-lab-plans/create-lab-classic-virtual-machine-sizes.png" alt-text="Screenshot that shows the Create lab window, highlighting the classic VM sizes.":::
+
+You can request a transfer of the VM core capacity that was previously assigned to your lab accounts. After the transfer, you can then select from the *classic* VM sizes for creating labs in your lab plans.
+
+To request a transfer of your lab account VM core capacity:
+
+1. Create an Azure support request.
+
+1. Provide the following information in the support request:
+    - The number of cores you want to transfer
+    - The type VM sizes you need
+    - The Azure region in which the capacity needs to be available
+
+> [!TIP]
+> It's recommended to request a transfer of your VM cores capacity to lab plans to minimize the time needed to allocate capacity for your lab plans.
+
+### 1b. Request capacity for lab plans
+
+If you don't want to transfer your existing capacity from lab accounts to lab plans, or if you require additional VM cores, you should request capacity for lab plans.
 
 If you don't already have a lab plan, you can create a temporary lab plan for requesting capacity, and delete the plan afterwards. Because capacity is assigned to your subscription, it's not affected when you create or delete lab plans. The first time you create a lab plan, a special Microsoft-managed Azure subscription is automatically created.  This subscription isn’t visible to you and is used internally to assign your [dedicated capacity](./capacity-limits.md#per-customer-assigned-capacity).
 
-- [Create a  lab plan](./tutorial-setup-lab-plan.md).
-  - This lab plan can be deleted once capacity is requested.
-  - You don't need to enable advanced networking or images; or assign permissions.
-  - You can select any region.
+To request additional VM cores:
 
-In practice, more than one lab plan might be needed depending on your scenario. For example, the math department may only require one lab plan in one resource group. The computer science department might require multiple lab plans. One lab plan can enable advanced networking and a few custom images. Another lab plan can use basic networking and not enable custom images. Multiple lab plans can be kept in the same resource group.
-
-And, since lab accounts and lab plans cannot share capacity, you'll need to request new capacity for lab plans even if you have existing capacity for lab accounts. Before you request capacity, you must have at least one lab plan in your subscription.
-
-## 2. Request capacity
-
-As a customer, you're now assigned your own [dedicated VM cores quota](./capacity-limits.md#per-customer-assigned-capacity).  This quota is assigned per-subscription. The initial number of VM cores assigned to your subscription is limited, so you'll need to request a core limit increase.  Even if you're already using lab accounts in the current version of Azure Lab Services, you'll still need to request a core limit increase; existing cores in a lab account won't be available when you create a lab plan.
+1. [Create a lab plan](./tutorial-setup-lab-plan.md). To request capacity, you need at least one (temporary) lab plan.
 
 1. Verify the capacity available in your subscription by [determining the current usage and quota](./how-to-determine-your-quota-usage.md).
+
 1. [Request a core limit increase](./how-to-request-capacity-increase.md?tabs=Labplans).
+
+    In the list of available VM sizes, you can choose from either the *default* or the *alternative* VM sizes (prefixed with *alternative* in the list).
+
+    > [!TIP]
+    > It's recommended that you first request capacity for the default VM sizes. If you need more VM cores than available, request additional capacity from the list of alternative VM sizes.
+
 1. If you created a temporary lab plan, you can delete it at this point.  Deleting lab plans has no impact on your subscription or the capacity you have available. Capacity is assigned to your subscription.
+
+> [IMPORTANT]
+> You can't request capacity for the classic VM sizes. You can only get access to the classic VM sizes by [requesting a transfer of your lab account VM core capacity](#1a-transfer-vm-cores-from-lab-accounts).
 
 ### Tips for requesting a capacity increase
 
 [!INCLUDE [lab-services-request-capacity-best-practices](includes/lab-services-request-capacity-best-practices.md)]
 
 For example, when you move from lab accounts to lab plans, you should first request sufficient capacity to set up a few representative labs that serve as a proof-of-concept.  Later, you can make additional capacity requests based on your upcoming lab needs.
- 
 
-## 3. Configure shared resources  
+## 2. Configure shared resources  
 
 You can reuse the same Azure Compute Gallery and licensing servers that you use with your lab accounts.  Optionally, you can also [configure more licensing servers](./how-to-create-a-lab-with-shared-resource.md) and galleries based on your needs. For VMs that require access to a licensing server, you'll create lab plans with [advanced networking](./how-to-connect-vnet-injection.md) enabled as shown in the next step.
 
-## 4. Create additional lab plans
+## 3. Create additional lab plans
 
 While you're waiting for capacity to be assigned, you can continue creating lab plans that will be used for setting up your labs.  
+
+In practice, more than one lab plan might be needed depending on your scenario. For example, the math department may only require one lab plan in one resource group. The computer science department might require multiple lab plans. One lab plan can enable advanced networking and a few custom images. Another lab plan can use basic networking and not enable custom images. Multiple lab plans can be kept in the same resource group.
 
 1. [Create and configure lab plans](./tutorial-setup-lab-plan.md).
     - If you plan to use a license server, don't forget to enable [advanced networking](./how-to-connect-vnet-injection.md) when creating your lab plans.
@@ -93,11 +120,11 @@ If you're moving from lab accounts, the following table provides guidance on how
 |Teams integration|Configure lab plans with [Teams integration](./lab-services-within-teams-overview.md) by [adding the app to Teams groups](./how-to-get-started-create-lab-within-teams.md).|
 |[Firewall settings](./how-to-configure-firewall-settings-1.md) </br> - Create inbound and outbound rules for the lab's public IP address and the port range 49152 - 65535.|[Firewall settings](./how-to-configure-firewall-settings.md) </br> - Create inbound and outbound rules for the lab's public IP address and the port ranges 4980-4989, 5000-6999, and 7000-8999.|
 
-## 5. Validate images
+## 4. Validate images
 
 Each of the VM sizes has been remapped to use a newer [Azure VM Compute SKU](./administrator-guide.md#vm-sizing). If you're using an [attached compute gallery](./how-to-attach-detach-shared-image-gallery.md), validate each of your customized images with the new VM Compute SKU by publishing a lab with the image and testing common student workloads.  Before creating labs, verify that each image in the compute gallery is replicated to the same regions enabled in your lab plans.
 
-## 6. Create and publish labs
+## 5. Create and publish labs
 
 Once you have capacity assigned to your subscription, you can [create and publish](./tutorial-setup-lab.md) representative labs to validate the educator and student experience. 
 Creating a selection of representative labs as a proof of concept is an optional but highly recommended step, which enables you to validate performance based on common student workloads. After a successful proof of concept is completed, you can submit capacity requests based on your immediate upcoming need, building incrementally to your full capacity requirement over time. 
@@ -116,7 +143,7 @@ You cannot migrate existing labs to a lab plan. Instead, you must create new lab
 > [!NOTE]
 > Although you cannot migrate existing labs, you can still reuse other assets such as Compute Galleries and images, and any licensing servers.
 
-## 7. Update cost management reports
+## 6. Update cost management reports
 
 Update reports to include the new cost entry type, `Microsoft.LabServices/labs`, for labs created using lab plans. [Built-in and custom tags](./cost-management-guide.md#understand-the-entries) allow for [grouping](/azure/cost-management-billing/costs/quick-acm-cost-analysis) in cost analysis. For more information about tracking costs, see [Cost management for Azure Lab Services](./cost-management-guide.md).
 
