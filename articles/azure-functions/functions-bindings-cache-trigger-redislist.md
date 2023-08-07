@@ -144,7 +144,7 @@ From `function.json`, here is the binding data:
 
 Each sample uses the same `__init__.py` file, with binding data in the `function.json` file.
 
-# [v1](#tab/python-v1)
+### [v1](#tab/python-v1)
 
 The Python v1 programming model requires you to define bindings in a separate _function.json_ file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
 
@@ -178,7 +178,7 @@ From `function.json`, here is the binding data:
 }
 ```
 
-# [v2](#tab/python-v2)
+### [v2](#tab/python-v2)
 
 The Python v2 programming model is not available in preview.
 

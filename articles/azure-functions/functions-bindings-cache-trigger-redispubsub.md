@@ -127,7 +127,6 @@ This sample listens to any `keyevent` notifications for the delete command [`DEL
             context.getLogger().info(message);
     }
 ```
-<!--Content and samples from the Java tab in ##Examples go here.-->
 
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
@@ -263,7 +262,7 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-# [v1](#tab/python-v1)
+### [v1](#tab/python-v1)
 
 The Python v1 programming model requires you to define bindings in a separate _function.json_ file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
 
@@ -331,9 +330,10 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 }
 ```
 
-# [v2](#tab/python-v2)
+### [v2](#tab/python-v2)
 
 The Python v2 programming model is not available in preview.
+
 ---
 
 ::: zone-end
