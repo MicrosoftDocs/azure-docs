@@ -24,7 +24,9 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ## Integration update notice 
 
-Defender for IoT plans to end support for the legacy Splunk, Aruba ClearPass, and Palo Alto Panorama integrations with an upcoming patch version of 23.1.x. We recommend that you transition to more updated integration methods instead, as described in the following table:
+Defender for IoT recommends enhancing your OT monitoring system by integrating with parter services via cloud-based solutions, such as Microsoft Sentinel. Integrating with partner services allows you to enhance your OT monitoring system's scalability, robustness, and effectiveness, and synchronize between partner services and your security stack.
+
+Defender for IoT is planning to end support for legacy integrations with Splunk, Aruba ClearPass, and Palo Alto Panorama in an upcoming patch version of 23.1.x. We recommend that you transition to cloud integration methods instead, as described in the following table:
 
 |Integration  |Recommended method  | Legacy method
 |---------|---------|---------|
