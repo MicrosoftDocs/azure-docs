@@ -238,7 +238,7 @@ Azure AD has reports that provide technical and business insights, follow the pr
 
 You can monitor authentication method registration and usage across your organization using the [Authentication Methods Activity dashboard](howto-authentication-methods-activity.md). This helps you understand what methods are being registered and how they're being used.
 
-#### Sign in report to review MFA events
+#### Sign-in report to review MFA events
 
 The Azure AD sign-in reports include authentication details for events when a user is prompted for MFA, and if any Conditional Access policies were in use. You can also use PowerShell for reporting on users registered for Azure AD Multi-Factor Authentication. 
 

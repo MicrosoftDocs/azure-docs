@@ -472,7 +472,7 @@ Remote Desktop Protocol (RDP) Shortpath for managed networks is now generally av
 
 ### Screen capture protection updates
 
-Screen capture protection is now supported on the macOS client and the Azure Government and Microsoft Azure operated by 21Vianet clouds. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/screen-capture-protection-for-macos-client-and-support-for/m-p/2840089#M7940).
+Screen capture protection is now supported on the macOS client and the Azure Government and Azure operated by 21Vianet clouds. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/screen-capture-protection-for-macos-client-and-support-for/m-p/2840089#M7940).
 
 ### Azure Active Directory domain join 
 
@@ -500,7 +500,7 @@ You can also now set host pool, application group, and workspace diagnostic sett
 
 Azure Active Directory domain join is now generally available. This service lets you join your session hosts to Azure Active Directory (Azure AD). Domain join also lets you autoenroll into Microsoft Intune. You can access this feature in the Azure public cloud, but not the Government cloud or Azure operated by 21Vianet. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-general-availability-of-azure-ad-joined-vms-support/ba-p/2751083).
 
-### Microsoft Azure operated by 21Vianet
+### Azure operated by 21Vianet
 
 Azure Virtual Desktop is now generally available in the Azure operated by 21Vianet cloud. For more information, see [our blog post](https://azure.microsoft.com/updates/general-availability-azure-virtual-desktop-is-now-available-in-the-azure-china-cloud/).
 
