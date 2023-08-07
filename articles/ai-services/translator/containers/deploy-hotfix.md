@@ -34,12 +34,10 @@ There may be times when you're running a container with a multi-layered ingestio
 > You can generate template hotfix files using the following command in your container environment:
 > **GenerateHotfixTemplate=true**
 
-The hot fix folder is encoded in **UTF-16 LE BOM** format and nests **phrase&#8203;fix** or **sent&#8203;fix** source and target language files.
-
   > [!IMPORTANT]
   > **UTF-16 LE** is the only accepted file format for the hotfix folders. For more information about encoding your files, *see* [Encoding](/powershell/module/microsoft.powershell.management/set-content?view=powershell-7.2#-encoding&preserve-view=true)
 
-1. To get started manually creating the folder structure, you need to create and name your hotfix folder. Let's name our folder `customhotfix`. Each folder can have **phrase&#8203;fix** and **sent&#8203;fix** files. You provide the source (`src`) and target (`tgt`) language codes with the following naming convention:
+1. To get started manually creating the folder structure, you need to create and name your hotfix folder. The hot fix folder is encoded in **UTF-16 LE BOM** format and nests **phrase&#8203;fix** or **sent&#8203;fix** source and target language files. Let's name our folder `customhotfix`. Each folder can have **phrase&#8203;fix** and **sent&#8203;fix** files. You provide the source (`src`) and target (`tgt`) language codes with the following naming convention:
 
     |Hotfix folder file name format|Example file name |
     |-----|-----|
@@ -74,36 +72,38 @@ The hot fix folder is encoded in **UTF-16 LE BOM** format and nests **phrase&#82
 
 1. Run the container using the **docker run** command
 
-  **Docker run command required options**
+    **Docker run command required options**
 
-  ```dockerfile
-  docker run --rm -it -p 5000:5000 \
+    ```dockerfile
+    docker run --rm -it -p 5000:5000 \
 
-  -e eula=accept \
+    -e eula=accept \
 
-  -e billing={ENDPOINT_URI} \
+    -e billing={ENDPOINT_URI} \
 
-  -e apikey={API_KEY} \
+    -e apikey={API_KEY} \
 
-  -e Languages={LANGUAGES_LIST} \
+    -e Languages={LANGUAGES_LIST} \
 
-  -e HotfixDataFolder={path to hotfix folder}
+    -e HotfixDataFolder={path to hotfix folder}
 
-  {image}
-  ```
+    {image}
+    ```
 
-  **Example docker run command**
+    **Example docker run command**
 
-  ```dockerfile
-  docker run -rm -d -p 5000:5000 \
-  -v /mnt/d/models:/usr/local/models -v /mnt/d /customerhotfix:/usr/local/customhotfix \
-  -e EULA=accept \
-  -e billing={ENDPOINT_URI} \
-  -e apikey={API_Key} \
-  -e Languages=en,es \
-  -e HotfixDataFolder=/usr/local/customhotfix\
-  mcr.microsoft.com/azure-cognitive-services/translator/text-translation:latest
-```
+    ```dockerfile
+
+    docker run -rm -d -p 5000:5000 \
+    -v /mnt/d/models:/usr/local/models -v /mnt/d /customerhotfix:/usr/local/customhotfix \
+    -e EULA=accept \
+    -e billing={ENDPOINT_URI} \
+    -e apikey={API_Key} \
+    -e Languages=en,es \
+    -e HotfixDataFolder=/usr/local/customhotfix\
+    mcr.microsoft.com/azure-cognitive-services/translator/text-translation:latest
+
+   ```
 
 ## Next steps
 
