@@ -23,6 +23,12 @@ This article provides information about limitations and known issues related to 
 
 The following sections provide information about known issues associated with the Communication Services JavaScript voice and video calling SDKs.
 
+### Chrome M115 - regression 
+
+Chrome version 115 for Android introduced a regression when making video calls - the result of this bug is a user making a call on ACS with this version of Chrome will have no outgoing video in Group and ACS-MS Teams calls.
+- This is a known regression introduced on [Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=1469318)
+- As a short term mitigation please instruct users to use Microsoft Edge or Firefox on Android, or avoid using Google Chrome 115/116 on Android
+
 ### Firefox Known Issues
 Firefox desktop browser support is now available in public preview. Known issues are:
 - Enumerating speakers is not available: If you're using Firefox, your app won't be able to enumerate or select speakers through the Communication Services device manager. In this scenario, you must select devices via the operating system. 
@@ -66,9 +72,9 @@ A number of specific Android devices fail to start, accept calls, and meetings. 
 
 On Android Chrome, if a user is on an ACS call and puts the browser into background for one minute. The microphone will lose access and the other participants in the call won't hear the audio from the user. Once the user brings the browser to foreground, microphone is available again. Related chromium bugs [here](https://bugs.chromium.org/p/chromium/issues/detail?id=1027446) and [here](https://bugs.chromium.org/p/webrtc/issues/detail?id=10940)
 
-### The user has dropped the call but is still on the participant list.
+### A mobile (iOS and Android) user has dropped the call but is still showing up on the participant list.
 
-The problem can occur if a mobile user leaves the ACS group call without properly hang up. When a user closes the browser or refreshes the webpage without hang up, other participants in the group call will still see the user on the participant list for about 2 minutes.
+The problem can occur if a mobile user leaves the ACS group call without using the Call.hangUp() API. When a mobile user closes the browser or refreshes the webpage without hang up, other participants in the group call will still see this mobile user on the participant list for about 60 seconds.
 
 ### iOS Safari refreshes the page if the user goes to another app and returns back to the browser
 

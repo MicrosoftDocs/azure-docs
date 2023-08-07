@@ -16,7 +16,7 @@ ms.custom: devplatv2, cliv2, event-tier1-build-2022, ignite-2022
 
 # Access Azure resources from an online endpoint with a managed identity 
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Learn how to access Azure resources from your scoring script with an online endpoint and either a system-assigned managed identity or a user-assigned managed identity. 
 

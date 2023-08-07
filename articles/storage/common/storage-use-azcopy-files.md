@@ -2,11 +2,11 @@
 title: Transfer data to or from Azure Files by using AzCopy v10
 description: Transfer data with AzCopy and file storage. AzCopy is a command-line tool for copying blobs or files to or from a storage account. Use AzCopy with Azure Files.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 10/02/2022
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ---
 
 # Transfer data with AzCopy and file storage
@@ -57,7 +57,7 @@ This section contains the following examples:
 > For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
 > [!NOTE]
-> AzCopy doesn't automatically calculate and store the file's md5 hash code. If you want AzCopy to do that, then append the `--put-md5` flag to each copy command. That way, when the file is downloaded, AzCopy calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the file's `Content-md5` property matches the calculated hash.
+> AzCopy doesn't automatically calculate and store the file's md5 hash code for a file greater than 256 MB.If you want AzCopy to do that, then append the `--put-md5` flag to each copy command. That way, when the file is downloaded, AzCopy calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the file's `Content-md5` property matches the calculated hash.
 
 ### Upload a file
 

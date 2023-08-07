@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 07/10/2023
 ms.author: jeedes
 
 ---
@@ -86,7 +86,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://headspace.com/sso-login`
 
     > [!Note]
-    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Headspace Client support team](mailto:ecosystem-integration-squad@headspace.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Headspace Client support team](mailto:employer-solution-squad@headspace.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Headspace application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -146,7 +146,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Headspace SSO
 
-To configure single sign-on on **Headspace** side, you need to send the downloaded **Certificate (PEM)** and appropriate copied URLs from Azure portal to [Headspace support team](mailto:ecosystem-integration-squad@headspace.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Headspace** side, you need to send the downloaded **Certificate (PEM)** and appropriate copied URLs from Azure portal to [Headspace support team](mailto:employer-solution-squad@headspace.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Headspace test user
 
@@ -156,11 +156,11 @@ In this section, a user called B.Simon is created in Headspace. Headspace suppor
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Headspace Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to Headspace Sign on URL where you can initiate the login flow. 
 
-* Go to Headspace Sign-on URL directly and initiate the login flow from there.
+* Go to Headspace Sign on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Headspace tile in the My Apps, this will redirect to Headspace Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Headspace tile in the My Apps, this will redirect to Headspace Sign on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

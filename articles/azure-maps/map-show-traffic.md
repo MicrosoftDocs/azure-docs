@@ -55,7 +55,7 @@ The [Traffic Overlay Options] tool lets you switch between the different traffic
 
 ## Add traffic controls
 
-There are two different traffic controls that can be added to the map. The first control, `TrafficControl`, adds a toggle button that can be used to turn traffic on and off. Options for this control allow you to specify when traffic settings to use when show traffic. By default this control will display relative traffic flow and incident data, however, you could change this to show absolute traffic flow and no incidents if desired. The second control, `TrafficLegendControl`, adds a traffic flow legend to the map that helps user understand what the color code road highlights mean. This control will only appear on the map when traffic flow data is displayed on the map and will be hidden at all other times.
+There are two different traffic controls that can be added to the map. The first control, `TrafficControl`, adds a toggle button that can be used to turn traffic on and off. Options for this control allow you to specify when traffic settings to use when show traffic. By default this control displays relative traffic flow and incident data, however, you could change this behavior and show absolute traffic flow and no incidents if desired. The second control, `TrafficLegendControl`, adds a traffic flow legend to the map that helps user understand what the color code road highlights mean. This control only appears on the map when traffic flow data is displayed on the map and is hidden at all other times.
 
 The following code shows how to add the traffic controls to the map.
 
@@ -82,25 +82,30 @@ The [Traffic controls] sample is a fully functional map that shows how to displa
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [Map](/javascript/api/azure-maps-control/atlas.map)
+> [Map]
 
 > [!div class="nextstepaction"]
-> [TrafficOptions](/javascript/api/azure-maps-control/atlas.trafficoptions)
+> [TrafficOptions]
 
 Enhance your user experiences:
 
 > [!div class="nextstepaction"]
-> [Map interaction with mouse events](map-events.md)
+> [Map interaction with mouse events]
 
 > [!div class="nextstepaction"]
-> [Building an accessible map](map-accessibility.md)
+> [Building an accessible map]
 
 > [!div class="nextstepaction"]
-> [Code sample page](https://aka.ms/AzureMapsSamples)
+> [Code sample page]
 
-[Traffic Overlay]: https://samples.azuremaps.com/traffic/traffic-overlay
+[Building an accessible map]: map-accessibility.md
+[Code sample page]: https://aka.ms/AzureMapsSamples
+[Map interaction with mouse events]: map-events.md
+[Map]: /javascript/api/azure-maps-control/atlas.map
+[Traffic controls source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Traffic/Traffic%20controls/Traffic%20controls.html
 [Traffic controls]: https://samples.azuremaps.com/traffic/traffic-controls
+[Traffic Overlay Options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Traffic/Traffic%20Overlay%20Options/Traffic%20Overlay%20Options.html
 [Traffic Overlay Options]: https://samples.azuremaps.com/traffic/traffic-overlay-options
 [Traffic Overlay source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Traffic/Traffic%20Overlay/Traffic%20Overlay.html
-[Traffic controls source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Traffic/Traffic%20controls/Traffic%20controls.html
-[Traffic Overlay Options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Traffic/Traffic%20Overlay%20Options/Traffic%20Overlay%20Options.html
+[Traffic Overlay]: https://samples.azuremaps.com/traffic/traffic-overlay
+[TrafficOptions]: /javascript/api/azure-maps-control/atlas.trafficoptions

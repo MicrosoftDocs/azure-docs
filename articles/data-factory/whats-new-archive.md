@@ -23,6 +23,27 @@ This archive page retains updates from older months.
 
 Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly update
 
+## November 2022
+ 
+### Data flow
+
+- Incremental only is available in SAP CDC - get changes only from SAP system without initial full load  [Learn more](connector-sap-change-data-capture.md?tabs=data-factory#mapping-data-flow-properties)
+- Source partitions in initial full data load of SAP CDC to improve performance  [Learn more](connector-sap-change-data-capture.md?tabs=data-factory#mapping-data-flow-properties)
+- A new pipeline template - Load multiple objects with big amounts from SAP via SAP CDC [Learn more](solution-template-replicate-multiple-objects-sap-cdc.md?tabs=data-factory)
+
+### Data Movement
+- Support to Azure Databricks through private link from a Data Factory managed virtual network [Learn more](managed-virtual-network-private-endpoint.md?tabs=data-factory#supported-data-sources-and-services)
+
+### User Interface
+3 Pipeline designer enhancements added to ADF Studio preview experience 
+- Dynamic content flyout - make it easier to set dynamic content in your pipeline activities without using the expression builder  [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#dynamic-content-flyout)
+- Error message relocation to status column - make it easier for you to view errors when you see a Failed pipeline run [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#error-message-relocation-to-status-column)
+- Container view - in Author Tab, Pipeline can change output view from list to container [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#container-view)
+
+### Continuous integration and continuous deployment
+
+In auto publish config, disable publish button is available to void overwriting the last automated publish deployment [Learn more](source-control.md?tabs=data-factory#editing-repo-settings)
+
 ## October 2022
 
 ### Video summary
@@ -342,7 +363,7 @@ Be a part of Azure Data Factory studio preview features - Experience the latest 
 <table>
 <tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
 
-  <tr><td><b>Continuous integration and continuous delivery</b></td><td>CI/CD improvements with GitHub support in Azure Government and Azure China</td><td>We've added support for GitHub in Azure for US Government and Azure China.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/cicd-improvements-with-github-support-in-azure-government-and/ba-p/2686918">Learn more</a></td></tr>
+  <tr><td><b>Continuous integration and continuous delivery</b></td><td>CI/CD improvements with GitHub support in Azure Government and Microsoft Azure operated by 21Vianet</td><td>We've added support for GitHub in Azure for US Government and Azure operated by 21Vianet.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/cicd-improvements-with-github-support-in-azure-government-and/ba-p/2686918">Learn more</a></td></tr>
 
 <tr><td rowspan=2><b>Data movement</b></td><td>The Azure Cosmos DB API for MongoDB connector supports versions 3.6 and 4.0 in Data Factory</td><td>The Data Factory Azure Cosmos DB API for MongoDB connector now supports server versions 3.6 and 4.0.<br><a href="connector-azure-cosmos-db-mongodb-api.md">Learn more</a></td></tr>
 <tr><td>Enhance using COPY statement to load data into Azure Synapse</td><td>The Data Factory Azure Synapse connector now supports staged copy and copy source with *.* as wildcardFilename for the COPY statement.<br><a href="connector-azure-sql-data-warehouse.md#use-copy-statement">Learn more</a></td></tr>

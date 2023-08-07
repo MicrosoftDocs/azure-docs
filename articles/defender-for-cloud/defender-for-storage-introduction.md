@@ -1,6 +1,6 @@
 ---
 title: Microsoft Defender for Storage - the benefits and features
-titleSuffix: Microsoft Defender for Cloud
+
 description: Learn about the benefits and features of Microsoft Defender for Storage.
 ms.date: 06/15/2023
 author: dcurwin
@@ -37,12 +37,12 @@ With a simple agentless setup at scale, you can [enable Defender for Storage](..
 
 |Aspect|Details|
 |----|:----|
-|Release state:|General availability (GA)|
-|Feature availability:|- Activity monitoring (security alerts) - General availability (GA)<br>- Malware Scanning – Preview<br>- Sensitive data threat detection (Sensitive Data Discovery) – Preview|
-|Pricing:|- Defender for Storage: $10/storage accounts/month\*<br>- Malware Scanning (add-on): Free during public preview\*\*<br><br>Above pricing applies to commercial clouds. Visit the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) to learn more.<br><br>\* Storage accounts that exceed 73 million monthly transactions will be charged $0.1492 for every 1 million transactions that exceed the threshold.<br>\*\* In the future, Malware Scanning will be priced at $0.15/GB of data ingested. Billing for Malware Scanning is not enabled during public preview and advanced notice will be given before billing starts.|
+|Release state:|General Availability (GA)|
+|Feature availability:|- Activity monitoring (security alerts) - General Availability (GA)<br>- Malware Scanning – Preview, **General Availability (GA) on September 1, 2023** <br>- Sensitive data threat detection (Sensitive Data Discovery) – Preview|
+|Pricing:|- Defender for Storage: $10/storage accounts/month\*<br>- Malware Scanning (add-on): Free during public preview\*\* <br><br>Above pricing applies to commercial clouds. Visit the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) to learn more.<br><br>\* Storage accounts that exceed 73 million monthly transactions will be charged $0.1492 for every 1 million transactions that exceed the threshold.<br>\*\* Malware Scanning is offered for free during the public preview but will **start being billed on September 1, 2023, at $0.15/GB (USD) of data ingested.** Customers are encouraged to use the “Monthly capping” feature to define the cap on GB scanned per month per storage account and control costs using this feature.|
 | Supported storage types:|[Blob Storage](https://azure.microsoft.com/products/storage/blobs/) (Standard/Premium StorageV2, including Data Lake Gen2): Activity monitoring, Malware Scanning, Sensitive Data Discovery<br>Azure Files (over REST API and SMB): Activity monitoring |
 |Required roles and permissions:|For Malware Scanning and sensitive data threat detection at subscription and storage account levels, you need Owner roles (subscription owner/storage account owner) or specific roles with corresponding data actions. To enable Activity Monitoring, you need 'Security Admin' permissions. Read more about the required permissions.|
-|Clouds:|:::image type="icon" source="../defender-for-cloud/media/icons/yes-icon.png"::: Commercial clouds\*<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Azure Government (only activity monitoring support on the [classic plan](/azure/defender-for-cloud/defender-for-storage-classic))<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Connected AWS accounts|
+|Clouds:|:::image type="icon" source="../defender-for-cloud/media/icons/yes-icon.png"::: Commercial clouds\*<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Azure Government (only activity monitoring support on the [classic plan](/azure/defender-for-cloud/defender-for-storage-classic))<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Microsoft Azure operated by 21Vianet<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Connected AWS accounts|
 
 \* Azure DNS Zone isn't supported for Malware Scanning and sensitive data threat detection.
 
@@ -73,6 +73,9 @@ Defender for Storage continuously analyzes data and control plane logs from prot
 :::image type="content" source="media/defender-for-storage-introduction/activity-monitoring.png" alt-text="Diagram showing how activity monitoring identifies threats to your data.":::
 
 ### Malware Scanning (powered by Microsoft Defender Antivirus)
+
+> [!NOTE]
+> Malware Scanning is offered for free during public preview. **Billing will begin when generally available (GA) on September 1, 2023 and priced at $0.15 (USD)/GB of data scanned.** You are encouraged to use the “Monthly capping” feature to define the cap on GB scanned per storage account per month and control costs.
 
 Malware Scanning in Defender for Storage helps protect storage accounts from malicious content by performing a full malware scan on uploaded content in near real time, applying Microsoft Defender Antivirus capabilities. It's designed to help fulfill security and compliance requirements to handle untrusted content. Every file type is scanned, and scan results are returned for every file. The Malware Scanning capability is an agentless SaaS solution that allows simple setup at scale, with zero maintenance, and supports automating response at scale.
 This is a configurable feature in the new Defender for Storage plan that is priced per GB scanned.
