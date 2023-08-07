@@ -66,8 +66,10 @@ Provide the company details to be used in your Meta Business Account then click 
     
 :::image type="content" source="./media/register-whatsapp-account/creating-new-business-account.png" alt-text="Screenshot that shows Filling out the details of your Meta Business account.":::
 
+Once Business account is created, please continue with [**Setting up WhatsApp Profile**](#selecting-a-whatsapp-business-profile) step.
+
 > [!NOTE]
-> More details on how-to and required information can be found [Here](https://www.facebook.com/business/tools/meta-business-suite)
+> More details on how-to and required information on Meta Business Account can be found [Here](https://www.facebook.com/business/tools/meta-business-suite)
 
 ## Next Steps
 
