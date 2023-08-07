@@ -16,6 +16,42 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## September 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | [New architecture hybrid and air-gapped support](#new-architecture-hybrid-and-air-gapped-support) |
+
+### New architecture for hybrid and air-gapped support
+
+Defender for IoT now provides a re-architected set of guidance for connecting to and monitoring your hybrid and air-gapped environments, including:
+
+- A reliable and robust platform that allows you to integrate with your built-in, existing organizational infrastructure
+- Stronger and smarter edge functionality for OT sensors, connecting hybrid or air-gapped resources with Microsoft's cloud services. Defender for IoT's continued sensor enhancements ease connectivity and resource management from the cloud, even in hybrid and air-gapped environments.
+
+The following image shows a high-level map of the updated architecture guidance, where each OT sensor connects directly to the Microsoft cloud or existing customer infrastructure for monitoring and maintenance services:
+
+:::image type="content" source="media/on-premises-architecture/on-premises-architecture.png" alt-text="Diagram of the new architecture for hybrid and air-gapped support.":::
+
+#### Legacy on-premises management console deprecation
+
+To support continued enhancements for the newly streamlined architecture, starting September 1, 2023, Defender for IoT also announces that the legacy on-premises management console will be deprecated as of September 1, 2024.
+ 
+For sensor versions released after September 1, 2024, there will be no option to manage OT network sensors centrally from an on-premises management console, and all central management activities will be supported only from the cloud.
+ 
+Between September 1, 2023 and September 1, 2024, sensor versions will continue to have a parallel on-premises management console, and support will continue for a full year. After September 1, 2024, air-gapped sensors that cannot connect to the cloud can continue to be managed directly on the sensor console.
+
+We recommend that customers move any central management activities currently managed on the legacy on-premises management console to relevant cloud services.
+
+For more information, see:
+
+- [New article on hybrid and air-gapped environments](tbd.md)
+- [Deploy air-gapped OT sensor management](ot-deploy/air-gapped-deploy.md)
+- [Versioning and support for on-premises software versions](release-notes.md#versioning-and-support-for-on-premises-software-versions)
+
+## August 2023
+
+
 ## July 2023
 
 |Service area  |Updates  |

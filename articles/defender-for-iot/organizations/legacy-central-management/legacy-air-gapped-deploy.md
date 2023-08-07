@@ -1,19 +1,11 @@
 ---
-title: Hybrid or air-gapped deployment path for sensor management - Microsoft Defender for IoT
-description: Learn about additional steps involved in deploying Microsoft Defender for IoT in a hybrid or air-gapped environment.
+title: On-premises management console deployment path - Microsoft Defender for IoT
+description: Learn about the steps involved in deploying a Microsoft Defender for IoT on-premises management console to centrally manage and view data from multiple locally-managed, air-gapped OT sensors.
 ms.topic: install-set-up-deploy
-ms.date: 08/07/2023
+ms.date: 02/22/2023
 ---
 
-# Deploy hybrid or air-gapped OT sensor management
-
-<!--THIS ARTICLE NEEDS TO BE REWORKED WITH NEW DEPLOYMENT GUIDANCE FOR NEW ARCHITECTURE-->
-
-> [!IMPORTANT]
-> The [legacy on-premises management console](../legacy-central-management/legacy-air-gapped-deploy.md) is planned for deprecation on September 1, 2023. Instead, we recommend using either Microsoft cloud services or existing IT infrastructure for central monitoring and maintenance in hybrid and air-gapped environments.
->
-> For more information, see [Recommended architecture for hybrid or air-gapped environments](air-gapped-architecture.md).
->
+# Deploy air-gapped OT sensor management
 
 When you're working with multiple, air-gapped OT sensors that can't be managed by the Azure portal, we recommend deploying an on-premises management console to manage your air-gapped OT sensors.
 
