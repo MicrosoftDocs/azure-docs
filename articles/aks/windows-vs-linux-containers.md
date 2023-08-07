@@ -1,15 +1,15 @@
 ---
-title: Windows container limitations in Kubernetes
+title: Windows container considerations in Kubernetes
 titleSuffix: Azure Kubernetes Service
-description: See the Windows container limitations in Kubernetes.
+description: See the Windows container considerations in Kubernetes.
 ms.topic: article
-ms.date: 07/24/2023
+ms.date: 08/07/2023
 ms.author: schaffererin
 author: schaffererin
 
 ---
 
-# Windows container limitations in Kubernetes
+# Windows container considerations in Kubernetes
 
 When you create deployments that use Windows Server containers in Azure Kubernetes Service (AKS), there are a few differences relative to Linux deployments you should keep in mind. For a detailed comparison of the differences between Windows and Linux in upstream Kubernetes, please see [Windows containers in Kubernetes](https://kubernetes.io/docs/concepts/windows/intro/).
 
@@ -28,7 +28,7 @@ This article covers important considerations to keep in mind when using Windows 
 
 | Feature | Windows considerations |
 |-----------|:-----------|
-| [Cluster creation][cluster-configuration] | • The first system node pool *must* be Linux by default.<br/> • AKS Windows clusters have a maximum limit of 10 node pools.<br/> • AKS Windows clusters have a maximum limit of 100 nodes in each node pool.<br/> • The Windows Server node pool name has a limit of six characters. |
+| [Cluster creation][cluster-configuration] | • The first system node pool *must* be Linux.<br/> • AKS Windows clusters have a maximum limit of 10 node pools.<br/> • AKS Windows clusters have a maximum limit of 100 nodes in each node pool.<br/> • The Windows Server node pool name has a limit of six characters. |
 | [Privileged containers][privileged-containers] | Not supported. The equivalent is **HPC containers**. |
 | [HPC containers][hpc-containers] | • HostProcess containers are the Windows alternative to Linux privileged containers. For more information, see [Create a Windows HostProcess pod](https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/). |
 | [Azure Network Policy Manager (Azure NPM)][azure-network-policy] | Azure NPM doesn't support:<br/> • Named ports<br/> • SCTP protocol<br/> • Negative match labels or namespace selectors (all labels except "debug=true")<br/> • "except" CIDR blocks (a CIDR with exceptions)<br/> • Windows Server 2019<br/> |
@@ -38,7 +38,7 @@ This article covers important considerations to keep in mind when using Windows 
 | [Open Service Mesh][open-service-mesh] | Not supported. |
 | [GPU][gpu] | Not supported. |
 | [Multi-instance GPU][multi-instance-gpu] | Not supported. |
-| [Generation 2 VMs][gen-2-vms] | Not supported. |
+| [Generation 2 VMs (preview)][gen-2-vms] | Not supported. |
 | [Custom node config][custom-node-config] | Not supported. |
 | [Custom kubelet parameters][custom-kubelet-parameters] | Not supported. |
 
