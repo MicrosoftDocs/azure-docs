@@ -44,7 +44,9 @@ landingContent:
         links:
         - text: Keys and values
           url: concept-key-value.md
-        - text: Point-in-time snapshot
+        - text: Snapshots
+          url: concept-snapshots.md
+        - text: Point-in-time key-values
           url: concept-point-time-snapshot.md
         - text: Feature Management
           url: concept-feature-management.md
