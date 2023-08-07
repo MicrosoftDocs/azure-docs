@@ -1,5 +1,5 @@
 ---
-title: Custom template document model - Document Intelligence
+title: Custom template document model - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Use the custom template document model to train a model to extract data from structured or templated forms.
 author: laujan
