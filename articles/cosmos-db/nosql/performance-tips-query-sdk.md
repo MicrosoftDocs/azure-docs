@@ -229,6 +229,48 @@ IQueryable<dynamic> authorResults = client.CreateDocumentQuery(
 
 Pre-fetching works the same way regardless of the degree of parallelism, and there's a single buffer for the data from all partitions.
 
+## Optimizing single partition queries with Optimistic Direct Execution
+
+Azure Cosmos DB NoSQL has an optimization called Optimistic Direct Execution (ODE), which can improve the efficiency of certain NoSQL queries. Specifically, queries that don’t require distribution include those that can be executed on a single physical partition or that have responses that don't require [pagination](query/pagination.md). Queries that don’t require distribution can confidently skip some processes, such as client-side query plan generation and query rewrite, thereby reducing query latency and RU cost. If you specify the partition key in the request or query itself (or have only one physical partition), and the results of your query don’t require pagination, then ODE can improve your queries.
+
+Single partition queries that feature GROUP BY, ORDER BY, DISTINCT, and aggregation functions (like sum, mean, min, and max) can significantly benefit from using ODE. However, in scenarios where the query is targeting multiple partitions or still requires pagination, the latency of the query response and RU cost might be higher than without using ODE. Therefore, when using ODE, we recommend to:
+-	Specify the partition key in the call or query itself. 
+-	Ensure that your data size hasn’t grown and caused the partition to split.
+-	Ensure that your query results don’t require pagination to get the full benefit of ODE.
+ 
+Here are a few examples of simple single partition queries which can benefit from ODE:
+```
+- SELECT * FROM r
+- SELECT VALUE r.id FROM r
+- SELECT * FROM r WHERE r.id > 5
+- SELECT r.id FROM r JOIN id IN r.id
+- SELECT TOP 5 r.id FROM r ORDER BY r.id
+- SELECT * FROM r WHERE r.id > 5 OFFSET 5 LIMIT 3 
+```
+There can be cases where single partition queries may still require distribution if the number of data items increases over time and your Azure Cosmos DB database [splits the partition](../partitioning-overview.md#physical-partitions).  Examples of queries where this could occur include:
+```
+- SELECT Count(r.id) AS count_a FROM r
+- SELECT DISTINCT r.id FROM r
+- SELECT Max(r.a) as min_a FROM r
+- SELECT Avg(r.a) as min_a FROM r
+- SELECT Sum(r.a) as sum_a FROM r WHERE r.a > 0 
+```
+Some complex queries can always require distribution, even if targeting a single partition. Examples of such queries include:
+```
+- SELECT Sum(id) as sum_id FROM r JOIN id IN r.id
+- SELECT DISTINCT r.id FROM r GROUP BY r.id
+- SELECT DISTINCT r.id, Sum(r.id) as sum_a FROM r GROUP BY r.id
+- SELECT Count(1) FROM (SELECT DISTINCT r.id FROM root r)
+- SELECT Avg(1) AS avg FROM root r 
+```
+
+It's important to note that ODE might not always retrieve the query plan and, as a result, is not able to disallow or turn off for unsupported queries. For example, after partition split, such queries are no longer eligible for ODE and, therefore, won't run because client-side query plan evaluation will block those. To ensure compatibility/service continuity, it's critical to ensure that only queries that are fully supported in scenarios without ODE (that is, they execute and produce the correct result in the general multi-partition case) are used with ODE.
+
+### Using ODE via the SDKs
+ODE is now available and enabled by default in the .NET Preview SDK for versions 3.35.0 and later. When you execute a query and specify a partition key in the request or query itself, or your database has only one physical partition, your query execution can leverage the benefits of ODE. 
+
+To disable ODE, set the flag `EnableOptimisticDirectExecution` to false in your QueryRequestOptions object.
+
 
 
 ## Next steps
@@ -358,6 +400,7 @@ CosmosPagedFlux<MyItem> filteredItems =
 ```
 
 Pre-fetching works the same way regardless of the degree of parallelism, and there's a single buffer for the data from all partitions.
+
 
 ## Next steps
 
