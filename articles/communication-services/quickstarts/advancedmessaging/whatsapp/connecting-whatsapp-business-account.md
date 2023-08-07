@@ -64,7 +64,7 @@ Provide the company details to be used in your Meta Business Account then click 
 -  Business Email: You can use the email associated with your Facebook login.
 -  Business Phone Number: The phone number that customers can use to contact you.
     
-:::image type="content" source="../../media/register-whatsapp-account/creating-new-business-account.png" alt-text="Screenshot that shows Filling out the details of your Meta Business account.":::
+:::image type="content" source="./media/register-whatsapp-account/creating-new-business-account.png" alt-text="Screenshot that shows Filling out the details of your Meta Business account.":::
 
 > [!NOTE]
 > More details on how-to and required information can be found [Here](https://www.facebook.com/business/tools/meta-business-suite)

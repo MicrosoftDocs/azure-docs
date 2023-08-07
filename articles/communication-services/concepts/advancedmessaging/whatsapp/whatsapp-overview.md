@@ -35,5 +35,5 @@ The following documents help you get started with Advanced Messaging for WhatsAp
 -   [Trying WhatsApp Sandbox](../../../quickstarts//advancedmessaging/whatsapp//whatsapp-sandbox-quickstart.md)
 -   [Get Started With Advanced Communication Messages SDK](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)
 -   [Handle Advanced Messaging Events](../../../quickstarts/advancedmessaging/whatsapp/handle-advanced-messaging-events.md)
--   [Messaging Policy](../messaging-policy.md)
+-   [Messaging Policy](../../../concepts/sms/messaging-policy.md)
 -   [Pricing for Advanced Messaging for WhatsApp](./pricing.md)
