@@ -120,6 +120,6 @@ If partitions are equally sized, source partitioning can linearly increase the t
 
 ## Next steps
 
-[Overview and architecture of the SAP CDC capabilities](sap-change-data-capture-introduction-architecture.md)
-[Replicate multiple objects from SAP via SAP CDC](solution-template-replicate-multiple-objects-sap-cdc.md)
-[SAP CDC advanced topics](sap-change-data-capture-advanced-topics.md)
+- [Overview and architecture of the SAP CDC capabilities](sap-change-data-capture-introduction-architecture.md)
+- [Replicate multiple objects from SAP via SAP CDC](solution-template-replicate-multiple-objects-sap-cdc.md)
+- [SAP CDC advanced topics](sap-change-data-capture-advanced-topics.md)
