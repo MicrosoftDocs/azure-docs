@@ -20,7 +20,7 @@ monikerRange: '>=doc-intel-3.0.0'
 
 Document Intelligence Studio is an online tool to visually explore, understand, train, and integrate features from the Document Intelligence service into your applications. The studio provides a platform for you to experiment with the different Document Intelligence models and sample returned data in an interactive manner without the need to write code.
 
-The studio supports Document Intelligence v3.0 models and v3.0 model training. Previously trained v2.1 models with labeled data are supported, but not v2.1 model training. Refer to the [REST API migration guide](v3-migration-guide.md) for detailed information about migrating from v2.1 to v3.0.
+The studio supports Document Intelligence v3.0 models and v3.0 model training. Previously trained v2.1 models with labeled data are supported, but not v2.1 model training. Refer to the [REST API migration guide](v3-1-migration-guide.md) for detailed information about migrating from v2.1 to v3.0.
 
 ## Get started using Document Intelligence Studio
 

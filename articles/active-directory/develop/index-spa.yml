@@ -21,12 +21,12 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Angular
-            url: single-page-app-quickstart.md?pivots=devlang-angular
-          - text: JavaScript
-            url: single-page-app-quickstart.md?pivots=devlang-javascript
           - text: React
-            url: single-page-app-quickstart.md?pivots=devlang-react
+            url: quickstart-single-page-app-react-sign-in.md
+          - text: Angular
+            url: quickstart-single-page-app-angular-sign-in.md
+          - text: JavaScript
+            url: quickstart-single-page-app-javascript-sign-in.md
   - title: "Learn by building"
     linkLists:
       - linkListType: tutorial

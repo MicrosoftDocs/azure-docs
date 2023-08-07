@@ -140,7 +140,7 @@ The following procedures describe how to deploy updated SSL/TLS certificates, su
     | Parameter  | Description  |
     |---------|---------|
     | **Certificate Name**     |   Enter your certificate name.      |
-    | **Passphrase** - *Optional*    |  Enter a passphrase.       |
+    | **Passphrase** - *Optional*    |  Enter a [passphrase](best-practices/certificate-requirements.md#supported-characters-for-keys-and-passphrases).  |
     | **Private Key (KEY file)**     |  Upload a Private Key (KEY file).       |
     | **Certificate (CRT file)**     | Upload a Certificate (CRT file).        |
     | **Certificate Chain (PEM file)** - *Optional*     |  Upload a Certificate Chain (PEM file).       |
