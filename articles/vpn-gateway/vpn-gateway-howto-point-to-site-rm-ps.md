@@ -5,7 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 08/04/2023
+ms.date: 08/07/2023
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
@@ -188,7 +188,7 @@ Verify that your VPN gateway has finished creating. Once it has completed, you c
    $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
    ```
 
-1. Upload the public key information to Azure. Once the certificate information is uploaded, Azure considers it to be a trusted root certificate. When uploading, make sure you're running PowerShell locally on your computer, or instead, you can use the [Azure portal steps](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile). You can't upload using Azure Cloud Shell.
+1. Upload the public key information to Azure. Once the certificate information is uploaded, Azure considers it to be a trusted root certificate. When uploading, make sure you're running PowerShell locally on your computer, or instead, you can use the [Azure portal steps](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile). When the upload is complete, you'll see a PowerShell return showing PublicCertData. It takes about 10 minutes for the certificate upload process to complete.
 
    ```azurepowershell
    Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG1" -PublicCertData $CertBase64
@@ -248,7 +248,7 @@ You can add and remove trusted root certificates from Azure. When you remove a r
 
 **To add:**
 
-You can add up to 20 root certificate .cer files to Azure. The following steps help you add a root certificate. 
+You can add up to 20 root certificate .cer files to Azure. The following steps help you add a root certificate.
 
 1. Prepare the .cer file to upload:
 

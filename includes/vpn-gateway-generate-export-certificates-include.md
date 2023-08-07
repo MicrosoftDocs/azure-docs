@@ -12,10 +12,10 @@
 
 Use the New-SelfSignedCertificate cmdlet to create a self-signed root certificate. For additional parameter information, see [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate).
 
-1. From a computer running Windows 10 or later, or Windows Server 2016, open a Windows PowerShell console with elevated privileges. These examples don't work in the Azure Cloud Shell "Try It". You must run these examples locally.
-1. Use the following example to create the self-signed root certificate. The following example creates a self-signed root certificate named 'P2SRootCert' that is automatically installed in 'Certificates-Current User\Personal\Certificates'. You can view the certificate by opening *certmgr.msc*, or *Manage User Certificates*.
+1. From a computer running Windows 10 or later, or Windows Server 2016, open a Windows PowerShell console with elevated privileges.
+1. Create a self-signed root certificate. The following example creates a self-signed root certificate named 'P2SRootCert' that's automatically installed in 'Certificates-Current User\Personal\Certificates'. You can view the certificate by opening *certmgr.msc*, or *Manage User Certificates*.
 
-   Run the following example with any necessary modifications. The following certificate includes the 'NotAfter' parameter, which is optional. By default, without this parameter, the certificate expires in 1 year.
+   Make any needed modifications before using this sample. The 'NotAfter' parameter is optional. By default, without this parameter, the certificate expires in 1 year.
 
    ```powershell
    $params = @{
@@ -37,11 +37,11 @@ Use the New-SelfSignedCertificate cmdlet to create a self-signed root certificat
 
 ## <a name="clientcert"></a>Generate a client certificate
 
-Each client computer that connects to a VNet using Point-to-Site must have a client certificate installed. You generate a client certificate from the self-signed root certificate, and then export and install the client certificate. If the client certificate isn't installed, authentication fails.
+Each client computer that connects to a VNet using point-to-site must have a client certificate installed. You generate a client certificate from the self-signed root certificate, and then export and install the client certificate. If the client certificate isn't installed, authentication fails.
 
-The following steps walk you through generating a client certificate from a self-signed root certificate. You may generate multiple client certificates from the same root certificate. When you generate client certificates using the steps below, the client certificate is automatically installed on the computer that you used to generate the certificate. If you want to install a client certificate on another client computer, you can export the certificate.
+The following steps walk you through generating a client certificate from a self-signed root certificate. You may generate multiple client certificates from the same root certificate. When you generate client certificates using the steps below, the client certificate is automatically installed on the computer that you used to generate the certificate. If you want to install a client certificate on another client computer, export the certificate.
 
-The examples use the New-SelfSignedCertificate cmdlet to generate a client certificate that expires in one year. For additional parameter information, such as setting a different expiration value for the client certificate, see [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate).
+The examples use the [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) cmdlet to generate a client certificate.
 
 ### Example 1 - PowerShell console session still open
 
