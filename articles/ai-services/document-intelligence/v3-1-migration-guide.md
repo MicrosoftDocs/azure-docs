@@ -1,5 +1,5 @@
 ---
-title: "How-to: Migrate your Document Intelligence to v3.1."
+title: "How-to: Migrate Document Intelligence (formerly Form Recognizer) applications to v3.1."
 titleSuffix: Azure AI services
 description: In this how-to guide, learn the differences between Document Intelligence API v3.0 and v3.1 and how to move to the newer version of the API.
 author: laujan

@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: dns
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 07/19/2023
+ms.date: 08/07/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to understand components of the Azure DNS Private Resolver.
 ---
@@ -71,6 +71,9 @@ Virtual network links for DNS forwarding rulesets enable resources in other VNet
 For example, resources in the vnet `myeastspoke` can resolve records in the private DNS zone `azure.contoso.com` if:
 - The ruleset provisioned in `myeastvnet` is linked to `myeastspoke`
 - A ruleset rule is configured and enabled in the linked ruleset to resolve `azure.contoso.com` using the inbound endpoint in `myeastvnet`
+
+> [!NOTE]
+> You can also link a ruleset to a virtual network in another Azure subscription.  However, the resource group specified must be in the same region as the private resolver. 
 
 ### Rules
 
