@@ -1,15 +1,14 @@
 ---
 title: In-place upgrade to Ubuntu Pro Linux images on Azure
 description: Learn how to do an in-place upgrade from Ubuntu Server to Ubuntu Pro
-author: vvarshney06
-manager: gachandw
+author: anujkmaurya
 ms.service: virtual-machines
 ms.subservice: billing
 ms.custom: devx-track-linux
 ms.collection: linux
 ms.topic: article
 ms.date: 08/07/2023
-ms.author: vvarshney
+ms.author: anujmaurya
 ---
 
 # Ubuntu Server to Ubuntu Pro in-place upgrade on Azure
