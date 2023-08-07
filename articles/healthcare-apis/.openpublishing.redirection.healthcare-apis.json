@@ -496,6 +496,11 @@
           "redirect_document_id": true
       },
       {
+        "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/device-data-through-iot-hub.md",
+        "redirect_url": "/azure/healthcare-apis/iot/overview",
+        "redirect_document_id": false
+      },
+      {
           "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/iot-azure-resource-manager-template-quickstart.md",
           "redirect_url": "/azure/healthcare-apis/iot/overview",
           "redirect_document_id": false

@@ -145,4 +145,4 @@ items:
     expanded: false
     items:
     - name: Create or delete a user (legacy)
-      href: add-users-azure-active-directory.md
+      href: add-users.md
