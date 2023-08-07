@@ -26,10 +26,13 @@ In this article, you learn about the steps you and your onboarding team must tak
 - You must have [deployed Azure Communications Gateway](deploy.md) using the Microsoft Azure portal.
 - You must have [chosen some test numbers](prepare-to-deploy.md#prerequisites).
 - You must have a tenant you can use for testing (representing an enterprise customer), and some users in that tenant to whom you can assign the test numbers. These users must be licensed for Teams Phone System and in Teams Only mode.
-- You must have access to the:
-  - [Operator Connect portal](https://operatorconnect.microsoft.com/).
-  - [Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant.
-- You must be able to manage users in your test tenant.
+- You must have access to the following configuration portals.
+
+    |Configuration portal  |Required permissions |
+    |---------|---------|
+    |[Operator Connect portal](https://operatorconnect.microsoft.com/) | Admin permissions or `PartnerSettings.Read` and `NumberManagement.Write` (configured on the Project Synergy enterprise application that you set up when [you prepared to deploy Azure Communications Gateway](prepare-to-deploy.md#1-add-the-project-synergy-application-to-your-azure-tenancy))|
+    |[Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant |User management|
+
 
 ## Methods
 
@@ -84,11 +87,12 @@ In some parts of this article, the steps you must take depend on whether your de
 
 Your onboarding team must register the test enterprise tenant that you chose in [Prerequisites](#prerequisites) with Microsoft Teams.
 
+1. Find your company's "Operator ID" in your [operator configuration in the Operator Connect portal](https://operatorconnect.microsoft.com/operator/configuration).
 1. Provide your onboarding contact with:
     - Your company's name.
-    - Your company's ID ("Operator ID").
+    - Your company's Operator ID.
     - The ID of the tenant to use for testing.
-2. Wait for your onboarding team to confirm that your test tenant has been registered.
+1. Wait for your onboarding team to confirm that your test tenant has been registered.
 
 ## 3. Assign numbers to test users in your tenant
 
