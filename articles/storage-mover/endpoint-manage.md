@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 08/04/2023
+ms.date: 08/07/2023
 ms.custom: template-how-to
 ---
 
@@ -47,7 +47,7 @@ Because a migration requires both a well-defined source and target, endpoints ar
 
  SMB uses the ACL (access control list) concept and user-based authentication to provide access to shared files for selected users. To maintain security, Storage Mover relies on Azure Key Vault integration to securely store and tightly control access to user credentials and other secrets. During a migration, storage mover agent resources  connect to your SMB endpoints with Key Vault secrets rather than with unsecure hard-coded credentials. This approach greatly reduces the chance that secrets may be accidentally leaked.
 
-After your local file share source is configured, add secrets for both a username and a password to your Key Vault. You need to supply both your Key Vault's name or URI, and the names or URIs of the credential secrets when creating your SMB endpoints.
+After your local file share source is configured, add secrets for both a username and a password to your Key Vault. You need to supply both your Key Vault's name or Uniform Resource Identifier (URI), and the names or URIs of the credential secrets when creating your SMB endpoints.
 
 Agent access to both your Key Vault and target storage resources is controlled through the Azure RBAC (role-based access control) authorization system. This system allows you to define access based on attributes associated with managed identities, security principals, and resources. It's important to note that the required RBAC role assignments are automatically applied when SMB endpoints are created within the Azure portal. However, any endpoint created programmatically requires you to make the following assignments manually:
 
@@ -276,7 +276,7 @@ The following steps describe the process of creating a target endpoint.
 
       :::image type="content" source="media/endpoint-manage/endpoint-target-create.png" alt-text="Screenshot of the Create Endpoint pane showing the location of the required fields and Create button."  lightbox="media/endpoint-manage/endpoint-target-create-lrg.png":::
 
-   Your new endpoint is deployed and now appears within your list of endpoints as show in the following example image.
+   Your new endpoint is deployed and now appears within your list of endpoints as shown in the following example image.
 
    :::image type="content" source="media/endpoint-manage/endpoint-added.png" alt-text="Screenshot of the Endpoint Overview page with the newly created endpoint displayed."  lightbox="media/endpoint-manage/endpoint-added-lrg.png":::
 
@@ -460,7 +460,7 @@ The removal of an endpoint resource should be a relatively rare occurrence in yo
 
       :::image type="content" source="media/endpoint-manage/endpoint-delete.png" alt-text="Screenshot of the Storage Mover resource page within the Azure portal showing the location of the Delete button." lightbox="media/endpoint-manage/endpoint-delete-lrg.png":::
 
-      Your new endpoint is deleted and no longer appears within your list of endpoints as show in the following example image.
+      Your new endpoint is deleted and no longer appears within your list of endpoints as shown in the following example image.
 
       :::image type="content" source="media/endpoint-manage/endpoint-without.png" alt-text="Screenshot of the Endpoint Overview page inferring a newly deleted endpoint."  lightbox="media/endpoint-manage/endpoint-without-lrg.png":::
 
