@@ -298,29 +298,24 @@ In addition to using the built-in roles for a Log Analytics workspace, you can c
 
 ## Set table-level read access
 
-Table-level access allows you to let specific people read data only from a specific set of tables. It applies both for workspace-context and resource-context. There are two methods to define table-level permissions:
-* By assigning permissions to the table sub-resource under the workspace resource - this is the recommended method that is described in this section. This method is currently in **preview**.
-* By assigning special actions that contain table name to the workspace resource - this is the legacy method that is described in the next section. It has some limitations around custom log tables.
-
-Table-level RBAC is applied during query execution. It does not apply to metadata retrieval calls. For that reason, tables will appear in the list of tables even if they are not available to the user.
+Table-level access settings let you grant specific users read-only permission to data from certain tables. Users can read data from the specified tables in both the workspace and the resource context.
 
 > [!NOTE]
 > The recommended table-level access method described here does not apply during preview to Microsoft Sentinel Detection Rules. These rules might have access to more tables than intended.
 
-In order to apply table-level RBAC for a user, two assignments shall be made:
+To grant a user table-level read access, you need to make two assignments:
 
-1. Assign the user the ability to read the workspace details and to run a query without granting the ability to run a query on tables. This is done by assigning a special custom role on the workspace that has only the following actions:
+- Assign the user the ability to read the workspace details and to run a query without granting the ability to run a query on tables. This is done by assigning a special custom role on the workspace that has only the following actions:
             - `Microsoft.OperationalInsights/workspaces/read`
             - `Microsoft.OperationalInsights/workspaces/query/read`
             - `Microsoft.OperationalInsights/workspaces/analytics/query/action`
             - `Microsoft.OperationalInsights/workspaces/search/action`
         
-2. Assign the user a read permissions on the specific table sub-resource. Any role that has */read will be sufficient such as **Reader** role or **Log Analytics Reader** role. As table is a sub-resource of workspace, the workspace admins can also perform action on a specific table.
+- Assign the user a read permissions on the specific table sub-resource. Any role that has */read will be sufficient such as **Reader** role or **Log Analytics Reader** role. As table is a sub-resource of workspace, the workspace admins can also perform action on a specific table.
 
-> [!WARNING]
-> If the user has other assignments on the workspace, directly or via inheritence (e.g. user has Reader on the subscription that contains the workspace), the user will be able to access all tables in the workspace.
-
-
+> [!IMPORTANT]
+> - If the user has other assignments on the workspace, directly or via inheritence (e.g. user has Reader on the subscription that contains the workspace), the user will be able to access all tables in the workspace.
+> - Azure applies table-level RBAC during query execution. It does not apply to metadata retrieval calls. Therefore, the list of tables in the workspace includes tables to which the user might not have access.
 
 To create a [custom role](../../role-based-access-control/custom-roles.md) that lets specific users or groups read data from specific tables in a workspace:
 
