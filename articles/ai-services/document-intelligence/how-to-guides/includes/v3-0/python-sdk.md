@@ -1,5 +1,5 @@
 ---
-title: "Use Document Intelligence SDK for Python (REST API v3.0)"
+title: "Use Document Intelligence (formerly Form Recognizer) SDK for Python (REST API v3.0)"
 description: 'Use the Document Intelligence SDK for Python (REST API v3.0) to create a forms processing app that extracts key data from documents.'
 author: laujan
 manager: nitinme
