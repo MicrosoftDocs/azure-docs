@@ -5,7 +5,7 @@ In certain situations, it might be useful to have all your client traffic proxie
 >[!IMPORTANT]
 > The proxy feature is available starting in the public preview version [1.13.0-beta.4](https://www.npmjs.com/package/@azure/communication-calling/v/1.13.0-beta.4) of the Calling SDK. Please ensure that you use this or a newer SDK when trying to use this feature. This Quickstart uses the Azure Communication Services Calling SDK version greater than `1.13.0`.
 
-[!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 ## Proxy calling media traffic
 
 ## What is a TURN server?
