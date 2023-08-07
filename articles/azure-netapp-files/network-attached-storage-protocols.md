@@ -175,14 +175,17 @@ When you use Azure NetApp Files volumes for access to both SMB and NFS, some con
 * Supported NFS versions include: NFSv3 and NFSv4.1.
 * NFSv4.1 features such as parallel network file system (pNFS), session trunking, and referrals aren't currently supported with Azure NetApp Files volumes.
 * [Windows extended attributes `set`/`get`](/windows/win32/api/fileapi/ns-fileapi-createfile2_extended_parameters) aren't supported in dual-protocol volumes.
-<!-- planning to move considerations from https://learn.microsoft.com/en-us/azure/azure-netapp-files/create-volumes-dual-protocol#considerations to this subsection. Need to consolidate the items. -->
+* See also [considerations for creating a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md#considerations)
+<!-- planning to consolidate and move considerations from the Create article to this subsection. -->
 
 ## Next steps 
-
 
 * [Understand dual-protocol security style and permission behaviors in Azure NetApp Files](dual-protocol-permission-behaviors.md)
 * [Understand the use of LDAP with Azure NetApp Files](lightweight-directory-access-protocol.md) 
 * [Understand NFS group memberships and supplemental groups](network-file-system-group-memberships.md)
 * [Understand file locking and lock types in Azure NetApp Files](understand-file-locks.md)
+* [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
+* [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md)
+* [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md)
 * [Azure NetApp Files NFS FAQ](faq-nfs.md)
 * [Azure NetApp Files SMB FAQ](faq-smb.md)
