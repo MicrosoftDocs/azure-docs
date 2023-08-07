@@ -1,18 +1,54 @@
 ---
-title: How to build a realtime application from the ground using Web PubSub for Socket.IO
-description: Learn how to build a realtime application using Web PubSub for Socket.IO from the ground
+title: Build a realtime code streaming app using Socket.IO and host it on Azure
+description: An end-to-end tutorial demonstrating how to build an app that allows coders to share coding activities to their audience in realtime using Web PubSub for Socket.IO 
 author: siyuanxing
 ms.author: xiyuanxing
 ms.date: 08/01/2023
 ms.service: azure-web-pubsub
 ms.topic: how-to
 ---
-# How to build a realtime application from the ground using Web PubSub for Socket.IO 
-This article shows how to build a realtime application using Web PubSub for Socket.IO from the ground.
 
-Our purpose is to build a realtime editor. There are two types of roles: the first role is writer client, who can write codes in the online editor and the content will be streamed to others. And the second role is watcher client, who cannot change the content of the online editor and will receives realtime contents written by writer client. And the architecture is the same as [Overview of Web PubSub for Socket.IO](./socketio-overview.md).
+# Build a realtime code streaming app using Socket.IO and host it on Azure
 
-# Prerequisites
+Building a realtime experience like the co-creation feature from [Microsoft Word](https://www.microsoft.com/microsoft-365/word) can be challenging, through its easy-to-use APIs, [Socket.IO](https://socket.io/) has proven itself as a battle-tested library for real-time communication between clients and server. However, Socket.IO users often report difficulty around scaling Socket.IO's connections. With Web PubSub for Socket.IO, developers no longer need to worry about managing persistent connections. 
+
+
+## Overview
+This tutorial shows how to build an app that allows a coder to stream his/her coding activities to an audience. We build this application using
+>[!div class="checklist"]
+> Monitor Editor, the code editor that powers VS code
+> [Express](https://expressjs.com/), a NodeJS web framework
+> APIs provided by Socket.IO library for realtime communication
+> Host Socket.IO connections using Web PubSub for Socket.IO
+
+### The finished app
+[Screenshot missing!!!]
+
+The finished app allows a code editor user to share a web link through which people can watch the him/her typing. 
+
+To keep this tutorial focused and digestable in around 15 minutes, we define two user roles and what they can do in the editor
+- a writer, who can type in the online editor and the content will be streamed
+- watchers, who receives realtime content typed by the writer and cannot edit the content
+
+### Architecture
+|    | Purpose           | Benefits         | 
+|----------------------|-------------------|------------------|
+|[Socket.IO library](https://socket.io/) | Provides low-latency, bi-directional data exchange mechanism between the backend application and clients | Easy-to-use APIs that cover most real-time communication scenarios
+|Web PubSub for Socket.IO | Host WebSocket or poll-based persistent connections with Socket.IO clients; 100K concurrent connections built-in; Simplify application architecture; 
+
+[Screenshot missing!!!!]
+
+## Prerequisites
+You can find detailed explanation of the [data flow](#data-flow) at the end of this how-to guide as we're going to focus on building and deploying the whiteboard app first.
+ 
+In order to follow the step-by-step guide, you need
+> [!div class="checklist"]
+> * An [Azure](https://portal.azure.com/) account. If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+> * [Azure CLI](/cli/azure/install-azure-cli) (version 2.29.0 or higher) or [Azure Cloud Shell](../cloud-shell/quickstart.md) to manage Azure resources.
+> * Familiarity of [Socket.IO's APIs](https://socket.io/docs/v4/)
+
+
+## Prerequisites
 1. Create a Web PubSub for Socket.IO resource
 The recommended way is to use [Azure CLI Tool](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli):
 ```bash
@@ -20,12 +56,23 @@ az webpubsub create -n <resource-name> \
                     -l <resource-location> \
                     -g <resource-group> \
                     --kind SocketIO \
-                    --sku Premium_P1
+                    --sku Free_F1
 ```
 
-# Server
-## Build a HTTP server
-1. Create a Node.JS project
+## Create Azure resources
+###
+
+###
+
+
+
+## Write the application
+>[!NOTE]
+> This tutorial focuses on explaining the core code for implementing realtime communication. Complete code can be found in the [samples repository](https://github.com/Azure/azure-webpubsub/tree/main/experimental/sdk/webpubsub-socketio-extension/examples/codestream). 
+
+### Server-side code
+#### Build a HTTP server
+1. Create a NodeJS project
 ```bash
 mkdir codestream
 cd codestream
@@ -38,8 +85,10 @@ npm install @azure/web-pubsub-socket.io
 npm install express
 ```
 
-3.  Let's import the required packages and create a HTTP server to serve static files
+3.  Import required packages and create an HTTP server to serve static files
 ```javascript
+/* server.js*/
+
 // Import required package
 const express = require('express');
 const path = require('path');
@@ -51,73 +100,12 @@ const server = require('http').createServer(app);
 app.use(express.static(path.join(__dirname, 'public')));
 ```
 
-## Build a Socket.IO server supported by Web PubSub
-1. Import Web PubSub for Socket.IO SDK package and its options
-```javascript
-const wpsExt = require("@azure/web-pubsub-socket.io");
+4. Define an endpoint called `/negotiate`. A **writer** client hits this endpoint first. This endpoint returns an HTTP response which contains
+- an endpoint the client should establish a persistent connection with 
+- `room` the client is assigned to
 
-const wpsOptions = {
-    hub: "eio_hub",
-    connectionString: process.argv[2]
-};
-```
-
-2. Create a Socket.IO server supported by Web PubSub
-```javascript
-let io = require('socket.io')(server)
-await io.useAzureSocketIO(wpsOptions);
-```
-
-Now we have a Socket.IO server supported by Web PubSub for Socket.IO. Then we should design its behaviour and implement it.
-
-## Implement the application logic
-1. After a client is connected, the server should tell the client that "you are logined" by sending a event named "login".
-
-```javascript
-io.on('connection', socket => {
-    socket.emit("login");
-});
-```
-
-2. For each client, we have two event for them: `joinRoom` and `sendToRoom`. Room name is parsed from message and then we use Socket.IO API `socket.join` to join the target client to the specified room.
-
-```javascript
-socket.on('joinRoom', async (message) => {
-    const room_id = message["room_id"];
-    await socket.join(room_id);
-});
-```
-
-3. After a client has joined the room, we want the server sync the latest status to it. So after joining is finished, let client tell server a acknowledge information, indicating the client has joined the room successfully and need a full sync of editor content.
-
-```javascript
-socket.on('joinRoom', async (message) => {
-    // ...
-    socket.emit("message", {
-        type: "ackJoinRoom", 
-        success: true 
-    })
-});
-```
-
-4. When a client send `sendToRoom` event to the server, the server should broadcast the data to the specified room.
-
-```javascript
-socket.on('sendToRoom', (message) => {
-    const room_id = message["room_id"]
-    const data = message["data"]
-
-    socket.broadcast.to(room_id).emit("message", {
-        type: "editorMessage",
-        data: data
-    });
-});
-```
-
-5.
-To let client know which room it is assigned with and what is the endpoint it should connect, server could 
-deploy a API called `/negotiate` to the Express server. 
 ```javascript 
+/* server.js*/
 app.get('/negotiate', async (req, res) => {
     res.json({
         url: endpoint
@@ -131,13 +119,98 @@ io.httpServer.listen(3000, () => {
 });
 ```
 
-Now the service-side is finished. Let's go to the client-side part.
+#### Create Web PubSub for Socket.IO server
+1. Import Web PubSub for Socket.IO SDK and define options
+```javascript
+/* server.js*/
+const wpsExt = require("@azure/web-pubsub-socket.io");
 
-## Client side
-## Preparation
-1. In client side, we should create a Socket.IO client to communicate with the server. The first question is what endpoint it should connect to. Leveraging the `/negotiate` API we mentioned before, the endpoint could be easily got. The room id which the client is assigned with is also written in the API response.
+const wpsOptions = {
+    hub: "codestream",
+    connectionString: process.argv[2]
+};
+```
+>[!NOTE]
+> By requiring `@azure/web-pubsub-socket.io`, `socket.io` will be made available in this module. There's no need to require `socket.io` separately.
+
+2. Create a Web PubSub for Socket.IO server
+```javascript
+/* server.js*/
+let io = require('socket.io')(server)
+await io.useAzureSocketIO(wpsOptions);
+```
+
+The two steps are slightly different than how you would normally create a Socket.IO server [described here](https://socket.io/docs/v4/server-installation/). With these two steps, your server-side code can offload managing persistent connections to an Azure service. With the help of an Azure service, your application server acts **only** as an HTTP server. 
+
+Now that we've created an Socket.IO server hosted by Web PubSub, we can define how the clients and server communicate using Socket.IO's APIs. This is usually referred to as implementing business logic.
+
+#### Implement the business logic
+1. After a client is connected, the application server tells the client that "you are logged in" by sending a custom event named `login`.
 
 ```javascript
+/* server.js*/
+io.on('connection', socket => {
+    socket.emit("login");
+});
+```
+
+2. Each client emits two events `joinRoom` and `sendToRoom` that the server can respond to. After the server getting the `room_id` a client wishes to join, we use Socket.IO's API `socket.join` to join the target client to the specified room.
+
+```javascript
+/* server.js*/
+socket.on('joinRoom', async (message) => {
+    const room_id = message["room_id"];
+    await socket.join(room_id);
+});
+```
+
+3. After a client has sucessfully been joined, the server informs the client of the successful result with the `message` event. Upon receiving an `message` event and knowing the type is `ackJoinRoom`, the client can ask the server to send the latest editor state. 
+
+```javascript
+/* server.js*/
+socket.on('joinRoom', async (message) => {
+    // ...
+    socket.emit("message", {
+        type: "ackJoinRoom", 
+        success: true 
+    })
+});
+```
+
+```javascript
+/* client.js*/
+socket.on("message", (message) => {
+    let data = message;
+    if (data.type === 'ackJoinRoom' && data.success) {
+        sendToRoom(socket, `${room_id}-control`, { data: 'sync'});
+    }
+    // ... 
+})
+```
+
+4. When a client sends `sendToRoom` event to the server, the server broadcasts the data to the specified room so that all the clients in the room can receive the latest update.
+
+```javascript
+socket.on('sendToRoom', (message) => {
+    const room_id = message["room_id"]
+    const data = message["data"]
+
+    socket.broadcast.to(room_id).emit("message", {
+        type: "editorMessage",
+        data: data
+    });
+});
+```
+
+Now that the server-side is finished. Next, we will work on the client-side. 
+
+### Client-side code
+#### Initial setup
+1. On the client side, we need to create an Socket.IO client to communicate with the server. The question is which server the client should establish a persistent connection with. Since we use Web PubSub for Socket.IO, the server is an Azure service. Recall that we defined [`/negotiate` route](#build-a-http-server) to serve clients the endpoint to Azure service.
+
+```javascript
+/*client.js*/
+
 async function initialize(url) {
     let data = await fetch(url).json()
 
@@ -146,26 +219,31 @@ async function initialize(url) {
     let editor = createEditor(...); // Create a editor component
 
     var socket = io(data.url, {
-        path: "/clients/socketio/hubs/eio_hub",
+        path: "/clients/socketio/hubs/codestream",
     });
 
     return [socket, editor, data.room_id];
 }
 ```
+The `initialize` organizes a few setup operations together. 
+- Fetch the endpoind to an Azure service from your HTTP server.
+- Create an Monoca editor instances.
+- Establish a persistent connection with an Azure service
 
-We have two roles in client. The first one is the writer and another one is watcher. Anything written by the writer will be streamed to the watcher's screen. Let's start with the writer part. 
+#### Writer client
+As [mentinoed](#the-finished-app), we have two user roles on the client side. The first one is the writer and another one is watcher. Anything written by the writer will be streamed to the watcher's screen.  
 
-## Writer client
-1. Firstly, it should get the endpoint and the room id.
+##### Writer client
+1. Get the endpoint to Web PubSub for Socket.IO and the `room_id`.
 ```javascript
 let [socket, editor, room_id] = await initialize('/negotiate');
 ```
 
-2. 
-When the writer client is connected with server, the server will send a `login` event to him. 
-Once logined, the writer should ask server to join the specified room. And he should flush his editor content to other clients periodically.
+2. When the writer client is connected with server, the server will send a `login` event to him. The writer can respond by asking the server to join itself to a specified room. Importantly, every 200 ms the writer sends its latest editor state to the room. The sending logic is organized by a function aptly named `flush`.
 
 ```javascript
+/*client.js*/
+
 socket.on("login", () => {
     updateStatus('Connected');
     joinRoom(socket, `${room_id}`);
@@ -175,13 +253,15 @@ socket.on("login", () => {
 });
 ```
 
-Method `flush` could be written like this:
+If a writer doesn't make any edits, `flush()` does nothing and simply returns. Otherwise, the **edits** are sent to the room.
 ```javascript
+/*client.js*/
+
 function flush() {
     // No change from editor need to be flushed
     if (changes.length === 0) return;
 
-    // Broadcast the modification of editor content to the room
+    // Broadcast the changes made to editor content
     sendToRoom(socket, room_id, {
         type: 'delta',
         changes: changes
@@ -192,11 +272,12 @@ function flush() {
     content = editor.getValue();
 }
 ```
-Now the part of writer client is finshed. Let's go to the part of watcher client.
 
-3. As mentioned before, once a new watcher client is connected, a message containing "sync" data will be sent to the writer client. 
+3. When a new watcher client is connected, the watcher needs to get the latest state of the editor. A message containing `sync` data will be sent to the writer client, asking the writer client to send the complete editor state.
 
 ```javascript
+/*client.js*/
+
 socket.on("message", (message) => {
     let data = message.data;
     if (data.data === 'sync') {
@@ -209,12 +290,13 @@ socket.on("message", (message) => {
     }
 });
 ```
-Now, the writer part is finished. Let's go to the watcher client part.
 
-## Watcher client
-1. Same with the writer client, the watcher client could its Socket.IO client through `initialize`. When the watcher client is connected and received a `login` event from server, it should ask the server to join it into the specified room.
+##### Watcher client
+1. Same with the writer client, the watcher client creates its Socket.IO client through `initialize()`. When the watcher client is connected and received a `login` event from server, it asks the server to join itself to the specified room. The room id is specifieid by the query  `room_id`.
 
 ```javascript
+/*client.js*/
+
 let [socket, editor] = await initialize(`/register?room_id=${room_id}`)
 socket.on("login", () => {
     updateStatus('Connected');
@@ -222,22 +304,26 @@ socket.on("login", () => {
 });
 ```
 
-2. When a watcher client receives a `message` event from server and the data type is `ackJoinRoom`, the watcher client should ask the writer client in the room to send the full content to it.
+2. When a watcher client receives a `message` event from server and the data type is `ackJoinRoom`, the watcher client asks the writer client in the room to send over the complete editor state.
 
 ```javascript
+/*client.js*/
+
 socket.on("message", (message) => {
     let data = message;
-    // If the server ensures the watcher client is connected
+    // Ensures the watcher client is connected
     if (data.type === 'ackJoinRoom' && data.success) { 
         sendToRoom(socket, `${id}`, { data: 'sync'});
     } 
-    else ...
+    else //...
 });
 ```
 
-3. Otherwise, if the data type is `editorMessage`, the writer client should update the editor according to its actual content.
+3. Otherwise, if the data type is `editorMessage`, the watcher client should update the editor according to its actual content.
 
 ```javascript
+/*client.js*/
+
 socket.on("message", (message) => {
     ...
     else 
@@ -254,8 +340,10 @@ socket.on("message", (message) => {
 });
 ```
 
-4. The last part is to write methods to send `joinRoom` and `sendToRoom` event to server.
+4. Implement `joinRoom()` and `sendToRoom()` using Socket.IO's APIs
 ```javascript
+/*client.js*/
+
 function joinRoom(socket, room_id) {
     socket.emit("joinRoom", {
         room_id: room_id,
@@ -270,12 +358,19 @@ function sendToRoom(socket, room_id, data) {
 }
 ```
 
-# Run the application
-1. Codes snippets above are the core part of this application. You should complete it with other necessary parts like how to update editor component and other frontend work like importing packages, css and other static resources.
-The full code is put in [our examples repository](https://github.com/Azure/azure-webpubsub/tree/main/experimental/sdk/webpubsub-socketio-extension/examples/codestream)
+## Run the application
+### Locate the repo
+Above, we dived deep into the core logic related to synchronizing editor state between watcher and writer. The complete code can be found [our examples repository](https://github.com/Azure/azure-webpubsub/tree/main/experimental/sdk/webpubsub-socketio-extension/examples/codestream).
 
-2. After you finish other necessary work, run the server by
+### Clone the repo
+You can clone the repo and run `npm install` to install project dependencies.
+
+### Start the server
 ```bash
 node index.js <web-pubsub-connection-string>
 ```
-And open your first web browser with `http://localhost:3000'. Open another tab with the url displayed in the web page. Write code in the first tab and see what happending in the second tab.
+
+### Play with the realtime code editor
+Open `http://localhost:3000' in a browser tab and open another tab with the url displayed in the first web page. 
+
+If you write code in the first tab, you should your typing reflected realtime in the other tab. The message passing is facilited by Web PubSub for Socket.IO in the cloud.
