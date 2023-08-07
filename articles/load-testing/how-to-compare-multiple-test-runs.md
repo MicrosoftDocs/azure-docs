@@ -108,11 +108,13 @@ Use the following steps to mark a test run as baseline:
 
 1. In the right context pane, select the check box for the test run that you want to mark as baseline and Select **Mark baseline**
 
-    :::image type="content" source="media/how-to-compare-multiple-test-runs/select-mark-baseline.png" alt-text="Screenshot that shows Mark baseline button in the Trends pane.":::
+    :::image type="content" source="media/how-to-compare-multiple-test-runs/mark-test-run-as-baseline.png" alt-text="Screenshot that shows the context pane to mark a test run as baseline.":::
    
     You can also use the filters to find your load test run.
 
-When you have a test run marked as baseline, a horizontal line with the baseline metric value is added to the charts that show client-side metrics from recent test runs. In the table view, an addiitonal row with the baseline test run details is shown. For the recent test runs, an arrow mark next to the metrics value indicates whether the metric is trending favorably or unfavorably as compared to the baseline metric value. 
+    When you have a test run marked as baseline, a horizontal line with the baseline metric value is added to the charts that show client-side metrics from recent test runs. In the table view, an addiitonal row 
+    with the baseline test run details is shown. For the recent test runs, an arrow mark next to the metrics value indicates whether the metric is trending favorably or unfavorably as compared to the baseline 
+    metric value. 
 
     :::image type="content" source="media/how-to-compare-multiple-test-runs/trends-view-with-baseline.png" alt-text="Screenshot that shows trends in metrics when a baseline is selected.":::
 
