@@ -20,7 +20,7 @@ For information on setup and configuration details, see the [overview](./functio
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
+::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-powershell, programming-language-python"
 
 ## Example
 
@@ -102,6 +102,56 @@ module.exports = async function (context, req) {
 
 ::: zone-end
 
+::: zone pivot="programming-language-powershell"
+
+The following examples show Dapr triggers in a _function.json_ file and PowerShell code that uses those bindings. 
+
+Here's the _function.json_ file for `daprInvoke`:
+
+```json
+{
+  "bindings":
+    {
+      "type": "daprInvoke",
+      "direction": "out",
+      "appId": "{appId}",
+      "methodName": "{methodName}",
+      "httpVerb": "post",
+      "name": "payload"
+    }
+}
+```
+
+For more information about *function.json* file properties, see the [Configuration](#configuration) section.
+
+In code:
+
+```powershell
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($req, $TriggerMetadata)
+
+# Write to the Azure Functions log stream.
+Write-Host "Powershell InvokeOutputBinding processed a request."
+
+$req_body = $req.Body
+
+$invoke_output_binding_req_body = @{
+    "body" = $req_body
+}
+
+# Associate values to output bindings by calling 'Push-OutputBinding'.
+Push-OutputBinding -Name payload -Value $invoke_output_binding_req_body
+
+Push-OutputBinding -Name res -Value ([HttpResponseContext]@{
+    StatusCode = [HttpStatusCode]::OK
+    Body = $req_body
+})
+```
+
+::: zone-end
+
 ::: zone pivot="programming-language-python"
 
 # [Python v2](#tab/v2)
@@ -164,8 +214,6 @@ def main(req: func.HttpRequest,
     data = req.params.get('data')
 ```
 
-[!INCLUDE [preview-python](../../includes/functions-dapr-preview-python.md)]
-
 ---
 
 ::: zone-end
@@ -200,7 +248,7 @@ The following table explains the parameters for the `DaprInvokeOutput`.
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript, programming-language-powershell"
 
 ## Configuration
 The following table explains the binding configuration properties that you set in the function.json file.
@@ -259,7 +307,7 @@ You can learn more about [how to use Dapr service invocation in the official Dap
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript, programming-language-powershell, programming-language-python"
 
 See the [Example section](#example) for complete examples.
 
@@ -268,16 +316,6 @@ To use a Dapr invoke output binding, define your `daprInvoke` binding in a funct
 
 You can learn more about [how to use Dapr service invocation in the official Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/).
 
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-See the [Example section](#example) for complete examples.
-
-## Usage
-To use a Dapr invoke output binding, define your `daprInvoke` binding in a functions.json file.  
-
-You can learn more about [how to use Dapr service invocation in the official Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/).
 ::: zone-end
 
 ## Next steps

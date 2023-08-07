@@ -20,7 +20,7 @@ There are no templates for triggers in Dapr in the functions tooling today. Star
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
+::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-powershell, programming-language-python"
 
 ## Example
 
@@ -77,6 +77,8 @@ Here's the _function.json_ file for `daprTopicTrigger`:
 }
 ```
 
+For more information about *function.json* file properties, see the [Configuration](#configuration) section.
+
 Here's the JavaScript code for the Dapr Topic trigger:
 
 ```javascript
@@ -86,6 +88,51 @@ module.exports = async function (context) {
 };
 ```
 
+
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
+
+The following examples show Dapr triggers in a _function.json_ file and PowerShell code that uses those bindings. 
+
+Here's the _function.json_ file for `daprTopicTrigger`:
+
+```json
+{
+  "bindings": [
+    {
+      "type": "daprTopicTrigger",
+      "pubsubname": "%PubSubName%",
+      "topic": "B",
+      "name": "subEvent",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+For more information about *function.json* file properties, see the [Configuration](#configuration) section.
+
+In code:
+
+```powershell
+using namespace System
+using namespace Microsoft.Azure.WebJobs
+using namespace Microsoft.Extensions.Logging
+using namespace Microsoft.Azure.WebJobs.Extensions.Dapr
+using namespace Newtonsoft.Json.Linq
+
+param (
+    $subEvent
+)
+
+Write-Host "PowerShell function processed a PrintTopicMessage request from the Dapr Runtime."
+
+# Convert the object to a JSON-formatted string with ConvertTo-Json
+$jsonString = $subEvent["data"] | ConvertTo-Json -Compress
+
+Write-Host "Topic B received a message: $jsonString"
+```
 
 ::: zone-end
 
@@ -131,6 +178,7 @@ Here's the _function.json_ file for `daprTopicTrigger`:
   ]
 }
 ```
+For more information about *function.json* file properties, see the [Configuration](#configuration) section.
 
 Here's the Python code:
 
@@ -144,9 +192,6 @@ def main(subEvent) -> None:
     subEvent_json = json.loads(subEvent)
     logging.info("Topic B received a message: " + subEvent_json["data"])
 ```
-
-[!INCLUDE [preview-python](../../includes/functions-dapr-preview-python.md)]
-
 
 ---
 
@@ -177,7 +222,7 @@ In [C# class libraries](./functions-dotnet-class-library.md), use the `DaprTopic
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript, programming-language-powershell"
 
 ## Configuration
 The following table explains the binding configuration properties that you set in the _function.json_ file.
@@ -236,21 +281,7 @@ You also need to set up a Dapr pub/sub component. You can learn more about which
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
-
-See the [Example section](#example) for complete examples.
-
-## Usage
-To use a Dapr Topic trigger, define your `daprTopicTrigger` binding in a functions.json file.  
-
-You also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
-
-- [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
-- [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
+::: zone pivot="programming-language-javascript, programming-language-powershell, programming-language-python"
 
 See the [Example section](#example) for complete examples.
 

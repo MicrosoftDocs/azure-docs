@@ -20,7 +20,7 @@ For information on setup and configuration details, see the [overview](./functio
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
+::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-powershell, programming-language-python"
 
 ## Example
 
@@ -89,6 +89,51 @@ module.exports = async function (context, req) {
 
 ::: zone-end
 
+::: zone pivot="programming-language-powershell"
+
+The following examples show Dapr triggers in a _function.json_ file and PowerShell code that uses those bindings. 
+
+Here's the _function.json_ file for `daprState`:
+
+```json
+{
+  "bindings": 
+    {
+      "type": "daprState",
+      "direction": "in",
+      "key": "order",
+      "stateStore": "%StateStoreName%",
+      "name": "order"
+    }
+}
+```
+
+For more information about *function.json* file properties, see the [Configuration](#configuration) section.
+
+In code:
+
+```powershell
+using namespace System
+using namespace Microsoft.Azure.WebJobs
+using namespace Microsoft.Extensions.Logging
+using namespace Microsoft.Azure.WebJobs.Extensions.Dapr
+using namespace Newtonsoft.Json.Linq
+
+param (
+    $payload, $order
+)
+
+# C# function processed a CreateNewOrder request from the Dapr Runtime.
+Write-Host "PowerShell function processed a RetrieveOrder request from the Dapr Runtime."
+
+# Convert the object to a JSON-formatted string with ConvertTo-Json
+$jsonString = $order | ConvertTo-Json
+
+Write-Host "$jsonString"
+```
+
+::: zone-end
+
 ::: zone pivot="programming-language-python"
 
 # [Python v2](#tab/v2)
@@ -146,8 +191,6 @@ def main(payload, data: str) -> None:
     logging.info(data)
 ```
 
-[!INCLUDE [preview-python](../../includes/functions-dapr-preview-python.md)]
-
 ---
 
 ::: zone-end
@@ -189,6 +232,21 @@ The following table explains the binding configuration properties that you set i
 |**name** | The name of the variable that represents the Dapr data in function code. |
 |**stateStore** | The name of the state store. |
 |**key** | The name of the key to retrieve from the specified state store. |
+
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
+
+## Configuration
+The following table explains the binding configuration properties that you set in the function.json file.
+
+|function.json property | Description|
+|---------|----------------------|
+|**type** | Must be set to `daprState`. |
+|**direction** | Must be set to `in`.  |
+|**key** | The name of the key to retrieve from the specified state store. |
+|**stateStore** | The name of the state store. |
+|**name** | The name of the variable that represents the Dapr data in function code. |
 
 ::: zone-end
 
@@ -240,7 +298,7 @@ You also need to set up a Dapr state store component. You can learn more about w
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript, programming-language-powershell, programming-language-python"
 
 See the [Example section](#example) for complete examples.
 
@@ -252,21 +310,6 @@ You also need to set up a Dapr state store component. You can learn more about w
 - [Dapr state store component specs](https://docs.dapr.io/reference/components-reference/supported-state-stores/)
 - [How to: Save state](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-get-save-state/)
 
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-See the [Example section](#example) for complete examples.
-
-## Usage
-
-To use a Dapr state input binding, define your `daprState` binding in a functions.json file. 
-
-You also need to set up a Dapr state store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
-
-- [Dapr state store component specs](https://docs.dapr.io/reference/components-reference/supported-state-stores/)
-- [How to: Save state](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-get-save-state/)
 
 ::: zone-end
 

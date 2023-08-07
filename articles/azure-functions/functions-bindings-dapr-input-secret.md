@@ -20,7 +20,7 @@ For information on setup and configuration details, see the [overview](./functio
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
+::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-powershell, programming-language-python"
 
 ## Example
 
@@ -93,6 +93,52 @@ module.exports = async function (context) {
 
 ::: zone-end
 
+::: zone pivot="programming-language-powershell"
+
+The following examples show Dapr triggers in a _function.json_ file and PowerShell code that uses those bindings. 
+
+Here's the _function.json_ file for `daprServiceInvocationTrigger`:
+
+```json
+{
+  "bindings": 
+    {
+      "type": "daprSecret",
+      "direction": "in",
+      "name": "secret",
+      "key": "my-secret",
+      "secretStoreName": "localsecretstore",
+      "metadata": "metadata.namespace=default"
+    }
+}
+```
+
+For more information about *function.json* file properties, see the [Configuration](#configuration) section.
+
+In code:
+
+```powershell
+using namespace System
+using namespace Microsoft.Azure.WebJobs
+using namespace Microsoft.Extensions.Logging
+using namespace Microsoft.Azure.WebJobs.Extensions.Dapr
+using namespace Newtonsoft.Json.Linq
+
+param (
+    $payload, $secret
+)
+
+# PowerShell function processed a CreateNewOrder request from the Dapr Runtime.
+Write-Host "PowerShell function processed a RetrieveSecretLocal request from the Dapr Runtime."
+
+# Convert the object to a JSON-formatted string with ConvertTo-Json
+$jsonString = $secret | ConvertTo-Json
+
+Write-Host "$jsonString"
+```
+
+::: zone-end
+
 ::: zone pivot="programming-language-python"
 
 # [Python v2](#tab/v2)
@@ -157,8 +203,6 @@ def main (payload, secret) -> None:
         logging.info("Stored secret: Key = " + key + ', Value = '+ secret_dict[key])
 ```
 
-[!INCLUDE [preview-python](../../includes/functions-dapr-preview-python.md)]
-
 ---
 
 ::: zone-end
@@ -191,7 +235,7 @@ The following table explains the parameters for `DaprSecretInput`.
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript, programming-language-powershell"
 
 ## Configuration
 The following table explains the binding configuration properties that you set in the function.json file.
@@ -253,7 +297,7 @@ You also need to set up a Dapr secret store component. You can learn more about 
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript, programming-language-powershell, programming-language-python"
 
 See the [Example section](#example) for complete examples.
 
@@ -264,21 +308,6 @@ You also need to set up a Dapr secret store component. You can learn more about 
 
 - [Dapr secret store component specs](https://docs.dapr.io/reference/components-reference/supported-secret-stores/)
 - [How to: Retrieve a secret](https://docs.dapr.io/developing-applications/building-blocks/secrets/howto-secrets/)
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-See the [Example section](#example) for complete examples.
-
-## Usage
-To use a Dapr invoke output binding, define your `daprSecret` binding in a functions.json file.  
-
-You also need to set up a Dapr secret store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
-
-- [Dapr secret store component specs](https://docs.dapr.io/reference/components-reference/supported-secret-stores/)
-- [How to: Retrieve a secret](https://docs.dapr.io/developing-applications/building-blocks/secrets/howto-secrets/)
-
 
 ::: zone-end
 

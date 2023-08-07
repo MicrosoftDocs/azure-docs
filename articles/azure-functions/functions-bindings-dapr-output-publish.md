@@ -20,7 +20,7 @@ For information on setup and configuration details, see the [overview](./functio
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
+::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-powershell, programming-language-python"
 
 ## Example
 
@@ -91,6 +91,58 @@ module.exports = async function (context, req) {
 
 ::: zone-end
 
+::: zone pivot="programming-language-powershell"
+
+The following examples show Dapr triggers in a _function.json_ file and PowerShell code that uses those bindings. 
+
+Here's the _function.json_ file for `daprPublish`:
+
+```json
+{
+  "bindings": 
+    {
+      "type": "daprPublish",
+      "direction": "out",
+      "name": "pubEvent",
+      "pubsubname": "%PubSubName%",
+      "topic": "B"
+    }
+}
+```
+
+For more information about *function.json* file properties, see the [Configuration](#configuration) section.
+
+In code: 
+
+```powershell
+using namespace System
+using namespace Microsoft.Azure.WebJobs
+using namespace Microsoft.Extensions.Logging
+using namespace Microsoft.Azure.WebJobs.Extensions.Dapr
+using namespace Newtonsoft.Json.Linq
+
+# Example to use Dapr Service Invocation Trigger and Dapr State Output binding to persist a new state into statestore
+param (
+    $subEvent
+)
+
+Write-Host "PowerShell function processed a TransferEventBetweenTopics request from the Dapr Runtime."
+
+# Convert the object to a JSON-formatted string with ConvertTo-Json
+$jsonString = $subEvent["data"]
+
+$messageFromTopicA = "Transfer from Topic A: $jsonString".Trim()
+
+$publish_output_binding_req_body = @{
+    "payload" = $messageFromTopicA
+}
+
+# Associate values to output bindings by calling 'Push-OutputBinding'.
+Push-OutputBinding -Name pubEvent -Value $publish_output_binding_req_body
+```
+
+::: zone-end
+
 ::: zone pivot="programming-language-python"
 
 # [Python v2](#tab/v2)
@@ -148,8 +200,6 @@ def main(subEvent,
     pubEvent.set(json.dumps({"payload": payload }))
 ```
 
-[!INCLUDE [preview-python](../../includes/functions-dapr-preview-python.md)]
-
 ---
 
 ::: zone-end
@@ -181,7 +231,7 @@ The following table explains the parameters for the `DaprPublishOutput`.
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript, programming-language-powershell"
 
 ## Configuration
 
@@ -241,21 +291,7 @@ You also need to set up a Dapr pub/sub component. You can learn more about which
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
-
-See the [Example section](#example) for complete examples.
-
-## Usage
-To use a Dapr publish output binding, define your `daprPublish` binding in a functions.json file.  
-
-You also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
-
-- [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
-- [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
+::: zone pivot="programming-language-javascript, programming-language-powershell, programming-language-python"
 
 See the [Example section](#example) for complete examples.
 

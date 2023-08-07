@@ -20,7 +20,7 @@ For information on setup and configuration details, see the [overview](./functio
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
+::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-powershell, programming-language-python"
 
 ## Example
 
@@ -90,6 +90,46 @@ module.exports = async function (context) {
 
 ::: zone-end
 
+::: zone pivot="programming-language-powershell"
+
+The following examples show Dapr triggers in a _function.json_ file and PowerShell code that uses those bindings. 
+
+Here's the _function.json_ file for `daprBinding`:
+
+```json
+{
+  "bindings": 
+    {
+      "type": "daprBinding",
+      "direction": "out",
+      "bindingName": "%KafkaBindingName%",
+      "operation": "create",
+      "name": "messages"
+    }
+}
+```
+For more information about *function.json* file properties, see the [Configuration](#configuration) section.
+
+In code:
+
+```powershell
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($req, $TriggerMetadata)
+
+Write-Host "Powershell SendMessageToKafka processed a request."
+
+$invoke_output_binding_req_body = @{
+    "data" = $req
+}
+
+# Associate values to output bindings by calling 'Push-OutputBinding'.
+Push-OutputBinding -Name messages -Value $invoke_output_binding_req_body
+```
+
+::: zone-end
+
 ::: zone pivot="programming-language-python"
 
 # [Python v2](#tab/v2)
@@ -145,8 +185,6 @@ def main(args, messages: func.Out[bytes]) -> None:
     messages.set(json.dumps({"data": args}))
 ```
 
-[!INCLUDE [preview-python](../../includes/functions-dapr-preview-python.md)]
-
 ---
 
 ::: zone-end
@@ -178,7 +216,7 @@ The following table explains the parameters for the `DaprBindingOutput`.
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript, programming-language-powershell"
 
 ## Configuration
 The following table explains the binding configuration properties that you set in the function.json file.
@@ -237,21 +275,7 @@ You also need to set up a Dapr output binding component. You can learn more abou
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
-
-See the [Example section](#example) for complete examples.
-
-## Usage
-To use a Dapr output binding, define your `daprBinding` binding in a functions.json file.  
-
-You also need to set up a Dapr output binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
-
-- [Dapr output binding component specs](https://docs.dapr.io/reference/components-reference/supported-bindings/)
-- [How to: Use output bindings to interface with external resources](https://docs.dapr.io/developing-applications/building-blocks/bindings/howto-bindings/)
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
+::: zone pivot="programming-language-javascript, programming-language-powershell, programming-language-python"
 
 See the [Example section](#example) for complete examples.
 

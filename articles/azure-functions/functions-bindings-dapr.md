@@ -2,7 +2,7 @@
 title: Dapr extension for Azure Functions
 description: Learn to use the Dapr trigger and bindings in Azure Functions.
 ms.topic: reference
-ms.date: 05/15/2023
+ms.date: 08/07/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -20,7 +20,7 @@ With the integration between Dapr and Functions, you can build functions that re
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python"
 
 
 | Action  | Direction | Type |
@@ -66,7 +66,7 @@ dotnet add package Dapr.AzureFunctions.Extension --version 0.10.0-preview01
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript,programming-language-python"
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
 
 ## Install bundle
 
@@ -86,14 +86,6 @@ You can add the preview extension by adding or replacing the following code in y
 ``` 
 
 ---
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-
-[!INCLUDE [preview-python](../../includes/functions-dapr-preview-python.md)]
-
 
 ::: zone-end
 
@@ -136,10 +128,6 @@ For examples using these types, see [the GitHub repository for the extension](ht
 [daprPublish]: https://github.com/Azure/azure-functions-dapr-extension/blob/master/docs/output-bindings.md#topic-publish-output-binding
 [daprBinding]: https://github.com/Azure/azure-functions-dapr-extension/blob/master/docs/output-bindings.md#topic-publish-output-binding
 
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
-
 ## Try out the Dapr Functions extension
 
 Learn how to use the Dapr Functions extension via the provided samples.
@@ -173,6 +161,20 @@ Learn how to use the Dapr Functions extension via the provided samples.
 [dapr-quickstart]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/quickstart
 [dapr-kafka]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/dapr-kafka
 [dapr-js]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/javascript-azurefunction
+
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
+
+## Try out the Dapr Functions extension
+
+Learn how to use the Dapr Functions extension via the provided samples.
+
+| Samples | Description |
+|-|-| 
+| [Quickstart][dapr-quickstart] | Get started using the Dapr Pub/sub binding and `HttpTrigger`. |
+
+[dapr-quickstart]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/quickstart
 
 ::: zone-end
 

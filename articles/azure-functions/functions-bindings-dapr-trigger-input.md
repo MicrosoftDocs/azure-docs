@@ -2,7 +2,7 @@
 title: Dapr Input Bindings trigger for Azure Functions
 description: Learn how to run an Azure Function as Dapr input binding data changes.
 ms.topic: reference
-ms.date: 07/20/2023
+ms.date: 08/07/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -20,7 +20,7 @@ There are no templates for triggers in Dapr in the functions tooling today. Star
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
+::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-powershell,programming-language-python"
 
 ## Example
 
@@ -86,6 +86,49 @@ module.exports = async function (context) {
 
 ::: zone-end
 
+::: zone pivot="programming-language-powershell"
+
+The following example shows Dapr triggers in a _function.json_ file and Powershell code that uses those bindings. 
+
+Here's the _function.json_ file for `daprBindingTrigger`:
+
+```json
+{
+  "bindings": [
+    {
+      "type": "daprBindingTrigger",
+      "bindingName": "%KafkaBindingName%",
+      "name": "triggerData",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+For more information about *function.json* file properties, see the [Configuration](#configuration) section.
+
+In code:
+
+```powershell
+using namespace System
+using namespace Microsoft.Azure.WebJobs
+using namespace Microsoft.Extensions.Logging
+using namespace Microsoft.Azure.WebJobs.Extensions.Dapr
+using namespace Newtonsoft.Json.Linq
+
+param (
+    $triggerData
+)
+
+Write-Host "PowerShell function processed a ConsumeMessageFromKafka request from the Dapr Runtime."
+
+$jsonString = $triggerData | ConvertTo-Json
+
+Write-Host "Trigger data: $jsonString"
+```
+
+::: zone-end
+
 ::: zone pivot="programming-language-python"
 
 # [Python v2](#tab/v2)
@@ -141,8 +184,6 @@ def main(triggerData: str) -> None:
     logging.info('Trigger data: ' + triggerData)
 ```
 
-[!INCLUDE [preview-python](../../includes/functions-dapr-preview-python.md)]
-
 ---
 
 ::: zone-end
@@ -172,6 +213,20 @@ The following table explains the parameters for the `DaprBindingTrigger`.
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
+
+## Configuration
+The following table explains the binding configuration properties that you set in the function.json file.
+
+|function.json property | Description|
+|---------|----------------------|
+|**type** | Must be set to `daprBindingTrigger`. |
+|**bindingName** | The name of the binding. |
+|**name** | The name of the variable that represents the Dapr data in function code. |
+|**direction** | Must be set to `in`. |
+
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
 
 ## Configuration
 The following table explains the binding configuration properties that you set in the function.json file.
@@ -227,21 +282,7 @@ You also need to set up a Dapr input binding component. You can learn more about
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
-
-See the [Example section](#example) for complete examples.
-
-## Usage
-To use a Dapr Input Binding trigger, define your `daprBindingTrigger` binding in a functions.json file.  
-
-You also need to set up a Dapr input binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
-
-- [Dapr input binding component specs](https://docs.dapr.io/reference/components-reference/supported-bindings/)
-- [How to: Trigger your application with input bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/howto-bindings/)
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
 
 See the [Example section](#example) for complete examples.
 
