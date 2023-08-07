@@ -147,10 +147,6 @@ From `function.json`, here is the binding data:
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-# [v2](#tab/python-v2)
-
-The Python v2 programming model is not available in preview.
-
 # [v1](#tab/python-v1)
 
 The Python v1 programming model requires you to define bindings in a separate _function.json_ file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
@@ -186,7 +182,10 @@ From `function.json`, here is the binding data:
   "scriptFile": "__init__.py"
 }
 ```
-<!--Content and samples from the Python tab in ##Examples go here.-->
+
+# [v2](#tab/python-v2)
+
+The Python v2 programming model is not available in preview.
 
 ---
 
@@ -254,7 +253,7 @@ The consumer group for all function instances is the `ID` of the function. For e
 
 ::: zone pivot="programming-language-csharp"
 
-During preview, the output bindings are present with the trigger functions.
+During preview, the output bindings are presented here with the trigger functions.
 
 | Output Type                                                                                                                                           | Description                                                                                                                                                                             |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

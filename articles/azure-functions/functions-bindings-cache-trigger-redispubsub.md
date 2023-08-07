@@ -263,10 +263,6 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-# [v2](#tab/python-v2)
-
-The Python v2 programming model is not available in Preview.
-
 # [v1](#tab/python-v1)
 
 The Python v1 programming model requires you to define bindings in a separate _function.json_ file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
@@ -335,6 +331,9 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 }
 ```
 
+# [v2](#tab/python-v2)
+
+The Python v2 programming model is not available in Preview.
 ---
 
 ::: zone-end
@@ -412,7 +411,7 @@ Because these events are published on pub/sub channels, the `RedisPubSubTrigger`
 
 ::: zone pivot="programming-language-csharp"
 
-During preview, the output bindings are present with the trigger functions.
+During preview, the output bindings are presented here with the trigger functions.
 
 | Output Type | Description|
 |---|---|
