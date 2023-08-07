@@ -144,44 +144,6 @@ az aks update --name $clusterName \
 
 The `--pod-cidr` parameter is required when upgrading from legacy CNI because the pods need to get IPs from a new overlay space, which doesn't overlap with the existing node subnet. The pod CIDR also can't overlap with any VNet address of the node pools. For example, if your VNet address is *10.0.0.0/8*, and your nodes are in the subnet *10.240.0.0/16*, the `--pod-cidr` can't overlap with *10.0.0.0/8* or the existing service CIDR on the cluster.
 
-## Install the aks-preview Azure CLI extension - Windows only
-
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
-
-Install the `aks-preview` extension using the [`az extension add`][az-extension-add] command.
-
-```azurecli
-az extension add --name aks-preview
-```
-
-Update to the latest version of the extension released using the [`az extension update`][az-extension-update] command.
-
-```azurecli
-az extension update --name aks-preview
-```
-
-## Register the 'AzureOverlayPreview' feature flag
-
-1. Register the `AzureOverlayPreview` feature flag using the [`az feature register`][az-feature-register] command.
-
-    ```azurecli-interactive
-    az feature register --namespace "Microsoft.ContainerService" --name "AzureOverlayPreview"
-    ```
-
-    It takes a few minutes for the status to show *Registered*.
-
-2. Verify the registration status using the [`az feature show`][az-feature-show] command.
-
-    ```azurecli-interactive
-    az feature show --namespace "Microsoft.ContainerService" --name "AzureOverlayPreview"
-    ```
-
-3. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command:
-
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.ContainerService
-    ```
-
 ## Next steps
 
 To learn how to utilize AKS with your own Container Network Interface (CNI) plugin, see [Bring your own Container Network Interface (CNI) plugin](use-byo-cni.md).
