@@ -1,5 +1,5 @@
 ---
-title: Document layout analysis - Document Intelligence
+title: Document layout analysis - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Extract text, tables, selections, titles, section headings, page headers, page footers, and more with layout analysis model from Document Intelligence.
 author: laujan
