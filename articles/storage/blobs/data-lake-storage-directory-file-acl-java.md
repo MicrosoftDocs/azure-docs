@@ -6,7 +6,7 @@ author: pauljewellmsft
 
 ms.author: pauljewell
 ms.service: azure-data-lake-storage
-ms.date: 08/04/2023
+ms.date: 08/08/2023
 ms.devlang: java
 ms.topic: how-to
 ms.reviewer: prishet
@@ -148,7 +148,7 @@ The following code example shows how to append data to the end of a file using t
 - Upload data to the file using the `DataLakeFileClient.append` method.
 - Complete the upload by calling the `DataLakeFileClient.flush` method to write the previously uploaded data to the file.
 
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_UploadFileBulk":::
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_AppendDataToFile":::
 
 ## Download from a directory
 
