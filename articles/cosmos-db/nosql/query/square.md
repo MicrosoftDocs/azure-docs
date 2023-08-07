@@ -48,6 +48,6 @@ The following example returns the squares of various numbers.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`SQRT`](sqrt.md)
 - [`POWER`](power.md)

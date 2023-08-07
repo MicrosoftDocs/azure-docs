@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: sample
-ms.date: 07/17/2023
+ms.date: 07/25/2023
 ms.author: jasteppe
 ---
 
@@ -33,6 +33,10 @@ Each MedTech service scenario-based sample contains the following resources:
 ## CalculatedContent
 
 [Conversions using functions](https://github.com/Azure-Samples/azure-health-data-services-samples/tree/main/samples/medtech-service-mappings/calculatedcontent/conversions-using-functions)
+
+## IotJsonPathContent
+
+[Single device message into multiple resources](https://github.com/Azure-Samples/azure-health-data-services-samples/tree/main/samples/medtech-service-mappings/iotjsonpathcontent/single-device-message-into-multiple-resources)
 
 ## Next steps
 
