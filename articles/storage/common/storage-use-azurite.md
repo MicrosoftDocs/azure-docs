@@ -111,6 +111,7 @@ The following table shows the location of the Azurite executable for different v
 
 | Visual Studio version | Azurite executable location |
 | --- | --- |
+| Visual Studio Community 2022 | `C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Azure Storage Emulator` |
 | Visual Studio Professional 2022 | `C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\Microsoft\Azure Storage Emulator` |
 | Visual Studio Enterprise 2022 | `C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\Microsoft\Azure Storage Emulator` | 
 

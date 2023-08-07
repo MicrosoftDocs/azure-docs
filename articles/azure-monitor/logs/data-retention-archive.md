@@ -13,9 +13,15 @@ Retention policies define when to remove or archive data in a [Log Analytics wor
 
 This article describes how to configure data retention and archiving.
 
-## Permissions
+## Permissions required
 
-To configure set data retention and archiving, you must have at least [contributor rights](../logs/manage-access.md#azure-rbac).
+| Action | Permissions required |
+|:-------|:---------------------|
+| Configure data retention and archive policies for a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/write` and `microsoft.operationalinsights/workspaces/tables/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
+| Get the retention and archive policy by table for a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/tables/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example |
+| Purge data from a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/purge/action` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
+| Set data retention for a classic Application Insights resource | `microsoft.insights/components/write` permissons to the classic Application Insights resource, as provided by the [Application Insights Component Contributor built-in role](../../role-based-access-control/built-in-roles.md#application-insights-component-contributor), for example |
+| Purge data from a classic Application Insights resource | `Microsoft.Insights/components/purge/action` permissions to the classic Application Insights resource, as provided by the [Application Insights Component Contributor built-in role](../../role-based-access-control/built-in-roles.md#application-insights-component-contributor), for example |
 
 ## How retention and archiving work
 
