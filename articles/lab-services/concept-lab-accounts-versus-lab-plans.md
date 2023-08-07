@@ -18,7 +18,7 @@ In Azure Lab Services, lab plans replace lab accounts and there some fundamental
 
 ## Overview
 
-**[Lab plans replace lab accounts](#lab-plans-replace-lab-accounts).** Although lab plans and lab accounts are similar in functionality, there are some fundamental differences. The lab plan serves as a collection of configurations and settings that apply to all labs you created from it. Also, labs are now an Azure resource in their own right and a sibling resource to lab plans.
+**[Lab plans replace lab accounts](#difference-between-lab-plans-and-lab-accounts).** Although lab plans and lab accounts are similar in functionality, there are some fundamental differences. The lab plan serves as a collection of configurations and settings that apply to all labs you created from it. Also, labs are now an Azure resource in their own right and a sibling resource to lab plans.
 
 **[Canvas Integration](how-to-configure-canvas-for-lab-plans.md)**. If you're organization is using Canvas, educators no longer have to leave Canvas to create labs with Azure Lab Services. Students can connect to their virtual machine from inside their course in Canvas.
 
