@@ -19,6 +19,18 @@ ms.author: barclayn
 
 This article discusses Entra services' licensing. It is intended for IT decision makers, IT administrators, and IT professionals who are considering Entra services for their organizations. This article is not intended for end users. For detailed licensing information, review [Microsoft Entra Plans & Pricing](https://www.microsoft.com/en-us/security/business/microsoft-entra-pricing?rtc=1)
 
+## Types of licenses
+
+The following licenses are available for use with Microsoft Entra ID.  The type of licenses you need will depend on the features you're using.
+
+- **Free** - Included with Microsoft cloud subscriptions such as Microsoft Azure, Microsoft 365, and others.1
+- **Microsoft Azure AD P1** - Azure Active Directory P1 (becoming Microsoft Entra ID P1) is available as a standalone or included with Microsoft 365 E3 for enterprise customers and Microsoft 365 Business Premium for small to medium businesses. 
+- **Microsoft Azure AD P2** - Azure Active Directory P2 (becoming Microsoft Entra ID P2) is available as a standalone or included with Microsoft 365 E5 for enterprise customers.
+- **Microsoft Entra ID Governance** - Entra ID Governance is an advanced set of identity governance capabilities available for Microsoft Entra ID P1 and P2 customers.
+
+>[!NOTE]
+>Microsoft Entra ID Governance scenarios may depends upon other features that aren't covered by Microsoft Entra ID Governance.  These features may have additional licensing requirements.  See [Governance capabilities in other Microsoft Entra features](identity-governance-overview.md#governance-capabilities-in-other-microsoft-entra-features) for more information on governance scenarios that rely on additional features.
+
 ## Access reviews
 
 You need a valid Azure AD Premium (P2) license for each person, other than Global administrators or User administrators, who will create or do access reviews. For more information, see [Access reviews license requirements](../governance/access-reviews-overview.md).
@@ -99,14 +111,24 @@ In the target tenant: Cross-tenant sync relies on the Azure AD External Identiti
 
 ## Privileged identity management
 
-You need either Microsoft Entra ID Governance licenses or Azure AD Premium P2 licenses to use PIM and all of its settings. Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles with an Microsoft Entra Premuim P2 or Microsoft Entra ID Governance edition active in your tenant. 
-
-### Licenses you must have
-
-Ensure that your tenant has either Microsoft Entra ID Governance or Microsoft Azure AD Premium P2 licenses for all users whose identities or access is governed or who interact with an identity governance feature.
+To use Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, a tenant must have a valid license. Licenses must also be assigned to the administrators and relevant users. This article describes the license requirements to use Privileged Identity Management.  To use Privileged Identity Management, you must have one of the following licenses:
 
 
-### Example license scenarios
+### Valid licenses for PIM
+
+You'll need either Microsoft Entra ID Governance licenses or Azure AD Premium P2 licenses to use PIM and all of its settings. Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles with a Microsoft Entra Premuim P2 or Microsoft Entra ID Governance edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required. 
+
+### Licenses you must have for PIM
+Ensure that your directory has Microsoft Entra Premuim P2 or Microsoft Entra ID Governance licenses for the following categories of users:
+
+- Users with eligible and/or time-bound assignments to Azure AD or Azure roles managed using PIM
+- Users with eligible and/or time-bound assignments as members or owners of PIM for Groups
+- Users able to approve or reject activation requests in PIM
+- Users assigned to an access review
+- Users who perform access reviews
+
+
+### Example license scenarios for PIM
 
 Here are some example license scenarios to help you determine the number of licenses you must have.
 
@@ -114,9 +136,9 @@ Here are some example license scenarios to help you determine the number of lice
 | --- | --- | --- |
 | Woodgrove Bank has 10 administrators for different departments and 2 Global Administrators that configure and manage PIM. They make five administrators eligible. | Five licenses for the administrators who are eligible | 5 |
 | Graphic Design Institute has 25 administrators of which 14 are managed through PIM. Role activation requires approval and there are three different users in the organization who can approve activations. | 14 licenses for the eligible roles + three approvers | 17 |
-| Contoso has 50 administrators of which 42 are managed through PIM. Role activation requires approval and there are five different users in the organization who can approve activations. Contoso also does monthly reviews of users assigned to administrator roles and reviewers are the users’ managers of which six are not in administrator roles managed by PIM. | 42 licenses for the eligible roles + five approvers + six reviewers | 53 |
+| Contoso has 50 administrators of which 42 are managed through PIM. Role activation requires approval and there are five different users in the organization who can approve activations. Contoso also does monthly reviews of users assigned to administrator roles and reviewers are the users’ managers of which six aren't in administrator roles managed by PIM. | 42 licenses for the eligible roles + five approvers + six reviewers | 53 |
 
-### When a license expires
+### When a license expires for PIM
 
 If a Microsoft Azure AD Premuim P2, Microsoft Entra ID Governance, or trial license expires, Privileged Identity Management features will no longer be available in your directory:
 
@@ -125,7 +147,6 @@ If a Microsoft Azure AD Premuim P2, Microsoft Entra ID Governance, or trial lice
 - Eligible role assignments of Azure AD roles will be removed, as users will no longer be able to activate privileged roles.
 - Any ongoing access reviews of Azure AD roles will end, and Privileged Identity Management configuration settings will be removed.
 - Privileged Identity Management will no longer send emails on role assignment changes.
-
 
 ## Role based access control
 
