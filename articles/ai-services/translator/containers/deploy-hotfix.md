@@ -42,9 +42,10 @@ The hot fix folder is encoded in **UTF-16 LE BOM** format and nests **phrase&#82
     |{`src`}.{`tgt`}.{container-glossary}.{sent&#8203;fix}.tgt.snt|en.es.container-glossary.sentfix.tgt.snt|
 
    > [!NOTE]
-   > The **phrase&#8203;fix** solution is an exact find-and-replace operation. Any word or phrase listed is translated in the way specified.
-   > The **sent&#8203;fix** solution is more precise and allows you to specify an exact target translation for a source sentence. For a sentence match to occur, the entire submitted sentence must match the **sent&#8203;fix** entry. If only a portion of the sentence matches, the entry won't match.
-   > If you're hesitant about making sweeping find-and-replace changes, we recommend, at the outset, solely using the **sent&#8203;fix** solution.
+   >
+   > * The **phrase&#8203;fix** solution is an exact find-and-replace operation. Any word or phrase listed is translated in the way specified.
+   > * The **sent&#8203;fix** solution is more precise and allows you to specify an exact target translation for a source sentence. For a sentence match to occur, the entire submitted sentence must match the **sent&#8203;fix** entry. If only a portion of the sentence matches, the entry won't match.
+   > * If you're hesitant about making sweeping find-and-replace changes, we recommend, at the outset, solely using the **sent&#8203;fix** solution.
 
 1. Next, to dynamically reload hotfix entry changes, create a `version.json` file within the `customhotfix` folder. The `version.json` file should contain the following parameters:
 
@@ -70,35 +71,35 @@ The hot fix folder is encoded in **UTF-16 LE BOM** format and nests **phrase&#82
 
 1. Run the container using the **docker run** command
 
-**Docker run command required options**
+  **Docker run command required options**
 
-```dockerfile
-docker run --rm -it -p 5000:5000 \
+  ```dockerfile
+  docker run --rm -it -p 5000:5000 \
 
--e eula=accept \
+  -e eula=accept \
 
--e billing={ENDPOINT_URI} \
+  -e billing={ENDPOINT_URI} \
 
--e apikey={API_KEY} \
+  -e apikey={API_KEY} \
 
--e Languages={LANGUAGES_LIST} \
+  -e Languages={LANGUAGES_LIST} \
 
--e HotfixDataFolder={path to hotfix folder}
+  -e HotfixDataFolder={path to hotfix folder}
 
-{image}
-```
+  {image}
+  ```
 
-**Example docker run command**
+  **Example docker run command**
 
-```dockerfile
-docker run -rm -d -p 5000:5000 \
--v /mnt/d/models:/usr/local/models -v /mnt/d /customerhotfix:/usr/local/customhotfix \
--e EULA=accept \
--e billing={ENDPOINT_URI} \
--e apikey={API_Key} \
--e Languages=en,es \
--e HotfixDataFolder=/usr/local/customhotfix\
-mcr.microsoft.com/azure-cognitive-services/translator/text-translation:latest
+  ```dockerfile
+  docker run -rm -d -p 5000:5000 \
+  -v /mnt/d/models:/usr/local/models -v /mnt/d /customerhotfix:/usr/local/customhotfix \
+  -e EULA=accept \
+  -e billing={ENDPOINT_URI} \
+  -e apikey={API_Key} \
+  -e Languages=en,es \
+  -e HotfixDataFolder=/usr/local/customhotfix\
+  mcr.microsoft.com/azure-cognitive-services/translator/text-translation:latest
 ```
 
 ## Next steps
