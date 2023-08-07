@@ -23,7 +23,7 @@ You can create an Azure Database for PostgreSQL server in one of three pricing t
 | Storage size | 32 GB to 32 TB | 32 GB to 32 TB | 32 GB to 32 TB |
 | Database backup retention period | 7 to 35 days | 7 to 35 days | 7 to 35 days |
 
-To choose a pricing tier, use the following table as a starting point.
+To choose a pricing tier, use the following table as a starting point:
 
 | Pricing tier | Target workloads |
 |:-------------|:-----------------|
@@ -107,7 +107,7 @@ You can monitor your I/O consumption in the Azure portal or by using Azure CLI c
 |                                       |Maximum IOPS                              |120|240|500 |1,100|2,300 |5,000 |7,500 |7,500 |16,000 |18,000 |20,000 |
 |**Burstable**                          |                                          |   |   |    |    |     |     |     |     |      |      |      |
 |B1ms                                   |640 IOPS                                  |120|240|500 |640*|640* |640* |640* |640* |640*  |640*  |640*  |
-|B2s                                    |1280 IOPS                                 |120|240|500 |1,100|1,280*|1,280*|1,280*|1,280*|1,280* |1,280* |1,280* |
+|B2s                                    |1,280 IOPS                                 |120|240|500 |1,100|1,280*|1,280*|1,280*|1,280*|1,280* |1,280* |1,280* |
 |B2ms                                   |1,280 IOPS                                 |120|240|500 |1,100|1,700*|1,700*|1,700*|1,700*|1,700* |1,700* |1,700* |
 |B4ms                                   |1,280 IOPS                                 |120|240|500 |1,100|2,300 |2,400*|2,400*|2,400*|2,400* |2,400* |2,400* |
 |B8ms                                   |1,280 IOPS                                 |120|240|500 |1,100|2,300 |3,100*|3,100*|3,100*|3,100* |2,400* |2,400* |
@@ -136,7 +136,7 @@ You can monitor your I/O consumption in the Azure portal or by using Azure CLI c
 |E64s_v3 / E64ds_v4  / E64ds_v5         |20,000 IOPS                               |120|240|500 |1,100|2,300 |5,000 |7,500 |7,500 |16,000 |18,000 |20,000 |
 |E96ds_v5                               |20,000 IOPS                               |120|240|500 |1,100|2,300 |5,000 |7,500 |7,500 |16,000 |18,000 |20,000 |
 
-IOPS marked with an asterisk (\*) are limited by the VM type that you selected. Otherwise, IOPS are limited by the selected storage size.
+IOPS marked with an asterisk (\*) are limited by the VM type that you selected. Otherwise, the selected storage size limits the IOPS.
 
 > [!NOTE]
 > You might see higher IOPS in the metrics because of disk-level bursting. For more information, see [Managed disk bursting](../../virtual-machines/disk-bursting.md#disk-level-bursting).
@@ -186,7 +186,7 @@ IOPS marked with an asterisk (\*) are limited by the VM type that you selected. 
 |E64s_v3 / E64ds_v4 /E64ds_v5     |900 MiB/sec                                   |25    |50     |100    |125   |150    |200    |250  |250    |500   |750   |900   |
 |Ed96ds_v5                        |900 MiB/sec                                   |25    |50     |100    |125   |150    |200    |250  |250    |500   |750   |900   |
 
-I/O bandwidth marked with an asterisk (\*) is limited by the VM type that you selected. Otherwise, I/O bandwidth is limited by the selected storage size.
+I/O bandwidth marked with an asterisk (\*) is limited by the VM type that you selected. Otherwise, the selected storage size limits the I/O bandwidth.
 
 ### Reaching the storage limit
 
@@ -212,9 +212,9 @@ Remember that storage can only be scaled up, not down.
 
 ## Limitations
 
-- Disk-scaling operations are always online, except in specific scenarios that involve the 4,096-GiB boundary. These scenarios include reaching, starting at, or crossing the 4,096-GiB limit. An example is when you're scaling from 2,048 GiB to 8,192 GiB.
+- Disk scaling operations are always online, except in specific scenarios that involve the 4,096-GiB boundary. These scenarios include reaching, starting at, or crossing the 4,096-GiB limit. An example is when you're scaling from 2,048 GiB to 8,192 GiB.
 
-  This limitation is due to the underlying Azure managed disk, which needs a manual disk-scaling operation. You receive an informational message in the portal when you approach this limit.
+  This limitation is due to the underlying Azure managed disk, which needs a manual disk scaling operation. You receive an informational message in the portal when you approach this limit.
 
 - Storage auto-grow currently doesn't work for high-availability or read-replica-enabled servers.
 
@@ -236,7 +236,7 @@ After you create your server, you can independently change the vCores, the compu
 
 When you change the number of vCores or the compute tier, the server is restarted for the new server type to take effect. During the moment when the system switches over to the new server, no new connections can be established, and all uncommitted transactions are rolled back.
 
-The time it takes to restart your server depends on the crash recovery process and database activity at the time of the restart. Restarting typically takes one minute or less. But it can be higher and can take several minutes, depending on transactional activity at time of the restart. Scaling the storage works the same way and requires a restart.
+The time it takes to restart your server depends on the crash recovery process and database activity at the time of the restart. Restarting typically takes one minute or less. But it can be higher and can take several minutes, depending on transactional activity at the time of the restart. Scaling the storage works the same way and requires a restart.
 
 To improve the restart time, we recommend that you perform scale operations during off-peak hours. That approach reduces the time needed to restart the database server.
 
