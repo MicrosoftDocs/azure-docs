@@ -10,6 +10,8 @@ zone_pivot_groups: deploy-python-web-app-postgresql
 
 # Deploy a Python (Django or Flask) web app with PostgreSQL in Azure
 
+:::code language="html" source="~/ms-identity-python-webapp-quickstart/templates/auth_error.html" id="head":::
+
 In this tutorial, you'll deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)** or **[Flask](https://flask.palletsprojects.com/)**) to **[Azure App Service](./overview.md#app-service-on-linux)** with the **[Azure Database for PostgreSQL](../postgresql/index.yml)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment.
 
 :::image type="content" border="False" source="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture-240px.png" lightbox="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture.png" alt-text="An architecture diagram showing an App Service with a PostgreSQL database in Azure.":::
