@@ -32,9 +32,6 @@ Instead of using the cloudadmin user to connect services to vCenter Server, we r
  
 1. In your Azure VMware Solution private cloud, select **VMWare credentials**.
 1. Select **Generate new password**.
-
-   :::image type="content" source="media/rotate-cloudadmin-credentials/reset-vcenter-credentials-1.png" alt-text="Screenshot showing the vCenter Server credentials and a way to copy them or generate a new password." lightbox="media/rotate-cloudadmin-credentials/reset-vcenter-credentials-1.png":::
-
 1. Select the confirmation checkbox and then select **Generate password**.
 
 
