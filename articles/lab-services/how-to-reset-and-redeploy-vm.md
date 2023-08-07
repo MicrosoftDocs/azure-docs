@@ -55,7 +55,7 @@ Alternatively, if you have permissions across multiple labs, you can reset multi
 
 ## Redeploy VMs
 
-When you use lab plans, introduced in the [April 2022 Update](lab-services-whats-new.md), you can now also redeploy a lab VM. This operation is labeled  **Troubleshoot** in the Azure Lab Services website and is available in the student's view of their VMs.
+When you use [lab plans](./concept-lab-accounts-versus-lab-plans.md), you can now also redeploy a lab VM. This operation is labeled  **Troubleshoot** in the Azure Lab Services website and is available in the student's view of their VMs.
 
 When you redeploy a lab VM, Azure Lab Services will shut down the VM, move the VM to a new node in within the Azure infrastructure, and then power it back on. You can think of a redeploy operation as a refresh of the underlying VM for your lab. All data that you saved in the [OS disk](/azure/virtual-machines/managed-disks-overview#os-disk) (usually the C: drive on Windows) of the VM will still be available after the redeploy operation. Any data on the [temporary disk](/azure/virtual-machines/managed-disks-overview#temporary-disk) (usually the D: drive on Windows) is lost after a redeploy operation.
 
