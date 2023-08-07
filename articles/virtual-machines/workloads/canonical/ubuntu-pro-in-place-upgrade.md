@@ -15,7 +15,6 @@ ms.author: anujmaurya
 
 **Applies to:** :heavy_check_mark: Linux VMs 
 
-## Introduction
 Customers can now upgrade from Ubuntu Server (16.04 or higher) to Ubuntu Pro on your existing Azure Virtual Machines (VMs) without redeployment or downtime. One of the major use cases includes conversion of Ubuntu 18.04 LTS going EOL to Ubuntu Pro. [Canonical announced that the Ubuntu 18.04 LTS (Bionic Beaver) OS images will reach end-of-life (EOL)....](https://ubuntu.com/18-04/azure) This means that Canonical will no longer provide technical support, software updates, or security patches for this version. Customers will need to upgrade to Ubuntu Pro to continue to be on Ubuntu 18.04 LTS. 
 
 ## What is Ubuntu Pro? 
@@ -43,7 +42,8 @@ Customers can choose to continue to be on Ubuntu 18.04 LTS by upgrading to Ubunt
 
 2. Validating the license
 
-> **Note: Converting to UBUNTU_PRO is an irreversible process. You cannot even downgrade a VM by running detach. Please raise support tickets for any exceptions.**
+> [!NOTE]
+> Converting to UBUNTU_PRO is an irreversible process. You cannot even downgrade a VM by running detach. Please raise support tickets for any exceptions.**
 
 ## Converting to Ubuntu Pro using the Azure CLI 
 ```azurecli-interactive
@@ -61,7 +61,7 @@ sudo pro auto-attach
 ## Validating the license 
 Expected output:
 
-![Expected Output](./ubuntu_pro_expected_output.png)
+![PNG Image for the expected output.](./ubuntu_pro_expected_output.png)
 
 ## Creating an Ubuntu Pro VM using the Azure CLI
 You can also create a new VM using the Ubuntu Sever images and apply Ubuntu Pro at create time.
@@ -78,7 +78,9 @@ az vm update -g myResourceGroup -n myVmName --license-type UBUNTU_PRO
 sudo apt install ubuntu-advantage-tools 
 sudo pro auto-attach 
 ```
-Note: For systems with advantage tools version 28 or higher installed the system will perform a pro attach during a reboot.
+
+> [!NOTE]
+> For systems with advantage tools version 28 or higher installed the system will perform a pro attach during a reboot.
 
 ## Check licensing model using the Azure CLI
 You can use the az vm get-instance-view command to check the status. Look for a licenseType field in the response. If the licenseType field exists and the value is UBUNTU_PRO, your virtual machine has Ubuntu Pro enabled.
