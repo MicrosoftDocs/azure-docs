@@ -15,14 +15,12 @@ ms.custom: contperf-fy22q3
 
 In this article, you'll learn how you can identify performance regressions by comparing test runs in the Azure Load Testing dashboard. The dashboard overlays the client-side and server-side metric graphs for each run, which allows you to quickly analyze performance issues. You will also learn how to view and analyze the trends in client-side performance metrics. 
 
+To identify performance regressions, you can quickly glance over the client-side metrics from your recent test runs to understand if your performance is trending favorably or unfavorably. Optionally, you can compare the recent metrics with a baseline to understand if the performance is meeting your expectations. To dive deeper into a performance regression, you can compare upto five test runs.
+
 You can compare load test runs for the following scenarios:
 
 - [Identify performance regressions](#identify-performance-regressions) between application builds or configurations. You could run a load test at each development sprint to ensure that the previous sprint didn't introduce performance issues.
 - [Identify which application component is responsible](#identify-the-root-cause) for a performance problem (root cause analysis). For example, an application redesign might result in slower application response times. Comparing load test runs might reveal that the root cause was a lack of database resources.
-
-You can view and analyze trends in client-side performance metrics for the following scenarios:
-- View trends in performance over time. You could quickly glance over the client-side metrics from your recent test runs to understand if your performance is trending favorably or unfavorably.
-- Check if you are meeting SLAs. You could run a load test at a regular cadence in a staging environment that mirrors the production environment and identify if you are missing SLAs on any client-side performance metrics by comparing recent results with a baseline.
 
 ## Prerequisites
 
