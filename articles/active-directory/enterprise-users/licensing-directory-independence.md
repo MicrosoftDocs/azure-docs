@@ -39,7 +39,7 @@ You can configure each Azure AD organization independently to get data synchroni
 
 ## Add an Azure AD organization
 
-To add an Azure AD organization in the Azure portal, sign in to [the Azure portal](https://portal.azure.com) with an account that is an Azure AD global administrator, and select **New**.
+To add an Azure AD organization in the Azure portal, sign in to the [Azure portal](https://portal.azure.com) with an account that is an Azure AD global administrator, and select **New**.
 
 > [!NOTE]
 > Unlike other Azure resources, your Azure AD organizations are not child resources of an Azure subscription. If your Azure subscription is canceled or expired, you can still access your Azure AD organization's data using Azure PowerShell, the Microsoft Graph API, or the Microsoft 365 admin center. You can also [associate another subscription with the organization](../fundamentals/active-directory-how-subscriptions-associated-directory.md).

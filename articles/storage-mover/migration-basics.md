@@ -3,7 +3,7 @@ title: Cloud migration basics for file and folder storage
 description: Understand the basic decisions and strategies for the cloud migration of files and folders.
 author: stevenmatthew
 ms.author: shaas
-ms.service: storage-mover
+ms.service: azure-storage-mover
 ms.topic: conceptual
 ms.date: 06/21/2022
 ---
@@ -42,7 +42,7 @@ Start by making a list of all the shares your workload depends on. Refer to your
 If you need to migrate storage for multiple workloads at roughly the same time, you should split them into individual migration projects.
 
 > [!IMPORTANT]
-> Including multiple workloads in a single migration project is not recommended. Each workload should have its own migration project. Structuring the project in this way will significantly simply migration management and workload failover.
+> Including multiple workloads in a single migration project is not recommended. Each workload should have its own migration project. Structuring the project in this way will significantly simplify migration management and workload failover.
 
 The result of the discovery phase is a list of file shares that you need to migrate to Azure. You should have distinct lists per workload.
 

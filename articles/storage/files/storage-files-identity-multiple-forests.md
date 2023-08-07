@@ -2,11 +2,10 @@
 title: Use Azure Files with multiple Active Directory (AD) forests
 description: Configure on-premises Active Directory Domain Services (AD DS) authentication for SMB Azure file shares with an AD DS environment using multiple forests.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 05/23/2023
 ms.author: kendownie
-ms.subservice: files 
 ---
 
 # Use Azure Files with multiple Active Directory forests

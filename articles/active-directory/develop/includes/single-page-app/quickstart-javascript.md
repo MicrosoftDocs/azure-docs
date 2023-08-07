@@ -30,6 +30,8 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Register and download your quickstart application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To start your quickstart application, use either of the following options.
 
 ### Option 1 (Express): Register and auto configure your app and then download your code sample

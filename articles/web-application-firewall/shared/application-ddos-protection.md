@@ -18,20 +18,20 @@ Azure WAF has several defense mechanisms that can help to prevent distributed de
 These attacks can be mitigated by adding Web Application Firewall (WAF) or placing DDoS in front of the service to filter out bad requests. Azure offers WAF running at network edge with Azure Front Door and in data centers with Application Gateway. These steps are a generalized list and need to be adjusted to fit your application requirements service.
 
 * Deploy [Azure Web Application Firewall (WAF)](../overview.md) with Azure Front Door Premium or Application Gateway WAF v2 SKU to protect against L7 application layer attacks.  
-* Scale up your origin instance count so that there's sufficient spare capacity by following safe deployment guidelines.
+* Scale up your origin instance count so that there's sufficient spare capacity.
 * Enable [Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md) on the origin public IPs to protect your public IPs against layer 3(L3) and layer 4(L4) DDoS attacks. Azure’s DDoS offerings can automatically protect most sites from L3 and L4 volumetric attacks that send large numbers of packets towards a website. Azure also offers infrastructure level protection to all sites hosted on Azure by default.
 
 ## Azure WAF with Azure Front Door
 
-Azure WAF has many features that can be used to mitigate many different types of attacks -
+Azure WAF has many features that can be used to mitigate many different types of attacks, like HTTP floods, Cache bypass, attacks launched by botnets.
 
-* Using bot protection managed rule set to protect against known bad bots. For more information, see [Configuring bot protection](../afds/waf-front-door-policy-configure-bot-protection.md).
+* Use bot protection managed rule set to protect against known bad bots. For more information, see [Configuring bot protection](../afds/waf-front-door-policy-configure-bot-protection.md).
 
 * Apply rate limit to prevent IP addresses from calling your service too frequently. For more information, see [Rate limiting](../afds/waf-front-door-rate-limit.md).
 
 * Block IP addresses, and ranges that you identify as malicious. For more information, see [IP restrictions](../afds/waf-front-door-configure-ip-restriction.md).
 
-* Block or redirect to a static web page any traffic from outside a defined geographic region, or within a defined region that doesn't fit the application traffic pattern. For more information, see [Geo-filtering]()../afds/waf-front-door-geo-filtering.md).
+* Block or redirect to a static web page any traffic from outside a defined geographic region, or within a defined region that doesn't fit the application traffic pattern. For more information, see [Geo-filtering](../afds/waf-front-door-geo-filtering.md).
 
 * Create [custom WAF rules](../afds/waf-front-door-custom-rules.md) to automatically block and rate limit HTTP or HTTPS attacks that have known signatures. Signature such as a specific user-agent, or a specific traffic pattern including headers, cookies, query string parameters or a combination of multiple signatures.
 
@@ -53,11 +53,11 @@ Application Gateway WAF SKUs can be used to mitigate many L7 DDoS attacks:
 
 * Block or redirect to a static web page any traffic from outside a defined geographic region, or within a defined region that doesn't fit the application traffic pattern. For more information, see examples at [Create and use v2 custom rules](../ag/create-custom-waf-rules.md).
 
-* You can create [custom WAF rules](../ag/configure-waf-custom-rules.md) to automatically block and rate limit HTTP or HTTPS attacks that have known signatures. Signatures such as a specific user-agent, or a specific traffic pattern including headers, cookies, query string parameters or a combination of multiple signatures.
+* Create [custom WAF rules](../ag/configure-waf-custom-rules.md) to automatically block and rate limit HTTP or HTTPS attacks that have known signatures. Signatures such as a specific user-agent, or a specific traffic pattern including headers, cookies, query string parameters or a combination of multiple signatures.
 
 ## Other considerations
 
-* Lock down access to public IPs on origin and restrict inbound traffic to only allow traffic from Azure Front Door or Application Gateway to origin. Refer to guidance on Azure Front Door. Application Gateways are deployed in a virtual network, ensure there isn't any publicly exposed IPs.
+* Lock down access to public IPs on origin and restrict inbound traffic to only allow traffic from Azure Front Door or Application Gateway to origin. Refer to the [guidance on Azure Front Door](../../frontdoor/front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-). Application Gateways are deployed in a virtual network, ensure there isn't any publicly exposed IPs.
 
 * Switch WAF policy to the prevention mode. Deploying the policy in detection mode operates in the log only and doesn't block traffic. After verifying and testing your WAF policy with production traffic and fine tuning to reduce any false positives, you should turn policy to Prevention mode (block/defend mode). 
 
@@ -67,16 +67,16 @@ Application Gateway WAF SKUs can be used to mitigate many L7 DDoS attacks:
 
 * Depending on your traffic pattern, create a preventive rate limit rule (only applies to Azure Front Door). For example, you can configure a rate limit rule to not allow any single *Client IP address* to send more than XXX traffic per window to your site. Azure Front Door supports two fixed windows for tracking requests, 1 and 5 minutes. It's recommended to use the 5-minute window for better mitigation of HTTP Flood attacks. For example, **Configure a Rate Limit Rule**, which blocks any *Source IP* that exceeds 100 requests in a 5-minute window. This rule should be the lowest priority rule (priority is ordered with 1 being the highest priority), so that more specific Rate Limit rules or Match rules can be created to match before this rule.
 
-The following Log Analytics query can be helpful in determining the threshold you should use for the above rule.
+    The following Log Analytics query can be helpful in determining the threshold you should use for the above rule.
 
-```
-AzureDiagnostics
-| where Category == "FrontdoorAccessLog"
-| summarize count() by bin(TimeGenerated, 5m), clientIp_s
-| summarize max(count_), percentile(count_, 99), percentile(count_, 95)
-```
+    ```
+    AzureDiagnostics
+    | where Category == "FrontdoorAccessLog"
+    | summarize count() by bin(TimeGenerated, 5m), clientIp_s
+    | summarize max(count_), percentile(count_, 99), percentile(count_, 95)
+    ```
 
-Managed rules while not directly targeted for defenses against DDoS attacks provide protection against other common attacks. For more information, see [Managed rules (Azure Front Door)](../afds/waf-front-door-drs.md) or [Managed rules (Application Gateway)](../ag/application-gateway-crs-rulegroups-rules.md) to learn more about various attack types these rules can help protect against.
+* Managed rules while not directly targeted for defenses against DDoS attacks provide protection against other common attacks. For more information, see [Managed rules (Azure Front Door)](../afds/waf-front-door-drs.md) or [Managed rules (Application Gateway)](../ag/application-gateway-crs-rulegroups-rules.md) to learn more about various attack types these rules can help protect against.
 
 ## WAF log analysis
 

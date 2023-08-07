@@ -289,6 +289,23 @@ Regardless of the configuration you use to set up authentication, the following 
 - Give each App Service app its own permissions and consent.
 - Avoid permission sharing between environments by using separate app registrations for separate deployment slots. When testing new code, this practice can help prevent issues from affecting the production app.
 
+### Migrate to the Microsoft Graph
+
+Some older apps may also have been set up with a dependency on the [deprecated Azure AD Graph][aad-graph], which is scheduled for full retirement. For example, your app code may have called Azure AD graph to check group membership as part of an authorization filter in a middleware pipeline. Apps should move to the [Microsoft Graph](/graph/overview) by following the [guidance provided by AAD as part of the Azure AD Graph deprecation process][aad-graph]. In following those instructions, you may need to make some changes to your configuration of App Service authentication. Once you have added Microsoft Graph permissions to your app registration, you can:
+
+1. Update the **Issuer URL** to include the "/v2.0" suffix if it doesn't already. See [Enable Azure Active Directory in your App Service app](#-step-2-enable-azure-active-directory-in-your-app-service-app) for general expectations around this value.
+1. Remove requests for Azure AD Graph permissions from your login configuration. The properties to change depend on [which version of the management API you're using](./configure-authentication-api-version.md):
+    - If you're using the V1 API (`/authsettings`), this would be in the `additionalLoginParams` array. 
+    - If you're using the V2 API (`/authsettingsV2`), this would be in the `loginParameters` array.
+    
+    You would need to remove any reference to "https://graph.windows.net", for example. This includes the `resource` parameter (which isn't supported by the "/v2.0" endpoint) or any scopes you're specifically requesting that are from the Azure AD Graph.
+
+    You would also need to update the configuration to request the new Microsoft Graph permissions you set up for the application registration. You can use the [.default scope](../active-directory/develop/scopes-oidc.md#the-default-scope) to simplify this setup in many cases. To do so, add a new login parameter `scope=openid profile email https://graph.microsoft.com/.default`.
+
+With these changes, when App Service Authentication attempts to log in, it will no longer request permissions to the Azure AD Graph, and instead it will get a token for the Microsoft Graph. Any use of that token from your application code would also need to be updated, as per the [guidance provided by AAD][aad-graph].
+
+[aad-graph]: /graph/migrate-azure-ad-graph-overview
+
 ## <a name="related-content"> </a>Next steps
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]

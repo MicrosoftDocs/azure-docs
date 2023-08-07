@@ -297,6 +297,8 @@
           href: apache-kafka-frequently-asked-questions.yml
     - name: Manage and monitor
       items:
+        - name: Configure properties for an event hub
+          href: configure-event-hub-properties.md
         - name: Monitor Azure Event Hubs
           href: monitor-event-hubs.md
         - name: Stream Azure Diagnostics data using Event Hubs

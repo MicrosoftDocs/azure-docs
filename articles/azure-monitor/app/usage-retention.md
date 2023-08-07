@@ -2,7 +2,7 @@
 title: Analyze web app user retention with Application Insights
 description: This article shows you how to determine how many users return to your app.
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 06/23/2023
 ms.reviewer: mmcc
 ---
 
@@ -36,23 +36,11 @@ Workbook capabilities:
 
 ## Use business events to track retention
 
-To get the most useful retention analysis, measure events that represent significant business activities.
+You should measure events that represent significant business activities to get the most useful retention analysis.
 
-For example, many users might open a page in your app without playing the game that it displays. Tracking only the page views would provide an inaccurate estimate of how many people returned to play the game after enjoying it previously. To get a clear picture of returning players, your app should send a custom event when a user actually plays.
+For more information and example code, see [Custom business events](usage-overview.md#custom-business-events).
 
-It's good practice to code custom events that represent key business actions. Then you can use these events for your retention analysis. To capture the game outcome, you need to write a line of code to send a custom event to Application Insights. If you write it in the webpage code or in Node.JS, it looks like this example:
-
-```JavaScript
-    appinsights.trackEvent("won game");
-```
-
-Or in ASP.NET server code:
-
-```csharp
-   telemetry.TrackEvent("won game");
-```
-
-Learn more about [writing custom events](./api-custom-events-metrics.md#trackevent).
+To learn more, see [writing custom events](./api-custom-events-metrics.md#trackevent).
 
 ## Next steps
 

@@ -9,7 +9,6 @@ ms.topic: how-to
 ms.date: 05/12/2022
 ms.author: tamram
 ms.reviewer: nachakra
-ms.subservice: blobs
 ms.devlang: powershell
 ms.custom: devx-track-azurepowershell
 ---

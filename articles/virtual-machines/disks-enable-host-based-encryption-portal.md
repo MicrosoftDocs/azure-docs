@@ -2,11 +2,10 @@
 title: Enable end-to-end encryption using encryption at host - Azure portal - managed disks
 description: Use encryption at host to enable end-to-end encryption on your Azure managed disks - Azure portal.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 03/28/2023
+ms.date: 08/02/2023
 ms.author: rogarana
-ms.subservice: disks
 ms.custom: references_regions
 ---
 
@@ -117,7 +116,7 @@ You've now deployed a VM with encryption at host enabled using customer-managed 
 
 Deallocate your VM first, encryption at host can't be disabled unless your VM is deallocated.
 
-1. On your VM, select **Disks** and then select **Additional settings**.
+1. On your VM, select **Disks** under **Settings**, and then select **Additional settings**.
 
    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-host-based-encryption-additional-settings.png" alt-text="Screenshot of the Disks pane on a VM, Additional Settings is highlighted.":::
 

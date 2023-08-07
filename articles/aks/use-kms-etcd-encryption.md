@@ -3,7 +3,7 @@ title: Use Key Management Service (KMS) etcd encryption in Azure Kubernetes Serv
 description: Learn how to use the Key Management Service (KMS) etcd encryption with Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 06/15/2023
+ms.date: 08/04/2023
 ---
 
 # Add Key Management Service (KMS) etcd encryption to an Azure Kubernetes Service (AKS) cluster
@@ -24,21 +24,21 @@ For more information on using the KMS plugin, see [Encrypting Secret Data at Res
 
 > [!WARNING]
 > KMS supports Konnectivity or [API Server Vnet Integration][api-server-vnet-integration]. 
-> You can use `kubectl get po -n kube-system` to verify the results show that a konnectivity-agent-xxx pod is running. If there is, it means the AKS cluster is using Konnectivity. When using VNet integration, you can run the command `az aks cluster show -g -n` to verify the setting `enableVnetIntegration` is set to **true**.
+> You can use `kubectl get po -n kube-system` to verify the results show that a konnectivity-agent-xxx pod is running. If there is, it means the AKS cluster is using Konnectivity. When using VNet integration, you can run the command `az aks show -g -n` to verify the setting `enableVnetIntegration` is set to **true**.
 
 ## Limitations
 
 The following limitations apply when you integrate KMS etcd encryption with AKS:
 
 * Deletion of the key, Key Vault, or the associated identity isn't supported.
-* KMS etcd encryption doesn't work with system-assigned managed identity. The key vault access policy is required to be set before the feature is enabled. In addition, system-assigned managed identity isn't available until cluster creation, thus there's a cycle dependency.
-* Azure Key Vault with Firewall enabled to allow public access isn't supported because it blocks traffic from KMS plugin to the Key Vault.
+* KMS etcd encryption doesn't work with system-assigned managed identity. The key vault access policy is required to be set before the feature is enabled. In addition, system-assigned managed identity isn't available until cluster creation. Consequently, there's a cycle dependency.
+* Azure Key Vault with Firewall enabled to allow public access isn't supported. It blocks traffic from KMS plugin to the Key Vault.
 * The maximum number of secrets supported by a cluster enabled with KMS is 2,000. However, it's important to note that [KMS V2][kms-v2-support] isn't limited by this restriction and can handle a higher number of secrets.
 * Bring your own (BYO) Azure Key Vault from another tenant isn't supported.
 * With KMS enabled, you can't change associated Azure Key Vault model (public, private). To [change associated key vault mode][changing-associated-key-vault-mode], you need to disable and enable KMS again.
 * If a cluster is enabled with KMS and private key vault and isn't using the `API Server VNet integration` tunnel, then stop/start cluster isn't allowed.
-* Using the virtual machine scale set (VMSS) API to scale down nodes in the cluster to zero will deallocate the nodes, causing the cluster to go down and unrecoverable.
-
+* Using the Virtual Machine Scale Sets API to scale the nodes in the cluster down to zero deallocates the nodes, causing the cluster to go down and become unrecoverable.
+* After you disable KMS, you can't destroy the keys. Otherwise, it causes the API server to stop working.
 
 KMS supports [public key vault][Enable-KMS-with-public-key-vault] and [private key vault][Enable-KMS-with-private-key-vault].
 
@@ -287,7 +287,7 @@ After changing the key ID (including key name and key version), you can use [az 
 
 > [!WARNING]
 > Remember to update all secrets after key rotation. Otherwise, the secrets will be inaccessible if the old keys are not existing or working.
-> 
+>
 > Once you rotate the key, the old key (key1) is still cached and shouldn't be deleted. If you want to delete the old key (key1) immediately, you need to rotate the key twice. Then key2 and key3 are cached, and key1 can be deleted without impacting existing cluster.
 
 ```azurecli-interactive
@@ -335,7 +335,13 @@ After configuring KMS, you can enable [diagnostic-settings for key vault to chec
 
 ## Disable KMS
 
-Use the following command to disable KMS on existing cluster.
+Before disabling KMS, you can use the following Azure CLI command to verify if KMS is enabled.
+
+```azurecli-interactive
+az aks list --query "[].{Name:name, KmsEnabled:securityProfile.azureKeyVaultKms.enabled, KeyId:securityProfile.azureKeyVaultKms.keyId}" -o table
+```
+
+If the results confirm KMS is enabled, run the following command to disable KMS on the cluster.
 
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group MyResourceGroup --disable-azure-keyvault-kms
@@ -347,23 +353,23 @@ Use the following command to update all secrets. Otherwise, the old secrets will
 kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 ```
 
-## KMS V2 support 
+## KMS v2 support
 
-Since AKS version 1.27 and above, enabling the KMS feature configures KMS V2. With KMS V2, you aren't limited to the 2,000 secrets support. For more information, you can refer to the [KMS V2 Improvements](https://kubernetes.io/blog/2023/05/16/kms-v2-moves-to-beta/).
+Starting with AKS version 1.27, enabling the KMS feature configures KMS v2. With KMS v2, you aren't limited to the 2,000 secrets it supports. For more information, review [KMS V2 Improvements](https://kubernetes.io/blog/2023/05/16/kms-v2-moves-to-beta/).
 
 ### Migration to KMS v2
 
-If your cluster version is less than 1.27 and you already enabled KMS, use the following steps to migrate to KMS V2:
+If your cluster version is less than 1.27 and you already enabled KMS, the upgrade to 1.27 or higher will be blocked. You use the following steps to migrate to KMS v2:
 
 1. Disable KMS on the cluster.
 2. Perform the storage migration.
 3. Upgrade the cluster to version 1.27 or higher.
 4. Re-enable KMS on the cluster.
-5. Perform the storage migration 
+5. Perform the storage migration.
 
 #### Disable KMS
 
-Disable KMS on an existing cluster using the `az aks update` command with the `--disable-azure-keyvault-kms` flag.
+To disable KMS on an existing cluster, use the `az aks update` command with the `--disable-azure-keyvault-kms` argument.
 
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group MyResourceGroup --disable-azure-keyvault-kms
@@ -371,7 +377,7 @@ az aks update --name myAKSCluster --resource-group MyResourceGroup --disable-azu
 
 #### Storage migration
 
-Update all secrets using the `kubectl get secrets` command with the `--all-namespaces` flag.
+To update all secrets, use the `kubectl get secrets` command with the `--all-namespaces` argument.
 
 ```azurecli-interactive
 kubectl get secrets --all-namespaces -o json | kubectl replace -f -
@@ -379,13 +385,13 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 
 #### Upgrade AKS cluster
 
-Upgrade the AKS cluster using the `az aks upgrade` command and specify your desired version as `1.27.x` or higher for `--kubernetes-version`.
+To upgrade an AKS cluster, use the `az aks upgrade` command and specify the desired version as `1.27.x` or higher with the `--kubernetes-version` argument.
 
 ```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version <AKS version>
 ```
 
-Example:
+For example:
 
 ```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.27.1
@@ -393,12 +399,12 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 
 #### Re-enable KMS
 
-You can reenable the KMS feature on the cluster to encrypt the secrets. After that, the AKS cluster uses KMS V2.
-If you don’t want to do the KMS v2 migration, you can create a new 1.27+ cluster with KMS enabled.
+You can reenable the KMS feature on the cluster to encrypt the secrets. Afterwards, the AKS cluster uses KMS v2.
+If you don't want to do the KMS v2 migration, you can create a new version 1.27 and higher cluster with KMS enabled.
 
 #### Storage migration
 
-Re-encrypt all secrets under KMS V2 using the `kubectl get secrets` command with the `--all-namespaces` flag.
+To re-encrypt all secrets under KMS v2, use the `kubectl get secrets` command with the `--all-namespaces` argument.
 
 ```azurecli-interactive
 kubectl get secrets --all-namespaces -o json | kubectl replace -f -
