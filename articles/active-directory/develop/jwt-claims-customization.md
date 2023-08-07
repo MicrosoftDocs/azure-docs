@@ -281,87 +281,46 @@ To run this script you need:
 > The private key must be in PKCS#12 format since Azure AD doesn't support other format types. Using the wrong format can result in the error "Invalid certificate: Key value is invalid certificate" when using Microsoft Graph to PATCH the service principal with a `keyCredentials` containing the certificate information.
 
 ```
-$fqdn="fourthcoffeetest.onmicrosoft.com" # this is used for the 'issued to' and 'issued by' field of the certificate
-$pwd="mypassword" # password for exporting the certificate private key
-$location="C:\\temp" # path to folder where both the pfx and cer file will be written to
+##########################################################
+# Replace the variables below with the appropriate values
+
+$fqdn="yourDomainHere" # This is used for the 'issued to' and 'issued by' field of the certificate
+$pwd="myPassword" # password for exporting the certificate private key
+$tenantId   = "tenantId" # Replace with Tenant ID
+$appObjId = "objectID" # Replace with the Object ID of the App Registration
+
+#
+##########################################################
 
 # Create a self-signed cert
 $cert = New-SelfSignedCertificate -certstorelocation cert:\currentuser\my -DnsName $fqdn
 $pwdSecure = ConvertTo-SecureString -String $pwd -Force -AsPlainText
 $path = 'cert:\currentuser\my\' + $cert.Thumbprint
+$location="C:\\temp" # path to folder where both the pfx and cer file will be written to
 $cerFile = $location + "\\" + $fqdn + ".cer"
 $pfxFile = $location + "\\" + $fqdn + ".pfx"
- 
+
 # Export the public and private keys
 Export-PfxCertificate -cert $path -FilePath $pfxFile -Password $pwdSecure
 Export-Certificate -cert $path -FilePath $cerFile
 
-$ClientID = "<app-id>"
-$loginURL       = "https://login.microsoftonline.com"
-$tenantdomain   = "fourthcoffeetest.onmicrosoft.com"
-$redirectURL = "http://localhost" # this reply URL is needed for PowerShell Core 
-[string[]] $Scopes = "https://graph.microsoft.com/.default"
 $pfxpath = $pfxFile # path to pfx file
 $cerpath = $cerFile # path to cer file
-$SPOID = "<service-principal-id>"
-$graphuri = "https://graph.microsoft.com/v1.0/serviceprincipals/$SPOID"
 $password = $pwd  # password for the pfx file
- 
- 
-# choose the correct folder name for MSAL based on PowerShell version 5.1 (.Net) or PowerShell Core (.Net Core)
- 
+
+# Check PowerShell version 5.1 (.Net) or PowerShell Core (.Net Core) and read the certificate file accordingly
 if ($PSVersionTable.PSVersion.Major -gt 5)
-    { 
+    {
         $core = $true
-        $foldername =  "netcoreapp2.1"
     }
 else
-    { 
-        $core = $false
-        $foldername = "net45"
-    }
- 
-# Load the MSAL/microsoft.identity/client assembly -- needed once per PowerShell session
-[System.Reflection.Assembly]::LoadFrom((Get-ChildItem C:/Users/<username>/.nuget/packages/microsoft.identity.client/4.32.1/lib/$foldername/Microsoft.Identity.Client.dll).fullname) | out-null
-  
-$global:app = $null
-  
-$ClientApplicationBuilder = [Microsoft.Identity.Client.PublicClientApplicationBuilder]::Create($ClientID)
-[void]$ClientApplicationBuilder.WithAuthority($("$loginURL/$tenantdomain"))
-[void]$ClientApplicationBuilder.WithRedirectUri($redirectURL)
- 
-$global:app = $ClientApplicationBuilder.Build()
-  
-Function Get-GraphAccessTokenFromMSAL {
-    [Microsoft.Identity.Client.AuthenticationResult] $authResult  = $null
-    $AquireTokenParameters = $global:app.AcquireTokenInteractive($Scopes)
-    [IntPtr] $ParentWindow = [System.Diagnostics.Process]::GetCurrentProcess().MainWindowHandle
-    if ($ParentWindow)
     {
-        [void]$AquireTokenParameters.WithParentActivityOrWindow($ParentWindow)
+        $core = $false
     }
-    try {
-        $authResult = $AquireTokenParameters.ExecuteAsync().GetAwaiter().GetResult()
-    }
-    catch {
-        $ErrorMessage = $_.Exception.Message
-        Write-Host $ErrorMessage
-    }
-     
-    return $authResult
-}
-  
-$myvar = Get-GraphAccessTokenFromMSAL
-if ($myvar)
-{
-    $GraphAccessToken = $myvar.AccessToken
-    Write-Host "Access Token: " $myvar.AccessToken
-    #$GraphAccessToken = "eyJ0eXAiOiJKV1QiL ... iPxstltKQ"
-    
  
     #  this is for PowerShell Core
     $Secure_String_Pwd = ConvertTo-SecureString $password -AsPlainText -Force
- 
+
     # reading certificate files and creating Certificate Object
     if ($core)
     {
@@ -373,91 +332,71 @@ if ($myvar)
     {
         $pfx_cert = get-content $pfxpath -Encoding Byte
         $cer_cert = get-content $cerpath -Encoding Byte
-        # Write-Host "Enter password for the pfx file..."
-        # calling Get-PfxCertificate in PowerShell 5.1 prompts for password
-        # $cert = Get-PfxCertificate -FilePath $pfxpath
+        # calling Get-PfxCertificate in PowerShell 5.1 prompts for password - using alternative method
         $cert = [System.Security.Cryptography.X509Certificates.X509Certificate2]::new($pfxpath, $password)
     }
- 
+
     # base 64 encode the private key and public key
     $base64pfx = [System.Convert]::ToBase64String($pfx_cert)
     $base64cer = [System.Convert]::ToBase64String($cer_cert)
- 
+
     # getting id for the keyCredential object
     $guid1 = New-Guid
     $guid2 = New-Guid
- 
+
     # get the custom key identifier from the certificate thumbprint:
     $hasher = [System.Security.Cryptography.HashAlgorithm]::Create('sha256')
     $hash = $hasher.ComputeHash([System.Text.Encoding]::UTF8.GetBytes($cert.Thumbprint))
     $customKeyIdentifier = [System.Convert]::ToBase64String($hash)
- 
+
     # get end date and start date for our keycredentials
     $endDateTime = ($cert.NotAfter).ToUniversalTime().ToString( "yyyy-MM-ddTHH:mm:ssZ" )
     $startDateTime = ($cert.NotBefore).ToUniversalTime().ToString( "yyyy-MM-ddTHH:mm:ssZ" )
- 
+
     # building our json payload
     $object = [ordered]@{    
-    keyCredentials = @(       
+    keyCredentials = @(      
          [ordered]@{            
             customKeyIdentifier = $customKeyIdentifier
             endDateTime = $endDateTime
             keyId = $guid1
-            startDateTime = $startDateTime 
-            type = "X509CertAndPassword"
+            startDateTime = $startDateTime
+            type = "AsymmetricX509Cert"
             usage = "Sign"
             key = $base64pfx
-            displayName = "CN=fourthcoffeetest" 
+            displayName = "CN=$fqdn"
         },
         [ordered]@{            
             customKeyIdentifier = $customKeyIdentifier
             endDateTime = $endDateTime
             keyId = $guid2
-            startDateTime = $startDateTime 
+            startDateTime = $startDateTime
             type = "AsymmetricX509Cert"
             usage = "Verify"
             key = $base64cer
-            displayName = "CN=fourthcoffeetest"   
+            displayName = "CN=$fqdn"  
         }
         )  
     passwordCredentials = @(
         [ordered]@{
             customKeyIdentifier = $customKeyIdentifier
-            keyId = $guid1           
+            displayName = "CN=$fqdn"
+            keyId = $guid1          
             endDateTime = $endDateTime
             startDateTime = $startDateTime
             secretText = $password
+            hint = $null
         }
     )
     }
+
+Connect-MgGraph -tenantId $tenantId -Scopes Application.ReadWrite.All
+$graphuri = "https://graph.microsoft.com/v1.0/applications/$appObjId"
+Invoke-MgGraphRequest -Method PATCH -Uri $graphuri -Body $object
  
     $json = $object | ConvertTo-Json -Depth 99
     Write-Host "JSON Payload:"
     Write-Output $json
- 
-    # Request Header
-    $Header = @{}
-    $Header.Add("Authorization","Bearer $($GraphAccessToken)")
-    $Header.Add("Content-Type","application/json")
- 
-    try 
-    {
-        Invoke-RestMethod -Uri $graphuri -Method "PATCH" -Headers $Header -Body $json
-    } 
-    catch 
-    {
-        # Dig into the exception to get the Response details.
-        # Note that value__ is not a typo.
-        Write-Host "StatusCode:" $_.Exception.Response.StatusCode.value__ 
-        Write-Host "StatusDescription:" $_.Exception.Response.StatusDescription
-    }
- 
-    Write-Host "Complete Request"
-}
-else
-{
-    Write-Host "Fail to get Access Token"
-}
 ```
 
 ## Validate token signing key
