@@ -7,7 +7,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 07/26/2023
+ms.date: 08/07/2023
 
 ---
 
@@ -71,6 +71,8 @@ public static void KeyeventTrigger(
 ```
 
 ### [Isolated process](#tab/isolated-process)
+
+The isolated process examples are not available in preview.
 
 ```csharp
 //TBD
@@ -261,6 +263,14 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
+# [v2](#tab/python-v2)
+
+The Python v2 programming model is not available in Preview.
+
+# [v1](#tab/python-v1)
+
+The Python v1 programming model requires you to define bindings in a separate _function.json_ file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
+
 Each sample uses the same `__init__.py` file, with binding data in the `function.json` file determining on which channel the trigger will occur.
 
 Here is the `__init__.py` file:
@@ -324,7 +334,8 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
   "scriptFile": "__init__.py"
 }
 ```
-<!--Content and samples from the Python tab in ##Examples go here.-->
+
+---
 
 ::: zone-end
 ::: zone pivot="programming-language-csharp"
@@ -403,6 +414,8 @@ Because these events are published on pub/sub channels, the `RedisPubSubTrigger`
 
 ::: zone pivot="programming-language-csharp"
 
+During preview, the output bindings are present with the trigger functions.
+
 | Output Type | Description|
 |---|---|
 | [`StackExchange.Redis.ChannelMessage`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/ChannelMessageQueue.cs)| The value returned by `StackExchange.Redis`. |
@@ -413,9 +426,11 @@ Because these events are published on pub/sub channels, the `RedisPubSubTrigger`
 
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
+During preview, the output bindings are present with the trigger functions.
+
 | Output Type | Description                                                                                                     |
 |-------------|-----------------------------------------------------------------------------------------------------------------|
-| `byle[]`    | The message from the channel.                                                                                    |
+| `byte[]`    | The message from the channel.                                                                                    |
 | `string`    | The message from the channel.                                                                                   |
 | `Custom`    | The trigger uses Json.NET serialization to map the message from the channel from a `string` into a custom type. |
 
