@@ -135,7 +135,7 @@ The following steps describe the process of creating a source endpoint.
 
 ### [PowerShell](#tab/powershell)
 
-   The `New-AzStorageMoverSmbEndpoint` and `New-AzStorageMoverNfsEndpoint` cmdlets are used to create a new endpoint within a [storage mover resource](storage-mover-create.md) you previously deployed. 
+   The `New-AzStorageMoverSmbEndpoint` and `New-AzStorageMoverNfsEndpoint` cmdlets are used to create a new endpoint within a [storage mover resource](storage-mover-create.md) you previously deployed.
 
    If you haven't yet installed the `Az.StorageMover` module:
 
@@ -353,7 +353,7 @@ Follow the steps in this section to view endpoints accessible to your Storage Mo
 
       :::image type="content" source="media/endpoint-manage/endpoint-filter.png" alt-text="Screenshot of the Storage Endpoints page within the Azure portal showing the endpoint details and the location of the target endpoint filters." lightbox="media/endpoint-manage/endpoint-filter-lrg.png":::
 
-   At this time, the Azure Portal doesn't provide the ability to to directly modify provisioned endpoints. An endpoint's description, however, can be modified using Azure PowerShell by following [this example](endpoint-manage?tabs=powershell#view-and-edit-an-endpoints-properties). Endpoint resources that require updating within the Azure Portal should be deleted and recreated.
+   At this time, the Azure Portal doesn't provide the ability to to directly modify provisioned endpoints. An endpoint's description, however, can be modified using Azure PowerShell by following [this example](endpoint-manage.md?tabs=powershell#view-and-edit-an-endpoints-properties). Endpoint resources that require updating within the Azure Portal should be deleted and recreated.
 
 ### [PowerShell](#tab/powershell)
 
