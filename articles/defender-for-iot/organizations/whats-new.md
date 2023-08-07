@@ -35,7 +35,9 @@ Defender for IoT is planning to end support for legacy integrations with Splunk,
 |**Aruba ClearPass**     | Connect to [Microsoft Sentinel](concept-sentinel-integration.md), and then install the [Aruba ClearPass data connector](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-arubaclearpass?tab=Overview).  <br><br>For more information, see the [Microsoft Sentinel documentation](/azure/sentinel/data-connectors/aruba-clearpass) and our [TechCommunity blog](TBD).      | [Integrate ClearPass with Microsoft Defender for IoT (legacy)](tutorial-clearpass.md) |
 
 > [!NOTE]
-> Some features of Microsoft Sentinel might incur a fee. For more information, see [Plan costs and understand Microsoft Sentinel pricing and billing](/azure/sentinel/billing).
+> - Some features of Microsoft Sentinel might incur a fee. For more information, see [Plan costs and understand Microsoft Sentinel pricing and billing](/azure/sentinel/billing).
+> - Defender for IoT is only ending support for the end-to-end integration functionality, such as <missing info>. You can continue to send syslog files from your OT sensor to the listed partner services.
+>
 
 ## July 2023
 
