@@ -18,35 +18,85 @@ Instance Readiness Testing (IRT) is a framework built to orchestrate real-world 
 - A Linux environment (Ubuntu suggested) capable of calling Azure APIs
 - Knowledge of networks to use for the test
     * Networks to use for the test are specified in a "networks-blueprint.yml" file, see [Input Configuration](#input-configuration).
-- curl or wget to download IRT package
+1. curl to download IRT package
 
-## Before execution
+## One Time Setup
 
-1. From your Linux environment, download nexus-irt.tar.gz from aka.ms/nexus-irt `curl -Lo nexus-irt.tar.gz aka.ms/nexus-irt`.
-1. Extract the tarball to the local file system: `mkdir -p irt && tar xf nexus-irt.tar.gz --directory ./irt`.
-1. Switch to the new directory `cd irt`.
-1. The `setup.sh` script is provided to aid in the initial set up of an environment.
-    * `setup.sh` assumes a nonroot user and attempts to use `sudo`, which installs:
-        1. `jq` version 1.6
-        1. `yq` version 4.33
-        1. `azcopy` version 10
-        1. `az` Azure CLI minimum version not known, stay up to date.
-        1. `elinks` for viewing html files on the command line
-        1. `tree` for viewing directory structures
-        1. `moreutils` utilities for viewing progress from the ACI container
-1. [Optional] Set up a storage account to archive test results over time. For help, see the [instructions](#uploading-results-to-your-own-archive).
-1. Log into Azure, if not already logged in: `az login --use-device`.
-    * User should have `Contributor` role
+### Download IRT 
+IRT is distributed via tarball, download it, extract it, and navigate to the `irt` directory
+1. From your Linux environment, download nexus-irt.tar.gz from aka.ms/nexus-irt `curl -Lo nexus-irt.tar.gz aka.ms/nexus-irt`
+1. Extract the tarball to the local file system: `mkdir -p irt && tar xf nexus-irt.tar.gz --directory ./irt`
+1. Switch to the new directory `cd irt`
+
+
+### Install Dependencies
+There are multiple dependencies expected to be available during execution. Review this list;
+
+* `jq` version 1.6 or greater
+* `yq` version 4.33 or greater
+* `azcopy` version 10 or greater
+* `az` Azure CLI minimum version not known, stay up to date.
+* `elinks` - for viewing html files on the command line
+* `tree` - for viewing directory structures
+* `moreutils` - for viewing progress from the ACI container
+
+The `setup.sh` script is provided to aid with installing the listed dependencies. It will install any dependencies that aren't available in PATH. It will not upgrade any dependencies that do not meet the minimum required versions.
+
+**NOTE:** `setup.sh` assumes a nonroot user and attempts to use `sudo`
+
+
+### Create Credentialed Resources 
+IRT makes commands against your resources, and will need permission to do so. IRT requires a Managed Identity and a Service Principal to execute. It also requires that the service principal be member to an AAD Security Group that is also provided as input.
+
+#### Managed Identity
+A managed identity with the following role assignments is needed to execute tests. The supplemental script, `create-managed-identity.sh` will create a managed identity with these role assignments.
+   1. `Contributor` - For creating and manipulating resources
+   1. `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
+   1. `Log Analytics Reader` - For reading metadata about the LAW
+
+
+Executing `create-managed-identity.sh` requires the following environment variables to be set;
+   1. **MI_RESOURCE_GROUP** - The resource group the Managed Identity will be created in. The resource group will be created in `eastus` if the resource group provided does not yet exist.
+   1. **MI_NAME** - The name of the Managed Identity to be created.
+   1. **[Optional] SUBSCRIPTION** - to set the subscription, script with use az cli context for the subscription.
+
+**NOTE:** This script will print a value for MANAGED_IDENTITY_ID, which should be recorded in the irt-input.yml for use
+
+
+#### Service Principal
+A service principal with the following role assignments. The supplemental script, `create-service-principal.sh` will create a service principal with these role assignments, or add role assignments to an existing service principal. 
+   1. `Contributor` - For creating and manipulating resources
+   1. `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
+   1. `Azure ARC Kubernetes Admin` - For ARC enrolling the NAKS cluster
+
+
+#### AAD Security Group
+An AAD Security Group containing the service principal - To add to the NAKS cluster, giving it the ability to access the cluster
+
+
+Running IRT requires the following parameters:
+1. `AAD_GROUP_ID` - The object ID of the group the service principal belongs to. 
+1. `SP_ID` - The principal ID of the service principal used for testing
+1. `SP_PASSWORD` - The password of the service principal used for testing
+1. `SP_TENANT` - The tenant ID of the service principal used for testing
+
+1. Log into Azure, if not already logged in: `az login --use-device`
+    * User should have `Contributor` role and ``
 1. Create an Azure Managed Identity for the container to use.
     * Using the provided script: `MI_RESOURCE_GROUP="<your resource group> MI_NAME="<managed identity name>" SUBSCRIPTION="<subscription>" ./create-managed-identity.sh`
     * Can be created manually via the Azure portal, refer to the script for needed permissions
 1. Create a service principal and security group. The service principal is used as the executor of the test. The group informs the kubernetes cluster of valid users. The service principal must be a part of the security group, so it has the ability to log into the cluster.
     * You can provide your own, or use our provided script, here's an example of how it could be executed; `AAD_GROUP_NAME=external-test-aad-group-8 SERVICE_PRINCIPAL_NAME=external-test-sp-8 ./irt/create-service-principal.sh`.
     * This script prints four key/value pairs for you to include in your input file.
-1. If necessary, create the isolation domains required to execute the tests. They aren't lifecycled as part of this test scenario.
-   * **Note:** If deploying isolation domains, your network blueprint must define at least one external network per isolation domain. see `networks-blueprint.example.yml` for help with configuring your network blueprint.
+
+**[If Necessary] Create Isolation Domains** - They aren't lifecycled as part of this test scenario.
+   * **Note:** if deploying isolation domains, your network blueprint must define at least one external network per isolation domain. see `networks-blueprint.example.yml` for help with configuring your network blueprint.
    * `create-l3-isolation-domains.sh` takes one parameter, a path to your networks blueprint file; here's an example of the script being invoked:
      * `create-l3-isolation-domains.sh ./networks-blueprint.yml`
+
+**[Optional] Create Storage to Archive Results** - IRT creates an html test report after running a test scenario. These reports can optionally be uploaded to a blob storage container
+1.  Set up a storage account to archive test results over time. For help, see the [instructions](#uploading-results-to-your-own-archive)
+
 
 ### Input configuration
 
@@ -66,7 +116,7 @@ The network blueprint input schema for IRT is defined in the networks-blueprint.
 ## Execution
 
 1. Execute: `./irt.sh irt-input.yml`
-    * Assumes irt-input.yml is in the same location as irt.sh. If in a different location provides the full file path.
+    * This example assumes irt-input.yml is in the same location as irt.sh. If your file is located in a different directory, provide the full file path.
 
 ## Results
 
