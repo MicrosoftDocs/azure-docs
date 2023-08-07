@@ -1,12 +1,13 @@
 ---
 title: Develop Java applications with Visual Studio Code 
 description: This article shows how to build, deploy, and debug Java Service Fabric applications using Visual Studio Code. 
-author: peterpogorski
-
-ms.topic: article
-ms.date: 06/29/2018
-ms.custom: devx-track-java
-ms.author: pepogors
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-extended-java
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Develop Java Service Fabric applications with Visual Studio Code

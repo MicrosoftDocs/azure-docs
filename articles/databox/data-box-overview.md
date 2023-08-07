@@ -108,7 +108,7 @@ The Data Box includes the following components:
     | Portuguese - Portugal| pt-pt| Russian                 | ru     | Swedish                 | sv           |
     | Turkish              | tr   | Chinese - simplified    | zh-hans|    |       |    
 
-    For information about using the web-based UI, go to [Use the web-based UI to administer your Data Box](data-box-portal-ui-admin.md).
+    For information about using the web-based UI, go to [Use the web-based UI to administer your Data Box](data-box-local-web-ui-admin.md).
 
 ## The workflow
 
@@ -143,7 +143,7 @@ Throughout the export process, you are notified via email on all status changes.
 
 ## Region availability
 
-Data Box can transfer data based on the region in which service is deployed, the country or region you ship the device to, and the target storage account where you transfer the data.
+Data Box can transfer data based on the region in which service is deployed, the country/region you ship the device to, and the target storage account where you transfer the data.
 
 ### For import
 

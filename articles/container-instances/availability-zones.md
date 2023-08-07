@@ -1,9 +1,13 @@
 ---
 title: Deploy a zonal container group in Azure Container Instances (ACI)
 description: Learn how to deploy a container group in an availability zone.
-ms.topic: article
-ms.date: 10/13/2021
-ms.custom: devx-track-js, devx-track-azurecli
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.topic: how-to
+ms.date: 06/17/2022
+ms.custom: devx-track-arm-template
 ---
 
 # Deploy an Azure Container Instances (ACI) container group in an availability zone (preview)
@@ -185,7 +189,7 @@ az deployment group create \
 To verify the container group deployed successfully into an availability zone, view the container group details with the [az container show][az-container-show] command:
 
 ```azurecli
-az containershow --name acilinuxcontainergroup --resource-group myResourceGroup
+az container show --name acilinuxcontainergroup --resource-group myResourceGroup
 ```
 
 ## Next steps

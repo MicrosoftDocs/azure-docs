@@ -1,10 +1,10 @@
 ### YamlMime:FAQ
 metadata:
-  title: "Azure IoT Central frequently asked questions | Microsoft Docs"
+  title: "Azure IoT Central frequently asked questions"
   description: "Azure IoT Central frequently asked questions (FAQ) and answers"
   author: dominicbetts
   ms.author: dobett
-  ms.date: 07/14/2021
+  ms.date: 06/12/2023
   ms.topic: faq
   ms.service: iot-central
   services: iot-central
@@ -39,14 +39,14 @@ sections:
       - question: |
           How many IoT Central applications can I deploy in my subscription?
         answer: |
-          Each Azure subscription has default quotas that could impact the scope of your IoT solution. Currently, IoT Central limits the number of applications you can deploy in a subscription to 10. If you need to increase this limit, contact [Microsoft support](https://azure.microsoft.com/support/options/).
+          Each Azure subscription has default quotas that could impact the scope of your IoT solution. Currently, IoT Central limits the number of applications you can deploy in a subscription to 100. If you need to increase this limit, contact [Microsoft support](https://azure.microsoft.com/support/options/).
                     
       - question: |
           How do I file a ticket with customer support?
         answer: |
           If you need help, you can file an [Azure support ticket](https://portal.azure.com/#create/Microsoft.Support).
           
-          For more information, including other support options, see [Azure IoT support and help options](../../iot-fundamentals/iot-support-help.md).
+          For more information, including other support options, see [Azure IoT support and help options](../../iot/iot-support-help.md).
           
       - question: |
           Where can I learn more about IoT Hub?
@@ -65,32 +65,7 @@ sections:
           Azure IoT Central uses DPS to enable devices to connect to your application. To learn more about the role DPS plays in connecting devices to IoT Central, see [How devices connect](overview-iot-central-developer.md#how-devices-connect). To learn more about DPS, see [Provisioning devices with Azure IoT Hub Device Provisioning Service](../../iot-dps/about-iot-dps.md).
 
   - name: Pricing
-    questions:
-      - question: |
-          How do I move from a free to a standard pricing plan?
-        answer: |
-          - Applications that use the free pricing plan are free for seven days before they expire. To avoid losing data, you can move them to a standard pricing plan at any time before they expire.
-          - Applications that use a standard pricing plan are charged per device, with the first two devices free, per application.
-          
-          Learn more about pricing on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
-          
-          In the pricing section, you can move your application from the free to a standard pricing plan.
-          
-          To complete this self-service process, follow these steps:
-          
-          1. Go to the **Pricing** page in the **Application** section.
-          
-          1. Select the **Plan**
-          
-              :::image type="content" source="media/howto-faq/free-trial-billing.png" alt-text="Trial state":::
-          
-          1. Select the appropriate Azure Active Directory, and then the Azure subscription to use for your application that uses a paid plan.
-          
-          1. After you select **Save**, your application now uses a paid plan and you start getting billed.
-          
-          > [!Note]
-          > By default, you are converted to a *Standard 2* pricing plan.
-          
+    questions:          
       - question: |
           How do I change my application pricing plan
         answer: |
@@ -106,6 +81,15 @@ sections:
 
   - name: Devices
     questions:
+      - question: |
+          How do I register a device with my IoT Central application?
+        answer: |
+          There are three ways you can register a device in your IoT Central application:
+
+          - Automatically register devices when they first try to connect. This scenario enables OEMs to mass manufacture devices that can connect without first being registered. To learn more, see [Automatically register devices](concepts-device-authentication.md#automatically-register-devices).
+          - Add devices in bulk from a CSV file. To learn more, see [Import devices](howto-manage-devices-in-bulk.md#import-devices).
+          - Use the **Devices** page in your IoT Central application to register devices individually. To learn more, see [Add a device](howto-manage-devices-individually.md#add-a-device).
+
       - question: |
           How do I transfer a device from IoT Hub to IoT Central?
         answer: |
@@ -139,9 +123,9 @@ sections:
         answer: |
           If the device status is **Waiting for Approval** on the **Devices** page, it means the **Auto approve** option is disabled:
           
-          :::image type="content" source="media/howto-faq/auto-approve.png" alt-text="Screenshot showing application with auto-approve option disabled.":::
+          :::image type="content" source="media/howto-faq/auto-approve.png" alt-text="Screenshot showing application with autoapprove option disabled.":::
           
-          An operator must explicitly approve a device before it starts sending data. Devices not registered manually on the **Devices** page, but connected with valid credentials will have the device status **Waiting for Approval**. Operators can approve these devices from the **Devices** page using the **Approve** button:
+          An operator must explicitly approve a device before it starts sending data. Devices not registered manually on the **Devices** page, but connected with valid credentials has the device status **Waiting for Approval**. Operators can approve these devices from the **Devices** page using the **Approve** button:
           
           :::image type="content" source="media/howto-faq/approve-device.png" alt-text="Screenshot showing how to approve a device":::
           
@@ -161,7 +145,6 @@ sections:
           My administrator says I've been added to an application, but I can't access it. How do I get access?
         answer: |
           The first time you access the application, you must navigate to the application URL link you received from the administrator
-
 
   - name: Organizations
     questions:
@@ -184,3 +167,15 @@ sections:
           Can device groups, dashboards, and jobs be associated with multiple organizations?
         answer: |
           No, experiences such as device groups, dashboards, and jobs are associated with a single organization.
+
+  - name: Monitoring and logging
+    questions:
+      - question: |
+          What are the differences between monitoring an IoT Central application in the Azure portal and using the audit logs within in IoT Central application.
+        answer: |
+          Monitoring in the Azure portal is useful for operations monitoring. The audit log in an IoT Central application lets you see who made changes to entities within the application.
+      - question: |
+          Can I extend the audit log to store more than 30 days of data?
+        answer: |
+          Currently, you can't store more than 30 days of data in the audit log. Entries older than 30 days are deleted automatically.
+  

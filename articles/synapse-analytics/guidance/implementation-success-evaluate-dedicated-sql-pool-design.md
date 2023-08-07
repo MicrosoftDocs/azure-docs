@@ -1,8 +1,8 @@
 ---
 title: "Synapse implementation success methodology: Evaluate dedicated SQL pool design"
 description: "Learn how to evaluate your dedicated SQL pool design to identify issues and validate that it meets guidelines and requirements."
-author: peter-myers
-ms.author: v-petermyers
+author: SnehaGunda
+ms.author: sngun
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -23,7 +23,7 @@ During the [assessment stage](implementation-success-assess-environment.md), you
 
 ## Review the target architecture
 
-To successfully deploy a dedicated SQL pool, it's important to adopt an architecture that's aligned with business requirements. For more information, see [Data warehousing in Microsoft Azure](/azure/architecture/data-guide/relational-data/data-warehousing.md).
+To successfully deploy a dedicated SQL pool, it's important to adopt an architecture that's aligned with business requirements. For more information, see [Data warehousing in Microsoft Azure](/azure/architecture/data-guide/relational-data/data-warehousing).
 
 ## Migration path
 

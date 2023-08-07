@@ -2,7 +2,7 @@
 title: Enhanced workload protection features in Defender for Servers
 description: Learn about the enhanced capabilities available in Defender for Servers, for VMs that are located in GCP, AWS and on-premises.
 ms.topic: reference
-ms.date: 05/29/2022
+ms.date: 04/27/2023
 ---
 
 # Enhanced workload protection features in Defender for Servers
@@ -44,4 +44,4 @@ Introduce yourself to [Microsoft Defender for Servers](defender-for-servers-intr
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Defender for Storage](episode-thirteen.md)

@@ -3,13 +3,18 @@ title: Manage server - Azure CLI - Azure Database for PostgreSQL
 description: Learn how to manage an Azure Database for PostgreSQL server from the Azure CLI.
 ms.service: postgresql
 ms.subservice: single-server
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.author: andrela
 author: ajlam
-ms.date: 9/22/2020
+ms.date: 06/24/2022
 ---
 
 # Manage an Azure Database for PostgreSQL Single server using the Azure CLI
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 This article shows you how to manage your Single servers deployed in Azure. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
 
@@ -35,7 +40,7 @@ If you have not already created a server, refer to this [quickstart](quickstart-
 
 ## Scale compute and storage
 
-You can scale up your pricing tier, compute, and storage easily using the following command. You can see all the server operation you can perform [az postgres server overview](/cli/azure/mysql/server)
+You can scale up your pricing tier, compute, and storage easily using the following command. You can see all the server operation you can perform [az postgres server overview](/cli/azure/postgres/server)
 
 ```azurecli-interactive
 az postgres server update --resource-group myresourcegroup --name mydemoserver --sku-name GP_Gen5_4 --storage-size 6144
@@ -54,8 +59,8 @@ storage-size | 6144 | The storage capacity of the server (unit is megabytes). Mi
 > - Storage can be scaled up (however, you cannot scale storage down)
 > - Scaling up from Basic to General purpose or Memory optimized pricing tier is not supported. You can manually scale up with either  [using a bash script](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/upgrade-from-basic-to-general-purpose-or-memory-optimized-tiers/ba-p/830404) or [using PostgreSQL Workbench](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-scale-up-azure-database-for-mysql-from-basic-tier-to/ba-p/369134)
 
-
 ## Manage PostgreSQL databases on a server.
+
 You can use any of these commands to create, delete, list, and view database properties of a database on your server
 
 | Cmdlet | Usage| Description |
@@ -66,6 +71,7 @@ You can use any of these commands to create, delete, list, and view database pro
 |[az postgres db show](/cli/azure/sql/db#az-mysql-db-show)|```az postgres db show -g myresourcegroup -s mydemoserver -n mydatabasename```|Shows more details of the database|
 
 ## Update admin password
+
 You can change the administrator role's password with this command
 ```azurecli-interactive
 az postgres server update --resource-group myresourcegroup --name mydemoserver --admin-password <new-password>
@@ -76,6 +82,7 @@ az postgres server update --resource-group myresourcegroup --name mydemoserver -
 > Password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 
 ## Delete a server
+
 If you would just like to delete the PostgreSQL Single server, you can run [az postgres server delete](/cli/azure/mysql/server#az-mysql-server-delete) command.
 
 ```azurecli-interactive
@@ -83,6 +90,7 @@ az postgres server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
 ## Next steps
+
 - [Restart a server](how-to-restart-server-cli.md)
 - [Restore a server in a bad state](how-to-restore-server-cli.md)
 - [Monitor and tune the server](concepts-monitoring.md)

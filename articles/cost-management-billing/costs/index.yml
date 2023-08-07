@@ -1,0 +1,102 @@
+### YamlMime:Landing
+
+title: Cost Management documentation
+summary: Microsoft Cost Management is a suite of FinOps tools that help organizations analyze, monitor and optimize their Microsoft Cloud costs.
+metadata:
+  title: Cost Management documentation
+  description: Microsoft Cost Management is a suite of FinOps tools that help organizations analyze, monitor and optimize their Microsoft Cloud costs.
+  ms.service: cost-management-billing
+  ms.subservice: cost-management
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.date: 06/09/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Reporting + analytics
+    linkLists:
+    - linkListType: overview
+      links:
+      - text: Overview
+        url: reporting-get-started.md
+    - linkListType: quickstart
+      links:
+      - text: Start analyzing costs
+        url: quick-acm-cost-analysis.md
+    - linkListType: how-to-guide
+      links:
+      - text: Analyze unexpected costs
+        url: ../understand/analyze-unexpected-charges.md
+      - text: Use Cost analysis for common tasks
+        url: cost-analysis-common-uses.md
+      - text: Connect with Power BI
+        url: /power-bi/desktop-connect-azure-cost-management
+
+  # Card (optional)
+  - title: Monitoring
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Use cost alerts
+        url: cost-mgt-alerts-monitor-usage-spending.md
+      - text: Create a budget
+        url: tutorial-acm-create-budgets.md
+      - text: Configure anomaly alerts
+        url: ../understand/analyze-unexpected-charges.md#create-an-anomaly-alert
+      - text: Reservation utilization alerts
+        url: reservation-utilization-alerts.md
+      - text: Subscribe to scheduled alerts
+        url: save-share-views.md#subscribe-to-scheduled-alerts
+
+  - title: Optimization
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Act on recommendations
+        url: tutorial-acm-opt-recommendations.md
+      - text: Save with savings plans
+        url: ../savings-plan/index.yml
+      - text: Save with reservations
+        url: ../reservations/save-compute-costs-reservations.md
+      - text: Manage Azure Hybrid Benefit for SQL
+        url: ../scope-level/index.yml
+
+  # Card (optional)
+  - title: Pricing + estimation
+    linkLists:
+    - linkListType: reference
+      links:
+      - text: Pricing calculator
+        url: https://azure.microsoft.com/pricing/calculator
+      - text: TCO calculator
+        url: https://azure.microsoft.com/pricing/tco/calculator/
+      - text: Azure Migrate
+        url: ../../migrate/index.yml
+
+  - title: Cost allocation
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Enable tag inheritance
+        url: enable-tag-inheritance.md
+      - text: Split shared costs
+        url: allocate-costs.md
+
+  - title: Automation + extensibility
+    linkLists:
+    - linkListType: overview
+      links:
+      - text: Overview
+        url: ../automate/automation-overview.md
+    - linkListType: how-to-guide
+      links:
+      - text: Choose a cost details solution
+        url: ../automate/usage-details-best-practices.md
+      - text: Automation for partners
+        url: ../automate/partner-automation.md

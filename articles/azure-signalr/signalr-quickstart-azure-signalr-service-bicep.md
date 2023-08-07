@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Create an Azure SignalR Service - Bicep'
 description: In this quickstart, learn how to create an Azure SignalR Service using Bicep.
-author: schaffererin
-ms.author: v-eschaffer
+author: mcleblanc
+ms.author: markl
 ms.date: 05/18/2022
 ms.topic: quickstart
 ms.service: signalr
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Use Bicep to deploy Azure SignalR Service

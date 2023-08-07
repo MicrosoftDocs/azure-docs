@@ -1,89 +1,34 @@
 ---
 title: Azure App Configuration resiliency and disaster recovery
-description: Lean how to implement resiliency and disaster recovery with Azure App Configuration.
-author: AlexandraKemperMS
-ms.author: alkemper
+description: Learn how to implement resiliency and disaster recovery with Azure App Configuration.
+author: avanigupta
+ms.author: avgupta
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 04/20/2023
 ---
 
 # Resiliency and disaster recovery
 
-Currently, Azure App Configuration is a regional service. Each configuration store is created in a particular Azure region. A region-wide outage affects all stores in that region. App Configuration doesn't offer automatic failover to another region. This article provides general guidance on how you can use multiple configuration stores across Azure regions to increase the geo-resiliency of your application.
+Azure App Configuration is a regional service. Each configuration store is created in a particular Azure region. A region-wide outage affects all stores in that region, and failover between regions isn't available by default. However, Azure App Configuration supports [geo-replication](./concept-geo-replication.md). You can enable replicas of your data across multiple locations for enhanced resiliency to regional outages. Utilizing geo-replication is the recommended solution for high availability.
+
+This article provides general guidance on how you can use multiple replicas across Azure regions to increase the geo-resiliency of your application.
 
 ## High-availability architecture
 
-To realize cross-region redundancy, you need to create multiple App Configuration stores in different regions. With this setup, your application has at least one additional configuration store to fall back on if the primary store becomes inaccessible. The following diagram illustrates the topology between your application and its primary and secondary configuration stores:
+The original App Configuration store is also considered a replica, so to realize cross-region redundancy, you need to create at least one new replica in a different region. However, you can choose to create multiple App Configuration replicas in different regions based on your requirements. You may then utilize these replicas in your application in the order of your preference. With this setup, your application has at least one additional replica to fall back on if the primary replica becomes inaccessible.
 
-![Geo-redundant stores](./media/geo-redundant-app-configuration-stores.png)
+The following diagram illustrates the topology between your application and two replicas:
 
-Your application loads its configuration from both the primary and secondary stores in parallel. Doing this increases the chance of successfully getting the configuration data. You're responsible for keeping the data in both stores in sync. The following sections explain how you can build geo-resiliency into your application.
+:::image type="content" source="./media/geo-redundant-app-configuration-replicas.png" alt-text="Diagram of geo-redundant replicas." lightbox="./media/geo-redundant-app-configuration-replicas.png":::
 
-## Failover between configuration stores
+Your application loads its configuration from the more preferred replica. If the preferred replica is not available, configuration is loaded from the less preferred replica. This increases the chance of successfully getting the configuration data. The data in both replicas is always in sync. 
 
-Technically, your application isn't executing a failover. It's attempting to retrieve the same set of configuration data from two App Configuration stores simultaneously. Arrange your code so that it loads from the secondary store first and then the primary store. This approach ensures that the configuration data in the primary store takes precedence whenever it's available. The following code snippet shows how you can implement this arrangement in .NET Core:
+## Failover between replicas
 
-#### [.NET Core 2.x](#tab/core2x)
+If you want to leverage automatic failover between replicas, follow [these instructions](./howto-geo-replication.md#use-replicas) to set up failover using App Configuration provider libraries. This is the recommended approach for building resiliency in your application.
 
-```csharp
-public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-    WebHost.CreateDefaultBuilder(args)
-        .ConfigureAppConfiguration((hostingContext, config) =>
-        {
-            var settings = config.Build();
-            config.AddAzureAppConfiguration(settings["ConnectionString_SecondaryStore"], optional: true)
-                  .AddAzureAppConfiguration(settings["ConnectionString_PrimaryStore"], optional: true);
-        })
-        .UseStartup<Startup>();
-    
-```
-
-#### [.NET Core 3.x](#tab/core3x)
-
-```csharp
-public static IHostBuilder CreateHostBuilder(string[] args) =>
-    Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webBuilder =>
-            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-            {
-                var settings = config.Build();
-                config.AddAzureAppConfiguration(settings["ConnectionString_SecondaryStore"], optional: true)
-                    .AddAzureAppConfiguration(settings["ConnectionString_PrimaryStore"], optional: true);
-            })
-            .UseStartup<Startup>());
-```
----
-
-Notice the `optional` parameter passed into the `AddAzureAppConfiguration` function. When set to `true`, this parameter prevents the application from failing to continue if the function can't load configuration data.
-
-## Synchronization between configuration stores
-
-It's important that your geo-redundant configuration stores all have the same set of data. There are two ways to achieve this:
-
-### Backup manually using the Export function
-
-You can use the **Export** function in App Configuration to copy data from the primary store to the secondary on demand. This function is available through both the Azure portal and the CLI.
-
-From the Azure portal, you can push a change to another configuration store by following these steps.
-
-1. Go to the **Import/Export** tab, and select **Export** > **App Configuration** > **Target** > **Select a resource**.
-
-1. In the new blade that opens, specify the subscription, resource group, and resource name of your secondary store, then select **Apply**.
-
-1. The UI is updated so that you can choose what configuration data you want to export to your secondary store. You can leave the default time value as is and set both **From label** and **Label** to the same value. Select **Apply**. Repeat this for all the labels in your primary store.
-
-1. Repeat the previous steps whenever your configuration changes.
-
-The export process can also be achieved using the Azure CLI. The following command shows how to export all configurations from the primary store to the secondary:
-
-```azurecli
-    az appconfig kv export --destination appconfig --name {PrimaryStore} --dest-name {SecondaryStore} --label * --preserve-labels -y
-```
-
-### Backup automatically using Azure Functions
-
-The backup process can be automated by using Azure Functions. It leverages the integration with Azure Event Grid in App Configuration. Once set up, App Configuration will publish events to Event Grid for any changes made to key-values in a configuration store. Thus, an Azure Functions app can listen to these events and backup data accordingly. For details, see the tutorial on [how to backup App Configuration stores automatically](./howto-backup-config-store.md).
+If the App Configuration provider libraries don't meet your requirements, you can still implement your own failover strategy. When geo-replication is enabled, and if one replica isn't accessible, you can let your application failover to another replica for accessing your configuration.
 
 ## Next steps
 

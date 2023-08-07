@@ -2,9 +2,10 @@
 title: Sampling overrides (preview) - Azure Monitor Application Insights for Java
 description: Learn to configure sampling overrides in Azure Monitor Application Insights for Java.
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 04/24/2023
 ms.devlang: java
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
+ms.reviewer: mmcc
 ---
 
 # Sampling overrides (preview) - Azure Monitor Application Insights for Java
@@ -39,7 +40,7 @@ To begin, create a configuration file named *applicationinsights.json*. Save it 
 
 ```json
 {
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "connectionString": "...",
   "sampling": {
     "percentage": 10
   },
@@ -47,12 +48,14 @@ To begin, create a configuration file named *applicationinsights.json*. Save it 
     "sampling": {
       "overrides": [
         {
+          "telemetryType": "request",
           "attributes": [
             ...
           ],
           "percentage": 0
         },
         {
+          "telemetryType": "request",
           "attributes": [
             ...
           ],
@@ -66,34 +69,26 @@ To begin, create a configuration file named *applicationinsights.json*. Save it 
 
 ## How it works
 
-When a span is started, the attributes present on the span at that time are used to check if any of the sampling
+`telemetryType` (`telemetryKind` in Application Insights 3.4.0) must be one of `request`, `dependency`, `trace` (log), or `exception`.
+
+When a span is started, the type of span and the attributes present on it at that time are used to check if any of the sampling
 overrides match.
 
 Matches can be either `strict` or `regexp`. Regular expression matches are performed against the entire attribute value,
 so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
+A sampling override can specify multiple attribute criteria, in which case all of them must match for the sampling
+override to match.
 
-If one of the sampling overrides match, then its sampling percentage is used to decide whether to sample the span or
+If one of the sampling overrides matches, then its sampling percentage is used to decide whether to sample the span or
 not.
 
 Only the first sampling override that matches is used.
 
 If no sampling overrides match:
 
-* If this is the first span in the trace, then the [default sampling percentage](./java-standalone-config.md#sampling)
-  is used.
-* If this is not the first span in the trace, then the parent sampling decision is used.
-
-> [!WARNING]
-> When a decision has been made to not collect a span, then all downstream spans will also not be collected,
-> even if there are sampling overrides that match the downstream span.
-> This behavior is necessary because otherwise broken traces would result, with downstream spans being collected
-> but being parented to spans that were not collected.
-
-> [!NOTE]
-> The sampling decision is based on hashing the traceId (also known as the operationId) to a number between 0 and 100,
-> and that hash is then compared to the sampling percentage.
-> Since all spans in a given trace will have the same traceId, they will have the same hash,
-> and so the sampling decision will be consistent across the whole trace.
+* If this is the first span in the trace, then the
+  [top-level sampling configuration](./java-standalone-config.md#sampling) is used.
+* If this isn't the first span in the trace, then the parent sampling decision is used.
 
 ## Example: Suppress collecting telemetry for health checks
 
@@ -104,11 +99,12 @@ This will also suppress collecting any downstream spans (dependencies) that woul
 
 ```json
 {
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "connectionString": "...",
   "preview": {
     "sampling": {
       "overrides": [
         {
+          "telemetryType": "request",
           "attributes": [
             {
               "key": "http.url",
@@ -130,11 +126,12 @@ This will suppress collecting telemetry for all `GET my-noisy-key` redis calls.
 
 ```json
 {
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "connectionString": "...",
   "preview": {
     "sampling": {
       "overrides": [
         {
+          "telemetryType": "dependency",
           "attributes": [
             {
               "key": "db.system",
@@ -165,7 +162,7 @@ those will also be collected for all '/login' requests.
 
 ```json
 {
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "connectionString": "...",
   "sampling": {
     "percentage": 10
   },
@@ -173,6 +170,7 @@ those will also be collected for all '/login' requests.
     "sampling": {
       "overrides": [
         {
+          "telemetryType": "request",
           "attributes": [
             {
               "key": "http.url",
@@ -188,28 +186,28 @@ those will also be collected for all '/login' requests.
 }
 ```
 
-## Common span attributes
+## Span attributes available for sampling
 
-This section lists some common span attributes that sampling overrides can use.
+Span attribute names are based on the OpenTelemetry semantic conventions:
 
-### HTTP spans
+* [HTTP](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/http.md)
+* [Messaging](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/messaging.md)
+* [Database](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/database.md)
+* [RPC](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/rpc.md)
 
-| Attribute  | Type | Description | 
-|---|---|---|
-| `http.method` | string | HTTP request method.|
-| `http.url` | string | Full HTTP request URL in the form `scheme://host[:port]/path?query[#fragment]`. The fragment isn't usually transmitted over HTTP. But if the fragment is known, it should be included.|
-| `http.flavor` | string | Type of HTTP protocol. |
-| `http.user_agent` | string | Value of the [HTTP User-Agent](https://tools.ietf.org/html/rfc7231#section-5.5.3) header sent by the client. |
+To see the exact set of attributes captured by Application Insights Java for your application, set the
+[self-diagnostics level to debug](./java-standalone-config.md#self-diagnostics), and look for debug messages starting
+with the text "exporting span".
 
-Please note that `http.status_code` cannot be used for sampling decisions because it is not available
-at the start of the span.
+>[!Note]
+> Only attributes set at the start of the span are available for sampling,
+so attributes such as `http.status_code` which are captured later on can't be used for sampling.
 
-### JDBC spans
+## Troubleshooting
 
-| Attribute  | Type | Description  |
-|---|---|---|
-| `db.system` | string | Identifier for the database management system (DBMS) product being used. See [list of identifiers](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/database.md#connection-level-attributes). |
-| `db.connection_string` | string | Connection string used to connect to the database. It's recommended to remove embedded credentials.|
-| `db.user` | string | Username for accessing the database. |
-| `db.name` | string | String used to report the name of the database being accessed. For commands that switch the database, this string should be set to the target database, even if the command fails.|
-| `db.statement` | string | Database statement that's being run.|
+If you use `regexp` and the sampling override doesn't work, please try with the `.*` regex. If the sampling now works, it means
+you have an issue with the first regex and please read [this regex documentation](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html).
+
+If it doesn't work with `.*`, you may have a syntax issue in your `application-insights.json file`. Please look at the Application Insights logs and see if you notice
+warning messages.
+

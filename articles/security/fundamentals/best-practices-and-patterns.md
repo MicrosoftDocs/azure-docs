@@ -33,7 +33,7 @@ The best practices are intended to be a resource for IT pros. This might include
 * [Azure Service Fabric security best practices](service-fabric-best-practices.md)
 * [Best practices for Azure VM security](iaas.md)
 * [Implementing a secure hybrid network architecture in Azure](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid)
-* [Internet of Things security best practices](../../iot-fundamentals/iot-security-best-practices.md)
+* [Internet of Things security best practices](../../iot/iot-overview-security.md)
 * [Securing PaaS databases in Azure](paas-applications-using-sql.md)
 * [Securing PaaS web and mobile applications using Azure App Service](paas-applications-using-app-services.md)
 * [Securing PaaS web and mobile applications using Azure Storage](paas-applications-using-storage.md)
@@ -41,4 +41,4 @@ The best practices are intended to be a resource for IT pros. This might include
 
 ## Next steps
 
-Microsoft has found that using security benchmarks can help you quickly secure cloud deployments. Benchmark recommendations from your cloud service provider give you a starting point for selecting specific security configuration settings in your environment and allow you to quickly reduce risk to your organization. See the [Azure Security Benchmark](/security/benchmark/azure/introduction) for a collection of high-impact security recommendations you can use to help secure the services you use in Azure.
+Microsoft has found that using security benchmarks can help you quickly secure cloud deployments. Benchmark recommendations from your cloud service provider give you a starting point for selecting specific security configuration settings in your environment and allow you to quickly reduce risk to your organization. See the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) for a collection of high-impact security recommendations you can use to help secure the services you use in Azure.

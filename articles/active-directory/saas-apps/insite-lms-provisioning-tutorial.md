@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure Insite LMS for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Insite LMS for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Insite LMS.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: c4dbe83d-b5b4-4089-be89-b357e8d6f359
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/30/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

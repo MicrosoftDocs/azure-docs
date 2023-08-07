@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: quickstart
-ms.date: 02/15/2022
+ms.date: 07/08/2022
 ms.author: alkohli
 ms.custom: mode-ui
 #Customer intent: As an IT admin, I need to understand how to prepare the portal to quickly deploy Azure Stack Edge so I can use it to transfer data to Azure.
@@ -47,7 +47,7 @@ Before you deploy, make sure that following prerequisites are in place:
 
 5. **Configure compute network**: Create a virtual switch by enabling a port on your device. Enter 2 free, contiguous static IPs for Kubernetes nodes in the same network that you created the switch. Provide at least 1 static IP for IoT Edge Hub service to access compute modules and 1 static IP for each extra service or container that you want to access from outside the Kubernetes cluster. 
 
-    Kubernetes is required to deploy all containerized workloads. See more information on [Compute network settings](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-virtual-switches-and-compute-ips).
+    Kubernetes is required to deploy all containerized workloads. See more information on [Compute network settings](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-virtual-switches).
 
 6. **Configure web proxy**: If you use web proxy in your environment, enter web proxy server IP in `http://<web-proxy-server-FQDN>:<port-id>`. Set authentication to **None**. See more information on [Web proxy settings](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-web-proxy).
 

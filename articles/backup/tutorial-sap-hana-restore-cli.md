@@ -2,37 +2,44 @@
 title: Tutorial - SAP HANA DB restore on Azure using CLI 
 description: In this tutorial, learn how to restore SAP HANA databases running on an Azure VM from an Azure Backup Recovery Services vault using Azure CLI.
 ms.topic: tutorial
-ms.date: 12/23/2021 
+ms.date: 07/18/2023
 ms.custom: devx-track-azurecli
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Tutorial: Restore SAP HANA databases in an Azure VM using Azure CLI
 
+This tutorial describes how to restore SAP HANA database instance and SAP HANA System Replication (HSR) instance using Azure CLI.
+
 Azure CLI is used to create and manage Azure resources from the command line or through scripts. This documentation details how to restore a backed-up SAP HANA database on an Azure VM - using Azure CLI. You can also perform these steps using the [Azure portal](./sap-hana-db-restore.md).
+
+>[!Note]
+>- Original Location Recovery (OLR) is currently not supported for HSR.
+>- Restore to HSR instance isn't supported. However, restore only to HANA instance is supported.
 
 Use [Azure Cloud Shell](tutorial-sap-hana-backup-cli.md) to run CLI commands.
 
-By the end of this tutorial you'll be able to:
-
-> [!div class="checklist"]
->
-> * View restore points for a backed-up database
-> * Restore a database
-
 This tutorial assumes you have an SAP HANA database running on Azure VM that's backed-up using Azure Backup. If you've used [Back up an SAP HANA database in Azure using CLI](tutorial-sap-hana-backup-cli.md) to back up your SAP HANA database, then you're using the following resources:
 
-* A resource group named *saphanaResourceGroup*
-* A vault named *saphanaVault*
-* Protected container named *VMAppContainer;Compute;saphanaResourceGroup;saphanaVM*
-* Backed-up database/item named *saphanadatabase;hxe;hxe*
-* Resources in the *westus2* region
+* A resource group named `saphanaResourceGroup`.
+* A vault named `saphanaVault`.
+* Protected container named `VMAppContainer;Compute;saphanaResourceGroup;saphanaVM`.
+* Backed-up database/item named `saphanadatabase;hxe;hxe`.
+* Resources in the `westus2` region.
+
+For more information on the supported configurations and scenarios, see the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
 
 ## View restore points for a backed-up database
 
 To view the list of all the recovery points for a database, use the [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) cmdlet as follows:
+
+**Choose a database type**:
+
+# [HANA database](#tab/hana-database)
+
+To view the available recovery points, run the following command:
 
 ```azurecli-interactive
 az backup recoverypoint list --resource-group saphanaResourceGroup \
@@ -53,6 +60,30 @@ DefaultRangeRecoveryPoint                                    AzureWorkload      
 ```
 
 As you can see, the list above contains three recovery points: one each for full, differential, and log backup.
+
+# [HSR](#tab/hsr)
+
+To view the available recovery points, run the following command:
+
+```azurecli
+az backup recoverypoint list --resource-group hanarghsr2 --vault-name hanavault10 --container-name "hanahsrcontainer;hsrtestps2" --item-name "saphanadatabase;hsrtestpradeep2;db1" --output table
+
+abc@Azure:~$ az backup recoverypoint list --resource-group hanarghsr2 --vault-name hanavault10 --container-name "hanahsrcontainer;hsrtestps2" --item-name "saphanadatabase;hsrtestps2;db1" --output table
+```
+
+The list of recovery points will look as follows:
+
+```Output
+Name                       Time                              BackupManagementType    Item Name                            RecoveryPointType
+-------------------------  --------------------------------  ----------------------  -----------------------------------  -------------------
+62640091676331             2023-05-04T08:13:09.469000+00:00  AzureWorkload           SAPHanaDatabase;hsrtestps2;db1  Full
+68464937558101             2023-05-04T07:49:02.988000+00:00  AzureWorkload           SAPHanaDatabase;hsrtestps2;db1  Full
+56015648627567             2023-05-04T07:27:54.425000+00:00  AzureWorkload           SAPHanaDatabase;hsrtestps2;db1  Full
+DefaultRangeRecoveryPoint                                    AzureWorkload           SAPHanaDatabase;hsrtestps2;db1  Log
+arvind@Azure:~$
+```
+
+---
 
 >[!NOTE]
 >You can also view the start and end points of every unbroken log backup chain, using the [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) cmdlet.
@@ -84,11 +115,17 @@ To restore a database to an alternate location, use **AlternateWorkloadRestore**
 
 In this tutorial, you'll restore to a previous restore point. [View the list of restore points](#view-restore-points-for-a-backed-up-database) for the database and choose the point you want to restore to. This tutorial will use the restore point with the name *7660777527047692711*.
 
-Using the above restore point name and the restore mode, let's create the recovery config object using the [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show) cmdlet. Let's look at what each of the remaining parameters in this cmdlet mean:
+By using the above restore point name and the restore mode, let's create the recovery config object using the [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show) cmdlet. Let's look at what each of the remaining parameters in this cmdlet mean:
 
 * **--target-item-name** This is the name that the restored database will be using. In this case, we used the name *restored_database*.
 * **--target-server-name** This is the name of an SAP HANA server that's successfully registered to a Recovery Services vault and lies in the same region as the database to be restored. For this tutorial, we'll restore the database to the same SAP HANA server that we've protected, named *hxehost*.
 * **--target-server-type** For the restore of SAP HANA databases, **HANAInstance** must be used.
+
+**Choose a database type**:
+
+# [HANA database](#tab/hana-database)
+
+To start the restore operation, run the following command:
 
 ```azurecli-interactive
 
@@ -107,7 +144,7 @@ az backup recoveryconfig show --resource-group saphanaResourceGroup \
 
 The response to the above query will be a recovery config object that looks something like this:
 
-```output
+```Output
 {"restore_mode": "AlternateLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "7660777527047692711", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}
 ```
 
@@ -129,6 +166,60 @@ Name                                  Resource
 ```
 
 The response will give you the job name. This job name can be used to track the job status using [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
+
+# [HSR](#tab/hsr)
+
+To start the restore operation, run the following command:
+
+```azurecli
+az backup recoveryconfig show --resource-group hanarghsr2 --vault-name hanavault10 --container-name "hanahsrcontainer;hsrtestps2" --item-name "saphanadatabase;hsrtestps2;db1" --restore-mode AlternateWorkloadRestore --log-point-in-time 04-05-2023-08:27:54 --target-item-name restored_DB_pradeep  --target-server-name hsr-primary --target-container-name  hsr-primary --target-server-type HANAInstance --backup-management-type AzureWorkload --workload-type SAPHANA --output json > recoveryInput.json
+
+ arvind@Azure:~$ cat recoveryInput.json
+{
+  "alternate_directory_paths": null,
+  "container_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/hanarghsr2/providers/Microsoft.RecoveryServices/vaults/hanavault10/backupFabrics/Azure/protectionContainers/vmappcontainer;compute;hanarghsr2;hsr-primary",
+  "container_uri": "HanaHSRContainer;hsrtestps2",
+  "database_name": "ARV/restored_DB_p2",
+  "filepath": null,
+  "item_type": "SAPHana",
+  "item_uri": "SAPHanaDatabase;hsrtestps2;db1",
+  "log_point_in_time": "04-05-2023-08:27:54",
+  "recovery_mode": null,
+  "recovery_point_id": "DefaultRangeRecoveryPoint",
+  "restore_mode": "AlternateLocation",
+  "source_resource_id": null,
+  "workload_type": "SAPHanaDatabase"
+}
+arvind@Azure:~$
+
+az backup restore restore-azurewl --resource-group hanarghsr2 --vault-name hanavault10 --recovery-config recoveryInput.json --output table
+```
+
+### Restore as files:
+
+To restore the database as files, run the following command:
+
+```azurecli
+az backup recoveryconfig show --resource-group hanarghsr2 \
+    --vault-name hanavault10 \
+    --container-name "hanahsrcontainer;hsrtestps2" \
+    --item-name "saphanadatabase;hsrtestps2;arv" \
+    --restore-mode RestoreAsFiles \
+    --log-point-in-time 18-04-2023-09:53:00 \
+    --rp-name DefaultRangeRecoveryPoint \
+    --target-container-name "VMAppContainer;Compute;hanarghsr2;hsr-primary"  \
+    --filepath /home/abc \
+    --output json
+	
+	az backup restore restore-azurewl --resource-group hanarghsr2 \
+    --vault-name hanavault10 \
+    --restore-config recoveryconfig.json \
+    --output json
+
+az backup recoveryconfig show --resource-group hanarghsr2     --vault-name hanavault10     --container-name "hanahsrcontainer;hsrtestps2"     --item-name "saphanadatabase;hsrtestps2;arv"     --restore-mode RestoreAsFiles     --log-point-in-time 18-04-2023-09:53:00     --rp-name DefaultRangeRecoveryPoint     --target-container-name "VMAppContainer;Compute;hanarghsr2;hsr-primary"      --filepath /home/abc     --output json  > recoveryconfig.json
+```
+
+---
 
 ## Restore and overwrite
 
@@ -230,6 +321,9 @@ Name                                  Operation           Status      Item Name 
 ------------------------------------  ------------------  ----------  -------------------  ------------------------  --------------------------------  --------------
 00000000-0000-0000-0000-000000000000  CrossRegionRestore  InProgress  H10 [hanasnapcvt01]  AzureWorkload             2021-12-22T05:21:34.165617+00:00  0:00:05.665470
 ```
+
+>[!Note]
+>The RPO for the backup data to be available in secondary region is 12 hours. Therefore, when you turn on CRR, the RPO for the secondary region is 12 hours + log frequency duration (that can be set to a minimum of 15 minutes).
 
 ## Restore as files
 
@@ -343,6 +437,9 @@ Based on the type of restore point chosen (**Point in time** or **Full & Differe
 >[!Note]
 >If you've selected **Restore to a point in time**, the log files (dumped to the target VM) may sometimes contain logs beyond the point-in-time chosen for restore. Azure Backup does this to ensure that log backups for all HANA services are available for consistent and successful restore to the chosen point-in-time.
 
+> [!NOTE]
+> If you don't want to restore the entire chain but only a subset of files, follow the steps as documented [here](sap-hana-db-restore.md#partial-restore-as-files).
+
 Move these restored files to the SAP HANA server where you want to restore them as a database. Then follow these steps to restore the database:
 
 1. Set permissions on the folder / directory where the backup files are stored using the following command:
@@ -404,6 +501,37 @@ Move these restored files to the SAP HANA server where you want to restore them 
         * `<DataFileDir>` - the folder that contains the full backups
         * `<LogFilesDir>` - the folder that contains the log backups, differential and incremental backups (if any)
         * `<BackupIdFromJsonFile>` - the **BackupId** extracted in **Step 3**
+
+## Cross Subscription Restore
+
+With Cross Subscription Restore (CSR), you have the flexibility of restoring to any subscription and any vault under your tenant if restore permissions are available. By default, CSR is enabled on all Recovery Services vaults (existing and newly created vaults). 
+
+>[!Note]
+>- You can trigger Cross Subscription Restore from Recovery Services vault.
+>- CSR is supported only for streaming/Backint-based backups and is not supported for snapshot-based backup.
+>- Cross Regional Restore (CRR) with CSR is not supported.
+
+```azurecli
+az backup vault create
+
+```
+
+Add the parameter `cross-subscription-restore-state` that enables you to set the CSR state of the vault during vault creation and updating.
+
+```azurecli
+az backup recoveryconfig show
+
+```
+
+Add the parameter `--target-subscription-id` that enables you to provide the target subscription as the input while triggering Cross Subscription Restore for SQL or HANA datasources.
+
+**Example**:
+
+```azurecli
+   az backup vault create -g {rg_name} -n {vault_name} -l {location} --cross-subscription-restore-state Disable
+   az backup recoveryconfig show --restore-mode alternateworkloadrestore --backup-management-type azureworkload -r {rp} --target-container-name {target_container} --target-item-name {target_item} --target-resource-group {target_rg} --target-server-name {target_server} --target-server-type SQLInstance --target-subscription-id {target_subscription} --target-vault-name {target_vault} --workload-type SQLDataBase --ids {source_item_id}
+
+```
 
 ## Next steps
 

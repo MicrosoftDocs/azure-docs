@@ -1,10 +1,10 @@
 ---
-title: Configure managed identities using the Azure portal - Azure AD
+title: Configure managed identities using the Azure portal
 description: Step-by-step instructions for configuring managed identities for Azure resources on an Azure VM using the Azure portal.
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.subservice: msi
@@ -49,6 +49,8 @@ Refer to the following Quickstarts to create a VM:
 
 
 ### Enable system-assigned managed identity on an existing VM
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 To enable system-assigned managed identity on a VM that was originally provisioned without it, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Azure AD directory role assignments are required.
 

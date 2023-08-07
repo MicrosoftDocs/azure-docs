@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 08/03/2021
+ms.date: 01/17/2023
 ms.author: victorh
 ---
 
@@ -61,7 +61,15 @@ Easily route traffic to your secured hub for filtering and logging without the n
 
 This feature is available only with secured virtual hub deployments.
 
-You can use third-party providers for Branch to Internet (B2I) traffic filtering, side by side with Azure Firewall for Branch to VNet (B2V), VNet to VNet (V2V) and VNet to Internet (V2I). 
+You can use third-party providers for Branch to Internet (B2I) traffic filtering, side by side with Azure Firewall for Branch to VNet (B2V), VNet to VNet (V2V) and VNet to Internet (V2I).
+
+### DDoS protection plan
+
+You can associate your virtual networks with a DDoS protection plan within Azure Firewall Manager. For more information, see [Configure an Azure DDoS Protection Plan using Azure Firewall Manager](configure-ddos.md).
+
+### Manage Web Application Firewall policies
+
+You can centrally create and associate Web Application Firewall (WAF) policies for your application delivery platforms, including Azure Front Door and Azure Application Gateway. For more information, see [Manage Web Application Firewall policies](manage-web-application-firewall-policies.md).
 
 ## Region availability
 
@@ -75,17 +83,19 @@ Azure Firewall Manager has the following known issues:
 |---------|---------|---------|
 |Traffic splitting|Microsoft 365 and Azure Public PaaS traffic splitting isn't currently supported. As such, selecting a third-party provider for V2I or B2I also sends all Azure Public PaaS and Microsoft 365 traffic via the partner service.|Investigating traffic splitting at the hub.
 |Base policies must be in same region as local policy|Create all your local policies in the same region as the base policy. You can still apply a policy that was created in one region on a secured hub from another region.|Investigating|
-|Filtering inter-hub traffic in secure virtual hub deployments|Secured Virtual Hub to Secured Virtual Hub communication filtering isn't yet supported. However, hub to hub communication still works if private traffic filtering via Azure Firewall isn't enabled.|Investigating|
-|Branch to branch traffic with private traffic filtering enabled|Branch to branch traffic isn't supported when private traffic filtering is enabled. |Investigating.<br><br>Don't secure private traffic if branch to branch connectivity is critical.|
+|Filtering inter-hub traffic in secure virtual hub deployments|Secured Virtual Hub to Secured Virtual Hub communication filtering is supported with the Routing Intent feature.|Enable Routing Intent on your Virtual WAN Hub by setting Inter-hub to **Enabled** in Azure Firewall Manager. See [Routing Intent documentation](../virtual-wan/how-to-routing-policies.md) for more information about this feature.|
+|Branch to branch traffic with private traffic filtering enabled|Branch to branch traffic can be inspected by Azure Firewall in secured hub scenarios if Routing Intent is enabled. |Enable Routing Intent on your Virtual WAN Hub by setting Inter-hub to **Enabled** in Azure Firewall Manager. See [Routing Intent documentation](../virtual-wan/how-to-routing-policies.md) for more information about this feature.|
 |All Secured Virtual Hubs sharing the same virtual WAN must be in the same resource group.|This behavior is aligned with Virtual WAN Hubs today.|Create multiple Virtual WANs to allow Secured Virtual Hubs to be created in different resource groups.|
 |Bulk IP address addition fails|The secure hub firewall goes into a failed state if you add multiple public IP addresses.|Add smaller public IP address increments. For example, add 10 at a time.|
-|DDoS Protection Standard not supported with secured virtual hubs|DDoS Protection Standard is not integrated with vWANs.|Investigating|
+|DDoS Protection not supported with secured virtual hubs|DDoS Protection is not integrated with vWANs.|Investigating|
 |Activity logs not fully supported|Firewall policy does not currently support Activity logs.|Investigating|
 |Description of rules not fully supported|Firewall policy does not display the description of rules in an ARM export.|Investigating|
 |Azure Firewall Manager overwrites static and custom routes causing downtime in virtual WAN hub.|You should not use Azure Firewall Manager to manage your settings in deployments configured with custom or static routes. Updates from Firewall Manager can potentially overwrite static or custom route settings.|If you use static or custom routes, use the Virtual WAN page to manage security settings and avoid configuration via Azure Firewall Manager.<br><br>For more information, see [Scenario: Azure Firewall - custom](../virtual-wan/scenario-route-between-vnets-firewall.md).|
 
 ## Next steps
 
-- [Learn module: Introduction to Azure Firewall Manager](/learn/modules/intro-to-azure-firewall-manager/).
+- [Learn module: Introduction to Azure Firewall Manager](/training/modules/intro-to-azure-firewall-manager/)
 - Review [Azure Firewall Manager deployment overview](deployment-overview.md)
-- Learn about [secured Virtual Hubs](secured-virtual-hub.md).
+- Learn about [secured Virtual Hubs](secured-virtual-hub.md)
+- [Learn more about Azure network security](../networking/security/index.yml)
+

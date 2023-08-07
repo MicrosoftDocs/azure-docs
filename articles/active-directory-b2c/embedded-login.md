@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 06/17/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -73,12 +73,13 @@ The **Sources** attribute contains the URI of your web application. Add a space 
 - The URI must be trusted and owned by your application.
 - The URI must use the https scheme.  
 - The full URI of the web app must be specified. Wildcards are not supported.
+- The **JourneyFraming** element only allows site URLs with a **two to seven-character** Top-level domain (TLD) to align with commonly recognized TLDs.
 
-In addition, we recommend that you also block your own domain name from being embedded in an iframe by setting the Content-Security-Policy and X-Frame-Options headers respectively on your application pages. This will mitigate security concerns around older browsers related to nested embedding of iframes.
+In addition, we recommend that you also block your own domain name from being embedded in an iframe by setting the `Content-Security-Policy` and `X-Frame-Options` headers respectively on your application pages. This will mitigate security concerns around older browsers related to nested embedding of iframes.
 
 ## Adjust policy user interface
 
-With Azure AD B2C [user interface customization](customize-ui.md), you have almost full control over the HTML and CSS content presented to users. Follow the steps for customizing an HTML page using content definitions. To fit the Azure AD B2C user interface into the iframe size, provide clean HTML page without background and extra spaces.  
+With Azure AD B2C [user interface customization](customize-ui.md), you have almost full control over the HTML and CSS content presented to users. Follow the steps for customizing an HTML page using content definitions. To fit the Azure AD B2C user interface into the iframe size, provide clean HTML page without a background and extra spaces.  
 
 The following CSS code hides the Azure AD B2C HTML elements and adjusts the size of the panel to fill the iframe.
 
@@ -96,9 +97,9 @@ div.api_container{
 }
 ```
 
-In some cases, you might want to notify to your application of which Azure AD B2C page is currently being presented. For example, when a user selects the sign-up option, you might want the application to respond by hiding the links for signing in with a social account or adjusting the iframe size.
+In some cases, you may want to notify your application about the Azure AD B2C page that's currently being presented. For example, when a user selects the sign-up option, you may want the application to respond by hiding the links for signing in with a social account or adjusting the iframe size.
 
-To notify your application of the current Azure AD B2C page, [enable your policy for JavaScript](./javascript-and-page-layout.md), and then use HTML5 post messages. The following JavaScript code sends a post message to the app with `signUp`:
+To notify your application about the current Azure AD B2C page, [enable your policy for JavaScript](./javascript-and-page-layout.md), and then use HTML5 to post messages. The following JavaScript code sends a post message to the app with `signUp`:
 
 ```javascript
 window.parent.postMessage("signUp", '*');
@@ -108,7 +109,7 @@ window.parent.postMessage("signUp", '*');
 
 When a user selects the sign-in button, the [web app](integrate-with-app-code-samples.md#web-apps-and-apis) generates an authorization request that takes the user to Azure AD B2C sign-in experience. After sign-in is complete, Azure AD B2C returns an ID token, or authorization code, to the configured redirect URI within your application.
 
-To support embedded login, the iframe **src** property points to the sign-in controller, such as `/account/SignUpSignIn`, which generates the authorization request and redirects the user to Azure AD B2C policy.
+To support embedded login, the iframe `src` attribute points to the sign-in controller, such as `/account/SignUpSignIn`, which generates the authorization request and redirects the user to Azure AD B2C policy.
 
 ```html
 <iframe id="loginframe" frameborder="0" src="/account/SignUpSignIn"></iframe>
@@ -134,9 +135,9 @@ The redirect URI can be the same redirect URI used by the iframe. You can skip t
 
 ## Configure a single-page application
 
-For a single-page application, you'll also need to a second "sign-in" HTML page that loads into the iframe. This sign-in page hosts the authentication library code that generates the authorization code and returns the token.
+For a single-page application, you'll also need a second "sign-in" HTML page that loads into the iframe. This sign-in page hosts the authentication library code that generates the authorization code and returns the token.
 
-When the single-page application needs the access token, use JavaScript code to obtain the access token from the iframe and object that contains it.
+When the single-page application needs the access token, use JavaScript code to obtain the access token from the iframe and the object that contains it.
 
 > [!NOTE]
 > Running MSAL 2.0 in an iframe is not currently supported.

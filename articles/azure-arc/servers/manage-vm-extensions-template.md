@@ -3,7 +3,7 @@ title: Enable VM extension using Azure Resource Manager template
 description: This article describes how to deploy virtual machine extensions to Azure Arc-enabled servers running in hybrid cloud environments using an Azure Resource Manager template.
 ms.date: 06/02/2022
 ms.topic: conceptual
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-arm-template
 ---
 
 # Enable Azure VM extensions by using ARM template
@@ -294,7 +294,7 @@ The Custom Script extension configuration specifies things like script location 
 
 ## Deploy the Dependency agent extension
 
-To use the Azure Monitor Dependency agent extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Dependency agent, see [Overview of Azure Monitor agents](../../azure-monitor/agents/agents-overview.md#dependency-agent).
+To use the Azure Monitor Dependency agent extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Dependency agent, see [Overview of Azure Monitor agents](../../azure-monitor/vm/vminsights-dependency-agent-maintenance.md).
 
 ### Template file for Linux
 

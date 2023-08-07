@@ -1,13 +1,13 @@
 ---
 title: Internet peering vs. Peering Service
-titleSuffix: Azure
-description: Internet peering vs. Peering Service
+description: Internet peering vs. Peering Service.
 services: internet-peering
-author: derekolo
+author: halkazwini
 ms.service: internet-peering
 ms.topic: overview
-ms.date: 5/22/2020
-ms.author: derekol
+ms.date: 05/22/2020
+ms.author: halkazwini
+ms.custom: template-overview
 ---
 
 # Internet peering vs. Peering Service
@@ -15,6 +15,7 @@ ms.author: derekol
 Internet peering refers to any interconnection between Microsoft’s global network (AS8075) and Carriers or Service Providers network. A Service Provider can become a Peering Service partner by implementing the Peering Service partnership requirements explained below to provide reliable and high-performing public connectivity with optimal routing from the customer to the Microsoft network.
 
 ## About Peering Service
+
 Peering Service is a partnership program with key service providers to provide best-in-class public Internet connectivity to their enterprise users. Partners who are part of the program will have direct, highly available, geo-redundant connections and optimized routing to Microsoft. Peering Service is an addition to the Microsoft connectivity portfolio:
 *	ExpressRoute for private connectivity to IaaS or PaaS resources (support for private IP space)
 	*	Partner based connectivity
@@ -39,12 +40,14 @@ In the figure above each branch office of a global enterprise connects to the ne
 * Route analytics and statistics - Events for Border Gateway Protocol ([BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol)) route anomalies (leak/hijack detection), and suboptimal routing.
 
 ## Peering Service partnership requirements
+
 * Connectivity to Microsoft Cloud at a location nearest to customer. A partner Service Provider will route user traffic to Microsoft edge closest to user. Similarly, on traffic towards the user, Microsoft will route traffic (using BGP tag) to the edge location closest to the user and Service Provider will deliver the traffic to the user.
 * Partner will maintain high available, high throughput, and geo-redundant connectivity with Microsoft Global Network.
 * Partner can utilize their existing peering to support Peering Service if it meets the requirement.
 
 ## FAQ
-For frequently asked questions, see [Peering Service - FAQ](service-faqs.yml).
+
+For frequently asked questions, see [Peering Service FAQ](faqs.md#peering-service).
 
 ## Next steps
 

@@ -1,16 +1,16 @@
 ---
-title: Group expiration policy quickstart  - Azure AD | Microsoft Docs
-description: Expiration for Microsoft 365 groups - Azure Active Directory
+title: Group expiration policy quickstart 
+description: Expiration for Microsoft 365 groups
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 09/02/2021
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro, mode-other
 ms.collection: M365-identity-device-management
@@ -28,7 +28,7 @@ Expiration policy is simple:
 - A deleted Microsoft 365 group can be restored within 30 days by a group owner or by an Azure AD administrator
 
 > [!NOTE]
-> Groups now use Azure AD intelligence to automatically renewed based on whether they have been in recent use. This renewal decision is based on user activity in groups across Microsoft 365 services like Outlook, SharePoint, Teams, Yammer, and others.
+> Azure Active Directory (Azure AD), part of Microsoft Entra, uses intelligence to automatically renew groups based on whether they have been in recent use. This renewal decision is based on user activity in groups across Microsoft 365 services like Outlook, SharePoint, Teams, Yammer, and others.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -37,6 +37,8 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
  The least-privileged role required to set up group expiration is User administrator in the organization.
 
 ## Turn on user creation for groups
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with a User administrator account.
 
@@ -68,7 +70,7 @@ That's it! In this quickstart, you successfully set the expiration policy for th
 
 ### To remove the expiration policy
 
-1. Ensure that you are signed in to the [Azure portal](https://portal.azure.com) with an account that is the Global Administrator for your Azure AD organization.
+1. Sign in to to the [Azure portal](https://portal.azure.com) with an account that is the Global Administrator for your Azure AD organization.
 2. Select **Azure Active Directory** > **Groups** > **Expiration**.
 3. Set **Enable expiration for these Microsoft 365 groups** to **None**.
 

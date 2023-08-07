@@ -35,7 +35,7 @@ sections:
           There are three different health statuses:
           - Available: There aren't any known problems in the Azure platform that could be impacting this resource
           - Unavailable: Resource health has detected issues that are impacting the resource
-          - Unknown: Resource health can not determine the health of a resource because it has stopped receiving information about it. 
+          - Unknown: Resource health cannot determine the health of a resource because it has stopped receiving information about it. 
           
       - question: |
           What does the unknown status mean? Is something wrong with my resource?
@@ -65,7 +65,7 @@ sections:
       - question: |
           Where do I find Resource Health?
         answer: |
-          After you log in to the Azure portal, there are multiple ways you can access Resource Health:
+          After you sign in to the Azure portal, there are multiple ways you can access Resource Health:
           - Navigate to your resource. In the left-hand navigation, select **Resource health**
           - Go to the Azure Service Health blade.  In the left-hand navigation, select **Resource health**.
           
@@ -91,7 +91,7 @@ sections:
         answer: |
           The information provided by Resource Health is more specific than what is provided by Azure status or the Service Health dashboard.
           
-          Whereas [Azure status](https://status.azure.com) and the Service Health dashboard inform you about service issues that affect a broad set of customers (for example an Azure region), Resource Health exposes more granular events that are relevant only to the specific resource. For example, if a host unexpectedly reboots, Resource Health alerts only those customers whose virtual machines were running on that host.
+          Whereas [Azure status](https://azure.status.microsoft) and the Service Health dashboard inform you about service issues that affect a broad set of customers (for example an Azure region), Resource Health exposes more granular events that are relevant only to the specific resource. For example, if a host unexpectedly reboots, Resource Health alerts only those customers whose virtual machines were running on that host.
           
       - question: |
           Do I need to activate Resource Health for each resource?
@@ -112,6 +112,11 @@ sections:
           What are the recommendations that Resource Health provides?
         answer: |
           Based on the health status, Resource Health provides you with recommendations with the goal of reducing the time you spent troubleshooting. For available resources, the recommendations focus on how to solve the most common problems customers encounter. If the resource is unavailable due to an Azure unplanned event, the focus will be on assisting you during and after the recovery process. 
+
+      - question: |
+          Why am I seeing the VM availability metric reflect VM downtime when I observe no impact?
+        answer: |
+          The VM availability metric is calculated as an aggregation of the health checks stated [here](resource-health-checks-resource-types.md). When the guest agent is incorrectly installed or missing altogether, we interpret the guest heartbeat signal as unhealthy, and therefore emit a metric value of 0, which may be inaccurate. We have plans to move away from the aggregation model and rely only on one, unified high confidence signal from the host server. This work is already underway and will ensure our monitoring offerings give consistent values. We anticipate this work to be completed through the course of 2023.
 
 additionalContent: |
 

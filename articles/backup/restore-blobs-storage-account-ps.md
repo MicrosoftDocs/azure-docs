@@ -2,7 +2,10 @@
 title: Restore Azure blobs via Azure PowerShell
 description: Learn how to restore Azure blobs to any point-in-time using Azure PowerShell.
 ms.topic: conceptual
+ms.custom: devx-track-azurepowershell
 ms.date: 05/05/2021
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Restore Azure blobs to point-in-time using Azure PowerShell
@@ -38,13 +41,13 @@ $startDate = (Get-Date).AddDays(-30)
 $endDate = Get-Date
 ```
 
-First fetch all instances using [Get-AzDataProtectionBackupInstance](/powershell/module/az.dataprotection/get-azdataprotectionbackupinstance?view=azps-5.9.0&preserve-view=true) command and identify the relevant instance.
+First fetch all instances using [Get-AzDataProtectionBackupInstance](/powershell/module/az.dataprotection/get-azdataprotectionbackupinstance) command and identify the relevant instance.
 
 ```azurepowershell-interactive
 $AllInstances = Get-AzDataProtectionBackupInstance -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name
 ```
 
-You can also use Az.Resourcegraph and the [Search-AzDataProtectionBackupInstanceInAzGraph](/powershell/module/az.dataprotection/search-azdataprotectionbackupinstanceinazgraph?view=azps-5.9.0&preserve-view=true) command to search across instances in many vaults and subscriptions.
+You can also use Az.Resourcegraph and the [Search-AzDataProtectionBackupInstanceInAzGraph](/powershell/module/az.dataprotection/search-azdataprotectionbackupinstanceinazgraph) command to search across instances in many vaults and subscriptions.
 
 ```azurepowershell-interactive
 $AllInstances = Search-AzDataProtectionBackupInstanceInAzGraph -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -DatasourceType AzureBlob -ProtectionStatus ProtectionConfigured
@@ -64,7 +67,7 @@ $DesiredPIT = (Get-Date -Date "2021-04-23T02:47:02.9500000Z")
 
 ### Preparing the restore request
 
-Once the point-in-time to restore is fixed, there are multiple options to restore. Use the [Initialize-AzDataProtectionRestoreRequest](/powershell/module/az.dataprotection/initialize-azdataprotectionrestorerequest?view=azps-5.9.0&preserve-view=true) command to prepare the restore request with all relevant details.
+Once the point-in-time to restore is fixed, there are multiple options to restore. Use the [Initialize-AzDataProtectionRestoreRequest](/powershell/module/az.dataprotection/initialize-azdataprotectionrestorerequest) command to prepare the restore request with all relevant details.
 
 #### Restoring all the blobs to a point-in-time
 
@@ -97,7 +100,7 @@ $restorerequest = Initialize-AzDataProtectionRestoreRequest -DatasourceType Azur
 
 ### Trigger the restore
 
-Use the [Start-AzDataProtectionBackupInstanceRestore](/powershell/module/az.dataprotection/start-azdataprotectionbackupinstancerestore?view=azps-5.9.0&preserve-view=true) command to trigger the restore with the request prepared above.
+Use the [Start-AzDataProtectionBackupInstanceRestore](/powershell/module/az.dataprotection/start-azdataprotectionbackupinstancerestore) command to trigger the restore with the request prepared above.
 
 ```azurepowershell-interactive
 Start-AzDataProtectionBackupInstanceRestore -BackupInstanceName $AllInstances[2].BackupInstanceName -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -Parameter $restorerequest
@@ -105,9 +108,9 @@ Start-AzDataProtectionBackupInstanceRestore -BackupInstanceName $AllInstances[2]
 
 ## Tracking job
 
-Track all jobs using the [Get-AzDataProtectionJob](/powershell/module/az.dataprotection/get-azdataprotectionjob?view=azps-5.9.0&preserve-view=true) command. You can list all jobs and fetch a particular job detail.
+Track all jobs using the [Get-AzDataProtectionJob](/powershell/module/az.dataprotection/get-azdataprotectionjob) command. You can list all jobs and fetch a particular job detail.
 
-You can also use Az.ResourceGraph to track all jobs across all backup vaults. Use the [Search-AzDataProtectionJobInAzGraph](/powershell/module/az.dataprotection/search-azdataprotectionjobinazgraph?view=azps-5.9.0&preserve-view=true) command to get the relevant job which can be across any backup vault.
+You can also use Az.ResourceGraph to track all jobs across all backup vaults. Use the [Search-AzDataProtectionJobInAzGraph](/powershell/module/az.dataprotection/search-azdataprotectionjobinazgraph) command to get the relevant job which can be across any backup vault.
 
 ```azurepowershell-interactive
 $job = Search-AzDataProtectionJobInAzGraph -Subscription $sub -ResourceGroupName "testBkpVaultRG" -Vault $TestBkpVault.Name -DatasourceType AzureBlob -Operation Restore

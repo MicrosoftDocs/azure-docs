@@ -6,10 +6,14 @@ ms.subservice: single-server
 ms.topic: conceptual
 ms.author: sunila
 author: sunilagarwal
-ms.date: 07/23/2020
+ms.date: 06/24/2022
 ---
 
 # Use Azure Active Directory for authenticating with PostgreSQL
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 Microsoft Azure Active Directory (Azure AD) authentication is a mechanism of connecting to Azure Database for PostgreSQL using identities defined in Azure AD.
 With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
@@ -45,6 +49,9 @@ The following high-level diagram summarizes how authentication works using Azure
 When using Azure AD authentication, there are two Administrator accounts for the PostgreSQL server; the original PostgreSQL administrator and the Azure AD administrator. Only the administrator based on an Azure AD account can create the first Azure AD contained database user in a user database. The Azure AD administrator login can be an Azure AD user or an Azure AD group. When the administrator is a group account, it can be used by any group member, enabling multiple Azure AD administrators for the PostgreSQL server. Using a group account as an administrator enhances manageability by allowing you to centrally add and remove group members in Azure AD without changing the users or permissions in the PostgreSQL server. Only one Azure AD administrator (a user or group) can be configured at any time.
 
 ![admin structure][2]
+
+ >[!NOTE]
+ > Service Principal or Managed Identity cannot act as fully functional Azure AD Administrator in Single Server and this limitation is fixed in our Flexible Server 
 
 ## Permissions
 

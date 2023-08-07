@@ -1,21 +1,15 @@
 ---
-title: TCP/IP performance tuning for Azure VMs | Microsoft Docs
+title: TCP/IP performance tuning for Azure VMs
 description: Learn various common TCP/IP performance tuning techniques and their relationship to Azure VMs. 
 services: virtual-network
-documentationcenter: na
-author: rimayber
+author: asudbring
 manager: paragk
-editor: ''
-
-ms.assetid:
 ms.service: virtual-network
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/02/2019
-ms.author: rimayber
+ms.author: allensu
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
-
 ---
 
 # TCP/IP performance tuning for Azure VMs
@@ -80,7 +74,7 @@ We don't encourage customers to increase VM MTUs. This discussion is meant to ex
 
 > [!IMPORTANT]
 >Increasing MTU isn't known to improve performance and could have a negative effect on application performance.
->
+>Hybrid networking services, such as VPN, ExpressRoute, and vWAN, support a maximum MTU of 1400 bytes.
 >
 
 #### Large send offload
@@ -184,11 +178,11 @@ But the TCP header value for TCP window size is only 2 bytes long, which means t
 
 The scale factor is also a setting that you can configure in an operating system. Here's the formula for calculating the TCP window size by using scale factors:
 
-`TCP window size = TCP window size in bytes \* (2^scale factor)`
+`TCP window size = TCP window size in bytes * (2^scale factor)`
 
 Here's the calculation for a window scale factor of 3 and a window size of 65,535:
 
-`65,535 \* (2^3) = 262,140 bytes`
+`65,535 * (2^3) = 262,140 bytes`
 
 A scale factor of 14 results in a TCP window size of 14 (the maximum offset allowed). The TCP window size will be 1,073,725,440 bytes (8.5 gigabits).
 

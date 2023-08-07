@@ -1,16 +1,16 @@
 ---
-title: What is identity secure score? - Azure Active Directory
+title: What is identity secure score?
 description: Learn how to use the identity secure score to improve the security posture of your directory.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 06/02/2021
+ms.date: 06/09/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: guptashi
 
 #Customer intent: As an IT admin, I want understand the identity secure score, so that I can maximize the security posture of my tenant.
@@ -74,11 +74,27 @@ The secure score helps you to:
 
 ### Who can use the identity secure score?
 
-The identity secure score can be used by the following roles:
+To access identity secure score, you must be assigned one of the following roles in Azure Active Directory.
 
-- Global admin
-- Security admin
-- Security readers
+#### Read and write roles
+
+With read and write access, you can make changes and directly interact with identity secure score.
+
+* Global administrator
+* Security administrator
+* Exchange administrator
+* SharePoint administrator
+
+#### Read-only roles
+
+With read-only access, you aren't able to edit status for an improvement action.
+
+* Helpdesk administrator
+* User administrator
+* Service support administrator
+* Security reader
+* Security operator
+* Global reader
 
 ### How are controls scored?
 
@@ -87,6 +103,12 @@ Controls can be scored in two ways. Some are scored in a binary fashion - you ge
 ### What does [Not Scored] mean?
 
 Actions labeled as [Not Scored] are ones you can perform in your organization but won't be scored because they aren't hooked up in the tool (yet!). So, you can still improve your security, but you won't get credit for those actions right now.
+
+In addition, the recommended actions:
+* Protect all users with a user risk policy
+* Protect all users with a sign-in risk policy
+
+Also won't give you credits when configured using Conditional Access Policies, yet, for the same reason as above. For now, these actions give credits only when configured through Identity Protection policies.
 
 ### How often is my score updated?
 

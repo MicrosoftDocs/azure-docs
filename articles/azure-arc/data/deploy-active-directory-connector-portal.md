@@ -3,19 +3,17 @@ title: Tutorial – Deploy Active Directory connector using Azure portal
 description: Tutorial to deploy an Active Directory connector using Azure portal
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 author: MikeRayMSFT
 ms.author: mikeray
 ms.reviewer: dinethi
-ms.date: 05/24/2022
+ms.date: 10/11/2022
 ms.topic: how-to
 ---
 
 # Tutorial – Deploy Active Directory connector using Azure portal
 
 Active Directory (AD) connector is a key component to enable Active Directory authentication on Azure Arc-enabled SQL Managed Instances.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 This article explains how to deploy, manage, and delete an Active Directory (AD) connector in directly connected mode from the Azure portal. 
 

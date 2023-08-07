@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
 ms.reviewer: wiassaf
-ms.date: 05/31/2022
+ms.date: 06/01/2022
 ---
 
 # Minimize SQL issues for Teradata migrations
 
-This article is part five of a seven part series that provides guidance on how to migrate from Teradata to Azure Synapse Analytics. This article provides best practices for minimizing SQL issues.
+This article is part five of a seven-part series that provides guidance on how to migrate from Teradata to Azure Synapse Analytics. The focus of this article is best practices for minimizing SQL issues.
 
 ## Overview
 
@@ -97,12 +97,13 @@ Teradata implements the temporal query functionality via query rewriting to add 
 
 The Azure environment also includes specific features for complex analytics on time-series data at scale called [time series insights](https://azure.microsoft.com/services/time-series-insights/)&mdash;this is aimed at IoT data analysis applications and may be more appropriate for this use-case.
 
-### Teradata data type mapping
+<a id="teradata-data-type-mapping"></a>
+### Unsupported Teradata data types
 
 > [!TIP]
 > Assess the impact of unsupported data types as part of the preparation phase.
 
-Most Teradata data types have a direct equivalent in Azure Synapse. This table shows these data types together with the recommended approach for handling them. In the table, Teradata column type is the type that's stored within the system catalog&mdash;for example, in `DBC.ColumnsV`.
+Most Teradata data types have a direct equivalent in Azure Synapse. The following table shows the Teradata data types that are unsupported in Azure Synapse together with the recommended mapping. In the table, Teradata column type is the type that's stored within the system catalog&mdash;for example, in `DBC.ColumnsV`.
 
 | Teradata column type | Teradata data type | Azure Synapse data type |
 |----------------------|--------------------|----------------|

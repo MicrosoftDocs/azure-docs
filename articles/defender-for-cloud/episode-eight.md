@@ -2,7 +2,7 @@
 title: Microsoft Defender for IoT
 description: Learn how Defender for IoT discovers devices to monitor and how it fits in the Microsoft Security portfolio.
 ms.topic: reference
-ms.date: 06/01/2022
+ms.date: 04/27/2023
 ---
 
 # Microsoft Defender for IoT
@@ -46,4 +46,4 @@ Learn more about [Defender for IoT](../defender-for-iot/index.yml).
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Microsoft Defender for Containers in a Multi-Cloud Environment](episode-nine.md)
+> [Microsoft Defender for Containers in a Multicloud Environment](episode-nine.md)

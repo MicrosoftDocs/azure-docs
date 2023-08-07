@@ -13,7 +13,7 @@ services: iot-edge
 
 # Communicate with edgeAgent using built-in direct methods
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Monitor and manage IoT Edge deployments by using the direct methods included in the IoT Edge agent module. Direct methods are implemented on the device, and then can be invoked from the cloud. The IoT Edge agent includes direct methods that help you monitor and manage your IoT Edge devices remotely.
 
@@ -33,7 +33,7 @@ az iot hub invoke-module-method --method-name 'ping' -n <hub name> -d <device na
 
 In the Azure portal, invoke the method with the method name `ping` and an empty JSON payload `{}`.
 
-![Invoke direct method 'ping' in Azure portal](./media/how-to-edgeagent-direct-method/ping-direct-method.png)
+:::image type="content" source="./media/how-to-edgeagent-direct-method/ping-direct-method.png" alt-text="Screenshot showing how to invoke the direct method ping in Azure portal.":::
 
 ## Restart module
 
@@ -67,7 +67,7 @@ In the Azure portal, invoke the method with the method name `RestartModule` and 
 }
 ```
 
-![Invoke direct method 'RestartModule' in Azure portal](./media/how-to-edgeagent-direct-method/restartmodule-direct-method.png)
+:::image type="content" source="./media/how-to-edgeagent-direct-method/restartmodule-direct-method.png" alt-text="Screenshot showing how to invoke direct method RestartModule in the Azure portal.":::
 
 ## Diagnostic direct methods
 

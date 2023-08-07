@@ -1,23 +1,31 @@
 ---
-title: List blobs with .NET - Azure Storage
+title: List blobs with .NET
+titleSuffix: Azure Storage
 description: Learn how to list blobs in your storage account using the Azure Storage client library for .NET. Code examples show how to list blobs in a flat listing, or how to list blobs hierarchically, as though they were organized into directories or folders.
 services: storage
-author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
-ms.date: 03/28/2022
-ms.author: normesta
-ms.subservice: blobs
-ms.devlang: csharp, python
-ms.custom: devx-track-csharp
+ms.date: 02/14/2023
+ms.devlang: csharp
+ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
-# List blobs using the Azure Storage client library for .NET
+# List blobs with .NET
+
+This article shows how to list blobs using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
+
+## Prerequisites
+
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for .NET. To learn about setting up your project, including package installation, adding `using` directives, and creating an authorized client object, see [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to list blobs. To learn more, see the authorization guidance for the following REST API operation:
+    - [List Blobs](/rest/api/storageservices/list-blobs#authorization)
+
+## About blob listing options
 
 When you list blobs from your code, you can specify a number of options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can specify a prefix to return blobs whose names begin with that character or string. And you can list blobs in a flat listing structure, or hierarchically. A hierarchical listing returns blobs as though they were organized into folders.
-
-## Understand blob listing options
 
 To list the blobs in a storage account, call one of these methods:
 
@@ -104,43 +112,25 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 
 ### List blob versions or snapshots
 
-To list blob versions or snapshots, specify the [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) parameter with the **Version** or **Snapshot** field. Versions and snapshots are listed from oldest to newest. 
+To list blob versions or snapshots, specify the [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) parameter with the **Version** or **Snapshot** field. Versions and snapshots are listed from oldest to newest.
 
 The following code example shows how to list blob versions.
 
-```csharp
-private static void ListBlobVersions(BlobContainerClient blobContainerClient, 
-                                           string blobName)
-{
-    // Call the listing operation, specifying that blob versions are returned.
-    // Use the blob name as the prefix. 
-    var blobVersions = blobContainerClient.GetBlobs
-        (BlobTraits.None, BlobStates.Version, prefix: blobName)
-        .OrderByDescending(version => version.VersionId);
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobVersions":::
 
-    // Construct the URI for each blob version.
-    foreach (var version in blobVersions)
-    {
-        BlobUriBuilder blobUriBuilder = new BlobUriBuilder(blobContainerClient.Uri)
-        {
-            BlobName = version.Name,
-            VersionId = version.VersionId
-        };
+## Resources
 
-        if ((bool)version.IsLatestVersion.GetValueOrDefault())
-        {
-            Console.WriteLine("Current version: {0}", blobUriBuilder);
-        }
-        else
-        {
-            Console.WriteLine("Previous version: {0}", blobUriBuilder);
-        }
-    }
-}
-```
+To learn more about how to list blobs using the Azure Blob Storage client library for .NET, see the following resources.
 
-## Next steps
+### REST API operations
 
-- [List Blobs](/rest/api/storageservices/list-blobs)
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for listing blobs use the following REST API operation:
+
+- [List Blobs](/rest/api/storageservices/list-blobs) (REST API)
+
+[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
+
+### See also
+
 - [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)
 - [Blob versioning](versioning-overview.md)

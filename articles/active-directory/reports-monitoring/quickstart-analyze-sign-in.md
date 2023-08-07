@@ -5,10 +5,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: report-monitor
 ms.topic: quickstart
-ms.date: 06/03/2021
-ms.author: markvi
-author: MarkusVi
-manager: karenhoran
+ms.date: 11/01/2022
+ms.author: sarahlipsey
+author: shlipsey3
+manager: amycolannino
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
 ms.custom: mode-other
@@ -28,11 +28,13 @@ To complete the scenario in this quickstart, you need:
 
 ## Perform a failed sign-in
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 The goal of this step is to create a record of a failed sign-in in the Azure AD sign-ins log.
 
 **To complete this step:**
 
-1. Sign in to your [Azure portal](https://portal.azure.com/) as Isabella Simonsen using an incorrect password.
+1. Sign in to the [Azure portal](https://portal.azure.com) as Isabella Simonsen using an incorrect password.
 
 2. Wait for 5 minutes to ensure that you can find a record of the sign-in in the sign-ins log. For more information, see [Activity reports](reference-reports-latencies.md#activity-reports).
 
@@ -42,8 +44,8 @@ The goal of this step is to create a record of a failed sign-in in the Azure AD 
 
 This section provides you with the steps to analyze a failed sign-in:
 
-- **Filter sign-ins**: Remove all records that are not relevant to your analysis. For example, set a filter to display only the records of a specific user.
-- **Lookup additional error information**: In addition to the information you can find in the sign-ins log, you can also lookup the error using the [sign-in error lookup tool](https://login.microsoftonline.com/error). This tool might provide you with additional information for a sign-in error. 
+- **Filter sign-ins**: Remove all records that aren't relevant to your analysis. For example, set a filter to display only the records of a specific user.
+- **Lookup additional error information**: In addition to the information you can find in the sign-ins log, you can also look up the error using the [sign-in error lookup tool](https://login.microsoftonline.com/error). This tool might provide you with additional information for a sign-in error. 
 
 
 **To review the failed sign-in:**
@@ -52,33 +54,33 @@ This section provides you with the steps to analyze a failed sign-in:
 
 2. To list only records for Isabella Simonsen:
 
-    a. In the toolbar, click **Add filters**.
+    1. In the toolbar, select **Add filters**.
     
-    ![Add user filter](./media/quickstart-analyze-sign-in/add-filters.png)   
+       ![Add user filter](./media/quickstart-analyze-sign-in/add-filters.png)
 
-    b. In the **Pick a field** list, select **User**, and then click **Apply**.
+    1. In the **Pick a field** list, select **User**, and then select **Apply**.
 
-    c. In the **Username** textbox, type **Isabella Simonsen**, and then click **Apply**.
+    1. In the **Username** textbox, type **Isabella Simonsen**, and then select **Apply**.
 
-    d. In the toolbar, click **Refresh**.
+    1. In the toolbar, select **Refresh**.
 
-3. To analyze the issue, click **Troubleshooting and support**.
+3. To analyze the issue, select **Troubleshooting and support**.
 
-    ![Add filter](./media/quickstart-analyze-sign-in/troubleshooting-and-support.png)   
+    ![Add filter](./media/quickstart-analyze-sign-in/troubleshooting-and-support.png)
 
 4. Copy the **Sign-in error code**.
 
     ![Sign-in error code](./media/quickstart-analyze-sign-in/sign-in-error-code.png)   
 
 
-5. Paste the error code into the textbox of the [sign-in error lookup tool](https://login.microsoftonline.com/error), and then click **Submit**.
+5. Paste the error code into the textbox of the [sign-in error lookup tool](https://login.microsoftonline.com/error), and then select **Submit**.
 
 Review the outcome of the tool and determine whether it provides you with additional information.
 
 ![Error code lookup tool](./media/concept-all-sign-ins/error-code-lookup-tool.png)
 
 
-## Additional tests
+## More tests
 
 Now, that you know how to find an entry in the sign-in log by name, you should also try to find the record using the following filters:
 

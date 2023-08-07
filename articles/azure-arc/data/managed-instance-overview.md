@@ -3,11 +3,11 @@ title: Azure Arc-enabled SQL Managed Instance Overview
 description: Azure Arc-enabled SQL Managed Instance Overview
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 07/19/2023
 ms.topic: overview
 ---
 
@@ -24,11 +24,11 @@ To learn more about these capabilities, watch these introductory videos.
 
 ### Azure Arc-enabled SQL Managed Instance - indirect connected mode
 
-> [!VIDEO https://docs.microsoft.com/Shows/Inside-Azure-for-IT/Azure-Arcenabled-data-services-in-disconnected-mode/player?format=ny]
+> [!VIDEO https://learn.microsoft.com/Shows/Inside-Azure-for-IT/Azure-Arcenabled-data-services-in-disconnected-mode/player?format=ny]
 
 ### Azure Arc-enabled SQL Managed Instance - direct connected mode
 
-> [!VIDEO https://docs.microsoft.com/Shows/Inside-Azure-for-IT/Azure-Arcenabled-data-services-in-connected-mode/player?format=ny]
+> [!VIDEO https://learn.microsoft.com/Shows/Inside-Azure-for-IT/Azure-Arcenabled-data-services-in-connected-mode/player?format=ny]
 
 ## Next steps
 

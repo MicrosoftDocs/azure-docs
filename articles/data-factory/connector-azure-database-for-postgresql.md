@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/06/2022
+ms.date: 07/13/2023
 ---
 
 # Copy and transform data in Azure Database for PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -21,11 +21,15 @@ This connector is specialized for the [Azure Database for PostgreSQL service](..
 
 ## Supported capabilities
 
-This Azure Database for PostgreSQL connector is supported for the following activities:
+This Azure Database for PostgreSQL connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with a [supported source/sink matrix](copy-activity-overview.md)
-- [Mapping data flow](concepts-data-flow-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
+| Supported capabilities|IR | Managed private endpoint|
+|---------| --------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ |
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
 The three activities work on all Azure Database for PostgreSQL deployment options:
 
@@ -37,7 +41,7 @@ The three activities work on all Azure Database for PostgreSQL deployment option
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-## Create a linked service to Azure database for PostgreSQL using UI
+## Create a linked service to Azure Database for PostgreSQL using UI
 
 Use the following steps to create a linked service to Azure database for PostgreSQL in the Azure portal UI.
 
@@ -342,7 +346,7 @@ The below table lists the properties supported by Azure Database for PostgreSQL 
 
 * Enable incremental extract: Use this option to tell ADF to only process rows that have changed since the last time that the pipeline executed.
 
-* Incremental date column: When using the incremental extract feature, you must choose the date/time column that you wish to use as the watermark in your source table.
+* Incremental column: When using the incremental extract feature, you must choose the date/time or numeric column that you wish to use as the watermark in your source table.
 
 * Start reading from beginning: Setting this option with incremental extract will instruct ADF to read all rows on first execution of a pipeline with incremental extract turned on.
 

@@ -1,13 +1,12 @@
 ---
 title: Configure Azure role-based access control (Azure RBAC) for Azure API for FHIR
 description: This article describes how to configure Azure RBAC for the Azure API for FHIR data plane
-author: mikaelweave
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference 
-ms.date: 05/03/2022
-ms.author: mikaelw
-ms.reviewer: matjazl
+ms.date: 06/02/2022
+ms.author: kesheth
 ---
 
 # Configure Azure RBAC for FHIR 
@@ -70,4 +69,6 @@ In this article, you learned how to assign Azure roles for the FHIR data plane. 
 
 >[!div class="nextstepaction"]
 >[Configure Private Link](configure-private-link.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7. 
 

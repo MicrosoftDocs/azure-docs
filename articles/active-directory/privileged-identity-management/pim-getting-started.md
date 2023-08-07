@@ -1,10 +1,10 @@
 ---
-title: Start using PIM - Azure Active Directory | Microsoft Docs
+title: Start using PIM
 description: Learn how to enable and get started using Azure AD Privileged Identity Management (PIM) in the Azure portal.
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: billmath
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.subservice: pim
 ms.topic: how-to
 ms.workload: identity
 ms.date: 10/07/2021
-ms.author: curtand
+ms.author: billmath
 ms.reviewer: shaunliu
 ms.custom: pim  
 ms.collection: M365-identity-device-management
@@ -27,8 +27,8 @@ Use Privileged Identity Management (PIM) to manage, control, and monitor access 
 
 To use Privileged Identity Management, you must have one of the following licenses:
 
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5
+- [!INCLUDE [active-directory-p2-governance-either-license.md](../../../includes/active-directory-p2-governance-either-license.md)]
+
 
 For more information, see [License requirements to use Privileged Identity Management](subscription-requirements.md).
 
@@ -74,9 +74,11 @@ Once Privileged Identity Management is set up, you can learn your way around.
 
 ## Add a PIM tile to the dashboard
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To make it easier to open Privileged Identity Management, add a PIM tile to your Azure portal dashboard.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **All services** and find the **Azure AD Privileged Identity Management** service.
 

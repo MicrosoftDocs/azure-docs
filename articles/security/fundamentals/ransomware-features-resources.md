@@ -40,9 +40,9 @@ Keeping your resources safe is a joint effort between your cloud provider, Azure
 
 Microsoft Defender for Cloud is a unified infrastructure security management system that strengthens the security posture of your data centers and provides advanced threat protection across your hybrid workloads in the cloud whether they're in Azure or not - as well as on premises.
 
-Microsoft Defender for Cloud's threat protection enables you to detect and prevent threats at the Infrastructure as a Service (IaaS) layer, non-Azure servers as well as for Platforms as a Service (PaaS) in Azure.
+Defender for Cloud's threat protection enables you to detect and prevent threats at the Infrastructure as a Service (IaaS) layer, non-Azure servers as well as for Platforms as a Service (PaaS) in Azure.
 
-Security Center's threat protection includes fusion kill-chain analysis, which automatically correlates alerts in your environment based on cyber kill-chain analysis, to help you better understand the full story of an attack campaign, where it started and what kind of impact it had on your resources.
+Defender for Cloud's threat protection includes fusion kill-chain analysis, which automatically correlates alerts in your environment based on cyber kill-chain analysis, to help you better understand the full story of an attack campaign, where it started and what kind of impact it had on your resources.
 
 Key Features:
 - Continuous security assessment: Identify Windows and Linux machines with missing security updates or insecure OS settings and vulnerable Azure configurations. Add optional watchlists or events you want to monitor. 
@@ -103,7 +103,7 @@ Key Features:
 ## Additional resources
 
 - [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/)
-- [Build great solutions with the Microsoft Azure Well-Architected Framework](/learn/paths/azure-well-architected-framework/)
+- [Build great solutions with the Microsoft Azure Well-Architected Framework](/training/paths/azure-well-architected-framework/)
 - [Azure Top Security Best Practices](/azure/cloud-adoption-framework/get-started/security#step-1-establish-essential-security-practices)
 - [Security Baselines](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines)
 - [Microsoft Azure Resource Center](https://azure.microsoft.com/resources/)
@@ -125,7 +125,7 @@ Microsoft focuses heavily on both security of our cloud and providing you the se
 We look forward to partnering with you in addressing ransomware protection, detection, and prevention in a holistic manner.
 
 Connect with us:
-- [AskAzureSecurity@microsoft.com](mailto:AskAzureSecurity&#64;microsoft.com) 
+- [AskAzureSecurity@microsoft.com](mailto:AskAzureSecurity@microsoft.com)
 - [www.microsoft.com/services](https://www.microsoft.com/en-us/msservices)
 
 For detailed information on how Microsoft secures our cloud, visit the [service trust portal](https://servicetrust.microsoft.com/).

@@ -1,24 +1,30 @@
 ---
- title: Azure IoT Device Provisioning Service (DPS) TLS support
- description: Best practices in using secure TLS connections for devices and services communicating with the IoT Device Provisioning Service (DPS)
- services: iot-dps
- author: kgremban
- ms.service: iot-dps
- ms.topic: conceptual
- ms.date: 09/14/2020
- ms.author: kgremban
+title: TLS support with DPS
+titleSuffix: Azure IoT Hub Device Provisioning Service
+description: Best practices in using secure TLS connections for devices and services communicating with the IoT Device Provisioning Service (DPS)
+author: kgremban
+
+ms.author: kgremban
+ms.service: iot-dps
+ms.topic: concept-article
+ms.date: 09/15/2022
 ---
 
 # TLS support in Azure IoT Hub Device Provisioning Service (DPS)
 
-DPS uses [Transport Layer Security (TLS)](http://wikipedia.org/wiki/Transport_Layer_Security) to secure connections from IoT devices. 
+DPS uses [Transport Layer Security (TLS)](http://wikipedia.org/wiki/Transport_Layer_Security) to secure connections from IoT devices.
 
-Current TLS protocol versions supported by DPS are: 
+Current TLS protocol versions supported by DPS are:
+
 * TLS 1.2
 
-## Restrict connections to TLS 1.2
+## Restrict connections to a minimum TLS version
 
-For added security, it is advised to configure your DPS instances to *only* allow device client connections that use TLS version 1.2 and to enforce the use of [recommended ciphers](#recommended-ciphers).
+You can configure your DPS instances to *only* allow device client connections that use a minimum TLS version or greater.
+
+> [!IMPORTANT]
+>
+> Currently, DPS only supports TLS 1.2, so there is no need to specify the minimum TLS version when you create a DPS instance. This feature is provided for future expansion.
 
 To do this, provision a new DPS resource setting the `minTlsVersion` property to `1.2` in your Azure Resource Manager template's DPS resource specification. The following example template JSON specifies the `minTlsVersion` property for a new DPS instance.
 
@@ -44,7 +50,7 @@ To do this, provision a new DPS resource setting the `minTlsVersion` property to
 }
 ```
 
-You can deploy the template with the following Azure CLI command. 
+You can deploy the template with the following Azure CLI command.
 
 ```azurecli
 az deployment group create -g <your resource group name> --template-file template.json
@@ -52,26 +58,23 @@ az deployment group create -g <your resource group name> --template-file templat
 
 For more information on creating DPS resources with Resource Manager templates, see, [Set up DPS with an Azure Resource Manager template](quick-setup-auto-provision-rm.md).
 
-The DPS resource created using this configuration will refuse devices that attempt to connect using TLS versions 1.0 and 1.1. Similarly, the TLS handshake will be refused if the device client's HELLO message does not list any of the [recommended ciphers](#recommended-ciphers).
+The DPS resource created using this configuration will refuse devices that attempt to connect using TLS versions 1.0 and 1.1.
 
 > [!NOTE]
 > The `minTlsVersion` property is read-only and cannot be changed once your DPS resource is created. It is therefore essential that you properly test and validate that *all* your IoT devices are compatible with TLS 1.2 and the [recommended ciphers](#recommended-ciphers) in advance.
-
 
 > [!NOTE]
 > Upon failovers, the `minTlsVersion` property of your DPS will remain effective in the geo-paired region post-failover.
 
 ## Recommended ciphers
 
-DPS instances that are configured to accept only TLS 1.2 will also enforce the use of the following cipher suites:
-
+DPS instances enforce the use of the following recommended and legacy cipher suites:
 
 | Recommended TLS 1.2 cipher suites |
 | :--- |
 | `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`<br>`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256` |
 
-
-### Legacy cipher suites 
+### Legacy cipher suites
 
 These cipher suites are currently still supported by DPS but will be depreciated. Use the recommended cipher suites above if possible.
 
@@ -83,6 +86,13 @@ These cipher suites are currently still supported by DPS but will be depreciated
 | :--- |
 | `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256   (uses SHA-1)`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384   (uses SHA-1)`<br>`TLS_RSA_WITH_AES_128_GCM_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_GCM_SHA384           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)` |
 
+## Mutual TLS support
+
+When DPS enrollments are configured for X.509 authentication, mutual TLS (mTLS) is supported by DPS.
+
+## Certificate pinning
+
+[Certificate pinning](https://www.digicert.com/blog/certificate-pinning-what-is-certificate-pinning) and filtering of the TLS server certificates (aka leaf certificates) and intermediate certificates associated with DPS endpoints is strongly discouraged as Microsoft frequently rolls these certificates with little or no notice. If you must, only pin the root certificates as described in this [Azure IoT blog post](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
 
 ## Use TLS 1.2 in the IoT SDKs
 

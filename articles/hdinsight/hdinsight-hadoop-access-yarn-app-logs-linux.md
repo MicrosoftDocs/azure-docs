@@ -4,7 +4,7 @@ description: Learn how to access YARN application logs on a Linux-based HDInsigh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/05/2022
+ms.date: 05/09/2023
 ---
 
 # Access Apache Hadoop YARN application logs on Linux-based HDInsight

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/02/2022
+ms.date: 07/13/2023
 ---
 
 # Aggregate functions in mapping data flow
@@ -29,6 +29,7 @@ The following functions are only available in aggregate, pivot, unpivot, and win
 | [avg](data-flow-expressions-usage.md#avg) | Gets the average of values of a column.  |
 | [avgIf](data-flow-expressions-usage.md#avgIf) | Based on a criteria gets the average of values of a column.  |
 | [collect](data-flow-expressions-usage.md#collect) | Collects all values of the expression in the aggregated group into an array. Structures can be collected and transformed to alternate structures during this process. The number of items will be equal to the number of rows in that group and can contain null values. The number of collected items should be small.  |
+| [collectUnique](data-flow-expressions-usage.md#collectUnique) | Collects all values of the expression in the aggregated group into a unique array. Structures can be collected and transformed to alternate structures during this process.The number of items will be smaller or equal to the number of rows in that group and can contain null values. The number of collected items should be small. |
 | [count](data-flow-expressions-usage.md#count) | Gets the aggregate count of values. If the optional column(s) is specified, it ignores NULL values in the count.  |
 | [countAll](data-flow-expressions-usage.md#countAll) | Gets the aggregate count of values including NULLs.  |
 | [countDistinct](data-flow-expressions-usage.md#countDistinct) | Gets the aggregate count of distinct values of a set of columns.  |
@@ -61,6 +62,7 @@ The following functions are only available in aggregate, pivot, unpivot, and win
 | [sumDistinct](data-flow-expressions-usage.md#sumDistinct) | Gets the aggregate sum of distinct values of a numeric column.  |
 | [sumDistinctIf](data-flow-expressions-usage.md#sumDistinctIf) | Based on criteria gets the aggregate sum of a numeric column. The condition can be based on any column.  |
 | [sumIf](data-flow-expressions-usage.md#sumIf) | Based on criteria gets the aggregate sum of a numeric column. The condition can be based on any column.  |
+| [topN](data-flow-expressions-usage.md#topN) | Gets the top N values for this column.  |
 | [variance](data-flow-expressions-usage.md#variance) | Gets the variance of a column.  |
 | [varianceIf](data-flow-expressions-usage.md#varianceIf) | Based on a criteria, gets the variance of a column.  |
 | [variancePopulation](data-flow-expressions-usage.md#variancePopulation) | Gets the population variance of a column.  |

@@ -1,9 +1,9 @@
 ---
-title: Tutorial - Create and manage rules in your Azure IoT Central application
-description: This tutorial shows you how Azure IoT Central rules enable you to monitor your devices in near real time and to automatically invoke actions, such as sending an email, when the rule triggers.
+title: Tutorial - Create and manage rules in Azure IoT Central
+description: This tutorial shows you how Azure IoT Central rules let you monitor your devices in near real time and automatically invoke actions when a rule triggers.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/21/2021
+ms.date: 10/27/2022
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -44,28 +44,27 @@ Add a device template from the device catalog. This tutorial uses the **ESP32-Az
 
 The name of the template you created is **Sensor Controller**. The model includes components such as **Sensor Controller**, **SensorTemp**, and **Device Information interface**. Components define the capabilities of an ESP32 device. Capabilities include the telemetry, properties, and commands.
 
-Add two cloud properties to the **Sensor Controller** device template:
+Modify the **Overview** view to include the temperature telemetry:
 
-1. Select **Cloud Properties** and then **+ Add cloud property**. Use the information in the following table to add two cloud properties to your device template:
+1. In the **Sensor Controller** device template, select the **Overview** view.
 
-    | Display Name      | Semantic Type | Schema |
-    | ----------------- | ------------- | ------ |
-    | Last Service Date | None          | Date   |
-    | Customer Name     | None          | String |
+1. On the **Working Set, SensorAltitude, SensorHumid, SensorLight** tile, select **Edit**.
 
-1. Select **Save** to save your changes.
+1. Update the title to **Telemetry**.
 
-Add a new form to the device template to manage the device:
-
-1. Select the **Views** node, and then select the **Editing device and cloud data** tile to add a new view.
-
-1. Change the form name to **Manage device**.
-
-1. Select the **Customer Name** and **Last Service Date** cloud properties, and the **Target Temperature** property. Then select **Add section**.
-
-1. Select **Save** to save your new form.
+1. Add the **Temperature** capability to the list of telemetry values shown on the chart. Then **Save** the changes.
 
 Now publish the device template.
+
+## Add a simulated device
+
+To test the rule you create in the next section, add a simulated device to your application:
+
+1. Select **Devices** in the left-navigation panel. Then select **Sensor Controller**.
+
+1. Select **+ New**. In the **Create a new device** panel, leave the default device name and device ID values. Toggle **Simulate this device?** to **Yes**.
+
+1. Select **Create**.
 
 ## Create a rule
 
@@ -76,17 +75,15 @@ To create a telemetry rule, the device template must include at least one teleme
 
 1. In the left pane, select **Rules**.
 
-1. If you haven't created any rules yet, you see the following screen:
-
-    :::image type="content" source="media/tutorial-create-telemetry-rules/rules-landing-page.png" alt-text="Screenshot that shows the empty list of rules":::
-
 1. Select **+ New** to add a new rule.
 
 1. Enter the name _Temperature monitor_ to identify the rule and press Enter.
 
-1. Select the **Sensor Controller** device template. By default, the rule automatically applies to all the devices assigned to the device template. To filter for a subset of the devices, select **+ Filter** and use device properties to identify the devices. To disable the rule, toggle the **Enabled/Disabled** button:
+1. Select the **Sensor Controller** device template. By default, the rule automatically applies to all the devices assigned to the device template:
 
-    :::image type="content" source="media/tutorial-create-telemetry-rules/device-filters.png" alt-text="Screenshot that shows the selection of the device template in the rule definition":::
+    :::image type="content" source="media/tutorial-create-telemetry-rules/device-filters.png" alt-text="Screenshot that shows the selection of the device template in the rule definition." lightbox="media/tutorial-create-telemetry-rules/device-filters.png":::
+
+    To filter for a subset of the devices, select **+ Filter** and use device properties to identify the devices. To disable the rule, toggle the **Enabled/Disabled** button.
 
 ### Configure the rule conditions
 
@@ -94,16 +91,14 @@ Conditions define the criteria that the rule monitors. In this tutorial, you con
 
 1. Select **Temperature** in the **Telemetry** dropdown.
 
-1. Next, choose **Is greater than** as the **Operator** and enter _70_ as the **Value**.
+1. Next, choose **Is greater than** as the **Operator** and enter _70_ as the **Value**:
 
-    :::image type="content" source="media/tutorial-create-telemetry-rules/condition-filled-out.png" alt-text="Screenshot that shows the temperature condition for the rule":::
+    :::image type="content" source="media/tutorial-create-telemetry-rules/aggregate-condition-filled-out.png" alt-text="Screenshot that shows the aggregate condition filled out." lightbox="media/tutorial-create-telemetry-rules/aggregate-condition-filled-out.png":::
 
-1. Optionally, you can set a **Time aggregation**. When you select a time aggregation, you must also select an aggregation type, such as average or sum from the aggregation drop-down.
+    Optionally, you can set a **Time aggregation**. When you select a time aggregation, you must also select an aggregation type, such as average or sum from the aggregation drop-down.
 
     * Without aggregation, the rule triggers for each telemetry data point that meets the condition. For example, if you configure the rule to trigger when temperature is above 70 then the rule triggers almost instantly when the device temperature exceeds this value.
     * With aggregation, the rule triggers if the aggregate value of the telemetry data points in the time window meets the condition. For example, if you configure the rule to trigger when temperature is above 70 and with an average time aggregation of 10 minutes, then the rule triggers when the device reports an average temperature greater than 70, calculated over a 10-minute interval.
-
-    :::image type="content" source="media/tutorial-create-telemetry-rules/aggregate-condition-filled-out.png" alt-text="Screenshot that shows the aggregate condition filled out":::
 
 You can add multiple conditions to a rule by selecting **+ Condition**. When multiple conditions are added, you can specify if all the conditions must be met or any of the conditions must be met for the rule to trigger. If you're using time aggregation with multiple conditions, all the telemetry values must be aggregated.
 
@@ -118,7 +113,7 @@ After you define the condition, you set up the actions to take when the rule fir
     > [!NOTE]
     > Emails are only sent to the users that have been added to the application and have logged in at least once. Learn more about [user management](howto-administer.md) in Azure IoT Central.
 
-    :::image type="content" source="media/tutorial-create-telemetry-rules/configure-action.png" alt-text="Screenshot that shows the email action for the rule":::
+    :::image type="content" source="media/tutorial-create-telemetry-rules/configure-action.png" alt-text="Screenshot that shows the email action for the rule." lightbox="media/tutorial-create-telemetry-rules/configure-action.png":::
 
 1. To save the action, choose **Done**. You can add multiple actions to a rule.
 
@@ -126,7 +121,7 @@ After you define the condition, you set up the actions to take when the rule fir
 
 After a while, you receive an email message when the rule fires:
 
-:::image type="content" source="media/tutorial-create-telemetry-rules/email.png" alt-text="Screenshot that shows notification email":::
+:::image type="content" source="media/tutorial-create-telemetry-rules/email.png" alt-text="Screenshot that shows notification email." lightbox="media/tutorial-create-telemetry-rules/email.png":::
 
 ## Delete a rule
 

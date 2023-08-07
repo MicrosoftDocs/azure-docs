@@ -1,19 +1,21 @@
 ---
-title: Microsoft Sentinel Continuous Threat Monitoring for SAP container configuration file reference | Microsoft Docs
+title: Microsoft Sentinel solution for SAP® applications systemconfig.ini container configuration file reference
 description: Description of settings available in systemconfig.ini file
-author: MSFTandrelom
-ms.author: andrelom
+author: limwainstein
+ms.author: lwainstein
 ms.topic: reference
-ms.date: 03/03/2022
+ms.date: 06/03/2023
+ms.custom: devx-track-extended-java
 ---
+
 # Systemconfig.ini file reference
 
-[!INCLUDE [Banner for top of topics](../includes/banner.md)]
+The *systemconfig.ini* file is used to configure behavior of the data collector. Configuration options are grouped into several sections. This article lists options available and provides an explanation to the options.
 
 > [!IMPORTANT]
-> The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-The *systemconfig.ini* file is used to configure behavior of the data collector. Configuration options are grouped into several sections. This article lists options available and provides an explanation to the options.
+> Microsoft Sentinel solution for SAP® applications uses the new *[systemconfig.json file](reference-systemconfig-json.md)* from agent versions deployed on June 22 and later. For previous agent versions, you must still use the *systemconfig.ini* file. 
+>
+> If you update the agent version, the configuration file is automatically migrated. 
 
 ## Systemconfig configuration file sections
 
@@ -30,7 +32,10 @@ The *systemconfig.ini* file is used to configure behavior of the data collector.
 
 ## Secrets Source section
 ```systemconfig.ini
-secrets=AZURE_KEY_VAULT|DOCKER_SECRETS|DOCKER_FIXED
+secrets=AZURE_KEY_VAULT|DOCKER_FIXED
+# Storage location of SAP credentials and Log Analytics workspace ID and key
+# AZURE_KEY_VAULT - store in an Azure Key Vault. Requires keyvault option and intprefix option
+# DOCKER_FIXED - store in systemconfig.ini file. Requires user, passwd, loganalyticswsid and publickey options
 
 keyvault=<vaultname>
 # Azure Keyvault name, in case secrets = AZURE_KEY_VAULT
@@ -181,9 +186,13 @@ extractuseremail = <True/False>
 apiretry = <True/False>
 auditlogforcexal = <True/False>
 auditlogforcelegacyfiles = <True/False>
+azure_resource_id = <Azure _ResourceId>
+# Used to force a specific resource group for the SAP tables in Log Analytics, useful for applying RBAC on SAP data
+# example - /subscriptions/1234568-qwer-qwer-qwer-123456789/resourcegroups/RESOURCE_GROUP_NAME/providers/microsoft.compute/virtualmachines/VIRTUAL_MACHINE_NAME
+# for more information - https://learn.microsoft.com/azure/azure-monitor/logs/log-standard-columns#_resourceid.
 
 timechunk = <value>
-# Default timechunk value is 60 (minutes). For certain tables, data connector retrieves data from the ABAP server using timechunks (collecting all events that occurred within a certain timestamp). On busy systems this may result in large datasets, so to reduce memory and CPU utilization footprint, consider configuring to a smaller value.
+# Default timechunk value is 60 (minutes). For certain tables, the data connector retrieves data from the ABAP server using timechunks (collecting all events that occurred within a certain timestamp). On busy systems this may result in large datasets, so to reduce memory and CPU utilization footprint, consider configuring to a smaller value.
 ```
 
 ### ABAP Table Selector section
@@ -212,29 +221,31 @@ PAHI_FULL = <True/False>
 AGR_AGRS_FULL = <True/False>
 USRSTAMP_FULL = <True/False>
 USRSTAMP_INCREMENTAL = <True/False>
+SNCSYSACL_FULL = <True/False> (Preview)
+USRACL_FULL = <True/False> (Preview)
 ```
 ## Next steps
 
-Learn more about the Microsoft Sentinel SAP solutions:
+Learn more about the Microsoft Sentinel solution for SAP® applications:
 
-- [Deploy Continuous Threat Monitoring for SAP](deployment-overview.md)
-- [Prerequisites for deploying SAP continuous threat monitoring](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
-- [Deploy and configure the SAP data connector agent container](deploy-data-connector-agent-container.md)
-- [Deploy SAP security content](deploy-sap-security-content.md)
-- [Deploy the Microsoft Sentinel SAP data connector with SNC](configure-snc.md)
+- [Deploy the solution content from the content hub](deploy-sap-security-content.md)
+- [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
+- [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
+- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
 - [Enable and configure SAP auditing](configure-audit.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 
 Troubleshooting:
 
-- [Troubleshoot your Microsoft Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)
-- [Configure SAP Transport Management System](configure-transport.md)
+- [Troubleshoot your Microsoft Sentinel solution for SAP® applications solution deployment](sap-deploy-troubleshoot.md)
 
 Reference files:
 
-- [Microsoft Sentinel SAP solution data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel SAP solution: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel solution for SAP® applications data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md)
 - [Kickstart script reference](reference-kickstart.md)
 - [Update script reference](reference-update.md)
 

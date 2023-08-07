@@ -2,7 +2,9 @@
 title: Troubleshoot login to registry
 description: Symptoms, causes, and resolution of common problems when logging into an Azure container registry
 ms.topic: article
-ms.date: 08/11/2020
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Troubleshoot registry login
@@ -37,7 +39,7 @@ Run the [az acr check-health](/cli/azure/acr#az-acr-check-health) command to get
 
 See [Check the health of an Azure container registry](container-registry-check-health.md) for command examples. If errors are reported, review the [error reference](container-registry-health-error-reference.md) and the following sections for recommended solutions.
 
-If you're experiencing problems using the registry with Azure Kubernetes Service, run the [az aks check-acr](/cli/azure/aks#az-aks-check-acr) command to validate that the registry is accessible from the AKS cluster.
+Follow the instructions from the [AKS support doc](/troubleshoot/azure/azure-kubernetes/cannot-pull-image-from-acr-to-aks-cluster) if you fail to pull images from ACR to the AKS cluster.
 
 > [!NOTE]
 > Some authentication or authorization errors can also occur if there are firewall or network configurations that prevent registry access. See [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md).
@@ -61,7 +63,7 @@ When using `docker login`, provide the full login server name of the registry, s
 docker login myregistry.azurecr.io
 ```
 
-When using [az acr login](/cli/azure/acr#az-acr-login) with an Azure Active Directory identity, first [sign into the Azure CLI](/cli/azure/authenticate-azure-cli), and then specify the Azure resource name of the registry. The resource name is the name provided when the registry was created, such as *myregistry* (without a domain suffix). Example:
+When using [az acr login](/cli/azure/acr#az-acr-login) with an Azure Active Directory identity, first [sign in to the Azure CLI](/cli/azure/authenticate-azure-cli), and then specify the Azure resource name of the registry. The resource name is the name provided when the registry was created, such as *myregistry* (without a domain suffix). Example:
 
 ```azurecli
 az acr login --name myregistry
@@ -109,7 +111,7 @@ Related links:
 * [Login with repository-scoped token](container-registry-repository-scoped-permissions.md)
 * [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md)
 * [Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
-* [Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)
+* [Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret)
 * [Azure AD authentication and authorization codes](../active-directory/develop/reference-aadsts-error-codes.md)
 
 ### Check that credentials aren't expired

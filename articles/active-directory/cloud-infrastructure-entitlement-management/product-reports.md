@@ -1,24 +1,20 @@
 ---
-title: View system reports in the Reports dashboard in CloudKnox Permissions Management
-description: How to view system reports in the Reports dashboard in CloudKnox Permissions Management.
+title: View system reports in the Reports dashboard in Permissions Management
+description: How to view system reports in the Reports dashboard in Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: active-directory
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
-ms.author: kenwith
+ms.date: 07/21/2023
+ms.author: jfields
 ---
 
 # View system reports in the Reports dashboard
 
-> [!IMPORTANT]
-> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
-CloudKnox Permissions Management (CloudKnox) has various types of system report types available that capture specific sets of data. These reports allow management to:
+Permissions Management has various types of system report types available that capture specific sets of data. These reports allow management to:
 
 - Make timely decisions.
 - Analyze trends and system/user performance.
@@ -39,7 +35,7 @@ The **Reports** dashboard provides a table of information with both system repor
 
 ## Available system reports
 
-CloudKnox offers the following reports for management associated with the authorization systems noted in parenthesis:
+Permissions Management offers the following reports for management associated with the authorization systems noted in parenthesis:
 
 - **Access Key Entitlements And Usage**:
     - **Summary of report**: Provides information about access key, for example, permissions, usage, and rotation date.
@@ -78,25 +74,11 @@ CloudKnox offers the following reports for management associated with the author
     - **Use cases**:
          - Any task usage or specific task usage via User/Group/Role/App can be tracked with this report.
 
-- **Identity privilege activity report**
-    - **Summary of report**: Provides information about permission changes that have occurred in the selected duration.
-    - **Applies to**: AWS, Azure, and GCP
-    - **Report output type**: PDF
-    - **Ability to collate report**: No
-    - **Type of report**: **Summary**
-    - **Use cases**:
-        - Any identity permission change can be captured using this report.
-        - The **Identity Privilege Activity** report has the following main sections: **User Summary**, **Group Summary**, **Role Summary**, and **Delete Task Summary**.
-        - The **User** summary lists the current granted permissions and high-risk permissions and resources accessed in 1 day, 7 days, or 30 days. There are subsections for newly added or deleted users, users with PCI change, and High-risk active/inactive users.
-        - The **Group** summary lists the administrator level groups with the current granted permissions and high-risk permissions and resources accessed in 1 day, 7 days, or 30 days. There are subsections for newly added or deleted groups, groups with PCI change, and High-risk active/inactive groups.
-        - The **Role summary** lists similar details as **Group Summary**.
-        - The **Delete Task summary** section lists the number of times the **Delete task** has been executed in the given time period.
-
 - **Permissions Analytics Report**
     - **Summary of report**: Provides information about the violation of key security best practices.
     - **Applies to**: AWS, Azure, and GCP
-    - **Report output type**: CSV
-    - **Ability to collate report**: Yes
+    - **Report output type**: XSLX, PDF
+    - **Ability to collate report**: Yes (XSLX only)
     - **Type of report**: **Detailed**
     - **Use cases**:
          - This report lists the different key findings in the selected auth systems. The key findings include super identities, inactive identities, over provisioned active identities, storage bucket hygiene, and access key age (for AWS only). The report helps administrators to visualize the findings across the organization.
@@ -126,7 +108,7 @@ CloudKnox offers the following reports for management associated with the author
     - **Applies to**: AWS, Azure, GCP
     - **Report output type**: CSV
     - **Ability to collate report**: Yes
-    - **Type of report**: **Detailed**
+    - **Type of report**: **Summary**
     - **Use cases**:
          - This report lists all the assigned permissions for the selected identities.
 

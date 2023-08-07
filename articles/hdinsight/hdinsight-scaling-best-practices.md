@@ -1,11 +1,12 @@
 ---
 title: Manually scale a cluster - Azure HDInsight
 description: Manually scale an Apache Hadoop cluster elastically to match your workload in Azure HDInsight
-ms.author: ashish
+ms.author: sairamyeturi
+author: yeturis
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
-ms.date: 04/29/2020
+ms.date: 11/17/2022
 ---
 
 # Manually scale Azure HDInsight clusters
@@ -64,37 +65,6 @@ The impact of changing the number of data nodes varies for each type of cluster 
     ```
 
     For more information on using the HBase shell, see [Get started with an Apache HBase example in HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
-
-* Apache Storm
-
-    You can seamlessly add or remove data nodes while Storm is running. However, after a successful completion of the scaling operation, you'll need to rebalance the topology. Rebalancing allows the topology to readjust [parallelism settings](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) based on the new number of nodes in the cluster. To rebalance running topologies, use one of the following options:
-
-  * Storm web UI
-
-    Use the following steps to rebalance a topology using the Storm UI.
-
-    1. Open `https://CLUSTERNAME.azurehdinsight.net/stormui` in your web browser, where `CLUSTERNAME` is the name of your Storm cluster. If prompted, enter the HDInsight cluster administrator (admin) name and password you specified when creating the cluster.
-
-    1. Select the topology you wish to rebalance, then select the **Rebalance** button. Enter the delay before the rebalance operation is done.
-
-        :::image type="content" source="./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png" alt-text="HDInsight Storm scale rebalance":::
-
-  * Command-line interface (CLI) tool
-
-    Connect to the server and use the following command to rebalance a topology:
-
-    ```bash
-     storm rebalance TOPOLOGYNAME
-    ```
-
-    You can also specify parameters to override the parallelism hints originally provided by the topology. For example, the code below reconfigures the `mytopology` topology to 5 worker processes, 3 executors for the blue-spout component, and 10 executors for the yellow-bolt component.
-
-    ```bash
-    ## Reconfigure the topology "mytopology" to use 5 worker processes,
-    ## the spout "blue-spout" to use 3 executors, and
-    ## the bolt "yellow-bolt" to use 10 executors
-    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
-    ```
 
 * Kafka
 

@@ -2,12 +2,13 @@
 title: Set up Azure Backup Server for Azure VMware Solution
 description: Set up your Azure VMware Solution environment to back up virtual machines using Azure Backup Server.
 ms.topic: how-to
-ms.date: 04/06/2022
+ms.service: azure-vmware
+ms.date: 04/27/2023
 ---
 
 # Set up Azure Backup Server for Azure VMware Solution
 
-Azure Backup Server contributes to your business continuity and disaster recovery (BCDR) strategy. With Azure VMware Solution, you can only configure a virtual machine (VM)-level backup using Azure Backup Server. 
+Azure Backup Server contributes to your business continuity and disaster recovery (BCDR) strategy. With Azure VMware Solution, you can only configure a virtual machine (VM)-level backup using Azure Backup Server.
 
 Azure Backup Server can store backup data to:
 
@@ -26,19 +27,21 @@ This article helps you prepare your Azure VMware Solution environment to back up
 
 ## Supported VMware features
 
-- **Agentless backup:** Azure Backup Server doesn't require an agent to be installed on the vCenter Server or ESXi server to back up the VM. Instead, provide the IP address or fully qualified domain name (FQDN) and the sign in credentials used to authenticate the VMware vCenter Server with Azure Backup Server.
+- **Agentless backup:** Azure Backup Server doesn't require an agent to be installed on the vCenter Server or ESXi server to back up the VM. Instead, provide the IP address or fully qualified domain name (FQDN) and the sign-in credentials used to authenticate the VMware vCenter Server with Azure Backup Server.
 - **Cloud-integrated backup:** Azure Backup Server protects workloads to disk and the cloud. The backup and recovery workflow of Azure Backup Server helps you manage long-term retention and offsite backup.
-- **Detect and protect VMs managed by vCenter:** Azure Backup Server detects and protects VMs deployed on a vCenter Server or ESXi hosts. Azure Backup Server also detects VMs managed by vCenter Server so that you can protect large deployments.
-- **Folder-level auto protection:** vCenter Server lets you organize your VMs in VM folders. Azure Backup Server detects these folders. You can use it to protect VMs at the folder level, including all subfolders. When protecting folders, Azure Backup Server protects the VMs in that folder and protects VMs added later. Azure Backup Server detects new VMs daily, protecting them automatically. As you organize your VMs in recursive folders, Azure Backup Server automatically detects and protects the new VMs deployed in the recursive folders.
-- **Azure Backup Server continues to protect vMotioned VMs within the cluster:** As VMs are vMotioned for load balancing within the cluster, Azure Backup Server automatically detects and continues VM protection.
+- **Detect and protect VMs managed by vCenter Server:** Azure Backup Server detects and protects VMs deployed on a vCenter Server or ESXi hosts. Azure Backup Server also detects VMs managed by vCenter Server so that you can protect large deployments.
+- **Folder-level auto protection:** vCenter Server lets you organize your VMs into Virtual Machine folders. Azure Backup Server detects these folders. You can use it to protect VMs at the folder level, including all subfolders. During the protection of folders, Azure Backup Server protects the VMs in that folder and protects VMs added later. Azure Backup Server detects new VMs daily, protecting them automatically. As you organize your VMs in recursive folders, Azure Backup Server automatically detects and protects the new VMs deployed in the recursive folders.
+- **Azure Backup Server continues to protect vMotioned VMs within the cluster:** As VMs are vMotioned for dynamic resource load balancing within the cluster, Azure Backup Server automatically detects and continues VM protection.
 - **Recover necessary files faster:** Azure Backup Server can recover files or folders from a Windows VM without recovering the entire VM.
+- **Application Consistent Backups:** If the *VMware Tools* aren't installed, a crash consistent backup will be executed. When the *VMware Tools* are installed with Microsoft Windows virtual machines, all applications that support VSS freeze and thaw operations will support application consistent backups. When the *VMware Tools* are installed with Linux virtual machines, application consistent snapshots are supported by calling the pre and post scripts.
 
 ## Limitations
 
-- Update Rollup 1 for Azure Backup Server v3 must be installed.
+- If you're using *Azure Backup Server V3*, then you must install [Update Rollup 2](https://support.microsoft.com/topic/update-rollup-2-for-microsoft-azure-backup-server-v3-350de164-0ae4-459a-8acf-7777dbb7fd73). New installations from the Azure portal now use *Azure Backup Server V4* that supports vSphere, version *6.5* to *8.0*.
 - You can't back up user snapshots before the first Azure Backup Server backup. After Azure Backup Server finishes the first backup, then you can back up user snapshots.
-- Azure Backup Server can't protect VMware VMs with pass-through disks and physical raw device mappings (pRDMs).
-- Azure Backup Server can't detect or protect VMware vApps.
+- Update Rollup 2 for Azure Backup Server v3 must be installed.
+- Azure Backup Server can't protect VMware vSphere VMs with pass-through disks and physical raw device mappings (pRDMs).
+- Azure Backup Server can't detect or protect VMware vSphere vApps.
 
 To set up Azure Backup Server for Azure VMware Solution, you must finish the following steps:
 
@@ -51,7 +54,7 @@ To set up Azure Backup Server for Azure VMware Solution, you must finish the fol
 
 Azure Backup Server is deployed as an Azure infrastructure as a service (IaaS) VM to protect Azure VMware Solution VMs.
 
-:::image type="content" source="media/azure-vmware-solution-backup/deploy-backup-server-azure-vmware-solution-diagram.png" alt-text="Diagram showing Azure Backup Server deployed as an Azure infrastructure as a service (IaaS) VM to protect Azure VMware Solution VMs." border="false":::
+:::image type="content" source="media/azure-vmware-solution-backup/deploy-backup-server-azure-vmware-solution-diagram.png" alt-text="Diagram showing the Azure Backup Server deployed as an Azure infrastructure as a service (IaaS) VM to protect Azure VMware Solution VMs." border="false":::
 
 ## Prerequisites for the Azure Backup Server environment
 
@@ -71,9 +74,9 @@ Follow the instructions in the [Create your first Windows VM in the Azure portal
 > Azure Backup Server is designed to run on a dedicated, single-purpose server. You can't install Azure Backup Server on a computer that:
 > * Runs as a domain controller.
 > * Has the Application Server role installed.
-> * Is a System Center Operations Manager management server.
+> * Is a System Center Operations Manager management server?
 > * Runs Exchange Server.
-> * Is a node of a cluster.
+> * Is a node of a cluster?
 
 ### Disks and storage
 
@@ -111,7 +114,7 @@ If you want to scale your deployment, you have the following options:
 
 ### .NET Framework
 
-The VM must have .NET Framework 3.5 SP1 or higher installed.
+The VM must have .NET Framework 4.5 or higher installed.
 
 ### Join a domain
 
@@ -206,7 +209,7 @@ Follow the steps in this section to download, extract, and install the software 
    > [!NOTE]
    > You must download all the files to the same folder. Because the download size of the files together is greater than 3 GB, it might take up to 60 minutes for the download to complete. 
 
-   :::image type="content" source="../backup/media/backup-azure-microsoft-azure-backup/downloadcenter.png" alt-text="Screenshot showing Microsoft Azure Backup files to download.":::
+   :::image type="content" source="../backup/media/backup-azure-microsoft-azure-backup/downloadcenter.png" alt-text="Screenshot showing the Microsoft Azure Backup files to download.":::
 
 ### Extract the software package
 
@@ -221,16 +224,17 @@ If you downloaded the software package to a different server, copy the files to 
 
 1. Select **Extract** to begin the extraction process.
 
-   :::image type="content" source="../backup/media/backup-azure-microsoft-azure-backup/extract/03.png" alt-text="Screenshot showing Microsoft Azure Backup files ready to extract.":::
+   :::image type="content" source="../backup/media/backup-azure-microsoft-azure-backup/extract/03.png" alt-text="Screenshot showing the Microsoft Azure Backup files ready to extract.":::
 
 1. Once extracted, select the option to **Execute setup.exe** and then select **Finish**.
 
 > [!TIP]
-> You can also locate the setup.exe file from the folder where you extracted the software package.
+>- You can also locate the setup.exe file from the folder where you extracted the software package.
+>- To use your own SQL Server instance, ensure that you're using the supported SQL Server versions - SQL Server 2022 and 2019.
 
 ### Install the software package
 
-1. On the setup window under **Install**, select **Microsoft Azure Backup** to open the setup wizard.
+1. On the setup window under **Install**, select **Microsoft Azure Backup** to open the setup wizard and accept any licensing terms from the list that appears.
 
 1. On the **Welcome** screen, select **Next** to continue to the **Prerequisite Checks** page.
 
@@ -249,9 +253,9 @@ If you downloaded the software package to a different server, copy the files to 
 
    When you use your own SQL Server instance, make sure you add builtin\Administrators to the sysadmin role to the main database sysadmin role.
 
-   **Configure reporting services with SQL Server 2017**
+   **Configure reporting services with SQL Server 2019 or 2022**
 
-   If you use your instance of SQL Server 2017, you must configure SQL Server 2017 Reporting Services (SSRS) manually. After configuring SSRS, make sure to set the **IsInitialized** property of SSRS to **True**. When set to **True**, Azure Backup Server assumes that SSRS is already configured and skips the SSRS configuration.
+   If you use your instance of SQL Server, you must configure SQL Server Reporting Services (SSRS) manually. After configuring SSRS, make sure to set the **IsInitialized** property of SSRS to **True**. When set to **True**, Azure Backup Server assumes that SSRS is already configured and skips the SSRS configuration.
 
    To check the SSRS configuration status, run:
 
@@ -314,9 +318,9 @@ If you downloaded the software package to a different server, copy the files to 
 
 1. After the installation step finishes, select **Close**.
 
-### Install Update Rollup 1
+### Install Update Rollup 2 for Microsoft Azure Backup Server (MABS) version 3
 
-Installing the Update Rollup 1 for Azure Backup Server v3 is mandatory before you can protect the workloads.  You can find the bug fixes and installation instructions in the [knowledge base article](https://support.microsoft.com/en-us/help/4534062/).
+Installing the Update Rollup 2 for Microsoft Azure Backup Server (MABS) version 3 is mandatory for protecting the workloads.  You can find the bug fixes and installation instructions in the [knowledge base article](https://support.microsoft.com/help/5004579/).
 
 ## Add storage to Azure Backup Server
 
@@ -331,7 +335,7 @@ Azure Backup Server v3 supports Modern Backup Storage that offers:
 
 Add the data disks with the Azure Backup Server VM's required storage capacity if not already added.
 
-Azure Backup Server v3 only accepts storage volumes. When you add a volume, Azure Backup Server formats the volume to Resilient File System (ReFS), which Modern Backup Storage requires.
+Azure Backup Server only accepts storage volumes. When you add a volume, Azure Backup Server formats the volume to Resilient File System (ReFS), which Modern Backup Storage requires.
 
 ### Add volumes to Azure Backup Server disk storage
 
@@ -343,9 +347,17 @@ Azure Backup Server v3 only accepts storage volumes. When you add a volume, Azur
 
 1. Select **OK** to format these volumes to ReFS so that Azure Backup Server can use Modern Backup Storage benefits.
 
+## Upgrade to Azure Backup Server V4 from Azure Backup Server V3
+
+If you're already using Azure Backup Server V3 to back up AVS VMs, you can [upgrade to Azure Backup Server V4](../backup/backup-azure-microsoft-azure-backup.md#upgrade-mabs) to get access to the latest features and bug fixes.
+
+
+
 ## Next steps
 
 Now that you've covered how to set up Azure Backup Server for Azure VMware Solution, you can use the following resources to learn more.
 
 - [Configuring backups for your Azure VMware Solution VMs](backup-azure-vmware-solution-virtual-machines.md).
 - [Protecting your Azure VMware Solution VMs with Microsoft Defender for Cloud integration](azure-security-integration.md).
+
+

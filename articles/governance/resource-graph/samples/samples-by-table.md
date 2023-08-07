@@ -1,10 +1,11 @@
 ---
 title: List of sample Azure Resource Graph queries by table
 description: List sample queries for Azure Resource-Graph. Tables include Resources, ResourceContainers, PolicyResources, and more.
-ms.date: 03/23/2022
+ms.date: 02/14/2023
 ms.topic: sample
 ms.custom: generated
 ---
+
 # Azure Resource Graph sample queries by table
 
 This page is a collection of Azure Resource Graph sample queries grouped by table. To jump to a
@@ -15,6 +16,18 @@ details, see [Resource Graph tables](../concepts/query-language.md#resource-grap
 ## AdvisorResources
 
 [!INCLUDE [azure-resource-graph-samples-table-advisorresources](../../../../includes/resource-graph/samples/bytable/advisorresources.md)]
+
+## AuthorizationResources
+
+[!INCLUDE [authorization-resources-role-assignments-key-properties](../../includes/resource-graph/query/authorization-resources-role-assignments-key-properties.md)]
+
+[!INCLUDE [authorization-resources-role-definitions-key-properties](../../includes/resource-graph/query/authorization-resources-role-definitions-key-properties.md)]
+
+[!INCLUDE [authorization-resources-role-definitions-actions-list.md](../../includes/resource-graph/query/authorization-resources-role-definitions-actions-list.md)]
+
+[!INCLUDE [authorization-resources-role-definitions-permissions-list](../../includes/resource-graph/query/authorization-resources-role-definitions-permissions-list.md)]
+
+[!INCLUDE [authorization-resources-troubleshoot-rbac-limits](../../includes/resource-graph/query/authorization-resources-troubleshoot-rbac-limits.md)]
 
 ## ExtendedLocationResources
 
@@ -27,6 +40,10 @@ details, see [Resource Graph tables](../concepts/query-language.md#resource-grap
 ## HealthResources
 
 [!INCLUDE [azure-resource-graph-samples-table-healthresources](../../../../includes/resource-graph/samples/bytable/healthresources.md)]
+
+## HealthResourceChanges
+
+[!INCLUDE [Azure-resource-graph-samples-table-healthresourcechanges](../../../../includes/resource-graph/samples/bytable/healthresourcechanges.md)]
 
 ## IoT Defender
 
@@ -63,10 +80,6 @@ details, see [Resource Graph tables](../concepts/query-language.md#resource-grap
 ## ServiceHealthResources
 
 [!INCLUDE [azure-resource-graph-samples-table-servicehealthresources](../../../../includes/resource-graph/samples/bytable/servicehealthresources.md)]
-
-## SpotResources
-
-[!INCLUDE [Azure-resource-graph-samples-table-spotresources](../../../../includes/resource-graph/samples/bytable/spotresources.md)]
 
 ## Next steps
 

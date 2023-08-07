@@ -27,7 +27,7 @@ You can create a hub in the Azure portal. For all new IoT hubs, Defender for IoT
 
 **To create an IoT Hub**:
 
-1. Follow the steps in [this article](../../iot-hub/iot-hub-create-through-portal.md#create-an-iot-hub).
+1. Follow the steps to [create an IoT hub using the Azure portal](../../iot-hub/iot-hub-create-through-portal.md#create-an-iot-hub).
 
 1. Under the **Management** tab, ensure that **Defender for IoT** is set to **On**. By default, Defender for IoT will be set to **On** .
 
@@ -62,6 +62,28 @@ The **Secure your IoT solution** button will only appear if the IoT Hub hasn't a
     The Threat prevention and Threat detection screen will appear.
 
     :::image type="content" source="media/quickstart-onboard-iot-hub/threat-prevention.png" alt-text="Screenshot showing that Defender for IoT is enabled." lightbox="media/quickstart-onboard-iot-hub/threat-prevention-expanded.png":::
+
+## Configure data collection
+
+Configure data collection settings for Defender for IoT in your IoT hub, such as a Log Analytics workspace and other advanced settings.
+
+**To configure Defender for IoT data collection**:
+
+1. In your IoT hub, select **Defender for IoT > Settings**. The **Enable Microsoft Defender for IoT** option is toggled on by default.
+
+1. In the **Workspace configuration** area, toggle the **On** option to connect to a Log Analytics workspace, and then select the Azure subscription and Log Analytics workspace you want to connect to.
+
+    If you need to create a new workspace, select the **Create New Workspace** link.
+
+    Select **Access to raw security data** to export raw security events from your devices to the Log Analytics workspace that you'd selected above.
+
+1. In the **Advanced settings** area, the following options are selected by default. Clear the selection as needed:
+
+    - **In-depth security recommendations and custom alerts**. Allows Defender for IoT access to the device's twin data in order to generate alerts based on that data.
+
+    - **IP data collection**. Allows Defender for IoT access to the device's incoming and outgoing IP addresses to generate alerts based on suspicious connections.
+
+1. Select **Save** to save your settings.
 
 ## Next steps
 

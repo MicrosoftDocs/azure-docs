@@ -4,8 +4,10 @@ description: Get help with dependency visualization in Azure Migrate.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 07/01/2020
+ms.date: 03/08/2023
+ms.custom: engagement-fy23
 ---
 
 # Troubleshoot dependency visualization
@@ -25,6 +27,12 @@ In agentless dependency analysis, the process names are captured on a best-effor
 
 ## Unable to export dependency data in a CSV due to the error "403: This request is not authorized to perform this operation"
 If your Azure Migrate project has private endpoint connectivity, the request to export dependency data should be initiated from a client connected to the Azure virtual network over a private network. To resolve this error, open the Azure portal in your on-premises network or on your appliance server and try exporting again.
+
+## Export the dependency analysis errors
+
+You can export all the errors and remediations for agentless dependency analysis from the portal by selecting **Export notifications**. The exported CSV file also contains additional information like the timestamp at which the error was encountered and if it was an error in validation or discovery of dependency data.
+
+:::image type="content" source="./media/troubleshoot-dependencies/export-notifications.png" alt-text="Screenshot of Export notifications screen.":::
 
 ## Common agentless dependency analysis errors
 
@@ -319,7 +327,7 @@ For Windows VMs:
 
     ![Screenshot that shows MMA status.](./media/troubleshoot-assessment/mma-properties.png)
 
-For Linux VMs, make sure that the installation commands for MMA and the dependency agent succeeded. Refer to more troubleshooting guidance on [this website](../azure-monitor/vm/service-map.md#post-installation-issues).
+For Linux VMs, make sure that the installation commands for MMA and the dependency agent succeeded. Refer to more troubleshooting guidance on [this website](/previous-versions/azure/azure-monitor/vm/service-map#post-installation-issues).
 
 ## Supported operating systems for agent-based dependency analysis
 

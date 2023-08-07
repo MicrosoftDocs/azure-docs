@@ -1,22 +1,23 @@
 ---
-title: Azure Chaos Studio service limits
-description: Understand the throttling and usage limits for Azure Chaos Studio
-author: johnkemnetz
-ms.author: johnkem
+title: Azure Chaos Studio Preview service limits
+description: Understand the throttling and usage limits for Azure Chaos Studio.
+author: prasha-microsoft 
+ms.author: prashabora
 ms.service: chaos-studio
 ms.date: 11/01/2021
 ms.topic: reference
 ms.custom: ignite-fall-2021
 ---
 
-# Azure Chaos Studio service limits
-This article provides service limits for Azure Chaos Studio. 
+# Azure Chaos Studio Preview service limits
+This article provides service limits for Azure Chaos Studio Preview.
+
 ## Experiment and target limits
 
 Chaos Studio applies limits to the number of objects, duration of activities, and retention of data.
 
 | Limit | Value |
-| -- | -- |
+|--|--|
 | Actions per experiment | 9 |
 | Branches per experiment | 9 |
 | Steps per experiment | 4 |
@@ -30,10 +31,10 @@ Chaos Studio applies limits to the number of objects, duration of activities, an
 
 ## API throttling limits
 
-Chaos Studio applies limits to all ARM operations. Requests made over the limit are throttled. All request limits are applied for a five-minute interval unless otherwise specified.
+Chaos Studio applies limits to all Azure Resource Manager operations. Requests made over the limit are throttled. All request limits are applied for a five-minute interval unless otherwise specified.
 
 | Operation | Requests |
-| -- | -- |
+|--|--|
 | Microsoft.Chaos/experiments/write | 100 |
 | Microsoft.Chaos/experiments/read | 300 |
 | Microsoft.Chaos/experiments/delete | 100 |
@@ -45,7 +46,7 @@ Chaos Studio applies limits to all ARM operations. Requests made over the limit 
 | Microsoft.Chaos/targets/read | 600 |
 | Microsoft.Chaos/targets/delete | 200 |
 | Microsoft.Chaos/targets/capabilities/write | 600 |
-| Microsoft.Chaos/targets/capabilities/read | 1800 |
+| Microsoft.Chaos/targets/capabilities/read | 1,800 |
 | Microsoft.Chaos/targets/capabilities/delete | 600 |
 | Microsoft.Chaos/locations/targetTypes/read | 50 |
 | Microsoft.Chaos/locations/targetTypes/capabilityTypes/read | 50 |

@@ -11,8 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
+ms.custom: devx-track-linux
 ms.topic: conceptual
-ms.date: 02/02/2022
+ms.date: 09/29/2022
 ms.author: anfdocs
 ---
 # Linux NFS read-ahead best practices for Azure NetApp Files
@@ -53,15 +54,19 @@ Read-ahead can be defined either dynamically per NFS mount using the following s
 
 To show the current read-ahead value (the returned value is in KiB), run the following command:  
 
-`$ ./readahead.sh show <mount-point>`   
+```bash
+   ./readahead.sh show <mount-point>
+```
 
 To set a new value for read-ahead, run the following command:   
 
-`$ ./readahead.sh set <mount-point> [read-ahead-kb]`
+```bash
+./readahead.sh set <mount-point> [read-ahead-kb]
+```
  
 ### Example   
 
-```
+```bash
 #!/bin/bash
 # set | show readahead for a specific mount point
 # Useful for things like NFS and if you do not know / care about the backing device
@@ -69,8 +74,7 @@ To set a new value for read-ahead, run the following command:
 # To the extent possible under law, Red Hat, Inc. has dedicated all copyright
 # to this software to the public domain worldwide, pursuant to the
 # CC0 Public Domain Dedication. This software is distributed without any warranty.
-# See <http://creativecommons.org/publicdomain/zero/1.0/>.
-#
+# For more information, see the [CC0 1.0 Public Domain Dedication](http://creativecommons.org/publicdomain/zero/1.0/).
 
 E_BADARGS=22
 function myusage() {
@@ -101,11 +105,15 @@ To persistently set read-ahead for NFS mounts, `udev` rules can be written as fo
 
 1. Create and test `/etc/udev/rules.d/99-nfs.rules`:
 
-    `SUBSYSTEM=="bdi", ACTION=="add", PROGRAM="/bin/awk -v bdi=$kernel 'BEGIN{ret=1} {if ($4 == bdi) {ret=0}} END{exit ret}' /proc/fs/nfsfs/volumes", ATTR{read_ahead_kb}="15380"`
+    ```config
+       SUBSYSTEM=="bdi", ACTION=="add", PROGRAM="<absolute_path>/awk -v bdi=$kernel 'BEGIN{ret=1} {if ($4 == bdi) {ret=0}} END{exit ret}' /proc/fs/nfsfs/volumes", ATTR{read_ahead_kb}="15380"
+   ```
 
 2. Apply the `udev` rule:   
 
-    `$udevadm control --reload`
+    ```bash
+       sudo udevadm control --reload
+    ```
 
 ## Next steps  
 

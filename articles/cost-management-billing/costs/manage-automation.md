@@ -3,7 +3,7 @@ title: Manage Azure costs with automation
 description: This article explains how you can manage Azure costs with automation.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/05/2022
+ms.date: 11/22/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -113,7 +113,7 @@ GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDe
 
 ## Automate alerts and actions with budgets
 
-There are two critical components to maximizing the value of your investment in the cloud. One is automatic budget creation. The other is configuring cost-based orchestration in response to budget alerts. There are different ways to automate Azure budget creation. Various alert responses happen when your configured alert thresholds are exceeded.
+There are two critical components to maximizing the value of your investment in the cloud. One is automatic budget creation. The other is configuring cost-based orchestration in response to budget alerts. There are different ways to automate budget creation. Various alert responses happen when your configured alert thresholds are exceeded.
 
 The following sections cover available options and provide sample API requests to get you started with budget automation.
 
@@ -187,7 +187,7 @@ Languages supported by a culture code:
 | zh-tw	| Chinese (Traditional, Taiwan) |
 | cs-cz	| Czech (Czech Republic) |
 | pl-pl | Polish (Poland) |
-| tr-tr	| Turkish (Turkey) |
+| tr-tr	| Turkish (Türkiye) |
 | da-dk	| Danish (Denmark) |
 | en-gb	| English (United Kingdom) |
 | hu-hu	| Hungarian (Hungary) |
@@ -284,18 +284,53 @@ Request URL: `PUT https://management.azure.com/subscriptions/{SubscriptionId} /p
 
 ### Configure cost-based orchestration for budget alerts
 
-You can configure budgets to start automated actions using Azure Action Groups. To learn more about automating actions using budgets, see [Automation with Azure Budgets](../manage/cost-management-budget-scenario.md).
+You can configure budgets to start automated actions using Azure Action Groups. To learn more about automating actions using budgets, see [Automation with budgets](../manage/cost-management-budget-scenario.md).
 
 ## Data latency and rate limits
 
-We recommend that you call the APIs no more than once per day. Cost Management data is refreshed every four hours as new usage data is received from Azure resource providers. Calling more frequently doesn't provide more data. Instead, it creates increased load. To learn more about how often data changes and how data latency is handled, see [Understand cost management data](understand-cost-mgt-data.md).
+We recommend that you call the APIs no more than once per day. Cost Management data is refreshed every four hours as new usage data is received from Azure resource providers. Calling more frequently doesn't provide more data. Instead, it creates increased load.
 
-### Error code 429 - Call count has exceeded rate limits
+### Query API query processing units
 
-To enable a consistent experience for all Cost Management subscribers, Cost Management APIs are rate limited. When you reach the limit, you receive the HTTP status code `429: Too many requests`. The current throughput limits for our APIs are as follows:
+In addition to the existing rate limiting processes, the [Query API](/rest/api/cost-management/query) also limits processing based on the cost of API calls. The cost of an API call is expressed as query processing units (QPUs). QPU is a performance currency, like [Cosmos DB RUs](../../cosmos-db/request-units.md). They abstract system resources like CPU and memory.
 
-- 15 calls per minute - It's done per scope, per user, or application.
-- 100 calls per minute - It's done per tenant, per user, or application.
+#### QPU calculation
+
+Currently, one QPU is deducted for one month of data queried from the allotted quotas. This logic might change without notice.
+
+#### QPU factors
+
+The following factor affects the number of QPUs consumed by an API request.
+
+- Date range, as the date range in the request increases, the number of QPUs consumed increases.
+
+Other QPU factors might be added without notice.
+
+#### QPU quotas
+
+The following quotas are configured per tenant. Requests are throttled when any of the following quotas are exhausted.
+
+- 12 QPU per 10 seconds
+- 60 QPU per 1 min
+- 600 QPU per 1 hour
+
+The quotas maybe be changed as needed and more quotas may be added.
+
+#### Response headers
+
+You can examine the response headers to track the number of QPUs consumed by an API request and number of QPUs remaining.
+
+`x-ms-ratelimit-microsoft.costmanagement-qpu-retry-after`
+
+Indicates the time to back-off in seconds. When a request is throttled with 429, back off for the time specified in this header before retrying the request.
+
+`x-ms-ratelimit-microsoft.costmanagement-qpu-consumed`
+
+QPUs consumed by an API call.
+
+`x-ms-ratelimit-microsoft.costmanagement-qpu-remaining`
+
+List of remaining quotas.
 
 ## Next steps
 

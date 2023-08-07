@@ -1,16 +1,16 @@
 ---
-title: Authentication methods and features - Azure Active Directory
+title: Authentication methods and features
 description: Learn about the different authentication methods and features available in Azure Active Directory to help improve and secure sign-in events
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 06/07/2023
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
@@ -21,7 +21,7 @@ ms.custom: contperf-fy20q4
 
 Microsoft recommends passwordless authentication methods such as Windows Hello, FIDO2 security keys, and the Microsoft Authenticator app because they provide the most secure sign-in experience. Although a user can sign-in using other common methods such as a username and password, passwords should be replaced with more secure authentication methods.
 
-![Table of the strengths and preferred authentication methods in Azure AD](media/concept-authentication-methods/authentication-methods.png)
+:::image type="content" border="true" source="media/concept-authentication-methods/authentication-methods.png" alt-text="Illustration of the strengths and preferred authentication methods in Azure AD." :::
 
 Azure AD Multi-Factor Authentication (MFA) adds additional security over only using a password when a user signs in. The user can be prompted for additional forms of authentication, such as to respond to a push notification, enter a code from a software or hardware token, or respond to an SMS or phone call.
 
@@ -38,8 +38,10 @@ The following table outlines the security considerations for the available authe
 | Authentication method          | Security | Usability | Availability |
 |--------------------------------|:--------:|:---------:|:------------:|
 | Windows Hello for Business     | High     | High      | High         |
-| Microsoft Authenticator app    | High     | High      | High         |
+| Microsoft Authenticator        | High     | High      | High         |
+| Authenticator Lite             | High     | High      | High         |
 | FIDO2 security key             | High     | High      | High         |
+| Certificate-based authentication | High | High | High       |
 | OATH hardware tokens (preview) | Medium   | Medium    | High         |
 | OATH software tokens           | Medium   | Medium    | High         |
 | SMS                            | Medium   | High      | Medium       |
@@ -62,14 +64,19 @@ The following table outlines when an authentication method can be used during a 
 
 | Method                         | Primary authentication | Secondary authentication  |
 |--------------------------------|:----------------------:|:-------------------------:|
-| Windows Hello for Business     | Yes                    | MFA                       |
-| Microsoft Authenticator app    | Yes                    | MFA and SSPR              |
+| Windows Hello for Business     | Yes                    | MFA\*                     |
+| Microsoft Authenticator (Push) | No                     | MFA and SSPR              |
+| Microsoft Authenticator (Passwordless) | Yes            | No                        |
+| Authenticator Lite             | No                     | MFA                       |
 | FIDO2 security key             | Yes                    | MFA                       |
+| Certificate-based authentication | Yes                  | No                        |
 | OATH hardware tokens (preview) | No                     | MFA and SSPR              |
 | OATH software tokens           | No                     | MFA and SSPR              |
 | SMS                            | Yes                    | MFA and SSPR              |
 | Voice call                     | No                     | MFA and SSPR              |
 | Password                       | Yes                    |                           |
+
+> \* Windows Hello for Business, by itself, does not serve as a step-up MFA credential. For example, an MFA Challenge from Sign-in Frequency or SAML Request containing forceAuthn=true. Windows Hello for Business can serve as a step-up MFA credential by being used in FIDO2 authentication. This requires users to be enabled for FIDO2 authentication to work successfully.
 
 All of these authentication methods can be configured in the Azure portal, and increasingly using the [Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview).
 
@@ -78,6 +85,7 @@ To learn more about how each authentication method works, see the following sepa
 * [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)
 * [Microsoft Authenticator app](concept-authentication-authenticator-app.md)
 * [FIDO2 security key](concept-authentication-passwordless.md#fido2-security-keys)
+* [Certificate-based authentication](concept-certificate-based-authentication.md)
 * [OATH hardware tokens (preview)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
 * [OATH software tokens](concept-authentication-oath-tokens.md#oath-software-tokens)
 * [SMS sign-in](howto-authentication-sms-signin.md) and [verification](concept-authentication-phone-options.md#mobile-phone-verification)
@@ -92,6 +100,17 @@ The following additional verification methods can be used in certain scenarios:
 * [App passwords](howto-mfa-app-passwords.md) - used for old applications that don't support modern authentication and can be configured for per-user Azure AD Multi-Factor Authentication.
 * [Security questions](concept-authentication-security-questions.md) - only used for SSPR
 * [Email address](concept-sspr-howitworks.md#authentication-methods) - only used for SSPR
+
+## Usable and non-usable methods
+
+Administrators can view user authentication methods in the Azure portal. Usable methods are listed first, followed by non-usable methods. 
+
+Each authentication method can become non-usable for different reasons. For example, a Temporary Access Pass may expire, or FIDO2 security key may fail attestation. The portal will be updated to provide the reason for why the method is non-usable. 
+
+Authentication methods that are no longer available due to "Require re-register multifactor authentication" are also displayed here.
+
+:::image type="content" border="true" source="media/concept-authentication-methods/non-usable.png" alt-text="Screenshot of non-usable authentication methods." :::
+
 
 ## Next steps
 

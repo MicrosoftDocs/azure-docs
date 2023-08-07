@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure Real Links for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Real Links for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Real Links.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: a024c7db-ffe6-4fc9-a0ec-7075930bbf75
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/02/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

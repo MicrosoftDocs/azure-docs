@@ -1,16 +1,15 @@
 ---
 title: Migrate to Resource Manager with PowerShell 
 description: This article walks through the platform-supported migration of IaaS resources such as virtual machines (VMs), virtual networks, and storage accounts from classic to Azure Resource Manager by using Azure PowerShell commands
-author: tanmaygore
+author: oriwolman
 manager: vashan
 ms.service: virtual-machines
 ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 02/06/2020
-ms.author: tagore 
-ms.custom: devx-track-azurepowershell
-
+ms.date: 04/14/2023
+ms.author: oriwolman 
+ms.custom: devx-track-azurepowershell compute-evergreen, devx-track-arm-template
 ---
 
 # Migrate IaaS resources from classic to Azure Resource Manager by using PowerShell
@@ -18,7 +17,7 @@ ms.custom: devx-track-azurepowershell
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 
 > [!IMPORTANT]
-> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](classic-vm-deprecation.md#how-does-this-affect-me).
+> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on September 6, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](classic-vm-deprecation.md#how-does-this-affect-me).
 
 These steps show you how to use Azure PowerShell commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model.
 
@@ -227,10 +226,10 @@ To migrate virtual machines in a virtual network, you migrate the virtual networ
 > [!NOTE]
 > The virtual network name might be different from what is shown in the new portal. The new Azure portal displays the name as `[vnet-name]`, but the actual virtual network name is of type `Group [resource-group-name] [vnet-name]`. Before you start the migration, look up the actual virtual network name by using the command `Get-AzureVnetSite | Select -Property Name` or view it in the old Azure portal. 
 
-This example sets the virtual network name to **myVnet**. Replace the example virtual network name with your own.
+This following example sets the virtual network name to Group **[resource-group-name]** **[vnet-name]**.  Replace the example virtual network name with one that was returned from running the command in the **Note** section above..
 
 ```powershell
-    $vnetName = "myVnet"
+    $vnetName = "Group [resource-group-name] [vnet-name]"
 ```
 
 > [!NOTE]

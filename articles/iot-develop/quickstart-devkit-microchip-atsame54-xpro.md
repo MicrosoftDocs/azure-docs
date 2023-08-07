@@ -6,7 +6,8 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 10/18/2021
+ms.date: 10/21/2022
+ms.custom: engagement-fy23
 zone_pivot_groups: iot-develop-toolset
 #- id: iot-develop-toolset
 ## Owner: timlt
@@ -14,7 +15,6 @@ zone_pivot_groups: iot-develop-toolset
 #  prompt: Choose a build environment
 #  - id: iot-toolset-mplab
 #    title: MPLAB
-ms.custom: mode-other, contperf-fy22q3
 #Customer intent: As a device builder, I want to see a working IoT device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
@@ -52,6 +52,7 @@ You'll complete the following tasks:
   * Ethernet cable
   * Optional: [Weather Click](https://www.mikroe.com/weather-click) sensor. You can add this sensor to the device to monitor weather conditions. If you don't have this sensor, you can still complete this quickstart.
   * Optional: [mikroBUS Xplained Pro](https://www.microchip.com/Developmenttools/ProductDetails/ATMBUSADAPTER-XPRO) adapter. Use this adapter to attach the Weather Click sensor to the Microchip E54. If you don't have the sensor and this adapter, you can still complete this quickstart.
+* An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prepare the development environment
 
@@ -255,7 +256,9 @@ Keep Termite open to monitor device output in the following steps.
 
 * IAR Embedded Workbench for ARM (EW for ARM). You can download and install a  [14-day free trial of IAR EW for ARM](https://www.iar.com/products/architectures/arm/iar-embedded-workbench-for-arm/).
 
-* Download the Microchip ATSAME54-XPRO IAR sample from [Azure RTOS samples](https://github.com/azure-rtos/samples/), and unzip it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
+* Download the Microchip ATSAME54-XPRO IAR sample from [Azure RTOS samples](https://github.com/azure-rtos/samples/), and unzip it to a working directory. 
+    > [!IMPORTANT]
+    > Choose a directory with a short path to avoid compiler errors when you build. For example, use *C:\atsame54*.  
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
@@ -307,7 +310,7 @@ Termite is now ready to receive output from the Microchip E54.
 
 1. Expand the sample, then expand the **Sample** folder and open the sample_config.h file.
 
-1. Near the top of the file uncomment the `#define ENABLE_DPS_SAMPLE` directive.
+1. Near the top of the file, uncomment the `#define ENABLE_DPS_SAMPLE` directive.
 
     ```c
     #define ENABLE_DPS_SAMPLE
@@ -380,7 +383,9 @@ Keep Termite open to monitor device output in the following steps.
 
 * [MPLAB XC32/32++ Compiler 2.4.0 or later](https://www.microchip.com/mplab/compilers).
 
-* Download the Microchip ATSAME54-XPRO MPLab sample from [Azure RTOS samples](https://github.com/azure-rtos/samples/), and unzip it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
+* Download the Microchip ATSAME54-XPRO MPLab sample from [Azure RTOS samples](https://github.com/azure-rtos/samples/), and unzip it to a working directory.
+    > [!IMPORTANT]
+    > Choose a directory with a short path to avoid compiler errors when you build. For example, use *C:\atsame54*.  
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
@@ -432,7 +437,7 @@ Termite is now ready to receive output from the Microchip E54.
 
 1. Expand the **sample_azure_iot_embedded_sdk_pnp** project, then expand the **Header Files** folder and open the sample_config.h file.
 
-1. Near the top of the file uncomment the `#define ENABLE_DPS_SAMPLE` directive.
+1. Near the top of the file, uncomment the `#define ENABLE_DPS_SAMPLE` directive.
 
     ```c
     #define ENABLE_DPS_SAMPLE

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuring Velpic for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configuring Velpic for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Velpic.
 services: active-directory
 author: zhchia
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -25,7 +25,7 @@ The objective of this tutorial is to show you the steps you need to perform in V
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * An Azure Active Directory tenant
-* A Velpic tenant with the [Enterprise plan](https://www.velpic.com/pricing.html) or better enabled
+* A Velpic tenant with the Enterprise plan or better enabled
 * A user account in Velpic with Admin permissions
 
 ## Assigning users to Velpic
@@ -47,7 +47,7 @@ Before configuring and enabling the provisioning service, you will need to decid
 This section guides you through connecting your Azure AD to Velpic's user account provisioning API, and configuring the provisioning service to create, update and disable assigned user accounts in Velpic based on user and group assignment in Azure AD.
 
 > [!TIP]
-> You may also choose to enabled SAML-based Single Sign-On for Velpic, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
+> You may also choose to enabled SAML-based Single Sign-On for Velpic, following the instructions provided in the [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
 ### To configure automatic user account provisioning to Velpic in Azure AD:
 

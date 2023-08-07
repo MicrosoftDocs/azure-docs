@@ -1,28 +1,28 @@
 ---
-title: Use Azure custom roles in PIM - Azure AD | Microsoft Docs
+title: Use Azure custom roles in PIM
 description: Learn how to use Azure custom roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: billmath
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/07/2021
-ms.author: curtand
+ms.date: 06/27/2022
+ms.author: billmath
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ---
 
 # Use Azure custom roles in Privileged Identity Management
 
-You might need to apply strict Privileged Identity Management (PIM) settings to some users in a privileged role in your Azure Active Directory (Azure AD) organization, while providing greater autonomy for others. Consider for example a scenario in which your organization hires several contract associates to assist in the development of an application that will run in an Azure subscription.
+You might need to apply stricter just-in-time settings to some users in a privileged role in your organization in Azure Active Directory (Azure AD), part of Microsoft Entra, while providing greater autonomy for others. For example, if your organization hired several contract associates to help develop an application that will run in an Azure subscription.
 
 As a resource administrator, you want employees to be eligible for access without requiring approval. However, all contract associates must be approved when they request access to the organization's resources.
 
-Follow the steps outlined in the next section to set up targeted Privileged Identity Management settings for Azure resource roles.
+Follow the steps outlined in the next section to set up targeted Privileged Identity Management (PIM) settings for Azure resource roles.
 
 ## Create the custom role
 

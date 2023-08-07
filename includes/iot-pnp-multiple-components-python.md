@@ -3,12 +3,12 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 11/20/2020
+ms.date: 11/17/2022
 ---
 
 This tutorial shows you how to build a sample IoT Plug and Play device application with components, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in Python and is included in the Azure IoT device SDK for Python. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
-[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples/pnp)
+[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/v2/samples/pnp)
 
 In this tutorial, you:
 
@@ -20,6 +20,8 @@ In this tutorial, you:
 ## Prerequisites
 
 [!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
+
+You can run this tutorial on Linux or Windows. The shell commands in this tutorial follow the Linux convention for path separators '`/`', if you're following along on Windows be sure to swap these separators for '`\`'.
 
 To complete this tutorial, you need Python 3.7 on your development machine. You can download the latest recommended version for multiple platforms from [python.org](https://www.python.org/). You can check your Python version with the following command:  
 
@@ -33,7 +35,7 @@ You can download the latest recommended version for multiple platforms from [pyt
 
 The **azure-iot-device** package is published as a PIP.
 
-In your local Python environment install the package as follows:
+In your local Python environment, install the package as follows:
 
 ```cmd/sh
 pip install azure-iot-device
@@ -44,14 +46,14 @@ If you completed [Tutorial: Connect a sample IoT Plug and Play device applicatio
 Clone the Python SDK IoT repository:
 
 ```cmd/sh
-git clone https://github.com/Azure/azure-iot-sdk-python
+git clone --branch v2 https://github.com/Azure/azure-iot-sdk-python
 ```
 
 ## Review the code
 
-This sample implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](../articles/iot-develop/concepts-modeling-guide.md). The [Digital Twins definition language (DTDL) model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
+This sample implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](../articles/iot-develop/concepts-modeling-guide.md). The [Digital Twins Definition Language (DTDL) V2 model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
 
-The *azure-iot-sdk-python\azure-iot-device\samples\pnp* folder contains the sample code for the IoT Plug and Play device. The files for the temperature controller sample are:
+The *azure-iot-sdk-python/samples/pnp* folder contains the sample code for the IoT Plug and Play device. The files for the temperature controller sample are:
 
 - temp_controller_with_thermostats.py
 - pnp_helper.py
@@ -71,11 +73,11 @@ Open the *temp_controller_with_thermostats.py* file in an editor of your choice.
 
 1. Defines the names given to the components in the DTDL file. There are two thermostats in the DTDL and one device information component. A constant called `serial_number` is also defined in the default component. A `serial_number` can't change for a device.
 
-1. Defines command handler implementations. These define what the device does when it receives command requests.
+1. Defines command handler implementations. These handlers define what the device does when it receives command requests.
 
-1. Defines functions to create a command response. These define how the device responds with to command requests. You create command response functions if a command needs to send a custom response back to the IoT hub. If a response function for a command isn't provided, a generic response is sent. In this sample, only the **getMaxMinReport** command has a custom response.
+1. Defines functions to create a command response. These functions define how the device responds with to command requests. You create command response functions if a command needs to send a custom response back to the IoT hub. If a response function for a command isn't provided, a generic response is sent. In this sample, only the **getMaxMinReport** command has a custom response.
 
-1. Defines a function to send telemetry from this device. Both the thermostats and the default component send telemetry. This function takes in a optional component name parameter to enable it to identify which component sent the telemetry.
+1. Defines a function to send telemetry from this device. Both the thermostats and the default component send telemetry. This function has an optional component name parameter to enable it to identify which component sent the telemetry.
 
 1. Defines a listener for command requests.
 
@@ -89,8 +91,8 @@ Open the *temp_controller_with_thermostats.py* file in an editor of your choice.
 
     - Updates the readable properties for its components by calling `patch_twin_reported_properties`.
 
-    - Starts listening for command requests using the `execute_command_listener` function. The function sets up a listener for command requests from the service. When you set up the listener you provide a `method_name`, `user_command_handler`, and an optional `create_user_response_handler` as parameters.
-        - The `method_name` defines the command request. In this sample the model defines the commands **reboot**, and **getMaxMinReport**.
+    - Starts listening for command requests using the `execute_command_listener` function. The function sets up a listener for command requests from the service. When you set up the listener, you provide a `method_name`, `user_command_handler`, and an optional `create_user_response_handler` as parameters.
+        - The `method_name` defines the command request. In this sample, the model defines the commands **reboot**, and **getMaxMinReport**.
         - The `user_command_handler` function defines what the device should do when it receives a command.
         - The `create_user_response_handler` function creates a response to be sent to your IoT hub when a command executes successfully. You can view this response in the portal. If this function isn't provided, a generic response is sent to the service.
 
@@ -102,7 +104,7 @@ Open the *temp_controller_with_thermostats.py* file in an editor of your choice.
 
 [!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
-To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-device/samples/pnp/README.md).
+To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-python/blob/v2/samples/pnp/README.md).
 
 Use the following command to run the sample:
 

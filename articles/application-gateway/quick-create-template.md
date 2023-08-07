@@ -5,10 +5,10 @@ description: In this quickstart, you learn how to use a Resource Manager templat
 services: application-gateway
 author: greg-lindsay
 ms.author: greglin
-ms.date: 06/14/2021
+ms.date: 06/10/2022
 ms.topic: quickstart
 ms.service: application-gateway
-ms.custom: devx-track-azurepowershell, mvc, subject-armqs, mode-arm
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - ARM template
@@ -21,8 +21,6 @@ In this quickstart, you use an Azure Resource Manager template (ARM template) to
 
 You can also complete this quickstart using the [Azure portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md), or [Azure CLI](quick-create-cli.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fag-docs-qs%2Fazuredeploy.json)
@@ -33,7 +31,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-For the sake of simplicity, this template creates a simple setup with a public front-end IP, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
+For the sake of simplicity, this template creates a simple setup with a public frontend IP, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/ag-docs-qs/)
 

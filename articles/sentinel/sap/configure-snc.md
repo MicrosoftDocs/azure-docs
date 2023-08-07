@@ -1,23 +1,18 @@
 ---
-title: Deploy the Microsoft Sentinel SAP data connector with Secure Network Communications (SNC)  | Microsoft Docs
-description: This article shows you how to deploy the **Microsoft Sentinel data connector for SAP** to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications.
-author: batamig
-ms.author: bagol
+title: Deploy the Microsoft Sentinel for SAP data connector with Secure Network Communications (SNC)  | Microsoft Docs
+description: This article shows you how to deploy the Microsoft Sentinel for SAP data connector to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications.
+author: limwainstein
+ms.author: lwainstein
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 05/03/2022
 ---
 
-# Deploy the Microsoft Sentinel SAP data connector with SNC
+# Deploy the Microsoft Sentinel for SAP data connector with SNC
 
-[!INCLUDE [Banner for top of topics](../includes/banner.md)]
+This article shows you how to deploy the **Microsoft Sentinel for SAP** data connector to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC).
 
-This article shows you how to deploy the **Microsoft Sentinel data connector for SAP** to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC).
-
-> [!IMPORTANT]
-> The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-The Continuous Threat Monitoring for SAP data connector agent typically connects to an SAP ABAP server using an RFC connection, and a user's username and password for authentication.
+The SAP data connector agent typically connects to an SAP ABAP server using an RFC connection, and a user's username and password for authentication.
 
 However, some environments may require the connection be over an encrypted channel, and client certificates be used for authentication. In these cases you can use SAP Secure Network Communication for this purpose, and you'll have to take the appropriate steps as outlined in this article.
 
@@ -108,7 +103,28 @@ This section explains how to import a certificate so that it's trusted by your A
 
 1. Ensure **Entry for RFC activated** and **Entry for certificate activated** checkboxes are marked, then select **Save**.
 
+### Map users of the ABAP service provider to external user IDs
+
+1. Run the **SM30** transaction.
+
+1. In the **Table/View** field, type **VUSREXTID**, then select **Maintain**. 
+
+1. In the **Determine Work Area: Entry** page, select the **DN** ID type as the **Work Area**. 
+
+1. Type these details:
+
+    - **External ID**: *CN=Sentinel*, *C=US*
+    - **Seq. No**: *000*
+    - **User**: *SENTINEL*
+
+1. Select **Save** and **Enter**. 
+
+    :::image type="content" source="media/configure-snc/vusrextid-table-configuration.png" alt-text="Screenshot of configuring the SAP VUSREXTID table.":::
+
 ### Set up the container
+
+> [!NOTE]
+> If you set up the SAP data connector agent container via the UI, don't perform the steps in this section. Continue to set up the connector [in the connector page](deploy-data-connector-agent-container.md) instead.
 
 1. Transfer the **libsapcrypto.so** and **sapgenpse** files to the target system where the container will be created.
 
@@ -182,29 +198,27 @@ For additional information on options available in the kickstart script, review 
 
 ## Next steps
 
-Learn more about the Microsoft Sentinel SAP solutions:
+Learn more about the Microsoft Sentinel solution for SAP® applications:
 
-- [Deploy Continuous Threat Monitoring for SAP](deployment-overview.md)
-- [Prerequisites for deploying SAP continuous threat monitoring](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
-- [Deploy and configure the SAP data connector agent container](deploy-data-connector-agent-container.md)
-- [Deploy SAP security content](deploy-sap-security-content.md)
-- [Deploy the Microsoft Sentinel SAP data connector with SNC](configure-snc.md)
+- [Deploy the solution content from the content hub](deploy-sap-security-content.md)
+- [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
 - [Enable and configure SAP auditing](configure-audit.md)
+- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 
 Troubleshooting:
 
-- [Troubleshoot your Microsoft Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)
-- [Configure SAP Transport Management System](configure-transport.md)
+- [Troubleshoot your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
 
 Reference files:
 
-- [Microsoft Sentinel SAP solution data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel SAP solution: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel solution for SAP® applications data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md)
 - [Kickstart script reference](reference-kickstart.md)
 - [Update script reference](reference-update.md)
 - [Systemconfig.ini file reference](reference-systemconfig.md)
 
 For more information, see [Microsoft Sentinel solutions](../sentinel-solutions.md).
-

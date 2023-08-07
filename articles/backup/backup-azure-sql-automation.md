@@ -2,12 +2,12 @@
 title: SQL DB in Azure VM backup & restore via PowerShell
 description: Back up and restore SQL Databases in Azure VMs using Azure Backup and PowerShell.
 ms.topic: conceptual
-ms.date: 01/17/2022
+ms.date: 07/15/2022
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1 
 ms.custom: devx-track-azurepowershell
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up and restore SQL databases in Azure VMs with PowerShell
@@ -43,7 +43,7 @@ Review the **Az.RecoveryServices** [cmdlet reference](/powershell/module/az.reco
 
 Set up PowerShell as follows:
 
-1. [Download the latest version of Az PowerShell](/powershell/azure/install-az-ps). The minimum version required is 1.5.0.
+1. [Download the latest version of Az PowerShell](/powershell/azure/install-azure-powershell). The minimum version required is 1.5.0.
 
 2. Find the Azure Backup PowerShell cmdlets with this command:
 
@@ -102,7 +102,7 @@ The Recovery Services vault is a Resource Manager resource, so you must place it
 3. Specify the type of redundancy to use for the vault storage.
 
     * You can use [locally redundant storage](../storage/common/storage-redundancy.md#locally-redundant-storage), [geo-redundant storage](../storage/common/storage-redundancy.md#geo-redundant-storage) or [zone-redundant storage](../storage/common/storage-redundancy.md#zone-redundant-storage) .
-    * The following example sets the **-BackupStorageRedundancy** option for the[Set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd for **testvault** set to **GeoRedundant**.
+    * The following example sets the **-BackupStorageRedundancy** option for the [Set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd for **testvault** set to **GeoRedundant**.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -462,6 +462,9 @@ PointInTime          : 1/1/0001 12:00:00 AM
 > [!IMPORTANT]
 > Make sure that the final recovery config object has all the necessary and proper values since the restore operation will be based on the config object.
 
+> [!NOTE]
+> If you don't want to restore the entire chain but only a subset of files, follow the steps as documented [here](restore-sql-database-azure-vm.md#partial-restore-as-files).
+
 #### Alternate workload restore to a vault in secondary region
 
 > [!IMPORTANT]
@@ -667,6 +670,14 @@ Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $testVault.ID
 #### Disable auto protection
 
 If autoprotection was configured on an SQLInstance, you can disable it using the [Disable-AzRecoveryServicesBackupAutoProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection) PowerShell cmdlet.
+
+Find the instances where auto-protection is enabled using the following PowerShell command.
+
+```azurepowershell
+Get-AzRecoveryServicesBackupProtectableItem -WorkloadType MSSQL -VaultId $testVault.ID | Where-Object {$_.IsAutoProtected -eq $true}
+```
+
+Then pick the relevant protectable item name and server name from the output and disable auto-protection for those instances.
 
 ```powershell
 $SQLInstance = Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLInstance -VaultId $testVault.ID -Name "<Protectable Item name>" -ServerName "<Server Name>"

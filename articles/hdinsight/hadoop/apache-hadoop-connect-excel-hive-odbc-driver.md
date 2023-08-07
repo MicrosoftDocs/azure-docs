@@ -4,7 +4,7 @@ description: Learn how to set up and use the Microsoft Hive ODBC driver for Exce
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
-ms.date: 04/22/2022
+ms.date: 05/23/2023
 ---
 
 # Connect Excel to Apache Hadoop in Azure HDInsight with the Microsoft Hive ODBC driver
@@ -47,7 +47,7 @@ The following steps show you how to create a Hive ODBC Data Source.
    |  Port |Use **443**. (This port has been changed from 563 to 443.) |
    |  Database |Use **default**. |
    |  Mechanism |Select **Windows Azure HDInsight Service** |
-   |  User Name |Enter HDInsight cluster HTTP user username. The default username is **admin**. |
+   |  User Name |Enter HDInsight cluster HTTP user username. The default username is `admin`. |
    |  Password |Enter HDInsight cluster user password. Select the checkbox **Save Password (Encrypted)**.|
 
 1. Optional: Select **Advanced Options...**  

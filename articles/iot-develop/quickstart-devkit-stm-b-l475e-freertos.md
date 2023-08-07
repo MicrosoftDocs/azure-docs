@@ -6,8 +6,8 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 01/27/2022
-ms.custom: mode-other
+ms.date: 11/29/2022
+ms.custom: 
 #Customer intent: As a device builder, I want to see a working IoT device sample connecting to Azure IoT, sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
@@ -32,6 +32,7 @@ Hardware:
 - STM [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) devkit
 - USB 2.0 A male to Micro USB male cable
 - Wi-Fi 2.4 GHz
+- An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prepare the development environment
 
@@ -124,7 +125,7 @@ To connect the STM DevKit to Azure, modify configuration settings, build the ima
 
 ### Flash the image
 
-1. On the STM DevKit board, locate the **Reset** button (1), the Micro USB port (2), which is labeled **USB STLink**, and the board part number (3). You will refer to these items in the next steps. All of them are highlighted in the following picture:
+1. On the STM DevKit board, locate the **Reset** button (1), the Micro USB port (2), which is labeled **USB STLink**, and the board part number (3). You'll refer to these items in the next steps. All of them are highlighted in the following picture:
 
     :::image type="content" source="media/quickstart-devkit-stm-b-l475e-freertos/stm-devkit-board-475.png" alt-text="Locate key components on the STM DevKit board":::
 
@@ -210,7 +211,7 @@ To view telemetry in IoT Central:
 
 ## Call a command on the device
 
-You can also use IoT Central to call a command that you have implemented on your device. In this section, you call a method that enables you to turn an LED on or off.
+You can also use IoT Central to call a command that you've implemented on your device. In this section, you call a method that enables you to turn an LED on or off.
 
 To call a command in IoT Central portal:
 

@@ -1,11 +1,13 @@
 ---
 title: Replicate Azure VMs running in a proximity placement group
 description: Learn how to replicate Azure VMs running in proximity placement groups by using Azure Site Recovery.
-author: Sharmistha-Rai
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.topic: how-to
-ms.date: 02/11/2021
-
+ms.service: site-recovery
+ms.custom: devx-track-azurepowershell
+ms.date: 08/01/2023
 ---
 
 # Replicate virtual machines running in a proximity placement group to another region
@@ -93,12 +95,12 @@ You can easily update your selection of a proximity placement group in the DR re
 
 ### Prerequisites 
 
-- Make sure that you have the Azure PowerShell Az module. If you need to install or upgrade Azure PowerShell, follow the [guide to install and configure Azure PowerShell](/powershell/azure/install-az-ps).
+- Make sure that you have the Azure PowerShell Az module. If you need to install or upgrade Azure PowerShell, follow the [guide to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 - The minimum Azure PowerShell Az version should be 4.1.0. To check the current version, use the following command:
 
-    ```
-	Get-InstalledModule -Name Az
-	```
+  ```powershell
+  Get-InstalledModule -Name Az
+  ```
 
 > [!NOTE]
 > Make sure that you have the unique ID of the target proximity placement group handy. The command that you use depends on whether you're [creating a new proximity placement group](../virtual-machines/windows/proximity-placement-groups.md#create-a-proximity-placement-group) or [using an existing proximity placement group](../virtual-machines/windows/proximity-placement-groups.md#list-proximity-placement-groups).
@@ -271,30 +273,33 @@ You can easily update your selection of a proximity placement group in the DR re
 5. [Install the provider and agent](./hyper-v-azure-powershell-resource-manager.md#step-5-install-the-provider-and-agent).
 6. [Create a replication policy](./hyper-v-azure-powershell-resource-manager.md#step-6-create-a-replication-policy).
 7. Enable replication by using the following steps: 
-	
-   a. Retrieve the protectable item that corresponds to the VM you want to protect:
+
+   1. Retrieve the protectable item that corresponds to the VM you want to protect:
 
       ```azurepowershell
       $VMFriendlyName = "Fabrikam-app"          #Name of the VM
       $ProtectableItem = Get-AzRecoveryServicesAsrProtectableItem -ProtectionContainer $protectionContainer -FriendlyName $VMFriendlyName
       ```
-   b. Protect the VM. If the VM you're protecting has more than one disk attached to it, specify the operating system disk by using the `OSDiskName` parameter:
-	
+
+   1. Protect the VM. If the VM you're protecting has more than one disk attached to it, specify the operating system disk by using the `OSDiskName` parameter:
+
       ```azurepowershell
       $OSType = "Windows"          # "Windows" or "Linux"
       $DRjob = New-AzRecoveryServicesAsrReplicationProtectedItem -ProtectableItem $VM -Name $VM.Name -ProtectionContainerMapping $ProtectionContainerMapping -RecoveryAzureStorageAccountId 	$StorageAccountID -OSDiskName $OSDiskNameList[$i] -OS $OSType -RecoveryResourceGroupId $ResourceGroupID -RecoveryProximityPlacementGroupId $targetPpg.Id
       ```
-   c. Wait for the VMs to reach a protected state after the initial replication. This process can take a while, depending on factors like the amount of data to be replicated and the available upstream bandwidth to Azure. 
+
+   1. Wait for the VMs to reach a protected state after the initial replication. This process can take a while, depending on factors like the amount of data to be replicated and the available upstream bandwidth to Azure. 
    
       When a protected state is in place, `State` and `StateDescription` for the job are updated as follows: 
-	
+
       ```azurepowershell
       $DRjob = Get-AzRecoveryServicesAsrJob -Job $DRjob
       $DRjob | Select-Object -ExpandProperty State
 
       $DRjob | Select-Object -ExpandProperty StateDescription
       ```
-   d. Update recovery properties (such as the VM role size) and the Azure network to which to attach the VM NIC after failover:
+
+   1. Update recovery properties (such as the VM role size) and the Azure network to which to attach the VM NIC after failover:
 
       ```azurepowershell
       $nw1 = Get-AzVirtualNetwork -Name "FailoverNw" -ResourceGroupName "MyRG"

@@ -4,6 +4,10 @@
   items:
   - name: About App Service Environment
     href: overview.md
+  - name: Version comparison
+    href: version-comparison.md
+  - name: Upgrade to App Service Environment v3
+    href: upgrade-to-asev3.md
 - name: Quickstarts
   expanded: true
   items:
@@ -19,8 +23,10 @@
   items:
   - name: Networking architecture
     href: networking.md
-  - name: Zone redundancy
-    href: overview-zone-redundancy.md
+  - name: Resiliency
+    items:
+    - name: Migrate to availability zone support
+      href: ../../availability-zones/migrate-app-service-environment.md
   - name: Certificates
     href: overview-certificates.md
   - name: Diagnostics
@@ -32,11 +38,15 @@
   - name: Using App Service Environment
     href: using.md
   - name: Create App Service Environment from template
-    href: create-from-template.md
+    href: how-to-create-from-template.md
   - name: App Service Environment custom settings
     href: app-service-app-service-environment-custom-settings.md
   - name: App Service Environment v3 network settings
     href: configure-network-settings.md
+  - name: Custom domain suffix
+    href: how-to-custom-domain-suffix.md
+  - name: Upgrade preference for planned maintenance
+    href: how-to-upgrade-preference.md
   - name: Migrate to App Service Environment v3
     href: migration-alternatives.md
   - name: Use the migration feature
@@ -71,6 +81,8 @@
     items:
     - name: About App Service Environment v2
       href: intro.md
+    - name: Create ASE v2 from template
+      href: create-from-template.md
     - name: Create external ASE v2
       href: create-external-ase.md
     - name: Create internal ASE v2

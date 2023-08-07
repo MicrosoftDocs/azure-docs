@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with HyperAnna | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with HyperAnna'
 description: Learn how to configure single sign-on between Azure Active Directory and HyperAnna.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/13/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -46,6 +46,8 @@ To configure the integration of HyperAnna into Azure AD, you need to add HyperAn
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **HyperAnna** in the search box.
 1. Select **HyperAnna** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 
 ## Configure and test Azure AD single sign-on
@@ -146,4 +148,4 @@ When you click the HyperAnna tile in the Access Panel, you should be automatical
 
 - [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

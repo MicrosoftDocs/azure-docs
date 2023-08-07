@@ -6,13 +6,14 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 04/22/2022
+ms.date: 05/25/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
 
-# Deploy VMs on your Azure Stack Edge Pro GPU device via templates
+# Deploy VMs on your Azure Stack Edge Pro GPU device via templates 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
@@ -298,27 +299,35 @@ The file `CreateImage.parameters.json` takes the following parameters:
 
 ```json
 "parameters": {
-	    "osType": {
-	          "value": "<Operating system corresponding to the VHD you upload can be Windows or Linux>"
-        },
-        "imageName": {
-            "value": "<Name for the VM image>"
-        },
-        "imageUri": {
-              "value": "<Path to the VHD that you uploaded in the Storage account>"
-        },
-    }
+    "osType": {
+        "value": "<Operating system corresponding to the VHD you upload can be Windows or Linux>"
+    },
+    "imageName": {
+        "value": "<Name for the VM image>"
+    },
+    "imageUri": {
+        "value": "<Path to the VHD that you uploaded in the Storage account>"
+    },
+    "hyperVGeneration": { 
+        "type": "string", 
+        "value": "<Generation of the VM, V1 or V2>"
+    }, 
+}
 ```
 
 Edit the file `CreateImage.parameters.json` to include the following values for your Azure Stack Edge Pro device:
 
-1. Provide the OS type corresponding to the VHD you'll upload. The OS type can be Windows or Linux.
+1. Provide the OS type and Hyper V Generation corresponding to the VHD you'll upload. The OS type can be Windows or Linux and the VM Generation can be V1 or V2.
 
     ```json
     "parameters": {
             "osType": {
               "value": "Windows"
-            },
+            }, 
+            "hyperVGeneration": { 
+              "value": "V2" 
+        },
+    }
     ```
 
 2. Change the image URI to the URI of the image you uploaded in the earlier step:
@@ -343,12 +352,15 @@ Edit the file `CreateImage.parameters.json` to include the following values for 
         "osType": {
           "value": "Linux"
         },
+        "hyperVGeneration": {
+         "value": "V1"
+        },
         "imageName": {
           "value": "myaselinuximg"
         },
         "imageUri": {
           "value": "https://sa2.blob.myasegpuvm.wdshcsso.com/con1/ubuntu18.04waagent.vhd"
-        }
+        }        
       }
     }
     ```
@@ -909,23 +921,23 @@ Deploy the VM creation template `CreateVM.json`. This template creates a network
 
     You can also run the `New-AzureRmResourceGroupDeployment` command asynchronously with `–AsJob` parameter. Here's a sample output when the cmdlet runs in the background. You can then query the status of job that is created using the `Get-Job` cmdlet.
 
-    ```powershell	
+    ```powershell
     PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment `
-	>>     -ResourceGroupName $RGName `
-	>>     -TemplateFile $templateFile `
-	>>     -TemplateParameterFile $templateParameterFile `
-	>>     -Name "Deployment2" `
-	>>     -AsJob
-	 
-	Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
-	--     ----            -------------   -----         -----------     --------             -------
-	2      Long Running... AzureLongRun... Running       True            localhost            New-AzureRmResourceGro...
-	 
-	PS C:\WINDOWS\system32> Get-Job -Id 2
-	 
-	Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
-	--     ----            -------------   -----         -----------     --------             -------
-	```
+    >>     -ResourceGroupName $RGName `
+    >>     -TemplateFile $templateFile `
+    >>     -TemplateParameterFile $templateParameterFile `
+    >>     -Name "Deployment2" `
+    >>     -AsJob
+     
+    Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+    --     ----            -------------   -----         -----------     --------             -------
+    2      Long Running... AzureLongRun... Running       True            localhost            New-AzureRmResourceGro...
+     
+    PS C:\WINDOWS\system32> Get-Job -Id 2
+     
+    Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+    --     ----            -------------   -----         -----------     --------             -------
+    ```
 
 1. Check if the VM is successfully provisioned. Run the following command:
 

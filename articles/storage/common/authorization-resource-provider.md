@@ -4,12 +4,13 @@ description: The Azure Storage resource provider is a service that provides acce
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common
+ms.subservice: storage-common-concepts
+ms.custom: devx-track-arm-template
 ---
 
 # Use the Azure Storage resource provider to access management resources
@@ -32,7 +33,7 @@ Every Azure subscription has an associated Azure Active Directory that manages u
 
 When you assign an Azure role to a security principal, you also indicate the scope at which the permissions granted by the role are in effect. For management operations, you can assign a role at the level of the subscription, the resource group, or the storage account. You can assign an Azure role to a security principal by using the [Azure portal](https://portal.azure.com/), the [Azure classic CLI](/cli/azure/install-classic-cli), [PowerShell](/powershell/azure/), or the [Azure Storage resource provider REST API](/rest/api/storagerp).
 
-For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md) and [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md) and [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ### Built-in roles for management operations
 
@@ -62,7 +63,7 @@ For code examples that show how to authorize and call management operations from
 - [.NET](https://github.com/Azure-Samples/storage-dotnet-resource-provider-getting-started)
 - [Java](https://github.com/Azure-Samples/storage-java-manage-storage-accounts)
 - [Node.js](https://github.com/Azure-Samples/storage-node-resource-provider-getting-started)
-- [Python](https://github.com/Azure-Samples/storage-python-manage)
+- [Python](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/storage)
 
 ## Azure Resource Manager versus classic deployments
 

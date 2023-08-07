@@ -6,7 +6,7 @@ ms.reviewer: madsd
 ms.custom: devx-track-azurecli
 ---
 
-1. Configure the Cognitive Services secrets as app settings `CS_ACCOUNT_NAME` and `CS_ACCOUNT_KEY`.
+1. Configure the Azure AI services secrets as app settings `CS_ACCOUNT_NAME` and `CS_ACCOUNT_KEY`.
 
     ```azurecli-interactive
     # Get subscription key for Cognitive Services resource
@@ -40,7 +40,7 @@ At the moment, connection secrets are stored as app settings in your App Service
     
     ```azurecli-interactive
     vaultResourceId=$(az keyvault show --name $vaultName --query id --output tsv)
-    myId=$(az ad signed-in-user show --query objectId --output tsv)
+    myId=$(az ad signed-in-user show --query id --output tsv)
     az role assignment create --role "Key Vault Secrets Officer" --assignee-object-id $myId --assignee-principal-type User --scope $vaultResourceId
     ```
 
@@ -50,7 +50,7 @@ At the moment, connection secrets are stored as app settings in your App Service
     az webapp identity assign --resource-group $groupName --name $appName --scope $vaultResourceId --role  "Key Vault Secrets User"
     ```
 
-1. Add the Cognitive Services resource name and subscription key as secrets to the vault, and save their IDs as environment variables for the next step.
+1. Add the Azure AI services resource name and subscription key as secrets to the vault, and save their IDs as environment variables for the next step.
 
     ```azurecli-interactive
     csResourceKVUri=$(az keyvault secret set --vault-name $vaultName --name csresource --value $csResourceName --query id --output tsv)
@@ -63,9 +63,9 @@ At the moment, connection secrets are stored as app settings in your App Service
     az webapp config appsettings set --resource-group $groupName --name $appName --settings CS_ACCOUNT_NAME="@Microsoft.KeyVault(SecretUri=$csResourceKVUri)" CS_ACCOUNT_KEY="@Microsoft.KeyVault(SecretUri=$csKeyKVUri)"
     ```
 
-1. In the browser, navigate to `<app-name>.azurewebsites.net` again. If you get detection results back, then you're connecting to the Cognitive Services endpoint with key vault references.
+1. In the browser, navigate to `<app-name>.azurewebsites.net` again. If you get detection results back, then you're connecting to the Azure AI services endpoint with key vault references.
 
-Congratulations, your app is now connecting to Cognitive Services using secrets kept in your key vault, without any changes to your application code.
+Congratulations, your app is now connecting to Azure AI services using secrets kept in your key vault, without any changes to your application code.
 
 ## Clean up resources
 

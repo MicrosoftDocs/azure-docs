@@ -2,10 +2,11 @@
 title: Automation in Azure Backup
 description: Provides a summary of automation capabilities offered by Azure Backup.
 ms.topic: conceptual
-ms.date: 11/26/2021
-author: v-amallick
+ms.date: 09/15/2022
 ms.service: backup
-ms.author: v-amallick
+ms.custom: engagement-fy23
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Automation in Azure Backup
@@ -38,7 +39,7 @@ This section provides a few common automation use cases that you might encounter
 
 ### Configure backups
 
-As a backup admin, you need to deal with new infrastructure getting added periodically, and ensure they are protected as per the agreed requirements. The automation clients, such as PowerShell/CLI, help to fetch all VM details, check the backup status of each of them, and then take appropriate action for unprotected VMs.
+As a backup admin, you need to deal with new infrastructure getting added periodically, and ensure they're protected as per the agreed requirements. The automation clients, such as PowerShell/CLI, help to fetch all VM details, check the backup status of each of them, and then take appropriate action for unprotected VMs.
 
 However, this must be performant at-scale. Also, you need to schedule them periodically and monitor each run. To ease the automation operations, Azure Backup now uses Azure Policy and provides [built-in backup specific Azure Policies](backup-center-govern-environment.md#azure-policies-for-backup) to govern the backup estate.
 
@@ -48,7 +49,7 @@ Once you assign an Azure Policy to a scope, all VMs that meet your criteria are 
 
 The following video illustrates how Azure Policy works for backup:  <br><br>
 
-> [!VIDEO /shows/IT-Ops-Talk/Configure-backups-at-scale-using-Azure-Policy/player]
+> [!VIDEO https://learn.microsoft.com/shows/IT-Ops-Talk/Configure-backups-at-scale-using-Azure-Policy/player]
 
 ### Export backup-operational data
 
@@ -68,7 +69,7 @@ For more information on how to set up this runbook, see [Automatic retry of fail
 
 The following video provides an end-to-end walk-through of the scenario: <br><br>
 
-   > [!VIDEO /shows/IT-Ops-Talk/Automatically-retry-failed-backup-jobs-using-Azure-Resource-Graph-and-Azure-Automation-Runbooks/player]
+   > [!VIDEO https://learn.microsoft.com/shows/IT-Ops-Talk/Automatically-retry-failed-backup-jobs-using-Azure-Resource-Graph-and-Azure-Automation-Runbooks/player]
 
 ## Additional resources
 

@@ -2,6 +2,7 @@
 title: Programmatically create Azure Dashboards
 description: Use a dashboard in the Azure portal as a template to programmatically create Azure Dashboards. Includes JSON reference.
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.date: 11/18/2021
 ---
 
@@ -107,7 +108,7 @@ Once you've configured your template, deploy it using any of the following metho
 
 - [REST APIs](/rest/api/resources/deployments)
 - [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
-- [Azure CLI](/cli/azure/group/deployment#az-group-deployment-create)
+- [Azure CLI](/cli/azure/deployment/group#az-deployment-group-create)
 - [The Azure portal template deployment page](https://portal.azure.com/#create/Microsoft.Template)
 
 Next you'll see two versions of our example dashboard JSON. The first is the version that we exported from the portal that was already bound to a resource. The second is the template version that can be programmatically bound to any virtual machine and deployed using Azure Resource Manager.
@@ -644,7 +645,7 @@ Now that you've seen an example of using a parameterized template to deploy a da
 
 Prepare your environment for the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - These examples use the following dashboard: [portal-dashboard-template-testvm.json](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json). Be sure to replace all of the content in angled brackets with your values.
 

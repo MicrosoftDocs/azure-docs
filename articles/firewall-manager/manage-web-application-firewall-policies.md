@@ -1,20 +1,16 @@
 ---
-title: Manage Azure Web Application Firewall policies (preview)
+title: Manage Azure Web Application Firewall policies
 description: Learn how to use Azure Firewall Manager to manage Azure Web Application Firewall policies
 author: vhorne
 ms.author: victorh
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 06/02/2022
+ms.date: 06/15/2022
 ---
 
-# Manage Web Application Firewall policies (preview)
+# Manage Web Application Firewall policies
 
 You can centrally create and associate Web Application Firewall (WAF) policies for your application delivery platforms, including Azure Front Door and Azure Application Gateway.
-
-> [!IMPORTANT]
-> Managing Web Application Firewall policies using Azure Firewall Manager is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites 
 
@@ -22,7 +18,7 @@ You can centrally create and associate Web Application Firewall (WAF) policies f
 
 ## Associate a WAF policy
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the Azure portal search bar, type **Firewall Manager** and press **Enter**.
 3. On the Azure Firewall Manager page, select **Application Delivery Platforms**.
    :::image type="content" source="media/manage-web-application-firewall-policies/application-delivery-platforms.png" alt-text="Screenshot of Firewall Manager application delivery platforms.":::
@@ -41,4 +37,4 @@ You can centrally create and associate Web Application Firewall (WAF) policies f
 
 ## Next steps
 
-- [Configure WAF policies using Azure Firewall Manager (preview)](../web-application-firewall/shared/manage-policies.md)
+- [Configure WAF policies using Azure Firewall Manager](../web-application-firewall/shared/manage-policies.md)

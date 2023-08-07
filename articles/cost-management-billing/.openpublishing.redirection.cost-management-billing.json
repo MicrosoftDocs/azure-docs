@@ -72,7 +72,7 @@
         },
         {
             "source_path_from_root": "/articles/billing-usage-rate-card-overview.md",
-            "redirect_url": "/azure/cost-management-billing/manage/consumption-api-overview#usage-details-api",
+            "redirect_url": "/azure/cost-management-billing/automate/automation-overview",
             "redirect_document_id": false
         },
         {
@@ -137,7 +137,12 @@
         },
         {
             "source_path_from_root": "/articles/billing/billing-consumption-api-overview.md",
-            "redirect_url": "/azure/cost-management-billing/manage/consumption-api-overview",
+            "redirect_url": "/azure/cost-management-billing/automate/automation-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/manage/consumption-api-overview.md",
+            "redirect_url": "/azure/cost-management-billing/automate/automation-overview",
             "redirect_document_id": true
         },
         {
@@ -207,7 +212,12 @@
         },
         {
             "source_path_from_root": "/articles/billing/billing-ea-portal-rest-apis.md",
-            "redirect_url": "/azure/cost-management-billing/manage/ea-portal-rest-apis",
+            "redirect_url": "/azure/cost-management-billing/manage/enterprise-rest-apis",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/manage/ea-portal-rest-apis.md",
+            "redirect_url": "/azure/cost-management-billing/manage/enterprise-rest-apis",
             "redirect_document_id": true
         },
         {
@@ -558,6 +568,11 @@
         {
             "source_path_from_root": "/articles/billing/billing-understand-reservation-charges-postgresql.md",
             "redirect_url": "/azure/cost-management-billing/reservations/understand-reservation-charges-postgresql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/reservations/understand-reservation-charges-postgresql.md",
+            "redirect_url": "/azure/postgresql/single-server/concept-reserved-pricing",
             "redirect_document_id": true
         },
         {
@@ -627,7 +642,7 @@
         },
         {
             "source_path_from_root": "/articles/billing/billing-usage-rate-card-overview.md",
-            "redirect_url": "/azure/cost-management-billing/manage/consumption-api-overview#usage-details-api",
+            "redirect_url": "/azure/cost-management-billing/automate/automation-overview",
             "redirect_document_id": false
         },
         {
@@ -786,11 +801,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/cost-management-billing/costs/index.yml",
-            "redirect_url": "/azure/cost-management-billing",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/cost-management-billing/costs/overview-cost-mgt.md",
             "redirect_url": "/azure/cost-management-billing/cost-management-billing-overview",
             "redirect_document_id": false
@@ -811,11 +821,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/cost-management-billing/manage/index.yml",
-            "redirect_url": "/azure/cost-management-billing",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/cost-management-billing/manage/office-365-account-for-azure-subscription.md",
             "redirect_url": "/azure/cost-management-billing/manage/microsoft-365-account-for-azure-subscription",
             "redirect_document_id": true
@@ -832,7 +837,7 @@
         },
         {
             "source_path_from_root": "/articles/cost-management-billing/manage/usage-rate-card-overview.md",
-            "redirect_url": "/azure/cost-management-billing/manage/consumption-api-overview#usage-details-api",
+            "redirect_url": "/azure/cost-management-billing/automate/automation-overview",
             "redirect_document_id": false
         },
         {
@@ -1058,6 +1063,41 @@
         {
             "source_path_from_root": "/articles/cost-management-billing/understand/mca-faq.md",
             "redirect_url": "/azure/cost-management-billing/microsoft-customer-agreement/microsoft-customer-agreement-faq",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/understand/subscription-transfer.md",
+            "redirect_url": "/azure/cost-management-billing/manage/subscription-transfer",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/manage/azure-account-for-microsoft-365-subscription.md",
+            "redirect_url": "/microsoft-365/commerce/try-or-buy-microsoft-365",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/manage/microsoft-365-account-for-azure-subscription.md",
+            "redirect_url": "/microsoft-365/enterprise/azure-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md",
+            "redirect_url": "/azure/cost-management-billing/automate/migrate-ea-reporting-arm-apis-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/manage/delete-azure-payment-method.md",
+            "redirect_url": "/azure/cost-management-billing/manage/change-credit-card",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/manage/create-multiple-subscriptions-error.md",
+            "redirect_url": "/azure/cost-management-billing/manage/create-subscriptions-deploy-resources",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/reservations/reservation-amortization.md",
+            "redirect_url": "/azure/cost-management-billing/reservations/view-amortized-costs",
             "redirect_document_id": true
         },
         {

@@ -6,8 +6,8 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 06/02/2021
-ms.custom: mode-other
+ms.date: 10/21/2022
+ms.custom: mode-other, engagement-fy23
 zone_pivot_groups: iot-develop-stm32-toolset
 
 # Owner: timlt
@@ -45,6 +45,7 @@ You'll complete the following tasks:
 * Use Azure IoT Central to create cloud components, view properties, view device telemetry, and call direct commands
 
 :::zone pivot="iot-toolset-cmake"
+
 ## Prerequisites
 
 * A PC running Windows 10
@@ -54,6 +55,7 @@ You'll complete the following tasks:
     * The [B-L4S5I-IOT01A](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html) (STM DevKit)
     * Wi-Fi 2.4 GHz
     * USB 2.0 A male to Micro USB male cable
+* An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prepare the development environment
 
@@ -174,37 +176,37 @@ You can use the **Termite** app to monitor communication and confirm that your d
     Starting Azure thread
 
     Initializing WiFi
-    	Module: ISM43362-M3G-L44-SPI
-	    MAC address: C4:7F:51:8F:67:F6
-    	Firmware revision: C3.5.2.5.STM
-	    Connecting to SSID 'iot'
+        Module: ISM43362-M3G-L44-SPI
+        MAC address: C4:7F:51:8F:67:F6
+        Firmware revision: C3.5.2.5.STM
+        Connecting to SSID 'iot'
     SUCCESS: WiFi connected to iot
 
     Initializing DHCP
-	    IP address: 192.168.0.22
-	    Gateway: 192.168.0.1
+        IP address: 192.168.0.22
+        Gateway: 192.168.0.1
     SUCCESS: DHCP initialized
 
     Initializing DNS client
-	    DNS address: 75.75.75.75
+        DNS address: 75.75.75.75
     SUCCESS: DNS client initialized
 
     Initializing SNTP client
-    	SNTP server 0.pool.ntp.org
-	    SNTP IP address: 108.62.122.57
-	    SNTP time update: May 21, 2021 22:42:8.394 UTC 
+        SNTP server 0.pool.ntp.org
+        SNTP IP address: 108.62.122.57
+        SNTP time update: May 21, 2021 22:42:8.394 UTC
     SUCCESS: SNTP initialized
 
     Initializing Azure IoT DPS client
-	    DPS endpoint: global.azure-devices-provisioning.net
-	    DPS ID scope: ***
-	    Registration ID: mydevice
+        DPS endpoint: global.azure-devices-provisioning.net
+        DPS ID scope: ***
+        Registration ID: mydevice
     SUCCESS: Azure IoT DPS client initialized
 
     Initializing Azure IoT Hub client
-	    Hub hostname: ***.azure-devices.net
-	    Device id: mydevice
-	    Model id: dtmi:azurertos:devkit:gsgstml4s5;1
+        Hub hostname: ***.azure-devices.net
+        Device id: mydevice
+        Model id: dtmi:azurertos:devkit:gsgstml4s5;1
     Connected to IoT Hub
     SUCCESS: Azure IoT Hub client initialized
     ```
@@ -294,8 +296,8 @@ In IAR, select **Project > Batch Build** and choose **build_all** and select **M
 1. In IAR, press the green **Download and Debug** button in the toolbar to download the program and run it. Then press ***Go***.
 1. Check the Terminal I/O to verify that messages have been successfully sent to the Azure IoT hub.
 
-    As the project runs, the demo displays the status information to the Terminal IO window (**View > Terminal I/O**). The demo also publishes the message to IoT Hub every few seconds. 
-    
+    As the project runs, the demo displays the status information to the Terminal IO window (**View > Terminal I/O**). The demo also publishes the message to IoT Hub every few seconds.
+
     > [!NOTE]
     > The terminal output content varies depending on which sample you choose to build and run.
 
@@ -369,7 +371,7 @@ To view telemetry in IoT Central portal:
 
 ## Call a direct method on the device
 
-You can also use IoT Central to call a direct method that you have implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout.
+You can also use IoT Central to call a direct method that you've implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout.
 
 To call a method in IoT Central portal:
 
@@ -401,10 +403,10 @@ Select the **About** tab from the device page.
 
 ## Download the STM32Cube IDE
 
-You can download a free version of STM32Cube IDE, but you will need to create an account. Follow the instructions on the ST website. THe STM32Cube IDE can be downloaded from this website: 
+You can download a free version of STM32Cube IDE, but you'll need to create an account. Follow the instructions on the ST website. The STM32Cube IDE can be downloaded from this website:
 https://www.st.com/en/development-tools/stm32cubeide.html
 
-The sample distribution zip file contains the following sub-folders that you will use later:
+The sample distribution zip file contains the following subfolders that you'll use later:
 
 |Folder|Contents|
 |-------------|-----|
@@ -428,32 +430,32 @@ To connect the device to Azure, you'll modify a configuration file for Azure IoT
 
 1. Select the sample project that you want to build and run. For example, ***sample_azure_iot_embedded_sdk_pnp.***
 
-1. Expand the ***command_hardware_code*** folder to open ***board_setup.c*** to configure the values for your WiFi to be used.
+1. Expand the ***common_hardware_code*** folder to open ***board_setup.c*** to configure the values for your WiFi to be used.
 
     |Symbol name|Value|
     |-----------|-----|
     |`WIFI_SSID` |{*Use your Wi-Fi SSID*}|
     |`WIFI_PASSWORD` |{*se your Wi-Fi password*}|
-  
+
 1. Expand the sample folder to open **sample_config.h** to set the Azure IoT device information constants to the values that you saved after you created Azure resources.
 
     |Constant name|Value|
     |-------------|-----|
     |`ENDPOINT` |{*Use this value: "global.azure-devices-provisioning.net"*}|
     |`REGISTRATION_ID` |{*Use your Device ID value*}|
-    |`ID_SCOPE` |{*Use your ID scope value*}| 
-    |`DEVICE_SYMMETRIC_KEY` |{*Use your Primary key value*}| 
+    |`ID_SCOPE` |{*Use your ID scope value*}|
+    |`DEVICE_SYMMETRIC_KEY` |{*Use your Primary key value*}|
 
      > [!NOTE]
     > The `ENDPOINT`, `DEVICE_ID`, `ID_SCOPE`, and `DEVICE_SYMMETRIC_KEY` values are set in a `#ifndef ENABLE_DPS_SAMPLE` statement. Make sure you set the values in the `#else` statement, which will be used when the `ENABLE_DPS_SAMPLE` value is defined.
 
 ### Build the project
 
-In STM32CubeIDE, select ***Project > Build All*** to build sample projects and its dependent libraries. You will observe compilation and linking of the sample project.
+In STM32CubeIDE, select ***Project > Build All*** to build sample projects and its dependent libraries. You'll observe compilation and linking of the sample project.
 
 Download and run the project
 
-1. On the STM DevKit MCU, locate the **Reset** button (1), the Micro USB port (2), which is labeled **USB STLink**, and the board part number (3). You will refer to these items in the next steps. All of them are highlighted in the following picture:
+1. On the STM DevKit MCU, locate the **Reset** button (1), the Micro USB port (2), which is labeled **USB STLink**, and the board part number (3). You'll refer to these items in the next steps. All of them are highlighted in the following picture:
 
     :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/stm-b-l4s5i.png" alt-text="Locate key components on the STM DevKit board":::
 
@@ -473,7 +475,7 @@ Download and run the project
    Stop bits: ***1***
 
 1. As the project runs, the demo displays status information to the terminal output window. The demo also publishes the message to IoT Hub every five seconds. Check the terminal output to verify that messages have been successfully sent to the Azure IoT hub.
-    
+
     > [!NOTE]
     > The terminal output content varies depending on which sample you choose to build and run.
 
@@ -548,7 +550,7 @@ To view telemetry in IoT Central portal:
 
 ## Call a direct method on the device
 
-You can also use IoT Central to call a direct method that you have implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout.
+You can also use IoT Central to call a direct method that you've implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout.
 
 To call a method in IoT Central portal:
 
@@ -600,7 +602,7 @@ To view telemetry in IoT Central portal:
 
 ## Call a direct method on the device
 
-You can also use IoT Central to call a direct method that you have implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout. In this section, you call a method that enables you to turn an LED on or off.
+You can also use IoT Central to call a direct method that you've implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout. In this section, you call a method that enables you to turn an LED on or off.
 
 To call a method in IoT Central portal:
 
@@ -627,10 +629,10 @@ If you experience issues building the device code, flashing the device, or conne
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 :::zone-end
 :::zone pivot="iot-toolset-iar-ewarm"
-For help with debugging the application, see the selections under **Help** in **IAR EW for ARM**.  
+For help with debugging the application, see the selections under **Help** in **IAR EW for ARM**.
 :::zone-end
 :::zone pivot="iot-toolset-stm32cube"
-For help with debugging the application, see the selections under **Help**.  
+For help with debugging the application, see the selections under **Help**.
 :::zone-end
 
 ## Clean up resources
@@ -643,9 +645,9 @@ To remove the entire Azure IoT Central sample application and all its devices an
 
 ## Next steps
 
-In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the STM DevKit device. You also used the IoT Central portal to create Azure resources, connect the STM DevKit securely to Azure, view customer content, and send messages.
+In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the STM DevKit device. You also used the IoT Central portal to create Azure resources, connect the STM DevKit securely to Azure, view device data, and send messages.
 
-As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT. 
+As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT.
 
 > [!div class="nextstepaction"]
 > [Connect a simulated device to IoT Central](quickstart-send-telemetry-central.md)

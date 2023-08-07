@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure Zero for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Zero for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Zero.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 98d13d52-7f7e-4cfe-9ec3-c6a6b647dd80
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/27/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

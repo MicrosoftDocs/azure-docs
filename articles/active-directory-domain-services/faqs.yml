@@ -4,14 +4,14 @@ metadata:
   description: Read and understand some of the frequently asked questions around configuration, administration, and availability for Azure Active Directory Domain Services
   services: active-directory-ds
   author: justinha
-  manager: karenhoran
+  manager: amycolannino
   
   ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
   ms.service: active-directory
   ms.subservice: domain-services
   ms.workload: identity
   ms.topic: faq
-  ms.date: 02/16/2022
+  ms.date: 08/01/2023
   ms.author: justinha
 title: Frequently asked questions (FAQs) about Azure Active Directory (AD) Domain Services
 summary: This page answers frequently asked questions about Azure Active Directory Domain Services.
@@ -28,8 +28,8 @@ sections:
       - question: |
           Can I enable Azure AD Domain Services in a Classic virtual network?
         answer: |
-          Classic virtual networks aren't supported for new deployments. Existing managed domains deployed in Classic virtual networks continue to be supported until they're retired on March 1, 2023. For existing deployments, you can [migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager](migrate-from-classic-vnet.md).
-          
+          Classic virtual networks aren't supported.
+
           For more information, see the [official deprecation notice](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/).
           
       - question: |
@@ -37,11 +37,6 @@ sections:
         answer: |
           Yes. Azure AD Domain Services can be enabled in an Azure Resource Manager virtual network. Classic Azure virtual networks are no longer available when you create a managed domain.
 
-      - question: |
-          Can I migrate my existing managed domain from a Classic virtual network to a Resource Manager virtual network?
-        answer: |
-          Yes. For more information, see [Migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager](migrate-from-classic-vnet.md).
-          
       - question: |
           Can I enable Azure AD Domain Services in an Azure CSP (Cloud Solution Provider) subscription?
         answer: |
@@ -80,19 +75,14 @@ sections:
           No. Guest users invited to your Azure AD directory using the [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md) invite process are synchronized into your Azure AD Domain Services managed domain. However, passwords for these users aren't stored in your Azure AD directory. Therefore, Azure AD Domain Services has no way to synchronize NTLM and Kerberos hashes for these users into your managed domain. Such users can't sign in or join computers to the managed domain.
           
       - question: |
-          Can a two-way forest trust be created between a resource forest and an on-premises forest?
+          Can a two-way forest trust be created between Azure AD DS and an on-premises forest?
         answer: |
-          No. A managed domain resource forest supports up to five one-way outbound forest trusts to on-premises forests. 
-
-      - question: |
-          Why can't I see the Trusts menu?
-        answer: |
-          If you don't see the **Trusts** menu option, check under **Properties** for the **Forest type**. Only **Resource** forests can create trusts. If the forest type is **User**, you can't create trusts. There's currently no way to change the forest type of a managed domain. You need to delete and recreate the managed domain as a resource forest. 
+          No. A managed domain supports up to five one-way outbound forest trusts to on-premises forests. 
 
       - question: |
           Can I move a managed domain?
         answer: |
-          No. After you create an Azure AD Domain Services managed domain, you can't move it to a different subscription, resource group, region, virtual network, or subnet. As a workaround, you can [delete the managed domain](delete-aadds.md) by using PowerShell or the Azure portal and re-create it with your desired setup. No restore operations can be provided while the managed domain is re-created.
+          After you create an Azure AD Domain Services managed domain, you can't move it to a different subscription, resource group, or region. As a workaround, you can [delete the managed domain](delete-aadds.md) by using PowerShell or the Azure portal and re-create it with your desired setup. No restore operations can be provided while the managed domain is re-created.
 
       - question: |
           Can I rename an existing Azure AD Domain Services domain name?
@@ -109,12 +99,12 @@ sections:
       - question: |
           Can I connect to the domain controller for my managed domain using Remote Desktop?
         answer: |
-          No. You don't have permissions to connect to domain controllers for the managed domain using Remote Desktop. Members of the *AAD DC Administrators* group can administer the managed domain using AD administration tools such as the Active Directory Administration Center (ADAC) or AD PowerShell. These tools are installed using the *Remote Server Administration Tools* feature on a Windows server joined to the managed domain. For more information, see [Create a management VM to configure and administer an Azure AD Domain Services managed domain](tutorial-create-management-vm.md).
+          No. You don't have permissions to connect to domain controllers for the managed domain using Remote Desktop. Members of the *Azure AD DC Administrators* group can administer the managed domain using AD administration tools such as the Active Directory Administration Center (ADAC) or AD PowerShell. These tools are installed using the *Remote Server Administration Tools* feature on a Windows server joined to the managed domain. For more information, see [Create a management VM to configure and administer an Azure AD Domain Services managed domain](tutorial-create-management-vm.md).
           
       - question: |
           I've enabled Azure AD Domain Services. What user account do I use to domain join machines to this domain?
         answer: |
-          Any user account that's part of the managed domain can join a VM. Members of the *AAD DC Administrators* group are granted remote desktop access to machines that have been joined to the managed domain.
+          Any user account that's part of the managed domain can join a VM. Members of the *Azure AD DC Administrators* group are granted remote desktop access to machines that have been joined to the managed domain.
 
       - question: |
           Do I have domain administrator privileges for the managed domain provided by Azure AD Domain Services?
@@ -139,7 +129,7 @@ sections:
       - question: |
           Can I modify or add DNS records in my managed domain?
         answer: |
-          Yes. Members of the *AAD DC Administrators* group are granted *DNS Administrator* privileges to modify DNS records in the managed domain. Those users can use the DNS Manager console on a machine running Windows Server joined to the managed domain to manage DNS. To use the DNS Manager console, install *DNS Server Tools*, which are part of the *Remote Server Administration Tools* optional feature on the server. For more information, see [Administer DNS in an Azure AD Domain Services managed domain](manage-dns.md).
+          Yes. Members of the *Azure AD DC Administrators* group are granted *DNS Administrator* privileges to modify DNS records in the managed domain. Those users can use the DNS Manager console on a machine running Windows Server joined to the managed domain to manage DNS. To use the DNS Manager console, install *DNS Server Tools*, which are part of the *Remote Server Administration Tools* optional feature on the server. For more information, see [Administer DNS in an Azure AD Domain Services managed domain](manage-dns.md).
           
       - question: |
           What is the password lifetime policy on a managed domain?
@@ -164,6 +154,15 @@ sections:
           How are Windows Updates applied in Azure AD Domain Services?
         answer: |
           Domain controllers in a managed domain automatically apply required Windows updates. There's nothing for you to configure or administer here. Make sure you don't create network security group rules that block outbound traffic to Windows Updates. For your own VMs joined to the managed domain, you are responsible for configuring and applying any required OS and application updates.
+          
+      - question: |
+          Why do my domain controllers change names?
+        answer: |
+          It is possible that during the maintenance of domain controllers there is a change in their names. To avoid problems with this type of change, it is recommended to not use the names of the domain controllers hardcoded in applications and/or other domain resources, but the FQDN of the domain. This way, no matter what the names of the domain controllers are, you won't need to reconfigure anything after a name change.
+      - question: |
+          Is the password of the KRBTGT account in a managed domain rolled periodically? If so, what is the frequency?
+        answer: |
+          The password of the KRBTGT account in a managed domain is rolled over every seven (7) days.
 
   - name: Billing and availability
     questions:
@@ -198,7 +197,7 @@ sections:
           No. Azure AD Domain Services has a single-domain, single-forest design, and you can't create child domains.
 
       - question: |
-          What Azure regions is the service available in?
+          Which Azure regions have the service available?
         answer: |
           Refer to the [Azure Services by region](https://azure.microsoft.com/regions/#services/) page to see a list of the Azure regions where Azure AD Domain Services is available.
           

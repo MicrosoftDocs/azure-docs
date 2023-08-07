@@ -1,28 +1,20 @@
 ---
 title: Configure diagnostic settings and a workspace
 description: Learn how to configure diagnostic settings and a Log Analytics workspace to monitor Azure Data Factory.
-author: joshuha-msft
-ms.author: joowen
+author: ukchrist
+ms.author: ulrichchrist
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 07/20/2023
 ---
 
 # Configure diagnostic settings and a workspace
 
 Create or add diagnostic settings for your data factory.
 
-1. In the Azure portal, go to **Monitor**. Select **Settings** > **Diagnostics settings**.
-
-1. Select the data factory for which you want to set a diagnostic setting.
-
-1. If no settings exist on the selected data factory, you're prompted to create a setting. Select **Turn on diagnostics**.
-
-   :::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image1.png" alt-text="Screenshot that shows creating a diagnostic setting if no settings exist.":::
-
-   If there are existing settings on the data factory, you see a list of settings already configured on the data factory. Select **Add diagnostic setting**.
+1. In the Azure portal, navigate to your data factory and select **Diagnostics** on the left navigation pane to see the diagnostics settings.  If there are existing settings on the data factory, you see a list of settings already configured. Select **Add diagnostic setting**.
 
    :::image type="content" source="media/data-factory-monitor-oms/add-diagnostic-setting.png" alt-text="Screenshot that shows adding a diagnostic setting if settings exist.":::
 

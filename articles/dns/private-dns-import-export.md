@@ -5,7 +5,8 @@ description: Learn how to import and export a  DNS zone file to Azure private DN
 services: dns
 author: duongau
 ms.service: dns
-ms.date: 03/16/2021
+ms.custom: devx-track-azurecli
+ms.date: 09/27/2022
 ms.author: duau
 ms.topic: how-to
 ---
@@ -46,13 +47,13 @@ Importing a zone file creates a new zone in Azure private DNS if one does not al
 
 The following notes provide additional technical details about the zone import process.
 
-* The `$TTL` directive is optional, and it is supported. When no `$TTL` directive is given, records without an explicit TTL are imported set to a default TTL of 3600 seconds. When two records in the same record set specify different TTLs, the lower value is used.
-* The `$ORIGIN` directive is optional, and it is supported. When no `$ORIGIN` is set, the default value used is the zone name as specified on the command line (plus the terminating ".").
+* The `$TTL` directive is optional, and it's supported. When no `$TTL` directive is given, records without an explicit TTL are imported set to a default TTL of 3600 seconds. When two records in the same record set specify different TTLs, the lower value is used.
+* The `$ORIGIN` directive is optional, and it's supported. When no `$ORIGIN` is set, the default value used is the zone name as specified on the command line (plus the terminating ".").
 * The `$INCLUDE` and `$GENERATE` directives are not supported.
 * These record types are supported: A, AAAA, CAA, CNAME, MX, NS, SOA, SRV, and TXT.
 * The SOA record is created automatically by Azure DNS when a zone is created. When you import a zone file, all SOA parameters are taken from the zone file *except* the `host` parameter. This parameter uses the value provided by Azure DNS. This is because this parameter must refer to the primary name server provided by Azure DNS.
 * The name server record set at the zone apex is also created automatically by Azure DNS when the zone is created. Only the TTL of this record set is imported. These records contain the name server names provided by Azure DNS. The record data is not overwritten by the values contained in the imported zone file.
-* During Public Preview, Azure DNS supports only single-string TXT records. Multistring TXT records are be concatenated and truncated to 255 characters.
+* During Public Preview, Azure DNS supports only single-string TXT records. Multistring TXT records will be concatenated and truncated to 255 characters.
 
 ### CLI format and values
 
@@ -68,7 +69,7 @@ Values:
 * `<zone name>` is the name of the zone.
 * `<zone file name>` is the path/name of the zone file to be imported.
 
-If a zone with this name does not exist in the resource group, it is created for you. If the zone already exists, the imported record sets are merged with existing record sets.
+If a zone with this name does not exist in the resource group, it's created for you. If the zone already exists, the imported record sets are merged with existing record sets.
 
 ### Import a zone file
 
@@ -80,7 +81,7 @@ To import a zone file for the zone **contoso.com**.
     az group create --resource-group myresourcegroup -l westeurope
     ```
 
-2. To import the zone **contoso.com** from the file **contoso.com.txt** into a new DNS zone in the resource group **myresourcegroup**, you will run the command `az network private-dns zone import`.<BR>This command loads the zone file and parses it. The command executes a series of commands on the Azure DNS service to create the zone and all the record sets in the zone. The command reports progress in the console window, along with any errors or warnings. Because record sets are created in series, it may take a few minutes to import a large zone file.
+2. To import the zone **contoso.com** from the file **contoso.com.txt** into a new DNS zone in the resource group **myresourcegroup**, you'll run the command `az network private-dns zone import`.<BR>This command loads the zone file and parses it. The command executes a series of commands on the Azure DNS service to create the zone and all the record sets in the zone. The command reports progress in the console window, along with any errors or warnings. Because record sets are created in series, it may take a few minutes to import a large zone file.
 
     ```azurecli
     az network private-dns zone import -g myresourcegroup -n contoso.com -f contoso.com.txt

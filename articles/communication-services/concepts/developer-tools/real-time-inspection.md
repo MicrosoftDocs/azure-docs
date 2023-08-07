@@ -1,11 +1,10 @@
 ---
 title: Developer Tools - Azure Communication Services Communication Monitoring
 description: Conceptual documentation outlining the capabilities provided by the Communication Monitoring tool.
-author: ddematheu2
+author: tophpalmer
 manager: chpalm
 services: azure-communication-services
-
-ms.author: dademath
+ms.author: chpalm
 ms.date: 03/29/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -36,7 +35,7 @@ Communication Monitoring is compatible with the same browsers as the Calling SDK
 
 ## Get started with Communication Monitoring
 
-The tool can be accessed through an npm package `@azure/communication-monitoring`. The package contains the `CommunicationMonitoring` object that can be attached to a `Call`. The Call Inspector requires an `HTMLDivElement` as part of its constructor on which it will be rendered. The `HTMLDivElement` will dictate the size of the Call Inspector.
+The tool can be accessed through an npm package `@azure/communication-monitoring`. The package contains the `CommunicationMonitoring` object that can be attached to a `Call`. Instructions on how to initialize the required `CallClient` and `CallAgent` objects can be found [here](../../how-tos/calling-sdk/manage-calls.md?pivots=platform-web#initialize-required-objects). `CommunicationMonitoring` also requires an `HTMLDivElement` as part of its constructor on which it will be rendered. The `HTMLDivElement` will dictate the size of the rendered panel.
 
 ### Installing Communication Monitoring
 
@@ -50,17 +49,11 @@ npm i  @azure/communication-monitoring
 import { CallAgent, CallClient } from '@azure/communication-calling'
 import { CommunicationMonitoring } from '@azure/communication-monitoring'
 
-interface Options {
-  callClient: CallClient
-  callAgent: CallAgent
-  divElement: HTMLDivElement
-}
-
 const selectedDiv = document.getElementById('selectedDiv')
 
 const options = {
-  callClient = this.callClient,
-  callAgent = this.callAgent,
+  callClient = {INSERT CALL CLIENT OBJECT},
+  callAgent = {INSERT CALL AGENT OBJECT},
   divElement = selectedDiv,
 }
 
@@ -110,4 +103,4 @@ The tool includes the ability to download the logs captured using the `Download 
 - [Explore User-Facing Diagnostic APIs](../voice-video-calling/user-facing-diagnostics.md)
 - [Enable Media Quality Statistics in your application](../voice-video-calling/media-quality-sdk.md)
 - [Leverage Network Diagnostic Tool](./network-diagnostic.md)
-- [Consume call logs with Azure Monitor](../analytics/call-logs-azure-monitor.md)
+- [Consume call logs with Azure Monitor](../analytics/logs/voice-and-video-logs.md)

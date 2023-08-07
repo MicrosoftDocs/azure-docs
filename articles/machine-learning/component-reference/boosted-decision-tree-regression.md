@@ -18,7 +18,7 @@ This article describes a component in Azure Machine Learning designer.
 
 Use this component to create an ensemble of regression trees using boosting. *Boosting* means that each tree is dependent on prior trees. The algorithm learns by fitting the residual of the trees that preceded it. Thus, boosting in a decision tree ensemble tends to improve accuracy with some small risk of less coverage.  
 
-This component is based LightGBM algorithm.
+This component is based on the LightGBM algorithm.
   
 This regression method is a supervised learning method, and therefore requires a *labeled dataset*. The label column must contain numerical values.  
 

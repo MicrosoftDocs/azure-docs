@@ -1,13 +1,13 @@
 ---
-title: 'Quickstart: Create a private endpoint by using the Azure portal'
-description: In this quickstart, you'll learn how to create a private endpoint by using the Azure portal.
-services: private-link
+title: 'Quickstart: Create a private endpoint - Azure portal'
+titleSuffix: Azure Private Link
+description: In this quickstart, learn how to create a private endpoint using the Azure portal.
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 04/06/2022
+ms.date: 06/13/2023
 ms.author: allensu
-ms.custom: mode-ui
+ms.custom: mode-ui, template-quickstart
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
 ---
 
@@ -15,247 +15,157 @@ ms.custom: mode-ui
 
 Get started with Azure Private Link by creating and using a private endpoint to connect securely to an Azure web app.
 
-In this quickstart, you'll create a private endpoint for an Azure web app and then create and deploy a virtual machine (VM) to test the private connection.  
+In this quickstart, create a private endpoint for an Azure App Services web app and then create and deploy a virtual machine (VM) to test the private connection.  
 
-You can create private endpoints for a variety of Azure services, such as Azure SQL and Azure Storage.
+You can create private endpoints for various Azure services, such as Azure SQL and Azure Storage.
+
+:::image type="content" source="./media/create-private-endpoint-portal/private-endpoint-qs-resources.png" alt-text="Diagram of resources created in private endpoint quickstart.":::
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An Azure web app with a *PremiumV2-tier* or higher app service plan, deployed in your Azure subscription.  
+- An Azure App Services web app with a Basic, Standard, PremiumV2, PremiumV3, IsolatedV2, Functions Premium (sometimes referred to as the Elastic Premium plan) app service plan, deployed in your Azure subscription.  
 
-    For more information and an example, see [Quickstart: Create an ASP.NET Core web app in Azure](../app-service/quickstart-dotnetcore.md). 
+    - For more information and an example, see [Quickstart: Create an ASP.NET Core web app in Azure](../app-service/quickstart-dotnetcore.md). 
     
-    For a detailed tutorial on creating a web app and an endpoint, see [Tutorial: Connect to a web app by using a private endpoint](tutorial-private-endpoint-webapp-portal.md).
+    - The example webapp in this article is named **webapp-1**. Replace the example with your webapp name.
 
-## Create a virtual network and bastion host
+## Sign in to Azure
 
-Start by creating a virtual network, subnet, and bastion host. 
+Sign in to the [Azure portal](https://portal.azure.com).
 
-You use the bastion host to connect securely to the VM for testing the private endpoint.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. At the upper left, select **Create a resource**.
-
-1. On the left pane, select **Networking**, and then select **Virtual network**.
-
-1. On the **Create virtual network** pane, select the **Basics** tab, and then enter the following values:
-
-    | Setting                   | Value                                                                              |
-    |---------------------------|------------------------------------------------------------------------------------|
-    | **Project&nbsp;details**  |                                                                                    |
-    | Subscription              | Select your Azure subscription.                                                    |
-    | Resource group            | Select **Create New**. </br> Enter **CreatePrivateEndpointQS-rg**. </br> Select **OK**. |
-    | **Instance&nbsp;details** |                                                                                    |
-    | Name                      | Enter **myVNet**.                                                                  |
-    | Region                    | Select **West Europe**.                                                            |
-
-1. Select the **IP Addresses** tab.
-
-1. On the **IP Addresses** pane, enter this value:
-
-    | Setting            | Value                  |
-    |--------------------|------------------------|
-    | IPv4 address space | Enter **10.1.0.0/16**. |
-
-1. Under **Subnet name**, select the **Add subnet** link.
-
-1. On the **Edit subnet** right pane, enter these values:
-
-    | Setting              | Value                  |
-    |----------------------|------------------------|
-    | Subnet name          | Enter **mySubnet**.    |
-    | Subnet address range | Enter **10.1.0.0/24**. |
-
-1. Select **Add**.
-
-1. Select the **Security** tab.
-
-1. For **BastionHost**, select **Enable**, and then enter these values:
-
-    | Setting                          | Value                                                                                        |
-    |----------------------------------|----------------------------------------------------------------------------------------------|
-    | Bastion name                     | Enter **myBastionHost**.                                                                     |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/24**.                                                                       |
-    | Public IP Address                | Select **Create new** and then, for **Name**, enter **myBastionIP**, and then select **OK**. |
-
-1. Select the **Review + create** tab.
-
-1. Select **Create**.
-
-## Create a test virtual machine
-
-Next, create a VM that you can use to test the private endpoint.
-
-1. In the Azure portal, select **Create a resource**.
-
-1. On the left pane, select **Compute**, and then select **Virtual machine**.
-   
-1. On the **Create a virtual machine** pane, select the **Basics** tab, and then enter the following values:
-
-    | Setting                        | Value                                             |
-    |--------------------------------|---------------------------------------------------|
-    | **Project&nbsp;details**       |                                                   |
-    | Subscription                   | Select your Azure subscription.                   |
-    | Resource group                 | Select **CreatePrivateEndpointQS-rg**.            |
-    | **Instance&nbsp;details**      |                                                   |
-    | Virtual machine name           | Enter **myVM**.                                   |
-    | Region                         | Select **West Europe**.                           |
-    | Availability options           | Select **No infrastructure redundancy required**. |
-    | Image                          | Select **Windows Server 2019 Datacenter - Gen2**. |
-    | Azure Spot instance            | Clear the checkbox.                               |
-    | Size                           | Select the VM size or use the default setting.    |
-    | **Administrator&nbsp;account** |                                                   |
-    | Authentication type            | Select **Password**                               |
-    | Username                       | Enter a username.                                 |
-    | Password                       | Enter a password.                                 |
-    | Confirm password               | Reenter the password.                             |
-
-1. Select the **Networking** tab.
-  
-1. On the **Networking** pane, enter the following values:
-
-    |Setting                     | Value               |
-    |----------------------------|---------------------|
-    | **Network&nbsp;interface** |                     |
-    | Virtual network            | Enter **myVNet**.   |
-    | Subnet                     | Enter **mySubnet**. |
-    | Public IP                  | Select **None**.    |
-    | NIC network security group | Select **Basic**.   |
-    | Public inbound ports       | Select **None**.    |
-   
-1. Select **Review + create**. 
-  
-1. Review the settings, and then select **Create**.
-
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
 
 ## Create a private endpoint
 
-Next, you create a private endpoint for the web app that you created in the "Prerequisites" section.
+Next, you create a private endpoint for the web app that you created in the **Prerequisites** section.
 
-1. In the Azure portal, select **Create a resource**.
+> [!IMPORTANT]
+> You must have a previously deployed Azure App Services web app to proceed with the steps in this article. For more information, see [Prerequisites](#prerequisites) .
 
-1. On the left pane, select **Networking**, and then select **Private Link**. You might have to search for **Private Link** and then select it in the search results.
+1. In the search box at the top of the portal, enter **Private endpoint**. Select **Private endpoints**.
 
-1. On the **Private Link** page, select **Create**.
+1. Select **+ Create** in **Private endpoints**.
 
-1. In **Private Link Center**, on the left pane, select **Private endpoints**.
+1. In the **Basics** tab of **Create a private endpoint**, enter or select the following information.
 
-1. On the **Private endpoints** pane, select **Create**.
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg** |
+    | **Instance details** |   |
+    | Name | Enter **private-endpoint**. |
+    | Network Interface Name | Leave the default of **private-endpoint-nic**. |
+    | Region | Select **East US 2**. |
 
-1. On the **Create a private endpoint** pane, select the **Basics** tab, and then enter the following values:
-
-    | Setting                   | Value                                                                                         |
-    |---------------------------|-----------------------------------------------------------------------------------------------|
-    | **Project&nbsp;details**  |                                                                                               |
-    | Subscription              | Select your subscription.                                                                     |
-    | Resource group            | Select **CreatePrivateEndpointQS-rg**. You created this resource group in an earlier section. |
-    | **Instance&nbsp;details** |                                                                                               |
-    | Name                      | Enter **myPrivateEndpoint**.                                                                  |
-    | Region                    | Select **West Europe**.                                                                       |
-
-1. Select the **Resource** tab.
+1. Select **Next: Resource**.
     
-1. On the **Resource** pane, enter the following values:
+1. In the **Resource** pane, enter or select the following information.
 
-    | Setting             | Value                                                                                                                  |
-    |---------------------|------------------------------------------------------------------------------------------------------------------------|
-    | Connection method   | Select **Connect to an Azure resource in my directory**.                                                               |
-    | Subscription        | Select your subscription.                                                                                              |
-    | Resource type       | Select **Microsoft.Web/sites**.                                                                                        |
-    | Resource            | Select **\<your-web-app-name>**. </br> Select the name of the web app that you created in the "Prerequisites" section. |
-    | Target sub-resource | Select **sites**.                                                                                                      |
+    | Setting | Value |
+    | ------- | ----- |
+    | Connection method | Leave the default of **Connect to an Azure resource in my directory.** |
+    | Subscription | Select your subscription. |
+    | Resource type | Select **Microsoft.Web/sites**. |
+    | Resource | Select **webapp-1**. |
+    | Target subresource | Select **sites**. |
 
-1. Click **Next** to the **Virtual Network** tab.
+1. Select **Next: Virtual Network**. 
 
-1. On the **Virtual Network** pane, enter the following values:
+1. In **Virtual Network**, enter or select the following information.
 
-    | Setting                               | Value                                                        |
-    |---------------------------------------|--------------------------------------------------------------|
-    | **Networking**                        |                                                              |
-    | Virtual network                       | Select **myVNet**.                                           |
-    | Subnet                                | Select **mySubnet**.                                         |
-    | **Private&nbsp;DNS&nbsp;integration** |                                                              |
-    | Integrate with private DNS zone       | Keep the default of **Yes**.                                 |
-    | Subscription                          | Select your subscription.                                    |
-    | Resource Group                        | Select Resource Group **CreatePrivateEndpointQS-rg**.        |
-    | Private DNS zones                     | Keep the default of **(New) privatelink.azurewebsites.net**. |
-    
+    | Setting | Value |
+    | ------- | ----- |
+    | **Networking** |  |
+    | Virtual network | Select **vnet-1 (test-rg)**. |
+    | Subnet | Select **subnet-1**. |
+    | Network policy for private endpoints | Select **edit** to apply Network policy for private endpoints. </br> In **Edit subnet network policy**, select the checkbox next to **Network security groups** and **Route Tables** in the **Network policies setting for all private endpoints in this subnet** pull-down. </br> Select **Save**. </br></br>For more information, see [Manage network policies for private endpoints](disable-private-endpoint-network-policy.md) |
 
-1. Click **Next** to **Review + create**.
+    # [**Dynamic IP**](#tab/dynamic-ip)
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Private IP configuration** | Select **Dynamically allocate IP address**. |
+
+    :::image type="content" source="./media/create-private-endpoint-portal/dynamic-ip-address.png" alt-text="Screenshot of dynamic IP address selection." border="true":::
+
+    # [**Static IP**](#tab/static-ip)
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Private IP configuration** | Select **Statically allocate IP address**. |
+    | Name | Enter **ipconfig-1**. |
+    | Private IP | Enter **10.0.0.10**. |
+
+    :::image type="content" source="./media/create-private-endpoint-portal/static-ip-address.png" alt-text="Screenshot of static IP address selection." border="true":::
+
+    ---
+
+1. Select **Next: DNS**.
+
+1. Leave the defaults in **DNS**. Select **Next: Tags**, then **Next: Review + create**. 
 
 1. Select **Create**.
 
+[!INCLUDE [create-test-virtual-machine.md](../../includes/create-test-virtual-machine.md)]
+
 ## Test connectivity to the private endpoint
 
-Use the VM that you created earlier to connect to the web app across the private endpoint.
+Use the virtual machine that you created earlier to connect to the web app across the private endpoint.
 
-1. In the Azure portal, on the left pane, select **Resource groups**.
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines**.
 
-1. Select **CreatePrivateEndpointQS-rg**.
+1. Select **vm-1**.
 
-1. Select **myVM**.
+1. On the overview page for **vm-1**, select **Connect**, and then select the **Bastion** tab.
 
-1. On the overview page for **myVM**, select **Connect**, and then select **Bastion**.
-
-1. Select the blue **Use Bastion** button.
+1. Select **Use Bastion**.
 
 1. Enter the username and password that you used when you created the VM.
 
+1. Select **Connect**.
+
 1. After you've connected, open PowerShell on the server.
 
-1. Enter `nslookup <your-webapp-name>.azurewebsites.net`, replacing *\<your-webapp-name>* with the name of the web app that you created earlier. You'll receive a message that's similar to the following:
+1. Enter `nslookup webapp-1.azurewebsites.net`. You receive a message that's similar to the following example:
 
-    ```powershell
+    ```output
     Server:  UnKnown
     Address:  168.63.129.16
 
     Non-authoritative answer:
-    Name:    mywebapp8675.privatelink.azurewebsites.net
-    Address:  10.1.0.5
-    Aliases:  mywebapp8675.azurewebsites.net
+    Name:    webapp-1.privatelink.azurewebsites.net
+    Address:  10.0.0.10
+    Aliases:  webapp-1.azurewebsites.net
     ```
 
-    A private IP address of **10.1.0.5** is returned for the web app name. This address is in the subnet of the virtual network you created earlier.
+    A private IP address of **10.0.0.10** is returned for the web app name if you chose static IP address in the previous steps. This address is in the subnet of the virtual network you created earlier.
 
-1. In the bastion connection to **myVM**, open your web browser.
+1. In the bastion connection to **vm-1**, open the web browser.
 
-1. Enter the URL of your web app, **https://\<your-webapp-name>.azurewebsites.net**.
+1. Enter the URL of your web app, `https://webapp-1.azurewebsites.net`.
 
-   If your web app hasn't been deployed, you'll get the following default web app page:
+   If your web app hasn't been deployed, you get the following default web app page:
 
     :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Screenshot of the default web app page on a browser." border="true":::
 
-1. Close the connection to **myVM**.
+1. Close the connection to **vm-1**.
 
-## Clean up resources
+[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
 
-If you're not going to continue to use this web app, delete the virtual network, virtual machine, and web app by doing the following:
-
-1. On the left pane, select **Resource groups**.
-
-1. Select **CreatePrivateEndpointQS-rg**.
-
-1. Select **Delete resource group**.
-
-1. Under **Type the resource group name**, enter **CreatePrivateEndpointQS-rg**.
-
-1. Select **Delete**.
-
-## What you've learned
+## Next steps
 
 In this quickstart, you created:
 
 * A virtual network and bastion host
+
 * A virtual machine
+
 * A private endpoint for an Azure web app
 
 You used the VM to test connectivity to the web app across the private endpoint.
-
-## Next steps
 
 For more information about the services that support private endpoints, see:
 > [!div class="nextstepaction"]

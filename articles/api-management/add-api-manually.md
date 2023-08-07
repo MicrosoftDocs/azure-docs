@@ -1,13 +1,13 @@
 ---
 title: Add an API manually using the Azure portal  | Microsoft Docs
-description: This tutorial shows you how to use API Management (APIM) to add an API manually.
+description: This tutorial shows you how to use API Management to add an API manually.
 services: api-management
 documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 12/16/2021
+ms.date: 06/30/2022
 ms.author: danlep
 ms.custom: fasttrack-edit, devdivchpfy22
 
@@ -15,11 +15,11 @@ ms.custom: fasttrack-edit, devdivchpfy22
 
 # Add an API manually
 
-This article shows steps to add an API manually to the API Management (APIM) instance. When you want to mock the API, you can create a blank API or define it manually. For details about mocking an API, see [Mock API responses](mock-api-responses.md).
+This article shows steps to add an API manually to the API Management instance. When you want to mock the API, you can create a blank API or define it manually. For details about mocking an API, see [Mock API responses](mock-api-responses.md).
 
 If you want to import an existing API, see [related topics](#related-topics) section.
 
-In this article, we create a blank API and specify [httpbin.org](https://httpbin.org) (a public testing service) as a back-end API.
+In this article, we create a blank API and specify [httpbin.org](https://httpbin.org) (a public testing service) as a backend API.
 
 ## Prerequisites
 
@@ -33,13 +33,13 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 2. From the left menu, select **+ Add API**.
 3. Select **HTTP** from the list.  
     ![Blank API](media/add-api-manually/blank-api-1.png)  
-4. Enter settings for the API. The settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
+4. Enter the backend **Web service URL** (for example, `https://httpbin.org`) and other settings for the API. The settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
 5. Select **Create**.
 
-At this point, you have no operations in API Management that map to the operations in your back-end API. If you call an operation that is exposed through the back end but not through the API Management, you get a **404**.
+At this point, you have no operations in API Management that map to the operations in your backend API. If you call an operation that is exposed through the back end but not through the API Management, you get a **404**.
 
 >[!NOTE]
-> By default, when you add an API, even if it's connected to some back-end service, APIM won't expose any operations until you allow them. To allow an operation of your back-end service, create an APIM operation that maps to the back-end operation.
+> By default, when you add an API, even if it's connected to some backend service, API Management won't expose any operations until you allow them. To allow an operation of your backend service, create an API Management operation that maps to the backend operation.
 
 ## Add and test an operation
 
@@ -88,6 +88,9 @@ Test the operation in the Azure portal. You can also test it in the **Developer 
 ## Add and test a wildcard operation
 
 This section shows how to add a wildcard operation. A wildcard operation lets you pass an arbitrary value with an API request. Instead of creating separate GET operations as shown in the previous sections, you could create a wildcard GET operation.
+
+> [!CAUTION]
+> Use care when configuring a wildcard operation. This configuration may make an API more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#improper-assets-management).
 
 ### Add the operation
 

@@ -2,6 +2,7 @@
 author: phillipgibson
 
 ms.topic: include
+ms.custom: devx-track-linux
 ms.date: 03/15/2021
 ms.author: phillipgibson
 ---
@@ -12,7 +13,7 @@ In a bash-based shell on Linux or [Windows Subsystem for Linux][install-wsl], us
 
 ```bash
 # Specify the OSM version that will be leveraged throughout these instructions
-OSM_VERSION=v1.0.0
+OSM_VERSION=v1.2.0
 
 curl -sL "https://github.com/openservicemesh/osm/releases/download/$OSM_VERSION/osm-$OSM_VERSION-linux-amd64.tar.gz" | tar -vxzf -
 ```
@@ -26,7 +27,7 @@ sudo chmod +x /usr/local/bin/osm
 
 You can verify the `osm` client library has been correctly added to your path and its version number with the following command.
 
-```
+```bash
 osm version
 ```
 

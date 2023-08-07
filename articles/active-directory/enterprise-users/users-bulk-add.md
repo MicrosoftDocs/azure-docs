@@ -1,11 +1,11 @@
 ---
-title: Bulk create users in the Azure Active Directory portal | Microsoft Docs
-description: Add users in bulk in the Azure AD admin center in Azure Active Directory
+title: Bulk create users in the Azure portal
+description: Add users in bulk in the Azure portal in Azure Active Directory
 services: active-directory 
-author: curtand
-ms.author: curtand
-manager: karenhoran
-ms.date: 05/19/2021
+author: barclayn
+ms.author: barclayn
+manager: amycolannino
+ms.date: 06/24/2022
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Bulk create users in Azure Active Directory
 
-Azure Active Directory (Azure AD) supports bulk user create and delete operations and supports downloading lists of users. Just fill out comma-separated values (CSV) template you can download from the Azure AD portal.
+Azure Active Directory (Azure AD), part of Microsoft Entra, supports bulk user create and delete operations and supports downloading lists of users. Just fill out comma-separated values (CSV) template you can download from the Azure portal.
 
 ## Required permissions
 
@@ -49,13 +49,15 @@ The rows in a downloaded CSV template are as follows:
 - We don't recommend adding new columns to the template. Any additional columns you add are ignored and not processed.
 - We recommend that you download the latest version of the CSV template as often as possible.
 - Make sure to check there is no unintended whitespace before/after any field. For **User principal name**, having such whitespace would cause import failure.
-- Ensure that values in **Initial password** comply with the currently active [password policy](../authentication/concept-sspr-policy.md#password-policies-that-only-apply-to-cloud-user-accounts).
+- Ensure that values in **Initial password** comply with the currently active [password policy](../authentication/concept-sspr-policy.md#username-policies).
 
 ## To create users in bulk
 
-1. [Sign in to your Azure AD organization](https://aad.portal.azure.com) with an account that is a User administrator in the organization.
-1. In Azure AD, select **Users** > **Bulk create**.
-1. On the **Bulk create user** page, select **Download** to receive a valid comma-separated values (CSV) file of user properties, and then add add users you want to create.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a User Administrator in the organization.
+1. Browse to **Azure Active Directory** >  **Users** > **Bulk create**.
+1. On the **Bulk create user** page, select **Download** to receive a valid comma-separated values (CSV) file of user properties, and then add users you want to create.
 
    ![Select a local CSV file in which you list the users you want to add](./media/users-bulk-add/upload-button.png)
 
@@ -80,9 +82,8 @@ Next, you can check to see that the users you created exist in the Azure AD orga
 
 ## Verify users in the Azure portal
 
-1. [Sign in to the Azure AD admin center](https://aad.portal.azure.com) with an account that is a User administrator in the organization.
-1. In the navigation pane, select **Azure Active Directory**.
-1. Under **Manage**, select **Users**.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a User Administrator in the organization.
+1. Browse to **Azure Active Directory** > **Users**.
 1. Under **Show**, select **All users** and verify that the users you created are listed.
 
 ### Verify users with PowerShell
@@ -90,7 +91,7 @@ Next, you can check to see that the users you created exist in the Azure AD orga
 Run the following command:
 
 ``` PowerShell
-Get-AzureADUser -Filter "UserType eq 'Member'"
+Get-MgUser -Filter "UserType eq 'Member'"
 ```
 
 You should see that the users that you created are listed.

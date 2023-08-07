@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/13/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with SkyDesk Email
@@ -47,6 +47,8 @@ To configure the integration of SkyDesk Email into Azure AD, you need to add Sky
 1. In the **Add from the gallery** section, type **SkyDesk Email** in the search box.
 1. Select **SkyDesk Email** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for SkyDesk Email
 
 Configure and test Azure AD SSO with SkyDesk Email using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in SkyDesk Email.
@@ -74,9 +76,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://mail.skydesk.jp/portal/<companyname>`
-
-	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [SkyDesk Email Client support team](https://www.skydesk.jp/apps/support/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -162,9 +161,6 @@ In this section, you create a user called Britta Simon in SkyDesk Email.
 Click on **User Access** from the left panel in SkyDesk Email and then enter your username.
 
 ![Screenshot shows User Access selected from Control Panel.](./media/skydeskemail-tutorial/create-users.png)
-
-> [!NOTE]
-> If you need to create bulk users, you need to contact the [SkyDesk Email Client support team](https://www.skydesk.jp/apps/support/).
 
 ## Test SSO
 

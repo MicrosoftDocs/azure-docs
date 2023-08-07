@@ -1,17 +1,17 @@
 ---
-title: View audit log report for Azure AD roles in Azure AD PIM | Microsoft Docs
+title: View audit log report for Azure AD roles in Azure AD PIM
 description: Learn how to view the audit log history for Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: billmath
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/07/2021
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: billmath
 ms.reviewer: shaunliu
 ms.custom: pim
 
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 ---
 # View audit history for Azure AD roles in Privileged Identity Management
 
-You can use the Privileged Identity Management (PIM) audit history to see all role assignments and activations within the past 30 days for all privileged roles. If you want to retain audit data for longer than the default retention period, you can use Azure Monitor to route it to an Azure storage account. For more information, see [Archive Azure AD logs to an Azure storage account](../reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md). If you want to see the full audit history of activity in your Azure Active Directory (Azure AD) organization, including administrator, end user, and synchronization activity, you can use the [Azure Active Directory security and activity reports](../reports-monitoring/overview-reports.md).
+You can use the Privileged Identity Management (PIM) audit history to see all role assignments and activations within the past 30 days for all privileged roles. If you want to retain audit data for longer than the default retention period, you can use Azure Monitor to route it to an Azure storage account. For more information, see [Archive Azure AD logs to an Azure storage account](../reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md). If you want to see the full audit history of activity in your organization in Azure Active Directory (Azure AD), part of Microsoft Entra, including administrator, end user, and synchronization activity, you can use the [Azure Active Directory security and activity reports](../reports-monitoring/overview-reports.md).
 
 Follow these steps to view the audit history for Azure AD roles.
 

@@ -5,13 +5,13 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 02/17/2022
+ms.date: 03/17/2023
 ms.author: greglin
 ---
 
 # Application Gateway HTTP settings configuration
 
-The application gateway routes traffic to the back-end servers by using the configuration that you specify here. After you create an HTTP setting, you must associate it with one or more request-routing rules.
+The application gateway routes traffic to the backend servers by using the configuration that you specify here. After you create an HTTP setting, you must associate it with one or more request-routing rules.
 
 ## Cookie-based affinity
 
@@ -19,10 +19,10 @@ Azure Application Gateway uses gateway-managed cookies for maintaining user sess
 
 This feature is useful when you want to keep a user session on the same server and when session state is saved locally on the server for a user session. If the application can't handle cookie-based affinity, you can't use this feature. To use it, make sure that the clients support cookies.
 > [!NOTE]
-> Some vulnerability scans may flag the Application Gateway affinity cookie because the Secure or HttpOnly flags are not set. These scans do not take into account that the data in the cookie is generated using a one-way hash. The cookie does not contain any user information and is used purely for routing. 
+> Some vulnerability scans may flag the Application Gateway affinity cookie because the Secure or HttpOnly flags are not set. These scans do not take into account that the data in the cookie is generated using a one-way hash. The cookie doesn't contain any user information and is used purely for routing. 
 
 
-The [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chromiumdash.appspot.com/schedule) brought a mandate where HTTP cookies without [SameSite](https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html#rfc.section.5.3.7) attribute have to be treated as SameSite=Lax. In the case of CORS (Cross-Origin Resource Sharing) requests, if the cookie has to be sent in a third-party context, it has to use *SameSite=None; Secure* attributes and it should be sent over HTTPS only. Otherwise, in an HTTP only scenario, the browser doesn't send the cookies in the third-party context. The goal of this update from Chrome is to enhance security and to avoid Cross-Site Request Forgery (CSRF) attacks. 
+The [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chromiumdash.appspot.com/schedule) brought a mandate where HTTP cookies without [SameSite](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-rfc6265bis-03#rfc.section.5.3.7) attribute have to be treated as SameSite=Lax. For CORS (Cross-Origin Resource Sharing) requests, if the cookie has to be sent in a third-party context, it has to use *SameSite=None; Secure* attributes and it should be sent over HTTPS only. Otherwise, in an HTTP only scenario, the browser doesn't send the cookies in the third-party context. The goal of this update from Chrome is to enhance security and to avoid Cross-Site Request Forgery (CSRF) attacks. 
 
 To support this change, starting February 17 2020, Application Gateway (all the SKU types) will inject another cookie called *ApplicationGatewayAffinityCORS* in addition to the existing *ApplicationGatewayAffinity* cookie. The *ApplicationGatewayAffinityCORS* cookie has two more attributes added to it (*"SameSite=None; Secure"*) so that sticky sessions are maintained even for cross-origin requests.
 
@@ -34,36 +34,54 @@ Please refer to TLS offload and End-to-End TLS documentation for Application Gat
 
 ## Connection draining
 
-Connection draining helps you gracefully remove back-end pool members during planned service updates. You can apply this setting to all members of a back-end pool by enabling connection draining on the HTTP setting. It ensures that all deregistering instances of a back-end pool continue to maintain existing connections and serve on-going requests for a configurable timeout and don't receive any new requests or connections. The only exception to this are requests bound for deregistering instances because of gateway-managed session affinity and will continue to be forwarded to the deregistering instances. Connection draining applies to back-end instances that are explicitly removed from the back-end pool.
+Connection draining helps you gracefully remove backend pool members during planned service updates. It applies to backend instances that are 
+- explicitly removed from the backend pool,
+- removed during scale-in operations, or
+- reported as unhealthy by the health probes.
+
+You can apply this setting to all backend pool members by enabling Connection Draining in the Backend Setting. It ensures that all deregistering instances in a backend pool don't receive any new requests/connections while maintaining the existing connections until the configured timeout value. This is also true for WebSocket connections.
+
+| Configuration Type  | Value |
+| ---------- | ---------- |
+|Default value when Connection Draining is not enabled in Backend Setting| 30 seconds |
+|User-defined value when Connection Draining is enabled in Backend Setting | 1 to 3600 seconds |
+
+The only exception to this are requests bound for deregistering instances because of gateway-managed session affinity and will continue to be forwarded to the deregistering instances.
 
 ## Protocol
 
-Application Gateway supports both HTTP and HTTPS for routing requests to the back-end servers. If you choose HTTP, traffic to the back-end servers is unencrypted. If unencrypted communication isn't acceptable, choose HTTPS.
+Application Gateway supports both HTTP and HTTPS for routing requests to the backend servers. If you choose HTTP, traffic to the backend servers is unencrypted. If unencrypted communication isn't acceptable, choose HTTPS.
 
-This setting combined with HTTPS in the listener supports [end-to-end TLS](ssl-overview.md). This allows you to securely transmit sensitive data encrypted to the back end. Each back-end server in the back-end pool that has end-to-end TLS enabled must be configured with a certificate to allow secure communication.
+This setting combined with HTTPS in the listener supports [end-to-end TLS](ssl-overview.md). This allows you to securely transmit sensitive data encrypted to the back end. Each backend server in the backend pool that has end-to-end TLS enabled must be configured with a certificate to allow secure communication.
 
 ## Port
 
-This setting specifies the port where the back-end servers listen to traffic from the application gateway. You can configure ports ranging from 1 to 65535.
+This setting specifies the port where the backend servers listen to traffic from the application gateway. You can configure ports ranging from 1 to 65535.
+
+## Trusted root certificate 
+
+If you select HTTPS as the backend protocol, the Application Gateway requires a trusted root certificate to trust the backend pool for end-to-end SSL. By default, the **Use well known CA certificate** option is set to **No**. If you plan to use a self-signed certificate, or a certificate signed by an internal Certificate Authority, then you must provide the Application Gateway the matching public certificate that the backend pool will be using. This certificate must be uploaded directly to the Application Gateway in .CER format.
+
+If you plan to use a certificate on the backend pool that is signed by a trusted public Certificate Authority, then you can set the **Use well known CA certificate** option to **Yes** and skip uploading a public certificate.
 
 ## Request timeout
 
-This setting is the number of seconds that the application gateway waits to receive a response from the back-end server.
+This setting is the number of seconds that the application gateway waits to receive a response from the backend server.
 
-## Override back-end path
+## Override backend path
 
 This setting lets you configure an optional custom forwarding path to use when the request is forwarded to the back end. Any part of the incoming path that matches the custom path in the **override backend path** field is copied to the forwarded path. The following table shows how this feature works:
 
 - When the HTTP setting is attached to a basic request-routing rule:
 
-  | Original request  | Override back-end path | Request forwarded to back end |
+  | Original request  | Override backend path | Request forwarded to back end |
   | ----------------- | --------------------- | ---------------------------- |
   | /home/            | /override/            | /override/home/              |
   | /home/secondhome/ | /override/            | /override/home/secondhome/   |
 
 - When the HTTP setting is attached to a path-based request-routing rule:
 
-  | Original request           | Path rule       | Override back-end path | Request forwarded to back end |
+  | Original request           | Path rule       | Override backend path | Request forwarded to back end |
   | -------------------------- | --------------- | --------------------- | ---------------------------- |
   | /pathrule/home/            | /pathrule*      | /override/            | /override/home/              |
   | /pathrule/home/secondhome/ | /pathrule*      | /override/            | /override/home/secondhome/   |
@@ -79,7 +97,7 @@ This setting lets you configure an optional custom forwarding path to use when t
 This setting associates a [custom probe](application-gateway-probe-overview.md#custom-health-probe) with an HTTP setting. You can associate only one custom probe with an HTTP setting. If you don't explicitly associate a custom probe, the [default probe](application-gateway-probe-overview.md#default-health-probe-settings) is used to monitor the health of the back end. We recommend that you create a custom probe for greater control over the health monitoring of your back ends.
 
 > [!NOTE]
-> The custom probe doesn't monitor the health of the back-end pool unless the corresponding HTTP setting is explicitly associated with a listener.
+> The custom probe doesn't monitor the health of the backend pool unless the corresponding HTTP setting is explicitly associated with a listener.
 
 ## Configuring the host name
 
@@ -93,9 +111,9 @@ There are two aspects of an HTTP setting that influence the [`Host`](https://dat
 - "Pick host name from backend-address"
 - "Host name override"
 
-## Pick host name from back-end address
+## Pick host name from backend address
 
-This capability dynamically sets the *host* header in the request to the host name of the back-end pool. It uses an IP address or FQDN.
+This capability dynamically sets the *host* header in the request to the host name of the backend pool. It uses an IP address or FQDN.
 
 This feature helps when the domain name of the back end is different from the DNS name of the application gateway, and the back end relies on a specific host header to resolve to the correct endpoint.
 
@@ -112,8 +130,8 @@ For a custom domain whose existing custom DNS name is mapped to the app service,
 
 This capability replaces the *host* header in the incoming request on the application gateway with the host name that you specify.
 
-For example, if *www.contoso.com* is specified in the **Host name** setting, the original request *`https://appgw.eastus.cloudapp.azure.com/path1` is changed to *`https://www.contoso.com/path1` when the request is forwarded to the back-end server.
+For example, if *www.contoso.com* is specified in the **Host name** setting, the original request *`https://appgw.eastus.cloudapp.azure.com/path1` is changed to *`https://www.contoso.com/path1` when the request is forwarded to the backend server.
 
 ## Next steps
 
-- [Learn about the back-end pool](configuration-overview.md#back-end-pool)
+- [Learn about the backend pool](configuration-overview.md#backend-pool)

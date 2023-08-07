@@ -2,14 +2,17 @@
 title: Back up SQL Server always on availability groups
 description: In this article, learn how to back up SQL Server on availability groups.
 ms.topic: conceptual
-ms.date: 08/20/2021
+ms.date: 08/11/2022
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Back up SQL Server always on availability groups
 
 Azure Backup offers an end-to-end support for backing up SQL Server always on availability groups (AG) if all nodes are in the same region and subscription as the Recovery Services vault. However, if the AG nodes are spread across regions/subscriptions/on-premises and Azure, there are a few considerations to keep in mind.
 
 >[!Note]
->Backup of Basic Availability Group databases is not supported by Azure Backup.
+>- Backup of Basic Availability Group databases is not supported by Azure Backup.
+>- See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
 
 The backup preference used by Azure Backup SQL AG supports full and differential backups only from the primary replica. So, these backup jobs always run on the Primary node irrespective of the backup preference. For copy-only full and transaction log backups, the AG backup preference is considered while deciding the node where backup will run.
 
@@ -22,7 +25,7 @@ The backup preference used by Azure Backup SQL AG supports full and differential
 
 The workload backup extension gets installed on the node when it is registered with the Azure Backup service. When an AG database is configured for backup, the backup schedules are pushed to all the registered nodes of the AG. The schedules fire on all the AG nodes and the workload backup extensions on these nodes synchronize between themselves to decide which node will perform the backup. The node selection depends on the backup type and the backup preference as explained in section 1. 
 
-The selected node proceeds with the backup job, whereas the job triggered on the other nodes bail out, that is, it skips the job.
+The selected node proceeds with the backup job, whereas the job triggered on the other nodes bails out, that is, it skips the job.
 
 >[!Note]
 >Azure Backup doesn’t consider backup priorities or replicas while deciding among the secondary replicas.
@@ -40,7 +43,7 @@ Let’s consider the following AG deployment as a reference.
 
 :::image type="content" source="./media/backup-sql-server-on-availability-groups/ag-deployment.png" alt-text="Diagram for AG deployment as reference.":::
 
-Taking the above sample AG deployment, following are various considerations:
+Based on the above sample AG deployment, following are various considerations:
 
 - As the primary node is in region 1 and subscription 1, the Recovery Services vault (Vault 1) must be in Region 1 and Subscription 1 for protecting this AG.
 - VM3 can't be registered to Vault 1 as it's in a different subscription.
@@ -59,7 +62,7 @@ After the AG has failed over to one of the secondary nodes:
 >[!Note]
 >Log chain breaks do not happen on failover if the failover doesn’t coincide with a backup.
 
-Taking the above sample AG deployment, following are the various failover possibilities:
+Based on the above sample AG deployment, following are the various failover possibilities:
 
 - Failover to VM2
   - Full and differential backups will happen from VM2.
@@ -75,7 +78,7 @@ Taking the above sample AG deployment, following are the various failover possib
 
 Recovery services vault doesn’t support cross-subscription or cross-region backups. This section summarizes how to enable backups for AGs that are spanning subscriptions or Azure regions and the associated considerations.
 
-- Evaluate if you really need to enable backups from all nodes. If one region/subscription has most of the AG nodes and failover to other nodes happens very rarely, setting up backup in that first region may be enough. If the failovers to other region/subscription happen frequently and for prolonged duration, then you may want to setup backups proactively in the other region as well.
+- Evaluate if you really need to enable backups from all nodes. If one region/subscription has most of the AG nodes and failover to other nodes happens very rarely, setting up the backup in that first region may be enough. If the failovers to other region/subscription happen frequently and for prolonged duration, then you may want to set aup backups proactively in the other region as well.
 
 - Each vault where the backup gets enabled will have its own set of recovery point chains. Restores from these recovery points can be done to VMs registered in that vault only.
 
@@ -91,7 +94,7 @@ Recovery services vault doesn’t support cross-subscription or cross-region bac
 
 To avoid log backup conflicts between the two vaults, we recommend you to set the backup preference to Primary. Then, whichever vault has the primary node will also take the log backups.
 
-Taking the above sample AG deployment, here are the steps to enable backup from all the nodes. The assumption is that backup preference is satisfied in all the steps.
+Based on the above sample AG deployment, here are the steps to enable backup from all the nodes. The assumption is that backup preference is satisfied in all the steps.
 
 ### Step 1: Enable backups in Region 1, Subscription 1 (Vault 1)
 
@@ -126,7 +129,7 @@ For example, the first node has 50 standalone databases protected and both the n
 
 As the AG database jobs are queued on one node and running on another, the backup synchronization (mentioned in section 6) won’t work properly. Node 2 might assume that Node 1 is down and therefore jobs from there aren't coming up for synchronization. This can lead to log chain breaks or extra backups as both nodes can take backups independently.
 
-Similar problem can happen if the number of AG databases protected are more than the throttling limit. In such case, backup for, say, DB1 can be queued on Node 1 whereas it runs on Node 2. 
+Similar problem can happen if the number of AG databases protected is more than the throttling limit. In such case, backup for, say, DB1 can be queued on Node 1 whereas it runs on Node 2. 
 
 We recommend you to use the following backup preferences to avoid these synchronization issues:
 

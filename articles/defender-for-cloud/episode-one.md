@@ -1,8 +1,8 @@
 ---
-title: New AWS connector in Microsoft Defender for Cloud
+title: New AWS connector
 description: Learn all about the new AWS connector in Microsoft Defender for Cloud.
 ms.topic: reference
-ms.date: 05/29/2022
+ms.date: 04/27/2023
 ---
 
 # New AWS connector in Microsoft Defender for Cloud

@@ -2,9 +2,10 @@
 title: Telemetry processor examples - Azure Monitor Application Insights for Java
 description: Explore examples that show telemetry processors in Azure Monitor Application Insights for Java.
 ms.topic: conceptual
-ms.date: 12/29/2020
+ms.date: 05/13/2023
 ms.devlang: java
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
+ms.reviewer: mmcc
 ---
 
 # Telemetry processor examples - Azure Monitor Application Insights for Java

@@ -2,13 +2,13 @@
 title: Understand migration for Azure Monitor alerts
 description: Understand how the alerts migration works and troubleshoot problems.
 ms.topic: conceptual
-ms.date: 2/23/2022
-ms.author: yalavi
-author: yalavi
+ms.custom: ignite-2022
+ms.date: 06/20/2023
+ms.reviewer: yalavi
 ---
 # Understand migration options to newer alerts
 
-Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **29 February 2024**.
+Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users. Classic alerts for Azure Government cloud and Microsoft Azure operated by 21Vianet will retire on **29 February 2024**.
 
 This article explains how the manual migration and voluntary migration tool work, which will be used to migrate remaining alert rules. It also describes solutions for some common problems.
 
@@ -50,9 +50,9 @@ Classic alert rules on Percent metrics must be migrated based on [the mapping be
 
 Classic alert rules on AnonymousThrottlingError, SASThrottlingError, and ThrottlingError must be split into two new alerts because there's no combined metric that provides the same functionality. Thresholds will need to be adapted appropriately.
 
-### Cosmos DB metrics
+### Azure Cosmos DB metrics
 
-All classic alerts on Cosmos DB metrics can be migrated except alerts on these metrics:
+All classic alerts on Azure Cosmos DB metrics can be migrated except alerts on these metrics:
 
 - Average Requests per Second
 - Consistency Level
@@ -134,7 +134,7 @@ For Storage account services like blob, table, file, and queue, the following me
 
 ### Microsoft.DocumentDB/databaseAccounts
 
-For Cosmos DB, equivalent metrics are as shown below:
+For Azure Cosmos DB, equivalent metrics are as shown below:
 
 | Metric in classic alerts | Equivalent metric in new alerts | Comments|
 |--------------------------|---------------------------------|---------|

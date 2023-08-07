@@ -4,15 +4,14 @@ description: Step-by-step instructions for viewing the activities made to manage
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: ''
-
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2022
+ms.date: 06/24/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -92,7 +91,7 @@ System-assigned identity:
 
 ![Browse to active directory](./media/how-to-view-managed-identity-activity/browse-to-active-directory.png)
 
-2.	Select **Sign-in logs** from the **Monitoring** section.
+2. Select **Sign-in logs** from the **Monitoring** section.
 
 ![Select sign-in logs](./media/how-to-view-managed-identity-activity/sign-in-logs-menu-item.png)
 
@@ -104,8 +103,8 @@ System-assigned identity:
 
 ![managed identity sign-in events](./media/how-to-view-managed-identity-activity/msi-sign-in-events.png) 
 
-5.	To view the identity's Enterprise application in Azure Active Directory, select the “Managed Identity ID” column.
-6.	To view the Azure resource or user-assigned managed identity, search by name in the search bar of the Azure portal.
+5. To view the identity's Enterprise application in Azure Active Directory, select the “Managed Identity ID” column.
+6. To view the Azure resource or user-assigned managed identity, search by name in the search bar of the Azure portal.
 
 ## Next steps
 

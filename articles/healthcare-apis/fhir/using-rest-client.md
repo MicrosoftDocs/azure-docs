@@ -2,11 +2,11 @@
 title: Access Azure Health Data Services using REST Client
 description: This article explains how to access the Healthcare APIs using the REST Client extension in VS Code
 services: healthcare-apis
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 03/01/2022
-ms.author: ginle
+ms.date: 06/06/2022
+ms.author: kesheth
 ---
 
 # Accessing Azure Health Data Services using the REST Client Extension in Visual Studio Code
@@ -53,7 +53,7 @@ The line starting with `@name` contains a variable that captures the HTTP respon
 
 ```
 ### Get access token 
-@name getAADToken 
+# @name getAADToken 
 POST https://login.microsoftonline.com/{{tenantid}}/oauth2/token
 Content-Type: application/x-www-form-urlencoded
 
@@ -67,6 +67,9 @@ grant_type=client_credentials
 ```
 
 [ ![Get access token](media/rest-config.png) ](media/rest-config.png#lightbox)
+
+> [!NOTE] 
+> In the scenarios where the FHIR service audience parameter is not mapped to the FHIR service endpoint url. The resource parameter value should be mapped to Audience value under FHIR Service Authentication blade.
 
 ## `GET` FHIR Patient data
 
@@ -106,3 +109,5 @@ To learn about how to validate FHIR resources against profiles in Azure Health D
 
 >[!div class="nextstepaction"]
 >[Validate FHIR resources against profiles in Azure Health Data Services](validation-against-profiles.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

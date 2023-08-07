@@ -3,9 +3,9 @@ title: Authorize request to SignalR resources with Azure AD from Azure applicati
 description: This article provides information about authorizing request to SignalR resources with Azure AD from Azure applications
 author: vicancy
 ms.author: lianwei
-ms.date: 09/06/2021
+ms.date: 02/03/2023
 ms.service: signalr
-ms.topic: conceptual
+ms.topic: how-to
 ms.devlang: csharp
 ms.custom: subject-rbac-steps
 ---
@@ -22,16 +22,16 @@ The first step is to register an Azure application.
 
 1. On the [Azure portal](https://portal.azure.com/), search for and select **Azure Active Directory**
 2. Under **Manage** section, select **App registrations**.
-3. Click **New registration**.
+3. Select **New registration**.
 
-    ![Screenshot of registering an application](./media/authenticate/register-an-application.png)
+    ![Screenshot of registering an application.](./media/signalr-howto-authorize-application/register-an-application.png)
 
 4. Enter a display **Name** for your application.
-5. Click **Register** to confirm the register.
+5. Select **Register** to confirm the register.
 
 Once you have your application registered, you can find the **Application (client) ID** and **Directory (tenant) ID** under its Overview page. These GUIDs can be useful in the following steps.
 
-![Screenshot of an application](./media/authenticate/application-overview.png)
+![Screenshot of an application.](./media/signalr-howto-authorize-application/application-overview.png)
 
 To learn more about registering an application, see
 - [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
@@ -46,8 +46,8 @@ You can add both certificates and client secrets (a string) as credentials to yo
 The application requires a client secret to prove its identity when requesting a token. To create a client secret, follow these steps.
 
 1. Under **Manage** section, select **Certificates & secrets**
-1. On the **Client secrets** tab, click **New client secret**.
-![Screenshot of creating a client secret](./media/authenticate/new-client-secret.png)
+1. On the **Client secrets** tab, select **New client secret**.
+![Screenshot of creating a client secret.](./media/signalr-howto-authorize-application/new-client-secret.png)
 1. Enter a **description** for the client secret, and choose a **expire time**.
 1. Copy the value of the **client secret** and then paste it to a secure location. 
     > [!NOTE]
@@ -57,7 +57,7 @@ The application requires a client secret to prove its identity when requesting a
 
 You can also upload a certification instead of creating a client secret.
 
-![Screenshot of uploading a certification](./media/authenticate/upload-certificate.png)
+![Screenshot of uploading a certification.](./media/signalr-howto-authorize-application/upload-certificate.png)
 
 To learn more about adding credentials, see
 
@@ -107,11 +107,11 @@ The best practice is to configure identity and credentials in your environment v
 | `AZURE_TENANT_ID`	| The Azure Active Directory tenant(directory) ID. |
 | `AZURE_CLIENT_ID`	| The client(application) ID of an App Registration in the tenant. |
 | `AZURE_CLIENT_SECRET`	| A client secret that was generated for the App Registration. |
-| `AZURE_CLIENT_CERTIFICATE_PATH` | A path to certificate and private key pair in PEM or PFX format, which can authenticate the App Registration. |
+| `AZURE_CLIENT_CERTIFICATE_PATH` | A path to a certificate and private key pair in PEM or PFX format, which can authenticate the App Registration. |
 | `AZURE_USERNAME`	| The username, also known as upn, of an Azure Active Directory user account. |
-| `AZURE_PASSWORD`	| The password of the Azure Active Directory user account. Note this does not support accounts with MFA enabled. |
+| `AZURE_PASSWORD`	| The password for the Azure Active Directory user account. Password isn't supported for accounts with MFA enabled. |
 
-By doing this, you can use either [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) or [EnvironmentCredential](/dotnet/api/azure.identity.environmentcredential) to configure your SignalR endpoints.
+You can use either [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) or [EnvironmentCredential](/dotnet/api/azure.identity.environmentcredential) to configure your SignalR endpoints.
 
 ```C#
 services.AddSignalR().AddAzureSignalR(option =>
@@ -159,9 +159,6 @@ services.AddSignalR().AddAzureSignalR(option =>
 
 ### Azure Functions SignalR bindings
 
-> [!WARNING]
-> SignalR trigger binding does not support identity-based connection yet and connection strings are still necessary.
-
 Azure Functions SignalR bindings use [application settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md) on portal or [`local.settings.json`](../azure-functions/functions-develop-local.md#local-settings-file) at local to configure Azure application identities to access your SignalR resources.
 
 Firstly, you need to specify the service URI of the SignalR Service,  whose key is `serviceUri` starting with a **connection name prefix** (defaults to `AzureSignalRConnectionString`) and a separator (`__` on Azure portal and `:` in the local.settings.json file). The connection name can be customized with the binding property [`ConnectionStringSetting`](../azure-functions/functions-bindings-signalr-service.md). Continue reading to find the sample.
@@ -170,7 +167,7 @@ Then you choose to configure your Azure application identity in [pre-defined env
 
 #### Configure identity in pre-defined environment variables
 
-See [Environment variables](/dotnet/api/overview/azure/identity-readme#environment-variables) for the list of pre-defined environment variables. It is recommended when you have multiple services include SignalR dependent on the same Azure application identity, so that you don't need to configure the identity for each service. These environment variables might also be used by other services according to the settings of other services.
+See [Environment variables](/dotnet/api/overview/azure/identity-readme#environment-variables) for the list of pre-defined environment variables. When you have multiple services, we recommend that you use the same application identity, so that you don't need to configure the identity for each service. These environment variables might also be used by other services according to the settings of other services.
 
 For example, to use client secret credentials,  configure as follows in the `local.settings.json` file.
 ```json
@@ -193,7 +190,7 @@ AZURE_CLIENT_SECRET = ...
 
 #### Configure identity in SignalR specified variables
 
-The SignalR specified variables share the same key prefix with `serviceUri` key. Here is the list of variables you might use:
+The SignalR specified variables share the same key prefix with `serviceUri` key. Here's the list of variables you might use:
 * clientId
 * clientSecret
 * tenantId
@@ -224,3 +221,4 @@ On Azure portal, add settings as follows:
 See the following related articles:
 - [Overview of Azure AD for SignalR](signalr-concept-authorize-azure-active-directory.md)
 - [Authorize request to SignalR resources with Azure AD from managed identities](signalr-howto-authorize-managed-identity.md)
+- [Disable local authentication](./howto-disable-local-auth.md)

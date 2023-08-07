@@ -2,14 +2,13 @@
 title: Connect to Azure SQL Managed Instance using managed identity
 titleSuffix: Azure Cognitive Search
 description: Learn how to set up an Azure Cognitive Search indexer connection to an Azure SQL Managed Instance using a managed identity
-
 author: gmndrg
 ms.author: gimondra
 manager: liamca
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/03/2022
+ms.date: 02/17/2023
 ---
 
 # Set up an indexer connection to Azure SQL Managed Instance using a managed identity
@@ -31,7 +30,7 @@ Before learning more about this feature, it is recommended that you have an unde
 
   To assign read permissions on SQL Managed Instance, you must be an Azure Global Admin with a SQL Managed Instance. See [Configure and manage Azure AD authentication with SQL Managed Instance](/azure/azure-sql/database/authentication-aad-configure) and follow the steps to provision an Azure AD admin (SQL Managed Instance). 
 
-* [Configure public endpoint and NSG in SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md) to allow connections from Azure Cognitive Search.
+* [Configure a public endpoint and network security group in SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md) to allow connections from Azure Cognitive Search. If your Azure SQL Managed Instance is configured for private connections, [create a shared private link](search-indexer-how-to-access-private-sql.md) in Cognitive Search to allow the connection.
 
 ## 1 - Assign permissions to read the database
 
@@ -54,7 +53,7 @@ Follow these steps to assign the search service system managed identity permissi
 4. In the T-SQL window, copy the following commands and include the brackets around your search service name. Click on **Execute**.
 
     
-    ```tsql
+    ```sql
     CREATE USER [insert your search service name here or user-assigned managed identity name] FROM EXTERNAL PROVIDER;
     EXEC sp_addrolemember 'db_datareader', [insert your search service name here or user-assigned managed identity name];
     ```
@@ -63,7 +62,7 @@ Follow these steps to assign the search service system managed identity permissi
 
 If you later change the search service system identity after assigning permissions, you must remove the role membership and remove the user in the SQL database, then repeat the permission assignment. Removing the role membership and user can be accomplished by running the following commands:
 
- ```tsql
+ ```sql
 sp_droprolemember 'db_datareader', [insert your search service name or user-assigned managed identity name];
 
 DROP USER IF EXISTS [insert your search service name or user-assigned managed identity name];

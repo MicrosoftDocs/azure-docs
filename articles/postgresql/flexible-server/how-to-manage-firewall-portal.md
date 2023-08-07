@@ -11,19 +11,20 @@ ms.date: 11/30/2021
 
 # Create and manage firewall rules for Azure Database for PostgreSQL - Flexible Server using the Azure portal
 
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL - Flexible Server supports two types of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
 
 * Public access (allowed IP addresses)
 * Private access (VNet Integration)
 
-In this article, we will focus on creation of PostgreSQL server with **Public access (allowed IP addresses)** using Azure portal and will provide an overview of managing firewall rules after creation of flexible server. With *Public access (allowed IP addresses)*, the connections to the PostgreSQL server are restricted to allowed IP addresses only. The client IP addresses need to be allowed in firewall rules. To learn more about it, refer to [Public access (allowed IP addresses)](./concepts-networking.md#public-access-allowed-ip-addresses). The firewall rules can be defined at the time of server creation (recommended) but can be added later as well. In this article, we will provide an overview on how to create and manage firewall rules using public access (allowed IP addresses).
+In this article, we will focus on creation of PostgreSQL server with **Public access (allowed IP addresses)** using Azure portal and will provide an overview of managing firewall rules after creation of Flexible Server. With *Public access (allowed IP addresses)*, the connections to the PostgreSQL server are restricted to allowed IP addresses only. The client IP addresses need to be allowed in firewall rules. To learn more about it, refer to [Public access (allowed IP addresses)](./concepts-networking.md#public-access-allowed-ip-addresses). The firewall rules can be defined at the time of server creation (recommended) but can be added later as well. In this article, we will provide an overview on how to create and manage firewall rules using public access (allowed IP addresses).
 
 ## Create a firewall rule when creating a server
 
 1. Select **Create a resource** (+) in the upper-left corner of the  portal.
 2. Select **Databases** > **Azure Database for PostgreSQL**. You can also enter **PostgreSQL** in the search box to find the service.
-3. Select **Flexible server** as the deployment option.
+3. Select **Flexible Server** as the deployment option.
 4. Fill out the **Basics** form.
 5. Go to the **Networking** tab to configure how you want to connect to your server.
 6. In the **Connectivity method**, select *Public access (allowed IP addresses)*. To create the **Firewall rules**, specify the Firewall rule name and single IP address, or a range of addresses. If you want to limit the rule to a single IP address, type the same address in the field for Start IP address and End IP address. Opening the firewall enables administrators, users, and applications to access any database on the PostgreSQL server to which they have valid credentials.
@@ -35,7 +36,7 @@ In this article, we will focus on creation of PostgreSQL server with **Public ac
 ## Create a firewall rule after server is created
 
 1. In the [Azure portal](https://portal.azure.com/), select the Azure Database for PostgreSQL - Flexible Server on which you want to add firewall rules.
-2. On the flexible server page, under **Settings** heading, click **Networking** to open the Networking page for flexible server.
+2. On the Flexible Server page, under **Settings** heading, click **Networking** to open the Networking page for Flexible Server.
 
    <!--![Azure portal - click Connection Security](./media/howto-manage-firewall-portal/1-connection-security.png)-->
 
@@ -68,7 +69,7 @@ The resources do not need to be in the same virtual network (VNet) or resource g
 > [!IMPORTANT]
 > This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
 >
-> We recommend choosing the **Private access (VNet Integration)** to securely access flexible server.
+> We recommend choosing the **Private access (VNet Integration)** to securely access Flexible Server.
 >
 ## Manage existing firewall rules through the Azure portal
 

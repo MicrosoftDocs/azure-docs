@@ -83,7 +83,28 @@ The following example enables the Key Vault VM extension on an Azure Arc-enabled
     $location = "regionName"
 
     # Start the deployment
-    New-AzConnectedMachineExtension -ResourceGroupName $resourceGRoup -Location $location -MachineName $machineName -Name "KeyVaultForWindows or KeyVaultforLinux" -Publisher "Microsoft.Azure.KeyVault" -ExtensionType "KeyVaultforWindows or KeyVaultforLinux" -Setting (ConvertTo-Json $settings)
+    New-AzConnectedMachineExtension -ResourceGroupName $resourceGroup -Location $location -MachineName $machineName -Name "KeyVaultForWindows or KeyVaultforLinux" -Publisher "Microsoft.Azure.KeyVault" -ExtensionType "KeyVaultforWindows or KeyVaultforLinux" -Setting $settings
+```
+
+### Datadog VM extension
+
+The following example enables the Datadog VM extension on an Azure Arc-enabled server:
+
+```azurepowershell
+$resourceGroup = "resourceGroupName"
+$machineName = "machineName"
+$location = "machineRegion"
+$osType = "Windows" # change to Linux if appropriate
+$settings = @{
+    # change to your preferred Datadog site
+    site = "us3.datadoghq.com"
+}
+$protectedSettings = @{
+    # change to your Datadog API key
+    api_key = "APIKEY"
+}
+
+New-AzConnectedMachineExtension -ResourceGroupName $resourceGroup -Location $location -MachineName $machineName -Name "Datadog$($osType)Agent" -Publisher "Datadog.Agent" -ExtensionType "Datadog$($osType)Agent" -Setting $settings -ProtectedSetting $protectedSettings
 ```
 
 ## List extensions installed

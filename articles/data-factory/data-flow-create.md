@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: quickstart
 ms.custom: seo-lt-2019
-ms.date: 07/05/2021
+ms.date: 07/13/2023
 ---
 
 # Create Azure Data Factory data flows

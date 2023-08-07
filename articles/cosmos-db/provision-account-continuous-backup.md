@@ -4,137 +4,137 @@ description: Learn how to provision an account with continuous backup and point 
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/18/2022
+ms.date: 05/02/2023
 ms.author: govindk
-ms.reviewer: wiassaf
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.reviewer: mjbrown
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022, build-2023
 ms.devlang: azurecli
-
 ---
 
-# Provision an Azure Cosmos DB account with continuous backup and point in time restore 
-[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+# Provision an Azure Cosmos DB account with continuous backup and point in time restore
 
-Azure Cosmos DB's point-in-time restore feature helps you to recover from an accidental change within a container, to restore a deleted account, database, or a container or to restore into any region (where backups existed). The continuous backup mode allows you to do restore to any point of time within the last 30 days.
+[!INCLUDE[NoSQL, MongoDB](includes/appliesto-nosql-mongodb.md)]
+
+Azure Cosmos DB's point-in-time restore feature helps you to recover from an accidental change within a container, restore a deleted resource, or restore into any region where backups existed. The continuous backup mode allows you to restore to any point of time within the last 30 or 7 days. How far back you can go in time depends on the tier of the continuous mode for the account.
 
 This article explains how to provision an account with continuous backup and point in time restore using [Azure portal](#provision-portal), [PowerShell](#provision-powershell), [CLI](#provision-cli) and [Resource Manager templates](#provision-arm-template).
+
 
 > [!NOTE]
 > You can provision continuous backup mode account only if the following conditions are true:
 >
-> * If the account is of type SQL API or API for MongoDB.
-> * If the account is of type Table API or Gremlin API.
+> * If the account is of type API for NoSQL or MongoDB.
+> * If the account is of type API for Table or Gremlin.
 > * If the account has a single write region.
-
 
 ## <a id="provision-portal"></a>Provision using Azure portal
 
 When creating a new Azure Cosmos DB account, in the **Backup policy** tab, choose **continuous** mode to enable the point in time restore functionality for the new account. With the point-in-time restore, data is restored to a new account, currently you can't restore to an existing account.
 
-:::image type="content" source="./media/provision-account-continuous-backup/configure-continuous-backup-portal.png" alt-text="Provision an Azure Cosmos DB account with continuous backup configuration." border="true" lightbox="./media/provision-account-continuous-backup/configure-continuous-backup-portal.png":::
+:::image type="content" source="./media/provision-account-continuous-backup/provision-account-continuous-mode.png" alt-text="Provision an Azure Cosmos DB account with continuous backup configuration." border="true" lightbox="./media/provision-account-continuous-backup/provision-account-continuous-mode.png":::
 
-Table API and Gremlin API are in preview and can be provisioned with PowerShell and Azure CLI.
 
 ## <a id="provision-powershell"></a>Provision using Azure PowerShell
 
-Before provisioning the account, install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps?view=azps-6.2.1&preserve-view=true) or version higher than 6.2.0. Next connect to your Azure account and select the required subscription with the following commands:
+For PowerShell and CLI commands, the tier value is optional, if it isn't already provided. If not provided the account backup will be retained for 30 days. The tiers are represented by the values ``Continuous7Days`` or ``Continuous30Days``.
 
-1. Sign into Azure using the following command:
+1. Install the latest version of Azure PowerShell
 
-   ```azurepowershell
-   Connect-AzAccount
-   ```
+    * Before provisioning the account, install any version of Azure PowerShell higher than 6.2.0. For more information about the latest version of Azure PowerShell, see [latest version of Azure PowerShell](/powershell/azure/install-azure-powershell).
+    * For provisioning the ``Continuous7Days`` tier, you'll need to install the preview version of the module by running ``Install-Module -Name Az.CosmosDB -AllowPrerelease``.  
 
-1. Select a specific subscription with the following command:
+1. Next connect to your Azure account and select the required subscription with the following commands:
 
-   ```azurepowershell
-   Select-AzSubscription -Subscription <SubscriptionName>
-   ```
+    1. Sign into Azure using the following command:
 
-#### <a id="provision-powershell-sql-api"></a>SQL API account
+        ```azurepowershell
+        Connect-AzAccount
+        ```
+
+    2. Select a specific subscription with the following command:
+
+        ```azurepowershell
+        Select-AzSubscription -Subscription <SubscriptionName>
+        ```
+
+### <a id="provision-powershell-sql-api"></a>API for NoSQL account
 
 To provision an account with continuous backup, add the argument `-BackupPolicyType Continuous` along with the regular provisioning command.
 
-The following cmdlet is an example of a single region write account *Pitracct* with continuous backup policy created in *West US* region under *MyRG* resource group:
+The following cmdlet assumes a single region write account, *Pitracct*, in the in *West US* region in the *MyRG* resource group. The account has continuous backup policy enabled. Continuous backup is configured at the ``Continuous7days`` tier:
 
 ```azurepowershell
-
 New-AzCosmosDBAccount `
   -ResourceGroupName "MyRG" `
   -Location "West US" `
   -BackupPolicyType Continuous `
+  -ContinuousTier Continuous7Days `
   -Name "pitracct" `
   -ApiKind "Sql"
-   	  
 ```
 
-#### <a id="provision-powershell-mongodb-api"></a>API for MongoDB
+### <a id="provision-powershell-mongodb-api"></a>API for MongoDB
 
-The following cmdlet is an example of continuous backup account *Pitracct* created in *West US* region under *MyRG* resource group:
+The following cmdlet is an example of continuous backup account configured with the ``Continuous30days`` tier:
 
 ```azurepowershell
-
 New-AzCosmosDBAccount `
   -ResourceGroupName "MyRG" `
   -Location "West US" `
   -BackupPolicyType Continuous `
+  -ContinuousTier Continuous30Days `
   -Name "Pitracct" `
   -ApiKind "MongoDB" `
   -ServerVersion "3.6"
-
 ```
 
-#### <a id="provision-powershell-table-api"></a>Table API account
+### <a id="provision-powershell-table-api"></a>API for Table account
 
 To provision an account with continuous backup, add an argument `-BackupPolicyType Continuous` along with the regular provisioning command.
 
-The following cmdlet is an example of a single region write account *Pitracct* with continuous backup policy created in *West US* region under *MyRG* resource group:
+The following cmdlet is an example of continuous backup policy with the ``Continuous7days`` tier:
 
 ```azurepowershell
-
 New-AzCosmosDBAccount `
   -ResourceGroupName "MyRG" `
   -Location "West US" `
   -BackupPolicyType Continuous `
+  -ContinuousTier Continuous7Days `
   -Name "pitracct" `
   -ApiKind "Table"
-   	  
 ```
 
-#### <a id="provision-powershell-graph-api"></a>Gremlin API account
+### <a id="provision-powershell-graph-api"></a>API for Gremlin account
 
 To provision an account with continuous backup, add an argument `-BackupPolicyType Continuous` along with the regular provisioning command.
 
-The following cmdlet is an example of a single region write account *Pitracct* with continuous backup policy created in *West US* region under *MyRG* resource group:
+The following cmdlet is an example of an account  with continuous backup policy configured with the ``Continuous30days`` tier:
 
 ```azurepowershell
-
 New-AzCosmosDBAccount `
   -ResourceGroupName "MyRG" `
   -Location "West US" `
   -BackupPolicyType Continuous `
+  -ContinuousTier Continuous30Days `
   -Name "pitracct" `
-  -ApiKind "Gremlin"
-   	  
+  -ApiKind "Gremlin" 
 ```
 
 ## <a id="provision-cli"></a>Provision using Azure CLI
 
+For PowerShell and CLI commands tier value is optional, if it isn't provided – the account backup will be retained for 30 days. The tiers are represented by ``Continuous7Days`` or ``Continuous30Days``.
+
 Before provisioning the account, install Azure CLI with the following steps:
 
-1. Install the latest version of Azure CLI
+1. Install the latest version of Azure CLI, see [Azure CLI](/cli/azure/install-azure-cli)
+2. Sign in and select your subscription
 
-   * Install the latest version of [Azure CLI](/cli/azure/install-azure-cli) or version higher than 2.26.0
-   * If you have already installed CLI, run `az upgrade` command to update to the latest version. This command will only work with CLI version higher than 2.11. If you have an earlier version, use the above link to install the latest version.
+   * Sign into your Azure account with ``az login`` command.
+   * Select the required subscription using ``az account set -s <subscriptionguid>`` command.
 
-1. Sign in and select your subscription
+### <a id="provision-cli-sql-api"></a>API for NoSQL account
 
-   * Sign into your Azure account with `az login` command.
-   * Select the required subscription using `az account set -s <subscriptionguid>` command.
-
-### <a id="provision-cli-sql-api"></a>SQL API account
-
-To provision a SQL API account with continuous backup, an extra argument `--backup-policy-type Continuous` should be passed along with the regular provisioning command. The following command is an example of a single region write account named *Pitracct* with continuous backup policy created in the *West US* region under *MyRG* resource group:
+To provision a API for NoSQL account with continuous backup, an extra argument `--backup-policy-type Continuous` should be passed along with the regular provisioning command. The following command is an example of a single region write account named *Pitracct* with continuous backup policy and  ``Continuous7days`` tier:
 
 ```azurecli-interactive
 
@@ -142,6 +142,7 @@ az cosmosdb create \
   --name Pitracct \
   --resource-group MyRG \
   --backup-policy-type Continuous \
+  --continuous-tier "Continuous7Days" \
   --default-consistency-level Session \
   --locations regionName="West US"
 
@@ -149,52 +150,55 @@ az cosmosdb create \
 
 ### <a id="provision-cli-mongo-api"></a>API for MongoDB
 
-The following command shows an example of a single region write account named *Pitracct* with continuous backup policy created in the *West US* region under *MyRG* resource group:
+The following command shows an example of a single region write account named *Pitracct* with continuous backup policy and ``Continuous30days`` tier:
 
 ```azurecli-interactive
-
 az cosmosdb create \
   --name Pitracct \
   --kind MongoDB \
   --resource-group MyRG \
   --server-version "3.6" \
   --backup-policy-type Continuous \
+  --continuous-tier "Continuous30Days" \
   --default-consistency-level Session \
   --locations regionName="West US"
-
 ```
-### <a id="provision-cli-table-api"></a>Table API account
 
-The following command shows an example of a single region write account named *Pitracct* with continuous backup policy created in the *West US* region under *MyRG* resource group:
+### <a id="provision-cli-table-api"></a>API for Table account
+
+The following command shows an example of a single region write account named *Pitracct* with continuous backup policy and ``Continuous30days`` tier:
+
 ```azurecli-interactive
-
 az cosmosdb create \
   --name Pitracct \
   --kind GlobalDocumentDB  \
   --resource-group MyRG \
   --capabilities EnableTable \ 
   --backup-policy-type Continuous \
+  --continuous-tier "Continuous30Days" \
   --default-consistency-level Session \
   --locations regionName="West US"
 ```
-### <a id="provision-cli-graph-api"></a>Gremlin API account
 
-The following command shows an example of a single region write account named *Pitracct* with continuous backup policy created the *West US* region under *MyRG* resource group:
+### <a id="provision-cli-graph-api"></a>API for Gremlin account
+
+The following command shows an example of a single region write account named *Pitracct* with continuous backup policy and ``Continuous7days`` tier created in  *West US* region under *MyRG* resource group:
+
 ```azurecli-interactive
-
 az cosmosdb create \
   --name Pitracct \
   --kind GlobalDocumentDB  \
   --resource-group MyRG \
   --capabilities EnableGremlin \ 
   --backup-policy-type Continuous \
+  --continuous-tier "Continuous7Days" \
   --default-consistency-level Session \
   --locations regionName="West US"
 ```
 
 ## <a id="provision-arm-template"></a>Provision using Resource Manager template
 
-You can use Azure Resource Manager templates to deploy an Azure Cosmos DB account with continuous mode. When defining the template to provision an account, include the `backupPolicy` parameter as shown in the following example:
+You can use Azure Resource Manager templates to deploy an Azure Cosmos DB account with continuous mode. When defining the template to provision an account, include the `backupPolicy` and tier parameter as shown in the following example, tier can be ``Continuous7Days`` or ``Continuous30Days`` :
 
 ```json
 {
@@ -204,7 +208,7 @@ You can use Azure Resource Manager templates to deploy an Azure Cosmos DB accoun
     {
       "name": "ademo-pitr1",
       "type": "Microsoft.DocumentDB/databaseAccounts",
-      "apiVersion": "2016-03-31",
+      "apiVersion": "2023-04-15",
       "location": "West US",
       "properties": {
         "locations": [
@@ -212,20 +216,20 @@ You can use Azure Resource Manager templates to deploy an Azure Cosmos DB accoun
             "locationName": "West US"
           }
         ],
-        "backupPolicy": {
-          "type": "Continuous"
-        },
+        "backupPolicy":{
+        "type":"Continuous", 
+        "continuousModeProperties":{
+        "tier":"Continuous7Days"
+        }
+        } 
         "databaseAccountOfferType": "Standard"
-      }
-    }
-  ]
-}
+        } }
 ```
 
 Next, deploy the template by using Azure PowerShell or CLI. The following example shows how to deploy the template with a CLI command:
 
 ```azurecli-interactive
-az group deployment create -g <ResourceGroup> --template-file <ProvisionTemplateFilePath>
+az deployment group create -g <ResourceGroup> --template-file <ProvisionTemplateFilePath>
 ```
 
 ## Next steps

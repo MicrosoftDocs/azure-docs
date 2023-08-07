@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure Blinq for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Blinq for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Blinq.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 5b076ac0-cd0e-43c3-85ed-8591bfd424ff
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/25/2022
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -42,10 +42,14 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Navigate to [Blinq Admin Console](https://dash.blinq.me) in a separate browser tab.
 1. If you aren't logged in to Blinq you will need to do so.
-1. Click on your workspace in the top left corner of the screen.
-1. In the dropdown click **Settings**.
+1. Click on your workspace in the top left hand corner of the screen and select **Settings** in the dropdown menu.
+
+   	[![Screenshot of the Blinq settings option.](media/blinq-provisioning-tutorial/blinq-settings.png)](media/blinq-provisioning-tutorial/blinq-settings.png#lightbox)
+
 1. Under the **Integrations** page you should see **Team Card Provisioning** which contains a URL and Token. You will need to generate the token by clicking **Generate**.
-Copy the **URL** and **Token**. The URL and the Token are to be inserted into the **Tenant URL*** and **Secret Token** field in the Azure portal respectively.
+Copy the **URL** and **Token**. The URL and the Token are to be inserted into the **Tenant URL** and **Secret Token** field in the Azure portal respectively.
+
+   	[![Screenshot of the Blinq integration page.](media/blinq-provisioning-tutorial/blinq-integrations-page.png)](media/blinq-provisioning-tutorial/blinq-integrations-page.png#lightbox)
 
 ## Step 3. Add Blinq from the Azure AD application gallery
 
@@ -170,7 +174,8 @@ Once you've configured provisioning, use the following resources to monitor your
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## Change Logs
-05/25/2022 - **Schema Discovery** feature enabled on this app.
+* 05/25/2022 - **Schema Discovery** feature enabled on this app.
+* 12/22/2022 - The source attribute of **addresses[type eq "work"].formatted** ha been changed to **Join("", [streetAddress], IIF(IsPresent([city]),", ",""), [city], IIF(IsPresent([state]),", ",""), [state], IIF(IsPresent([postalCode])," ",""), [postalCode]) --> addresses[type eq "work"].formatted**.
 
 ## More resources
 

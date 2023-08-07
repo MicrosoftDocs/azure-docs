@@ -4,9 +4,10 @@ description: Tips for creating assessments with Azure Migrate Discovery and asse
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/28/2021
-
+ms.date: 08/11/2021
+ms.custom: engagement-fy23
 ---
 
 # Best practices for creating assessments

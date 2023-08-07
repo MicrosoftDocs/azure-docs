@@ -2,12 +2,12 @@
 title: Integrate Azure ExpressRoute Azure VM disaster recovery with Azure Site Recovery
 description: Describes how to set up disaster recovery for Azure VMs using Azure Site Recovery and Azure ExpressRoute
 services: site-recovery
-author: mayurigupta13
+author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/25/2021
-ms.author: mayg
+ms.author: ankitadutta
 
 ---
 # Integrate ExpressRoute with disaster recovery for Azure VMs
@@ -91,7 +91,7 @@ Typically enterprise deployments have workloads split across multiple Azure VNet
     - **Hub vNet subnets**. The hub vNet has two subnets:
     - **NVA subnet**: 10.10.10.0/25. This subnet contains an NVA (10.10.10.10).
     - **Gateway subnet**: 10.10.10.128/25. This subnet contains an ExpressRoute gateway connected to an ExpressRoute connection that routes to the on-premises site via a private peering routing domain.
-- The on-premises datacenter has an ExpressRoute circuit connection through a partner edge in Hong Kong.
+- The on-premises datacenter has an ExpressRoute circuit connection through a partner edge in Hong Kong Special Administrative Region.
 - All routing is controlled through Azure route tables (UDR).
 - All outbound traffic between vNets, or to the on-premises datacenter is routed through the NVA.
 

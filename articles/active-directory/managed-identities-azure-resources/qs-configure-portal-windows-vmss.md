@@ -1,10 +1,10 @@
 ---
-title: Configure managed identities on virtual machine scale set - Azure AD
+title: Configure managed identities on virtual machine scale set
 description: Step-by-step instructions for configuring managed identities for Azure resources on a virtual machine scale set using the Azure portal.
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.subservice: msi
@@ -45,6 +45,8 @@ Currently, the Azure portal does not support enabling system-assigned managed id
 - [Create a Virtual Machine Scale Set in the Azure portal](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
 ### Enable system-assigned managed identity on an existing virtual machine scale set
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 To enable the system-assigned managed identity on a virtual machine scale set that was originally provisioned without it:
 

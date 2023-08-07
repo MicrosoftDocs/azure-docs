@@ -1,113 +1,294 @@
 ---
-title: 'Tutorial - Diagnose communication problem between networks using the Azure portal'
+title: 'Tutorial: Diagnose communication problem between virtual networks - Azure portal'
 titleSuffix: Azure Network Watcher
-description: In this tutorial, learn how to diagnose a communication problem between an Azure virtual network connected to an on-premises, or other virtual network, through an Azure virtual network gateway, using Network Watcher's VPN diagnostics capability.
-services: network-watcher
-documentationcenter: na
-author: damendo
-
-# Customer intent: I need to determine why resources in a virtual network can't communicate with resources in a different network. 
-
+description: In this tutorial, you learn how to use Azure Network Watcher VPN troubleshoot to diagnose a communication problem between two Azure virtual networks connected by Azure VPN gateways.
+author: halkazwini
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 01/07/2021
-ms.author: damendo
-ms.custom: mvc
+ms.date: 07/17/2023
+ms.custom: template-tutorial, engagement-fy23
+# Customer intent: I need to determine why resources in a virtual network can't communicate with resources in a different virtual network over a VPN connection.
 ---
 
-# Tutorial: Diagnose a communication problem between networks using the Azure portal
+# Tutorial: Diagnose a communication problem between virtual networks using the Azure portal
 
-A virtual network gateway connects an Azure virtual network to an on-premises, or other virtual network. In this tutorial, you learn how to:
+Azure VPN gateway is a type of virtual network gateway that you can use to send encrypted traffic between an Azure virtual network and your on-premises locations over the public internet. You can also use VPN gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. A VPN gateway allows you to create multiple connections to on-premises VPN devices and Azure VPN gateways. For more information about the number of connections that you can create with each VPN gateway SKU, see [Gateway SKUs](../../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku). Whenever you need to troubleshoot an issue with a VPN gateway or one of its connections, you can use Azure Network Watcher VPN troubleshoot to help you checking the VPN gateway or its connections to find and resolve the problem in easy and simple steps.
+
+This tutorial helps you use Azure Network Watcher [VPN troubleshoot](network-watcher-troubleshoot-overview.md) capability to diagnose and troubleshoot a connectivity issue that's preventing two virtual networks from communicating with each other. These two virtual networks are connected via VPN gateways using VNet-to-VNet connections.
+
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Diagnose a problem with a virtual network gateway with Network Watcher's VPN diagnostics capability
-> * Diagnose a problem with a gateway connection
-> * Resolve a problem with a gateway
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> * Create virtual networks
+> * Create virtual network gateways (VPN gateways)
+> * Create connections between VPN gateways
+> * Diagnose and troubleshoot a connectivity issue  
+> * Resolve the problem
+> * Verify the problem is resolved
 
 ## Prerequisites
 
-To use VPN diagnostics, you must have an existing, running VPN gateway. If you don't have an existing VPN gateway to diagnose, you can deploy one using a [PowerShell script](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). You can run the PowerShell script from:
-- **A local PowerShell installation**: The script requires the Azure PowerShell `Az` module. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
-- **The Azure Cloud Shell**: The [Azure Cloud Shell](https://shell.azure.com/powershell) has the latest version of PowerShell installed and configured, and logs you into Azure.
-
-The script takes approximately an hour to create a VPN gateway. The remaining steps assume that the gateway you're diagnosing is the one deployed by this script. If you diagnose your own existing gateway instead, your results will vary.
+- An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Enable Network Watcher
+## Create virtual networks
 
-If you already have a network watcher enabled in the East US region, skip to [Diagnose a gateway](#diagnose-a-gateway).
+In this section, you create two virtual networks that you connect later using virtual network gateways.
 
-1. In the portal, select **All services**. In the **Filter box**, enter *Network Watcher*. When **Network Watcher** appears in the results, select it.
-2. Select **Regions**, to expand it, and then select **...** to the right of **East US**, as shown in the following picture:
+### Create first virtual network
 
-    ![Enable Network Watcher](./media/diagnose-communication-problem-between-networks/enable-network-watcher.png)
+1. In the search box at the top of the portal, enter *virtual networks*. Select **Virtual networks** in the search results.
 
-3. Select **Enable Network Watcher**.
+    :::image type="content" source="./media/diagnose-communication-problem-between-networks/virtual-network-azure-portal.png" alt-text="Screenshot shows searching for virtual networks in the Azure portal.":::
 
-## Diagnose a gateway
+1. Select **+ Create**. In **Create virtual network**, enter or select the following values in the **Basics** tab:
 
-1. On the left side of the portal, select **All services**.
-2. Start typing *network watcher* in the **Filter** box. When **Network Watcher** appears in the search results, select it.
-3. Under **NETWORK DIAGNOSTIC TOOLS**, select **VPN Diagnostics**.
-4. Select **Storage account**, and then select the storage account you want to write diagnostic information to.
-5. From the list of **Storage accounts**, select the storage account you want to use. If you don't have an existing storage account, select **+ Storage account**, enter, or select the required information, and then select **Create**, to create one. If you created a VPN gateway using the script in [prerequisites](#prerequisites), you may want to create the storage account in the same resource group, *TestRG1*, as the gateway.
-6. From the list of **Containers**, select the container you want to use, and then select **Select**. If you don't have any containers, select **+ Container**, enter a name for the container, then select **OK**.
-7. Select a gateway, and then select **Start troubleshooting**. As shown in the following picture, the test is run against a gateway named **Vnet1GW**:
+    | Setting | Value |
+    | --- | --- |
+    | **Project details** |  |
+    | Subscription | Select your Azure subscription. |
+    | Resource Group | Select **Create new**. </br> Enter *myResourceGroup* in **Name**. </br> Select **OK**. |
+    | **Instance details** |  |
+    | Name | Enter *myVNet1*. |
+    | Region | Select **East US**. |
 
-    ![VPN diagnostics](./media/diagnose-communication-problem-between-networks/vpn-diagnostics.png)
+1. Select the **IP Addresses** tab, or select **Next: IP Addresses** button at the bottom of the page.
 
-8. While the test is running, **Running** appears in the **TROUBLESHOOTING STATUS** column where **Not started** is shown, in the previous picture. The test may take several minutes to run.
-9. View the status of a completed test. The following picture shows the status results of a completed diagnostic test:
+1. Enter the following values in the **IP Addresses** tab:
 
-    ![Screenshot shows the status results of a diagnostic test, unhealthy in this example, including a summary and detail.](./media/diagnose-communication-problem-between-networks/status.png)
+    | Setting | Value |
+    | --- | --- |
+    | IPv4 address space | Enter *10.1.0.0/16*. |
+    | Subnet name | Enter *mySubnet*. |
+    | Subnet address range | Enter *10.1.0.0/24*. |
 
-    You can see that the **TROUBLESHOOTING STATUS** is **Unhealthy**, as well as a **Summary** and **Detail** of the problem on the **Status** tab.
-10. When you select the **Action** tab, VPN diagnostics provides additional information. In the example, shown in the following picture, VPN diagnostics lets you know that you should check the health of each connection:
+1. Select the **Review + create** tab or select the **Review + create** button at the bottom of the page.
 
-    ![Screenshot shows the Action tab, which gives you additional information.](./media/diagnose-communication-problem-between-networks/action.png)
+1. Review the settings, and then select **Create**. 
 
-## Diagnose a gateway connection
+### Create second virtual network
 
-A gateway is connected to other networks via a gateway connection. Both the gateway and gateway connections must be healthy for successful communication between a virtual network and a connected network.
+Repeat the previous steps to create the second virtual network using the following values:
 
-1. Complete step 7 of [Diagnose a gateway](#diagnose-a-gateway) again, this time, selecting a connection. In the following example, a connection named **VNet1toSite1** is tested:
+| Setting | Value |
+| --- | --- |
+| Name | **myVNet2** |
+| IPv4 address space | **10.2.0.0/16** |
+| Subnet name | **mySubnet** |
+| Subnet address range | **10.2.0.0/24** |
 
-    ![Screenshot shows how to start troubleshooting for a selected connection.](./media/diagnose-communication-problem-between-networks/connection.png)
+## Create a storage account and a container
 
-    The test runs for several minutes.
-2. After the test of the connection is complete, you receive results similar to the results shown in the following pictures on the **Status** and **Action** tabs:
+In this section, you create a storage account, then you create a container in it.
 
-    ![Connection status](./media/diagnose-communication-problem-between-networks/connection-status.png)
+If you have a storage account that you want to use, you can skip the following steps and go to [Create VPN gateways](#create-vpn-gateways).
 
-    ![Connection action](./media/diagnose-communication-problem-between-networks/connection-action.png)
+1. In the search box at the top of the portal, enter *storage accounts*. Select **Storage accounts** in the search results.
 
-    VPN diagnostics informs you what is wrong on the **Status** tab, and gives you several suggestions for what may be causing the problem on the **Action** tab.
+1. Select **+ Create**. In **Create a storage account**, enter or select the following values in the **Basics** tab:
 
-    If the gateway you tested was the one deployed by the [script](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) in [Prerequisites](#prerequisites), then the problem on the **Status** tab, and the first two items on the **Actions** tab are exactly what the problem is. The script configures a placeholder IP address, 23.99.221.164, for the on-premises VPN gateway device.
+    | Setting | Value |
+    | --- | --- |
+    | **Project details** |  |
+    | Subscription | Select your Azure subscription. |
+    | Resource Group | Select **myResourceGroup**. |
+    | **Instance details** |  |
+    | Storage account name | Enter a unique name. This tutorial uses **mynwstorageaccount**. |
+    | Region | Select **(US) East US**. |
+    | Performance | Select **Standard**. |
+    | Redundancy | Select **Locally-redundant storage (LRS)**. |
 
-    To resolve the issue, you need to ensure that your on-premises VPN gateway is [configured properly](../vpn-gateway/vpn-gateway-about-vpn-devices.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), and change the IP address configured by the script for the local network gateway, to the actual public address of your on-premises VPN gateway.
+1. Select the **Review** tab or select the **Review** button.
+
+1. Review the settings, and then select **Create**.
+
+1. Once the deployment is complete, select **Go to resource** to go to the **Overview** page of **mynwstorageaccount**.
+
+1. Under **Data storage**, select **Containers**.
+
+1. Select **+ Container**.
+
+1. In **New container**, enter or select the following values then select **Create**.
+
+    | Setting | Value |
+    | --- | --- |
+    | Name | Enter *vpn*. |
+    | Public access level | Select **Private (no anonymous access)**. |
+
+## Create VPN gateways
+
+In this section, you create two VPN gateways that will be used to connect the two virtual networks you created previously.
+
+### Create first VPN gateway
+
+1. In the search box at the top of the portal, enter *virtual network gateways*. Select **Virtual network gateways** in the search results.
+
+1. Select **+ Create**. In **Create virtual network gateway**, enter or select the following values in the **Basics** tab:
+
+    | Setting | Value |
+    | --- | --- |
+    | **Project details** |  |
+    | Subscription | Select your Azure subscription. |
+    | **Instance details** |  |
+    | Name | Enter *VNet1GW*. |
+    | Region | Select **East US**. |
+    | Gateway type | Select **VPN**. |
+    | VPN type | Select **Route-based**. |
+    | SKU | Select **VpnGw1**. |
+    | Generation | Select **Generation1**. |
+    | Virtual network | Select **myVNet1**. |
+    | Gateway subnet address range | Enter *10.1.1.0/27*. |
+    | **Public IP address** |  |
+    | Public IP address | Select **Create new**. |
+    | Public IP address name | Enter *VNet1GW-ip*. |
+    | Enable active-active mode | Select **Disabled**. |
+    | Configure BGP | Select **Disabled**. |
+
+1. Select **Review + create**.
+
+1. Review the settings, and then select **Create**. A gateway can take 45 minutes or more to fully create and deploy.
+
+### Create second VPN gateway
+
+To create the second VPN gateway, repeat the previous steps you used to create the first VPN gateway with the following values:
+
+| Setting | Value |
+| --- | --- |
+| Name | **VNet2GW**. |
+| Virtual network | **myVNet2**. |
+| Gateway subnet address range | **10.2.1.0/27**. |
+| Public IP address name | **VNet2GW-ip**. |
+
+## Create gateway connections
+
+After creating **VNet1GW** and **VNet2GW** virtual network gateways, you can create connections between them to allow communication over secure IPsec/IKE tunnel between **VNet1** and **VNet2** virtual networks. To create the IPsec/IKE tunnel, you create two connections:
+
+- From **VNet1** to **VNet2**
+- From **VNet2** to **VNet1**
+
+### Create first connection
+
+1. Go to **VNet1GW** gateway.
+
+1. Under **Settings**, select **Connections**.
+
+1. Select **+ Add** to create a connection from **VNet1** to **VNet2**.
+
+1. In **Add connection**, enter or select the following values:
+
+    | Setting | Value |
+    | --- | --- |
+    | Name | Enter *to-VNet2*. |
+    | Connection type | Select **VNet-to-VNet**. |
+    | Second virtual network gateway | Select **VNet2GW**. |
+    | Shared key (PSK) | Enter *123*. |
+
+1. Select **OK**.
+
+### Create second connection
+
+1. Go to **VNet2GW** gateway.
+
+1. Create the second connection by following the previous steps you used to create the first connection with the following values:
+
+    | Setting | Value |
+    | --- | --- |
+    | Name | **to-VNet1** |
+    | Second virtual network gateway | **VNet1GW** |
+    | Shared key (PSK) | **000** |
+
+    > [!NOTE]
+    > To successfully create an IPsec/IKE tunnel between two Azure VPN gateways, the connections between the gateways must use identical shared keys. In the previous steps, two different keys were used to create a problem with the gateway connections.
+
+## Diagnose the VPN problem
+
+In this section, you use Network Watcher VPN troubleshoot to check the two VPN gateways and their connections.
+
+1. Under **Settings** of **VNet2GW** gateway, select **Connection**. 
+
+1. Select **Refresh** to see the connections and their current status, which is **Not connected** (because of mismatch between the shared keys).
+
+    :::image type="content" source="./media/diagnose-communication-problem-between-networks/second-gateway-connections-not-connected.png" alt-text="Screenshot shows the gateway connections in the Azure portal and their not connected status.":::
+
+1. Under **Help** of **VNet2GW** gateway, select **VPN troubleshoot**.
+
+1. Select **Select storage account** to choose the storage account and the container that you want to save the logs to.
+
+    :::image type="content" source="./media/diagnose-communication-problem-between-networks/second-gateway-vpn-troubleshoot-not-started.png" alt-text="Screenshot shows vpn troubleshoot in the Azure portal before troubleshooting started.":::
+
+1. From the list, select **VNet1GW** and **VNet2GW**, and then select **Start troubleshooting** to start checking the gateways.
+
+1. Once the check is completed, the troubleshooting status of both gateways changes to **Unhealthy**. Select a gateway to see more details under **Status** tab.
+
+    :::image type="content" source="./media/diagnose-communication-problem-between-networks/gateway-unhealthy.png" alt-text="Screenshot shows the status of a gateway and results of VPN troubleshoot test in the Azure portal after troubleshooting completed.":::
+
+1. Because the VPN tunnels are disconnected, select the connections, and then select **Start troubleshooting** to start checking them.
+
+    > [!NOTE]
+    > You can troubleshoot gateways and their connections in one step. However, checking only the gateways takes less time and based on the result, you decide if you need to check the connections.
+
+1. Once the check is completed, the troubleshooting status of the connections changes to **Unhealthy**. Select a connection to see more details under **Status** tab.
+
+    :::image type="content" source="./media/diagnose-communication-problem-between-networks/connection-unhealthy.png" alt-text="Screenshot shows the status of a connection and results of VPN troubleshoot test in the Azure portal after troubleshooting completed.":::
+
+    VPN troubleshoot checked the connections and found a mismatch in the shared keys.
+
+## Fix the problem and verify using VPN troubleshoot
+
+### Fix the problem
+
+Fix the problem by correcting the key on **to-VNet1** connection to match the key on **to-VNet2** connection. 
+
+1. Go to **to-VNet1** connection.
+
+1. Under **Settings**, select **Shared key**.
+
+1. In **Shared key (PSK)**, enter *123* and then select **Save**.
+
+    :::image type="content" source="./media/diagnose-communication-problem-between-networks/correct-shared-key.png" alt-text="Screenshot shows correcting and saving the shared key for of VPN connection in the Azure portal.":::
+
+### Check connection status
+
+1. Go to **VNet2GW** gateway (you can check the connections status from **VNet1GW** gateway too).
+
+1. Under **Settings**, select **Connections**.
+
+    :::image type="content" source="./media/diagnose-communication-problem-between-networks/second-gateway-connections-connected.png" alt-text="Screenshot shows the gateway connections in the Azure portal and their connected status.":::
+
+    > [!NOTE]
+    > You may need to wait for a few minutes and then select **Refresh** to see the connections status as **Connected**.
+
+### Check connection health with VPN troubleshoot
+
+1. Under **Help** of **VNet2GW**, select **VPN troubleshoot**.
+
+1. Select **Select storage account** to choose the storage account and the container that you want to save the logs to.
+
+1. Select **VNet1GW** and **VNet2GW**, and then select **Start troubleshooting** to start checking the gateways
+
+    :::image type="content" source="./media/diagnose-communication-problem-between-networks/connection-healthy.png" alt-text="Screenshot shows the status of gateways and their connections in the Azure portal after correcting the shared key.":::
 
 ## Clean up resources
 
-If you created a VPN gateway using the script in the [prerequisites](#prerequisites) solely to complete this tutorial, and no longer need it, delete the resource group and all of the resources it contains:
+When no longer needed, delete the resource group and all of the resources it contains:
 
-1. Enter *TestRG1* in the **Search** box at the top of the portal. When you see **TestRG1** in the search results, select it.
-2. Select **Delete resource group**.
-3. Enter *TestRG1* for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
+1. Enter ***myResourceGroup*** in the search box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
+
+1. Select **Delete resource group**.
+
+1. In **Delete a resource group**, enter ***myResourceGroup***, and then select **Delete**.
+
+1. Select **Delete** to confirm the deletion of the resource group and all its resources.
 
 ## Next steps
 
-In this tutorial, you learned how to diagnose a problem with a virtual network gateway. You may want to log network communication to and from a VM so that you can review the log for anomalies. To learn how, advance to the next tutorial.
+In this tutorial, you learned how to diagnose a connectivity problem between two connected virtual networks via VPN gateways. For more information about connecting virtual networks using VPN gateways, see [VNet-to-VNet connections](../../articles/vpn-gateway/design.md#V2V).
+
+To learn how to log network communication to and from a virtual machine so that you can review the log for anomalies, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Log network traffic to and from a VM](network-watcher-nsg-flow-logging-portal.md)

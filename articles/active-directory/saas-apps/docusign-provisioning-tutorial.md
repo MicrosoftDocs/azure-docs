@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/21/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Configure DocuSign for automatic user provisioning
@@ -45,7 +45,7 @@ Before configuring and enabling the provisioning service, you need to decide wha
 This section guides you through connecting your Azure AD to DocuSign's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in DocuSign based on user and group assignment in Azure AD.
 
 > [!Tip]
-> You may also choose to enabled SAML-based Single Sign-On for DocuSign, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
+> You may also choose to enabled SAML-based Single Sign-On for DocuSign, following the instructions provided in the [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
 ### To configure user account provisioning:
 
@@ -63,9 +63,9 @@ The objective of this section is to outline how to enable user provisioning of A
 
 1. Under the **Admin Credentials** section, provide the following configuration settings:
    
-    a. In the **Admin User Name** textbox, type a DocuSign account name that has the **System Administrator** profile in DocuSign.com assigned.
+    1. In the **Admin User Name** textbox, type a DocuSign account name that has the **System Administrator** profile in DocuSign.com assigned.
    
-    b. In the **Admin Password** textbox, type the password for this account.
+    1. In the **Admin Password** textbox, type the password for this account.
 
 > [!NOTE]
 > If both SSO and user provisioning is setup, the authorization credentials used for provisioning needs to be configured to work with both SSO and Username/Password.
@@ -89,7 +89,7 @@ It starts the initial synchronization of any users assigned to DocuSign in the U
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Troubleshooting Tips
-* Provisioning a role or permission profile for a user in Docusign can be accomplished by using an expression in your attribute mappings using the [switch](../app-provisioning/functions-for-customizing-application-data.md#switch) and [singleAppRoleAssignment](../app-provisioning/functions-for-customizing-application-data.md#singleapproleassignment) functions. For example, the expression below will provision the ID "8032066" when a user has the "DS Admin" role assigned in Azure AD. It will not provision any permission profile if the user isn't assigned a role on the Azure AD side. The ID can be retrieved from the DocuSign [portal](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles).
+* Provisioning a role or permission profile for a user in Docusign can be accomplished by using an expression in your attribute mappings using the [switch](../app-provisioning/functions-for-customizing-application-data.md#switch) and [singleAppRoleAssignment](../app-provisioning/functions-for-customizing-application-data.md#singleapproleassignment) functions. For example, the expression below will provision the ID "8032066" when a user has the "DS Admin" role assigned in Azure AD. It will not provision any permission profile if the user isn't assigned a role on the Azure AD side. The ID can be retrieved from the DocuSign [portal](https://support.docusign.com/).
 
 Switch(SingleAppRoleAssignment([appRoleAssignments])," ", "DS Admin", "8032066")
 

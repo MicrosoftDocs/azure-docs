@@ -9,36 +9,33 @@ ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
 ms.reviewer: wiassaf
-ms.date: 05/31/2022
+ms.date: 08/11/2022
 ---
 
 # Design and performance for Netezza migrations
 
-This article is part one of a seven part series that provides guidance on how to migrate from Netezza to Azure Synapse Analytics. This article provides best practices for design and performance.
+This article is part one of a seven-part series that provides guidance on how to migrate from Netezza to Azure Synapse Analytics. The focus of this article is best practices for design and performance.
 
 ## Overview
 
-Due to end of support from IBM, many existing users of Netezza data warehouse systems want to take advantage of the innovations provided by newer environments such as cloud, IaaS, and PaaS, and to delegate tasks like infrastructure maintenance and platform development to the cloud provider.
+Due to end of support from IBM, many existing users of Netezza data warehouse systems want to take advantage of the innovations provided by modern cloud environments. Infrastructure-as-a-service (IaaS) and platform-as-a-service (PaaS) cloud environments let you delegate tasks like infrastructure maintenance and platform development to the cloud provider.
 
-> [!TIP]
-> More than just a database&mdash;the Azure environment includes a comprehensive set of capabilities and tools.
+>[!TIP]
+>More than just a database&mdash;the Azure environment includes a comprehensive set of capabilities and tools.
 
-Although Netezza and Azure Synapse Analytics are both SQL databases designed to use massively parallel processing (MPP) techniques to achieve high query performance on exceptionally large data volumes, there are some basic differences in approach:
+Although Netezza and Azure Synapse Analytics are both SQL databases that use massively parallel processing (MPP) techniques to achieve high query performance on exceptionally large data volumes, there are some basic differences in approach:
 
 - Legacy Netezza systems are often installed on-premises and use proprietary hardware, while Azure Synapse is cloud-based and uses Azure storage and compute resources.
 
-- Upgrading a Netezza configuration is a major task involving additional physical hardware and potentially lengthy database reconfiguration, or dump and reload. Since storage and compute resources are separate in the Azure environment, these resources can be scaled upwards or downwards independently, leveraging the elastic scaling capability.
+- Upgrading a Netezza configuration is a major task involving extra physical hardware and potentially lengthy database reconfiguration, or dump and reload. Because storage and compute resources are separate in the Azure environment and have elastic scaling capability, those resources can be scaled upwards or downwards independently.
 
-- Azure Synapse can be paused or resized as required to reduce resource utilization and cost.
+- You can pause or resize Azure Synapse as needed to reduce resource utilization and cost.
 
 Microsoft Azure is a globally available, highly secure, scalable cloud environment that includes Azure Synapse and an ecosystem of supporting tools and capabilities. The next diagram summarizes the Azure Synapse ecosystem.
 
 :::image type="content" source="../media/1-design-performance-migration/azure-synapse-ecosystem.png" border="true" alt-text="Chart showing the Azure Synapse ecosystem of supporting tools and capabilities.":::
 
-> [!TIP]
-> Azure Synapse gives best-of-breed performance and price-performance in independent benchmarks.
-
-Azure Synapse provides best-of-breed relational database performance by using techniques such as massively parallel processing (MPP) and multiple levels of automated caching for frequently used data. See the results of this approach in independent benchmarks such as the one run recently by [GigaOm](https://research.gigaom.com/report/data-warehouse-cloud-benchmark/), which compares Azure Synapse to other popular cloud data warehouse offerings. Customers who have migrated to this environment have seen many benefits including:
+Azure Synapse provides best-of-breed relational database performance by using techniques such as MPP and multiple levels of automated caching for frequently used data. You can see the results of these techniques in independent benchmarks such as the one run recently by [GigaOm](https://research.gigaom.com/report/data-warehouse-cloud-benchmark/), which compares Azure Synapse to other popular cloud data warehouse offerings. Customers who migrate to the Azure Synapse environment see many benefits, including:
 
 - Improved performance and price/performance.
 
@@ -54,118 +51,172 @@ Azure Synapse provides best-of-breed relational database performance by using te
 
 - Lower overall TCO, better cost control, and streamlined operational expenditure (OPEX).
 
-To maximize these benefits, migrate new or existing data and applications to the Azure Synapse platform. In many organizations, this will include migrating an existing data warehouse from legacy on-premises platforms such as Netezza. At a high level, the basic process includes these steps:
+To maximize these benefits, migrate new or existing data and applications to the Azure Synapse platform. In many organizations, migration includes moving an existing data warehouse from a legacy on-premises platform, such as Netezza, to Azure Synapse. At a high level, the migration process includes these steps:
 
-:::image type="content" source="../media/1-design-performance-migration/migration-steps.png" border="true" alt-text="Diagram showing the steps for preparing to migrate, migration, and post-migration.":::
+:::row:::
+   :::column span="":::
+    &#160;&#160;&#160; **Preparation** &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#129094;
 
-This paper looks at schema migration with a goal of equivalent or better performance of your migrated Netezza data warehouse and data marts on Azure Synapse. This paper applies specifically to migrations from an existing Netezza environment.
+     - Define scope&mdash;what is to be migrated.
+     
+     - Build inventory of data and processes for migration.
+     
+     - Define data model changes (if any).
+     
+     - Define source data extract mechanism.
+     
+     - Identify the appropriate Azure and third-party tools and features to be used.
+     
+     - Train staff early on the new platform.
+     
+     - Set up the Azure target platform.
+
+   :::column-end:::
+   :::column span="":::
+    &#160;&#160;&#160; **Migration** &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#129094;
+
+     - Start small and simple.
+     
+     - Automate wherever possible.
+     
+     - Leverage Azure built-in tools and features to reduce migration effort.
+     
+     - Migrate metadata for tables and views.
+     
+     - Migrate historical data to be maintained.
+     
+     - Migrate or refactor stored procedures and business processes.
+     
+     - Migrate or refactor ETL/ELT incremental load processes.
+
+   :::column-end:::
+   :::column span="":::
+    &#160;&#160;&#160; **Post migration**
+
+    - Monitor and document all stages of the process.
+     
+    - Use the experience gained to build a template for future migrations.
+     
+    - Re-engineer the data model if required (using new platform performance and scalability).
+     
+    - Test applications and query tools.
+     
+    - Benchmark and optimize query performance.
+
+   :::column-end:::
+:::row-end:::
+
+This article provides general information and guidelines for performance optimization when migrating a data warehouse from an existing Netezza environment to Azure Synapse. The goal of performance optimization is to achieve the same or better data warehouse performance in Azure Synapse after schema migration.
 
 ## Design considerations
 
 ### Migration scope
 
-> [!TIP]
-> Create an inventory of objects to be migrated and document the migration process.
-
-#### Preparation for migration
-
-When migrating from a Netezza environment, there are some specific topics to consider in addition to the more general subjects described in this article.
+When you're preparing to migrate from a Netezza environment, consider the following migration choices.
 
 #### Choose the workload for the initial migration
 
-Legacy Netezza environments have typically evolved over time to encompass multiple subject areas and mixed workloads. When deciding where to start on an initial migration project, choose an area that can:
+Typically, legacy Netezza environments have evolved over time to encompass multiple subject areas and mixed workloads. When you're deciding where to start on a migration project, choose an area where you'll be able to:
 
 - Prove the viability of migrating to Azure Synapse by quickly delivering the benefits of the new environment.
 
-- Allow the in-house technical staff to gain relevant experience of the processes and tools involved, which can be used in migrations to other areas.
+- Allow your in-house technical staff to gain relevant experience with the processes and tools that they'll use when they migrate other areas.
 
-- Create a template for further migrations specific to the source Netezza environment and the current tools and processes that are already in place.
+- Create a template for further migrations that's specific to the source Netezza environment and the current tools and processes that are already in place.
 
-A good candidate for an initial migration from the Netezza environment that would enable the preceding items is typically one that implements a BI/Analytics workload, rather than an online transaction processing (OLTP) workload, with a data model that can be migrated with minimal modification, normally a star or snowflake schema.
+A good candidate for an initial migration from a Netezza environment supports the preceding items, and:
 
-The migration data volume for the initial exercise should be large enough to demonstrate the capabilities and benefits of the Azure Synapse environment while quickly demonstrating the value&mdash;typically in the 1-10 TB range.
+- Implements a BI/Analytics workload rather than an online transaction processing (OLTP) workload.
 
-To minimize the risk and reduce implementation time for the initial migration project, confine the scope of the migration to just the data marts. However, this won't address the broader topics such as ETL migration and historical data migration as part of the initial migration project. Address these topics in later phases of the project, once the migrated data mart layer is backfilled with the data and processes required to build them.
+- Has a data model, such as a star or snowflake schema, that can be migrated with minimal modification.
 
-#### Lift and shift as-is versus a phased approach incorporating changes
+>[!TIP]
+>Create an inventory of objects that need to be migrated, and document the migration process.
 
-> [!TIP]
-> "Lift and shift" is a good starting point, even if subsequent phases will implement changes to the data model.
+The volume of migrated data in an initial migration should be large enough to demonstrate the capabilities and benefits of the Azure Synapse environment but not too large to quickly demonstrate value. A size in the 1-10 terabyte range is typical.
 
-Whatever the drive and scope of the intended migration, there are&mdash;broadly speaking&mdash;two types of migration:
+For your initial migration project, minimize the risk, effort, and migration time so you can quickly see the benefits of the Azure cloud environment. Both the lift-and-shift and phased migration approaches limit the scope of the initial migration to just the data marts and don't address broader migration aspects such as ETL migration and historical data migration. However, you can address those aspects in later phases of the project once the migrated data mart layer is backfilled with data and the required build processes.
+
+<a id="lift-and-shift-as-is-versus-a-phased-approach-incorporating-changes"></a>
+#### Lift and shift migration vs. Phased approach
+
+In general, there are two types of migration regardless of the purpose and scope of the planned migration: lift and shift as-is and a phased approach that incorporates changes.
 
 ##### Lift and shift
 
-In this case, the existing data model&mdash;such as a star schema&mdash;is migrated unchanged to the new Azure Synapse platform. The emphasis is on minimizing risk and the migration time required by reducing the work needed to realize the benefits of moving to the Azure cloud environment.
+In a lift and shift migration, an existing data model, like a star schema, is migrated unchanged to the new Azure Synapse platform. This approach minimizes risk and migration time by reducing the work needed to realize the benefits of moving to the Azure cloud environment. Lift and shift migration is a good fit for these scenarios:
 
-This is a good fit for existing Netezza environments where a single data mart is being migrated, or where the data is already in a well-designed star or snowflake schema&mdash;or there are other pressures to move to a more modern cloud environment.
+- You have an existing Netezza environment with a single data mart to migrate, or
+- You have an existing Netezza environment with data that's already in a well-designed star or snowflake schema, or
+- You're under time and cost pressures to move to a modern cloud environment.
 
-##### Phased approach incorporating modifications
+>[!TIP]
+>Lift and shift is a good starting point, even if subsequent phases implement changes to the data model.
 
-In cases where a legacy warehouse has evolved over a long time, you might need to re-engineer to maintain the required performance levels or to support new data, such as Internet of Things (IoT) streams. Migrate to Azure Synapse to get the benefits of a scalable cloud environment as part of the re-engineering process. Migration could include a change in the underlying data model, such as a move from an Inmon model to a data vault.
+<a id="phased-approach-incorporating-modifications"></a>
+##### Phased approach that incorporates changes
 
-Microsoft recommends moving the existing data model as-is to Azure and using the performance and flexibility of the Azure environment to apply the re-engineering changes, leveraging Azure's capabilities to make the changes without impacting the existing source system.
+If a legacy data warehouse has evolved over a long period of time, you might need to re-engineer it to maintain the required performance levels. You might also have to re-engineer to support new data like Internet of Things (IoT) streams. As part of the re-engineering process, migrate to Azure Synapse to get the benefits of a scalable cloud environment. Migration can also include a change in the underlying data model, such as a move from an Inmon model to a data vault.
+
+Microsoft recommends moving your existing data model as-is to Azure and using the performance and flexibility of the Azure environment to apply the re-engineering changes. That way, you can use Azure's capabilities to make the changes without impacting the existing source system.
 
 #### Use Azure Data Factory to implement a metadata-driven migration
 
-Automate and orchestrate the migration process by using the capabilities of the Azure environment. This approach minimizes the impact on the existing Netezza environment, which may already be running close to full capacity.
+You can automate and orchestrate the migration process by using the capabilities of the Azure environment. This approach minimizes the performance hit on the existing Netezza environment, which may already be running close to capacity.
 
-Azure Data Factory is a cloud-based data integration service that allows creation of data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Data Factory, you can create and schedule data-driven workflows&mdash;called pipelines&mdash;to ingest data from disparate data stores. Data Factory can process and transform data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning.
+[Azure Data Factory](../../../data-factory/introduction.md) is a cloud-based data integration service that supports creating data-driven workflows in the cloud that orchestrate and automate data movement and data transformation. You can use Data Factory to create and schedule data-driven workflows (pipelines) that ingest data from disparate data stores. Data Factory can process and transform data by using compute services such as [Azure HDInsight Hadoop](../../../hdinsight/hadoop/apache-hadoop-introduction.md), Spark, Azure Data Lake Analytics, and Azure Machine Learning.
 
-By creating metadata to list the data tables to be migrated and their location, you can use the Data Factory facilities to manage the migration process.
+When you're planning to use Data Factory facilities to manage the migration process, create metadata that lists all the data tables to be migrated and their location.
 
 ### Design differences between Netezza and Azure Synapse
 
-#### Multiple databases versus a single database and schemas
+As mentioned earlier, there are some basic differences in approach between Netezza and Azure Synapse Analytics databases and these differences are discussed next.
 
-> [!TIP]
-> Combine multiple databases into a single database in Azure Synapse and use schemas to logically separate the tables.
+<a id="multiple-databases-versus-a-single-database-and-schemas"></a>
+#### Multiple databases vs. a single database and schemas
 
-In a Netezza environment, there are often multiple separate databases for individual parts of the overall environment. For example, there may be a separate database for data ingestion and staging tables, a database for the core warehouse tables, and another database for data marts, sometimes called a semantic layer. Processing these as ETL/ELT pipelines may implement cross-database joins and will move data between these separate databases.
+The Netezza environment often contains multiple separate databases. For instance, there could be separate databases for: data ingestion and staging tables, core warehouse tables, and data marts (sometimes referred to as the semantic layer). ETL or ELT pipeline processes might implement cross-database joins and move data between the separate databases.
 
-> [!TIP]
-> Replace Netezza-specific features with Azure Synapse features.
-
-Querying within the Azure Synapse environment is limited to a single database. Schemas are used to separate the tables into logically separate groups. Therefore, we recommend using a series of schemas within the target Azure Synapse database to mimic any separate databases migrated from the Netezza environment. If the Netezza environment already uses schemas, you may need to use a new naming convention to move the existing Netezza tables and views to the new environment&mdash;for example, concatenate the existing Netezza schema and table names into the new Azure Synapse table name and use schema names in the new environment to maintain the original separate database names. Schema consolidation naming can have dots&mdash;however, Azure Synapse Spark may have issues. You can use SQL views over the underlying tables to maintain the logical structures, but there are some potential downsides to this approach:
+In contrast, the Azure Synapse environment contains a single database and uses schemas to separate tables into logically separate groups. We recommend that you use a series of schemas within the target Azure Synapse database to mimic the separate databases migrated from the Netezza environment. If the Netezza environment already uses schemas, you may need to use a new naming convention when you move the existing Netezza tables and views to the new environment. For example, you could concatenate the existing Netezza schema and table names into the new Azure Synapse table name, and use schema names in the new environment to maintain the original separate database names. If schema consolidation naming has dots, Azure Synapse Spark might have issues. Although you can use SQL views on top of the underlying tables to maintain the logical structures, there are potential downsides to that approach:
 
 - Views in Azure Synapse are read-only, so any updates to the data must take place on the underlying base tables.
 
-- There may already be one or more layers of views in existence, and adding an extra layer of views might impact performance and supportability as nested views are difficult to troubleshoot.
+- There may already be one or more layers of views in existence and adding an extra layer of views could affect performance and supportability because nested views are difficult to troubleshoot.
+
+>[!TIP]
+>Combine multiple databases into a single database within Azure Synapse and use schema names to logically separate the tables.
 
 #### Table considerations
 
-> [!TIP]
-> Use existing indexes to indicate candidates for indexing in the migrated warehouse.
+When you migrate tables between different environments, typically only the raw data and the metadata that describes it physically migrate. Other database elements from the source system, such as indexes, usually aren't migrated because they might be unnecessary or implemented differently in the new environment.
 
-When migrating tables between different technologies, only the raw data and the metadata that describes it gets physically moved between the two environments. Other database elements from the source system&mdash;such as indexes&mdash;aren't migrated as these may not be needed or may be implemented differently within the new target environment.
+Performance optimizations in the source environment, such as indexes, indicate where you might add performance optimization in the new environment. For example, if queries in the source Netezza environment frequently use zone maps, that suggests that a non-clustered index should be created within Azure Synapse. Other native performance optimization techniques like table replication may be more applicable than straight like-for-like index creation.
 
-However, it's important to understand where performance optimizations such as indexes have been used in the source environment, as this can indicate where to add performance optimization in the new target environment. For example, if queries in the source Netezza environment frequently use zone maps, it may indicate that a non-clustered index should be created within the migrated Azure Synapse. Other native performance optimization techniques, such as table replication, may be more applicable than a straight "like-for-like" index creation.
+>[!TIP]
+>Existing indexes indicate candidates for indexing in the migrated warehouse.
 
 #### Unsupported Netezza database object types
 
-> [!TIP]
-> Assess the impact of unsupported data types as part of the preparation phase
+Netezza-specific features can often be replaced by Azure Synapse features. However, some Netezza database objects aren't directly supported in Azure Synapse. The following list of unsupported Netezza database objects describes how you can achieve an equivalent functionality in Azure Synapse.
 
-Netezza implements some database objects that aren't directly supported in Azure Synapse, but there are methods to achieve the same functionality within the new environment:
-
-- Zone maps: in Netezza, zone maps are automatically created and maintained for some column types and are used at query time to restrict the amount of data to be scanned. Zone maps are created on the following column types:
+- **Zone maps**: in Netezza, zone maps are automatically created and maintained for the following column types and are used at query time to restrict the amount of data to be scanned:
   - `INTEGER` columns of length 8 bytes or less.
-  - Temporal columns. For instance, `DATE`, `TIME`, and `TIMESTAMP`.
-  - `CHAR` columns, if these are part of a materialized view and mentioned in the `ORDER BY` clause.
+  - Temporal columns, such as `DATE`, `TIME`, and `TIMESTAMP`.
+  - `CHAR` columns if they're part of a materialized view and mentioned in the `ORDER BY` clause.
 
   You can find out which columns have zone maps by using the `nz_zonemap` utility, which is part of the NZ Toolkit. Azure Synapse doesn't include zone maps, but you can achieve similar results by using other user-defined index types and/or partitioning.
 
-- Clustered base tables (CBT): in Netezza, CBTs are commonly used for fact tables, which can have billions of records. Scanning such a huge table requires a lot of processing time, since a full table scan might be needed to get relevant records. Organizing records on restrictive CBT allows Netezza to group records in same or nearby extents. This process also creates zone maps that improve the performance by reducing the amount of data to be scanned.
+- **Clustered base tables (CBT)**: in Netezza, CBTs are commonly used for fact tables, which can have billions of records. Scanning such a huge table requires considerable processing time because a full table scan might be needed to get the relevant records. Organizing records on restrictive CBTs allows Netezza to group records in same or nearby extents. This process also creates zone maps that improve the performance by reducing the amount of data that needs to be scanned.
 
-  In Azure Synapse, you can achieve a similar effect by use of partitioning and/or use of other indexes.
+  In Azure Synapse, you can achieve a similar effect by partitioning and/or using other indexes.
 
-- Materialized views: Netezza supports materialized views and recommends creating one or more of these over large tables having many columns where only a few of those columns are regularly used in queries. The system automatically maintains materialized views when data in the base table is updated.
+- **Materialized views**: Netezza supports materialized views and recommends using one or more materialized views for large tables with many columns if only a few columns are regularly used in queries. Materialized views are automatically refreshed by the system when data in the base table is updated.
 
   Azure Synapse supports materialized views, with the same functionality as Netezza.
 
 #### Netezza data type mapping
 
-Most Netezza data types have a direct equivalent in Azure Synapse. This table shows these data types together with the recommended approach for handling them.
+Most Netezza data types have a direct equivalent in Azure Synapse. The following table shows the recommended approach for mapping Netezza data types to Azure Synapse.
 
 | Netezza Data Type              | Azure Synapse Data Type             |
 |--------------------------------|-------------------------------------|
@@ -192,143 +243,148 @@ Most Netezza data types have a direct equivalent in Azure Synapse. This table sh
 | TIME WITH TIME ZONE            | DATETIMEOFFSET                      |
 | TIMESTAMP                      | DATETIME                            |
 
-> [!TIP]
-> Assess the number and type of non-data objects to be migrated as part of the preparation phase.
+>[!TIP]
+>Assess the number and type of unsupported data types during the migration preparation phase.
 
-There are third-party vendors who offer tools and services to automate migration, including the mapping of data types. If a third-party ETL tool such as Informatica or Talend is already in use in the Netezza environment, those tools can implement any required data transformations.
+Third-party vendors offer tools and services to automate migration, including the mapping of data types. If a [third-party](../../partner/data-integration.md) ETL tool is already in use in the Netezza environment, use that tool to implement any required data transformations.
 
 #### SQL DML syntax differences
 
-There are a few differences in SQL Data Manipulation Language (DML) syntax between Netezza SQL and Azure Synapse (T-SQL) that you should be aware of during migration:
+SQL DML syntax differences exist between Netezza SQL and Azure Synapse T-SQL. Those differences are discussed in detail in [Minimize SQL issues for Netezza migrations](5-minimize-sql-issues.md#sql-ddl-differences-between-netezza-and-azure-synapse).
 
-- `STRPOS`: in Netezza, the `STRPOS` function returns the position of a substring within a string. The equivalent function in Azure Synapse is `CHARINDEX`, with the order of the arguments reversed. For example, `SELECT STRPOS('abcdef','def')...` in Netezza is equivalent to `SELECT CHARINDEX('def','abcdef')...` in Azure Synapse.
+- `STRPOS`: in Netezza, the `STRPOS` function returns the position of a substring within a string. The equivalent function in Azure Synapse is `CHARINDEX` with the order of the arguments reversed. For example, `SELECT STRPOS('abcdef','def')...` in Netezza is equivalent to `SELECT CHARINDEX('def','abcdef')...` in Azure Synapse.
 
-- `AGE`: Netezza supports the `AGE` operator to give the interval between two temporal values, such as timestamps or dates. For example, `SELECT AGE('23-03-1956','01-01-2019') FROM...`. In Azure Synapse, `DATEDIFF` gives the interval. For example, `SELECT DATEDIFF(day, '1956-03-26','2019-01-01') FROM...`. Note the date representation sequence.
+- `AGE`: Netezza supports the `AGE` operator to give the interval between two temporal values, such as timestamps or dates, for example: `SELECT AGE('23-03-1956','01-01-2019') FROM...`. In Azure Synapse, use `DATEDIFF` to get the interval, for example: `SELECT DATEDIFF(day, '1956-03-26','2019-01-01') FROM...`. Note the date representation sequence.
 
 - `NOW()`: Netezza uses `NOW()` to represent `CURRENT_TIMESTAMP` in Azure Synapse.
 
 #### Functions, stored procedures, and sequences
 
-> [!TIP]
-> Assess the number and type of non-data objects to be migrated as part of the preparation phase.
+When migrating a data warehouse from a mature environment like Netezza, you probably need to migrate elements other than simple tables and views. Check whether tools within the Azure environment can replace the functionality of functions, stored procedures, and sequences because it's usually more efficient to use built-in Azure tools than to recode those elements for Azure Synapse.
 
-When migrating from a mature legacy data warehouse environment such as Netezza, you must often migrate elements other than simple tables and views to the new target environment. Examples include functions, stored procedures, and sequences.
+As part of your preparation phase, create an inventory of objects that need to be migrated, define a method for handling them, and allocate appropriate resources in your migration plan.
 
-As part of the preparation phase, create an inventory of these objects to be migrated, and define the method of handling them. Assign an appropriate allocation of resources in the project plan.
+[Data integration partners](../../partner/data-integration.md) offer tools and services that can automate the migration of functions, stored procedures, and sequences.
 
-There may be facilities in the Azure environment that replace the functionality implemented as functions or stored procedures in the Netezza environment. In this case, it's more efficient to use the built-in Azure facilities rather than recoding the Netezza functions.
-
-[Data integration partners](../../partner/data-integration.md) offer tools and services that can automate the migration.
+The following sections further discuss the migration of functions, stored procedures, and sequences.
 
 ##### Functions
 
-As with most database products, Netezza supports system functions and user-defined functions within an SQL implementation. When migrating to another database platform such as Azure Synapse, common system functions are available and can be migrated without change. Some system functions may have slightly different syntax, but the required changes can be automated if so.
+As with most database products, Netezza supports system and user-defined functions within a SQL implementation. When you migrate a legacy database platform to Azure Synapse, common system functions can usually be migrated without change. Some system functions might have a slightly different syntax, but any required changes can be automated.
 
-For system functions where there's no equivalent, or for arbitrary user-defined functions, recode these using the language(s) available in the target environment. Netezza user-defined functions are coded in nzlua or C++ languages while Azure Synapse uses the popular Transact-SQL language to implement user-defined functions.
+For Netezza system functions or arbitrary user-defined functions that have no equivalent in Azure Synapse, recode those functions using a target environment language. Netezza user-defined functions are coded in nzlua or C++ languages. Azure Synapse uses the Transact-SQL language to implement user-defined functions.
 
 ##### Stored procedures
 
-Most modern database products allow for procedures to be stored within the database. Netezza provides the NZPLSQL language for this purpose. NZPLSQL is based on Postgres PL/pgSQL.
+Most modern database products support storing procedures within the database. Netezza provides the NZPLSQL language, which is based on Postgres PL/pgSQL, for this purpose. A stored procedure typically contains both SQL statements and procedural logic, and returns data or a status.
 
-A stored procedure typically contains SQL statements and some procedural logic, and may return data or a status.
-
-Azure Synapse Analytics also supports stored procedures using T-SQL. If you must migrate stored procedures, recode these procedures for their new environment.
+Azure Synapse supports stored procedures using T-SQL, so you need to recode any migrated stored procedures in that language.
 
 ##### Sequences
 
-In Netezza, a sequence is a named database object created via `CREATE SEQUENCE` that can provide the unique value via the `NEXT VALUE FOR` method. Use these to generate unique numbers for use as surrogate key values for primary key values.
+In Netezza, a sequence is a named database object created using `CREATE SEQUENCE`. A sequence provides unique numeric values via the `NEXT VALUE FOR` method. You can use the generated unique numbers as surrogate key values for primary keys.
 
-Within Azure Synapse, there's no `CREATE SEQUENCE`. Sequences are handled via use of [IDENTITY](/sql/t-sql/statements/create-table-transact-sql-identity-property?msclkid=8ab663accfd311ec87a587f5923eaa7b) columns or SQL code to create the next sequence number in a series.
+Azure Synapse doesn't implement `CREATE SEQUENCE`, but you can implement sequences using [IDENTITY](/sql/t-sql/statements/create-table-transact-sql-identity-property) columns or SQL code that generates the next sequence number in a series.
 
 ### Extract metadata and data from a Netezza environment
 
 #### Data Definition Language (DDL) generation
 
-> [!TIP]
-> Use Netezza external tables for most efficient data extract.
+The ANSI SQL standard defines the basic syntax for Data Definition Language (DDL) commands. Some DDL commands, such as `CREATE TABLE` and `CREATE VIEW`, are common to both Netezza and Azure Synapse but have been extended to provide implementation-specific features.
 
-You can edit existing Netezza CREATE TABLE and CREATE VIEW scripts to create the equivalent definitions with modified data types, if necessary, as described in the previous section. Typically, this involves removing or modifying any extra Netezza-specific clauses such as `ORGANIZE ON`.
+You can edit existing Netezza `CREATE TABLE` and `CREATE VIEW` scripts to achieve equivalent definitions in Azure Synapse. To do so, you might need to use [modified data types](#netezza-data-type-mapping) and remove or modify Netezza-specific clauses such as `ORGANIZE ON`.
 
-However, all the information that specifies the current definitions of tables and views within the existing Netezza environment is maintained within system catalog tables. These tables are the best source of this information, as it's guaranteed to be up to date and complete. User-maintained documentation may not be in sync with the current table definitions.
+Within the Netezza environment, system catalog tables specify the current table and view definition. Unlike user-maintained documentation, system catalog information is always complete and in sync with current table definitions. By using utilities such as `nz_ddl_table`, you can access system catalog information to generate `CREATE TABLE` DDL statements that create equivalent tables in Azure Synapse.
 
-Access the information in these tables via utilities such as `nz_ddl_table` and generate the `CREATE TABLE` DDL statements for the equivalent tables in Azure Synapse.
-
-Third-party migration and ETL tools also use the catalog information to achieve the same result.
+You can also use [third-party](../../partner/data-integration.md) migration and ETL tools that process system catalog information to achieve similar results.
 
 #### Data extraction from Netezza
 
-Migrate the raw data from existing Netezza tables into flat delimited files using standard Netezza utilities, such as nzsql, nzunload, and via external tables. Compress these files using gzip and upload them to Azure Blob Storage via AzCopy or by using Azure data transport facilities such as Azure Data Box.
+You can extract raw table data from Netezza tables to flat delimited files, such as CSV files, using standard Netezza utilities like nzsql and nzunload, or via external tables. Then, you can compress the flat delimited files using gzip, and upload the compressed files to Azure Blob Storage using AzCopy or Azure data transport tools like Azure Data Box.
 
-During a migration exercise, extract the data as efficiently as possible. Use the external tables approach as this is the fastest method. Perform multiple extracts in parallel to maximize the throughput for data extraction.
-
-This is a simple example of an external table extract:
+Extract table data as efficiently as possible. Use the external tables approach because it's the fastest extract method. Perform multiple extracts in parallel to maximize data extraction throughput. The following SQL statement performs an external table extract:
 
 ```sql
 CREATE EXTERNAL TABLE '/tmp/export_tab1.csv' USING (DELIM ',') AS SELECT * from <TABLENAME>;
 ```
 
-If sufficient network bandwidth is available, extract data directly from an on-premises Netezza system into Azure Synapse tables or Azure Blob Data Storage by using Azure Data Factory processes or third-party data migration or ETL products.
+If sufficient network bandwidth is available, you can extract data from an on-premises Netezza system directly into Azure Synapse tables or Azure Blob Data Storage. To do so, use Data Factory processes or [third-party](../../partner/data-integration.md) data migration or ETL products.
 
-Recommended data formats for the extracted data include delimited text files (also called Comma Separated Values or CSV), Optimized Row Columnar (ORC), or Parquet files.
+>[!TIP]
+>Use Netezza external tables for the most efficient data extraction.
 
-For more information about the process of migrating data and ETL from a Netezza environment, see [Data migration, ETL, and load for Netezza migrations](2-etl-load-migration-considerations.md).
+Extracted data files should contain delimited text in CSV, Optimized Row Columnar (ORC), or Parquet format.
+
+For more information about migrating data and ETL from a Netezza environment, see [Data migration, ETL, and load for Netezza migrations](2-etl-load-migration-considerations.md).
 
 ## Performance recommendations for Netezza migrations
 
-This article provides general information and guidelines about use of performance optimization techniques for Azure Synapse and adds specific recommendations for use when migrating from a Netezza environment.
+The goal of performance optimization is same or better data warehouse performance after migration to Azure Synapse.
 
 ### Similarities in performance tuning approach concepts
 
-> [!TIP]
-> Many Netezza tuning concepts hold true for Azure Synapse.
+Many performance tuning concepts for Netezza databases hold true for Azure Synapse databases. For example:
 
-When moving from a Netezza environment, many of the performance tuning concepts for Azure Data Warehouse will be remarkably familiar. For example:
+- Use data distribution to collocate data-to-be-joined onto the same processing node.
 
-- Using data distribution to collocate data to be joined onto the same processing node.
+- Use the smallest data type for a given column to save storage space and accelerate query processing.
 
-- Using the smallest data type for a given column will save storage space and accelerate query processing.
+- Ensure that columns to be joined have the same data type in order to optimize join processing and reduce the need for data transforms.
 
-- Ensuring data types of columns to be joined are identical will optimize join processing by reducing the need to transform data for matching.
+- To help the optimizer produce the best execution plan, ensure statistics are up to date.
 
-- Ensuring statistics are up to date will help the optimizer produce the best execution plan.
+- Monitor performance using built-in database capabilities to ensure that resources are being used efficiently.
+
+>[!TIP]
+>Prioritize familiarity with the tuning options in Azure Synapse at the start of a migration.
 
 ### Differences in performance tuning approach
 
-> [!TIP]
-> Prioritize early familiarity with Azure Synapse tuning options in a migration exercise.
-
-This section highlights lower-level implementation differences between Netezza and Azure Synapse for performance tuning.
+This section highlights low-level performance tuning implementation differences between Netezza and Azure Synapse.
 
 #### Data distribution options
 
-`CREATE TABLE` statements in both Netezza and Azure Synapse allow for specification of a distribution definition&mdash;via `DISTRIBUTE ON` in Netezza, and `DISTRIBUTION =` in Azure Synapse.
+For performance, Azure Synapse was designed with multi-node architecture and uses parallel processing. To optimize table performance, you can define a data distribution option in `CREATE TABLE` statements using `DISTRIBUTION` in Azure Synapse and `DISTRIBUTE ON` in Netezza.
 
-Compared to Netezza, Azure Synapse provides an additional way to achieve local joins for small table-large table joins (typically dimension table to fact table in a star schema model), which is to replicate the smaller dimension table across all nodes. This ensures that any value of the join key of the larger table will have a matching dimension row locally available. The overhead of replicating the dimension tables is relatively low, provided the tables aren't very large (see [Design guidance for replicated tables](../../sql-data-warehouse/design-guidance-for-replicated-tables.md))&mdash;in which case, the hash distribution approach as described previously is more appropriate. For more information, see [Distributed tables design](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
+Unlike Netezza, Azure Synapse supports local joins between a small table and a large table through small table replication. For instance, consider a small dimension table and a large fact table within a star schema model. Azure Synapse can replicate the smaller dimension table across all nodes to ensure that the value of any join key for the large table has a matching, locally available dimension row. The overhead of dimension table replication is relatively low for a small dimension table. For large dimension tables, a hash distribution approach is more appropriate. For more information about data distribution options, see [Design guidance for using replicated tables](../../sql-data-warehouse/design-guidance-for-replicated-tables.md) and [Guidance for designing distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
 
 #### Data indexing
 
-Azure Synapse provides several user-definable indexing options, but these are different from the system-managed zone maps in Netezza. For more information about the different indexing options, see [table indexes](/azure/sql-data-warehouse/sql-data-warehouse-tables-index).
+Azure Synapse supports several user-definable indexing options that have a different operation and usage compared to system-managed zone maps in Netezza. For more information about the different indexing options in Azure Synapse, see [Indexes on dedicated SQL pool tables](../../sql-data-warehouse/sql-data-warehouse-tables-index.md).
 
-The existing system-managed zone maps within the source Netezza environment can indicate how the data is currently used. They can identify candidate columns for indexing within the Azure Synapse environment.
+The existing system-managed zone maps within a source Netezza environment provide a useful indication of data usage and the candidate columns for indexing in the Azure Synapse environment.
 
 #### Data partitioning
 
-In an enterprise data warehouse, fact tables can contain many billions of rows. Partitioning optimizes the maintenance and querying of these tables by splitting them into separate parts to reduce the amount of data processed. The `CREATE TABLE` statement defines the partitioning specification for a table.
+In an enterprise data warehouse, fact tables can contain billions of rows. Partitioning optimizes the maintenance and query performance of these tables by splitting them into separate parts to reduce the amount of data processed. In Azure Synapse, the `CREATE TABLE` statement defines the partitioning specification for a table.
 
-Only one field per table can be used for partitioning. That field is frequently a date field since many queries are filtered by date or a date range. It's possible to change the partitioning of a table after initial load by recreating the table with the new distribution using the `CREATE TABLE AS` (or CTAS) statement. See [table partitions](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) for a detailed discussion of partitioning in Azure Synapse.
+You can only use one field per table for partitioning. That field is often a date field because many queries are filtered by date or date range. It's possible to change the partitioning of a table after initial load by using the `CREATE TABLE AS` (CTAS) statement to recreate the table with a new distribution. For a detailed discussion of partitioning in Azure Synapse, see [Partitioning tables in dedicated SQL pool](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition).
 
 #### Data table statistics
 
-Ensure that statistics on data tables are up to date by building in a [statistics](../../sql/develop-tables-statistics.md) step to ETL/ELT jobs.
+You should ensure that statistics on data tables are up to date by building in a [statistics](../../sql/develop-tables-statistics.md) step to ETL/ELT jobs.
 
-#### PolyBase for data loading
+<a id="polybase-for-data-loading"></a>
+#### PolyBase or COPY INTO for data loading
 
-PolyBase is the most efficient method for loading large amounts of data into the warehouse since it can leverage parallel loading streams. For more information, see [PolyBase data loading strategy](../../sql/load-data-overview.md).
+[PolyBase](/sql/relational-databases/polybase) supports efficient loading of large amounts of data to a data warehouse by using parallel loading streams. For more information, see [PolyBase data loading strategy](../../sql/load-data-overview.md).
 
-#### Use workload management
+[COPY INTO](/sql/t-sql/statements/copy-into-transact-sql) also supports high-throughput data ingestion, and:
 
-Use [workload management](../../sql-data-warehouse/sql-data-warehouse-workload-management.md?context=%2fazure%2fsynapse-analytics%2fcontext%2fcontext) instead of resource classes. ETL would be in its own workgroup and should be configured to have more resources per query (less concurrency by more resources). For more information, see [What is dedicated SQL pool in Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
+- Data retrieval from all files within a folder and subfolders.
+
+- Data retrieval from multiple locations in the same storage account. You can specify multiple locations by using comma separated paths.
+
+- [Azure Data Lake Storage](../../../storage/blobs/data-lake-storage-introduction.md) (ADLS) and Azure Blob Storage.
+
+- CSV, PARQUET, and ORC file formats.
+
+#### Workload management
+
+Running mixed workloads can pose resource challenges on busy systems. A successful [workload management](../../sql-data-warehouse/sql-data-warehouse-workload-management.md) scheme effectively manages resources, ensures highly efficient resource utilization, and maximizes return on investment (ROI). [Workload classification](../../sql-data-warehouse/sql-data-warehouse-workload-classification.md), [workload importance](../../sql-data-warehouse/sql-data-warehouse-workload-importance.md), and [workload isolation](../../sql-data-warehouse/sql-data-warehouse-workload-isolation.md) give more control over how workload utilizes system resources.
+
+The [workload management guide](../../sql-data-warehouse/analyze-your-workload.md) describes the techniques to analyze the workload, [manage and monitor workload importance](../../sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md), and the steps to [convert a resource class to a workload group](../../sql-data-warehouse/sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md). Use the [Azure portal](../../sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md) and [T-SQL queries on DMVs](../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md) to monitor the workload to ensure that the applicable resources are efficiently utilized. 
 
 ## Next steps
 
-To learn more about ETL and load for Netezza migration, see the next article in this series: [Data migration, ETL, and load for Netezza migrations](2-etl-load-migration-considerations.md).
+To learn about ETL and load for Netezza migration, see the next article in this series: [Data migration, ETL, and load for Netezza migrations](2-etl-load-migration-considerations.md).

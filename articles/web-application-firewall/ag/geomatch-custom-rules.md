@@ -5,7 +5,7 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 07/30/2021
+ms.date: 07/17/2022
 ms.author: victorh
 ---
 
@@ -13,11 +13,17 @@ ms.author: victorh
 
 Custom rules allow you to create tailored rules to suit the exact needs of your applications and security policies. Now, you can restrict access to your web applications by country/region. As with all custom rules, this logic can be compounded with other rules to suit the needs of your application.
 
-To create a geo-filtering custom rule in the Azure portal, simply select *Geo location* as the Match Type, and then select the country/region or countries/regions you want to allow/block from your application. When creating geomatch rules with Azure PowerShell or Azure Resource Manager, use the match variable `RemoteAddr` and the operator `Geomatch`. For more information, see [how to create custom rules in PowerShell](configure-waf-custom-rules.md) and more [custom rule examples](create-custom-waf-rules.md).
+To create a geo-filtering custom rule in the Azure portal, select *Geo location* as the Match Type, and then select the country/region or countries/regions you want to allow/block from your application. When creating geomatch rules with Azure PowerShell or Azure Resource Manager, use the match variable `RemoteAddr` and the operator `Geomatch`. For more information, see [how to create custom rules in PowerShell](configure-waf-custom-rules.md) and more [custom rule examples](create-custom-waf-rules.md).
+
+> [!NOTE]
+> Geo-filtering works based on mapping each request's IP address to a country or region. There might be some IP addresses in the data set that are not yet mapped to a country or region. To avoid accidentally blocking legitimate users, Application Gateway's WAF allows requests from unknown IP addresses.
+
+> [!IMPORTANT]
+> Include the country code **ZZ** whenever you use geo-filtering. The **ZZ** country code (or *Unknown* country) captures IP addresses that are not yet mapped to a country in our dataset. This avoids false positives.
 
 ## Country/Region codes
 
-If you are using the Geomatch operator, the selectors can be any of the following two-digit country/region codes. 
+If you're using the Geomatch operator, the selectors can be any of the following two-digit country/region codes. 
 
 |Country/Region code | Country/Region name |
 | ----- | ----- |
@@ -181,7 +187,7 @@ If you are using the Geomatch operator, the selectors can be any of the followin
 | TG | Togo|
 | TH | Thailand|
 | TN | Tunisia|
-| TR | Turkey|
+| TR | Türkiye |
 | TT | Trinidad and Tobago|
 | TW | Taiwan|
 | TZ | Tanzania, United Republic of|
@@ -195,6 +201,7 @@ If you are using the Geomatch operator, the selectors can be any of the followin
 | VG | Virgin Islands, British|
 | VI | Virgin Islands, U.S.|
 | VN | Vietnam|
+| YE | Yemen|
 | ZA | South Africa|
 | ZM | Zambia|
 | ZW | Zimbabwe|

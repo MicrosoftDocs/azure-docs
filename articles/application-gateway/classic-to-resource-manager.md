@@ -2,11 +2,11 @@
 title: Application Gateway classic to Resource Manager
 description: Learn about moving Application Gateway resources from the classic deployment model to the Resource Manager deployment model.
 services: application-gateway
-author: azhar2005
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 02/10/2022
-ms.author: azhussai
+ms.author: greglin
 ---
 
 # Application Gateway classic to Resource Manager migration

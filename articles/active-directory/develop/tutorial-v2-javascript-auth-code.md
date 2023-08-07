@@ -2,14 +2,14 @@
 title: "Tutorial: Create a JavaScript single-page app that uses auth code flow"
 description: In this tutorial, you create a JavaScript SPA that can sign in users and use the auth code flow to obtain an access token from the Microsoft identity platform and call the Microsoft Graph API.
 services: active-directory
-author: mmacy
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/12/2021
-ms.author: marsma
+ms.author: owenrichards
 ms.custom: aaddev, devx-track-js
 ---
 
@@ -208,7 +208,7 @@ As you add scopes, your users might be prompted to provide additional consent fo
 
 If a back-end API doesn't require a scope, which isn't recommended, you can use `clientId` as the scope in the calls to acquire tokens.
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 

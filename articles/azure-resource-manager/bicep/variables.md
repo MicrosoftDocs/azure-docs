@@ -4,7 +4,8 @@ description: Describes how to define variables in Bicep
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 11/12/2021
+ms.custom: devx-track-bicep
+ms.date: 09/28/2022
 ---
 
 # Variables in Bicep
@@ -12,6 +13,8 @@ ms.date: 11/12/2021
 This article describes how to define and use variables in your Bicep file. You use variables to simplify your Bicep file development. Rather than repeating complicated expressions throughout your Bicep file, you define a variable that contains the complicated expression. Then, you use that variable as needed throughout your Bicep file.
 
 Resource Manager resolves variables before starting the deployment operations. Wherever the variable is used in the Bicep file, Resource Manager replaces it with the resolved value.
+
+You are limited to 256 variables in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
 ## Define variable
 

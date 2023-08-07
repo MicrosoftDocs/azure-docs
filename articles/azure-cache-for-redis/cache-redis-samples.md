@@ -4,7 +4,7 @@ description: 'Learn how to use Azure Cache for Redis with these code samples: co
 author: flang-msft
 ms.author: franlanglois
 ms.service: cache
-ms.custom: devx-track-dotnet
+ms.custom:
 ms.topic: sample
 ms.date: 05/11/2021
 ---
@@ -36,7 +36,7 @@ This sample shows how to:
 * Use Redis sets to implement tagging
 * Work with Redis Cluster
 
-For more information, see the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) documentation on GitHub. For more usage scenarios, see the [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/tests) unit tests.
+For more information, see the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) documentation on GitHub. For more usage scenarios, see the [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/main/tests) unit tests.
 
 [How to use Azure Cache for Redis with Python](cache-python-get-started.md) shows how to get started with Azure Cache for Redis using Python and the [redis-py](https://github.com/andymccurdy/redis-py) client.
 

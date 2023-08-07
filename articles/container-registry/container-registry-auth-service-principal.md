@@ -2,7 +2,10 @@
 title: Authenticate with service principal
 description: Provide access to images in your private container registry by using an Azure Active Directory service principal.
 ms.topic: article
-ms.date: 03/15/2021
+ms.custom: devx-track-azurecli
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Azure Container Registry authentication with service principals
@@ -46,10 +49,10 @@ You can find the preceding sample scripts for Azure CLI on GitHub, as well as ve
 
 Once you have a service principal that you've granted access to your container registry, you can configure its credentials for access to "headless" services and applications, or enter them using the `docker login` command. Use the following values:
 
-* **User name** - service principal's **application (client) ID**
+* **Username** - service principal's **application (client) ID**
 * **Password** - service principal's **password (client secret)**
 
-Each value has the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+The **Username** value has the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 > [!TIP]
 > You can regenerate the password (client secret) of a service principal by running the [az ad sp credential reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) command.
@@ -74,11 +77,11 @@ Once logged in, Docker caches the credentials.
 
 ### Use with certificate
 
-If you've added a certificate to your service principal, you can sign into the Azure CLI with certificate-based authentication, and then use the [az acr login][az-acr-login] command to access a registry. Using a certificate as a secret instead of a password provides additional security when you use the CLI.
+If you've added a certificate to your service principal, you can sign in to the Azure CLI with certificate-based authentication, and then use the [az acr login][az-acr-login] command to access a registry. Using a certificate as a secret instead of a password provides additional security when you use the CLI.
 
 A self-signed certificate can be created when you [create a service principal](/cli/azure/create-an-azure-service-principal-azure-cli). Or, add one or more certificates to an existing service principal. For example, if you use one of the scripts in this article to create or update a service principal with rights to pull or push images from a registry, add a certificate using the [az ad sp credential reset][az-ad-sp-credential-reset] command.
 
-To use the service principal with certificate to [sign into the Azure CLI](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal), the certificate must be in PEM format and include the private key. If your certificate isn't in the required format, use a tool such as `openssl` to convert it. When you run [az login][az-login] to sign into the CLI using the service principal, also provide the service principal's application ID and the Active Directory tenant ID. The following example shows these values as environment variables:
+To use the service principal with certificate to [sign in to the Azure CLI](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal), the certificate must be in PEM format and include the private key. If your certificate isn't in the required format, use a tool such as `openssl` to convert it. When you run [az login][az-login] to sign into the CLI using the service principal, also provide the service principal's application ID and the Active Directory tenant ID. The following example shows these values as environment variables:
 
 ```azurecli
 az login --service-principal --username $SP_APP_ID --tenant $SP_TENANT_ID  --password /path/to/cert/pem/file

@@ -1,18 +1,18 @@
 ---
-title: Peering Connection for Exchange partners with route server by using the Portal
-titleSuffix: Azure
-description: Create or modify an Exchange peering with route server by using the Azure portal
+title: Create or modify an Exchange peering with Route Server - Azure portal
+description: Create or modify an Exchange peering with Route Server using the Azure portal.
 services: internet-peering
-author: derekolo
+author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 5/19/2020
-ms.author: derekol
+ms.date: 01/23/2023
+ms.author: halkazwini
+ms.custom: template-how-to, engagement-fy23
 ---
 
-# Create or modify an Exchange peering with route server in Azure portal
+# Create or modify an Exchange peering with Route Server using the Azure portal
 
-This article describes how to create a Microsoft Exchange peering with a route server by using the Azure portal. This article also shows how to check the status of the resource, update it, or delete and deprovision it.
+This article describes how to create a Microsoft Exchange peering with a route server using the Azure portal. This article also shows how to check the status of the resource, update it, or delete and deprovision it.
 
 
 ## Before you begin
@@ -61,8 +61,8 @@ As an Internet Exchange Provider, you can create an exchange peering request by 
  
     * For Peering type, select **Direct**
     * For Microsoft network, select **AS8075 with exchange route server**. 
-    * Select SKU as **Basic Free**. Don't select premium free as it's reserved for special applications.
-    * Select the **Metro** location where you want to setup peering.
+    * For SKU, select **Premium Free**.
+    * Select the **Metro** location where you want to set up peering.
 
 1. Under **Peering Connections**, select **Create new**
 
@@ -81,9 +81,9 @@ As an Internet Exchange Provider, you can create an exchange peering request by 
      * Maximum advertised IPv4 prefix can be up to 20000. 
      * Use for Peering Service is disabled by default. It can be enabled once the exchange provider has signed a Peering Service Agreement with Microsoft.
 
-1. Upon completion, click **Save**. 
+1. Upon completion, select **Save**. 
 
-1. Under Create a peering, you will see validation passed. Once validation passed, click **Create**
+1. Under Create a peering, you'll see validation passed. Once validation passed, select **Create**
 
     > [!div class="mx-imgBorder"]
     > ![Validation of settings](./media/setup-exchange-conf-tab-validation.png)
@@ -101,9 +101,9 @@ As an Internet Exchange Provider, you can create an exchange peering request by 
     > [!div class="mx-imgBorder"]
     > ![Screenshot shows the Register an A S N pane with Name and A S N text boxes.](./media/setup-exchange-register-new-asn.png)
 
-1. Under Register an ASN, select a Name, populate the customer ASN, and click Save.
+1. Under Register an ASN, select a Name, populate the customer ASN, and select Save.
 
-1. Under Registered ASNs, there will be an associated Prefix Key assigned to each ASN. As an exchange provider, you will need to provide this Prefix Key to your customer so they can register Peering Service under their subscription.
+1. Under Registered ASNs, there will be an associated Prefix Key assigned to each ASN. As an exchange provider, you'll need to provide this Prefix Key to your customer so they can register Peering Service under their subscription.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot shows the Registered A S Ns pane with prefix keys.](./media/setup-exchange-register-asn-prefixkey.png)
@@ -122,9 +122,6 @@ As an Internet Exchange Provider, you can create an exchange peering request by 
 
 ## Next steps
 
-* [Create or modify a Direct peering by using the portal](howto-direct-portal.md)
-* [Convert a legacy Direct peering to an Azure resource by using the portal](howto-legacy-direct-portal.md)
-
-## Additional resources
-
-For more information, see [Internet peering FAQs](faqs.md).
+- [Create or modify a Direct peering by using the portal](howto-direct-portal.md).
+- [Convert a legacy Direct peering to an Azure resource by using the portal](howto-legacy-direct-portal.md).
+- [Internet peering frequently asked questions (FAQ)](faqs.md).

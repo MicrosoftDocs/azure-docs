@@ -1,12 +1,12 @@
 ---
 title: Use Azure Key Vault secrets in pipeline activities 
-description: Learn how to fetch stored credentials from Azure key vault and use them during data factory pipeline runs. 
+description: Learn how to fetch stored credentials from Azure Key Vault and use them during data factory pipeline runs. 
 author: nabhishek
 ms.author: abnarain
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 07/20/2023
 ---
 
 # Use Azure Key Vault secrets in pipeline activities
@@ -49,7 +49,7 @@ This feature relies on the data factory managed identity.  Learn how it works fr
     |Secure Output     |True         |
     |URL     |[Your secret URI value]?api-version=7.0         |
     |Method     |GET         |
-    |Authentication     |MSI         |
+    |Authentication     |System Assigned Managed Identity         |
     |Resource        |https://vault.azure.net       |
 
     :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png" alt-text="Web activity":::

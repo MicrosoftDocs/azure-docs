@@ -1,28 +1,28 @@
 ---
-title: Security for Device Update for Azure IoT Hub | Microsoft Docs
+title: Security for Device Update for Azure IoT Hub
 description: Understand how Device Update for IoT Hub ensures devices are updated securely.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 10/5/2021
-ms.topic: conceptual
-ms.service: iot-hub
+ms.date: 08/19/2022
+ms.topic: concept-article
+ms.service: iot-hub-device-update
 ---
 
-# Device Update Security Model
+# Device Update security model
 
-Device Update for IoT Hub offers a secure method to deploy updates for device firmware, images, and applications to your IoT devices. The workflow provides an end-to-end secure channel with a full chain-of-custody model that a device can use to prove an update is trusted, unmodified and intentional.
+Device Update for IoT Hub offers a secure method to deploy updates for device firmware, images, and applications to your IoT devices. The workflow provides an end-to-end secure channel with a full chain-of-custody model that a device can use to prove an update is trusted, unmodified, and intentional.
 
-Each step in the Device Update workflow is protected through various security features and processes to ensure that every step in the pipeline performs a secured handoff to the next. The Device Update Agent reference code identifies and properly manages any illegitimate update requests. The reference Agent also checks every download to ensure that the content is trusted, unmodified, and intentional.
+Each step in the Device Update workflow is protected through various security features and processes to ensure that every step in the pipeline performs a secured handoff to the next. The Device Update agent reference code identifies and properly manages any illegitimate update requests. The reference agent also checks every download to ensure that the content is trusted, unmodified, and intentional.
 
 ## Summary
 
 As updates are imported into a Device Update instance, the service uploads and checks the update binary files to ensure that they haven't been modified or swapped out by a malicious user. Once verified, the Device Update service generates an internal [update manifest](./update-manifest.md) with file hashes from the import manifest and other metadata. This update manifest is then signed by the Device Update service.
 
-Once ingested into the service and stored in Azure, the update binary files and associated customer metadata are automatically encrypted at rest by the Azure storage service. The Device Update service does not automatically provide additional encryption, but does allow developers to encrypt content themselves before the content reaches the Device Update service.
+Once imported into the service and stored in Azure, the update binary files and associated customer metadata are automatically encrypted at rest by the Azure Storage service. The Device Update service doesn't automatically provide additional encryption, but does allow developers to encrypt content themselves before the content reaches the Device Update service.
 
-When an update is deployed to devices from the Device Update service, a signed message is sent over the protected IoT Hub channel to the device. The request’s signature is validated by the device’s Device Update Agent as authentic. 
+When an update is deployed to devices from the Device Update service, a signed message is sent over the protected IoT Hub channel to the device. The request’s signature is validated by the device’s Device Update agent as authentic.
 
-Any resulting binary download is secured through validation of the update manifest signature. The update manifest contains the binary file hashes, so once the manifest is trusted the Device Update agent trusts the hashes and matches them against the binaries. Once the update binary has been downloaded and verified, it is then handed off to the installer on the device.
+Any resulting binary download is secured through validation of the update manifest signature. The update manifest contains the binary file hashes, so once the manifest is trusted the Device Update agent trusts the hashes and matches them against the binaries. Once the update binary has been downloaded and verified, it's then handed off to the installer on the device.
 
 ## Implementation details
 
@@ -32,11 +32,11 @@ To ensure that the Device Update service scales down to simple, low-performance 
 
 The update manifest is validated by using two signatures. The signatures are created using a structure consisting of *signing* keys and *root* keys.
 
-The Device Update Agent has embedded public keys that are used for all Device Update-compatible devices. These are the *root* keys. The corresponding private keys are controlled by Microsoft.
+The Device Update agent has embedded public keys that are used for all Device Update-compatible devices. These public keys are the *root* keys. The corresponding private keys are controlled by Microsoft.
 
-Microsoft also generates a public/private key pair that is not included in the Device Update Agent or stored on the device. This is the *signing* key.
+Microsoft also generates a public/private key pair that isn't included in the Device Update agent or stored on the device. This key is the *signing* key.
 
-When an update is imported into Device Update for IoT Hub, and the update manifest is generated by the service, the service signs the manifest using the signing key, and includes the signing key itself, which is signed by a root key. When the update manifest is sent to the device, the Device Update Agent receives the following signature data:
+When an update is imported into Device Update for IoT Hub, and the update manifest is generated by the service, the service signs the manifest using the signing key, and includes the signing key itself, which is signed by a root key. When the update manifest is sent to the device, the Device Update agent receives the following signature data:
 
 1. The signature value itself.
 2. The algorithm used for generating #1.
@@ -45,44 +45,42 @@ When an update is imported into Device Update for IoT Hub, and the update manife
 5. The public key ID of the root key used for generating #3.
 6. The algorithm used for generating #4.
 
-The Device Update Agent uses the information defined above to validate that signature of the public signing key is signed by the root key. The Device Update Agent then validates that the update manifest signature is signed by the signing key. If all the signatures are correct, the update manifest is trusted by the Device Update Agent. Since the update manifest includes the file hashes that correspond to the update files themselves, the update files can then also be trusted if the hashes match.
+The Device Update agent uses the information defined above to validate that the signature of the public signing key is signed by the root key. The Device Update agent then validates that the update manifest signature is signed by the signing key. If all the signatures are correct, the update manifest is trusted by the Device Update agent. Since the update manifest includes the file hashes that correspond to the update files themselves, the update files can then also be trusted if the hashes match.
 
 Having root and signing keys allows Microsoft to periodically roll the signing key, a security best practice.
 
 ### JSON Web Signature (JWS)
 
-The `updateManifestSignature` is used to ensure that the information contained within the `updateManifest` has
-not been tampered with. The `updateManifestSignature` is produced using a JSON Web Signature with JSON Web Keys, allowing for source verification. The signature is a Base64Url Encoded string with three sections delineated by ".".  Refer to the [jws_util.h helper methods](https://github.com/Azure/iot-hub-device-update/tree/main/src/utils/jws_utils) for parsing and verifying JSON keys and tokens.
+The `updateManifestSignature` is used to ensure that the information contained within the `updateManifest` hasn't been tampered with. The `updateManifestSignature` is produced using a JSON Web Signature with JSON Web Keys, allowing for source verification. The signature is a Base64Url Encoded string with three sections delineated by ".".  Refer to the [jws_util.h helper methods](https://github.com/Azure/iot-hub-device-update/tree/main/src/utils/jws_utils) for parsing and verifying JSON keys and tokens.
 
-JSON Web Signature is a widely used [proposed IETF standard](https://tools.ietf.org/html/rfc7515) for signing
-content using JSON-based data structures. It is a way of ensuring integrity of data by verifying the signature
-of the data. Further information can be found in the JSON Web Signature (JWS) [RFC 7515](https://www.rfc-editor.org/info/rfc7515).
+JSON Web Signature is a widely used [proposed IETF standard](https://tools.ietf.org/html/rfc7515) for signing content using JSON-based data structures. It's a way of ensuring integrity of data by verifying the signature of the data. Further information can be found in the JSON Web Signature (JWS) [RFC 7515](https://www.rfc-editor.org/info/rfc7515).
 
 ### JSON Web Token
 
-JSON Web Tokens are an open, industry [standard](https://tools.ietf.org/html/rfc7519) method for representing
-claims securely between two parties.
+[JSON Web Tokens](https://tools.ietf.org/html/rfc7519) are an open, industry standard method for representing claims securely between two parties.
 
 ### Root Keys
 
 Every Device Update device must contain a set of root keys. These keys are the root of trust for all of Device Update's signatures. Any signature must be chained up through one of these root keys to be considered legitimate.
 
-The set of root keys will change over time as it is proper to periodically rotate signing keys for security purposes. As a result, the Device Update Agent software will need to be updated with the latest set of root keys at intervals specified by the Device Update team. 
+The set of root keys will change over time as it is proper to periodically rotate signing keys for security purposes. As a result, the Device Update agent software will need to be updated with the latest set of root keys at intervals specified by the Device Update team.
 
 ### Signatures
 
-All signatures will be accommodated by a signing (public) key signed by one of the root keys. The signature will identify which root key was used to sign the signing key. 
+All signatures are accompanied by a signing (public) key signed by one of the root keys. The signature identifies which root key was used to sign the signing key.
 
-A Device Update Agent must validate signatures by first validating that the signing (public) key’s signature is proper, valid, and signed by one of the approved root keys. Once the signing key is successfully validated, the signature itself may be validated by using the now trusted signing public key.
+A Device Update agent must validate signatures by first validating that the signing (public) key’s signature is proper, valid, and signed by one of the approved root keys. Once the signing key is successfully validated, the signature itself may be validated by using the now trusted signing public key.
 
-Signing keys are rotated on a much quicker cadence than root keys, so expect messages signed by various different signing keys. 
+Signing keys are rotated on a much quicker cadence than root keys, so expect messages signed by various different signing keys.
 
-Revocation of a signing key is managed by the Device Update service, so users should not attempt to cache signing keys. Always use the signing key accompanying a signature.
+Revocation of a signing key is managed by the Device Update service, so users shouldn't attempt to cache signing keys. Always use the signing key accompanying a signature.
 
-### Securing the Device
+### Securing the device
 
-It is important to ensure that Device Update-related security assets are properly secured and protected on your device. Assets such as root keys need to be protected against modification. There are various ways to do this, such as using security devices (TPM, SGX, HSM, other security devices) or hard-coding them in the Device Update Agent as is done today in the reference implementation. The latter requires that the Device Update Agent code is digitally signed and the system’s Code Integrity support is enabled to protect against malicious modification of the Agent code.
+It's important to ensure that Device Update-related security assets are properly secured and protected on your device. Assets such as root keys need to be protected against modification. There are various ways to protect the root keys, such as using security devices (TPM, SGX, HSM, other security devices) or hard-coding them in the Device Update agent as is done today in the reference implementation. The latter requires that the Device Update agent code is digitally signed and the system’s Code Integrity support is enabled to protect against malicious modification of the Agent code.
 
-Additional security measures may be warranted, such as ensuring that handoff from component to component is performed in a secure way. For example, registering a specific isolated account to run the various components, and limiting network-based communications (e.g. REST API calls) to localhost only.
+Other security measures may be warranted, such as ensuring that handoff from component to component is performed in a secure way. For example, registering a specific isolated account to run the various components, and limiting network-based communications (for example, REST API calls) to localhost only.
 
-**[Next Step: Learn more about how Device Update uses Azure RBAC](.\device-update-control-access.md)**
+## Next steps
+
+[Learn about how Device Update uses Azure role-based access control](.\device-update-control-access.md)

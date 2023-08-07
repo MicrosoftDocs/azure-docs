@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/14/2022
+ms.date: 08/20/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -15,18 +15,22 @@ ms.custom: ignite-fall-2021
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create automated management tasks for a specific resource or resource group. These tasks vary in number and availability, based on the resource type. For example, for an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends the monthly cost for that storage account. For an [Azure virtual machine](https://azure.microsoft.com/services/virtual-machines/), you can create an automation task that turns on or turns off that virtual machine on a predefined schedule.
+To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create automated management tasks for a specific resource or resource group. These tasks vary in number and availability, based on the resource type. For example:
+
+- For an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends the monthly cost for that storage account.
+
+- For an [Azure virtual machine](../virtual-machines/overview.md), you can create an automation task that turns on or turns off that virtual machine on a predefined schedule. Specifically, you can create a task that automatically starts or stops the virtual machine a specific number of times every day, week, or month. On the task's **Configure** tab, set the **Interval** value to the number of times and the **Frequency** value to **Day**, **Week**, or **Month**. The automation task continues to work until you delete or disable the task.
+ 
+  For example, you can create a task that automatically starts a virtual machine once every day. On the task's **Configure** tab, set **Interval** to **1** and **Frequency** to **Day**. 
 
 You can create an automation task from a specific automation task template. The following table lists the currently supported resource types and available task templates in this preview:
 
 | Resource type | Automation task templates |
 |---------------|---------------------------|
-| Azure resource groups | **When resource is deleted** |
 | All Azure resources | **Send monthly cost for resource** |
-| Azure virtual machines | Additionally: <p>- **Power off Virtual Machine** <br>- **Start Virtual Machine** |
-| Azure Storage accounts | Additionally: <p>- **Delete old blobs** |
-| Azure Cosmos DB | Additionally, <p>- **Send query result via email** |
-|||
+| Azure virtual machines | Additionally: <br><br>- **Power off Virtual Machine** <br>- **Start Virtual Machine** <br>- **Deallocate Virtual Machine** |
+| Azure storage accounts | Additionally: <br><br>- **Delete old blobs** |
+| Azure Cosmos DB | Additionally, <br><br>- **Send query result via email** |
 
 This article shows you how to complete the following tasks:
 
@@ -162,7 +166,7 @@ To view a task's history of runs along with their statuses, inputs, outputs, and
 
    The **Logic app run** pane opens and shows the underlying workflow that ran.
 
-   * A workflow always starts with a [*trigger*](../connectors/apis-list.md#triggers). For this task, the workflow starts with the [**Recurrence** trigger](../connectors/connectors-native-recurrence.md).
+   * A workflow always starts with a [*trigger*](../connectors/introduction.md#triggers). For this task, the workflow starts with the [**Recurrence** trigger](../connectors/connectors-native-recurrence.md).
 
    * Each step shows its status and run duration. Steps that have 0-second durations took less than 1 second to run.
 
@@ -178,7 +182,7 @@ To view a task's history of runs along with their statuses, inputs, outputs, and
 
    ![Screenshot that shows an expanded action, inputs, and outputs.](./media/create-automation-tasks-azure-resources/view-action-inputs-outputs.png)
 
-To learn how you can build your own automated workflows so that you can integrate apps, data, services, and systems apart from the context of automation tasks for Azure resources, see [Quickstart: Create your first integration workflow by using Azure Logic Apps - Azure portal](quickstart-create-first-logic-app-workflow.md).
+To learn how you can build your own automated workflows so that you can integrate apps, data, services, and systems apart from the context of automation tasks for Azure resources, see [Quickstart: Create an example Consumption logic app workflow - Azure portal](quickstart-create-example-consumption-workflow.md).
 
 <a name="edit-task"></a>
 
@@ -268,7 +272,7 @@ When you change the underlying workflow for an automation task, your changes aff
 
    ![Screenshot that shows the expanded Recurrence trigger with the Frequency list open to show available frequency options.](./media/create-automation-tasks-azure-resources/edit-recurrence-trigger.png)
 
-   For more information about the Recurrence trigger, see [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger.](../connectors/connectors-native-recurrence.md). For more information about other triggers and actions that you can use, see [Connectors for Azure Logic Apps](../connectors/apis-list.md).
+   For more information about the Recurrence trigger, see [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger.](../connectors/connectors-native-recurrence.md).
 
 1. To save your changes, on the designer toolbar, select **Save**.
 

@@ -1,9 +1,12 @@
 ---
 title: Azure Service Fabric - Using Service Fabric application KeyVault references 
 description: This article explains how to use service fabric KeyVaultReference support for application secrets.
-
-ms.topic: article
-ms.date: 09/20/2019
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # KeyVaultReference support for Azure-deployed Service Fabric Applications

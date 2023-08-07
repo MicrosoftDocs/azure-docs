@@ -1,11 +1,11 @@
 - name: Bing Entity Search Documentation
-  href: ../Bing-Web-Search/index.yml
+  href: ../bing-web-search/index.yml
 - name: Overview
   items:
     - name: What is Bing Entity Search?
       href: overview.md
     - name: Compare the Bing Search APIs
-      href: ../Bing-Web-Search/bing-api-comparison.md
+      href: ../bing-web-search/bing-api-comparison.md
       maintainContext: true
 - name: Quickstarts
   expanded: true
@@ -50,7 +50,7 @@
 - name: Reference
   items:
   - name: Bing Search API use and display requirements
-    href: ../Bing-Web-Search/use-display-requirements.md
+    href: ../bing-web-search/use-display-requirements.md
     maintainContext: true
   - name: Bing Entity Search API v7
     href: /rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference
@@ -69,7 +69,7 @@
 - name: Resources
   items:
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/bing-entity-search-api/
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/Bing-entity-search-api/
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=bing+entity+search
   - name: Regional availability

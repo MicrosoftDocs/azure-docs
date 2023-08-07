@@ -5,8 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: reference
-ms.date: 07/19/2021
-ms.custom: devx-track-js
+ms.date: 08/20/2022
+ms.custom:
 ---
 
 # Schema reference guide for trigger and action types in Azure Logic Apps
@@ -79,8 +79,8 @@ Each trigger type has a different interface and inputs that define the trigger's
 
 | Trigger type | Description | 
 |--------------|-------------| 
-| [**ApiConnection**](#apiconnection-trigger) | Checks or *polls* an endpoint by using [Microsoft-managed APIs](../connectors/apis-list.md). | 
-| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Creates a callable endpoint for your logic app by calling [Microsoft-managed APIs](../connectors/apis-list.md) to subscribe and unsubscribe. | 
+| [**ApiConnection**](#apiconnection-trigger) | Checks or *polls* an endpoint by using [Microsoft-managed APIs or "connectors"](../connectors/introduction.md). | 
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Creates a callable endpoint for your logic app workflow by calling [Microsoft-managed APIs or "connectors"](../connectors/introduction.md) to subscribe and unsubscribe. | 
 ||| 
 
 ## Triggers - Detailed reference
@@ -89,7 +89,7 @@ Each trigger type has a different interface and inputs that define the trigger's
 
 ### APIConnection trigger  
 
-This trigger checks or *polls* an endpoint by using [Microsoft-managed APIs](../connectors/apis-list.md) so the parameters for this trigger can differ based on the endpoint. Many sections in this trigger definition are optional. The trigger's behavior depends on whether or not sections are included.
+This trigger checks or *polls* an endpoint by using [Microsoft-managed APIs or "connectors"](../connectors/introduction.md) so the parameters for this trigger can differ based on the endpoint. Many sections in this trigger definition are optional. The trigger's behavior depends on whether or not sections are included.
 
 ```json
 "<APIConnection_trigger_name>": {
@@ -186,7 +186,7 @@ This trigger definition checks for email every day inside the inbox for a work o
 
 ### ApiConnectionWebhook trigger
 
-This trigger sends a subscription request to an endpoint by using a [Microsoft-managed API](../connectors/apis-list.md), provides a *callback URL* to where the endpoint can send a response, and waits for the endpoint to respond. For more information, see [Endpoint subscriptions](#subscribe-unsubscribe).
+This trigger sends a subscription request to an endpoint by using a [Microsoft-managed API](../connectors/introduction.md), provides a *callback URL* to where the endpoint can send a response, and waits for the endpoint to respond. For more information, see [Endpoint subscriptions](#subscribe-unsubscribe).
 
 ```json
 "<ApiConnectionWebhook_trigger_name>": {
@@ -676,23 +676,24 @@ this expression as your condition:
 
 <a name="split-on-debatch"></a>
 
-## Trigger multiple runs
+## Trigger multiple runs on an array
 
-If your trigger returns an array for your logic app to process, sometimes a "for each" loop might take too long to process each array item. Instead, you can use the **SplitOn** property in your trigger to *debatch* the array. Debatching splits up the array items and starts a new workflow instance that runs for each array item. This approach is useful, for example, when you want to poll an endpoint that might return multiple new items between polling intervals. For the maximum number of array items that **SplitOn** can process in a single logic app run, see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
+If your trigger receives an array for your workflow to process, sometimes a "for each" loop might take too long to process each array item. Instead, you can use the **SplitOn** property in your trigger to *debatch* the array. Debatching splits up the array items and starts a new workflow instance that runs for each array item. This approach is useful, for example, when you want to poll an endpoint that might return multiple new items between polling intervals.
 
-> [!NOTE]
-> You can't use **SplitOn** with a synchronous response pattern. Any workflow that uses **SplitOn** and includes a response action 
-> runs asynchronously and immediately sends a `202 ACCEPTED` response.
->
-> When trigger concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) 
-> is significantly reduced. If the number of items exceeds this limit, the SplitOn capability is disabled.
- 
-If your trigger's Swagger file describes a payload that is an array, the **SplitOn** property is automatically added to your trigger. Otherwise, add this property inside the response payload that has 
+If your trigger's Swagger file describes a payload that's an array, the **SplitOn** property is automatically added to your trigger. Otherwise, add this property inside the response payload that has 
 the array you want to debatch.
+
+Before you use the SplitOn capability, review the following considerations:
+
+- If trigger concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced. If the number of items exceeds this limit, the SplitOn capability is disabled.
+
+- You can't use the SplitOn capability with a synchronous response pattern. Any workflow that uses the **SplitOn** property and includes a response action runs asynchronously and immediately sends a `202 ACCEPTED` response.
+
+- For the maximum number of array items that **SplitOn** can process in a single workflow run, see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 *Example*
 
-Suppose you have an API that returns this response: 
+Suppose you have an HTTP trigger that calls an API and receives this response: 
   
 ```json
 {
@@ -710,7 +711,7 @@ Suppose you have an API that returns this response:
 }
 ```
 
-Your logic app only needs the content from the array in `Rows`, so you can create a trigger like this example:
+Your workflow needs only the content from the array in `Rows`, so you can create a trigger like this example:
 
 ``` json
 "HTTP_Debatch": {
@@ -841,8 +842,8 @@ Here are some commonly used action types:
 
 | Action type | Description | 
 |-------------|-------------|  
-| [**ApiConnection**](#apiconnection-action) | Calls an HTTP endpoint by using a [Microsoft-managed API](../connectors/apis-list.md). | 
-| [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | Works like HTTP Webhook but uses a [Microsoft-managed API](../connectors/apis-list.md). | 
+| [**ApiConnection**](#apiconnection-action) | Calls an HTTP endpoint by using a [Microsoft-managed API](../connectors/introduction.md). | 
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | Works like HTTP Webhook but uses a [Microsoft-managed API](../connectors/introduction.md). | 
 ||| 
 
 <a name="control-workflow-actions"></a>
@@ -866,7 +867,7 @@ These actions help you control workflow execution and include other actions. Fro
 
 ### APIConnection action
 
-This action sends an HTTP request to a [Microsoft-managed API](../connectors/apis-list.md) and requires information about the API and parameters plus a reference to a valid connection. 
+This action sends an HTTP request to a [Microsoft-managed API](../connectors/introduction.md) and requires information about the API and parameters plus a reference to a valid connection. 
 
 ``` json
 "<action-name>": {
@@ -937,7 +938,7 @@ This definition describes the **Send an email** action for Office 365 Outlook co
 
 ### APIConnectionWebhook action
 
-This action sends a subscription request over HTTP to an endpoint by using a [Microsoft-managed API](../connectors/apis-list.md), provides a *callback URL* to where the endpoint can send a response, 
+This action sends a subscription request over HTTP to an endpoint by using a [Microsoft-managed API](../connectors/introduction.md), provides a *callback URL* to where the endpoint can send a response, 
 and waits for the endpoint to respond. For more information, see [Endpoint subscriptions](#subscribe-unsubscribe).
 
 ```json
@@ -1900,7 +1901,6 @@ The Logic Apps engine checks access to the trigger you want to call, so make sur
 | <*trigger-name*> | String | The name for the trigger in the nested logic app you want to call | 
 | <*Azure-subscription-ID*> | String | The Azure subscription ID for the nested logic app |
 | <*Azure-resource-group*> | String | The Azure resource group name for the nested logic app |
-| <*nested-logic-app-name*> | String | The name for the logic app you want to call |
 ||||
 
 *Optional*
@@ -2417,9 +2417,11 @@ By default, logic app workflow instances all run at the same time (concurrently 
 
 When you turn on the trigger's concurrency control, trigger instances run in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this default concurrency limit, you can use either the code view editor or Logic Apps Designer because changing the concurrency setting through the designer adds or updates the `runtimeConfiguration.concurrency.runs` property in the underlying trigger definition and vice versa. This property controls the maximum number of new workflow instances that can run in parallel.
 
-Here are some considerations to review before you enable concurrency on a trigger:
+Before you enable concurrency on a trigger, review the following considerations:
 
 * You can't disable concurrency after you enable the concurrency control.
+
+* If the maximum number of concurrent trigger runs reaches the maximum degree of parallelism, subsequent trigger runs might experience throttling or "429 - Too many requests" errors. If you set up a [retry policy that handles 429 errors](handle-throttling-problems-429-errors.md), the trigger might experience a cycle of retry and throttling behavior that causes long delays in processing new trigger requests.
 
 * When concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled.
 

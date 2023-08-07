@@ -1,9 +1,9 @@
 ---
-title: Manage emergency access admin accounts - Azure AD 
+title: Manage emergency access admin accounts 
 description: This article describes how to use emergency access accounts to help prevent being inadvertently locked out of your Azure Active Directory (Azure AD) organization. 
 services: active-directory 
 author: markwahl-msft
-manager: karenhoran
+manager: amycolannino
 ms.author: rolyon
 ms.date: 02/18/2022
 ms.topic: conceptual
@@ -38,7 +38,7 @@ Create two or more emergency access accounts. These accounts should be cloud-onl
 
 ### How to create an emergency access account
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) as an existing Global Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com)  as an existing Global Administrator.
 
 1. Select **Azure Active Directory** > **Users**.
 
@@ -89,9 +89,9 @@ Some organizations use AD Domain Services and AD FS or similar identity provider
 
 ## Store account credentials safely
 
-Organizations need to ensure that the credentials for emergency access accounts are kept secure and known only to individuals who are authorized to use them. Some customers use a smartcard and others use passwords. A password for an emergency access account is usually separated into two or three parts, written on separate pieces of paper, and stored in secure, fireproof safes that are in secure, separate locations.
+Organizations need to ensure that the credentials for emergency access accounts are kept secure and known only to individuals who are authorized to use them. Some customers use a smartcard for Windows Server AD, a [FIDO2 security key](../authentication/howto-authentication-passwordless-security-key.md) for Azure AD and others use passwords. A password for an emergency access account is usually separated into two or three parts, written on separate pieces of paper, and stored in secure, fireproof safes that are in secure, separate locations.
 
-If using passwords, make sure the accounts have strong passwords that do not expire the password. Ideally, the passwords should be at least 16 characters long and randomly generated.
+If using passwords, make sure the accounts have strong passwords that do not expire. Ideally, the passwords should be at least 16 characters long and randomly generated.
 
 ## Monitor sign-in and audit logs
 
@@ -103,7 +103,7 @@ Organizations should monitor sign-in and audit log activity from the emergency a
 
 ### Obtain Object IDs of the break glass accounts
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) with an account assigned to the User Administrator role.
+1. Sign in to the [Azure portal](https://portal.azure.com)  with an account assigned to the User Administrator role.
 
 1. Select **Azure Active Directory** > **Users**.
 1. Search for the break-glass account and select the user’s name.
@@ -175,7 +175,7 @@ Organizations should monitor sign-in and audit log activity from the emergency a
 1. Enter the action group name and a short name.
 1. Verify the subscription and resource group.
 1. Under action type, select **Email/SMS/Push/Voice**.
-1. Enter an action name such as **Notify global admin**.
+1. Enter an action name such as **Notify Global Administrator**.
 1. Select the **Action Type** as **Email/SMS/Push/Voice**.
 1. Select **Edit details** to select the notification methods you want to configure and enter the required contact information, and then select **Ok** to save the details.
 1. Add any additional actions you want to trigger.

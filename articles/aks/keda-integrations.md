@@ -1,7 +1,6 @@
 ---
 title: Integrations with Kubernetes Event-driven Autoscaling (KEDA) on Azure Kubernetes Service (AKS) (Preview)
 description: Integrations with Kubernetes Event-driven Autoscaling (KEDA) on Azure Kubernetes Service (AKS) (Preview).
-services: container-service
 author: tomkerkhove
 ms.topic: article
 ms.date: 05/24/2022
@@ -48,16 +47,17 @@ However, these external scalers aren't supported as part of the add-on and rely 
 ## Next steps
 
 * [Enable the KEDA add-on with an ARM template][keda-arm]
+* [Enable the KEDA add-on with the Azure CLI][keda-cli]
+* [Troubleshoot KEDA add-on problems][keda-troubleshoot]
 * [Autoscale a .NET Core worker processing Azure Service Bus Queue message][keda-sample]
 
 <!-- LINKS - internal -->
 [aks-support-policy]: support-policies.md
-[azure-monitor]: ../azure-monitor/overview.md
-[azure-monitor-container-insights]: ../azure-monitor/containers/container-insights-onboard.md
+[keda-cli]: keda-deploy-add-on-cli.md
 [keda-arm]: keda-deploy-add-on-arm.md
+[keda-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context
 
 <!-- LINKS - external -->
-[keda-scalers]: https://keda.sh/docs/scalers/
-[keda-metrics]: https://keda.sh/docs/latest/operate/prometheus/
-[keda-event-docs]: https://keda.sh/docs/latest/operate/kubernetes-events/
+[keda-scalers]: https://keda.sh/docs/latest/scalers/
+[keda-event-docs]: https://keda.sh/docs/latest/operate/events/
 [keda-sample]: https://github.com/kedacore/sample-dotnet-worker-servicebus-queue

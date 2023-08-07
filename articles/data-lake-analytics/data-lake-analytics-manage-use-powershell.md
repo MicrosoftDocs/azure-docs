@@ -2,15 +2,17 @@
 title: Manage Azure Data Lake Analytics using Azure PowerShell
 description: This article describes how to use Azure PowerShell to manage Data Lake Analytics accounts, data sources, users, & jobs.
 ms.service: data-lake-analytics
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 06/29/2018 
+ms.date: 01/20/2023
 ms.custom: devx-track-azurepowershell
 ---
 
 # Manage Azure Data Lake Analytics using Azure PowerShell
 
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 This article describes how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs by using Azure PowerShell.
 
@@ -235,7 +237,7 @@ Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 
 Use the `-Result` parameter to detect whether ended jobs completed successfully. It has these values:
 
-* Cancelled
+* Canceled
 * Failed
 * None
 * Succeeded

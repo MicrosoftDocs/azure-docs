@@ -1,9 +1,13 @@
 ---
 title: Azure Service Fabric application resource model  
 description: This article provides an overview of managing an Azure Service Fabric application by using Azure Resource Manager.
-ms.topic: conceptual 
-ms.date: 5/18/2022
-ms.custom: devx-track-azurepowershell
+ms.topic: conceptual
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-arm-template
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Service Fabric application resource model
@@ -177,6 +181,11 @@ To delete an application that was deployed by using the application resource mod
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
     ```
+
+## Common questions and answers
+
+Error:  "Application name must be a prefix of service name"
+    Answer:  Make sure the service name is formatted as follows: ProfileVetSF~CallTicketDataWebApi.
 
 ## Next steps
 

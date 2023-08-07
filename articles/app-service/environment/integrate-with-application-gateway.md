@@ -39,7 +39,7 @@ To integrate your application gateway with your ILB App Service environment, you
 
 ### ILB App Service environment
 
-For details on how to create an ILB App Service environment, see [Create an ASE in the Azure portal][creation] and [Create an ASE with ARM][createfromtemplate].
+For details on how to create an ILB App Service environment, see [Create an ASE in the Azure portal][creation] and [Create an ASE with ARM template][createfromtemplate].
 
 * After ILB ASE is created, the default domain is `<YourAseName>.appserviceenvironment.net`.
 
@@ -67,11 +67,11 @@ You need to create an App Service plan and an app in your ILB ASE. When creating
 ### A public DNS name to the application gateway
 
 To connect to the application gateway from internet, you need a routable domain name. In this case, I used a routable domain name `asabuludemo.com` and planning to connect to an App Service with this domain name `app.asabuludemo.com`. The IP addresses mapped to this app domain name need to set to the public IP after the application gateway created.
-With a public domain mapped to the application gateway, you don't need to configure a custom domain in App Service. You can buy a custom domain name with [App Service Domains](../manage-custom-dns-buy-domain.md#buy-an-app-service-domain). 
+With a public domain mapped to the application gateway, you don't need to configure a custom domain in App Service. You can buy a custom domain name with [App Service Domains](../manage-custom-dns-buy-domain.md#buy-and-map-an-app-service-domain). 
 
 ### A valid public certificate
 
-For security enhancement, it's recommended to bind TLS/SSL certificate for session encryption. To bind TLS/SSL certificate to the application gateway, a valid public certificate with following information is required. With [App Service Certificates](../configure-ssl-certificate.md#start-certificate-order), you can buy a TLS/SSL certificate and export it in .pfx format.
+For security enhancement, it's recommended to bind TLS/SSL certificate for session encryption. To bind TLS/SSL certificate to the application gateway, a valid public certificate with following information is required. With [App Service certificates](../configure-ssl-app-service-certificate.md), you can buy a TLS/SSL certificate and export it in .pfx format.
 
 | Name  | Value               | Description|
 | ----- | ------------------- |------------|
@@ -108,7 +108,7 @@ In the Azure portal, select **New** > **Network** > **Application Gateway** to c
 
 4. Configuration setting
 
-    In **Configuration** setting, you need to add a routing rule by clicking **Add a routing rule** icon.
+    In **Configuration** setting, you need to add a routing rule by selecting **Add a routing rule** icon.
 
     :::image type="content" source="./media/integrate-with-application-gateway/configuration.png" alt-text="Screenshot of adding a routing rule in configuration setting.":::
 
@@ -143,9 +143,9 @@ In the Azure portal, select **New** > **Network** > **Application Gateway** to c
         | Host type      | Multiple/Wildcard                 | Set to multiple or wildcard website name if listener type is set to multi-sites. |
         | Host name      | For example:  `app.asabuludemo.com` | Set to a routable domain name for App Service              |
         
-        :::image type="content" source="./media/integrate-with-application-gateway/https-routing-rule.png" alt-text="H T T P S listener of the application gateway Routing Rule.":::
+        :::image type="content" source="./media/integrate-with-application-gateway/https-routing-rule.png" alt-text="HTTPS listener of the application gateway Routing Rule.":::
     
-    * You have to configure a **Backend Pool** and **HTTP setting** in **Backend targets**. The Backend pool was configured in previously steps. Click **Add new** link to add an HTTP setting.
+    * You have to configure a **Backend Pool** and **HTTP setting** in **Backend targets**. The Backend pool was configured in previously steps. Select **Add new** link to add an HTTP setting.
     
         :::image type="content" source="./media/integrate-with-application-gateway/add-new-http-setting.png" alt-text="Screenshot of adding new link to add an H T T P setting.":::
     
@@ -166,7 +166,7 @@ In the Azure portal, select **New** > **Network** > **Application Gateway** to c
 
 ## Configure an application gateway integration with ILB ASE
 
-To access ILB ASE from the application gateway, you need to check if a virtual network link to private DNS zone. If there is no virtual network linked to your application gateway's VNet, add a virtual network link with following steps.
+To access ILB ASE from the application gateway, you need to check if a virtual network link to private DNS zone. If there's no virtual network linked to your application gateway's VNet, add a virtual network link with following steps.
 
 ### Configure virtual network links with a private DNS zone
 

@@ -8,8 +8,9 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
+ms.custom: devx-track-js
 ms.topic: how-to
-ms.date: 03/30/2022
+ms.date: 03/24/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -65,13 +66,7 @@ The application registrations and the application architecture are described in 
 
 ## Step 1: Configure your user flow
 
-[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](../../includes/active-directory-b2c-app-integration-add-user-flow.md)] Repeat the steps to create three separate user flows as follows: 
-
-- A combined **Sign in and sign up** user flow, such as `susi`. This user flow also supports the **Forgot your password** experience.
-- A **Profile editing** user flow, such as `edit_profile`.
-- A **Password reset** user flow, such as `reset_password`.
-
-Azure AD B2C prepends `B2C_1_` to the user flow name. For example, `susi` becomes `B2C_1_susi`.
+[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](../../includes/active-directory-b2c-app-integration-add-user-flow.md)]
 
 ## Step 2: Register your web app and API
 
@@ -150,8 +145,8 @@ Open your web app in a code editor such as Visual Studio Code. Under the `call-p
 |Key  |Value  |
 |---------|---------|
 |`APP_CLIENT_ID`|The **Application (client) ID** for the web app you registered in [step 2.3](#step-23-register-the-web-app). |
-|`APP_CLIENT_SECRET`|The client secret for the web app you created in [step 2.4](#step-24-create-a-client-secret) |
-|`SIGN_UP_SIGN_IN_POLICY_AUTHORITY`|The **Sign in and sign up** user flow authority for the user flow you created in [step 1](#step-1-configure-your-user-flow) such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<sign-in-sign-up-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<sign-in-sign-up-user-flow-name>` with the name of your Sign in and Sign up user flow such as `B2C_1_susi`. Learn how to [Get your tenant name](tenant-management.md#get-your-tenant-name). |
+|`APP_CLIENT_SECRET`|The client secret value for the web app you created in [step 2.4](#step-24-create-a-client-secret) |
+|`SIGN_UP_SIGN_IN_POLICY_AUTHORITY`|The **Sign in and sign up** user flow authority for the user flow you created in [step 1](#step-1-configure-your-user-flow) such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<sign-in-sign-up-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<sign-in-sign-up-user-flow-name>` with the name of your Sign in and Sign up user flow such as `B2C_1_susi`. Learn how to [Get your tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name). |
 |`AUTHORITY_DOMAIN`| The Azure AD B2C authority domain such as `https://<your-tenant-name>.b2clogin.com`. Replace `<your-tenant-name>` with the name of your tenant.|
 |`APP_REDIRECT_URI`| The application redirect URI where Azure AD B2C will return authentication responses (tokens). It matches the **Redirect URI** you set while registering your app in Azure portal. This URL need to be publicly accessible. Leave the value as is.|
 |`LOGOUT_ENDPOINT`| The Azure AD B2C sign out endpoint such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<sign-in-sign-up-user-flow-name>/oauth2/v2.0/logout?post_logout_redirect_uri=http://localhost:3000`. Replace `<your-tenant-name>` with the name of your tenant and `<sign-in-sign-up-user-flow-name>` with the name of your Sign in and Sign up user flow such as `B2C_1_susi`.|
@@ -182,7 +177,7 @@ To get the web API sample code, do one of the following:
 
 1. Modify the variable values with the user flow and application registration you created earlier: 
 
-    - For `tenantName`, use the [name of your tenant name](tenant-management.md#get-your-tenant-name) such as `fabrikamb2c`.
+    - For `tenantName`, use the [name of your tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) such as `fabrikamb2c`.
     
     - For `clientID`, use the **Application (Client) ID** for the web API you created in [step 2.1](#step-21-register-the-web-api-application).
     

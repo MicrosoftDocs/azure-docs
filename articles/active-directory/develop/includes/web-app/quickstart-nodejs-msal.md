@@ -2,7 +2,7 @@
 title: "Quickstart: Add authentication to a Node.js web app with MSAL Node"
 description: In this quickstart, you learn how to implement authentication with a Node.js web app and the Microsoft Authentication Library (MSAL) for Node.js.
 services: active-directory
-author: mmacy
+author: cilwerner
 manager: celested
 
 ms.service: active-directory
@@ -10,7 +10,8 @@ ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 11/22/2021
-ms.author: marsma
+ms.author: cwerner
+ms.reviewer: jmprieur
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
 # Customer intent: As an application developer, I want to know how to set up authentication in a web application built using Node.js and MSAL Node.
 ---
@@ -32,12 +33,14 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 
 #### Step 1: Register your application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
 1. Under **Supported account types**, select **Accounts in this organizational directory only**.
-1. Set the **Redirect URI** value to `http://localhost:3000/auth/redirect`.
+1. Set the **Redirect URI** type to **Web** and value to `http://localhost:3000/auth/redirect`.
 1. Select **Register**.
 1. On the app **Overview** page, note the **Application (client) ID** value for later use.
 1. Under **Manage**, select **Certificates & secrets** > **Client secrets** > **New client secret**.  Leave the description blank and default expiration, and then select **Add**.

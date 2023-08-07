@@ -2,41 +2,49 @@
 title: Connect to a Service Fabric managed cluster
 description: Learn how to connect to a Service Fabric managed cluster
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 # Connect to a Service Fabric managed cluster
 
 Once you have deployed a cluster via [Portal, Azure Resource Managed template](quickstart-managed-cluster-template.md), or [PowerShell](tutorial-managed-cluster-deploy.md) there are various ways to connect to and view your managed cluster. 
 
-## Use Azure portal
+Connecting to a Service Fabric Explorer (SFX) endpoint on a managed cluster will result in a certificate error 'NET::ERR_CERT_AUTHORITY_INVALID' regardless of certificate being used or cluster configuration. This is because the cluster nodes are using the managed 'cluster' certificate when binding FabricGateway (19000) and FabricHttpGateway (19080) TCP ports and is by design.
 
-Navigate to your managed cluster resource by
+![Screenshot of Service Fabric Explorer certificate error.](media/how-to-managed-cluster-connect/sfx-your-connection-isnt-private.png)
 
- 1) Going to https://portal.azure.com/
+## Use the Azure portal
 
- 2) Navigate to your cluster resource by searching for Service Fabric and selecting "Service Fabric managed clusters"
+To navigate to your managed cluster resource:
 
- 3) Select your cluster
+ 1. Go to https://portal.azure.com/
 
- 4) In this experience you can view and modify certain parameters. For more information see the [cluster configuration options](how-to-managed-cluster-configuration.md) available.
+ 2. Navigate to your cluster resource by searching for Service Fabric and selecting "Service Fabric managed clusters"
+
+ 3. Select your cluster
+
+ 4. In this experience you can view and modify certain parameters. For more information see the [cluster configuration options](how-to-managed-cluster-configuration.md) available.
 
 ## Use Service Fabric Explorer
 
 [Service Fabric Explorer](https://github.com/Microsoft/service-fabric-explorer) (SFX) is an application for inspecting and managing application and cluster health of a Microsoft Azure Service Fabric cluster. 
 
-To navigate to SFX for your managed cluster
+To navigate to SFX for your managed cluster:
  
- 1) Going to https://portal.azure.com/
+ 1. Sign in to the [Azure portal](https://portal.azure.com/).
  
- 2) Navigate to your cluster resource by searching for Service Fabric and selecting "Service Fabric managed clusters"
+ 2. Navigate to your cluster resource by searching for Service Fabric and selecting "Service Fabric managed clusters".
 
- 3) Select your cluster
+ 3. Select your cluster.
 
- 4) Locate the `SF Explorer` located in the upper right, example: `https://mycluster.region.cloudapp.azure.com:19080/Explorer`
+ 4. Locate the `SF Explorer` located in the upper right, example: `https://mycluster.region.cloudapp.azure.com:19080/Explorer`.
 
 ## Use PowerShell Modules
 
-There following PowerShell Modules are available to connect, view, and modify configurations for your cluster. 
+The following PowerShell Modules are available to connect, view, and modify configurations for your cluster. 
 
 * Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md).
 

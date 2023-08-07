@@ -29,6 +29,7 @@ In this tutorial, you learn how to:
   - You can use the Windows Subsystem for Linux and follow Ubuntu instructions, if necessary.
 - An Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
 - A GitHub account. If you don't have one, you can [create an account for free](https://github.com/join).
+- A Git setup installed. If you don't have one, you can [install Git](https://www.git-scm.com/downloads). 
 
 ## Create Jekyll App
 
@@ -40,7 +41,7 @@ Create a Jekyll app using the Jekyll Command Line Interface (CLI):
    jekyll new static-app
    ```
 
-1. Navigate to the newly created app.
+1. Go to the newly created app.
 
    ```bash
    cd static-app
@@ -86,7 +87,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 ### Create the application
 
-1. Navigate to the [Azure portal](https://portal.azure.com)
+1. Go to the [Azure portal](https://portal.azure.com)
 1. Select **Create a Resource**
 1. Search for **Static Web Apps**
 1. Select **Static Web Apps**
@@ -112,6 +113,10 @@ The following steps show you how to create a new static site app and deploy it t
     | _Repository_ | Select **jekyll-static-app**. |
     | _Branch_ | Select **main**. |
 
+    > [!NOTE]
+    > If you don't see any repositories, you may need to authorize Azure Static Web Apps on GitHub.
+    > Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**. For organization repositories, you must be an owner of the organization to grant the permissions.
+
 1. In the _Build Details_ section, select **Custom** from the _Build Presets_ drop-down and keep the default values.
 
 1. In the _App location_ box, enter **./**.
@@ -122,13 +127,13 @@ The following steps show you how to create a new static site app and deploy it t
 
 ### Review and create
 
-1. Select the **Review + Create** button to verify the details are all correct.
+1. Select **Review + Create** to verify the details are all correct.
 
-1. Select **Create** to start the creation of the App Service Static Web App and provision a GitHub Actions for deployment.
+2. Select **Create** to start the creation of the App Service Static Web App and provision a GitHub Actions for deployment.
 
-1. Once the deployment completes click, **Go to resource**.
+3. Once the deployment completes, select **Go to resource**.
 
-1. On the resource screen, click the _URL_ link to open your deployed application. You may need to wait a minute or two for the GitHub Actions to complete.
+4. On the resource screen, select the _URL_ link to open your deployed application. You may need to wait a minute or two for the GitHub Actions to complete.
 
    :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Deployed application":::
 

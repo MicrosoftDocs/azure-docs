@@ -1,16 +1,20 @@
 ﻿---
-title: Convert a legacy Exchange peering to an Azure resource by using the Azure portal
-titleSuffix: Azure
-description: Convert a legacy Exchange peering to an Azure resource by using the Azure portal
+title: Convert a legacy Exchange peering to an Azure resource - Azure portal
+description: Convert a legacy Exchange peering to an Azure resource using the Azure portal.
 services: internet-peering
-author: derekolo
+author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 5/21/2020
-ms.author: derekol
+ms.date: 01/23/2023
+ms.author: halkazwini
+ms.custom: template-how-to, engagement-fy23
 ---
 
-# Convert a legacy Exchange peering to an Azure resource by using the Azure portal
+# Convert a legacy Exchange peering to an Azure resource using the Azure portal
+
+> [!div class="op_single_selector"]
+> - [Azure portal](howto-legacy-exchange-portal.md)
+> - [PowerShell](howto-legacy-exchange-powershell.md)
 
 This article describes how to convert an existing legacy Exchange peering to an Azure resource by using the Azure portal.
 
@@ -30,6 +34,9 @@ As an Internet Exchange Provider, you can create an exchange peering request by 
 * Select your Azure Subscription.
 
 * For Resource group, you can either choose an existing resource group from the drop-down list or create a new group by selecting Create new. We'll create a new resource group for this example.
+
+    >[!NOTE]
+    >Once a subscription and resource group have been selected for the peering resource, it cannot be moved to another subscription or resource group.
 
 * Name corresponds to the resource name and can be anything you choose.
 
@@ -52,10 +59,7 @@ As an Internet Exchange Provider, you can create an exchange peering request by 
 ### <a name=get></a>Verify Exchange peering
 [!INCLUDE [peering-exchange-get-portal](./includes/exchange-portal-get.md)]
 
-## Additional resources
-
-For more information, see [Internet peering FAQs](faqs.md).
-
 ## Next steps
 
-* [Create or modify an Exchange peering by using the portal](howto-exchange-portal.md)
+- [Create or modify an Exchange peering by using the portal](howto-exchange-portal.md).
+- [Internet peering frequently asked questions (FAQ)](faqs.md).

@@ -2,21 +2,17 @@
 title: Create and view rule-based anomalies and anomaly triggers in Permissions Management
 description: How to create and view rule-based anomalies and anomaly triggers in Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: active-directory
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # Create and view rule-based anomaly alerts and anomaly triggers
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 Rule-based anomalies identify recent activity in Permissions Management that is determined to be unusual based on explicit rules defined in the activity trigger. The goal of rule-based anomaly is high precision detection.
 
@@ -64,7 +60,7 @@ Rule-based anomalies identify recent activity in Permissions Management that is 
 1. Select one of the following conditions:
       - **Any Resource Accessed for the First Time**: The identity accesses a resource for the first time during the specified time interval.
       - **Identity Performs a Particular Task for the First Time**: The identity does a specific task for the first time during the specified time interval.
-       - **Identity Performs a Task for the First Time**: The identity performs any task for the first time during the specified time interval
+      - **Identity Performs a Task for the First Time**: The identity performs any task for the first time during the specified time interval.
 1. Select **Next**.
 1. On the **Authorization Systems** tab, select the available authorization systems and folders, or select **All**.
 

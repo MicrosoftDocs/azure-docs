@@ -2,7 +2,9 @@
 title: Quickstart - Send events to Event Grid
 description: In this quickstart, you enable Event Grid events for your container registry, then send container image push and delete events to a sample application.
 ms.topic: article
-ms.date: 08/23/2018
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom: seodec18, devx-track-azurecli
 # Customer intent: As a container registry owner, I want to send events to Event Grid when container images are pushed to or deleted from my container registry so that downstream applications can react to those events.
 ---
@@ -17,7 +19,7 @@ After you complete the steps in this article, events sent from your container re
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - The Azure CLI commands in this article are formatted for the **Bash** shell. If you're using a different shell like PowerShell or Command Prompt, you may need to adjust line continuation characters or variable assignment lines accordingly. This article uses variables to minimize the amount of command editing required.
 
@@ -67,7 +69,7 @@ Once the registry has been created, the Azure CLI returns output similar to the 
 
 ## Create an event endpoint
 
-In this section, you use a Resource Manager template located in a GitHub repository to deploy a pre-built sample web application to Azure App Service. Later, you subscribe to your registry's Event Grid events and specify this app as the endpoint to which the events are sent.
+In this section, you use a Resource Manager template located in a GitHub repository to deploy a prebuilt sample web application to Azure App Service. Later, you subscribe to your registry's Event Grid events and specify this app as the endpoint to which the events are sent.
 
 To deploy the sample app, set `SITE_NAME` to a unique name for your web app, and execute the following commands. The site name must be unique within Azure because it forms part of the fully qualified domain name (FQDN) of the web app. In a later section, you navigate to the app's FQDN in a web browser to view your registry's events.
 
@@ -88,11 +90,11 @@ You should see the sample app rendered with no event messages displayed:
 
 ![Web browser showing sample web app with no events displayed][sample-app-02]
 
-[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](../../articles/event-grid/includes/register-provider-cli.md)]
 
 ## Subscribe to registry events
 
-In Event Grid, you subscribe to a *topic* to tell it which events you want to track, and where to send them. The following [az eventgrid event-subscription create][az-eventgrid-event-subscription-create] command subscribes to the container registry you created, and specifies your web app's URL as the endpoint to which it should send events. The environment variables you populated in earlier sections are reused here, so no edits are required.
+In Event Grid, you subscribe to a *topic* to tell it which events you want to track, and where to send them. The following [`az eventgrid event-subscription create`][az-eventgrid-event-subscription-create] command subscribes to the container registry you created, and specifies your web app's URL as the endpoint to which it should send events. The environment variables you populated in earlier sections are reused here, so no edits are required.
 
 ```azurecli-interactive
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
@@ -145,7 +147,7 @@ Execute the following Azure CLI command to build a container image from the cont
 az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git#main
 ```
 
-You should see output similar to the following while ACR Tasks builds and then pushes your image. The following sample output has been truncated for brevity.
+You should see output similar to the following while ACR Tasks build and then pushes your image. The following sample output has been truncated for brevity.
 
 ```output
 Sending build context to ACR...
@@ -161,7 +163,7 @@ Step 1/5 : FROM node:9-alpine
 ...
 ```
 
-To verify that the built image is in your registry, execute the following command to view the tags in the "myimage" repository:
+To verify that the built image is in your registry, execute the following command to view the tags in the `myimage` repository:
 
 ```azurecli-interactive
 az acr repository show-tags --name $ACR_NAME --repository myimage

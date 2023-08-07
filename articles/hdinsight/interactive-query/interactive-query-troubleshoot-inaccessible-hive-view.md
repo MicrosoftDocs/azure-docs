@@ -3,7 +3,7 @@ title: Apache Hive connections to Apache Zookeeper - Azure HDInsight
 description: Apache Hive View inaccessible due to Apache Zookeeper issues in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 04/07/2022
+ms.date: 05/11/2023
 ---
 
 # Scenario: Apache Hive fails to establish a connection to Apache Zookeeper in Azure HDInsight
@@ -15,7 +15,7 @@ This article describes troubleshooting steps and possible resolutions for issues
 The Hive View is inaccessible, and the logs in `/var/log/hive` show an error similar to the following:
 
 ```
-ERROR [Curator-Framework-0]: curator.ConnectionState (ConnectionState.java:checkTimeouts(200)) - Connection timed out for connection string (<zookeepername1>.cloud.wbmi.com:2181,<zookeepername2>.cloud.wbmi.com:2181,<zookeepername3>.cloud.wbmi.com:2181) and timeout (15000) / elapsed (21852)
+ERROR [Curator-Framework-0]: curator.ConnectionState (ConnectionState.java:checkTimeouts(200)) - Connection timed out for connection string (<zookeepername1>.contoso.com:2181,<zookeepername2>.contoso.com:2181,<zookeepername3>.contoso.com:2181) and timeout (15000) / elapsed (21852)
 ```
 
 ## Cause

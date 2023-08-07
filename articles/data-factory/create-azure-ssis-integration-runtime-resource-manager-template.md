@@ -3,16 +3,16 @@ title: Use an Azure Resource Manager template to create an integration runtime
 description: Learn how to use an Azure Resource Manager template to create an Azure-SSIS integration runtime in Azure Data Factory so you can deploy and run SSIS packages in Azure.
 ms.service: data-factory
 ms.subservice: integration-services
+ms.custom: devx-track-arm-template
 ms.topic: conceptual
-ms.date: 02/15/2022
-author: swinarko
-ms.author: sawinark 
-ms.custom: devx-track-azurepowershell
+ms.date: 04/12/2023
+author: chugugrace
+ms.author: chugu 
 ---
 
 # Use an Azure Resource Manager template to create an integration runtime
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this section, you use an Azure Resource Manager template to create the Azure-SSIS integration runtime in Azure Data Factory. 
 

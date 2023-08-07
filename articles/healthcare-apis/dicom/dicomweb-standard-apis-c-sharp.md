@@ -1,12 +1,12 @@
 ---
 title:  Using DICOMweb&trade;Standard APIs with C# - Azure Health Data Services
 description: In this tutorial, you'll learn how to use DICOMweb Standard APIs with C#. 
-author: stevewohl
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.date: 05/26/2022
-ms.author: aersoy
+ms.author: mmitrik
 ---
 
 # Using DICOMweb&trade; Standard APIs with C#
@@ -37,7 +37,7 @@ To use the DICOMweb&trade; Standard APIs, you must have an instance of the DICOM
 
 After you've deployed an instance of the DICOM service, retrieve the URL for your App service:
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search **Recent resources** and select your DICOM service instance.
 1. Copy the **Service URL** of your DICOM service. Make sure to specify the version as part of the url when making requests. More information can be found in the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md).
 
@@ -224,7 +224,7 @@ This response should return the only frame from the red-triangle. Validate that 
 ## Query DICOM (QIDO)
 
 > [!NOTE]
-> Refer to the [DICOM Conformance Statement](dicom-services-conformance-statement.md#supported-search-parameters) for supported DICOM attributes.
+> Refer to the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md#supported-search-parameters) for supported DICOM attributes.
 
 ### Search for studies
 

@@ -1,3 +1,6 @@
+---
+ms.custom: devx-track-azurepowershell
+---
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).

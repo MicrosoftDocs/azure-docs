@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: API Management documentation
-summary: Learn how to use API Management to publish APIs to external, partner, and employee developers securely and at scale. Shows you how to create and manage modern API gateways for existing back-end services hosted anywhere.
+summary: Learn how to use API Management to publish APIs to external, partner, and employee developers securely and at scale. Create and manage modern API gateways for existing back-end services hosted anywhere.
 
 metadata:
   title: API Management documentation
@@ -28,7 +28,15 @@ landingContent:
       - linkListType: architecture
         links:
           - text: Basic enterprise integration
-            url: /azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration
+            url: /azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+          - text: Landing zone accelerator
+            url: /azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure API Management
+            url: /training/modules/introduction-to-azure-api-management/
+          - text: Explore API Management
+            url: /training/modules/explore-api-management/  
   # Card (optional)
   - title: Create an instance
     linkLists:
@@ -76,8 +84,8 @@ landingContent:
     linkLists:
       - linkListType: sample
         links:
-          - text: Policies
-            url: ./policies/index.md
+          - text: API Management policy snippets
+            url: https://github.com/Azure/api-management-policy-snippets
           - text: Azure PowerShell
             url: powershell-samples.md
           - text: Azure Policy built-ins

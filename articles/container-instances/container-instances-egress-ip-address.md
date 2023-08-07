@@ -1,7 +1,12 @@
 ---
 title: Configure static outbound IP
 description: Configure Azure firewall and user-defined routes for Azure Container Instances workloads that use the firewall's public IP address for ingress and egress
-ms.topic: article
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+ms.custom: devx-track-azurecli
+services: container-instances
+ms.topic: how-to
 ms.date: 05/03/2022
 ---
 
@@ -22,7 +27,7 @@ You then validate ingress and egress from example container groups through the f
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 [!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../includes/cli-launch-cloud-shell-sign-in.md)]
 
@@ -70,9 +75,9 @@ If not already installed, add the firewall extension to the Azure CLI using the 
 
 :::code language="azurecli" source="~/azure_cli_scripts/container-instances/egress-ip-address.sh" id="firewallext":::
 
-Create the firewall resources:
+Create the firewall resources using the [az network firewall create][az-network-firewall-create] command:
 
-:::code language="azurecli" source="~/azure_cli_scripts/container-instances/egress-ip-address.sh" id="firewallext":::
+:::code language="azurecli" source="~/azure_cli_scripts/container-instances/egress-ip-address.sh" id="firewall":::
 
 Update the firewall configuration using the [az network firewall update][az-network-firewall-update] command:
 
@@ -158,7 +163,7 @@ View the container logs to confirm the IP address is the same as the public IP a
 
 ```azurecli
 az container logs \
-  --resource-group $RESOURCE_GROUP_NAME \
+  --sed 's/$RESOURCE_GROUP_NAME/$resourceGroup/g'
   --name testegress 
 ```
 
@@ -186,6 +191,7 @@ For more information about managing traffic and protecting Azure resources, see 
 [az-container-create]: /cli/azure/container#az_container_create
 [az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_create
 [az-extension-add]: /cli/azure/extension#az_extension_add
+[az-network-firewall-create]: /cli/azure/network/firewall#az_network_firewall_create
 [az-network-firewall-update]: /cli/azure/network/firewall#az_network_firewall_update
 [az-network-public-ip-show]: /cli/azure/network/public-ip/#az_network_public_ip_show
 [az-network-route-table-create]:/cli/azure/network/route-table/#az_network_route_table_create
