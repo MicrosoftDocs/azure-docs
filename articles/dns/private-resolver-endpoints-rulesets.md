@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: dns
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 07/19/2023
+ms.date: 08/07/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to understand components of the Azure DNS Private Resolver.
 ---
