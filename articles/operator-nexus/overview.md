@@ -56,7 +56,7 @@ Azure Operator Nexus runs Microsoft's own Linux distribution called [CBL-Mariner
 
 CBL-Mariner is a lightweight operating system. It consumes limited system resources and is engineered to be efficient. For example, it has a fast startup time with a small footprint and locked-down packages to reduce the threat landscape.
 
-When Microsoft identifies a security vulnerability, it makes the latest security patches and fixes available with the goal of fast turnaround time. Running the infrastructure on Linux aligns with NF needs, telecommunication industry trends, and relevant open-source communications. Azure Operator Nexus supports both VNFs and CNFs.
+When Microsoft identifies a security vulnerability, it makes the latest security patches and fixes available with the goal of fast turnaround time. Running the infrastructure on Linux aligns with NF needs, telecommunication industry trends, and relevant open-source communications.
 
 ### Bare metal and cluster management
 
