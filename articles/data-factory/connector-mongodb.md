@@ -256,23 +256,7 @@ To copy data from MongoDB to tabular sink or reversed, refer to [schema mapping]
 Here are steps that help you upgrade your linked service and related queries:
 
 1. Create a new MongoDB linked service and configure it by referring to [Linked service properties](#linked-service-properties).
-1. If you use SQL queries in your pipelines that refer to the old MongoDB linked service, replace them with the equivalent MongoDB queries. See the following table for the replacement rules:
-
-    | SQL query | Equivalent MongoDB query | 
-    |:--- |:--- |
-    | *Query pattern*||
-    | SQL multiple joins queries |MongoDB aggregate queries with multiple `$lookup`|
-    | `SELECT FROM` | `find` with projection <br>e.g. `db.users.find({}, { name: 1, email: 1 })` |
-    | `SELECT FROM JOIN` |`$lookup` (aggregation) |
-    | `EMPTY` | `db.table.find({})`|
-    | `SELECT * FROM` |`db.table.find({})` |
-    | *Keywords* ||
-    | `CASE WHEN` |`$switch` aggregation |
-    | `CONCAT` |`$concat` |
-    | `AS` | `$project` |
-    | SQL queries of datetime related functions | MongoDB queries of datetime related functions |
-
-    Here are some query examples that help you transfer from SQL queries to MongoDB queries.
+1. If you use SQL queries in your pipelines that refer to the old MongoDB linked service, replace them with the equivalent MongoDB queries. See the following table for the replacement examples:
 
     | SQL query | Equivalent MongoDB query | 
     |:--- |:--- |
