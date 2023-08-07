@@ -16,7 +16,9 @@ Azure Maps Creator is a first party geospatial platform that enables you to crea
 
 ## Services in Azure Maps Creator
 
-Creator is a platform for building indoor mapping solutions for all your needs. As an extension of Azure Maps, Creator allows blending of both indoor and outdoor maps for a seamless visual experience. Creator supports generating indoor maps from CAD drawings (DWG) or GeoJSON and enables custom styling of the map. You can also provide directions within your indoor map using wayfinding and even monitor the state of any IoT enabled equipment within your facility.
+Creator is a platform for building indoor mapping solutions for all your needs. As an extension of Azure Maps, Creator allows blending of both indoor and outdoor maps for a seamless visual experience. Creator supports generating indoor maps from CAD drawings (DWG) or GeoJSON and enables custom styling of the map. You can also provide directions within your indoor map using wayfinding.
+
+:::image type="content" source="./media/creator-indoor-maps/about-creator/facility.png" alt-text="Screenshot of an indoor map.":::
 
 ### Conversion
 
