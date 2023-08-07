@@ -483,7 +483,7 @@ FROM OPENROWSET('CosmosDB',
 
 It's possible to use full fidelity Schema for API for NoSQL accounts, instead of the default option, by setting the schema type when enabling Synapse Link on an Azure Cosmos DB account for the first time. Here are the considerations about changing the default schema representation type:
 
-* Currently, if you enable Synapse Link in your NoSQL API account using the Azure Portal, it will be enabled as well-defined schema.
+* Currently, if you enable Synapse Link in your NoSQL API account using the Azure portal, it will be enabled as well-defined schema.
 * Currently, if you want to use full fidelity schema with NoSQL or Gremlin API accounts, you have to set it at account level in the same CLI or PowerShell command that will enable Synapse Link at account level.
 * Currently Azure Cosmos DB for MongoDB isn't compatible with this possibility of changing the schema representation. All MongoDB accounts have full fidelity schema representation type.
 * Full Fidelity schema data types map mentioned above isn't valid for NoSQL API accounts, that use JSON datatypes. As an example, `float` and `integer` values are represented as `num` in analytical store.
@@ -577,7 +577,7 @@ Synapse Link, and analytical store by consequence, has different compatibility l
 
 ### Backup policies
 
-There are two possible backup polices and to understand how to use them, the following details about Azure Cosmos DB backups are very important:
+There are two possible backup policies and to understand how to use them, the following details about Azure Cosmos DB backups are very important:
 
  * The original container is restored without analytical store in both backup modes.
  * Azure Cosmos DB doesn't support containers overwrite from a restore.
