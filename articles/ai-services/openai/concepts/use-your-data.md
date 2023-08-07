@@ -160,8 +160,6 @@ While Power Virtual Agents has features that leverage Azure OpenAI such as [gene
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RW192hF]
 
-> [!VIDEO https://www.youtube.com/watch?v=wFJayIz5Jvc]
-
 
 ### Using the web app
 
