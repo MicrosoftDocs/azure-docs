@@ -11,7 +11,7 @@ ms.date: 08/07/2023
 ms.author: vvarshney
 ---
 
-# In-place upgrade to Ubuntu Pro Linux images on Azure
+# Ubuntu Server to Ubuntu Pro in-place upgrade on Azure
 
 **Applies to:** :heavy_check_mark: Linux VMs 
 
