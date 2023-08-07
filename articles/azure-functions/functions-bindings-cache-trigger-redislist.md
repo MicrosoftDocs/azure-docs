@@ -70,7 +70,7 @@ The following sample polls the key `listTest` at a localhost Redis instance at `
             context.getLogger().info(entry);
     }
 ```
-<!--Content and samples from the Java tab in ##Examples go here.-->
+
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
 
@@ -180,7 +180,7 @@ From `function.json`, here is the binding data:
 
 # [v2](#tab/python-v2)
 
-The Python v2 programming model is not available in Preview.
+The Python v2 programming model is not available in preview.
 
 ---
 
@@ -244,7 +244,8 @@ The `RedisListTrigger` pops new elements from a list and surfaces those entries 
 
 ::: zone pivot="programming-language-csharp"
 
-During preview, the output bindings are presented here with the trigger functions.
+> [!NOTE]
+> During preview, the output bindings are presented here with the trigger functions.
 
 StackExchange.Redis.RedisValue
 
@@ -257,7 +258,8 @@ StackExchange.Redis.RedisValue
 
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
-During preview, the output bindings are presented here with the trigger functions.
+> [!NOTE]
+> During preview, the output bindings are presented here with the trigger functions.
 
 | Output Type | Description                                                                                                     |
 |-------------|-----------------------------------------------------------------------------------------------------------------|

@@ -74,7 +74,6 @@ The isolated process examples are not available in preview.
 
 ```
 
-<!--Content and samples from the Java tab in ##Examples go here.-->
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
 
@@ -109,7 +108,7 @@ From `function.json`, here is the binding data:
 }
 ```
 
-<!--Content and samples from the JavaScript tab in ##Examples go here.-->
+
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 
@@ -143,7 +142,7 @@ From `function.json`, here is the binding data:
 }
 ```
 
-<!--Content and samples from the PowerShell tab in ##Examples go here.-->
+
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
@@ -253,7 +252,8 @@ The consumer group for all function instances is the `ID` of the function. For e
 
 ::: zone pivot="programming-language-csharp"
 
-During preview, the output bindings are presented here with the trigger functions.
+> [!NOTE]
+> During preview, the output bindings are presented here with the trigger functions.
 
 | Output Type                                                                                                                                           | Description                                                                                                                                                                             |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -266,7 +266,8 @@ During preview, the output bindings are presented here with the trigger function
 
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
-During preview, the output bindings are presented here with the trigger functions.
+> [!NOTE]
+> During preview, the output bindings are presented here with the trigger functions.
 
 | Output Type | Description                                                                                                     |
 |-------------|-----------------------------------------------------------------------------------------------------------------|

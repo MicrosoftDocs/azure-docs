@@ -333,7 +333,7 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 
 # [v2](#tab/python-v2)
 
-The Python v2 programming model is not available in Preview.
+The Python v2 programming model is not available in preview.
 ---
 
 ::: zone-end
