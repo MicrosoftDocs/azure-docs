@@ -165,65 +165,65 @@ See how data, including customer information, vendor details, and line items, is
 
 | Supported languages | Details |
 |:----------------------|:---------|
-| &bullet; English (en) | United States (us), Australia (au), Canada (ca), United Kingdom (uk), India (in)|
-| &bullet; Spanish (es) |Spain (es)|
-| &bullet; German (de) | Germany (de)|
-| &bullet; French (fr) | France (fr) |
-| &bullet; Italian (it) | Italy (it)|
-| &bullet; Portuguese (pt) | Portugal (pt), Brazil (br)|
-| &bullet; Dutch (nl) | Netherlands (nl)|
-| &bullet; Czech (cs) | Czechoslovakia (cz)|
-| &bullet; Danish (da) | Denmark (dk)|
-| &bullet; Estonian (et) | Estonia (ee)|
-| &bullet; Finnish (fi) | Finland (fl)|
-| &bullet; Croatian (hr) | Bosnia and Herzegovina (ba), Croatia (hr), Serbia (rs)|
-| &bullet; Hungarian (hu) | Hungary (hu)|
-| &bullet; Icelandic (is) | Iceland (is)|
-| &bullet; Japanese (ja) | Japan (ja)|
-| &bullet; Korean (ko) | Korea (kr)|
-| &bullet; Lithuanian (lt) | Lithuania (lt)|
-| &bullet; Latvian (lv) | Latvia (lv)|
-| &bullet; Malay (ms) | Malaysia (ms)|
-| &bullet; Norwegian (nb) | Norway (no)|
-| &bullet; Polish (pl) | Poland (pl)|
-| &bullet; Romanian (ro) | Romania (ro)|
-| &bullet; Slovak (sk) | Slovakia (sv)|
-| &bullet; Slovenian (sl) | Slovenia (sl)|
+| &bullet; English (`en`) | United States (`us`), Australia (`au`), Canada (`ca`), United Kingdom (-uk), India (-in)|
+| &bullet; Spanish (`es`) |Spain (`es`)|
+| &bullet; German (`de`) | Germany (`de`)|
+| &bullet; French (`fr`) | France (`fr`) |
+| &bullet; Italian (`it`) | Italy (`it`)|
+| &bullet; Portuguese (`pt`) | Portugal (`pt`), Brazil (`br`)|
+| &bullet; Dutch (`nl`) | Netherlands (`nl`)|
+| &bullet; Czech (`cs`) | Czechoslovakia (`cz`)|
+| &bullet; Danish (`da`) | Denmark (`dk`)|
+| &bullet; Estonian (`et`) | Estonia (`ee`)|
+| &bullet; Finnish (`fi`) | Finland (`fl`)|
+| &bullet; Croatian (`hr`) | Bosnia and Herzegovina (`ba`), Croatia (`hr`), Serbia (`rs`)|
+| &bullet; Hungarian (`hu`) | Hungary (`hu`)|
+| &bullet; Icelandic (`is`) | Iceland (`is`)|
+| &bullet; Japanese (`ja`) | Japan (`ja`)|
+| &bullet; Korean (`ko`) | Korea (`kr`)|
+| &bullet; Lithuanian (`lt`) | Lithuania (`lt`)|
+| &bullet; Latvian (`lv`) | Latvia (`lv`)|
+| &bullet; Malay (`ms`) | Malaysia (`ms`)|
+| &bullet; Norwegian (`nb`) | Norway (`no`)|
+| &bullet; Polish (`pl`) | Poland (`pl`)|
+| &bullet; Romanian (`ro`) | Romania (`ro`)|
+| &bullet; Slovak (`sk`) | Slovakia (`sv`)|
+| &bullet; Slovenian (`sl`) | Slovenia (`sl`)|
 | &bullet; Serbian (sr-Latn) | Serbia (latn-rs)|
-| &bullet; Albanian (sq) | Albania (al)|
-| &bullet; Swedish (sv) | Sweden (se)|
+| &bullet; Albanian (`sq`) | Albania (`al`)|
+| &bullet; Swedish (`sv`) | Sweden (`se`)|
 | &bullet; Chinese (simplified (zh-hans)) | China (zh-hans-cn)|
 | &bullet; Chinese (traditional (zh-hant)) | Hong Kong (zh-hant-hk), Taiwan (zh-hant-tw)|
 
 | Supported Currency Codes | Details |
 |:----------------------|:---------|
-| &bullet; ARS | United States (us) |
-| &bullet; AUD | Australia (au) |
-| &bullet; BRL | United States (us) |
-| &bullet; CAD | Canada (ca) |
-| &bullet; CLP | United States (us) |
-| &bullet; CNY | United States (us) |
-| &bullet; COP | United States (us) |
-| &bullet; CRC | United States (us) |
-| &bullet; CZK | United States (us) |
-| &bullet; DKK | United States (us) |
-| &bullet; EUR | United States (us) |
-| &bullet; GBP | United Kingdom (uk) |
-| &bullet; HUF | United States (us) |
-| &bullet; IDR | United States (us) |
-| &bullet; INR | United States (us) |
-| &bullet; ISK | United States (us) |
-| &bullet; JPY | Japan (jp) |
-| &bullet; KRW | United States (us) |
-| &bullet; NOK | United States (us) |
-| &bullet; PAB | United States (us) |
-| &bullet; PEN | United States (us) |
-| &bullet; PLN | United States (us) |
-| &bullet; RON | United States (us) |
-| &bullet; RSD | United States (us) |
-| &bullet; SEK | United States (us) |
-| &bullet; TWD | United States (us) |
-| &bullet; USD | United States (us) |
+| &bullet; ARS | United States (`us`) |
+| &bullet; AUD | Australia (`au`) |
+| &bullet; BRL | United States (`us`) |
+| &bullet; CAD | Canada (`ca`) |
+| &bullet; CLP | United States (`us`) |
+| &bullet; CNY | United States (`us`) |
+| &bullet; COP | United States (`us`) |
+| &bullet; CRC | United States (`us`) |
+| &bullet; CZK | United States (`us`) |
+| &bullet; DKK | United States (`us`) |
+| &bullet; EUR | United States (`us`) |
+| &bullet; GBP | United Kingdom (`uk`) |
+| &bullet; HUF | United States (`us`) |
+| &bullet; IDR | United States (`us`) |
+| &bullet; INR | United States (`us`) |
+| &bullet; ISK | United States (`us`) |
+| &bullet; JPY | Japan (`jp`) |
+| &bullet; KRW | United States (`us`) |
+| &bullet; NOK | United States (`us`) |
+| &bullet; PAB | United States (`us`) |
+| &bullet; PEN | United States (`us`) |
+| &bullet; PLN | United States (`us`) |
+| &bullet; RON | United States (`us`) |
+| &bullet; RSD | United States (`us`) |
+| &bullet; SEK | United States (`us`) |
+| &bullet; TWD | United States (`us`) |
+| &bullet; USD | United States (`us`) |
 
 ## Field extraction
 
