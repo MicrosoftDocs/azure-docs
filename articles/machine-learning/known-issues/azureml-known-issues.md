@@ -22,8 +22,8 @@ Select the **Title** to view more information about that specific known issue.
 
 |Area  |Title  |Issue publish date  |
 |---------|---------|---------|
-|Workspace RP     | [Known issue  - AutoML | Error retrieving generated code](ki-automl-error-generated-code.md)       | June 6, 2023       |
-|Workspace RP     |  [Known issue  - Workspace RP | Create workspace with bring your own storage scenario does not work in SDK V2](ki-workspace-storage-different-subscription.md)       |  April 19, 2023       |
+|Workspace RP     | [AutoML | Error retrieving generated code](ki-automl-error-generated-code.md)       | June 6, 2023       |
+|Workspace RP     |  [Create workspace with bring your own storage scenario does not work in SDK V2](ki-workspace-storage-different-subscription.md)       |  April 19, 2023       |
 |Row3     |         |         |
 |Row4     |         |         |
 |Row5     |         |         |
