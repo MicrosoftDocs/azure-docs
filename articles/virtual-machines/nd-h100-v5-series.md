@@ -1,5 +1,5 @@
 ---
-title:       ND H100 v5-series- Azure Virtual Machines
+title:       ND H100 v5-series
 description: Specifications for the ND H100 v5-series VMs
 author:      iamwilliew 
 ms.author:   wwilliams 
