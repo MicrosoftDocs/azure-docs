@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/24/2023
+ms.date: 08/07/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -17,7 +17,12 @@ ms.custom: it-pro
 
 # Add Google as an identity provider
 
-By setting up federation with Google, you can allow customers to sign in to your applications with their own Gmail accounts. After you've added Google as one of your application's sign-in options, on the sign-in page, customers can sign in to Azure AD for customers with a Google account. (Learn more about [authentication methods and identity providers for customers](concept-authentication-methods-customers.md).)
+By setting up federation with Google, you allow customers to sign in to your applications with their own Google accounts. After you add Google as one of your application's sign-in options, on the sign-in page, customers can sign in to Azure AD for customers with a Google account. (Learn more about [authentication methods and identity providers for customers](concept-authentication-methods-customers.md).)
+
+## Prerequisites
+
+- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
+- [A sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md).
 
 ## Create a Google application
 
@@ -40,18 +45,17 @@ To enable sign-in for customers with a Google account, you need to create an app
 1. Select **Create credentials**, and then **OAuth client ID**.
 1. Under **Application type**, select **Web application**.
    1. Enter a suitable **Name** for your application, such as "Azure AD for customers."
-   1. In **Valid OAuth redirect URIs**, enter the following URIs, replacing `<tenant-ID>` with your customer tenant ID and `<tenant-name>` with your customer tenant name:
+   1. In **Valid OAuth redirect URIs**, enter the following URIs. Replace `<tenant-ID>` with your customer Directory (tenant) ID and `<tenant-subdomain>` with your customer Directory (tenant) subdomain. If you don't have your tenant name, [learn how to read your tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).  
     - `https://login.microsoftonline.com`
     - `https://login.microsoftonline.com/te/<tenant-ID>/oauth2/authresp`
-    - `https://login.microsoftonline.com/te/<tenant-name>.onmicrosoft.com/oauth2/authresp`
+    - `https://login.microsoftonline.com/te/<tenant-subdomain>.onmicrosoft.com/oauth2/authresp`
     - `https://<tenant-ID>.ciamlogin.com/<tenant-ID>/federation/oidc/accounts.google.com`
-    - `https://<tenant-ID>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oidc/accounts.google.com`
+    - `https://<tenant-ID>.ciamlogin.com/<tenant-subdomain>.onmicrosoft.com/federation/oidc/accounts.google.com`
     - `https://<tenant-ID>.ciamlogin.com/<tenant-ID>/federation/oauth2`
-    - `https://<tenant-ID>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oauth2`
-   > [!NOTE]
-   > To find your customer tenant ID, go to the [Microsoft Entra admin center](https://entra.microsoft.com). Under **Azure Active Directory**, select **Overview**. Then select the **Overview** tab and copy the **Tenant ID**.
-2. Select **Create**.
-3. Copy the values of **Client ID** and **Client secret**. You need both values to configure Google as an identity provider in your tenant. **Client secret** is an important security credential.
+    - `https://<tenant-ID>.ciamlogin.com/<tenant-subdomain>.onmicrosoft.com/federation/oauth2`
+
+1. Select **Create**.
+1. Record the values of **Client ID** and **Client secret**. You need both values to configure Google as an identity provider in your tenant.
 
 > [!NOTE]
 > In some cases, your app might require verification by Google (for example, if you update the application logo). For more information, check out the [Google's verification status guid](https://support.google.com/cloud/answer/10311615#verification-status).
@@ -62,7 +66,7 @@ After you create the Google application, in this step you set the Google client 
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as the global administrator of your customer tenant.
 1. Go to **Azure Active Directory** > **External Identities** > **All identity providers**.
-2. Select **+ Google**.
+1. Select **+ Google**.
 
    <!-- ![Screenshot that shows how to add Google identity provider in Azure AD.](./media/sign-in-with-google/configure-google-idp.png)-->
 
@@ -88,7 +92,7 @@ To configure Google federation by using PowerShell, follow these steps:
 At this point, the Google identity provider has been set up in your Azure AD, but it's not yet available in any of the sign-in pages. To add the Google identity provider to a user flow:
 
 1. In your customer tenant, go to **Azure Active Directory** > **External Identities** > **User flows**.
-1. Select the user flow where you want to add the Facebook identity provider.
+1. Select the user flow where you want to add the Google identity provider.
 1. Under Settings, select **Identity providers**
 1. Under **Other Identity Providers**, select **Google**.
 
