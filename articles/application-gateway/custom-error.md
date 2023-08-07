@@ -21,7 +21,7 @@ Application Gateway allows you to create customized error pages instead of displ
 ## Supported response codes
 The custom error pages are supported for the following response codes: 
 
-| Response Code | Description |
+| Response code | Description |
 | ---------- | ---------- |
 | 400 | Bad request (In preview) |
 | 403 | Forbidden |
@@ -56,7 +56,7 @@ To create a custom error page, you should
 - ensure the error page should be in \*.htm or \*.html extension type.
 - ensure the page size is less than 1 MB.
 
-You may reference internal or external images/CSS for this HTML file. For externally referenced resources, use absolute URLs that are publicly accessible. Be aware of the HTML file size when using base64-encoded inline images, javascript, or CSS.
+You may reference internal or external images/CSS for this HTML file. For externally referenced resources, use absolute URLs that are publicly accessible. Be aware of the HTML file size when using base64-encoded inline images, JavaScript, or CSS.
 
 > [!Note]
 >  - Relative links are not supported.
