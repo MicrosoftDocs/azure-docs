@@ -33,7 +33,13 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
     
     :::image type="content" source="./media/handle-advanced-messaging-events/eventgrid-viewer.png" alt-text="Screenshot that shows the Event Grid Viewer Sample Page with Deploy To Azure option.":::
 
-2.  After clicking the "Deploy to Azure" button, fill in the required fields (since the site name needs to be globally unique as it creates a DNS entry, it's recommended to include your alias in the name for this step).
+2.  After clicking the "Deploy to Azure" button, fill in the required fields (since the site name needs to be globally unique as it creates a DNS entry, it's recommended to include your alias in the name for this step). While this quickstart doesn't require any special setup for this step, here are suggestions for filling out the deployment details:
+  - `Subscription` - Select the subscription that contains your Azure Communication Services resource. This specific subscription isn't required, but it will make it easier to clean up after you're done with the quickstart.
+  - `Resource Group` - Select the resource group that contains your Azure Communication Services resource. This specific resource group isn't required, but it will make it easier to clean up after you're done with the quickstart.
+  - `Region` - Select the resource group that contains your Azure Communication Services resource. This specific region isn't required, but is recommended.
+  - 'Site Name' - Create a name that is globally unique. This site name is used to create a domain to connect to your Event Grid Viewer.
+  - 'Hosting Plan Name' - Create any name to identify your hosting plan.
+  - 'Sku' - The sku F1 can be used for development and testing purposes. If you encounter validation errors creating your Event Grid Viewer that say there's no more capacity for the F1 plan, try selecting a different region. For more information about skus, see [App Service pricing](https://azure.microsoft.com/en-us/pricing/details/app-service/windows/)
 
     :::image type="content" source="./media/handle-advanced-messaging-events/customdeployment.png" alt-text="Screenshot that shows Custom deployment of Events Viewer web app and properties you need to provide to successfully deploy.":::
 
@@ -60,9 +66,9 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
 
     1.  Subscription name.
 
-    1.  System topic name--Enter a unique name, unless this name is already prefilled with a topic from your subscription.
+    1.  System topic name - Enter a unique name, unless this name is already prefilled with a topic from your subscription.
 
-    1.  Event types-Select the two new Advanced messaging events from the list.
+    1.  Event types - Select the two Advanced messaging events from the list.
 
         :::image type="content" source="./media/handle-advanced-messaging-events/createeventssubcription.png" alt-text="Screenshot that shows create event subscription properties.":::
 
