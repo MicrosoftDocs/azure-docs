@@ -42,8 +42,8 @@ In a dual-protocol NAS environment, only one security permission style can be ac
 
 | Security style | Considerations |
 | - | - |
-| UNIX | <ul><li>Windows clients can only set UNIX permission attributes through SMBs that map to UNIX attributes (Read/Write/Execute only; no special permissions). </li> <li>NFSv4.x ACLs don't have GUI management. Management is done only via CLI using [nfs4_getfacl and nfs4_setfacl commands](https://manpages.debian.org/testing/nfs4-acl-tools/index.html). </li> <li> If a file or folder has NFSv4.x ACLs, the Windows security properties tab can't display them. </li></ul>| 
-| NTFS | <ul><li> UNIX clients can't set attributes through NFS via commands such as `chown/chmod`.  </li>  <li>NFS clients show only approximated NTFS permissions when using `ls` commands. For instance, if a user has a permission in a Windows NTFS ACL that can't be cleanly translated into a POSIX mode bit (such as traverse directory), it's translated into the closest POSIX mode-bit value (such as `1` for execute). </li></ul>|
+| UNIX | - Windows clients can only set UNIX permission attributes through SMBs that map to UNIX attributes (Read/Write/Execute only; no special permissions). <br> - NFSv4.x ACLs don't have GUI management. Management is done only via CLI using [nfs4_getfacl and nfs4_setfacl commands](https://manpages.debian.org/testing/nfs4-acl-tools/index.html). <br> - If a file or folder has NFSv4.x ACLs, the Windows security properties tab can't display them. <br> | 
+| NTFS | -  UNIX clients can't set attributes through NFS via commands such as `chown/chmod`.  <br> - NFS clients show only approximated NTFS permissions when using `ls` commands. For instance, if a user has a permission in a Windows NTFS ACL that can't be cleanly translated into a POSIX mode bit (such as traverse directory), it's translated into the closest POSIX mode-bit value (such as `1` for execute). <br> |
 
 The selection of volume security style determines how the name mapping for a user is performed. This operation is the core piece of how dual-protocol volumes maintain predictable permissions regardless of protocol in use.
 
@@ -108,7 +108,7 @@ The following figure shows an example of that kind of configuration.
 
 :::image type="content" source="../media/azure-netapp-files/hub-spoke-dual-protocol.png" alt-text="Illustration that shows hub spoke architecture with Azure NetApp Files and Active Directory cloud resident, NAS clients on-premises." lightbox="../media/azure-netapp-files/hub-spoke-dual-protocol.png":::
 
-## Next Steps
+## Next steps
 
 * [Understand the use of LDAP with Azure NetApp Files](lightweight-directory-access-protocol.md)
 * [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md)

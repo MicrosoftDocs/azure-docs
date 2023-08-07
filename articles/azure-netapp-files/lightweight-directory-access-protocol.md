@@ -1,5 +1,5 @@
 ---
-title: Understand the use of LDAP with Azure NetApp Files | Microsoft Docs
+title: Understand the use of LDAP with Azure NetApp Files | Microsoft Learn
 description: This article helps you understand how Azure NetApp Files uses lightweight directory access protocol (LDAP).  
 services: azure-netapp-files
 documentationcenter: ''
@@ -169,7 +169,7 @@ The schema type currently used by Azure NetApp Files is a form of schema based o
 
 This RFC extension fits nicely into how Microsoft Active Directory manages users and groups through the usual management tools. This is because when you add a Windows user to a group (and if that group has a valid numeric GID) using the standard Windows management methods, LDAP lookups will pull the necessary supplemental group information from the usual Windows attribute and find the numeric GIDs automatically.
 
-## Next Steps
+## Next steps
 
 * [Configure AD DS LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md) 
 * [Understand NFS group memberships and supplemental groups](network-file-system-group-memberships.md)

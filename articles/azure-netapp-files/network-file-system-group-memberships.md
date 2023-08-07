@@ -1,5 +1,5 @@
 ---
-title: Understand NFS group memberships and supplemental groups for Azure NetApp Files | Microsoft Docs
+title: Understand NFS group memberships and supplemental groups for Azure NetApp Files | Microsoft Learn
 description: This article helps you understand NFS group memberships and supplemental groups as they apply to Azure NetApp Files.  
 services: azure-netapp-files
 documentationcenter: ''
@@ -56,7 +56,7 @@ The options to extend the group limitation work the same way that the `manage-gi
 
 The following example shows RPC packet with 16 GIDs.
 
-:::image type="content" source="../media/azure-netapp-files/remote-procedure-call-packets.png" alt-text="Example that shows RPC packet with 16 GIDs." lightbox="../media/azure-netapp-files/remote-procedure-call-packets.png":::
+:::image type="content" source="../media/azure-netapp-files/remote-procedure-call-packets.png" alt-text="Screenshot that shows RPC packet with 16 GIDs." lightbox="../media/azure-netapp-files/remote-procedure-call-packets.png":::
 
 Any GID past the limit of 16 is dropped by the protocol. With extended groups in Azure NetApp Files, when a new NFS request comes in, information about the user’s group membership is requested.
 
