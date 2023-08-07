@@ -23,9 +23,9 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## August 2023
 
-* [Backup vault](backup-vault-manage.md)
+* [Backup vault](backup-vault-manage.md) (Preview)
 
-    Azure NetApp Files backups are now organized under backup vaults. You must migrate all existing backups to a backup vault. For more information, see [Migrate backups to a backup vault](backup-vault-manage.md#migrate-backups-to-a-backup-vault).
+    Azure NetApp Files backups are now organized under a backup vault. You must migrate all existing backups to a backup vault. For more information, see [Migrate backups to a backup vault](backup-vault-manage.md#migrate-backups-to-a-backup-vault).
 
 * [SMB Continuous Availability (CA) shares](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) is now generally available (GA).
 
