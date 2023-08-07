@@ -1,5 +1,5 @@
 ---
-title: Automated W-2 form processing - Document Intelligence
+title: Automated W-2 form processing - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Use the Document Intelligence prebuilt W-2 model to automate extraction of W2 form data.
 author: laujan
