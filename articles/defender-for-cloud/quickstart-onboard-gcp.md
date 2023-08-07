@@ -53,6 +53,10 @@ To connect your GCP project to Defender for Cloud by using a native connector:
 
    Optionally, if you select **Organization**, a management project and an organization custom role are created on your GCP project for the onboarding process. Autoprovisioning is enabled for the onboarding of new projects.
 
+## Select Defender plans
+
+In this section of the wizard, you select the Defender for Cloud plans that you want to enable.
+
 1. Select **Next: Select plans**.
 
 1. For the plans that you want to connect, turn the toggle to **On**. By default, all necessary prerequisites and components are provisioned. [Learn how to configure each plan](#optional-configure-selected-plans).
