@@ -12,7 +12,7 @@ ms.service: azure-operator-nexus
 
 Azure Operator Nexus is a carrier-grade, next-generation hybrid cloud platform for telecommunication operators. Azure Operator Nexus is purpose-built for operators' network-intensive workloads and mission-critical applications.
 
-Azure Operator Nexus supports a wide variety of virtualized and containerized network functions from both Microsoft and partners. The platform automates lifecycle management of the infrastructure, including network fabric, bare metal hosts, and storage appliances. It also automates tenant workloads for containerized network functions (CNFs) and virtualized network functions (VNFs).
+Azure Operator Nexus supports a wide variety of virtualized and containerized network functions from both Microsoft and partners. The platform automates lifecycle management (LCM) of the infrastructure, including network fabric, bare metal hosts, and storage appliances. It also automates LCM of tenant workloads for containerized network functions (CNFs) and virtualized network functions (VNFs).
 
 Azure Operator Nexus meets operators' security, resiliency, observability, and performance requirements to achieve meaningful business results. The platform seamlessly integrates compute, network, and storage.
 
