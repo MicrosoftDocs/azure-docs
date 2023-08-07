@@ -649,19 +649,19 @@
     items:
     - name: FHIR service
       tocHref: /azure/healthcare-apis/fhir/
-      topicHref: /azure/healthcare-apis/fhir/
+      topicHref: /azure/healthcare-apis/fhir/overview
     - name: DICOM service
       tocHref: /azure/healthcare-apis/dicom/
-      topicHref: /azure/healthcare-apis/dicom/
+      topicHref: /azure/healthcare-apis/dicom/dicom-services-overview
     - name: MedTech service
       tocHref: /azure/healthcare-apis/iot/
-      topicHref: /azure/healthcare-apis/iot/
+      topicHref: /azure/healthcare-apis/iot/overview
     - name: Events
       tocHref: /azure/healthcare-apis/events/
-      topicHref: /azure/healthcare-apis/events/
-    - name: Azure API for FHIR
-      tocHref: /azure/healthcare-apis/azure-api-for-fhir/
-      topicHref: /azure/healthcare-apis/azure-api-for-fhir/
+      topicHref: /azure/healthcare-apis/events/events-overview
+  - name: Azure API for FHIR
+    tocHref: /azure/healthcare-apis/azure-api-for-fhir/
+    topicHref: /azure/healthcare-apis/azure-api-for-fhir/overview
   - name: Azure for Industry
     tocHref: /azure/industry
     topicHref: /azure/industry
