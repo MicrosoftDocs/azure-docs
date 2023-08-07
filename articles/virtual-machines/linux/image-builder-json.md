@@ -1165,7 +1165,7 @@ The `optimize` property can be enabled while creating a VM image and allows VM o
 "optimize": { 
       "vmboot": { 
         "state": "Enabled" 
-      } 
+      }
     }
 ```
 
@@ -1181,7 +1181,7 @@ optimize: {
 ---
 
 - **vmboot**: A configuration related to the booting process of the virtual machine (VM), used to control optimizations that can improve boot time or other performance aspects.
-- **state**: The state of the boot optimization feature within `vmboot`, with the value `Enabled` indicating that the feature is turned on to improve image creation time.
+- state: The state of the boot optimization feature within `vmboot`, with the value `Enabled` indicating that the feature is turned on to improve image creation time.
 
 ## Properties: source
 
