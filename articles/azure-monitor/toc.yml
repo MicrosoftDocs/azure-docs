@@ -990,6 +990,14 @@ items:
           items:
           - name: Create a Log Analytics workspace
             href: logs/quick-create-workspace.md
+          - name: Move, delete, or recover a Log Analytics workspace
+            items:
+              - name: Move a workspace
+                href: logs/move-workspace.md
+              - name: Move a workspace across regions
+                href: logs/move-workspace-region.md
+              - name: Delete and recover a workspace
+                href: logs/delete-workspace.md  
           - name: Manage access
             displayName: Manage access to a Log Analytics workspace
             href: logs/manage-access.md
@@ -1041,14 +1049,6 @@ items:
             href: logs/data-ingestion-time.md
           - name: Analyze usage and cost
             href: logs/analyze-usage.md   
-        - name: Move and delete
-          items:
-          - name: Move a workspace
-            href: logs/move-workspace.md
-          - name: Move a workspace across regions
-            href: logs/move-workspace-region.md
-          - name: Delete and recover a workspace
-            href: logs/delete-workspace.md  
     - name: Data security
       items:
         - name: Roles permissions and security
