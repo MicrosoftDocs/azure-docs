@@ -47,7 +47,7 @@ sections:
       - question: |
           I deleted my default workspace, how can I get it back?
         answer: |
-          To recover your default workspace, you need to remove the Defender profile/extension, and reinstall the agent. Reinstalling the Defender profile/extension creates a new default workspace.
+          To recover your default workspace, you need to remove the Defender extension, and reinstall the agent. Reinstalling the Defender extension creates a new default workspace.
 
       - question: |
           Where is the default Log Analytics workspace located?
@@ -57,7 +57,7 @@ sections:
       - question: |
           My organization requires me to tag my resources, and required extension didn't get installed, what went wrong?
         answer: |
-          The Defender agent uses the Log analytics workspace to send data from your Kubernetes clusters to Defender for Cloud. The Defender for Cloud adds the Log analytic workspace and the resource group as a parameter for the agent to use.
+          The Defender extension uses the Log analytics workspace to send data from your Kubernetes clusters to Defender for Cloud. The Defender for Cloud adds the Log analytic workspace and the resource group as a parameter for the agent to use.
 
           However, if your organization has a policy that requires a specific tag on your resources, it may cause the extension installation to fail during the resource group or the default workspace creation stage. If it fails, you can either:
 

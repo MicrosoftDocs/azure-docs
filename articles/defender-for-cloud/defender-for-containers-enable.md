@@ -94,7 +94,7 @@ A full list of supported alerts is available in the [reference table of all Defe
 ::: zone-end
 
 ::: zone pivot="defender-for-container-aks"
-[!INCLUDE [Remove the profile](./includes/defender-for-containers-remove-profile.md)]
+[!INCLUDE [Remove the extension](./includes/defender-for-containers-remove-profile.md)]
 ::: zone-end
 
 ## Learn more

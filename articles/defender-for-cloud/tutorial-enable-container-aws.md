@@ -64,7 +64,7 @@ To protect your EKS clusters, you need to enable the Containers plan on the rele
 
 ## Deploy the Defender extension in Azure
 
-Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extension should be installed and running on your EKS clusters. There's a dedicated Defender for Cloud recommendation that can be used to install these extensions (and Azure Arc if necessary):
+Azure Arc-enabled Kubernetes, the Defender extension, and Azure Policy for Kubernetes should be installed and running on your EKS clusters. There's a dedicated Defender for Cloud recommendation that can be used to install these extensions (and Azure Arc if necessary):
 
 - `EKS clusters should have Microsoft Defender's extension for Azure Arc installed`
 

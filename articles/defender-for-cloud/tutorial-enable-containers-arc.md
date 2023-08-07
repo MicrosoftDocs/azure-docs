@@ -57,7 +57,7 @@ If you would prefer to [assign a custom workspace](defender-for-containers-enabl
 
 You can enable the Defender for Containers plan and deploy all of the relevant components in different ways. We walk you through the steps to accomplish this using the Azure portal. Learn how to [deploy the Defender extension](/azure/defender-for-cloud/defender-for-containers-enable?pivots=defender-for-container-arc&tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api#deploy-the-defender-extension) with REST API, Azure CLI or with a Resource Manager template.
 
-**To deploy the Defender profile in Azure:**
+**To deploy the Defender extension in Azure:**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
