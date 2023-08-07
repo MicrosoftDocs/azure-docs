@@ -25,7 +25,7 @@ In this article, you learn about the steps you and your onboarding team must tak
 
 - You must have [deployed Azure Communications Gateway](deploy.md) using the Microsoft Azure portal.
 - You must have [chosen some test numbers](prepare-to-deploy.md#prerequisites).
-- You must have a tenant you can use for testing (representing an enterprise customer), and some users in that tenant to whom you can assign the test numbers.
+- You must have a tenant you can use for testing (representing an enterprise customer), and some users in that tenant to whom you can assign the test numbers. These users must be licensed for Teams Phone System and in Teams Only mode.
 - You must have access to the:
   - [Operator Connect portal](https://operatorconnect.microsoft.com/).
   - [Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant.
@@ -97,7 +97,7 @@ Your onboarding team must register the test enterprise tenant that you chose in 
     1. Sign in to the [Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant.
     1. Select **Voice** > **Operators**.
     1. Select your company in the list of operators, fill in the form and select **Add as my operator**.
-1. In your test tenant, create some test users (if you don't already have suitable users). These users must be licensed for Teams Phone System and in Teams Only mode.
+1. In your test tenant, create some test users (if you don't already have suitable users). License the users for Teams Phone System and place them in Teams Only mode.
 1. Configure emergency locations in your test tenant.
 1. Upload numbers in the Number Management Portal (if you chose to deploy it as part of Azure Communications Gateway) or the Operator Connect Operator Portal. Use the Calling Profile that you obtained from your onboarding team.
 
