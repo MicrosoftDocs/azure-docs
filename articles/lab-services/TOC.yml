@@ -5,7 +5,7 @@
   items:
   - name: What is Azure Lab Services?
     href: lab-services-overview.md
-- name: Migrate lab accounts
+- name: Migrate to lab plans
   expanded: true
   items:
   - name: Lab accounts versus lab plans
