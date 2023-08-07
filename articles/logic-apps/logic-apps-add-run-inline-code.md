@@ -120,7 +120,7 @@ The following diagram shows the highlights from example workflow:
    >
    > Also, in the **Execute JavaScript Code** action, you have to add the [**Actions** parameter](#add-parameters) 
    > and then add these action names to that parameter. For more information, see 
-   > [Add dependencies as parameters to an Executive JavaScript Code action](#add-parameters) later in this article.
+   > [Add dependencies as parameters to an Execute JavaScript Code action](#add-parameters) later in this article.
 
 1. To differentiate the email message's **Body** property that you selected from the trigger's `body` property, rename the second `body` property to `Body` instead. Add the closing semicolon (**;**) at the end to finish the code statement.
 
@@ -180,7 +180,7 @@ The following diagram shows the highlights from example workflow:
 
 1. To differentiate the email message's **Body** property that you selected from the trigger's `body` property, rename the second `body` property to `Body` instead. Add the closing semicolon (**;**) at the end to finish the code statement.
 
-   ![Screenshot showing the Standard logic app workflow, Executive JavaScript Code action, and renamed Body property with closing semicolon.](./media/logic-apps-add-run-inline-code/rename-body-property-standard.png)
+   ![Screenshot showing the Standard logic app workflow, Execute JavaScript Code action, and renamed Body property with closing semicolon.](./media/logic-apps-add-run-inline-code/rename-body-property-standard.png)
 
    The **Execute JavaScript Code** doesn't syntactically require a `return` statement. However, by including the `return` statement, you can reference the action results later in your workflow by using the **Outputs** token in later actions.
 
