@@ -19,8 +19,8 @@ To identify performance regressions, you can quickly glance over the client-side
 
 You can compare load test runs for the following scenarios:
 
-- [Identify performance regressions](#identify-performance-regressions) between application builds or configurations. You could run a load test at each development sprint to ensure that the previous sprint didn't introduce performance issues.
-- [Identify which application component is responsible](#identify-the-root-cause) for a performance problem (root cause analysis). For example, an application redesign might result in slower application response times. Comparing load test runs might reveal that the root cause was a lack of database resources.
+- Identify performance regressions between application builds or configurations. You could run a load test at each development sprint to ensure that the previous sprint didn't introduce performance issues.
+- Identify which application component is responsible for a performance problem (root cause analysis). For example, an application redesign might result in slower application response times. Comparing load test runs might reveal that the root cause was a lack of database resources.
 
 ## Prerequisites
 
@@ -79,7 +79,7 @@ Use the following steps to view metrics trends across test runs:
 
 1. Go to your Azure Load Testing resource and then, on the left pane, select **Tests**.
 
-    :::image type="content" source="media/how-to-compare-multiple-test-runs/choose-test-from-list.png" alt-text="Screenshot that shows the list of tests for a Load Testing resource.":::
+    :::image type="content" source="media/how-to-compare-multiple-test-runs/choose-test-from-list.png" alt-text="Screenshot that shows the list of tests for a Load Testing resource." lightbox="media/how-to-compare-multiple-test-runs/choose-test-from-list.png":::
 
     You can also use the filters to find your load test.
 1. Select the test for which you want to view metrics trends by selecting its name.
@@ -88,11 +88,11 @@ Use the following steps to view metrics trends across test runs:
 
     The graphs show the trends for total requests, response time, error percentage, and throughput for the ten most recent test runs.
 
-    :::image type="content" source="media/how-to-compare-multiple-test-runs/choose-trends-from-test-details.png" alt-text="Screenshot that shows the details of a Test in a Load Testing resource.":::
+    :::image type="content" source="media/how-to-compare-multiple-test-runs/choose-trends-from-test-details.png" alt-text="Screenshot that shows the details of a Test in a Load Testing resource." lightbox="media/how-to-compare-multiple-test-runs/choose-trends-from-test-details.png":::
    
 1. Optionally, you can select **Table view** to view the metrics trends in a tabular view.
 
-    :::image type="content" source="media/how-to-compare-multiple-test-runs/metrics-trends-in-table-view.png" alt-text="Screenshot that shows metrics trends in a tabular view.":::
+    :::image type="content" source="media/how-to-compare-multiple-test-runs/metrics-trends-in-table-view.png" alt-text="Screenshot that shows metrics trends in a tabular view." lightbox="media/how-to-compare-multiple-test-runs/metrics-trends-in-table-view.png":::
 
     You can select a test run that you want to analyze and open the results dashboard for that test run.
 
@@ -104,19 +104,18 @@ Use the following steps to mark a test run as baseline:
 
 1. On the **Trends** pane, select **Mark baseline**
 
-    :::image type="content" source="media/how-to-compare-multiple-test-runs/select-mark-baseline.png" alt-text="Screenshot that shows Mark baseline button in the Trends pane.":::
+    :::image type="content" source="media/how-to-compare-multiple-test-runs/select-mark-baseline.png" alt-text="Screenshot that shows Mark baseline button in the Trends pane." lightbox="media/how-to-compare-multiple-test-runs/select-mark-baseline.png":::
 
 1. In the right context pane, select the checkbox for the test run that you want to mark as baseline, and then select **Mark baseline**
 
-    :::image type="content" source="media/how-to-compare-multiple-test-runs/mark-test-run-as-baseline.png" alt-text="Screenshot that shows the context pane to mark a test run as baseline.":::
+    :::image type="content" source="media/how-to-compare-multiple-test-runs/mark-test-run-as-baseline.png" alt-text="Screenshot that shows the context pane to mark a test run as baseline." lightbox="media/how-to-compare-multiple-test-runs/mark-test-run-as-baseline.png":::
    
     You can also use the filters to find your load test run.
 
-    The baseline value is shown as a horizontal line in the charts. In the table view, an additonal row 
-    with the baseline test run details is shown. For the recent test runs, an arrow mark next to the metrics value indicates whether the metric is trending favorably or unfavorably as compared to the baseline 
-    metric value. 
+    The baseline value is shown as a horizontal line in the charts. In the table view, an additonal row with the baseline test run details is shown. For the recent test runs, an arrow mark next to the metrics 
+    value indicates whether the metric is trending favorably or unfavorably as compared to the baseline metric value. 
 
-    :::image type="content" source="media/how-to-compare-multiple-test-runs/trends-view-with-baseline.png" alt-text="Screenshot that shows trends in metrics when a baseline is selected.":::
+    :::image type="content" source="media/how-to-compare-multiple-test-runs/trends-view-with-baseline.png" alt-text="Screenshot that shows trends in metrics when a baseline is selected." lightbox="media/how-to-compare-multiple-test-runs/trends-view-with-baseline.png":::
 
 ## Next steps
 
