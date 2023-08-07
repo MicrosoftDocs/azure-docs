@@ -37,14 +37,13 @@ Customers can choose to continue to be on Ubuntu 18.04 LTS by upgrading to Ubunt
 * Portability: Ubuntu is available in all regions with content mirrors to reduce the need to go across regions or out to the Internet for updates 
 * Consistent experience across platforms: from edge to multi-cloud, Ubuntu provides the same experience regardless of the platform. It will ensure consistency of your CI/CD pipelines and management mechanisms.
 
-This document presents the direction to upgrade from an Ubuntu Server (16.04 or higher) image to Ubuntu Pro with zero downtime for upgrade by executing the following steps in your VMs: 
+**This document presents the direction to upgrade from an Ubuntu Server (16.04 or higher) image to Ubuntu Pro with zero downtime for upgrade by executing the following steps in your VMs:**
 
 1. Converting to Ubuntu Pro license 
 
 2. Validating the license
 
-> [!Note]
-> Converting to UBUNTU_PRO is an irreversible process. You cannot even downgrade a VM by running detach. Please raise support tickets for any exceptions.
+> **Note: Converting to UBUNTU_PRO is an irreversible process. You cannot even downgrade a VM by running detach. Please raise support tickets for any exceptions.**
 
 ## Converting to Ubuntu Pro using the Azure CLI 
 ```azurecli-interactive
@@ -69,15 +68,13 @@ You can also create a new VM using the Ubuntu Sever images and apply Ubuntu Pro 
 
 For example:
 
-<span style="color:green">\# The following will enable Ubuntu Pro on a virtual machine</span>  
-
 ```azurecli-interactive
+# The following will enable Ubuntu Pro on a virtual machine
 az vm update -g myResourceGroup -n myVmName --license-type UBUNTU_PRO 
 ```
 
-<span style="color:green">\# The next step is to execute two in-VM commands</span>  
-
-```In-VM commands 
+```In-VM commands
+# The next step is to execute two in-VM commands
 sudo apt install ubuntu-advantage-tools 
 sudo pro auto-attach 
 ```
@@ -91,7 +88,7 @@ az vm get-instance-view -g MyResourceGroup -n MyVm
 ```
 
 ## Check the licensing model of an Ubuntu Pro enabled VM using Azure Instance Metadata Service
-From within the virtual machine itself, you can query the attested metadata in Azure Instance Metadata Service to determine the virtual machine's licenseType value. A licenseType value of UBUNTU_PRO indicates that your virtual machine has Ubuntu Pro enabled. [Learn more about attested metadata.] (https://learn.microsoft.com/en-us/azure/virtual-machines/instance-metadata-service?tabs=windows#attested-data)
+From within the virtual machine itself, you can query the attested metadata in Azure Instance Metadata Service to determine the virtual machine's licenseType value. A licenseType value of UBUNTU_PRO indicates that your virtual machine has Ubuntu Pro enabled. [Learn more about attested metadata](https://learn.microsoft.com/en-us/azure/virtual-machines/instance-metadata-service?tabs=windows#attested-data).
 
 ## Billing
 Please note that you will be charged for Ubuntu Pro as part of the Preview. Visit the [pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/) for more details on Ubuntu Pro pricing. To cancel the Pro subscription during the preview period please open a support tickets thru the Azure portal.
