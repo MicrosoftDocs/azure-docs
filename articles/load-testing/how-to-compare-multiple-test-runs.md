@@ -112,7 +112,7 @@ Use the following steps to mark a test run as baseline:
    
     You can also use the filters to find your load test run.
 
-    The baseline value is shown as a horizontal line in the charts. In the table view, an additonal row with the baseline test run details is shown. For the recent test runs, an arrow mark next to the metrics 
+    The baseline value is shown as a horizontal line in the charts. In the table view, an additional row with the baseline test run details is shown. For the recent test runs, an arrow mark next to the metrics 
     value indicates whether the metric is trending favorably or unfavorably as compared to the baseline metric value. 
 
     :::image type="content" source="media/how-to-compare-multiple-test-runs/trends-view-with-baseline.png" alt-text="Screenshot that shows trends in metrics when a baseline is selected." lightbox="media/how-to-compare-multiple-test-runs/trends-view-with-baseline.png":::
