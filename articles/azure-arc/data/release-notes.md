@@ -27,7 +27,7 @@ For complete release version information, review [Version log](version-log.md#au
 
 ### Release notes
 
-- Support for configuring and managing Azure Failover groups between two Arc enabled SQL managed instances using Azure portal. For details, review [Configure failover group - portal](managed-instance-disaster-recovery-portal.md).
+- Support for configuring and managing Azure Failover groups between two Azure Arc-enabled SQL managed instances using Azure portal. For details, review [Configure failover group - portal](managed-instance-disaster-recovery-portal.md).
 - Upgraded OpenSearch and OpenSearch Dashboards from 2.7.0 to 2.8.0
 - Improvements and examples to [Back up and recover controller database](backup-controller-database.md).
 
