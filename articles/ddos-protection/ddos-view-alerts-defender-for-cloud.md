@@ -41,7 +41,7 @@ To view the alerts, open **Defender for Cloud** in the Azure portal and select *
 1. In the search box at the top of the portal, enter **Microsoft Defender for Cloud**. Select **Microsoft Defender for Cloud** from the search results.
 1. From the side menu, select **Security alerts**. To filter the alerts list, select your subscription, or any of the relevant filters. You can optionally add filters with the **Add filter** option.
 
-    :::image type="content" source="./media/ddos-view-alerts-defender-for-cloud/ddos-protection-security-alerts.png" alt-text="Screenshot of Security alert in Microsoft Defender for Cloud.":::
+    :::image type="content" source="./media/ddos-view-alerts-defender-for-cloud/ddos-protection-security-alerts.png" alt-text="Screenshot of Security alert in Microsoft Defender for Cloud." lightbox="./media/ddos-view-alerts-defender-for-cloud/ddos-protection-security-alerts.png":::
  
 The alerts include general information about the public IP address that’s under attack, geo and threat intelligence information, and remediation steps.
 
