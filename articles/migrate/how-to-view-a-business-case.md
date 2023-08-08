@@ -72,7 +72,7 @@ It covers which servers are ideal for cloud, servers that can be decommissioned 
 - These servers were on but don't have adequate metrics available:
     - Unknown: Many servers can land in this section if the discovery is still ongoing or has some unaddressed discovery issues.
     
-## On-premises vs Azure report
+## On-premises vs Azure report 
 It covers cost components for on-premises and Azure, savings, and insights to understand the savings better.
 
 :::image type="content" source="./media/how-to-view-a-business-case/comparison-inline.png" alt-text="Screenshot of on-premises and Azure comparison." lightbox="./media/how-to-view-a-business-case/comparison-expanded.png":::
