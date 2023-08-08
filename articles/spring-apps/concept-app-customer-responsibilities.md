@@ -13,7 +13,7 @@ ms.date: 06/14/2023
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
 
 This article specifies the support policy of Java, Spring Boot and Spring Cloud versions for all tiers of Azure Spring Apps, and versions of other SDKs and OS images for Enterprise Tier.
 
