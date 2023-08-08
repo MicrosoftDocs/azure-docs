@@ -22,8 +22,11 @@ The setup procedure for MANA DPDK is outlined in the [example code.](#example-te
 Legacy Azure Linux VMs rely on the mlx4 or mlx5 drivers and the accompanying hardware for accelerated networking. Azure DPDK users would select specific interfaces to include or exclude by passing bus addresses to the DPDK EAL. The setup procedure for MANA DPDK differs slightly, since the assumption of 1 bus address per Accelerated Networking interface no longer holds true. Rather than using a PCI bus address, the MANA PMD uses the MAC address to determine which interface it should bind to.
 
 ## MANA DPDK EAL Arguments
-MANA users should pass both the bus address of the MANA device and the MAC address of the interface for use with DPDK. 
-On the commandline: `--vdev="$BUS_ADDRESS,mac=$MAC_ADDRESS"` is used instead of `--vdev="net_vdev_netvsc0,iface=eth1"` or `-a $BUS_ADDRESS` to include a specific interface. For more detail, [example code is available](#example-testpmd-setup-and-netvsc-test) to demonstrate the changes needed for DPDK EAL initialization on MANA.
+The MANA PMD will probe all devices and ports on the system when no `--vdev` argument is present; the `--vdev` argument is not mandatory. In testing environments it is often desireable to leave one (primary) interface available for servicing the SSH connection to the VM. To use DPDK with a subset of the available VFs, users should pass both the bus address of the MANA device and the MAC address of the interfaces in the `--vdev` argument. For more detail, example code is available to demonstrate [DPDK EAL initialization on MANA](#example-testpmd-setup-and-netvsc-test).
+
+For general information about the DPDK Environment Abstraction Layer (EAL):
+- [DPDK EAL Arguments for Linux](https://doc.dpdk.org/guides/prog_guide/env_abstraction_layer.html#eal-in-a-linux-userland-execution-environment)
+- [DPDK EAL Overview](https://doc.dpdk.org/guides/prog_guide/env_abstraction_layer.html)
 
 ## DPDK requirements for MANA
 
