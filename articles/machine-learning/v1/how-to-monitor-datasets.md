@@ -164,9 +164,9 @@ Create a dataset monitor to detect and alert to data drift on a new dataset. Use
 
 As described later, a dataset monitor runs at a set frequency (daily, weekly, monthly) intervals. It analyzes new data available in the target dataset since its last run. In some cases, such analysis of the most recent data may not suffice:
 
-1. The new data from the upstream source was delayed due to a broken data pipeline, and this new data wasn't available when the dataset monitor ran.
-1. A time series dataset had only historical data, and you want to analyze drift patterns in the dataset over time. For example: compare traffic flowing to a website, in both winter and summer seasons, to identify seasonal patterns.
-1. You're new to Dataset Monitors. You want to evaluate how the feature works with your existing data before you set it up to monitor future days. In such scenarios, you can submit an on-demand run, with a specific target dataset set date range, to compare with the baseline dataset.
+- The new data from the upstream source was delayed due to a broken data pipeline, and this new data wasn't available when the dataset monitor ran.
+- A time series dataset had only historical data, and you want to analyze drift patterns in the dataset over time. For example: compare traffic flowing to a website, in both winter and summer seasons, to identify seasonal patterns.
+- You're new to Dataset Monitors. You want to evaluate how the feature works with your existing data before you set it up to monitor future days. In such scenarios, you can submit an on-demand run, with a specific target dataset set date range, to compare with the baseline dataset.
 
 The **backfill** function runs a backfill job, for a specified start and end date range. A backfill job fills in expected missing data points in a data set, as a way to ensure data accuracy and completeness.
 
