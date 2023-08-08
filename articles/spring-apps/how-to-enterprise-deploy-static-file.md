@@ -254,7 +254,15 @@ The following environment variables aren't supported.
 
 ## Use a customized server configuration file
 
-You can configure web server by using a customized server configuration file. Your configuration file must conform to the restrictions described in the following table.
+You can configure web server by using a customized server configuration file. The following table shows the configuration file path:
+
+| Web server  | Default configuration file path                        | How to customize server configuration file path                                                                            |
+|-------------|--------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| nginx       | *nginx.conf*  under the root path of your source code. | Use environment variable `BP_NGINX_CONF_LOCATION` to specify the configuration file name. Place the file under the root path of your source code. |
+| httpd       | *httpd.conf* under the root path of your source code.  | Not supported.                                                                                                       |
+
+
+Your configuration file must conform to the restrictions described in the following table.
 
 | Configuration                                | Description                                                                                                                                                                                                                                                 | Nginx Configuration                                        | Httpd Configuration                           |
 |----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|-----------------------------------------------|
