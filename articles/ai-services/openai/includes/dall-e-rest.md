@@ -42,9 +42,9 @@ Go to your resource in the Azure portal. On the navigation pane, select **Keys a
 
 ## Create a new Python application
 
-Create a new Python file named **quickstart.py**. Open the new file in your preferred editor or IDE.
+Create a new Python file named _quickstart.py_. Open the new file in your preferred editor or IDE.
 
-1. Replace the contents of quickstart.py with the following code. Enter your endpoint URL and key in the appropriate fields. Change the value of `prompt` to your preferred text.
+1. Replace the contents of _quickstart.py_ with the following code. Enter your endpoint URL and key in the appropriate fields. Change the value of `prompt` to your preferred text.
 
     ```python
     import requests

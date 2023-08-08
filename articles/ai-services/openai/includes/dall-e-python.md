@@ -57,9 +57,9 @@ pip install pillow
 
 ## Create a new Python application
 
-Create a new Python file named **quickstart.py**. Open the new file in your preferred editor or IDE.
+Create a new Python file named _quickstart.py_. Open the new file in your preferred editor or IDE.
 
-1. Replace the contents of quickstart.py with the following code. Enter your endpoint URL and key in the appropriate fields. Change the value of `prompt` to your preferred text.
+1. Replace the contents of _quickstart.py_ with the following code. Enter your endpoint URL and key in the appropriate fields. Change the value of `prompt` to your preferred text.
 
     ```python
     import openai
@@ -115,7 +115,7 @@ Create a new Python file named **quickstart.py**. Open the new file in your pref
 
 ## Output
 
-Azure OpenAI stores the output image in the **generated_image.png** file in your specified directory. The script also displays the image in your default image viewer.
+Azure OpenAI stores the output image in the _generated_image.png_ file in your specified directory. The script also displays the image in your default image viewer.
 
 The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it doesn't generate an image. For more information, see [Content filtering](../concepts/content-filter.md).
 
