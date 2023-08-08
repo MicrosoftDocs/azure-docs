@@ -22,7 +22,7 @@
   items: 
     - name: Set up a workspace
       href: get-started-with-health-data-services.md
-    - name: Deploy services via Azure Portal
+    - name: Deploy services via Azure portal
       href: healthcare-apis-quickstart.md
     - name: Deploy services using Bicep
       href: deploy-healthcare-apis-using-bicep.md
@@ -33,11 +33,11 @@
       href: get-access-token.md
     - name: Manage user access and permissions
       href: authentication-authorization.md
-    - name: Register an application via Azure Portal
+    - name: Register an application via Azure portal
       href: register-application.md
     - name: Register an application using scripts
       href: register-application-cli-rest.md
-    - name: Grant permissions via Azure Portal
+    - name: Grant permissions via Azure portal
       href: configure-azure-rbac.md
     - name: Grant permissions using scripts
       href: configure-azure-rbac-using-scripts.md
