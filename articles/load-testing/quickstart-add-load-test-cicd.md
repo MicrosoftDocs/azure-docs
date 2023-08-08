@@ -61,7 +61,7 @@ In this section, you'll create a CI/CD pipeline in Azure Pipelines to run an exi
 
     - Commit the JMeter script and test configuration YAML to the source code repository.
 
-    - Create a pipeline definition. You get a notification with the link to the pipeline in the Azure portal.
+    - Create a pipeline definition that invokes the Azure load testing resource and runs the load test.
 
 1. When the pipeline creation finishes, you receive a notification in the Azure portal with a link to the pipeline.
 
