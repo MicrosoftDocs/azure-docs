@@ -165,7 +165,7 @@ With Secure Boot enabled, all Linux kernel modules are required to be signed by 
    sudo reboot
    ```
 
-8. Verify NVIDIA drivers are installed and loaded
+8. Verify NVIDIA CUDA drivers are installed and loaded
     
    ```bash
    dpkg -l | grep -i nvidia
