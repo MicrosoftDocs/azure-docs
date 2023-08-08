@@ -180,7 +180,7 @@ For example, consider the scenario where the defaultRouteTable has the following
 | firewall_route_ 1 | 10.0.0.0/8|Azure Firewall |
 | firewall_route_2 | 192.168.0.0/16, 10.0.0.0/24 | Azure Firewall|
 | firewall_route_3 | 40.0.0.0/24| Azure Firewall|
- to_internet | 0.0.0.0/0| Azure Firewall |
+| to_internet | 0.0.0.0/0| Azure Firewall |
 
 The following table represents the final state of the defaultRouteTable after routing intent creation succeeds. Note that firewall_route_1 and to_internet was automatically removed as the only prefix in those routes were 10.0.0.0/8 and 0.0.0.0/0. firewall_route_2 was modified to remove 192.168.0.0/16 as that prefix is an RFC1918 aggregate prefix.
  
