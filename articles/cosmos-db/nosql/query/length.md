@@ -48,5 +48,5 @@ The following example returns the length of a static string.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`REVERSE`](reverse.md)

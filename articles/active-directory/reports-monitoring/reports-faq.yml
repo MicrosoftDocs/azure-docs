@@ -44,10 +44,25 @@ sections:
   - name: Activity logs
     questions:
       - question: |
-          Do I need to be a Global Administrator to see the activity logs in the Azure portal or to get data through the API?
+          Do I need to be a Global Administrator to see the activity logs in the Azure portal?
         answer: |
-          No, the [least privilege role](../roles/delegate-by-task.md) to view audit and sign-in logs is **Reports Reader**. Other roles include **Security Reader** and **Security Administrator** for the tenant. You can also access the reporting data through the portal or through the API if you're a Global Administrator.
-         
+          No, the [least privilege role](../roles/delegate-by-task.md) to view audit and sign-in logs is **Reports Reader**. Other roles include **Security Reader** and **Security Administrator**.
+
+      - question: |
+          What logs can I integrate with Azure Monitor?
+        answer: |
+          Sign-in and audit logs are both available for routing through Azure Monitor. B2C-related audit events are currently not included. For more information, see [Azure AD activity log integrations](concept-activity-logs-azure-monitor.md) and the [Graph API activity log overview](/graph/api/resources/azure-ad-auditlog-overview)
+
+      - question: |
+          What SIEM tools are currently supported for integrating Azure AD activity logs?
+        answer: |
+          For a current list of the supported SIEM tools, see [Stream Azure monitoring data to an event hub for consumption by an external tool](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
+
+      - question: |
+          Can I access the data from an event hub without using an external SIEM tool?
+        answer: |
+          Yes. To access the logs from your custom application, you can use the [Event Hubs API](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
+
       - question: |
           Can I get Microsoft 365 activity log information through the Azure portal?
         answer: |
@@ -67,6 +82,12 @@ sections:
           How long does Azure AD store activity logs? What is the data retention?
         answer: |
           Depending on your license, Azure AD stores activity logs for between 7 and 30 days. For more information, see [Azure Active Directory report retention policies](reference-reports-data-retention.md).  
+
+      - question: |
+          What happens if an Administrator changes the retention period of a diagnostic setting?
+        answer: |
+          The new retention policy will be applied to logs collected after the change. Logs collected before the policy change will be unaffected. The Diagnostic settings storage retention feature is being deprecated. For details on this change, see [**Migrate from diagnostic settings storage retention to Azure Storage lifecycle management**](../../azure-monitor/essentials/migrate-to-azure-storage-lifecycle-policy.md).
+
       - question: |
           How can I find out if a user purchased a license or enabled a trial license for my tenant? I don't see this activity in the audit logs.
         answer: |
@@ -81,7 +102,7 @@ sections:
       - question: |
           What data is included in the CSV file I can download from the Azure AD sign-in logs?
         answer: |
-          The CSV includes sign-in logs for your users and service principals. However, data that is represented as a nested array in the MS Graph API for sign-in logs isn't included. For example, conditional access policies and report-only information aren't included. If you need to export all the information contained in your sign-in logs, use the **Export Data Settings** feature. 
+          The CSV includes sign-in logs for your users and service principals. However, data that is represented as a nested array in the MS Graph API for sign-in logs isn't included. For example, Conditional Access policies and report-only information aren't included. If you need to export all the information contained in your sign-in logs, use the **Export Data Settings** feature. 
 
       - question: |
           I see .XXX in part of the IP address from a user in my sign-in logs. Why is that happening?
@@ -154,9 +175,9 @@ sections:
   - name: Conditional Access
     questions:
       - question: |
-          What Conditional Access (CA) details can I see in the sign-in logs?
+          What Conditional Access details can I see in the sign-in logs?
         answer: |
-          You can troubleshoot Conditional Access policies through all sign-ins log. Review the CA status and dive into the details of the policies that applied to the sign-in and the result for each policy.
+          You can troubleshoot Conditional Access policies through all sign-ins log. Review the Conditional Access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
 
           To get started:
           
@@ -170,14 +191,14 @@ sections:
         answer: |
           Conditional Access status can have the following values:
           
-          - **Not Applied**: There was no CA policy with the user and app in scope. 
-          - **Success**: There was a CA policy with the user and app in scope and CA policies were successfully satisfied. 
-          - **Failure**: The sign-in satisfied the user and application condition of at least one CA policy and grant controls are either not satisfied or set to block access.
+          - **Not Applied**: There was no Conditional Access policy with the user and app in scope. 
+          - **Success**: There was a Conditional Access policy with the user and app in scope and Conditional Access policies were successfully satisfied. 
+          - **Failure**: The sign-in satisfied the user and application condition of at least one Conditional Access policy and grant controls are either not satisfied or set to block access.
               
       - question: |
           What are all possible values for the Conditional Access policy result?
         answer: |
-          A CA policy can have the following results:
+          A Conditional Access policy can have the following results:
           
           - **Success**: The policy was successfully satisfied.
           - **Failure**: The policy wasn't satisfied.
@@ -187,12 +208,12 @@ sections:
       - question: |
           The policy name in the sign-ins log doesn't match the policy name in Conditional Access. Why?
         answer: |
-          The policy name in the sign-ins log is based on the CA policy name at the time of the sign-in. The name can be inconsistent with the policy name in CA if you updated the policy name after the sign-in.
+          The policy name in the sign-ins log is based on the Conditional Access policy name at the time of the sign-in. The name can be inconsistent with the policy name in Conditional Access if you updated the policy name after the sign-in.
 
       - question: |
           My sign-in was blocked due to a Conditional Access policy, but the sign-ins log shows that the sign-in succeeded. Why?
         answer: |
-          Currently the sign-ins log may not show accurate results for Exchange ActiveSync scenarios when Conditional Access is applied. There can be cases when the sign-in result in the report shows a successful sign-in, but the sign-in actually failed due to a CA policy.
+          Currently the sign-ins log may not show accurate results for Exchange ActiveSync scenarios when Conditional Access is applied. There can be cases when the sign-in result in the report shows a successful sign-in, but the sign-in actually failed due to a  policy.
 
   - name: Microsoft Graph APIs
     questions:

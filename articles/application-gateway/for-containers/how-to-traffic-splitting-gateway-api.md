@@ -7,7 +7,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 07/24/2023
+ms.date: 07/31/2023
 ms.author: greglin
 ---
 
@@ -64,6 +64,7 @@ spec:
 EOF
 ```
 
+[!INCLUDE [application-gateway-for-containers-frontend-naming](../../../includes/application-gateway-for-containers-frontend-naming.md)]
 
 # [Bring your own (BYO) deployment](#tab/byo)
 
@@ -179,7 +180,7 @@ EOF
 
 Once the HTTPRoute resource has been created, ensure the route has been _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
 ```bash
-kubectl get httproute https-route -n test-infra -o yaml
+kubectl get httproute traffic-split-route -n test-infra -o yaml
 ```
 
 Verify the status of the Application Gateway for Containers resource has been successfully updated.
