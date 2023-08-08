@@ -76,13 +76,13 @@ New-AzAttestation creates an attestation provider.
 
 ```powershell
 $attestationProvider = "<attestation provider name>" 
-New-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Location $location
+New-AzAttestationProvider -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Location $location
 ```
 
 PolicySignerCertificateFile is a file specifying a set of trusted signing keys. If a filename is specified for the PolicySignerCertificateFile parameter, attestation provider can be configured only with policies in signed JWT format. Else policy can be configured in text or an unsigned JWT format.
 
 ```powershell
-New-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Location $location -PolicySignersCertificateFile "C:\test\policySignersCertificates.pem"
+New-AzAttestationProvider -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Location $location -PolicySignersCertificateFile "C:\test\policySignersCertificates.pem"
 ```
 
 For PolicySignersCertificateFile sample, see [examples of policy signer certificate](policy-signer-examples.md).
@@ -90,7 +90,7 @@ For PolicySignersCertificateFile sample, see [examples of policy signer certific
 Get-AzAttestation retrieves the attestation provider properties like status and AttestURI. Take a note of AttestURI, as it will be needed later.
 
 ```azurepowershell
-Get-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup  
+Get-AzAttestationProvider -Name $attestationProvider -ResourceGroupName $attestationResourceGroup  
 ```
 
 The above command should produce output in this format: 
@@ -110,7 +110,7 @@ TagsTable:
 Attestation providers can be deleted using the Remove-AzAttestation cmdlet.  
 
 ```powershell
-Remove-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup
+Remove-AzAttestationProvider -Name $attestationProvider -ResourceGroupName $attestationResourceGroup
 ```
 
 ## Policy management

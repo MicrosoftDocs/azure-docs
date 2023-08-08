@@ -22,9 +22,9 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Android
-            url: mobile-app-quickstart.md?pivots=devlang-android
+            url: quickstart-mobile-app-android-sign-in.md
           - text: iOS and macOS
-            url: mobile-app-quickstart.md?pivots=devlang-ios
+            url: quickstart-mobile-app-ios-sign-in.md
   - title: "Learn by building"
     linkLists:
       - linkListType: tutorial

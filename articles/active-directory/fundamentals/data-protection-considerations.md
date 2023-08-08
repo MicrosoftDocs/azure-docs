@@ -87,7 +87,7 @@ For more information about Secret encryption at rest, see the following table.
 
 ## Next steps
 
-* [Azure Active Directory and data residency](azure-ad-data-residency.md) 
+* [Azure Active Directory and data residency](data-residency.md) 
 
 * [Data operational considerations](data-operational-considerations.md)
 * [Data protection considerations](data-protection-considerations.md) (You're here)

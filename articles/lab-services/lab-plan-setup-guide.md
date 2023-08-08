@@ -7,8 +7,6 @@ ms.date: 11/23/2021
 
 # Lab plan setup guide
 
-[!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
-
 If you're an administrator, before you set up your Azure Lab Services environment, you first need to create a *lab plan* within your Azure subscription. A lab plan is associated one or more labs, and it takes only a few minutes to set up.
 
 This guide includes three sections:
@@ -16,6 +14,8 @@ This guide includes three sections:
 - Prerequisites
 - Plan your lab plan settings
 - Set up your lab plan
+
+[!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ To create a lab plan, you need access to an Azure subscription that's already se
 
 It's important to know how many [virtual machines (VMs) and VM sizes](./administrator-guide.md#vm-sizing) your school lab requires.
 
-For guidance on structuring your labs and images, see the blog post [Moving from a physical lab to Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931).
+For guidance on structuring your labs and images, see [Moving from a physical lab to Azure Lab Services](./concept-migrating-physical-labs.md).
 
 For additional guidance on how to structure labs, see the "Lab" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#lab).
 
@@ -60,7 +60,7 @@ To plan your lab plan settings, consider the following questions.
 
 Your school's IT administrators ordinarily take on the Owner and Contributor roles for a lab plan. These roles are responsible for managing the policies that apply to all the labs in the lab plan. The person who creates the lab plan is automatically an Owner. You can add additional Owners and Contributors from the Azure Active Directory (Azure AD) tenant that's associated with your subscription.
 
-For more information about the lab plan Owner and Contributor roles, see [RBAC roles](./administrator-guide.md#rbac-roles).
+For more information about the lab plan Owner and Contributor roles, see [RBAC roles](./concept-lab-services-role-based-access-control.md).
 
 [!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
 
@@ -70,13 +70,13 @@ Lab users see only a single list of the VMs that they have access to across Azur
 
 You may choose to have your IT team or faculty members create labs. To create labs, you then assign these people to the Lab Creator role within the lab plan. You ordinarily assign this role from the Azure AD tenant that's associated with your school subscription. Whoever creates a lab is automatically assigned as the Owner of the lab.  
 
-For more information about the Lab Creator role, see [RBAC roles](./administrator-guide.md#rbac-roles).
+For more information about the Lab Creator role, see [RBAC roles](./concept-lab-services-role-based-access-control.md).
 
 ### Who will be allowed to own and manage labs?
 
 You can also choose to have IT and faculty members own\manage labs *without* giving them the ability to create labs.  In this case, users from your subscription's Azure AD tenant are assigned either the Owner or Contributor for existing labs.  
 
-For more information about the lab Owner and Contributor roles, see [RBAC roles](./administrator-guide.md#rbac-roles).
+For more information about the lab Owner and Contributor roles, see [RBAC roles](./concept-lab-services-role-based-access-control.md).
 
 ### Do you want to save images and share them across labs?
 

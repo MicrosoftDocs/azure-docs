@@ -5,11 +5,11 @@ description: Learn how to configure user groups and assign IP addresses from spe
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/31/2023
+ms.date: 07/31/2023
 ms.author: cherylmc
 
 ---
-# Configure user groups and IP address pools for P2S User VPNs - Preview
+# Configure user groups and IP address pools for P2S User VPNs
 
 P2S User VPNs provide the capability to assign users IP addresses from specific address pools based on their identity or authentication credentials by creating **User Groups**. This article helps you configure user groups, group members, and prioritize groups. For more information about working with user groups, see [About user groups](user-groups-about.md).
 
@@ -34,6 +34,10 @@ This article uses the following workflow to help you set up user groups and IP a
 This section lists configuration requirements and limitations for user groups and IP address pools.
 
 [!INCLUDE [User groups configuration considerations](../../includes/virtual-wan-user-groups-considerations.md)]
+
+* Address pools can't overlap with address pools used in other connection configurations (same or different gateways) in the same virtual WAN.
+
+* Address pools also can't overlap with virtual network address spaces, virtual hub address spaces, or on-premises addresses.
 
 ## Step 2: Choosing authentication mechanism
 

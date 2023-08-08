@@ -4,7 +4,7 @@ description: In this quickstart, you use Go to create a management group to orga
 ms.date: 08/17/2021
 ms.topic: quickstart
 ms.devlang: golang
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-go
 ---
 # Quickstart: Create a management group with Go
 

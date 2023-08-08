@@ -53,6 +53,10 @@ For more information about Azure AD integration, Kubernetes RBAC, and Azure RBAC
 >
 > Add a network policy in all user namespaces to block pod egress to the metadata endpoint.
 
+> [!NOTE]
+> To implement Network Policy, include the attribute `--network-policy azure` when creating the AKS cluster. Use the following command to create the cluster:
+> `az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity --network-plugin azure --network-policy azure`
+
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
@@ -323,7 +327,7 @@ You can then upgrade your AKS cluster using the [Set-AzAksCluster][set-azaksclus
 >[!IMPORTANT]
 > Test new minor versions in a dev test environment and validate that your workload remains healthy with the new Kubernetes version.
 >
-> Kubernetes may deprecate APIs (like in version 1.16) that your workloads rely on. When bringing new versions into production, consider using [multiple node pools on separate versions](use-multiple-node-pools.md) and upgrade individual pools one at a time to progressively roll the update across a cluster. If running multiple clusters, upgrade one cluster at a time to progressively monitor for impact or changes.
+> Kubernetes may deprecate APIs (like in version 1.16) that your workloads rely on. When bringing new versions into production, consider using [multiple node pools on separate versions](create-node-pools.md) and upgrade individual pools one at a time to progressively roll the update across a cluster. If running multiple clusters, upgrade one cluster at a time to progressively monitor for impact or changes.
 >
 > ### [Azure CLI](#tab/azure-cli)
 >

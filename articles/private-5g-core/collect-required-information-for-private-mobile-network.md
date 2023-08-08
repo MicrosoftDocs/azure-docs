@@ -2,8 +2,8 @@
 title: Collect information for your private mobile network
 titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to collect the information you need to deploy a private mobile network through Azure Private 5G Core.
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to 
 ms.date: 12/31/2021
@@ -28,7 +28,7 @@ Collect all of the following values for the mobile network resource that will re
    |Value  |Field name in Azure portal  |
    |---------|---------|
    |The Azure subscription to use to deploy the mobile network resource. You must use the same subscription for all resources in your private mobile network deployment. You identified this subscription in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).                 |**Project details: Subscription**
-   |The Azure resource group to use to deploy the mobile network resource. You should use a new resource group for this resource. It's useful to include the purpose of this resource group in its name for future identification (for example, *contoso-pmn-rg*). </br></br> Note: We recommend that this resource group is also used when [Collecting the required information for a site](collect-required-information-for-a-site.md).              |**Project details: Resource group**|
+   |The Azure resource group to use to deploy the mobile network resource. As best practice, we strongly recommend that you use a new resource group for this resource to simplify management. It's useful to include the purpose of this resource group in its name for future identification (for example, *contoso-pmn-rg*). </br></br> Note: We recommend that this resource group is also used when [Collecting the required information for a site](collect-required-information-for-a-site.md).              |**Project details: Resource group**|
    |The name for the private mobile network.           |**Instance details: Mobile network name**|
    |The region in which you're deploying the private mobile network.                           |**Instance details: Region**|
    |The mobile country code for the private mobile network. If you do not already have this, contact your national/regional telecom regulator. <br><br> **Note:** For internal private networks you can configure the MCC to 001 (a test value) or 999.   |**Network configuration: Mobile country code (MCC)**|
@@ -82,7 +82,7 @@ Note that once the SIM group is created, the encryption type cannot be changed.
    |Value  |Field name in Azure portal  | JSON file parameter name |
    |---------|---------|---------|
    |The name for the SIM resource. The name must only contain alphanumeric characters, dashes, and underscores. |**SIM name**|`simName`|
-   |The Integrated Circuit Card Identification Number (ICCID). The ICCID identifies a specific physical SIM or eSIM, and includes information on the SIM's country and issuer. It's a unique numerical value between 19 and 20 digits in length, beginning with 89. |**ICCID**|`integratedCircuitCardIdentifier`|
+   |The Integrated Circuit Card Identification Number (ICCID). The ICCID identifies a specific physical SIM or eSIM, and includes information on the SIM's country/region and issuer. It's a unique numerical value between 19 and 20 digits in length, beginning with 89. |**ICCID**|`integratedCircuitCardIdentifier`|
    |The international mobile subscriber identity (IMSI). The IMSI is a unique number (usually 15 digits) identifying a device or user in a mobile network. |**IMSI**|`internationalMobileSubscriberIdentity`|
    |The Authentication Key (Ki). The Ki is a unique 128-bit value assigned to the SIM by an operator, and is used with the derived operator code (OPc) to authenticate a user. The Ki must be a 32-character string, containing hexadecimal characters only. |**Ki**|`authenticationKey`|
    |The derived operator code (OPc). The OPc is derived from the SIM's Ki and the network's operator code (OP), and is used by the packet core to authenticate a user using a standards-based algorithm. The OPc must be a 32-character string, containing hexadecimal characters only. |**Opc**|`operatorKeyCode`|

@@ -6,6 +6,7 @@ ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 05/12/2023
 ms.reviewer: christianreddington,anthdela,juselph
+ms.custom: UpdateFrequency2
 ---
 
 # Azure DevTest Labs scenarios

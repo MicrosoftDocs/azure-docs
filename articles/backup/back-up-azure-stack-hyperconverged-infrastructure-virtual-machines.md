@@ -4,8 +4,8 @@ description: This article contains the procedures to back up and recover virtual
 ms.topic: conceptual
 ms.date: 05/15/2022
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up Azure Stack HCI virtual machines with Azure Backup Server

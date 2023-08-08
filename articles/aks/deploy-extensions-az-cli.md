@@ -3,6 +3,7 @@ title: Deploy and manage cluster extensions by using the Azure CLI
 description: Learn how to use Azure CLI to deploy and manage extensions for Azure Kubernetes Service clusters.
 ms.date: 05/15/2023
 ms.topic: article
+ms.custom: devx-track-azurecli
 author: JnHs
 ms.author: jenhayes
 ---
@@ -45,7 +46,7 @@ Before you begin, read about [cluster extensions](cluster-extensions.md).
 Create a new extension instance with `k8s-extension create`, passing in values for the mandatory parameters. This example command creates an Azure Machine Learning extension instance on your AKS cluster:
 
 ```azurecli
-az k8s-extension create --name aml-compute --extension-type Microsoft.AzureML.Kubernetes --scope cluster --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters --configuration-settings enableInference=True allowInsecureConnections=True
+az k8s-extension create --name azureml --extension-type Microsoft.AzureML.Kubernetes --scope cluster --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters --configuration-settings enableInference=True allowInsecureConnections=True inferenceRouterServiceType=LoadBalancer
 ```
 
 This example command creates a sample Kubernetes application (published on Marketplace) on your AKS cluster:
@@ -174,4 +175,3 @@ az k8s-extension delete --name azureml --cluster-name <clusterName> --resource-g
 [use-managed-identity]: ./use-managed-identity.md
 [workload-identity-overview]: workload-identity-overview.md
 [use-azure-ad-pod-identity]: use-azure-ad-pod-identity.md
-

@@ -14,11 +14,8 @@ ms.custom: sdkv2, event-tier1-build-2022
 
 # Make predictions with ONNX on computer vision models from AutoML
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"] 
-> * [v1](v1/how-to-inference-onnx-automl-image-models-v1.md?view=azureml-api-1&preserve-view=true) 
-> * [v2 (current version)](how-to-inference-onnx-automl-image-models.md) 
 
 In this article, you will learn how to use Open Neural Network Exchange (ONNX) to make predictions on computer vision models generated from automated machine learning (AutoML) in Azure Machine Learning. 
 

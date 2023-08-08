@@ -4,7 +4,7 @@ description: Supported platforms, topologies, and capabilities for the SAP on Az
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 1/6/2023
+ms.date: 5/23/2023
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -18,18 +18,18 @@ The [SAP on Azure Deployment Automation Framework](deployment-framework.md) supp
 
 ### Control plane
 
-The deployer virtual machine of the control plane must be deployed on Linux as the Ansible controller only works on Linux.
+The deployer virtual machine of the control plane must be deployed on Linux as the Ansible controllers only work on Linux.
 
 ### SAP Infrastructure
 
 The automation framework supports deployment of the SAP on Azure infrastructure both on Linux or Windows virtual machines on x86-64 or x64 hardware.   
 
-The following operating systems and distributions are supported by the framework:
+The framework supports the following operating systems and distributions:
 
-- Windows server 64bit for the x86-64 platform
-- SUSE linux 64bit for the x86-64 platform (12.x and 15.x)
-- Red Hat Linux 64bit for the x86-64 platform (7.x and 8.x)
-- Oracle Linux 64bit for the x86-64 platform
+- Windows server 64 bit for the x86-64 platform
+- SUSE linux 64 bit for the x86-64 platform (12.x and 15.x)
+- Red Hat Linux 64 bit for the x86-64 platform (7.x and 8.x)
+- Oracle Linux 64 bit for the x86-64 platform
 
 The following distributions have been tested with the framework:
 - Red Hat 7.9
@@ -39,12 +39,25 @@ The following distributions have been tested with the framework:
 - SUSE 12 SP5
 - SUSE 15 SP2
 - SUSE 15 SP3
+- SUSE 15 SP4
 - Oracle Linux 8.2
 - Oracle Linux 8.4
 - Oracle Linux 8.6
 - Windows Server 2016
 - Windows Server 2019
 - Windows Server 2022
+
+## Supported database backends
+
+The framework supports the following database backends:
+
+- SAP HANA
+- DB2
+- Oracle
+- Sybase
+- Microsoft SQL Server
+
+
 ## Supported topologies
 
 By default, the automation framework deploys with database and application tiers. The application tier is split into three more tiers: application, central services, and web dispatchers. 
@@ -56,7 +69,7 @@ You can also deploy the automation framework to a standalone server by specifyin
 The automation framework supports both green field and brown field deployments. 
 
 ### Greenfield deployments
-In the green field deployment all the required resources will be created by the automation framework.
+In a green field deployment, the automation framework creates all the required resources.
 
 In this scenario, you provide the relevant data (address spaces for networks and subnets) when configuring the environment. See [Configuring the workload zone](configure-workload-zone.md) for more examples.
 
@@ -107,7 +120,7 @@ The automation framework uses or can use the following Azure services, features,
 
 At this time the automation framework **doesn't support** the following Azure services, features, or capabilities:
 
-## Unsupported SAP architectures
+## Supported SAP architectures
 
 The automation framework can be used to deploy the following SAP architectures: 
 

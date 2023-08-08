@@ -23,7 +23,7 @@ In this article, you learn these important aspects of managing the lifecycle of 
 - **Develop, add, or connect** – You take different paths depending on whether you're developing your own application, using a pre-integrated application, or connecting to an on-premises application.
 - **Manage access** – Access can be managed by using single sign-on (SSO), assigning resources, defining the way access is granted and consented to, and using automated provisioning.
 - **Configure properties** – Configure the requirements for signing into the application and how the application is represented in user portals.
-- **Secure the application** – Manage configuration of permissions, multifactor authentication (MFA), conditional access, tokens, and certificates.
+- **Secure the application** – Manage configuration of permissions, multifactor authentication (MFA), Conditional Access, tokens, and certificates.
 - **Govern and monitor** – Manage interaction and review activity using entitlement management and reporting and monitoring resources.
 - **Clean up** – When your application is no longer needed, clean up your tenant by removing access to it and deleting it.
 
@@ -65,7 +65,7 @@ You can [manage user consent settings](configure-user-consent.md) to choose whet
 
 In situations where users are unable to consent to the permissions an application is requesting, consider configuring the admin consent workflow. The workflow allows users to provide a justification and request an administrator's review and approval of an application. To learn how to configure admin consent workflow in your Azure AD tenant, see [Configure admin consent workflow](configure-admin-consent-workflow.md).
 
-As an administrator, you can [grant tenant-wide admin consent](grant-admin-consent.md) to an application. Tenant-wide admin consent is necessary when an application requires permissions that regular users aren't allowed to grant. granting tenant-wide admin consent also allows organizations to implement their own review processes. Always carefully review the permissions the application is requesting before granting consent. When an application has been granted tenant-wide admin consent, all users are able to sign into the application unless it has been configured to require user assignment.
+As an administrator, you can [grant tenant-wide admin consent](grant-admin-consent.md) to an application. Tenant-wide admin consent is necessary when an application requires permissions that regular users aren't allowed to grant. Granting tenant-wide admin consent also allows organizations to implement their own review processes. Always carefully review the permissions the application is requesting before granting consent. When an application has been granted tenant-wide admin consent, all users are able to sign into the application unless it has been configured to require user assignment.
 
 ### Single sign-on
 
@@ -97,7 +97,7 @@ When you add an application to your Azure AD tenant, you have the opportunity to
 
 ## Secure the application
 
-There are several methods available to help you keep your enterprise applications secure. For example, you can [restrict tenant access](tenant-restrictions.md), [manage visibility, data, and analytics](cloud-app-security.md), and possibly provide [hybrid access](secure-hybrid-access.md). Keeping your enterprise applications secure also involves managing configuration of permissions, MFA, conditional access, tokens, and certificates.
+There are several methods available to help you keep your enterprise applications secure. For example, you can [restrict tenant access](tenant-restrictions.md), [manage visibility, data, and analytics](cloud-app-security.md), and possibly provide [hybrid access](secure-hybrid-access.md). Keeping your enterprise applications secure also involves managing configuration of permissions, MFA, Conditional Access, tokens, and certificates.
 
 ### Permissions
 
@@ -105,11 +105,11 @@ It's important to periodically review and, if necessary, [manage the permissions
 
 [Permission classifications](configure-permission-classifications.md) allow you to identify the effect of different permissions according to your organization's policies and risk evaluations. For example, you can use permission classifications in consent policies to identify the set of permissions that users are allowed to consent to.
 
-### Multifactor authentication and conditional access
+### Multifactor authentication and Conditional Access
 
 Azure AD MFA helps safeguard access to data and applications, providing another layer of security by using a second form of authentication. There are many methods that can be used for a second-factor authentication. Before you start, [plan the deployment of MFA for your application](../authentication/howto-mfa-getstarted.md) in your organization.
 
-Organizations can enable MFA with [conditional access](../conditional-access/overview.md) to make the solution fit their specific needs. Conditional access policies allow administrators to assign controls to specific [applications, actions, or authentication context](../conditional-access/concept-conditional-access-cloud-apps.md).
+Organizations can enable MFA with [Conditional Access](../conditional-access/overview.md) to make the solution fit their specific needs. Conditional Access policies allow administrators to assign controls to specific [applications, actions, or authentication context](../conditional-access/concept-conditional-access-cloud-apps.md).
 
 ### Tokens and certificates
 
