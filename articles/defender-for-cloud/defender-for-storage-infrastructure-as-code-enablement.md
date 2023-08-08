@@ -44,15 +44,15 @@ resource StorageAccounts 'Microsoft.Security/pricings@2023-01-01' = {
 }
 ```
 
-To modify the monthly cap for malware scanning per storage account, simply adjust the `CapGBPerMonthPerStorageAccount` parameter to your preferred value. This parameter sets a cap on the maximum data that can be scanned for malware each month per storage account. If you want to permit unlimited scanning, assign the value -1. The default limit is set at 5,000 GB.
+To modify the monthly cap for malware scanning per storage account, adjust the `CapGBPerMonthPerStorageAccount` parameter to your preferred value. This parameter sets a cap on the maximum data that can be scanned for malware each month per storage account. If you want to permit unlimited scanning, assign the value -1. The default limit is set at 5,000 GB.
 
-If you want to turn off the On-upload malware scanning or Sensitive data threat detection features, you can change the `isEnabled` value to False under Sensitive data discovery.
+If you want to turn off the On-upload malware scanning or Sensitive data threat detection features, you can change the `isEnabled` value to **False** under Sensitive data discovery.
 
-To disable the entire Defender for Storage plan, set the `pricingTier` property value to Free and remove the subPlan and extensions properties.
+To disable the entire Defender for Storage plan, set the `pricingTier` property value to **Free** and remove the subPlan and extensions properties.
 
 Learn more about the [Bicep template in the Microsoft security/pricings documentation](/azure/templates/microsoft.security/pricings?pivots=deployment-language-bicep&source=docs).
 
-### ARM template
+### Azure Resource Manager template
 
 To enable and configure Microsoft Defender for Storage at the subscription level using an ARM (Azure Resource Manager) template, add this JSON snippet to the resources section of your ARM template:
 

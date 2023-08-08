@@ -50,10 +50,10 @@ Learn more about [updating Defender plans with the REST API](/rest/api/defenderf
 
 ## Use REST API to enable on a storage account
 
-To enable and configure Microsoft Defender for Storage at the storage account level using REST API, create a PUT request with this endpoint. Replace the `subscriptionId` , `resourceGroupName`, and `accountName` in the endpoint URL with your own Azure subscription ID, resource group and storage account names accordingly.
+To enable and configure Microsoft Defender for Storage at the storage account level using REST API, create a PUT request with this endpoint. Replace the `subscriptionId`, `resourceGroupName`, and `accountName` in the endpoint URL with your own Azure subscription ID, resource group and storage account names accordingly.
 
-**PUT**
 ```
+PUT
 https://management.azure.com/{resourceId}/providers/Microsoft.Security/defenderForStorageSettings/current?api-version=2022-12-01-preview
 
 ```
