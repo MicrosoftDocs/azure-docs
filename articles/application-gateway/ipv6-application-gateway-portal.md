@@ -64,6 +64,9 @@ For more information about preview features, see [Set up preview features in Azu
 
 In this article, you use the Azure portal to create an IPv6 Azure Application Gateway and test it to ensure it works correctly. You assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, a simple setup is used with two public frontend IP addresses (IPv4 and IPv6), a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines (VMs) in the backend pool.
 
+> [!IMPORTANT]
+> If you are registered for [Private Application Gateway](application-gateway-private-deployment.md) preview, you must delete any Private Application Gateways that are provisioned before you can register to the IPv6 Application Gateway preview. Also [unregister](application-gateway-private-deployment.md#unregister-from-the-preview) from the **EnableApplicationGatewayNetworkIsolation** preview feature. 
+
 Use the following steps to enroll into the public preview for IPv6 Application Gateway using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
@@ -83,7 +86,7 @@ Use the following steps to enroll into the public preview for IPv6 Application G
 
     :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-list.png" alt-text="Azure portal list of preview features.":::
 
-6. From **Preview features** type into the filter box **EnableApplicationGatewayNetworkIsolation**, check the feature, and click **Register**.
+6. From **Preview features** type into the filter box **AllowApplicationGatewayIPv6**, check the feature, and click **Register**.
 
     :::image type="content" source="../azure-resource-manager/management/media/preview-features/filter.png" alt-text="Azure portal filter preview features.":::
 
@@ -98,41 +101,49 @@ Create the application gateway using the tabs on the **Create application gatewa
 
 1. On the **Basics** tab, enter these values for the following application gateway settings:
 
-   - **Resource group**: Select **myResourceGroupAG** for the resource group. If it doesn't exist, select **Create new** to create it.
-   - **Application gateway name**: Enter *myAppGateway* for the name of the application gateway.
+   - **Subscription**: Select your subscription. For example, **_mysubscription**.
+   - **Resource group**: Select a resource group. If one doesn't exist, select **Create new** to create it. For example, **myresourcegroupAG**.
+   - **Application gateway name**: Enter a name for the application gateway.  For example, **myappgw**.
+   - **IP address type**: Select **Dual stack (IPv4 & IPv6)**.
 
-     ![Create new application gateway: Basics](./media/application-gateway-create-gateway-portal-ipv6/IPv6-app-gw.png) 
+     ![Create new application gateway: Basics](./media/application-gateway-create-gateway-portal-ipv6/ipv6-app-gw.png) 
      
-
-2. For Azure to communicate between the resources that you create, a dual stack virtual network is needed. You can either create a new  dual stack virtual network or use an existing dual stack network. In this example, you'll create a new dual stack  virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create  three subnets in this example: Two for the application gateway, and another for the backend servers.
+2. **Configue virtual network**: For Azure to communicate between the resources that you create, a dual stack virtual network is needed. You can either create a new dual stack virtual network or choose an existing dual stack network. In this example, you'll create a new dual stack virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. One dual-stack subnet and one IPv4-only are created in this example: The IPv4 and IPv6 subnets (provisioned as one dual-stack subnet) are assigned to the application gateway. The IPv4 subnet is for the backend servers.
 
     > [!NOTE]
     > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
 
-    Under **Configure virtual network**, create a new virtual network by selecting **Create new**. In the **Create virtual network** window that opens, enter the following values to create the virtual network and two subnets:
+    Under **Configure virtual network**, create a new virtual network by selecting **Create new**. In the **Create virtual network** pane, enter the following values to create the virtual network and two subnets:
 
-    - **Name**: Enter *myVNet* for the name of the virtual network.
+    - **Name**: Enter a name for the virtual network. For example, **myVNet**.
 
-    - **Subnet name** (Application Gateway subnet): The **Subnets** grid shows a subnet named *default*. Change the name of this subnet to *myAGSubnet*.<br>The application gateway subnet can contain only application gateways. No other resources are allowed. The default IP address range provided is 10.0.0.0/24.
+    - **Subnet name** (Application Gateway subnet): The **Subnets** grid shows a subnet named **default**. Change the name of this subnet to **myAGSubnet**.
+    - **Address range** - If there are no overlapping VNets, the default IPv4 address ranges for the VNet and the subnet are 10.0.0.0/16 and 10.0.0.0/24, respectively. The default IPv6 address ranges for the VNet and the subnet are ace:cab:deca::/48 and ace:cab:deca::/64, respectively.
 
-    Select **OK** to close the **Create virtual network** window and save the virtual network settings.
-
-     ![Create new application gateway: virtual network](./media/application-gateway-create-gateway-portal-ipv6/application-gw-create-ipv6-vnet)
+     ![Create new application gateway: virtual network](./media/application-gateway-create-gateway-portal-ipv6/application-gw-create-ipv6-vnet.png)
     
-3. On the **Basics** tab, accept the default values for the other settings and then select **Next: Frontends**.
+     > [!NOTE] 
+     > The application gateway subnet can contain only application gateways. No other resources are allowed. 
+
+     Select **OK** to close the **Create virtual network** window and save the new virtual network and subnet settings.
+
+     ![Create new application gateway: virtual network](./media/application-gateway-create-gateway-portal-ipv6/application-gw-create-ipv6-vnet.png)
+
+3. Select **Next: Frontends**.
 
 ### Frontends tab
 
-1. On the **Frontends** tab, verify **Frontend IP address type** is set to **Public**. <br>You can configure the Frontend IP to be Public or Private as per your use case. In this example, you'll choose a Public Frontend IP.
-   > [!NOTE]
-   > For the Application Gateway v2 SKU, there must be a **Public** frontend IP configuration. You can still have both a Public and a Private frontend IP configuration, but Private only frontend IP configuration (Only ILB mode) is currently not enabled for the v2 SKU. 
+1. On the **Frontends** tab, verify **Frontend IP address type** is set to **Public**.
 
-2. Select **Add new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name, and then select **OK**. 
+   > [!IMPORTANT]
+   > For the Application Gateway v2 SKU, there must be a **Public** frontend IP configuration. A private IPv6 frontend IP configuration (Only ILB mode) is currently not supported for the IPv6 Application Gateway preview. 
 
-     ![Create new application gateway: frontends](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
+2. Select **Add new** for the **Public IP address**, enter a name for the public IP address, and select **OK**. For example, **myAGPublicIPAddress**. 
+
+     ![Create new application gateway: frontends](./media/application-gateway-create-gateway-portal-ipv6/ipv6-frontends.png)
 
   > [!NOTE]
-  > Application Gateway now supports IPv6 frontend IP (Public Preview). You can now choose up to 4 frontend IPs: two IPv4 addresses (Public and Private) and two IPv6 addresses (Public and Private)
+  > IPv6 Application Gateway (preview) supports up to 4 frontend IP addresses: two IPv4 addresses (Public and Private) and two IPv6 addresses (Public and Private)
 
 
 3. Select **Next: Backends**.
@@ -143,60 +154,56 @@ The backend pool is used to route requests to the backend servers that serve the
 
 1. On the **Backends** tab, select **Add a backend pool**.
 
-2. In the **Add a backend pool** window that opens, enter the following values to create an empty backend pool:
+2. In the **Add a backend pool** pane, enter the following values to create an empty backend pool:
 
-    - **Name**: Enter *myBackendPool* for the name of the backend pool.
-    - **Add backend pool without targets**: Select **Yes** to create a backend pool with no targets. You'll add backend targets after creating the application gateway.
+    - **Name**: Enter a name for the backend pool. For example, **myBackendPool**.
+    - **Add backend pool without targets**: Select **Yes** to create a backend pool with no targets. Backend targets are added after creating the application gateway.
 
-3. In the **Add a backend pool** window, select **Add** to save the backend pool configuration and return to the **Backends** tab.
+3. Select **Add** to save the backend pool configuration and return to the **Backends** tab.
 
-     ![Create new application gateway: backends](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
+     ![Create new application gateway: backends](./media/application-gateway-create-gateway-portal-ipv6/ipv6-backend.png)
 
 4. On the **Backends** tab, select **Next: Configuration**.
 
 ### Configuration tab
 
-On the **Configuration** tab, you'll connect the frontend and backend pool you created using a routing rule.
+On the **Configuration** tab, the frontend and backend pool are connected with a routing rule.
 
-1. Select **Add a routing rule** in the **Routing rules** column.
+1. Under **Routing rules**, select **Add a routing rule**.
 
-2. In the **Add a routing rule** window that opens, enter the following values for Rule name and Priority:
+2. In the **Add a routing rule** pane, enter the following values:
 
-    - **Rule name**: Enter *myRoutingRule* for the name of the rule.
-    - **Priority**: The priority value should be between 1 and 20000 (where 1 represents highest priority and 20000 represents lowest) - for the purposes of this quickstart, enter *100* for the priority.
+    - **Rule name**: Enter a name for the rule. For example, **myRoutingRule**.
+    - **Priority**: Enter a value between 1 and 20000, where 1 represents highest priority and 20000 represents lowest. For example, enter a priority of **100**.
 
-3. A routing rule requires a listener. On the **Listener** tab within the **Add a routing rule** window, enter the following values for the listener:
+3. A routing rule requires a listener. On the **Listener** tab, enter the following values:
 
-    - **Listener name**: Enter *myListener* for the name of the listener.
-    - **Frontend IP**: Select **Public** to choose the public IP you created for the frontend.
+    - **Listener name**: Enter a name for the listener. For example, **myListener**.
+    - **Frontend IP**: Select **Public IPv6**.
   
-      Accept the default values for the other settings on the **Listener** tab, then select the **Backend targets** tab to configure the rest of the routing rule.
+      Accept the default values for the other settings on the **Listener** tab and then select the **Backend targets** tab.
 
-   ![Create new application gateway: listener](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-listener.png)
+   ![Create new application gateway: listener](./media/application-gateway-create-gateway-portal-ipv6/ipv6-listener.png)
 
-4. On the **Backend targets** tab, select **myBackendPool** for the **Backend target**.
+4. On the **Backend targets** tab, select your backend pool for the **Backend target**. For example, **myBackendPool**.
 
-5. For the **Backend setting**, select **Add new** to add a new Backend setting. The Backend setting determines the behavior of the routing rule. In the **Add Backend setting** window that opens, enter *myBackendSetting* for the **Backend settings name** and *80* for the **Backend port**. Accept the default values for the other settings in the **Add Backend setting** window, then select **Add** to return to the **Add a routing rule** window. 
+5. For the **Backend setting**, select **Add new**. The Backend setting determines the behavior of the routing rule. In the **Add Backend setting** pane, enter a Backend settings name. For example, **myBackendSetting**. 
 
-     ![Create new application gateway: HTTP setting](./media/application-gateway-create-gateway-portal/application-gateway-create-backendsetting.png)
+6. Accept the default values for other settings and then select **Add**. 
 
-6. On the **Add a routing rule** window, select **Add** to save the routing rule and return to the **Configuration** tab.
+     ![Create new application gateway: backend setting](./media/application-gateway-create-gateway-portal-ipv6/ipv6-backendsetting.png)
 
-     ![Create new application gateway: routing rule](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
+7. In the **Add a routing rule** pane, select **Add** to save the routing rule and return to the **Configuration** tab.
 
-7. Select **Next: Tags** and then **Next: Review + create**.
+     ![Create new application gateway: routing rule](./media/application-gateway-create-gateway-portal-ipv6/ipv6-routing-rule.png)
 
-### Review + create tab
-
-Review the settings on the **Review + create** tab, and then select **Create** to create the virtual network, the public IP address, and the application gateway. It may take several minutes for Azure to create the application gateway. Wait until the deployment finishes successfully before moving on to the next section.
+8. Select **Next: Tags**, select **Next: Review + create**, and then select **Create**. Deployment of the application gateway will take a few minutes.
 
 ## Add backend targets
 
-In this example, you'll use virtual machines as the target backend. You can either use existing virtual machines or create new ones. You'll create two virtual machines as backend servers for the application gateway.
+Next, backend targets are added so that we can test the application gateway. In this example, virtual machines are deployed as the target backend. Three steps are provided:
 
-To do this, you'll:
-
-1. Create two new VMs, *myVM* and *myVM2*, to be used as backend servers.
+1. Create two new VMs that are used as backend targets: **myVM** and **myVM2**. You can also use existing virtual machines if they are available.
 2. Install IIS on the virtual machines to verify that the application gateway was created successfully.
 3. Add the backend servers to the backend pool.
 
