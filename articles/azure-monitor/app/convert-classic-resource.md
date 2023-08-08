@@ -293,7 +293,7 @@ Yes, they continue to work.
 
 No. Migration doesn't affect existing API access to data. After migration, you can access data directly from a workspace by using a [slightly different schema](#workspace-based-resource-changes).
 
-### Is there be any impact on Live Metrics or other monitoring experiences?
+### Is there any impact on Live Metrics or other monitoring experiences?
 
 No. There's no impact to [Live Metrics](live-stream.md#live-metrics-monitor-and-diagnose-with-1-second-latency) or other monitoring experiences.
 
