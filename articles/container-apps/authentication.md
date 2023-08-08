@@ -54,7 +54,7 @@ This feature should be used with HTTPS only. Ensure `allowInsecure` is disabled 
 
 You can configure your container app for authentication with or without restricting access to your site content and APIs. To restrict app access only to authenticated users, set its *Restrict access* setting to **Require authentication**. To authenticate but not restrict access, set its *Restrict access* setting to **Allow unauthenticated access**.
 
-By default, each container app issues its own unique cookie or token for authentication. You can also provide your own signing and encryption keys. A client can use the same signing and encryption keys with multiple apps to seamlessly share authentication information across different Container Apps.
+By default, each container app issues its own unique cookie or token for authentication. You can also provide your own signing and encryption keys.
 
 ## Feature architecture
  
