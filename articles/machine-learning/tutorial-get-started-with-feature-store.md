@@ -34,8 +34,7 @@ This tutorial series has two tracks:
 * The SDK-only track uses only Python SDKs. Choose this track for pure, Python-based development and deployment.
 * The SDK and CLI track uses the Python SDK for feature set development and testing only, and it uses the CLI for CRUD operations (create, update, and delete). This track is useful in continuous integration and continuous delivery (CI/CD) or GitOps scenarios, where CLI/YAML is preferred.
 
-> [!IMPORTANT]
-> This feature is currently in public preview. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
