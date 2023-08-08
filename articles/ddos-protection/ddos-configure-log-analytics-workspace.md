@@ -14,12 +14,10 @@ ms.author: abell
 
 In order to use diagnostic logging, you'll first need a Log Analytics workspace with diagnostic settings enabled.
 
-In this tutorial, you'll learn how to configure a Log Analytics workspace for Azure DDoS Protection.
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a Log Analytics workspace for DDoS Protection
+> * Configure a Log Analytics workspace for DDoS Protection.
 
 ## Prerequisites
 
