@@ -39,7 +39,7 @@ The Azure Monitor alert rule template will run a query against the diagnostic lo
     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAlert%2520-%2520DDOS%2520Mitigation%2520started%2520azure%2520monitor%2520alert%2FDDoSMitigationStarted.json)
 
 1. On the *Custom deployment* page, under *Project details*, enter the following information. 
-:::image type="content" source="./media/manage-ddos-protection/ddos-deploy-alert.png" alt-text="Screenshot of Azure Monitor alert rule template.":::
+:::image type="content" source="./media/ddos-diagnostic-alert-templates/ddos-deploy-alert.png" alt-text="Screenshot of Azure Monitor alert rule template." lightbox="./media/ddos-diagnostic-alert-templates/ddos-deploy-alert.png":::
 
     | Setting | Value |
     |--|--|
@@ -65,7 +65,7 @@ This DDoS Mitigation Alert Enrichment template deploys the necessary components 
     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAutomation%2520-%2520DDoS%2520Mitigation%2520Alert%2520Enrichment%2FEnrich-DDoSAlert.json)
     
 1. On the *Custom deployment* page, under *Project details*, enter the following information. 
-:::image type="content" source="./media/manage-ddos-protection/ddos-deploy-alert-logic-app.png" alt-text="Screenshot of DDoS Mitigation Alert Enrichment template.":::
+:::image type="content" source="./media/ddos-diagnostic-alert-templates/ddos-deploy-alert-logic-app.png" alt-text="Screenshot of DDoS Mitigation Alert Enrichment template." lightbox="./media/ddos-diagnostic-alert-templates/ddos-deploy-alert-logic-app.png":::
 
     | Setting | Value |
     |--|--|
@@ -84,11 +84,11 @@ You can keep your resources for the next guide. If no longer needed, delete the 
 
 1. In the search box at the top of the portal, enter **Alerts**. Select **Alerts** in the search results.
 
-    :::image type="content" source="./media/manage-ddos-protection/ddos-protection-alert-rule.png" alt-text="Screenshot of Alerts page.":::
+    :::image type="content" source="./media/ddos-diagnostic-alert-templates/ddos-protection-alert-rule.png" alt-text="Screenshot of Alerts page." lightbox="./media/ddos-diagnostic-alert-templates/ddos-protection-alert-rule.png":::
 
 1. Select **Alert rules**, then in the Alert rules page, select your subscription.
 
-     :::image type="content" source="./media/manage-ddos-protection/ddos-protection-delete-alert-rules.png" alt-text="Screenshot of Alert rules page.":::
+     :::image type="content" source="./media/ddos-diagnostic-alert-templates/ddos-protection-delete-alert-rules.png" alt-text="Screenshot of Alert rules page." lightbox="./media/ddos-diagnostic-alert-templates/ddos-protection-delete-alert-rules.png":::
 
 1. Select the alerts created in this guide, then select **Delete**. 
 
