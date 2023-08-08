@@ -17,7 +17,7 @@ ms.custom: sdkv2, build-2023
 
 # Tutorial 4: Enable recurrent materialization and run batch inference (preview)
 
-This tutorial series shows how features seamlessly integrate all phases of the machine learning (ML) lifecycle: prototyping, training, and operationalization.
+This tutorial series shows how features seamlessly integrate all phases of the machine learning lifecycle: prototyping, training, and operationalization.
 
 The first tutorial showed how to create a feature set specification with custom transformations, and then use that feature set to generate training data. The second tutorial showed how to enable materialization and perform a backfill. The third tutorial showed how to experiment with features as a way to improve model performance. It also showed how a feature store increases agility in the experimentation and training flows.
 
