@@ -245,22 +245,25 @@ Update the scale set to change the zones parameter.
 
 ### [Azure CLI](#tab/cli2)
 
+
 ```azurecli
-az vmss update --set zones=["1","2","3"] -n \<myScaleSet\> -g \<myResourceGroup\>
+az vmss update --set zones=["1","2","3"] -n < myScaleSet > -g < myResourceGroup >
 ```
 
 ### [Azure PowerShell](#tab/powershell2)
 
 
+
+
 ```azurepowershell
 # Get the VMSS object
-$vmss = Get-AzVmss -ResourceGroupName \<resource-group-name\> -VMScaleSetName \<vmss-name\>
+$vmss = Get-AzVmss -ResourceGroupName < resource-group-name > -VMScaleSetName < vmss-name >
 
 # Update the zones parameter
 $vmss.Zones = [Collections.Generic.List[string]]('1','2','3')
 
 # Apply the changes
-Update-AzVmss -ResourceGroupName \<resource-group-name\> -VMScaleSetName \<vmss-name\> -VirtualMachineScaleSet $vmss
+Update-AzVmss -ResourceGroupName < resource-group-name > -VMScaleSetName < vmss-name > -VirtualMachineScaleSet $vmss
 ```
 
 ### [REST API](#tab/template2)
@@ -306,5 +309,7 @@ You cannot remove or replace zones, only add zones
 ## Next steps
 
 Now that you have created a scale set in an Availability Zone, you can learn how to [Deploy applications on Virtual Machine Scale Sets](tutorial-install-apps-cli.md) or [Use autoscale with Virtual Machine Scale Sets](tutorial-autoscale-cli.md).
+
+
 
 
