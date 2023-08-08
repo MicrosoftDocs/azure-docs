@@ -29,7 +29,7 @@ Use the optical character recognition (OCR) client library to read printed and h
 - The key and endpoint from the resource you create to connect your application to the Azure AI Vision service.
 
   1. After your Azure Vision resource deploys, select **Go to resource**.
-  1. Select **Keys and Endpoint**.
+  1. In the left navigation menu, select **Keys and Endpoint**.
   1. Copy one of the keys and the **Endpoint** for use later in the quickstart.
 
 [!INCLUDE [create environment variables](../environment-variables.md)]
@@ -45,7 +45,7 @@ Create a new Node.js application.
    cd myapp
    ```
 
-1. Run the `npm init` command to create a node application with a `package.json` file. Press **Enter** for any prompts.
+1. Run the `npm init` command to create a node application with a `package.json` file. Select **Enter** for any prompts.
 
    ```console
    npm init
@@ -114,8 +114,8 @@ End of quickstart.
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../../../multi-service-resource.md?pivots=azportal#clean-up-resources)
-- [Azure CLI](../../../multi-service-resource.md?pivots=azcli#clean-up-resources)
+- [Clean up resources with the Azure portal](../../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Clean up resources with Azure CLI](../../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps
 

@@ -26,7 +26,7 @@ Use the optical character recognition (OCR) REST API to read printed and handwri
 - The key and endpoint from the resource you create to connect your application to the Azure AI Vision service.
 
   1. After your Azure Vision resource deploys, select **Go to resource**.
-  1. Select **Keys and Endpoint**.
+  1. In the left navigation menu, select **Keys and Endpoint**.
   1. Copy one of the keys and the **Endpoint** for use later in the quickstart.
 
 ## Read printed and handwritten text
@@ -40,7 +40,7 @@ To create and run the sample, do the following steps:
 1. Copy the following command into a text editor.
 1. Make the following changes in the command where needed:
 
-   1. Replace the value of `<subscriptionKey>` with your key.
+   1. Replace the value of `<key>` with your key.
    1. Replace the first part of the request URL (`https://westcentralus.api.cognitive.microsoft.com/`) with the text in your own endpoint URL.
         [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
    1. Optionally, change the image URL in the request body (`https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\`) to the URL of a different image to be analyzed.
@@ -49,7 +49,7 @@ To create and run the sample, do the following steps:
 1. Paste the command from the text editor into the console window, and then run the command.
 
    ```bash
-   curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/read/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\"}"
+   curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/read/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <key>" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\"}"
    ```
 
 The response includes an `Operation-Location` header, whose value is a unique URL. You use this URL to query the results of the Read operation. The URL expires in 48 hours.
@@ -66,12 +66,12 @@ curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/r
 
 1. Copy the following command into your text editor.
 1. Replace the URL with the `Operation-Location` value you copied in the previous procedure.
-1. Replace the value of `<subscriptionKey>` with your subscription key.
+1. Replace the value of `<key>` with your key.
 1. Open a console window.
 1. Paste the command from the text editor into the console window, and then run the command.
 
    ```bash
-   curl -v -X GET "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/read/analyzeResults/{operationId}" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{body}" 
+   curl -v -X GET "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/read/analyzeResults/{operationId}" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{body}" 
    ```
 
 ### Examine the response
@@ -140,8 +140,8 @@ A successful response is returned in JSON. The sample application parses and dis
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
-- [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
+- [Clean up resources with the Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Clean up resources with Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps
 

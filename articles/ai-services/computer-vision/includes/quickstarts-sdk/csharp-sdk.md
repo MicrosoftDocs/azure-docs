@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp, ignite-2022
  
 <a name="HOLTop"></a>
 
-Use the optical character recognition (OCR) client library to read printed and handwritten text from a remote image. The OCR service can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [OCR overview](../../overview-ocr.md). The code in this section uses the latest [Vision SDK release for Read 3.0](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/).
+Use the optical character recognition (OCR) client library to read printed and handwritten text from an image. The OCR service can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [OCR overview](../../overview-ocr.md). The code in this section uses the latest [Cognitive Services Computer Vision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) package.
 
 > [!TIP]
 > You can also extract text from a local image. See the [ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) methods, such as **ReadInStreamAsync**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs#162) for scenarios involving local images.
@@ -29,7 +29,7 @@ Use the optical character recognition (OCR) client library to read printed and h
 - The key and endpoint from the resource you create to connect your application to the Azure AI Vision service.
 
   1. After your Azure Vision resource deploys, select **Go to resource**.
-  1. Select **Keys and Endpoint**.
+  1. In the left navigation menu, select **Keys and Endpoint**.
   1. Copy one of the keys and the **Endpoint** for use later in the quickstart.
 
 [!INCLUDE [create environment variables](../environment-variables.md)]
@@ -140,8 +140,8 @@ calorie diet.
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../../../multi-service-resource.md?pivots=azportal#clean-up-resources)
-- [Azure CLI](../../../multi-service-resource.md?pivots=azcli#clean-up-resources)
+- [Clean up resources with the Azure portal](../../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Clean up resources with Azure CLI](../../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps
 

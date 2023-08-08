@@ -24,12 +24,12 @@ Use the optical character recognition (OCR) client library to read printed and h
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
 - [Python 3.x](https://www.python.org/).
-- Your Python installation should include [pip](https://pip.pypa.io/en/stable/). To can check whether you have pip installed, run `pip --version` on the command line. Get pip by installing the latest version of Python.
+- Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check whether you have pip installed, run `pip --version` on the command line. Get pip by installing the latest version of Python.
 - [An Azure AI Vision resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision). You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 - The key and endpoint from the resource you create to connect your application to the Azure AI Vision service.
 
   1. After your Azure Vision resource deploys, select **Go to resource**.
-  1. Select **Keys and Endpoint**.
+  1. In the left navigation menu, select **Keys and Endpoint**.
   1. Copy one of the keys and the **Endpoint** for use later in the quickstart.
 
 [!INCLUDE [create environment variables](../environment-variables.md)]
@@ -87,8 +87,8 @@ End of Azure AI Vision quickstart.
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../../../multi-service-resource.md?pivots=azportal#clean-up-resources)
-- [Azure CLI](../../../multi-service-resource.md?pivots=azcli#clean-up-resources)
+- [Clean up resources with the Azure portal](../../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Clean up resources with Azure CLI](../../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps
 
