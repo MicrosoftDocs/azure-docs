@@ -30,17 +30,15 @@ Azure Web Application Firewall is natively integrated with Azure Front Door Prem
 
 ## Protection
 
-Make sure that you protect your:
+Azure Web Application Firewall protects your:
 
 * Web applications from web vulnerabilities and attacks without modifications to back-end code.
 * Web applications from malicious bots with the IP Reputation Rule Set.
-* Applications against DDoS attacks.
-
-For more information, see [Application DDoS protection](../shared/application-ddos-protection.md).
+* Applications against DDoS attacks. For more information, see [Application DDoS protection](../shared/application-ddos-protection.md).
 
 ## WAF policy and rules
 
-You can configure a [WAF policy](waf-front-door-create-portal.md) and associate that policy to one or more Azure Front Door front ends for protection. A WAF policy consists of two types of security rules:
+You can configure a [WAF policy](waf-front-door-create-portal.md) and associate that policy to one or more Azure Front Door domains for protection. A WAF policy consists of two types of security rules:
 
 - Custom rules that the customer created.
 - Managed rule sets that are a collection of Azure-managed preconfigured sets of rules.
@@ -62,11 +60,11 @@ You can configure a WAF policy to run in two modes:
 
 WAF customers can choose to run from one of the actions when a request matches a rule's conditions:
 
-- **Allow**: The request passes through the WAF and is forwarded to the back end. No further lower priority rules can block this request.
-- **Block**: The request is blocked and the WAF sends a response to the client without forwarding the request to the back end.
+- **Allow**: The request passes through the WAF and is forwarded to the origin. No further lower priority rules can block this request.
+- **Block**: The request is blocked and the WAF sends a response to the client without forwarding the request to the origin.
 - **Log**: The request is logged in the WAF logs and the WAF continues evaluating lower priority rules.
 - **Redirect**: The WAF redirects the request to the specified URI. The URI specified is a policy-level setting. After configuration, all requests that match the **Redirect** action are sent to that URI.
-- **Anomaly score**: This default action is for Default Rule Set 2.0 or later. It isn't applicable for the Bot Manager Rule Set. The total anomaly score is increased incrementally when a rule with this action is matched.
+- **Anomaly score**: The total anomaly score is increased incrementally when a rule with this action is matched. This default action is for Default Rule Set 2.0 or later. It isn't applicable for the Bot Manager Rule Set.
 
 ## WAF rules
 
@@ -108,13 +106,13 @@ For more information, see [Web Application Firewall Default Rule Set rule groups
 
 You can enable a managed bot protection rule set to take custom actions on requests from known bot categories.
 
-Three bot categories are supported: Bad, Good, and Unknown. The WAF platform manages and dynamically updates bot signatures.
+Three bot categories are supported: Bad, Good, and Unknown. For example:
 
-Bad bots include bots from malicious IP addresses and bots that have falsified their identities. Malicious IP addresses are sourced from the Microsoft Threat Intelligence feed and updated every hour. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) powers Microsoft Threat Intelligence and is used by multiple services, including Microsoft Defender for Cloud.
+- **Bad**: Bad bots include bots from malicious IP addresses and bots that have falsified their identities. Malicious IP addresses are sourced from the Microsoft Threat Intelligence feed and updated every hour. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) powers Microsoft Threat Intelligence and is used by multiple services, including Microsoft Defender for Cloud.
+- **Good**: Good bots include validated search engines.
+- **Unknown**: Unknown bots include other bot groups that have identified themselves as bots. Examples include market analyzers, feed fetchers, and data collection agents. Unknown bots are classified via published user agents without any other validation.
 
-Good bots include validated search engines. Unknown categories include other bot groups that have identified themselves as bots. Examples include market analyzer, feed fetchers, and data collection agents.
-
-Unknown bots are classified via published user agents without any other validation. You can set custom actions to block, allow, log, or redirect for different types of bots.
+The WAF platform manages and dynamically updates bot signatures. You can set custom actions to block, allow, log, or redirect for different types of bots.
 
 ![Screenshot that shows a bot protection rule set.](../media/afds-overview/botprotect2.png)
 
