@@ -14,7 +14,7 @@ ms.date: 06/15/2023
 Once you're satisfied with the experience in Azure OpenAI studio, you can deploy a web app directly from the 
 Studio by selecting the **Deploy to** button. 
 
-:::image type="content" source="../../media/use-your-data/deploy-model.png" alt-text="A screenshot showing the model deployment button in Azure OpenAI Studio." lightbox="../../media/use-your-data/deploy-model.png":::
+:::image type="content" source="../media/use-your-data/deploy-model.png" alt-text="A screenshot showing the model deployment button in Azure OpenAI Studio." lightbox="../media/use-your-data/deploy-model.png":::
 
 This gives you the option to either [deploy the model](../concepts/use-your-data.md#deploying-the-model) as a standalone web application, or to Power Virtual Agents.   
 
