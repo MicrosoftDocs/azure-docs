@@ -18,6 +18,8 @@ Studio by selecting the **Deploy to** button.
 
 This gives you the option to either [deploy the model](../concepts/use-your-data.md#deploying-the-model) as a standalone web application, or to Power Virtual Agents.   
 
+As an example, if you choose to deploy a web app:
+
 The first time you deploy a web app, you should select **Create a new web app**. Choose a name for the app, which will 
 become part of the app URL. For example, `https://<appname>.azurewebsites.net`. 
 
