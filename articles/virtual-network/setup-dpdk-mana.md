@@ -101,8 +101,7 @@ ip link set $PRIMARY down
 ip link set $SECONDARY down
 
 
-## If setting both interfaces DOWN is not sufficient, 
-## binding PRIMARY to uio_hv_generic may help force the direct use of MANA
+## Move synthetic channel to user mode and allow it to be used by NETVSC PMD in DPDK
 DEV_UUID=$(basename $(readlink /sys/class/net/$PRIMARY/device))
 NET_UUID="f8615163-df3e-46c5-913f-f2d2f965ed0e"
 modprobe uio_hv_generic
