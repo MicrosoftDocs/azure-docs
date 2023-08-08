@@ -568,6 +568,8 @@
           maintainContext: true
     - name: Use Windows Server containers
       items:
+        - name: Windows AKS Partner Solutions
+          href: windows-aks-partner-solutions.md
         - name: Connect remotely
           href: rdp.md
         - name: Use HostProcess containers
