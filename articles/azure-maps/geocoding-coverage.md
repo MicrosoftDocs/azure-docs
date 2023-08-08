@@ -297,3 +297,4 @@ Learn more about Azure Maps geocoding:
 
 [Search service]: /rest/api/maps/search
 [Azure Maps Search service]: /rest/api/maps/search
+[Get Search Address]: /rest/api/maps/search/get-search-address
