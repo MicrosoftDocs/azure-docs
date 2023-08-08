@@ -1,6 +1,6 @@
 ---
 title: Monitor GitOps (Flux v2) status and activity
-ms.date: 07/28/2023
+ms.date: 08/09/2023
 ms.topic: how-to
 description: Learn how to monitor status, compliance, resource consumption, and reconciliation activity for GitOps with Flux v2.
 ---
@@ -53,13 +53,24 @@ The **Flux Configuration Compliance Status** table lists all Flux configurations
 
 :::image type="content" source="media/monitor-gitops-flux2/flux-configuration-compliance.png" alt-text="Screenshot showing the Flux Configuration Compliance Status table in the Application Deployments dashboard." lightbox="media/monitor-gitops-flux2/flux-configuration-compliance.png":::
 
-The **Count of Flux Extension Deployments by Status** chart shows the count of clusters, based on their provisioning state. 
+The **Count of Flux Extension Deployments by Status** chart shows the count of clusters, based on their provisioning state.
 
 :::image type="content" source="media/monitor-gitops-flux2/flux-deployments-by-status.png" alt-text="Screenshot of the Flux Extension Deployments by Status pie chart in the Application Deployments dashboard.":::
 
 The **Count of Flux Configurations by Compliance Status** chart shows the count of Flux configurations, based on their compliance status with respect to the source repository.
 
 :::image type="content" source="media/monitor-gitops-flux2/flux-configurations-by-status.png" alt-text="Screenshot of the Flux Configuration by Compliance Status chart on the Application Deployments dashboard.":::
+
+### Create alerts for extension and configuration failures
+
+After you've imported the dashboard as described in the previous section, you can set up alerts. These alerts notify you when Flux extensions or Flux configurations experience failures.
+
+1. In the left-side menu, select Alerts & IRM and then Alerting.
+1. Select Alert rules.
+1. Select + Create alert rule. The new alert rule page opens where the Grafana managed alerts option is selected by default.
+1. In Step 1, add the rule name.
+
+In Rule name, add a descriptive name. This name is displayed in the alert rule list. It is also the alertname label for every alert instance that is created from this rule.
 
 ## Monitor resource consumption and reconciliations
 
@@ -128,7 +139,174 @@ The **Flux Cluster Stats** dashboard shows details about the number of reconcile
 
 :::image type="content" source="media/monitor-gitops-flux2/flux-cluster-stats-dashboard.png" alt-text="Screenshot of the Flux Cluster Stats dashboard." lightbox="media/monitor-gitops-flux2/flux-cluster-stats-dashboard.png":::
 
-## Filter dashboard data to track Application Deployments
+### Create alerts for resource consumption and reconciliation issues
+
+After you've imported the dashboard as described in the previous section, you can set up alerts. These alerts notify you of resource consumption and reconciliation issues that may require attention.
+
+To enable these alerts, you deploy a Bicep template similar to the one shown here. The alert rules in this template are samples that can be modified as needed.
+
+Once you've downloaded the Bicep template and made any changes needed, [follow these steps to deploy the template](/azure/azure-resource-manager/bicep/template-specs).
+
+```bicep
+param azureMonitorWorkspaceName string
+param alertReceiverEmailAddress string
+
+param kustomizationLookbackPeriodInMinutes int = 5
+param helmReleaseLookbackPeriodInMinutes int = 5
+param gitRepositoryLookbackPeriodInMinutes int = 5
+param bucketLookbackPeriodInMinutes int = 5
+param helmRepoLookbackPeriodInMinutes int = 5
+param timeToResolveAlerts string = 'PT10M'
+param location string = resourceGroup().location
+
+resource azureMonitorWorkspace 'Microsoft.Monitor/accounts@2023-04-03' = {
+  name: azureMonitorWorkspaceName
+  location: location
+}
+
+resource fluxRuleActionGroup 'Microsoft.Insights/actionGroups@2023-01-01' = {
+  name: 'fluxRuleActionGroup'
+  location: 'global'
+  properties: {
+    enabled: true
+    groupShortName: 'fluxGroup'
+    emailReceivers: [
+      {
+        name: 'emailReceiver'
+        emailAddress: alertReceiverEmailAddress
+      }
+    ]
+  }
+}
+
+resource fluxRuleGroup 'Microsoft.AlertsManagement/prometheusRuleGroups@2023-03-01' = {
+  name: 'fluxRuleGroup'
+  location: location
+  properties: {
+    description: 'Flux Prometheus Rule Group'
+    scopes: [
+      azureMonitorWorkspace.id
+    ]
+    enabled: true
+    interval: 'PT1M'
+    rules: [
+      {
+        alert: 'KustomizationNotReady'
+        expression: 'sum by (cluster, namespace, name) (gotk_reconcile_condition{type="Ready", status="False", kind="Kustomization"}) > 0'
+        for: 'PT${kustomizationLookbackPeriodInMinutes}M'
+        labels: {
+          description: 'Kustomization reconciliation failing for last ${kustomizationLookbackPeriodInMinutes} minutes.'
+        }
+        annotations: {
+          description: 'Kustomization reconciliation failing for last ${kustomizationLookbackPeriodInMinutes} minutes.'
+        }
+        enabled: true
+        severity: 3
+        resolveConfiguration: {
+          autoResolved: true
+          timeToResolve: timeToResolveAlerts
+        }
+        actions: [
+          {
+            actionGroupId: fluxRuleActionGroup.id
+          }
+        ]
+      }
+      {
+        alert: 'HelmReleaseNotReady'
+        expression: 'sum by (cluster, namespace, name) (gotk_reconcile_condition{type="Ready", status="False", kind="HelmRelease"}) > 0'
+        for: 'PT${helmReleaseLookbackPeriodInMinutes}M'
+        labels: {
+          description: 'HelmRelease reconciliation failing for last ${helmReleaseLookbackPeriodInMinutes} minutes.'
+        }
+        annotations: {
+          description: 'HelmRelease reconciliation failing for last ${helmReleaseLookbackPeriodInMinutes} minutes.'
+        }
+        enabled: true
+        severity: 3
+        resolveConfiguration: {
+          autoResolved: true
+          timeToResolve: timeToResolveAlerts
+        }
+        actions: [
+          {
+            actionGroupId: fluxRuleActionGroup.id
+          }
+        ]
+      }
+      {
+        alert: 'GitRepositoryNotReady'
+        expression: 'sum by (cluster, namespace, name) (gotk_reconcile_condition{type="Ready", status="False", kind="GitRepository"}) > 0'
+        for: 'PT${gitRepositoryLookbackPeriodInMinutes}M'
+        labels: {
+          description: 'GitRepository reconciliation failing for last ${gitRepositoryLookbackPeriodInMinutes} minutes.'
+        }
+        annotations: {
+          description: 'GitRepository reconciliation failing for last ${gitRepositoryLookbackPeriodInMinutes} minutes.'
+        }
+        enabled: true
+        severity: 3
+        resolveConfiguration: {
+          autoResolved: true
+          timeToResolve: timeToResolveAlerts
+        }
+        actions: [
+          {
+            actionGroupId: fluxRuleActionGroup.id
+          }
+        ]
+      }
+      {
+        alert: 'BucketNotReady'
+        expression: 'sum by (cluster, namespace, name) (gotk_reconcile_condition{type="Ready", status="False", kind="Bucket"}) > 0'
+        for: 'PT${bucketLookbackPeriodInMinutes}M'
+        labels: {
+          description: 'Bucket reconciliation failing for last ${bucketLookbackPeriodInMinutes} minutes.'
+        }
+        annotations: {
+          description: 'Bucket reconciliation failing for last ${bucketLookbackPeriodInMinutes} minutes.'
+        }
+        enabled: true
+        severity: 3
+        resolveConfiguration: {
+          autoResolved: true
+          timeToResolve: timeToResolveAlerts
+        }
+        actions: [
+          {
+            actionGroupId: fluxRuleActionGroup.id
+          }
+        ]
+      }
+      {
+        alert: 'HelmRepositoryNotReady'
+        expression: 'sum by (cluster, namespace, name) (gotk_reconcile_condition{type="Ready", status="False", kind="HelmRepository"}) > 0'
+        for: 'PT${helmRepoLookbackPeriodInMinutes}M'
+        labels: {
+          description: 'HelmRepository reconciliation failing for last ${helmRepoLookbackPeriodInMinutes} minutes.'
+        }
+        annotations: {
+          description: 'HelmRepository reconciliation failing for last ${helmRepoLookbackPeriodInMinutes} minutes.'
+        }
+        enabled: true
+        severity: 3
+        resolveConfiguration: {
+          autoResolved: true
+          timeToResolve: timeToResolveAlerts
+        }
+        actions: [
+          {
+            actionGroupId: fluxRuleActionGroup.id
+          }
+        ]
+      }
+    ]
+  }
+}
+
+```
+
+## Filter dashboard data to track application deployments
 
 You can filter data in the **GitOps Flux - Application Deployments Dashboard** to change the information shown. For example, you can show data for only certain subscriptions or resource groups, or limit data to a particular cluster. To do so, select the filter option either from the top level dropdowns or from any column header in the tables.
 
