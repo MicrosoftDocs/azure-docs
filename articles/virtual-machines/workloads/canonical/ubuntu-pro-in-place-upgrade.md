@@ -27,12 +27,12 @@ Customers using Ubuntu Server 18.04, for example, can upgrade to Ubuntu Pro and 
 * Security hardening and audit tools (CIS) to establish a security baseline across your systems (and help you meet the Azure Linux Security Baseline policy) 
 * FIPS 140-2 certified modules (note: Ubuntu Pro with FIPS pre-enabled is available here) 
 * Common Criteria (CC) EAL2 provisioning packages 
-* Kernel Livepatch: kernel patches delivered immediately, without the need to reboot 
+* Kernel Live patch: kernel patches delivered immediately, without the need to reboot 
 * Optimized performance: optimized kernel, with improved boot speed, outstanding runtime performance and advanced device support 
 * 10-year security maintenance: Ubuntu Pro 18.04 LTS provides security maintenance until April 2028 
 * Production ready: Ubuntu is the leading Linux in the public cloud with > 50% of Linux workloads 
 * Developer friendly: Ubuntu is the \#1 Linux for developers offering the latest libraries and tools to innovate with the latest technologies 
-* Non-stop security: Canonical publishes images frequently, ensuring security is built-in from the moment an instance launches 
+* Non-stop security: Canonical publishes images frequently, ensuring security is present from the moment an instance launches 
 * Portability: Ubuntu is available in all regions with content mirrors to reduce the need to go across regions or out to the Internet for updates 
 * Consistent experience across platforms: from edge to multi-cloud, Ubuntu provides the same experience regardless of the platform. It ensures consistency of your CI/CD pipelines and management mechanisms.
 
@@ -98,7 +98,7 @@ You are charged for Ubuntu Pro as part of the Preview. Visit the [pricing calcul
 ## Frequently Asked Questions
 
 #### I launched an Ubuntu Pro VM. Do I need to configure it or enable something else
-With the availability of outbound internet access, Ubuntu Pro automatically enables premium features such as Extended Security Maintenance for [Main and Universe repositories](https://help.ubuntu.com/community/Repositories) and [livepatch](https://ubuntu.com/security/livepatch/docs). Should any specific hardening (for example CIS etc) check the using usg to [harden your servers](https://ubuntu.com/tutorials/comply-with-cis-or-disa-stig-on-ubuntu#1-overview) tutorial. Should you require FIPS, check enabling FIPS tutorials.
+With the availability of outbound internet access, Ubuntu Pro automatically enables premium features such as Extended Security Maintenance for [Main and Universe repositories](https://help.ubuntu.com/community/Repositories) and [livepatch](https://ubuntu.com/security/livepatch/docs). Should any specific hardening (for example CIS etc.,) check the using usg to [harden your servers](https://ubuntu.com/tutorials/comply-with-cis-or-disa-stig-on-ubuntu#1-overview) tutorial. Should you require FIPS, check enabling FIPS tutorials.
 
 For more information about networking requirements for making sure Pro enablement process works (such as egress traffic, endpoints and ports) [check this documentation](https://canonical-ubuntu-pro-client.readthedocs-hosted.com/en/latest/references/network_requirements.html).
 
