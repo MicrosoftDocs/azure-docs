@@ -29,4 +29,4 @@ ms.author: cherylmc
    ssh -L 2222:127.0.0.1:22 mylogin@127.0.0.1
    ```
 
-1. Use VSCode to connect to your tunnel connection.
+1. Use VS Code to connect to your tunnel connection.
