@@ -5385,15 +5385,15 @@ Suppose that you have this `'items'` XML string:
 </produce>
 ```
 
-This example passes in the XPath expression, `'/produce/item/name'`, to find the nodes that match the `<name></name>` node in the `'items'` XML string, and returns an array with those node values:
+This example passes in the XPath expression, `'/produce/item/name/text()'`, to find the nodes that match the `<name></name>` node in the `'items'` XML string, and returns an array with those node values:
 
-`xpath(xml(parameters('items')), '/produce/item/name')`
+`xpath(xml(parameters('items')), '/produce/item/name/text()')`
 
 The example also uses the [parameters()](#parameters) function to get the XML string from `'items'` and convert the string to XML format by using the [xml()](#xml) function.
 
-Here's the result array with the nodes that match `<name></name`:
+Here's the result array populated with values of the nodes that match `<name></name>`:
 
-`[ <name>Gala</name>, <name>Honeycrisp</name> ]`
+`[ Gala, Honeycrisp ]`
 
 *Example 2*
 
