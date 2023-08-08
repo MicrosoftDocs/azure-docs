@@ -52,7 +52,7 @@ You can select any of the available Azure DDoS Protection metrics to alert you w
 1. Select **Done**, then select **Next: Condition**.
 1. On the **Condition** page, select **+ Add Condition**, then in the *Search by signal name* search box, search and select **Under DDoS attack or not**.
 
-    :::image type="content" source="./media/ddos-alerts/ddos-protection-alert-add-condition.png" alt-text="Screenshot of adding DDoS Protection attack alert condition.":::
+    :::image type="content" source="./media/ddos-alerts/ddos-protection-alert-add-condition.png" alt-text="Screenshot of adding DDoS Protection attack alert condition." lightbox="./media/ddos-alerts/ddos-protection-alert-add-condition.png":::
 
 1. In the **Create an alert rule** page, enter or select the following information. 
   :::image type="content" source="./media/ddos-alerts/ddos-protection-alert-signal.png" alt-text="Screenshot of adding DDoS Protection attack alert signal." lightbox="./media/ddos-alerts/ddos-protection-alert-signal.png":::
