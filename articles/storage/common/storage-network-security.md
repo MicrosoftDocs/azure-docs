@@ -5,7 +5,7 @@ services: storage
 author: jimmart-dev
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 08/01/2023
+ms.date: 08/08/2023
 ms.author: jammart
 ms.reviewer: santoshc
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement-fy23
@@ -26,8 +26,6 @@ An application that accesses a storage account when network rules are in effect 
 Turning on firewall rules for your storage account blocks incoming requests for data by default, unless the requests originate from a service that operates within an Azure virtual network or from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, and from logging and metrics services.
 
 You can grant access to Azure services that operate from within a virtual network by allowing traffic from the subnet that hosts the service instance. You can also enable a limited number of scenarios through the exceptions mechanism that this article describes. To access data from the storage account through the Azure portal, you need to be on a machine within the trusted boundary (either IP or virtual network) that you set up.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Scenarios
 
@@ -57,6 +55,8 @@ You can use unmanaged disks in storage accounts with network rules applied to ba
 By default, storage accounts accept connections from clients on any network. You can limit access to selected networks *or* prevent traffic from all networks and permit access only through a [private endpoint](storage-private-endpoints.md).
 
 You must set the default rule to **deny**, or network rules have no effect. However, changing this setting can affect your application's ability to connect to Azure Storage. Be sure to grant access to any allowed networks or set up access through a private endpoint before you change this setting.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ### [Portal](#tab/azure-portal)
 
