@@ -82,7 +82,7 @@ To charge back or show back costs for a benefit, you need to know which resource
 8. To see the cost more easily for individual resources, select **Table** in the chart list. Expand items as needed. Here's an example for November 2019 showing the amortized reservation costs for the eight resources that used the reservation. The highlighted cost is the unused portion of the reservation.  
     :::image type="content" source="./media/view-amortized-costs/reservation-cost-resource-table.png" alt-text="Screenshot showing the amortized cost of all resources that used a reservation for a specific month." lightbox="./media/view-amortized-costs/reservation-cost-resource-table.png" :::
 
-Another easy way to view reservation amortized cost is to use the **Reservations**. To easily navigate to it, in Cost analysis in the top menu under **All views**, select the **Reservations** smart view.
+Another easy way to view reservation amortized cost is to use the **Reservations** view. To easily navigate to it, in Cost analysis in the top menu select **Views**, and then select the **Reservations** smart view.
 
 :::image type="content" source="./media/view-amortized-costs/reservations-preview.png" alt-text="Screenshot showing Reservations view item."  :::
 
