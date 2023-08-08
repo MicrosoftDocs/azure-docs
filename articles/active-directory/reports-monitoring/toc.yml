@@ -59,8 +59,6 @@ items:
       href: concept-diagnostic-settings-log-options.md
     - name: Plan a reporting and monitoring deployment
       href: plan-monitoring-and-reporting.md
-    - name: Service Health notifications
-      href: concept-service-health-notifications.md
   - name: How-to guides 
     expanded: false
     items:
