@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/07/2023
+ms.date: 08/08/2023
 ---
 
 # Change data capture in Azure Data Factory and Azure Synapse Analytics
