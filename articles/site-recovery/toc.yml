@@ -6,8 +6,8 @@
     href: site-recovery-overview.md
   - name: What's new in Site Recovery
     href: site-recovery-whats-new.md
-   - name: FAQ
-    href: site-recovery-whats-new.md
+  - name: FAQ
+    href: site-recovery-faq.md
 - name: Quickstarts
   expanded: true
   items:
