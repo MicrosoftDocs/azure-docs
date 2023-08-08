@@ -36,11 +36,11 @@ You can select any of the available Azure DDoS Protection metrics to alert you w
 
 1. Select **+ Create** on the navigation bar, then select **Alert rule**.
 
-    :::image type="content" source="./media/ddos-alerts/ddos-protection-alert-page.png" alt-text="Screenshot of creating Alerts.":::
+    :::image type="content" source="./media/ddos-alerts/ddos-protection-alert-page.png" alt-text="Screenshot of creating Alerts." lightbox="./media/ddos-alerts/ddos-protection-alert-page.png":::
 
 1. On the **Create an alert rule** page, select **+ Select scope**, then select the following information in the **Select a resource** page.
 
-    :::image type="content" source="./media/ddos-alerts/ddos-protection-alert-scope.png" alt-text="Screenshot of selecting DDoS Protection attack alert scope.":::
+    :::image type="content" source="./media/ddos-alerts/ddos-protection-alert-scope.png" alt-text="Screenshot of selecting DDoS Protection attack alert scope." lightbox="./media/ddos-alerts/ddos-protection-alert-scope.png":::
 
 
     | Setting | Value |
@@ -55,7 +55,7 @@ You can select any of the available Azure DDoS Protection metrics to alert you w
     :::image type="content" source="./media/ddos-alerts/ddos-protection-alert-add-condition.png" alt-text="Screenshot of adding DDoS Protection attack alert condition.":::
 
 1. In the **Create an alert rule** page, enter or select the following information. 
-  :::image type="content" source="./media/ddos-alerts/ddos-protection-alert-signal.png" alt-text="Screenshot of adding DDoS Protection attack alert signal.":::
+  :::image type="content" source="./media/ddos-alerts/ddos-protection-alert-signal.png" alt-text="Screenshot of adding DDoS Protection attack alert signal." lightbox="./media/ddos-alerts/ddos-protection-alert-signal.png":::
 
     | Setting | Value |
     |--|--|
@@ -72,7 +72,7 @@ You can select any of the available Azure DDoS Protection metrics to alert you w
 ### Create action group
 
 1. In the **Create action group** page, enter the following information, then select **Next: Notifications**.
-:::image type="content" source="./media/ddos-alerts/ddos-protection-alert-action-group-basics.png" alt-text="Screenshot of adding DDoS Protection attack alert action group basics.":::
+:::image type="content" source="./media/ddos-alerts/ddos-protection-alert-action-group-basics.png" alt-text="Screenshot of adding DDoS Protection attack alert action group basics." lightbox="./media/ddos-alerts/ddos-protection-alert-action-group-basics.png":::
 
     | Setting | Value |
     |--|--|
@@ -85,19 +85,19 @@ You can select any of the available Azure DDoS Protection metrics to alert you w
     
 1. On the *Notifications* tab, under *Notification type*, select **Email/SMS message/Push/Voice**. Under *Name*, enter **myUnderAttackEmailAlert**.
 
-    :::image type="content" source="./media/ddos-alerts/ddos-protection-alert-action-group-notification.png" alt-text="Screenshot of adding DDoS Protection attack alert notification type.":::
+    :::image type="content" source="./media/ddos-alerts/ddos-protection-alert-action-group-notification.png" alt-text="Screenshot of adding DDoS Protection attack alert notification type." lightbox="./media/ddos-alerts/ddos-protection-alert-action-group-notification.png":::
 
 
 1. On the *Email/SMS message/Push/Voice* page, select the **Email** check box, then enter the required email. Select **OK**.
 
-    :::image type="content" source="./media/ddos-alerts/ddos-protection-alert-notification.png" alt-text="Screenshot of adding DDoS Protection attack alert notification page.":::
+    :::image type="content" source="./media/ddos-alerts/ddos-protection-alert-notification.png" alt-text="Screenshot of adding DDoS Protection attack alert notification page." lightbox="./media/ddos-alerts/ddos-protection-alert-notification.png":::
 
 1. Select **Review + create** and then select **Create**.
 ### Continue configuring alerts through portal
 
 1. Select **Next: Details**. 
 
-     :::image type="content" source="./media/ddos-alerts/ddos-protection-alert-details.png" alt-text="Screenshot of adding DDoS Protection attack alert details page.":::
+     :::image type="content" source="./media/ddos-alerts/ddos-protection-alert-details.png" alt-text="Screenshot of adding DDoS Protection attack alert details page." lightbox="./media/ddos-alerts/ddos-protection-alert-details.png":::
 
 1. On the *Details* tab, under *Alert rule details*, enter the following information. 
 
@@ -110,7 +110,7 @@ You can select any of the available Azure DDoS Protection metrics to alert you w
 
 Within a few minutes of attack detection, you should receive an email from Azure Monitor metrics that looks similar to the following picture:
 
-:::image type="content" source="./media/ddos-alerts/ddos-alert.png" alt-text="Screenshot of a DDoS Attack Alert.":::
+:::image type="content" source="./media/ddos-alerts/ddos-alert.png" alt-text="Screenshot of a DDoS Attack Alert." lightbox="./media/ddos-alerts/ddos-alert.png":::
 
 You can also learn more about [configuring webhooks](../azure-monitor/alerts/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [logic apps](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for creating alerts.
 
@@ -119,11 +119,11 @@ You can keep your resources for the next tutorial. If no longer needed, delete t
 
 1. In the search box at the top of the portal, enter **Alerts**. Select **Alerts** in the search results.
 
-    :::image type="content" source="./media/ddos-alerts/ddos-protection-alert-rule.png" alt-text="Screenshot of Alerts page.":::
+    :::image type="content" source="./media/ddos-alerts/ddos-protection-alert-rule.png" alt-text="Screenshot of Alerts page." lightbox="./media/ddos-alerts/ddos-protection-alert-rule.png":::
 
 1. Select **Alert rules**. 
 
-     :::image type="content" source="./media/ddos-alerts/ddos-protection-delete-alert-rules.png" alt-text="Screenshot of Alert rules page.":::
+     :::image type="content" source="./media/ddos-alerts/ddos-protection-delete-alert-rules.png" alt-text="Screenshot of Alert rules page." lightbox="./media/ddos-alerts/ddos-protection-delete-alert-rules.png":::
 
 1. In the Alert rules page, select your subscription.
 1. Select the alerts created in this tutorial, then select **Delete**. 
