@@ -160,7 +160,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Monitor Application Health | Application health extension | Application health extension or Azure load balancer probe | Application health extension |
 | Instance Repair (Virtual Machine Scale Set) | Yes, read [Instance Repair documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md) | Yes, read [Instance Repair documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md) | N/A |
 | Instance Protection | No, use [Azure resource lock](../azure-resource-manager/management/lock-resources.md) | Yes | No |
-| Scale In Policy | No | Yes | No |
+| Scale In Policy | Yes | Yes | No |
 | VMSS Get Instance View | No | Yes | N/A |
 | VM Batch Operations (Start all, Stop all, delete subset, etc.) | Yes | Yes | No |
 
