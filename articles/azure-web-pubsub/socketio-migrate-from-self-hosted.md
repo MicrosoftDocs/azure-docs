@@ -34,7 +34,7 @@ Locate `index.js` in the server-side code.
 
 2. Import package in server code `index.js`
     ```javascript
-    require("@azure/web-pubsub-socket.io")
+    const { useAzureSocketIO } = require("@azure/web-pubsub-socket.io");
     ```
 
 3. Add configuration so that the server can connect with your Web PubSub for Socket.IO resource.
@@ -47,8 +47,8 @@ Locate `index.js` in the server-side code.
 	
 4. Locate in your server-side code where Socket.IO server is created and append `.useAzureSocketIO(wpsOptions)`:
     ```javascript
-    let io = require("socket.io")();
-    io = .useAzureSocketIO(wpsOptions);
+    const io = require("socket.io")();
+    useAzureSocketIO(io, wpsOptions);
     ```
 >[!IMPORTANT]
 > `useAzureSocketIO` is an asynchronous method. Here we `await`. So you need to wrap it and related code in an asynchronous function.

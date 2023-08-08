@@ -121,7 +121,7 @@ az webpubsub key show -n <resource-name> \
 1. Import Web PubSub for Socket.IO SDK and define options
     ```javascript
     /* server.js*/
-    require("@azure/web-pubsub-socket.io");
+    const { useAzureSocketIO } = require("@azure/web-pubsub-socket.io");
 
     const wpsOptions = {
         hub: "codestream",
@@ -133,8 +133,8 @@ az webpubsub key show -n <resource-name> \
     ```javascript
     /* server.js*/
 
-    let io = require("socket.io")();
-    io = .useAzureSocketIO(wpsOptions);
+    const io = require("socket.io")();
+    useAzureSocketIO(io, wpsOptions);
     ```
 
 The two steps are slightly different than how you would normally create a Socket.IO server as [described here](https://socket.io/docs/v4/server-installation/). With these two steps, your server-side code can offload managing persistent connections to an Azure service. With the help of an Azure service, your application server acts **only** as a lightweight HTTP server. 
