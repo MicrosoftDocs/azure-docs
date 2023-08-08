@@ -18,11 +18,11 @@ The new experience will be rolled out in phases. Some users will see the updated
 ##### Health Alerts Blade
 The Health Alerts blade has been updated for better usability. Users can search for and sort their alert rule by name. Users can also group their alert rules by subscription and status.
 
-:::image type="content" source="media/service-health-portal-update/health-alerts-filter.png" alt-text="A screenshot of the services issue user interface highlighting the switch to classic button.":::
+:::image type="content" source="media/service-health-portal-update/health-alerts-filter.png" alt-text="A screenshot highlighting the health alerts blade filters.":::
 
 In the new updated Health Alerts experience, users can click on their alert rule for additional details and see their alert firing history. 
 
-:::image type="content" source="media/service-health-portal-update/health-alerts-history.png" alt-text="A screenshot of the services issue user interface highlighting the switch to classic button.":::
+:::image type="content" source="media/service-health-portal-update/health-alerts-history.png" alt-text="A screenshot highlighting alerts history":::
 
 >[!Note]
 >The classic experience for the Health Alerts blade will be retired. Users will not be able to switch back from the new experience once it is rolled out.
