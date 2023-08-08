@@ -5251,6 +5251,41 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/overview-monitoring.md",
+      "redirect_url": "/azure/service-health/overview-monitoring-health",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/overview-reports.md",
+      "redirect_url": "/azure/service-health/overview-monitoring-health",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/howto-integrate-activity-logs-with-sumologic.md",
+      "redirect_url": "/azure/service-health/howto-stream-logs-to-event-hub",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/howto-integrate-activity-logs-with-splunk.md",
+      "redirect_url": "/azure/service-health/howto-stream-logs-to-event-hub",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight.md",
+      "redirect_url": "/azure/service-health/howto-stream-logs-to-event-hub",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md",
+      "redirect_url": "/azure/service-health/howto-integrate-activity-logs-with-azure-monitor-logs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/overview-service-health-notifications.md",
+      "redirect_url": "/azure/service-health/service-health-portal-update",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-configure-named-locations.md",
       "redirect_url": "/azure/active-directory/conditional-access/location-condition",
       "redirect_document_id": true

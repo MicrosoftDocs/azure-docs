@@ -1,6 +1,6 @@
 ---
 title: Access activity logs in Azure AD
-description: Learn how to choose the right method for accessing the activity logs in Azure AD.
+description: Learn how to choose the right method for accessing the activity logs in Azure Active Directory.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -8,11 +8,9 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/26/2023
+ms.date: 08/08/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
-
-ms.collection: M365-identity-device-management
 ---
 
 # How To: Access activity logs in Azure AD
@@ -201,7 +199,7 @@ We recommend manually downloading and storing your activity logs if you have bud
 
 Use the following basic steps to archive or download your activity logs.
 
-### Archive activity logs to a storage account
+#### Archive activity logs to a storage account
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using one of the required roles.
 1. Create a storage account.
