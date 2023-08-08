@@ -53,8 +53,8 @@ A web application delivered by Azure Front Door can have only one WAF policy ass
 
 You can configure a WAF policy to run in two modes:
 
-- **Detection mode**: When a WAF runs in detection mode, it only monitors and logs the request and its matched WAF rule to WAF logs. It doesn't take any other actions. You can turn on logging diagnostics for Azure Front Door. When you use the portal, go to the **Diagnostics** section.
-- **Prevention mode**: In this mode, a WAF takes the specified action if a request matches a rule. If a match is found, no further rules with lower priority are evaluated. Any matched requests are also logged in the WAF logs.
+- **Detection**: When a WAF runs in detection mode, it only monitors and logs the request and its matched WAF rule to WAF logs. It doesn't take any other actions. You can turn on logging diagnostics for Azure Front Door. When you use the portal, go to the **Diagnostics** section.
+- **Prevention**: In prevention mode, a WAF takes the specified action if a request matches a rule. If a match is found, no further rules with lower priority are evaluated. Any matched requests are also logged in the WAF logs.
 
 ## WAF actions
 
@@ -106,7 +106,7 @@ For more information, see [Web Application Firewall Default Rule Set rule groups
 
 You can enable a managed bot protection rule set to take custom actions on requests from known bot categories.
 
-Three bot categories are supported: Bad, Good, and Unknown. For example:
+Three bot categories are supported:
 
 - **Bad**: Bad bots include bots from malicious IP addresses and bots that have falsified their identities. Malicious IP addresses are sourced from the Microsoft Threat Intelligence feed and updated every hour. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) powers Microsoft Threat Intelligence and is used by multiple services, including Microsoft Defender for Cloud.
 - **Good**: Good bots include validated search engines.
