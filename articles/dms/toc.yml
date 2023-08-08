@@ -50,6 +50,8 @@
     items: 
     - name: MySQL to Azure Database for MySQL Data Migration - MySQL Consistent Backup 
       href: migrate-azure-mysql-consistent-backup.md
+    - name: Custom roles for MySQL to Azure Database for MySQL migrations using DMS 
+      href: resource-custom-roles-mysql-db-dms.md
   - name: Security
     items: 
     - name: Security baseline
