@@ -1,6 +1,6 @@
 ---
-title: Build a realtime code streaming app using Socket.IO and host it on Azure
-description: An end-to-end tutorial demonstrating how to build an app that allows coders to share coding activities with their audience in realtime using Web PubSub for Socket.IO 
+title: Build a real-time code streaming app using Socket.IO and host it on Azure
+description: An end-to-end tutorial demonstrating how to build an app that allows coders to share coding activities with their audience in real time using Web PubSub for Socket.IO 
 author: siyuanxing
 ms.author: siyuanxing
 ms.date: 08/01/2023
@@ -8,9 +8,9 @@ ms.service: azure-web-pubsub
 ms.topic: how-to
 ---
 
-# Build a realtime code streaming app using Socket.IO and host it on Azure
+# Build a real-time code streaming app using Socket.IO and host it on Azure
 
-Building a realtime experience like the co-creation feature from [Microsoft Word](https://www.microsoft.com/microsoft-365/word) can be challenging. 
+Building a real-time experience like the cocreation feature from [Microsoft Word](https://www.microsoft.com/microsoft-365/word) can be challenging. 
 
 Through its easy-to-use APIs, [Socket.IO](https://socket.io/) has proven itself as a battle-tested library for real-time communication between clients and server. However, Socket.IO users often report difficulty around scaling Socket.IO's connections. With Web PubSub for Socket.IO, developers no longer need to worry about managing persistent connections. 
 
@@ -19,7 +19,7 @@ This tutorial shows how to build an app that allows a coder to stream his/her co
 >[!div class="checklist"]
 > * Monitor Editor, the code editor that powers VS code
 > * [Express](https://expressjs.com/), a Node.js web framework
-> * APIs provided by Socket.IO library for realtime communication
+> * APIs provided by Socket.IO library for real-time communication
 > * Host Socket.IO connections using Web PubSub for Socket.IO
 
 ### The finished app
@@ -27,17 +27,17 @@ The finished app allows a code editor user to share a web link through which peo
 
 :::image type="content" source="./media/socketio-build-realtime-code-streaming-app/code-stream-app.jpg" alt-text="Screenshot of the finished code stream app":::
 
-To keep this tutorial focused and digestable in around 15 minutes, we define two user roles and what they can do in the editor
-- a writer, who can type in the online editor and the content will be streamed
-- viewers, who receive realtime content typed by the writer and cannot edit the content
+To keep this tutorial focused and digestible in around 15 minutes, we define two user roles and what they can do in the editor
+- a writer, who can type in the online editor and the content is streamed
+- viewers, who receive real-time content typed by the writer and cannot edit the content
 
 ### Architecture
-|    | Purpose           | Benefits         | 
+|  /  | Purpose           | Benefits         | 
 |----------------------|-------------------|------------------|
 |[Socket.IO library](https://socket.io/) | Provides low-latency, bi-directional data exchange mechanism between the backend application and clients | Easy-to-use APIs that cover most real-time communication scenarios
-|Web PubSub for Socket.IO | Host WebSocket or poll-based persistent connections with Socket.IO clients | 100K concurrent connections built-in; Simplify application architecture;
+|Web PubSub for Socket.IO | Host WebSocket or poll-based persistent connections with Socket.IO clients | 100 K concurrent connections built-in; Simplify application architecture;
 
-:::image type="content" source="./media/socketio-build-realtime-code-streaming-app/create-webpubsub-for-socketio-architecture.jpg" alt-text="Screenshot of Web PubSub for Socket.IO service":::
+:::image type="content" source="./media/socketio-build-realtime-code-streaming-app/webpubsub-for-socketio-architecture.jpg" alt-text="Screenshot of Web PubSub for Socket.IO service":::
 
 ## Prerequisites 
 In order to follow the step-by-step guide, you need
@@ -66,10 +66,10 @@ az webpubsub key show -n <resource-name> \
 
 ## Write the application
 >[!NOTE]
-> This tutorial focuses on explaining the core code for implementing realtime communication. Complete code can be found in the [samples repository](https://github.com/Azure/azure-webpubsub/tree/main/experimental/sdk/webpubsub-socketio-extension/examples/codestream). 
+> This tutorial focuses on explaining the core code for implementing real-time communication. Complete code can be found in the [samples repository](https://github.com/Azure/azure-webpubsub/tree/main/experimental/sdk/webpubsub-socketio-extension/examples/codestream). 
 
 ### Server-side code
-#### Build a HTTP server
+#### Build an HTTP server
 1. Create a Node.js project
     ```bash
     mkdir codestream
@@ -98,7 +98,7 @@ az webpubsub key show -n <resource-name> \
     app.use(express.static(path.join(__dirname, 'public')));
     ```
 
-4. Define an endpoint called `/negotiate`. A **writer** client hits this endpoint first. This endpoint returns an HTTP response which contains
+4. Define an endpoint called `/negotiate`. A **writer** client hits this endpoint first. This endpoint returns an HTTP response, which contains
 - an endpoint the client should establish a persistent connection with, 
 - `room` the client is assigned to
 
@@ -139,7 +139,7 @@ az webpubsub key show -n <resource-name> \
 
 The two steps are slightly different than how you would normally create a Socket.IO server as [described here](https://socket.io/docs/v4/server-installation/). With these two steps, your server-side code can offload managing persistent connections to an Azure service. With the help of an Azure service, your application server acts **only** as a lightweight HTTP server. 
 
-Now that we've created a Socket.IO server hosted by Web PubSub, we can define how the clients and server communicate using Socket.IO's APIs. This is usually referred to as implementing business logic.
+Now that we've created a Socket.IO server hosted by Web PubSub, we can define how the clients and server communicate using Socket.IO's APIs. This process is referred to as implementing business logic.
 
 #### Implement business logic
 1. After a client is connected, the application server tells the client that "you are logged in" by sending a custom event named `login`.
@@ -161,7 +161,7 @@ Now that we've created a Socket.IO server hosted by Web PubSub, we can define ho
     });
     ```
 
-3. After a client has sucessfully been joined, the server informs the client of the successful result with the `message` event. Upon receiving an `message` event and knowing the type is `ackJoinRoom`, the client can ask the server to send the latest editor state. 
+3. After a client has successfully been joined, the server informs the client of the successful result with the `message` event. Upon receiving an `message` event with a type of `ackJoinRoom`, the client can ask the server to send the latest editor state. 
 
     ```javascript
     /* server.js*/
@@ -199,7 +199,7 @@ Now that we've created a Socket.IO server hosted by Web PubSub, we can define ho
     });
     ```
 
-Now that the server-side is finished. Next, we will work on the client-side. 
+Now that the server-side is finished. Next, we work on the client-side. 
 
 ### Client-side code
 #### Initial setup
@@ -223,12 +223,12 @@ Now that the server-side is finished. Next, we will work on the client-side.
     }
     ```
 The `initialize(url)` organizes a few setup operations together. 
-- fetches the endpoind to an Azure service from your HTTP server,
-- creates an Monoca editor instances,
+- fetches the endpoint to an Azure service from your HTTP server,
+- creates a Monoca editor instance,
 - establishes a persistent connection with Web PubSub for Socket.IO
 
 #### Writer client
-[As mentinoed earlier](#the-finished-app), we have two user roles on the client side. The first one is the writer and another one is viewer. Anything written by the writer will be streamed to the viewer's screen.  
+[As mentioned earlier](#the-finished-app), we have two user roles on the client side. The first one is the writer and another one is viewer. Anything written by the writer is streamed to the viewer's screen.  
 
 ##### Writer client
 1. Get the endpoint to Web PubSub for Socket.IO and the `room_id`.
@@ -238,7 +238,7 @@ The `initialize(url)` organizes a few setup operations together.
     let [socket, editor, room_id] = await initialize('/negotiate');
     ```
 
-2. When the writer client is connected with server, the server will send a `login` event to him. The writer can respond by asking the server to join itself to a specified room. Importantly, every 200 ms the writer sends its latest editor state to the room. The sending logic is organized by a function aptly named `flush`.
+2. When the writer client is connected with server, the server sends a `login` event to him. The writer can respond by asking the server to join itself to a specified room. Importantly, every 200 ms the writer sends its latest editor state to the room. A function aptly named `flush` organizes the sending logic.
 
     ```javascript
     /*client.js*/
@@ -290,7 +290,7 @@ The `initialize(url)` organizes a few setup operations together.
     ```
 
 ##### Viewer client
-1. Same with the writer client, the viewer client creates its Socket.IO client through `initialize()`. When the viewer client is connected and received a `login` event from server, it asks the server to join itself to the specified room. The room id is specified by the query `room_id`.
+1. Same with the writer client, the viewer client creates its Socket.IO client through `initialize()`. When the viewer client is connected and received a `login` event from server, it asks the server to join itself to the specified room. The query `room_id` specifies the room .
 
     ```javascript
     /*client.js*/
@@ -358,7 +358,7 @@ The `initialize(url)` organizes a few setup operations together.
 
 ## Run the application
 ### Locate the repo
-Above, we dived deep into the core logic related to synchronizing editor state between viewers and writer. The complete code can be found in [ examples repository](https://github.com/Azure/azure-webpubsub/tree/main/experimental/sdk/webpubsub-socketio-extension/examples/codestream).
+We dived deep into the core logic related to synchronizing editor state between viewers and writer. The complete code can be found in [ examples repository](https://github.com/Azure/azure-webpubsub/tree/main/experimental/sdk/webpubsub-socketio-extension/examples/codestream).
 
 ### Clone the repo
 You can clone the repo and run `npm install` to install project dependencies.
@@ -370,7 +370,7 @@ node index.js <web-pubsub-connection-string>
 > [!NOTE]
 > This is the connection string you received from [a previous step](#get-connection-string). 
 
-### Play with the realtime code editor
+### Play with the real-time code editor
 Open `http://localhost:3000` in a browser tab and open another tab with the url displayed in the first web page. 
 
-If you write code in the first tab, you should see your typing reflected realtime in the other tab. Note that message passing is facilitated by Web PubSub for Socket.IO in the cloud. Your `express` server only serves the static `index.html` and `/negotiate` endpoint.
+If you write code in the first tab, you should see your typing reflected real-time in the other tab. Web PubSub for Socket.IO facilitates message passing in the cloud. Your `express` server only serves the static `index.html` and `/negotiate` endpoint.

@@ -9,16 +9,16 @@ ms.topic: how-to
 ---
 # Troubleshooting for common issues
 
-Web PubSub for Socket.IO builds on Socket.IO library. When using this Azure service, issues may lie with Socket.IO library itself or the service.
+Web PubSub for Socket.IO builds on Socket.IO library. When you use this Azure service, issues may lie with Socket.IO library itself or the service.
 
 ## Issues with Socket.IO library
 
-To determine if the issues are with Socket.IO libray, you can isolate it by temporarily removing Web PubSub for Socket.IO from your application. If the application works as expected after the removal, the root cause is probably with the Azure service.
+To determine if the issues are with Socket.IO library, you can isolate it by temporarily removing Web PubSub for Socket.IO from your application. If the application works as expected after the removal, the root cause is probably with the Azure service.
 
 If you suspect the issues are with Socket.IO library, refer to [Socket.IO library's documentation](https://socket.io/docs/v4/troubleshooting-connection-issues/) for common connection issues.
 
 ## Issues with Web PubSub for Socket.IO 
-If you suspect that the issues are with the Azure service afer investigation, take a look at the list of common issues below. 
+If you suspect that the issues are with the Azure service after investigation, take a look at the list of common issues. 
 
 Additionally, you can [enable logging on the server side](./socketio-troubleshoot-logging.md#server-side) to examine closely the behavior of your Socket.IO app, if none of the listed issues helps.
 
@@ -29,16 +29,16 @@ Additionally, you can [enable logging on the server side](./socketio-troubleshoo
 - `TypeError: (intermediate value).useAzureSocketIO is not a function`
 
 ##### Root cause
-If you use TypeScript in your project, you may observe this error. This is due to the improper package import. 
+If you use TypeScript in your project, you may observe this error. It's due to the improper package import. 
 
 ```typescript
 // Bad example
 import * as wpsExt from "@azure/web-pubsub-socket.io"
 ```
-If a package is not used or referenced after importing, the default behavior of TypeScript compiler is not to emit the package in the compiled `.js` file.
+If a package isn't used or referenced after importing, the default behavior of TypeScript compiler is not to emit the package in the compiled `.js` file.
 
 ##### Solution
-Use `import "@azure/web-pubsub-socket.io"`, instead. This import statement will force TypeScript compiler to include a package in the compiled `.js` file even if the pacakge is not referenced anywhere in the source code. [Read more](https://github.com/Microsoft/TypeScript/wiki/FAQ#why-are-imports-being-elided-in-my-emit)about this frequenctly asked question from the TypeScript community.
+Use `import "@azure/web-pubsub-socket.io"`, instead. This import statement forces TypeScript compiler to include a package in the compiled `.js` file even if the package isn't referenced anywhere in the source code. [Read more](https://github.com/Microsoft/TypeScript/wiki/FAQ#why-are-imports-being-elided-in-my-emit)about this frequently asked question from the TypeScript community.
 ```typescript
 // Good example. 
 // It forces TypeScript to include the package in compiled `.js` file.
@@ -84,7 +84,7 @@ const socket = io(endpoint, {
 });
 ```
 
-Using Web PubSub for Socket.IO, your clients establish connections with an Azure service. When creating a Socket.IO client, you need use the endpoint to your Web PubSub for Socket.IO resource.  
+When you use Web PubSub for Socket.IO, your clients establish connections with an Azure service. When creating a Socket.IO client, you need use the endpoint to your Web PubSub for Socket.IO resource.  
 
 ##### Solution
 Let Socket.IO client use the endpoint of your Web PubSub for Socket.IO resource.

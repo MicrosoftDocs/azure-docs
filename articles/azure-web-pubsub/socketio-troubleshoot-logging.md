@@ -10,7 +10,7 @@ ms.topic: how-to
 # How to collect logs using Web PubSub for Socket.IO
 
 ## Server-side
-On the server-side, two utilities are included that provide bebugging 
+On the server-side, two utilities are included that provide debugging 
 capabilities.
 - [DEBUG](https://github.com/debug-js/debug), which is used by Socket.IO library and extension library provided by Web PubSub for certain logging.
 - [@azure/logger](https://www.npmjs.com/package/@azure/logger), which provides more low-level network-related logging. Conveniently, it also allows you to set a log level. 
@@ -45,7 +45,7 @@ You can enable logging from this utility to get more low-level network-related i
 AZURE_LOG_LEVEL=verbose node yourfile.js
 ```
 
-`Azure_LOG_LEVEL` has 4 levels: `verbose`, `info`, `warning` and `error`.
+`Azure_LOG_LEVEL` has four levels: `verbose`, `info`, `warning` and `error`.
 :::image type="content" source="./media/socketio-troubleshoot-logging/log-azure-logger.png" alt-text="Screenshot of logging information from @azure/logger utility":::
 
 ## Client side
