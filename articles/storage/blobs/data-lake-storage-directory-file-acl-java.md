@@ -73,7 +73,7 @@ To learn more about using `DefaultAzureCredential` to authorize access to data, 
 
 To use a shared access signature (SAS) token, provide the token as a string and initialize a [DataLakeServiceClient](/java/api/com.azure.storage.file.datalake.datalakeserviceclient) object. If your account URL includes the SAS token, omit the credential parameter.
 
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/Authorize_DataLake.java" id="Snippet_AuthorizeWithSAS"::
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/Authorize_DataLake.java" id="Snippet_AuthorizeWithSAS":::
 
 To learn more about generating and managing SAS tokens, see the following article:
 
@@ -179,7 +179,7 @@ You can delete a directory by using one of the following methods:
 - [DataLakeDirectoryClient.deleteIfExists](/java/api/com.azure.storage.file.datalake.datalakedirectoryclient#method-summary)
 - [DataLakeDirectoryClient.deleteWithResponse](/java/api/com.azure.storage.file.datalake.datalakedirectoryclient#method-summary)
 
-The following code example uses `deleteWithResponse` to delete a non-empty directory and all paths beneath the directory:
+The following code example uses `deleteWithResponse` to delete a nonempty directory and all paths beneath the directory:
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_DeleteDirectory":::
 
