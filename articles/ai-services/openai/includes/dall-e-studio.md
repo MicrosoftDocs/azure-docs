@@ -27,7 +27,7 @@ Use this guide to get started generating images with Azure OpenAI in your browse
 
 To access Azure OpenAI Studio, browse to https://oai.azure.com/ and sign in with the credentials associated with your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
-From the Azure OpenAI Studio landing page, select **DALL·E (Preview) playground** to use the image generation APIs.
+From the Azure OpenAI Studio landing page, select **DALL·E playground (Preview)** to use the image generation APIs.
 
 ## Try out image generation
 
@@ -44,7 +44,7 @@ In the DALL·E (Preview) playground, you can also view Python and cURL code samp
 
 If you want to clean up and remove an Azure OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps

@@ -42,7 +42,7 @@ Go to your resource in the Azure portal. On the navigation pane, select **Keys a
 
 Create a new Python file named **quickstart.py**. Open the new file in your preferred editor or IDE.
 
-1. Replace the contents of quickstart.py with the following code. Enter your endpoint URL and key in the appropriate fields. Change the value of `"prompt"` to your preferred text.
+1. Replace the contents of quickstart.py with the following code. Enter your endpoint URL and key in the appropriate fields. Change the value of `prompt` to your preferred text.
 
     ```python
     import requests
@@ -79,7 +79,7 @@ Create a new Python file named **quickstart.py**. Open the new file in your pref
     ```
 
     > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials. For example, [Azure Key Vault](../../../key-vault/general/overview.md).
+    > Remember to remove the key from your code when you're done, and never post your key publicly. For production, use a secure way of storing and accessing your credentials. For more information, see [Azure Key Vault](../../../key-vault/general/overview.md).
 
 1. Run the application with the `python` command:
 
@@ -154,7 +154,7 @@ It's also possible that the generated image itself is filtered. In this case, th
 
 If you want to clean up and remove an Azure OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps
