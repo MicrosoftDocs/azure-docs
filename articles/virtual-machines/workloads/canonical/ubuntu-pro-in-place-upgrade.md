@@ -25,7 +25,7 @@ Customers using Ubuntu Server 18.04, for example, can upgrade to Ubuntu Pro and 
 ## Why developers and devops choose Ubuntu Pro for Azure 
 * Access to security updates for 23,000+ packages including Apache Kafka, NGINX, MongoDB, Redis and PostgreSQL, integrated into normal system tools (for example Azure Update Manager, apt) 
 * Security hardening and audit tools (CIS) to establish a security baseline across your systems (and help you meet the Azure Linux Security Baseline policy) 
-* FIPS 140-2 certified modules (note: Ubuntu Pro with FIPS pre-enabled is available here) 
+* FIPS 140-2 certified modules
 * Common Criteria (CC) EAL2 provisioning packages 
 * Kernel Live patch: kernel patches delivered immediately, without the need to reboot 
 * Optimized performance: optimized kernel, with improved boot speed, outstanding runtime performance and advanced device support 
@@ -34,7 +34,7 @@ Customers using Ubuntu Server 18.04, for example, can upgrade to Ubuntu Pro and 
 * Developer friendly: Ubuntu is the \#1 Linux for developers offering the latest libraries and tools to innovate with the latest technologies 
 * Non-stop security: Canonical publishes images frequently, ensuring security is present from the moment an instance launches 
 * Portability: Ubuntu is available in all regions with content mirrors to reduce the need to go across regions or out to the Internet for updates 
-* Consistent experience across platforms: from edge to multi-cloud, Ubuntu provides the same experience regardless of the platform. It ensures consistency of your CI/CD pipelines and management mechanisms.
+* Consistent experience across platforms: from edge to multicloud, Ubuntu provides the same experience regardless of the platform. It ensures consistency of your CI/CD pipelines and management mechanisms.
 
 **This document presents the direction to upgrade from an Ubuntu Server (16.04 or higher) image to Ubuntu Pro with zero downtime for upgrade by executing the following steps in your VMs:**
 
@@ -43,9 +43,9 @@ Customers using Ubuntu Server 18.04, for example, can upgrade to Ubuntu Pro and 
 2. Validating the license
 
 >[!NOTE]
-> Converting to UBUNTU_PRO is an irreversible process. You can't even downgrade a VM by running detach. Open a support tickets for any exceptions.
+> Converting to UBUNTU_PRO is an irreversible process. You can't even downgrade a VM by running detach. Open a support ticket for any exceptions.
 
-## Converting to Ubuntu Pro using the Azure CLI 
+## Convert to Ubuntu Pro using the Azure CLI 
 ```azurecli-interactive
 # The following will enable Ubuntu Pro on a virtual machine
 az vm update -g myResourceGroup -n myVmName --license-type UBUNTU_PRO 
@@ -56,15 +56,15 @@ az vm update -g myResourceGroup -n myVmName --license-type UBUNTU_PRO
 sudo apt install ubuntu-advantage-tools 
 sudo pro auto-attach 
 ```
-(note that "sudo apt install ubuntu-advantage-tools" is only necessary if "pro --version" is lower than 28) 
+(Note that "sudo apt install ubuntu-advantage-tools" is only necessary if "pro --version" is lower than 28) 
 
-## Validating the license 
+## Validate the license 
 Expected output:
 
-![PNG Image for the expected output.](./expected-output.png)
+![Screenshot of the expected output.](./expected-output.png)
 
-## Creating an Ubuntu Pro VM using the Azure CLI
-You can also create a new VM using the Ubuntu Sever images and apply Ubuntu Pro at create time.
+## Create an Ubuntu Pro VM using the Azure CLI
+You can also create a new VM using the Ubuntu Server images and apply Ubuntu Pro at create time.
 
 For example:
 
@@ -97,12 +97,12 @@ You are charged for Ubuntu Pro as part of the Preview. Visit the [pricing calcul
 
 ## Frequently Asked Questions
 
-#### I launched an Ubuntu Pro VM. Do I need to configure it or enable something else
-With the availability of outbound internet access, Ubuntu Pro automatically enables premium features such as Extended Security Maintenance for [Main and Universe repositories](https://help.ubuntu.com/community/Repositories) and [live patch](https://ubuntu.com/security/livepatch/docs). Should any specific hardening (for example CIS) check the using 'usg' to [harden your servers](https://ubuntu.com/tutorials/comply-with-cis-or-disa-stig-on-ubuntu#1-overview) tutorial. Should you require FIPS, check enabling FIPS tutorials.
+#### I launched an Ubuntu Pro VM. Do I need to configure it or enable something else?
+With the availability of outbound internet access, Ubuntu Pro automatically enables premium features such as Extended Security Maintenance for [Main and Universe repositories](https://help.ubuntu.com/community/Repositories) and [live patch](https://ubuntu.com/security/livepatch/docs). Should any specific hardening be required (for example CIS), check the using 'usg' to [harden your servers](https://ubuntu.com/tutorials/comply-with-cis-or-disa-stig-on-ubuntu#1-overview) tutorial. Should you require FIPS, check enabling FIPS tutorials.
 
 For more information about networking requirements for making sure Pro enablement process works (such as egress traffic, endpoints and ports) [check this documentation](https://canonical-ubuntu-pro-client.readthedocs-hosted.com/en/latest/references/network_requirements.html).
 
-#### If I shut down the machine, does the billing continue
+#### If I shut down the machine, does the billing continue?
 If you launch Ubuntu Pro from Azure Marketplace you pay as you go, so, if you don’t have any machine running, you won’t pay anything additional.
 
 #### Can I get volume discounts?
@@ -111,7 +111,7 @@ Yes. Contact your Microsoft sales representative.
 #### Are Reserved Instances available?
 Yes
 
-#### If the customer doesn't do the auto attach will they still get attached to pro on reboot
+#### If the customer doesn't do the auto attach will they still get attached to pro on reboot?
 If the customer doesn't perform the auto attach, they still get the Pro attached upon reboot. However, this applies only if they have v28 of the Pro client.
 * For Jammy and Focal, this process works as expected.
 * For Bionic and Xenial this process doesn't work due to the older versions of the Pro client installed.
