@@ -36,6 +36,8 @@ It leverages the following scalers for Azure services:
 - [Azure Service Bus](https://keda.sh/docs/latest/scalers/azure-service-bus/)
 - [Azure Storage Queue](https://keda.sh/docs/latest/scalers/azure-storage-queue/)
 
+As of KEDA version `2.10`, the [Prometheus scaler][prometheus-scaler] supports Azure managed service for Prometheus.
+
 Next to the built-in scalers, you can install external scalers yourself to autoscale on other Azure services:
 
 - [Azure Cosmos DB (Change feed)](https://github.com/kedacore/external-scaler-azure-cosmos-db)
@@ -48,6 +50,7 @@ However, these external scalers aren't supported as part of the add-on and rely 
 * [Enable the KEDA add-on with the Azure CLI][keda-cli]
 * [Troubleshoot KEDA add-on problems][keda-troubleshoot]
 * [Autoscale a .NET Core worker processing Azure Service Bus Queue message][keda-sample]
+* [View the upstream KEDA docs][keda]
 
 <!-- LINKS - internal -->
 [aks-support-policy]: support-policies.md
@@ -59,3 +62,4 @@ However, these external scalers aren't supported as part of the add-on and rely 
 [keda-scalers]: https://keda.sh/docs/latest/scalers/
 [keda-event-docs]: https://keda.sh/docs/latest/operate/events/
 [keda-sample]: https://github.com/kedacore/sample-dotnet-worker-servicebus-queue
+[prometheus-scaler]: https://keda.sh/docs/2.11/scalers/prometheus/

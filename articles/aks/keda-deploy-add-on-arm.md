@@ -122,6 +122,8 @@ This article showed you how to install the KEDA add-on on an AKS cluster, and th
 
 You can troubleshoot KEDA add-on problems in [this article][keda-troubleshoot].
 
+To learn more, view the [upstream KEDA docs][keda].
+
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az aks install-cli]: /cli/azure/aks#az-aks-install-cli

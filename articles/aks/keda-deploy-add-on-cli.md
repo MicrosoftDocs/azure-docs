@@ -73,14 +73,17 @@ The following example output shows that the KEDA operator and metrics API server
 ```output
 kubectl get pods -n kube-system
 
-keda-operator-********-k5rfv                     1/1     Running   0          43m
-keda-operator-metrics-apiserver-*******-sj857   1/1     Running   0          43m
+keda-operator-********-k5rfv                    2/2     Running   0          43m 
+keda-operator-metrics-apiserver-*******-sj857   2/2     Running   0          43m 
+keda-admission-webhooks-********-k5rfv          2/2     Running   0          43m 
 ```
+
 To verify the version of your KEDA, use `kubectl get crd/scaledobjects.keda.sh -o yaml `. For example:
 
 ```azurecli-interactive
 kubectl get crd/scaledobjects.keda.sh -o yaml 
 ```
+
 The following example output shows the configuration of KEDA in the `app.kubernetes.io/version` label:
 
 ```yaml
@@ -132,9 +135,12 @@ az aks update \
 ```
 
 ## Next steps
+
 This article showed you how to install the KEDA add-on on an AKS cluster using Azure CLI. The steps to verify that KEDA add-on is installed and running are included. With the KEDA add-on installed on your cluster, you can [deploy a sample application][keda-sample] to start scaling apps.
 
 You can troubleshoot KEDA add-on problems in [this article][keda-troubleshoot].
+
+To learn more, view the [upstream KEDA docs][keda].
 
 <!-- LINKS - internal -->
 [az-provider-register]: /cli/azure/provider#az-provider-register

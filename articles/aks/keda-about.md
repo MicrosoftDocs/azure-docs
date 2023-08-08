@@ -3,7 +3,7 @@ title: Kubernetes Event-driven Autoscaling (KEDA)
 description: Simplified application autoscaling with Kubernetes Event-driven Autoscaling (KEDA) add-on.
 author: tomkerkhove
 ms.topic: article
-ms.date: 05/24/2022
+ms.date: 08/08/2023
 ms.author: tomkerkhove
 ---
 
@@ -13,7 +13,7 @@ Kubernetes Event-driven Autoscaling (KEDA) is a single-purpose and lightweight c
 
 It applies event-driven autoscaling to scale your application to meet demand in a sustainable and cost-efficient manner with scale-to-zero.
 
-The KEDA add-on makes it even easier by deploying a managed KEDA installation, providing you with [a rich catalog of 50+ KEDA scalers][keda-scalers] that you can scale your applications with on your Azure Kubernetes Services (AKS) cluster.
+The KEDA add-on makes it even easier by deploying a managed KEDA installation, providing you with [a rich catalog of 62+ KEDA scalers][keda-scalers] that you can scale your applications with on your Azure Kubernetes Services (AKS) cluster.
 
 ## Architecture
 
@@ -37,11 +37,15 @@ The KEDA add-on provides a fully supported installation of KEDA that is integrat
 KEDA provides the following capabilities and features:
 
 - Build sustainable and cost-efficient applications with scale-to-zero
-- Scale application workloads to meet demand using [a rich catalog of 50+ KEDA scalers][keda-scalers]
+- Scale application workloads to meet demand using [a rich catalog of 62+ KEDA scalers][keda-scalers]
 - Autoscale applications with `ScaledObjects`, such as Deployments, StatefulSets or any custom resource that defines `/scale` subresource
 - Autoscale job-like workloads with `ScaledJobs`
 - Use production-grade security by decoupling autoscaling authentication from workloads
 - Bring-your-own external scaler to use tailor-made autoscaling decisions
+- Integrate with [workload identity][workload-identity] for authentication
+
+> [!NOTE]
+> If you plan to use workload identity, [enable the workload identity add-on][workload-identity-deploy] before enabling the KEDA add-on.
 
 ## Add-on limitations
 
@@ -51,7 +55,6 @@ The KEDA AKS add-on has the following limitations:
 * KEDA's [external scaler for Azure Cosmos DB][keda-cosmos-db-scaler] to scale based on Azure Cosmos DB change feed isn't installed with the extension, but can be deployed separately.
 * Only one metric server is allowed in the Kubernetes cluster. Because of that the KEDA add-on should be the only metrics server inside the cluster.
     * Multiple KEDA installations aren't supported
-* Managed identity isn't supported.
 
 For general KEDA questions, we recommend [visiting the FAQ overview][keda-faq].
 
@@ -61,12 +64,15 @@ For general KEDA questions, we recommend [visiting the FAQ overview][keda-faq].
 * [Enable the KEDA add-on with the Azure CLI][keda-cli]
 * [Troubleshoot KEDA add-on problems][keda-troubleshoot]
 * [Autoscale a .NET Core worker processing Azure Service Bus Queue messages][keda-sample]
+* [View the upstream KEDA docs][keda]
 
 <!-- LINKS - internal -->
 [keda-azure-cli]: keda-deploy-addon-az-cli.md
 [keda-cli]: keda-deploy-add-on-cli.md
 [keda-arm]: keda-deploy-add-on-arm.md
 [keda-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context
+[workload-identity]: ./workload-identity-overview.md
+[workload-identity-deploy]: ./workload-identity-deploy-cluster.md
 
 <!-- LINKS - external -->
 [keda]: https://keda.sh/
