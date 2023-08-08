@@ -61,16 +61,13 @@ conceptualContent:
             - url: ./fhir/use-postman.md
               itemType: how-to-guide
               text: Configure settings
-            - url: ./fhir/overview-of-search.md
-              itemType: how-to-guide
-              text: FHIR search
             - url: ./fhir/centers-for-medicare-tutorial-introduction.md
               itemType: how-to-guide
               text: CMS operability and patient access
         # Card
         - title: Imaging data
           links:
-            - url: ./dicom/dicom-services-overview
+            - url: ./dicom/dicom-services-overview.md
               itemType: overview
               text: DICOM service overview
             - url: ./file2.md OR /file2
