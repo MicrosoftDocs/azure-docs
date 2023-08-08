@@ -203,7 +203,7 @@ Now that the server-side is finished. Next, we work on the client-side.
 
 ### Client-side code
 #### Initial setup
-1. On the client side, we need to create an Socket.IO client to communicate with the server. The question is which server the client should establish a persistent connection with. Since we use Web PubSub for Socket.IO, the server is an Azure service. Recall that we defined [`/negotiate`](#build-a-http-server) route to serve clients an endpoint to Web PubSub for Socket.IO.
+1. On the client side, we need to create an Socket.IO client to communicate with the server. The question is which server the client should establish a persistent connection with. Since we use Web PubSub for Socket.IO, the server is an Azure service. Recall that we defined [`/negotiate`](#build-an-http-server) route to serve clients an endpoint to Web PubSub for Socket.IO.
 
     ```javascript
     /*client.js*/

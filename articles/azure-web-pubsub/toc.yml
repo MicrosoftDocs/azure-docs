@@ -137,6 +137,8 @@
   items: 
     - name: Overview
       href: socketio-overview.md
+    - name: Quickstart for Socket.IO users
+      href: socketio-quickstart.md
     - name: Tutorials
       expanded: true
       items:
