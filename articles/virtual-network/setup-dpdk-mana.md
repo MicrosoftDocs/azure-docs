@@ -44,8 +44,8 @@ MANA DPDK requires the following set of drivers:
 # check for pci devices with ID:
 #   vendor: Microsoft Corporation (1414)
 #   class:  Ethernet Controller (0200)
-#   device: Microsft Azure Network Adapter (00ba) (optional) 
-if [[ -n `lspci -d 1414::0200` ]]; then
+#   device: Microsft Azure Network Adapter VF (00ba)
+if [[ -n `lspci -d 1414:00ba:0200` ]]; then
     echo "MANA device is available."
 else
     echo "MANA was not detected."
