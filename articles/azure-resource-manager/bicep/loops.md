@@ -348,7 +348,7 @@ resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2021-06-01
 
 ## Reference resource/module collections
 
-The ARM template [`references`](../templates/template-functions-resource.md#references) function returns an array of objects representing a collection of resource's runtime states. In Bicep, there is no explicit references function. Instead, symbolic collection usage is employed directly, and during code generation, Bicep translates it to an ARM template that utilizes the ARM template references function. For the translation feature that transforms symbolic collections into ARM templates using the references function, it is necessary to have Bicep CLI version 0.20.4 or a more recent version. Additionally, in the [`bicepconfig.json`](./bicep-config.md#enable-experimental-features) file, the `symbolicNameCodegen` setting should be presented and set to `true`.
+The ARM template [`references`](../templates/template-functions-resource.md#references) function returns an array of objects representing a resource collection's runtime states. In Bicep, there is no explicit references function. Instead, symbolic collection usage is employed directly, and during code generation, Bicep translates it to an ARM template that utilizes the ARM template references function. For the translation feature that transforms symbolic collections into ARM templates using the references function, it is necessary to have Bicep CLI version 0.20.4 or a more recent version. Additionally, in the [`bicepconfig.json`](./bicep-config.md#enable-experimental-features) file, the `symbolicNameCodegen` setting should be presented and set to `true`.
 
 The outputs of the two samples in [Integer index](#integer-index) can be written as:
 
