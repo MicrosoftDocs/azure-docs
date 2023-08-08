@@ -22,7 +22,7 @@ In this article, you learn how to integrate CITI Program with Azure Active Direc
 * Enable your users to be automatically signed-in to CITI Program with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-You configure and test Azure AD single sign-on for CITI Program in a test environment. CITI Program supports **SP** initiated single sign-on and **Just In Time** user provisioning.
+You configure and test Azure AD single sign-on for CITI Program in a test environment. CITI Program supports **SP-initiated** single sign-on and **Just-In-Time** user provisioning.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -62,23 +62,23 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Identifier** textbox, type the URL:
+	a. In the **Identifier (Entity ID)** textbox, type the URL:
 	`https://www.citiprogram.org/shibboleth`
 
-	b. In the **Reply URL** textbox, type the URL:
+	b. In the **Reply URL (Assertion Consumer Service URL)** textbox, type the URL:
 	`https://www.citiprogram.org/Shibboleth.sso/SAML2/POST`
 
-	c. In the **Sign on URL** textbox, type a URL using the following pattern:
+	c. In the **Sign on URL** textbox, type a URL using the following pattern*:
 	`https://www.citiprogram.org/Shibboleth.sso/Login?target=https://www.citiprogram.org/Secure/Welcome.cfm?inst=<InstitutionID>&entityID=<EntityID>`
 
 	> [!NOTE]
-	> This value is not real. Update this value with the actual Sign on URL. Contact [CITI Program support team](mailto:shibboleth@citiprogram.org) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> *You may use a temporary value here to continue with the setup until you are able to obtain the actual Sign on URL. Once [CITI Program Support](mailto:shibboleth@citiprogram.org) has your metadata, they will provide with the actual URL.
 
-1. CITI Program application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+1. The CITI Program application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
 	![Screenshot shows the image of attributes configuration.](common/default-attributes.png "Default Attributes")
 
-1. CITI Program application expects urn: oid named attributes to be passed back in the SAML response, which are shown below. These attributes are also pre-populated but you can review them as per your requirements. These are all required.
+   The expected attributes attributes are listed below. You may rename the default attributes accordingly or add them as per your requirements. These are all required.
 
 	| Name |  Source Attribute|
 	| ---------------|  --------- |
@@ -86,6 +86,8 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	| urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
 	| urn:oid:2.5.4.42 | user.givenname |
 	| urn:oid:2.5.4.4 | user.surname |
+	> [!NOTE]
+	> The Source Attribute is what is generally recommended, but not necessarily a rule. For example, if user.mail is unique and scoped, it can also be passed as urn:oid:1.3.6.1.4.1.5923.1.1.1.6.
 
 1. If you wish to pass additional information in the SAML response, CITI Program can also accept the following optional attributes.
 
@@ -95,7 +97,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	| urn:oid:2.16.840.1.113730.3.1.3 | user.employeeid |
 	| urn:oid:1.3.6.1.4.1.22704.1.1.1.8 | [other user attribute] |
 
-1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find the **App Federation Metadata Url** and copy it, or the **Federation Metadata XML** and select **Download** to download the certificate. 
 
     ![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
 
@@ -105,7 +107,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure CITI Program SSO
 
-To configure single sign-on on **CITI Program** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [CITI Program support team](mailto:shibboleth@citiprogram.org). This is required to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **CITI Program** side, you need to send the copied **App Federation Metadata Url** or the downloaded **Federation Metadata XML** to [CITI Program Support](mailto:shibboleth@citiprogram.org). This is required to have the SAML SSO connection set properly on both sides. Also, provide any additional scopes or domains for your integration.
 
 ## Test SSO 
 
