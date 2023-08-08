@@ -217,6 +217,8 @@ items:
       href: ecosystem-back-up-vms.md
     - name: Disaster recovery solutions for VMs
       href: ecosystem-disaster-recovery-vms.md
+    - name: External storage solutions
+      href: ecosystem-external-storage-solutions.md
     - name: Migration solutions for VMs
       href: ecosystem-migration-vms.md
     - name: Security solutions for Azure VMware Solution
