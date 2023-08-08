@@ -47,7 +47,8 @@ An Azure PowerShell script is provided in this document. It performs the followi
 
 ## Downloading the script
 
-You can download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWMigration).
+You can download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWMigration).A new stable release (Version 1.0.11) of the migration script is available which includes major bug fixes.It is recommended to use this stable version.
+
 
 ## Using the script
 
@@ -72,8 +73,19 @@ Run the script with the following command to get the latest version:
 This command also installs the required Az modules.
 
 #### Install using the script directly
-
 If you have some Azure Az modules installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](/powershell/gallery/how-to/working-with-packages/manual-download).
+
+Version 1.0.11 is the stable release of the migration script which includes major bug fixes.It is recommended to use this stable version.
+#### How to check the version of the downloaded script
+The easiest approach is to extract the NuGet package, then use the script directly.
+The steps are as follows:
+Unblock the Internet-downloaded NuGet package (.nupkg) file, for example using Unblock-File -Path C:\Downloads\package.nupkg cmdlet.
+Extract the contents of the NuGet package.
+Open the  .PS1 file in the folder and check the .VERSION in line no.3
+
+![image](https://github.com/MJyot/azure-docs-pr/assets/117745525/4eaa5aaa-fcf2-4197-a670-0a17d7413487)
+
+Make sure to download the latest stable version from [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWMigration)
 
 #### How to run the script
 
