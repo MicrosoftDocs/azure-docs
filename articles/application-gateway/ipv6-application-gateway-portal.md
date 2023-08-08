@@ -127,7 +127,7 @@ Create the application gateway using the tabs on the **Create application gatewa
 
      Select **OK** to close the **Create virtual network** window and save the new virtual network and subnet settings.
 
-     ![Create new application gateway: virtual network](./media/application-gateway-create-gateway-portal-ipv6/application-gw-create-ipv6-vnet.png)
+     ![Create new application gateway: virtual network](./media/application-gateway-create-gateway-portal-ipv6/ipv6-create-vnet-subnet.png)
 
 3. Select **Next: Frontends**.
 
