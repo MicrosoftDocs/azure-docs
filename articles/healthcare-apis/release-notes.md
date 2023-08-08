@@ -24,10 +24,17 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 #### FHIR Service
 **Bug Fix: Continous retry on Import operation**
+
 We observed an issue where $import kept on retrying when NDJSON file size is greater than 2GB. The issue is fixed, for details visit [3342](https://github.com/microsoft/fhir-server/pull/3342).
 
 **Bug Fix: Patient and Group level export job restart on interruption**
+
 Patient and Group level exports on interruption would restart from the beginning. Bug is fixed to restart the export jobs from the last sucessfully completed page of results. For more details visit [3205](https://github.com/microsoft/fhir-server/pull/3205).
+
+#### DICOM Service
+**API Version 2 is Generally Available (GA)**
+
+The DICOM service API v2 is now Generally Available (GA) and introduces [several changes and new features](dicom/dicom-service-v2-api-changes.md).  Most notable is the change to validation of DICOM attributes during store (STOW) operations - beginning with v2, the request fails only if **required attributes** fail validation.  See the [DICOM Conformance Statement v2](dicom/dicom-services-conformance-statement-v2.md) for full details.  
 
 
 ## June 2023
@@ -36,6 +43,7 @@ Patient and Group level exports on interruption would restart from the beginning
 #### FHIR Service 
 
 **Feature Enhancement: Incremental Import**
+
 $Import operation now supports new capability of "Incremental Load" mode, which is optimized for periodically loading data into the FHIR service. 
 
 With Incremental Load mode, customers can:
