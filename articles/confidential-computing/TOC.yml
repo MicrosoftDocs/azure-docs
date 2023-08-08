@@ -16,7 +16,7 @@
         - name: Intel SGX, TDX 
           href: virtual-machine-solutions-sgx.md #existing #done
         - name: NVIDIA 
-          href: nvidia-offerings.md # new, keep the page like this, then we can have a 1 pager that can be expanded as offerings grow, with x-links to vendor pages
+          href: TODO.md # new, keep the page like this, then we can have a 1 pager that can be expanded as offerings grow, with x-links to vendor pages
      - name: Trusted Execution Environment (TEE) #p1
        href: trusted-execution-environment.md # new, an easy to understandding of what a TEE is - explain like the black box example #stubbed
      - name: Trusted Compute Base (TCB) #p1
