@@ -91,7 +91,11 @@ The `Spotlight` API allows you to subscribe to `SpotlightChanged` events. A `Spo
 // SpotlightedParticipant = { identifier: CommunicationIdentifier }
 // where: 
 //  identifier: ID of participant whos spotlight state is changed
-extension CallObserver: SpotlightCallFeatureDelegate {
+
+spotlightFeature = self.call!.feature(Features.spotlight)
+spotlightFeature!.delegate = self.SpotlightDelegate
+
+public class SpotlightDelegate: SpotlightCallFeatureDelegate {
     public func SpotlightCallFeature(_ spotlightCallFeature: SpotlightCallFeature, spotlightChanged args: SpotlightChangedEventArgs) {
         args.added.forEach { participant in
             print("Spotlight participant " + Utilities.toMri(participant.identifier) +  "is ON")
