@@ -276,7 +276,7 @@ Follow these steps:
 
 ## Cross Subscription Restore using Azure portal
 
-Some datasources of Backup vault support restores to a subscription different from that of the source machine. Cross Subscription Restore (CSR) is enabled for existing vaults by default, and you can use it if supported for the intended datasource.
+Some datasources of Backup vault support restore to a subscription different from that of the source machine. Cross Subscription Restore (CSR) is enabled for existing vaults by default, and you can use it if supported for the intended datasource.
 
 >[!Note]
 >The feature is currently not supported for Azure Kubernetes Service (AKS) and Azure VMWare Service (AVS) backup.
@@ -292,7 +292,7 @@ There may be instances when you need to disable Cross Subscription Restore based
 
 You can also select the state of CSR  during the creation of Backup vault.
 
-:::image type="content" source="./media/create-manage-backup-vault/select-cross-subsctiption-state-on-backup-vault-creation.png" alt-text="Screenshot shows how to select the state of Cross Subscription Restore during Backup vault creation." lightbox="./media/create-manage-backup-vault/select-cross-subsctiption-state-on-backup-vault-creation.png":::
+:::image type="content" source="./media/create-manage-backup-vault/select-cross-subscription-state-on-backup-vault-creation.png" alt-text="Screenshot shows how to select the state of Cross Subscription Restore during Backup vault creation." lightbox="./media/create-manage-backup-vault/select-cross-subsctiption-state-on-backup-vault-creation.png":::
 
 >[!Note]
 >- CSR once permanently disabled on a vault can't be re-enabled because it's an irreversible operation.
