@@ -222,46 +222,9 @@ Here's some pseudo code that recapitulates how to validate issuer and signing ke
    if (issUri.Segments[1] != token["tid"]) throw validationException;
    ```
 
-## Token revocation
-
-Refresh tokens are invalidated or revoked at any time, for different reasons. The reasons fall into the categories of timeouts and revocations.
-
-### Token timeouts
-
-Organizations can use [token lifetime configuration](configurable-token-lifetimes.md) to alter the lifetime of refresh tokens Some tokens can go without use. For example, the user doesn't open the application for three months and then the token expires. Applications can encounter scenarios where the login server rejects a refresh token due to its age.
-
-- MaxInactiveTime: Specifies the amount of time that a token can be inactive.
-- MaxSessionAge: If MaxAgeSessionMultiFactor or MaxAgeSessionSingleFactor is set to something other than their default (Until-revoked), the user must reauthenticate after the time set in the MaxAgeSession*. Examples:
-  - The tenant has a MaxInactiveTime of five days, and the user went on vacation for a week, and so Azure AD hasn't seen a new token request from the user in seven days. The next time the user requests a new token, they'll find their refresh token has been revoked, and they must enter their credentials again.
-  - A sensitive application has a MaxAgeSessionSingleFactor of one day. If a user logs in on Monday, and on Tuesday (after 25 hours have elapsed), they must reauthenticate.
-
-### Token revocations
-
-The server possibly revokes refresh tokens due to a change in credentials, or due to use or administrative action. Refresh tokens are in the classes of confidential clients and public clients.
-
-| Change | Password-based cookie | Password-based token | Non-password-based cookie | Non-password-based token | Confidential client token |
-|--------|-----------------------|----------------------|---------------------------|-----------------------|---------------------------|
-| Password expires | Stays alive | Stays alive | Stays alive | Stays alive | Stays alive |
-| Password changed by user | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
-| User does SSPR | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
-| Admin resets password | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
-| User or admin revokes the refresh tokens by using [PowerShell](/powershell/module/microsoft.graph.beta.users.actions/invoke-mgbetainvalidateuserrefreshtoken?view=graph-powershell-beta&preserve-view=true) | Revoked | Revoked | Revoked | Revoked | Revoked |
-| [Single sign-out](v2-protocols-oidc.md#single-sign-out) on web | Revoked | Stays alive | Revoked | Stays alive | Stays alive |
-
-#### Non-password-based
-
-A *non-password-based* login is one where the user didn't type in a password to get it. Examples of non-password-based login include:
-
-- Using your face with Windows Hello
-- FIDO2 key
-- SMS
-- Voice
-- PIN
-
 ## See also
 
 - [Access token claims reference](access-token-claims-reference.md)
-- [Primary Refresh Tokens](../devices/concept-primary-refresh-token.md)
 - [Secure applications and APIs by validating claims](claims-validation.md)
 
 
