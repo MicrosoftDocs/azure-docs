@@ -13,17 +13,26 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engageme
 
 # Configure network security for Azure Storage
 
-Azure Storage provides a layered security model. This model enables you to control the level of access to your storage accounts that your applications and enterprise environments demand, based on the type and subset of networks or resources that you use.
+Azure Storage provides a layered security model. This model enables you to control the level of access to your storage accounts that your applications and enterprise environments demand. In this article, you will learn how to configure the Azure Storage firewall to protect the data in your storage account at the network layer.
 
-When you configure network rules, only applications that request data over the specified set of networks or through the specified set of Azure resources can access a storage account. You can limit access to your storage account to requests that come from specified IP addresses, IP ranges, subnets in an Azure virtual network, or resource instances of some Azure services.
+Applications access storage account data over network endpoints. There are two types of endpoints:
 
-Storage accounts have a public endpoint that's accessible through the internet. You can also create [private endpoints for your storage account](storage-private-endpoints.md). Creating private endpoints assigns a private IP address from your virtual network to the storage account. It helps secure traffic between your virtual network and the storage account over a private link.
+- [Service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)
+- [Private endpoints](storage-private-endpoints.md)
 
-The Azure Storage firewall provides access control for the public endpoint of your storage account. You can also use the firewall to block all access through the public endpoint when you're using private endpoints. Your firewall configuration also enables trusted Azure platform services to access the storage account.
+Storage service endpoints are accessible via the internet. The Azure Storage firewall provides the ability to control access for the public endpoints using network rules. When you configure network rules, only applications that request data over the specified set of networks or through the specified set of Azure resources can access storage account data. You can also use the firewall to block all access through the public endpoint when you're using private endpoints. Turning on firewall rules for your storage account blocks incoming requests for data by default, unless the requests originate from a service that operates within an Azure virtual network or from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, and from logging and metrics services.
 
-Turning on firewall rules for your storage account blocks incoming requests for data by default, unless the requests originate from a service that operates within an Azure virtual network or from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, and from logging and metrics services.
+A private endpoint uses a private IP address from your virtual network to access a storage account over the Microsoft backbone network. With a private endpoint, traffic between your virtual network and the storage account are secured over a private link. Azure Storage firewall access rules do not apply to private endpoints, but you can use [Network Policies](../../private-link/private-endpoint-overview.md#network-security-of-private-endpoints) to control traffic over them.
 
-You can grant access to Azure services that operate from within a virtual network by allowing traffic from the subnet that hosts the service instance. You can also enable a limited number of scenarios through the exceptions mechanism that this article describes.
+## Options for configuring network access to Azure Storage
+
+With the Azure Storage firewall, you can configure network access to the data in your storage account using any combination of the following methods:
+
+- Configure access from selected virtual network subnets using service endpoints.
+- Configure access from specific public IP addresses or ranges.
+- Configure access from selected Azure resource instances
+- Configure access from trusted Azure services (using [Manage exceptions](#manage-exceptions))
+- Configure exceptions for logging and metrics services
 
 ## Restrictions and considerations
 
