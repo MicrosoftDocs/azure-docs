@@ -251,12 +251,13 @@ az vmss update --set zones=["1","2","3"] -n \<myScaleSet\> -g \<myResourceGroup\
 
 ### [Azure PowerShell](#tab/powershell2)
 
+
 ```azurepowershell
 # Get the VMSS object
 $vmss = Get-AzVmss -ResourceGroupName \<resource-group-name\> -VMScaleSetName \<vmss-name\>
 
 # Update the zones parameter
-$vmss.Zones = @("1", "2", "3")
+$vmss.Zones = [Collections.Generic.List[string]]('1','2','3')
 
 # Apply the changes
 Update-AzVmss -ResourceGroupName \<resource-group-name\> -VMScaleSetName \<vmss-name\> -VirtualMachineScaleSet $vmss
@@ -302,8 +303,8 @@ You cannot remove or replace zones, only add zones
 * Capacity reservations are not supported during zone expansion. Once the scale set is fully zonal (no more regional instances), you can add a capacity reservation group to the scale set
 * Azure Dedicated Host deployments are not supported  
 
-
 ## Next steps
 
 Now that you have created a scale set in an Availability Zone, you can learn how to [Deploy applications on Virtual Machine Scale Sets](tutorial-install-apps-cli.md) or [Use autoscale with Virtual Machine Scale Sets](tutorial-autoscale-cli.md).
+
 
