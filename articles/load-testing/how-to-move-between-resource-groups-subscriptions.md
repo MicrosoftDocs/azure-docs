@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Move an Azure Load Testing resource to another resource group or subscription
 
-This article describes how to move your Azure Load Testing Preview resource to either another Azure subscription or another resource group under the same subscription.
+This article describes how to move your Azure Load Testing resource to either another Azure subscription or another resource group under the same subscription.
 
 If you want to move Azure Load Testing to a new region, see [Move an Azure Load Testing resource to another region](./how-to-move-between-regions.md).
 
@@ -37,9 +37,6 @@ When you move an Azure Load Testing resource across resource groups or subscript
 - If the resource is moved across subscriptions, the service limits of the target subscription apply to the resource after the move.  
 
 - Moving a resource that has a test that is configured for private endpoint testing to another subscription, results in an error while running the test. When the move is complete, you must update the test with a VNet and subnet from the new subscription.
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Move across resource groups or subscriptions
 
