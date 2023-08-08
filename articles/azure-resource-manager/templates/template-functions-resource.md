@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 08/02/2023
+ms.date: 08/08/2023
 ms.custom: ignite-2022, devx-track-arm-template
 ---
 
@@ -620,7 +620,7 @@ The `references` function works similarly as [`reference`](#reference). Instead 
 }
 ```
 
-In Bicep, there is no explicit `references` function. Instead, symbolic collection usage is employed directly, and during code generation, Bicep translates it to an ARM template that utilizes the ARM template `references` function. The forthcoming release of Bicep will include the translation feature that converts symbolic collections to ARM templates using the `references` function.
+In Bicep, there is no explicit `references` function. Instead, symbolic collection usage is employed directly, and during code generation, Bicep translates it to an ARM template that utilizes the ARM template `references` function. For more information, see [Reference resource/module collections](../bicep/loops.md#reference-resource-module-collections).
 
 ### Parameters
 
