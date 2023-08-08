@@ -255,5 +255,5 @@ scrape_configs:
 
 ## Next steps
 
-- [Learn more about Azure Monitor managed service for Prometheus](prometheus-metrics-overview.md).
+- [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md).
 - [Collect Prometheus metrics from AKS cluster](prometheus-metrics-enable.md).
