@@ -122,6 +122,65 @@ The following example injects a singleton service dependency:
 
 This code requires `using Microsoft.Extensions.DependencyInjection;`. To learn more, see [Dependency injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0&preserve-view=true).
 
+#### Register Azure clients
+
+Dependency injection can be used to interact with other Azure services. You can inject clients from the [Azure SDK for .NET](/dotnet/azure/sdk/azure-sdk-for-dotnet) using the [Microsoft.Extensions.Azure](https://www.nuget.org/packages/Microsoft.Extensions.Azure) package. After installing the package, [register the clients](/dotnet/azure/sdk/dependency-injection#register-clients) by calling `AddAzureClients()` on the service collection in `Program.cs`. The following example configures a [named client](/dotnet/azure/sdk/dependency-injection#configure-multiple-service-clients-with-different-names) for Azure Blobs:
+
+```csharp
+using Microsoft.Extensions.Azure;
+using Microsoft.Extensions.Hosting;
+
+var host = new HostBuilder()
+    .ConfigureFunctionsWorkerDefaults()
+    .ConfigureServices((hostContext, services) =>
+    {
+        services.AddAzureClients(clientBuilder =>
+        {
+            clientBuilder.AddBlobServiceClient(hostContext.Configuration.GetSection("MyStorageConnection"))
+                .WithName("copierOutputBlob");
+        });
+    })
+    .Build();
+
+host.Run();
+```
+
+The following example shows how we can use this registration and [SDK types](#sdk-types) to copy blob contents as a stream from one container to another using an injected client:
+
+```csharp
+using Microsoft.Extensions.Azure;
+using Microsoft.Extensions.Logging;
+
+namespace MyFunctionApp
+{
+    public class BlobCopier
+    {
+        private readonly ILogger<BlobCopier> _logger;
+        private readonly BlobContainerClient _copyContainerClient;
+
+        public BlobCopier(ILogger<BlobCopier> logger, IAzureClientFactory<BlobServiceClient> blobClientFactory)
+        {
+            _logger = logger;
+            _copyContainerClient = blobClientFactory.CreateClient("copierOutputBlob").GetBlobContainerClient("samples-workitems-copy");
+            _copyContainerClient.CreateIfNotExists();
+        }
+
+        [Function("BlobCopier")]
+        public async Task Run([BlobTrigger("samples-workitems/{name}", Connection = "MyStorageConnection")] Stream myBlob, string name)
+        {
+            await _copyContainerClient.UploadBlobAsync(name, myBlob);
+            _logger.LogInformation($"Blob {name} copied!");
+        }
+
+    }
+}
+```
+
+The [ILogger&lt;T&gt;] in this example was also obtained through dependency injection. It is registered automatically. To learn more about configuration options for logging, see [Logging](#logging).
+
+> [!TIP]
+> The example used a literal string for the name of the client in both `Program.cs` and the function. Consider instead using a shared constant string defined on the function class. For example, you could add `public const string CopyStorageClientName = nameof(_copyContainerClient);` and then reference `BlobCopier.CopyStorageClientName` in both locations. You could similarly define the configuration section name with the function rather than in `Program.cs`.
+
 ### Middleware
 
 .NET isolated also supports middleware registration, again by using a model similar to what exists in ASP.NET. This model gives you the ability to inject logic into the invocation pipeline, and before and after functions execute.
@@ -246,7 +305,7 @@ Each trigger and binding extension also has its own minimum version requirement,
 [eventhub-sdk-types]: ./functions-bindings-event-hubs.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
 [servicebus-sdk-types]: ./functions-bindings-service-bus.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
 
-<sup>1</sup> For output scenarios in which you would use an SDK type, you should create and work with SDK clients directly instead of using an output binding.
+<sup>1</sup> For output scenarios in which you would use an SDK type, you should create and work with SDK clients directly instead of using an output binding. See [Register Azure clients](#register-azure-clients) for an example of how to do this with dependency injection.
 
 <sup>2</sup> The Service Bus trigger does not yet support message settlement scenarios for the isolated model.
 
@@ -502,6 +561,7 @@ Because your isolated worker process app runs outside the Functions runtime, you
 [FunctionContext]: /dotnet/api/microsoft.azure.functions.worker.functioncontext?view=azure-dotnet&preserve-view=true
 [ILogger]: /dotnet/api/microsoft.extensions.logging.ilogger
 [ILogger&lt;T&gt;]: /dotnet/api/microsoft.extensions.logging.ilogger-1
+[ILoggerFactory]: /dotnet/api/microsoft.extensions.logging.iloggerfactory
 [GetLogger]: /dotnet/api/microsoft.azure.functions.worker.functioncontextloggerextensions.getlogger
 [GetLogger&lt;T&gt;]: /dotnet/api/microsoft.azure.functions.worker.functioncontextloggerextensions.getlogger#microsoft-azure-functions-worker-functioncontextloggerextensions-getlogger-1
 [HttpRequestData]: /dotnet/api/microsoft.azure.functions.worker.http.httprequestdata?view=azure-dotnet&preserve-view=true

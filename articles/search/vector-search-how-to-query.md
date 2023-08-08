@@ -13,7 +13,7 @@ ms.date: 07/31/2023
 # Query vector data in a search index
 
 > [!IMPORTANT]
-> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
+> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
 In Azure Cognitive Search, if you added vector fields to a search index, this article explains how to query those fields. It also explains how to combine vector queries with full text search and semantic search for hybrid query combination scenarios.
 
@@ -27,7 +27,7 @@ All results are returned in plain text, including vectors. If you use Search Exp
 
 + A search index containing vector fields. See [Add vector fields to a search index](vector-search-how-to-query.md).
 
-+ Use REST API version 2023-07-01-preview or Azure portal to query vector fields. You can also use alpha versions of the Azure SDKs. For more information, see [this readme](https://github.com/Azure/cognitive-search-vector-pr/blob/main/README.md).
++ Use REST API version 2023-07-01-preview or Azure portal to query vector fields. You can also use [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr/tree/main).
 
 + (Optional) If you want to also use [semantic search (preview)](semantic-search-overview.md) and vector search together, your search service must be Basic tier or higher, with [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
 
@@ -175,8 +175,6 @@ api-key: {{admin-api-key}}
 ## Query syntax for multiple vector queries
 
 You can issue a search request containing multiple query vectors using the "vectors" query parameter. The queries execute concurrently in the search index, each one looking for similarities in the target vector fields. The result set is a union of the documents that matched both vector queries. A common example of this query request is when using models such as [CLIP](https://openai.com/research/clip) for a multi-modal vector search where the same model can vectorize image and non-image content.
-
-You must use REST for this scenario. Currently, there isn't support for multiple vector queries in the alpha SDKs.
 
 + `vectors.value` property contains the vector query generated from the embedding model used to create image and text vectors in the search index. 
 + `vectors.fields` contains the image vectors and text vectors in the search index. This is the searchable data.
