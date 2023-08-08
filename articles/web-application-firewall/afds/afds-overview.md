@@ -116,7 +116,7 @@ The WAF platform manages and dynamically updates bot signatures. You can set cus
 
 ![Screenshot that shows a bot protection rule set.](../media/afds-overview/botprotect2.png)
 
-If bot protection is enabled, incoming requests that match bot rules are logged. You can access WAF logs from a storage account, an event hub, or Log Analytics.
+If bot protection is enabled, incoming requests that match bot rules are logged. You can access WAF logs from a storage account, an event hub, or Log Analytics. For more information about how the WAF logs requests, see [Azure Web Application Firewall monitoring and logging](waf-front-door-monitor.md).
 
 ## Configuration
 
