@@ -1,12 +1,12 @@
 ---
 title: "Quickstart - Build and deploy apps to Azure Spring Apps"
 description: Describes app deployment to Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 11/15/2021
-ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, event-tier1-build-2022
 zone_pivot_groups: programming-languages-spring-apps
 ---
 
@@ -246,11 +246,11 @@ Use the following steps to create and deploys apps on Azure Spring Apps using th
    ```azurecli
    az spring app deploy \
        --name api-gateway \
-       --artifact-path spring-petclinic-api-gateway/target/spring-petclinic-api-gateway-3.0.1.jar \
+       --artifact-path spring-petclinic-api-gateway/target/api-gateway-3.0.1.jar \
        --jvm-options="-Xms2048m -Xmx2048m"
    az spring app deploy \
        --name customers-service \
-       --artifact-path spring-petclinic-customers-service/target/spring-petclinic-customers-service-3.0.1.jar \
+       --artifact-path spring-petclinic-customers-service/target/customers-service-3.0.1.jar \
        --jvm-options="-Xms2048m -Xmx2048m"
    ```
 
@@ -302,17 +302,17 @@ az spring app create \
 az spring app deploy \
     --name admin-server \
     --runtime-version Java_17 \
-    --jar-path spring-petclinic-admin-server/target/spring-petclinic-admin-server-3.0.1.jar \
+    --artifact-path spring-petclinic-admin-server/target/admin-server-3.0.1.jar \
     --jvm-options="-Xms1536m -Xmx1536m"
 az spring app deploy \
     --name vets-service \
     --runtime-version Java_17 \
-    --jar-path spring-petclinic-vets-service/target/spring-petclinic-vets-service-3.0.1.jar \
+    --artifact-path spring-petclinic-vets-service/target/vets-service-3.0.1.jar \
     --jvm-options="-Xms1536m -Xmx1536m"
 az spring app deploy \
     --name visits-service \
     --runtime-version Java_17 \
-    --jar-path spring-petclinic-visits-service/target/spring-petclinic-visits-service-3.0.1.jar \
+    --artifact-path spring-petclinic-visits-service/target/visits-service-3.0.1.jar \
     --jvm-options="-Xms1536m -Xmx1536m"
 ```
 
@@ -332,20 +332,19 @@ Compiling the project takes 5-10 minutes. When the project is compiled, you shou
 
 ## Generate configurations and deploy to Azure Spring Apps
 
-The following steps show you how to generate configurations and deploy to Azure Spring Apps.
+The following steps show you how to generate configurations and deploy to Azure Spring Apps:
 
-1. Generate configurations by running the following command in the root folder of Pet Clinic containing the parent POM. If you've already signed-in with Azure CLI, the command automatically picks up the credentials. Otherwise, it signs you in with prompt instructions. For more information, see our [wiki page](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
+1. Go to the *spring-petclinic-customers-service* folder. Generate configurations by running the following command. If you've already signed-in with Azure CLI, the command automatically picks up the credentials. Otherwise, it signs you in using a prompt with instructions. For more information, see [Authentication](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) on the [azure-maven-plugins](https://github.com/microsoft/azure-maven-plugins) wiki.
 
    ```bash
-   mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:config
+   mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:config -DappName=customers-service
    ```
 
-   You're asked to select:
+   You're asked to provide the following values:
 
-   - **Modules:** Select `api-gateway` and `customers-service`.
    - **Subscription:** The subscription you used to create an Azure Spring Apps instance.
    - **Service Instance:** The name of your Azure Spring Apps instance.
-   - **Public endpoint:** In the list of provided projects, enter the number that corresponds with `api-gateway`, giving it public access.
+   - **Public endpoint:** Whether to assign a public endpoint to the app. Select **No**.
 
 1. Verify that the `appName` elements in the POM files are correct:
 
@@ -362,16 +361,18 @@ The following steps show you how to generate configurations and deploy to Azure 
                    <appName>customers-service</appName>
    ```
 
-   Make sure `appName` is one of the following values:
+   The POM now contains the plugin dependencies and configurations.
 
-     - api-gateway
-     - customers-service
-
-   Remove any prefix if needed, and save the file.
-
-1. The POM now contains the plugin dependencies and configurations. Deploy the apps using the following command.
+1. Deploy the apps by using the following command:
 
    ```bash
+   mvn azure-spring-apps:deploy
+   ```
+
+1. Go to the *spring-petclinic-api-gateway* folder. Run the following commands to generate the configuration and deploy `api-gateway`. Select **yes** for **Public endpoint**.
+
+   ```bash
+   mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:config -DappName=api-gateway
    mvn azure-spring-apps:deploy
    ```
 

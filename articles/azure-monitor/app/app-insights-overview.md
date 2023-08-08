@@ -4,7 +4,7 @@ description: Learn how Application Insights in Azure Monitor provides performanc
 ms.topic: overview
 ms.date: 05/12/2023
 ---
-
+ 
 # Application Insights overview
 
 Application Insights is an extension of [Azure Monitor](../overview.md) and provides application performance monitoring (APM) features. APM tools are useful to monitor applications from development, through test, and into production in the following ways:
@@ -149,7 +149,7 @@ This section lists all supported platforms and frameworks.
 ### Logging frameworks
 * [ILogger](./ilogger.md)
 * [Log4Net, NLog, or System.Diagnostics.Trace](./asp-net-trace-logs.md)
-* [Log4J, Logback, or java.util.logging](./opentelemetry-enable.md?tabs=java#logs)
+* [Log4J, Logback, or java.util.logging](./opentelemetry-add-modify.md?tabs=java#logs)
 * [LogStash plug-in](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 * [Azure Monitor](/archive/blogs/msoms/application-insights-connector-in-oms)
 
@@ -173,6 +173,10 @@ Review [frequently asked questions](../faq.yml).
 Review dedicated [troubleshooting articles](/troubleshoot/azure/azure-monitor/welcome-azure-monitor) for Application Insights.
 
 ## Help and support
+
+### Azure technical support
+
+For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 
 ### Microsoft Q&A questions forum
 

@@ -1,5 +1,5 @@
 ---
-title: Customize the Azure IoT Central UI | Microsoft Docs
+title: Customize the Azure IoT Central UI
 description: How to customize the theme, text, and help links for your Azure IoT Central application to apply your branding to the application.
 author: dominicbetts
 ms.author: dobett

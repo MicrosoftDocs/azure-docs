@@ -191,11 +191,11 @@ So now you'll add a trigger that starts your workflow.
 
 ## Add a trigger
 
-This example workflow starts with the [built-in Request trigger](../connectors/connectors-native-reqres.md) named **When an HTTP request is received**. This trigger creates an endpoint that other services or logic app workflows can call and waits for those inbound calls or requests to arrive. Built-in operations run natively and directly within the Azure Logic Apps runtime.
+This example workflow starts with the [built-in Request trigger](../connectors/connectors-native-reqres.md) named **When a HTTP request is received**. This trigger creates an endpoint that other services or logic app workflows can call and waits for those inbound calls or requests to arrive. Built-in operations run natively and directly within the Azure Logic Apps runtime.
 
 1. On the workflow designer, make sure that your blank workflow is open and that the **Add a trigger** prompt is selected on the designer surface.
 
-1. By using **request** as the search term, [follow these steps to add the built-in Request trigger named **When an HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to your workflow.
+1. By using **request** as the search term, [follow these steps to add the built-in Request trigger named **When a HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to your workflow.
 
    When the trigger appears on the designer, the trigger's information pane opens to show the trigger's properties, settings, and other actions.
 
@@ -213,11 +213,9 @@ This example workflow continues with the [Office 365 Outlook managed connector a
 
 1. On the designer, under the trigger that you added, select the plus sign (**+**) > **Add an action**.
 
-   The **Browse operations** pane opens so that you can select the next action.
+   The **Add an action** pane opens so that you can select the next action.
 
 1. By using **office send an email** as the search term, [follow these steps to add the Office 365 Outlook action that's named **Send an email (V2)**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to your workflow.
-
-   ![Screenshot showing the designer, the picker pane, and the selected Office 365 Outlook named Send an email.](./media/create-single-tenant-workflows-azure-portal/find-send-email-action.png)
 
 1. In the action's information pane, on the **Create Connection** tab, select **Sign in** so that you can create a connection to your email account.
 
@@ -292,7 +290,7 @@ To find the fully qualified domain names (FQDNs) for connections, follow these s
 
 In this example, the workflow runs when the Request trigger receives an inbound request, which is sent to the URL for the endpoint that's created by the trigger. When you saved the workflow for the first time, Azure Logic Apps automatically generated this URL. So, before you can send this request to trigger the workflow, you need to find this URL.
 
-1. On the workflow designer, select the Request trigger that's named **When an HTTP request is received**.
+1. On the workflow designer, select the Request trigger that's named **When a HTTP request is received**.
 
 1. After the information pane opens, on the **Parameters** tab, find the **HTTP POST URL** property. To copy the generated URL, select the **Copy Url** (copy file icon), and save the URL somewhere else for now. The URL follows this format:
 

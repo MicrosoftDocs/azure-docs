@@ -74,8 +74,10 @@ More information about policies:
 -  [Trigger output binding](invoke-dapr-binding-policy.md): Uses Dapr runtime to invoke an external system via output binding. To learn more about bindings in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md) file.
 
 ## GraphQL resolver policies
+- [Azure SQL data source for resolver](sql-data-source-policy.md) - Configures the Azure SQL request and optional response to resolve data for an object type and field in a GraphQL schema.
+- [Cosmos DB data source for resolver](cosmosdb-data-source-policy.md) - Configures the Cosmos DB request and optional response to resolve data for an object type and field in a GraphQL schema.
 - [HTTP data source for resolver](http-data-source-policy.md) - Configures the HTTP request and optionally the HTTP response to resolve data for an object type and field in a GraphQL schema.
-- [Publish event to GraphQL subscription](publish-event-policy.md) - Publishes an event to one or more subscriptions specified in a GraphQL API schema. Used in the `http-response` element of the `http-data-source` policy
+- [Publish event to GraphQL subscription](publish-event-policy.md) - Publishes an event to one or more subscriptions specified in a GraphQL API schema. Configure the policy in a GraphQL resolver for a related field in the schema for another operation type such as a mutation. 
 
 ## Transformation policies
 -   [Convert JSON to XML](json-to-xml-policy.md) - Converts request or response body from JSON to XML.
@@ -93,6 +95,7 @@ More information about policies:
 
 - [Validate content](validate-content-policy.md) - Validates the size or content of a request or response body against one or more API schemas. The supported schema formats are JSON and XML.
 - [Validate GraphQL request](validate-graphql-request-policy.md) - Validates and authorizes a request to a GraphQL API. 
+- [Validate OData request](validate-odata-request-policy.md) - Validates a request to an OData API to ensure conformance with the OData specification.
 - [Validate parameters](validate-parameters-policy.md) - Validates the request header, query, or path parameters against the API schema.
 - [Validate headers](validate-headers-policy.md) - Validates the response headers against the API schema.
 - [Validate status code](validate-status-code-policy.md) - Validates the HTTP status codes in responses against the API schema.
@@ -102,4 +105,4 @@ For more information about working with policies, see:
 
 + [Tutorial: Transform and protect your API](transform-api.md)
 + [Set or edit policies](set-edit-policies.md)
-+ [Policy samples](./policies/index.md)	
++ [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)	

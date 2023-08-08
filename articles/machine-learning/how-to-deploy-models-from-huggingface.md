@@ -4,6 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Deploy and score transformers based large language models from the Hugging Face hub. 
 services: machine-learning
 ms.service: machine-learning
+ms.custom: devx-track-python
 ms.topic: how-to
 ms.reviewer: ssalgado
 author: ManojBableshwar
@@ -98,7 +99,7 @@ scoring_file = "./sample_score.json"
 with open(scoring_file, "w") as outfile:
     outfile.write('{"inputs": ["Paris is the [MASK] of France.", "The goal of life is [MASK]."]}')   
 response = workspace_ml_client.online_endpoints.invoke(
-    endpoint_name=online_endpoint_name,
+    endpoint_name=endpoint_name,
     deployment_name="demo",
     request_file=scoring_file,
 )
@@ -154,7 +155,11 @@ cat <<EOF > $scoring_file
 }
 EOF
 az ml online-endpoint invoke --name $endpoint_name --request-file $scoring_file
-``` 
+```
+
+## Hugging Face Model example code
+
+Follow this link to find [hugging face model example code](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/huggingface/inference) for various scenarios including token classification, translation, question answering, and zero shot classification. 
 
 ## Troubleshooting: Deployment errors and unsupported models
 
@@ -164,7 +169,7 @@ HuggingFace hub has thousands of models with hundreds being updated each day. On
 [Gated models](https://huggingface.co/docs/hub/models-gated) require users to agree to share their contact information and accept the model owners’ terms and conditions in order to access the model. Attempting to deploy such models will fail with a `KeyError`.
 
 ### Models that need to run remote code
-Models typically use code from the transformers SDK but some models run code from the model repo. Such models need to set the parameter `trust_remote_code` to `True`. Such models are not supported from keeping security in mind. Attempting to deploy such models will fail with the following error: `ValueError: Loading <model> requires you to execute the configuration file in that repo on your local machine. Make sure you have read the code there to avoid malicious use, then set the option trust_remote_code=True to remove this error.`
+Models typically use code from the transformers SDK but some models run code from the model repo. Such models need to set the parameter `trust_remote_code` to `True`. Follow this link to learn more about using [remote code](https://huggingface.co/docs/transformers/custom_models#using-a-model-with-custom-code). Such models are not supported from keeping security in mind. Attempting to deploy such models will fail with the following error: `ValueError: Loading <model> requires you to execute the configuration file in that repo on your local machine. Make sure you have read the code there to avoid malicious use, then set the option trust_remote_code=True to remove this error.`
 
 ### Models with incorrect tokenizers
 Incorrectly specified or missing tokenizer in the model package can result in `OSError: Can't load tokenizer for <model>` error.
@@ -192,6 +197,9 @@ Since the model weights aren't stored in the `HuggingFace` registry, you cannot 
 
 **What is a community registry?**
 Community registries are Azure Machine Learning registries created by trusted Azure Machine Learning partners and available to all Azure Machine Learning users.
+
+**Where can users submit questions and concerns regarding Hugging Face within Azure Machine Learning?**
+Submit your questions in the [Azure Machine Learning discussion forum.](https://discuss.huggingface.co/t/about-the-azure-machine-learning-category/40677) 
 
 ## Learn more
 

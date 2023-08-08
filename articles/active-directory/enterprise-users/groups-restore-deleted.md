@@ -16,20 +16,22 @@ ms.collection: M365-identity-device-management
 ---
 # Restore a deleted Microsoft 365 group in Azure Active Directory
 
-When you delete a Microsoft 365 group in Azure Active Directory (Azure AD), part of Microsoft Entra, the deleted group is retained but not visible for 30 days from the deletion date. This behavior is so that the group and its contents can be restored if needed. This functionality is restricted exclusively to Microsoft 365 groups in Azure AD. It is not available for security groups and distribution groups. Please note that the 30-day group restoration period is not customizable.
+When you delete a Microsoft 365 group in Azure Active Directory (Azure AD), part of Microsoft Entra, the deleted group is retained but not visible for 30 days from the deletion date. This behavior is so that the group and its contents can be restored if needed. This functionality is restricted exclusively to Microsoft 365 groups in Azure AD. It isn't available for security groups and distribution groups. Please note that the 30-day group restoration period isn't customizable.
 
 > [!NOTE]
-> Don't use `Remove-MsolGroup` because it purges the group permanently. Always use `Remove-AzureADMSGroup` to delete a Microsoft 365 group.
+> Don't use `Remove-MsolGroup` because it purges the group permanently. Always use `Remove-MgBetaGroup` to delete a Microsoft 365 group.
 
 The permissions required to restore a group can be any of the following:
 
 Role | Permissions
 --------- | ---------
-Global administrator, Group administrator, Partner Tier2 support, and Intune administrator | Can restore any deleted Microsoft 365 group
-User administrator and Partner Tier1 support | Can restore any deleted Microsoft 365 group except those groups assigned to the Global Administrator role
+Global administrator, Group administrator, Partner Tier 2 support, and Intune administrator | Can restore any deleted Microsoft 365 group
+User administrator and Partner Tier 1 support | Can restore any deleted Microsoft 365 group except those groups assigned to the Global Administrator role
 User | Can restore any deleted Microsoft 365 group that they own
 
 ## View and manage the deleted Microsoft 365 groups that are available to restore
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with a User Administrator account.
 
@@ -44,19 +46,21 @@ User | Can restore any deleted Microsoft 365 group that they own
 
 ## View the deleted Microsoft 365 groups that are available to restore using PowerShell
 
-The following cmdlets can be used to view the deleted groups to verify that the one or ones you're interested in have not yet been permanently purged. These cmdlets are part of the [Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/). More information about this module can be found in the [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2) article.
+The following cmdlets can be used to view the deleted groups to verify that the one or ones you're interested in haven't yet been permanently purged. These cmdlets are part of the [Microsoft Graph PowerShell module](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true). More information about this module can be found in the [Microsoft Graph PowerShell overview](/powershell/microsoftgraph/overview?view=graph-powershell-1.0&preserve-view=true) article.
 
-1.  Run the following cmdlet to display all deleted Microsoft 365 groups in your Azure AD organization that are still available to restore.
+1.  Run the following cmdlet to display all deleted Microsoft 365 groups in your Azure AD organization that are still available to restore. Please install the [Graph](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true) beta version if it isn't already installed on the machine.
    
 
     ```powershell
-    Get-AzureADMSDeletedGroup
+    Install-Module Microsoft.Graph.Beta
+    Connect-MgGraph -Scopes "Group.ReadWrite.All"
+    Get-MgBetaDirectoryDeletedGroup
     ```
 
-2.  Alternately, if you know the objectID of a specific group (and you can get it from the cmdlet in step 1), run the following cmdlet to verify that the specific deleted group has not yet been permanently purged.
+2.  Alternately, if you know the objectID of a specific group (and you can get it from the cmdlet in step 1), run the following cmdlet to verify that the specific deleted group hasn't yet been permanently purged.
 
-    ```
-    Get-AzureADMSDeletedGroup –Id <objectId>
+    ```powershell
+    Get-MgBetaDirectoryDeletedGroup -DirectoryObjectId <objectId>
     ```
 
 ## How to restore your deleted Microsoft 365 group using 
@@ -66,25 +70,25 @@ Once you have verified that the group is still available to restore, restore the
 1. Run the following cmdlet to restore the group and its contents.
  
 
-   ```
-    Restore-AzureADMSDeletedDirectoryObject –Id <objectId>
+   ```powershell    
+    Restore-MgBetaDirectoryDeletedItem -DirectoryObjectId <objectId>
     ``` 
 
 2. Alternatively, the following cmdlet can be run to permanently remove the deleted group.
     
 
-    ```
-    Remove-AzureADMSDeletedDirectoryObject –Id <objectId>
+    ```powershell
+    Remove-MgBetaDirectoryDeletedItem -DirectoryObjectId <objectId>
     ```
 
 ## How do you know this worked?
 
-To verify that you’ve successfully restored a Microsoft 365 group, run the `Get-AzureADGroup –ObjectId <objectId>` cmdlet to display information about the group. After the restore request is completed:
+To verify that you’ve successfully restored a Microsoft 365 group, run the `Get-MgBetaGroup –GroupId <objectId>` cmdlet to display information about the group. After the restore request is completed:
 
 - The group appears in the Left navigation bar on Exchange
 - The plan for the group will appear in Planner
 - Any SharePoint sites and all of their contents will be available
-- The group can be accessed from any of the Exchange endpoints and other Microsoft365 workloads that support Microsoft 365 groups
+- The group can be accessed from any of the Exchange endpoints and other Microsoft 365 workloads that support Microsoft 365 groups
 
 ## Next steps
 

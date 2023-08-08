@@ -5,13 +5,13 @@ description: Use the Data Movement library to move or copy data to or from blob 
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: pauljewell
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Transfer data with the Data Movement library

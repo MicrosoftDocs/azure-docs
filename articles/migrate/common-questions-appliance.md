@@ -4,6 +4,7 @@ description: Get answers to common questions about the Azure Migrate appliance.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: conceptual
 ms.custom: ignite-2022, engagement-fy23
 ms.date: 12/12/2022

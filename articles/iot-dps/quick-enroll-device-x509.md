@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp, java, nodejs
-ms.custom: mvc, mode-other
+ms.custom: mvc, mode-other, devx-track-extended-java
 zone_pivot_groups: iot-dps-set2
 ---
  

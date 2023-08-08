@@ -5,7 +5,7 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.custom: devx-track-arm-template
 ms.topic: conceptual
-ms.date: 08/12/2022
+ms.date: 07/20/2023
 author: chugugrace
 ms.author: chugu 
 ---
@@ -24,7 +24,7 @@ Use Azure portal to configure an Azure Resource Manager virtual network before y
 
 1. Start Microsoft Edge or Google Chrome. Currently, only these web browsers support ADF UI. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **More services**. Filter for and select **Virtual networks**. 
 
@@ -44,7 +44,7 @@ Use Azure portal to configure a classic virtual network before you try to join y
 
 1. Start Microsoft Edge or Google Chrome. Currently, only these web browsers support ADF UI. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **More services**. Filter for and select **Virtual networks (classic)**. 
 

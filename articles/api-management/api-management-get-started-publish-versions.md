@@ -4,7 +4,7 @@ description: Follow the steps of this tutorial to learn how to publish multiple 
 author: dlepow
 
 ms.service: api-management
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: danlep
@@ -13,7 +13,7 @@ ms.author: danlep
 
 There are times when it's impractical to have all callers to your API use exactly the same version. When callers want to upgrade to a later version, they want an approach that's easy to understand. As shown in this tutorial, it is possible to provide multiple *versions* in Azure API Management. 
 
-For background, see [Versions & revisions](https://azure.microsoft.com/blog/versions-revisions/).
+For background, see [Versions](api-management-versions.md) & [Revisions](api-management-revisions.md).
 
 In this tutorial, you learn how to:
 

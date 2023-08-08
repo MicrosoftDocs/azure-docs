@@ -247,6 +247,7 @@ Azure Cosmos DB supports querying items using [SQL](nosql/query/getting-started.
 | Maximum explicitly included paths per container| 1500 ¹ |
 | Maximum explicitly excluded paths per container| 1500 ¹ |
 | Maximum properties in a composite index| 8 |
+| Maximum number of paths in a composite index| 100 |
 
 ¹ You can increase any of these SQL query limits by creating an [Azure Support request](create-support-request-quota-increase.md).
 

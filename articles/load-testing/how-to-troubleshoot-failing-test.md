@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot load test errors
+title: Diagnose load test errors
 titleSuffix: Azure Load Testing
 description: Learn how you can diagnose and troubleshoot errors in Azure Load Testing. Download and analyze the Apache JMeter worker logs in the Azure portal.
 services: load-testing
@@ -10,7 +10,7 @@ ms.date: 02/15/2023
 ms.topic: how-to
 
 ---
-# Troubleshoot failing load tests in Azure Load Testing
+# Diagnose failing load tests in Azure Load Testing
 
 Learn how to diagnose and troubleshoot errors while running a load test with Azure Load Testing. Download the Apache JMeter worker logs or load test results for detailed logging information. Alternately, you can configure server-side metrics to identify issues in specific Azure application components.
 
@@ -99,6 +99,9 @@ You can identify errors in your load test in the following ways:
 
 When you run a load test, the Azure Load Testing test engines execute your Apache JMeter test script. During the load test, Apache JMeter stores detailed logging in the worker node logs. You can download these JMeter worker logs for each test run in the Azure portal. Azure Load Testing generates a worker log for each [test engine instance](./concept-load-testing-concepts.md#test-engine).
 
+> [!NOTE]
+> Azure Load Testing only records log messages with `WARN` or `ERROR` level in the worker logs.
+
 For example, if there's a problem with your JMeter script, the load test status is **Failed**. In the worker logs you might find additional information about the cause of the problem.
 
 To download the worker logs for an Azure Load Testing test run, follow these steps:
@@ -150,11 +153,11 @@ For Azure-hosted applications, you can configure your load test to monitor resou
 
 Learn how you can [monitor server-side application metrics in Azure Load Testing](./how-to-monitor-server-side-metrics.md).
 
-For application endpoints that you host on Azure App Service, you can [use App Service Insights to get additional insights](./concept-load-test-app-service.md#monitor-application-metrics) about the application behavior.
+For application endpoints that you host on Azure App Service, you can [use App Service Insights to get additional insights](./concept-load-test-app-service.md#monitor) about the application behavior.
 
 ## Next steps
 
 - Learn how to [Export the load test result](./how-to-export-test-results.md).
 - Learn how to [Monitor server-side application metrics](./how-to-monitor-server-side-metrics.md).
-- Learn how to [Get detailed insights for Azure App Service based applications](./concept-load-test-app-service.md#monitor-application-metrics).
+- Learn how to [Get detailed insights for Azure App Service based applications](./concept-load-test-app-service.md#monitor).
 - Learn how to [Compare multiple load test runs](./how-to-compare-multiple-test-runs.md).

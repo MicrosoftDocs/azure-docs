@@ -4,9 +4,10 @@ description: This article describes limits in Azure Database for PostgreSQL - Fl
 ms.author: sunila
 author: sunilagarwal
 ms.service: postgresql
+ms.reviewer: kabharati
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 11/05/2022
+ms.date: 5/31/2023
 ---
 
 # Limits in Azure Database for PostgreSQL - Flexible Server
@@ -17,38 +18,58 @@ The following sections describe capacity and functional limits in the database s
 
 ## Maximum connections
 
-The maximum number of connections per pricing tier and vCores are shown below. The Azure system requires three connections to monitor the Azure Database for PostgreSQL - Flexible Server.
+The _default_ maximum number of connections per pricing tier and vCores are shown below. The Azure system requires three connections to monitor the Azure Database for PostgreSQL - Flexible Server.
 
-| SKU Name             | vCores | Memory Size | Max Connections | Max User Connections |
-|----------------------|--------|-------------|-----------------|----------------------|
-| **Burstable**        |        |             |                 |                      |
-| B1ms                 | 1      | 2 GiB       | 50              | 47                   |
-| B2s                  | 2      | 4 GiB       | 100             | 97                   |
-| **General Purpose**  |        |             |                 |                      |
-| D2s_v3  / D2ds_v4    | 2      | 8 GiB       | 859             | 856                  |
-| D4s_v3  / D4ds_v4    | 4      | 16 GiB      | 1719            | 1716                 |
-| D8s_v3  / D8ds_V4    | 8      | 32 GiB      | 3438            | 3435                 |
-| D16s_v3 / D16ds_v4   | 16     | 64 GiB      | 5000            | 4997                 |
-| D32s_v3 / D32ds_v4   | 32     | 128 GiB     | 5000            | 4997                 |
-| D48s_v3 / D48ds_v4   | 48     | 192 GiB     | 5000            | 4997                 |
-| D64s_v3 / D64ds_v4   | 64     | 256 GiB     | 5000            | 4997                 |
-| **Memory Optimized** |        |             |                 |                      |
-| E2s_v3  / E2ds_v4    | 2      | 16 GiB      | 1719            | 1716                 |
-| E4s_v3  / E4ds_v4    | 4      | 32 GiB      | 3438            | 3433                 |
-| E8s_v3  / E8ds_v4    | 8      | 64 GiB      | 5000            | 4997                 |
-| E16s_v3 / E16ds_v4   | 16     | 128 GiB     | 5000            | 4997                 |
-| E20ds_v4             | 20     | 160 GiB     | 5000            | 4997                 |
-| E32s_v3 / E32ds_v4   | 32     | 256 GiB     | 5000            | 4997                 |
-| E48s_v3 / E48ds_v4   | 48     | 384 GiB     | 5000            | 4997                 |
-| E64s_v3 / E64ds_v4   | 64     | 432 GiB     | 5000            | 4997                 |
+| SKU Name                        | vCores | Memory Size | Max Connections | Max User Connections |
+|---------------------------------|--------|-------------|-----------------|----------------------|
+| **Burstable**                   |        |             |                 |                      |
+| B1ms                            | 1      | 2 GiB       | 50              | 47                   |
+| B2s                             | 2      | 4 GiB       | 100             | 97                   |
+| B2ms                            | 2      | 4 GiB       | 100             | 97                   |
+| B4ms                            | 4      | 8 GiB       | 859             | 856                  |
+| B8ms                            | 8      | 16 GiB      | 1719            | 1716                 |
+| B12ms                           | 12     | 24 GiB      | 2578            | 2575                 |
+| B16ms                           | 16     | 32 GiB      | 3438            | 3435                 |
+| B20ms                           | 20     | 40 GiB      | 4297            | 4294                 |
+| **General Purpose**             |        |             |                 |                      |
+| D2s_v3  / D2ds_v4 / D2ds_v5     | 2      | 8 GiB       | 859             | 856                  |
+| D4s_v3  / D4ds_v4 / D4ds_v5     | 4      | 16 GiB      | 1719            | 1716                 |
+| D8s_v3  / D8ds_V4 / D8ds_v5     | 8      | 32 GiB      | 3438            | 3435                 |
+| D16s_v3 / D16ds_v4 / D16ds_v5   | 16     | 64 GiB      | 5000            | 4997                 |
+| D32s_v3 / D32ds_v4 / D32ds_v5   | 32     | 128 GiB     | 5000            | 4997                 |
+| D48s_v3 / D48ds_v4 / D48ds_v5   | 48     | 192 GiB     | 5000            | 4997                 |
+| D64s_v3 / D64ds_v4 / D64ds_v5   | 64     | 256 GiB     | 5000            | 4997                 |
+| D96ds_v5                        | 96     | 384 GiB     | 5000            | 4997                 |
+| **Memory Optimized**            |        |             |                 |                      |
+| E2s_v3  / E2ds_v4  / E2ds_v5    | 2      | 16 GiB      | 1719            | 1716                 |
+| E4s_v3  / E4ds_v4   / E4ds_v5   | 4      | 32 GiB      | 3438            | 3433                 |
+| E8s_v3  / E8ds_v4   / E8ds_v5   | 8      | 64 GiB      | 5000            | 4997                 |
+| E16s_v3 / E16ds_v4  / E16ds_v5  | 16     | 128 GiB     | 5000            | 4997                 |
+| E20ds_v4 / E20ds_v5             | 20     | 160 GiB     | 5000            | 4997                 |
+| E32s_v3 / E32ds_v4  / E32ds_v5  | 32     | 256 GiB     | 5000            | 4997                 |
+| E48s_v3 / E48ds_v4  / E48ds_v5  | 48     | 384 GiB     | 5000            | 4997                 |
+| E64s_v3 / E64ds_v4  / E64ds_v5  | 64     | 432 GiB     | 5000            | 4997                 |
+| E96ds_v5                        | 96     | 672 GiB     | 5000            | 4997                 |
 
-When connections exceed the limit, you may receive the following error:
-> FATAL:  sorry, too many clients already.
+### Changing the max_connections value
+
+Customers can change the value maximum number of connections using either of the following methods:
+
+* Change the default value for the `max_connections` parameter using server parameter. This parameter is static and will require an instance restart. 
 
 > [!CAUTION]
-> While the maximum number of connections for certain SKUs is high, it's not recommended to set the max_connections parameter value to it's maximum. This is because although it may be a safe value when most connections are in the idle state, it can cause serious performance issues once they become active.  Instead, if you require more connections, we recommend using pgBouncer, Azure's built-in connection pool management solution, in transaction mode. To start, use safe values by multiplying vCores in the range of 2 to 5, and then check the resource utilization and application performance to ensure everything is running smoothly. For more information on pgBouncer, refer to the [PgBouncer in Azure Database for PostgreSQL - Flexible Server](concepts-pgbouncer.md) documentation.
+> While it is possible to increase the value of "max_connections" beyond the default setting, it is not advisable. The rationale behind this recommendation is that instances may encounter difficulties when the workload expands and demands more memory. As the number of connections increases, memory usage also rises. Instances with limited memory may face issues such as crashes or high latency. Although a higher value for "max_connections" might be acceptable when most connections are idle, it can lead to significant performance problems once they become active. Instead, if you require additional connections, we suggest utilizing pgBouncer, Azure's built-in connection pool management solution, in transaction mode. To start, it is recommended to use conservative values by multiplying the vCores within the range of 2 to 5. Afterward, carefully monitor resource utilization and application performance to ensure smooth operation. For detailed information on pgBouncer, please refer to the [PgBouncer in Azure Database for PostgreSQL - Flexible Server](concepts-pgbouncer.md) documentation.
 
-When using PostgreSQL for a busy database with a large number of concurrent connections, there may be a significant strain on resources. This strain can result in high CPU utilization, particularly when many connections are established simultaneously and when connections have short durations (less than 60 seconds). These factors can negatively impact overall database performance by increasing the time spent on processing connections and disconnections. It's important to note that each connection in Postgres, regardless of whether it is idle or active, consumes a significant amount of resources from your database. This can lead to performance issues beyond high CPU utilization, such as disk and lock contention, which are discussed in more detail in the PostgreSQL Wiki article on the [Number of Database Connections](https://wiki.postgresql.org/wiki/Number_Of_Database_Connections). To learn more about identifying and solving connection performance issues in Azure Postgres, visit our [blog post](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/identify-and-solve-connection-performance-in-azure-postgres/ba-p/3698375).
+* Scale your Azure Postgres instance up to a SKU with more memory size. 
+
+> [!NOTE]
+> Scaling up Azure Postgres instances impacts the account’s billing. To learn more, refer [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/).
+
+When connections exceed the limit, you may receive the following error:
+
+`FATAL:  sorry, too many clients already.`
+
+When using PostgreSQL for a busy database with a large number of concurrent connections, there may be a significant strain on resources. This strain can result in high CPU utilization, particularly when many connections are established simultaneously and when connections have short durations (less than 60 seconds). These factors can negatively impact overall database performance by increasing the time spent on processing connections and disconnections. It's important to note that each connection in Postgres, regardless of whether it is idle or active, consumes a significant amount of resources from your database. This can lead to performance issues beyond high CPU utilization, such as disk and lock contention, which are discussed in more detail in the PostgreSQL Wiki article on the [Number of Database Connections](https://wiki.postgresql.org/wiki/Number_Of_Database_Connections). To learn more about identifying and solving connection performance issues in Azure Database for Postgres, visit our [Identify and solve connection performance in Azure Postgres](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/identify-and-solve-connection-performance-in-azure-postgres/ba-p/3698375).
 
 ## Functional limitations
 

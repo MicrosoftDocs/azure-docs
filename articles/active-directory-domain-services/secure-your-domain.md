@@ -12,8 +12,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/29/2023
 ms.author: justinha 
-ms.custom: devx-track-azurepowershell
-
+ms.custom:
 ---
 # Harden an Azure Active Directory Domain Services managed domain
 

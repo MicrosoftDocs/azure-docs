@@ -2,6 +2,7 @@
 title: Use Azure Data Lake Tools for Visual Studio Code
 description: Learn how to use Azure Data Lake Tools for Visual Studio Code to create, test, and run U-SQL scripts.
 ms.service: data-lake-analytics
+ms.custom: devx-track-python
 ms.reviewer: whhender
 ms.topic: how-to
 ms.date: 10/17/2022

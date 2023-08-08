@@ -40,6 +40,9 @@ A read replica server can be created using the following command:
 az mysql flexible-server replica create --replica-name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup
 ```
 
+> [!IMPORTANT]
+>When using CLI for creating in-region read replica from a source server with private access, the source server network settings are carried over. The private access input parameters, such as "private-dns-zone", "subnet" and "vnet" are ignored and in-region read-replica is created with same private access settings as the source server
+
 > [!NOTE]
 > Read replicas are created with the same server configuration as the source. The replica server configuration can be changed after it has been created. The replica server is always created in the same resource group, same location and same subscription as the source server. If you want to create a replica server to a different resource group or different subscription, you can [move the replica server](../../azure-resource-manager/management/move-resource-group-and-subscription.md) after creation. It is recommended that the replica server's configuration should be kept at equal or greater values than the source to ensure the replica is able to keep up with the source.
 

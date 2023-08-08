@@ -66,53 +66,33 @@ The following example queries show how the diagnostics feature generates a repor
 
 This first example shows connection activities initiated by users with supported remote desktop clients:
 
-```powershell
+```kusto
 WVDActivityV1_CL
-
 | where Type_s == "Connection"
-
 | join kind=leftouter (
-
     WVDErrorV1_CL
-
     | summarize Errors = makelist(pack('Time', Time_t, 'Code', ErrorCode_s , 'CodeSymbolic', ErrorCodeSymbolic_s, 'Message', ErrorMessage_s, 'ReportedBy', ReportedBy_s , 'Internal', ErrorInternal_s )) by ActivityId_g
-
     ) on $left.Id_g  == $right.ActivityId_g 
-
 | join  kind=leftouter (
-
     WVDCheckpointV1_CL
-
     | summarize Checkpoints = makelist(pack('Time', Time_t, 'ReportedBy', ReportedBy_s, 'Name', Name_s, 'Parameters', Parameters_s) ) by ActivityId_g
-
     ) on $left.Id_g  == $right.ActivityId_g
-
 |project-away ActivityId_g, ActivityId_g1
 ```
 
 This next example query shows management activities by admins on tenants:
 
-```powershell
+```kusto
 WVDActivityV1_CL
-
 | where Type_s == "Management"
-
 | join kind=leftouter (
-
     WVDErrorV1_CL
-
     | summarize Errors = makelist(pack('Time', Time_t, 'Code', ErrorCode_s , 'CodeSymbolic', ErrorCodeSymbolic_s, 'Message', ErrorMessage_s, 'ReportedBy', ReportedBy_s , 'Internal', ErrorInternal_s )) by ActivityId_g
-
     ) on $left.Id_g  == $right.ActivityId_g 
-
 | join  kind=leftouter (
-
     WVDCheckpointV1_CL
-
     | summarize Checkpoints = makelist(pack('Time', Time_t, 'ReportedBy', ReportedBy_s, 'Name', Name_s, 'Parameters', Parameters_s) ) by ActivityId_g
-
     ) on $left.Id_g  == $right.ActivityId_g
-
 |project-away ActivityId_g, ActivityId_g1
 ```
 

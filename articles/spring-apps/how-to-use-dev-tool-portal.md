@@ -6,7 +6,7 @@ ms.author: zlhe
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 11/28/2022
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
 ---
 
 # Configure Tanzu Dev Tools in the Azure Spring Apps Enterprise plan
@@ -39,7 +39,7 @@ This article describes how to configure VMware Tanzu Dev Tools. Dev Tools includ
 Dev Tools Portal supports authentication and authorization using single sign-on (SSO) with an OpenID identity provider (IdP) that supports the OpenID Connect Discovery protocol.
 
 > [!NOTE]
-> Azure Spring Apps supports only authorization servers that support the OpenID Connect Discovery protocol. Make sure to configure the external authorization server to allow redirects back to the Dev Tools Portal. See your authorization server's documentation and add *https://dev-tool-portal-external-url/api/auth/oidc/handler/frame* to the list of allowed redirect URIs.
+> Azure Spring Apps supports only authorization servers that support the OpenID Connect Discovery protocol. Make sure to configure the external authorization server to allow redirects back to the Dev Tools Portal. See your authorization server's documentation and add `https://dev-tool-portal-external-url/oauth2/callback` to the list of allowed redirect URIs.
 
 The following table describes SSO properties:
 
@@ -60,7 +60,7 @@ You can configure Dev Tools Portal using the Azure portal or Azure CLI.
 Use the following steps to configure Dev Tools Portal using the Azure portal:
 
 1. Open the [Azure portal](https://portal.azure.com).
-1. Select **Developer Tools (Preview)**.
+1. Select **Developer Tools**.
 1. Select the **Configuration** tab.
 1. On the **Configuration** page, update **Scope**, **Client ID**, **Client Secret**, and **Metadata Url**, and then select **Save**.
 1. Select **Assign endpoint** to expose the public endpoint.
@@ -90,7 +90,7 @@ You can assign a public endpoint using the Azure portal or Azure CLI.
 
 Use the following steps to access Dev Tools Portal and assign a public endpoint:
 
-1. Select **Developer Tools (Preview)**.
+1. Select **Developer Tools**.
 1. Select **Assign endpoint** to assign a public endpoint. Azure Spring Apps generates a URL within a few minutes.
 1. Save the URL for use later. Application Live View and Application Accelerator will then get their corresponding endpoints.
 

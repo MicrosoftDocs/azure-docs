@@ -1,6 +1,6 @@
 ---
 title: Understanding data aware security posture capability | Defender for Cloud in the field 
-titleSuffix: Microsoft Defender for Cloud
+
 description: Learn about data aware security posture capabilities in Defender CSPM
 ms.topic: reference
 ms.date: 05/16/2023
@@ -35,4 +35,4 @@ ms.date: 05/16/2023
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [API Security with Defender for APIs](episode-thirty-two.md)

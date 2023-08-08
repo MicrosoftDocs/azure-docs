@@ -5,6 +5,7 @@ author: bandersmsft
 ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/03/2023
 ms.author: banders
@@ -32,12 +33,12 @@ The reservation lifecycle is independent of an Azure subscription, so the reserv
 
 If you're a billing administrator, use following steps to view and manage all reservations and reservation transactions in the Azure portal.
 
-1. Sign into the [Azure portal](https://portal.azure.com) and navigate to **Cost Management + Billing**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Cost Management + Billing**.
     - If you're an EA admin, in the left menu, select **Billing scopes** and then in the list of billing scopes, select one.
     - If you're a Microsoft Customer Agreement billing profile owner, in the left menu, select **Billing profiles**. In the list of billing profiles, select one.
 1. In the left menu, select **Products + services** > **Reservations**.
 1. The complete list of reservations for your EA enrollment or billing profile is shown.
-1. Billing administrators can take ownership of a reservation by selecting one or multiple reservations, selecting **Grant access** and selecting **Grant access** in the window that appears.
+1. Billing administrators can take ownership of a reservation by selecting one or multiple reservations, selecting **Grant access** and selecting **Grant access** in the window that appears. For a Microsoft Customer Agreement, user should be in the same Azure Active Directory (Azure AD) tenant (directory) as the reservation.
 
 ### Add billing administrators
 
@@ -136,7 +137,7 @@ When you use the PowerShell script to assign the ownership role and it runs succ
 [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) rights are required before you can grant users or groups the Reservations Administrator and Reservations Reader roles at the tenant level. In order to get User Access Administrator rights at the tenant level, follow [Elevate access](../../role-based-access-control/elevate-access-global-admin.md) steps.
 
 ### Add a Reservations Administrator role or Reservations Reader role at the tenant level
-You can assign these roles from [Azure portal](https://portal.azure.com).
+You can assign these roles from the [Azure portal](https://portal.azure.com).
 
 1. Sign in to the Azure portal and navigate to **Reservations**.
 1. Select a reservation that you have access to.

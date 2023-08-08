@@ -9,6 +9,7 @@ ms.author: bashan
 ms.date: 04/10/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-azcli-js-csharp-java-python-logic-apps
 ---
 

@@ -13,9 +13,10 @@ ms.author: davidsmatlak
 This article provides information on how to export your existing Azure Policy resources. Exporting
 your resources is useful and recommended for backup, but is also an important step in your journey
 with Cloud Governance and treating your [policy-as-code](../concepts/policy-as-code.md). Azure
-Policy resources can be exported through
-[Azure CLI](#export-with-azure-cli), [Azure PowerShell](#export-with-azure-powershell), and each of
-the supported SDKs.
+Policy resources can be exported through [REST API](/rest/api/policy), [Azure CLI](#export-with-azure-cli), and [Azure PowerShell](#export-with-azure-powershell).
+
+> [!NOTE]
+> The portal experience for exporting definitions to GitHub was deprecated in April 2023. 
 
 ## Export with Azure CLI
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: overview
 ms.workload: identity
-ms.date: 06/24/2022
+ms.date: 08/08/2023
 ms.author: barclayn
 ms.custom: it-pro
 ms.reviewer: sumitp
@@ -29,8 +29,8 @@ In Azure Active Directory (Azure AD), part of Microsoft Entra, each Azure AD org
 
 If a non-administrative user of organization 'Contoso' creates a test organization 'Test,' then:
 
-* By default, the user who creates a organization is added as an external user in that new organization, and assigned the global administrator role in that organization.
-* The administrators of organization 'Contoso' have no direct administrative privileges to organization 'Test,' unless an administrator of 'Test' specifically grants them these privileges. However, administrators of 'Contoso' can control access to organization 'Test' if they sign in to the user account that created 'Test.'
+* By default, the user who creates a organization is added as an external user in that new organization, and assigned the Global Administrator role in that organization.
+* The administrators of organization 'Contoso' have no direct administrative privileges to organization 'Test,' unless an administrator of 'Test' specifically grants them these privileges.
 * If you add or remove an Azure AD role for a user in one organization, the change does not affect the roles that the user is assigned in any other Azure AD organization.
 
 ## Synchronization independence
@@ -39,7 +39,7 @@ You can configure each Azure AD organization independently to get data synchroni
 
 ## Add an Azure AD organization
 
-To add an Azure AD organization in the Azure portal, sign in to [the Azure portal](https://portal.azure.com) with an account that is an Azure AD global administrator, and select **New**.
+To add an Azure AD organization in the Azure portal, sign in to the [Azure portal](https://portal.azure.com) with an account that is an Azure AD Global Administrator, and select **New**.
 
 > [!NOTE]
 > Unlike other Azure resources, your Azure AD organizations are not child resources of an Azure subscription. If your Azure subscription is canceled or expired, you can still access your Azure AD organization's data using Azure PowerShell, the Microsoft Graph API, or the Microsoft 365 admin center. You can also [associate another subscription with the organization](../fundamentals/active-directory-how-subscriptions-associated-directory.md).

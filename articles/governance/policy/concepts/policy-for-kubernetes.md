@@ -49,7 +49,7 @@ To enable and use Azure Policy with your Kubernetes cluster, take the following 
 
 The following general limitations apply to the Azure Policy Add-on for Kubernetes clusters:
 
-- Azure Policy Add-on for Kubernetes is supported on Kubernetes version **1.14** or higher.
+- Azure Policy Add-on for Kubernetes is supported on [supported Kubernetes versions in Azure Kubernetes Service (AKS)](../../../aks/supported-kubernetes-versions.md).
 - Azure Policy Add-on for Kubernetes can only be deployed to Linux node pools.
 - Maximum number of pods supported by the Azure Policy Add-on: **10,000**
 - Maximum number of Non-compliant records per policy per cluster: **500**
@@ -137,7 +137,7 @@ must enable the **Microsoft.PolicyInsights** resource providers.
 1. If limited preview policy definitions were installed, remove the add-on with the **Disable**
    button on your AKS cluster under the **Policies** page.
 
-1. The AKS cluster must be version _1.14_ or higher. Use the following script to validate your AKS
+1. The AKS cluster must be a [supported AKS cluster version](https://learn.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli). Use the following script to validate your AKS
    cluster version:
 
    ```azurecli-interactive

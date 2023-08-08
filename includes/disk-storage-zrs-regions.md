@@ -1,9 +1,8 @@
 ---
  title: include file
  description: include file
- services: virtual-machines
  author: roygara
- ms.service: virtual-machines
+ ms.service: azure-disk-storage
  ms.topic: include
  ms.date: 05/05/2023
  ms.author: rogarana
@@ -11,12 +10,15 @@
 ---
 
 ZRS disks are currently available in the following regions:
+- East Asia
 - Southeast Asia
 - Australia East
 - Brazil South
-- West Europe
 - North Europe
+- West Europe
 - France Central
+- Japan East
+- Korea Central
 - Qatar Central
 - UK South
 - East US

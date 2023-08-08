@@ -5,7 +5,7 @@ ms.topic: tutorial
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
-ms.custom: "seodec18, mvc, devx-track-js, devx-track-azurecli"
+ms.custom: seodec18, mvc, devx-track-azurecli
 # Customer intent: As a developer or devops engineer, I want container images to be built automatically when the base image of a container is updated in the registry.
 ---
 

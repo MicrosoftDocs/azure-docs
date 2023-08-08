@@ -33,7 +33,7 @@ Virtual appointments consist of the following phases:
 
 ## Next steps
 You can learn more about individual phases in the following sections:
--	[Scheduling](./overview.md)
--	[Before and after appointment](./overview.md)
--	[Precall](./overview.md)
--	[Call](./overview.md)
+-	[Scheduling](./schedule.md)
+-	[Before and after appointment](./before-and-after-appointment.md)
+-	[Precall](./precall.md)
+-	[Call](./call.md)
