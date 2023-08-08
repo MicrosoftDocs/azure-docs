@@ -14,7 +14,8 @@ ms.date: 06/15/2023
 Once you're satisfied with the experience in Azure OpenAI studio, you can deploy a web app directly from the 
 Studio by selecting the **Deploy to** button. 
 
-:::image type="content" source="../media/quickstarts/chatgpt-playground-publish-web-app.png" alt-text="A screenshot showing the button to publish a web app in Azure AI studio." lightbox="../media/quickstarts/chatgpt-playground-publish-web-app.png":::
+:::image type="content" source="../../media/use-your-data/deploy-model.png" alt-text="A screenshot showing the model deployment button in Azure OpenAI Studio." lightbox="../../media/use-your-data/deploy-model.png":::
+
 
 The first time you deploy a web app, you should select **Create a new web app**. Choose a name for the app, which will 
 become part of the app URL. For example, `https://<appname>.azurewebsites.net`. 
