@@ -16,8 +16,8 @@ The [data registry] service enables you to register data content in an Azure Sto
 
 ## Prerequisites
 
-- [Azure Maps account]
-- [Subscription key]
+- An [Azure Maps account]
+- A[Subscription key]
 - An [Azure storage account]
 
 >[!IMPORTANT]
@@ -364,6 +364,7 @@ When you register a file in Azure Maps using the data registry API, an MD5 hash 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps service geographic scope]: geographic-scope.md
 [Azure portal]: https://portal.azure.com/
+[Azure storage account]: /azure/storage/common/storage-account-create?tabs=azure-portal
 [AzureBlob]: #the-azureblob
 [blobUrl]: #the-bloburl-property
 [Create a data registry]: #create-a-data-registry
