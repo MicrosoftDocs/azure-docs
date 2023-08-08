@@ -771,6 +771,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/connectors/connectors-create-api-github.md",
+            "redirect_url": "/connectors/github",
+            "redirect_document_id": false
+        },        
+        {
             "source_path_from_root": "/articles/connectors/connectors-schema-migration.md",
             "redirect_url": "/azure/logic-apps/update-consumption-workflow-schema",
             "redirect_document_id": false

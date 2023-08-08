@@ -1,5 +1,5 @@
 ---
-title: Document Intelligence image tags and release notes
+title: Document Intelligence (formerly Form Recognizer) container image tags and release notes
 titleSuffix: Azure AI services
 description: A listing of all Document Intelligence container image tags.
 author: laujan
@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: reference
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.0.0'
+monikerRange: '<=doc-intel-3.1.0'
 ---
 
 

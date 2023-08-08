@@ -58,7 +58,6 @@ Custom discoveries are organized into Discovery Groups. They're independent seed
 
     ![Screenshot of pre-baked attack surface selection page, then output in seed list](media/Tutorial-6.png)
     
-    ![Screenshot of pre-baked attack surface selection page,](media/Tutorial-7.png)
 
     Alternatively, users can manually input their seeds. Defender EASM accepts domains, IP blocks, hosts, email contacts, ASNs, and WhoIs organizations as seed values. You can also specify entities to exclude from asset discovery to ensure they aren't added to your inventory if detected. For example, this is useful for organizations that have subsidiaries that will likely be connected to their central infrastructure, but don't belong to your organization.
 
