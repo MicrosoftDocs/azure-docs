@@ -1,7 +1,7 @@
 ---
 title: "Quickstart - Integrate with Azure Database for MySQL"
 description: Explains how to provision and prepare an Azure Database for MySQL instance, and then configure Pet Clinic on Azure Spring Apps to use it as a persistent database with only one command.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: quickstart
@@ -16,31 +16,31 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-
 
 **This article applies to:** ✔️ Basic/Standard ❌ Enterprise
 
-Pet Clinic, as deployed in the default configuration [Quickstart: Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md), uses an in-memory database (HSQLDB) that is populated with data at startup. This quickstart explains how to provision and prepare an Azure Database for MySQL instance and then configure Pet Clinic on Azure Spring Apps to use it as a persistent database with only one command.
+Pet Clinic, as deployed in the default configuration [Quickstart: Build and deploy apps to Azure Spring Apps](./quickstart-deploy-apps.md), uses an in-memory database (HSQLDB) that is populated with data at startup. This quickstart explains how to provision and prepare an Azure Database for MySQL instance and then configure Pet Clinic on Azure Spring Apps to use it as a persistent database.
 
 ## Prerequisites
 
 An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 
-## Prepare an Azure Database for MySQL instance
+## Create an Azure Database for MySQL instance
 
-1. Create an Azure Database for MySQL flexible server using the [az mysql flexible-server create](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create) command. Replace the placeholders `<database-name>`, `<resource-group-name>`, `<MySQL-flexible-server-name>`, `<admin-username>`, and `<admin-password>` with a name for your new database, the name of your resource group, a name for your new server, and an admin username and password. Use single quotes around the value for `admin-password`.
+Create an Azure Database for MySQL flexible server using the [az mysql flexible-server create](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create) command. Replace the placeholders `<database-name>`, `<resource-group-name>`, `<MySQL-flexible-server-name>`, `<admin-username>`, and `<admin-password>` with a name for your new database, the name of your resource group, a name for your new server, and an admin username and password. Use single quotes around the value for `admin-password`.
 
-   ```azurecli-interactive
-   az mysql flexible-server create \
-       --resource-group <resource-group-name> \
-       --name <MySQL-flexible-server-name> \
-       --database-name <database-name> \
-       --public-access 0.0.0.0 \
-       --admin-user <admin-username> \
-       --admin-password '<admin-password>'
-   ```
+```azurecli-interactive
+az mysql flexible-server create \
+    --resource-group <resource-group-name> \
+    --name <MySQL-flexible-server-name> \
+    --database-name <database-name> \
+    --public-access 0.0.0.0 \
+    --admin-user <admin-username> \
+    --admin-password '<admin-password>'
+```
 
-   > [!NOTE]
-   > The `Standard_B1ms` SKU is used by default. For pricing details, see [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/).
+> [!NOTE]
+> The `Standard_B1ms` SKU is used by default. For pricing details, see [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/).
 
-   > [!TIP]
-   > The password should be at least eight characters long and contain at least one English uppercase letter, one English lowercase letter, one number, and one non-alphanumeric character (!, $, #, %, and so on.).
+> [!TIP]
+> The password should be at least eight characters long and contain at least one English uppercase letter, one English lowercase letter, one number, and one non-alphanumeric character (!, $, #, %, and so on.).
 
 ## Connect your application to the MySQL database
 
@@ -57,7 +57,7 @@ Use [Service Connector](../service-connector/overview.md) to connect the app hos
    az provider register --namespace Microsoft.ServiceLinker
    ```
 
-1. Run the `az spring connection create` command to create a service connection between Azure Spring Apps and the Azure MySQL database. Replace the placeholders below with your own information. Use single quotes around the value for MySQL server `secret`.
+1. Run the `az spring connection create` command to create a service connection between the `customers-service` app and the Azure MySQL database. Replace the placeholders for the following settings with your own information. Use single quotes around the value for MySQL server `secret`.
 
    | Setting                   | Description                                                                                    |
    |---------------------------|------------------------------------------------------------------------------------------------|
@@ -74,7 +74,7 @@ Use [Service Connector](../service-connector/overview.md) to connect the app hos
    az spring connection create mysql-flexible \
        --resource-group <Azure-Spring-Apps-resource-group-name> \
        --service <Azure-Spring-Apps-resource-name> \
-       --app <app-name> \
+       --app customers-service \
        --connection <mysql-connection-name-for-app> \
        --target-resource-group <mySQL-server-resource-group> \
        --server <server-name> \
@@ -85,10 +85,10 @@ Use [Service Connector](../service-connector/overview.md) to connect the app hos
    > [!TIP]
    > If the `az spring` command isn't recognized by the system, check that you have installed the Azure Spring Apps extension by running `az extension add --name spring`.
 
-### [Portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
 1. In the Azure portal, type the name of your Azure Spring Apps instance in the search box at the top of the screen and select your instance.
-1. Under **Settings**, select **Apps** and select the application from the list.
+1. Under **Settings**, select **Apps**, and then select the `customers-service` application from the list.
 1. Select **Service Connector** from the left table of contents and select **Create**.
 
    :::image type="content" source="./media\quickstart-integrate-azure-database-mysql\create-service-connection.png" alt-text="Screenshot of the Azure portal, in the Azure Spring Apps instance, create a connection with Service Connector.":::
@@ -114,17 +114,19 @@ Use [Service Connector](../service-connector/overview.md) to connect the app hos
 
 ---
 
+Repeat these steps to create connections for the `customers-service`, `vets-service`, and `visits-service` applications.
+
 ## Check connection to MySQL database
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run the `az spring connection validate` command to show the status of the connection between Azure Spring Apps and the Azure MySQL database. Replace the placeholders below with your own information.
+Run the `az spring connection validate` command to show the status of the connection between the `customers-service` app and the Azure MySQL database. Replace the placeholders with your own information.
 
 ```azurecli-interactive
 az spring connection validate \
     --resource-group <Azure-Spring-Apps-resource-group-name> \
     --service <Azure-Spring-Apps-resource-name> \
-    --app <app-name> \
+    --app customers-service \
     --connection <mysql-connection-name-for-app> \
     --output table
 ```
@@ -150,6 +152,44 @@ Azure Spring Apps connections are displayed under **Settings > Service Connector
 
 ---
 
+Repeat these instructions to validate the connections for the `customers-service`, `vets-service`, and `visits-service` applications.
+
+## Update apps to use MySQL profile
+
+The following section explains how to update the apps to connect to the MySQL database.
+
+### [Azure CLI](#tab/azure-cli)
+
+Use the following command to set an environment variable to activate the `mysql` profile for the `customers-service` app:
+
+```azurecli
+az spring app update \
+    --resource-group <Azure-Spring-Apps-resource-group-name> \
+    --service <Azure-Spring-Apps-resource-name> \
+    --name customers-service \
+    --env SPRING_PROFILES_ACTIVE=mysql
+```
+
+### [Azure portal](#tab/azure-portal)
+
+Use the following steps to set an environment variable to activate the `mysql` profile for the `customers-service` app:
+
+1. Go to the Azure Spring Apps instance overview page, select **Apps** from the navigation menu, and then select the **customers-service** application from the list.
+
+1. On the **customers-service Overview** page, select **Configuration** from the navigation menu.
+
+1. On the **Configuration** page, select **Environment variables**. Enter `SPRING_PROFILES_ACTIVE` for **Key**, enter `mysql` for **Value**, and then select **Save**.
+
+   :::image type="content" source="media/quickstart-integrate-azure-database-mysql/customers-service-app-configuration.png" alt-text="Screenshot of the Azure portal showing the configuration settings for the customers-service app." lightbox="media/quickstart-integrate-azure-database-mysql/customers-service-app-configuration.png":::
+
+---
+
+Repeat these instructions to update app configuration for the `customers-service`, `vets-service`, and `visits-service` applications.
+
+## Validate the apps
+
+To validate the Pet Clinic service and to query records from the MySQL database to confirm the database connection, follow the instructions in the [Verify the services](./quickstart-deploy-apps.md?pivots=programming-language-java#verify-the-services) section of [Quickstart: Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md).
+
 ## Clean up resources
 
 If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group by using the [az group delete](/cli/azure/group#az-group-delete) command, which deletes the resources in the resource group. Replace `<resource-group>` with the name of your resource group.
@@ -160,5 +200,5 @@ az group delete --name <resource-group>
 
 ## Next steps
 
-* [Bind an Azure Database for MySQL instance to your application in Azure Spring Apps](how-to-bind-mysql.md)
+* [Bind an Azure Database for MySQL instance to your application in Azure Spring Apps](./how-to-bind-mysql.md)
 * [Use a managed identity to connect Azure SQL Database to an app in Azure Spring Apps](./connect-managed-identity-to-azure-sql.md)

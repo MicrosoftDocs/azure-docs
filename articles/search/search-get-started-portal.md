@@ -54,7 +54,7 @@ An indexer is a source-specific crawler that can read metadata and content from 
 
 ### Step 2 - Skip the "Enrich content" page
 
-The wizard supports the creation of an [AI enrichment pipeline](cognitive-search-concept-intro.md) for incorporating the Cognitive Services AI algorithms into indexing. 
+The wizard supports the creation of an [AI enrichment pipeline](cognitive-search-concept-intro.md) for incorporating the Azure AI services algorithms into indexing. 
 
 We'll skip this step for now, and move directly on to **Customize target index**.
 

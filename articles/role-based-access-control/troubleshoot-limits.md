@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/21/2023
+ms.date: 07/31/2023
 ms.author: rolyon
 ---
 
@@ -20,6 +20,9 @@ This article describes some common solutions when you exceed the limits in Azure
 - [Reader](./built-in-roles.md#reader) role to run Azure Resource Graph queries.
 - [User Access Administrator](./built-in-roles.md#user-access-administrator) or [Owner](./built-in-roles.md#owner) role to add role assignments, remove role assignments, or delete custom roles.
 - [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) or [User Administrator](../active-directory/roles/permissions-reference.md#user-administrator) role to create groups.
+
+> [!NOTE]
+> The queries used in this article only return role assignments or custom roles that you have permissions to read. For example, if you only have permissions to read role assignments at resource group scope, role assignments at subscription scope aren't returned.
 
 ## Symptom - No more role assignments can be created
 
@@ -276,7 +279,7 @@ When you try to create a new custom role, you get the following message:
 
 ### Cause
 
-Azure supports up to **5000** custom roles in a directory. (For Azure China 21Vianet, the limit is 2000 custom roles.)
+Azure supports up to **5000** custom roles in a directory. (For Microsoft Azure operated by 21Vianet, the limit is 2000 custom roles.)
 
 ### Solution
 

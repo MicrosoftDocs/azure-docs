@@ -5,7 +5,8 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 06/29/2023
+ms.service: azure-migrate
+ms.date: 07/10/2023
 ms.custom: mvc, subject-rbac-steps, engagement-fy23
 #Customer intent: As a Hyper-V admin, I want to discover my on-premises servers on Hyper-V.
 ---
@@ -110,7 +111,7 @@ Hash value is:
 
 **Hash** |  **Value**
 --- | ---
-SHA256 | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
+SHA256 | 0DD9D0E2774BB8B33EB7EF7D97D44A90A7928A4B1A30686C5B01EBD867F3BD68
 
 ### Create an account to access servers
 
@@ -195,7 +196,7 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario*** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) |  7134EF5B61D3560A102DF4814CB91C95E44EAE9677AAF1CC68AE0A04A6DBD613 
+        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) |  967FC3B8A5C467C303D86C8889EB4E0D4A8A7798865CBFBDF23E425D4EE425CA 
 
 ### 3. Create an appliance
 

@@ -1,12 +1,12 @@
 ---
 title: "How to self-diagnose and solve problems in Azure Spring Apps"
 description: Learn how to self-diagnose and solve problems in Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 6/1/2023
-ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # Self-diagnose and solve problems in Azure Spring Apps

@@ -4,8 +4,7 @@ titleSuffix: Azure Storage
 description: This tutorial shows how to run Spark queries on an Azure Databricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
 author: normesta
 
-ms.subservice: data-lake-storage-gen2
-ms.service: storage
+ms.service: azure-data-lake-storage
 ms.topic: tutorial
 ms.date: 02/07/2023
 ms.author: normesta

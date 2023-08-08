@@ -5,6 +5,7 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.date: 06/29/2023
+ms.service: azure-migrate
 ms.custom: engagement-fy23
 ---
 

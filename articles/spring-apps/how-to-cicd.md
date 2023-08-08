@@ -1,7 +1,7 @@
 ---
 title: Automate application deployments to Azure Spring Apps
 description: Describes how to use the Azure Spring Apps task for Azure Pipelines.
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 09/13/2021

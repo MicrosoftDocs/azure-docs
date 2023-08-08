@@ -6,6 +6,7 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 06/29/2023
+ms.service: azure-migrate
 ms.custom: MVC, engagement-fy23
 #Customer intent: As a Hyper-V admin, I want to assess my Hyper-V VMs in preparation for migration to Azure.
 ---

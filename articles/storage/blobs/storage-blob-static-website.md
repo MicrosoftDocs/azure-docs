@@ -6,8 +6,7 @@ ms.service: storage
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: dineshm
-ms.date: 09/29/2022
-ms.subservice: blobs
+ms.date: 07/24/2023
 ms.custom:
 ---
 

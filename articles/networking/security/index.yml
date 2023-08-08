@@ -38,6 +38,9 @@ highlightedContent:
     - title: What is Azure Web Application Firewall?
       itemType: video
       url: https://www.microsoft.com/en-us/videoplayer/embed/RWCwkM
+    - title: Azure network security webinars
+      itemType: video
+      url: https://techcommunity.microsoft.com/t5/security-compliance-and-identity/recordings-security-community-webinars/ba-p/2865990
 
 
 # additionalContent section (optional)

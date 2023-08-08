@@ -1,12 +1,12 @@
 ---
 title:  Monitor app lifecycle events using Azure Activity log and Azure Service Health
 description: Monitor app lifecycle events and set up alerts with Azure Activity log and Azure Service Health.
-author: karlerickson
+author: KarlErickson
 ms.author: shiqiu
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 08/19/2021
-ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # Monitor app lifecycle events using Azure Activity log and Azure Service Health

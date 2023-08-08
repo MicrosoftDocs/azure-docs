@@ -4,8 +4,8 @@ description: The Azure Storage Emulator (deprecated) provides a free local devel
 author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 07/14/2021
-ms.service: storage
-ms.subservice: common
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 ---

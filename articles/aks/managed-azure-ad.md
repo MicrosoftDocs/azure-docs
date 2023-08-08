@@ -2,7 +2,7 @@
 title: AKS-managed Azure Active Directory integration
 description: Learn how to configure Azure AD for your Azure Kubernetes Service (AKS) clusters.
 ms.topic: article
-ms.date: 06/09/2023
+ms.date: 07/28/2023
 ms.custom: devx-track-azurecli
 ms.author: miwithro
 ---
@@ -24,9 +24,13 @@ Learn more about the Azure AD integration flow in the [Azure AD documentation](c
 ## Before you begin
 
 * Make sure you have Azure CLI version 2.29.0 or later is installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
-* You need `kubectl` with a minimum version of [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) or [`kubelogin`][kubelogin]. The difference between the minor versions of Kubernetes and `kubectl` shouldn't be more than *one* version. You'll experience authentication issues if you don't use the correct version.
+* You need `kubectl` with a minimum version of [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) or [`kubelogin`][kubelogin]. With the Azure CLI and the Azure PowerShell module, these two commands are included and automatically managed. Meaning, they are upgraded by default and running `az aks install-cli` isn't required or recommended. If you are using an automated pipeline, you need to manage upgrading to the correct or latest version. The difference between the minor versions of Kubernetes and `kubectl` shouldn't be more than *one* version. Otherwise, you'll experience authentication issues if you don't use the correct version.
 * If you're using [helm](https://github.com/helm/helm), you need a minimum version of helm 3.3.
 * This configuration requires you have an Azure AD group for your cluster. This group is registered as an admin group on the cluster to grant admin permissions. If you don't have an existing Azure AD group, you can create one using the [`az ad group create`](/cli/azure/ad/group#az_ad_group_create) command.
+
+> [!NOTE]
+> Azure AD integrated clusters using a Kubernetes version newer than version 1.24 automatically use the `kubelogin` format. Starting with Kubernetes version 1.24, the default format of the clusterUser credential for Azure AD clusters is `exec`, which requires [`kubelogin`][kubelogin] binary in the execution PATH. There is no behavior change for non-Azure AD clusters, or Azure AD clusters running a version older than 1.24.
+> Existing downloaded `kubeconfig` continues to work. An optional query parameter **format** is included when getting clusterUser credential to overwrite the default behavior change. You can explicitly specify format to **azure** if you need to maintain the old `kubeconfig` format .
 
 ## Enable AKS-managed Azure AD integration on your AKS cluster
 
@@ -84,7 +88,11 @@ A successful activation of an AKS-managed Azure AD cluster has the following sec
 
 ### Upgrade a legacy Azure AD cluster to AKS-managed Azure AD integration
 
-If your cluster uses legacy Azure AD integration, you can upgrade to AKS-managed Azure AD integration with no downtime using the [`az aks update`][az-aks-update] command.
+If your cluster uses legacy Azure AD integration, you can upgrade to AKS-managed Azure AD integration using the [`az aks update`][az-aks-update] command.
+
+> [!WARNING]
+> Free tier clusters may experience API server downtime during the upgrade. We recommend upgrading during your nonbusiness hours. 
+> After the upgrade, the kubeconfig content changes. You need to run `az aks get-credentials --resource-group <AKS resource group name> --name <AKS cluster name>` to merge the new credentials into the kubeconfig file. 
 
 ```azurecli-interactive
 az aks update -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
@@ -125,14 +133,16 @@ A successful migration of an AKS-managed Azure AD cluster has the following sect
 
 There are some non-interactive scenarios, such as continuous integration pipelines, that aren't currently available with `kubectl`. You can use [`kubelogin`][kubelogin] to connect to the cluster with a non-interactive service principal credential.
 
-Azure AD integrated clusters using a Kubernetes version newer than version 1.24 automatically use the `kubelogin` format. Starting with Kubernetes version 1.24, the default format of the clusterUser credential for Azure AD clusters is `exec`, which requires [`kubelogin`][kubelogin] binary in the execution PATH.
+> [!NOTE]
+> Azure AD integrated clusters using a Kubernetes version newer than version 1.24 automatically use the `kubelogin` format. Starting with Kubernetes version 1.24, the default format of the clusterUser credential for Azure AD clusters is `exec`, which requires [`kubelogin`][kubelogin] binary in the execution PATH. There is no behavior change for non-Azure AD clusters, or Azure AD clusters running a version older than 1.24.
+> Existing downloaded `kubeconfig` continues to work. An optional query parameter **format** is included when getting clusterUser credential to overwrite the default behavior change. You can explicitly specify format to **azure** if you need to maintain the old `kubeconfig` format .
 
 * When getting the clusterUser credential, you can use the `format` query parameter to overwrite the default behavior. You can set the value to `azure` to use the original kubeconfig format:
 
     ```azurecli-interactive
     az aks get-credentials --format azure
     ```
-    
+
 * If your Azure AD integrated cluster uses Kubernetes version 1.24 or lower, you need to manually convert the kubeconfig format.
 
     ```azurecli-interactive
@@ -142,6 +152,8 @@ Azure AD integrated clusters using a Kubernetes version newer than version 1.24 
 
 > [!NOTE]
 > If you receive the message **error: The Azure auth plugin has been removed.**, you need to run the command `kubelogin convert-kubeconfig` to convert the kubeconfig format manually.
+>
+> For more information, you can refer to [Azure Kubelogin Known Issues][azure-kubelogin-known-issues].
 
 ## Troubleshoot access issues with AKS-managed Azure AD
 
@@ -159,6 +171,7 @@ If you're permanently blocked by not having access to a valid Azure AD group wit
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
 [kubelogin]: https://github.com/Azure/kubelogin
+[azure-kubelogin-known-issues]: https://azure.github.io/kubelogin/known-issues.html
 
 <!-- LINKS - Internal -->
 [aks-concepts-identity]: concepts-identity.md

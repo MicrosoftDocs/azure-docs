@@ -2,8 +2,8 @@
 title: Submit Spark jobs in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to submit standalone and pipeline Spark jobs in Azure Machine Learning 
-author: fbsolo-ms1
-ms.author: franksolomon
+author: ynpandey
+ms.author: yogipandey
 ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
@@ -13,6 +13,8 @@ ms.custom: template-how-to
 ---
 
 # Submit Spark jobs in Azure Machine Learning
+
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Azure Machine Learning supports submission of standalone machine learning jobs and creation of [machine learning pipelines](./concept-ml-pipelines.md) that involve multiple machine learning workflow steps. Azure Machine Learning handles both standalone Spark job creation, and creation of reusable Spark components that Azure Machine Learning pipelines can use. In this article, you'll learn how to submit Spark jobs using:
 - Azure Machine Learning studio UI
@@ -24,7 +26,7 @@ For more information about **Apache Spark in Azure Machine Learning** concepts, 
 ## Prerequisites
 
 # [CLI](#tab/cli)
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
 - [Create an Azure Machine Learning compute instance](./concept-compute-instance.md#create).
@@ -32,7 +34,7 @@ For more information about **Apache Spark in Azure Machine Learning** concepts, 
 - [(Optional): An attached Synapse Spark pool in the Azure Machine Learning workspace](./how-to-manage-synapse-spark-pool.md).
 
 # [Python SDK](#tab/sdk)
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
 - [Configure your development environment](./how-to-configure-environment.md), or [create an Azure Machine Learning compute instance](./concept-compute-instance.md#create).
@@ -90,6 +92,7 @@ These prerequisites cover the submission of a Spark job from Azure Machine Learn
 
 > [!NOTE]
 > - To ensure successful execution of the Spark job, assign the **Contributor** and **Storage Blob Data Contributor** roles, on the Azure storage account used for data input and output, to the identity that the Spark job uses
+> - Public Network Access should be enabled in Azure Synapse workspace to ensure successful execution of the Spark job using an [attached Synapse Spark pool](./how-to-manage-synapse-spark-pool.md).
 > - If an [attached Synapse Spark pool](./how-to-manage-synapse-spark-pool.md) points to a Synapse Spark pool, in an Azure Synapse workspace that has a managed virtual network associated with it, [a managed private endpoint to storage account should be configured](../synapse-analytics/security/connect-to-a-secure-storage-account.md) to ensure data access.
 > - Serverless Spark compute supports a managed virtual network (preview). If a [managed network is provisioned for the serverless Spark compute, the corresponding private endpoints for the storage account should also be provisioned](./how-to-managed-network.md#configure-for-serverless-spark-jobs) to ensure data access.
 
@@ -130,7 +133,7 @@ df.to_csv(args.wrangled_data, index_col="PassengerId")
 The above script takes two arguments `--titanic_data` and `--wrangled_data`, which pass the path of input data and output folder respectively.
 
 # [Azure CLI](#tab/cli)
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 To create a job, a standalone Spark job can be defined as a YAML specification file, which can be used in the `az ml job create` command, with the `--file` parameter. Define these properties in the YAML file as follows:
 
@@ -275,7 +278,7 @@ You can execute the above command from:
 - your local computer that has [Azure Machine Learning CLI](./how-to-configure-cli.md?tabs=public) installed.
 
 # [Python SDK](#tab/sdk)
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ### Standalone Spark job using Python SDK 
 To create a standalone Spark job, use the `azure.ai.ml.spark` function, with these parameters:
@@ -398,7 +401,7 @@ ml_client.jobs.stream(returned_spark_job.name)
 
 ### Submit a standalone Spark job from Azure Machine Learning studio UI (preview)
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 To submit a standalone Spark job using the Azure Machine Learning studio UI:
 
@@ -493,7 +496,7 @@ To submit a standalone Spark job using the Azure Machine Learning studio UI:
 A Spark component offers the flexibility to use the same component in multiple [Azure Machine Learning pipelines](./concept-ml-pipelines.md), as a pipeline step.
 
 # [Azure CLI](#tab/cli)
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 YAML syntax for a Spark component resembles the [YAML syntax for Spark job specification](#yaml-properties-in-the-spark-job-specification) in most ways. These properties are defined differently in the Spark component YAML specification:
 - `name` - the name of the Spark component.
@@ -605,7 +608,7 @@ You can execute the above command from:
 - your local computer that has [Azure Machine Learning CLI](./how-to-configure-cli.md?tabs=public) installed.
 
 # [Python SDK](#tab/sdk)
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 To create an Azure Machine Learning pipeline with a Spark component, you should have familiarity with creation of [Azure Machine Learning pipelines from components, using Python SDK](./tutorial-pipeline-python-sdk.md#create-the-pipeline-from-components). A Spark component is created using `azure.ai.ml.spark` function. The function parameters are defined almost the same way as for the [standalone Spark job](#standalone-spark-job-using-python-sdk). These parameters are defined differently for the Spark component:
 
@@ -708,7 +711,7 @@ To troubleshoot a Spark job, you can access the logs generated for that job in A
 1. Access the Spark job logs inside the **driver** and **library manager** folders
 
 > [!NOTE]
-> To troubleshoot Spark jobs created during interactive data wrangling in a notebook session, select **Job details** near the top right corner of the notebook UI. 
+> To troubleshoot Spark jobs created during interactive data wrangling in a notebook session, select **Job details** near the top right corner of the notebook UI. A Spark jobs from an interactive notebook session is created under the experiment name **notebook-runs**.
 
 ## Next steps
 

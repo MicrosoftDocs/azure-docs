@@ -27,6 +27,10 @@ Before performing the procedures in this article, you need to have:
 
 - Access to the Azure portal as a [Security Admin](../../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../../role-based-access-control/built-in-roles.md#owner) user
 
+- A Defender for IoT OT plan. For more information, see [Add an OT plan to your Azure subscription](../how-to-manage-subscriptions.md#add-an-ot-plan-to-your-azure-subscription).
+
+    When you add a plan, you're given the option of downloading an activation file for your on-premises management console. Either use the file you'd downloaded then, or use the steps in this article to download it afresh.
+
 ## Sign in to your on-premises management console
 
 During the [software installation process](install-software-on-premises-management-console.md#users), you'll have received a set of credentials for privileged access. We recommend using the **Support** credentials when signing into the on-premises management console for the first time.
@@ -41,17 +45,16 @@ In a browser, go to the on-premises management console's IP address, and enter t
 
 ## Activate the on-premises management console
 
-Activate your on-premises management console using a downloaded file from the Azure portal. Defender for IoT activation files track the number of devices detected by connected OT sensors against the number of devices covered by your [licenses](../billing.md).
+Activate your on-premises management console using a downloaded file from the Azure portal. Either use an activation file you'd downloaded when [adding your plan](../how-to-manage-subscriptions.md#add-an-ot-plan-to-your-azure-subscription), or use the steps in this procedure to download the activation file afresh.
 
-If your sensors detect more devices than you're licensed for, purchase a new license for a larger site. For more information, see [Manage OT plans and licenses](../how-to-manage-subscriptions.md).
+**To download the activation file**:
 
-**To activate**:
+1. In Defender for IoT in the Azure portal, select **Plans and pricing**.
 
-1. After signing into the on-premises management console for the first time, you'll see a message prompting you to take action for a missing activation file. In the message bar, select the **Take action** link.
-
-    An **Activation** dialog shows the number of monitored and licensed devices. Since you're just starting the deployment, both of these values should be **0**.
-
-1. Select the link to the **Azure portal** to jump to Defender for IoT's **Plans and pricing** page in the Azure portal.
+    > [!NOTE]
+    > If you'd prefer to start in the on-premises management console, you'll see a message prompting you to take action for a missing activation file after signing into the on-premises management console for the first time.
+    >
+    > In the message bar, select the **Take action** link. An **Activation** dialog shows the number of monitored and licensed devices. <br><br>Since you're just starting the deployment, both of these values should be **0**. <br>        <br> Select the link to the **Azure portal** to jump to Defender for IoT's **Plans and pricing** page in the Azure portal.     |
 
 1. In the **Plans** grid, select your subscription.
 
@@ -61,7 +64,9 @@ If your sensors detect more devices than you're licensed for, purchase a new lic
 
     [!INCLUDE [root-of-trust](../includes/root-of-trust.md)]
 
-1. Return to your on-premises management console. In the **Activation** dialog, select **CHOOSE FILE** and select the downloaded activation file.
+**To activate your on-premises management console**:
+
+1. If you haven't yet, sign into your on-premises management console. In the **Activation** dialog, select **CHOOSE FILE** and select the downloaded activation file.
 
     A confirmation message appears to confirm that the file's been uploaded successfully.
 
@@ -91,7 +96,7 @@ The requirements for SSL/TLS certificates are the same for OT sensors and on-pre
 
 1. In the **SSL/TLS Certificates** dialog, select **Add Certificate**.
 
-1. In the **Import a trusted CA-signed certificate** area, enter a certificate name and optional passphrase, and then upload your CA-signed certificate files.
+1. In the **Import a trusted CA-signed certificate** area, enter a certificate name and optional [passphrase](../best-practices/certificate-requirements.md#supported-characters-for-keys-and-passphrases), and then upload your CA-signed certificate files.
 
 1. (Optional) Clear the **Enable certificate validation** option to avoid validating the certificate against a CRL server.
 

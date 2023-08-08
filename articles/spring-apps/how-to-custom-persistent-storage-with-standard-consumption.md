@@ -1,7 +1,7 @@
 ---
 title: How to enable your own persistent storage in Azure Spring Apps with the Standard consumption and dedicated plan
 description: Learn how to enable your own persistent storage in Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.author: yitaopan
 ms.service: spring-apps
 ms.topic: how-to
@@ -38,11 +38,11 @@ You can also mount your own persistent storage not only to Azure Spring Apps but
 Use the following commands to set the following variables to the names of your resources and current region setting.
 
 ```bash
-RESOURCE_GROUP="<resource-group-name>"
-LOCATION="eastus"
-AZURE_CONTAINER_APPS_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
-AZURE_SPRING_APPS_INSTANCE="<Azure-Spring-Apps-instance-name>"
-APP_NAME="<Spring-app-name>"
+export RESOURCE_GROUP="<resource-group-name>"
+export LOCATION="eastus"
+export AZURE_CONTAINER_APPS_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
+export AZURE_SPRING_APPS_INSTANCE="<Azure-Spring-Apps-instance-name>"
+export APP_NAME="<Spring-app-name>"
 ```
 
 ## Set up a storage account
@@ -52,7 +52,7 @@ Use the following steps to create a storage account and establish a file share t
 1. Create an Azure Storage account by using the following commands. The `STORAGE_ACCOUNT_NAME` variable includes a randomly generated suffix to ensure uniqueness.
 
    ```azurecli
-   STORAGE_ACCOUNT_NAME="myasastorageaccount$RANDOM"
+   export STORAGE_ACCOUNT_NAME="myasastorageaccount$RANDOM"
 
    az storage account create \
        --resource-group $RESOURCE_GROUP \
@@ -69,7 +69,7 @@ Use the following steps to create a storage account and establish a file share t
 1. Create the Azure Storage file share by using the following commands:
 
    ```azurecli
-   FILE_SHARE_NAME="<file-share-name>"
+   export FILE_SHARE_NAME="<file-share-name>"
 
    az storage share-rm create \
        --resource-group $RESOURCE_GROUP \
@@ -83,7 +83,7 @@ Use the following steps to create a storage account and establish a file share t
 1. Get the Storage Account key by using the following command:
 
    ```azurecli
-   STORAGE_ACCOUNT_KEY=$(az storage account keys list \
+   export STORAGE_ACCOUNT_KEY=$(az storage account keys list \
        --account-name $STORAGE_ACCOUNT_NAME \
        --query "[0].value" \
        --output tsv)
@@ -96,7 +96,7 @@ Use the following steps to create a storage account and establish a file share t
 Create the storage link in the Azure Container Apps environment by using the following commands. The `az containerapp env storage set` command creates a link between the environment and the file share created with the `az storage share-rm` command.
 
 ```azurecli
-STORAGE_MOUNT_NAME="<storage-account-name>"
+export STORAGE_MOUNT_NAME="<storage-account-name>"
 
 az containerapp env storage set \
     --resource-group $RESOURCE_GROUP \
