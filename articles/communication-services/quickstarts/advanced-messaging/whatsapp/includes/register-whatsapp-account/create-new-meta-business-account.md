@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
     :::image type="content" source="../../media/register-whatsapp-account/select-existing-whatsapp-account.png" alt-text="Screenshot that shows Creating new of selecting existing Meta Business Account.":::
 
-    If you want to create **New Meta Business Account**, follow instructions [here](#create-new-Meta-business-account)
+    If you want to create **New Meta Business Account**, follow instructions [here](#create-new-meta-business-account)
 
 2. Next you're asked to create a WhatsApp Business Account or select an existing one.
 

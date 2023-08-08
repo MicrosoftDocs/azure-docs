@@ -15,7 +15,7 @@ To get started, you connect a new or existing WhatsApp Business Account with you
 
 1. On the left navigation bar, select on the **WhatsApp** channel under the **Channels** header. To add a new WhatsApp Business Account, select on the **Connect** button.
 
-    :::image type="content" source="../../media/register-whatsapp-account/channelsblade.png" alt-text="Screenshot that shows Azure portal viewing the Communication Services Channels on the left panel.":::
+    :::image type="content" source="../../media/register-whatsapp-account/channels-blade.png" alt-text="Screenshot that shows Azure portal viewing the Communication Services Channels on the left panel.":::
 
 2. Select WhatsApp as the channel and select the **Connect** button.
 
@@ -29,7 +29,7 @@ To get started, you connect a new or existing WhatsApp Business Account with you
 
 5. You'll select the phone number, which you plan to use on the next screen. You can use an Azure Communication Services phone number, which is enabled to receive SMS text messages, or you can bring your own phone number.
 
-    :::image type="content" source="../../media/register-whatsapp-account/phonenumber-selection.png" alt-text="Screenshot that shows Connect to WhatsApp phone number selection.":::
+    :::image type="content" source="../../media/register-whatsapp-account/phone-number-selection.png" alt-text="Screenshot that shows Connect to WhatsApp phone number selection.":::
 
 6. Select the **Next** button to continue.
 

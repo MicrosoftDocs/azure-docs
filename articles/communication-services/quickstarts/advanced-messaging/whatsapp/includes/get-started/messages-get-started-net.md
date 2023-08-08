@@ -164,7 +164,7 @@ Initiate a conversation by sending a template message.
 
 First, create a MessageTemplate using the values for a template. 
 > [!NOTE]
-> To check which templates you have available, see the instructions at [List templates](../../../../../concepts/advancedmessaging/whatsapp/template-messages.md#list-templates).
+> To check which templates you have available, see the instructions at [List templates](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md#list-templates).
 > If you don't have any template to use, proceed to [Option 2](#option-2-initiate-conversation-from-user).
 
 Here's MessageTemplate creation using a default template, `sample_template`:
@@ -174,7 +174,7 @@ string templateLanguage = "en_us";
 var messageTemplate = new MessageTemplate(templateName, templateLanguage);
 ```
 
-For more examples of how to assemble your MessageTemplate and how to create your own template, see [Send WhatsApp Template Messages](../../../../../concepts/advancedmessaging/whatsapp/template-messages.md)
+For more examples of how to assemble your MessageTemplate and how to create your own template, see [Send WhatsApp Template Messages](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md)
 
 
 Assemble the template message:

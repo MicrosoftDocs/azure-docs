@@ -28,11 +28,11 @@ Getting started to enable Contoso developers to try out the Advanced Messaging f
 
 2. Select **Try Advanced Messaging**.  
 
-:::image type="content" source="./media/whatsapp-sandbox/advancedmessaging-sandbox-blade.png" alt-text="Screenshot that shows Advanced Messaging Sandbox option in the Azure portal.":::
+:::image type="content" source="./media/whatsapp-sandbox/advanced-messaging-sandbox-blade.png" alt-text="Screenshot that shows Advanced Messaging Sandbox option in the Azure portal.":::
 
 3. Before you can send a message to a WhatsApp end user from the sandbox on Azure portal, you first need to join the sandbox. You can scan the QR code on the **Connect to WhatsApp** page with your mobile device, it takes you to our preconfigured WhatsApp business account.
 
-:::image type="content" source="./media/whatsapp-sandbox/connect-to-whatsapp.png" alt-text="Screenshot that shows WhatsApp Connect QR code in the Azure portal.":::
+:::image type="content" source="./media/whatsapp-sandbox/connecttowhatsapp.png" alt-text="Screenshot that shows WhatsApp Connect QR code in the Azure portal.":::
 
 4. You're asked to send a unique keyword message to that phone number. Once we receive the keyword message, we reply with confirmation to you, that you have successfully joined the Sandbox. And we also save your WhatsApp phone number, which is used as the recipient number when sending messages from the sandbox. 
 
