@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 # Send WhatsApp Template Messages
 
-This document goes over general information about WhatsApp template messages and the syntax to send various messages templates.   
+This document provide guidance to send WhatsApp Template messages using Advanced Communication Messages SDK.   
 
 ## Why do I need to send a template message?
 
@@ -45,4 +45,9 @@ You can also view your templates by listing all templates for your channelID:
 ## Examples
 
 [!INCLUDE [Template examples with .NET](./includes/template-messages-examples-net.md)]
+
+## Next Steps
+
+-   [Get Started With Advanced Communication Messages SDK](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)
+
 

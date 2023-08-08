@@ -55,6 +55,6 @@ Our sandbox also have a few preconfigured templates for you to try out. Fill in 
 
 In this quickstart, you have tried out Advanced Messaging for WhatsApp sandbox. Next you might also want to see the following articles:
 
-- [Get Started With Advanced Messaging](../../../quickstarts//advancedmessaging/whatsapp/get-started.md)
+- [Get Started With Advanced Communication Messages SDK](./get-started.md)
 - [AdvancedMessaging for WhatsApp Overview](../../../concepts/advancedmessaging/whatsapp/whatsapp-overview.md)
 - [Advanced Messaging for WhatsApp Terms of Services](../../../concepts/advancedmessaging/whatsapp/whatsapp-termsof-service.md)

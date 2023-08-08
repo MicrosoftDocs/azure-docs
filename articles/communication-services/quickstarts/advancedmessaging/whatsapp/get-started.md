@@ -1,5 +1,5 @@
 ---
-title: Add Advanced Messaging SDK to Your App
+title: Add Advanced Messaging to Your App
 titleSuffix: An Azure Communication Services Messages quickstart
 description: In this quickstart, you learn to set up the basic functionality of Azure Communication Services Messages
 author: memontic-ms
@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 zone_pivot_groups: acs-dev-environment-vs-vscode,client-operating-system
 ---
 
-# Quickstart: Add Advanced Messaging SDK to Your App
+# Quickstart: Add Advanced Messaging to Your App
 
 ## Prerequisites
 
@@ -26,5 +26,5 @@ zone_pivot_groups: acs-dev-environment-vs-vscode,client-operating-system
 
 In this quickstart, you have tried out the Advanced Messaging for WhatsApp SDK. Next you might also want to see the following articles:
 
-- [Handle Advanced Messaging Events](handle-advanced-messaging-events.md)
+- [Handle Advanced Messaging Events](./handle-advanced-messaging-events.md)
 - [Send WhatsApp Template Messages](../../../concepts/advancedmessaging/whatsapp/template-messages.md)

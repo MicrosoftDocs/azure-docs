@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 
 # Quickstart: Register WhatsApp Business Account
 
-Get started with the Azure Communication Services Advanced Message, which extends messaging to users on WhatsApp. This feature allows your organization to send and receive messages with WhatsApp users using a WhatsApp Business Account. The Message SDK extends your communications to interact with the large global WhatsApp community for common scenarios:
+Get started with the Azure Communication Services Advanced Messaging, which extends messaging to users on WhatsApp. This feature allows your organization to send and receive messages with WhatsApp users using a WhatsApp Business Account. The Advanced Communication Messages SDK extends your communications to interact with the large global WhatsApp community for common scenarios:
 
 -   Receiving inquiries from your customers for product feedback or support, price quotes, and rescheduling appointments.
 -   Sending your customer's notifications like appointment reminders, product discounts, transaction receipts, and one-time passcodes.
@@ -22,13 +22,13 @@ Get started with the Azure Communication Services Advanced Message, which extend
 
 1.  [Facebook login account](https://www.facebook.com/index.php)
 2.  [Get Azure Communication Service Phonenumber](../..//telephony/get-phone-number.md?tabs=windows&pivots=platform-azp)
-    -  With the ability to send and receive SMS messages
+    -  With the ability to send and receive SMS messages.
     -  With an active Event subscription (SMS received and SMS delivery reports). [Learn how to handle SMS events.](../../telephony/get-phone-number.md?tabs=windows&pivots=platform-azp)
     -  With an Event Grid viewer. [Learn how to deploy an Event Grid viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/).
-    -  Phonenumber isn't associated with a WhatsApp Business Account
+    -  Phonenumber isn't associated with a WhatsApp Business Account.
 3.  Or bring your own phone number
-    -  With the ability to receive SMS and calls
-    -  Phonenumber isn't associated with a WhatsApp Business Account
+    -  With the ability to receive SMS and calls.
+    -  Phonenumber isn't associated with a WhatsApp Business Account.
 4.  [Active Meta Business Account](https://www.facebook.com/business/tools/meta-business-suite)
 
 ## WhatsApp Business Account Sign-up
