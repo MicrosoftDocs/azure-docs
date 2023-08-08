@@ -24,7 +24,7 @@ Because conversion requires a restart of the virtual machine (VM), schedule the 
 
 ## Restrictions
 
-- You can only change disk type once per day.
+- You can only change disk type two times per day.
 - You can only change the disk type of managed disks. If your disk is unmanaged, convert it to a managed disk with [CLI](linux/convert-unmanaged-to-managed-disks.md) or [PowerShell](windows/convert-unmanaged-to-managed-disks.md) to switch between disk types.
 
 ## Switch all managed disks of a VM between from one account to another
@@ -152,6 +152,7 @@ Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```
 
 # [Azure CLI](#tab/azure-cli)
+
 
 
  ```azurecli
@@ -298,8 +299,11 @@ The following steps assume you already have a snapshot. To learn how to create o
 1. Continue to the **Advanced** tab.
 1. Select **512** for **Logical sector size (bytes)**.
 1. Select **Review+Create** and then **Create**.
+
+
 ---
 
 ## Next steps
 
 Make a read-only copy of a VM by using a [snapshot](snapshot-copy-managed-disk.md).
+
