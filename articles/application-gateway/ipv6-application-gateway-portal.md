@@ -199,30 +199,60 @@ On the **Configuration** tab, the frontend and backend pool are connected with a
 
 8. Select **Next: Tags**, select **Next: Review + create**, and then select **Create**. Deployment of the application gateway will take a few minutes.
 
+## Assign a DNS name to the frontend IPv6 address
+
+A DNS name makes testing easier for the IPv6 application gateway. You can assign a public DNS name using your own domain and registrar, or you can create a name in azure.com. To assign a name in azure.com:
+
+1. From the Azure portal Home page, search for **Public IP addresses**.
+2. Select **MyAGPublicIPv6Address**.
+3. Under **Settings**, select **Configuration**.
+4. Under **DNS name label (optional)**, enter a name. For example, **myipv6appgw**.
+5. Select **Save**.
+6. Copy the FQDN to a text editor for access later. In the following example, the FQDN is **myipv6appgw.westcentralus.cloudapp.azure.com**.
+
+     ![Assign a DNS name](./media/application-gateway-create-gateway-portal-ipv6/assign-dns.png)
+
+## Add a backend subnet
+
+A backend IPv4 subnet is required for the backend targets.
+
+1. On the portal Home page, search for Virtual Networks and select the **MyVNet** virtual network.
+2. Next to **Address space**, select **10.0.0.0/16**.
+3. Under **Settings**, select **Subnets**.
+4. Select **+ Subnet** to add a new subnet.
+5. Under **Name**, enter **MyBackendSubnet**.
+6. The default address space is **10.0.1.0/24**. Select **Save** to accept this and all other default settings.
+
+     ![Create new application gateway: routing rule](./media/application-gateway-create-gateway-portal-ipv6/backend-subnet.png)
+
 ## Add backend targets
 
-Next, backend targets are added so that we can test the application gateway. In this example, virtual machines are deployed as the target backend. Three steps are provided:
+Next, backend targets are added so that we can test the application gateway. In this example, virtual machines are deployed as backend targets. To add backend targets:
 
-1. Create two new VMs that are used as backend targets: **myVM** and **myVM2**. You can also use existing virtual machines if they are available.
-2. Install IIS on the virtual machines to verify that the application gateway was created successfully.
+1. Create one VM that is used as a backend target: **myVM**. You can also use existing virtual machines if they are available.
+2. Install IIS on the virtual machine to verify that the application gateway was created successfully.
 3. Add the backend servers to the backend pool.
 
 ### Create a virtual machine
 
-1. On the Azure portal menu or from the **Home** page, select **Create a resource**. The **New** window appears.
-2. Select **Windows Server 2016 Datacenter** in the **Popular** list. The **Create a virtual machine** page appears.<br>Application Gateway can route traffic to any type of virtual machine used in its backend pool. In this example, you use a Windows Server 2016 Datacenter virtual machine.
-3. Enter these values in the **Basics** tab for the following virtual machine settings:
+Application Gateway can route traffic to any type of virtual machine used in the backend pool. A Windows Server 2019 Datacenter virtual machine is used in this example.
 
-    - **Resource group**: Select **myResourceGroupAG** for the resource group name.
-    - **Virtual machine name**: Enter *myVM* for the name of the virtual machine.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
+2. Select **Windows Server 2019 Datacenter** in the **Popular** list. The **Create a virtual machine** page appears.
+3. Enter the following values on the **Basics** tab:
+    - **Resource group**: Select **myResourceGroupAG**.
+    - **Virtual machine name**: Enter **myVM**.
     - **Region**: Select the same region where you created the application gateway.
-    - **Username**: Type a name for the administrator user name.
-    - **Password**: Type a password.
-    - **Public inbound ports**: None.
+    - **Username**: Enter a name for the administrator user name.
+    - **Password**: Enter a password.
+    - **Public inbound ports**: **None**.
 4. Accept the other defaults and then select **Next: Disks**.  
 5. Accept the **Disks** tab defaults and then select **Next: Networking**.
-6. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**. Accept the other defaults and then select **Next: Management**.<br>Application Gateway can communicate with instances outside of the virtual network that it is in, but you need to ensure there's IP connectivity.
-7. On the **Management** tab, set **Boot diagnostics** to **Disable**. Accept the other defaults and then select **Review + create**.
+6. Next to **Virtual network**, verify that **myVNet** is selected. 
+7. Next to **Subnet**, verify that **myBackendSubnet** is selected.
+8. Next to **Public IP**, select **None**.
+8. Select **Next: Management**, **Next: Monitoring**, and then next to **Boot diagnosics** select **Disable**.
+7. Select **Review + create**.
 8. On the **Review + create** tab, review the settings, correct any validation errors, and then select **Create**.
 9. Wait for the virtual machine creation to complete before continuing.
 
@@ -249,8 +279,6 @@ In this example, you install IIS on the virtual machines to verify Azure created
       -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
       -Location EastUS
     ```
-
-3. Create a second virtual machine and install IIS by using the steps that you previously completed. Use *myVM2* for the virtual machine name and for the **VMName** setting of the **Set-AzVMExtension** cmdlet.
 
 ### Add backend servers to backend pool
 
