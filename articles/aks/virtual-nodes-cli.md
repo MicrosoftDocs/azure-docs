@@ -3,7 +3,8 @@ title: Create virtual nodes in Azure Kubernetes Service (AKS) using Azure CLI
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use Azure CLI to create an Azure Kubernetes Services (AKS) cluster that uses virtual nodes to run pods.
 ms.topic: conceptual
-ms.date: 06/28/2023
+ms.service: azure-kubernetes-service
+ms.date: 08/28/2023
 ms.custom: references_regions, devx-track-azurecli
 ---
 
@@ -165,7 +166,7 @@ For more information on managed identities, see [Use managed identities](use-man
             - containerPort: 80
           nodeSelector:
             kubernetes.io/role: agent
-            kubernetes.io/os: linux
+            beta.kubernetes.io/os: linux
             type: virtual-kubelet
           tolerations:
           - key: virtual-kubelet.io/provider
