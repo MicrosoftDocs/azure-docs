@@ -1,12 +1,12 @@
 ### YamlMime:Hub
 
 title: Azure Health Data Services documentation # < 60 chars
-summary: Unify, manage, and analyze health data securely using FHIR and DICOM global open standards.  # < 160 chars
+summary: Collect, transform, and analyze health data that meets privacy and compliance requirements for the healthcare industry.   # < 160 chars
 brand: azure 
 
 metadata:
   title: Azure Health Data Services documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Learn how to use Azure Health Data Services to integrate and manage health data from different sources and formats securely using FHIR and DICOM global open standards. # Required; article description that is displayed in search results. < 159/160 chars.
+  description: Learn how to use Azure Health Data Services to collect, transform, and analyze health data that meets privacy and compliance requirements for the healthcare industry. # Required; article description that is displayed in search results. < 159/160 chars.
   ms.service: healthcare-apis #Required; use either service or product per approved list. 
   ms.topic: hub-page # Required
   author: shellyhaverkamp #Required; your GitHub user alias, with correct capitalization.
@@ -15,17 +15,14 @@ metadata:
 
 highlightedContent:
   items:
-       -  title: What's new?
-          itemType: whats-new
-          url: ./release-notes
        -  title: What is Azure Health Data Services?
           itemType: overview
           url: ./healthcare-apis-overview.md
        -  title: Get an access token
           itemType: how-to-guide
           url: ./get-access-token.md
-       -  title: Azure Health Data Services videos
-          itemType: video
+       -  title: Azure Health Data Services 
+          itemType: tutorial
           url: https://www.youtube.com/c/mspowerplatform/
 
 conceptualContent:
@@ -50,11 +47,11 @@ conceptualContent:
               text: etc.
          
         # Card
-        - title: FHIR - Exchange and analyze health data
+        - title: Health data and PHI
           links:
             - url: ./fhir/overview.md
               itemType: overview
-              text: What is the FHIR service?
+              text: FHIR service overview
             - url: ./file2.md OR /file2
               itemType: how-to-guide
               text: linktext2
@@ -68,11 +65,11 @@ conceptualContent:
               itemType: how-to-guide
               text: linktext5
         # Card
-        - title: DICOM - Wrangle medical imaging data
+        - title: Imaging data
           links:
             - url: ./dicom/dicom-services-overview
               itemType: overview
-              text: What is the DICOM service?
+              text: DICOM service overview
             - url: ./file2.md OR /file2
               itemType: how-to-guide
               text: linktext2
@@ -86,11 +83,11 @@ conceptualContent:
               itemType: how-to-guide
               text: linktext5  
         # Card
-        - title: MedTech - Transform medical device data 
+        - title: Device data
           links:
             - url: ./iot/overview.md
               itemType: overview
-              text: What is the MedTech service?
+              text: MedTech service overview
             - url: ./file2.md OR /file2
               itemType: how-to-guide
               text: linktext2
@@ -105,11 +102,11 @@ conceptualContent:
               text: linktext5     
 
         # Card
-        - title: Events - Receive notifications, automate workflows, and connect services
+        - title: Automate and optimize FHIR data workflows
           links:
             - url: ./events/events-overview.md
               itemType: overview
-              text: What are events?
+              text: Events overview
             - url: ./file2.md OR /file2
               itemType: how-to-guide
               text: linktext2
@@ -128,7 +125,7 @@ conceptualContent:
           links:
             - url: ./azure-api-for-fhir/overview.md
               itemType: overview
-              text: What is Azure API for FHIR?
+              text: overview
             - url: ./file2.md OR /file2
               itemType: how-to-guide
               text: linktext2
