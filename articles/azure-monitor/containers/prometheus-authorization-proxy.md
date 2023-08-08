@@ -13,8 +13,9 @@ The Azure Active Directory authorization proxy is a reverse proxy, which can be 
 
 ## Prerequisites
 
-+ An Azure Monitor workspace. If you don't have a workspace, create one using the [Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
++ An Azure Monitor workspace. If you don't have a workspace, create one using the [Azure portal](../essentials/azure-monitor-workspace-manage.md#create-an-azure-monitor-workspace).
 + Prometheus installed on your cluster. 
+
 > [!NOTE]
 > The remote write example in this article uses Prometheus remote write to write data to Azure Monitor. Onboarding your AKS cluster to Prometheus automatically installs Prometheus on your cluster and sends data to your workspace.
 ## Deployment

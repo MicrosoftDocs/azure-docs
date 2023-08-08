@@ -28,7 +28,7 @@ This article walks you through the steps to integrate KEDA into your AKS cluster
 ## Prerequisites
 
 + Azure Kubernetes Service (AKS) cluster
-+ Prometheus sending metrics to an Azure Monitor workspace. For more information, see [Azure Monitor managed service for Prometheus](./prometheus-metrics-overview.md).
++ Prometheus sending metrics to an Azure Monitor workspace. For more information, see [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md).
 
 
 ## Set up a workload identity
@@ -210,7 +210,7 @@ spec:
     authenticationRef:
       name: azure-managed-prometheus-trigger-auth
 ```
-+ `serverAddress` is the Query endpoint of your Azure Monitor workspace. For more information, see [Query Prometheus metrics using the API and PromQL](./prometheus-api-promql.md#query-endpoint)
++ `serverAddress` is the Query endpoint of your Azure Monitor workspace. For more information, see [Query Prometheus metrics using the API and PromQL](../essentials/prometheus-api-promql.md#query-endpoint)
 + `metricName` is the name of the metric you want to scale on. 
 + `query` is the query used to retrieve the metric. 
 + `threshold` is the value at which the deployment scales. 

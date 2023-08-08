@@ -105,4 +105,4 @@ If you successfully created the configmap (ama-metrics-prometheus-config or ama-
 
 ## Next steps
 
-- [Learn more about collecting Prometheus metrics](prometheus-metrics-overview.md).
+- [Learn more about collecting Prometheus metrics](../essentials/prometheus-metrics-overview.md).

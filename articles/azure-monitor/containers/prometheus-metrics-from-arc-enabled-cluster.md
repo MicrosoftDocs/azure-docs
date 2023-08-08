@@ -19,7 +19,7 @@ This article describes how to configure your Azure Arc-enabled Kubernetes cluste
 
 The following configurations are supported:
 
-+ Azure Monitor Managed Prometheus supports monitoring Azure Arc-enabled Kubernetes. For more information, see [Azure Monitor managed service for Prometheus](./prometheus-metrics-overview.md).
++ Azure Monitor Managed Prometheus supports monitoring Azure Arc-enabled Kubernetes. For more information, see [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md).
 + Docker
 + Moby
 + CRI compatible container runtimes such CRI-O
@@ -31,14 +31,14 @@ The following configurations are not supported:
 
 ## Prerequisites
 
-+ Prerequisites listed in [Deploy and manage Azure Arc-enabled Kubernetes cluster extensions](https://learn.microsoft.com/azure/azure-arc/kubernetes/extensions#prerequisites)
-+ An Azure Monitor workspace. To create new workspace, see [Manage an Azure Monitor workspace ](./azure-monitor-workspace-manage.md).
++ Prerequisites listed in [Deploy and manage Azure Arc-enabled Kubernetes cluster extensions](../../azure-arc/kubernetes/extensions.md#prerequisites)
++ An Azure Monitor workspace. To create new workspace, see [Manage an Azure Monitor workspace ](../essentials/azure-monitor-workspace-manage.md).
 + The cluster must use [managed identity authentication](../../aks/use-managed-identity.md).
 + The following resource providers must be registered in the subscription of the Arc-enabled Kubernetes cluster and the Azure Monitor workspace:
   + Microsoft.Kubernetes
   + Microsoft.Insights
   + Microsoft.AlertsManagement
-+ The following endpoints must be enabled for outbound access in addition to the [Azure Arc-enabled Kubernetes network requirements](https://learn.microsoft.com/azure/azure-arc/kubernetes/network-requirements?tabs=azure-cloud):  
++ The following endpoints must be enabled for outbound access in addition to the [Azure Arc-enabled Kubernetes network requirements](../../azure-arc/kubernetes/network-requirements.md?tabs=azure-cloud):  
    **Azure public cloud**
 
    |Endpoint|Port|
@@ -49,7 +49,7 @@ The following configurations are not supported:
    |*.monitoring.azure.com |443 |
    |login.microsoftonline.com |443 |
    |global.handler.control.monitor.azure.com |443 |
-   |<cluster-region-name>.handler.control.monitor.azure.com |443 |
+   | \<cluster-region-name\>.handler.control.monitor.azure.com |443 |
 
 ## Create an extension instance
 
@@ -154,7 +154,7 @@ AzureMonitorMetrics.KubeStateMetrics.MetricsLabelsAllowlist "namespaces=[k8s-lab
 
 ### Prerequisites
 
-+ If the Azure Managed Grafana instance is in a subscription other than the Azure Monitor Workspaces subscription, register the Azure Monitor Workspace subscription with the `Microsoft.Dashboard` resource provider by following the steps in the [Register resource provider](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) section of the Azure resource providers and types article.
++ If the Azure Managed Grafana instance is in a subscription other than the Azure Monitor Workspaces subscription, register the Azure Monitor Workspace subscription with the `Microsoft.Dashboard` resource provider by following the steps in the [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) section of the Azure resource providers and types article.
 
 + The Azure Monitor workspace and Azure Managed Grafana workspace must already exist.
 + The template must be deployed in the same resource group as the Azure Managed Grafana workspace.
@@ -287,5 +287,5 @@ For issues with the extension, see the [Troubleshooting Guide](./prometheus-metr
 
 + [Default Prometheus metrics configuration in Azure Monitor ](prometheus-metrics-scrape-default.md)
 + [Customize scraping of Prometheus metrics in Azure Monitor](prometheus-metrics-scrape-configuration.md)
-+ [Use Azure Monitor managed service for Prometheus as data source for Grafana using managed system identity](./prometheus-grafana.md)
-+ [Configure self-managed Grafana to use Azure Monitor managed service for Prometheus with Azure Active Directory](./prometheus-self-managed-grafana-azure-active-directory.md)
++ [Use Azure Monitor managed service for Prometheus as data source for Grafana using managed system identity](../essentials/prometheus-grafana.md)
++ [Configure self-managed Grafana to use Azure Monitor managed service for Prometheus with Azure Active Directory](../essentials/prometheus-self-managed-grafana-azure-active-directory.md)

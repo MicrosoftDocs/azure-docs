@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-disk-storage
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/01/2023
+ms.date: 08/08/2023
 ms.author: rogarana
 ---
 
@@ -24,7 +24,7 @@ Because conversion requires a restart of the virtual machine (VM), schedule the 
 
 ## Restrictions
 
-- You can only change disk type two times per day.
+- You can only change disk type twice per day.
 - You can only change the disk type of managed disks. If your disk is unmanaged, convert it to a managed disk with [CLI](linux/convert-unmanaged-to-managed-disks.md) or [PowerShell](windows/convert-unmanaged-to-managed-disks.md) to switch between disk types.
 
 ## Switch all managed disks of a VM between from one account to another
