@@ -27,8 +27,6 @@ The initial implementation of continuous access evaluation focuses on Exchange, 
 
 To prepare your applications to use CAE, see [How to use Continuous Access Evaluation enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md).
 
-Continuous access evaluation is available in Azure Government tenants (GCC High and DOD) for Exchange Online.
-
 ### Key benefits
 
 - User termination or password change/reset: User session revocation is enforced in near real time.
@@ -87,6 +85,8 @@ This process enables the scenario where users lose access to organizational file
 
 > [!NOTE]
 > Teams is made up of multiple services and among these the calls and chat services don't adhere to IP-based Conditional Access policies.
+
+Continuous access evaluation is also available in Azure Government tenants (GCC High and DOD) for Exchange Online.
 
 ## Client Capabilities
 

@@ -43,6 +43,8 @@ items:
         href: inbound-provisioning-api-configure-app.md
       - name: Grant permissions for API-driven provisioning
         href: inbound-provisioning-api-grant-access.md
+      - name: Sync custom attributes
+        href: inbound-provisioning-api-custom-attributes.md
       - name: Quickstart using cURL
         href: inbound-provisioning-api-curl-tutorial.md
       - name: Quickstart with Postman

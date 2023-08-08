@@ -1,5 +1,5 @@
 ---
-title: Language support - Document Intelligence
+title: Language support - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Learn more about the human languages that are available with Document Intelligence.
 author: laujan
@@ -8,7 +8,7 @@ ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/18/2023
-monikerRange: '<=doc-intel-3.0.0'
+monikerRange: '<=doc-intel-3.1.0'
 ---
 
 <!-- markdownlint-disable MD036 -->

@@ -16,6 +16,16 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Connected Machine agent](agent-release-notes-archive.md).
 
+## Version 1.33 - August 2023
+
+Download for [Windows](https://download.microsoft.com/download/0/c/7/0c7a484b-e29e-42f9-b3e9-db431df2e904/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### Fixed
+
+- Fixed an issue that could cause a VM extension to disappear in Azure Resource Manager if it's installed with the same settings twice. After upgrading to agent version 1.33 or later, reinstall any missing extensions to restore the information in Azure Resource Manager.
+- You can now set the [agent mode](security-overview.md#agent-modes) before connecting the agent to Azure.
+- The agent now responds to instance metadata service (IMDS) requests even when the connection to Azure is temporarily unavailable.
+
 ## Version 1.32 - July 2023
 
 Download for [Windows](https://download.microsoft.com/download/7/e/5/7e51205f-a02e-4fbe-94fe-f36219be048c/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
@@ -36,7 +46,7 @@ Download for [Windows](https://download.microsoft.com/download/2/6/e/26e2b001-13
 
 ### Known issue
 
-The first release of agent version 1.31 had a known issue affecting customers using proxy servers. The issue is indicated by the  `AZCM0026: Network Error` and a message about "no IP addresses found" when connecting a server to Azure Arc using a proxy server. A newer version of agent 1.31 was released on June 14, 2023 that addresses this issue.
+The first release of agent version 1.31 had a known issue affecting customers using proxy servers. The issue displays as  `AZCM0026: Network Error` and a message about "no IP addresses found" when connecting a server to Azure Arc using a proxy server. A newer version of agent 1.31 was released on June 14, 2023 that addresses this issue.
 
 To check if you're running the latest version of the Azure connected machine agent, navigate to the server in the Azure portal or run `azcmagent show` from a terminal on the server itself and look for the "Agent version." The table below shows the version numbers for the first and patched releases of agent 1.31.
 
@@ -75,23 +85,6 @@ Download for [Windows](https://download.microsoft.com/download/7/7/9/779eae73-a1
 
 - Resolved an issue that could cause the agent to go offline after rotating its connectivity keys.
 - `azcmagent show` no longer shows an incomplete resource ID or Azure portal page URL when the agent isn't configured.
-
-## Version 1.29 - April 2023
-
-Download for [Windows](https://download.microsoft.com/download/2/7/0/27063536-949a-4b16-a29a-3d1dcb29cff7/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
-
-### New features
-
-- The agent now compares the time on the local system and Azure service when checking network connectivity and creating the resource in Azure. If the clocks are offset by more than 120 seconds (2 minutes), a nonblocking error is shown. You may encounter TLS connection errors if the time of your computer doesn't match the time in Azure.
-- `azcmagent show` now supports an `--os` flag to print extra OS information to the console
-
-### Fixed
-
-- Fixed an issue that could cause the guest configuration service (gc_service) to repeatedly crash and restart on Linux systems
-- Resolved a rare condition under which the guest configuration service (gc_service) could consume excessive CPU resources
-- Removed "sudo" calls in internal install script that could be blocked if SELinux is enabled
-- Reduced how long network checks wait before determining a network endpoint is unreachable
-- Stopped writing error messages in "himds.log" referring to a missing certificate key file for the ATS agent, an inactive component reserved for future use.
 
 ## Next steps
 

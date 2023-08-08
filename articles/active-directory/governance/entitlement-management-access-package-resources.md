@@ -185,7 +185,7 @@ You can add a resource role to an access package using Microsoft Graph. A user i
 
 ### Add resource roles to an access package with Microsoft PowerShell
 
-You can also create an access package in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or later.  This script illustrates using the Graph `beta` profile.
+You can also create an access package in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or a later 1.x.x module version, or Microsoft Graph PowerShell cmdlets beta module version 2.1.x or later beta module version.  This script illustrates using the Graph `beta` profile and Microsoft Graph PowerShell cmdlets module version 1.x.x.
 
 First, you would retrieve the ID of the catalog, and of the resources and their roles in that catalog that you wish to include in the access package, using a script similar to the following.
 
