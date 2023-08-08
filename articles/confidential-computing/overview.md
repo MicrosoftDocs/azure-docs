@@ -17,7 +17,7 @@ Confidential computing is an industry term defined by the [Confidential Computin
 
 A TEE is an environment that enforces execution of only authorized code. Any code outside TEE can't read or tamper with data inside the TEE. The confidential computing threat model aims at removing or reducing the ability for a cloud provider operator or other actors in the tenant's domain accessing code and data while it's being executed.
 
-:::image type="content" source="media/overview-azure-products/three-states.png" alt-text="Graphic of three states of data protection, with confidential computing's data in use highlighted.":::
+:::image type="content" source="media/overview/three-states-and-ccc-definition.png" alt-text="Graphic of three states of data protection, with confidential computing's data in use highlighted.":::
 
 When used with data encryption at rest and in transit, confidential computing eliminates the single largest barrier of encryption - encryption while in use - by protecting sensitive or highly regulated data sets and application workloads in a secure public cloud platform. Confidential computing extends beyond generic data protection. TEEs are also being used to protect proprietary business logic, analytics functions, machine learning algorithms, or entire applications.
 
@@ -64,6 +64,12 @@ The contents of the box are private to you, and protected from others as follows
 - If someone without the key were able to physically access or steal the safety deposit box and smash it open the contents are scrambled (encrypted) and can only be unscrambled (decrypted) with the key owned by the customer.
 
 \*The customer *could* take the key home with them and store it there, but then there's a higher risk of that key being stolen from the person's home or car where there's typically a lower level of security than a bank-vault with 24/7 monitoring and security.
+
+## Industry Leadership
+
+Microsoft are a founding member of the Confidential Computing Consortium (https://confidentialcomputing.io/), an industry body driving the adoption and standardization of confidential computing.
+
+:::image type="content" source="media/overview/CCC-membership.jpg" alt-text="Graphic showing the members of the Confidential Computing Consortium, Microsoft are a founding member and chair of the technical advisory council (TAC)":::
 
 ### Next steps
 [Microsoft's offerings](https://aka.ms/azurecc) for confidential computing extend from Infrastructure as a Service (IaaS) to Platform as a Service (PaaS) and as well as developer tools to support your journey to data and code confidentiality in the cloud.
