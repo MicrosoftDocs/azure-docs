@@ -10,11 +10,11 @@ ms.author: iefedore
 
 Modern Kubernetes deployments contain multiple applications, clusters, and environments. With GitOps, you can manage these complex setups more easily, tracking the desired state of the Kubernetes environments declaratively with Git. Using common Git tooling to declare cluster state, you can increase accountability, facilitate fault investigation, and enable automation to manage environments.
 
-This article describes how GitOps fits into the full application change lifecycle using Azure Arc, Azure Repos, and Azure Pipelines. There is also an example of a single application change to GitOps-controlled Kubernetes environments.
+This article describes how GitOps fits into the full application change lifecycle using Azure Arc, Azure Repos, and Azure Pipelines. It also provides an example of a single application change to GitOps-controlled Kubernetes environments.
 
 ## Architecture
 
-Consider an application deployed to one or more Kubernetes environments.
+This diagram shows the CI/CD workflow for an application deployed to one or more Kubernetes environments.
 
 :::image type="content" source="media/gitops/gitops-flux2-ci-cd-arch.png" alt-text="Diagram showing GitOps CI/CD architecture.":::
 
@@ -38,7 +38,7 @@ Pull requests to the application repository are gated on a successful run of the
 
 The application CI pipeline runs all the PR pipeline steps, expanding the testing and deployment checks. The pipeline can be run for each commit to main, or it can run at a regular cadence with a group of commits.
 
-At this stage, application tests which are too consuming for the PR pipeline can be performed, including:
+At this stage, application tests that are too consuming for the PR pipeline can be performed, including:
 
 * Pushing images to container registry
 * Image building, linting, and testing
@@ -62,7 +62,7 @@ The GitOps repository represents the current desired state of all environments a
 
 ### GitOps connector
 
-[GitOps Connector](https://github.com/microsoft/gitops-connector) creates a connection between the Flux agent and the GitOps Repository/CD pipeline. While applying changes to the cluster, Flux notifies the GitOps connector of every phase change and health check performed. This component serves as an adapter. It understands how to communicate to a Git repository, and it updates the Git commit status so the synchronization progress is visible in the GitOps repository. When the deployment finishes (whether it succeeds or fails), the connector notifies the CD pipeline to continue so the pipeline can perform post-deployment activities, such as integration testing.
+[GitOps Connector](https://github.com/microsoft/gitops-connector) creates a connection between the Flux agent and the GitOps Repository/CD pipeline. While changes are applied to the cluster, Flux notifies the GitOps connector of every phase change and health check performed. This component serves as an adapter. It understands how to communicate to a Git repository, and it updates the Git commit status so the synchronization progress is visible in the GitOps repository. When the deployment finishes (whether it succeeds or fails), the connector notifies the CD pipeline to continue so the pipeline can perform post-deployment activities, such as integration testing.
 
 ### Kubernetes clusters
 
@@ -80,7 +80,7 @@ Alice wants to make sure the application has the capability to run in multiple e
 
 Suppose Alice wants to make an application change that alters the Docker image used in the application deployment template.
 
-1. Alice changes the deployment template, pushes it to a remote branch called "alice" in the Application Repo, and opens a pull request for review against "main" branch.
+1. Alice changes the deployment template, pushes it to a remote branch called `alice` in the Application Repo, and opens a pull request for review against the `main` branch.
 
 1. Alice asks her team to review the change.
 

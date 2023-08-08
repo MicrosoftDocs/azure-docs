@@ -12,7 +12,7 @@ Azure Arc-enabled Kubernetes allows you to attach Kubernetes clusters running an
 
 When the [Azure Arc agents are deployed to the cluster](quickstart-connect-cluster.md), an outbound connection to Azure is initiated, using industry-standard SSL to secure data in transit.
 
-Once connected to Azure, the cluster is represented as its own resource in Azure Resource Manager and can be organized using resource groups and tagging.
+Once clusters are connected to Azure, they're represented as their own resources in Azure Resource Manager, and they can be organized using resource groups and tagging.
 
 ## Supported Kubernetes distributions
 
