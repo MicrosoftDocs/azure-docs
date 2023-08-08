@@ -77,24 +77,24 @@ The following table shows what features are available with each license.  Note t
 |Automated user provisioning to SaaS apps|x|x|x|x|	 
 |Automated group provisioning to SaaS apps||x|x|x|	 
 |Automated provisioning to on-premises apps||x|x|x|
-|CA - Terms of use attestation||x|x|x| 
-|Entitlement Management (EM) - Basic entitlement management|||x|x|  
-|EM CA Scoping|||x|x| 
-|EM MyAccess Search|||x|x|  
-|EM with Verified ID||||x|  
-|EM + Custom Extensions (Logic Apps)||||x|  
-|EM + Auto Assignment Policies||||x|   
-|EM - Invite+Assign Any||||x| 
-|EM - Guest Conversion API||||x| 
-|EM - Grace Period - Public Preview|||x|x|  
-|EM - Sponsors Policy - Public Preview||||x| 
+|Conditional Access - Terms of use attestation||x|x|x| 
+|Entitlement management - Basic entitlement management|||x|x|  
+|Entitlement management - Conditional Access Scoping|||x|x| 
+|Entitlement management MyAccess Search|||x|x|  
+|Entitlement management with Verified ID||||x|  
+|Entitlement management + Custom Extensions (Logic Apps)||||x|  
+|Entitlement management + Auto Assignment Policies||||x|   
+|Entitlement management - Invite+Assign Any||||x| 
+|Entitlement management - Guest Conversion API||||x| 
+|Entitlement management - Grace Period - Public Preview|||x|x|  
+|Entitlement management - Sponsors Policy - Public Preview||||x| 
 |Privileged Identity Management (PIM)|||x|x| 
 |PIM For Groups|||x|x| 
 |PIM CA Controls|||x|x| 
-|Access Reviews (AR) - Basic access certifications and reviews|||x|x| 
-|AR - PIM For Groups - Public Preview||||x| 
-|AR - Inactive Users||||x| 
-|AR - Machine learning assisted access certifications and reviews||||x| 
+|Access Reviews - Basic access certifications and reviews|||x|x| 
+|Access reviews - PIM For Groups - Public Preview||||x| 
+|Access reviews - Inactive Users||||x| 
+|Access reviews - Machine learning assisted access certifications and reviews||||x| 
 |Lifecycle Workflows (LCW) J/M/L||||x|
 |LCW + Custom Extensions (Logic Apps)||||x|   
 |Identity governance dashboard - Public Preview||x|x|x|
