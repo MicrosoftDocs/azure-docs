@@ -30,7 +30,7 @@ DevOps streamlines the delivery process, improves collaboration across teams, an
 
 The GitLab DevSecOps Platform supports the Microsoft development ecosystem with performance, accessibility testing, SAST, DAST and Fuzzing security scanning, dependency scanning, SBOM, license management and more. 
 
-As an extensible platform, GitLab also allows you to plug-in your own tooling for any stage. GitLab's integration with Azure Kubernetes Services (AKS) enables full DevSecOps workflows for Windows and Linux Container workloads using either Push CD or GitOps Pull CD with flux manifests. Using Cloud Native Buildpaks, GitLab Auto DevOps can build, test and autodeploy OSS .NET projects.
+As an extensible platform, GitLab also allows you to plug in your own tooling for any stage. GitLab's integration with Azure Kubernetes Services (AKS) enables full DevSecOps workflows for Windows and Linux Container workloads using either Push CD or GitOps Pull CD with flux manifests. Using Cloud Native Buildpaks, GitLab Auto DevOps can build, test and autodeploy OSS .NET projects.
 
 To learn more, please our see our [joint blog](https://techcommunity.microsoft.com/t5/containers/using-gitlab-to-build-and-deploy-windows-containers-on-azure/ba-p/3889929).
 
@@ -50,7 +50,7 @@ NGINX Ingress Controller deployed in AKS, on-premises, and in the cloud implemen
 
 Running at the edge of a Kubernetes cluster, NGINX Ingress Controller ensures holistic app security with user and service identities, authorization, access control, encrypted communications, and additional NGINX App Protect modules for Layer 7 WAF and DoS app protection. 
 
-Learn how to manage connectivity to your Windows applications running on Windows nodes in a mixed-node AKS clusters with NGINX Ingress controller in this [blog](https://techcommunity.microsoft.com/t5/containers/improving-customer-experiences-with-f5-nginx-and-windows-on/ba-p/3820344). 
+Learn how to manage connectivity to your Windows applications running on Windows nodes in a mixed-node AKS cluster with NGINX Ingress controller in this [blog](https://techcommunity.microsoft.com/t5/containers/improving-customer-experiences-with-f5-nginx-and-windows-on/ba-p/3820344). 
 
 ### Calico 
 
@@ -96,12 +96,12 @@ Astra Control provides application data management for stateful workloads on Azu
 
 Follow the steps provided in [this blog](https://techcommunity.microsoft.com/t5/containers/persistent-storage-for-windows-containers-on-azure-kubernetes/ba-p/3836781) post to dynamically provision SMB volumes for Windows AKS workloads. 
 
-## Config Management 
+## Config management 
 
 Automate and standardize the system settings across your environments to enhance efficiency, reduce errors, and ensuring system stability and compliance. 
 
 ### Chef 
 
-Chef provides visibility and threat detection from build to runtime that monitors, audits, and remediates the security of your Azure cloud services and Kubernetes and Windows container assets. Chef provides comprehensive visibility and continuous compliance into your cloud security posture and helps limit the risk of misconfigurations in cloud-native environments by providing best practices based on CIS, STIG, SOC2, PCI-DSS and other benchmarks. This is part of a broader compliance offering that supports on-premise or hybrid cloud environments including applications deployed on the edge. 
+Chef provides visibility and threat detection from build to runtime that monitors, audits, and remediates the security of your Azure cloud services and Kubernetes and Windows container assets. Chef provides comprehensive visibility and continuous compliance into your cloud security posture and helps limit the risk of misconfigurations in cloud-native environments by providing best practices based on CIS, STIG, SOC2, PCI-DSS and other benchmarks. This is part of a broader compliance offering that supports on-premises or hybrid cloud environments including applications deployed on the edge. 
 
 To learn more about Chef’s capabilities, check out the comprehensive ‘how-to’ blog post here: [Securing Your Windows Environments Running on Azure Kubernetes Service with Chef](https://techcommunity.microsoft.com/t5/containers/securing-your-windows-environments-running-on-azure-kubernetes/ba-p/3821830). 
