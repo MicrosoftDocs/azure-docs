@@ -38,6 +38,10 @@ This article primarily helps with the configuration migration. Client traffic mi
 
 > [!IMPORTANT]
 >Run the `Set-AzContext -Subscription <V1 application gateway SubscriptionId>` cmdlet every time before running the migration script. This is necessary to set the active Azure context to the correct subscription, because the migration script might clean up the existing resource group if it doesn't exist in current subscription context.
+
+> [!IMPORTANT]
+>The stable version of this script is version 1.0.11, which contains critical bug fixes and is the recommended version
+
 ## Configuration migration 
 
 An Azure PowerShell script is provided in this document. It performs the following operations to help you with the configuration:
@@ -76,14 +80,27 @@ This command also installs the required Az modules.
 If you have some Azure Az modules installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](/powershell/gallery/how-to/working-with-packages/manual-download).
 
 Version 1.0.11 is the stable release of the migration script which includes major bug fixes.It is recommended to use this stable version.
+
 #### How to check the version of the downloaded script
 The easiest approach is to extract the NuGet package, then use the script directly.
 The steps are as follows:
-Unblock the Internet-downloaded NuGet package (.nupkg) file, for example using Unblock-File -Path C:\Downloads\package.nupkg cmdlet.
-Extract the contents of the NuGet package.
-Open the  .PS1 file in the folder and check the .VERSION in line no.3
+* Unblock the Internet-downloaded NuGet package (.nupkg) file, for example using Unblock-File -Path C:\Downloads\package.nupkg cmdlet.
+* Extract the contents of the NuGet package.
+* Open the  .PS1 file in the folder and check the .VERSION to see the version of the downloaded script
+```
+<#PSScriptInfo
 
-![image](https://github.com/MJyot/azure-docs-pr/assets/117745525/4eaa5aaa-fcf2-4197-a670-0a17d7413487)
+.VERSION 1.0.10
+
+.GUID be3b84b4-e9c5-46fb-a050-699c68e16119
+
+.AUTHOR Microsoft Corporation
+
+.COMPANYNAME Microsoft Corporation
+
+.COPYRIGHT Microsoft Corporation. All rights reserved.
+
+```
 
 Make sure to download the latest stable version from [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWMigration)
 
