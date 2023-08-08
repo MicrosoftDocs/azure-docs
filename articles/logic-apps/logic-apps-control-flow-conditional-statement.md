@@ -5,27 +5,22 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/29/2023
+ms.date: 08/08/2023
 ---
 
 # Add conditions to control workflow actions in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-To run specific actions in your logic app workflow only after passing a specified condition, 
-add a *condition action*. This control structure compares the data in your 
-workflow against specific values or fields. You can then specify different actions 
-that run based on whether or not the data meets the condition. 
-You can nest conditions inside each other.
+To define criteria that you want met before your workflow continues to  meet before running specific actions in your workflow, add the **Control** action named **Condition** to your workflow. For example, you can use this action to specify criteria to meet and then compare the outputs from operations with other values or fields. Based on whether the condition passes or fails, your workflow can then run one sequence of actions  You can also nest conditions inside each other.
 
-For example, suppose you have a logic app workflow that sends too 
-many emails when new items appear on a website's RSS feed. 
-You can add a condition action to send email only 
-when the new item includes a specific string. 
+For example, suppose you have a workflow that sends too many emails when new items appear on a website's RSS feed. 
+You can add a condition action to send email only when the new item includes a specific string. 
 
 > [!TIP]
-> To run different steps based on different specific values, 
-> use a [*switch statement*](../logic-apps/logic-apps-control-flow-switch-statement.md) instead.
+>
+> To run different steps based on multiple specific values, 
+> use a [*switch statement* instead](logic-apps-control-flow-switch-statement.md).
 
 ## Prerequisites
 
