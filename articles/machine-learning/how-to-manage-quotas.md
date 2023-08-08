@@ -86,9 +86,7 @@ Available resources:
 
 + **Low-priority cores per region** have a default limit of 100 to 3,000, depending on your subscription offer type. The number of low-priority cores per subscription can be increased and is a single value across VM families.
 
-+ **Clusters per region** have a default limit of 200 and it can be increased up to a value of 500 per region within a given subscription. This limit is shared between training clusters, compute instances and managed online endpoint deployments. A compute instance is considered a single-node cluster for quota purposes.
-
-    Starting 1 September 2023, cluster quota limits will automatically be increased from 200 to 500 on your behalf when usage is approaching close to the 200 default limit, eliminating the need to file for a support ticket.
++ **Clusters per region** have a default limit of 200 and it can be increased up to a value of 500 per region within a given subscription. This limit is shared between training clusters, compute instances and managed online endpoint deployments. A compute instance is considered a single-node cluster for quota purposes. Starting 1 September 2023, cluster quota limits will automatically be increased from 200 to 500 on your behalf when usage is approaching close to the 200 default limit, eliminating the need to file for a support ticket.
 
 The following table shows more limits in the platform. Reach out to the Azure Machine Learning product team through a **technical** support ticket to request an exception.
 
