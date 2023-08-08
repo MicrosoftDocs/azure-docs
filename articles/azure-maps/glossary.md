@@ -19,7 +19,7 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="advanced-routing"></a> **Advanced routing**: A collection of services that perform advance operations using road routing data; such as, calculating reachable ranges (isochrones), distance matrices, and batch route requests.
 
-<a name="aerial-imagery"></a> **Aerial imagery**: See [Satellite imagery](#satellite-imagery).
+<a name="aerial-imagery"></a> **Aerial imagery**: See [Satellite imagery].
 
 <a name="along-a-route-search"></a> **Along a route search**: A spatial query that looks for data within a specified detour time or distance from a route path.
 
@@ -398,6 +398,32 @@ The following list describes common words used with the Azure Maps services.
 
 ## Z
 
-<a name="z-coordinate"></a> **Z-coordinate**: See [Altitude](#altitude).
+<a name="z-coordinate"></a> **Z-coordinate**: See [Altitude].
 
-<a name="zip-code"></a> **Zip code**: See [Postal code](#postal-code).
+<a name="zip-code"></a> **Zip code**: See [Postal code].
+
+<a name="Zoom level"></a> **Zoom level**: Specifies the level of detail and how much of the map is visible. When zoomed all the way to level 0, the full world map is often visible. But, the map shows limited details such as country/region names, borders, and ocean names. When zoomed in closer to level 17, the map displays an area of a few city blocks with detailed road information. In Azure Maps, the highest zoom level is 22. For more information, see the [Zoom levels and tile grid] documentation.
+
+[Altitude]: #altitude
+[Azure Maps and Azure AD]: azure-maps-authentication.md
+[Bearing]: #heading
+[Bounding box]: #bounding-box
+[consumption model documentation]: consumption-model.md
+[EPSG:3857]: https://epsg.io/3857
+[Extended geojson]: extend-geojson.md
+[Isochrone]: #isochrone
+[Isodistance]: #isodistance
+[Manage authentication in Azure Maps]: how-to-manage-authentication.md
+[Parcel]: #parcel
+[Postal code]: #postal-code
+[Queries Per Second (QPS)]: #queries-per-second-qps
+[Reachable Range]: #reachable-range
+[Satellite imagery]: #satellite-imagery
+[Shared key authentication]: #shared-key-authentication
+[Spatial Data (SQL Server)]: /sql/relational-databases/spatial/spatial-data-sql-server
+[Tile layer]: #tile-layer
+[Transformation]: #transformation
+[Traveling Salesmen Problem]: #traveling-salesmen-problem-tsp
+[Vehicle Routing Problem]: #vehicle-routing-problem-vrp
+[Web Mercator]: #web-mercator
+[Zoom levels and tile grid]: zoom-levels-and-tile-grid.md
