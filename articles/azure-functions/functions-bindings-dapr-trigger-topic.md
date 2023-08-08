@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 [!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
-Azure Functions can be triggered using the following Dapr events.
+Azure Functions can be triggered on a Dapr topic subscription using the following Dapr events.
 
 There are no templates for triggers in Dapr in the functions tooling today. Start your project with another trigger type (e.g. Storage Queues) and then modify the function.json or attributes.
 
@@ -56,7 +56,7 @@ public static void Run(
 
 ::: zone pivot="programming-language-java"
 
-Here's the Java code for the Dapr Topic trigger:
+Here's the Java code for subscribing to a topic using the Dapr Topic trigger:
 
 ```java
 @FunctionName("PrintTopicMessage")

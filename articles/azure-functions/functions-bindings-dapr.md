@@ -149,11 +149,9 @@ Learn how to use the Dapr Functions extension via the provided samples.
 
 | Samples | Description |
 |-|-| 
-| [Quickstart][dapr-quickstart] | Get started using the Dapr Pub/sub binding and `HttpTrigger`. |
-| [Dapr Kafka][dapr-kafka] | Learn how to use the Azure Functions Dapr extension with the Kafka bindings Dapr component. |
+| [Java Functions][dapr-java] | Learn how to use the Azure Functions Dapr extension using Java. |
 
-[dapr-quickstart]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/quickstart
-[dapr-kafka]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/dapr-kafka
+[dapr-java]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/java-azurefunctions
 
 ::: zone-end
 
@@ -183,9 +181,9 @@ Learn how to use the Dapr Functions extension via the provided samples.
 
 | Samples | Description |
 |-|-| 
-| [Quickstart][dapr-quickstart] | Get started using the Dapr Pub/sub binding and `HttpTrigger`. |
+| [PowerShell Functions][dapr-powershell] | Learn how to use the Azure Functions Dapr extension with PowerShell. |
 
-[dapr-quickstart]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/quickstart
+[dapr-powershell]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/powershell-azurefunction
 
 ::: zone-end
 

@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 [!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
-Azure Functions can be triggered using the following Dapr events.
+Azure Functions can be triggered on a Dapr input binding using the following Dapr events.
 
 There are no templates for triggers in Dapr in the functions tooling today. Start your project with another trigger type (for example, Storage Queues) and then modify the function.json or attributes.
 

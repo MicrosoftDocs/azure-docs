@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 [!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
-The publish output binding allows you to read Dapr data as output to an Azure Function.
+The Dapr publish output binding allows you to publish a message to a Dapr topic via an Azure Function.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-dapr.md).
 

@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 [!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
-The input binding allows you to read Dapr data as input to an Azure Function.
+The Dapr state input binding allows you to pull in Dapr state for an execution to an Azure Function.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-dapr.md).
 
