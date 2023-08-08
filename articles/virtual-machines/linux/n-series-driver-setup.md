@@ -82,7 +82,7 @@ sudo reboot
 
 With Secure Boot enabled, all Linux kernel modules are required to be signed by the key trusted by the system.
 
-1. Install pre-built Azure Linux kernel based NVIDIA modules and drivers
+1. Install pre-built Azure Linux kernel based NVIDIA modules and CUDA drivers
 
    ```bash
    sudo apt-get update
