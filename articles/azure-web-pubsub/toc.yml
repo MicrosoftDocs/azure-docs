@@ -138,7 +138,10 @@
     - name: Overview
       href: socketio-overview.md
     - name: Tutorials
-      href: socketio-build-realtime-code-streaming-app.md
+      expanded: true
+      items:
+        - name: Build realtime code streaming app
+        - href: socketio-build-realtime-code-streaming-app.md
     - name: How-to guides
       items:
         - name: Easily migrate a self-hosted Socket.IO app 

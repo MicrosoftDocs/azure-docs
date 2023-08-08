@@ -80,7 +80,7 @@ Socket.IO client is created without correct Web PubSub for Socket.IO endpoint. F
 // This example uses the original Socket.IO server endpoint. 
 const endpoint = "socketio-server.com";
 const socket = io(endpoint, {
-    path: "/clients/socketio/hubs/eio_hub",
+    path: "/clients/socketio/hubs/<Your hub name>",
 });
 ```
 
@@ -93,6 +93,6 @@ Let Socket.IO client use the endpoint of your Web PubSub for Socket.IO resource.
 // Good example.
 const webPubSubEndpoint = "<web-pubsub-endpoint>";
 const socket = io(webPubSubEndpoint, {
-    path: "/clients/socketio/hubs/eio_hub",
+    path: "/clients/socketio/hubs/<Your hub name>",
 });
 ``` 
