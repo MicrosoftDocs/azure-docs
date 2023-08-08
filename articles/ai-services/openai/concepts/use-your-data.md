@@ -185,7 +185,7 @@ When customizing the app, we recommend:
 
 - Pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes and improvements.
 
-### Important considerations
+#### Important considerations
 
 - Publishing creates an Azure App Service in your subscription. It may incur costs depending on the 
 [pricing plan](https://azure.microsoft.com/pricing/details/app-service/windows/) you select. When you're done with your app, you can delete it from the Azure portal.
