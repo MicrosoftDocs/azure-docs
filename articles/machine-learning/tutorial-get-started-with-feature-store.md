@@ -16,9 +16,9 @@ ms.custom: sdkv2, build-2023
 
 # Tutorial 1: Develop and register a feature set with managed feature store (preview)
 
-This tutorial series shows how features seamlessly integrate all phases of the machine learning (ML) lifecycle: prototyping, training, and operationalization.
+This tutorial series shows how features seamlessly integrate all phases of the machine learning lifecycle: prototyping, training, and operationalization.
 
-You can use Azure Machine Learning managed feature store to discover, create, and operationalize features. The ML lifecycle includes a prototyping phase, where you experiment with various features. It also involves an operationalization phase, where models are deployed and inference steps look up feature data. Features serve as the connective tissue in the ML lifecycle. To learn more about basic concepts for managed feature store, see [What is managed feature store?](./concept-what-is-managed-feature-store.md) and [Understanding top-level entities in managed feature store](./concept-top-level-entities-in-managed-feature-store.md).
+You can use Azure Machine Learning managed feature store to discover, create, and operationalize features. The machine learning lifecycle includes a prototyping phase, where you experiment with various features. It also involves an operationalization phase, where models are deployed and inference steps look up feature data. Features serve as the connective tissue in the machine learning lifecycle. To learn more about basic concepts for managed feature store, see [What is managed feature store?](./concept-what-is-managed-feature-store.md) and [Understanding top-level entities in managed feature store](./concept-top-level-entities-in-managed-feature-store.md).
 
 This tutorial is the first part of a four-part series. Here, you learn how to:
 
