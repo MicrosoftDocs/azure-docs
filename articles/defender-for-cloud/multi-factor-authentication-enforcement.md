@@ -2,7 +2,7 @@
 title: Security recommendations for multi-factor authentication
 description: Learn how to enforce multi-factor authentication for your Azure subscriptions using Microsoft Defender for Cloud
 ms.topic: conceptual
-ms.date: 06/28/2023
+ms.date: 08/08/2023
 ---
 
 # Manage multi-factor authentication (MFA) enforcement on your subscriptions
@@ -15,11 +15,12 @@ There are multiple ways to enable MFA for your Azure Active Directory (AD) users
 
 Defender for Cloud places a high value on MFA. The security control that contributes the most to your secure score is **Enable MFA**.
 
-The recommendations in the Enable MFA control ensure you're meeting the recommended practices for users of your subscriptions:
+The following recommendations in the Enable MFA control ensure you're meeting the recommended practices for users of your subscriptions:
 
-- Accounts with owner permissions on Azure resources should be MFA enabled
-- Accounts with write permissions on Azure resources should be MFA enabled
-- Accounts with read permissions on Azure resources should be MFA enabled
+- MFA should be enabled on accounts with owner permissions on your subscription
+- MFA should be enabled on accounts with write permissions on your subscription
+- MFA should be enabled on accounts with read permissions on your subscription
+
 
 There are three ways to enable MFA and be compliant with the two recommendations in Defender for Cloud: security defaults, per-user assignment, conditional access (CA) policy.
 
@@ -82,9 +83,15 @@ To see which accounts don't have MFA enabled, use the following Azure Resource G
 > [!TIP]
 > Alternatively, you can use the Defender for Cloud REST API method [Assessments - Get](/rest/api/defenderforcloud/assessments/get).
 
+## Limitations
+
+- Conditional Access feature to enforce MFA on external users/tenants is not supported yet.
+- Conditional Access policy applied to Azure AD roles (such as all global admins, external users, external domain, etc..) are not supported yet.
+
+
 ## Next steps
 
-To learn more about recommendations that apply to other Azure resource types, see the following article:
+To learn more about recommendations that apply to other Azure resource types, see the following articles:
 
 - [Protecting your network in Microsoft Defender for Cloud](protect-network-resources.md)
 - Check out [common questions](faq-general.yml) about MFA.
