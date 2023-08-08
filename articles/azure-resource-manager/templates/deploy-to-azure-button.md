@@ -24,16 +24,16 @@ The deployment scope is determined by the template schema. For more information,
 To add the button to your web page or repository, use the following image:
 
 ```markdown
-![Deploy to Azure](https://aka.ms/deploytoazurebutton)
+:::image type="content" source="https://aka.ms/deploytoazurebutton" alt-text="Screenshot of Deploy to Azure button with link.":::
 ```
 
 ```html
-<img src="https://aka.ms/deploytoazurebutton"/>
+:::image type="content" source="https://aka.ms/deploytoazurebutton" alt-text="":::
 ```
 
 The image appears as:
 
-![Deploy to Azure button](https://aka.ms/deploytoazurebutton)
+:::image type="content" source="https://aka.ms/deploytoazurebutton" alt-text="Screenshot of Deploy to Azure button.":::
 
 ## Create URL for deploying template
 
@@ -43,7 +43,7 @@ This section shows how to get the URLs for the templates stored in GitHub and Az
 
 To create the URL for your template, start with the raw URL to the template in your GitHub repo. To see the raw URL, select **Raw**.
 
-:::image type="content" source="./media/deploy-to-azure-button/select-raw.png" alt-text="select Raw":::
+:::image type="content" source="./media/deploy-to-azure-button/select-raw.png" alt-text="Screenshot showing how to select Raw in GitHub.":::
 
 The format of the URL is:
 
@@ -115,32 +115,32 @@ Finally, put the link and image together.
 To add the button with Markdown in the _README.md_ file in your GitHub repository or a web page, use:
 
 ```markdown
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json)
+:::image type="content" source="https://aka.ms/deploytoazurebutton" alt-text="Screenshot of Deploy to Azure button with link." link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json":::
 ```
 
 For HTML, use:
 
 ```html
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json" target="_blank">
-  <img src="https://aka.ms/deploytoazurebutton"/>
+  :::image type="content" source="https://aka.ms/deploytoazurebutton" alt-text="":::
 </a>
 ```
 
 For Git with Azure repo, the button is in the format:
 
 ```markdown
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdev.azure.com%2Forgname%2Fprojectname%2F_apis%2Fgit%2Frepositories%2Freponame%2Fitems%3FscopePath%3D%2freponame%2fazuredeploy.json%26api-version%3D6.0)
+:::image type="content" source="https://aka.ms/deploytoazurebutton" alt-text="Screenshot of Deploy to Azure button with link." link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdev.azure.com%2Forgname%2Fprojectname%2F_apis%2Fgit%2Frepositories%2Freponame%2Fitems%3FscopePath%3D%2freponame%2fazuredeploy.json%26api-version%3D6.0":::
 ```
 
 ## Deploy the template
 
 To test the full solution, select the following button:
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json)
+:::image type="content" source="https://aka.ms/deploytoazurebutton" alt-text="Screenshot of Deploy to Azure button with link." link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json":::
 
 The portal displays a pane that allows you to easily provide parameter values. The parameters are pre-filled with the default values from the template. The camel-cased parameter name, *storageAccountType*, defined in the template is turned into a space-separated string when displayed on the portal.
 
-![Use portal to deploy](./media/deploy-to-azure-button/portal.png)
+:::image type="content" source="./media/deploy-to-azure-button/portal.png" alt-text="Screenshot of Azure portal displaying pane for providing parameter values.":::
 
 ## Next steps
 
