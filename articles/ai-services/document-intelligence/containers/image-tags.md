@@ -67,13 +67,12 @@ Document Intelligence containers support the following features:
 | **Custom API** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-api |
 | **Custom Supervised** | mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-supervised |
 
-:::moniker-end
-
 > [!IMPORTANT]
 > The Document Intelligence v1.0 container is retired.
+
+:::moniker-end
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Install and run Document Intelligence containers](install-run.md)
-
