@@ -22,7 +22,7 @@ highlightedContent:
           itemType: how-to-guide
           url: ./get-access-token.md
        -  title: Azure Health Data Services 
-          itemType: tutorial
+          itemType: training
           url: https://learn.microsoft.com/training/browse/?term=iot&terms=health%20data%20services
 
 conceptualContent:
@@ -52,18 +52,21 @@ conceptualContent:
             - url: ./fhir/overview.md
               itemType: overview
               text: FHIR service overview
-            - url: ./file2.md OR /file2
+            - url: ./fhir/get-started-with-fhir
               itemType: how-to-guide
-              text: linktext2
-            - url: ./file3.md OR /file3
+              text: Create a workspace
+            - url: ./fhir/fhir-portal-quickstart
               itemType: how-to-guide
-              text: linktext3
-            - url: ./file4.md OR /file4
+              text: Deploy a FHIR service
+            - url: ./fhir/use-postman.md
               itemType: how-to-guide
-              text: linktext4
-            - url: ./file5.md OR /file5
+              text: Configure settings
+            - url: ./fhir/overview-of-search.md
               itemType: how-to-guide
-              text: linktext5
+              text: FHIR search
+            - url: ./fhir/centers-for-medicare-tutorial-introduction.md
+              itemType: how-to-guide
+              text: CMS operability and patient access
         # Card
         - title: Imaging data
           links:
