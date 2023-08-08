@@ -179,7 +179,7 @@ To configure or change the storage account or blob container that's linked to yo
 
 #### Troubleshooting
 
-This section offers troubleshooting tips for common issues.
+This section offers troubleshooting tips for common issues related to the uploading of source maps to your Azure Storage account blob container.
 
 ##### Required Azure role-based access control settings on your blob container
 
