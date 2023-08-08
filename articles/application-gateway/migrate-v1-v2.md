@@ -31,6 +31,9 @@ This article primarily helps with the configuration migration. Client traffic mi
 * An existing Application Gateway V1 Standard.
 * Make sure you have the latest PowerShell modules, or you can use Azure Cloud Shell in the portal.
 * If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+* Ensure that there is no existing Application gateway with the provided Appgw V2 Name and Resource group name in V1 subscription. This will rewrite the existing resources.
+* If Public IP is provided ensure that its in succeeded state.If not provided and AppGwResourceGroupName is provided ensure that public IP resource with name AppGwV2Name-IP  doesn’t  exist in a resourcegroup with the name AppGwResourceGroupName in the V1 subscription.
+* Ensure that no other operation is planned on the V1 gateway or any of its associated resources during migration.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -40,7 +43,7 @@ This article primarily helps with the configuration migration. Client traffic mi
 >Run the `Set-AzContext -Subscription <V1 application gateway SubscriptionId>` cmdlet every time before running the migration script. This is necessary to set the active Azure context to the correct subscription, because the migration script might clean up the existing resource group if it doesn't exist in current subscription context.
 
 > [!IMPORTANT]
->A stable version of the migration script , version 1.0.11 is available now which contains important bug fixes and updates.Use this version to avoid potential issues.
+>A new stable version of the migration script , version 1.0.11 is available now which contains important bug fixes and updates.Use this version to avoid potential issues.
 
 ## Configuration migration 
 
@@ -87,19 +90,12 @@ To check the version of the downloaded script the steps are as follows:
 * Open the  .PS1 file in the folder and check the .VERSION on top to confirm the version of the downloaded script
 ```
 <#PSScriptInfo
-
 .VERSION 1.0.10
-
 .GUID be3b84b4-e9c5-46fb-a050-699c68e16119
-
 .AUTHOR Microsoft Corporation
-
 .COMPANYNAME Microsoft Corporation
-
 .COPYRIGHT Microsoft Corporation. All rights reserved.
-
 ```
-
 * Make sure to use the latest stable version from [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWMigration)
 
 #### How to run the script
@@ -196,7 +192,7 @@ To run the script:
       To create a list of PSApplicationGatewayTrustedRootCertificate objects, see [New-AzApplicationGatewayTrustedRootCertificate](/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate).
    * **privateIpAddress: [String]: Optional**. A specific private IP address that you want to associate to your new V2 gateway.  This must be from the same VNet that you allocate for your new V2 gateway. If this isn't specified, the script allocates a private IP address for your V2 gateway.
    * **publicIpResourceId: [String]: Optional**. The resourceId of existing public IP address (standard SKU) resource in your subscription that you want to allocate to the new V2 gateway.If public Ip resource name is provided, ensure that it exists in succeeded state.
-      If this isn't specified, the script allocates a new public IP in the same resource group. The name is the V2 gateway's name with *-IP* appended.Ensure that public IP resource with name AppGwV2Name-IP  doesn’t  exist in AppGwResourceGroup in v1 subscription
+      If this isn't specified, the script allocates a new public IP in the same resource group. The name is the V2 gateway's name with *-IP* appended.If AppGwResourceGroupName is provided and public IP is not provided ensure that public IP resource with name AppGwV2Name-IP  doesn’t  exist in a resourcegroup with the name AppGwResourceGroupName in the V1 subscription
 
    * **validateMigration: [switch]: Optional**. Use this parameter if you want the script to do some basic configuration comparison validations after the V2 gateway creation and the configuration copy. By default, no validation is done.
    * **enableAutoScale: [switch]: Optional**. Use this parameter if you want the script to enable autoscaling on the new V2 gateway after it's created. By default, autoscaling is disabled. You can always manually enable it later on the newly created V2 gateway.
