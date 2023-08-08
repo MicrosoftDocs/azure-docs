@@ -70,7 +70,7 @@
           href: create-schema-registry.md
         - name: Validate schemas for Kafka applications 
           href: schema-registry-kafka-java-send-receive-quickstart.md
-        - name: Validate schemas with Avro for Event Hubs SDK 
+        - name: Validate schemas for Event Hubs SDK based applications 
           href: schema-registry-dotnet-send-receive-quickstart.md
     - name: Create a dedicated cluster
       href: event-hubs-dedicated-cluster-create-portal.md
