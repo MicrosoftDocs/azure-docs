@@ -82,8 +82,7 @@ If you have some Azure Az modules installed and can't uninstall them (or don't w
 Version 1.0.11 is the stable release of the migration script which includes major bug fixes.It is recommended to use this stable version.
 
 #### How to check the version of the downloaded script
-The easiest approach is to extract the NuGet package, then use the script directly.
-The steps are as follows:
+To check the version of the downloaded script the  steps are as follows:
 * Unblock the Internet-downloaded NuGet package (.nupkg) file, for example using Unblock-File -Path C:\Downloads\package.nupkg cmdlet.
 * Extract the contents of the NuGet package.
 * Open the  .PS1 file in the folder and check the .VERSION to see the version of the downloaded script
