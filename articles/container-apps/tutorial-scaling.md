@@ -21,7 +21,7 @@ In this tutorial, you add an HTTP scale rule to your container app and observe h
 
 | Requirement  | Instructions |
 |--|--|
-| Azure account | If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). <br><br>You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md?tabs=current) for details. |
+| Azure account | If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). <br><br>You need the *User Access Administrator* or *Owner* permission on the Azure subscription to proceed. Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md?tabs=current) for details. |
 | GitHub Account | Get one for [free](https://github.com/join). |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli). |
 
@@ -275,16 +275,16 @@ For more information, see [az containerapp logs](/cli/azure/containerapp/logs).
 Open a new bash shell using Windows Subsystem for Linux or a Linux virtual machine. Run the following command, replacing `<YOUR_CONTAINER_APP_FQDN>` with the fully qualified domain name for your container app that you saved from the [Create and deploy the container app](#create-and-deploy-the-container-app) section.
 
 ```bash
-seq 1 20 | xargs -Iname -P20 curl "<YOUR_CONTAINER_APP_FQDN>"
+seq 1 50 | xargs -Iname -P5 curl "<YOUR_CONTAINER_APP_FQDN>"
 ```
 
-These commands send 20 concurrent requests to your container app.
+These commands send 50 requests to your container app in concurrent batches of five requests each.
 
-- `seq 1 20` generates a sequence from one to 20.
+- `seq 1 50` generates a sequence from one to 50.
 - The pipe operator `|` sends this sequence to the `xargs` command.
 - `xargs` then runs `curl` with the specified URL.
 - The `-Iname` argument to `xargs` acts as a placeholder for the output of `seq`. This prevents the return value from being sent to the `curl` command.
-- The `-P20` argument instructs `xargs` to run up to 20 processes at a time.
+- The `-P5` argument instructs `xargs` to run up to five processes at a time.
 
 For more information, see the documentation for:
 - [seq](https://www.man7.org/linux/man-pages/man1/seq.1.html)
@@ -297,9 +297,9 @@ Open a new command prompt and enter PowerShell. Run the following commands, repl
 
 ```powershell
 $url="<YOUR_CONTAINER_APP_FQDN>"
-$Runspace = [runspacefactory]::CreateRunspacePool(1,20)
+$Runspace = [runspacefactory]::CreateRunspacePool(1,5)
 $Runspace.Open()
-1..20 | % {
+1..50 | % {
     $ps = [powershell]::Create()
     $ps.RunspacePool = $Runspace
     [void]$ps.AddCommand("Invoke-WebRequest").AddParameter("UseBasicParsing",$true).AddParameter("Uri",$url)
@@ -307,10 +307,10 @@ $Runspace.Open()
 }
 ```
 
-These commands send 20 asynchronous requests to your container app.
+These commands send 50 requests to your container app in asynchronous batches of five requests each.
 
-- `[runspacefactory]::CreateRunspacePool(1,20)` creates a `RunspacePool` that allows up to 20 runspaces to run concurrently.
-- `1..20 | % {  }` runs the code enclosed in the curly braces 20 times. 
+- `[runspacefactory]::CreateRunspacePool(1,5)` creates a `RunspacePool` that allows up to five runspaces to run concurrently.
+- `1..50 | % {  }` runs the code enclosed in the curly braces 50 times. 
 - `$ps = [powershell]::Create()` creates a new PowerShell instance.
 - `$ps.RunspacePool = $Runspace` tells the PowerShell instance to run in the `RunspacePool`.
 - `[void]$ps.AddCommand("Invoke-WebRequest").AddParameter("UseBasicParsing",$true).AddParameter("Uri",$url)` tells the PowerShell instance to send a request to your container app.
@@ -351,10 +351,22 @@ In the first shell, where you ran the `az containerapp logs show` command, the o
 Note you might need to click *Refresh* to see the new replicas.
 
 1. In the navigation bar at the left, expand *Monitoring* and select *Metrics*.
-1. In the *Metrics* page, set *Metric* to *Replica Count*.
-1. The graph shows your container app's replica count has increased recently.
+1. In the *Metrics* page, set *Metric* to *Requests*.
+1. Click *Apply splitting*.
+1. In the *Values* drop-down, check *Replica*.
+1. Click the blue checkmark icon to finish editing the splitting.
+1. The graph shows the requests received by your container app, split by replica.
 
-:::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics.png" alt-text="Container app replica count.":::
+:::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics-1.png" alt-text="Container app metrics graph.":::
+
+1. By default, the graph scale is set to last 24 hours, with a time granularity of 15 minutes. Click the scale and change it to the last 30 minutes, with a time granularity of one minute. Click the *Apply* button.
+1. Left-click on the graph and drag to highlight the recent increase in requests received by your container app.
+
+:::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics-2.png" alt-text="Container app metrics graph.":::
+
+The resulting zoomed view shows how the requests received by your container app are divided among the replicas.
+
+:::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics-3.png" alt-text="Container app metrics graph.":::
 
 ## Clean up resources
 
