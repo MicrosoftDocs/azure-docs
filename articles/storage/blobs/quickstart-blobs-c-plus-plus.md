@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to use the Azure Blob Storage cli
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 08/04/2023
+ms.date: 08/08/2023
 ms.service: azure-storage
 ms.topic: quickstart
 ms.devlang: cpp
@@ -28,7 +28,7 @@ Get started with the Azure Blob Storage client library for C++. Azure Blob Stora
 
 ## Setting up
 
-This section walks you through preparing a project to work with the Azure Blob Storage client library for C++. The easiest way to acquire the Azure SDK for C++ is to use the `vcpkg` package manager
+This section walks you through preparing a project to work with the Azure Blob Storage client library for C++. The easiest way to acquire the Azure SDK for C++ is to use the `vcpkg` package manager.
 
 ### Install the packages
 
@@ -145,7 +145,7 @@ You can authorize access to data in your storage account using the following ste
 			std::make_shared<ManagedIdentityCredential>(),
 			std::make_shared<AzureCliCredential>()});
 
-	auto accountURL = "https://<storage-account-name.blob.core.windows.net";
+	auto accountURL = "https://<storage-account-name>.blob.core.windows.net";
 	BlobServiceClient blobServiceClient(accountURL, chainedTokenCredential);
     ```
 
