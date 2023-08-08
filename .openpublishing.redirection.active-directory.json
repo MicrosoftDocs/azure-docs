@@ -5251,7 +5251,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory/reports-monitoring/tutorial-log-analytics-wizard.md.md",
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/tutorial-log-analytics-wizard.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/tutorial-configure-log-analytics-workspace",
       "redirect_document_id": true
     },
@@ -5263,7 +5263,7 @@
     {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/overview-monitoring.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/overview-monitoring-health",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/overview-reports.md",

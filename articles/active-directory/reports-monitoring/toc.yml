@@ -32,7 +32,7 @@ items:
     items:
     - name: How to access activity logs
       href: howto-access-activity-logs.md
-    - name: Access logs with MS Graph  
+    - name: Access logs with Microsoft Graph  
       href: quickstart-access-log-with-graph-api.md
     - name: Filter audit logs
       href: quickstart-filter-audit-log.md
@@ -41,13 +41,13 @@ items:
     - name: Download logs
       href: howto-download-logs.md
 
-  - name: Identity reports 
-    expanded: false
-    items:
-    - name: Usage and Insights report
-      href: concept-usage-insights-report.md
+- name: Identity reports 
+  expanded: false
+  items:
+  - name: Usage and Insights report
+    href: concept-usage-insights-report.md
      
-- name: Monitoring
+- name: Identity monitoring
   expanded: true
   items:
   - name: Concepts
@@ -77,7 +77,7 @@ items:
         href: howto-analyze-activity-logs-log-analytics.md
 
 - name: Identity Recommendations
-  expanded: false
+  expanded: true
   items:
     - name: How to use Identity recommendations
       href: howto-use-recommendations.md
@@ -104,7 +104,7 @@ items:
           href: recommendation-renew-expiring-service-principal-credential.md
 
 - name: Identity Workbooks
-  expanded: false
+  expanded: true
   items:
     - name: How to use Azure AD workbooks
       href: howto-use-azure-monitor-workbooks.md
@@ -127,7 +127,7 @@ items:
         href: workbook-mfa-gaps.md
 
 - name: Common troubleshooting scenarios
-  expanded: false
+  expanded: true
   items:
   - name: Manage inactive user accounts in Azure AD
     href: howto-manage-inactive-user-accounts.md
