@@ -137,8 +137,6 @@
   items: 
     - name: Overview
       href: socketio-overview.md
-    - name: Quickstart for Socket.IO users
-      href: socketio-quickstart-for-socketio-users.md
     - name: Tutorials
       expanded: true
       items:
@@ -160,6 +158,15 @@
           href: socketio-service-internal.md
         - name: Supported Socket.IO server APIs
           href: socketio-supported-server-apis.md
+- name: Samples
+  expanded: false
+  items: 
+    - name: Authenticate and connect
+      href: samples-authenticate-and-connect.md
+    - name: App scenarios
+      href: samples-app-scenarios.md
+    - name: Platform and frameworks
+      href: samples-platforms-and-frameworks.md
 - name: Concepts
   expanded: false
   items:
@@ -185,15 +192,6 @@
       items:
       - name: Security baseline
         href: /security/benchmark/azure/baselines/azure-web-pubsub-security-baseline?toc=/azure/azure-web-pubsub/toc.json
-- name: Samples
-  expanded: false
-  items: 
-    - name: Authenticate and connect
-      href: samples-authenticate-and-connect.md
-    - name: App scenarios
-      href: samples-app-scenarios.md
-    - name: Platform and frameworks
-      href: samples-platforms-and-frameworks.md
 - name: Reference
   items:
     - name: Client-side API

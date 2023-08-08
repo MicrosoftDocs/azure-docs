@@ -18,9 +18,8 @@ ms.topic: how-to
 > * Some familiarity with Socket.IO library.
 
 ## Create a Web PubSub for Socket.IO resource
-[...content missing!!!!]
-**Subscription**: AzureSignalR Dogfood SoutheastAsia
-**Region**: Southeast Asia
+Head over to Azure portal and search for `socket.io`.
+:::image type="content" source="./media/socketio-migrate-from-self-hosted/create-resource.png" alt-text="Screenshot of Web PubSub for Socket.IO service":::
 
 ## Migrate an official Socket.IO sample app 
 To focus this guide to the migration process, we are going to use a sample chat app provided on [Socket.IO's website](https://github.com/socketio/socket.io/tree/4.6.2/examples/chat). We need to make some minor changes to both the **server-side** and **client-side** code to complete the migration.
@@ -35,7 +34,7 @@ Locate `index.js` in the server-side code.
 
 2. Import package in server code `index.js`
     ```javascript
-    const wpsExt = require("@azure/web-pubsub-socket.io")
+    require("@azure/web-pubsub-socket.io")
     ```
 
 3. Add configuration so that the server can connect with your Web PubSub for Socket.IO resource.
@@ -48,7 +47,8 @@ Locate `index.js` in the server-side code.
 	
 4. Locate in your server-side code where Socket.IO server is created and append `.useAzureSocketIO(wpsOptions)`:
     ```javascript
-    const io = await require('socket.io')(server).useAzureSocketIO(wpsOptions);
+    let io = require("socket.io")();
+    io = .useAzureSocketIO(wpsOptions);
     ```
 >[!IMPORTANT]
 > `useAzureSocketIO` is an asynchronous method. Here we `await`. So you need to wrap it and related code in an asynchronous function.
@@ -73,12 +73,12 @@ Locate `index.js` in the server-side code.
 ### Client Side
 In client-side code found in `./public/main.js`
 
-[...Screenshot missing!!!!]
+:::image type="content" source="./media/socketio-migrate-from-self-hosted/get-resource-endpoint.png" alt-text="Screenshot of getting the endpoint to Web PubSub for Socket.IO resource":::
 
-1. Find where Socket.IO client is created, then replace its endpoint with Azure Socket.IO endpoint and add an `path` option. You can find the endpoint to your resource on Azure portal. 
+Find where Socket.IO client is created, then replace its endpoint with Azure Socket.IO endpoint and add an `path` option. You can find the endpoint to your resource on Azure portal. 
 ```javascript
-    const socket = io("<Replace with the endpoint to your Web PubSub for Socket.IO resrouce>", {
+    const socket = io("<web-pubsub-for-socketio-endpoint>", {
         path: "/clients/socketio/hubs/eio_hub",
     });
-    ```
+```
 

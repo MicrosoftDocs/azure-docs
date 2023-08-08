@@ -32,10 +32,9 @@ Web PubSub for Socket.IO removes the burden of deploying, hosting and coordinati
 
 When hosting Socket.IO app yourself, clients establish WebSocket or long-polling connections directly with your server. Maintaining such **stateful** connections places a heavy burden to your Socket.IO server, which limits the number of concurrent connections and increases messaging latency. 
 
-[...Illustration missing...]
-
 A common approach to meeting the challenge of a large number of concurrent connections and latency is to [scale out to multiple Socket.IO servers](https://socket.io/docs/v4/adapter/) using a server-side component called "adapter", like the Redis adapter provided by Socket.IO library. However, such adapter introduces an extra component you'll need to deploy and manage on top of writing additional code logic to get things to work properly.
-[...Illustration missing...]
+
+:::image type="content" source="./media/socketio-overview/typical-architecture-self-hosted-socketio-app.jpg" alt-text="Screenshot of a typical architecture of a self-hosted Socket.IO app":::
 
 With Web PubSub for Socket.IO, you are freed from handling scaling issues and implementing code logic related to using an adapter.
 
