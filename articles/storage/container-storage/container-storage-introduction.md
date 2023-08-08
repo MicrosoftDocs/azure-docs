@@ -4,7 +4,7 @@ description: An overview of Azure Container Storage Preview, a service built nat
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: overview
-ms.date: 07/03/2023
+ms.date: 08/02/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -18,7 +18,16 @@ ms.custom: references_regions
 
 Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. It integrates with Kubernetes, allowing you to dynamically and automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters.
 
-To sign up for Azure Container Storage Preview, complete the [onboarding survey](https://aka.ms/AzureContainerStoragePreviewSignUp). To get started using Azure Container Storage, see [Install Azure Container Storage for use with AKS](container-storage-aks-quickstart.md).
+To sign up for Azure Container Storage Preview, complete the [onboarding survey](https://aka.ms/AzureContainerStoragePreviewSignUp). To get started using Azure Container Storage, see [Install Azure Container Storage for use with AKS](container-storage-aks-quickstart.md) or watch the video.
+
+:::row:::
+    :::column:::
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/I_2nCQ1FKTU" title="Get started with Azure Container Storage" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    :::column-end:::
+    :::column:::
+        This video provides an introduction to Azure Container Storage, an end-to-end storage management and orchestration service for stateful applications. See how simple it is to create and manage volumes for production-scale stateful container applications. Learn how to optimize the performance of stateful workloads on Azure Kubernetes Service (AKS) to effectively scale across storage services while providing a cost-effective container-native experience.
+   :::column-end:::
+:::row-end:::
 
 ## Supported storage types
 
@@ -34,12 +43,7 @@ Azure Container Storage offers persistent volume support with ReadWriteOnce acce
 
 ## Regional availability
 
-Azure Container Storage Preview is only available in the following Azure regions:
-
-- East US
-- West Europe
-- West US 2
-- West US 3
+Azure Container Storage Preview is only available in the following Azure regions: East US, East US 2, West US 2, West US 3, South Central US, Southeast Asia, Australia East, West Europe, North Europe, UK South, Sweden Central, and France Central.
 
 ## Why Azure Container Storage is useful
 Until now, providing cloud storage for containers required using individual container storage interface (CSI) drivers to use storage services intended for IaaS-centric workloads and make them work for containers. This creates operational overhead and increases the risk of issues with application availability, scalability, performance, usability, and cost.

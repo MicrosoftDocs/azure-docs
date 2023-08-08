@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/27/2023
+ms.date: 07/24/2023
 tags: connectors
 ## As a developer, I want to access my SQL database from my logic app workflow.
 ---
@@ -74,6 +74,8 @@ For more information, review the [SQL Server managed connector reference](/conne
   * For an on-premises SQL server, the connection string has the following format:
 
     `Server={your-server-address};Database={your-database-name};User Id={your-user-name};Password={your-password};`
+
+* In Standard workflows, to use the SQL built-in triggers, you must enable change tracking in the table where you want to use the trigger. For more information, see [Enable and disable change tracking](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server).
 
 * The logic app workflow where you want to access your SQL database. To start your workflow with a SQL Server trigger, you have to start with a blank workflow. To use a SQL Server action, start your workflow with any trigger.
 

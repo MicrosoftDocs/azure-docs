@@ -43,7 +43,9 @@ You can see all the users that were deleted less than 30 days ago. These users c
 
 ### To view your restorable users
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the organization.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the organization.
 
 2. Select **Azure Active Directory**, select **Users**, and then select **Deleted users**.
 

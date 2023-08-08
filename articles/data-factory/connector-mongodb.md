@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse, ignite-2022
-ms.date: 10/25/2022
+ms.date: 07/24/2023
 ---
 
 # Copy data from or to MongoDB using Azure Data Factory or Synapse Analytics
@@ -250,6 +250,20 @@ To achieve such schema-agnostic copy, skip the "structure" (also called *schema*
 ## Schema mapping
 
 To copy data from MongoDB to tabular sink or reversed, refer to [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping).
+
+## Upgrade the MongoDB linked service
+
+Here are steps that help you upgrade your linked service and related queries:
+
+1. Create a new MongoDB linked service and configure it by referring to [Linked service properties](#linked-service-properties).
+1. If you use SQL queries in your pipelines that refer to the old MongoDB linked service, replace them with the equivalent MongoDB queries. See the following table for the replacement examples:
+
+    | SQL query | Equivalent MongoDB query | 
+    |:--- |:--- |
+    | `SELECT * FROM users` | `db.users.find({})` |
+    | `SELECT username, age FROM users` |`db.users.find({}, {username: 1, age: 1})` |
+    | `SELECT username AS User, age AS Age, statusNumber AS Status, CASE WHEN Status = 0 THEN "Pending" CASE WHEN Status = 1 THEN "Finished" ELSE "Unknown" END AS statusEnum LastUpdatedTime + interval '2' hour AS NewLastUpdatedTime FROM users` | `db.users.aggregate([{ $project: { _id: 0, User: "$username", Age: "$age", Status: "$statusNumber", statusEnum: { $switch: { branches: [ { case: { $eq: ["$Status", 0] }, then: "Pending" }, { case: { $eq: ["$Status", 1] }, then: "Finished" } ], default: "Unknown" } }, NewLastUpdatedTime: { $add: ["$LastUpdatedTime", 2 * 60 * 60 * 1000] } } }])`|
+    | `SELECT employees.name, departments.name AS department_name FROM employees LEFT JOIN departments ON employees.department_id = departments.id;`|`db.employees.aggregate([ { $lookup: { from: "departments", localField: "department_id", foreignField: "_id", as: "department" } }, { $unwind: "$department" }, { $project: { _id: 0, name: 1, department_name: "$department.name" } } ])` |
 
 
 ## Next steps

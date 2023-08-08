@@ -4,7 +4,7 @@ description: Recommendations for reducing costs in Azure Monitor.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/29/2023
+ms.date: 08/03/2023
 ms.reviewer: bwren
 ---
 
@@ -58,7 +58,7 @@ This article describes [Cost optimization](/azure/architecture/framework/cost/) 
 | Recommendation | Benefit |
 |:---|:---|
 | Configure agent collection to remove unneeded data. |  Analyze the data collected by Container insights as described in [Controlling ingestion to reduce cost](containers/container-insights-cost.md#control-ingestion-to-reduce-cost) and adjust your configuration to stop collection of data in ContainerLogs you don't need. |
-| Modify settings for collection of metric data. |  You can reduce your costs by modifying the default collection settings Container insights uses for the collection of metric data. See [Enable cost optimization settings (preview)](containers/container-insights-cost-config.md) for details on modifying both the frequency that metric data is collected and the namespaces that are collected. |
+| Modify settings for collection of metric data. |  You can reduce your costs by modifying the default collection settings Container insights uses for the collection of metric data. See [Enable cost optimization settings](containers/container-insights-cost-config.md) for details on modifying both the frequency that metric data is collected and the namespaces that are collected. |
 | Limit Prometheus metrics collected. | If you configured Prometheus metric scraping, then follow the recommendations at [Controlling ingestion to reduce cost](containers/container-insights-cost.md#prometheus-metrics-scraping) to optimize your data collection for cost. |
 | Configure Basic Logs. | [Convert your schema to ContainerLogV2](containers/container-insights-logging-v2.md) which is compatible with Basic logs and can provide significant cost savings as described in [Controlling ingestion to reduce cost](containers/container-insights-cost.md#configure-basic-logs). |
 
@@ -70,7 +70,7 @@ This article describes [Cost optimization](/azure/architecture/framework/cost/) 
 ### Design checklist
 
 > [!div class="checklist"]
-> - Use sampling to tune the amount of data collected.
+> - Change to Workspace-based Application Insights.
 > - Use sampling to tune the amount of data collected.
 > - Limit the number of Ajax calls.
 > - Disable unneeded modules.
@@ -95,3 +95,4 @@ This article describes [Cost optimization](/azure/architecture/framework/cost/) 
 ## Next step
 
 - [Get best practices for a complete deployment of Azure Monitor](best-practices.md).
+

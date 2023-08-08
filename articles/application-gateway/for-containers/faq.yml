@@ -7,7 +7,7 @@ metadata:
   ms.service: application-gateway
   ms.subservice: appgw-for-containers
   ms.topic: article
-  ms.date: 07/24/2023
+  ms.date: 07/25/2023
   ms.author: greglin
     
 title: Frequently asked questions about Application Gateway for Containers (preview)
@@ -41,13 +41,16 @@ sections:
   - name: Configuration - ALB Controller
     questions:
       - question: Is it supported to install both Application Gateway Ingress Controller (AGIC) and ALB Controller in the same Kubernetes cluster?
-        answer: Yes, both Application Gateway Ingress Controller (AGIC) and ALB Controller may run at the same time in the same Kubernetes cluster. Updates to AGIC or to ALB Controller will not interfere with each other. 
+        answer: Yes, both Application Gateway Ingress Controller (AGIC) and ALB Controller may run at the same time in the same Kubernetes cluster. Updates to AGIC or to ALB Controller won't interfere with each other. 
         
       - question: Is it supported to install multiple ALB Controllers on the same Kubernetes cluster?
-        answer: It's possible to install multiple ALB Controllers on the same cluster, however this is not recommended or supported as it's not possible to partition gateways, routes, services, etc.
+        answer: It's possible to install multiple ALB Controllers on the same cluster, however this isn't recommended or supported as it's not possible to partition gateways, routes, services, etc.
 
       - question: Is it supported to increase the number of pods/replicas for ALB Controller?
         answer: No.  Only one pod/replica of ALB Controller should be running at any given time.
 
       - question: Is it supported to use the same managed identity with multiple ALB Controllers?
         answer: No.  Each ALB controller must use its own unique managed identity.
+
+      - question: Can I share the same frontend resource between multiple Gateway and/or Ingress resources in Kubernetes?
+        answer: No. A frontend should be unique to a single Ingress or Gateway resource. Multiple hostnames and routes can be defined in a given Gateway or Ingress resource to eliminate the need for numerous frontend resources.

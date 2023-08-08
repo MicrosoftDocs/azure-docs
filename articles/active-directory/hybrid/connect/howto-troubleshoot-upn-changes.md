@@ -112,7 +112,7 @@ Learn more: [What is a device identity?](../../devices/overview.md)
 
 Azure AD joined devices are joined to Azure AD. Users sign in to the device using their organization identity.
 
-Learn more: [Azure AD joined devices](../../devices/concept-azure-ad-join.md)
+Learn more: [Azure AD joined devices](../../devices/concept-directory-join.md)
 
 ### Known issues and resolution
 
@@ -128,7 +128,7 @@ Allow enough time for the UPN change to sync to Azure AD. After you verify the n
 
 Hybrid Azure AD joined devices are joined to Active Directory and Azure AD. You can implement Hybrid Azure AD join if your environment has an on-premises Active Directory footprint.
  
-Learn more: [Hybrid Azure AD joined devices](../../devices/concept-azure-ad-join-hybrid.md)
+Learn more: [Hybrid Azure AD joined devices](../../devices/concept-hybrid-join.md)
 
 ### Known issues and resolution
 

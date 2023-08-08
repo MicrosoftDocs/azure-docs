@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3
 description: How to migrate your applications to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 06/19/2023
+ms.date: 07/24/2023
 ms.author: jordanselig
 ---
 # Migrate to App Service Environment v3
@@ -20,7 +20,7 @@ If your App Service Environment [isn't supported for migration](migrate.md#migra
 
 Scenario: An existing app running on an App Service Environment v1 or App Service Environment v2 and you need that app to run on an App Service Environment v3.
 
-For any migration method that doesn't use the [migration feature](migrate.md), you need to [create the App Service Environment v3](creation.md) and a new subnet using the method of your choice. There are [feature differences](overview.md#feature-differences) between App Service Environment v1/v2 and App Service Environment v3 as well as [networking changes](networking.md) that involve new (and for internet-facing environments, additional) IP addresses. You need to update any infrastructure that relies on these IPs.
+For any migration method that doesn't use the [migration feature](migrate.md), you need to [create the App Service Environment v3](creation.md) and a new subnet using the method of your choice. There are [feature differences](overview.md#feature-differences) between App Service Environment v1/v2 and App Service Environment v3 as well as [networking changes](networking.md) that involve new (and for internet-facing environments, additional) IP addresses. You need to update any infrastructure that relies on these IPs as well as account for inbound dependency changes such as the Azure Load Balancer port.
 
 Multiple App Service Environments can't exist in a single subnet. If you need to use your existing subnet for your new App Service Environment v3, you need to delete the existing App Service Environment before you create a new one. For this scenario, the recommended migration method is to [back up your apps and then restore them](#back-up-and-restore) in the new environment after it gets created and configured. There is application downtime during this process because of the time it takes to delete the old environment, create the new App Service Environment v3, configure any infrastructure and connected resources to work with the new environment, and deploy your apps onto the new environment.
 
