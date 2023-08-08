@@ -18,7 +18,7 @@ ms.custom: devx-track-java
 
 This article shows you how to use gRPC in Azure Spring Apps.
 
-In this article, you modify and deploy the [Azure-Samples/spring-petclinic-microservices](https://github.com/Azure-Samples/spring-petclinic-microservices) sample application. From your local environment, you create a gRPC service by modifying the `customers-service` microservice, deploy it to Azure Spring Apps, and use `grpcurl` commands to test the service by making calls to gRPC methods.
+In this article, you modify and redeploy the [Spring Boot Pet Clinic](https://github.com/Azure-Samples/spring-petclinic-microservices) sample application. From your local environment, you create a gRPC service by modifying the `customers-service` microservice, deploy the modified sample to Azure Spring Apps, and then use `grpcurl` commands to test the service by making calls to gRPC methods.
 
 For a demonstration of this process, see the following video:
 
@@ -29,38 +29,19 @@ For a demonstration of this process, see the following video:
 ## Prerequisites
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- [Azure CLI](/cli/azure/install-azure-cli). Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
+- [Azure CLI](/cli/azure/install-azure-cli).
+  - Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
 - [Git](https://git-scm.com/downloads).
 - [Microsoft Build of OpenJDK](/java/openjdk/download#openjdk-17) Version 17.
 - [Maven](https://maven.apache.org/download.cgi).
 - An Azure Spring Apps instance. For more information, see [Quickstart: Provision an Azure Spring Apps service instance](quickstart-provision-service-instance.md).
-
-## Build the sample application
-
-Use the following steps to build the Spring Petclinic microservices project:
-
-1. In your local environment, use the following command to clone the sample application repository:
-
-   ```bash
-   git clone https://github.com/azure-samples/spring-petclinic-microservices
-   ```
-
-1. Use the following commands to change the directory and build the project:
-
-   ```bash
-   cd spring-petclinic-microservices
-   mvn clean package -DskipTest
-   ```
-
-   The build process can take a few minutes to complete. When the project is compiled, you should have individual JAR files for each service in their respective folders.
-
-For more information about deploying applications, see [Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md).
+- A built and deployed Pet Clinic sample application. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md).
 
 ## Assign a public endpoint
 
 To facilitate testing, assign a public endpoint. The public endpoint is used in the `grpcurl` commands as the hostname. For more information, see [fullstorydev/grpcurl](https://github.com/fullstorydev/grpcurl).
 
-Use the following command to assign a public endpoint. Be sure to replace the placeholders with your own values.
+Use the following command to assign a public endpoint. Be sure to replace the placeholders with the resource group name, service instance name, and app name that you used when you fulfilled the prerequisites.
 
 ```azurecli
 az spring app update \
@@ -74,7 +55,7 @@ You can also use the Azure portal to assign a public endpoint. For more informat
 
 ## Modify an existing service to be a gRPC service
 
-Before the service is changed into a gRPC server, look at the Owners page of a deployed PetClinic instance application to examine the current pet owners data. You can also list all owners by adding `/owners` to the URL path, which you can get from the Overview page for the `customers-service` page in the Azure portal.
+Before the service is changed into a gRPC server, look at the Owners page of the deployed PetClinic instance application to examine the current pet owners data. You can also list all owners by adding `/owners` to the URL path, which you can get from the Overview page for the `customers-service` page in the Azure portal.
 
 Use the following steps to change `customers-service` into a gRPC server:
 
