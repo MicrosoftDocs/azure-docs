@@ -8,21 +8,7 @@ ms.topic: conceptual
 ms.date: 10/08/2021
 ms.author: liud 
 ms.reviewer: pimorano
-ms.search.keywords:  
-    - CICD
-    - Synapse
-    - source control
-ms.search.form: 
-    - CICD
-    - source control 1
-ms.search.features:  
-    - CICD
-    - source control 2
-searchScope: 
-    - Deployment   
-    - CICD
-    - Azure  
-tags: CICD, source control 1
+
 ---
 
 # Continuous integration and delivery for an Azure Synapse Analytics workspace
@@ -197,9 +183,12 @@ The deployment task supports 3 types of operations,  validate only, deploy and v
           TargetWorkspaceName: '<target workspace name>'    
 ``` 
 
-**Deploy**  The inputs of the operation deploy include Synapse workspace template and parameter template, which can be created after publishing in the workspace publish branch or after the validation. It is same as the version 1.x. 
-
 **Validate and deploy** can be used to directly deploy the workspace from non-publish branch with the artifact root folder. 
+
+   > [!NOTE]
+   > Please make sure you have the endpoint **web.azuresynapse.net** whitelisted when the operation type is selected as **Validate** or **Validate and deploy** if network policies are enabled on the VM.
+
+**Deploy**  The inputs of the operation deploy include Synapse workspace template and parameter template, which can be created after publishing in the workspace publish branch or after the validation. It is same as the version 1.x. 
 
 You can choose the operation types based on the use case. Following part is an example of the deploy.
 
