@@ -38,15 +38,6 @@ This section provides the list of metrics collected from the different component
   - [Network Fabric Metrics](#network-fabric-metrics)
     - [Network Devices Metrics](#network-devices-metrics)
 
-**Nexus Baremetal Machines**
-- [node metrics](#node-metrics)
-
-**Nexus Storage Appliance**
-- [pure storage](#pure-storage)
-
-**Network Fabric**
-- [Network Devices Metrics](#network-devices-metrics)
-
 ## Nexus Cluster
 ### ***Kubernetes API server***
 
