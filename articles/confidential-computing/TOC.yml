@@ -12,9 +12,9 @@
        expanded: true
        items:
         - name: AMD EPYC, SEV-SNP
-          href: virtual-machine-solutions-amd.md #existing #done
+          href: virtual-machine-solutions-amd.md #existing # need to make this more >what is the silicon innovation, and how does it work with Azure Confidential Computing
         - name: Intel SGX, TDX 
-          href: virtual-machine-solutions-sgx.md #existing #done
+          href: virtual-machine-solutions-sgx.md #existing  # need to make this more >what is the silicon innovation, and how does it work with Azure Confidential Computing
         - name: NVIDIA 
           href: TODO.md # new, keep the page like this, then we can have a 1 pager that can be expanded as offerings grow, with x-links to vendor pages
      - name: Trusted Execution Environment (TEE) #p1
@@ -56,51 +56,39 @@
      - name: Infrastructure as a Service (IaaS) Quickstarts # clear deliniation for me, IaaS is where you control the OS, PaaS is where you don't
        expanded: true
        items:
-            - name: Confidential Virtual Machine (CVM) using AMD SEV-SNP
             - name: Confidential Virtual Machine (CVM)
               expanded: true
               items: # following files are the proposed new format, deploy, prove, explain - need to agree on naming convention: 'quickstart-($product)-(deploy|prove|explain).md'?
-                - name: 1. Deploy it
-                  href: qs-cvm-1-deploy.md
-                - name: 1. Deploy it # Will likely need a fork here for AMD vs. Intel
+                - name: 1. Deploy it (Quickstart) # Will likely need a fork here for AMD vs. Intel
                   href: TODO.md
-                - name: 2. Prove it
-                  href: qs-cvm-2-proveit.md
+                - name: 2. Prove it (Attestation)
                   href: TODO.md
                 - name: 3. Explain it
-                  href: qs-cvm-3-explainit.md
                   href: TODO.md
-            - name: Application Enclave using Intel SGX Virtual Machines 
-              href: virtual-machine-solutions-sgx.md # existing, need to update to reflect new format
+            - name: Confidential Azure Container Instance (ACI)
+              href: confidential-containers.md#vm-isolated-confidential-containers-on-azure-container-instances-aci---public-preview # need to reflect that this now GA
             - name: Confidential AKS Worker Node
               href: confidential-node-pool-aks.md # need to explain this is adding to an existing AKS cluster, page xlins to AKS docs for dialtone cluster creation etc.
             - name: Confidential Pods (PREVIEW)
-              href: TODO.md
-            - name: Confidential Azure Container Instance (ACI)
-              href: confidential-containers.md#vm-isolated-confidential-containers-on-azure-container-instances-aci---public-preview # need to reflect that this now GA
-            - name: Azure Virtual Desktop (AVD) Confidential Desktop
-              href: https://learn.microsoft.com/en-us/azure/confidential-computing/quick-create-confidential-vm-portal-amd # x-link to AVD docs
+              href: https://aka.ms/COCOAKS
+            - name: Application Enclave using Intel SGX Virtual Machines 
+              href: virtual-machine-solutions-sgx.md # existing, need to update to reflect new format
      - name: Platform as a Service (PaaS) Quickstarts
        expanded: true
        items:
-        - name: SQL Always Encrypted with Secure Enclaves # x-link to SQL docs
-          href: quick-create-confidential-vm-portal-amd.md #https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/configure-always-encrypted-enclaves?view=sql-server-ver16 ?
-        - name: Confidential Azure Data Explorer (Public PREVIEW)
-          href: REQUIRED_FILE.md # closest is https://techcommunity.microsoft.com/t5/azure-confidential-computing/confidential-vm-option-for-azure-databricks-preview/ba-p/3827982 or https://learn.microsoft.com/en-us/azure/data-explorer/manage-cluster-choose-sku
-        - name: Confidential Databricks (Public PREVIEW)
-          href: data-explorer/manage-cluster-choose-sku ## check rel-path
+        - name: SQL Always Encrypted with Secure Enclaves # x-link to SQL docs #done
           href: https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/configure-always-encrypted-enclaves?view=sql-server-ver16
-        - name: SQL on Confidential Virtual Machines
+        - name: SQL on Confidential Virtual Machines #done
           href: https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-vm-create-confidential-vm-how-to?view=azuresql-vm
-        - name: Confidential Azure Data Explorer (PREVIEW)
-          href: TODO.md # closest is https://techcommunity.microsoft.com/t5/azure-confidential-computing/confidential-vm-option-for-azure-databricks-preview/ba-p/3827982 or https://learn.microsoft.com/en-us/azure/data-explorer/manage-cluster-choose-sku
-        - name: Confidential Databricks (PREVIEW)
-          href: https://learn.microsoft.com/en-us/azure/data-explorer/manage-cluster-choose-sku ## check rel-path
-        - name: Azure Virtual Desktop (AVD) Confidential Desktop
+        - name: Confidential Databricks (PREVIEW) #done
+          href: https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/configure-always-encrypted-enclaves?view=sql-server-ver16
+        - name: Confidential Azure Data Explorer (PREVIEW) #done
+          href: https://techcommunity.microsoft.com/t5/azure-confidential-computing/confidential-vm-option-for-azure-databricks-preview/ba-p/3827982 or
+        - name: Azure Virtual Desktop (AVD) Confidential Desktop #done
           href: https://learn.microsoft.com/en-us/azure/confidential-computing/quick-create-confidential-vm-portal-amd # x-link to AVD docs
-        - name: Azure Confidential Ledger
+        - name: Azure Confidential Ledger #done
           href: ../confidential-ledger/overview.md
-        - name: Confidential Consortium Framework (CCF)
+        - name: Confidential Consortium Framework (CCF) #done
           href: ../confidential-consortium-framework/overview.md
      - name: Machine Learning (ML-AI) Quickstarts
        expanded: true
