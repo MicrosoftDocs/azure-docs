@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Storage firewalls and virtual networks
-description: Configure layered network security for your storage account by using Azure Storage firewalls and Azure Virtual Network.
+title: Configure network security for Azure Storage
+description: Configure layered network security for your storage account by using the Azure Storage firewall.
 services: storage
 author: jimmart-dev
 ms.service: azure-storage
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/08/2023
 ms.author: jammart
 ms.reviewer: santoshc
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement-fy23
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement
 ---
 
-# Configure Azure Storage firewalls and virtual networks
+# Configure network security for Azure Storage
 
 Azure Storage provides a layered security model. This model enables you to control the level of access to your storage accounts that your applications and enterprise environments demand, based on the type and subset of networks or resources that you use.
 
@@ -25,24 +25,23 @@ Turning on firewall rules for your storage account blocks incoming requests for 
 
 You can grant access to Azure services that operate from within a virtual network by allowing traffic from the subnet that hosts the service instance. You can also enable a limited number of scenarios through the exceptions mechanism that this article describes.
 
-## Considerations
+## Prerequisites and considerations
 
-Before implementing any IP network rules, review the [Restrictions for IP network rules](#restrictions-for-ip-network-rules) seciton.
+Before implementing network security for your storage accounts, review the following list of prerequisites and considerations.
 
-To access data from the storage account through the Azure portal, you need to be on a machine within the trusted boundary (either IP or virtual network) that you set up.
+> [!div class="checklist"]
+>
+> - Review the [Restrictions for IP network rules](#restrictions-for-ip-network-rules).
+> - To access data by using tools such as the Azure portal, Azure Storage Explorer, and AzCopy, you must be on a machine within the trusted boundary that you establish when configuring network security rules.
+> - Network rules are enforced on all network protocols for Azure Storage, including REST and SMB.
+> - Network rules don't affect virtual machine (VM) disk traffic, including mount and unmount operations and disk I/O, but they do help protect REST access to page blobs.
+> - You can use unmanaged disks in storage accounts with network rules applied to back up and restore VMs by [creating an exception](#manage-exceptions). Firewall exceptions aren't applicable to managed disks, because Azure already manages them.
+> - Classic storage accounts don't support firewalls and virtual networks.
 
 > [!IMPORTANT]
 > When referencing a service endpoint in a client application, it's recommended that you avoid taking a dependency on a cached IP address. The storage account IP address is subject to change, and relying on a cached IP address may result in unexpected behavior.
 >
 > Additionally, it's recommended that you honor the time-to-live (TTL) of the DNS record and avoid overriding it. Overriding the DNS TTL may result in unexpected behavior.
-
-Network rules are enforced on all network protocols for Azure Storage, including REST and SMB. To access data by using tools such as the Azure portal, Azure Storage Explorer, and AzCopy, you must configure explicit network rules.
-
-Network rules don't affect virtual machine (VM) disk traffic, including mount and unmount operations and disk I/O. Network rules help protect REST access to page blobs.
-
-Classic storage accounts don't support firewalls and virtual networks.
-
-You can use unmanaged disks in storage accounts with network rules applied to back up and restore VMs by creating an exception. The [Manage exceptions](#manage-exceptions) section of this article documents this process. Firewall exceptions aren't applicable with managed disks, because Azure already manages them.
 
 ### Authorization
 
