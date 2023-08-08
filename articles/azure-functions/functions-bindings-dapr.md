@@ -18,11 +18,6 @@ Azure Functions is an event-driven programming where [triggers and bindings](./f
 
 With the integration between Dapr and Functions, you can build functions that react to events from Dapr or external systems.
 
-::: zone-end
-
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python"
-
-
 | Action  | Direction | Type |
 |---------|-----------|------|
 | Trigger on a Dapr input binding | N/A | [daprBindingTrigger](./functions-bindings-dapr-trigger-input.md) |
@@ -66,7 +61,7 @@ dotnet add package Dapr.AzureFunctions.Extension --version 0.10.0-preview01
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
 ## Install bundle
 
@@ -146,6 +141,22 @@ Learn how to use the Dapr Functions extension via the provided samples.
 
 ::: zone-end
 
+::: zone pivot="programming-language-java"
+
+## Try out the Dapr Functions extension
+
+Learn how to use the Dapr Functions extension via the provided samples.
+
+| Samples | Description |
+|-|-| 
+| [Quickstart][dapr-quickstart] | Get started using the Dapr Pub/sub binding and `HttpTrigger`. |
+| [Dapr Kafka][dapr-kafka] | Learn how to use the Azure Functions Dapr extension with the Kafka bindings Dapr component. |
+
+[dapr-quickstart]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/quickstart
+[dapr-kafka]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/dapr-kafka
+
+::: zone-end
+
 ::: zone pivot="programming-language-javascript"
 
 ## Try out the Dapr Functions extension
@@ -198,7 +209,7 @@ Learn how to use the Dapr Functions extension via the provided samples.
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python"
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
 ## Demo
 

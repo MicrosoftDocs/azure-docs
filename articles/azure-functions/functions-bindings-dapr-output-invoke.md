@@ -18,10 +18,6 @@ The output binding allows you to read Dapr data as output to an Azure Function.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-dapr.md).
 
-::: zone-end
-
-::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-powershell, programming-language-python"
-
 ## Example
 
 ::: zone-end
@@ -67,6 +63,29 @@ More samples for the Dapr output invoke binding are available in the [GitHub rep
 ---
 
 ::: zone-end 
+
+::: zone pivot="programming-language-java"
+
+The following example creates a `"InvokeOutputBinding"` function using the `DaprInvokeOutput` binding with an `HttpTrigger`:
+
+
+```java
+@FunctionName("InvokeOutputBinding")
+public String run(
+        @HttpTrigger(
+            name = "req",
+            methods = {HttpMethod.GET, HttpMethod.POST},
+            authLevel = AuthorizationLevel.ANONYMOUS,
+            route = "invoke/{appId}/{methodName}")
+            HttpRequestMessage<Optional<String>> request,
+        @DaprInvokeOutput(
+            appId = "{appId}", 
+            methodName = "{methodName}", 
+            httpVerb = "post")
+        OutputBinding<String> payload,
+        final ExecutionContext context)
+```
+::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
@@ -248,16 +267,34 @@ The following table explains the parameters for the `DaprInvokeOutput`.
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-powershell"
+::: zone pivot="programming-language-java"
+
+## Annotations
+
+The `DaprInvokeOutput` annotation allows you to create a function that invokes and listens to an output binding. 
+
+| Element | Description | 
+| --------- | ----------- | 
+| **appId** | The app ID of the application involved in the invoke binding. | 
+| **methodName** | The name of the method variable. | 
+| **httpVerb** | Post or get. | 
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript, programming-language-powershell, programming-language-python"
 
 ## Configuration
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript, programming-language-powershell"
 The following table explains the binding configuration properties that you set in the function.json file.
 
 |function.json property | Description|
 |---------|----------------------|
 |**type** | Must be set to `daprInvoke`. |
 |**direction** | Must be set to `out`. |
-|**appId** | The app ID of the applications involved in the invoke binding. |
+|**appId** | The app ID of the application involved in the invoke binding. |
 |**methodName** | The name of the method variable. |
 |**httpVerb** | Post or get. |
 |**name** | The name of the variable that represents the Dapr data in function code. |
@@ -266,16 +303,14 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone pivot="programming-language-python"
 
-## Configuration
-
 # [Python v2](#tab/v2)
 
 The following table explains the binding configuration properties for `@dapp.dapr_invoke_output` that you set in your Python code.
 
 |Property | Description|
 |---------|----------------------|
-|**arg_name** | The argument name. In the example, this value is set to `payload`. |
-|**app_id** | The app ID of the application(s) involved in the invoke binding. |
+|**arg_name** | Argument/variable name that should match with the parameter of the function. In the example, this value is set to `payload`. |
+|**app_id** | The app ID of the application involved in the invoke binding. |
 |**method_name** | The name of the method variable. |
 |**http_verb** | Set to `post` or `get`. |
 
@@ -287,7 +322,7 @@ The following table explains the binding configuration properties that you set i
 |---------|----------------------|
 |**type** | Must be set to `daprInvoke`. |
 |**direction** | Must be set to `out`. |
-|**appId** | The app ID of the applications involved in the invoke binding. |
+|**appId** | The app ID of the application involved in the invoke binding. |
 |**methodName** | The name of the method variable. |
 |**httpVerb** | Post or get. |
 |**name** | The name of the variable that represents the Dapr data in function code. |
@@ -302,6 +337,17 @@ See the [Example section](#example) for complete examples.
 
 ## Usage
 To use the Dapr service invocation output binding, run `DaprInvoke`. 
+
+You can learn more about [how to use Dapr service invocation in the official Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/).
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+See the [Example section](#example) for complete examples.
+
+## Usage
+To use the Dapr service invocation output binding, run `DaprInvokeOutput`. 
 
 You can learn more about [how to use Dapr service invocation in the official Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/).
 

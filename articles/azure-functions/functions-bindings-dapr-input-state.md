@@ -18,10 +18,6 @@ The input binding allows you to read Dapr data as input to an Azure Function.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-dapr.md).
 
-::: zone-end
-
-::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-powershell, programming-language-python"
-
 ## Example
 
 ::: zone-end
@@ -56,6 +52,25 @@ More samples for the Dapr input state binding are available in the [GitHub repos
 ---
 
 ::: zone-end 
+
+::: zone pivot="programming-language-java"
+
+The following example creates a `"RetreveOrder"` function using the `DaprStateInput` binding with the [`DaprServiceInvocationTrigger`](./functions-bindings-dapr-trigger-svc-invoke.md):
+
+
+```java
+@FunctionName("RetrieveOrder")
+public String run(
+        @DaprServiceInvocationTrigger(
+            methodName = "RetrieveOrder") 
+        String payload,
+        @DaprStateInput(
+            stateStore = "%StateStoreName%",
+            key = "order")
+        String product,
+        final ExecutionContext context)
+```
+::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
@@ -219,9 +234,27 @@ The following table explains the parameters for `DaprStateInput`.
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-java"
+
+## Annotations
+
+The `DaprStateInput` annotation allows you to create a function that stores state. 
+
+| Element | Description | 
+| --------- | ----------- | 
+| **stateStore** | The name of the Dapr state store. | 
+| **key** | The state store key value. | 
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript, programming-language-powershell, programming-language-python"
 
 ## Configuration
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
 The following table explains the binding configuration properties that you set in the function.json file.
 
 |function.json property | Description|
@@ -237,7 +270,6 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone pivot="programming-language-powershell"
 
-## Configuration
 The following table explains the binding configuration properties that you set in the function.json file.
 
 |function.json property | Description|
@@ -252,15 +284,13 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone pivot="programming-language-python"
 
-## Configuration
-
 # [Python v2](#tab/v2)
 
 The following table explains the binding configuration properties for `@dapp.dapr_state_input` that you set in your Python code.
 
 |Property | Description|
 |---------|----------------------|
-|**arg_name** | Name of the argument. In the example, this value is set to `data`. |
+|**arg_name** | Argument/variable name that should match with the parameter of the function. In the example, this value is set to `data`. |
 |**state_store** | The name of the state store. |
 |**key** | The secret key value. The name of the key to retrieve from the specified state store. |
 
@@ -294,7 +324,20 @@ You also need to set up a Dapr state store component. You can learn more about w
 - [Dapr state store component specs](https://docs.dapr.io/reference/components-reference/supported-state-stores/)
 - [How to: Save state](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-get-save-state/)
 
+::: zone-end
 
+::: zone pivot="programming-language-java"
+
+See the [Example section](#example) for complete examples.
+
+## Usage
+
+To use the Dapr state input binding, run `DaprStateInput`. 
+
+You also need to set up a Dapr state store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+
+- [Dapr state store component specs](https://docs.dapr.io/reference/components-reference/supported-state-stores/)
+- [How to: Save state](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-get-save-state/)
 
 ::: zone-end
 

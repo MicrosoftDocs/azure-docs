@@ -788,7 +788,7 @@
               - name: State
                 href: functions-bindings-dapr-output-state.md
                 displayName: Dapr
-              - name: Service Invocation
+              - name: Invoke
                 href: functions-bindings-dapr-output-invoke.md 
                 displayName: Dapr
               - name: Publish

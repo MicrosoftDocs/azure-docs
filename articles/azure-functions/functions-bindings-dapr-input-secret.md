@@ -18,10 +18,6 @@ The input binding allows you to read Dapr data as input to an Azure Function.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-dapr.md).
 
-::: zone-end
-
-::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-powershell, programming-language-python"
-
 ## Example
 
 ::: zone-end
@@ -54,6 +50,25 @@ More samples for the Dapr input secret binding are available in the [GitHub repo
 ---
 
 ::: zone-end 
+
+::: zone pivot="programming-language-java"
+
+The following example creates a `"RetreveSecret"` function using the `DaprSecretInput` binding with the [`DaprServiceInvocationTrigger`](./functions-bindings-dapr-trigger-svc-invoke.md):
+
+
+```java
+@FunctionName("RetrieveSecret")
+public void run(
+    @DaprServiceInvocationTrigger(
+        methodName = "RetrieveSecret") Object args,
+    @DaprSecretInput(
+        secretStoreName = "kubernetes", 
+        key = "my-secret", 
+        metadata = "metadata.namespace=default") 
+        Map<String, String> secret,
+    final ExecutionContext context)
+```
+::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
@@ -235,9 +250,28 @@ The following table explains the parameters for `DaprSecretInput`.
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-powershell"
+::: zone pivot="programming-language-java"
+
+## Annotations
+
+The `DaprSecretInput` annotation allows you to create a function that fetches a secret. 
+
+| Element | Description | 
+| --------- | ----------- | 
+| **secretStoreName** | The name of the Dapr secret store. | 
+| **key** | The secret key value. | 
+| **metadata** | _Optional_. The metadata values. | 
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript, programming-language-powershell, programming-language-python"
 
 ## Configuration
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript, programming-language-powershell"
+
 The following table explains the binding configuration properties that you set in the function.json file.
 
 |function.json property | Description|
@@ -253,15 +287,13 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone pivot="programming-language-python"
 
-## Configuration
-
 # [Python v2](#tab/v2)
 
 The following table explains the binding configuration properties for `@dapp.dapr_secret_input` that you set in your Python code.
 
 |Property | Description|
 |---------|----------------------|
-|**arg_name** | Must be set to `secret`. |
+|**arg_name** | Argument/variable name that should match with the parameter of the function. In the example, this value is set to `secret`. |
 |**secret_store_name** | The name of the secret store. |
 |**key** | The secret key value. |
 |**metadata** | The metadata namespace. |
@@ -289,6 +321,20 @@ See the [Example section](#example) for complete examples.
 
 ## Usage
 To use the Dapr secret input binding, run `DaprSecret`. 
+
+You also need to set up a Dapr secret store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+
+- [Dapr secret store component specs](https://docs.dapr.io/reference/components-reference/supported-secret-stores/)
+- [How to: Retrieve a secret](https://docs.dapr.io/developing-applications/building-blocks/secrets/howto-secrets/)
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+See the [Example section](#example) for complete examples.
+
+## Usage
+To use the Dapr secret input binding, run `DaprSecretInput`. 
 
 You also need to set up a Dapr secret store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 

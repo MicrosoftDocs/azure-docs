@@ -18,10 +18,6 @@ Azure Functions can be triggered using the following Dapr events.
 
 There are no templates for triggers in Dapr in the functions tooling today. Start your project with another trigger type (for example, Storage Queues) and then modify the function.json or attributes.
 
-::: zone-end
-
-::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-powershell,programming-language-python"
-
 ## Example
 
 ::: zone-end
@@ -53,6 +49,19 @@ public static void Run(
 ---
 
 ::: zone-end 
+
+::: zone pivot="programming-language-java"
+
+Here's the Java code for the Dapr Input Binding trigger:
+
+```java
+@FunctionName("ConsumeMessageFromKafka")
+public String run(
+        @DaprBindingTrigger(
+            bindingName = "%KafkaBindingName%")
+)
+```
+::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
@@ -212,6 +221,18 @@ The following table explains the parameters for the `DaprBindingTrigger`.
 
 ::: zone-end
 
+::: zone pivot="programming-language-java"
+
+## Annotations
+
+The `DaprBindingTrigger` annotation allows you to create a function that gets triggered by the binding component you created. 
+
+| Element | Description | 
+| --------- | ----------- | 
+| **bindingName** | The name of the Dapr binding. | 
+
+::: zone-end
+
 ::: zone pivot="programming-language-javascript, programming-language-powershell, programming-language-python"
 
 ## Configuration
@@ -239,7 +260,7 @@ The following table explains the binding configuration properties for `@dapp.dap
 
 |Property | Description|
 |---------|----------------------|
-|**arg_name** | The argument name. In the example, this value is set to `triggerData`. |
+|**arg_name** | Argument/variable name that should match with the parameter of the function. In the example, this value is set to `triggerData`. |
 |**binding_name** | The name of the binding. |
 
 # [Python v1](#tab/v1)
@@ -257,7 +278,7 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp"
+::: zone pivot="programming-language-csharp, programming-language-java"
 
 See the [Example section](#example) for complete examples.
 

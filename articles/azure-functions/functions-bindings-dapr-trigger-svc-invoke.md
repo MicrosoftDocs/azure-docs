@@ -18,10 +18,6 @@ Azure Functions can be triggered using the following Dapr events.
 
 There are no templates for triggers in Dapr in the functions tooling today. Start your project with another trigger type (e.g. Storage Queues) and then modify the function.json or attributes.
 
-::: zone-end
-
-::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-powershell, programming-language-python"
-
 ## Example
 
 ::: zone-end
@@ -57,6 +53,19 @@ public static void Run(
 ---
 
 ::: zone-end 
+
+::: zone pivot="programming-language-java"
+
+Here's the Java code for the Dapr Service Invocation trigger:
+
+```java
+@FunctionName("CreateNewOrder")
+public String run(
+        @DaprServiceInvocationTrigger(
+            methodName = "CreateNewOrder") 
+)
+```
+::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
@@ -220,9 +229,26 @@ The following table explains the parameters for the `DaprServiceInvocationTrigge
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-powershell"
+::: zone pivot="programming-language-java"
+
+## Annotations
+
+The `DaprServiceInvocationTrigger` annotation allows you to create a function that gets invoked by Dapr runtime. 
+
+| Element | Description | 
+| --------- | ----------- | 
+| **methodName** | The method name. In the example, this value is set to `"CreateNewOrder"`. | 
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript, programming-language-powershell, programming-language-python"
 
 ## Configuration
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript, programming-language-powershell"
+
 The following table explains the binding configuration properties that you set in the function.json file.
 
 |function.json property | Description|
@@ -235,15 +261,13 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone pivot="programming-language-python"
 
-## Configuration
-
 # [Python v2](#tab/v2)
 
 The following table explains the binding configuration properties for `@dapp.dapr_service_invocation_trigger` that you set in your Python code.
 
 |Property | Description|
 |---------|----------------------|
-|**arg_name** | The argument name. In the example, this value is set to `payload`. |
+|**arg_name** | Argument/variable name that should match with the parameter of the function. In the example, this value is set to `payload`. |
 |**method_name** | The name of the variable that represents the Dapr data. |
 
 # [Python v1](#tab/v1)
@@ -260,7 +284,7 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp"
+::: zone pivot="programming-language-csharp, programming-language-java"
 
 See the [Example section](#example) for complete examples.
 

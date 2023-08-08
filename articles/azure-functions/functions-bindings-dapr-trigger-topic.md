@@ -18,10 +18,6 @@ Azure Functions can be triggered using the following Dapr events.
 
 There are no templates for triggers in Dapr in the functions tooling today. Start your project with another trigger type (e.g. Storage Queues) and then modify the function.json or attributes.
 
-::: zone-end
-
-::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-powershell, programming-language-python"
-
 ## Example
 
 ::: zone-end
@@ -57,6 +53,24 @@ public static void Run(
 ---
 
 ::: zone-end 
+
+::: zone pivot="programming-language-java"
+
+Here's the Java code for the Dapr Topic trigger:
+
+```java
+@FunctionName("PrintTopicMessage")
+public String run(
+        @DaprTopicTrigger(
+            pubSubName = "%PubSubName%",
+            topic = "B")
+        String payload,
+        final ExecutionContext context) throws JsonProcessingException {
+    Logger logger = context.getLogger();
+    logger.info("Java function processed a PrintTopicMessage request from the Dapr Runtime.");
+```
+
+::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
@@ -222,9 +236,27 @@ In [C# class libraries](./functions-dotnet-class-library.md), use the `DaprTopic
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-powershell"
+::: zone pivot="programming-language-java"
+
+## Annotations
+
+The `DaprTopicTrigger` annotation allows you to create a function that runs when a topic is received. 
+
+| Element | Description | 
+| --------- | ----------- | 
+| **pubSubName** | The name of the Dapr pub/sub. | 
+| **topic** | The name of the Dapr topic. | 
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript, programming-language-powershell, programming-language-python"
 
 ## Configuration
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript, programming-language-powershell"
+
 The following table explains the binding configuration properties that you set in the _function.json_ file.
 
 |function.json property | Description|
@@ -239,15 +271,13 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone pivot="programming-language-python"
 
-## Configuration
-
 # [Python v2](#tab/v2)
 
 The following table explains the binding configuration properties for `@dapp.dapr_topic_trigger` that you set in your Python code.
 
 |Property | Description|
 |---------|----------------------|
-|**arg_name** | The argument name. In the example, this value is set to `subEvent`. |
+|**arg_name** | Argument/variable name that should match with the parameter of the function. In the example, this value is set to `subEvent`. |
 |**pub_sub_name** | The name of the Dapr subscription component type. |
 |**topic** | The subscription topic. |
 |**route** | The subscription route. |
@@ -266,7 +296,7 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp"
+::: zone pivot="programming-language-csharp,programming-language-java"
 
 See the [Example section](#example) for complete examples.
 

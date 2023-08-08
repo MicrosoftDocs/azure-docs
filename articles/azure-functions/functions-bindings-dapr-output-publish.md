@@ -18,10 +18,6 @@ The publish output binding allows you to read Dapr data as output to an Azure Fu
 
 For information on setup and configuration details, see the [overview](./functions-bindings-dapr.md).
 
-::: zone-end
-
-::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-powershell, programming-language-python"
-
 ## Example
 
 ::: zone-end
@@ -57,6 +53,28 @@ More samples for the Dapr output publish binding are available in the [GitHub re
 ---
 
 ::: zone-end 
+
+::: zone pivot="programming-language-java"
+
+The following example creates a `"TransferEventBetweenTopics"` function using the `DaprPublishOutput` binding with an [`DaprTopicTrigger`](./functions-bindings-dapr-trigger-topic.md):
+
+
+```java
+@FunctionName("TransferEventBetweenTopics")
+public String run(
+        @DaprTopicTrigger(
+            pubSubName = "%PubSubName%",
+            topic = "A")
+            String request,
+        @DaprPublishOutput(
+            pubSubName = "%PubSubName%",
+            topic = "B")
+        OutputBinding<String> payload,
+        final ExecutionContext context) throws JsonProcessingException {
+    context.getLogger().info("Java function processed a TransferEventBetweenTopics request from the Dapr Runtime.");
+}
+```
+::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
@@ -231,9 +249,26 @@ The following table explains the parameters for the `DaprPublishOutput`.
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-powershell"
+::: zone pivot="programming-language-java"
+
+## Annotations
+
+The `DaprPublishOutput` annotation allows you to create a function that publishes a message. 
+
+| Element | Description | 
+| --------- | ----------- | 
+| **pubSubName** | The name of the Dapr pub/sub to send the message. | 
+| **topic** | The name of the Dapr topic to send the message. | 
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript, programming-language-powershell, programming-language-python"
 
 ## Configuration
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript, programming-language-powershell"
 
 The following table explains the binding configuration properties that you set in the _function.json_ file.
 
@@ -249,15 +284,13 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone pivot="programming-language-python"
 
-## Configuration
-
 # [Python v2](#tab/v2)
 
 The following table explains the binding configuration properties for `@dapp.dapr_publish_output` that you set in your Python code.
 
 |Property | Description|
 |---------|----------------------|
-|**arg_name** | Must be set to `pubEvent`. |
+|**arg_name** | Argument/variable name that should match with the parameter of the function. In the example, this value is set to `pubEvent`. |
 |**pub_sub_name** | The name of the publisher event. |
 |**topic** | The publisher topic name/identifier. |
 
@@ -283,6 +316,20 @@ See the [Example section](#example) for complete examples.
 
 ## Usage
 To use the Dapr publish output binding, run `DaprPublish`. 
+
+You also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+
+- [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
+- [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+See the [Example section](#example) for complete examples.
+
+## Usage
+To use the Dapr publish output binding, run `DaprPublishOutput`. 
 
 You also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 

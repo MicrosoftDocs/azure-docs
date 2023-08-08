@@ -18,10 +18,6 @@ The output binding allows you to read Dapr data as output to an Azure Function.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-dapr.md).
 
-::: zone-end
-
-::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-powershell, programming-language-python"
-
 ## Example
 
 ::: zone-end
@@ -63,6 +59,29 @@ More samples for the Dapr output state binding are available in the [GitHub repo
 ---
 
 ::: zone-end 
+
+::: zone pivot="programming-language-java"
+
+The following example creates a `"CreateNewOrderHttpTrigger"` function using the `DaprStateOutput` binding with an `HttpTrigger`:
+
+
+```java
+@FunctionName("CreateNewOrderHttpTrigger")
+public String run(
+        @HttpTrigger(
+            name = "req",
+            methods = {HttpMethod.POST},
+            authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
+        @DaprStateOutput(
+            stateStore = "%StateStoreName%",
+            key = "product")
+        OutputBinding<String> product,
+        final ExecutionContext context) {
+    context.getLogger().info("Java HTTP trigger (CreateNewOrderHttpTrigger) processed a request.");
+}
+```
+::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
@@ -242,9 +261,26 @@ The following table explains the parameters for the `DaprStateOutput`.
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-powershell"
+::: zone pivot="programming-language-java"
+
+## Annotations
+
+The `DaprStateOutput` annotation allows you to create a function that stores state. 
+
+| Element | Description | 
+| --------- | ----------- | 
+| **stateStore** | The name of the state store to save state. | 
+| **key** | The name of the key to save state within the state store. | 
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript, programming-language-powershell, programming-language-python"
 
 ## Configuration
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript, programming-language-powershell"
 
 The following table explains the binding configuration properties that you set in the _function.json_ file.
 
@@ -260,15 +296,13 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone pivot="programming-language-python"
 
-## Configuration
-
 # [Python v2](#tab/v2)
 
 The following table explains the binding configuration properties for `@dapp.dapr_state_output` that you set in your Python code.
 
 |Property | Description|
 |---------|----------------------|
-|**arg_name** | Must be set to `state`. |
+|**arg_name** | Argument/variable name that should match with the parameter of the function. In the example, this value is set to `state`. |
 |**state_store** | The name of the state store. |
 |**key** | The name of the key to save state within the state store. |
 
@@ -294,6 +328,20 @@ See the [Example section](#example) for complete examples.
 
 ## Usage
 To use the Dapr state output binding, run `DaprState`. 
+
+You also need to set up a Dapr state store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+
+- [Dapr state store component specs](https://docs.dapr.io/reference/components-reference/supported-state-stores/)
+- [How to: Save state](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-get-save-state/)
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+See the [Example section](#example) for complete examples.
+
+## Usage
+To use the Dapr state output binding, run `DaprStateOutput`. 
 
 You also need to set up a Dapr state store component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 

@@ -18,10 +18,6 @@ The output binding allows you to read Dapr data as output to an Azure Function.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-dapr.md).
 
-::: zone-end
-
-::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-powershell, programming-language-python"
-
 ## Example
 
 ::: zone-end
@@ -58,6 +54,30 @@ More samples for the Dapr output invoke binding are available in the [GitHub rep
 ---
 
 ::: zone-end 
+
+::: zone pivot="programming-language-java"
+
+The following example creates a `"SendMessagetoKafka"` function using the `DaprBindingOutput` binding with the [`DaprServiceInvocationTrigger`](./functions-bindings-dapr-output.md):
+
+
+```java
+@FunctionName("SendMessageToKafka")
+public String run(
+        @DaprServiceInvocationTrigger(
+            methodName = "SendMessageToKafka") 
+        String payload,
+        @DaprBindingOutput(
+            bindingName = "%KafkaBindingName%", 
+            operation = "create")
+        OutputBinding<String> product,
+        final ExecutionContext context) {
+    context.getLogger().info("Java  function processed a SendMessageToKafka request.");
+    product.setValue(payload);
+
+    return payload;
+}
+```
+::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
@@ -216,9 +236,26 @@ The following table explains the parameters for the `DaprBindingOutput`.
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript, programming-language-powershell"
+::: zone pivot="programming-language-java"
+
+## Annotations
+
+The `DaprBindingOutput` annotation allows you to create a function that sends an output binding. 
+
+| Element | Description | 
+| --------- | ----------- | 
+| **bindingName** | The name of the Dapr binding. | 
+| **output** | The configured binding operation. | 
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript, programming-language-powershell, programming-language-python"
 
 ## Configuration
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript, programming-language-powershell"
 The following table explains the binding configuration properties that you set in the function.json file.
 
 |function.json property | Description|
@@ -233,15 +270,13 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone pivot="programming-language-python"
 
-## Configuration
-
 # [Python v2](#tab/v2)
 
 The following table explains the binding configuration properties for `@dapp.dapr_binding_output` that you set in your Python code.
 
 |Property | Description|
 |---------|----------------------|
-|**arg_name** | Set a unique argument name. In the example, this value is set to `messages`. |
+|**arg_name** | Argument/variable name that should match with the parameter of the function. In the example, this value is set to `messages`. |
 |**binding_name** | The name of the binding event. |
 |**operation** | The binding operation name/identifier. |
 
@@ -267,6 +302,20 @@ See the [Example section](#example) for complete examples.
 
 ## Usage
 To use the Dapr output binding, run `DaprBinding`. 
+
+You also need to set up a Dapr output binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+
+- [Dapr output binding component specs](https://docs.dapr.io/reference/components-reference/supported-bindings/)
+- [How to: Use output bindings to interface with external resources](https://docs.dapr.io/developing-applications/building-blocks/bindings/howto-bindings/)
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+See the [Example section](#example) for complete examples.
+
+## Usage
+To use the Dapr output binding, run `DaprBindingOutput`. 
 
 You also need to set up a Dapr output binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
