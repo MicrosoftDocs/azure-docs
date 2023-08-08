@@ -8,7 +8,7 @@ ms.reviewer: viviandiec
 ---
 
 # Scrape Prometheus metrics at scale in Azure Monitor
-This article provides guidance on performance that can be expected when collection metrics at high scale for [Azure Monitor managed service for Prometheus](prometheus-metrics-overview.md). 
+This article provides guidance on performance that can be expected when collection metrics at high scale for [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). 
 
 
 ## CPU and memory

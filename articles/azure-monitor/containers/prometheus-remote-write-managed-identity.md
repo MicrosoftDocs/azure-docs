@@ -177,5 +177,5 @@ See [Azure Monitor managed service for Prometheus remote write](prometheus-remot
 
 ## Next steps
 
-- [Setup Grafana to use Managed Prometheus as a data source](prometheus-grafana.md).
-- [Learn more about Azure Monitor managed service for Prometheus](prometheus-metrics-overview.md).
+- [Setup Grafana to use Managed Prometheus as a data source](../essentials/prometheus-grafana.md).
+- [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md).

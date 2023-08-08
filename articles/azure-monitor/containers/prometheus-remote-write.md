@@ -10,7 +10,7 @@ ms.date: 11/01/2022
 Azure Monitor managed service for Prometheus is intended to be a replacement for self managed Prometheus so you don't need to manage a Prometheus server in your Kubernetes clusters. You may also choose to use the managed service to centralize data from self-managed Prometheus clusters for long term data retention and to create a centralized view across your clusters. In this case, you can use [remote_write](https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage) to send data from your self-managed Prometheus into the Azure managed service.
 
 ## Architecture
-Azure Monitor provides a reverse proxy container (Azure Monitor [side car container](https://learn.microsoft.com/azure/architecture/patterns/sidecar)) that provides an abstraction for ingesting Prometheus remote write metrics and helps in authenticating packets. The Azure Monitor side car container currently supports User Assigned Identity and Azure Active Directory (Azure AD) based authentication to ingest Prometheus remote write metrics to Azure Monitor workspace.
+Azure Monitor provides a reverse proxy container (Azure Monitor [side car container](/azure/architecture/patterns/sidecar)) that provides an abstraction for ingesting Prometheus remote write metrics and helps in authenticating packets. The Azure Monitor side car container currently supports User Assigned Identity and Azure Active Directory (Azure AD) based authentication to ingest Prometheus remote write metrics to Azure Monitor workspace.
 
 
 ## Prerequisites
@@ -49,7 +49,7 @@ time="2022-11-02T21:32:59Z" level=info msg="Metric packets published in last 1 m
 
 
 ### PromQL queries
-Use PromQL queries in Grafana and verify that the results return expected data. See [getting Grafana setup with Managed Prometheus](prometheus-grafana.md) to configure Grafana 
+Use PromQL queries in Grafana and verify that the results return expected data. See [getting Grafana setup with Managed Prometheus](../essentials/prometheus-grafana.md) to configure Grafana 
 
 ## Troubleshoot remote write
 
@@ -90,5 +90,5 @@ az monitor data-collection rule show --name "myCollectionRule" --resource-group 
   
 ## Next steps
 
-- [Setup Grafana to use Managed Prometheus as a data source](prometheus-grafana.md).
-- [Learn more about Azure Monitor managed service for Prometheus](prometheus-metrics-overview.md).
+- [Setup Grafana to use Managed Prometheus as a data source](../essentials/prometheus-grafana.md).
+- [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md).
