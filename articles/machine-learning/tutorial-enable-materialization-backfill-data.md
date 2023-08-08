@@ -31,8 +31,7 @@ In this tutorial, you learn how to:
 > * Enable an offline store on the feature store by creating and attaching an Azure Data Lake Storage Gen2 container and a user-assigned managed identity (UAI).
 > * Enable offline materialization on the feature sets, and backfill the feature data.
 
-> [!IMPORTANT]
-> This feature is currently in public preview. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
