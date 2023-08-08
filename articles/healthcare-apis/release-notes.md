@@ -29,6 +29,10 @@ We observed an issue where $import kept on retrying when NDJSON file size is gre
 **Bug Fix: Patient and Group level export job restart on interruption**
 Patient and Group level exports on interruption would restart from the beginning. Bug is fixed to restart the export jobs from the last sucessfully completed page of results. For more details visit [3205](https://github.com/microsoft/fhir-server/pull/3205).
 
+#### DICOM Service
+**API Version 2 is Generally Available (GA)**
+The DICOM service API v2 is now Generally Available (GA) and introduces [several changes and new features](dicom/dicom-service-v2-api-changes).  Most notable is the change to validation of DICOM attributes during store (STOW) operations - beginning with v2, the request fails only if **required attributes** fail validation.  See the [DICOM Conformance Statement v2](dicom/dicom-services-conformance-statement-v2.md) for full details.  
+
 
 ## June 2023
 #### Azure Health Data Services
