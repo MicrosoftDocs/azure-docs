@@ -25,9 +25,9 @@ Turning on firewall rules for your storage account blocks incoming requests for 
 
 You can grant access to Azure services that operate from within a virtual network by allowing traffic from the subnet that hosts the service instance. You can also enable a limited number of scenarios through the exceptions mechanism that this article describes.
 
-## Prerequisites and considerations
+## Restrictions and considerations
 
-Before implementing network security for your storage accounts, review the following list of prerequisites and considerations.
+Before implementing network security for your storage accounts, review the following list of restrictions and considerations.
 
 > [!div class="checklist"]
 >
@@ -45,9 +45,9 @@ Before implementing network security for your storage accounts, review the follo
 
 ### Authorization
 
-Clients granted access via these network rules must continue to meet the authorization requirements of the storage account to access the data.
+Clients granted access via network rules must continue to meet the authorization requirements of the storage account to access the data. Authorization is supported with Azure Active Directory (Azure AD) credentials for blobs and queues, with a valid account access key, or with a shared access signature (SAS) token.
 
-An application that accesses a storage account when network rules are in effect still requires proper authorization for the request. Authorization is supported with Azure Active Directory (Azure AD) credentials for blobs and queues, with a valid account access key, or with a shared access signature (SAS) token. When you configure a blob container for anonymous public access, requests to read data in that container don't need to be authorized. The firewall rules remain in effect and will block anonymous traffic.
+When you configure a blob container for anonymous public access, requests to read data in that container don't need to be authorized, but the firewall rules remain in effect and will block anonymous traffic.
 
 ## Scenarios
 
