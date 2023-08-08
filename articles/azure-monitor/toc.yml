@@ -1019,7 +1019,7 @@ items:
             href: logs/basic-logs-configure.md
         - name: Archive and restore
           items:
-          - name: Set retention and archive policy
+          - name: Data retention and archive
             href: logs/data-retention-archive.md
             displayName: Log retention, log archive, cost optimization
           - name: Run a search job
