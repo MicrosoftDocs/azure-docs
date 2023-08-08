@@ -154,6 +154,7 @@ Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 # [Azure CLI](#tab/azure-cli)
 
 
+
  ```azurecli
 
 #resource group that contains the managed disk
@@ -298,8 +299,11 @@ The following steps assume you already have a snapshot. To learn how to create o
 1. Continue to the **Advanced** tab.
 1. Select **512** for **Logical sector size (bytes)**.
 1. Select **Review+Create** and then **Create**.
+
+
 ---
 
 ## Next steps
 
 Make a read-only copy of a VM by using a [snapshot](snapshot-copy-managed-disk.md).
+
