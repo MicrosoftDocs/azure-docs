@@ -29,6 +29,20 @@ Watch the following video to learn how to view what resources users have access 
 
 >[!VIDEO https://www.youtube.com/embed/omtNJ7ySjS0]
 
+## View users assigned to an access package
+
+This report enables you to list all of the users who are assigned to an access package.
+
+**Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
+
+1. Select **Azure Active Directory** and then select **Identity Governance**.
+
+1. In the left menu, select **Access packages** and then open the access package of interest.
+
+1. In the left menu, select **Assignments**, then select **Download**.
+
+1. Confirm the file name and then click **Download**.
+
 ## View access packages for a user
 
 This report enables you to list all of the access packages a user can request and the access packages that are currently assigned to the user.
@@ -104,6 +118,42 @@ When a user is assigned access, Azure AD writes an audit record for the `Entitle
 If access wasn't assigned, then Azure AD writes an audit record for the `EntitlementManagement` category with **Activity** either `Deny access package assignment request`, if the request was denied by an approver, or `Access package assignment request timed out (no approver action taken)`, if the request timed out before an approver could approve.
 
 When the user's access package assignment expires, is canceled by the user, or removed by an administrator, then Azure AD writes an audit record for the `EntitlementManagement` category with **Activity** of `Remove access package assignment`.
+
+## Download list of connected organizations
+
+**Prerequisite role**: *Global administrator*, *Identity Governance administrator*,  or *User administrator*
+
+1. In the Azure portal, select **Azure Active Directory**, and then select **Identity Governance**.
+
+1. In the left pane, select **Connected organizations**, and then select **Download**.
+
+## View events for an access package  
+
+If you have configured to send audit log events to [Azure Monitor](entitlement-management-logs-and-reporting.md), then you can use the built-in workbooks and custom workbooks to view the audit logs retained in Azure Monitor. 
+
+To view events for an access package, you must have access to the underlying Azure monitor workspace (see [Manage access to log data and workspaces in Azure Monitor](../../azure-monitor/logs/manage-access.md#azure-rbac) for information) and in one of the following roles: 
+
+- Global administrator  
+- Security administrator  
+- Security reader  
+- Reports reader  
+- Application administrator  
+
+1. In the Azure portal, select **Azure Active Directory** then select **Workbooks**. If you only have one subscription, move on to step 3. 
+
+1. If you have multiple subscriptions, select the subscription that contains the workspace.  
+
+1. Select the workbook named *Access Package Activity*. 
+
+1. In that workbook, select a time range (change to **All** if not sure), and select an access package ID from the drop-down list of all access packages that had activity during that time range. The events related to the access package that occurred during the selected time range will be displayed.
+
+    [ ![View access package events](./media/entitlement-management-logs-and-reporting/view-events-access-package-sml.png) ](./media/entitlement-management-logs-and-reporting/view-events-access-package-lrg.png#lightbox)
+
+    Each row includes the time, access package ID, the name of the operation, the object ID, UPN, and the display name of the user who started the operation.  Additional details are included in JSON.
+
+1. If you would like to see if there have been changes to application role assignments for an application that weren't due to access package assignments, such as by a global administrator directly assigning a user to an application role, then you can select the workbook named *Application role assignment activity*.
+
+    [ ![View app role assignments](./media/entitlement-management-access-package-incompatible/workbook-ara-sml.png) ](./media/entitlement-management-access-package-incompatible/workbook-ara-lrg.png#lightbox)
 
 ## Next steps
 

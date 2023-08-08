@@ -81,6 +81,8 @@ landingContent:
         links:
           - text: Using events
             url: how-to-use-events.md
+          - text: Create an Azure support request
+            url: how-to-create-azure-support-request.md  
       - linkListType: concept
         links:
           - text: Understanding throttling
