@@ -170,7 +170,6 @@ $ClientId = Get-AutomationVariable -Name 'ClientId'
 $TenantId = Get-AutomationVariable -Name 'TenantId'
 $Thumbprint = Get-AutomationVariable -Name 'Thumbprint'
 $auth = Connect-MgGraph -clientId $ClientId -tenantid $TenantId -certificatethumbprint $Thumbprint
-Select-MgProfile -Name beta
 Import-Module Microsoft.Graph.Identity.Governance
 $ap = Get-MgEntitlementManagementAccessPackage -All -ErrorAction Stop
 $ap | Select-Object -Property Id,DisplayName | ConvertTo-Json
