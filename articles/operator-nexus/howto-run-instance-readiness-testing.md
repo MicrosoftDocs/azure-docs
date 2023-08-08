@@ -42,41 +42,41 @@ There are multiple dependencies expected to be available during execution. Revie
 * `tree` - for viewing directory structures
 * `moreutils` - for viewing progress from the ACI container
 
-The `setup.sh` script is provided to aid with installing the listed dependencies. It will install any dependencies that aren't available in PATH. It will not upgrade any dependencies that do not meet the minimum required versions.
+The `setup.sh` script is provided to aid with installing the listed dependencies. It installs any dependencies that aren't available in PATH. It doesn't upgrade any dependencies that don't meet the minimum required versions.
 
 **NOTE:** `setup.sh` assumes a nonroot user and attempts to use `sudo`
 
 
 ### Create Credentialed Resources 
-IRT makes commands against your resources, and will need permission to do so. IRT requires a Managed Identity and a Service Principal to execute. It also requires that the service principal be member to an AAD Security Group that is also provided as input.
+IRT makes commands against your resources, and needs permission to do so. IRT requires a Managed Identity and a Service Principal to execute. It also requires that the service principal be member to an AAD Security Group that is also provided as input.
 
 #### Managed Identity
-A managed identity with the following role assignments is needed to execute tests. The supplemental script, `create-managed-identity.sh` will create a managed identity with these role assignments.
+A managed identity with the following role assignments is needed to execute tests. The supplemental script, `create-managed-identity.sh` creates a managed identity with these role assignments.
    1. `Contributor` - For creating and manipulating resources
    1. `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
    1. `Log Analytics Reader` - For reading metadata about the LAW
 
 
 Executing `create-managed-identity.sh` requires the following environment variables to be set;
-   1. **MI_RESOURCE_GROUP** - The resource group the Managed Identity will be created in. The resource group will be created in `eastus` if the resource group provided does not yet exist.
+   1. **MI_RESOURCE_GROUP** - The resource group the Managed Identity is created in. The resource group is created in `eastus` if the resource group provided doesn't yet exist.
    1. **MI_NAME** - The name of the Managed Identity to be created.
-   1. **[Optional] SUBSCRIPTION** - to set the subscription. Alternatively, the script will use az CLI context to lookup the subscription.
+   1. **[Optional] SUBSCRIPTION** - to set the subscription. Alternatively, the script uses az CLI context to look up the subscription.
 
 ```bash
 # Example execution of the script
 MI_RESOURCE_GROUP="<your resource group>" MI_NAME="<your managed identity name>" SUBSCRIPTION="<your subscription ID>" ./create-managed-identity.sh
 ```
 
-**RESULT:** This script will print a value for `MANAGED_IDENTITY_ID`, which should be recorded in the irt-input.yml for use. See [Input Configuration](#input-configuration).
+**RESULT:** This script prints a value for `MANAGED_IDENTITY_ID`. This key/value pair should be recorded in the irt-input.yml for use. See [Input Configuration](#input-configuration).
 
 
 #### Service Principal & AAD Security Group
-A service principal with the following role assignments. The supplemental script, `create-service-principal.sh` will create a service principal with these role assignments, or add role assignments to an existing service principal. 
+A service principal with the following role assignments. The supplemental script, `create-service-principal.sh`  creates a service principal with these role assignments, or add role assignments to an existing service principal. 
    1. `Contributor` - For creating and manipulating resources
    1. `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
    1. `Azure ARC Kubernetes Admin` - For ARC enrolling the NAKS cluster
 
-Additionally, it will create the necessary security group, and add the service principal to the security group. If the security group exists, it will add the service principal to the existing security group.
+Additionally, it creates the necessary security group, and add the service principal to the security group. If the security group exists, it adds the service principal to the existing security group.
 
 Executing `create-service-principal` requires the following environment variables to be set;
     1. SERVICE_PRINCIPAL_NAME - The name of the service principal, created with the `az ad sp create-for-rbac` command.
@@ -87,11 +87,11 @@ Executing `create-service-principal` requires the following environment variable
 SERVICE_PRINCIPAL_NAME="<your service principal name>" AAD_GROUP_NAME="<your security group name>" ./create-service-principal.sh
 ```
 
-**RESULT:** This script will print values for `AAD_GROUP_ID`, `SP_ID`, `SP_PASSWORD`, and `SP_TENANT`, which should be recoreded in irt-input.yml for use. See [Input Configuration](#input-configuration).
+**RESULT:** This script prints values for `AAD_GROUP_ID`, `SP_ID`, `SP_PASSWORD`, and `SP_TENANT`. This key/value pair should be recorded in irt-input.yml for use. See [Input Configuration](#input-configuration).
 
 
 #### Create Isolation Domains
-Isolation domains are not created, destroyed, or manipulated by the testing framework. Therefore, existing Isolation Domains can be used. Each Isolation Domain will require at least one external network. The supplemental script, `create-l3-isolation-domains.sh`. Internal networks are created, manipulated, and destroy through the course of testing. They will be created using the data provided in the networks blueprint.
+Isolation domains aren't created, destroyed, or manipulated by the testing framework. Therefore, existing Isolation Domains can be used. Each Isolation Domain requires at least one external network. The supplemental script, `create-l3-isolation-domains.sh`. Internal networks are created, manipulated, and destroy through the course of testing. They'll be created using the data provided in the networks blueprint.
 
 Executing `create-l3-isolation-domains.sh` requires one **parameter**, a path to your networks blueprint file;
   
@@ -105,10 +105,10 @@ IRT creates an html test report after running a test scenario. These reports can
 
 
 Executing `create-managed-identity.sh` requires the following environment variables to be set;
-   1. **RESOURCE_GROUP** - The resource group the Managed Identity will be created in. The resource group will be created in `eastus` if the resource group provided does not yet exist.
+   1. **RESOURCE_GROUP** - The resource group the Managed Identity is created in. The resource group is created in `eastus` if the resource group provided doesn't yet exist.
    1. **STORAGE_ACCOUNT_NAME** - The name of the Azure storage account to be created.
    1. **STORAGE_CONTAINER_NAME** - The name of the blob storage container to be created.
-   1. **[Optional] SUBSCRIPTION** - to set the subscription. Alternatively, the script will use az CLI context to lookup the subscription.
+   1. **[Optional] SUBSCRIPTION** - to set the subscription. Alternatively, the script uses the az CLI context to look up the subscription.
 
 
 ```bash
@@ -116,12 +116,12 @@ Executing `create-managed-identity.sh` requires the following environment variab
 RESOURCE_GROUP="<your resource group>" STORAGE_ACCOUNT_NAME="<your storage account name>" STORAGE_CONTAINER_NAME="<your container name>" ./create-archive-storage.sh
 ```
 
-**RESULT:** This script will print values for `PUBLISH_RESULTS_TO` which should be recoreded in irt-input.yml for use. See [Input Configuration](#input-configuration).
+**RESULT:** This script prints a value for `PUBLISH_RESULTS_TO`. This key/value pair should be recorded in irt-input.yml for use. See [Input Configuration](#input-configuration).
 
 
 ### Input configuration
 
-1. Build your input file. The IRT tarball provides `irt-input.example.yml` as an example. These values **will not work for all instances**, they need to be manually changed and the file also needs to be renamed to `irt-input.yml`.
+1. Build your input file. The IRT tarball provides `irt-input.example.yml` as an example. These values **will not work for your instances**, they need to be manually changed and the file should also be renamed to `irt-input.yml`. The example input file is provided as a stub to aid in configuring new input files. Overridable values and their usage are outlined in the example.
 1. define the values of networks-blueprint input, an example of this file is given in networks-blueprint.example.yml.
 
 The network blueprint input schema for IRT is defined in the networks-blueprint.example.yml. Currently IRT has the following network requirements. The networks are created as part of the test, provide network details that aren't in use.
@@ -129,15 +129,18 @@ The network blueprint input schema for IRT is defined in the networks-blueprint.
 1. Three (3) L3 Networks
 
    * Two of them with MTU 1500
-   * One of them with MTU 9000 and shouldn't have fabric_asn definition
+   * One of them with MTU 9000 and shouldn't have a fabric_asn attribute
 
 1. One (1) Trunked Network
 1. All vlans should be greater than 500
 
 ## Execution
 
-1. Execute: `./irt.sh irt-input.yml`
-    * This example assumes irt-input.yml is in the same location as irt.sh. If your file is located in a different directory, provide the full file path.
+1. Execute. This example assumes irt-input.yml is in the same location as irt.sh. If your file is located in a different directory, provide the full file path.
+
+```bash
+./irt.sh irt-input.yml
+```
 
 ## Results
 
