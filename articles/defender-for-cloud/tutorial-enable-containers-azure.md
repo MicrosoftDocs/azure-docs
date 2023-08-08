@@ -46,6 +46,9 @@ If you would prefer to [assign a custom workspace](/azure/defender-for-cloud/def
 
 1. Select **Save**.
 
+> [!NOTE]
+> To enable or disable individual Defender for Containers capabilities, either globally or for specific resources, see [How to enable Microsoft Defender for Containers components](defender-for-containers-enable.md).
+
 ## Deploy the Defender profile in Azure
 
 You can enable the Defender for Containers plan and deploy all of the relevant components in different ways. We walk you through the steps to accomplish this using the Azure portal. Learn how to [deploy the Defender profile](defender-for-containers-enable.md#deploy-the-defender-profile) with REST API, Azure CLI or with a Resource Manager template.

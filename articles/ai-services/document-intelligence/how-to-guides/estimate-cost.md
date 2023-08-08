@@ -1,5 +1,5 @@
 ---
-title: "Check my usage and estimate the cost"
+title: "Check my usage and estimate the cost -  Document Intelligence (formerly Form Recognizer)"
 titleSuffix: Azure AI services
 description: Learn how to use Azure portal to check how many pages are analyzed and estimate the total price.
 author: laujan

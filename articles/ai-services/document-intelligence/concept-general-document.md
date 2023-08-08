@@ -1,5 +1,5 @@
 ---
-title: General key-value extraction - Document Intelligence
+title: General key-value extraction - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Extract key-value pairs, tables, selection marks, and text from your documents with Document Intelligence
 author: laujan
@@ -42,12 +42,6 @@ The General document v3.0 model combines powerful Optical Character Recognition 
 ## Key-value pair extraction
 
 The general document API supports most form types and analyzes your documents and extract keys and associated values. It's ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to training a custom model without labels.
-
-### Key normalization (common name)
-
-When the service analyzes documents with variations in key names like ```Social Security Number```, ```Social Security Nbr```, ```SSN```, the output normalizes the key variations to a single common name, ```SocialSecurityNumber```. This normalization simplifies downstream processing for documents where you no longer need to account for variations in the key name.
-
-:::image type="content" source="media/common-name.png" alt-text="Screenshot of general document processing in the Document Intelligence Studio.":::
 
 ## Development options
 

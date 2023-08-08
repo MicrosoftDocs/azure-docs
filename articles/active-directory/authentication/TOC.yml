@@ -64,6 +64,8 @@
       href: concept-system-preferred-multifactor-authentication.md
     - name: Prompts and session lifetime
       href: concepts-azure-multi-factor-authentication-prompts-session-lifetime.md
+    - name: Regional opt-in
+      href: concept-mfa-regional-opt-in.md
     - name: Data residency
       href: concept-mfa-data-residency.md
     - name: Licenses
