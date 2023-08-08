@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Document Intelligence JavaScript SDK (beta) | v3.0"
+title: "Quickstart: Document Intelligence (formerly Form Recognizer) JavaScript SDK (beta) | v3.0"
 titleSuffix: Azure AI services
 description: Form and document processing, data extraction, and analysis using Document Intelligence JavaScript client library SDKs v3.0 
 author: laujan
