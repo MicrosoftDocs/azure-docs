@@ -6,7 +6,7 @@ ms.author: halkazwini
 ms.reviewer: saggupta
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 08/08/2023
 ms.custom: subject-monitoring, ignite-2022
 ---
 
