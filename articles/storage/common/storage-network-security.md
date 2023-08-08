@@ -27,7 +27,7 @@ You can grant access to Azure services that operate from within a virtual networ
 
 ## Considerations
 
-Before implementing any IP network rules, review the [Restrictions for IP network rules](restrictions-for-ip-network-rules) seciton.
+Before implementing any IP network rules, review the [Restrictions for IP network rules](#restrictions-for-ip-network-rules) seciton.
 
 To access data from the storage account through the Azure portal, you need to be on a machine within the trusted boundary (either IP or virtual network) that you set up.
 
