@@ -93,9 +93,9 @@ The following example configures an `AddRequestHeader` factory that uses a varia
 
 ### AddRequestHeadersIfNotPresent
 
-The `AddRequestHeadersIfNotPresent` factory adds headers if they aren't present in the original request.
+The `AddRequestHeadersIfNotPresent` factory adds a header if they aren't present in the original request.
 
-This factory accepts the following configuration parameters:
+This factory accepts the following configuration parameter:
 
 - `headers`: A comma-separated list of key-value pairs (header name, header value).
 
@@ -116,7 +116,9 @@ The following example configures an `AddRequestHeadersIfNotPresent` factory:
 
 ### AddRequestParameter
 
-The `AddRequestParameter` factory accepts the following configuration parameters:
+The `AddRequestParameter` factory adds a parameter to the downstream request’s query string for all matching requests. 
+
+This factory accepts the following configuration parameters:
 
 - `name`
 - `value` 
@@ -155,7 +157,9 @@ The following example configures an `AddRequestParameter` factory that uses a va
 
 ### AddResponseHeader
 
-The `AddResponseHeader` factory accepts the following configuration parameters:
+The `AddResponseHeader` factory adds a header to the downstream response’s headers for all matching requests.
+
+This factory accepts the following configuration parameters:
 
 - `name`
 - `value` 
@@ -283,7 +287,7 @@ You can overwrite the names of the headers in the configuration by setting the v
 
 The `JSONToGRPCFilter` factory converts a JSON payload to a gRPC request.
 
-This factory accepts the following configuration parameters:
+This factory accepts the following configuration parameter:
 
 - `protoDescriptor`: A proto descriptor file.
 
@@ -339,7 +343,9 @@ The following example configures a `LocalResponseCache` factory:
 
 ### MapRequestHeader
 
-The `MapRequestHeader` factory accepts the following configuration parameters:
+The `MapRequestHeader` factory adds a header to the downstream request with updated values from the incoming HTTP request’s header.
+
+This factory accepts the following configuration parameters:
 
 - `fromHeader`
 - `toHeader`
@@ -363,7 +369,9 @@ The following example configures a `MapRequestHeader` factory that adds the `X-R
 
 ### PrefixPath
 
-The `PrefixPath` factory accepts the following configuration parameters:
+The `PrefixPath` factory adds a prefix to the path of all requests. 
+
+This factory accepts the following configuration parameter:
 
 - `prefix` 
 
@@ -405,7 +413,9 @@ The following example configures a `PreserveHostHeader` factory:
 
 ### RedirectTo
 
-The `RedirectTo` factory accepts the following configuration parameters:
+The `RedirectTo` factory adds a redirect to the original URL. 
+
+This factory accepts the following configuration parameters:
 
 - `status`: A 300 series redirect HTTP code, such as `301`.
 - `url`: A valid URL and is also the value of the `Location` header. For relative redirects, you should use `uri: no://op` as the URI of your route definition. 
@@ -449,7 +459,9 @@ The following example configures a `RemoveJsonAttributesResponseBody` factory:
 
 ### RemoveRequestHeader
 
-The `RemoveRequestHeader` factory accepts the following configuration parameters:
+The `RemoveRequestHeader` factory removes a header from the downstream request. 
+
+This factory accepts the following configuration parameter:
  
 - `name`: The name of the header to be removed. 
 
@@ -470,7 +482,9 @@ The following listing configures a `RemoveRequestHeader` factory that removes th
 
 ### RemoveRequestParameter
 
-The `RemoveRequestParameter` factory accepts the following configuration parameters:
+The `RemoveRequestParameter` factory removes a parameter before it's sent downstream. 
+
+This factory accepts the following configuration parameter:
  
 - `name`: The name of the query parameter to be removed. 
 
@@ -491,7 +505,9 @@ The following example configures a `RemoveRequestParameter` factory that removes
 
 ### RemoveResponseHeader
 
-The `RemoveResponseHeader` factory accepts the following configuration parameters:
+The `RemoveResponseHeader` factory removes a header from the response before it's returned to the gateway client. 
+
+This factory accepts the following configuration parameter:
  
 - `name`: The name of the header to be removed. 
 
@@ -512,7 +528,9 @@ The following listing configures a `RemoveResponseHeader` factory that removes t
 
 ### RequestHeaderSize
 
-The `RequestHeaderSize` factory accepts the following configuration parameters:
+The `RequestHeaderSize` factory determines the size of the request header. 
+
+This factory accepts the following configuration parameters:
  
 - `maxSize`: The maximum data size allowed by the request header (including key and value).
 - `errorHeaderName`: The name of the response header containing an error message. By default, the name of the response header is `errorMessage`.
@@ -569,7 +587,7 @@ In this example, for a request value of `POST` `api.example.com/some/object/name
 
 The `RewritePath` factory uses Java regular expressions for a flexible way to rewrite the request path. 
 
-This factory accepts the following parameters:
+This factory accepts the following configuration parameters:
 
 - `regexp`
 - `replacement` 
@@ -622,7 +640,7 @@ In this example, for a header value of `/42?user=ford&password=omg!what&flag=tru
 
 The `SetPath` factory offers a simple way to manipulate the request path by allowing templated segments of the path. This filter uses the URI templates from Spring Framework and allows multiple matching segments. 
 
-This factory accepts the following configuration parameters:
+This factory accepts the following configuration parameter:
 
 - `template`
 
@@ -731,7 +749,9 @@ The following example configures an `SetResponseHeader` factory that uses a vari
 
 ### SetStatus
 
-The `SetStatus` factory accepts the following configuration parameters:
+The `SetStatus` factory configures the response status of the server request. 
+
+This factory accepts the following configuration parameter:
 
 - `status`: A valid Spring `HttpStatus`. It could be the integer value `404`, or the string representation of the enumeration: `NOT_FOUND`. 
 
@@ -760,7 +780,9 @@ The following listing configures a `SetStatus` factory:
 
 ### StripPrefix
 
-The `StripPrefix` factory accepts the following configuration parameters:
+The `StripPrefix` factory removes the prefix from the request before sending it downstream. 
+
+This factory accepts the following configuration parameter:
 
 - `parts`: The number of parts in the path to strip from the request before sending it downstream. The default value of the `parts` parameter is 1. 
 
@@ -783,7 +805,9 @@ In this example, a request is made through the gateway to `/name/blue/red`. The 
 
 ### Retry
 
-The `Retry` factory accepts the following configuration parameters:
+The `Retry` factory determines the number of retries that is attempted. 
+
+This factory accepts the following configuration parameters:
 
 - `retries`: The number of retries that should be attempted.
 - `statuses`: The HTTP status codes that should be retried, represented by using `org.springframework.http.HttpStatus`.
@@ -819,7 +843,7 @@ The following example configures a `Retry` factory:
 
 The `RequestSize` factory can restrict a request from reaching the downstream service when the request size is greater than the permissible limit. 
 
-This factory accepts the following configuration parameters:
+This factory accepts the following configuration parameter:
 
 - `maxSize`: A `DataSize` type where values are defined as a number followed by an optional `DataUnit` suffix such as 'KB' or 'MB'. The default is 'B' for bytes. It's the permissible size limit of the request defined in bytes. 
 
@@ -871,7 +895,7 @@ Spring Cloud Gateway for Kubernetes also provides many custom filters in additio
 
 The `AllowedRequestCookieCount` factory determines if a matching request is allowed to proceed based on the number of cookies.
 
-This factory accepts the following configuration parameters:
+This factory accepts the following configuration parameter:
 
 - `amount`: The number of allowed cookies.
 
@@ -894,7 +918,7 @@ The following example configures a `AllowedRequestCookieCount` factory:
 
  The `AllowedRequestHeadersCount` factory determines if a matching request is allowed to proceed based on the number of headers.
 
-This factory accepts the following configuration parameters:
+This factory accepts the following configuration parameter:
 
 - `amount`: The number of allowed headers.
 
@@ -917,7 +941,7 @@ The following example configures a `AllowedRequestHeadersCount` factory:
 
 The `AllowedRequestQueryParamsCount` factory determines if a matching request is allowed to proceed based on the number query params.
 
-This factory accepts the following configuration parameters:
+This factory accepts the following configuration parameter:
 
 - `amount`: The number of allowed parameters.
 
@@ -1037,7 +1061,7 @@ The following example configures a `Cors` factory:
 
 The `JsonToXml` factory transforms JSON response body into XML response body.
 
-This factory accepts the following configuration parameters:
+This factory accepts the following configuration parameter:
 
 - `wrapper`: The root tag name for the XML response if an additional root tag is required to generate valid XML. The default root tag name is `response`.
 
@@ -1097,7 +1121,7 @@ The `RestrictRequestHeaders` factory determines if a matching request is allowed
 
 If there are any HTTP headers that aren't in the `headerList` configuration (case insensitive), then a response of `431 Forbidden error` is returned to the client.
 
-This factory accepts the following configuration parameters:
+This factory accepts the following configuration parameter:
 
 - `headerList`: The list of names of allowed headers (case insensitive).
 
@@ -1192,7 +1216,7 @@ The following example configures a `RewriteJsonAttributesResponseBody` factory:
 
 The `Roles` factory authorizes requests that contain one of the configured roles.
 
-This factory accepts the following configuration parameters:
+This factory accepts the following configuration parameter:
 
 - `roles`: A comma-separated list of authorized roles.
 
@@ -1215,7 +1239,7 @@ The following example configures a `Roles` factory:
 
 The `Scopes` factory authorizes requests that contain one of the configured `OAuth` scopes.
 
-This factory accepts the following configuration parameters:
+This factory accepts the following configuration parameter:
 
 - `scopes`: A comma-separated list of authorized `OAuth` scopes.
 
@@ -1238,7 +1262,7 @@ The following example configures a `Scopes` factory:
 
 The `StoreIPAddress` factory is used for extension development only and in context of the application.
 
-This factory accepts the following configuration parameters:
+This factory accepts the following configuration parameter:
 
 - `attribute name`: The name used to store the IP as an exchange attribute.
 
