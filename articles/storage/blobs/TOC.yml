@@ -249,6 +249,8 @@ items:
       items:
       - name: Blob inventory
         href: blob-inventory.md
+      - name: Blob inventory FAQ
+        href: blob-inventory-faq.md
       - name: Blob index tags
         href: storage-manage-find-blobs.md
       - name: Full text search
@@ -667,7 +669,7 @@ items:
             href: storage-blobs-tune-upload-download.md
           - name: Implement a retry policy
             href: storage-retry-policy.md
-          - name: Logging
+          - name: Configure logging
             href: /dotnet/azure/sdk/logging?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Manage concurrency
             href: concurrency-manage.md
@@ -957,6 +959,8 @@ items:
           items:
           - name: Performance tuning for uploads and downloads
             href: storage-blobs-tune-upload-download-python.md
+          - name: Configure logging
+            href: /azure/developer/python/sdk/azure-sdk-logging?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Test with a storage emulator
         items:
         - name: Use the Azurite open-source emulator

@@ -46,12 +46,16 @@ login.live.com
 #### Azure portal framework
 
 ```
+portal.azure.com
 *.portal.azure.com
 *.hosting.portal.azure.net
+reactblade.portal.azure.net
 *.reactblade.portal.azure.net
 management.azure.com
 *.ext.azure.com
+graph.windows.net
 *.graph.windows.net
+graph.microsoft.com
 *.graph.microsoft.com
 ```
 
@@ -61,6 +65,7 @@ management.azure.com
 *.account.microsoft.com
 *.bmx.azure.com
 *.subscriptionrp.trafficmanager.net
+signup.azure.com
 *.signup.azure.com
 ```
 
@@ -143,7 +148,7 @@ ux.console.azure.com (Azure Cloud Shell)
 graph.microsoftazure.us
 ```
 
-### [Azure China Cloud](#tab/azure-china-cloud)
+### [Microsoft Azure operated by 21Vianet Cloud](#tab/azure-china-cloud)
 
 ```
 aadcdn.msauth.cn

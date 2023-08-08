@@ -56,9 +56,19 @@ Azure NetApp Files backup is supported for the following regions:
 * West US 2
 * West US 3
 
+## Backup vault 
+
+Backup vaults are organizational units to manage backups. You must create a backup vault before you can create a backup. 
+
+Although it's possible to create multiple backup vaults in your Azure NetApp Files account, it's recommended you have only one backup vault.
+
+>[!IMPORTANT]
+>If you have existing backups on Azure NetApp Files, you must migrate the backups to a backup vault before you can perform any operation with the backup. To learn how to migrate, see [Manage backup vaults](backup-vault-manage.md#migrate-backups-to-a-backup-vault).
+
 ## Cost model for Azure NetApp Files backup
 
 Pricing for Azure NetApp Files backup is based on the total amount of storage consumed by the backup. There are no setup charges or minimum usage fees. 
+
 Backup restore is priced based on the total amount of backup capacity restored during the billing cycle.
 
 As a pricing example, assume the following situations:

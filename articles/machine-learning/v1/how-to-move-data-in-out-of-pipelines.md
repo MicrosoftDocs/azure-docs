@@ -20,7 +20,7 @@ ms.custom: UpdateFrequency5, contperf-fy20q4, devx-track-python, data4ml, sdkv1,
 
 This article provides code for importing, transforming, and moving data between steps in an Azure Machine Learning pipeline. For an overview of how data works in Azure Machine Learning, see [Access data in Azure storage services](how-to-access-data.md). For the benefits and structure of Azure Machine Learning pipelines, see [What are Azure Machine Learning pipelines?](../concept-ml-pipelines.md)
 
-This article will show you how to:
+This article shows you how to:
 
 - Use `Dataset` objects for pre-existing data
 - Access data within your steps
@@ -31,7 +31,7 @@ This article will show you how to:
 
 ## Prerequisites
 
-You'll need:
+You need:
 
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
@@ -56,7 +56,7 @@ You'll need:
 
 The preferred way to ingest data into a pipeline is to use a [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29) object. `Dataset` objects represent persistent data available throughout a workspace.
 
-There are many ways to create and register `Dataset` objects. Tabular datasets are for delimited data available in one or more files. File datasets are for binary data (such as images) or for data that you'll parse. The simplest programmatic ways to create `Dataset` objects are to use existing blobs in workspace storage or public URLs:
+There are many ways to create and register `Dataset` objects. Tabular datasets are for delimited data available in one or more files. File datasets are for binary data (such as images) or for data that you parse. The simplest programmatic ways to create `Dataset` objects are to use existing blobs in workspace storage or public URLs:
 
 ```python
 datastore = Datastore.get(workspace, 'training_data')
@@ -76,15 +76,15 @@ For more options on creating datasets with different options and from different 
 
 To pass the dataset's path to your script, use the `Dataset` object's `as_named_input()` method. You can either pass the resulting `DatasetConsumptionConfig` object to your script as an argument or, by using the `inputs` argument to your pipeline script, you can retrieve the dataset using `Run.get_context().input_datasets[]`.
 
-Once you've created a named input, you can choose its access mode: `as_mount()` or `as_download()`. If your script processes all the files in your dataset and the disk on your compute resource is large enough for the dataset, the download access mode is the better choice. The download access mode will avoid the overhead of streaming the data at runtime. If your script accesses a subset of the dataset or it's too large for your compute, use the mount access mode. For more information, read [Mount vs. Download](how-to-train-with-datasets.md#mount-vs-download)
+Once you've created a named input, you can choose its access mode(for FileDataset only): `as_mount()` or `as_download()`. If your script processes all the files in your dataset and the disk on your compute resource is large enough for the dataset, the download access mode is the better choice. The download access mode avoids the overhead of streaming the data at runtime. If your script accesses a subset of the dataset or it's too large for your compute, use the mount access mode. For more information, read [Mount vs. Download](how-to-train-with-datasets.md#mount-vs-download)
 
 To pass a dataset to your pipeline step:
 
 1. Use `TabularDataset.as_named_input()` or `FileDataset.as_named_input()` (no 's' at end) to create a `DatasetConsumptionConfig` object
-1. Use `as_mount()` or `as_download()` to set the access mode
+1. **For `FileDataset` only:**. Use `as_mount()` or `as_download()` to set the access mode. TabularDataset does not suppport set access mode. 
 1. Pass the datasets to your pipeline steps using either the `arguments` or the `inputs` argument
 
-The following snippet shows the common pattern of combining these steps within the `PythonScriptStep` constructor: 
+The following snippet shows the common pattern of combining these steps within the `PythonScriptStep` constructor, using iris_dataset (TabularDataset): 
 
 ```python
 
@@ -92,7 +92,7 @@ train_step = PythonScriptStep(
     name="train_data",
     script_name="train.py",
     compute_target=cluster,
-    inputs=[iris_dataset.as_named_input('iris').as_mount()]
+    inputs=[iris_dataset.as_named_input('iris')]
 )
 ```
 
@@ -111,35 +111,43 @@ train_step = PythonScriptStep(
     name="train_data",
     script_name="train.py",
     compute_target=cluster,
-    inputs=[train.as_named_input('train').as_download(), test.as_named_input('test').as_download()]
+    inputs=[train.as_named_input('train'), test.as_named_input('test')]
 )
 ```
 
 ### Access datasets within your script
 
-Named inputs to your pipeline step script are available as a dictionary within the `Run` object. Retrieve the active `Run` object using `Run.get_context()` and then retrieve the dictionary of named inputs using `input_datasets`. If you passed the `DatasetConsumptionConfig` object using the `arguments` argument rather than the `inputs` argument, access the data using `ArgParser` code. Both techniques are demonstrated in the following snippet.
+Named inputs to your pipeline step script are available as a dictionary within the `Run` object. Retrieve the active `Run` object using `Run.get_context()` and then retrieve the dictionary of named inputs using `input_datasets`. If you passed the `DatasetConsumptionConfig` object using the `arguments` argument rather than the `inputs` argument, access the data using `ArgParser` code. Both techniques are demonstrated in the following snippets:
+
+__The pipeline definition script__
 
 ```python
-# In pipeline definition script:
 # Code for demonstration only: It would be very confusing to split datasets between `arguments` and `inputs`
 train_step = PythonScriptStep(
     name="train_data",
     script_name="train.py",
     compute_target=cluster,
+    # datasets passed as arguments
     arguments=['--training-folder', train.as_named_input('train').as_download()],
+    # datasets passed as inputs
     inputs=[test.as_named_input('test').as_download()]
 )
+```
 
+__The `train.py` script referenced from the PythonScriptStep__
+
+```python
 # In pipeline script
 parser = argparse.ArgumentParser()
+# Retreive the dataset passed as an argument
 parser.add_argument('--training-folder', type=str, dest='train_folder', help='training data folder mounting point')
 args = parser.parse_args()
 training_data_folder = args.train_folder
-
+# Retrieve the dataset passed as an input
 testing_data_folder = Run.get_context().input_datasets['test']
 ```
 
-The passed value will be the path to the dataset file(s).
+The passed value is the path to the dataset file(s).
 
 It's also possible to access a registered `Dataset` directly. Since registered datasets are persistent and shared across a workspace, you can retrieve them directly:
 
@@ -154,7 +162,7 @@ ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 
 ## Use `OutputFileDatasetConfig` for intermediate data
 
-While `Dataset` objects represent only persistent data, [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig) object(s) can be used for temporary data output from pipeline steps **and** persistent output data. `OutputFileDatasetConfig` supports writing data to blob storage, fileshare, adlsgen1, or adlsgen2. It supports both mount mode and upload mode. In mount mode, files written to the mounted directory are permanently stored when the file is closed. In upload mode, files  written to the output directory are uploaded at the end of the job. If the job fails or is canceled, the output directory will not be uploaded.
+While `Dataset` objects represent only persistent data, [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig) object(s) can be used for temporary data output from pipeline steps **and** persistent output data. `OutputFileDatasetConfig` supports writing data to blob storage, fileshare, adlsgen1, or adlsgen2. It supports both mount mode and upload mode. In mount mode, files written to the mounted directory are permanently stored when the file is closed. In upload mode, files  written to the output directory are uploaded at the end of the job. If the job fails or is canceled, the output directory won't be uploaded.
 
  `OutputFileDatasetConfig` object's default behavior is to write to the default datastore of the workspace. Pass your `OutputFileDatasetConfig` objects to your `PythonScriptStep` with the `arguments` parameter.
 
@@ -223,6 +231,9 @@ step2 = PythonScriptStep(
 pipeline = Pipeline(workspace=ws, steps=[step1, step2])
 ```
 
+> [!TIP]
+> Reading the data in the python script `step2.py` is the same as documented earlier in [Access datasets within your script](#access-datasets-within-your-script); use `ArgumentParser` to add an argument of `--pd` in your script to access the data.
+
 ## Register `OutputFileDatasetConfig` objects for reuse
 
 If you'd like to make your `OutputFileDatasetConfig` available for longer than the duration of your experiment, register it to your workspace to share and reuse across experiments.
@@ -236,12 +247,12 @@ step1_output_ds = step1_output_data.register_on_complete(
 
 ## Delete `OutputFileDatasetConfig` contents when no longer needed
 
-Azure does not automatically delete intermediate data written with `OutputFileDatasetConfig`. To avoid storage charges for large amounts of unneeded data, you should either:
+Azure doesn't automatically delete intermediate data written with `OutputFileDatasetConfig`. To avoid storage charges for large amounts of unneeded data, you should either:
 
 > [!CAUTION]
 > Only delete intermediate data after 30 days from the last change date of the data. Deleting the data earlier could cause the pipeline run to fail because the pipeline will assume the intermediate data exists within 30 day period for reuse.
 
-* Programmatically delete intermediate data at the end of a pipeline job, when it is no longer needed. 
+* Programmatically delete intermediate data at the end of a pipeline job, when it's no longer needed. 
 * Use blob storage with a short-term storage policy for intermediate data (see [Optimize costs by automating Azure Blob Storage access tiers](../../storage/blobs/lifecycle-management-overview.md)). This policy can only be set to a workspace's non-default datastore. Use `OutputFileDatasetConfig` to export intermediate data to another datastore that isn't the default.
   ```Python
   # Get adls gen 2 datastore already registered with the workspace
@@ -254,5 +265,5 @@ For more information, see [Plan and manage costs for Azure Machine Learning](../
 
 ## Next steps
 
-* [Create an Azure machine learning dataset](how-to-create-register-datasets.md)
+* [Create an Azure Machine Learning dataset](how-to-create-register-datasets.md)
 * [Create and run machine learning pipelines with Azure Machine Learning SDK](how-to-create-machine-learning-pipelines.md)

@@ -90,6 +90,8 @@ The configuration in this article is a flexible SHA implementation: manual creat
 
 ## Register F5 BIG-IP in Azure AD
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 BIG-IP registration is the first step for SSO between entities. The app you create from the F5 BIG-IP gallery template is the relying party, representing the SAML SP for the BIG-IP published application.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with Application Administrator permissions.

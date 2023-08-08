@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.custom: synapse
 ms.topic: how-to
 ms.subservice: tutorials
-ms.date: 08/10/2022
+ms.date: 07/20/2023
 ---
 
 # Send notifications to a Microsoft Teams channel from an Azure Data Factory or Synapse Analytics pipeline

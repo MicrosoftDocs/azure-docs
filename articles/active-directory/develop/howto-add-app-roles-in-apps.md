@@ -35,6 +35,8 @@ The number of roles you add counts toward application manifest limits enforced b
 
 ### App roles UI
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To create an app role by using the Azure portal's user interface:
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
@@ -55,9 +57,11 @@ To create an app role by using the Azure portal's user interface:
    | **Allowed member types**                 | Specifies whether this app role can be assigned to users, applications, or both.<br/><br/>When available to `applications`, app roles appear as application permissions in an app registration's **Manage** section > **API permissions > Add a permission > My APIs > Choose an API > Application permissions**. | `Users/Groups`                |
    | **Value**                                | Specifies the value of the roles claim that the application should expect in the token. The value should exactly match the string referenced in the application's code. The value can't contain spaces.                                                                                                          | `Survey.Create`               |
    | **Description**                          | A more detailed description of the app role displayed during admin app assignment and consent experiences.                                                                                                                                                                                                        | `Writers can create surveys.` |
-   | **Do you want to enable this app role?** | Specifies whether the app role is enabled. To delete an app role, deselect this checkbox and apply the change before attempting the delete operation.                                                                                                                                                             | _Checked_                     |
+   | **Do you want to enable this app role?** | Specifies whether the app role is enabled. To delete an app role, deselect this checkbox and apply the change before attempting the delete operation. This setting controls the app role's usage and availability while being able to temporarily or permanently disabling it without removing it entirely.                                                                                                                                                            | _Checked_                     |
 
 1. Select **Apply** to save your changes.
+
+When the app role is set to enabled, any users, applications or groups who are assigned has it included in their tokens. These can be access tokens when your app is the API being called by an app or ID tokens when your app is signing in a user. If set to disabled, it becomes inactive and no longer assignable. Any previous assignees will still have the app role included in their tokens, but it has no effect as it is no longer actively assignable. 
 
 ## Assign users and groups to roles
 
@@ -112,7 +116,7 @@ The **Status** column should reflect that consent has been **Granted for \<tenan
 
 ## Usage scenario of app roles
 
-If you're implementing app role business logic that signs in the users in your application scenario, first define the app roles in **App registrations**. Then, an admin assigns them to users and groups in the **Enterprise applications** pane. These assigned app roles are included with any token that's issued for your application, either access tokens when your app is the API being called by an app or ID tokens when your app is signing in a user.
+If you're implementing app role business logic that signs in the users in your application scenario, first define the app roles in **App registrations**. Then, an admin assigns them to users and groups in the **Enterprise applications** pane. These assigned app roles are included with any token that's issued for your application.
 
 If you're implementing app role business logic in an app-calling-API scenario, you have two app registrations. One app registration is for the app, and a second app registration is for the API. In this case, define the app roles and assign them to the user or group in the app registration of the API. When the user authenticates with the app and requests an access token to call the API, a roles claim is included in the token. Your next step is to add code to your web API to check for those roles when the API is called.
 

@@ -1,62 +1,54 @@
 ---
-title: ST_WITHIN in Azure Cosmos DB query language
-description: Learn about SQL system function ST_WITHIN in Azure Cosmos DB.
-author: ginamr
+title: ST_WITHIN
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns if one GeoJSON object is within another.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 09/21/2021
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 07/24/2023
+ms.custom: query-reference
 ---
-# ST_WITHIN (Azure Cosmos DB)
+
+# ST_WITHIN (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns a Boolean expression indicating whether the GeoJSON object (Point, Polygon, MultiPolygon, or LineString) specified in the first argument is within the GeoJSON (Point, Polygon, MultiPolygon, or LineString) in the second argument.  
-  
+Returns a boolean expression indicating whether the GeoJSON object (GeoJSON **Point**, **Polygon**, or **LineString** expression) specified in the first argument is within the GeoJSON object in the second argument.  
+
 ## Syntax
-  
+
 ```sql
-ST_WITHIN (<spatial_expr>, <spatial_expr>)  
-```  
-  
+ST_WITHIN(<spatial_expr_1>, <spatial_expr_2>)  
+```
+
 ## Arguments
-  
-*spatial_expr*  
-   Is a GeoJSON Point, Polygon, or LineString object expression.  
-  
+
+| | Description |
+| --- | --- |
+| **`spatial_expr_1`** | Any valid GeoJSON **Point**, **Polygon**, **MultiPolygon** or **LineString** expression. |
+| **`spatial_expr_2`** | Any valid GeoJSON **Point**, **Polygon**, **MultiPolygon** or **LineString** expression. |
+
 ## Return types
-  
-  Returns a Boolean value.  
-  
+
+Returns a boolean value.  
+
 ## Examples
-  
-  The following example shows how to find all family documents within a polygon using `ST_WITHIN`.  
-  
-```sql
-SELECT f.id
-FROM Families f
-WHERE ST_WITHIN(f.location, {  
-    'type':'Polygon',
-    'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]  
-})  
-```  
-  
- Here is the result set.  
-  
-```json
-[{ "id": "WakefieldFamily" }]  
-```  
+
+The following example shows how to find if a **Point** is within a **Polygon**.
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/st-within/query.sql" highlight="2-32":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/st-within/result.json":::
 
 ## Remarks
 
-This system function will benefit from a [geospatial index](../../index-policy.md#spatial-indexes) except in queries with aggregates.
-
-> [!NOTE]
-> The GeoJSON specification requires that points within a Polygon be specified in counter-clockwise order. A Polygon specified in clockwise order represents the inverse of the region within it.
-
+- This function benefits from a [geospatial index](../../index-policy.md#spatial-indexes) except in queries with aggregates.
+- The GeoJSON specification requires that points within a Polygon be specified in counter-clockwise order. A Polygon specified in clockwise order represents the inverse of the region within it.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`ST_INTERSECT`](st-intersects.md)

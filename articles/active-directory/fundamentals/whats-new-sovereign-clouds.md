@@ -21,6 +21,53 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 
 This page updates monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Sovereign Clouds](whats-new-archive.md).
 
+## June 2023 
+
+### General Availability - Apply RegEx Replace to groups claim content 
+
+
+
+**Type:** New feature   
+**Service category:** Enterprise Apps                  
+**Product capability:** SSO             
+
+Today, when group claims are added to tokens Azure Active Directory attempts to include all of the groups the user is a member of.  In larger organizations where users are members of hundreds of groups this can often exceed the limits of what can go in the token.  This feature enables more customers to connect their apps to Azure Active Directory by making connections easier and more robust through automation of the application’s creation process. This specifically allows the set of groups included in the token to be limited to only those that are assigned to the application. For more information, see: [Regex-based claims transformation](../develop/saml-claims-customization.md#regex-based-claims-transformation).
+
+---
+
+### General Availability - Azure Active Directory SSO integration with Cisco Unified Communications Manager
+
+
+
+**Type:** New feature   
+**Service category:** Enterprise Apps                  
+**Product capability:** Platform              
+
+Cisco Unified Communications Manager (Unified CM) provides reliable, secure, scalable, and manageable call control and session management. When you integrate Cisco Unified Communications Manager with Azure Active Directory, you can:
+
+- Control in Azure Active Directory who has access to Cisco Unified Communications Manager.
+- Enable your users to be automatically signed-in to Cisco Unified Communications Manager with their Azure AD accounts.
+- Manage your accounts in one central location - the Azure portal.
+
+
+For more information, see: [Azure Active Directory SSO integration with Cisco Unified Communications Manager](../saas-apps/cisco-unified-communications-manager-tutorial.md).
+
+---
+
+### General Availability - Number Matching for Microsoft Authenticator notifications
+
+**Type:** Plan for Change  
+**Service category:** Microsoft Authenticator App                      
+**Product capability:** User Authentication             
+
+Microsoft Authenticator app’s number matching feature has been Generally Available since Nov 2022! If you haven't already used the rollout controls (via Azure portal Admin UX and MSGraph APIs) to smoothly deploy number matching for users of Microsoft Authenticator push notifications, we highly encourage you to do so. We previously announced that we'll remove the admin controls and enforce the number match experience tenant-wide for all users of Microsoft Authenticator push notifications starting February 27, 2023. After listening to customers, we'll extend the availability of the rollout controls for a few more weeks. Organizations can continue to use the existing rollout controls until May 8, 2023, to deploy number matching in their organizations. Microsoft services will start enforcing the number matching experience for all users of Microsoft Authenticator push notifications after May 8, 2023. We'll also remove the rollout controls for number matching after that date.
+
+If customers don’t enable number match for all Microsoft Authenticator push notifications prior to May 8, 2023, Authenticator users may experience inconsistent sign-ins while the services are rolling out this change. To ensure consistent behavior for all users, we highly recommend you enable number match for Microsoft Authenticator push notifications in advance.
+
+For more information, see: [How to use number matching in multifactor authentication (MFA) notifications - Authentication methods policy](../authentication/how-to-mfa-number-match.md)
+
+---
+
 ## May 2023
 
 ### General Availability - Admins can now restrict users from self-service accessing their BitLocker keys
@@ -291,7 +338,7 @@ Post-authentication anomalous activity detection for workload identities. This d
 Microsoft cloud settings let you collaborate with organizations from different Microsoft Azure clouds. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following clouds:
 
 - Microsoft Azure commercial and Microsoft Azure Government
-- Microsoft Azure commercial and Microsoft Azure China 21Vianet
+- Microsoft Azure commercial and Microsoft Azure operated by 21Vianet
 
 For more information about Microsoft cloud settings for B2B collaboration, see: [Microsoft cloud settings](../external-identities/cross-tenant-access-overview.md#microsoft-cloud-settings).
 
@@ -372,37 +419,6 @@ Represents a tenant's customizable terms of use agreement that is created, and m
 
 ---
 
-## December 2022
-
-### General Availability - Risk-based Conditional Access for workload identities
-
-**Type:** New feature  
-**Service category:** Conditional Access          
-**Product capability:** Identity Security & Protection     
-
-Customers can now bring one of the most powerful forms of access control in the industry to workload identities. Conditional Access supports risk-based policies for workload identities. Organizations can block sign-in attempts when Identity Protection detects compromised apps or services. For more information, see: [Create a risk-based Conditional Access policy](../conditional-access/workload-identity.md#create-a-risk-based-conditional-access-policy).
-
----
-
-### General Availability - API to recover accidentally deleted Service Principals
-
-**Type:** New feature  
-**Service category:** Enterprise Apps        
-**Product capability:** Identity Lifecycle Management     
-
-Restore a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items. If an item was accidentally deleted, you can fully restore the item. This isn't applicable to security groups, which are deleted permanently. A recently deleted item remains available for up to 30 days. After 30 days, the item is permanently deleted. For more information, see: [servicePrincipal resource type](/graph/api/resources/serviceprincipal).
-
----
-
-### General Availability - Using Staged rollout to test Cert Based Authentication (CBA)
-
-**Type:** New feature  
-**Service category:** Authentications (Logins)     
-**Product capability:** Identity Security & Protection   
-
-We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Azure Active Directory (AD) Connect synchronization wait times. For more information, see: [Migrate to cloud authentication using Staged Rollout](../hybrid/how-to-connect-staged-rollout.md).
-
----
 
 ## Next steps
 <!-- Add a context sentence for the following links -->

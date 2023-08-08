@@ -19,8 +19,7 @@ ms.custom: engagement-fy23
 
 
 Learn how to manage data access and how to authenticate in Azure Machine Learning
-[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
-[!INCLUDE [CLI v2](includes/machine-learning-CLI-v2.md)]
+[!INCLUDE [sdk/cli v2](includes/machine-learning-dev-v2.md)]
 
 > [!IMPORTANT]
 > The information in this article is intended for Azure administrators who are creating the infrastructure required for an Azure Machine Learning solution.
