@@ -292,7 +292,7 @@ There may be instances when you need to disable Cross Subscription Restore based
 
 You can also select the state of CSR  during the creation of Backup vault.
 
-:::image type="content" source="./media/create-manage-backup-vault/select-cross-subscription-state-on-backup-vault-creation.png" alt-text="Screenshot shows how to select the state of Cross Subscription Restore during Backup vault creation." lightbox="./media/create-manage-backup-vault/select-cross-subsctiption-state-on-backup-vault-creation.png":::
+:::image type="content" source="./media/create-manage-backup-vault/select-cross-subscription-state-on-backup-vault-creation.png" alt-text="Screenshot shows how to select the state of Cross Subscription Restore during Backup vault creation." lightbox="./media/create-manage-backup-vault/select-cross-subscription-state-on-backup-vault-creation.png":::
 
 >[!Note]
 >- CSR once permanently disabled on a vault can't be re-enabled because it's an irreversible operation.
