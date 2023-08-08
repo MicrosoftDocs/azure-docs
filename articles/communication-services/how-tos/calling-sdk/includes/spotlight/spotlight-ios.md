@@ -114,6 +114,6 @@ spotlightCallFeature.spotlightedParticipants.forEach { participant in
 
 ### Get the maximum supported spotlight:
 The following API can be used to get the maximum number of participants that can be spotlighted using the Calling SDK
-``` csharp
+``` swift
 spotlightCallFeature.maxSupported();
 ```
