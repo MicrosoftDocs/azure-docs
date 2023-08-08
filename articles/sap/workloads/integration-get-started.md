@@ -207,6 +207,8 @@ Use [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-i
 
 Complimenting that, use the [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) Microsoft Sentinel solution to protect your SAP system from within using signals from the SAP Audit Log among others.
 
+Learn more about identity focused integration capabilities that power the analysis on Defender and Sentinel via the [Microsoft Entra ID section](#microsoft-entra-id-formerly-azure-ad).
+
 #### Microsoft Defender for Cloud
 
 The [Defender product family](../../defender-for-cloud/defender-for-cloud-introduction.md) consist of multiple products tailored to the workload type. Below excerpt serves as entry point to start securing your SAP system.
