@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Use Azure OpenAI Service image generation in Azure OpenAI Studio'
+title: 'Quickstart: Generate images with Azure OpenAI Service and Azure OpenAI Studio'
 titleSuffix: Azure OpenAI
-description: Learn how to get started with Azure OpenAI image generation in Azure OpenAI Studio. 
+description: Learn how to generate images with Azure OpenAI Service in the DALL-E playground (Preview) in Azure OpenAI Studio. 
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -20,8 +20,10 @@ Use this guide to get started generating images with Azure OpenAI in your browse
 
 - An Azure subscription. You can [create a free account](https://azure.microsoft.com/free/cognitive-services).
 - Access granted to DALL-E in the desired Azure subscription.
-    Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). Existing Azure OpenAI customers need to resubmit the form to receive access to DALL-E. If you need assistance, open an issue on this repo to contact Microsoft.
-- An Azure OpenAI resource created in the East US region. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+- An Azure OpenAI resource created in the East US region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
+
+> [!NOTE]
+> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). Existing Azure OpenAI customers need to resubmit the form to receive access to DALL-E. If you need assistance, open an issue on this repo to contact Microsoft.
 
 ## Go to Azure OpenAI Studio
 
@@ -31,14 +33,14 @@ From the Azure OpenAI Studio landing page, select **DALL·E playground (Preview)
 
 ## Try out image generation
 
-Start exploring Azure OpenAI capabilities with a no-code approach through the DALL·E (Preview) playground. Enter your image prompt into the text box and select **Generate**. When the AI-generated image is ready, it appears on the page.
+Start exploring Azure OpenAI capabilities with a no-code approach through the **DALL·E playground (Preview)**. Enter your image prompt into the text box and select **Generate**. When the AI-generated image is ready, it appears on the page.
 
 > [!NOTE]
-> The image generation APIs come with a content moderation filter. If Azure OpenAI recognizes your prompt as harmful content, it doesn't return a generated image. For more information, see the [content filter](../concepts/content-filter.md) guide.
+> The image generation APIs come with a content moderation filter. If Azure OpenAI recognizes your prompt as harmful content, it doesn't return a generated image. For more information, see [Content filtering](../concepts/content-filter.md).
 
-:::image type="content" source="../media/quickstarts/dall-e-studio.png" alt-text="Screenshot of the Azure OpenAI Studio landing page showing the DALL·E (Preview) playground with generated images of polar bears." lightbox="../media/quickstarts/dall-e-studio.png":::
+:::image type="content" source="../media/quickstarts/dall-e-studio.png" alt-text="Screenshot of the Azure OpenAI Studio landing page showing the DALL-E playground (Preview) with generated images of polar bears." lightbox="../media/quickstarts/dall-e-studio.png":::
 
-In the DALL·E (Preview) playground, you can also view Python and cURL code samples, which are prefilled according to your settings. Select **View code** near the top of the page. You can use this code to write an application that completes the same task.
+In the **DALL·E playground (Preview)**, you can also view Python and cURL code samples, which are prefilled according to your settings. Select **View code** near the top of the page. You can use this code to write an application that completes the same task.
 
 ## Clean up resources
 

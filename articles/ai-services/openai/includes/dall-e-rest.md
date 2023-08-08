@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Use the Azure OpenAI Service image generation REST APIs'
+title: 'Quickstart: Generate images with the REST APIs for Azure OpenAI Service'
 titleSuffix: Azure OpenAI Service
-description: Learn how to get started with Azure OpenAI image generation with the REST API. 
+description: Learn how to generate images with Azure OpenAI Service by using the REST APIs and the endpoint and access keys for your Azure OpenAI resource.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -20,10 +20,12 @@ Use this guide to get started calling the Azure OpenAI Service image generation 
 
 - An Azure subscription. You can [create a free account](https://azure.microsoft.com/free/cognitive-services).
 - Access granted to DALL-E in the desired Azure subscription.
-    Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). Existing Azure OpenAI customers need to resubmit the form to receive access to DALL-E. If you need assistance, open an issue on this repo to contact Microsoft.
 - [Python 3.7.1 or later version](https://www.python.org/).
-- The following Python libraries: os, requests, json.
-- An Azure OpenAI resource created in the East US region. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+- The following Python libraries: `os`, `requests`, `json`.
+- An Azure OpenAI resource created in the East US region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
+
+> [!NOTE]
+> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). Existing Azure OpenAI customers need to resubmit the form to receive access to DALL-E. If you need assistance, open an issue on this repo to contact Microsoft.
 
 ## Retrieve key and endpoint
 
@@ -111,7 +113,7 @@ The output from a successful image generation API call looks like the following 
 }
 ```
 
-The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it doesn't generate an image. For more information, see the [content filter](../concepts/content-filter.md) article.
+The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it doesn't generate an image. For more information, see [Content filtering](../concepts/content-filter.md).
 
 The system returns an operation status of `Failed` and the `error.code` value in the message is set to `contentFilter`. Here's an example:
 
