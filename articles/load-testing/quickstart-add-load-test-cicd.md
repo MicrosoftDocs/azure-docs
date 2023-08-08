@@ -13,15 +13,19 @@ adobe-target: true
 
 # Quickstart: Automate an existing load test with CI/CD
 
-Get started with automating load tests in Azure Load Testing by adding it to a CI/CD pipeline from Azure portal. After running a load test in the Azure portal, you can configure your Azure DevOps settings to create a pipeline to run the test.
+In this article, you learn how to automate an existing load test by creating a CI/CD pipeline in Azure Pipelines. Select you test in Azure Load Testing, and directly configure a pipeline in Azure DevOps that triggers your load test with every source code commit. Automate load tests with CI/CD to continuously validate your application performance and stability under load.
+
+If you want to automate your load test with GitHub Actions, learn how to [manually configure a CI/CD pipeline for Azure Load Testing](./how-to-configure-load-test-cicd.md).
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An Azure Load Testing test. Create a [URL-based load test](./quickstart-create-and-run-load-test.md) or [use an existing JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md) to create a load test.
+- Your Azure account needs to have the [Application Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) role. See [Check access for a user to Azure resources](/azure/role-based-access-control/check-access) to verify your permissions.
 
 - An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops&preserve-view=true).
+
+- A load testing resource, which contains a test. Create a [URL-based load test](./quickstart-create-and-run-load-test.md) or [use an existing JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md) to create a load test.
 
 ## Configure a CI/CD pipeline
 
@@ -71,5 +75,6 @@ You can view the load test summary results directly in the CI/CD output log. If 
 
 You've configured a CI/CD pipeline in Azure Pipelines for an existing load test. 
 
-- [Manually configure a CI/CD pipeline for Azure Load Testing](./how-to-configure-load-test-cicd.md), if you want to add a load test to GitHub Actions or use an existing pipeline
 - [Define test fail criteria](./how-to-define-test-criteria.md)
+- [View performance trends over time](./how-to-compare-multiple-test-runs.md)
+- [Manually configure a CI/CD pipeline for Azure Load Testing](./how-to-configure-load-test-cicd.md), if you want to add a load test to GitHub Actions or use an existing pipeline
