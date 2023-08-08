@@ -9,7 +9,7 @@ ms.topic: include
 ms.date: 06/15/2023
 ---
 
-## Deploy a web app
+## Deploy your model
 
 Once you're satisfied with the experience in Azure OpenAI studio, you can deploy a web app directly from the 
 Studio by selecting the **Deploy to** button. 
