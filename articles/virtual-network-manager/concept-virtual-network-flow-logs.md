@@ -10,7 +10,7 @@ ms.date: 08/11/2023
 
 # Monitoring Azure Virtual Network Manager with VNet flow logs (Preview)
 
-Monitoring traffic is critical to understanding how your network is performing and to troubleshoot issues. Administrators can utilize VNet flow logs (Preview) to show whether traffic is flowing through or blocked on a VNet by an [security admin rule]. [VNet flow logs (Preview)](../network-watcher/vnet-flow-logs-overview.md#vnet-flow-logs-compared-to-nsg-flow-logs) are a feature of Network Watcher.
+Monitoring traffic is critical to understanding how your network is performing and to troubleshoot issues. Administrators can utilize VNet flow logs (Preview) to show whether traffic is flowing through or blocked on a VNet by a [security admin rule]. [VNet flow logs (Preview)](../network-watcher/vnet-flow-logs-overview.md#vnet-flow-logs-compared-to-nsg-flow-logs) are a feature of Network Watcher.
 
 > [!IMPORTANT]
 > VNet flow logs is currently in PREVIEW. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -22,9 +22,9 @@ Monitoring traffic is critical to understanding how your network is performing a
 
 ## Enable VNet flow logs (Preview)
 
-Currently, you'll need to enable Virtual Network flow logs (Preview) on each VNet you want to monitor. You can enable Virtual Network Flow Logs on a VNet by using [PowerShell](../network-watcher/vnet-flow-logs-powershell.md) or the [Azure CLI](../network-watcher/vnet-flow-logs-cli.md).
+Currently, you need to enable Virtual Network flow logs (Preview) on each VNet you want to monitor. You can enable Virtual Network Flow Logs on a VNet by using [PowerShell](../network-watcher/vnet-flow-logs-powershell.md) or the [Azure CLI](../network-watcher/vnet-flow-logs-cli.md).
 
-Here is an example of a flow log
+Here's an example of a flow log
 
 ```json
 {
