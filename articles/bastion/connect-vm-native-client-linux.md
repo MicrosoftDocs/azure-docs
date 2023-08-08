@@ -5,7 +5,7 @@ description: Learn how to connect to a VM from a Linux computer by using Bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 06/23/2023
+ms.date: 08/08/2023
 ms.author: cherylmc
 ---
 
@@ -87,6 +87,10 @@ az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupNa
 ### <a name="tunnel-IP"></a>Tunnel to a VM IP address
 
 [!INCLUDE [IP address](../../includes/bastion-native-ip-address.md)]
+
+### Multi-connection tunnel
+
+[!INCLUDE [multi-connection tunnel](../../includes/bastion-native-connect-multi-tunnel.md)]
 
 ## Next steps
 
