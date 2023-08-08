@@ -169,7 +169,7 @@ While Power Virtual Agents has features that leverage Azure OpenAI such as [gene
 
 #### Using the web app
 
-You can also use the available standalone web app to interact with your model using a graphical user interface, which you can deploy using either [Azure OpenAI studio](../use-your-data-quickstart.md?pivots=programming-language-studio#deploy-a-web-app) or a [manual deployment](https://github.com/microsoft/sample-app-aoai-chatGPT). 
+You can also use the available standalone web app to interact with your model using a graphical user interface, which you can deploy using either Azure OpenAI studio or a [manual deployment](https://github.com/microsoft/sample-app-aoai-chatGPT). 
 
 ![A screenshot of the web app interface.](../media/use-your-data/web-app.png)
 
