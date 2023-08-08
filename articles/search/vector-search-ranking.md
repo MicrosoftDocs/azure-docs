@@ -13,7 +13,7 @@ ms.date: 07/14/2023
 # Vector query execution and scoring in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
+> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
 This article is for developers who need a deeper understanding of vector query execution and ranking in Azure Cognitive Search.
 
