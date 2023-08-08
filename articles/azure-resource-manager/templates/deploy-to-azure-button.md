@@ -24,11 +24,11 @@ The deployment scope is determined by the template schema. For more information,
 To add the button to your web page or repository, use the following image:
 
 ```markdown
-:::image type="content" source="https://aka.ms/deploytoazurebutton" alt-text="Screenshot of Deploy to Azure button with link.":::
+![Deploy to Azure](https://aka.ms/deploytoazurebutton)
 ```
 
 ```html
-:::image type="content" source="https://aka.ms/deploytoazurebutton" alt-text="":::
+<img src="https://aka.ms/deploytoazurebutton"/>
 ```
 
 The image appears as:
@@ -115,21 +115,21 @@ Finally, put the link and image together.
 To add the button with Markdown in the _README.md_ file in your GitHub repository or a web page, use:
 
 ```markdown
-:::image type="content" source="https://aka.ms/deploytoazurebutton" alt-text="Screenshot of Deploy to Azure button with link." link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json":::
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json)
 ```
 
 For HTML, use:
 
 ```html
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json" target="_blank">
-  :::image type="content" source="https://aka.ms/deploytoazurebutton" alt-text="":::
+  <img src="https://aka.ms/deploytoazurebutton"/>
 </a>
 ```
 
 For Git with Azure repo, the button is in the format:
 
 ```markdown
-:::image type="content" source="https://aka.ms/deploytoazurebutton" alt-text="Screenshot of Deploy to Azure button with link." link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdev.azure.com%2Forgname%2Fprojectname%2F_apis%2Fgit%2Frepositories%2Freponame%2Fitems%3FscopePath%3D%2freponame%2fazuredeploy.json%26api-version%3D6.0":::
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdev.azure.com%2Forgname%2Fprojectname%2F_apis%2Fgit%2Frepositories%2Freponame%2Fitems%3FscopePath%3D%2freponame%2fazuredeploy.json%26api-version%3D6.0)
 ```
 
 ## Deploy the template
