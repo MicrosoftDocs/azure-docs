@@ -42,7 +42,7 @@ Currently in preview, the following v2 tiers are available:
 
 The v2 tiers support the following options to limit network traffic to and from your API Management instance. Inbound options are from clients to the API Management gateway. Outbound options are from the API Management gateway to backends.
 
-|  |Basic v2  |Standard v2  |
+| Option |Basic v2  |Standard v2  |
 |---------|---------|---------|
 |Inbound     |  Private endpoint to  API Management gateway       | Private endpoint to  API Management gateway        |
 |Outbound     | Private endpoint for backends        |   Private endpoint for backends<br/><br/>-OR-<br/><br/>VNet integration     |
