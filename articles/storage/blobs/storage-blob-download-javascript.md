@@ -41,7 +41,7 @@ The following example downloads a blob by using a file path with the [BlobClient
 ```javascript
 async function downloadBlobToFile(containerClient, blobName, fileNameWithPath) {
 
-    const blobClient = await containerClient.getBlobClient(blobName);
+    const blobClient = containerClient.getBlobClient(blobName);
     
     await blobClient.downloadToFile(fileNameWithPath);
     console.log(`download of ${blobName} success`);
@@ -55,7 +55,7 @@ The following example downloads a blob by creating a Node.js writable stream obj
 ```javascript
 async function downloadBlobAsStream(containerClient, blobName, writableStream) {
 
-    const blobClient = await containerClient.getBlobClient(blobName);
+    const blobClient = containerClient.getBlobClient(blobName);
 
     const downloadResponse = await blobClient.download();
 
@@ -72,7 +72,7 @@ The following Node.js example downloads a blob to a string with [BlobClient.down
 
 async function downloadBlobToString(containerClient, blobName) {
 
-    const blobClient = await containerClient.getBlobClient(blobName);
+    const blobClient = containerClient.getBlobClient(blobName);
 
     const downloadResponse = await blobClient.download();
 
