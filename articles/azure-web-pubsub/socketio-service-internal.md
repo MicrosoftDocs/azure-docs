@@ -11,7 +11,7 @@ ms.topic: conceptual
 # Service internal - how does Web PubSub support Socket.IO library
 
 > [!NOTE]
-> This article peels back the curtain from an engieerning perspective of how self-hosted Socket.IO apps can migrate to Azure with minimal code change to simplify app architecture and deployment, while achieving 100+ concurrent connections out-of-the-box. It's not necessary to understand everything in this article to use Web PubSub for Socket.IO effectively. 
+> This article peels back the curtain from an engieerning perspective of how self-hosted Socket.IO apps can migrate to Azure with minimal code change to simplify app architecture and deployment, while achieving 100 K+ concurrent connections out-of-the-box. It's not necessary to understand everything in this article to use Web PubSub for Socket.IO effectively. 
 
 ## A typical architecture of a self-hosted Socket.IO app
 :::image type="content" source="./media/socketio-service-internal/typical-architecture-self-hosted-socketio-app.jpg" alt-text="Screenshot of a typical architecture of a self-hosted Socket.IO app":::
