@@ -8,7 +8,7 @@ ms.topic: how-to
 ---
 
 
-# Infrastructure as Code Enablement
+# Enable and Configure with Infrastructure as Code Templates
 
 We recommend that you enable Defender for Storage on the subscription level. Doing so ensures all storage accounts in the subscription will be protected, including future ones.
 
