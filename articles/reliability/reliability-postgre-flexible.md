@@ -128,11 +128,11 @@ There are two high availability architectural models:
 
  To see the SLAs offered with Flexible Server, go to [Azure Database for PostgreSQL SLAs](https://azure.microsoft.com/support/legal/sla/postgresql).
 
-### Create an Azure Database for PostgreSQL - Flexible Server with availability zone enabled
+## Create an Azure Database for PostgreSQL - Flexible Server with availability zone enabled
 
 To learn how to create an Azure Database for PostgreSQL - Flexible Server for high availability with availability zones, see [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server in the Azure portal](/azure/postgresql/flexible-server/quickstart-create-server-portal).
 
-### Availability zone redeployment and migration
+## Availability zone redeployment and migration
 
 To learn how to enable or disable high availability configuration in your flexible server in both zone-redundant and zonal deployment models see [Manage high availability in Flexible Server](../postgresql/flexible-server/how-to-manage-high-availability-portal.md).
 
