@@ -61,11 +61,15 @@ In this section, you'll create a CI/CD pipeline in Azure Pipelines to run an exi
 
     - Commit the JMeter script and test configuration YAML to the source code repository.
 
-    - Create a pipeline definition. The pipeline is triggered whenever you push an update to the selected branch. You get a notification with the link to the pipeline in the Azure portal.
+    - Create a pipeline definition. You get a notification with the link to the pipeline in the Azure portal.
 
-1. (Optional) Open the pipeline definition and modify the pipeline steps.
+1. When the pipeline creation finishes, you receive a notification in the Azure portal with a link to the pipeline.
 
-## View load test results
+You now have a CI/CD pipeline in Azure Pipelines that invokes your load test when the pipeline is triggered. By default, the pipeline is triggered whenever you push an update to the selected branch. 
+
+Optionally, you can open the pipeline definition and modify the pipeline steps or change when the pipeline is triggered.
+
+## View load test results in CI/CD
 
 You can view the load test summary results directly in the CI/CD output log. If you published the test results as a pipeline artifact, you can also download a CSV file for further reporting.
 
