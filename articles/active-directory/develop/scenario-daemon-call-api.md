@@ -124,7 +124,7 @@ data = requests.get(endpoint, headers=http_headers, stream=False).json()
 
 # [.NET low level](#tab/dotnet)
 
-[!INCLUDE [Call web API in .NET](./includes/web-api/scenarios-call-apis-dotnet.md)]
+[!INCLUDE [Call web API in .NET](./includes/scenarios/scenarios-call-apis-dotnet.md)]
 
 ---
 

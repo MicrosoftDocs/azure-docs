@@ -66,12 +66,12 @@
           href: event-hubs-capture-python.md
     - name: Use Schema Registry
       items:
-        - name: Create a schema registry - Azure portal
-          href: create-schema-registry.md  
-        - name: Validate events using an Avro schema (.NET + AMQP)
-          href: schema-registry-dotnet-send-receive-quickstart.md
-        - name: Validate events using an Avro schema (Java + Apache Kafka)
+        - name: Create a schema - Azure portal
+          href: create-schema-registry.md
+        - name: Validate schemas for Kafka applications 
           href: schema-registry-kafka-java-send-receive-quickstart.md
+        - name: Validate schemas with Avro for Event Hubs SDK 
+          href: schema-registry-dotnet-send-receive-quickstart.md
     - name: Create a dedicated cluster
       href: event-hubs-dedicated-cluster-create-portal.md
 - name: Tutorials
