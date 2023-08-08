@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Document Intelligence Studio | v3.0"
+title: "Quickstart: Document Intelligence (formerly Form Recognizer) Studio | v3.0"
 titleSuffix: Azure AI services
 description: Form and document processing, data extraction, and analysis using Document Intelligence Studio
 author: laujan
@@ -222,7 +222,7 @@ To label for signature detection: (Custom form only)
 
 ## Next steps
 
-* Follow our [**Document Intelligence v3.0 migration guide**](../v3-migration-guide.md) to learn the differences from the previous version of the REST API.
+* Follow our [**Document Intelligence v3.1 migration guide**](../v3-1-migration-guide.md) to learn the differences from the previous version of the REST API.
 * Explore our [**v3.0 SDK quickstarts**](get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) to try the v3.0 features in your applications using the new SDKs.
 * Refer to our [**v3.0 REST API quickstarts**](get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) to try the v3.0 features using the new REST API.
 
