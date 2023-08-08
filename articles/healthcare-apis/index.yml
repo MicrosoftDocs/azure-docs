@@ -23,7 +23,7 @@ highlightedContent:
           url: ./get-access-token.md
        -  title: Azure Health Data Services 
           itemType: tutorial
-          url: https://www.youtube.com/c/mspowerplatform/
+          url: https://learn.microsoft.com/training/browse/?term=iot&terms=health%20data%20services
 
 conceptualContent:
   items: 
@@ -125,7 +125,7 @@ conceptualContent:
           links:
             - url: ./azure-api-for-fhir/overview.md
               itemType: overview
-              text: overview
+              text: Overview
             - url: ./file2.md OR /file2
               itemType: how-to-guide
               text: linktext2
