@@ -263,13 +263,13 @@ NodeMemNumaFree|Memory|Node Memory NUMA (Free Memory)|Bytes|NUMA memory free|Nam
 NodeMemNumaShem|Memory|Node Memory NUMA (Shared Memory)|Bytes|NUMA shared memory|Host,Node|
 NodeMemNumaUsed|Memory|Node Memory NUMA (Used Memory)|Bytes|NUMA memory used|Host,Node|
 NodeNetworkCarrierChanges|Network|Node Network Carrier Changes|Count|Node network carrier changes|Device,Host|
-NodeNetworkMtuBytes|Network|Node Network Maximum Transmission Unit Bytes|Bytes|Node network Maximum Transmission Unit (mtu_bytes) value of /sys/class/net/<iface>|Device,Host|
+NodeNetworkMtuBytes|Network|Node Network Maximum Transmission Unit Bytes|Bytes|Node network Maximum Transmission Unit (mtu_bytes) value of /sys/class/net/\<iface\>|Device,Host|
 NodeNetworkReceiveMulticastTotal|Network|Node Network Received Multicast Total|Bytes|Network device statistic receive_multicast|Device,Host|
 NodeNetworkReceivePackets|Network|Node Network Received Packets|Count|Network device statistic receive_packets|Device,Host|
-NodeNetworkSpeedBytes|Network|Node Network Speed Bytes|Bytes|speed_bytes value of /sys/class/net/<iface>|Device,Host|
+NodeNetworkSpeedBytes|Network|Node Network Speed Bytes|Bytes|speed_bytes value of /sys/class/net/\<iface\>|Device,Host|
 NodeNetworkTransmitPackets|Network|Node Network Transmited Packets|Count|Network device statistic transmit_packets|Device,Host|
 NodeNetworkUp|Network|Node Network Up|Count|Value is 1 if operstate is 'up', 0 otherwise.|Device,Host|
-NodeNvmeInfo|Disk|Node NVMe Info (Preview)|Count|Non-numeric data from /sys/class/nvme/<device>, value is always 1. Provides firmware, model, state and serial for a device|Device,State|
+NodeNvmeInfo|Disk|Node NVMe Info (Preview)|Count|Non-numeric data from /sys/class/nvme/\<device\>, value is always 1. Provides firmware, model, state and serial for a device|Device,State|
 NodeOsInfo|System|Node OS Info|Count|Node OS information|Host,Name,Version|
 NodeTimexMaxErrorSeconds|System|Node Timex Max Error Seconds|Seconds|Maximum time error between the local system and reference clock|Host|
 NodeTimexOffsetSeconds|System|Node Timex Offset Seconds|Seconds|Time offset in between the local system and reference clock|Host|
