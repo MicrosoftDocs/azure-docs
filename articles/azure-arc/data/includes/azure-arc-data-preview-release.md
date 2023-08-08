@@ -5,9 +5,10 @@ ms.service: azure-arc
 ms.topic: include
 ms.date: 05/02/2023
 ---
-<!--
+
 At this time, a test or preview build is not available for the next release.
--->
+
+<!--
 
 Aug 2023 preview release is now available.
 
@@ -44,6 +45,4 @@ Aug 2023 preview release is now available.
 - Support for configuring and managing Azure Failover groups between two Arc enabled SQL managed instances using Azure portal. 
 - Upgraded OpenSearch and OpenSearch Dashboards from 2.7.0 to 2.8.0
 
-
-
-
+-->
