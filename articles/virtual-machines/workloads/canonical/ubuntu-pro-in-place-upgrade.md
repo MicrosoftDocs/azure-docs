@@ -98,7 +98,7 @@ You are charged for Ubuntu Pro as part of the Preview. Visit the [pricing calcul
 ## Frequently Asked Questions
 
 #### I launched an Ubuntu Pro VM. Do I need to configure it or enable something else
-With the availability of outbound internet access, Ubuntu Pro automatically enables premium features such as Extended Security Maintenance for [Main and Universe repositories](https://help.ubuntu.com/community/Repositories) and [livepatch](https://ubuntu.com/security/livepatch/docs). Should any specific hardening (for example CIS etc.,) check the using usg to [harden your servers](https://ubuntu.com/tutorials/comply-with-cis-or-disa-stig-on-ubuntu#1-overview) tutorial. Should you require FIPS, check enabling FIPS tutorials.
+With the availability of outbound internet access, Ubuntu Pro automatically enables premium features such as Extended Security Maintenance for [Main and Universe repositories](https://help.ubuntu.com/community/Repositories) and [live patch](https://ubuntu.com/security/livepatch/docs). Should any specific hardening (for example CIS) check the using 'usg' to [harden your servers](https://ubuntu.com/tutorials/comply-with-cis-or-disa-stig-on-ubuntu#1-overview) tutorial. Should you require FIPS, check enabling FIPS tutorials.
 
 For more information about networking requirements for making sure Pro enablement process works (such as egress traffic, endpoints and ports) [check this documentation](https://canonical-ubuntu-pro-client.readthedocs-hosted.com/en/latest/references/network_requirements.html).
 
