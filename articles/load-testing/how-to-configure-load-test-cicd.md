@@ -11,9 +11,13 @@ ms.date: 06/05/2023
 
 # Manually configure CI/CD for load tests in GitHub Actions or Azure Pipelines
 
-Get started with automating load tests in Azure Load Testing by adding it to a CI/CD pipeline. After running a load test in the Azure portal, you export the configuration files, and configure a CI/CD pipeline in GitHub Actions or Azure Pipelines.
+You can automate a load test in Azure Load Testing by creating a CI/CD pipeline. In this article, you learn how to manually configure GitHub Actions or Azure Pipelines to invoke an existing test in Azure Load Testing. Automate a load test to continuously validate your application performance and stability under load. 
 
-After you complete this quickstart, you have a CI/CD workflow that is configured to run a load test with Azure Load Testing.
+To add an existing load test to a CI/CD pipeline:
+
+- Configure service authentication to allow GitHub Actions or Azure Pipelines to connect to your Azure load testing resource.
+- Export the load test configuration files, such as the JMeter file and load test YAML configuration.
+- Update the CI/CD pipeline definition to invoke Azure Load Testing.
 
 ## Prerequisites
 
