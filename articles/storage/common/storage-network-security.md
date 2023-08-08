@@ -21,11 +21,34 @@ Storage accounts have a public endpoint that's accessible through the internet. 
 
 The Azure Storage firewall provides access control for the public endpoint of your storage account. You can also use the firewall to block all access through the public endpoint when you're using private endpoints. Your firewall configuration also enables trusted Azure platform services to access the storage account.
 
-An application that accesses a storage account when network rules are in effect still requires proper authorization for the request. Authorization is supported with Azure Active Directory (Azure AD) credentials for blobs and queues, with a valid account access key, or with a shared access signature (SAS) token. When you configure a blob container for anonymous public access, requests to read data in that container don't need to be authorized. The firewall rules remain in effect and will block anonymous traffic.
-
 Turning on firewall rules for your storage account blocks incoming requests for data by default, unless the requests originate from a service that operates within an Azure virtual network or from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, and from logging and metrics services.
 
-You can grant access to Azure services that operate from within a virtual network by allowing traffic from the subnet that hosts the service instance. You can also enable a limited number of scenarios through the exceptions mechanism that this article describes. To access data from the storage account through the Azure portal, you need to be on a machine within the trusted boundary (either IP or virtual network) that you set up.
+You can grant access to Azure services that operate from within a virtual network by allowing traffic from the subnet that hosts the service instance. You can also enable a limited number of scenarios through the exceptions mechanism that this article describes.
+
+## Considerations
+
+Before implementing any IP network rules, review the [Restrictions for IP network rules](restrictions-for-ip-network-rules) seciton.
+
+To access data from the storage account through the Azure portal, you need to be on a machine within the trusted boundary (either IP or virtual network) that you set up.
+
+> [!IMPORTANT]
+> When referencing a service endpoint in a client application, it's recommended that you avoid taking a dependency on a cached IP address. The storage account IP address is subject to change, and relying on a cached IP address may result in unexpected behavior.
+>
+> Additionally, it's recommended that you honor the time-to-live (TTL) of the DNS record and avoid overriding it. Overriding the DNS TTL may result in unexpected behavior.
+
+Network rules are enforced on all network protocols for Azure Storage, including REST and SMB. To access data by using tools such as the Azure portal, Azure Storage Explorer, and AzCopy, you must configure explicit network rules.
+
+Network rules don't affect virtual machine (VM) disk traffic, including mount and unmount operations and disk I/O. Network rules help protect REST access to page blobs.
+
+Classic storage accounts don't support firewalls and virtual networks.
+
+You can use unmanaged disks in storage accounts with network rules applied to back up and restore VMs by creating an exception. The [Manage exceptions](#manage-exceptions) section of this article documents this process. Firewall exceptions aren't applicable with managed disks, because Azure already manages them.
+
+### Authorization
+
+Clients granted access via these network rules must continue to meet the authorization requirements of the storage account to access the data.
+
+An application that accesses a storage account when network rules are in effect still requires proper authorization for the request. Authorization is supported with Azure Active Directory (Azure AD) credentials for blobs and queues, with a valid account access key, or with a shared access signature (SAS) token. When you configure a blob container for anonymous public access, requests to read data in that container don't need to be authorized. The firewall rules remain in effect and will block anonymous traffic.
 
 ## Scenarios
 
@@ -35,20 +58,7 @@ You can combine firewall rules that allow access from specific virtual networks 
 
 Storage firewall rules apply to the public endpoint of a storage account. You don't need any firewall access rules to allow traffic for private endpoints of a storage account. The process of approving the creation of a private endpoint grants implicit access to traffic from the subnet that hosts the private endpoint.
 
-> [!IMPORTANT]
-> When referencing a service endpoint in a client application, it's recommended that you avoid taking a dependency on a cached IP address. The storage account IP address is subject to change, and relying on a cached IP address may result in unexpected behavior.
->
-> Additionally, it's recommended that you honor the time-to-live (TTL) of the DNS record and avoid overriding it. Overriding the DNS TTL may result in unexpected behavior.
-
-Network rules are enforced on all network protocols for Azure Storage, including REST and SMB. To access data by using tools such as the Azure portal, Azure Storage Explorer, and AzCopy, you must configure explicit network rules.
-
 After you apply network rules, they're enforced for all requests. SAS tokens that grant access to a specific IP address serve to limit the access of the token holder, but they don't grant new access beyond configured network rules.
-
-Network rules don't affect virtual machine (VM) disk traffic, including mount and unmount operations and disk I/O. Network rules help protect REST access to page blobs.
-
-Classic storage accounts don't support firewalls and virtual networks.
-
-You can use unmanaged disks in storage accounts with network rules applied to back up and restore VMs by creating an exception. The [Manage exceptions](#manage-exceptions) section of this article documents this process. Firewall exceptions aren't applicable with managed disks, because Azure already manages them.
 
 ## Change the default network access rule
 
@@ -253,6 +263,8 @@ If you want to enable access to your storage account from a virtual network or s
 ## Grant access from an internet IP range
 
 You can use IP network rules to allow access from specific public internet IP address ranges by creating IP network rules. Each storage account supports up to 200 rules. These rules grant access to specific internet-based services and on-premises networks and block general internet traffic.
+
+### Restrictions for IP network rules
 
 The following restrictions apply to IP address ranges:
 
@@ -663,5 +675,4 @@ To learn more about working with storage analytics, see [Use Azure Storage analy
 ## Next steps
 
 Learn more about [Azure network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md).
-
 Dig deeper into [Azure Storage security](../blobs/security-recommendations.md).
