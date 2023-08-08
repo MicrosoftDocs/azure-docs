@@ -164,7 +164,7 @@ You can deploy your model to [Power Virtual Agents](/power-virtual-agents/fundam
 
 While Power Virtual Agents has features that leverage Azure OpenAI such as [generative answers](/power-virtual-agents/nlu-boost-conversations), deploying a model grounded on your data lets you create a chatbot that will respond using your data, and connect it to the Power Platform. For more information, see [Use a connection to Azure OpenAI on your data](/power-virtual-agents/nlu-generative-answers-azure-openai).
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RW192hF]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RW18YwQ]
 
 
 #### Using the web app
