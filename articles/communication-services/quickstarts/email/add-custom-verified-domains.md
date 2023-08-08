@@ -49,12 +49,13 @@ To provision a custom domain, you need to:
 
     - Click **Add domain** on the upper navigation bar.
     - Select **Custom domain** from the dropdown.
-3. Navigate to "Add a custom Domain". 
+3. Navigate to "Add a custom Domain."
 4. Enter  your "Domain Name" and re enter domain name.
 5. Click **Confirm**   
 
     :::image type="content" source="./media/email-domains-custom-add.png" alt-text="Screenshot that shows where to enter the custom domain value.":::
 6. Ensure that domain name isn't misspelled or click edit to correct the domain name and confirm.
+
 7. Click **Add**
 
     :::image type="content" source="./media/email-domains-custom-add-confirm.png" alt-text="Screenshot that shows how to add a custom domain of your choice.":::
@@ -74,7 +75,9 @@ To provision a custom domain, you need to:
 
     :::image type="content" source="./media/email-domains-custom-verify.png" alt-text="Screenshot that shows the Configure link that you need to click to verify domain ownership." lightbox="media/email-domains-custom-verify-expanded.png":::
 
-12. You need add the above TXT record to your domain's registrar or DNS hosting provider. Click **Next** once you've completed this step. 
+12. Add the above TXT record to your domain's registrar or DNS hosting provider. Refer to the [adding DNS records in popular domain registrars table](#txt-records) for information on how to add a TXT record for your DNS provider. 
+
+Click **Next** once you've completed this step. 
 
 13. Verify that TXT record is created successfully in your DNS and Click **Done**
 14. DNS changes take up to 15 to 30 minutes. Click **Close**
@@ -86,13 +89,57 @@ To provision a custom domain, you need to:
 
 
 ### Configure sender authentication for custom domain
+To configure sender authentication for your domains, additional DNS records need to be added to your domain. Below, we provide steps where Azure Communication Services will offer records that should be added to your DNS. However, depending on whether the domain you are registering is a root domain or a subdomain, you will need to add the records to the respective zone or make appropriate alterations to the records that we generate.
+
+As an example, let's consider adding SPF and DKIM records for the custom domain "sales.us.notification.azurecommtest.net." The following are different methods for adding these records to the DNS, depending on the level of the Zone where the records are being added.
+
+1. Zone: **sales.us.notification.azurecommtest.net**
+
+  | Record | Type | Name | Value |
+  | --- | --- | --- | --- |
+  |SPF | TXT | sales.us.notification.azurecommtest.net | v=spf1 include:spf.protection.outlook.com -all |  
+  | DKIM | CNAME | selector1-azurecomm-prod-net._domainkey | selector1-azurecomm-prod-net._domainkey.azurecomm.net  |  
+  | DKIM2 | CNAME | selector2-azurecomm-prod-net._domainkey | selector2-azurecomm-prod-net._domainkey.azurecomm.net  |
+
+The records that get generated in our portal assumes that you will be adding these records in DNS in this Zone **sales.us.notification.azurecommtest.net**.
+
+2. Zone: **us.notification.azurecommtest.net**
+
+  | Record | Type | Name | Value |
+  | --- | --- | --- | --- |
+  |SPF | TXT | sales | v=spf1 include:spf.protection.outlook.com -all |  
+  | DKIM | CNAME | selector1-azurecomm-prod-net._domainkey.**sales** | selector1-azurecomm-prod-net._domainkey.azurecomm.net  |  
+  | DKIM2 | CNAME | selector2-azurecomm-prod-net._domainkey.**sales** | selector2-azurecomm-prod-net._domainkey.azurecomm.net  |
+          
+3. Zone: **notification.azurecommtest.net**
+
+  | Record | Type | Name | Value |
+  | --- | --- | --- | --- |
+  |SPF | TXT | sales.us | v=spf1 include:spf.protection.outlook.com -all |  
+  | DKIM | CNAME | selector1-azurecomm-prod-net._domainkey.**sales.us** | selector1-azurecomm-prod-net._domainkey.azurecomm.net  |  
+  | DKIM2 | CNAME | selector2-azurecomm-prod-net._domainkey.**sales.us** | selector2-azurecomm-prod-net._domainkey.azurecomm.net  |
+  
+
+          
+4. Zone: **azurecommtest.net**
+
+  | Record | Type | Name | Value |
+  | --- | --- | --- | --- |
+  |SPF | TXT | sales.us.notification | v=spf1 include:spf.protection.outlook.com -all |  
+  | DKIM | CNAME | selector1-azurecomm-prod-net._domainkey.**sales.us.notification** | selector1-azurecomm-prod-net._domainkey.azurecomm.net  |  
+  | DKIM2 | CNAME | selector2-azurecomm-prod-net._domainkey.**sales.us.notification** | selector2-azurecomm-prod-net._domainkey.azurecomm.net  |
+  
+
+
+#### Adding SPF and DKIM Records 
+
+
 1. Navigate to  **Provision Domains** and confirm that  **Domain Status** is in "Verified" state. 
-2. You can add SPF and DKIM  by clicking **Configure**. You need add the following TXT record and CNAME records to your domain's registrar or DNS hosting provider. Click **Next** once you've completed this step. 
+2. You can add SPF and DKIM  by clicking **Configure**. Add the following TXT record and CNAME records to your domain's registrar or DNS hosting provider. Refer to the [adding DNS records in popular domain registrars table](#cname-records) for information on how to add a TXT & CNAME record for your DNS provider.
 
+    Click **Next** once you've completed this step. 
     :::image type="content" source="./media/email-domains-custom-spf.png" alt-text="Screenshot that shows the D N S records that you need to add for S P F validation for your verified domains.":::
-
     :::image type="content" source="./media/email-domains-custom-dkim-1.png" alt-text="Screenshot that shows the D N S records that you need to add for D K I M.":::
-
     :::image type="content" source="./media/email-domains-custom-dkim-2.png" alt-text="Screenshot that shows the D N S records that you need to add for additional D K I M records.":::
 
 3. Verify that TXT and CNAME records are created successfully in your DNS and Click **Done**
@@ -116,6 +163,44 @@ To provision a custom domain, you need to:
 You can optionally configure your MailFrom address to be something other than the default DoNotReply, and also add more than one sender username to your domain. To understand how to configure your sender address, see how to [add multiple sender addresses](add-multiple-senders.md).
 
 **Your email domain is now ready to send emails.**
+
+## Adding DNS records in popular domain registrars
+
+### TXT records
+
+The following links provide additional information on how to add a TXT record using many of the popular domain registrars.
+
+| Registrar Name | Documentation Link |
+| --- | --- |
+| IONOS by 1 & 1 | [Steps 1-7](/microsoft-365/admin/dns/create-dns-records-at-1-1-internet?view=o365-worldwide#:~:text=Add%20a%20TXT%20record%20for%20verification,created%20can%20update%20across%20the%20Internet.&preserve-view=true) 
+| 123-reg.co.uk | [Steps 1-6](/microsoft-365/admin/dns/create-dns-records-at-123-reg-co-uk?view=o365-worldwide#:~:text=DNS%20records.-,Add%20a%20TXT%20record%20for%20verification,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet.,-Now%20that%20you%27ve&preserve-view=true)
+| Amazon Web Services (AWS) | [Steps 1-8](/microsoft-365/admin/dns/create-dns-records-at-aws?view=o365-worldwide#:~:text=DNS%20records.-,Add%20a%20TXT%20record%20for%20verification,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet.,-Now%20that%20you%27ve&preserve-view=true)
+| Cloudflare | [Steps 1-6](/microsoft-365/admin/dns/create-dns-records-at-cloudflare?view=o365-worldwide#:~:text=Add%20a%20TXT,across%20the%20Internet.&preserve-view=true)
+| GoDaddy | [Steps 1-6](/microsoft-365/admin/dns/create-dns-records-at-godaddy?view=o365-worldwide#:~:text=Add%20a%20TXT,across%20the%20Internet.&preserve-view=true)
+| Namecheap | [Steps 1-9](/microsoft-365/admin/dns/create-dns-records-at-namecheap?view=o365-worldwide#:~:text=DNS%20records.-,Add%20a%20TXT%20record%20for%20verification,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet.,-Now%20that%20you%27ve&preserve-view=true)
+| Network Solutions | [Steps 1-9](/microsoft-365/admin/dns/create-dns-records-at-network-solutions?view=o365-worldwide#:~:text=DNS%20records.-,Add%20a%20TXT%20record%20for%20verification,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet,-.&preserve-view=true)
+| OVH | [Steps 1-9](/microsoft-365/admin/dns/create-dns-records-at-ovh?view=o365-worldwide#:~:text=DNS%20records.-,Add%20a%20TXT%20record%20for%20verification,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet.,-Now%20that%20you%27ve&preserve-view=true)
+| web.com | [Steps 1-8](/microsoft-365/admin/dns/create-dns-records-at-web-com?view=o365-worldwide#:~:text=with%20your%20domain.-,Add%20a%20TXT%20record%20for%20verification,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet,-.&preserve-view=true)
+| Wix | [Steps 1-5](/microsoft-365/admin/dns/create-dns-records-at-wix?view=o365-worldwide#:~:text=DNS%20records.-,Add%20a%20TXT%20record%20for%20verification,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet,-.&preserve-view=true)
+| Other (General) | [Steps 1-4](/microsoft-365/admin/get-help-with-domains/create-dns-records-at-any-dns-hosting-provider?view=o365-worldwide#:~:text=Recommended%3A%20Verify%20with,domain%20is%20verified.&preserve-view=true)
+
+### CNAME records
+
+The following links provide additional information on how to add a CNAME record using many of the popular domain registrars (Make sure to use the values from the configuration window rather than the ones in the documentation link.)
+
+| Registrar Name | Documentation Link |
+| --- | --- |
+| IONOS by 1 & 1 | [Steps 1-10](/microsoft-365/admin/dns/create-dns-records-at-1-1-internet?view=o365-worldwide#:~:text=Add%20the%20CNAME,Select%20Save.&preserve-view=true) 
+| 123-reg.co.uk | [Steps 1-6](/microsoft-365/admin/dns/create-dns-records-at-123-reg-co-uk?view=o365-worldwide#:~:text=for%20that%20record.-,Add%20the%20CNAME%20record%20required%20for%20Microsoft,Select%20Add.,-Add%20a%20TXT&preserve-view=true)
+| Amazon Web Services (AWS) | [Steps 1-8](/microsoft-365/admin/dns/create-dns-records-at-aws?view=o365-worldwide#:~:text=selecting%20Delete.-,Add%20the%20CNAME%20record%20required%20for%20Microsoft%20365,Select%20Create%20records.,-Add%20a%20TXT&preserve-view=true)
+| Cloudflare | [Steps 1-6](/microsoft-365/admin/dns/create-dns-records-at-cloudflare?view=o365-worldwide#:~:text=Add%20the%20CNAME,Select%20Save.&preserve-view=true)
+| GoDaddy | [Steps 1-6](/microsoft-365/admin/dns/create-dns-records-at-godaddy?view=o365-worldwide#:~:text=Add%20the%20CNAME,Select%20Save.&preserve-view=true)
+| Namecheap | [Steps 1-8](/microsoft-365/admin/dns/create-dns-records-at-namecheap?view=o365-worldwide#:~:text=in%20this%20procedure.-,Add%20the%20CNAME%20record%20required%20for%20Microsoft,Select%20the%20Save%20Changes%20(check%20mark)%20control.,-Add%20a%20TXT&preserve-view=true)
+| Network Solutions | [Steps 1-9](/microsoft-365/admin/dns/create-dns-records-at-network-solutions?view=o365-worldwide#:~:text=for%20each%20record.-,Add%20the%20CNAME%20record%20required%20for%20Microsoft,View%20in%20the%20upper%20right%20to%20view%20the%20record%20you%20created.,-Add%20a%20TXT&preserve-view=true)
+| OVH | [Steps 1-8](/microsoft-365/admin/dns/create-dns-records-at-ovh?view=o365-worldwide#add-the-cname-record-required-for-microsoft:~:text=Select%20Confirm.-,Add%20the%20CNAME%20record%20required%20for%20Microsoft,Select%20Confirm.,-Add%20a%20TXT&preserve-view=true)
+| web.com | [Steps 1-8](/microsoft-365/admin/dns/create-dns-records-at-web-com?view=o365-worldwide#add-the-cname-record-required-for-microsoft:~:text=for%20each%20record.-,Add%20the%20CNAME%20record%20required%20for%20Microsoft,Select%20ADD.,-Add%20a%20TXT&preserve-view=true)
+| Wix | [Steps 1-5](/microsoft-365/admin/dns/create-dns-records-at-wix?view=o365-worldwide#add-the-cname-record-required-for-microsoft:~:text=Select%20Save.-,Add%20the%20CNAME%20record%20required%20for%20Microsoft,that%20the%20record%20you%20just%20created%20can%20update%20across%20the%20Internet.,-Add%20a%20TXT&preserve-view=true)
+| Other (General) | [Guide](/microsoft-365/admin/dns/create-dns-records-using-windows-based-dns?view=o365-worldwide#add-cname-records:~:text=%3E%20OK.-,Add%20CNAME%20records,Select%20OK.,-Add%20the%20SIP&preserve-view=true)
 
 ## Next steps
 

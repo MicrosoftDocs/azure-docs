@@ -51,6 +51,7 @@ Of these URLs, the URLs listed in the following table are the absolute bare mini
 | `*.microsoftonline.com` |HTTPS/443 |Used to configure your Azure AD directory and import/export data. |
 | `*.crl3.digicert.com` |HTTP/80 |Used to verify certificates. |
 | `*.crl4.digicert.com` |HTTP/80 |Used to verify certificates. |
+| `*.digicert.cn` |HTTP/80 |Used to verify certificates. |
 | `*.ocsp.digicert.com` |HTTP/80 |Used to verify certificates. |
 | `*.www.d-trust.net` |HTTP/80 |Used to verify certificates. |
 | `*.root-c3-ca2-2009.ocsp.d-trust.net` |HTTP/80 |Used to verify certificates. |

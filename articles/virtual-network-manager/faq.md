@@ -5,7 +5,7 @@ services: virtual-network-manager
 author: mbender-ms
 ms.service: virtual-network-manager
 ms.topic: article
-ms.date: 03/15/2023
+ms.date: 08/03/2023
 ms.author: mbender
 ms.custom: references_regions, ignite-fall-2021, engagement-fy23
 ---
@@ -40,7 +40,9 @@ For current region support, refer to [products available by region](https://azur
 
 ### What's the cost of using Azure Virtual Network Manager?
 
-Azure Virtual Network Manager charges $0.10/hour per subscription managed. AVNM charges are based on the number of subscriptions that contain a virtual network with an active network manager configuration deployed onto it. For example, if a network manager's scope consists of ten subscriptions but only three subscriptions' virtual networks are covered by a network manager deployment, then there are three managed subscriptions, so $0.10/hour * three subscriptions = $0.30/hour.
+Azure Virtual Network Manager charges are based on the number of subscriptions that contain a virtual network with an active network manager configuration deployed onto it. Also, a Virtual Network Peering charge applies to the traffic volume of virtual networks managed by a deployed connectivity configuration (either Mesh, or Hub-and-Spoke).
+
+Current pricing for your region can be found on the [Azure Virtual Network Manager pricing](https://azure.microsoft.com/pricing/details/virtual-network-manager/) page.
 
 ## Technical
 
@@ -144,7 +146,7 @@ A network manager is only delegated enough access to apply configurations to vir
 
 #### Are you applying security rules to a VNet containing Azure SQL Managed Instances?
 
-Azure SQL Managed Instance has some network requirements. These are enforced through high priority Network Intent Policies, whose purpose conflicts with Security Admin Rules. By default, Admin rule application is skipped on VNets containing any of these Intent Policies. Since *Allow* rules pose no risk of conflict, you can opt to apply *Allow Only* rules. If you only wish to use Allow rules, you can set AllowOnlyRules on `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices`.
+Azure SQL Managed Instance has some network requirements. These are enforced through high priority Network Intent Policies, whose purpose conflicts with Security Admin Rules. By default, Admin rule application is skipped on VNets containing any of these Intent Policies. Since *Allow* rules pose no risk of conflict, you can opt to apply *Allow Only* rules. If you only wish to use Allow rules, you can set AllowRulesOnly on `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices`.
 
 ## Limits
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Public IP address prefix
 titleSuffix: Azure Virtual Network
 description: Learn about what an Azure public IP address prefix is and how it can help you assign public IP addresses to your resources.
@@ -6,6 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
+ms.custom: devx-track-linux
 ms.topic: conceptual
 ms.date: 04/19/2023
 ms.author: allensu

@@ -30,7 +30,7 @@ No, there's no architectural dependency between Azure Managed Instance for Apach
 
 ### What versions of Apache Cassandra does the service support?
 
-The service currently supports Cassandra versions 3.11 and 4.0. By default, version 3.11 is deployed, as version 4.0 is currently in public preview. See our [Azure CLI Quickstart](create-cluster-cli.md) (step 5) for specifying Cassandra version during cluster deployment.
+The service currently supports Cassandra versions 3.11 and 4.0. Both versions are GA. See our [Azure CLI Quickstart](create-cluster-cli.md) (step 5) for specifying Cassandra version during cluster deployment.
 
 ### Does Azure Managed Instance for Apache Cassandra have an SLA?
 

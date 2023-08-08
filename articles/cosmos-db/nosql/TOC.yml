@@ -518,6 +518,9 @@
       href: query/toc.yml
     - name: Materialized views (preview)
       href: materialized-views.md
+    - name: Index and query geospatial data
+      displayName: geospatial, geojson, spatial, index, query, geography, geometry
+      href: how-to-geospatial-index-query.md
     - name: Throughput (Request units)
       items:
         - name: Provisioned throughput
@@ -640,6 +643,8 @@
               href: performance-tips-dotnet-sdk-v3.md
             - name: Performance tips for .NET SDK v2
               href: performance-tips.md
+            - name: Tune connection configurations for Azure Cosmos DB .NET SDK v3
+              href: tune-connection-configurations-net-sdk-v3.md
         - name: Java
           items:
             - name: Best practices for Java SDK
@@ -805,6 +810,8 @@
               href: ../self-serve-minimum-tls-enforcement.md
             - name: Configure customer-managed keys with Azure key vault
               href: ../how-to-setup-customer-managed-keys.md
+            - name: CMK troubleshooting guide
+              href: ../cmk-troubleshooting-guide.md
             - name: Configure customer-managed keys with Azure managed HSM key vault
               href: ../how-to-setup-customer-managed-keys-mhsm.md
             - name: Configure cross-tenant customer-managed keys
@@ -968,6 +975,8 @@
           href: sdk-java-spring-data-v2.md
         - name: Spring Data Connector v3
           href: sdk-java-spring-data-v3.md
+        - name: Spring Data Connector v5
+          href: sdk-java-spring-data-v5.md
         - name: Spark 3.x OLTP Connector
           href: sdk-java-spark-v3.md
         - name: Spark 2.x LTS OLTP Connector

@@ -20,7 +20,7 @@ ms.custom: aaddev
 
 Now that you know how to protect your web API, here are some things to consider when moving your application to production.
 
-[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](./includes/scenarios/scenarios-production.md)]
 
 ## Next steps
 

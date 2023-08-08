@@ -5,8 +5,7 @@ author: roygara
 ms.author: rogarana
 ms.date: 01/25/2023
 ms.topic: how-to
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ---
 
 # Reduce costs with Azure Disks Reservation
@@ -47,7 +46,7 @@ Reservation discounts are currently unavailable for the following:
 - Ultra Disks
 - Standard solid-state drives (SSDs) or standard hard-disk drives (HDDs)
 - Premium SSD SKUs smaller than P30: P1, P2, P3, P4, P6, P10, P15, and P20 SSD SKUs
-- Disks in Azure Government, Azure Germany, or Azure China regions
+- Disks in Azure Government, Azure Germany, or Microsoft Azure operated by 21Vianet regions
 
 In rare circumstances, Azure limits the purchase of new reservations to a subset of disk SKUs because of low capacity in a region.
 

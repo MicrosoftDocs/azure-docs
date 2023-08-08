@@ -193,19 +193,15 @@ This section shows you how to create a .NET Core console application to send eve
 ## Receive events from the event hub
 This section shows how to write a .NET Core console application that receives events from an event hub using an event processor. The event processor simplifies receiving events from event hubs. 
 
-> [!WARNING]
-> If you run this code on **Azure Stack Hub**, you will experience runtime errors unless you target a specific Storage API version. That's because the Event Hubs SDK uses the latest available Azure Storage API available in  Azure that may not be available on your Azure Stack Hub platform. Azure Stack Hub may support a different version of Storage Blob SDK than those typically available on Azure. If you are using Azure Blob Storage as a checkpoint store, check the [supported Azure Storage API version for your Azure Stack Hub build](/azure-stack/user/azure-stack-acs-differences?#api-version) and target that version in your code. 
->
-> For example, If you are running on Azure Stack Hub version 2005, the highest available version for the Storage service is version 2019-02-02. By default, the Event Hubs SDK client library uses the highest available version on Azure (2019-07-07 at the time of the release of the SDK). In this case, besides following steps in this section, you will also need to add code to target the Storage service API version 2019-02-02. For an example on how to target a specific Storage API version, see [this sample on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/). 
-
-
-
 ### Create an Azure Storage Account and a blob container
 In this quickstart, you use Azure Storage as the checkpoint store. Follow these steps to create an Azure Storage account. 
 
 1. [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal)
 2. [Create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
 3. Authenticate to the blob container using either Azure AD (passwordless) authentication or a connection string to the namespace.
+
+[!INCLUDE [storage-checkpoint-store-recommendations](./includes/storage-checkpoint-store-recommendations.md)]
+
     
 ## [Passwordless (Recommended)](#tab/passwordless)
 
@@ -395,6 +391,13 @@ Replace the contents of **Program.cs** with the following code:
 5. In the Azure portal, you can verify that there are three outgoing messages, which Event Hubs sent to the receiving application. Refresh the page to update the chart. It may take a few seconds for it to show that the messages have been received. 
 
     :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal-2.png" alt-text="Image of the Azure portal page to verify that the event hub sent events to the receiving app" lightbox="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal-2.png":::
+
+## Schema validation for Event Hubs SDK based applications
+
+You can use Azure Schema Registry to perform schema validation when you stream data with your Event Hubs SDK-based applications. 
+Azure Schema Registry of Event Hubs provides a centralized repository for managing schemas and you can seamlessly connect your new or existing applications with Schema Registry. 
+
+To learn more, see [Validate schemas with Event Hubs SDK](schema-registry-dotnet-send-receive-quickstart.md). 
 
 ## Clean up resources
 Delete the resource group that has the Event Hubs namespace or delete only the namespace if you want to keep the resource group. 

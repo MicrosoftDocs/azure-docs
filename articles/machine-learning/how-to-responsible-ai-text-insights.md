@@ -10,12 +10,12 @@ ms.reviewer: lagayhar
 ms.author: wenxwei
 author: wenxwei
 ms.date: 5/10/2023
-ms.custom: responsible-ml, build-2023
+ms.custom: responsible-ml, build-2023, devx-track-python
 ---
 
 # Generate Responsible AI text insights with YAML and Python (preview)
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Understanding and assessing NLP models can be different from tabular data. The Responsible AI dashboard now supports text data by expanding the debugging capabilities and visualizations to be able to digest and visualize text data. The Responsible AI text dashboard provides several mature Responsible AI tools in the areas of error analysis, model interpretability, unfairness assessment and mitigation for a holistic assessment and debugging of NLP models and making informed business decisions. You can generate a Responsible AI text dashboard via a pipeline job by using Responsible AI components.
 

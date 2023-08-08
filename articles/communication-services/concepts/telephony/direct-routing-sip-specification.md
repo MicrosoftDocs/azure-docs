@@ -4,7 +4,7 @@ description: SIP protocol details for Azure Communication Services direct routin
 author: boris-bazilevskiy
 ms.author: bobazile
 manager: rcole
-ms.date: 05/30/2023
+ms.date: 06/15/2023
 ms.topic: article
 ms.service: azure-communication-services
 audience: admin
@@ -268,7 +268,7 @@ The REFERRED-BY header has a SIP URI with transferor MRI encoded in it and trans
 |:---------------------  |:---------------------- |:---------------------- |
 | x-m | MRI | Full MRI of transferor/transfer target as populated by CC |
 | x-t | Tenant ID | x-t resource ID Optional resource ID as populated by CC |
-| x-ti | Transferor Correlation Id | Correlation ID of the call to the transferor |
+| x-ti | Transferor Correlation ID | Correlation ID of the call to the transferor |
 | x-tt | Transfer target call URI | Encoded call replacement URI |
 
 The size of the Refer Header can be up to 400 symbols in this case. The SBC must support handling Refer messages with size up to 400 symbols.

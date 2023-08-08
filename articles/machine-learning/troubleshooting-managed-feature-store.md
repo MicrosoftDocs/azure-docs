@@ -14,6 +14,8 @@ ms.date: 05/23/2023
 
 In this article, learn how to troubleshoot common problems you may encounter with the managed feature store in Azure Machine Learning.
 
+[!INCLUDE [preview disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## Issues found when creating and updating a feature store
 
 When you create or update a feature store, you may encounter the following issues.
@@ -197,6 +199,76 @@ And in this example, the `feature_transformation_code.path` property in the YAML
 
 > [!NOTE]
 > When creating a FeatureSetSpec python object using create_feature_set_spec function in `azureml-featurestore`, it can take the `feature_transformation_code.path` that is any local folder. When the FeatureSetSpec object is dumped to form a feature set spec yaml in a target folder, the code path will be copied into the target folder, and the `feature_transformation_code.path` property updated in the spec yaml.
+
+## Feature set CRUD Errors
+
+### Feature set GET fails due to invalid FeatureStoreEntity
+
+#### Symptom
+
+When you use the feature store CRUD client to GET a feature set, e.g. `fs_client.feature_sets.get(name, version)`”`, you may see this error:
+
+```python
+
+Traceback (most recent call last):
+
+  File "/home/trusted-service-user/cluster-env/env/lib/python3.8/site-packages/azure/ai/ml/operations/_feature_store_entity_operations.py", line 116, in get
+
+    return FeatureStoreEntity._from_rest_object(feature_store_entity_version_resource)
+
+  File "/home/trusted-service-user/cluster-env/env/lib/python3.8/site-packages/azure/ai/ml/entities/_feature_store_entity/feature_store_entity.py", line 93, in _from_rest_object
+
+    featurestoreEntity = FeatureStoreEntity(
+
+  File "/home/trusted-service-user/cluster-env/env/lib/python3.8/site-packages/azure/ai/ml/_utils/_experimental.py", line 42, in wrapped
+
+    return func(*args, **kwargs)
+
+  File "/home/trusted-service-user/cluster-env/env/lib/python3.8/site-packages/azure/ai/ml/entities/_feature_store_entity/feature_store_entity.py", line 67, in __init__
+
+    raise ValidationException(
+
+azure.ai.ml.exceptions.ValidationException: Stage must be Development, Production, or Archived, found None
+```
+
+This error can also happen in the FeatureStore materialization job, with the job failing with the same error trace back.
+
+#### Solution
+
+Start a notebook session with the new version of SDKS
+
+- If it is using azure-ai-ml, update to `azure-ai-ml==1.8.0`.
+- If it is using the feature store dataplane SDK, update it to `azureml-featurestore== 0.1.0b2`.
+ 
+In the notebook session, update the feature store entity to set its `stage` property, as shown in this example:
+
+```python
+from azure.ai.ml.entities import DataColumn, DataColumnType
+ 
+account_entity_config = FeatureStoreEntity(
+
+    name="account",
+
+    version="1",
+
+    index_columns=[DataColumn(name="accountID", type=DataColumnType.STRING)],
+
+    stage="Development",
+
+    description="This entity represents user account index key accountID.",
+
+    tags={"data_typ": "nonPII"},
+
+)
+
+poller = fs_client.feature_store_entities.begin_create_or_update(account_entity_config)
+
+print(poller.result())
+```
+When defining the FeatureStoreEntity, set the properties to be the same as the ones when it was created. The only difference is to add the `stage` property.
+
+Once the `begin_create_or_update()` call returns successfully, the next `feature_sets.get()` call and the next materialization job should succeed.
+
 
 ## Feature Retrieval job and query errors
 

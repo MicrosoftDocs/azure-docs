@@ -4,10 +4,9 @@ titleSuffix: Azure Storage
 description: Learn how to mount a container in Blob Storage from an Azure virtual machine (VM) or a client that runs on-premises by using the NFS 3.0 protocol.
 author: normesta
 
-ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/12/2023
+ms.date: 06/21/2023
 ms.author: normesta
 ms.reviewer: yzheng
 ---
@@ -96,6 +95,7 @@ The AZNFS Mount Helper package helps Linux NFS clients to reliably access Azure 
    > - Centos7, Centos8
    > - RedHat7, RedHat8, RedHat9
    > - Rocky8, Rocky9
+   > - SUSE (SLES 15)
 
 ## Step 6: Mount the container
 
@@ -114,7 +114,7 @@ Create a directory on your Linux system and then mount the container in the stor
      1. Create an entry in the /etc/fstab file by adding the following line:
   
         ```
-        <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata    aznfs defaults,sec=sys,vers=3,nolock,proto=tcp,nofail    0 0
+        <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata    aznfs defaults,sec=sys,vers=3,nolock,proto=tcp,nofail,_netdev    0 0
         ```
 
      2. Run the following command to immediately process the /etc/fstab entries and attempt to mount the preceding path:
@@ -126,14 +126,16 @@ Create a directory on your Linux system and then mount the container in the stor
    - For a temporary mount that doesn't persist across reboots, run the following command: 
     
      ```
-     mount -t aznfs -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdatain 
+     mount -t aznfs -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata
      ``` 
      
      > [!TIP]
      > By using the `-t aznfs` mount option, you ensure that the NFS client always remains correctly connected to the storage endpoint even if the endpoint IP changes after the mount. NFS shares that are mounted by using the `-t nfs` mount option might become disconnected from the storage endpoint if the IP address of that endpoint changes.
 
-> [!NOTE]
-> Other optional parameters are available with the mount command. Those parameters primarily affect client-side behavior. `sys` is the only value that is currently supported by the `sec` option.
+     Other optional parameters are available with the mount command. Those parameters primarily affect client-side behavior. `sys` is the only value that is currently supported by the `sec` option.
+
+     > [!IMPORTANT]
+     > The `nconnect` mount option works only on clients that have **Azure nconnect support**. Using the `nconnect` option on an unsupported client will decrease throughput and cause commands to timeout or work incorrectly. To learn more about how to ensure that your client has Azure nconnect support, see [Increase the number of TCP connections](network-file-system-protocol-support-performance.md#increase-the-number-of-tcp-connections). 
 
 ## Resolve common errors
 
