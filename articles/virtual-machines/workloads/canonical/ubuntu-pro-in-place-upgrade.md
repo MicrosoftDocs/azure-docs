@@ -13,12 +13,12 @@ ms.author: anujmaurya
 
 # Ubuntu Server to Ubuntu Pro in-place upgrade on Azure
 
-**Applies to:** :heavy_check_mark: Linux VMs
+**Applies to:** :heavy_check_mark: Linux virtual machines
 
 Customers can now upgrade from Ubuntu Server (16.04 or higher) to Ubuntu Pro on your existing Azure Virtual Machines without redeployment or downtime. One of the major use cases includes conversion of Ubuntu 18.04 LTS going EOL to Ubuntu Pro. [Canonical announced that the Ubuntu 18.04 LTS (Bionic Beaver) OS images end-of-life (EOL)....](https://ubuntu.com/18-04/azure) Canonical no longer provides technical support, software updates, or security patches for this version. Customers need to upgrade to Ubuntu Pro to continue to be on Ubuntu 18.04 LTS. 
 
 ## What's Ubuntu Pro 
-Ubuntu Pro is a cross-cloud OS optimized for Azure, and security maintained for 10 years. Doing this enables the secure use of open-source software so teams can utilize the latest technologies while meeting internal governance and compliance requirements. Ubuntu 18.04 LTS, remains fully compatible with Ubuntu Server 18.04 LTS, but adds more security enabled by default, including compliance and management tools in a form suitable for small to large-scale Linux operations. Ubuntu Pro 18.04 LTS is fully supported until April 2028. Ubuntu Pro also comes with security patching for all Ubuntu packages due to Extended Security Maintenance (ESM) for Infrastructure and Applications and optional 24/7 phone and ticket support.  
+Ubuntu Pro is a cross-cloud OS, optimized for Azure, and security maintained for 10 years. The secure use of open-source software allows teams to utilize the latest technologies while meeting internal governance and compliance requirements. Ubuntu Pro 18.04 LTS, remains fully compatible with Ubuntu Server 18.04 LTS, but adds more security enabled by default, including compliance and management tools in a form suitable for small to large-scale Linux operations. Ubuntu Pro 18.04 LTS is fully supported until April 2028. Ubuntu Pro also comes with security patching for all Ubuntu packages due to Extended Security Maintenance (ESM) for Infrastructure and Applications and optional 24/7 phone and ticket support.  
 
 Customers using Ubuntu Server 18.04, for example, can upgrade to Ubuntu Pro and continue to receive security patches from Canonical until 2028. Customers can upgrade to Ubuntu Pro via Azure CLI.
 
@@ -43,7 +43,7 @@ Customers using Ubuntu Server 18.04, for example, can upgrade to Ubuntu Pro and 
 2. Validating the license
 
 >[!NOTE]
-> Converting to UBUNTU_PRO is an irreversible process. You can't even downgrade a VM by running detach. Please raise support tickets for any exceptions.
+> Converting to UBUNTU_PRO is an irreversible process. You can't even downgrade a VM by running detach. Open a support tickets for any exceptions.
 
 ## Converting to Ubuntu Pro using the Azure CLI 
 ```azurecli-interactive
@@ -56,7 +56,7 @@ az vm update -g myResourceGroup -n myVmName --license-type UBUNTU_PRO
 sudo apt install ubuntu-advantage-tools 
 sudo pro auto-attach 
 ```
-(Please note that "sudo apt install ubuntu-advantage-tools" is only necessary if "pro --version" is lower than 28) 
+(note that "sudo apt install ubuntu-advantage-tools" is only necessary if "pro --version" is lower than 28) 
 
 ## Validating the license 
 Expected output:
@@ -93,20 +93,20 @@ az vm get-instance-view -g MyResourceGroup -n MyVm
 From within the virtual machine itself, you can query the attested metadata in Azure Instance Metadata Service to determine the virtual machine's licenseType value. A licenseType value of UBUNTU_PRO indicates that your virtual machine has Ubuntu Pro enabled. [Learn more about attested metadata](../../instance-metadata-service.md).
 
 ## Billing
-Please note that you are charged for Ubuntu Pro as part of the Preview. Visit the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) for more details on Ubuntu Pro pricing. To cancel the Pro subscription during the preview period, open a support ticket through the Azure portal.
+Note that you are charged for Ubuntu Pro as part of the Preview. Visit the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) for more details on Ubuntu Pro pricing. To cancel the Pro subscription during the preview period, open a support ticket through the Azure portal.
 
 ## Frequently Asked Questions
 
 #### I launched an Ubuntu Pro VM. Do I need to configure it or enable something else
 With the availability of outbound internet access, Ubuntu Pro automatically will enable premium features such as Extended Security Maintenance for [Main and Universe repositories](https://help.ubuntu.com/community/Repositories) and [livepatch](https://ubuntu.com/security/livepatch/docs). Should any specific hardening (for example CIS etc) check the using usg to [harden your servers](https://ubuntu.com/tutorials/comply-with-cis-or-disa-stig-on-ubuntu#1-overview) tutorial. Should you require FIPS, check enabling FIPS tutorials.
 
-For more information about networking requirements for making sure Pro enablement process works (such as egress traffic, endpoints and ports) [please check this documentation](https://canonical-ubuntu-pro-client.readthedocs-hosted.com/en/latest/references/network_requirements.html).
+For more information about networking requirements for making sure Pro enablement process works (such as egress traffic, endpoints and ports) [check this documentation](https://canonical-ubuntu-pro-client.readthedocs-hosted.com/en/latest/references/network_requirements.html).
 
 #### If I shut down the machine, does the billing continue?
 If you launch Ubuntu Pro from Azure Marketplace you will only pay as you go, so, if you don’t have any machine running, you won’t pay any additional fee.
 
 #### Can I get volume discounts?
-Yes. Please contact your Microsoft sales representative.
+Yes. Contact your Microsoft sales representative.
 
 #### Are Reserved Instances available?
 Yes
