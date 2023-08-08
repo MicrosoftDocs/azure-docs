@@ -1,7 +1,7 @@
 ---
 title: Infrastructure as Code Enablement | Microsoft Defender for Storage
 description: Learn how to enable and configure Microsoft Defender for Storage with IaC templates.
-ms.date: 08/07/2023
+ms.date: 08/08/2023
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
@@ -123,10 +123,10 @@ If you want to turn off the On-upload malware scanning or Sensitive data threat 
 
 To disable the entire Defender plan for the storage account, set the `isEnabled` property value to **false** and remove the `malwareScanning` and `sensitiveDataDiscovery` sections from the properties.
 
-Learn more about the [Microsoft.Security/DefenderForStorageSettings API](/defenderforcloud/defender-for-storage/create) documentation.
+Learn more about the [Microsoft.Security/DefenderForStorageSettings API](/rest/api/defenderforcloud/defender-for-storage/create) documentation.
 
->[!TIP]
-> Malware Scanning can be configured to send scanning results to the following: <br>  **Event Grid custom topic** - for near-real time automatic response based on every scanning result. Learn more how to configure Malware Scanning to send scanning events to an Event Grid custom topic. <br> **Log Analytics workspace** - for storing every scan result in a centralized log repository for compliance and audit. Learn more how to configure Malware Scanning to send scanning results to a Log Analytics workspace.
+> [!TIP]
+> Malware Scanning can be configured to send scanning results to the following: <br>  **Event Grid custom topic** - for near-real time automatic response based on every scanning result. Learn more how to [configure malware scanning to send scanning events to an Event Grid custom topic](/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-storage-account#setting-up-event-grid-for-malware-scanning). <br> **Log Analytics workspace** - for storing every scan result in a centralized log repository for compliance and audit. Learn more how to [configure malware scanning to send scanning results to a Log Analytics workspace](/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-storage-account#setting-up-logging-for-malware-scanning).
 
 Learn more on how to set up response for malware scanning results.
 
