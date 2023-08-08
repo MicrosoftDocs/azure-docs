@@ -16,6 +16,7 @@
           "**/includes/**",
           "**/obj/**",
           "**/*.graffle",
+          "healthcare-apis/**",
           "machine-learning/**"
         ]
       },
