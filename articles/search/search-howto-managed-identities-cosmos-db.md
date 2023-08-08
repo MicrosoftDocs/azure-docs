@@ -25,8 +25,8 @@ You can use a system-assigned managed identity or a user-assigned managed identi
 * [Control plane role assignment](search-howto-managed-identities-data-sources.md#assign-a-role) in Azure Cosmos DB.
   For data reader access, you'll need the **Cosmos DB Account Reader** role and the identity used to make the request. This role works for all Azure Cosmos DB APIs supported by Cognitive Search. This is a control plane RBAC role. 
 
-* Data Plane Role assignment: Follow this https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-setup-rbac 
-to know more about data plane role assignments for CosmosDB
+* Data Plane Role assignment: Follow [Data plane Role assignment](../cosmos-db/how-to-setup-rbac.md)
+to know more.
 
 * *Only applicable for Cosmos Sql ApiKind*:
   [Enforcing RBAC as the only authentication method in Azure Cosmos DB](../cosmos-db/how-to-setup-rbac.md#disable-local-auth)
