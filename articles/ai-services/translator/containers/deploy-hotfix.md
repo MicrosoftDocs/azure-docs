@@ -71,7 +71,7 @@ There may be times when you're running a container with a multi-layered ingestio
         }
         ```
 
-1. Run the container using the **docker run** command
+1. Use the **docker run** command
 
     **Docker run command required options**
 
