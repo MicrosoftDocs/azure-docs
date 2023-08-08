@@ -205,7 +205,7 @@ Protect your data, apps, and infrastructure against rapidly evolving cyber threa
 
 Use [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) to secure your endpoints surrounding the SAP system including automated responses.
 
-Complimenting that, use the [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) Microsoft Sentinel solution to protect your SAP system from within using signals from the SAP Audit Log among others.
+Complimenting that, use the [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) solution [Microsoft Sentinel](../../sentinel/sap/sap-solution-security-content.md) to protect your SAP system from within using signals from the SAP Audit Log among others.
 
 Learn more about identity focused integration capabilities that power the analysis on Defender and Sentinel via the [Microsoft Entra ID section](#microsoft-entra-id-formerly-azure-ad).
 
