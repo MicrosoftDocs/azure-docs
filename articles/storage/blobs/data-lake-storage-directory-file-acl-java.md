@@ -31,28 +31,18 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
 To get started, open [this page](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) and find the latest version of the Java library. Then, open the *pom.xml* file in your text editor. Add a dependency element that references that version.
 
-If you plan to authenticate your client application by using Azure Active Directory (Azure AD), then add a dependency to the Azure Secret Client Library. For more information, see [Adding the Secret Client Library package to your project](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#adding-the-package-to-your-project).
+If you plan to authenticate your client application by using Azure Active Directory (Azure AD), then add a dependency to the Azure Identity library. For more information, see [Azure Identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#adding-the-package-to-your-project).
 
 Next, add these imports statements to your code file.
 
 ```java
+import com.azure.identity.*;
 import com.azure.storage.common.StorageSharedKeyCredential;
-import com.azure.storage.file.datalake.DataLakeDirectoryClient;
-import com.azure.storage.file.datalake.DataLakeFileClient;
-import com.azure.storage.file.datalake.DataLakeFileSystemClient;
-import com.azure.storage.file.datalake.DataLakeServiceClient;
-import com.azure.storage.file.datalake.DataLakeServiceClientBuilder;
-import com.azure.storage.file.datalake.models.ListPathsOptions;
-import com.azure.storage.file.datalake.models.PathItem;
-import com.azure.storage.file.datalake.models.AccessControlChangeCounters;
-import com.azure.storage.file.datalake.models.AccessControlChangeResult;
-import com.azure.storage.file.datalake.models.AccessControlType;
-import com.azure.storage.file.datalake.models.PathAccessControl;
-import com.azure.storage.file.datalake.models.PathAccessControlEntry;
-import com.azure.storage.file.datalake.models.PathPermissions;
-import com.azure.storage.file.datalake.models.PathRemoveAccessControlEntry;
-import com.azure.storage.file.datalake.models.RolePermissions;
-import com.azure.storage.file.datalake.options.PathSetAccessControlRecursiveOptions;
+import com.azure.core.http.rest.PagedIterable;
+import com.azure.core.util.BinaryData;
+import com.azure.storage.file.datalake.*;
+import com.azure.storage.file.datalake.models.*;
+import com.azure.storage.file.datalake.options.*;
 ```
 
 ## Authorize access and connect to data resources
