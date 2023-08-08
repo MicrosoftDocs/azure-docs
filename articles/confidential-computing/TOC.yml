@@ -35,16 +35,16 @@
      - name: Threat Scenarios # each sub item is a threat scenario, need to agree on naming convention: 'threat-($threat-scenario).md'?
        expanded: true
        items:
-        - name: Protection from cloud provider #p2
-          href: TODO.md
-        - name: Regulatory Compliance (SHREMSII, GDPR, etc.)
-          href: TODO.md # new #p2
+        - name: Protection from cloud provider #p2 new
+          href: threat-scenario-cloud-provider.md
+        - name: Regulatory Compliance
+          href: threat-scenario-regulatory.md # new #p2
         - name: Insider Threat
-          href: TODO.md # new #p2
+          href: threat-scenario-regulatory.md # new #p2
         - name: External Threat
-          href: TODO.md # new #p2
+          href: threat-scenario-regulatory.md # new #p2
         - name: Multi-party collaboration
-          href: TODO.md # new #p2
+          href: threat-scenario-multi-party.md # new #p2
      - name: It's the future #maybe change link to a page that references the below, and explains why it's the future
        href: https://azure.microsoft.com/en-us/blog/key-foundations-for-protecting-your-data-with-azure-confidential-computing/ # New, house-view.. why is it the future - x-links to a lot of MarkRus material tying it back to strategic direction/vision
      - name: Privacy by-default
