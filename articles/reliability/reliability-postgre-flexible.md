@@ -21,7 +21,7 @@ This article describes reliability in Azure Database for PostgreSQL - Flexible S
 Azure Database for PostgreSQL: Flexible Server offers *high availability support* by provisioning physically separate primary and standby replica either within the same availability zone (zonal) or across availability zones (zone-redundant).  This high availability model is designed to ensure that committed data is never lost in the case of failures, and the database doesn't become a single point of failure in your software architecture. For more information on high availability and availability zone support, see [Availability zone support in the section below](#availability-zone-support).
 
 
-You can configure you flexible server *without high availability* enabled. For flexible servers configured *without high availability*, the service provides local redundant storage with three copies of data, zone-redundant backup (in regions where it is supported), and built-in server resiliency to automatically restart a crashed server and relocate the server to another physical node.  Uptime [SLA of 99.9%](https://azure.microsoft.com/support/legal/sla/postgresql) is offered in this zonal configuration.
+Although it's not recommended, you can configure you flexible server *without high availability* enabled. For flexible servers configured *without high availability*, the service provides local redundant storage with three copies of data, zone-redundant backup (in regions where it is supported), and built-in server resiliency to automatically restart a crashed server and relocate the server to another physical node.  Uptime [SLA of 99.9%](https://azure.microsoft.com/support/legal/sla/postgresql) is offered in this zonal configuration.
   
 During planned or unplanned failover events, if the server goes down, the service maintains the availability of the servers using the following automated procedure:
 
@@ -135,8 +135,6 @@ To learn how to create an Azure Database for PostgreSQL - Flexible Server for hi
 ### Availability zone redeployment and migration
 
 To learn how to enable or disable high availability configuration in your flexible server in both zone-redundant and zonal deployment models see [Manage high availability in Flexible Server](../postgresql/flexible-server/how-to-manage-high-availability-portal.md).
-
-<!-- can you change availability zone of primary server -->
 
 
 ## High availability components and workflow
