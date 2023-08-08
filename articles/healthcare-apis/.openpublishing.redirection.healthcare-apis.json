@@ -1,26 +1,6 @@
 {
     "redirections": [
       {
-            "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/index.yml",
-            "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/overview",
-            "redirect_document_id": false
-        },
-      {
-            "source_path_from_root": "/articles/healthcare-apis/events/index.yml",
-            "redirect_url": "/azure/healthcare-apis/events/events-overview",
-            "redirect_document_id": false
-        },
-      {
-            "source_path_from_root": "/articles/healthcare-apis/iot/index.yml",
-            "redirect_url": "/azure/healthcare-apis/iot/overview",
-            "redirect_document_id": false
-        },
-      {
-            "source_path_from_root": "/articles/healthcare-apis/dicom/index.yml",
-            "redirect_url": "/azure/healthcare-apis/dicom/dicom-services",
-            "redirect_document_id": false
-        },
-      {
           "source_path_from_root": "/articles/healthcare-apis/configure-cosmos-db.md",
           "redirect_url": "/azure/healthcare-apis/configure-database",
           "redirect_document_id": false
