@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/04/2022
+ms.date: 07/17/2023
 ---
 
 # Window transformation in mapping data flow

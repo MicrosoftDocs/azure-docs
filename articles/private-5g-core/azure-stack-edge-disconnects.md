@@ -12,7 +12,7 @@ ms.custom: template-concept
 
 # Temporary AP5GC disconnects
 
-Azure Stack Edge (ASE) can tolerate up to 5 days of unplanned connectivity issues. The following sections detail the behavior expected during these times and behavior after ASE connectivity resumes.
+Azure Stack Edge (ASE) can tolerate up to five days of unplanned connectivity issues. The following sections detail the behavior expected during these times and behavior after ASE connectivity resumes.
 
 Throughout temporary disconnects, the **Azure Stack Edge overview** displays a banner stating `The device heartbeat is missing. Some operations will not be available in this state. Critical alert(s) present. Click here to view details.`
 
@@ -23,10 +23,12 @@ While disconnected, AP5GC core functionality persists through ASE disconnects du
 
 ## Unsupported functions during disconnects
 
-The following functions are not supported while disconnected:
+The following functions aren't supported while disconnected:
 
-- Deployment of the packet core
+- Deploying the packet core
+- Reinstalling the packet core
 - Updating the packet core version
+- Rolling back the packet core version
 - Updating SIM configuration
 - Updating NAT configuration
 - Updating service policy
@@ -34,7 +36,7 @@ The following functions are not supported while disconnected:
 
 ### Monitoring and troubleshooting during disconnects
 
-While disconnected, you cannot enable local monitoring authentication or sign in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) using Azure Active Directory. However, you can access both distributed tracing and packet core dashboards via local access if enabled.
+While disconnected, you can't enable local monitoring authentication or sign in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) using Azure Active Directory. However, you can access both distributed tracing and packet core dashboards via local access if enabled.
 
 New [Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md) won't be collected while in disconnected mode. Once the disconnect ends, Azure Monitor will automatically resume gathering metrics about the packet core instance.
 
@@ -42,9 +44,9 @@ If you expect to need access to your local monitoring tools while the ASE device
 
 ### Configuration and provisioning actions during temporary disconnects
 
-It's common to see temporary failures such as timeouts of configuration and provisioning while ASE is online but with a connectivity issue. AP5GC can handle such events by automatically retrying configuration and provisioning actions once ASE connectivity is restored. If ASE connectivity is not restored within 10 minutes, or ASE is detected as being offline, ongoing operations will fail and you will need to repeat the action manually once the ASE reconnects.
+It's common to see temporary failures such as timeouts of configuration and provisioning while ASE is online but with a connectivity issue. AP5GC can handle such events by automatically retrying configuration and provisioning actions once ASE connectivity is restored. If ASE connectivity isn't restored within 10 minutes, or ASE is detected as being offline, ongoing operations fail and you'll need to repeat the action manually once the ASE reconnects.
 
-The **Sim overview** and **Sim Policy overview** blades display provisioning status of the resource in the site. This allows you to monitor the progress of provisioning actions. Additionally, the **Packet core control plane overview** displays the **Installation state** which can be used to monitor changes due to configuration actions.
+The **Sim overview** and **Sim Policy overview** blades display provisioning status of the resource in the site, which allows you to monitor the progress of provisioning actions. Additionally, the **Packet core control plane overview** displays the **Installation state** which can be used to monitor changes due to configuration actions.
 
 ### ASE behavior after connectivity resumes
 

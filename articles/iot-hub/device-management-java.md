@@ -8,8 +8,8 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: java
 ms.topic: how-to
-ms.date: 08/20/2019
-ms.custom: mqtt, devx-track-java
+ms.date: 05/30/2023
+ms.custom: amqp, mqtt, devx-track-java, devx-track-extended-java
 ---
 
 # Get started with device management (Java)
@@ -29,7 +29,7 @@ This article shows you how to create:
 
 ## Prerequisites
 
-* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
 * A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 

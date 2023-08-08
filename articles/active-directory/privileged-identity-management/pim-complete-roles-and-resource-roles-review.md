@@ -3,7 +3,7 @@ title: Complete an access review of Azure resource and Azure AD roles in PIM
 description: Learn how to complete an access review of Azure resource and Azure AD roles Privileged Identity Management in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 editor: ''
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 5/11/2023
-ms.author: amsliu
+ms.author: billmath
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -26,7 +26,9 @@ Once the review has been created, follow the steps in this article to complete t
 
 ## Complete access reviews
 
-1. Login to the [Azure portal](https://portal.azure.com/). For **Azure resources**, navigate to **Privileged Identity Management** and select **Azure resources** under **Manage** from the dashboard. For **Azure AD roles**, select **Azure AD roles** from the same dashboard.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com). For **Azure resources**, navigate to **Privileged Identity Management** and select **Azure resources** under **Manage** from the dashboard. For **Azure AD roles**, select **Azure AD roles** from the same dashboard.
 
 2. For **Azure resources**, select your resource under **Azure resources** and then select **Access reviews** from the dashboard. For **Azure AD roles**, proceed directly to the **Access reviews** on the dashboard.
 

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/12/2022
+ms.date: 07/20/2023
 ---
 
 # Load data into Azure Data Lake Storage Gen2 with Azure Data Factory

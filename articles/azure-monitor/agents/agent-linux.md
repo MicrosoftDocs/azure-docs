@@ -2,9 +2,9 @@
 title: Install Log Analytics agent on Linux computers
 description: This article describes how to connect Linux computers hosted in other clouds or on-premises to Azure Monitor with the Log Analytics agent for Linux.
 ms.topic: conceptual
-ms.date: 03/31/2022
+ms.custom: devx-track-linux
+ms.date: 06/01/2023
 ms.reviewer: JeffWo
-
 ---
 
 # Install the Log Analytics agent on Linux computers
@@ -126,10 +126,10 @@ The Log Analytics agent for Linux is composed of multiple packages. The release 
 
 Package | Version | Description
 ----------- | ----------- | --------------
-omsagent | 1.14.19 | The Log Analytics agent for Linux.
-omsconfig | 1.1.1 | Configuration agent for the Log Analytics agent.
-omi | 1.6.9 | Open Management Infrastructure (OMI), a lightweight CIM Server. *OMI requires root access to run a cron job necessary for the functioning of the service*.
-scx | 1.6.9 | OMI CIM providers for operating system performance metrics.
+omsagent | 1.16.0 | The Log Analytics agent for Linux.
+omsconfig | 1.2.0 | Configuration agent for the Log Analytics agent.
+omi | 1.7.1 | Open Management Infrastructure (OMI), a lightweight CIM Server. *OMI requires root access to run a cron job necessary for the functioning of the service*.
+scx | 1.7.1 | OMI CIM providers for operating system performance metrics.
 apache-cimprov | 1.0.1 | Apache HTTP Server performance monitoring provider for OMI. Only installed if Apache HTTP Server is detected.
 mysql-cimprov | 1.0.1 | MySQL Server performance monitoring provider for OMI. Only installed if MySQL/MariaDB server is detected.
 docker-cimprov | 1.0.0 | Docker provider for OMI. Only installed if Docker is detected.
@@ -222,7 +222,7 @@ The Log Analytics agent for Linux is provided in a self-extracting and installab
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-1. To configure the Linux computer to connect to a Log Analytics workspace in Azure Government or Azure China cloud, run the following command that provides the workspace ID and primary key copied earlier, substituting `opinsights.azure.us` or `opinsights.azure.cn` respectively for the domain name:
+1. To configure the Linux computer to connect to a Log Analytics workspace in Azure Government or Microsoft Azure operated by 21Vianet cloud, run the following command that provides the workspace ID and primary key copied earlier, substituting `opinsights.azure.us` or `opinsights.azure.cn` respectively for the domain name:
 
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d <domain name>

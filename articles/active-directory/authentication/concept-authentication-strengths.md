@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/08/2023
+ms.date: 06/02/2023
 
 ms.author: justinha
 author: justinha
@@ -117,7 +117,7 @@ Next to **Allowed FIDO2 Keys** click **+**, copy the AAGUID value, and click **S
 
 ## Using authentication strength in Conditional Access
 After you determine the authentication strength you need, you'll need to create a Conditional Access policy to require that authentication strength to access a resource. When the Conditional Access policy gets applied, the authentication strength restricts which authentication methods are allowed.
-<!-- ### Place holder:How to create conditional access policy that uses authentication strength
+<!-- ### Place holder:How to create Conditional Access policy that uses authentication strength
 -	Add a note that you can use either require mfa or require auth strengths
 - (JF) Possibly add a reference doc that lists all the definitions of the things you can configure?
 -->
@@ -157,7 +157,7 @@ For example, let’s assume Contoso would like to require their users to always 
 As a result, users on a compliant device would be able to use a Temporary Access Pass to register FIDO2 security keys and then use the newly registered FIDO2 security key to authenticate to other resources (such as Outlook). 
 
 >[!NOTE] 
->If multiple conditional access policies target the **Register security information** user action, and they each apply an authentication strength, the user must satisfy all such authentication strengths to sign in. 
+>If multiple Conditional Access policies target the **Register security information** user action, and they each apply an authentication strength, the user must satisfy all such authentication strengths to sign in. 
 
 
 
@@ -178,15 +178,17 @@ If the user hasn't registered for any methods that satisfy the authentication st
 
 If the authentication strength doesn't include a method that the user can register and use, the user is blocked from sign-in to the resource. 
 
-### Registering authentication methods
+### Register passwordless authentication methods
 
-The following authentication methods can't be registered as part of combined registration interrupt mode: 
-* [Microsoft Authenticator (phone sign-in)](https://support.microsoft.com/account-billing/add-your-work-or-school-account-to-the-microsoft-authenticator-app-43a73ab5-b4e8-446d-9e54-2a4cb8e4e93c) - Can be registered from the Authenticator app.
-* [FIDO2](howto-authentication-passwordless-security-key.md) - can be registered using [combined registration managed mode](concept-registration-mfa-sspr-combined.md#manage-mode).
-* [Certificate-based authentication](concept-certificate-based-authentication.md) - Require administrator setup, cannot be registered by the user. 
-* [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-prepare-people-to-use) - Can be registered in the Windows Out of Box Experience (OOBE) or the Windows Settings menu.
+The following authentication methods can't be registered as part of combined registration interrupt mode. Make sure users are registered for these methods before you apply a Conditional Access policy that can require them to be used for sign-in. If a user isn't registered for these methods, they can't access the resource until the required method is registered. 
 
-If a user isn't registered for these methods, they can't access the resource until the required method is registered. For the best user experience, make sure users complete combined registered in advance for the different methods they may need to use.
+| Method | Registration requirements |
+|--------|---------------------------|
+|[Microsoft Authenticator (phone sign-in)](https://support.microsoft.com/account-billing/add-your-work-or-school-account-to-the-microsoft-authenticator-app-43a73ab5-b4e8-446d-9e54-2a4cb8e4e93c) | Can be registered from the Authenticator app.|
+|[FIDO2 security key](howto-authentication-passwordless-security-key.md) | Can be registered using [combined registration managed mode](concept-registration-mfa-sspr-combined.md#manage-mode). |
+|[Certificate-based authentication](concept-certificate-based-authentication.md) | Requires administrator setup; can't be registered by the user. |
+|[Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-prepare-people-to-use) | Can be registered in the Windows Out of Box Experience (OOBE) or the Windows Settings menu.|
+
 
 ### Federated user experience  
 For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider by setting the federatedIdpMfaBehavior. If the federatedIdpMfaBehavior setting is set to enforceMfaByFederatedIdp, the user must authenticate on their federated IdP and can only satisfy the **Federated Multi-Factor** combination of the authentication strength requirement. For more information about the federation settings, see [Plan support for MFA](../hybrid/migrate-from-federation-to-cloud-authentication.md#plan-support-for-mfa).
@@ -206,7 +208,7 @@ In external user scenarios, the authentication methods that can satisfy authenti
 |SMS as second factor                         | &#x2705;        | &#x2705; |
 |Voice call                                   | &#x2705;        | &#x2705; |
 |Microsoft Authenticator push notification    | &#x2705;        | &#x2705; |
-|Microsoft Authenticator phone sign-in        | &#x2705;        | &#x2705; |
+|Microsoft Authenticator phone sign-in        | &#x2705;        |          |
 |OATH software token                          | &#x2705;        | &#x2705; |
 |OATH hardware token                          | &#x2705;        |          |
 |FIDO2 security key                           | &#x2705;        |          |

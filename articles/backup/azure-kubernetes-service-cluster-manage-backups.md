@@ -3,9 +3,10 @@ title: Manage Azure Kubernetes Service (AKS) backups using Azure Backup
 description: This article explains how to manage Azure Kubernetes Service (AKS) backups using Azure Backup.
 ms.topic: how-to
 ms.service: backup
+ms.custom: devx-track-azurecli
 ms.date: 04/26/2023
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Manage Azure Kubernetes Service backups using Azure Backup (preview) 

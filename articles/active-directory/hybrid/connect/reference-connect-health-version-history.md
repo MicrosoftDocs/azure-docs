@@ -27,13 +27,24 @@ The Azure Active Directory team regularly updates Azure AD Connect Health with n
 Azure AD Connect Health for Sync is integrated with Azure AD Connect installation. Read more about [Azure AD Connect release history](./reference-connect-version-history.md)
 For feature feedback, vote at [Connect Health User Voice channel](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
 
+## May / June 2023
+**Agent Updates**
+
+Microsoft Azure AD Connect Health ADFS Agents (versions 4.5.x)
+
+- New version of the Azure AD Connect Health ADFS agent that uses an updated architecture.
+  - Updated installer package
+  - Migration to MSAL authentication library
+  - New pre-requisite checks
+  - Improved logging
+
 ## 27 March 2023
 **Agent Update**
 
-Azure AD Connect Health ADDS and ADFS Health Agents (version 3.2.2256.26)
+Azure AD Connect Health AD DS and ADFS Health Agents (version 3.2.2256.26, Download Center Only)
 
 - We created a fix for so that the agents would be FIPS compliant
-  - the change was to have the agents use ‘CloudStorageAccount.UseV1MD5 = false’ so the agent only uses only FIPS compliant cryptography, otherwise azure blob client causes FIPs exceptions to be thrown.
+  - the change was to have the agents use ‘CloudStorageAccount.UseV1MD5 = false’ so the agent only uses only FIPS compliant cryptography, otherwise Azure blob client causes FIPs exceptions to be thrown.
 - Update of Newtonsoft.json library from 12.0.1 to 13.0.1 to resolve a component governance alert. 
 - In ADFS health agent, the TestADFSDuplicateSPN test was disabled as the test was unreliable, it would generate misleading alerts when server experienced transient connectivity issues.
 
@@ -63,10 +74,10 @@ Azure AD Connect Health ADDS and ADFS Health Agents (version 3.2.2256.26)
   - Fix to resolve NT4 formatted username to a UPN during sign-in events.
   - Fix to identify incorrect application identifier scenarios with a dedicated error code.
   - Changes to add a new property for OAuth client identifier.
-  - Fix to display correct values in the **Protocol** and **Authentication Type** fields in Azure AD Sign-In Report for certain sign-in scenarios.
-  - Fix to display IP addresses in Azure AD Sign-In Report's IP chain field in order of the request.
+  - Fix to display correct values in the **Protocol** and **Authentication Type** fields in Azure AD sign-in report for certain sign-in scenarios.
+  - Fix to display IP addresses in Azure AD sign-in report's IP chain field in order of the request.
   - Changes to introduce a new field to differentiate if secondary authentication was requested during a sign-in.
-  - Fix for AD FS application identifier property to display in Azure AD Sign-In Report.
+  - Fix for AD FS application identifier property to display in Azure AD sign-in report.
 
 ## April 2020
 **Agent Update**

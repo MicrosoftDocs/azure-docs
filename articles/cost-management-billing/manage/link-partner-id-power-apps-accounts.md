@@ -49,9 +49,8 @@ Perform PAL Association on this Service Account.
 
 To use the Azure portal to link to a new partner ID:
 
-1. Go to [Link to a partner ID](https://portal.azure.com/#blade/Microsoft_Azure_Billing/managementpartnerblade) in the Azure portal.
-2. Sign in to the Azure portal
-3. Enter the [Microsoft Cloud Partner Program](https://partner.microsoft.com/) ID for your organization. Be sure to use the **Associated Partner ID** shown on your partner center profile. It's typically known as your [partner location ID](/partner-center/account-structure).  
+1. Go to [Link to a partner ID](https://portal.azure.com/#blade/Microsoft_Azure_Billing/managementpartnerblade) in the Azure portal and sign in.
+1. Enter the [Microsoft Cloud Partner Program](https://partner.microsoft.com/) ID for your organization. Be sure to use the **Associated Partner ID** shown on your partner center profile. It's typically known as your [partner location ID](/partner-center/account-structure).  
     :::image type="content" source="./media/link-partner-id-power-apps-accounts/link-partner-id.png" alt-text="Screenshot showing the Link to a partner ID window." lightbox="./media/link-partner-id-power-apps-accounts/link-partner-id.png" :::
 
 > [!NOTE]

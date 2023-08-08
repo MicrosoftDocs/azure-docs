@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 11/03/2021
+ms.date: 07/19/2023
 ms.topic: how-to
 ---
 # Plan an Azure Arc-enabled data services deployment
@@ -28,7 +28,8 @@ In order to experience Azure Arc-enabled data services, you'll need to complete 
 1. [Install client tools](install-client-tools.md).
 
 1. Register the Microsoft.AzureArcData provider for the subscription where the Azure Arc-enabled data services will be deployed, as follows:
-   ```console
+
+   ```azurecli
    az provider register --namespace Microsoft.AzureArcData
    ```  
 
@@ -64,6 +65,7 @@ Verify that:
 - The other [client tools](install-client-tools.md) are installed.
 - You have access to the Kubernetes cluster.
 - Your *kubeconfig* file is configured. It should point to the Kubernetes cluster that you want to deploy to. To verify the current context of the cluster, run the following command:
+
    ```console
    kubectl cluster-info
    ```  

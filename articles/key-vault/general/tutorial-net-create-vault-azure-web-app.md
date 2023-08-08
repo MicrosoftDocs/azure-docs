@@ -11,10 +11,8 @@ ms.topic: tutorial
 ms.date: 01/17/2023
 ms.author: mbaldwin
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurecli
-
+ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-dotnet
 #Customer intent: As a developer, I want to use Azure Key Vault to store secrets for my app to help keep them secure.
-
 ---
 
 # Tutorial: Use a managed identity to connect Key Vault to an Azure web app in .NET

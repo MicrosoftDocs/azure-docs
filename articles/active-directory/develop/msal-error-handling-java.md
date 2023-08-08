@@ -12,11 +12,11 @@ ms.workload: identity
 ms.date: 11/27/2020
 ms.author: dmwendia
 ms.reviewer: saeeda, nacanuma
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-extended-java
 ---
 # Handle errors and exceptions in MSAL for Java
 
-[!INCLUDE [Active directory error handling introduction](../../../includes/active-directory-develop-error-handling-introduction.md)]
+[!INCLUDE [Active directory error handling introduction](./includes/error-handling-and-tips/error-handling-introduction.md)]
 
 ## Error handling in MSAL for Java
 
@@ -74,9 +74,9 @@ MSAL exposes a `reason` field, which you can use to provide a better user experi
         }
 ```
 
-[!INCLUDE [Active directory error handling claims challenges](../../../includes/active-directory-develop-error-handling-claims-challenges.md)]
+[!INCLUDE [Active directory error handling claims challenges](./includes/error-handling-and-tips/error-handling-claims-challenges.md)]
 
-[!INCLUDE [Active directory error handling retries](../../../includes/active-directory-develop-error-handling-retries.md)]
+[!INCLUDE [Active directory error handling retries](./includes/error-handling-and-tips/error-handling-retries.md)]
 
 ## Next steps
 

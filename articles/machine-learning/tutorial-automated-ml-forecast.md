@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: manashgoswami 
 ms.author: magoswam
 ms.reviewer: ssalgado 
-ms.date: 10/21/2021
+ms.date: 06/12/2023
 ms.custom: automl, ignite-2022
 #Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
 ---
@@ -182,9 +182,9 @@ Navigate to the **Models** tab to see the algorithms (models) tested. By default
 
 While you wait for all of the experiment models to finish, select the **Algorithm name** of a completed model to explore its performance details. 
 
-The following example navigates through the **Details** and the **Metrics** tabs to view the selected model's properties, metrics and performance charts. 
+The following example navigates to select a model from the list of models that the job created. Then, you select the **Overview** and the **Metrics** tabs to view the selected model's properties, metrics and performance charts. 
 
-![Run detail](./media/tutorial-automated-ml-forecast/explore-models.gif)
+![Run Overview](./media/tutorial-automated-ml-forecast/explore-models.gif)
 
 ## Deploy the model
 
@@ -238,7 +238,7 @@ Delete just the deployment instance from the Azure Machine Learning studio, if y
 
 ### Delete the resource group
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](includes/aml-delete-resource-group.md)]
 
 ## Next steps
 

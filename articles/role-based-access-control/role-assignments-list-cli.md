@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.custom: devx-track-azurecli
 ms.workload: identity
-ms.date: 06/03/2022
+ms.date: 05/23/2023
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -34,7 +34,7 @@ To list the role assignments for a specific user, use [az role assignment list](
 az role assignment list --assignee {assignee}
 ```
 
-By default, only role assignments for the current subscription will be displayed. To view role assignments for the current subscription and below, add the `--all` parameter. To view inherited role assignments, add the `--include-inherited` parameter.
+By default, only role assignments for the current subscription will be displayed. To view role assignments for the current subscription and below, add the `--all` parameter. To include role assignments at parent scopes, add the `--include-inherited` parameter. To include role assignments for groups of which the user is a member transitively, add the `--include-groups` parameter.
 
 The following example lists the role assignments that are assigned directly to the *patlong\@contoso.com* user:
 

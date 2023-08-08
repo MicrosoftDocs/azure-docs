@@ -10,17 +10,17 @@ author: ssalgadodev
 ms.author: tbombach
 ms.reviewer: ssalgado
 ms.date: 05/25/2021
-ms.custom: contperf-fy20q4, cliv2, event-tier1-build-2022
+ms.custom: contperf-fy20q4, cliv2, event-tier1-build-2022, build-2023
 #Customer intent: As a professional data scientist, I want to learn how to train an image classification model using TensorFlow and the Azure Machine Learning Visual Studio Code Extension.
 ---
 
 # Tutorial: Train an image classification TensorFlow model using the Azure Machine Learning Visual Studio Code Extension (preview)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 Learn how to train an image classification model to recognize hand-written numbers using TensorFlow and the Azure Machine Learning Visual Studio Code Extension.
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 In this tutorial, you learn the following tasks:
 
@@ -80,6 +80,9 @@ For more information on workspaces, see [how to manage resources in VS Code](how
 
 ## Create a GPU cluster for training
 
+> [!NOTE]
+> To try [serverless compute (preview)](how-to-use-serverless-compute.md), skip this step and proceed to [Train the model](#train-the-model).
+
 A compute target is the computing resource or environment where you run training jobs. For more information, see the [Azure Machine Learning compute targets documentation](./concept-compute-target.md).
 
 1. In the Azure Machine Learning view, expand your workspace node.
@@ -109,11 +112,19 @@ A compute target is the computing resource or environment where you run training
 
 After a few minutes, the new compute target appears in the *Compute > Compute clusters* node of your workspace.
 
-## <a name="train-the-model"></a> Train image classification model
+## Train the model
 
 During the training process, a TensorFlow model is trained by processing the training data and learning patterns embedded within it for each of the respective digits being classified.
 
 Like workspaces and compute targets, training jobs are defined using resource templates. For this sample, the specification is defined in the *job.yml* file which looks like the following:
+
+> [!NOTE]
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), replace the line `compute: azureml:gpu-cluster` with this code:
+> ```yml
+> resources:
+>  instance_type: Standard_NC12
+>  instance_count: 3
+```
 
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
@@ -154,8 +165,7 @@ In this tutorial, you learn the following tasks:
 
 For next steps, see:
 
-* [Create and manage Azure Machine Learning resources using Visual Studio Code](how-to-set-up-vs-code-remote.md).
-* [Connect Visual Studio Code to a compute instance](how-to-set-up-vs-code-remote.md) for a full development experience.
+* [Launch Visual Studio Code integrated with Azure Machine Learning (preview)](how-to-launch-vs-code-remote.md)
 * For a walkthrough of how to edit, run, and debug code locally, see the [Python hello-world tutorial](https://code.visualstudio.com/docs/Python/Python-tutorial).
 * [Run Jupyter Notebooks in Visual Studio Code](how-to-manage-resources-vscode.md) using a remote Jupyter server.
 * For a walkthrough of how to train with Azure Machine Learning outside of Visual Studio Code, see [Tutorial: Train and deploy a model with Azure Machine Learning](tutorial-train-deploy-notebook.md).

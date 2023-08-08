@@ -36,7 +36,7 @@ The following IDs are used for a content definition with an ID of `api.signupors
 | `logonIdentifier_email` | Email Address | `< 2.0.0` |
 | `requiredField_email` | Please enter your email | `< 2.0.0` |
 | `invalid_email` | Please enter a valid email address | `< 2.0.0` |
-| `email_pattern` | ```^[a-zA-Z0-9.!#$%&''\*+/=?^\_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)\*$``` | `< 2.0.0` |
+| `email_pattern` | ```^[a-zA-Z0-9.!#$%&'*+\/=?^_`\{\|\}~\-]+@[a-zA-Z0-9\-]+(?:\\.[a-zA-Z0-9\-]+)\*$``` | `< 2.0.0` |
 | `local_intro_username` | Sign in with your user name | `< 2.0.0` |
 | `logonIdentifier_username` | Username | `< 2.0.0` |
 | `requiredField_username` | Please enter your user name | `< 2.0.0` |
@@ -178,6 +178,7 @@ The following IDs are used for a content definition having an ID of `api.localac
 | `alert_message` | Are you sure that you want to cancel entering your details? |
 | `ver_intro_msg` | Verification is necessary. Please click Send button. |
 | `ver_input` | Verification code |
+| `required_field_descriptive` | {0} is required |
 
 ### Sign-up and self-asserted pages disclaimer links
 
@@ -240,6 +241,7 @@ The following example shows the use of some of the user interface elements in th
     <LocalizedString ElementType="UxElement" StringId="initial_intro">Please provide the following details.</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="preloader_alt">Please wait</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="required_field">This information is required.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="required_field_descriptive">{0} is required</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="ver_but_edit">Change e-mail</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Send new code</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="ver_but_send">Send verification code</LocalizedString>
@@ -256,7 +258,7 @@ The following example shows the use of some of the user interface elements in th
     <!-- The following elements will display a message and two links at the bottom of the page. 
          For policies that you intend to show to users in the United States, we suggest displaying the following text. Replace the content of the disclaimer_link_X_url elements with links to your organization's privacy statement and terms and conditions. 
           Uncomment any of these lines to display them.  -->
-    <!-- <LocalizedString ElementType="UxElement" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard messsage and data rates may apply.</LocalizedString> -->
+    <!-- <LocalizedString ElementType="UxElement" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard message and data rates may apply.</LocalizedString> -->
     <!-- <LocalizedString ElementType="UxElement" StringId="disclaimer_link_1_text">Privacy Statement</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="disclaimer_link_1_url">{insert your privacy statement URL}</LocalizedString> -->
     <!-- <LocalizedString ElementType="UxElement" StringId="disclaimer_link_2_text">Terms and Conditions</LocalizedString>

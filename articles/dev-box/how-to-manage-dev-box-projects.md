@@ -8,12 +8,11 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 04/25/2023
 ms.topic: how-to
+#Customer intent: As a platform engineer, I want to be able to manage dev box projects so that I can provide appropriate dev boxes to my users. -->
 ---
 
-<!-- Intent: As a dev infrastructure manager, I want to be able to manage dev box projects so that I can provide appropriate dev boxes to my users. -->
-
 # Manage a dev box project
-A project is the point of access to Microsoft Dev Box Preview for the development team members. A project contains dev box pools, which specify the dev box definitions and network connections used when dev boxes are created. Dev managers can configure the project with dev box pools that specify dev box definitions appropriate for their team's workloads. Dev box users create dev boxes from the dev box pools they have access to through their project memberships.
+A project is the point of access to Microsoft Dev Box for the development team members. A project contains dev box pools, which specify the dev box definitions and network connections used when dev boxes are created. Dev managers can configure the project with dev box pools that specify dev box definitions appropriate for their team's workloads. Dev box users create dev boxes from the dev box pools they have access to through their project memberships.
 
 Each project is associated with a single dev center. When you associate a project with a dev center, all the settings at the dev center level will be applied to the project automatically. 
 

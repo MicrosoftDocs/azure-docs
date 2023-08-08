@@ -3,7 +3,7 @@ title: Create and manage intra-account container copy jobs in Azure Cosmos DB
 description: Learn how to create, monitor, and manage container copy jobs within an Azure Cosmos DB account using CLI commands.
 author: seesharprun
 ms.service: cosmos-db
-ms.custom: ignite-2022, devx-track-azurecli
+ms.custom: ignite-2022, devx-track-azurecli, build-2023
 ms.topic: how-to
 ms.date: 08/01/2022
 ms.author: sidandrews
@@ -11,7 +11,7 @@ ms.reviewer: sidandrews
 ---
 
 # Create and manage intra-account container copy jobs in Azure Cosmos DB (Preview)
-[!INCLUDE[NoSQL, Cassandra](includes/appliesto-nosql-cassandra.md)]
+[!INCLUDE[NoSQL, Cassandra, MongoDB](includes/appliesto-nosql-mongodb-cassandra.md)]
 
 [Container copy jobs](intra-account-container-copy.md) help create offline copies of containers within an Azure Cosmos DB account.
 
@@ -70,7 +70,22 @@ az cosmosdb dts copy `
     --source-cassandra-table keyspace=$sourceKeySpace table=$sourceTable `
     --dest-cassandra-table keyspace=$destinationKeySpace table=$destinationTable
 ```
-**Note**: *'--job-name'* should be unique for each job within an account.
+
+## Create intra-account container copy job for API for MongoDB account
+
+Create a job to copy a container within an Azure Cosmos DB API for MongoDB account:
+
+```azurecli-interactive
+az cosmosdb dts copy `
+    --resource-group $resourceGroup `
+    --account-name $accountName `
+    --job-name $jobName `
+    --source-mongo database=$sourceDatabase collection=$sourceCollection `
+    --dest-mongo database=$destinationDatabase collection=$destinationCollection
+```
+
+> [!NOTE]
+> `--job-name` should be unique for each job within an account.
 
 ## Monitor the progress of a container copy job
 

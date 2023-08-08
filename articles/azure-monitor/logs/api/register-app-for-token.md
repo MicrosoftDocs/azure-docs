@@ -1,9 +1,9 @@
 ---
 title: Register an App to request authorization tokens and work with APIs
 description: How to register an app and assign a role so it can access request a token and work with APIs
-author: EdB-MSFT
-ms.author: edbaynash
 ms.date: 01/04/2023
+author: guywi-ms
+ms.author: guywild
 ms.topic: article
 ---
 
@@ -74,7 +74,7 @@ The CLI following example assigns the `Reader` role to the service principal for
 ```azurecli
  az role assignment create --assignee 0a123b56-c987-1234-abcd-1a2b3c4d5e6f --role Reader --scope '\/subscriptions/a1234bcd-5849-4a5d-a2eb-5267eae1bbc7/resourceGroups/rg-001'
 ```
-For more information on creating a service principal using Azure CLI, see [Create an Azure service principal with the Azure CLI](https://learn.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
+For more information on creating a service principal using Azure CLI, see [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 ### [PowerShell](#tab/powershell)
 The following sample script demonstrates creating an Azure Active Directory service principal via PowerShell. For a more detailed walkthrough, see [using Azure PowerShell to create a service principal to access resources](../../../active-directory/develop/howto-authenticate-service-principal-powershell.md)  
