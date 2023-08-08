@@ -45,7 +45,7 @@ Learn to manage Container Apps environments with [workload profile](./workload-p
     | Property | Value |
     | --- | --- |
     | Environment name | Enter an environment name. |
-    | Plan | Select **(Preview) Consumption and Dedicated workload profiles** |
+    | Plan | Select **Dedicated** |
   
     Select the new **Workload profiles** tab at the top of this section.
 

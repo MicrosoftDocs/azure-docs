@@ -6,25 +6,26 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
-ms.date: 10/28/2022
+ms.date: 08/07/2023
 ms.author: cshoe
 ---
 
 # Health probes in Azure Container Apps
 
-Health probes in Azure Container Apps are based on [Kubernetes health probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). You can set up probes using either TCP or HTTP(S) exclusively.
+Health probes are based on [Kubernetes health probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) which allow the Container Apps runtime to regularly inspect the status of your container apps. You can set up probes using either TCP or HTTP(S) exclusively.
 
-Container Apps support the following probes:
+Container Apps supports the following probes:
 
-- **Liveness**: Reports the overall health of your replica.
-- **Readiness**: Signals that a replica is ready to accept traffic.
-- **Startup**: Delay reporting on a liveness or readiness state for slower apps with a startup probe.
-
+| Probe | Description |
+|---|---|
+| Startup | used to check if your application has successfully started. It's a separate check from the liveness probe and is used during the initial startup phase of your application. Delays in reporting on a liveness or readiness state for slower apps with a startup probe. |
+| Liveness | checks if your application is still running and responsive. It's like asking, "Hey, are you alive and able to handle requests?" If the application is unresponsive or has crashed, the cloud platform can take appropriate action, like restarting the container to get it back to a healthy state. |
+| Readiness | Checks to see if a replica is ready to handle incoming requests. For example, the probe may verify that required components have started up correctly, and the application is fully initialized. |
 
 For a full listing of the specification supported in Azure Container Apps, refer to [Azure REST API specs](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/app/resource-manager/Microsoft.App/stable/2022-03-01/CommonDefinitions.json#L119-L236).
 
 > [!NOTE]
-> TCP startup probes are not supported when using the Consumption plan in a workload profiles environment.
+> TCP startup probes are not supported when using the consumption profile in a Dedicated workload profiles environment.
 
 ## HTTP probes
 
@@ -55,7 +56,7 @@ app.get('/liveness', (req, res) => {
 
 ## TCP probes
 
-TCP probes wait for a connection to be established with the server to indicate success. A probe failure is registered if no connection is made.
+TCP probes wait to established a connection with the server to indicate success. The probe fails if no connection is made.
 
 ## Restrictions
 

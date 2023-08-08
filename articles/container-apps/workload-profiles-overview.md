@@ -44,7 +44,7 @@ All regions are supported except for the following regions that aren't supported
 
 ## Profile types
 
-There are different types and sizes of workload profiles available by region. By default each Dedicated plan includes a Consumption profile, but you can also add any of the following profiles:
+There are different types and sizes of workload profiles available by region. By default each Dedicated plan includes a consumption profile, but you can also add any of the following profiles:
 
 | Display name | Name | Cores | MemoryGiB | Category | Allocation |
 |---|---|---|---|---|---|
