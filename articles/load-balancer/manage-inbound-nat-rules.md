@@ -106,6 +106,8 @@ In this example, you create an inbound NAT rule to forward port **500** to backe
 
 Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule#az-network-lb-inbound-nat-rule-create) to create the NAT rule.
 
+Use [az network nic ip-config inbound-nat-rule add](/cli/azure/network/nic/ip-config/inbound-nat-rule) to add the inbound NAT rule to a VM's NIC
+
 ```azurecli
     az network lb inbound-nat-rule create \
         --backend-port 443 \
@@ -113,10 +115,15 @@ Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-ru
         --name myInboundNATrule \
         --protocol Tcp \
         --resource-group myResourceGroup \
-        --backend-pool-name myBackendPool \
         --frontend-ip-name myFrontend \
-        --frontend-port-range-end 1000 \
-        --frontend-port-range-start 500
+        --frontend-port 500
+
+    az network nic ip-config inbound-nat-rule add \
+        --resource-group myResourceGroup \
+        --nic-name MyNic \
+        --ip-config-name MyIpConfig \
+        --inbound-nat-rule MyNatRule \
+        --lb-name myLoadBalancer
 ```
 ---
 

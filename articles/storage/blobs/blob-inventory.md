@@ -397,7 +397,7 @@ For more information about pricing for Azure Storage blob inventory, see [Azure 
 
 This section describes limitations and known issues of the Azure Storage blob inventory feature.
 
-#### Inventory jobs take a longer time to complete in certain cases
+### Inventory jobs take a longer time to complete in certain cases
 
 An inventory job can take a longer amount of time in these cases:
 
@@ -413,9 +413,51 @@ An inventory job can take a longer amount of time in these cases:
 
 - There is no option to generate a report retrospectively for a particular date.
 
-#### Inventory jobs can't write reports to containers that have an object replication policy
+### Inventory jobs can't write reports to containers that have an object replication policy
 
 An object replication policy can prevent an inventory job from writing inventory reports to the destination container. Some other scenarios can archive the reports or make the reports immutable when they're partially completed which can cause inventory jobs to fail.
+
+## Blob Inventory – Multiple results files FAQ
+
+### What is the feature that has changed?  What specific change was made?
+
+Blob Inventory report produces three types of files. See [Inventory files](#inventory-files). Existing customers using blob inventory might see a change in the number of inventory files, from one file to multiple files. Today, we already have manifest file which provides the list of files. This behavior remains unchanged so these files will be listed in the manifest file.
+
+### Why was the change made?
+
+The change was implemented to enhance blob inventory performance, particularly for large storage accounts containing over five million objects. Now, results are written in parallel to multiple files, eliminating the bottleneck of using a single inventory file. This change was prompted by customer feedback, as they reported difficulties in opening and working with the excessively large single inventory file.
+
+### How will this change affect me as a user?
+
+As a user, this change will have a positive impact on your experience with blob inventory runs. It is expected to enhance performance and reduce the overall running time. However, to fully benefit from this improvement, you must ensure that your code is updated to process multiple results files instead of just one. This adjustment will align your code with the new approach and optimize the handling of inventory data.
+
+### Will my existing data be affected?
+
+No, existing data is not affected. Only new blob inventory results will have multiple inventory files.
+
+### Will there be any downtime or service interruptions?
+
+No, the change will happen seamlessly.
+
+### Is there anything I need to do differently now?
+
+Your required actions depend on how you currently process blob inventory results:
+
+1. If your current processing assumes a single inventory results file, then you will need to modify your code to accommodate multiple inventory results files.
+
+2. However, if your current processing involves reading the list of results files from the manifest file, there is no need to make any changes to how you process the results. The existing approach will continue to work seamlessly with the updated feature.
+
+### Can I revert to the previous behavior if I don't like the change?
+
+This is not recommended, but it is possible. Please work through your support channels to ask to turn this feature off.
+
+### How can I provide feedback or report issues related to the changes?
+
+Please work through your current account team and support channels.
+
+### When will this change take effect?
+
+This change will start gradual rollout starting September 1st 2023.
 
 ## Next steps
 

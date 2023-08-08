@@ -124,7 +124,7 @@ For steps on how to edit your rule, see the following [Edit dynamic membership r
       "displayName": "Windows Devices",
       "description": "All Contoso devices running Windows",
       "membershipType": "Dynamic",
-      "membershipRule": "(device.deviceOSType -eq \"Windows\")",
+      "membershipRule": "(deviceOSType -eq 'Windows')",
       "membershipRuleProcessingState": "On"
     }
     ```
