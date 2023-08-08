@@ -121,8 +121,6 @@
       href: migrate-tutorial-aws-azure.md
 - name: Concepts
   items:
-    - name: Azure VM disaster recovery
-      href: azure-to-azure-common-questions.md
   - name: About Backup center
     items:
     - name: Backup center overview
