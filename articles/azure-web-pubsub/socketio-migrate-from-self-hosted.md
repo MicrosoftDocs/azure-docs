@@ -10,7 +10,7 @@ ms.topic: how-to
 
 # How to migrate a self-hosted Socket.IO app to fully managed on Azure
 >[!NOTE]
-> Web PubSub for Socket.IO is in "Private Preview" and is available to selected customers only. To register your interst, please write to us awps@microsoft.com.
+> Web PubSub for Socket.IO is in "Private Preview" and is available to selected customers only. To register your interest, please write to us awps@microsoft.com.
 
 ## Prerequisites
 > [!div class="checklist"]
@@ -46,7 +46,7 @@ Locate `index.js` in the server-side code.
     };
     ```
 	
-4. Locate in your server-side code where Socket.IO server is created and append `.useAzureSocketIO(wpsOptinos)`:
+4. Locate in your server-side code where Socket.IO server is created and append `.useAzureSocketIO(wpsOptions)`:
     ```javascript
     const io = await require('socket.io')(server).useAzureSocketIO(wpsOptions);
     ```
@@ -73,11 +73,10 @@ Locate `index.js` in the server-side code.
 ### Client Side
 In client-side code found in `./public/main.js`
 
-1. Find where Socket.IO client is created, then replace its endpoint with Azure Socket.IO endpoint and add an `path` option. You can find the endpoint to your resource on Azure portal. 
-
 [...Screenshot missing!!!!]
 
-    ```javascript
+1. Find where Socket.IO client is created, then replace its endpoint with Azure Socket.IO endpoint and add an `path` option. You can find the endpoint to your resource on Azure portal. 
+```javascript
     const socket = io("<Replace with the endpoint to your Web PubSub for Socket.IO resrouce>", {
         path: "/clients/socketio/hubs/eio_hub",
     });
