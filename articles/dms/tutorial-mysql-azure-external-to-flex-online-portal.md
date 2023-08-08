@@ -15,7 +15,7 @@ ms.topic: tutorial
 > [!NOTE]
 > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
-You can migrate your on-premises or other cloud services MySQL Server to Azure Database for MySQL – Flexible Server by using Azure Database Migration Service (DMS), a fully managed service designed to enable seamless migrations from multiple database sources to Azure data platforms. In this tutorial, we’ll perform an online migration of a sample database from a on-premises MySQL server to a Azure Database for MySQL - Flexible Server (both running version 5.7) using a DMS migration activity.
+You can migrate your on-premises or other cloud services MySQL Server to Azure Database for MySQL – Flexible Server by using Azure Database Migration Service (DMS), a fully managed service designed to enable seamless migrations from multiple database sources to Azure data platforms. In this tutorial, we’ll perform an online migration of a sample database from an on-premises MySQL server to an Azure Database for MySQL - Flexible Server (both running version 5.7) using a DMS migration activity.
 
 > [!NOTE]
 > DMS online migration is now generally available. DMS supports migration to MySQL versions 5.7 and 8.0 and also supports migration from lower version MySQL servers (v5.6 and above) to higher version servers. In addition, DMS supports cross-region, cross-resource group, and cross-subscription migrations, so you can select a region, resource group, and subscription for the target server that is different than what is specified for your source server.
@@ -154,7 +154,7 @@ To register the Microsoft.DataMigration resource provider, perform the following
     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/5-dms-portal-marketplace-create.png" alt-text="Screenshot of a Create Azure Database Migration Service instance.":::
   
 3. On the **Select migration scenario and Database Migration Service** page, under **Migration scenario**, select **MySQL** as the source server type, and then select **Azure Database for MySQL** as target server type, and then select **Select**.
-    :::image type="content" source="media/tutorial-azure-mysql-external-to-flex-online/CreateDMSservice.png" alt-text="Screenshot of a Select Migration Scenario.":::
+    :::image type="content" source="media/tutorial-azure-mysql-external-to-flex-online/create-database-migration-service.png" alt-text="Screenshot of a Select Migration Scenario.":::
 
 4. On the **Create Migration Service** page, on the **Basics** tab, under **Project details**, select the appropriate subscription, and then select an existing resource group or create a new one.
 
@@ -178,7 +178,7 @@ To register the Microsoft.DataMigration resource provider, perform the following
     > [!IMPORTANT]
     > Your VNet must be configured with access to both the source single server and the target flexible server, so be sure to:
     >
-    > * Create a server-level firewall rule or [configure VNET service endpoints](./../mysql/single-server/how-to-manage-vnet-using-portal.md) for both the source and target Azure Database for MySQL servers to allow the VNet for Azure Database Migration Service access to the source and target databases.
+    > * Create a server-level firewall rule or [configure VNet service endpoints](./../mysql/single-server/how-to-manage-vnet-using-portal.md) for both the source and target Azure Database for MySQL servers to allow the VNet for Azure Database Migration Service access to the source and target databases.
     > * Ensure that your VNet Network Security Group (NSG) rules don't block the outbound port 443 of ServiceTag for ServiceBus, Storage, and Azure Monitor. For more information about VNet NSG traffic filtering, see [Filter network traffic with network security groups](./../virtual-network/virtual-network-vnet-plan-design-arm.md).
 
     > [!NOTE]
@@ -211,24 +211,25 @@ To create a migration project, perform the following steps.
     > [!NOTE]
     > Selecting **Create project only** as the migration activity type will only create the migration project; you can then run the migration project at a later time.
 
-    :::image type="content" source="media/tutorial-azure-mysql-external-to-flex-online/CreateProjectforOnPrem.png" alt-text="Screenshot of a Create a new migration project.":::
+    :::image type="content" source="media/tutorial-azure-mysql-external-to-flex-online/create-project-external.png" alt-text="Screenshot of a Create a new migration project.":::
 
 ### Configure the migration project
 
 To configure your DMS migration project, perform the following steps.
 
 1. On the **Select source** screen, we have to ensure that DMS is in the VNet which has connectivity to the source server. Here you will input source server name, server port, username, and password to your source server.
-       :::image type="content" source="media/tutorial-azure-mysql-external-to-flex-online/SelectSourceServer.png" alt-text="Screenshot of an Add source details screen.":::
+       :::image type="content" source="media/tutorial-azure-mysql-external-to-flex-online/select-source-server.png" alt-text="Screenshot of an Add source details screen.":::
 
 2. Select **Next : Select target>>**, and then, on the **Select target** screen, locate the server based on the subscription, location, and resource group. The user name is auto populated, then provide the password for the target flexible server.
-       :::image type="content" source="media/tutorial-mysql-to-azure-mysql-online/select-target-online.png" alt-text="Screenshot of a Select target.":::
+       
+    :::image type="content" source="media/tutorial-mysql-to-azure-mysql-online/select-target-online.png" alt-text="Screenshot of a Select target.":::
 
 3. Select **Next : Select databases>>**, and then, on the **Select databases** tab, under **Server migration options**, select **Migrate all applicable databases** or under **Select databases** select the server objects that you want to migrate.
 
     > [!NOTE]
-    > There is now a **Migrate all applicable databases** option when selected, this option will migrate all user created databases and tables. Note that because Azure Database for MySQL - Flexible Server does not support mixed case databases, mixed case databases on the source will not be included for an online migration.
+    > There is now a **Migrate all applicable databases** option. When selected, this option will migrate all user created databases and tables. Note that because Azure Database for MySQL - Flexible Server does not support mixed case databases, mixed case databases on the source will not be included for an online migration.
 
-    :::image type="content" source="media/tutorial-azure-mysql-external-to-flex-online/SelectDatabases.png" alt-text="Screenshot of a Select database.":::
+    :::image type="content" source="media/tutorial-azure-mysql-external-to-flex-online/select-databases.png" alt-text="Screenshot of a Select database.":::
 
 4. In the **Select databases** section, under **Source Database**, select the database(s) to migrate.
 
@@ -242,7 +243,7 @@ To configure your DMS migration project, perform the following steps.
 6. Select the tables that you want to migrate.
 
     If the selected source table doesn't exist on the target server, the online migration process will ensure that the table schema and data is migrated to the target server.
-   :::image type="content" source="media/tutorial-azure-mysql-external-to-flex-online/SelectTables.png" alt-text="Screenshot of a Select Tables.":::
+   :::image type="content" source="media/tutorial-azure-mysql-external-to-flex-online/select-tables.png" alt-text="Screenshot of a Select Tables.":::
 
     DMS validates your inputs, and if the validation passes, you'll be able to start the migration.
 
@@ -251,7 +252,7 @@ To configure your DMS migration project, perform the following steps.
     > You only need to navigate to the **Configure migration settings** tab if you are trying to troubleshoot failing migrations.
 
 8. On the **Summary** tab, in the **Activity name** text box, specify a name for the migration activity, and then review the summary to ensure that the source and target details match what you previously specified.
-   :::image type="content" source="media/tutorial-azure-mysql-external-to-flex-online/SummaryPage.png" alt-text="Screenshot of a Select Summary.":::
+   :::image type="content" source="media/tutorial-azure-mysql-external-to-flex-online/summary-page.png" alt-text="Screenshot of a Select Summary.":::
 
 9. Select **Start migration**.
 
@@ -261,13 +262,13 @@ To configure your DMS migration project, perform the following steps.
 ### Monitor the migration
 
 1. After the **Initial Load** activity is completed, navigate to the **Initial Load** tab to view the completion status and the number of tables completed.
-       :::image type="content" source="media/tutorial-azure-mysql-external-to-flex-online/InitialLoad.png" alt-text="Screenshot of a completed initial load migration.":::
+       :::image type="content" source="media/tutorial-azure-mysql-external-to-flex-online/initial-load.png" alt-text="Screenshot of a completed initial load migration.":::
 
    After  the **Initial Load** activity is completed, you're navigated to the **Replicate Data Changes** tab automatically. You can monitor the migration progress as the screen is auto-refreshed every 30  seconds.
 
 2. Select **Refresh** to update the display and view the seconds behind source when needed.
 
-     :::image type="content" source="media/tutorial-azure-mysql-external-to-flex-online/ReplicateChanges.png" alt-text="Screenshot of a Monitoring migration.":::
+     :::image type="content" source="media/tutorial-azure-mysql-external-to-flex-online/replicate-changes.png" alt-text="Screenshot of a Monitoring migration.":::
 
 3. Monitor the **Seconds behind source** and as soon as it nears 0, proceed to start cutover by navigating to the **Start Cutover** menu tab at the top of the migration activity screen.
 
