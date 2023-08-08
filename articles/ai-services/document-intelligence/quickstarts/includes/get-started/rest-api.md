@@ -1,5 +1,5 @@
 ---
-title: "Get started: Azure AI Document Intelligence REST API v2.1"
+title: "Get started: Azure AI Document Intelligence (formerly Form Recognizer) REST API v2.1"
 description: Use the Document Intelligence REST API v2.1 to create a forms processing app that extracts key/value pairs and table data from your custom documents.
 author: laujan
 manager: nitinme

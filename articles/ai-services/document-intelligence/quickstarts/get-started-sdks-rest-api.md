@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Document Intelligence SDKs | REST API "
+title: "Quickstart: Document Intelligence (formerly Form Recognizer) SDKs | REST API "
 titleSuffix: Azure AI services
 description: Use a Document Intelligence SDK or the REST API to create a forms processing app that extracts key data and structure elements from your documents.
 author: laujan
