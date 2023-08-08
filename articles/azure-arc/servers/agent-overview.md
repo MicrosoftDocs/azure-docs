@@ -193,7 +193,7 @@ Metadata information about a connected machine is collected after the Connected 
 * Cluster resource ID (for Azure Stack HCI nodes)
 * Hardware manufacturer
 * Hardware model
-* CPU logical core count
+* CPU socket, physical core and logical core counts
 * Cloud provider
 * Amazon Web Services (AWS) metadata, when running in AWS:
   * Account ID

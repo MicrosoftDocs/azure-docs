@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/25/2023
+ms.date: 06/22/2023
 ms.subservice: compliance
 ms.author: owinfrey
 ms.collection: M365-identity-device-management
@@ -21,7 +21,7 @@ The following document provides an overview of a workflow created using Lifecycl
 ## License requirements 
 
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/lifecycle-workflows-license.md)]
+[!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
 
 ## Permissions and Roles
 
@@ -174,9 +174,6 @@ While newly created workflows are enabled by default, scheduling is an option th
 Once scheduling is enabled, the workflow is evaluated every three hours to determine whether or not it should run based on the execution conditions.
 
  [![Workflow template schedule.](media/understanding-lifecycle-workflows/workflow-10.png)](media/understanding-lifecycle-workflows/workflow-10.png#lightbox)
-
->[!NOTE]
-> For a particular user and workflow version, the scheduled workflow execution is performed only once every 30 days. Also, the execution of on-demand workflows of a particular workflow version in the last 30 days results in the scheduled workflow execution not taking place for a particular user.
 
 To view a detailed guide on scheduling a workflow, see: [Customize the schedule of workflows](customize-workflow-schedule.md).
 

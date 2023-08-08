@@ -124,7 +124,7 @@ Before the Power BI mobile app can connect and access Report Services, you must 
 
    ![Power BI mobile app with External URL](media/application-proxy-integrate-with-power-bi/app-proxy-power-bi-mobile-app.png)
 
-2. Select **Connect**. You'll be directed to the Azure Active Directory sign in page.
+2. Select **Connect**. You'll be directed to the Azure Active Directory sign-in page.
 
 3. Enter valid credentials for your user and select **Sign in**. You'll see the elements from your Reporting Services server.
 
@@ -145,7 +145,7 @@ You can use Microsoft Intune to manage the client apps that your company's workf
 
 If the application returns an error page after trying to load a report for more than a few minutes, you might need to change the timeout setting. By default, Application Proxy supports applications that take up to 85 seconds to respond to a request. To lengthen this setting to 180 seconds, select the back-end timeout to **Long** in the App Proxy settings page for the application. For tips on how to create fast and reliable reports see [Power BI Reports Best Practices](/power-bi/power-bi-reports-performance).
 
-Using Azure AD Application Proxy to enable the Power BI mobile app to connect to on premises Power BI Report Server is not supported with conditional access policies that require the Microsoft Power BI app as an approved client app.
+Using Azure AD Application Proxy to enable the Power BI mobile app to connect to on premises Power BI Report Server is not supported with Conditional Access policies that require the Microsoft Power BI app as an approved client app.
 
 ## Next steps
 

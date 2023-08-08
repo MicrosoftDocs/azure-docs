@@ -4,7 +4,7 @@ description: Learn about using network security groups with Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/21/2021
+ms.date: 06/23/2023
 ms.author: cherylmc
 ---
 # Working with NSG access and Azure Bastion

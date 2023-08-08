@@ -12,8 +12,9 @@ ms.topic: how-to
 
 Microsoft Defender External Attack Surface Management (Defender EASM) offers a series of four dashboards designed to help users quickly surface valuable insights derived from their Approved inventory. These dashboards help organizations prioritize the vulnerabilities, risks and compliance issues that pose the greatest threat to their Attack Surface, making it easy to quickly mitigate key issues.
 
-Defender EASM provides four dashboards:
+Defender EASM provides five dashboards:
 
+- **Overview**: this dashboard is the default landing page when you access Defender EASM. It provides the key context that can help you familiarize yourself with your attack surface. 
 - **Attack Surface Summary**: this dashboard summarizes the key observations derived from your inventory. It provides a high-level overview of your Attack Surface and the asset types that comprise it, and surfaces potential vulnerabilities by severity (high, medium, low). This dashboard also provides key context on the infrastructure that comprises your Attack Surface, providing insight into cloud hosting, sensitive services, SSL certificate and domain expiry, and IP reputation.
 - **Security Posture**: this dashboard helps organizations understand the maturity and complexity of their security program based on the metadata derived from assets in your Approved inventory. It is comprised of technical and non-technical policies, processes and controls that mitigate risk of external threats. This dashboard provides insight on CVE exposure, domain administration and configuration, hosting and networking, open ports, and SSL certificate configuration.
 - **GDPR Compliance**: this dashboard surfaces key areas of compliance risk based on the General Data Protection Regulation (GDPR) requirements for online infrastructure that’s accessible to European nations. This dashboard provides insight on the status of your websites, SSL certificate issues, exposed personal identifiable information (PII), login protocols, and cookie compliance.
@@ -30,7 +31,9 @@ To access your Defender EASM dashboards, first navigate to your Defender EASM in
 
 The data underlying any dashboard chart can be exported to a CSV file.  This is useful for those who wish to import Defender EASM data into third party tools, or work off a CSV file when remediating any issues.  To download chart data, first select the specific chart segment that contains the data you wish to download. Note that chart exports currently support individual chart segments; to download multiple segments from the same chart, you will need to export each individual segment. 
 
-Selecting an individual chart segment will open a drillldown view of the data, listing any assets that comprise the segment count. At the top of this page, select **Download CSV report** to begin your export. If you are exporting a small number of assets, this action will directly download the CSV file to your machine. If you are exporting a large number of assets, this action will create a task manager notification where you can track the status of your export. 
+Selecting an individual chart segment will open a drilldown view of the data, listing any assets that comprise the segment count. At the top of this page, select **Download CSV report** to begin your export. If you are exporting a small number of assets, this action will directly download the CSV file to your machine. If you are exporting a large number of assets, this action will create a task manager notification where you can track the status of your export. 
+
+Microsoft Excel enforces a character limit of 32,767 characters per cell. Some fields, like the "Last banner" column, may be improperly displayed due to this limitation. If you encounter an issue, try opening the file in another program that supports CSV files. 
 
 ![Screenshot of dashboard chart drilldown view with export button visible.](media/export-1.png)
 

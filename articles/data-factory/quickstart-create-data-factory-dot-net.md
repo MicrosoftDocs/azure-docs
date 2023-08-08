@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 08/18/2022
+ms.date: 07/20/2023
 ms.author: jianleishen
 ms.custom: mode-api, devx-track-dotnet
 ---

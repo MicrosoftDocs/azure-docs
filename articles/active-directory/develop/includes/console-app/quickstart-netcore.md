@@ -43,9 +43,11 @@ To manually configure your application and code sample, use the following proced
 
 #### Step 1: Register your application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To register the application and add the registration information to the solution manually, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
@@ -63,7 +65,7 @@ To register the application and add the registration information to the solution
 
 This project can be run in either Visual Studio or Visual Studio for Mac and can be downloaded from the [code sample](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip).
 
-[!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
+[!INCLUDE [active-directory-develop-path-length-tip](../error-handling-and-tips/path-length-tip.md)]
 
 #### Step 3: Configure your Visual Studio project
 
@@ -206,7 +208,7 @@ var users = await graphServiceClient.Users
               .GetAsync(r => r.Options.WithAppOnly());
 ```
 
-[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 

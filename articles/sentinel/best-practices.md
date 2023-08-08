@@ -70,7 +70,7 @@ Schedule the following Microsoft Sentinel activities regularly to ensure continu
 
 ### Weekly tasks
 
-- **Content review of solutions or standalone content**. Get any content updates for your installed solutions or standalone content from the the [Content hub](sentinel-solutions-deploy.md). Review new solutions or standalone content that might be of value for your environment, such as analytics rules, workbooks, hunting queries, or playbooks.
+- **Content review of solutions or standalone content**. Get any content updates for your installed solutions or standalone content from the [Content hub](sentinel-solutions-deploy.md). Review new solutions or standalone content that might be of value for your environment, such as analytics rules, workbooks, hunting queries, or playbooks.
 
 - **Microsoft Sentinel auditing**. Review Microsoft Sentinel activity to see who has updated or deleted resources, such as analytics rules, bookmarks, and so on. For more information, see [Audit Microsoft Sentinel queries and activities](audit-sentinel-data.md).
 

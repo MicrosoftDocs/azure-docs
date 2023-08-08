@@ -2,8 +2,8 @@
 title: Interactive data wrangling with Apache Spark in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to use Apache Spark to wrangle data with Azure Machine Learning
-author: fbsolo-ms1
-ms.author: franksolomon
+author: ynpandey
+ms.author: yogipandey
 ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata

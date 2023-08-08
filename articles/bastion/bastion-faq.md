@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 05/17/2023
+ms.date: 08/03/2023
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -96,6 +96,10 @@ Currently, by default, new Bastion deployments don't support zone redundancies. 
 
 Yes, [Azure AD guest accounts](../active-directory/external-identities/what-is-b2b.md) can be granted access to Bastion and can connect to virtual machines. However, Azure AD guest users can't connect to Azure VMs via Azure AD authentication. Non-guest users are supported via Azure AD authentication. For more information about Azure AD authentication for Azure VMs (for non-guest users), see [Log in to a Windows virtual machine in Azure by using Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
+### <a name="shareable-links-domains"></a>Are custom domains supported with Bastion shareable links?
+
+No, custom domains are not supported with Bastion shareable links. Users will receive a certificate error upon trying to add specific domains in the CN/SAN of the Bastion host certificate.
+
 ## <a name="vm"></a>VM features and connection FAQs
 
 ### <a name="roles"></a>Are any roles required to access a virtual machine?
@@ -114,6 +118,10 @@ No. When you connect to a VM using Azure Bastion, you don't need a public IP on 
 ### <a name="rdpssh"></a>Do I need an RDP or SSH client?
 
 No. You can access your virtual machine from the Azure portal using your browser. For available connections and methods, see [About VM connections and features](vm-about.md).
+
+### <a name="rdpusers"></a>Do users need specific rights on a target VM for RDP connections?
+
+[!INCLUDE [Remote Desktop Users](../../includes/bastion-remote-desktop-users.md)]
 
 ### <a name="native-client"></a>Can I connect to my VM using a native client?
 

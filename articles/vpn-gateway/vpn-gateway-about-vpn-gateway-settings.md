@@ -4,7 +4,7 @@ description: Learn about VPN Gateway resources and configuration settings.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 06/20/2023
+ms.date: 06/27/2023
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -16,7 +16,7 @@ A VPN gateway is a type of virtual network gateway that sends encrypted traffic 
 
 A VPN gateway connection relies on the configuration of multiple resources, each of which contains configurable settings. The sections in this article discuss the resources and settings that relate to a VPN gateway for a virtual network created in [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md). You can find descriptions and topology diagrams for each connection solution in the [About VPN Gateway](vpn-gateway-about-vpngateways.md) article.
 
-The values in this article apply VPN gateways (virtual network gateways that use the -GatewayType Vpn). This article doesn't cover all gateway types or zone-redundant gateways.
+The values in this article apply VPN gateways (virtual network gateways that use the -GatewayType Vpn). Additionally, this article covers many, but not all, gateway types and SKUs. See the following articles for information regarding gateways that use these specified settings:
 
 * For values that apply to -GatewayType 'ExpressRoute', see [Virtual Network Gateways for ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
 
@@ -53,7 +53,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 **Azure portal**
 
-If you use the Azure portal to create a Resource Manager virtual network gateway, you can select the gateway SKU by using the dropdown. The options you're presented with correspond to the Gateway type and VPN type that you select.
+If you use the Azure portal to create a Resource Manager virtual network gateway, you can select the gateway SKU by using the dropdown. The options you're presented with correspond to the Gateway type and VPN type that you select. For steps, see [Create and manage a VPN gateway](tutorial-create-gateway-portal.md).
 
 **PowerShell**
 
@@ -75,9 +75,12 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 If you have a VPN gateway and you want to use a different gateway SKU, your options are to either resize your gateway SKU, or to change to another SKU. When you change to another gateway SKU, you delete the existing gateway entirely and build a new one. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. In comparison, when you resize a gateway SKU, there isn't much downtime because you don't have to delete and rebuild the gateway. While it's faster to resize your gateway SKU, there are rules regarding resizing:
 
-1. Except for the Basic SKU, you can resize a VPN gateway SKU to another VPN gateway SKU within the same generation (Generation1 or Generation2). For example, VpnGw1 of Generation1 can be resized to VpnGw2 of Generation1 but not to VpnGw2 of Generation2.
-1. When working with the old gateway SKUs, you can resize between Standard and HighPerformance SKUs.
-1. You **cannot** resize from Basic/Standard/HighPerformance SKUs to VpnGw SKUs. You must instead, [change](#change) to the new SKUs.
+1. Except for the Basic SKU, you can resize a VPN gateway SKU to another VPN gateway SKU within the same generation (Generation1 or Generation2) and SKU family (VpnGwx or VpnGwxAZ).
+   *  Example: VpnGw1 of Generation1 can be resized to VpnGw2 of Generation1, but can't be resized to VpnGw2 of Generation2. The gateway must instead be changed (deleted and rebuilt).
+   *  Example: VpnGw2 of Generation2 can't be resized to VpnGw2AZ of either Generation1 or Generation2 because the "AZ" gateways are [zone redundant](about-zone-redundant-vnet-gateways.md). To change to an AZ SKU, delete the gateway and rebuild it using the desired AZ SKU.
+1. When working with older legacy SKUs:
+   * You can resize between Standard and HighPerformance SKUs.
+   * You **cannot** resize from Basic/Standard/HighPerformance SKUs to VpnGw SKUs. You must instead, [change](#change) to the new SKUs.
 
 #### <a name="resizegwsku"></a>To resize a gateway
 

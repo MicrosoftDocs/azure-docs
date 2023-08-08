@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: overview
-ms.date: 06/20/2023
+ms.date: 06/27/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -95,6 +95,20 @@ Azure AD for customers represents the convergence of business-to-consumer (B2C) 
 - **Microsoft Entra reliability and scalability**. Create highly customized sign-in experiences and manage customer accounts at a large scale. Ensure a good customer experience by taking advantage of Microsoft Entra performance, resiliency, business continuity, low-latency, and high throughput.
 
 Learn more about the [security and governance](concept-security-customers.md) features that are available in a customer tenant.
+
+## About Azure AD B2C
+
+If you're a new customer, you might be wondering which solution is a better fit, [Azure AD B2C](../../../active-directory-b2c/index.yml) or Microsoft Entra External ID (preview). Opt for the current Azure AD B2C product if:
+
+- You have an immediate need to deploy a production ready build for customer-facing apps.
+  
+   > [!NOTE]
+   > Keep in mind that the next generation Microsoft Entra External ID platform represents the future of CIAM for Microsoft, and rapid innovation, new features and capabilities will be focused on this platform. By choosing the next generation platform from the start, you will receive the benefits of rapid innovation and a future-proof architecture.
+
+Opt for the next generation Microsoft Entra External ID platform if:
+
+- You’re starting fresh building identities into apps or you're in the early stages of product discovery.
+- The benefits of rapid innovation, new features and capabilities are a priority.
 
 ## Next steps
 

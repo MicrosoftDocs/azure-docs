@@ -75,7 +75,9 @@ You may need to reactivate your on-premises management console as part of mainte
 
 **To upload a new activation file to your on-premises management console**:
 
-1. In Defender for IoT on the Azure portal, select **Plans and pricing** > **Download on-premises management console activation file**.
+1. In Defender for IoT on the Azure portal, select **Plans and pricing**.
+
+1. Select your plan and then select **Download on-premises management console activation file**.
 
    Save your downloaded file in a location that's accessible from the on-premises management console.
 
@@ -104,7 +106,7 @@ The following procedures describe how to deploy updated SSL/TLS certificates, su
    | Parameter  | Description  |
    |---------|---------|
    | **Certificate Name**     |   Enter your certificate name.      |
-   | **Passphrase** - *Optional*    |  Enter a passphrase.       |
+   | **Passphrase** - *Optional*    |  Enter a [passphrase](best-practices/certificate-requirements.md#supported-characters-for-keys-and-passphrases).       |
    | **Private Key (KEY file)**     |  Upload a Private Key (KEY file).       |
    | **Certificate (CRT file)**     | Upload a Certificate (CRT file).        |
    | **Certificate Chain (PEM file)** - *Optional*    |  Upload a Certificate Chain (PEM file).       |
@@ -121,7 +123,7 @@ The following procedures describe how to deploy updated SSL/TLS certificates, su
 
 1. Select **Save** to save your changes.
 
-# [Create and deploy a self-signed certificate](#tab/windows)
+# [Create and deploy a self-signed certificate](#tab/self-signed)
 
 Each on-premises management console is installed with a self-signed certificate that we recommend you use only for testing purposes. In production environments, we recommend that you always use a CA-signed certificate.
 
@@ -131,7 +133,7 @@ To create a self-signed certificate, download the certificate file from your on-
 
 **To create a self-signed certificate**:
 
-1. Go to the on-premises management console's IP address in a browser.
+Go to the on-premises management console's IP address in a browser and then:
 
 [!INCLUDE [self-signed-certificate](includes/self-signed-certificate.md)]
 

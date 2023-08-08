@@ -5,7 +5,7 @@ description: Learn how to connect to your virtual machines using a specified pri
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 04/26/2022
+ms.date: 06/26/2023
 ms.author: cherylmc
 
 ---
@@ -75,7 +75,7 @@ You can connect to VMs using a specified IP address with native client via SSH, 
    **SSH:**
    
    ```azurecli
-   az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-ip-addres "<VMIPAddress>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
+   az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-ip-address "<VMIPAddress>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
    ```
    
    **Tunnel:**

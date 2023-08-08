@@ -8,7 +8,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 06/11/2023
+ms.date: 08/07/2023
 ms.custom: generated
 ---
 
@@ -208,8 +208,8 @@ The following table provides a brief description of each built-in role. Click th
 > | [EventGrid EventSubscription Contributor](#eventgrid-eventsubscription-contributor) | Lets you manage EventGrid event subscription operations. | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
 > | [EventGrid EventSubscription Reader](#eventgrid-eventsubscription-reader) | Lets you read EventGrid event subscriptions. | 2414bbcf-6497-4faf-8c65-045460748405 |
 > | [FHIR Data Contributor](#fhir-data-contributor) | Role allows user or principal full access to FHIR Data | 5a1fc7df-4bf1-4951-a576-89034ee01acd |
-> | [FHIR Data Importer](#fhir-data-importer) | Role allows user or principal to read and import FHIR Data | 4465e953-8ced-4406-a58e-0f6e3f3b530b |
 > | [FHIR Data Exporter](#fhir-data-exporter) | Role allows user or principal to read and export FHIR Data | 3db33094-8700-4567-8da5-1501d4e7e843 |
+> | [FHIR Data Importer](#fhir-data-importer) | Role allows user or principal to read and import FHIR Data | 4465e953-8ced-4406-a58e-0f6e3f3b530b |
 > | [FHIR Data Reader](#fhir-data-reader) | Role allows user or principal to read FHIR Data | 4c8d0bbc-75d3-4935-991f-5f3c56d81508 |
 > | [FHIR Data Writer](#fhir-data-writer) | Role allows user or principal to read and write FHIR Data | 3f88fce4-5892-4214-ae73-ba5294559913 |
 > | [Integration Service Environment Contributor](#integration-service-environment-contributor) | Lets you manage integration service environments, but not access to them. | a41e2c5b-bd99-4a07-88f4-9bf657a760b8 |
@@ -344,6 +344,8 @@ Grants full access to manage all resources, but does not allow you to assign rol
 > | [Microsoft.Blueprint](resource-provider-operations.md#microsoftblueprint)/blueprintAssignments/write | Create or update any blueprint assignments |
 > | [Microsoft.Blueprint](resource-provider-operations.md#microsoftblueprint)/blueprintAssignments/delete | Delete any blueprint assignments |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/galleries/share/action | Shares a Gallery to different scopes |
+> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/consents/write | Create or Update a Consent Resource. |
+> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/consents/delete | Delete the Consent Resource. |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -368,7 +370,9 @@ Grants full access to manage all resources, but does not allow you to assign rol
         "Microsoft.Authorization/elevateAccess/Action",
         "Microsoft.Blueprint/blueprintAssignments/write",
         "Microsoft.Blueprint/blueprintAssignments/delete",
-        "Microsoft.Compute/galleries/share/action"
+        "Microsoft.Compute/galleries/share/action",
+        "Microsoft.Purview/consents/write",
+        "Microsoft.Purview/consents/delete"
       ],
       "dataActions": [],
       "notDataActions": []
@@ -1077,7 +1081,7 @@ Let's you manage the OS of your resource via Windows Admin Center as an administ
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/networkSecurityGroups/securityRules/write | Creates a security rule or updates an existing security rule |
 > | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/write | Create or update the endpoint to the target resource. |
 > | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/read | Get or list of endpoints to the target resource. |
-> | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/listManagedProxyDetails/action | List the managed proxy details to the resource. |
+> | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/listManagedProxyDetails/action |  |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/read | Get the properties of a virtual machine |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/patchAssessmentResults/latest/read | Retrieves the summary of the latest patch assessment operation |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/patchAssessmentResults/latest/softwarePatches/read | Retrieves list of patches assessed during the last patch assessment operation |
@@ -1867,6 +1871,11 @@ Lets you manage backup service, but can't create vaults and give access to other
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/backup/action | Performs Backup on the Backup Instance |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/validateRestore/action | Validates for Restore of the Backup Instance |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/restore/action | Triggers restore on the Backup Instance |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/crossRegionRestore/action | Triggers cross region restore operation on given backup instance. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/validateCrossRegionRestore/action | Performs validations for cross region restore operation. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action | List cross region restore jobs of backup instance from secondary region. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action | Get cross region restore job details from secondary region. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action | Returns recovery points from secondary region for cross region restore enabled Backup Vaults. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupPolicies/write | Creates Backup Policy |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupPolicies/delete | Deletes the Backup Policy |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupPolicies/read | Returns all Backup Policies |
@@ -1957,6 +1966,11 @@ Lets you manage backup service, but can't create vaults and give access to other
         "Microsoft.DataProtection/backupVaults/backupInstances/backup/action",
         "Microsoft.DataProtection/backupVaults/backupInstances/validateRestore/action",
         "Microsoft.DataProtection/backupVaults/backupInstances/restore/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/crossRegionRestore/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/validateCrossRegionRestore/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action",
         "Microsoft.DataProtection/backupVaults/backupPolicies/write",
         "Microsoft.DataProtection/backupVaults/backupPolicies/delete",
         "Microsoft.DataProtection/backupVaults/backupPolicies/read",
@@ -2081,6 +2095,12 @@ Lets you manage backup services, except removal of backup, vault creation and gi
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/backup/action | Performs Backup on the Backup Instance |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/validateRestore/action | Validates for Restore of the Backup Instance |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/restore/action | Triggers restore on the Backup Instance |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/crossRegionRestore/action | Triggers cross region restore operation on given backup instance. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/validateCrossRegionRestore/action | Performs validations for cross region restore operation. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action | List cross region restore jobs of backup instance from secondary region. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action | Get cross region restore job details from secondary region. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action | Returns recovery points from secondary region for cross region restore enabled Backup Vaults. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/checkFeatureSupport/action | Validates if a feature is supported |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2184,7 +2204,13 @@ Lets you manage backup services, except removal of backup, vault creation and gi
         "Microsoft.DataProtection/backupVaults/validateForBackup/action",
         "Microsoft.DataProtection/backupVaults/backupInstances/backup/action",
         "Microsoft.DataProtection/backupVaults/backupInstances/validateRestore/action",
-        "Microsoft.DataProtection/backupVaults/backupInstances/restore/action"
+        "Microsoft.DataProtection/backupVaults/backupInstances/restore/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/crossRegionRestore/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/validateCrossRegionRestore/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action",
+        "Microsoft.DataProtection/locations/checkFeatureSupport/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -2267,6 +2293,10 @@ Can view backup services, but can't make changes [Learn more](../backup/backup-r
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/validateForBackup/action | Validates for backup of Backup Instance |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/operations/read | Operation returns the list of Operations for a Resource Provider |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action | List cross region restore jobs of backup instance from secondary region. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action | Get cross region restore job details from secondary region. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action | Returns recovery points from secondary region for cross region restore enabled Backup Vaults. |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/checkFeatureSupport/action | Validates if a feature is supported |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2347,7 +2377,11 @@ Can view backup services, but can't make changes [Learn more](../backup/backup-r
         "Microsoft.DataProtection/locations/operationStatus/read",
         "Microsoft.DataProtection/locations/operationResults/read",
         "Microsoft.DataProtection/backupVaults/validateForBackup/action",
-        "Microsoft.DataProtection/operations/read"
+        "Microsoft.DataProtection/operations/read",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action",
+        "Microsoft.DataProtection/locations/checkFeatureSupport/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -3183,40 +3217,41 @@ Allows for read, write, delete, and modify ACLs on files/directories in Azure fi
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders. |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/write | Returns the result of writing a file or creating a folder. |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/delete | Returns the result of deleting a file/folder. |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/modifypermissions/action | Returns the result of modifying permission on a file/folder. |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read file backup sematics privilege. |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/writeFileBackupSemantics/action | Write file backup sematics privilege. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/write | Returns the result of writing a file or creating a folder |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/delete | Returns the result of deleting a file/folder |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/modifypermissions/action | Returns the result of modifying permission on a file/folder |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read File Backup Sematics Privilege |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/writeFileBackupSemantics/action | Write File Backup Sematics Privilege |
 > | **NotDataActions** |  |
 > | *none* |  |
 
 ```json
 {
-    "id": "/providers/Microsoft.Authorization/roleDefinitions/69566ab7-960f-475b-8e7c-b3118f30c6bd",
-    "properties": {
-        "roleName": "Storage File Data Privileged Contributor",
-        "description": "Customer has read, write, delete and modify NTFS permission access on Azure Storage file shares.",
-        "assignableScopes": [
-            "/"
-        ],
-        "permissions": [
-            {
-                "actions": [],
-                "notActions": [],
-                "dataActions": [
-                    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read",
-                    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write",
-                    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete",
-                    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action",
-                    "Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action",
-                    "Microsoft.Storage/storageAccounts/fileServices/writeFileBackupSemantics/action"
-                ],
-                "notDataActions": []
-            }
-        ]
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Customer has read, write, delete and modify NTFS permission access on Azure Storage file shares.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/69566ab7-960f-475b-8e7c-b3118f30c6bd",
+  "name": "69566ab7-960f-475b-8e7c-b3118f30c6bd",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read",
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write",
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete",
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action",
+        "Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action",
+        "Microsoft.Storage/storageAccounts/fileServices/writeFileBackupSemantics/action"
+      ],
+      "notDataActions": []
     }
+  ],
+  "roleName": "Storage File Data Privileged Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
@@ -3231,32 +3266,33 @@ Allows for read access on files/directories in Azure file shares by overriding e
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read file backup sematics privilege. |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read File Backup Sematics Privilege |
 > | **NotDataActions** |  |
 > | *none* |  |
 
 ```json
 {
-    "id": "/providers/Microsoft.Authorization/roleDefinitions/b8eda974-7b85-4f76-af95-65846b26df6d",
-    "properties": {
-        "roleName": "Storage File Data Privileged Reader",
-        "description": "Customer has read access on Azure Storage file shares.",
-        "assignableScopes": [
-            "/"
-        ],
-        "permissions": [
-            {
-                "actions": [],
-                "notActions": [],
-                "dataActions": [
-                    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read",
-                    "Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action"
-                ],
-                "notDataActions": []
-            }
-        ]
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Customer has read access on Azure Storage file shares.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/b8eda974-7b85-4f76-af95-65846b26df6d",
+  "name": "b8eda974-7b85-4f76-af95-65846b26df6d",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read",
+        "Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action"
+      ],
+      "notDataActions": []
     }
+  ],
+  "roleName": "Storage File Data Privileged Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
@@ -4451,9 +4487,9 @@ Lets your app server access SignalR Service with AAD auth options.
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/accessKey/action | Generate an AccessKey for signing AccessTokens, the key will expire in 90 minutes by default. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/serverConnection/write | Start a server connection. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/write | Close client connection. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/accessKey/action | Generate an AccessKey for signing AccessTokens, the key will expire in 90 minutes by default |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/serverConnection/write | Start a server connection |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/write | Close client connection |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -4494,17 +4530,17 @@ Full access to Azure SignalR Service REST APIs
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/clientToken/action | Generate an AccessToken for client to connect to ASRS, the token will expire in 5 minutes by default. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/hub/send/action | Broadcast messages to all client connections in hub. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/send/action | Broadcast message to group. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/read | Check group existence or user existence in group. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/write | Join / Leave group. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/send/action | Send messages directly to a client connection. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/read | Check client connection existence. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/write | Close client connection. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/send/action | Send messages to user, who may consist of multiple client connections. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/read | Check user existence. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/write | Modify a user. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/clientToken/action | Generate an AccessToken for client to connect to ASRS, the token will expire in 5 minutes by default |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/hub/send/action | Broadcast messages to all client connections in the hub |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/send/action | Broadcast message to group |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/read | Check group existence or user existence in group |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/write | Join / Leave group |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/send/action | Send messages directly to a client connection |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/read | Check client connection existence |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/write | Close client connection |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/send/action | Send messages to user, who may consist of multiple client connections |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/read | Check user existence |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/write | Modify a user |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -4553,9 +4589,9 @@ Read-only access to Azure SignalR Service REST APIs
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/read | Check group existence or user existence in group. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/read | Check client connection existence. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/read | Check user existence. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/read | Check group existence or user existence in group |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/read | Check client connection existence |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/read | Check user existence |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -4596,19 +4632,19 @@ Full access to Azure SignalR Service REST APIs
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/accessKey/action | Generate an AccessKey for signing AccessTokens, the key will expire in 90 minutes by default. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/clientToken/action | Generate an AccessToken for client to connect to ASRS, the token will expire in 5 minutes by default. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/hub/send/action | Broadcast messages to all client connections in hub. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/send/action | Broadcast message to group. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/read | Check group existence or user existence in group. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/write | Join / Leave group. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/send/action | Send messages directly to a client connection. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/read | Check client connection existence. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/write | Close client connection. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/serverConnection/write | Start a server connection. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/send/action | Send messages to user, who may consist of multiple client connections. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/read | Check user existence. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/write | Modify a user. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/accessKey/action | Generate an AccessKey for signing AccessTokens, the key will expire in 90 minutes by default |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/clientToken/action | Generate an AccessToken for client to connect to ASRS, the token will expire in 5 minutes by default |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/hub/send/action | Broadcast messages to all client connections in the hub |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/send/action | Broadcast message to group |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/read | Check group existence or user existence in group |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/write | Join / Leave group |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/send/action | Send messages directly to a client connection |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/read | Check client connection existence |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/write | Close client connection |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/serverConnection/write | Start a server connection |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/send/action | Send messages to user, who may consist of multiple client connections |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/read | Check user existence |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/write | Modify a user |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/livetrace/* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
@@ -5686,6 +5722,7 @@ Allows read-only access to see most objects in a namespace. It does not allow vi
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/batch/cronjobs/read | Reads cronjobs |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/batch/jobs/read | Reads jobs |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/configmaps/read | Reads configmaps |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/discovery.k8s.io/endpointslices/read | Reads endpointslices |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/endpoints/read | Reads endpoints |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/events.k8s.io/events/read | Reads events |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/events/read | Reads events |
@@ -5695,13 +5732,14 @@ Allows read-only access to see most objects in a namespace. It does not allow vi
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/extensions/networkpolicies/read | Reads networkpolicies |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/extensions/replicasets/read | Reads replicasets |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/limitranges/read | Reads limitranges |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/metrics.k8s.io/pods/read | Reads pods |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/metrics.k8s.io/nodes/read | Reads nodes |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/namespaces/read | Reads namespaces |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/networking.k8s.io/ingresses/read | Reads ingresses |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/networking.k8s.io/networkpolicies/read | Reads networkpolicies |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/persistentvolumeclaims/read | Reads persistentvolumeclaims |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/pods/read | Reads pods |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/policy/poddisruptionbudgets/read | Reads poddisruptionbudgets |
-> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/replicationcontrollers/read | Reads replicationcontrollers |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/replicationcontrollers/read | Reads replicationcontrollers |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/resourcequotas/read | Reads resourcequotas |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/serviceaccounts/read | Reads serviceaccounts |
@@ -5736,6 +5774,7 @@ Allows read-only access to see most objects in a namespace. It does not allow vi
         "Microsoft.ContainerService/managedClusters/batch/cronjobs/read",
         "Microsoft.ContainerService/managedClusters/batch/jobs/read",
         "Microsoft.ContainerService/managedClusters/configmaps/read",
+        "Microsoft.ContainerService/managedClusters/discovery.k8s.io/endpointslices/read",
         "Microsoft.ContainerService/managedClusters/endpoints/read",
         "Microsoft.ContainerService/managedClusters/events.k8s.io/events/read",
         "Microsoft.ContainerService/managedClusters/events/read",
@@ -5745,13 +5784,14 @@ Allows read-only access to see most objects in a namespace. It does not allow vi
         "Microsoft.ContainerService/managedClusters/extensions/networkpolicies/read",
         "Microsoft.ContainerService/managedClusters/extensions/replicasets/read",
         "Microsoft.ContainerService/managedClusters/limitranges/read",
+        "Microsoft.ContainerService/managedClusters/metrics.k8s.io/pods/read",
+        "Microsoft.ContainerService/managedClusters/metrics.k8s.io/nodes/read",
         "Microsoft.ContainerService/managedClusters/namespaces/read",
         "Microsoft.ContainerService/managedClusters/networking.k8s.io/ingresses/read",
         "Microsoft.ContainerService/managedClusters/networking.k8s.io/networkpolicies/read",
         "Microsoft.ContainerService/managedClusters/persistentvolumeclaims/read",
         "Microsoft.ContainerService/managedClusters/pods/read",
         "Microsoft.ContainerService/managedClusters/policy/poddisruptionbudgets/read",
-        "Microsoft.ContainerService/managedClusters/replicationcontrollers/read",
         "Microsoft.ContainerService/managedClusters/replicationcontrollers/read",
         "Microsoft.ContainerService/managedClusters/resourcequotas/read",
         "Microsoft.ContainerService/managedClusters/serviceaccounts/read",
@@ -5787,24 +5827,29 @@ Allows read/write access to most objects in a namespace. This role does not allo
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/apps/statefulsets/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/autoscaling/horizontalpodautoscalers/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/batch/cronjobs/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/coordination.k8s.io/leases/read | Reads leases |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/coordination.k8s.io/leases/write | Writes leases |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/coordination.k8s.io/leases/delete | Deletes leases |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/discovery.k8s.io/endpointslices/read | Reads endpointslices |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/batch/jobs/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/configmaps/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/endpoints/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/events.k8s.io/events/read | Reads events |
-> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/events/read | Reads events |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/events/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/extensions/daemonsets/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/extensions/deployments/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/extensions/ingresses/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/extensions/networkpolicies/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/extensions/replicasets/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/limitranges/read | Reads limitranges |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/metrics.k8s.io/pods/read | Reads pods |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/metrics.k8s.io/nodes/read | Reads nodes |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/namespaces/read | Reads namespaces |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/networking.k8s.io/ingresses/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/networking.k8s.io/networkpolicies/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/persistentvolumeclaims/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/pods/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/policy/poddisruptionbudgets/* |  |
-> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/replicationcontrollers/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/replicationcontrollers/* |  |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/resourcequotas/read | Reads resourcequotas |
 > | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/secrets/* |  |
@@ -5838,24 +5883,29 @@ Allows read/write access to most objects in a namespace. This role does not allo
         "Microsoft.ContainerService/managedClusters/apps/statefulsets/*",
         "Microsoft.ContainerService/managedClusters/autoscaling/horizontalpodautoscalers/*",
         "Microsoft.ContainerService/managedClusters/batch/cronjobs/*",
+        "Microsoft.ContainerService/managedClusters/coordination.k8s.io/leases/read",
+        "Microsoft.ContainerService/managedClusters/coordination.k8s.io/leases/write",
+        "Microsoft.ContainerService/managedClusters/coordination.k8s.io/leases/delete",
+        "Microsoft.ContainerService/managedClusters/discovery.k8s.io/endpointslices/read",
         "Microsoft.ContainerService/managedClusters/batch/jobs/*",
         "Microsoft.ContainerService/managedClusters/configmaps/*",
         "Microsoft.ContainerService/managedClusters/endpoints/*",
         "Microsoft.ContainerService/managedClusters/events.k8s.io/events/read",
-        "Microsoft.ContainerService/managedClusters/events/read",
+        "Microsoft.ContainerService/managedClusters/events/*",
         "Microsoft.ContainerService/managedClusters/extensions/daemonsets/*",
         "Microsoft.ContainerService/managedClusters/extensions/deployments/*",
         "Microsoft.ContainerService/managedClusters/extensions/ingresses/*",
         "Microsoft.ContainerService/managedClusters/extensions/networkpolicies/*",
         "Microsoft.ContainerService/managedClusters/extensions/replicasets/*",
         "Microsoft.ContainerService/managedClusters/limitranges/read",
+        "Microsoft.ContainerService/managedClusters/metrics.k8s.io/pods/read",
+        "Microsoft.ContainerService/managedClusters/metrics.k8s.io/nodes/read",
         "Microsoft.ContainerService/managedClusters/namespaces/read",
         "Microsoft.ContainerService/managedClusters/networking.k8s.io/ingresses/*",
         "Microsoft.ContainerService/managedClusters/networking.k8s.io/networkpolicies/*",
         "Microsoft.ContainerService/managedClusters/persistentvolumeclaims/*",
         "Microsoft.ContainerService/managedClusters/pods/*",
         "Microsoft.ContainerService/managedClusters/policy/poddisruptionbudgets/*",
-        "Microsoft.ContainerService/managedClusters/replicationcontrollers/*",
         "Microsoft.ContainerService/managedClusters/replicationcontrollers/*",
         "Microsoft.ContainerService/managedClusters/resourcequotas/read",
         "Microsoft.ContainerService/managedClusters/secrets/*",
@@ -7286,8 +7336,6 @@ Can perform all actions within an Azure Machine Learning workspace, except for c
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/*/action |  |
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/*/delete |  |
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/*/write |  |
-> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/featurestores/read | Gets the Machine Learning Services FeatureStore(s) |
-> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/featurestores/checkNameAvailability/read | Checks the Machine Learning Services FeatureStore name availability |
 > | **NotActions** |  |
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/delete | Deletes the Machine Learning Services Workspace(s) |
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/write | Creates or updates a Machine Learning Services Workspace(s) |
@@ -7295,6 +7343,10 @@ Can perform all actions within an Azure Machine Learning workspace, except for c
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/computes/*/delete |  |
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/computes/listKeys/action | List secrets for compute resources in Machine Learning Services Workspace |
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/listKeys/action | List secrets for a Machine Learning Services Workspace |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/hubs/write | Creates or updates a Machine Learning Services Hub Workspace(s) |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/hubs/delete | Deletes the Machine Learning Services Hub Workspace(s) |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/featurestores/write | Creates or Updates the Machine Learning Services FeatureStore(s) |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/featurestores/delete | Deletes the Machine Learning Services FeatureStore(s) |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -7314,9 +7366,7 @@ Can perform all actions within an Azure Machine Learning workspace, except for c
         "Microsoft.MachineLearningServices/workspaces/*/read",
         "Microsoft.MachineLearningServices/workspaces/*/action",
         "Microsoft.MachineLearningServices/workspaces/*/delete",
-        "Microsoft.MachineLearningServices/workspaces/*/write",
-        "Microsoft.MachineLearningServices/featurestores/read",
-        "Microsoft.MachineLearningServices/featurestores/checkNameAvailability/read"
+        "Microsoft.MachineLearningServices/workspaces/*/write"
       ],
       "notActions": [
         "Microsoft.MachineLearningServices/workspaces/delete",
@@ -7324,7 +7374,11 @@ Can perform all actions within an Azure Machine Learning workspace, except for c
         "Microsoft.MachineLearningServices/workspaces/computes/*/write",
         "Microsoft.MachineLearningServices/workspaces/computes/*/delete",
         "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
-        "Microsoft.MachineLearningServices/workspaces/listKeys/action"
+        "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+        "Microsoft.MachineLearningServices/workspaces/hubs/write",
+        "Microsoft.MachineLearningServices/workspaces/hubs/delete",
+        "Microsoft.MachineLearningServices/workspaces/featurestores/write",
+        "Microsoft.MachineLearningServices/workspaces/featurestores/delete"
       ],
       "dataActions": [],
       "notDataActions": []
@@ -7338,7 +7392,7 @@ Can perform all actions within an Azure Machine Learning workspace, except for c
 
 ### Cognitive Services Contributor
 
-Lets you create, read, update, delete and manage keys of Cognitive Services. [Learn more](../cognitive-services/cognitive-services-virtual-networks.md)
+Lets you create, read, update, delete and manage keys of Cognitive Services. [Learn more](../ai-services/cognitive-services-virtual-networks.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -7411,7 +7465,7 @@ Lets you create, read, update, delete and manage keys of Cognitive Services. [Le
 
 ### Cognitive Services Custom Vision Contributor
 
-Full access to the project, including the ability to view, create, edit, or delete projects. [Learn more](../cognitive-services/custom-vision-service/role-based-access-control.md)
+Full access to the project, including the ability to view, create, edit, or delete projects. [Learn more](../ai-services/custom-vision-service/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -7452,7 +7506,7 @@ Full access to the project, including the ability to view, create, edit, or dele
 
 ### Cognitive Services Custom Vision Deployment
 
-Publish, unpublish or export models. Deployment can view the project but can't update. [Learn more](../cognitive-services/custom-vision-service/role-based-access-control.md)
+Publish, unpublish or export models. Deployment can view the project but can't update. [Learn more](../ai-services/custom-vision-service/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -7507,7 +7561,7 @@ Publish, unpublish or export models. Deployment can view the project but can't u
 
 ### Cognitive Services Custom Vision Labeler
 
-View, edit training images and create, add, remove, or delete the image tags. Labelers can view the project but can't update anything other than training images and tags. [Learn more](../cognitive-services/custom-vision-service/role-based-access-control.md)
+View, edit training images and create, add, remove, or delete the image tags. Labelers can view the project but can't update anything other than training images and tags. [Learn more](../ai-services/custom-vision-service/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -7560,7 +7614,7 @@ View, edit training images and create, add, remove, or delete the image tags. La
 
 ### Cognitive Services Custom Vision Reader
 
-Read-only actions in the project. Readers can't create or update the project. [Learn more](../cognitive-services/custom-vision-service/role-based-access-control.md)
+Read-only actions in the project. Readers can't create or update the project. [Learn more](../ai-services/custom-vision-service/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -7605,7 +7659,7 @@ Read-only actions in the project. Readers can't create or update the project. [L
 
 ### Cognitive Services Custom Vision Trainer
 
-View, edit projects and train the models, including the ability to publish, unpublish, export the models. Trainers can't create or delete the project. [Learn more](../cognitive-services/custom-vision-service/role-based-access-control.md)
+View, edit projects and train the models, including the ability to publish, unpublish, export the models. Trainers can't create or delete the project. [Learn more](../ai-services/custom-vision-service/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -7746,7 +7800,7 @@ Lets you perform detect, verify, identify, group, and find similar operations on
 
 ### Cognitive Services Metrics Advisor Administrator
 
-Full access to the project, including the system level configuration. [Learn more](../applied-ai-services/metrics-advisor/how-tos/alerts.md)
+Full access to the project, including the system level configuration. [Learn more](../ai-services/metrics-advisor/how-tos/alerts.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -7851,6 +7905,7 @@ Read access to view files, models, deployments. The ability to create completion
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/search/action | Search for the most relevant documents using the current engine. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/completions/action | Create a completion from a chosen model. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/chat/completions/action | Creates a completion for the chat message |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/extensions/chat/completions/action | Creates a completion for the chat message with extensions |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/embeddings/action | Return the embeddings for a given prompt. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/completions/write |  |
 > | **NotDataActions** |  |
@@ -7881,6 +7936,7 @@ Read access to view files, models, deployments. The ability to create completion
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/search/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/completions/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/chat/completions/action",
+        "Microsoft.CognitiveServices/accounts/OpenAI/deployments/extensions/chat/completions/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/embeddings/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/completions/write"
       ],
@@ -7895,7 +7951,7 @@ Read access to view files, models, deployments. The ability to create completion
 
 ### Cognitive Services QnA Maker Editor
 
-Let's you create, edit, import and export a KB. You cannot publish or delete a KB. [Learn more](../cognitive-services/qnamaker/reference-role-based-access-control.md)
+Let's you create, edit, import and export a KB. You cannot publish or delete a KB. [Learn more](../ai-services/qnamaker/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -8016,7 +8072,7 @@ Let's you create, edit, import and export a KB. You cannot publish or delete a K
 
 ### Cognitive Services QnA Maker Reader
 
-Let's you read and test a KB only. [Learn more](../cognitive-services/qnamaker/reference-role-based-access-control.md)
+Let's you read and test a KB only. [Learn more](../ai-services/qnamaker/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -8095,7 +8151,7 @@ Let's you read and test a KB only. [Learn more](../cognitive-services/qnamaker/r
 
 ### Cognitive Services User
 
-Lets you read and list keys of Cognitive Services. [Learn more](../cognitive-services/authentication.md)
+Lets you read and list keys of Cognitive Services. [Learn more](../ai-services/authentication.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -9963,8 +10019,8 @@ Role allows user or principal full access to FHIR Data [Learn more](../healthcar
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.HealthcareApis/services/fhir/resources/* |  |
-> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/* |  |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/services/fhir/resources/* |  |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/workspaces/fhirservices/resources/* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -9993,51 +10049,6 @@ Role allows user or principal full access to FHIR Data [Learn more](../healthcar
 }
 ```
 
-### FHIR Data Importer
-
-Role allows user or principal to read and import FHIR Data [Learn more](../healthcare-apis/azure-api-for-fhir/configure-azure-rbac.md)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | *none* |  |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | Microsoft.HealthcareApis/services/fhir/resources/read | Read FHIR resources (includes searching and versioned history).  |
-> | Microsoft.HealthcareApis/services/fhir/resources/import/action | Import operation ($export). |
-> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/read | Read FHIR resources (includes searching and versioned history).  |
-> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/import/action | Import operation ($export). |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Role allows user or principal to read and import FHIR Data",
-  "id": "/providers/Microsoft.Authorization/roleDefinitions/4465e953-8ced-4406-a58e-0f6e3f3b530b",
-  "name": "4465e953-8ced-4406-a58e-0f6e3f3b530b",
-  "permissions": [
-    {
-      "actions": [],
-      "notActions": [],
-      "dataActions": [
-        "Microsoft.HealthcareApis/services/fhir/resources/read",
-        "Microsoft.HealthcareApis/services/fhir/resources/import/action",
-        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/read",
-        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/import/action"
-      ],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "FHIR Data Importer",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
 ### FHIR Data Exporter
 
 Role allows user or principal to read and export FHIR Data [Learn more](../healthcare-apis/azure-api-for-fhir/configure-azure-rbac.md)
@@ -10049,10 +10060,10 @@ Role allows user or principal to read and export FHIR Data [Learn more](../healt
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.HealthcareApis/services/fhir/resources/read | Read FHIR resources (includes searching and versioned history).  |
-> | Microsoft.HealthcareApis/services/fhir/resources/export/action | Export operation ($export). |
-> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/read | Read FHIR resources (includes searching and versioned history).  |
-> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/export/action | Export operation ($export). |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/services/fhir/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/services/fhir/resources/export/action | Export operation ($export). |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/workspaces/fhirservices/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/workspaces/fhirservices/resources/export/action | Export operation ($export). |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -10083,6 +10094,47 @@ Role allows user or principal to read and export FHIR Data [Learn more](../healt
 }
 ```
 
+### FHIR Data Importer
+
+Role allows user or principal to read and import FHIR Data [Learn more](../healthcare-apis/azure-api-for-fhir/configure-azure-rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/workspaces/fhirservices/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/workspaces/fhirservices/resources/import/action | Import FHIR resources in batch. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Role allows user or principal to read and import FHIR Data",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/4465e953-8ced-4406-a58e-0f6e3f3b530b",
+  "name": "4465e953-8ced-4406-a58e-0f6e3f3b530b",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/read",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/import/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "FHIR Data Importer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### FHIR Data Reader
 
 Role allows user or principal to read FHIR Data [Learn more](../healthcare-apis/azure-api-for-fhir/configure-azure-rbac.md)
@@ -10094,8 +10146,8 @@ Role allows user or principal to read FHIR Data [Learn more](../healthcare-apis/
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.HealthcareApis/services/fhir/resources/read | Read FHIR resources (includes searching and versioned history).  |
-> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/services/fhir/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/workspaces/fhirservices/resources/read | Read FHIR resources (includes searching and versioned history).  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -10135,11 +10187,26 @@ Role allows user or principal to read and write FHIR Data [Learn more](../health
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.HealthcareApis/services/fhir/resources/* |  |
-> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/* |  |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/services/fhir/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/services/fhir/resources/write | Write FHIR resources (includes create and update). |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/services/fhir/resources/delete | Delete FHIR resources (soft delete). |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/services/fhir/resources/export/action | Export operation ($export). |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/services/fhir/resources/resourceValidate/action | Validate operation ($validate). |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/services/fhir/resources/reindex/action | Allows user to run Reindex job to index any search parameters that haven't yet been indexed. |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/services/fhir/resources/convertData/action | Data convert operation ($convert-data) |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/services/fhir/resources/editProfileDefinitions/action | Allows user to perform Create Update Delete operations on profile resources. |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/services/fhir/resources/import/action | Import FHIR resources in batch. |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/workspaces/fhirservices/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/workspaces/fhirservices/resources/write | Write FHIR resources (includes create and update). |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/workspaces/fhirservices/resources/delete | Delete FHIR resources (soft delete). |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/workspaces/fhirservices/resources/export/action | Export operation ($export). |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/workspaces/fhirservices/resources/resourceValidate/action | Validate operation ($validate). |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/workspaces/fhirservices/resources/reindex/action | Allows user to run Reindex job to index any search parameters that haven't yet been indexed. |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/workspaces/fhirservices/resources/convertData/action | Data convert operation ($convert-data) |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/workspaces/fhirservices/resources/editProfileDefinitions/action | Allows user to perform Create Update Delete operations on profile resources. |
+> | [Microsoft.HealthcareApis](resource-provider-operations.md#microsofthealthcareapis)/workspaces/fhirservices/resources/import/action | Import FHIR resources in batch. |
 > | **NotDataActions** |  |
-> | Microsoft.HealthcareApis/services/fhir/resources/hardDelete/action | Hard Delete (including version history). |
-> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/hardDelete/action | Hard Delete (including version history). |
+> | *none* |  |
 
 ```json
 {
@@ -10154,13 +10221,26 @@ Role allows user or principal to read and write FHIR Data [Learn more](../health
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.HealthcareApis/services/fhir/resources/*",
-        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/*"
+        "Microsoft.HealthcareApis/services/fhir/resources/read",
+        "Microsoft.HealthcareApis/services/fhir/resources/write",
+        "Microsoft.HealthcareApis/services/fhir/resources/delete",
+        "Microsoft.HealthcareApis/services/fhir/resources/export/action",
+        "Microsoft.HealthcareApis/services/fhir/resources/resourceValidate/action",
+        "Microsoft.HealthcareApis/services/fhir/resources/reindex/action",
+        "Microsoft.HealthcareApis/services/fhir/resources/convertData/action",
+        "Microsoft.HealthcareApis/services/fhir/resources/editProfileDefinitions/action",
+        "Microsoft.HealthcareApis/services/fhir/resources/import/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/read",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/write",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/delete",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/export/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/resourceValidate/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/reindex/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/convertData/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/editProfileDefinitions/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/import/action"
       ],
-      "notDataActions": [
-        "Microsoft.HealthcareApis/services/fhir/resources/hardDelete/action",
-        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/hardDelete/action"
-      ]
+      "notDataActions": []
     }
   ],
   "roleName": "FHIR Data Writer",
@@ -10940,6 +11020,12 @@ Read, download the reports objects and related other resource objects. [Learn mo
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/read | Returns list of containers |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/read | Returns blob service properties or statistics |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/resources/read | Get the list of resources based upon filters. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resources/read | Gets resources of a subscription. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/resources/read | Gets the resources for the resource group. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/tags/read | Gets all the tags on a resource. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -10961,7 +11047,13 @@ Read, download the reports objects and related other resource objects. [Learn mo
         "Microsoft.AppComplianceAutomation/*/read",
         "Microsoft.Storage/storageAccounts/read",
         "Microsoft.Storage/storageAccounts/blobServices/containers/read",
-        "Microsoft.Storage/storageAccounts/blobServices/read"
+        "Microsoft.Storage/storageAccounts/blobServices/read",
+        "Microsoft.Resources/resources/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resources/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/resources/read",
+        "Microsoft.Resources/tags/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -11137,6 +11229,7 @@ Perform any action on the certificates of a key vault, except manage permissions
 > | **DataActions** |  |
 > | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/certificatecas/* |  |
 > | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/certificates/* |  |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/certificatecontacts/write | Manage Certificate Contact |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -11165,7 +11258,8 @@ Perform any action on the certificates of a key vault, except manage permissions
       "notActions": [],
       "dataActions": [
         "Microsoft.KeyVault/vaults/certificatecas/*",
-        "Microsoft.KeyVault/vaults/certificates/*"
+        "Microsoft.KeyVault/vaults/certificates/*",
+        "Microsoft.KeyVault/vaults/certificatecontacts/write"
       ],
       "notDataActions": []
     }
@@ -11974,6 +12068,7 @@ View and update permissions for Microsoft Defender for Cloud. Same permissions a
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/* | Create and manage security components and policies |
 > | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/* |  |
+> | Microsoft.IoTFirmwareDefense/* |  |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
@@ -12005,6 +12100,7 @@ View and update permissions for Microsoft Defender for Cloud. Same permissions a
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Security/*",
         "Microsoft.IoTSecurity/*",
+        "Microsoft.IoTFirmwareDefense/*",
         "Microsoft.Support/*"
       ],
       "notActions": [],
@@ -14330,7 +14426,7 @@ Allows for creating managed application resources.
 > | --- | --- |
 > | */read | Read resources of all types, except secrets. |
 > | [Microsoft.Solutions](resource-provider-operations.md#microsoftsolutions)/applications/* |  |
-> | [Microsoft.Solutions](resource-provider-operations.md#microsoftsolutions)/register/action | Register to Solutions. |
+> | [Microsoft.Solutions](resource-provider-operations.md#microsoftsolutions)/register/action | Register the subscription for Microsoft.Solutions |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/* |  |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | **NotActions** |  |
@@ -14376,7 +14472,7 @@ Lets you read and perform actions on Managed Application resources
 > | Actions | Description |
 > | --- | --- |
 > | */read | Read resources of all types, except secrets. |
-> | [Microsoft.Solutions](resource-provider-operations.md#microsoftsolutions)/applications/read | Retrieves a list of applications. |
+> | [Microsoft.Solutions](resource-provider-operations.md#microsoftsolutions)/applications/read | Lists all the applications within a subscription. |
 > | [Microsoft.Solutions](resource-provider-operations.md#microsoftsolutions)/*/action |  |
 > | **NotActions** |  |
 > | *none* |  |
@@ -14702,11 +14798,11 @@ Read and create quota requests, get quota request status, and create support tic
 > | [Microsoft.Capacity](resource-provider-operations.md#microsoftcapacity)/resourceProviders/locations/serviceLimits/write | Create service limit or quota for the specified resource and location |
 > | [Microsoft.Capacity](resource-provider-operations.md#microsoftcapacity)/resourceProviders/locations/serviceLimitsRequests/read | Get any service limit request for the specified resource and location |
 > | [Microsoft.Capacity](resource-provider-operations.md#microsoftcapacity)/register/action | Registers the Capacity resource provider and enables the creation of Capacity resources. |
-> | Microsoft.Quota/usages/read | Get the usages for resource providers |
-> | Microsoft.Quota/quotas/read | Get the current Service limit or quota of the specified resource |
-> | Microsoft.Quota/quotas/write | Creates the service limit or quota request for the specified resource |
-> | Microsoft.Quota/quotaRequests/read | Get any service limit request for the specified resource |
-> | Microsoft.Quota/register/action | Register the subscription with Microsoft.Quota Resource Provider |
+> | [Microsoft.Quota](resource-provider-operations.md#microsoftquota)/usages/read | Get the usages for resource providers |
+> | [Microsoft.Quota](resource-provider-operations.md#microsoftquota)/quotas/read | Get the current Service limit or quota of the specified resource |
+> | [Microsoft.Quota](resource-provider-operations.md#microsoftquota)/quotas/write | Creates the service limit or quota request for the specified resource |
+> | [Microsoft.Quota](resource-provider-operations.md#microsoftquota)/quotaRequests/read | Get any service limit request for the specified resource |
+> | [Microsoft.Quota](resource-provider-operations.md#microsoftquota)/register/action | Register the subscription with Microsoft.Quota Resource Provider |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
@@ -14828,6 +14924,7 @@ Users with rights to create/modify resource policy, create support ticket and re
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/policyexemptions/* | Create and manage policy exemptions |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/policysetdefinitions/* | Create and manage policy sets |
 > | [Microsoft.PolicyInsights](resource-provider-operations.md#microsoftpolicyinsights)/* |  |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
@@ -14853,6 +14950,7 @@ Users with rights to create/modify resource policy, create support ticket and re
         "Microsoft.Authorization/policyexemptions/*",
         "Microsoft.Authorization/policysetdefinitions/*",
         "Microsoft.PolicyInsights/*",
+        "Microsoft.Resources/deployments/*",
         "Microsoft.Support/*"
       ],
       "notActions": [],
@@ -15769,6 +15867,7 @@ Allows user to use the applications in an application group. [Learn more](../vir
 > | *none* |  |
 > | **DataActions** |  |
 > | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/applicationGroups/useApplications/action | Use ApplicationGroup |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/appAttachPackages/useApplications/action | Allow user permissioning on app attach packages in an application group |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -15785,7 +15884,8 @@ Allows user to use the applications in an application group. [Learn more](../vir
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.DesktopVirtualization/applicationGroups/useApplications/action"
+        "Microsoft.DesktopVirtualization/applicationGroups/useApplications/action",
+        "Microsoft.DesktopVirtualization/appAttachPackages/useApplications/action"
       ],
       "notDataActions": []
     }
@@ -16019,7 +16119,7 @@ Read-only role for Digital Twins data-plane properties [Learn more](../digital-t
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/read | Read any Digital Twin |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/read | Read any Digital Twin Relationship |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/read | Read any Event Route |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/jobs/import/read | Read any Bulk Import Job |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/jobs/import/read |  |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/read | Read any Model |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/query/action | Query any Digital Twins Graph |
 > | **NotDataActions** |  |

@@ -120,9 +120,9 @@ This code shows you how to use a bubble layer to render a point on the map and a
 
 ## Customize a bubble layer
 
-The Bubble layer only has a few styling options. Use the [Bubble Layer Options] sample to try them out.
+The Bubble layer only has a few styling options. Use the [Bubble Layer Options] sample to try them out. For the source code for this sample, see [Bubble Layer Options source code].
 
-:::image type="content" source="./media/map-add-bubble-layer/bubble-layer-options.png" alt-text="Screenshot showing a the Bubble Layer Options sample that shows a map with bubbles and selectable bubble layer options to the left of the map.":::
+:::image type="content" source="./media/map-add-bubble-layer/bubble-layer-options.png" alt-text="Screenshot showing the Bubble Layer Options sample that shows a map with bubbles and selectable bubble layer options to the left of the map.":::
 
 <!-------------------------------------------------------------------
 <br/>
@@ -136,24 +136,32 @@ The Bubble layer only has a few styling options. Use the [Bubble Layer Options] 
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [BubbleLayer](/javascript/api/azure-maps-control/atlas.layer.bubblelayer)
+> [BubbleLayer]
 
 > [!div class="nextstepaction"]
-> [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
+> [BubbleLayerOptions]
 
 See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
-> [Create a data source](create-data-source-web-sdk.md)
+> [Create a data source]
 
 > [!div class="nextstepaction"]
-> [Add a symbol layer](map-add-pin.md)
+> [Add a symbol layer]
 
 > [!div class="nextstepaction"]
-> [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
+> [Use data-driven style expressions]
 
 > [!div class="nextstepaction"]
-> [Code samples](/samples/browse/?products=azure-maps)
+> [Code samples]
 
 [Bubble Layer Options]: https://samples.azuremaps.com/bubble-layer/bubble-layer-options
+[Bubble Layer Options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Bubble%20Layer/Bubble%20Layer%20Options/Bubble%20Layer%20Options.html
 [bubble layer]: /javascript/api/azure-maps-control/atlas.layer.bubblelayer
+
+[BubbleLayer]: /javascript/api/azure-maps-control/atlas.layer.bubblelayer
+[BubbleLayerOptions]: /javascript/api/azure-maps-control/atlas.bubblelayeroptions
+[Create a data source]: create-data-source-web-sdk.md
+[Add a symbol layer]: map-add-pin.md
+[Use data-driven style expressions]: data-driven-style-expressions-web-sdk.md
+[Code samples]: /samples/browse/?products=azure-maps

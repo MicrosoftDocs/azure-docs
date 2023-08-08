@@ -96,6 +96,8 @@
       href: ../connectors/compare-built-in-azure-connectors.md
     - name: Edit host and app settings for logic apps in single-tenant
       href: edit-app-settings-host-settings.md
+    - name: Create and run .NET Framework code
+      href: create-run-custom-code-functions.md
     - name: Enable stateful mode for stateless built-in connectors
       href: ../connectors/enable-stateful-affinity-built-in-connectors.md
     - name: DevOps deployment for single-tenant
@@ -326,8 +328,6 @@
       href: logic-apps-enterprise-integration-flatfile.md
     - name: FTP
       href: ../connectors/connectors-create-api-ftp.md
-    - name: GitHub
-      href: ../connectors/connectors-create-api-github.md
     - name: Gmail - Google data security & privacy policies
       href: ../connectors/connectors-google-data-security-privacy-policy.md
     - name: HTTP

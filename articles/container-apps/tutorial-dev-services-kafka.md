@@ -4,37 +4,39 @@ description: Create and use an Apache Kafka service for development
 services: container-apps
 author: ahmelsayed
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 06/06/2023
+ms.date: 06/16/2023
 ms.author: ahmels
 ---
 
 # Tutorial: Create and use an Apache Kafka service for development
 
-The Azure Container Apps service enables you to provision services like Apache Kafka, Redis, [PostgreSQL](./tutorial-dev-services-postgresql.md) etc., on the same environment as your applications. Those services are deployed as special type of Container Apps. You can connect other applications to them securely without exporting secrets, or sharing them anywhere. Those services are deployed in the same private network as your applications so you don't have to setup or manage VNETs for simple development workflows. Finally, these services compute scale to 0 like other Container Apps when not used to cut down on cost for development.
+Azure Container Apps allows you to connect to development and production-grade services to provide a wide variety of functionality to your applications.
 
-In this tutorial, you learn how to create and use a development Apache Kafka service. There are both step-by-step Azure CLI commands, and Bicep template fragments for each step. For Bicep, adding all fragments to the same bicep file and deploying the template all at once or after each incremental update works equally.
+In this tutorial, you learn to create and use a development Apache Kafka service.
+
+Azure CLI commands and Bicep template fragments are featured in this tutorial. If you use Bicep, you can add all the fragments to a single Bicep file and [deploy the template all at once](#deploy-all-resources).
 
 > [!div class="checklist"]
-> * Create a Container Apps environment to deploy your service and container apps
+> * Create a Container Apps environment to deploy your service and container app
 > * Create an Apache Kafka service
-> * Create and use test command line App to use the dev Apache Kafka
-> * Deploy a kafka-ui app to view 
-> * Creating or Updating a consumer/prod that uses the dev service
+> * Set up a command line app to use the dev Apache Kafka service
+> * Deploy a *kafka-ui* app to view application data
 > * Compile a final bicep template to deploy all resources using a consistent and predictable template deployment
 > * Use an `azd` template for a one command deployment of all resources
 
 ## Prerequisites
 
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
-- Optional: [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) of following AZD instructions
+- Optional: [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) for following AZD instructions.
 
 > [!NOTE]
-> For a one command deployment, skip to the last `azd` [template step](#final-azd-template-for-all-resource).
+> For a one command deployment, skip to the last `azd` [template step](#azure-developer-cli).
 
 ## Setup
 
-1. Define some values/parameters to we can use later for all commands/bicep resource.
+1. Define variables for common values.
 
     # [Bash](#tab/bash)
 
@@ -49,14 +51,14 @@ In this tutorial, you learn how to create and use a development Apache Kafka ser
 
     # [Bicep](#tab/bicep)
 
-    You still need to use the CLI to deploy the bicep template into a resource group. So define the following variables for the CLI
+    The following variables allow you to use the CLI to deploy the Bicep template.
 
     ```bash
     RESOURCE_GROUP="kafka-dev"
     LOCATION="northcentralus"
     ```
 
-    For Bicep, start by creating a file called `kafka-dev.bicep` then add some parameters with default values to it
+    For Bicep, start by creating a file called `kafka-dev.bicep`, then add parameters with the following default values.
 
     ```bicep
     targetScope = 'resourceGroup'
@@ -67,7 +69,7 @@ In this tutorial, you learn how to create and use a development Apache Kafka ser
     param kafkaUiAppName string = 'kafka-ui'
     ```
 
-    to deploy the bicep template at any stage use:
+    As you deploy the bicep template at any stage, you can use the `az deployment group create` command.
 
     ```bash
     az deployment group create -g $RESOURCE_GROUP \
@@ -76,15 +78,15 @@ In this tutorial, you learn how to create and use a development Apache Kafka ser
     ```
 
     # [azd](#tab/azd)
-    
-    Define a couple of values to use for `azd`
-    
+
+    Define your initial variables.
+
     ```bash
     AZURE_ENV_NAME="azd-kafka-dev"
     LOCATION="northcentralus"
     ```
 
-    Initialize a Minimal azd template
+    Use the values to initialize a minimal `azd` template.
 
     ```bash
     azd init \
@@ -94,9 +96,9 @@ In this tutorial, you learn how to create and use a development Apache Kafka ser
     ```
 
     > [!NOTE]
-    > `AZURE_ENV_NAME` is different from the Container App Environment name. `AZURE_ENV_NAME` in `azd` is for all resources in a template. Including other non Container Apps resources. We will create a different name for the Container Apps Environment.
+    > `AZURE_ENV_NAME` is different from the Container App environment name. In this context, `AZURE_ENV_NAME` in `azd` is for all resources in a template. These resources include resources not associated with Container Apps. You create a different name for the Container Apps environment.
 
-    then option `infra/main.bicep` and define a couple of parameters to use later in our template
+    Next, create `infra/main.bicep` and define parameters for later use.
 
     ```bicep
     param appEnvironmentName string = 'aca-env'
@@ -107,20 +109,43 @@ In this tutorial, you learn how to create and use a development Apache Kafka ser
 
     ----
 
-1. Make sure to log in and upgrade/register all providers needed for your Azure Subscription
+1. Log in to Azure.
 
     ```bash
     az login
+    ```
+
+1. Upgrade the CLI to the latest version.
+
+    ```bash
     az upgrade
+    ```
+
+1. Upgrade Bicep to the latest version.
+
+    ```bash
     az bicep upgrade
+    ```
+
+1. Add th `containerapp` extension.
+
+    ```bash
     az extension add --name containerapp --upgrade
+    ```
+
+1. Register required namespaces.
+
+    ```bash
     az provider register --namespace Microsoft.App
+    ```
+
+    ```bash
     az provider register --namespace Microsoft.OperationalInsights
     ```
 
-## Create a Container App Environment
+## Create a Container Apps environment
 
-1. Create a resource group
+1. Create a resource group.
 
     # [Bash](#tab/bash)
 
@@ -138,28 +163,21 @@ In this tutorial, you learn how to create and use a development Apache Kafka ser
         --location "$LOCATION"
     ```
 
-    to deploy the bicep template at any stage use:
-
-    ```bash
-    az deployment group create -g $RESOURCE_GROUP \
-        --query 'properties.outputs.*.value' \
-        --template-file kafka-dev.bicep
-    ```
-
     # [azd](#tab/azd)
 
-    No special setup is needed for managing resource groups in `azd`. `azd` drives a resource group from `AZURE_ENV_NAME`/`--environment` value.
-    You can however test the minimal template with 
+    No special setup is needed for managing resource groups in `azd`. The `azd` command gets the resource group from the `AZURE_ENV_NAME`/`--environment` value.
+
+    You can test the minimal template with the `up` command.
 
     ```bash
     azd up
     ```
 
-    That command should create an empty resource group.
+    Running this command creates an empty resource group.
 
     ----
 
-1. Create a Container Apps environment
+1. Create a Container Apps environment.
 
     # [Bash](#tab/bash)
 
@@ -172,7 +190,7 @@ In this tutorial, you learn how to create and use a development Apache Kafka ser
 
     # [Bicep](#tab/bicep)
 
-    add the following to your `kafka-dev.bicep` file
+    Add the following values to your `kafka-dev.bicep` file.
 
     ```bicep
     resource appEnvironment 'Microsoft.App/managedEnvironments@2023-04-01-preview' = {
@@ -186,8 +204,9 @@ In this tutorial, you learn how to create and use a development Apache Kafka ser
     }
     ```
 
-    > [!TIP]
-    > The Azure CLI will automatically create a Log Analytics work space for each environment. To achieve the same using a bicep template you must explicitly declare it and link it. This makes your deployment and resources significantly more clear and predictable, at the cost of some verbosity. To do that in Bicep, update the environment resource in bicep to
+    The Azure CLI automatically creates a Log Analytics workspace for each environment. To generate a workspace using a Bicep template, you explicitly declare the environment and link to it in the template. This step makes your deployment more stable, even if at the cost of being a little verbose.
+
+    Add the following values to your environment.
 
     ```bicep
     resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2022-10-01' = {
@@ -217,7 +236,9 @@ In this tutorial, you learn how to create and use a development Apache Kafka ser
 
     # [azd](#tab/azd)
 
-    `azd` templates must use [bicep modules](/azure/azure-resource-manager/bicep/modules). First create a `./infra/core/host` folder. Then create `./infra/core/host/container-apps-environment.bicep` module with the following content
+    The templates used by `azd` use [bicep modules](/azure/azure-resource-manager/bicep/modules).
+
+    Create a folder named `./infra/core/host`, then create a `./infra/core/host/container-apps-environment.bicep` module with the following content.
 
     ```bicep
     param name string
@@ -253,7 +274,7 @@ In this tutorial, you learn how to create and use a development Apache Kafka ser
     output appEnvironmentId string = appEnvironment.id
     ```
 
-    then in `./infra/main.bicep` load the module using
+    In the `./infra/main.bicep` file, load the module using the following values.
 
     ```bicep
     module appEnvironment './core/host/container-apps-environment.bicep' = {
@@ -267,13 +288,13 @@ In this tutorial, you learn how to create and use a development Apache Kafka ser
     }
     ```
 
-    run `azd up` to deploy.
+    Run `azd up` to deploy the template.
 
     ----
 
 ## Create an Apache Kafka service
 
-1. Create an Apache Kafka service 
+1. Create an Apache Kafka service.
 
     # [Bash](#tab/bash)
 
@@ -283,16 +304,11 @@ In this tutorial, you learn how to create and use a development Apache Kafka ser
       --resource-group "$RESOURCE_GROUP" \
       --output tsv \
       --query id)
-
-    az rest \
-        --method PUT \
-        --url "/subscriptions/$(az account show --output tsv --query id)/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.App/containerApps/$KAFKA_SVC?api-version=2023-04-01-preview" \
-        --body "{\"location\": \"$LOCATION\", \"properties\": {\"environmentId\": \"$ENVIRONMENT_ID\", \"configuration\": {\"service\": {\"type\": \"kafka\"}}}}"
     ```
 
     # [Bicep](#tab/bicep)
 
-    Add the following to `kafka-dev.bicep`
+    Add the following values to `kafka-dev.bicep`.
 
     ```bicep
     resource kafka 'Microsoft.App/containerApps@2023-04-01-preview' = {
@@ -310,20 +326,10 @@ In this tutorial, you learn how to create and use a development Apache Kafka ser
 
     output kafkaLogs string = 'az containerapp logs show -n ${kafka.name} -g ${resourceGroup().name} --follow --tail 30'
     ```
-    To deploy the bicep template do
-
-    ```bash
-    az deployment group create -g $RESOURCE_GROUP \
-        --query 'properties.outputs.*.value' \
-        --template-file kafka-dev.bicep
-    ```
-
-    > [!TIP]
-    > The output `kafkaLogs` will output a CLI command to view the logs of postgres after it's been deployed. You can run the command to view the initialization logs of the new postgres service. 
 
     # [azd](#tab/azd)
 
-    Create a `./infra/core/host/container-app-service.bicep` module file with the following content
+    Create a `./infra/core/host/container-app-service.bicep` module file with the following content.
 
     ```bicep
     param name string
@@ -350,7 +356,7 @@ In this tutorial, you learn how to create and use a development Apache Kafka ser
     output serviceId string = service.id
     ```
 
-    Then update `./infra/main.bicep` to use the module with the following declaration:
+    Then update the `./infra/main.bicep` module file with the following declaration.
 
     ```bicep
     module kafka './core/host/container-app-service.bicep' = {
@@ -366,15 +372,43 @@ In this tutorial, you learn how to create and use a development Apache Kafka ser
     }
     ```
 
-    Then deploy the template using `azd up`
-
     ----
 
-1. View log output from the postgres instance
+1. Deploy the template.
 
     # [Bash](#tab/bash)
 
-    use the logs command to view the logs
+    ```bash
+        az containerapp service kafka create \
+        --name "$KAFKA_SVC" \
+        --resource-group "$RESOURCE_GROUP" \
+        --environment "$ENVIRONMENT"
+    ```
+
+    # [Bicep](#tab/bicep)
+
+    ```bash
+    az deployment group create -g $RESOURCE_GROUP \
+        --query 'properties.outputs.*.value' \
+        --template-file kafka-dev.bicep
+    ```
+
+    > [!TIP]
+    > The output `kafkaLogs` outputs a CLI command to help you view the logs of postgres after deployment is complete. You can run the command to view the initialization logs of the new Postgres service.
+
+    # [azd](#tab/azd)
+
+    ```bash
+    `azd up`
+    ```
+
+    ---
+
+1. View log output from the Kafka instance
+
+    # [Bash](#tab/bash)
+
+    Use the `logs` command to view log messages.
 
     ```bash
     az containerapp logs show \
@@ -385,7 +419,9 @@ In this tutorial, you learn how to create and use a development Apache Kafka ser
 
     # [Bicep](#tab/bicep)
 
-    The previous bicep example includes an output for the command to view the logs. For example:
+    The previous Bicep example includes the output for a command to view the logs.
+
+    For example:
 
     ```bash
     [
@@ -393,7 +429,7 @@ In this tutorial, you learn how to create and use a development Apache Kafka ser
     ]
     ```
 
-    If you don't have the command, you can use the service name to get the logs using the CLI
+    If you don't have the command, you can use the service name to view the logs using the CLI.
 
     ```bash
     az containerapp logs show \
@@ -404,7 +440,7 @@ In this tutorial, you learn how to create and use a development Apache Kafka ser
 
     # [azd](#tab/azd)
 
-    use the logs command to view the logs
+    Use the `logs` command to view log messages.
 
     ```bash
     az containerapp logs show \
@@ -417,11 +453,11 @@ In this tutorial, you learn how to create and use a development Apache Kafka ser
 
     :::image type="content" source="media/tutorial-dev-services-kafka/azure-container-apps-kafka-service-logs.png" alt-text="Screenshot of container app kafka service logs.":::
 
-## Create a command line test app
+## Create an app to test the service
 
-We start by creating an app to use `./kafka-topics.sh`, `./kafka-console-producer.sh`, and `kafka-console-consumer.sh` to connect to the Kafka instance.
+When you create the app, you'll set it up to use `./kafka-topics.sh`, `./kafka-console-producer.sh`, and `kafka-console-consumer.sh` to connect to the Kafka instance.
 
-1. Create a `kafka-cli-app` app that binds to the PostgreSQL service
+1. Create a `kafka-cli-app` app that binds to the PostgreSQL service.
 
     # [Bash](#tab/bash)
 
@@ -429,22 +465,17 @@ We start by creating an app to use `./kafka-topics.sh`, `./kafka-console-produce
     az containerapp create \
         --name "$KAFKA_CLI_APP" \
         --image mcr.microsoft.com/k8se/services/kafka:3.4 \
+        --bind "$KAFKA_SVC" \
         --environment "$ENVIRONMENT" \
         --resource-group "$RESOURCE_GROUP" \
         --min-replicas 1 \
         --max-replicas 1 \
         --command "/bin/sleep" "infinity"
-    
-    az rest \
-        --method PATCH \
-        --headers "Content-Type=application/json" \
-        --url "/subscriptions/$(az account show --output tsv --query id)/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.App/containerApps/$KAFKA_CLI_APP?api-version=2023-04-01-preview" \
-        --body "{\"properties\": {\"template\": {\"serviceBinds\": [{\"serviceId\": \"/subscriptions/$(az account show --output tsv --query id)/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.App/containerApps/$KAFKA_SVC\"}]}}}"
     ```
 
     # [Bicep](#tab/bicep)
 
-    Add the following to `postgres-dev.bicep`
+    Add the following to values `postgres-dev.bicep`.
 
     ```bicep
     resource kafkaCli 'Microsoft.App/containerApps@2023-04-01-preview' = {
@@ -477,11 +508,11 @@ We start by creating an app to use `./kafka-topics.sh`, `./kafka-console-produce
     ```
 
     > [!TIP]
-    > The output `kafkaCliExec` will output a CLI command to exec into the test app after it's been deployed.
+    > The output `kafkaCliExec` outputs a CLI command you can run to verify the application is deployed correctly.
 
     # [azd](#tab/azd)
 
-    Create a module under `./infra/core/host/container-app.bicep` and add the following there
+    Create a module under `./infra/core/host/container-app.bicep` and add the following values.
 
     ```bicep
     param name string
@@ -534,7 +565,7 @@ We start by creating an app to use `./kafka-topics.sh`, `./kafka-console-produce
     }
     ```
 
-    then use that module in `./infra/main.bicep` using
+    Now use the module in `./infra/main.bicep` by adding the following values.
 
     ```bicep
     module kafkaCli './core/host/container-app.bicep' = {
@@ -555,11 +586,15 @@ We start by creating an app to use `./kafka-topics.sh`, `./kafka-console-produce
     }
     ```
 
-    deploy the template with `azd up`
+    Deploy the template with `azd up`.
+
+    ```bash
+    azd up
+    ```
 
     ----
 
-1. Run CLI exec command to connect to the test app
+1. Run the CLI `exec` command to connect to the test app.
 
     # [Bash](#tab/bash)
 
@@ -572,7 +607,9 @@ We start by creating an app to use `./kafka-topics.sh`, `./kafka-console-produce
 
     # [Bicep](#tab/bicep)
 
-    The previous bicep example includes an output a second for the command to exec into the app. For example:
+    The previous Bicep example includes output that shows you how to run the app.
+
+    For example:
 
     ```bash
     [
@@ -581,7 +618,7 @@ We start by creating an app to use `./kafka-topics.sh`, `./kafka-console-produce
     ]
     ```
 
-    If you don't have the command, you can get the app name to exec using the CLI
+    If you don't have the command, you can use the app name to run the application using the `exec` command.
 
     ```bash
     az containerapp exec \
@@ -601,7 +638,7 @@ We start by creating an app to use `./kafka-topics.sh`, `./kafka-console-produce
 
     ----
 
-    Using `--bind` or `serviceBinds` on the test app injects all the connection information into the application environment. Once you connect to the test container, you can inspect the values using 
+    When you use `--bind` or `serviceBinds` on the test app, the connection information is injected into the application environment. Once you connect to the test container, you can inspect the values using the `env` command.
 
     ```bash
     env | grep "^KAFKA_"
@@ -621,9 +658,9 @@ We start by creating an app to use `./kafka-topics.sh`, `./kafka-console-produce
     KAFKA_SASLMECHANISM=PLAIN
     ```
 
-1. Us `kafka-topics.sh` to create a topic
+1. Use `kafka-topics.sh` to create an event topic.
 
-    First create a `kafka.props` file
+    Create a `kafka.props` file.
 
     ```bash
     echo "security.protocol=$KAFKA_SECURITY_PROTOCOL" >> kafka.props && \
@@ -631,7 +668,7 @@ We start by creating an app to use `./kafka-topics.sh`, `./kafka-console-produce
     echo "sasl.jaas.config=$KAFKA_PROPERTIES_SASL_JAAS_CONFIG" >> kafka.props
     ```
 
-    Create a `quickstart-events` topic
+    Create a `quickstart-events` event topic.
 
     ```bash
     /opt/kafka/bin/kafka-topics.sh \
@@ -648,7 +685,7 @@ We start by creating an app to use `./kafka-topics.sh`, `./kafka-console-produce
     # Topic: quickstart-events	Partition: 0	Leader: 1	Replicas: 1	Isr: 1
     ```
 
-1. Use `kafka-console-producer.sh` to write some events to the topic
+1. Use `kafka-console-producer.sh` to write events to the topic.
 
     ```bash
     /opt/kafka/bin/kafka-console-producer.sh \
@@ -663,9 +700,9 @@ We start by creating an app to use `./kafka-topics.sh`, `./kafka-console-produce
     ```
 
     > [!NOTE]
-    > The `./kafka-console-producer.sh` command will prompt you to write events with `>`. Write some events as shown, then hit `CTRL-C` any time to finish.
+    > The `./kafka-console-producer.sh` command prompts you to write events with `>`. Write some events as shown, then hit `CTRL-C` to exit.
 
-1. Use `kafka-console-consumer.sh` to read events from the topic
+1. Use `kafka-console-consumer.sh` to read events from the topic.
 
     ```bash
     /opt/kafka/bin/kafka-console-consumer.sh \
@@ -683,7 +720,9 @@ We start by creating an app to use `./kafka-topics.sh`, `./kafka-console-produce
 
 ## Using a dev service with an existing app
 
-If you already have an app that uses Apache Kafka, you can update where the app reads the connection information to Kafka to use the following environment variables
+If you already have an app that uses Apache Kafka, you can change how connection information is loaded.
+
+First, create the following environment variables.
 
 ```bash
 KAFKA_HOME=/opt/kafka
@@ -696,15 +735,15 @@ KAFKA_SASL_PASSWORD=7dw...
 KAFKA_SASL_MECHANISM=PLAIN
 ```
 
-Then using the CLI (or bicep) you can update the app to add a `--bind $KAFKA_SVC` to use the created dev service.
+Using the CLI (or Bicep) you can update the app to add `--bind $KAFKA_SVC` to use the dev service.
 
-## Deploying `kafka-ui` and binding it to the Kafka service
+## Binding to the dev service
 
-For example, we can deploy [kafka-ui](https://github.com/provectus/kafka-ui) to view and manage the Kafka instance we have.
+Deploy [kafka-ui](https://github.com/provectus/kafka-ui) to view and manage the Kafka instance.
 
 # [Bash](#tab/bash)
 
-See Bicep or `azd` example
+See Bicep or `azd` example.
 
 # [Bicep](#tab/bicep)
 
@@ -755,11 +794,11 @@ resource kafkaUi 'Microsoft.App/containerApps@2023-04-01-preview' = {
 output kafkaUiUrl string = 'https://${kafkaUi.properties.configuration.ingress.fqdn}'
 ```
 
-and visit the url printed url
+The Bicep command returns a URL. Copy this URL to your browser to visit the deployed site.
 
 # [azd](#tab/azd)
 
-Update `./infra/main.bicep` with the following
+Update `./infra/main.bicep` with the following values.
 
 ```bicep
 module kafkaUi './core/host/container-app.bicep' = {
@@ -790,15 +829,25 @@ module kafkaUi './core/host/container-app.bicep' = {
 }
 ```
 
-then deploy the template with `azd up`
+Deploy the template with `azd up`.
+
+```bash
+azd up
+```
 
 ---
 
 :::image type="content" source="media/tutorial-dev-services-kafka/azure-container-apps-kafka-ui-data.png" alt-text="Screenshot of pgweb Container App connecting to PostgreSQL service.":::
 
-## Final Bicep template for deploying all resources
+## Deploy all resources
 
-The following bicep template contains all the resources in this tutorial. You can create a `postgres-dev.bicep` file with this content
+Use the following examples to if you want to deploy all resources at once.
+
+### Bicep
+
+The following Bicep template contains all the resources in this tutorial.
+
+You can create a `postgres-dev.bicep` file with this content.
 
 ```bicep
 targetScope = 'resourceGroup'
@@ -921,7 +970,7 @@ output kafkaCliExec string = 'az containerapp exec -n ${kafkaCli.name} -g ${reso
 output kafkaLogs string = 'az containerapp logs show -n ${kafka.name} -g ${resourceGroup().name} --follow --tail 30'
 ```
 
-Then use the Azure CLI to deploy it
+Use the Azure CLI to deploy it the template.
 
 ```bash
 RESOURCE_GROUP="kafka-dev"
@@ -936,9 +985,11 @@ az deployment group create -g $RESOURCE_GROUP \
     --template-file kafka-dev.bicep
 ```
 
-## Final `azd` template for all resource
+### Azure Developer CLI
 
-A final template can be found [here](https://github.com/ahmelsayed/aca-dev-service-kafka-azd). To deploy it, run the following commands
+A [final template](https://github.com/ahmelsayed/aca-dev-service-kafka-azd) is available on GitHub.
+
+Use `azd up` to deploy the template.
 
 ```bash
 git clone https://github.com/Azure-Samples/aca-dev-service-kafka-azd

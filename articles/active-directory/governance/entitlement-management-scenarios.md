@@ -49,16 +49,16 @@ There are several ways that you can configure entitlement management for your or
 
 ### Administrator: Assign employees access automatically (preview)
 
-1. [Create a new access package](entitlement-management-access-package-create.md#start-new-access-package)
-1. [Add groups, Teams, applications, or SharePoint sites to access package](entitlement-management-access-package-create.md#resource-roles)
+1. [Create a new access package](entitlement-management-access-package-create.md#start-the-creation-process)
+1. [Add groups, Teams, applications, or SharePoint sites to access package](entitlement-management-access-package-create.md#select-resource-roles)
 1. [Add an automatic assignment policy](entitlement-management-access-package-auto-assignment-policy.md)
 
 ### Access package manager: Allow employees in your organization to request access to resources
 
-1. [Create a new access package](entitlement-management-access-package-create.md#start-new-access-package)
-1. [Add groups, Teams, applications, or SharePoint sites to access package](entitlement-management-access-package-create.md#resource-roles)
-1. [Add a request policy to allow users in your directory to request access](entitlement-management-access-package-create.md#for-users-in-your-directory)
-1. [Specify expiration settings](entitlement-management-access-package-create.md#lifecycle)
+1. [Create a new access package](entitlement-management-access-package-create.md#start-the-creation-process)
+1. [Add groups, Teams, applications, or SharePoint sites to access package](entitlement-management-access-package-create.md#select-resource-roles)
+1. [Add a request policy to allow users in your directory to request access](entitlement-management-access-package-create.md#allow-users-in-your-directory-to-request-the-access-package)
+1. [Specify expiration settings](entitlement-management-access-package-create.md#specify-a-lifecycle)
 
 ### Requestor: Request access to resources
 
@@ -86,10 +86,10 @@ There are several ways that you can configure entitlement management for your or
 
 ### Access package manager: Collaborate with an external partner organization
 
-1. [Create a new access package](entitlement-management-access-package-create.md#start-new-access-package)
+1. [Create a new access package](entitlement-management-access-package-create.md#start-the-creation-process)
 1. [Add groups, Teams, applications, or SharePoint sites to access package](entitlement-management-access-package-resources.md#add-resource-roles)
 1. [Add a request policy to allow users not in your directory to request access](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
-1. [Specify expiration settings](entitlement-management-access-package-create.md#lifecycle)
+1. [Specify expiration settings](entitlement-management-access-package-create.md#specify-a-lifecycle)
 1. [Copy the link to request the access package](entitlement-management-access-package-settings.md)
 1. Send the link to your external partner contact partner to share with their users
 
@@ -111,6 +111,10 @@ There are several ways that you can configure entitlement management for your or
 
 ## Day-to-day management
 
+### Administrator: View the connected organziations that are proposed and configured
+
+1. [View the list of connected organizations](entitlement-management-organization.md)
+
 ### Access package manager: Update the resources for a project
 
 1. [Watch video: Day-to-day management: Things have changed](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
@@ -122,7 +126,7 @@ There are several ways that you can configure entitlement management for your or
 1. [Watch video: Day-to-day management: Things have changed](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
 1. Open the access package
 1. [Open the lifecycle settings](entitlement-management-access-package-lifecycle-policy.md#open-lifecycle-settings)
-1. [Update the expiration settings](entitlement-management-access-package-lifecycle-policy.md#lifecycle) 
+1. [Update the expiration settings](entitlement-management-access-package-lifecycle-policy.md#specify-a-lifecycle) 
 
 ### Access package manager: Update how access is approved for a project
 
@@ -157,7 +161,7 @@ There are several ways that you can configure entitlement management for your or
 
 ## Programmatic administration
 
-You can also manage access packages, catalogs, policies, requests and assignments using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can call the [entitlement management API](/graph/tutorial-access-package-api).  An application with those application permissions can also use many of those API functions, with the exception of managing resources in catalogs and access packages. And an application which only needs to operate within specific catalogs can be added to the **Catalog owner** or **Catalog reader** roles of a catalog to be authorized to update or read within that catalog.
+You can also manage access packages, catalogs, policies, requests and assignments using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can call the [entitlement management API](/graph/tutorial-access-package-api).  An application with those application permissions can also use many of those API functions, with the exception of managing resources in catalogs and access packages. And an application that only needs to operate within specific catalogs can be added to the **Catalog owner** or **Catalog reader** roles of a catalog to be authorized to update or read within that catalog.
 
 ## Next steps
 

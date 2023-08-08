@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 06/12/2023
 ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -43,6 +43,8 @@ Groups created in | Security group default behavior | Microsoft 365 group defaul
 
 ## Make a group available for user self-service
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's been assigned the Global Administrator or Groups Administrator role for the directory.
 
 2. Browse to **Azure Active Directory** > **Groups**, and then select **General** settings.
@@ -52,6 +54,7 @@ Groups created in | Security group default behavior | Microsoft 365 group defaul
    > In November 2023, the setting **Restrict users access to My Groups** will change to **Restrict users ability to see and edit security groups in My Groups.** If the setting is currently set to ‘Yes,’ end users will be able to access My Groups in November 2023, but will not be able to see security groups.
 
 3. Set **Owners can manage group membership requests in the Access Panel** to **Yes**.
+
 
 4. Set **Restrict user ability to access groups features in the Access Panel** to **No**.
 
@@ -106,6 +109,3 @@ These articles provide additional information on Azure Active Directory.
 * [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md)
 * [Integrate your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
-
-
-

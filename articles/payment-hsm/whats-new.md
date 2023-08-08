@@ -5,7 +5,7 @@ ms.service: payment-hsm
 author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: tutorial
-ms.custom: devx-track-azurepowershell, devx-track-arm-template
+ms.custom:
 ms.date: 05/25/2023
 ---
 
