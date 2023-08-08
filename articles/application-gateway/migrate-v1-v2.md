@@ -40,7 +40,7 @@ This article primarily helps with the configuration migration. Client traffic mi
 >Run the `Set-AzContext -Subscription <V1 application gateway SubscriptionId>` cmdlet every time before running the migration script. This is necessary to set the active Azure context to the correct subscription, because the migration script might clean up the existing resource group if it doesn't exist in current subscription context.
 
 > [!IMPORTANT]
->The stable version of this script is version 1.0.11, which contains critical bug fixes and is the recommended version
+>The stable version of this script is version 1.0.11, which contains critical bug fixes .It is recommended to use this version to avoid potential issues.
 
 ## Configuration migration 
 
