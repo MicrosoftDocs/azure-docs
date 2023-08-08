@@ -196,8 +196,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-desktop/windows-multisession-faq.yml",
-            "redirect_url": "/azure/virtual-desktop/windows-10-multisession-faq",
+            "source_path_from_root": "/articles/virtual-desktop/windows-10-multisession-faq.yml",
+            "redirect_url": "/azure/virtual-desktop/windows-multisession-faq",
             "redirect_document_id": true
         }
     ]
