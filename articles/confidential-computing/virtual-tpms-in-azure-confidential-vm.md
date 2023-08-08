@@ -26,4 +26,4 @@ The hardware report can be used to verify that the Confidential VM is running as
 
 TPMs have platform configuration registers (PCRs) that can be used to cryptographically measure the software state to ensure that nothing has been tampered with or misused. PCRs are used to store the measurements of various boot artifacts to help with the [measured boot process](/azure/security/fundamentals/measured-boot-host-attestation). PCRs can also be used to measure applications, disk integrity measurements and other components. Additionally, PCRs can be used to enforce security policies such as application and code integrity (CI) policies to ensure the system remains compliant with the desired policies. 
 
-To utilize vTPMs in confidential VMs further, see [How to leverage vTPMs in confidential VMs](how-to-leverage-virtual-tpms-in-confidential-vms.md).
+To utilize vTPMs in confidential VMs further, see [How to leverage vTPMs in confidential VMs](how-to-leverage-virtual-tpms-in-azure-confidential-vms.md).
