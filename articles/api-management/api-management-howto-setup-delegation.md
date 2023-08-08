@@ -209,6 +209,6 @@ var signature = digest.toString('base64');
 [create a user]: /rest/api/apimanagement/current-ga/user/create-or-update
 [calling the REST API for subscriptions]: /rest/api/apimanagement/current-ga/subscription/create-or-update
 [Next steps]: #next-steps
-[example code]: #delegate-example-code
+[example code]: #example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
