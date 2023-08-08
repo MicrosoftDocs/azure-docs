@@ -8,10 +8,10 @@
     items: 
     - name: FHIR service
       tocHref: /azure/healthcare-apis/fhir/
-      topicHref: /azure/healthcare-apis/overview
+      topicHref: /azure/healthcare-apis/fhir/overview
     - name: DICOM service
       tocHref: /azure/healthcare-apis/DICOM/
-      topicHref: /azure/healthcare-apis/dicom-services-overview
+      topicHref: /azure/healthcare-apis/DICOM/dicom-services-overview
     - name: MedTech service
       tocHref: /azure/healthcare-apis/iot/
       topicHref: /azure/healthcare-apis/iot/overview
