@@ -187,7 +187,7 @@ The following table represents the final state of the defaultRouteTable after ro
 | Route Name | Prefixes | Next Hop Resource|
 |--|--|--|
 | _policy_PrivateTraffic | 10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12| Azure Firewall |
-| | _policy_PublicTraffic| 0.0.0.0/0| Azure Firewall |
+| _policy_PublicTraffic| 0.0.0.0/0| Azure Firewall |
 | firewall_route_2 | 10.0.0.0/24 | Azure Firewall|
 | firewall_route_3 | 40.0.0.0/24| Azure Firewall|
 
