@@ -23,7 +23,7 @@ Pure Cloud Block Store, offered by Pure Storage, is one such solution. It helps 
 
 Pure Storage manages onboarding for Pure Cloud Block Store for Azure VMware Solution (preview). You can join the preview by emailing avs@purestorage.com. Reach out to Pure Storage for customer support.
 
-See the following resources for more information: 
+For more information, see the following resources: 
 
 - [Azure VMware Solution + CBS Implementation Guide](https://support.purestorage.com/Pure_Cloud_Block_Store/Azure_VMware_Solution_and_Cloud_Block_Store_Implementation_Guide)
 - [CBS Deployment Guide](https://support.purestorage.com/Pure_Cloud_Block_Store/Pure_Cloud_Block_Store_on_Azure_Implementation_Guide)
