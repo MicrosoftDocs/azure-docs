@@ -20,7 +20,8 @@ The Microsoft Sentinel solution for Power Platform allows you to monitor and det
 - Update or removal of Microsoft Power Platform data loss prevention policies
 
 > [!IMPORTANT]
-> The Microsoft Sentinel solution for Power Platform is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> - The Microsoft Sentinel solution for Power Platform is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> - The solution is a premium offering. Pricing information will be available before the solution becomes generally available.
 
 ## Why you should install the solution
 

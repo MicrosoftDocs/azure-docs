@@ -14,7 +14,8 @@ ms.date: 07/19/2023
 The Microsoft Sentinel solution for Power Platform allows you to monitor and detect suspicious or malicious activities in your Power Platform environment. The solution collects activity logs from different Power Platform components and inventory data. For more information, see [Microsoft Sentinel solution for Microsoft Power Platform overview](power-platform-solution-overview.md).
  
 > [!IMPORTANT]
-> The Microsoft Sentinel solution for Power Platform is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> - The Microsoft Sentinel solution for Power Platform is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> - The solution is a premium offering. Pricing information will be available before the solution becomes generally available.
 
 ## Prerequisites
 
@@ -75,13 +76,13 @@ Connect each of the remaining data connectors by completing the following steps.
    - **Microsoft Power Platform DLP**
    - **Microsoft Dataverse**
 
-## Enable auditing in your Power Platform environment
+## Enable auditing in your Microsoft Dataverse environment
 
-Enable auditing at the global level for Power Platform and for each dataverse entity.
+Enable auditing at the global level for Dataverse and for each Dataverse entity.
 
 ### Audit at the global level
 
-In your Power Platform environment, go to **Settings** > **Audit settings**. Under **Auditing**, select all three checkboxes.
+In your Dataverse environment, go to **Settings** > **Audit settings**. Under **Auditing**, select all three checkboxes.
 
 - **Start auditing**
 - **Log access**
@@ -89,13 +90,13 @@ In your Power Platform environment, go to **Settings** > **Audit settings**. Und
 
 For more information about these steps, see [Manage Dataverse auditing](/power-platform/admin/manage-dataverse-auditing#startstop-auditing-for-an-environment-and-set-retention-policy).
 
-### Audit dataverse entities
+### Audit Dataverse entities
 
-Enable detailed auditing on each of the dataverse entities. Do this automatically by importing a Power Platform managed solution or manually by enabling details auditing on each of the entities.
+Enable detailed auditing on each of the Dataverse entities. To enable auditing on default entities, import a Power Platform managed solution. To enable auditing on custom entities, you must manually enable detailed auditing on each of the custom entities.
 
-#### Automatically enable entity auditing
+#### Automatically enable auditing on default entities
 
-The quickest way to enable audit settings for all dataverse entities is to import the appropriate Power Platform managed solution in your Power Platform environment. This managed solution enables detailed auditing for each of the entities listed in the following file: [https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5eo4g](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5eo4g).
+The quickest way to enable default audit settings for all Dataverse entities is to import the appropriate Power Platform managed solution in your Power Platform environment. This managed solution enables detailed auditing for each of the default entities listed in the following file: [https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5eo4g](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5eo4g). To enable auditing on custom entities, you must manually enable detailed auditing on each of the custom entities.
 
 To automatically enable entity auditing, complete the following steps.
 
@@ -109,7 +110,7 @@ To automatically enable entity auditing, complete the following steps.
 
 #### Manually enable entity auditing
 
-To enable auditing on each dataverse entity manually, follow the steps in the section **Enable or disable entities and fields for auditing** in [Manage Dataverse auditing](/power-platform/admin/manage-dataverse-auditing#enable-or-disable-entities-and-fields-for-auditing).
+To enable auditing on each dataverse entity manually including custom entities, follow the steps in the section **Enable or disable entities and fields for auditing** in [Manage Dataverse auditing](/power-platform/admin/manage-dataverse-auditing#enable-or-disable-entities-and-fields-for-auditing).
 
 ## Verify that the data connector is ingesting logs to Microsoft Sentinel
 
