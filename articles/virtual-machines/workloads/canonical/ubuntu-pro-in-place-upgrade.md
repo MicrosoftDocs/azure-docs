@@ -93,17 +93,17 @@ az vm get-instance-view -g MyResourceGroup -n MyVm
 From within the virtual machine itself, you can query the attested metadata in Azure Instance Metadata Service to determine the virtual machine's licenseType value. A licenseType value of UBUNTU_PRO indicates that your virtual machine has Ubuntu Pro enabled. [Learn more about attested metadata](../../instance-metadata-service.md).
 
 ## Billing
-Note that you are charged for Ubuntu Pro as part of the Preview. Visit the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) for more details on Ubuntu Pro pricing. To cancel the Pro subscription during the preview period, open a support ticket through the Azure portal.
+You are charged for Ubuntu Pro as part of the Preview. Visit the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) for more details on Ubuntu Pro pricing. To cancel the Pro subscription during the preview period, open a support ticket through the Azure portal.
 
 ## Frequently Asked Questions
 
 #### I launched an Ubuntu Pro VM. Do I need to configure it or enable something else
-With the availability of outbound internet access, Ubuntu Pro automatically will enable premium features such as Extended Security Maintenance for [Main and Universe repositories](https://help.ubuntu.com/community/Repositories) and [livepatch](https://ubuntu.com/security/livepatch/docs). Should any specific hardening (for example CIS etc) check the using usg to [harden your servers](https://ubuntu.com/tutorials/comply-with-cis-or-disa-stig-on-ubuntu#1-overview) tutorial. Should you require FIPS, check enabling FIPS tutorials.
+With the availability of outbound internet access, Ubuntu Pro automatically enables premium features such as Extended Security Maintenance for [Main and Universe repositories](https://help.ubuntu.com/community/Repositories) and [livepatch](https://ubuntu.com/security/livepatch/docs). Should any specific hardening (for example CIS etc) check the using usg to [harden your servers](https://ubuntu.com/tutorials/comply-with-cis-or-disa-stig-on-ubuntu#1-overview) tutorial. Should you require FIPS, check enabling FIPS tutorials.
 
 For more information about networking requirements for making sure Pro enablement process works (such as egress traffic, endpoints and ports) [check this documentation](https://canonical-ubuntu-pro-client.readthedocs-hosted.com/en/latest/references/network_requirements.html).
 
-#### If I shut down the machine, does the billing continue?
-If you launch Ubuntu Pro from Azure Marketplace you will only pay as you go, so, if you don’t have any machine running, you won’t pay any additional fee.
+#### If I shut down the machine, does the billing continue
+If you launch Ubuntu Pro from Azure Marketplace you pay as you go, so, if you don’t have any machine running, you won’t pay anything additional.
 
 #### Can I get volume discounts?
 Yes. Contact your Microsoft sales representative.
@@ -111,7 +111,7 @@ Yes. Contact your Microsoft sales representative.
 #### Are Reserved Instances available?
 Yes
 
-#### If the customer doesn't do the auto-attach they will still get attached pro on reboot?
-If the customer doesn't perform the auto attach, they will still get the Pro attached upon reboot. However, this applies only if they have v28 of the Pro client.
-* For Jammy and Focal, this process will work as expected.
-* For Bionic and Xenial, unfortunately, this process won't work out of the box, due to the older versions of the Pro client they come with.
+#### If the customer doesn't do the auto attach will they still get attached to pro on reboot
+If the customer doesn't perform the auto attach, they still get the Pro attached upon reboot. However, this applies only if they have v28 of the Pro client.
+* For Jammy and Focal, this process works as expected.
+* For Bionic and Xenial this process doesn't work due to the older versions of the Pro client installed.
