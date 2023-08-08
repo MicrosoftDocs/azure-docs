@@ -210,6 +210,10 @@ items:
           items:
           - name: Node.js OpenTelemetry exporter
             href: app/opentelemetry-nodejs-exporter.md
+        - name: Python (supplemental)
+          items:
+          - name: Migrate from Opencensus
+            href: app/opentelemetry-python-opencensus-migrate.md
         - name: FAQ
           href: /azure/azure-monitor/faq#opentelemetry
       - name: Create a resource
@@ -238,7 +242,7 @@ items:
           href: app/availability-private-test.md
         - name: TrackAvailability()
           href: app/availability-azure-functions.md
-          displayName: availability,azure functions,TrackAvailability(), timer function, azure gov, azure china, custom test, customized tests, contentmatch
+          displayName: availability,azure functions,TrackAvailability(), timer function, azure gov, Microsoft Azure operated by 21Vianet, custom test, customized tests, contentmatch
         - name: Availability alerts
           displayName: alerts, global, alerting
           href: app/availability-alerts.md
@@ -986,6 +990,14 @@ items:
           items:
           - name: Create a Log Analytics workspace
             href: logs/quick-create-workspace.md
+          - name: Move, delete, or recover a Log Analytics workspace
+            items:
+              - name: Move a workspace
+                href: logs/move-workspace.md
+              - name: Move a workspace across regions
+                href: logs/move-workspace-region.md
+              - name: Delete and recover a workspace
+                href: logs/delete-workspace.md  
           - name: Manage access
             displayName: Manage access to a Log Analytics workspace
             href: logs/manage-access.md
@@ -1007,7 +1019,7 @@ items:
             href: logs/basic-logs-configure.md
         - name: Archive and restore
           items:
-          - name: Set retention and archive policy
+          - name: Data retention and archive
             href: logs/data-retention-archive.md
             displayName: Log retention, log archive, cost optimization
           - name: Run a search job
@@ -1037,14 +1049,6 @@ items:
             href: logs/data-ingestion-time.md
           - name: Analyze usage and cost
             href: logs/analyze-usage.md   
-        - name: Move and delete
-          items:
-          - name: Move a workspace
-            href: logs/move-workspace.md
-          - name: Move a workspace across regions
-            href: logs/move-workspace-region.md
-          - name: Delete and recover a workspace
-            href: logs/delete-workspace.md  
     - name: Data security
       items:
         - name: Roles permissions and security

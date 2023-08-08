@@ -18,11 +18,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## Version 1.33 - August 2023
 
-Download for [Windows](https://download.microsoft.com/download/e/e/f/eefc5e99-f0f9-47ed-a305-68b1ab847f99/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
-
-### Known issue
-
-Running [azcmagent show](azcmagent-show.md) as a standard user will launch a User Access Control prompt and run the command in a new window. To see the correct output, run the command in a console with administrative privileges instead.
+Download for [Windows](https://download.microsoft.com/download/0/c/7/0c7a484b-e29e-42f9-b3e9-db431df2e904/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Fixed
 
