@@ -52,80 +52,137 @@
 - name: How do I get it? # HOW?
   expanded: true
   items:
-     - name: Infrastructure as a Service (IaaS) Quickstarts # clear deliniation for me, IaaS is where you control the OS, PaaS is where you don't
-       expanded: true
-       items:
-            - name: Confidential Virtual Machine (CVM)
-              expanded: true
-              items: # following files are the proposed new format, deploy, prove, explain - need to agree on naming convention: 'quickstart-($product)-(deploy|prove|explain).md'?
-                - name: 1. Deploy it # Will likely need a fork here for AMD vs. Intel
-                  href: TODO.md
-                - name: 2. Prove it
-                  href: TODO.md
-                - name: 3. Explain it
-                  href: TODO.md
-            - name: Application Enclave using Intel SGX Virtual Machines 
-              href: virtual-machine-solutions-sgx.md # existing, need to update to reflect new format
-            - name: Confidential AKS Worker Node
-              href: confidential-node-pool-aks.md # need to explain this is adding to an existing AKS cluster, page xlins to AKS docs for dialtone cluster creation etc.
-            - name: Confidential Pods (PREVIEW)
-              href: TODO.md
-            - name: Confidential Azure Container Instance (ACI)
-              href: confidential-containers.md#vm-isolated-confidential-containers-on-azure-container-instances-aci---public-preview # need to reflect that this now GA
-     - name: Platform as a Service (PaaS) Quickstarts
-       expanded: true
-       items:
-        - name: SQL Always Encrypted with Secure Enclaves # x-link to SQL docs
-          href: https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/configure-always-encrypted-enclaves?view=sql-server-ver16
-        - name: SQL on Confidential Virtual Machines
-          href: https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-vm-create-confidential-vm-how-to?view=azuresql-vm
-        - name: Confidential Azure Data Explorer (PREVIEW)
-          href: TODO.md # closest is https://techcommunity.microsoft.com/t5/azure-confidential-computing/confidential-vm-option-for-azure-databricks-preview/ba-p/3827982 or https://learn.microsoft.com/en-us/azure/data-explorer/manage-cluster-choose-sku
-        - name: Confidential Databricks (PREVIEW)
-          href: https://learn.microsoft.com/en-us/azure/data-explorer/manage-cluster-choose-sku ## check rel-path
-        - name: Azure Virtual Desktop (AVD) Confidential Desktop
-          href: https://learn.microsoft.com/en-us/azure/confidential-computing/quick-create-confidential-vm-portal-amd # x-link to AVD docs
-        - name: Azure Confidential Ledger
-          href: ../confidential-ledger/overview.md
-        - name: Confidential Consortium Framework (CCF)
-          href: ../confidential-consortium-framework/overview.md
-     - name: Machine Learning (ML-AI) Quickstarts
-       expanded: true
-       items:
-        - name: Azure Machine Learning (AML) and Confidential Computing
-          href: https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-ai#acc-platform-offerings-that-help-enable-confidential-ainfidential-vm-portal-amd.md
-        - name: Confidential Machine Learning (CML) using Intel SGX # depricate, or mention (via partner solutions & link to partner section of docs?
-          href: https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-ai#acc-partner-solutions-that-enable-confidential-ai
-- name: Partner Solutions #updated from main branch
-  items:
-  - name: Overview
-    href: partner-pages/partner-pages-index.md
-  - name: Anjuna
-    href: partner-pages/anjuna.md
-  - name: BeeKeeperAI
-    href: partner-pages/beekeeperai.md
-  - name: Decentriq
-    href: partner-pages/decentriq.md
-  - name: Edgeless
-    href: partner-pages/edgeless.md
-  - name: Enclaive
-    href: partner-pages/enclaive.md
-  - name: Fortanix
+  - name: Building confidential computing solutions
+    href: confidential-computing-solutions.md
+  - name: Deploying solutions on confidential computing
+    href: confidential-computing-deployment-models.md
+  - name: Attestation
+    href: attestation-solutions.md
+  - name: Data cleanroom solutions on confidential computing
+    href: multi-party-data.md
+  - name: Confidential AI solutions
+    href: confidential-ai.md
+  - name: Confidential virtual machines
     items:
-    - name: About Fortanix
-      href: partner-pages/fortanix.md
-    - name: Fortanix Confidential Computing Manager
-      href: how-to-fortanix-confidential-computing-manager.md
-    - name: Fortanix Confidential Computing Manager Node Agent
-      href: how-to-fortanix-confidential-computing-manager-node-agent.md
-  - name: Habu
-    href: partner-pages/habu.md
-  - name: Mithril Security
-    href: partner-pages/mithril.md
-  - name: Opaque
-    href: partner-pages/opaque.md
-  - name: Scone
-    href: partner-pages/scone.md
+    - name: About confidential VMs
+      href: confidential-vm-overview.md
+    - name: FAQ for AMD confidential VMs
+      href: confidential-vm-faq-amd.yml
+    - name: AMD processor options for confidential VMs
+      href: virtual-machine-solutions-amd.md
+    - name: Guest attestation for confidential VMs
+      href: guest-attestation-confidential-vms.md
+    - name: Microsoft Defender for Cloud integration
+      href: guest-attestation-defender-for-cloud.md
+    - name: References
+      items:
+      - name: DCasv5 and DCadsv5-series
+        href: ../virtual-machines/dcasv5-dcadsv5-series.md
+      - name: ECasv5 and ECadsv5-series
+        href: ../virtual-machines/ecasv5-ecadsv5-series.md
+      - name: Pricing
+        href: https://azure.microsoft.com/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2
+      - name: Regions
+        href: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machine
+  - name: Virtual Machines with App Enclaves
+    items:
+    - name: App enclaves overview
+      href: application-development.md
+    - name: Developing enclave applications 
+      items:
+      - name: Enclave development overview
+        href: confidential-computing-enclaves.md
+      - name: Attesting application enclaves
+        href: attestation.md
+      - name: Open-source projects for development
+        href: enclave-development-oss.md
+      - name: Deploying Intel SGX virtual machines
+        href: virtual-machine-solutions-sgx.md
+      - name: Application enclave VM FAQ
+        href: faq-application-enclaves.yml 
+  - name: Container compute
+    items:  
+    - name: Container solutions overview
+      href: choose-confidential-containers-offerings.md 
+    - name: Application enclave nodes on AKS
+      items:
+      - name: Application enclave with Intel SGX DCSv2/DCsv3 nodes 
+        href: confidential-nodes-aks-overview.md
+      - name: Deploy application enclave nodes on AKS
+        href: confidential-enclave-nodes-aks-get-started.md
+      - name: Enclave-aware containers
+        href: enclave-aware-containers.md
+      - name: AKS Add-on
+        href: confidential-nodes-aks-addon.md
+      - name: Confidential enclave nodes FAQ
+        href: confidential-nodes-aks-faq.yml
+    - name: Confidential containers
+      items:
+      - name: Confidential containers overview
+        href: confidential-containers.md
+      - name: Confidential containers with Azure Container Instances (ACI)
+        href: confidential-containers.md#vm-isolated-confidential-containers-on-azure-container-instances-aci---public-preview
+      - name: Confidential containers with Intel SGX enclaves
+        href: confidential-containers-enclaves.md
+    - name: Confidential node pools on AKS
+      items: 
+      - name: Confidential VM node pools in AKS
+        href: confidential-node-pool-aks.md
+- name: How To
+  expanded: true
+  items:
+  - name: Azure confidential VMs
+    items:
+    - name: Key rotation for Azure confidential VMs
+      href: key-rotation-offline.md
+    - name: Use sample app with guest attestation
+      href: guest-attestation-example.md
+    - name: Create a custom image for a confidential VM
+      href: how-to-create-custom-image-confidential-vm.md
+    - name: Image hardening techniques for deployment
+      items:
+      - name: Harden a Linux image to remove sudo users
+        href: harden-the-linux-image-to-remove-sudo-users.md
+    - name: Secure Key Release (SKR) with Azure Key Vault
+      items:
+      - name: SKR with Azure Confidential Computing Concept
+        href: concept-skr-attestation.md
+      - name: SKR with AMD SEV-SNP based Confidential VMs
+        href: skr-flow-confidential-vm-sev-snp.md
+      - name: SKR with Confidential containers on Azure Container Instance
+        href: skr-flow-confidential-containers-azure-container-instance.md
+      - name: SKR Policy Examples
+        href: skr-policy-examples.md
+  - name: Partner Solutions
+    items:
+    - name: Overview
+      href: partner-pages/partner-pages-index.md
+    - name: Anjuna
+      href: partner-pages/anjuna.md
+    - name: BeeKeeperAI
+      href: partner-pages/beekeeperai.md
+    - name: Decentriq
+      href: partner-pages/decentriq.md
+    - name: Edgeless
+      href: partner-pages/edgeless.md
+    - name: Enclaive
+      href: partner-pages/enclaive.md
+    - name: Fortanix
+      items:
+      - name: About Fortanix
+        href: partner-pages/fortanix.md
+      - name: Fortanix Confidential Computing Manager
+        href: how-to-fortanix-confidential-computing-manager.md
+      - name: Fortanix Confidential Computing Manager Node Agent
+        href: how-to-fortanix-confidential-computing-manager-node-agent.md
+    - name: Habu
+      href: partner-pages/habu.md
+    - name: Mithril Security
+      href: partner-pages/mithril.md
+    - name: Opaque
+      href: partner-pages/opaque.md
+    - name: Scone
+      href: partner-pages/scone.md
 - name: Resources
   items:
   - name: Join our Tech Community

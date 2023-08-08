@@ -116,7 +116,7 @@ Other products and features that may interact with Conditional Access policies r
 
 When licenses required for Conditional Access expire, policies aren't automatically disabled or deleted. This grants customers the ability to migrate away from Conditional Access policies without a sudden change in their security posture. Remaining policies can be viewed and deleted, but no longer updated. 
 
-[Security defaults](../fundamentals/concept-fundamentals-security-defaults.md) help protect against identity-related attacks and are available for all customers.  
+[Security defaults](../fundamentals/security-defaults.md) help protect against identity-related attacks and are available for all customers.  
 
 [!INCLUDE [active-directory-zero-trust](../../../includes/active-directory-zero-trust.md)]
 

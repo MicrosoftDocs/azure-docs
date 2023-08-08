@@ -49,7 +49,7 @@ To create a catalog:
 
 1. If you want the access packages in this catalog to be available for users to request as soon as they're created, set **Enabled** to **Yes**.
 
-1. If you want to allow users in selected external directories to be able to request access packages in this catalog, set **Enabled for external users** to **Yes**.
+1. If you want to allow users in external directories from connected organizations to be able to request access packages in this catalog, set **Enabled for external users** to **Yes**.  The access packages must also have a policy allowing users from connected organizations to request.  If the access packages in this catalog are intended only for users already in the directory, then set **Enabled for external users** to **No**.
 
     ![Screenshot that shows the New catalog pane.](./media/entitlement-management-shared/new-catalog.png)
 
@@ -65,12 +65,11 @@ You can create a catalog by using Microsoft Graph. A user in an appropriate role
 
 ### Create a catalog with PowerShell
 
-You can also create a catalog in PowerShell with the `New-MgEntitlementManagementAccessPackageCatalog` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.6.0 or later.
+You can also create a catalog in PowerShell with the `New-MgEntitlementManagementCatalog` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 2.2.0 or later.
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
-Select-MgProfile -Name "beta"
-$catalog = New-MgEntitlementManagementAccessPackageCatalog -DisplayName "Marketing"
+$catalog = New-MgEntitlementManagementCatalog -DisplayName "Marketing"
 ```
 
 ## Add resources to a catalog
@@ -131,7 +130,7 @@ To require attributes for access requests:
 
     ![Screenshot that shows selecting Require attributes](./media/entitlement-management-catalog-create/resources-require-attributes.png)
  
-1.	Select the attribute type:
+1. Select the attribute type:
 
     1. **Built-in** includes Azure AD user profile attributes.
     1. **Directory schema extension** provides a way to store more data in Azure AD on user objects and other directory objects. This includes groups, tenant details, and service principals. Only extension attributes on user objects can be used to send out claims to applications.
@@ -140,9 +139,9 @@ To require attributes for access requests:
     > [!NOTE]
     > The User.mobilePhone attribute is a sensitive property that can be updated only by some administrators. Learn more at [Who can update sensitive user attributes?](/graph/api/resources/users#who-can-update-sensitive-attributes).
 
-1.	Select the answer format you want requestors to use for their answer. Answer formats include **short text**, **multiple choice**, and **long text**.
+1. Select the answer format you want requestors to use for their answer. Answer formats include **short text**, **multiple choice**, and **long text**.
 
-1.	If you select multiple choice, select **Edit and localize** to configure the answer options. 
+1. If you select multiple choice, select **Edit and localize** to configure the answer options. 
     1. In the **View/edit question** pane that appears, enter the response options you want to give the requestor when they answer the question in the **Answer values** boxes.
     1. Select the language for the response option. You can localize response options if you choose more languages.
     1. Enter as many responses as you need, and then select **Save**.
@@ -156,7 +155,7 @@ To require attributes for access requests:
  
     ![Screenshot that shows adding localizations.](./media/entitlement-management-catalog-create/add-attributes-questions.png)
 
-1.	If you want to add localization, select **Add localization**.
+1. If you want to add localization, select **Add localization**.
 
     1. In the **Add localizations for question** pane, select the language code for the language in which you want to localize the question related to the selected attribute.
     1. In the language you configured, enter the question in the **Localized Text** box.
@@ -164,7 +163,7 @@ To require attributes for access requests:
 
        ![Screenshot that shows saving the localizations.](./media/entitlement-management-catalog-create/attributes-add-localization.png)
 
-1.	After all attribute information is completed on the **Require attributes** page, select **Save**.
+1. After all attribute information is completed on the **Require attributes** page, select **Save**.
 
 ### Add a Multi-Geo SharePoint site
 
@@ -180,7 +179,7 @@ You can also add a resource to a catalog by using Microsoft Graph. A user in an 
 
 ### Add a resource to a catalog with PowerShell
 
-You can also add a resource to a catalog in PowerShell with the `New-MgEntitlementManagementAccessPackageResourceRequest` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.6.0 or later.  The following example shows how to add a group to a catalog as a resource.
+You can also add a resource to a catalog in PowerShell with the `New-MgEntitlementManagementAccessPackageResourceRequest` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.6.0 or a later 1.x.x module version, or Microsoft Graph PowerShell cmdlets beta module version 2.1.x or later beta module version.  The following example shows how to add a group to a catalog as a resource using Microsoft Graph beta and Microsoft Graph PowerShell cmdlets module version 1.x.x.
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All,Group.ReadWrite.All"

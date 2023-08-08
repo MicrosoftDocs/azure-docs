@@ -45,6 +45,8 @@ items:
           href: how-to-configure-user-properties.md
         - name: Customize tests with JMeter plugins
           href: how-to-use-jmeter-plugins.md
+        - name: Configure a CI/CD pipeline from Azure portal
+          href: how-to-configure-load-test-cicd.md
     - name: Run tests
       items:
         - name: Create a load test with a JMeter script
@@ -81,6 +83,8 @@ items:
           href: how-to-create-manage-test-runs.md
         - name: Move between regions
           href: how-to-move-between-regions.md
+        - name: Move across resource groups or subscriptions
+          href: how-to-move-between-resource-groups-subscriptions.md
         - name: Monitor Azure Load Testing
           href: monitor-load-testing.md
 

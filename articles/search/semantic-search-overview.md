@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/07/2023
+ms.date: 07/31/2023
 ms.custom: references_regions
 ---
 
@@ -17,7 +17,7 @@ ms.custom: references_regions
 > [!IMPORTANT]
 > Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. These features are billable (see [Availability and pricing](semantic-search-overview.md#availability-and-pricing)).
 
-Currently in Azure Cognitive Search, "semantic search" is a collection of query-related capabilities that bring semantic relevance and language understanding to textual search results. This article is a high-level introduction to semantic search. The [embedded video](#how-semantic-ranking-works) describes the technology, and the section at the end covers availability and pricing.
+Currently in Azure Cognitive Search, "semantic search" is a collection of query-related capabilities that returns more relevant results by applying language understanding to an initial search result. This article is a high-level introduction to semantic search. The [embedded video](#how-semantic-ranking-works) describes the technology, and the section at the end covers availability and pricing.
 
 Semantic search is a premium feature that's billed by usage. We recommend this article for background, but if you'd rather get started, follow these steps:
 
@@ -32,13 +32,13 @@ Semantic search is a premium feature that's billed by usage. We recommend this a
 
 ## What is semantic search?
 
-Semantic search is a collection of features that improve the quality of initial search results for text-based queries. When you enable it on your search service, semantic search extends the query execution pipeline in two ways: 
+Semantic search is a collection of features that improve the quality of an initial BM25-ranked search result for text-based queries. When you enable it on your search service, semantic search extends the query execution pipeline in two ways: 
 
-* First, it adds secondary ranking over an initial result set, promoting the most semantically relevant results to the top of the list. 
+* First, it adds secondary ranking over an initial result set that was scored using the BM25 algorithm, promoting the most semantically relevant results to the top of the list. 
 
 * Second, it extracts and returns captions and answers in the response, which you can render on a search page to improve the user's search experience.
 
-Although semantic search and vector search are closely related, this particular feature doesn't provide vector search.
+Although semantic search and vector search are closely related, this particular feature in Cognitive Search doesn't perform similarity search.
 
 | Feature | Description |
 |---------|-------------|
@@ -115,23 +115,35 @@ By default, semantic search is disabled on all services. To enable semantic sear
 
 Semantic Search's free plan is capped at 1,000 queries per month. After the first 1,000 queries in the free plan, you'll receive an error message letting you know you've exhausted your quota whenever you issue a semantic query. When this happens, you need to upgrade to the standard plan to continue using semantic search.
 
-Alternatively, you can also enable semantic search using the [Create or Update Service API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) that's described in the next section.
+Alternatively, you can also enable semantic search using the REST API that's described in the next section.
 
-## Disable semantic search
+## Enable semantic search using the REST API
+
+To enable Semantic Search using the REST API, you can use the [Create or Update Service API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch).
+
+> [!NOTE]
+> Create or Update supports two HTTP methods: PUT and PATCH. Both PUT and PATCH can be used to update existing services, but only PUT can be used to create a new service. If PUT is used to update an existing service, it replaces all properties in the service with their defaults if they are not specified in the request. When PATCH is used to update an existing service, it only replaces properties that are specified in the request. When using PUT to update an existing service, it's possible to accidentally introduce an unexpected scaling or configuration change. When enabling semantic search on an existing service, it's recommended to use PATCH instead of PUT.
+
+* Management REST API version 2021-04-01-Preview provides the semantic search property
+
+* Owner or Contributor permissions are required to enable or disable features
+
+```
+PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+    {
+      "properties": {
+        "semanticSearch": "standard"
+      }
+    }
+```
+
+## Disable semantic search using the REST API
 
 To reverse feature enablement, or for full protection against accidental usage and charges, you can [disable semantic search](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) using the Create or Update Service API on your search service. After the feature is disabled, any requests that include the semantic query type will be rejected.
 
-* Management REST API version 2021-04-01-Preview provides this option
-
-* Owner or Contributor permissions are required to disable features
-
 ```http
-PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
+PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
     {
-      "location": "{{region}}",
-      "sku": {
-        "name": "standard"
-      },
       "properties": {
         "semanticSearch": "disabled"
       }

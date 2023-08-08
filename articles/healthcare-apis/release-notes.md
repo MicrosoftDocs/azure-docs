@@ -6,7 +6,7 @@ author: kgaddam10
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 07/05/2023
+ms.date: 08/03/2023
 ms.author: kavitagaddam 
 ms.custom: references_regions
 ---
@@ -27,7 +27,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 We observed an issue where $import kept on retrying when NDJSON file size is greater than 2GB. The issue is fixed, for details visit [3342](https://github.com/microsoft/fhir-server/pull/3342).
 
 **Bug Fix: Patient and Group level export job restart on interruption**
-Patient and Group level exports on interruption would restrat from the beginning. Bug is fixed to restart the export jobs from the last sucessfully completed page of results. For more details visit [3205](https://github.com/microsoft/fhir-server/pull/3205).
+Patient and Group level exports on interruption would restart from the beginning. Bug is fixed to restart the export jobs from the last sucessfully completed page of results. For more details visit [3205](https://github.com/microsoft/fhir-server/pull/3205).
 
 
 ## June 2023
@@ -77,7 +77,7 @@ The DICOM Change Feed API could previously return results that incorrectly skipp
 
 #### MedTech service 
 
-**Feature Enhancement: Encounter identifiers included in the device message**
+**Encounter identifiers included in the device message**
 
 Customers can now include encounter identifiers in the device message so that they can look up the corresponding FHIR encounter and link it to the observation created in the FHIR transformation. This look up feature is supported in OSS and was an ask from customers for the PaaS MedTech service.
 

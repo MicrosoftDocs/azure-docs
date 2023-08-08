@@ -363,7 +363,7 @@ Be a part of Azure Data Factory studio preview features - Experience the latest 
 <table>
 <tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
 
-  <tr><td><b>Continuous integration and continuous delivery</b></td><td>CI/CD improvements with GitHub support in Azure Government and Azure China</td><td>We've added support for GitHub in Azure for US Government and Azure China.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/cicd-improvements-with-github-support-in-azure-government-and/ba-p/2686918">Learn more</a></td></tr>
+  <tr><td><b>Continuous integration and continuous delivery</b></td><td>CI/CD improvements with GitHub support in Azure Government and Microsoft Azure operated by 21Vianet</td><td>We've added support for GitHub in Azure for US Government and Azure operated by 21Vianet.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/cicd-improvements-with-github-support-in-azure-government-and/ba-p/2686918">Learn more</a></td></tr>
 
 <tr><td rowspan=2><b>Data movement</b></td><td>The Azure Cosmos DB API for MongoDB connector supports versions 3.6 and 4.0 in Data Factory</td><td>The Data Factory Azure Cosmos DB API for MongoDB connector now supports server versions 3.6 and 4.0.<br><a href="connector-azure-cosmos-db-mongodb-api.md">Learn more</a></td></tr>
 <tr><td>Enhance using COPY statement to load data into Azure Synapse</td><td>The Data Factory Azure Synapse connector now supports staged copy and copy source with *.* as wildcardFilename for the COPY statement.<br><a href="connector-azure-sql-data-warehouse.md#use-copy-statement">Learn more</a></td></tr>

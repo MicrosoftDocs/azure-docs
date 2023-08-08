@@ -149,7 +149,7 @@ To reduce the number of unnecessary Conditional Access prompts, Azure AD is chan
 
 Apps will now receive access tokens with a mix of permissions: requested tokens and those they have consent for that don't require Conditional Access prompts. The scope of access for the token is reflected in the token response's `scope` parameter.
 
-This change will be made for all apps except those with an observed dependency on this behavior. Developers will receive outreach if they're exempted from this change, as them may have a dependency on the additional conditional access prompts.
+This change will be made for all apps except those with an observed dependency on this behavior. Developers will receive outreach if they're exempted from this change, as them may have a dependency on the additional Conditional Access prompts.
 
 **Examples**
 
