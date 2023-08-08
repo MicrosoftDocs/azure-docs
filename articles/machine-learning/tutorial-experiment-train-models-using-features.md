@@ -17,7 +17,7 @@ ms.custom: sdkv2, build-2023
 
 # Tutorial 3: Experiment and train models by using features (preview)
 
-This tutorial series shows how features seamlessly integrate all phases of the machine learning (ML) lifecycle: prototyping, training, and operationalization.
+This tutorial series shows how features seamlessly integrate all phases of the machine learning lifecycle: prototyping, training, and operationalization.
 
 The first tutorial showed how to create a feature set specification with custom transformations, and then use that feature set to generate training data. The second tutorial showed how to enable materialization and perform a backfill.
 
@@ -148,7 +148,7 @@ You don't need to connect to a feature store. In this procedure, you create the 
 
 ## Locally experiment with unregistered features
 
-As you develop features, you might want to locally test and validate them before you register them with the feature store or run training pipelines in the cloud. A combination of a local unregistered feature set (`accounts`) and a feature set registered in the feature store (`transactions`) generates training data for the ML model.
+As you develop features, you might want to locally test and validate them before you register them with the feature store or run training pipelines in the cloud. A combination of a local unregistered feature set (`accounts`) and a feature set registered in the feature store (`transactions`) generates training data for the machine learning model.
 
 1. Select features for the model.
 
@@ -190,7 +190,7 @@ In the following steps, you select a list of features, run a training pipeline, 
 
 1. Select features for the model, and export the model as a feature retrieval specification.
 
-   In the previous steps, you selected features from a combination of registered and unregistered feature sets, for local experimentation and testing. You can now experiment in the cloud. Your model-shipping agility increases if you save the selected features as a feature retrieval specification, and then use the specification in the ML operations (MLOps) or continuous integration and continuous delivery (CI/CD) flow for training and inference.
+   In the previous steps, you selected features from a combination of registered and unregistered feature sets, for local experimentation and testing. You can now experiment in the cloud. Your model-shipping agility increases if you save the selected features as a feature retrieval specification, and then use the specification in the machine learning operations (MLOps) or continuous integration and continuous delivery (CI/CD) flow for training and inference.
 
 1. Select features for the model.
 
@@ -198,7 +198,7 @@ In the following steps, you select a list of features, run a training pipeline, 
 
 1. Export selected features as a feature retrieval specification.
 
-   A feature retrieval specification is a portable definition of the feature list that's associated with a model. It can help streamline ML model development and operationalization. It will become an input to the training pipeline that generates the training data. Then, it will be packaged with the model.
+   A feature retrieval specification is a portable definition of the feature list that's associated with a model. It can help streamline the development and operationalization of a machine learning model. It will become an input to the training pipeline that generates the training data. Then, it will be packaged with the model.
 
    The inference phase uses the feature retrieval to look up the features. It becomes a glue that integrates all phases of the machine learning lifecycle. Changes to the training/inference pipeline can stay at a minimum as you experiment and deploy.
 
