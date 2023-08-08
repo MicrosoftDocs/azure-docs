@@ -40,11 +40,11 @@ And add the following request body:
     }
 }
 ```
-To modify the monthly threshold for malware scanning in your storage accounts, simply adjust the `CapGBPerMonthPerStorageAccount` parameter to your preferred value. This parameter sets a cap on the maximum data that can be scanned for malware each month, per storage account. If you want to permit unlimited scanning, assign the value -1. The default limit is set at 5,000 GB.
+To modify the monthly threshold for malware scanning in your storage accounts, adjust the `CapGBPerMonthPerStorageAccount` parameter to your preferred value. This parameter sets a cap on the maximum data that can be scanned for malware each month, per storage account. If you want to permit unlimited scanning, assign the value -1. The default limit is set at 5,000 GB.
 
 If you want to turn off the on-upload malware scanning or Sensitive data threat detection features, you can change the isEnabled value to **False** under Sensitive data discovery.
 
-To disable the entire Defender plan, set the pricingTier property value to **Free** and remove the subPlan and extensions properties.
+To disable the entire Defender plan, set the pricingTier property value to **Free** and remove the `subPlan` and extensions properties.
 
 Learn more about [updating Defender plans with the REST API](/rest/api/defenderforcloud/pricings/update) in HTTP, Java, Go and JavaScript.
 
@@ -77,7 +77,7 @@ And add the following request body:
 }
 ```
 
-To modify the monthly threshold for malware scanning in your storage accounts, simply adjust the `capGBPerMonth` parameter to your preferred value. This parameter sets a cap on the maximum data that can be scanned for malware each month, per storage account. If you want to permit unlimited scanning, assign the value -1. The default limit is set at 5,000 GB.
+To modify the monthly threshold for malware scanning in your storage accounts, adjust the `capGBPerMonth` parameter to your preferred value. This parameter sets a cap on the maximum data that can be scanned for malware each month, per storage account. If you want to permit unlimited scanning, assign the value -1. The default limit is set at 5,000 GB.
 
 If you want to turn off the on-upload malware scanning or sensitive data threat detection features, you can change the `isEnabled` value to **False** under the `malwareScanning` or `sensitiveDataDiscovery` properties sections.
 
