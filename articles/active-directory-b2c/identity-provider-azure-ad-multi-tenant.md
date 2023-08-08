@@ -3,7 +3,7 @@ title: Set up sign-in for multi-tenant Azure AD by custom policies
 titleSuffix: Azure AD B2C
 description: Add a multi-tenant Azure AD identity provider using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 11/17/2022
 ms.custom: project-no-code
-ms.author: kengaderdus
+ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -39,7 +39,7 @@ This article shows you how to enable sign-in for users using the multi-tenant en
 
 ## Register an Azure AD app
 
-To enable sign-in for users with an Azure AD account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [Azure portal](https://portal.azure.com). For more information, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
+To enable sign-in for users with an Azure AD account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in the [Azure portal](https://portal.azure.com). For more information, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your organizational Azure AD tenant (for example, Contoso). Select the **Directories + subscriptions** icon in the portal toolbar.

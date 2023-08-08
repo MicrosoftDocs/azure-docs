@@ -5,9 +5,9 @@ ms.topic: conceptual
 ms.date: 02/11/2022
 ms.custom: references_regions 
 ms.reviewer: caishwarya
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Move a Recovery Services vault across Azure subscriptions and resource groups

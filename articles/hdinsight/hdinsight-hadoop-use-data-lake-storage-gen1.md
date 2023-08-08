@@ -99,7 +99,7 @@ New-AzResourceGroupDeployment `
 
 ## Use Data Lake Storage Gen1 as additional storage
 
-You can use Data Lake Storage Gen1 as additional storage for the cluster as well. In such cases, the cluster default storage can either be an Azure Blob storage or a Azure Data Lake Storage Gen1 account. When running HDInsight jobs against the data stored in Azure Data Lake Storage Gen1 as additional storage, use the fully qualified path. For example:
+You can use Data Lake Storage Gen1 as additional storage for the cluster as well. In such cases, the cluster default storage can either be an Azure Blob storage or an Azure Data Lake Storage Gen1 account. When running HDInsight jobs against the data stored in Azure Data Lake Storage Gen1 as additional storage, use the fully qualified path. For example:
 
 `adl://mydatalakestore.azuredatalakestore.net/<file_path>`
 

@@ -4,11 +4,11 @@ description: Create Linux VM images with Azure VM Image Builder and Azure Comput
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
-ms.date: 03/02/2020
+ms.date: 04/11/2023
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-
+ms.custom: devx-track-azurecli, devx-track-linux
 ---
 # Create a Linux image and distribute it to an Azure Compute Gallery by using the Azure CLI
 
@@ -16,13 +16,12 @@ ms.subservice: image-builder
 
 In this article, you learn how to use Azure VM Image Builder and the Azure CLI to create an image version in an [Azure Compute Gallery](../shared-image-galleries.md) (formerly Shared Image Gallery) and then distribute the image globally. You can also create an image version by using [Azure PowerShell](../windows/image-builder-gallery.md).
 
-
 This article uses a sample JSON template to configure the image. The JSON file is at [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
 
 To distribute the image to an Azure Compute Gallery, the template uses [sharedImage](image-builder-json.md#distribute-sharedimage) as the value for the `distribute` section of the template.
 
-
 ## Register the features
+
 To use VM Image Builder, you need to register the feature. Check your registration by running the following commands:
 
 ```azurecli-interactive
@@ -43,7 +42,7 @@ az provider register -n Microsoft.Storage
 az provider register -n Microsoft.Network
 ```
 
-## Set variables and permissions 
+## Set variables and permissions
 
 Because you'll be using some pieces of information repeatedly, create some variables to store that information.
 
@@ -80,7 +79,7 @@ az group create -n $sigResourceGroup -l $location
 
 VM Image Builder uses the provided [user-identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) to inject the image into an Azure Compute Gallery. In this example, you create an Azure role definition with specific actions for distributing the image. The role definition is then assigned to the user identity.
 
-```bash
+```azurecli-interactive
 # Create user-assigned identity for VM Image Builder to access the storage account where the script is stored
 identityName=aibBuiUserId$(date +'%s')
 az identity create -g $sigResourceGroup -n $identityName
@@ -111,7 +110,6 @@ az role assignment create \
     --scope /subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup
 ```
 
-
 ## Create an image definition and gallery
 
 To use VM Image Builder with Azure Compute Gallery, you need to have an existing gallery and image definition. VM Image Builder doesn't create the gallery and image definition for you.
@@ -138,7 +136,6 @@ az sig image-definition create \
    --sku 18.04-LTS \
    --os-type Linux
 ```
-
 
 ## Download and configure the JSON file
 
@@ -182,7 +179,6 @@ az resource invoke-action \
 ```
 
 It can take a few moments to create the image and replicate it to both regions. Wait until this part is finished before you move on to create a VM.
-
 
 ## Create the VM
 
@@ -261,7 +257,7 @@ When you're deleting gallery resources, you need delete all the image versions b
     --gallery-name $sigName \
     --gallery-image-definition $imageDefName \
     --subscription $subscriptionID
-    ```   
+    ```
 
 1. Delete the image definition.
 

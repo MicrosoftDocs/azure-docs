@@ -1,14 +1,14 @@
 ---
-title: Limit the source accounts for Azure Storage Account copy operations to accounts within the same tenant or on the same virtual network
+title: Permitted scope for copy operations (preview)
 titleSuffix: Azure Storage
 description: Learn how to use the "Permitted scope for copy operations (preview)" Azure storage account setting to limit the source accounts of copy operations to the same tenant or with private links to the same virtual network.
 author: jimmart-dev
 ms.author: jammart
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/14/2022
+ms.date: 01/10/2023
 ms.reviewer: santoshc 
-ms.custom: template-how-to
+ms.custom: template-how-to, engagement-fy23
 ---
 
 # Restrict the source of copy operations to a storage account
@@ -21,9 +21,9 @@ This article shows you how to limit the source accounts of copy operations to ac
 > **Permitted scope for copy operations** is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## About the permitted scope for copy operations
+## About Permitted scope for copy operations (preview)
 
-The **AllowedCopyScope** property of a storage account is used to specify the environments from which data can be copied to the destination account. It is displayed in the Azure portal as configuration setting **Permitted scope for copy operations**. The property is not set by default and does not return a value until you explicitly set it. It has three possible values:
+The **AllowedCopyScope** property of a storage account is used to specify the environments from which data can be copied to the destination account. It is displayed in the Azure portal as configuration setting **Permitted scope for copy operations (preview)**. The property is not set by default and does not return a value until you explicitly set it. It has three possible values:
 
 - ***(null)*** (default): Allow copying from any storage account to the destination account.
 - **AAD**: Permits copying only from accounts within the same Azure AD tenant as the destination account.
@@ -82,11 +82,11 @@ The URI is the full path to the source object being copied, which includes the s
 
 You can also configure an alert rule based on this query to notify you about Copy Blob requests for the account. For more information, see [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/alerts/alerts-log.md).
 
-## Restrict the permitted scope for copy operations
+## Restrict the Permitted scope for copy operations (preview)
 
 When you are confident that you can safely restrict the sources of copy requests to a specific scope, you can set the **AllowedCopyScope** property for the storage account to that scope.
 
-### Permissions for changing the permitted scope for copy operations
+### Permissions for changing the Permitted scope for copy operations (preview)
 
 To set the **AllowedCopyScope** property for the storage account, a user must have permissions to create and manage storage accounts. Azure role-based access control (Azure RBAC) roles that provide these permissions include the **Microsoft.Storage/storageAccounts/write** or **Microsoft.Storage/storageAccounts/\*** action. Built-in roles with this action include:
 
@@ -101,9 +101,9 @@ Role assignments must be scoped to the level of the storage account or higher to
 Be careful to restrict assignment of these roles only to those who require the ability to create a storage account or update its properties. Use the principle of least privilege to ensure that users have the fewest permissions that they need to accomplish their tasks. For more information about managing access with Azure RBAC, see [Best practices for Azure RBAC](../../role-based-access-control/best-practices.md).
 
 > [!NOTE]
-> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create and manage storage accounts. For more information, see [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create and manage storage accounts. For more information, see [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
-### Configure the permitted scope for copy operations
+### Configure the Permitted scope for copy operations (preview)
 
 Using an account that has the necessary permissions, configure the permitted scope for copy operations in the Azure portal, with PowerShell or using the Azure CLI.
 

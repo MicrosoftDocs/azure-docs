@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
+ms.custom: devx-track-arm-template
 services: service-fabric
 ms.date: 07/14/2022
 ---
@@ -180,6 +181,11 @@ To delete an application that was deployed by using the application resource mod
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
     ```
+
+## Common questions and answers
+
+Error:  "Application name must be a prefix of service name"
+    Answer:  Make sure the service name is formatted as follows: ProfileVetSF~CallTicketDataWebApi.
 
 ## Next steps
 

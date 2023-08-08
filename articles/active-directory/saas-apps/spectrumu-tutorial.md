@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SpectrumU | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SpectrumU'
 description: Learn how to configure single sign-on between Azure Active Directory and SpectrumU.
 services: active-directory
 author: jeevansd

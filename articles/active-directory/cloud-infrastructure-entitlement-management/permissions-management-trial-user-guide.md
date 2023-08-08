@@ -1,6 +1,6 @@
 ---
 title: Trial User Guide - Microsoft Entra Permissions Management
-description: How to get started with your Entra Permissions free trial
+description: How to get started with your Microsoft Entra Permissions Management free trial
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 09/01/2022
+ms.date: 06/16/2023
 ms.author: jfields
 ---
 
@@ -47,7 +47,7 @@ If the above points are met, continue with the following steps:
 
     **Option 1 (Recommended): Automatically manage** – this option allows subscriptions to be automatically detected and monitored without additional configuration.
 
-    **Option 2**: **Enter authorization systems** - you have the ability to specify only certain subscriptions to manage and monitor with MEPM (up to 10 per collector).
+    **Option 2**: **Enter authorization systems** - you have the ability to specify only certain subscriptions to manage and monitor with MEPM (up to 100 per collector).
 
     **Option 3**: **Select authorization systems** - this option detects all subscriptions that are accessible by the Cloud Infrastructure Entitlement Management application.
 
@@ -195,7 +195,7 @@ Use the **Activity triggers** dashboard to view information and set alerts and t
 
     ![Diagram, Alert for monitoring any action on Azure resources.](media/permissions-management-trial-user-guide/custom-alerts-3.png)
 
--   Use of break glass accounts like root in AWS, global admin in Azure AD accessing subscriptions, etc.
+-   Use of break glass accounts like root in AWS, Global Administrator in Azure AD accessing subscriptions, etc.
 
     Example: BreakGlass users should be used for emergency access only.
 
@@ -216,7 +216,10 @@ Use the **Activity triggers** dashboard to view information and set alerts and t
     -   See data for **identity governance** to ensure inactive users are decommissioned because they left the company or to remove vendor accounts that have been left behind, old consultant accounts, or users who as parts of the Joiner/Mover/Leaver process have moved onto another role and are no longer using their access. Consider this a fail-safe to ensure dormant accounts are removed.
     -   Identify over-permissioned access to later use the Remediation to pursue **Zero Trust and least privileges.**
 
-    **Example of** [**Permissions Management Report**](https://microsoft.sharepoint.com/:v:/t/MicrosoftEntraPermissionsManagementAssets/EQWmUsMsdkZEnFVv-M9ZoagBd4B6JUQ2o7zRTupYrfxbGA)                                 
+    **Example of Permissions Management Analytics Report**
+
+    > [!div class="mx-imgBorder"] 
+    > :::image type="content" source="media/permissions-management-trial-user-guide/permissions-management-report-example.png" alt-text="Example of Permissions Management Analytics Report." lightbox="media/permissions-management-trial-user-guide/permissions-management-report-example.png":::                          
                
     **Actions to try**    
     - [View system reports in the Reports dashboard](../cloud-infrastructure-entitlement-management/product-reports.md)  

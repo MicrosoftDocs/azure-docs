@@ -3,10 +3,11 @@ title: Offline seeding workflow for DPM and MABS using customer-owned disks with
 description: With Azure Backup, you can send data off the network by using the Azure Import/Export service. This article explains the offline backup workflow for DPM and Azure Backup Server.
 ms.topic: how-to
 ms.date: 12/05/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
+
 # Offline seeding for DPM/MABS using customer-owned disks with Azure Import/Export
 
 This article describes how to send the initial full backup data from DPM/MABS to Azure using customer-owned disks instead of sending it via the network. Learn about [sending the initial full backup data from MARS to Azure using customer-owned disks](backup-azure-backup-import-export.md).

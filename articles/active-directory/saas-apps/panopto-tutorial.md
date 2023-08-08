@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Panopto | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Panopto'
 description: Learn how to configure single sign-on between Azure Active Directory and Panopto.
 services: active-directory
 author: jeevansd

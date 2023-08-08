@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integrate Azure Active Directory with Kantega SSO for JIRA | Microsoft Docs'
+title: 'Tutorial: Integrate Azure Active Directory with Kantega SSO for JIRA'
 description: Learn how to configure single sign-on between Azure Active Directory and Jira using Kantega SSO.
 services: active-directory
 author: jeevansd

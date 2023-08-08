@@ -3,7 +3,7 @@ title: Move an Azure Synapse Analytics workspace from region to another
 description: This article teaches you how to move an Azure Synapse Analytics workspace from one region to another. 
 services: synapse-analytics 
 ms.service:  synapse-analytics 
-ms.subservice: 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/30/2022
 author: matt1883
@@ -21,7 +21,7 @@ This article is a step-by-step guide that shows you how to move an Azure Synapse
 ## Prerequisites
 
 - Integrate the source region Azure Synapse workspace with Azure DevOps or GitHub. For more information, see [Source control in Synapse Studio](cicd/source-control.md).
-- Have [Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-6.3.0&preserve-view=true) and [Azure CLI](/cli/azure/install-azure-cli) modules installed on the server where scripts are executed.
+- Have [Azure PowerShell](/powershell/azure/new-azureps-module-az) and [Azure CLI](/cli/azure/install-azure-cli) modules installed on the server where scripts are executed.
 - Make sure all dependent services, for example, Azure Machine Learning, Azure Storage, and Azure Private Link hubs, are re-created in the target region or moved to the target region if the service supports a region move. 
 - Move Azure Storage to a different region. For more information, see [Move an Azure Storage account to another region](../storage/common/storage-account-move.md).
 - Ensure the dedicated SQL pool name and the Apache Spark pool name are the same in the source region and the target region workspace.
@@ -108,7 +108,7 @@ New-AzSynapseWorkspace -ResourceGroupName $resourceGroupName `
                         -SqlAdministratorLoginCredential $creds 
 ```
 
-If you want to create the workspace with a Managed Virtual Network, add the extra parameter "ManagedVirtualNetwork" to the script. To learn more about the options available, see [Managed Virtual Network Config](/powershell/module/az.synapse/new-azsynapsemanagedvirtualnetworkconfig?view=azps-6.3.0&preserve-view=true).
+If you want to create the workspace with a Managed Virtual Network, add the extra parameter "ManagedVirtualNetwork" to the script. To learn more about the options available, see [Managed Virtual Network Config](/powershell/module/az.synapse/new-azsynapsemanagedvirtualnetworkconfig).
 
 
 ```powershell
@@ -449,7 +449,7 @@ Get-AzSynapseRoleAssignment -WorkspaceName $workspaceName
 
 To get the ObjectIds and RoleIds in the source region workspace, run the `Get-AzSynapseRoleAssignment` command. Assign the same Azure Synapse RBAC roles to the Azure AD users or groups in the target region workspace.
 
-Instead of using `-ObjectId` as the parameter, you can also use `-SignInName`, where you provide the email address or the user principal name of the user. To find out more about the available options, see [Azure Synapse RBAC - PowerShell cmdlet](/powershell/module/az.synapse/new-azsynapseroleassignment?view=azps-6.3.0&preserve-view=true). 
+Instead of using `-ObjectId` as the parameter, you can also use `-SignInName`, where you provide the email address or the user principal name of the user. To find out more about the available options, see [Azure Synapse RBAC - PowerShell cmdlet](/powershell/module/az.synapse/new-azsynapseroleassignment). 
 
 ### Azure CLI
 

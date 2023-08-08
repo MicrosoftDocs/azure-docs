@@ -1,5 +1,5 @@
 ---
-title: Preparing for an access review of users' access to an application - Azure AD
+title: Preparing for an access review of users' access to an application
 description: Planning for a successful access reviews campaign for a particular application starts with understanding how to model access for that application in Azure AD.
 services: active-directory
 documentationCenter: ''
@@ -25,13 +25,13 @@ ms.collection: M365-identity-device-management
 
 [Microsoft Entra Identity Governance](identity-governance-overview.md) allows you to balance your organization's need for security and employee productivity with the right processes and visibility. It provides you with capabilities to ensure that the right people have the right access to the right resources.
 
-Organizations with compliance requirements or risk management plans will have sensitive or business-critical applications. The application sensitivity may be based on its purpose or the data it contains, such as financial information or personal information of the organization's customers. For those applications, only a subset of all the users in the organization will typically be authorized to have access, and access should only be permitted based on documented business requirements.  Azure AD can be integrated with many popular SaaS applications, on-premises applications, and applications that your organization has developed, using [standard protocol](../fundamentals/auth-sync-overview.md) and API interfaces. Through these interfaces, Azure AD can be the authoritative source to control who has access to those applications.  As you integrate your applications with Azure AD, you can then use access reviews to recertify the users who have access to those applications, and remove access of those users who no longer need access.  You can also use other features, including terms of use, conditional access and entitlement management, for governing access to applications, as described in [how to govern access to applications in your environment](identity-governance-applications-prepare.md).
+Organizations with compliance requirements or risk management plans will have sensitive or business-critical applications. The application sensitivity may be based on its purpose or the data it contains, such as financial information or personal information of the organization's customers. For those applications, only a subset of all the users in the organization will typically be authorized to have access, and access should only be permitted based on documented business requirements.  Azure AD can be integrated with many popular SaaS applications, on-premises applications, and applications that your organization has developed, using [standard protocol](../fundamentals/auth-sync-overview.md) and API interfaces. Through these interfaces, Azure AD can be the authoritative source to control who has access to those applications.  As you integrate your applications with Azure AD, you can then use access reviews to recertify the users who have access to those applications, and remove access of those users who no longer need access.  You can also use other features, including terms of use, Conditional Access and entitlement management, for governing access to applications, as described in [how to govern access to applications in your environment](identity-governance-applications-prepare.md).
 
 ## Prerequisites for reviewing access
 
 To use Azure AD for an access review of access to an application, you must have one of the following licenses in your tenant:
 
-* Azure AD Premium P2
+* Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
 * Enterprise Mobility + Security (EMS) E5 license
 
 While using the access reviews feature does not require users to have those licenses assigned to them to use the feature, you'll need to have at least as many licenses in your tenant as the number of member (non-guest) users who will be configured as reviewers.
@@ -141,7 +141,7 @@ Once the reviews have started, you can monitor their progress, and update the ap
 
 1. If you wish, you can also download a [review history report](access-reviews-downloadable-review-history.md) of completed reviews.
 
-1. How long a user who has been denied continued access is able to continue to use a federated application will depend upon the application's own session lifetime, and on the access token lifetime. If the applications used Kerberos, since Kerberos caches the group memberships of a user when they sign into a domain, the users may continue to have access until their Kerberos tickets expire.  To learn more about controlling the lifetime of access tokens, see [configurable token lifetimes](../develop/active-directory-configurable-token-lifetimes.md).
+1. How long a user who has been denied continued access is able to continue to use a federated application will depend upon the application's own session lifetime, and on the access token lifetime. If the applications used Kerberos, since Kerberos caches the group memberships of a user when they sign into a domain, the users may continue to have access until their Kerberos tickets expire.  To learn more about controlling the lifetime of access tokens, see [configurable token lifetimes](../develop/configurable-token-lifetimes.md).
 
 ## Next steps
 

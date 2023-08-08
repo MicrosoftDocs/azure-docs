@@ -29,7 +29,7 @@ To get started, you'll need:
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 
 >[!NOTE]
->To integrate Nevis into your sign-up policy flow, configure the Azure AD B2C environment to use custom policies. </br>See, [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](/tutorial-create-user-flows.md?pivots=b2c-custom-policy).
+>To integrate Nevis into your sign-up policy flow, configure the Azure AD B2C environment to use custom policies. </br>See, [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](./tutorial-create-user-flows.md).
 
 ## Scenario description
 
@@ -86,7 +86,7 @@ The diagram shows the implementation.
 
 ### Integrate Azure AD B2C with Nevis
 
-1. Go to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Switch to your Azure AD B2C tenant. Note: the Azure AD B2C tenant usually is in a separate tenant.
 3. In the menu, select **Identity Experience Framework (IEF)**.
 4. Select **Policy Keys**.
@@ -104,9 +104,9 @@ The diagram shows the implementation.
 2. In [/samples/Nevis/policy/nevis.html](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Nevis/policy/nevis.html) open the nevis.html file.
 3. Replace the  **authentication_cloud_url** with the Nevis Admin console URL `https://<instance_id>.mauth.nevis.cloud`.
 4. Select **Save**.
-5. [Create an Azure Blob storage account](/customize-ui-with-html.md#2-create-an-azure-blob-storage-account).
+5. [Create an Azure Blob storage account](./customize-ui-with-html.md#2-create-an-azure-blob-storage-account).
 6. Upload the nevis.html file to your Azure blob storage.
-7. [Configure CORS](/customize-ui-with-html.md#3-configure-cors).
+7. [Configure CORS](./customize-ui-with-html.md#3-configure-cors).
 8. Enable cross-origin resource sharing (CORS) for the file.
 9. In the list, select the **nevis.html** file.
 10. In the **Overview** tab, next to the **URL**, select the **copy link** icon.

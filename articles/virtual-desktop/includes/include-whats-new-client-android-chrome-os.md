@@ -9,10 +9,10 @@ ms.date: 01/03/2023
 
 The following table lists the current versions available for the public and beta releases:
 
-| Release | Latest version |
-|---------|----------------|
-| Public  | 10.0.15.1207   |
-| Beta    | 10.0.15.1207   |
+| Release | Latest version | Download |
+|---------|----------------|----------|
+| Public  | 10.0.15.1207   | [Google Play](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) |
+| Beta    | 10.0.15.1207   | [Google Play](https://play.google.com/apps/testing/com.microsoft.rdc.androidx) |
 
 ## Updates for version 10.0.15.1207
 
@@ -56,7 +56,7 @@ In this release, we've made the following changes:
 
 In this release, we've made the following changes:
 
-- We've made an in-session UI that switches between remote apps and PCs.
+- We've made an in-session UI that switches between workspaces and PCs.
 - Updated language support for Input Method Editors (IME) and external keyboards.
 - Added support for Azure Virtual Desktop workspace subscriptions that use multiple identities for the same URL.
 - We added a warning message that says you shouldn't use the RD Gateway for local addresses.

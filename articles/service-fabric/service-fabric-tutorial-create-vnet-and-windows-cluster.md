@@ -5,6 +5,7 @@ ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
+ms.custom: devx-track-azurepowershell
 services: service-fabric
 ms.date: 07/14/2022
 ---
@@ -46,7 +47,7 @@ Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md).
-* Install [Azure PowerShell](/powershell/azure/install-az-ps).
+* Install [Azure PowerShell](/powershell/azure/install-azure-powershell).
 * Review the key concepts of [Azure clusters](service-fabric-azure-clusters-overview.md).
 * [Plan and prepare](service-fabric-cluster-azure-deployment-preparation.md) for a production cluster deployment.
 
@@ -179,7 +180,7 @@ $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysf
 ```
 
 > [!NOTE]
-> For national clouds (for example Azure Government, Azure China, Azure Germany), specify the `-Location` parameter.
+> For national clouds (for example Azure Government, Microsoft Azure operated by 21Vianet, Azure Germany), specify the `-Location` parameter.
 
 You can find your *TenantId*, or directory ID, in the [Azure portal](https://portal.azure.com). Select **Azure Active Directory** > **Properties** and copy the **Directory ID** value.
 

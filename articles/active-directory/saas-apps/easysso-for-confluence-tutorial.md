@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with EasySSO for Confluence | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with EasySSO for Confluence'
 description: Learn how to configure single sign-on between Azure Active Directory and EasySSO for Confluence.
 services: active-directory
 author: jeevansd
@@ -134,16 +134,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure EasySSO for Confluence SSO
-
-1. To automate the configuration within EasySSO for Confluence, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
-
-	![My apps extension](common/install-myappssecure-extension.png)
-
-2. After adding extension to the browser, click on **Set up EasySSO for Confluence** will direct you to the EasySSO for Confluence application. From there, provide the admin credentials to sign into EasySSO for Confluence. The browser extension will automatically configure the application for you and automate steps 3-9.
-
-	![Setup configuration](common/setup-sso.png)
-
-1. If you want to setup EasySSO for Confluence manually, sign into your Atlassian Confluence instance with Administrator privileges and navigate to the **Manage Apps** section. 
+1. In a different web browser window, sign in to your EasySSO for Confluence company site as an administrator and navigate to the **Manage Apps** section. 
 
     ![Manage Apps](./media/easysso-for-confluence-tutorial/confluence-admin-1.png)
 

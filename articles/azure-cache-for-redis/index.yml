@@ -3,7 +3,7 @@ title: Azure Cache for Redis Documentation
 summary: Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications. Tutorials, API references, and other documentation show you how to use Azure Cache for Redis from any application on Azure.
 metadata:
   title: Azure Cache for Redis Documentation
-  description: Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that gives applications fast access to data. Tutorials, API references, and more. # Required; article description that is displayed in search results. < 160 chars.
+  description: Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that gives applications fast access to data. Tutorials, API references, and more.
   ms.service: cache
   ms.topic: landing-page
   author: flang-msft
@@ -30,10 +30,10 @@ landingContent:
         links:
           - text: What's new?
             url: cache-whats-new.md
-          - text: Managed identity with Azure Cache for Redis
-            url: cache-managed-identity.md
-          - text: Create an Enterprise tier cache
-            url: quickstart-create-redis-enterprise.md
+          - text: Configure disk encryption
+            url: cache-how-to-encryption.md
+          - text: Change the size and tier of a cache
+            url: cache-how-to-scale.md
   - title: 'Quickstarts: Azure Cache for Redis'
     linkLists:
       - linkListType: quickstart
@@ -68,22 +68,24 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-         - text: Connection resilience
-           url: cache-best-practices-connection.md
-         - text: Server load management
-           url: cache-best-practices-server-load.md
-         - text: Memory management
-           url: cache-best-practices-memory-management.md
-         - text: Development
-           url: cache-best-practices-development.md
          - text: Client libraries
            url: cache-best-practices-client-libraries.md
-         - text: Scaling
-           url: cache-best-practices-scale.md
+         - text: Connection resilience
+           url: cache-best-practices-connection.md
+         - text: Development
+           url: cache-best-practices-development.md
+         - text: Enterprise and Enterprise Flash
+           url: cache-best-practices-enterprise-tiers.md
          - text: Kubernetes-hosted client applications
            url: cache-best-practices-kubernetes.md
+         - text: Memory management
+           url: cache-best-practices-memory-management.md
          - text:  Performance testing
-           url: cache-best-practices-performance.md  
+           url: cache-best-practices-performance.md
+         - text: Scaling
+           url: cache-best-practices-scale.md
+         - text: Server load management
+           url: cache-best-practices-server-load.md
   - title: SDKs and command-lines
     linkLists:
       - linkListType: reference

@@ -1,10 +1,13 @@
 ---
-title: Defender for Cloud Planning multicloud security determine ownership requirements security functions team alignment best practices guidance
+title: Planning multicloud security determine ownership requirements security functions team alignment best practices guidance
 description: Learn about determining ownership requirements when planning multicloud deployment with Microsoft Defender for Cloud.
 ms.topic: how-to
+author: dcurwin
+ms.author: dacurwin
 ms.custom: ignite-2022
 ms.date: 10/03/2022
 ---
+
 # Determine ownership requirements
 
 This article is one of a series providing guidance as you design a cloud security posture management (CSPM) and cloud workload protection (CWP) solution across multicloud resources with Microsoft Defender for Cloud.

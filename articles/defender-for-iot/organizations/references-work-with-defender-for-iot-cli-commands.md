@@ -1,40 +1,42 @@
 ---
 title: CLI command users and access for OT monitoring - Microsoft Defender for IoT
 description: Learn about the users supported for the Microsoft Defender for IoT CLI commands and how to access the CLI.
-ms.date: 12/29/2022
-ms.topic: conceptual
+ms.date: 01/01/2023
+ms.topic: concept-article
 ---
 
 # Defender for IoT CLI users and access
 
-This article provides an introduction to the Microsoft Defender for IoT command line interface (CLI). The CLI is a text-based user interface that allows you to access your OT and Enterprise IoT sensors, and the on-premises management console, for advanced configuration, troubleshooting, and support.
+This article provides an introduction to the Microsoft Defender for IoT command line interface (CLI). The CLI is a text-based user interface that allows you to access your OT sensors and the on-premises management console for advanced configuration, troubleshooting, and support.
 
 To access the Defender for IoT CLI, you'll need access to the sensor or on-premises management console.
 
 - For OT sensors or the on-premises management console, you'll need to sign in as a [privileged user](#privileged-user-access-for-ot-monitoring).
 - For Enterprise IoT sensors, you can sign in as any user.
 
+[!INCLUDE [caution do not use manual configurations](includes/caution-manual-configurations.md)]
+
 ## Privileged user access for OT monitoring
 
-Privileged users for OT monitoring are pre-defined together with the [OT monitoring software installation](../how-to-install-software.md), as part of the hardened operating system.
+Use the *support* user when using the Defender for IoT CLI, which is an an administrative account with access to all CLI commands. On the on-premises management console, use either the *support* or the *cyberx* user.
 
-- On the OT sensor, users include the *cyberx*, *support*, and *cyberx_host* users.
-- On the on-premises management console, users include the *cyberx* and *support* users.
+In sensor software versions earlier than [23.1.x](whats-new.md#july-2023), the *cyberx* and *cyberx_host* privileged users are also available. In versions 23.1.x and higher, the *cyberx* and *cyberx_host* users are available, but not enabled by default. To enable these extra privileged users, [change their passwords](manage-users-sensor.md#change-a-sensor-users-password).
+
+Other CLI users cannot be added.
 
 The following table describes the access available to each privileged user:
 
 |Name  |Connects to  |Permissions  |
 |---------|---------|---------|
-|**support**     |   The OT sensor or on-premises management console's `configuration shell`        | A powerful administrative account with access to:<br>- All CLI commands<br>- The ability to manage log files<br>- Start and stop services<br><br>This user has no filesystem access   |
+|**support** | The OT sensor or on-premises management console's `configuration shell` |	A powerful administrative account with access to: <br>- All CLI commands <br>- The ability to manage log files <br>- Start and stop services <br><br>This user has no filesystem access |
 |**cyberx**     |    The OT sensor or on-premises management console's `terminal (root)`       | Serves as a root user and has unlimited privileges on the appliance. <br><br>Used only for the following tasks:<br>- Changing default passwords<br>- Troubleshooting<br>- Filesystem access      |
 |**cyberx_host**     | The OT sensor's host OS `terminal (root)`         | Serves as a root user and has unlimited privileges on the appliance host OS.<br><br>Used for: <br>- Network configuration<br>- Application container control <br>- Filesystem access |
 
-> [!NOTE]
-> We recommend that customers using the Defender for IoT CLI use the *support* user whenever possible. Other CLI users cannot be added.
+For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
 ### Supported users by CLI actions
 
-The following tables list the activities available by CLI and the privileged users supported for each activity.
+The following tables list the activities available by CLI and the privileged users supported for each activity. The *cyberx* and *cyberx_host* users are only supported in versions earlier than [23.1.x](release-notes.md).
 
 ### Appliance maintenance commands
 
@@ -93,7 +95,6 @@ The following tables list the activities available by CLI and the privileged use
 |Alert functionality testing     |  *cyberx*       |   [Trigger a test alert](cli-ot-sensor.md#trigger-a-test-alert)      |
 | Alert exclusion rules | *support*, *cyberx* | [Show current alert exclusion rules](cli-ot-sensor.md#show-current-alert-exclusion-rules) <br>[Create a new alert exclusion rule](cli-ot-sensor.md#create-a-new-alert-exclusion-rule)<br>[Modify an alert exclusion rule](cli-ot-sensor.md#modify-an-alert-exclusion-rule)<br>[Delete an alert exclusion rule](cli-ot-sensor.md#delete-an-alert-exclusion-rule)
 
-
 ## Defender for IoT CLI access
 
 To access the Defender for IoT CLI, sign in to your OT or Enterprise IoT sensor or your on-premises management console using a terminal emulator and SSH.
@@ -116,7 +117,6 @@ To sign out manually on an OT sensor or on-premises management console, run one 
 |**cyberx**     |  `cyberx-xsense-logout`       |
 |**cyberx_host**     |   `logout`      |
 
-
 ## Next steps
 
 > [!div class="nextstepaction"]
@@ -124,6 +124,5 @@ To sign out manually on an OT sensor or on-premises management console, run one 
 
 > [!div class="nextstepaction"]
 > [On-premises users and roles for OT monitoring](roles-on-premises.md)
-
 
 You can also control and monitor your cloud connected sensors from the Defender for IoT **Sites and sensors** page. For more information, see [Manage sensors with Defender for IoT in the Azure portal](../how-to-manage-sensors-on-the-cloud.md).

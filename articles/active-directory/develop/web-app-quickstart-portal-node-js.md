@@ -6,7 +6,7 @@ author: Dickson-Mwendia
 manager: celested
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/16/2022
 ROBOTS: NOINDEX
@@ -19,7 +19,7 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:js", devx-track-js, m
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 >
-> > [Quickstart: Node.js web app that signs in users with MSAL Node](web-app-quickstart.md?pivots=devlang-nodejs-msal)
+> > [Quickstart: Add authentication to a Node.js web app with MSAL Node](quickstart-web-app-nodejs-msal-sign-in.md)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
@@ -40,6 +40,7 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:js", devx-track-js, m
 > 
 > #### Step 1: Configure the application in Azure portal
 > For the code sample for this quickstart to work, you need to create a client secret and add the following reply URL: `http:/> /localhost:3000/redirect`.
+> 
 > <button id="makechanges" class="nextstepaction configure-app-button"> Make these changes for me </button>
 > 
 > > [!div id="appconfigured" class="alert alert-info"]

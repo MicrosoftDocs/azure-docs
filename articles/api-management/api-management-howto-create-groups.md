@@ -2,18 +2,13 @@
 title: Manage developer accounts using groups in Azure API Management
 titleSuffix: Azure API Management
 description: Learn how to manage developer accounts using groups in Azure API Management. Create groups, and then associate them with products or developers.
-services: api-management
-documentationcenter: ''
-author: dlepow
-manager: cfowler
-editor: ''
 
+author: dlepow
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 03/17/2023
 ms.author: danlep
+ms.custom: engagement-fy23
 ---
 # How to create and use groups to manage developer accounts in Azure API Management
 
@@ -29,7 +24,7 @@ API Management has the following immutable system groups:
 * **Developers** - Authenticated developer portal users fall into this group. Developers are the customers that build applications using your APIs. Developers are granted access to the developer portal and build applications that call the operations of an API.
 * **Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal of an API Management instance fall into this group. They can be granted certain read-only access, such as the ability to view APIs but not call them.
 
-In addition to these system groups, administrators can create custom groups or [leverage external groups in associated Azure Active Directory tenants][leverage external groups in associated Azure Active Directory tenants]. Custom and external groups can be used alongside system groups in giving developers visibility and access to API products. For example, you could create one custom group for developers affiliated with a specific partner organization and allow them access to the APIs from a product containing relevant APIs only. A user can be a member of more than one group.
+In addition to these system groups, administrators can create custom groups or [use external groups in associated Azure Active Directory tenants][leverage external groups in associated Azure Active Directory tenants]. Custom and external groups can be used alongside system groups in giving developers visibility and access to API products. For example, you could create one custom group for developers affiliated with a specific partner organization and allow them access to the APIs from a product containing relevant APIs only. A user can be a member of more than one group.
 
 This guide shows how administrators of an API Management instance can add new groups and associate them with products and developers.
 
@@ -48,49 +43,49 @@ Complete tasks in this article: [Create an Azure API Management instance](get-st
 This section shows how to add a new group to your API Management account.
 
 1. Select the **Groups** tab to the left of the screen.
-2. Click **+Add**.
-3. Enter a unique name for the group and an optional description.
-4. Press **Create**.
+1. Click **+Add**.
+1. Enter a unique name for the group and an optional description.
+1. Press **Create**.
 
-    ![Add a new group](./media/api-management-howto-create-groups/groups001.png)
+    :::image type="content" source="media/api-management-howto-create-groups/groups001.png" alt-text="Screenshot of creating a group in the portal.":::
+Once the group is created, it's added to the **Groups** list. 
+    * To edit the **Name** or **Description** of the group, click the name of the group and select **Settings**
 
-Once the group is created, it is added to the **Groups** list. <br/>To edit the **Name** or **Description** of the group, click the name of the group and **Settings**.<br/>To delete the group, click the name of the group and press **Delete**.
+    * To delete the group, click the name of the group and press **Delete**.
 
 Now that the group is created, it can be associated with products and developers.
 
 ## <a name="associate-group-product"> </a>Associate a group with a product
 
 1. Select the **Products** tab to the left.
-2. Click the name of the desired product.
-3. Press **Access control**.
-4. Click **+ Add group**.
+1. Click the name of the desired product.
+1. Press **Access control** > **+ Add group**.
+1. Select the group you want to add.
 
-    ![Screenshot that highlights the Add group button.](./media/api-management-howto-create-groups/groups002.png)
-5. Select the group you want to add.
-
-    ![Screenshot that shows the selected group and highlights the Select button.](./media/api-management-howto-create-groups/groups003.png)
-
-    To remove a group from the product, click **Delete**.
-
-    ![Delete a group](./media/api-management-howto-create-groups/groups004.png)
+    :::image type="content" source="media/api-management-howto-create-groups/groups002.png" alt-text="Screenshot of adding a group to a product in the portal.":::
 
 Once a product is associated with a group, developers in that group can view and subscribe to the product.
 
 > [!NOTE]
 > To add Azure Active Directory groups, see [How to authorize developer accounts using Azure Active Directory in Azure API Management](api-management-howto-aad.md).
 
+To remove a group from the product, click **Delete**.
+
+:::image type="content" source="media/api-management-howto-create-groups/groups004.png" alt-text="Screenshot of removing a group from a product in the portal.":::
+
 ## <a name="associate-group-developer"> </a>Associate groups with developers
 
 This section shows how to associate groups with members.
 
-1. Select the **Groups** tab to the left of the screen.
-2. Select **Members**.
+1. Select the **Groups** tab to the left of the screen, and then select a group.
+1. Select **Members** > **+ Add**.
 
-    ![Add a member](./media/api-management-howto-create-groups/groups005.png)
-3. Press **+Add** and select a member.
 
-    ![Screenshot that highlights the Add button, the selected user, and the Select button.](./media/api-management-howto-create-groups/groups006.png)
-4. Press **Select**.
+1. Select a member.
+
+    :::image type="content" source="media/api-management-howto-create-groups/groups006.png" alt-text="Screenshot of adding a member to a group in the portal.":::
+
+1. Press **Select**.
 
 Once the association is added between the developer and the group, you can view it in the **Users** tab.
 

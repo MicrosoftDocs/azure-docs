@@ -6,9 +6,7 @@ ms.service: signalr
 ms.topic: how-to
 ms.date: 05/23/2022
 ms.author: lianwei 
-ms.custom:
-- subject-moving-resources
-- kr2b-contr-experiment
+ms.custom: subject-moving-resources, kr2b-contr-experiment, devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # Move an Azure SignalR resource to another region

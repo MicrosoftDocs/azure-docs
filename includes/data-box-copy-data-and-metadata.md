@@ -14,7 +14,7 @@ To transfer the ACLs, timestamps, and attributes for your data, use the followin
 
 To copy data to your Data Box via SMB, use an SMB-compatible file copy tool such as `robocopy`. The following sample command copies all files and directories, transferring metadata along with the data.
 
-When using the `/copyall` or `/dcopy:DAT` option, make sure the required Backup Operator privileges aren't disabled. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](/azure/databox/data-box-local-web-ui-admin).
+When using the `/copyall` or `/dcopy:DAT` option, make sure the required Backup Operator privileges aren't disabled. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](../articles/databox/data-box-local-web-ui-admin.md).
 
 ```console
 robocopy <Source> <Target> * /copyall /e /dcopy:DAT /B /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /log+:<LogFile>
@@ -38,7 +38,7 @@ where
 |`/fft`    |Reduces time stamp granularity for any file system.        |
 |`/log+:<LogFile>`  |Appends the output to the existing log file.|
 
-For more information on these `robocopy` parameters, see [Tutorial: Copy data to Azure Data Box via SMB](/azure/databox/data-box-deploy-copy-data)
+For more information on these `robocopy` parameters, see [Tutorial: Copy data to Azure Data Box via SMB](../articles/databox/data-box-deploy-copy-data.md)
 
 > [!NOTE]
 > If you use `/copyall` to copy your data, the source ACLs on directories and files are transferred to Azure Files. If you only had read-access on your source data and could not modify the source data, you'll have read-access only on the data in the Data Box. Use `/copyall` only if you intend to copy all the ACLs on the directories and files along with the data.

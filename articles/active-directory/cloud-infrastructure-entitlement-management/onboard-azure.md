@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2022
+ms.date: 06/16/2023
 ms.author: jfields
 ---
 
@@ -17,7 +17,7 @@ ms.author: jfields
 This article describes how to onboard a Microsoft Azure subscription or subscriptions on Permissions Management. Onboarding a subscription creates a new authorization system to represent the Azure subscription in Permissions Management.
 
 > [!NOTE]
-> A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Permissions Management on your Azure Active Directory tenant](onboard-enable-tenant.md).
+> A *global administrator* or *root user* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Permissions Management on your Azure Active Directory tenant](onboard-enable-tenant.md).
 
 ## Explanation
 
@@ -58,7 +58,7 @@ This option allows subscriptions to be automatically detected and monitored with
 1. For onboarding mode, select ‘Automatically Manage’ 
 
     > [!NOTE]
-    > The steps listed on the screen outline how to create the role assignment for the Cloud Infrastructure Entitlements Management application. This can be performed manually in the Entra console, or programatically with PowerShell or the Azure CLI.
+    > The steps listed on the screen outline how to create the role assignment for the Cloud Infrastructure Entitlements Management application. This can be performed manually in the Entra console, or programmatically with PowerShell or the Azure CLI.
 
 - Once complete, Click ‘Verify Now & Save’
 
@@ -69,7 +69,7 @@ To view status of onboarding after saving the configuration:
 
 #### Option 2: Enter authorization systems 
 
-You have the ability to specify only certain subscriptions to manage and monitor with MEPM (up to 10 per collector). Follow the steps below to configure these subscriptions to be monitored: 
+You have the ability to specify only certain subscriptions to manage and monitor with MEPM (up to 100 per collector). Follow the steps below to configure these subscriptions to be monitored: 
 
 1. For each subscription you wish to manage, ensure that the ‘Reader’ role has been granted to Cloud Infrastructure Entitlement Management application for the subscription. 
 1. In the EPM portal, click the cog on the top right-hand side. 
@@ -101,7 +101,7 @@ This option detects all subscriptions that are accessible by the Cloud Infrastru
 1. For onboarding mode, select ‘Automatically Manage’ 
 
     > [!NOTE]
-    > The steps listed on the screen outline how to create the role assignment for the Cloud Infrastructure Entitlements Management application. You can do this manually in the Entra console, or programatically with PowerShell or the Azure CLI.
+    > The steps listed on the screen outline how to create the role assignment for the Cloud Infrastructure Entitlements Management application. You can do this manually in the Entra console, or programmatically with PowerShell or the Azure CLI.
 
 - Once complete, Click ‘Verify Now & Save’ 
 
@@ -136,5 +136,5 @@ To view status of onboarding after saving the configuration:
 - For information on how to onboard a Google Cloud Platform (GCP) project, see [Onboard a Google Cloud Platform (GCP) project](onboard-gcp.md).
 - For information on how to enable or disable the controller after onboarding is complete, see [Enable or disable the controller](onboard-enable-controller-after-onboarding.md).
 - For information on how to add an account/subscription/project after onboarding is complete, see [Add an account/subscription/project after onboarding is complete](onboard-add-account-after-onboarding.md).
-- For an overview on Permissions Management, see [What's Permissions Management?](overview.md).
+- For an overview on Permissions Management, see [What's Microsoft Entra Permissions Management?](overview.md).
 - For information on how to start viewing information about your authorization system in Permissions Management, see [View key statistics and data about your authorization system](ui-dashboard.md).

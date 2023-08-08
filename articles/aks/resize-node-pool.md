@@ -1,9 +1,9 @@
 ---
 title: Resize node pools in Azure Kubernetes Service (AKS)
 description: Learn how to resize node pools for a cluster in Azure Kubernetes Service (AKS) by cordoning and draining.
-services: container-service
 ms.topic: how-to
-ms.date: 02/24/2022
+ms.custom: devx-track-linux
+ms.date: 02/08/2023
 #Customer intent: As a cluster operator, I want to resize my node pools so that I can run more or larger workloads.
 ---
 
@@ -20,7 +20,7 @@ This lack of persistence also applies to the resize operation, thus, resizing AK
 
 ## Example resources
 
-Suppose you want to resize an existing node pool, called `nodepool1`, from SKU size Standard_DS2_v2 to Standard_DS3_v2. To accomplish this task, you'll need to create a new node pool using Standard_DS3_v2, move workloads from `nodepool1` to the new node pool, and remove `nodepool1`. In this example, we'll call this new node pool `mynodepool`.
+Assume you want to resize an existing node pool, called `nodepool1`, from SKU size Standard_DS2_v2 to Standard_DS3_v2. To accomplish this task, you'll need to create a new node pool using Standard_DS3_v2, move workloads from `nodepool1` to the new node pool, and remove `nodepool1`. In this example, we'll call this new node pool `mynodepool`.
 
 :::image type="content" source="./media/resize-node-pool/node-pool-ds2.png" alt-text="Screenshot of the Azure portal page for the cluster, navigated to Settings > Node pools. One node pool, named node pool 1, is shown.":::
 
@@ -160,7 +160,7 @@ Next, using `kubectl cordon <node-names>`, specify the desired nodes in a space-
 kubectl cordon aks-nodepool1-31721111-vmss000000 aks-nodepool1-31721111-vmss000001 aks-nodepool1-31721111-vmss000002
 ```
 
-```bash
+```output
 node/aks-nodepool1-31721111-vmss000000 cordoned
 node/aks-nodepool1-31721111-vmss000001 cordoned
 node/aks-nodepool1-31721111-vmss000002 cordoned
@@ -169,7 +169,7 @@ node/aks-nodepool1-31721111-vmss000002 cordoned
 ## Drain the existing nodes
 
 > [!IMPORTANT]
-> To successfully drain nodes and evict running pods, ensure that any PodDisruptionBudgets (PDBs) allow for at least 1 pod replica to be moved at a time, otherwise the drain/evict operation will fail. To check this, you can run `kubectl get pdb -A` and make sure `ALLOWED DISRUPTIONS` is at least 1 or higher.
+> To successfully drain nodes and evict running pods, ensure that any PodDisruptionBudgets (PDBs) allow for at least one pod replica to be moved at a time. Otherwise, the drain/evict operation will fail. To check this, you can run `kubectl get pdb -A` and verify `ALLOWED DISRUPTIONS` is at least one or higher.
 
 Draining nodes will cause pods running on them to be evicted and recreated on the other, schedulable nodes.
 
@@ -298,4 +298,4 @@ After resizing a node pool by cordoning and draining, learn more about [using mu
 [empty-dir]: https://kubernetes.io/docs/concepts/storage/volumes/#emptydir
 [specify-disruption-budget]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
 [disruptions]: https://kubernetes.io/docs/concepts/workloads/pods/disruptions/
-[use-multiple-node-pools]: use-multiple-node-pools.md
+[use-multiple-node-pools]: create-node-pools.md

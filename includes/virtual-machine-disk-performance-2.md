@@ -1,11 +1,10 @@
 ---
  title: include file
  description: include file
- services: virtual-machines
  author: albecker1
- ms.service: virtual-machines
+ ms.service: azure-disk-storage
  ms.topic: include
- ms.date: 12/12/2022
+ ms.date: 05/31/2023
  ms.author: albecker1
  ms.custom: include file
 ---
@@ -16,7 +15,7 @@
 
 Host caching works by bringing storage closer to the VM that can be written or read to quickly. The amount of storage that is available to the VM for host caching is in the documentation. For example, you can see the Standard_D8s_v3 comes with 200 GiB of cache storage.
 
-You can enable host caching when you create your virtual machine and attach disks. You can also turn on and off host caching on your disks on an existing VM.
+You can enable host caching when you create your virtual machine and attach disks. You can also turn on and off host caching on your disks on an existing VM. By default, cache-capable data disks will have read-only caching enabled. Cache-capable OS disks will have read/write caching enabled.
 
 ![Screenshot showing host caching.](media/vm-disk-performance/host-caching.jpg)
 
@@ -61,11 +60,11 @@ Next let's look at what happens with IO requests when the host cache setting is 
   - IOPS: 5,000
   - Host caching: **Read/write**
 
-A read is handled the same way as a read-only. Writes are the only thing that's different with read/write caching. When writing with host caching is set to **Read/write**, the write only needs to be written to the host cache to be considered complete. The write is then lazily written to the disk as a background process. This means that a write is counted toward cached IO when it is written to the cache. When it is lazily written to the disk, it counts toward the uncached IO.
+A read is handled the same way as a read-only. Writes are the only thing that's different with read/write caching. When writing with host caching is set to **Read/write**, the write only needs to be written to the host cache to be considered complete. The write is then lazily written to the disk when the cache is flushed periodically. Customers can additionally force a flush by issuing an f/sync or fua command. This means that a write is counted toward cached IO when it is written to the cache. When it is lazily written to the disk, it counts toward the uncached IO.
 
 ![Diagram showing read/write host caching write.](media/vm-disk-performance/host-caching-read-write.jpg)
 
-Let’s continue with our Standard_D8s_v3 virtual machine. Except this time, we'll enable host caching on the disks. Also, now the VM's IOPS limit is 16,000 IOPS. Attached to the VM are three underlying P30 disks that can each handle 5,000 IOPS.
+Let’s continue with our Standard_D8s_v3 virtual machine. Except this time, we'll enable host caching on the disks. This makes the VM's IOPS limit 16,000 IOPS. Attached to the VM are three underlying P30 disks that can each handle 5,000 IOPS.
 
 **Setup:**
 

@@ -2,54 +2,58 @@
 title: Manage Azure Data Lake Analytics Account Policies
 description: Learn how to use account policies to control usage of a Data Lake Analytics account, such as maximum AUs and maximum jobs.
 ms.service: data-lake-analytics
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 04/30/2018
+ms.date: 01/27/2023
 ---
 # Manage Azure Data Lake Analytics using Account Policies
 
-Account policies help you control how resources an Azure Data Lake Analytics account are used. These policies allow you to control the cost of using Azure Data Lake Analytics. For example, with these policies you can prevent unexpected cost spikes by limiting how many AUs the account can simultaneously use.## Account-level policies
+Account policies help you control how resources an Azure Data Lake Analytics account are used. These policies allow you to control the cost of using Azure Data Lake Analytics. For example, with these policies you can prevent unexpected cost spikes by limiting how many AUs the account can simultaneously use.
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
+## Account-level policies
 
 These policies apply to all jobs in a Data Lake Analytics account.
 
-## Maximum number of AUs in a Data Lake Analytics account
+### Maximum number of AUs in a Data Lake Analytics account
 
-A policy controls the total number of Analytics Units (AUs) your Data Lake Analytics account can use. By default, the value is set to 250. For example, if this value is set to 250 AUs, you can have one job running with 250 AUs assigned to it, or 10 jobs running with 25 AUs each. Additional jobs that are submitted are queued until the running jobs are finished. When running jobs are finished, AUs are freed up for the queued jobs to run.
+A policy controls the total number of Analytics Units (AUs) your Data Lake Analytics account can use. By default, the value is set to 250. For example, if this value is set to 250 AUs, you can have one job running with 250 AUs assigned to it, or 10 jobs running with 25 AUs each. Other jobs that are submitted are queued until the running jobs are finished. When running jobs are finished, AUs are freed up for the queued jobs to run.
 
 To change the number of AUs for your Data Lake Analytics account:
 
 1. In the Azure portal, go to your Data Lake Analytics account.
-2. Click **Limits and policies**.
+2. Select **Limits and policies**.
 3. Under **Maximum AUs**, move the slider to select a value, or enter the value in the text box.
-4. Click **Save**.
+4. Select **Save**.
 
    > [!NOTE]
    > If you need more than the default (250) AUs, in the portal, click **Help+Support** to submit a support request. The number of AUs available in your Data Lake Analytics account can be increased.
 
-## Maximum number of jobs that can run simultaneously
+### Maximum number of jobs that can run simultaneously
 
 This policy limits how many jobs can run simultaneously. By default, this value is set to 20. If your Data Lake Analytics has AUs available, new jobs are scheduled to run immediately until the total number of running jobs reaches the value of this policy. When you reach the maximum number of jobs that can run simultaneously, subsequent jobs are queued in priority order until one or more running jobs complete (depending on available AUs).
 
 To change the number of jobs that can run simultaneously:
 
 1. In the Azure portal, go to your Data Lake Analytics account.
-2. Click **Limits and policies**.
+2. Select **Limits and policies**.
 3. Under **Maximum Number of Running Jobs**, move the slider to select a value, or enter the value in the text box.
-4. Click **Save**.
+4. Select **Save**.
 
    > [!NOTE]
    > If you need to run more than the default (20) number of jobs, in the portal, click **Help+Support** to submit a support request. The number of jobs that can run simultaneously in your Data Lake Analytics account can be increased.
 
-## How long to keep job metadata and resources
+### How long to keep job metadata and resources
 
-When your users run U-SQL jobs, the Data Lake Analytics service keeps all related files. These files include the U-SQL script, the DLL files referenced in the U-SQL script, compiled resources, and statistics. The files are in the /system/ folder of the default Azure Data Lake Storage account. This policy controls how long these resources are stored before they are automatically deleted (the default is 30 days). You can use these files for debugging, and for performance-tuning of jobs that you'll rerun in the future.
+When your users run U-SQL jobs, the Data Lake Analytics service keeps all related files. These files include the U-SQL script, the DLL files referenced in the U-SQL script, compiled resources, and statistics. The files are in the /system/ folder of the default Azure Data Lake Storage account. This policy controls how long these resources are stored before they're automatically deleted (the default is 30 days). You can use these files for debugging, and for performance-tuning of jobs that you'll rerun in the future.
 
 To change how long to keep job metadata and resources:
 
 1. In the Azure portal, go to your Data Lake Analytics account.
-2. Click **Limits and policies**.
+2. Select **Limits and policies**.
 3. Under **Days to Retain Job Queries**, move the slider to select a value, or enter the value in the text box.  
-4. Click **Save**.
+4. Select **Save**.
 
 ## Job-level policies
 
@@ -61,7 +65,7 @@ Data Lake Analytics has two policies that you can set at the job level:
 
 - **Priority**: Users can only submit jobs that have a priority lower than or equal to this value. A higher number indicates a lower priority. By default, this limit is set to 1, which is the highest possible priority.
 
-There is a default policy set on every account. The default policy applies to all users of the account. You can create additional policies for specific users and groups.
+There's a default policy set on every account. The default policy applies to all users of the account. You can create more policies for specific users and groups.
 
 > [!NOTE]
 > Account-level policies and job-level policies apply simultaneously.
@@ -70,9 +74,9 @@ There is a default policy set on every account. The default policy applies to al
 
 1. In the Azure portal, go to your Data Lake Analytics account.
 
-2. Click **Limits and policies**.
+2. Select **Limits and policies**.
 
-3. Under **Job Submission Limits**, click the **Add Policy** button. Then, select or enter the following settings:
+3. Under **Job Submission Limits**, select the **Add Policy** button. Then, select or enter the following settings:
 
    1. **Compute Policy Name**: Enter a policy name, to remind you of the purpose of the policy.
 
@@ -82,7 +86,7 @@ There is a default policy set on every account. The default policy applies to al
 
    4. **Set the Priority Limit**: Set the priority limit that applies to the selected user or group.
 
-4. Click **Ok**.
+4. Select **Ok**.
 
 5. The new policy is listed in the **Default** policy table, under **Job Submission Limits**.
 
@@ -90,11 +94,13 @@ There is a default policy set on every account. The default policy applies to al
 
 1. In the Azure portal, go to your Data Lake Analytics account.
 
-2. Click **Limits and policies**.
+2. Select **Limits and policies**.
 
 3. Under **Job Submission Limits**, find the policy you want to edit.
 
-4. To see the **Delete** and **Edit** options, in the rightmost column of the table, click `...`.## Additional resources for job policies
+4. To see the **Delete** and **Edit** options, in the rightmost column of the table, select `...`.
+
+## More resources for job policies
 
 - [Policy overview blog post](/archive/blogs/azuredatalake/managing-your-azure-data-lake-analytics-compute-resources-overview)
 - [Account-level policies blog post](/archive/blogs/azuredatalake/managing-your-azure-data-lake-analytics-compute-resources-account-level-policy)

@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 04/08/2021
+ms.date: 02/21/2023
 ms.custom: references_regions
 ---
 # Security FAQs for Azure NetApp Files
@@ -15,13 +15,13 @@ This article answers frequently asked questions (FAQs) about Azure NetApp Files 
 
 ## Can the network traffic between the Azure VM and the storage be encrypted?
 
-Azure NetApp Files data traffic is inherently secure by design, as it does not provide a public endpoint and data traffic stays within customer-owned VNet. Data-in-flight is not encrypted by default. However, data traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. 
+Azure NetApp Files data traffic is inherently secure by design, as it doesn't provide a public endpoint, and data traffic stays within customer-owned VNet. Data-in-flight isn't encrypted by default. However, data traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. 
 
-NFSv3 protocol does not provide support for encryption, so this data-in-flight cannot be encrypted. However, NFSv4.1 and SMB3 data-in-flight encryption can optionally be enabled. Data traffic between NFSv4.1 clients and Azure NetApp Files volumes can be encrypted using Kerberos with AES-256 encryption. See [Configure NFSv4.1 Kerberos encryption for Azure NetApp Files](configure-kerberos-encryption.md) for details. Data traffic between SMB3 clients and Azure NetApp Files volumes can be encrypted using the AES-CCM algorithm on SMB 3.0, and the AES-GCM algorithm on SMB 3.1.1 connections. See [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) for details. 
+NFSv3 protocol doesn't provide support for encryption, so this data-in-flight can't be encrypted. However, NFSv4.1 and SMB3 data-in-flight encryption can optionally be enabled. Data traffic between NFSv4.1 clients and Azure NetApp Files volumes can be encrypted using Kerberos with AES-256 encryption. See [Configure NFSv4.1 Kerberos encryption for Azure NetApp Files](configure-kerberos-encryption.md) for details. Data traffic between SMB3 clients and Azure NetApp Files volumes can be encrypted using the AES-CCM algorithm on SMB 3.0, and the AES-GCM algorithm on SMB 3.1.1 connections. See [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) for details. 
 
 ## Can the storage be encrypted at rest?
 
-All Azure NetApp Files volumes are encrypted using the FIPS 140-2 standard. All keys are managed by the Azure NetApp Files service. 
+All Azure NetApp Files volumes are encrypted using the FIPS 140-2 standard. Learn [how encryption keys managed](#how-are-encryption-keys-managed).
 
 ## Is Azure NetApp Files cross-region replication traffic encrypted?
 
@@ -29,15 +29,17 @@ Azure NetApp Files cross-region replication uses TLS 1.2 AES-256 GCM encryption 
 
 ## How are encryption keys managed? 
 
-Key management for Azure NetApp Files is handled by the service. A unique XTS-AES-256 data encryption key is generated for each volume. An encryption key hierarchy is used to encrypt and protect all volume keys. These encryption keys are never displayed or reported in an unencrypted format. Encryption keys are deleted immediately when a volume is deleted.
+By default key management for Azure NetApp Files is handled by the service, using [platform-managed keys](../security/fundamentals/key-management.md). A unique XTS-AES-256 data encryption key is generated for each volume. An encryption key hierarchy is used to encrypt and protect all volume keys. These encryption keys are never displayed or reported in an unencrypted format. When you delete a volume, Azure NetApp Files immediately deletes the volume's encryption keys.
 
-Support for customer-managed keys (Bring Your Own Key) using Azure Dedicated HSM is available on a controlled basis in the East US, South Central US, West US 2, and US Gov Virginia regions. You can request access at [anffeedback@microsoft.com](mailto:anffeedback@microsoft.com). As capacity becomes available, requests will be approved.
+Alternatively, [customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) can be used where keys are stored in [Azure Key Vault](../key-vault/general/basic-concepts.md). With customer-managed keys, you can fully manage the relationship between a key's life cycle, key usage permissions, and auditing operations on keys.
+
+Lastly, customer-managed keys using Azure Dedicated HSM is supported on a controlled basis. Support is currently available in the East US, South Central US, West US 2, and US Gov Virginia regions. You can request access at [anffeedback@microsoft.com](mailto:anffeedback@microsoft.com). As capacity becomes available, requests will be approved.
 
 ## Can I configure the NFS export policy rules to control access to the Azure NetApp Files service mount target?
 
 Yes, you can configure up to five rules in a single NFS export policy.
 
-## Can I use Azure RBAC with Azure NetApp Files?
+## Can I use Azure role-based access control (RBAC) with Azure NetApp Files?
 
 Yes, Azure NetApp Files supports Azure RBAC features. Along with the built-in Azure roles, you can [create custom roles](../role-based-access-control/custom-roles.md) for Azure NetApp Files. 
 
@@ -53,7 +55,7 @@ For the complete list of API operations, see [Azure NetApp Files REST API](/rest
 
 Yes, you can create [custom Azure policies](../governance/policy/tutorials/create-custom-policy-definition.md). 
 
-However, you cannot create Azure policies (custom naming policies) on the Azure NetApp Files interface. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#considerations).
+However, you can't create Azure policies (custom naming policies) on the Azure NetApp Files interface. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#considerations).
 
 ## When I delete an Azure NetApp Files volume, is the data deleted safely? 
 

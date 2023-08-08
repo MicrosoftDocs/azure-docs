@@ -66,7 +66,7 @@ To develop logic apps that run in your integration service environment (ISE), fo
 
 1. When you're done, select **Create**.
 
-1. Continue [creating your logic app in the usual way](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+1. Continue [creating your logic app in the usual way](../logic-apps/quickstart-create-example-consumption-workflow.md).
 
    For differences in how triggers and actions work and how they're labeled when you use an ISE compared to the multi-tenant Logic Apps service, see [Isolated versus multi-tenant in the ISE overview](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#difference).
 

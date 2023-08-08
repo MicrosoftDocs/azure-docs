@@ -2,11 +2,11 @@
 title: Update AD DS storage account password
 description: Learn how to update the password of the Active Directory Domain Services computer or service account that represents your storage account. This prevents authentication failures and keeps the storage account from being deleted when the password expires.
 author: khdownie
-ms.service: storage
-ms.subservice: files
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 11/17/2022
 ms.author: kendownie
+recommendations: false
 ---
 
 # Update the password of your storage account identity in AD DS

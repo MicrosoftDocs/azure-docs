@@ -4,6 +4,7 @@ description: Learn how to create a custom probe for Application Gateway by using
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: greglin

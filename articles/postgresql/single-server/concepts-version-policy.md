@@ -4,8 +4,8 @@ description: Describes the policy around Postgres major and minor versions in Az
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 
 ms.date: 09/14/2022
 ms.custom: fasttrack-edit, ignite-2022
@@ -14,6 +14,8 @@ ms.custom: fasttrack-edit, ignite-2022
 # Azure Database for PostgreSQL versioning policy
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 This page describes the Azure Database for PostgreSQL versioning policy, and is applicable to these deployment modes:
 

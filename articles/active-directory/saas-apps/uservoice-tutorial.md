@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with UserVoice | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with UserVoice'
 description: Learn how to configure single sign-on between Azure Active Directory and UserVoice.
 services: active-directory
 author: jeevansd

@@ -8,7 +8,7 @@ tags: azure-key-vault
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 01/04/2023
 ms.author: mbaldwin
 # Customer intent: As a developer using Key Vault I want to know the best practices so I can implement them.
 ---
@@ -38,6 +38,10 @@ You must provide following information to execute a full backup:
 Backup is a long running operation but will immediately return a Job ID. You can check the status of backup process using this Job ID. The backup process creates a folder inside the designated container with a following naming pattern **`mhsm-{HSM_NAME}-{YYYY}{MM}{DD}{HH}{mm}{SS}`**, where HSM_NAME is the name of managed HSM being backed up and YYYY, MM, DD, HH, MM, mm, SS are the year, month, date, hour, minutes, and seconds of date/time in UTC when the backup command was received.
 
 While the backup is in progress, the HSM may not operate at full throughput as some HSM partitions will be busy performing the backup operation.
+
+> [!IMPORTANT]
+> Public internet access must **not** be blocked from the storage accounts being used to backup or restore resources.
+
 
 ```azurecli-interactive
 # time for 500 minutes later for SAS token expiry
@@ -75,7 +79,7 @@ You must provide the following information to execute a full restore:
 - Storage account name
 - Storage account blob container
 - Storage container SAS token with permissions `rl`
-- Storage container folder name where the source backup is store
+- Storage container folder name where the source backup is stored
 
 Restore is a long running operation but will immediately return a Job ID. You can check the status of the restore process using this Job ID. When the restore process is in progress, the HSM enters a restore mode and all data plane command (except check restore status) are disabled.
 

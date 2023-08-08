@@ -6,7 +6,7 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 07/07/2022
 ms.author: anaharris
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 
 ---
 
@@ -14,37 +14,11 @@ ms.custom: references_regions
 
 This guide describes how to enable availability zone support for your API Management instance. The API Management service supports [Zone redundancy](../reliability/availability-zones-overview.md), which provides resiliency and high availability to a service instance in a specific Azure region. With zone redundancy, the gateway and the control plane of your API Management instance (Management API, developer portal, Git configuration) are replicated across datacenters in physically separated zones, making it resilient to a zone failure.
 
-In this article, we'll take you through the different options for availability zone migration.
+In this article, we'll take you through the different options for availability zone migration. For background about configuring API Management for high availability, see [Ensure API Management availability and reliability](../api-management/high-availability.md).
 
 ## Prerequisites
 
-* To configure API Management for zone redundancy, your instance must be in one of the following regions:
-    
-    * Australia East
-    * Brazil South
-    * Canada Central
-    * Central India
-    * Central US
-    * East Asia
-    * East US
-    * East US 2
-    * France Central
-    * Germany West Central
-    * Japan East
-    * Korea Central (*)
-    * North Europe
-    * Norway East
-    * South Africa North (*)
-    * South Central US
-    * Southeast Asia
-    * Switzerland North
-    * UK South
-    * West Europe
-    * West US 2
-    * West US 3
-
-    > [!IMPORTANT]
-    > The regions with * against them have restrictive access in an Azure subscription to enable availability zone support. Please work with your Microsoft sales or customer representative.
+* To configure API Management for zone redundancy, your instance must be in one of the Azure regions with [availability zone support](availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
 * If you haven't yet created an API Management service instance, see [Create an API Management service instance](../api-management/get-started-create-service-instance.md). Select the Premium service tier.
 
@@ -60,16 +34,17 @@ There are no downtime requirements for any of the migration options.
 
 * Changes can take from 15 to 45 minutes to apply. The API Management gateway can continue to handle API requests during this time.
 
+* When migrating an API Management deployed in an external or internal virtual network to availability zones, a new public IP address resource must be specified. In an internal VNet, the public IP address is used only for management operations, not for API requests. Learn more about [IP addresses of API Management](../api-management/api-management-howto-ip-addresses.md). 
+
 * Migrating to availability zones or changing the availability zone configuration will trigger a public [IP address change](../api-management/api-management-howto-ip-addresses.md#changes-to-the-ip-addresses).
 
-* If you've configured autoscaling for your API Management instance in the primary location, you might need to adjust your autoscale settings after enabling zone redundancy. The number of API Management units in autoscale rules and limits must be a multiple of the number of zones.
+* When enabling availability zones in a region, you configure a number of API Management scale [units](../api-management/upgrade-and-scale.md) that can be distributed evenly across the zones. For example, if you configure 2 zones, you could configure 2 units, 4 units, or another multiple of 2 units. Adding units incurs additional costs. For details, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
 
+* If you've configured autoscaling for your API Management instance in the primary location, you might need to adjust your autoscale settings after enabling zone redundancy. The number of API Management units in autoscale rules and limits must be a multiple of the number of zones.
 
 ## Option 1: Migrate existing location of API Management instance, not injected in VNet
 
 Use this option to migrate an existing location of your API Management instance to availability zones when it’s not injected (deployed) in a virtual network.
-
-### How to migrate API Management in a VNet
 
 1.	In the Azure portal, navigate to your API Management service.
 

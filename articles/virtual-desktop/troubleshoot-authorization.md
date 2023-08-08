@@ -17,7 +17,7 @@ When you add a virtual machine (VM) to an AD DS group, you must restart that VM 
 
 ## I can't add my storage account to my AD DS domain
 
-First, check [Unable to mount Azure Files with AD credentials](../storage/files/storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials) to see if your problem is listed there.
+First, check [Unable to mount Azure file shares with AD credentials](../storage/files/files-troubleshoot-smb-authentication.md#unable-to-mount-azure-file-shares-with-ad-credentials) to see if your problem is listed there.
 
 Here are the most common reasons users may come across issues:
 

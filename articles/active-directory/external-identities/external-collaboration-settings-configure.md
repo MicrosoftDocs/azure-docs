@@ -1,5 +1,5 @@
 ---
-title: Enable B2B external collaboration settings - Azure AD
+title: Enable B2B external collaboration settings
 description: Learn how to enable Active Directory B2B external collaboration and manage who can invite guest users. Use the Guest Inviter role to delegate invitations.
 
 services: active-directory
@@ -30,6 +30,8 @@ External collaboration settings let you specify what roles in your organization 
 For B2B collaboration with other Azure AD organizations, you should also review your [cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md) to ensure your inbound and outbound B2B collaboration and scope access to specific users, groups, and applications.
 
 ## Configure settings in the portal
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account and open the **Azure Active Directory** service.
 1. Select **External Identities** > **External collaboration settings**.
@@ -98,5 +100,4 @@ When a B2B user signs into a resource tenant to collaborate, a sign-in log is ge
 See the following articles on Azure AD B2B collaboration:
 
 - [What is Azure AD B2B collaboration?](what-is-b2b.md)
-- [Add B2B collaboration guest users without an invitation](add-user-without-invite.md)
 - [Adding a B2B collaboration user to a role](./add-users-administrator.md)

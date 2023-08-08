@@ -87,12 +87,16 @@
       href: application-proxy-azure-front-door.md
     - name: Give mobile and desktop apps access to on-premises APIs
       href: application-proxy-secure-api-access.md 
+    - name: Securely integrate logic-apps with on-premises APIs
+      href: application-proxy-integrate-with-logic-apps.md
     - name: Configure custom home page
       href: application-proxy-configure-custom-home-page.md
     - name: Configure cookie settings
       href: application-proxy-configure-cookie-settings.md
     - name: Publish using wildcards
       href: application-proxy-wildcard.md
+    - name: Publish complex distributed application using application segments
+      href: application-proxy-configure-complex-application.md
     - name: Configure custom domain
       href: application-proxy-configure-custom-domain.md
     - name: Translate inline links

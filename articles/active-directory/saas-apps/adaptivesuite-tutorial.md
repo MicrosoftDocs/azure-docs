@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Adaptive Insights | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Adaptive Insights'
 description: Learn how to configure single sign-on between Azure Active Directory and Adaptive Insights.
 services: active-directory
 author: jeevansd

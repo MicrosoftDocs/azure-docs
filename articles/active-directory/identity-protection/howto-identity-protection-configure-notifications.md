@@ -11,7 +11,7 @@ ms.date: 08/22/2022
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: sahandle
+ms.reviewer: chuqiaoshi
 
 ms.collection: M365-identity-device-management
 ---
@@ -24,7 +24,8 @@ Azure AD Identity Protection sends two types of automated notification emails to
 
 This article provides you with an overview of both notification emails.
 
-We don't support sending emails to users in group-assigned roles.
+   > [!Note]
+   > **We don't support sending emails to users in group-assigned roles.**
 
 ## Users at risk detected email
 

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with ColorTokens ZTNA | Microsoft Docs"
+title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with ColorTokens ZTNA"
 description: Learn how to configure single sign-on between Azure Active Directory and ColorTokens ZTNA.
 services: active-directory
 author: jeevansd

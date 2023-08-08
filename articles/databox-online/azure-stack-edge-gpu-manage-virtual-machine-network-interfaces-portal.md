@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/07/2022
+ms.date: 01/12/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to manage network interfaces on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.<!--Does "it" refer to the device or to the virtual NICs?-->
 ---
@@ -72,7 +72,7 @@ Follow these steps to add a network interface to a virtual machine deployed on y
     |---------|-------------|
     |Name     | A unique name within the edge resource group. The name cannot be changed after the network interface is created. To manage multiple network interfaces easily, use the suggestions provided in the [Naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming).     |
     |Select an edge resource group |Select the edge resource group to add the network interface to.|   
-    |Virtual network| The virtual network associated with the virtual switch created on your device when you enabled compute on the network interface. There is only one virtual network associated with your device.         |
+    |Virtual network| The virtual network associated with the virtual switch created on your device when you enabled compute on the network interface.  |
     |Subnet     | A subnet within the selected virtual network. This field is automatically populated with the subnet associated with the network interface on which you enabled compute.         |
     |IP address assignment   | A static or a dynamic IP for your network interface. The static IP should be an available, free IP from the specified subnet range. Choose dynamic if a DHCP server exists in the environment.        |
 

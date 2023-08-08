@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Broadcom DX SaaS | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Broadcom DX SaaS'
 description: Learn how to configure single sign-on between Azure Active Directory and Broadcom DX SaaS.
 services: active-directory
 author: jeevansd

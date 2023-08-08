@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Jedox | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Jedox'
 description: Learn how to configure single sign-on between Azure Active Directory and Jedox.
 services: active-directory
 author: jeevansd

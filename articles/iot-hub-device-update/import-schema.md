@@ -1,10 +1,10 @@
 ---
-title: Importing updates into Device Update for IoT Hub - import manifest schema | Microsoft Docs
+title: Importing updates into Device Update for IoT Hub - import manifest schema
 description: Schema used to create the import manifest required to import updates into Device Update for IoT Hub.
 author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 09/9/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-hub-device-update
 ---
 
@@ -221,6 +221,7 @@ For example:
   }
 }
 ```
+
 ## relatedFiles object
 
 Collection of related files to one or more of your primary payload files.
@@ -251,6 +252,9 @@ For example:
   }
 ],
 ```
+
+For more information, see [Use the related files feature to reference multiple update files](related-files.md).
+
 ## downloadHandler object
 
 Specifies how to process any related files.

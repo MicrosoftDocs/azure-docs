@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Beautiful.ai | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Beautiful.ai'
 description: Learn how to configure single sign-on between Azure Active Directory and Beautiful.ai.
 services: active-directory
 author: jeevansd

@@ -24,7 +24,7 @@ The following sizes are not supported for Azure Spot Virtual Machines:
  - B-series
  - Promo versions of any size (like Dv2, NV, NC, H promo sizes)
 
-Azure Spot Virtual Machine can be deployed to any region, except Microsoft Azure China 21Vianet.
+Azure Spot Virtual Machine can be deployed to any region, except Microsoft Azure operated by 21Vianet.
 
 The following [offer types](https://azure.microsoft.com/support/legal/offer-details/) are currently supported:
 
@@ -40,7 +40,6 @@ Pricing for Azure Spot Virtual Machine instances is variable, based on region an
 
 With variable pricing, you have option to set a max price, in US dollars (USD), using up to five decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the instance won't be evicted based on price. The price for the instance will be the current price for Azure Spot Virtual Machine or the price for a standard instance, which ever is less, as long as there is capacity and quota available.
 
-<New information here!>
 
 ## Eviction policy
 

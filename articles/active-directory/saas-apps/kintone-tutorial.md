@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 05/29/2023
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Kintone
@@ -71,12 +71,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier (Entity ID)** text box, type a URL using one of the following patterns:
-	
-   | **Identifier** |
-   |---|
-   | `https://<companyname>.cybozu.com` |
-   | `https://<companyname>.kintone.com` |
+    a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+	`https://<companyname>.kintone.com`
     
     b. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<companyname>.kintone.com`
@@ -142,7 +138,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. In the **Login URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
 
-	b. In the **Logout URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
+	b. In the **Logout URL** textbox, paste the value: `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`.
 
 	c. Click **Browse** to upload your downloaded certificate file from Azure portal.
 

@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 12/05/2022
+ms.date: 06/26/2023
 ms.author: glenga
 ---
 
@@ -30,7 +30,7 @@ Functions doesn't currently support local Python function development on ARM64 d
     $ arch
     ```
 
-    A response of `i386` indicates your terminal is running an x86 emulated environment.
+    A response of `i386` indicates your terminal is running an x86 emulated environment. If you aren't yet running in an x86 emulated environment, you may need to restart your local computer. 
 
 ### Install required packages 
  
@@ -38,7 +38,7 @@ Reinstall all dependencies required by Functions in this environment, which incl
 
 * [homebrew](https://brew.sh/), installed to the path `/usr/local/bin/brew`.
 * Python 
-* [Azure Functions Core Tools](/articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools)
+* [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools)
 
 Also, reinstall any other packages required by your Python project.
 
@@ -74,4 +74,4 @@ Validate you're referencing the correct versions by using the `which` command, a
 
 These example responses are based on the previous example .zshrc file.
 
-Now, you're set up to use Azure Functions in the x86 environment from the Terminal.
+Now, you're set up to use Azure Functions in the x86 environment from the Terminal. 

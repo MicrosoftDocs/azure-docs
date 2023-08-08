@@ -46,6 +46,7 @@ There are two stages to making cloud-init available to the supported Linux distr
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |RedHat 7 |RHEL |7.7, 7.8, 7_9 |latest |yes | yes |
 |RedHat 8 |RHEL |8.1, 8.2, 8_3, 8_4 |latest |yes | yes |
+|RedHat 9 |RHEL |9_0, 9_1 |latest |yes | yes |
 
 * All other RedHat SKUs starting from RHEL 7 (version 7.7) and RHEL 8 (version 8.1) including both Gen1 and Gen2 images are provisioned using cloud-init. Cloud-init is not supported on RHEL 6. 
 
@@ -162,7 +163,7 @@ Once the VM has been provisioned, cloud-init will run through all the modules an
 > [!NOTE]
 > Not every module failure results in a fatal cloud-init overall configuration failure. For example, using the `runcmd` module, if the script fails, cloud-init will still report provisioning succeeded because the runcmd module executed.
 
-For more details of cloud-init logging, see the [cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/topics/logging.html)
+For more details of cloud-init logging, see the [cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/development/logging.html)
 
 ## Telemetry
 cloud-init collects usage data and sends it to Microsoft to help improve our products and services. Telemetry is only collected during the provisioning process (first boot of the VM). The data collected helps us investigate provisioning failures and monitor performance and reliability. Data collected doesn't include any identifiers (personal identifiers). Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkId=521839) to learn more. Some examples of telemetry being collected are (this isn't an exhaustive list): OS-related information (cloud-init version, distro version, kernel version), performance metrics of essential VM provisioning actions (time to obtain DHCP lease, time to retrieve metadata necessary to configure the VM, etc.), cloud-init log, and dmesg log.

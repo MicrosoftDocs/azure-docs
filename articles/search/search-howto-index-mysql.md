@@ -2,7 +2,6 @@
 title: Azure DB for MySQL (preview)
 titleSuffix: Azure Cognitive Search
 description: Learn how to set up a search indexer to index data stored in Azure Database for MySQL for full text search in Azure Cognitive Search.
-
 author: gmndrg
 ms.author: gimondra
 manager: nitinme
@@ -21,7 +20,7 @@ ms.date: 06/10/2022
 
 In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Database for MySQL and makes it searchable in Azure Cognitive Search.
 
-This article supplements [Creating indexers in Azure Cognitive Search](search-howto-create-indexers.md) with information that's specific to indexing files in Azure DB for MySQL. It uses the REST APIs to demonstrate a three-part workflow common to all indexers:
+This article supplements [Creating indexers in Azure Cognitive Search](search-howto-create-indexers.md) with information that's specific to indexing files in Azure Database for MySQL. It uses the REST APIs to demonstrate a three-part workflow common to all indexers:
 
 - Create a data source
 - Create an index

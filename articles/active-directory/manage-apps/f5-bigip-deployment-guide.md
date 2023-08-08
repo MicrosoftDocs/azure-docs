@@ -11,8 +11,8 @@ ms.workload: identity
 ms.date: 12/13/2022
 ms.author: gasinh
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell
 ms.reviewer: miccohen
+ms.custom: not-enterprise-apps
 ---
 
 # Deploy F5 BIG-IP Virtual Edition VM in Azure
@@ -22,7 +22,7 @@ In this tutorial, learn to deploy BIG-IP Vitural Edition (VE) in Azure infrastru
 - A prepared BIG-IP virtual machine (VM) to model a secure hybrid access (SHA) proof-of-concept
 - A staging instance to test new BIG-IP system updates and hotfixes
 
-Learn more: [SHA: Secure legacy apps with Azure Active Directory](/azure/active-directory/manage-apps/secure-hybrid-access)
+Learn more: [SHA: Secure legacy apps with Azure Active Directory](./secure-hybrid-access.md)
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ Deploying a BIG-IP in Azure for SHA requires:
   - Go to letsencrypt.org to see offers. Select [Get Started](https://letsencrypt.org/).
 - An SSL certificate to secure the BIG-IP management interface. You can use a certificate to publish web apps, if its subject corresponds to the BIG-IP fully qualified domain name (FQDN). For example, you can use a wildcard certificate with a subject `*.contoso.com` for `https://big-ip-vm.contoso.com:8443`.
 
-VM deployment and base system configurations take approximately 30 minutes, then BIG-IP is to implement SHA scenarios in [Integrate F5 BIG-IP with Azure Active Directory](f5-aad-integration.md).
+VM deployment and base system configurations take approximately 30 minutes, then BIG-IP is to implement SHA scenarios in [Integrate F5 BIG-IP with Azure Active Directory](f5-integration.md).
 
 ### Testing scenarios
 
@@ -59,11 +59,13 @@ If you don't have the previous items for testing, you can deploy an AD domain en
 
 ## Azure deployment
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You can deploy a BIG-IP in different topologies. This guide focuses on a network interface card (NIC) deployment. However, if your BIG-IP deployment requires multiple network interfaces for high availability, network segregation, or more than 1-GB throughput, consider using F5 pre-compiled [Azure Resource Manager (ARM) templates](https://clouddocs.f5.com/cloud/public/v1/azure/Azure_multiNIC.html).
 
 To deploy BIG-IP VE from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps).
 
-1. Log into the [Azure portal](https://portal.azure.com/#home) using an account with permissions to create VMs. For example, Contributor.
+1. Sign in to the [Azure portal](https://portal.azure.com) using an account with permissions to create VMs, such as Contributor.
 2. In the top ribbon search box, type **marketplace**
 3. Select **Enter**.
 4. Type **F5** into the Marketplace filter.
@@ -366,13 +368,13 @@ For BIG-IP to be pre-configured and ready for SHA scenarios, provision Client an
 
     ![Screenshot of certificate, key, and chain selections.](./media/f5ve-deployment-plan/contoso-wildcard.png)
 
-13.	Repeat steps to create an **SSL server certificate profile**. 
-14.	From the top ribbon, select **SSL** > **Server** > **Create**.
-15.	In the **New Server SSL Profile** page, enter a unique, friendly **Name**.
-16.	Ensure the Parent profile is set to **serverssl**.
-17.	Select the far-right check box for the **Certificate** and **Key** rows
-18.	From the **Certificate** and **Key** drop-down lists, select your imported certificate.
-19.	Select **Finished**.
+13. Repeat steps to create an **SSL server certificate profile**. 
+14. From the top ribbon, select **SSL** > **Server** > **Create**.
+15. In the **New Server SSL Profile** page, enter a unique, friendly **Name**.
+16. Ensure the Parent profile is set to **serverssl**.
+17. Select the far-right check box for the **Certificate** and **Key** rows
+18. From the **Certificate** and **Key** drop-down lists, select your imported certificate.
+19. Select **Finished**.
 
     ![Screenshot of general properties and configuration selections.](./media/f5ve-deployment-plan/server-ssl-profile.png)
 
@@ -399,7 +401,7 @@ See the following list for update-related guidance. Update instructions follow.
 * Run v15.x and above. See, [F5 download](https://downloads.f5.com/esd/productlines.jsp). Sign-in required.
 * To update the main TMOS, see the F5 article, [K34745165: Managing software images on the BIG-IP system](https://support.f5.com/csp/article/K34745165)  
   * If you can't update the main TMOS, you can upgrade the Guided Configuration. Use the following steps.
-* See also, [scenario-based guidance](f5-aad-integration.md)
+* See also, [scenario-based guidance](f5-integration.md)
 
 1. In the BIG-IP web config, on the main tab, go to **Access** > **Guided Configuration**.
 2. On the **Guided Configuration** page, select **Upgrade Guided Configuration**.
@@ -487,4 +489,4 @@ Get-AzVmSnapshot -ResourceGroupName '<E.g.contoso-RG>' -VmName '<E.g.BIG-IP-VM>'
 
 ## Next steps
 
-Select a [deployment scenario](f5-aad-integration.md) and start your implementation.
+Select a [deployment scenario](f5-integration.md) and start your implementation.

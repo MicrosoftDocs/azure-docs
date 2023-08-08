@@ -3,12 +3,12 @@ title: 'Quickstart: Create an Azure DNS Private Resolver - Azure Resource Manage
 titleSuffix: Azure DNS Private resolver
 description: Learn how to create Azure DNS Private Resolver. This article is a step-by-step quickstart to create and manage your first Azure DNS Private Resolver using Azure Resource Manager template (ARM template).
 services: dns
-author: aarunraaj
-ms.author: arselvar
-ms.date: 10/07/2022
+author: greg-lindsay
+ms.author: greglin
+ms.date: 07/17/2023
 ms.topic: quickstart
 ms.service: dns
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 #Customer intent: As an administrator or developer, I want to learn how to create Azure DNS Private Resolver using ARM template so I can use Azure DNS Private Resolver as forwarder..
 ---
 
@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-dns-private-resolver).
+The template used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/azure-dns-private-resolver/).
 
 This template is configured to create a:
 
@@ -82,7 +82,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## Validate the deployment
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Resource groups** from the left pane.
 

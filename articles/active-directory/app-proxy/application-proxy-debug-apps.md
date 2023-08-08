@@ -1,5 +1,5 @@
 ---
-title: Debug Application Proxy applications - Azure Active Directory
+title: Debug Application Proxy applications
 description: Debug issues with Azure Active Directory (Azure AD) Application Proxy applications.
 services: active-directory
 author: kenwith

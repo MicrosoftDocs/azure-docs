@@ -6,7 +6,7 @@ author: anmolbohra
 manager: komivi.agbakpem
 services: azure-communication-services
 ms.author: anmolbohra
-ms.date: 07/09/2022
+ms.date: 03/31/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: email
@@ -14,8 +14,6 @@ ms.subservice: email
 # Quickstart: Handle Email events
 
 Get started with Azure Communication Services by using Azure Event Grid to handle Communication Services Email events. After subscribing to Email events such as delivery reports and engagement reports, you generate and receive these events. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 ## Prerequisites
 
@@ -102,6 +100,10 @@ After you generate an event, you'll notice that `Email Delivery Report Received`
 :::image type="content" source="./media/handle-email-events/email-delivery-report-received.png" alt-text="Screenshot of the Azure Event Grid viewer that shows the Event Grid schema for an EMAIL delivery report received event.":::
 
 :::image type="content" source="./media/handle-email-events/email-engagementtracking-report-received.png" alt-text="Screenshot of the Azure Event Grid viewer that shows the Event Grid schema for an EMAIL engagement tracking report event.":::
+
+- `EngagementContext` refers to the link clicked when the engagementType is `Click`.
+- `UserAgent` refers to the User-Agent from which this email engagement event originated. Eg. If the user interacted on Edge using a Win10 machine: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246
+- `EngagementType` refers to the type of engagement, possible values are 'View' or 'Click'.
 
 Learn more about the [event schemas and other eventing concepts](../../../event-grid/event-schema-communication-services.md).
 

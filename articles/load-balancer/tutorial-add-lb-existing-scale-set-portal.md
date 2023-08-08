@@ -6,7 +6,7 @@ ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 12/29/2022
-ms.custom: template-tutorial, FY23 content-maintenance
+ms.custom: template-tutorial, engagement-fy23
 ---
 
 # Tutorial: Add Azure Load Balancer to an existing Virtual Machine Scale Set using the Azure portal
@@ -75,6 +75,11 @@ In this section, you'll create a virtual network for the scale set and the other
 
 1. Select **Create**.
 
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+>
 ## Create Virtual Machine Scale Set
 
 In this section, you'll create a Virtual Machine Scale Set that will be attached to a load balancer created later.

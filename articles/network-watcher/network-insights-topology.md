@@ -3,8 +3,8 @@ title: Network Insights topology
 description: An overview of topology, which provides a pictorial representation of the resources.
 ms.topic: how-to
 ms.service: network-watcher
-author: Sagav28
-ms.author: saggupta
+author: halkazwini
+ms.author: halkazwini
 ms.date: 11/16/2022
 ms.custom: subject-monitoring, ignite-2022, engagement-fy23
 ---
@@ -38,7 +38,7 @@ The following are the resource types supported by Topology:
 
 To view a topology, follow these steps:
 
-1. Log into the [Azure portal](https://portal.azure.com) with an account that has the necessary [permissions](required-rbac-permissions.md).
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that has the necessary [permissions](required-rbac-permissions.md).
 2. Select **More services**.
 3. In the **All services** screen, enter **Monitor** in the **Filter services** search box and select it from the search result. 
 4. Under **Insights**, select **Networks**. 

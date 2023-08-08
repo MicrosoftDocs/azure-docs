@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 12/8/2022
+ms.date: 06/22/2023
 ms.author: anfdocs
 ---
 # Create a dual-protocol volume for Azure NetApp Files
@@ -27,6 +27,25 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
     See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 * A subnet must be delegated to Azure NetApp Files.  
     See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
+* The [non-browsable shares](#non-browsable-share) and [access-based enumeration](#access-based-enumeration) features are currently in preview. You must register each feature before you can use it:
+
+1. Register the feature: 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSmbNonBrowsable
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBAccessBasedEnumeration
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSmbNonBrowsable
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBAccessBasedEnumeration
+    ```
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Considerations
 
@@ -35,7 +54,7 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 * The **Allow local NFS users with LDAP** option in Active Directory connections intends to provide occasional and temporary access to local users. When this option is enabled, user authentication and lookup from the LDAP server stop working, and the number of group memberships that Azure NetApp Files will support will be limited to 16.  As such, you should keep this option *disabled* on Active Directory connections, except for the occasion when a local user needs to access LDAP-enabled volumes. In that case, you should disable this option as soon as local user access is no longer required for the volume. See [Allow local NFS users with LDAP to access a dual-protocol volume](#allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume) about managing local user access.
 * Ensure that the NFS client is up to date and running the latest updates for the operating system.
 * Dual-protocol volumes support both Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (AADDS). 
-* Dual-protocol volumes do not support the use of LDAP over TLS with AADDS. See [LDAP over TLS considerations](configure-ldap-over-tls.md#considerations).
+* Dual-protocol volumes do not support the use of LDAP over TLS with Azure Active Directory Domain Services ([Azure AD DS](../active-directory-domain-services/overview.md)). LDAP over TLS is supported with Active Directory Domain Services (AD DS). See [LDAP over TLS considerations](configure-ldap-over-tls.md#considerations).
 * The NFS version used by a dual-protocol volume can be NFSv3 or NFSv4.1. The following considerations apply:
     * Dual protocol does not support the Windows ACLS extended attributes `set/get` from NFS clients.
     * NFS clients cannot change permissions for the NTFS security style, and Windows clients cannot change permissions for UNIX-style dual-protocol volumes.   
@@ -64,6 +83,8 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 
 * You don't need a server root CA certificate for creating a dual-protocol volume. It is required only if LDAP over TLS is enabled.
 
+* To understand Azure NetApp Files dual protocols and related considerations, see the [Dual Protocols section in Understand NAS protocols in Azure NetApp Files](network-attached-storage-protocols.md#dual-protocols).
+
 ## Create a dual-protocol volume
 
 1.	Click the **Volumes** blade from the Capacity Pools blade. Click **+ Add volume** to create a volume. 
@@ -83,6 +104,10 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
         Specify the amount of logical storage that is allocated to the volume.  
 
         The **Available quota** field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.  
+
+    * **Large Volume**
+        If the quota of your volume is less than 100 TiB, select **No**. If the quota of your volume is greater than 100 TiB, select **Yes**.
+        [!INCLUDE [Large volumes warning](includes/large-volumes-notice.md)]
 
     * **Throughput (MiB/S)**   
         If the volume is created in a manual QoS capacity pool, specify the throughput you want for the volume.   
@@ -106,6 +131,9 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 
     * **Network features**  
         In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
+
+    * **Encryption key source** 
+        You can select `Microsoft Managed Key` or `Customer Managed Key`. See [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) and [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) about using this field. 
 
     * **Availability zone**   
         This option lets you deploy the new volume in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
@@ -139,6 +167,18 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
     * If you selected NFSv4.1 and SMB for the dual-protocol volume versions, indicate whether you want to enable **Kerberos** encryption for the volume.
 
         Additional configurations are required for Kerberos. Follow the instructions in [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md).
+
+
+    * <a name="access-based-enumeration"></a> If you want to enable access-based enumeration, select **Enable Access Based Enumeration**.
+
+        This feature will hide directories and files created under a share from users who do not have access permissions. Users will still be able to view the share. You can only enable access-based enumeration if the dual-protocol volume uses NTFS security style.
+
+    * <a name="non-browsable-share"></a> You can enable the **non-browsable-share feature.**
+
+        This feature prevents the Windows client from browsing the share. The share does not show up in the Windows File Browser or in the list of shares when you run the `net view \\server /all` command.
+
+    > [!IMPORTANT]
+    > The access-based enumeration and non-browsable shares features are currently in preview. If this is your first time using either, refer to the steps in [Before you begin](#before-you-begin) to register the features. 
 
     *  Customize **Unix Permissions** as needed to specify change permissions for the mount path. The setting does not apply to the files under the mount path. The default setting is `0770`. This default setting grants read, write, and execute permissions to the owner and the group, but no permissions are granted to other users.     
         Registration requirement and considerations apply for setting **Unix Permissions**. Follow instructions in [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md).  
@@ -209,7 +249,9 @@ Follow instructions in [Configure an NFS client for Azure NetApp Files](configur
 
 ## Next steps  
 
+* [Considerations for Azure NetApp Files dual-protocol volumes](network-attached-storage-protocols.md#considerations-for-azure-netapp-files-dual-protocol-volumes) 
 * [Manage availability zone volume placement for Azure NetApp Files](manage-availability-zone-volume-placement.md)
+* [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md)
 * [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md)
 * [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md)
 * [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md). 

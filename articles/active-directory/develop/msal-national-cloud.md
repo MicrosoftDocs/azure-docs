@@ -2,7 +2,7 @@
 title: Use MSAL in a national cloud app
 description: The Microsoft Authentication Library (MSAL) enables application developers to acquire tokens in order to call secured web APIs. These web APIs can be Microsoft Graph, other Microsoft APIs, partner web APIs, or your own web API. MSAL supports multiple application architectures and platforms.
 services: active-directory
-author: negoe
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,8 +10,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/21/2021
-ms.author: negoe
-ms.reviewer: marsma, nacanuma
+ms.author: henrymbugua
+ms.reviewer: negoe, nacanuma
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about how the Microsoft Authentication Library works in national cloud scenarios so I can decide if this platform meets my application development needs.
 ---
@@ -25,7 +25,7 @@ In addition to the Microsoft worldwide cloud, the Microsoft Authentication Libra
 Including the global Azure cloud, Azure Active Directory (Azure AD) is deployed in the following national clouds: 
 
 - Azure Government
-- Azure China 21Vianet
+- Microsoft Azure operated by 21Vianet
 - Azure Germany ([Closing on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions))
 
 This guide demonstrates how to sign in to work and school accounts, get an access token, and call the Microsoft Graph API in the [Azure Government cloud](https://azure.microsoft.com/global-infrastructure/government/) environment.
@@ -216,5 +216,5 @@ See [National cloud authentication endpoints](authentication-national-cloud.md) 
 National cloud documentation:
 
 - [Azure Government](../../azure-government/index.yml)
-- [Azure China 21Vianet](/azure/china/)
+- [Microsoft Azure operated by 21Vianet](/azure/china/)
 - [Azure Germany (closes on October 29, 2021)](../../germany/index.yml)

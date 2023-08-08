@@ -4,6 +4,7 @@ description: Learn how to migrate your .NET application from Amazon's DynamoDB t
 author: manishmsfte
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: devx-track-dotnet
 ms.topic: how-to
 ms.date: 05/02/2020
 ms.author: mansha
@@ -520,4 +521,3 @@ As you can see, Azure Cosmos DB supports natural queries (SQL), operations are a
 - Learn about [performance optimization](performance-tips.md).
 - Learn about [optimize reads and writes](../key-value-store-cost.md)
 - Learn about [Monitoring in Azure Cosmos DB](../monitor.md)
-

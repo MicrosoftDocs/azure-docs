@@ -3,17 +3,14 @@ title: What is Azure Load Balancer?
 titleSuffix: Azure Load Balancer
 description: Overview of Azure Load Balancer features, architecture, and implementation. Learn how the Load Balancer works and how to use it in the cloud.
 services: load-balancer
-documentationcenter: na
 author: mbender-ms
 ms.service: load-balancer
 # Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for. 
 ms.topic: overview
-ms.custom: FY23 Content-Maintenance
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2022
 ms.author: mbender
-
+ms.custom: template-overview, engagement-fy23
 ---
 
 # What is Azure Load Balancer?
@@ -68,7 +65,7 @@ Key scenarios that you can accomplish using Azure Standard Load Balancer include
 
 - Load balance TCP and UDP flow on all ports simultaneously using **[HA ports](./load-balancer-ha-ports-overview.md)**.
 
-- Chain Standard Load Balancer and [Gateway Loadbalancer](./tutorial-gateway-portal.md).
+- Chain Standard Load Balancer and [Gateway Load Balancer](./tutorial-gateway-portal.md).
 
 ### <a name="securebydefault"></a>Secure by default
 

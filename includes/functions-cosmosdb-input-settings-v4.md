@@ -7,10 +7,10 @@ ms.author: glenga
 ---
 |function.json property | Description|
 |---------|----------------------|
-|**type** | Must be set to `cosmosDBTrigger`. |
+|**type** | Must be set to `cosmosDB`. |
 |**direction** | Must be set to `in`. |
 |**name** | The variable name used in function code that represents the list of documents with changes. |
-|**connection** | The name of an app setting or setting container that specifies how to connect to the Azure Cosmos DB account being monitored. For more information, see [Connections](#connections).|
+|**connection** | The name of an app setting or setting container that specifies how to connect to the Azure Cosmos DB account being monitored. For more information, see [Connections](../articles/azure-functions/functions-bindings-cosmosdb-v2-input.md#connections).|
 |**databaseName**  | The name of the Azure Cosmos DB database with the container being monitored. |
 |**containerName** | The name of the container being monitored. |
 |**partitionKey**| Specifies the partition key value for the lookup. May include binding parameters. It is required for lookups in [partitioned](../articles/cosmos-db/partitioning-overview.md#logical-partitions) containers.|

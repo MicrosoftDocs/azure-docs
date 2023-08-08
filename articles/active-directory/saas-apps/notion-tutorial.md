@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Notion | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Notion'
 description: Learn how to configure single sign-on between Azure Active Directory and Notion.
 services: active-directory
 author: jeevansd

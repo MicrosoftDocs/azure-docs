@@ -91,7 +91,7 @@ If you have built a SCIM Gateway and would like to add it to this list, follow t
 * To avoid duplication, only include applications that don't already have out of the box provisioning connectors in the [Azure AD application gallery](../saas-apps/tutorial-list.md). 
 
 ## Disclaimer
-For independent software vendors: The Microsoft Azure Active Directory Application Gallery Terms & Conditions, excluding Sections 2–4, apply to this Partner-Driven Integrations Catalog (https://aka.ms/PartnerDrivenProvisioning, the “Integrations Catalog”). References to the “Gallery” shall be read as the “Integrations Catalog” and references to an “App” shall be read as “Integration”.  
+For independent software vendors: The Microsoft Azure Active Directory Application Gallery Terms & Conditions, excluding Sections 2–4, apply to this Partner-Driven Integrations Catalog (the “Integrations Catalog”). References to the “Gallery” shall be read as the “Integrations Catalog” and references to an “App” shall be read as “Integration”.  
 
 If you don't agree with these terms, you shouldn't submit your Integration for listing in the Integrations Catalog. If you submit an Integration to the Integrations Catalog, you agree that you or the entity you represent (“YOU” or “YOUR”) is bound by these terms. 
  

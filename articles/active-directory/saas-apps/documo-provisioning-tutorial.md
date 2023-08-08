@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure Documo for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Documo for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Documo.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 92b9561a-5c87-4540-a806-744e35ff5714
 ms.service: active-directory
 ms.subservice: saas-app-tutorial

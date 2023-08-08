@@ -6,23 +6,23 @@ author: Dickson-Mwendia
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/16/2022
 ROBOTS: NOINDEX
 ms.author: dmwendia
-ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-java, mode-api
+ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-java, mode-api, devx-track-extended-java
 ---
 # Quickstart: Add sign-in with Microsoft to a Java web app
 
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 >
-> > [Quickstart: Java web app with user sign-in](web-app-quickstart.md?pivots=devlang-java)
+> > [Quickstart: Add sign-in with Microsoft to a Java web app](quickstart-web-app-java-sign-in.md)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
-> > [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
+> [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
 > # Quickstart: Add sign-in with Microsoft to a Java web app
 >
 > In this quickstart, you download and run a code sample that demonstrates how a Java web application can sign in users and call the Microsoft Graph API. Users from any Azure Active Directory (Azure AD) organization can sign in to the application.
@@ -43,6 +43,7 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-jav
 > 
 > 1. Add reply URLs `https://localhost:8443/msal4jsample/secure/aad` and `https://localhost:8443/msal4jsample/graph/me`.
 > 1. Create a client secret.
+> 
 > <button id="makechanges" class="nextstepaction configure-app-button"> Make these changes for me </button>
 > 
 > > [!div id="appconfigured" class="alert alert-info"]
@@ -180,7 +181,7 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-jav
 > import com.microsoft.aad.msal4j.*;
 > ```
 > 
-> [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 > 
 > ## Next steps
 > 

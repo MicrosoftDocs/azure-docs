@@ -98,13 +98,13 @@ TLS versions 1.0 and 1.1 are known to be susceptible to security attacks, and ha
 
 Learn more about [Redis Cache Server - TLSVersion (TLS versions 1.0 and 1.1 are known to be susceptible to security attacks, and have other Common Vulnerabilities and Exposures (CVE) weaknesses.)](https://aka.ms/TLSVersions).
 
-## Cognitive Services
+## Azure AI services
 
 ### Upgrade to the latest version of the Immersive Reader SDK
 
 We have identified resources under this subscription using outdated versions of the Immersive Reader SDK. Using the latest version of the Immersive Reader SDK provides you with updated security, performance and an expanded set of features for customizing and enhancing your integration experience.
 
-Learn more about [Cognitive Service - ImmersiveReaderSDKRecommendation (Upgrade to the latest version of the Immersive Reader SDK)](https://aka.ms/ImmersiveReaderAzureAdvisorSDKLearnMore).
+Learn more about [Azure AI Immersive Reader](/azure/ai-services/immersive-reader/).
 
 ## Compute
 
@@ -180,7 +180,7 @@ Learn more about [Kubernetes service - EnableClusterAutoscaler (Enable the Clust
 
 Some of the subnets for this cluster's node pools are full and cannot take any more worker nodes. Using the Azure CNI plugin requires to reserve IP addresses for each node and all the pods for the node at node provisioning time. If there is not enough IP address space in the subnet, no worker nodes can be deployed. Additionally, the AKS cluster cannot be upgraded if the node subnet is full.
 
-Learn more about [Kubernetes service - NodeSubnetIsFull (The AKS node pool subnet is full)](../aks/use-multiple-node-pools.md#add-a-node-pool-with-a-unique-subnet).
+Learn more about [Kubernetes service - NodeSubnetIsFull (The AKS node pool subnet is full)](../aks/create-node-pools.md#add-a-node-pool-with-a-unique-subnet).
 
 ### Disable the Application Routing Addon
 
@@ -192,13 +192,13 @@ Learn more about [Kubernetes service - UseAzurePolicyForKubernetes (Disable the 
 
 This cluster is not using ephemeral OS disks which can provide lower read/write latency, along with faster node scaling and cluster upgrades
 
-Learn more about [Kubernetes service - UseEphemeralOSdisk (Use Ephemeral OS disk)](../aks/cluster-configuration.md#ephemeral-os).
+Learn more about [Kubernetes service - UseEphemeralOSdisk (Use Ephemeral OS disk)](../aks/concepts-storage.md#ephemeral-os-disk).
 
-### Use Uptime SLA
+### Free and Standard tiers for AKS control plane management
 
-This cluster has not enabled Uptime SLA, and it limited to an SLO of 99.5%
+This cluster has not enabled the Standard tier which includes the Uptime SLA by default, and is limited to an SLO of 99.5%.
 
-Learn more about [Kubernetes service - UseUptimeSLA (Use Uptime SLA)](../aks/uptime-sla.md).
+Learn more about [Kubernetes service - Free and Standard Tier](../aks/free-standard-pricing-tiers.md).
 
 ### Deprecated Kubernetes API in 1.22 has been found
 
@@ -268,7 +268,7 @@ Learn more about [Alert Rule - ScheduledQueryRulesRp (Log alert rule was disable
 
 Create a periodic HSM backup to prevent data loss and have ability to recover the HSM in case of a disaster.
 
-Learn more about [Managed HSM Service - CreateHSMBackup (Create a backup of HSM)](../key-vault/managed-hsm/best-practices.md#backup).
+Learn more about [Managed HSM Service - CreateHSMBackup (Create a backup of HSM)](../key-vault/managed-hsm/best-practices.md#create-backups).
 
 ## Data Explorer
 

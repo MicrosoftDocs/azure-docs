@@ -1,27 +1,30 @@
 ---
-title: 'Quickstart: Connect to Azure PostgreSQL with GitHub Actions'
+title: "Quickstart: Connect to Azure PostgreSQL with GitHub Actions"
 description: Use Azure PostgreSQL from a GitHub Actions workflow
+author: sunilagarwal
+ms.author: sunila
+ms.reviewer: maghan
+ms.date: 04/28/2023
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: quickstart
-ms.author: sunila
-author: sunilagarwal
-ms.reviewer: ""
-ms.custom: github-actions-azure, mode-other
-ms.date: 06/24/2022
+ms.custom:
+  - github-actions-azure
+  - mode-other
 ---
 
 # Quickstart: Use GitHub Actions to connect to Azure PostgreSQL
 
-[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+[!INCLUDE [applies-to-postgresql-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
-**APPLIES TO:** :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - Single Server :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - Flexible Server
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy database updates to [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/).
 
 ## Prerequisites
 
-You will need:
+You need:
+
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A GitHub repository with sample data (`data.sql`). If you don't have a GitHub account, [sign up for free](https://github.com/join).
 - An Azure Database for PostgreSQL server.
@@ -33,10 +36,10 @@ A GitHub Actions workflow is defined by a YAML (.yml) file in the `/.github/work
 
 The file has two sections:
 
-|Section  |Tasks  |
-|---------|---------|
-|**Authentication** | 1. Generate deployment credentials. |
-|**Deploy** | 1. Deploy the database. |
+| Section | Tasks |
+| --- | --- |
+| **Authentication** | 1. Generate deployment credentials. |
+| **Deploy** | 1. Deploy the database. |
 
 ## Generate deployment credentials
 
@@ -44,9 +47,9 @@ The file has two sections:
 
 ## Copy the PostgreSQL connection string
 
-In the Azure portal, go to your Azure Database for PostgreSQL server and open **Settings** > **Connection strings**. Copy the **ADO.NET** connection string. Replace the placeholder values for `your_database` and `your_password`. The connection string will look similar to this.
+In the Azure portal, go to your Azure Database for PostgreSQL server and open **Settings** > **Connection strings**. Copy the **ADO.NET** connection string. Replace the placeholder values for `your_database` and `your_password`. The connection string looks similar to this.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > - For Single server use ```user=adminusername@servername```  . Note the ```@servername``` is required.
 > - For Flexible server , use ```user= adminusername``` without the  ```@servername```.
 
@@ -54,7 +57,7 @@ In the Azure portal, go to your Azure Database for PostgreSQL server and open **
 psql host={servername.postgres.database.azure.com} port=5432 dbname={your_database} user={adminusername} password={your_database_password} sslmode=require
 ```
 
-You will use the connection string as a GitHub secret.
+You use the connection string as a GitHub secret.
 
 ## Configure the GitHub secrets
 
@@ -64,9 +67,9 @@ You will use the connection string as a GitHub secret.
 
 1. Go to **Actions** for your GitHub repository.
 
-2. Select **Set up your workflow yourself**.
+1. Select **Set up your workflow yourself**.
 
-2. Delete everything after the `on:` section of your workflow file. For example, your remaining workflow may look like this.
+1. Delete everything after the `on:` section of your workflow file. For example, your remaining workflow may look like this.
 
     ```yaml
     name: CI
@@ -78,7 +81,7 @@ You will use the connection string as a GitHub secret.
         branches: [ main ]
     ```
 
-1. Rename your workflow `PostgreSQL for GitHub Actions` and add the checkout and login actions. These actions will checkout your site code and authenticate with Azure using the GitHub secret(s) you created earlier.
+1. Rename your workflow `PostgreSQL for GitHub Actions` and add the checkout and sign in actions. These actions check out your site code and authenticate with Azure using the GitHub secret(s) you created earlier.
 
     # [Service principal](#tab/userlevel)
 
@@ -100,6 +103,7 @@ You will use the connection string as a GitHub secret.
         with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
     ```
+
     # [OpenID Connect](#tab/openid)
 
     ```yaml
@@ -122,19 +126,20 @@ You will use the connection string as a GitHub secret.
             tenant-id: ${{ secrets.AZURE_TENANT_ID }}
             subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     ```
+
     ---
 
-2. Use the Azure PostgreSQL Deploy action to connect to your PostgreSQL instance. Replace `POSTGRESQL_SERVER_NAME` with the name of your server. You should have a PostgreSQL data file named `data.sql` at the root level of your repository.
+1. Use the Azure PostgreSQL Deploy action to connect to your PostgreSQL instance. Replace `POSTGRESQL_SERVER_NAME` with the name of your server. You should have a PostgreSQL data file named `data.sql` at the root level of your repository.
 
     ```yaml
      - uses: azure/postgresql@v1
        with:
         connection-string: ${{ secrets.AZURE_POSTGRESQL_CONNECTION_STRING }}
         server-name: POSTGRESQL_SERVER_NAME
-        sql-file: './data.sql'
+        plsql-file: './data.sql'
     ```
 
-3. Complete your workflow by adding an action to logout of Azure. Here is the completed workflow. The file will appear in the `.github/workflows` folder of your repository.
+1. Complete your workflow by adding an action to sign out of Azure. Here's the completed workflow. The file appears in the `.github/workflows` folder of your repository.
 
     # [Service principal](#tab/userlevel)
 
@@ -161,7 +166,7 @@ You will use the connection string as a GitHub secret.
       with:
         server-name: POSTGRESQL_SERVER_NAME
         connection-string: ${{ secrets.AZURE_POSTGRESQL_CONNECTION_STRING }}
-        sql-file: './data.sql'
+        plsql-file: './data.sql'
 
         # Azure logout
     - name: logout
@@ -196,15 +201,15 @@ You will use the connection string as a GitHub secret.
       with:
         server-name: POSTGRESQL_SERVER_NAME
         connection-string: ${{ secrets.AZURE_POSTGRESQL_CONNECTION_STRING }}
-        sql-file: './data.sql'
+        plsql-file: './data.sql'
 
         # Azure logout
     - name: logout
       run: |
          az logout
     ```
-    ---
 
+    ---
 
 ## Review your deployment
 
@@ -212,7 +217,7 @@ You will use the connection string as a GitHub secret.
 
 1. Open the first result to see detailed logs of your workflow's run.
 
-    :::image type="content" source="media/how-to-deploy-github-action/gitbub-action-postgres-success.png" alt-text="Log of GitHub Actions run":::
+    :::image type="content" source="media/how-to-deploy-github-action/gitbub-action-postgres-success.png" alt-text="Log of GitHub Actions run" lightbox="media/how-to-deploy-github-action/gitbub-action-postgres-success.png":::
 
 ## Clean up resources
 

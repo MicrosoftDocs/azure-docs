@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Sigma Computing | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Sigma Computing'
 description: Learn how to configure single sign-on between Azure Active Directory and Sigma Computing.
 services: active-directory
 author: jeevansd

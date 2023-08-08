@@ -1,16 +1,16 @@
 ---
 title: Statement of compliance
-titleSuffix: Azure Private 5G Core Preview
-description: Information on Azure Private 5G Core Preview's compliance with specifications. 
-author: djrmetaswitch
-ms.author: drichards
+titleSuffix: Azure Private 5G Core
+description: Information on Azure Private 5G Core's compliance with specifications. 
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: conceptual 
 ms.date: 01/20/2022
 ms.custom: template-concept
 ---
 
-# Statement of compliance - Azure Private 5G Core Preview
+# Statement of compliance - Azure Private 5G Core
 
 This article provides information on the standards for which Azure Private 5G Core provides support.
 

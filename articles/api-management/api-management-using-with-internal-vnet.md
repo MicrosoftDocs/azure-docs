@@ -7,7 +7,6 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 01/03/2022
 ms.author: danlep
-ms.custom: devx-track-azurepowershell
 ---
 
 # Connect to a virtual network in internal mode using Azure API Management 
@@ -20,7 +19,8 @@ This article explains how to set up VNet connectivity for your API Management in
 * Git 
 
 > [!NOTE]
-> None of the API Management endpoints are registered on the public DNS. The endpoints remain inaccessible until you [configure DNS](#dns-configuration) for the VNet.
+> * None of the API Management endpoints are registered on the public DNS. The endpoints remain inaccessible until you [configure DNS](#dns-configuration) for the VNet.
+> * To use the self-hosted gateway in this mode, also enable private connectivity to the self-hosted gateway [configuration endpoint](self-hosted-gateway-overview.md#fqdn-dependencies). Currently, API Management doesn't enable configuring a custom domain name for the v2 endpoint.
 
 Use API Management in internal mode to:
 
@@ -176,4 +176,3 @@ Learn more about:
 [Common network configuration problems]: virtual-network-reference.md
 
 [ServiceTags]: ../virtual-network/network-security-groups-overview.md#service-tags
-

@@ -3,15 +3,14 @@ title: "Quickstart: New policy assignment with templates"
 description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a policy assignment to identify non-compliant resources.
 ms.date: 08/17/2021
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources by using an ARM template
 
 The first step in understanding compliance in Azure is to identify the status of your resources.
 This quickstart steps you through the process of using an Azure Resource Manager template (ARM
-template) to create a policy assignment to identify virtual machines that aren't using managed
-disks. At the end of this process, you'll successfully identify virtual machines that aren't using
-managed disks. They're _non-compliant_ with the policy assignment.
+template) to create a policy assignment that identifies virtual machines that aren't using managed
+disks, and flags them as  _non-compliant_ to the policy assignment.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -58,7 +57,7 @@ The resource defined in the template is:
    | Resource group | Select **Create new**, specify a name, and then select **OK**. In the screenshot, the resource group name is _mypolicyquickstart\<Date in MMDD\>rg_. |
    | Location | Select a region. For example, **Central US**. |
    | Policy Assignment Name | Specify a policy assignment name. You can use the policy definition display if you want. For example, _Audit VMs that do not use managed disks_. |
-   | Rg Name | Specify a resource group name where you want to assign the policy to. In this quickstart, use the default value **[resourceGroup().name]**. **[resourceGroup()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** is a template function that retrieves the resource group. |
+   | Resource Group Name | Specify a resource group name where you want to assign the policy to. In this quickstart, use the default value **[resourceGroup().name]**. **[resourceGroup()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** is a template function that retrieves the resource group. |
    | Policy Definition ID | Specify **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |
    | I agree to the terms and conditions stated above | (Select) |
 
@@ -86,7 +85,7 @@ If there are any existing resources that aren't compliant with this new assignme
 under **Non-compliant resources**.
 
 For more information, see
-[How compliance works](./how-to/get-compliance-data.md#how-compliance-works).
+[How compliance works](./concepts/compliance-states.md).
 
 ## Clean up resources
 

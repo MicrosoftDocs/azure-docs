@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with ClickUp Productivity Platform | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with ClickUp Productivity Platform'
 description: Learn how to configure single sign-on between Azure Active Directory and ClickUp Productivity Platform.
 services: active-directory
 author: jeevansd

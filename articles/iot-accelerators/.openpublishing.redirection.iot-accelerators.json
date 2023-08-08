@@ -502,47 +502,47 @@
     },
     {
       "source_path_from_root": "/articles/iot-accelerators/iot-accelerators-what-is-azure-iot.md",
-      "redirect_url": "/azure/iot-fundamentals/iot-introduction",
+      "redirect_url": "/azure/iot/iot-introduction",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-accelerators/iot-security-architecture.md",
-      "redirect_url": "/azure/iot-fundamentals/iot-security-architecture",
+      "redirect_url": "/azure/iot/iot-security-architecture",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-accelerators/iot-security-best-practices.md",
-      "redirect_url": "/azure/iot-fundamentals/iot-security-best-practices",
+      "redirect_url": "/azure/iot/iot-security-best-practices",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-suite/iot-suite-what-is-azure-iot.md",
-      "redirect_url": "/azure/iot-fundamentals/iot-introduction",
+      "redirect_url": "/azure/iot/iot-introduction",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-accelerators/iot-accelerators-security-deployment.md",
-      "redirect_url": "/azure/iot-fundamentals/iot-security-deployment",
+      "redirect_url": "/azure/iot/iot-security-best-practices",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/iot-accelerators/securing-iot-groud-up.md",
-      "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
+      "source_path_from_root": "/articles/iot-accelerators/securing-iot-ground-up.md",
+      "redirect_url": "/azure/iot/iot-security-architecture",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-suite/securing-iot-ground-up.md",
-      "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
+      "redirect_url": "/azure/iot/iot-security-architecture",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-accelerators/iot-accelerators-options.md",
-      "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies",
+      "redirect_url": "/azure/iot/iot-services-and-technologies",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-suite/iot-suite-options.md",
-      "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies",
+      "redirect_url": "/azure/iot/iot-services-and-technologies",
       "redirect_document_id": false
     },
     {
@@ -907,5 +907,3 @@
     }
   ]
 }
-
-

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Insider Track | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Insider Track'
 description: Learn how to configure single sign-on between Azure Active Directory and Insider Track.
 services: active-directory
 author: jeevansd

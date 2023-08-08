@@ -7,7 +7,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/31/2022
+ms.date: 01/31/2023
 ---
 
 # Knowledge store in Azure Cognitive Search
@@ -16,7 +16,7 @@ Knowledge store is a data sink created by a [Cognitive Search enrichment pipelin
 
 If you've used cognitive skills in the past, you already know that enriched content is created by *skillsets*. Skillsets move a document through a sequence of enrichments that invoke atomic transformations, such as recognizing entities or translating text. 
 
-Output can be a search index, or projections in a knowledge store. The two outputs, search index and knowledge store, are mutually exclusive products of the same pipeline. They are derived from the same inputs, but their content is structured, stored, and used in different applications.
+Output is always a search index, but it can also be projections in a knowledge store. The two outputs, search index and knowledge store, are mutually exclusive products of the same pipeline. They are derived from the same inputs, but their content is structured, stored, and used in different applications.
 
 :::image type="content" source="media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg" alt-text="Pipeline with skillset" border="false":::
 
@@ -44,23 +44,22 @@ A knowledge store is defined inside a skillset definition and it has two compone
 
 + A connection string to Azure Storage
 
-+ [**Projections**](knowledge-store-projection-overview.md) that determine whether the knowledge store consists of tables, objects or files. 
++ [**Projections**](knowledge-store-projection-overview.md) that determine whether the knowledge store consists of tables, objects or files. The projections element is an array. You can create multiple sets of table-object-file combinations within one knowledge store.
 
-The projections element is an array. You can create multiple sets of table-object-file combinations within one knowledge store.
-
-```json
-"knowledgeStore": {
-   "storageConnectionString":"<YOUR-AZURE-STORAGE-ACCOUNT-CONNECTION-STRING>",
-   "projections":[
-      {
-         "tables":[ ],
-         "objects":[ ],
-         "files":[ ]
-      }
+   ```json
+   "knowledgeStore": {
+      "storageConnectionString":"<YOUR-AZURE-STORAGE-ACCOUNT-CONNECTION-STRING>",
+      "projections":[
+         {
+            "tables":[ ],
+            "objects":[ ],
+            "files":[ ]
+         }
+      ]
    }
-```
+   ```
 
-The type of projection you specify in this structure determines the type of storage used by knowledge store.
+The type of projection you specify in this structure determines the type of storage used by knowledge store, but not its structure. Fields in tables, objects, and files are determined by Shaper skill output if you're creating the knowledge store programmatically, or by the Import data wizard if you're using the portal.
 
 + `tables` project enriched content into Table Storage. Define a table projection when you need tabular reporting structures for inputs to analytical tools or export as data frames to other data stores. You can specify multiple `tables` within the same projection group to get a subset or cross section of enriched documents. Within the same projection group, table relationships are preserved so that you can work with all of them.
 

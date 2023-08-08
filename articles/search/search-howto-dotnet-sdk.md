@@ -10,7 +10,7 @@ ms.devlang: csharp
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 10/04/2022
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # How to use Azure.Search.Documents in a C# .NET Application
@@ -19,7 +19,7 @@ This article explains how to create and manage search objects using C# and the [
 
 ## About version 11
 
-Azure SDK for .NET includes an [**Azure.Search.Documents**](/dotnet/api/overview/azure/search) client library from the Azure SDK team that is functionally equivalent to the previous client library, [Microsoft.Azure.Search](/dotnet/api/overview/azure/search/search). Version 11 is more consistent in terms of Azure programmability. Some examples include [`AzureKeyCredential`](/dotnet/api/azure.azurekeycredential) key authentication, and [System.Text.Json.Serialization](/dotnet/api/system.text.json.serialization) for JSON serialization.
+Azure SDK for .NET includes an [**Azure.Search.Documents**](/dotnet/api/overview/azure/search) client library from the Azure SDK team that is functionally equivalent to the previous client library, [Microsoft.Azure.Search](/dotnet/api/microsoft.azure.search). Version 11 is more consistent in terms of Azure programmability. Some examples include [`AzureKeyCredential`](/dotnet/api/azure.azurekeycredential) key authentication, and [System.Text.Json.Serialization](/dotnet/api/system.text.json.serialization) for JSON serialization.
 
 As with previous versions, you can use this library to:
 
@@ -39,7 +39,7 @@ The client library defines classes like `SearchIndex`, `SearchField`, and `Searc
 
 Azure.Search.Documents (version 11) targets version [`2020-06-30` of the Azure Cognitive Search REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/data-plane/Azure.Search/preview/2020-06-30). 
 
-The client library doesn't provide [service management operations](/rest/api/searchmanagement/), such as creating and scaling search services and managing API keys. If you need to manage your search resources from a .NET application, use the [Microsoft.Azure.Management.Search](/dotnet/api/overview/azure/search/management/management-search) library in the Azure SDK for .NET.
+The client library doesn't provide [service management operations](/rest/api/searchmanagement/), such as creating and scaling search services and managing API keys. If you need to manage your search resources from a .NET application, use the [Microsoft.Azure.Management.Search](/dotnet/api/microsoft.azure.management.search) library in the Azure SDK for .NET.
 
 ## Upgrade to v11
 
@@ -105,7 +105,7 @@ The client library uses three client types for various operations: [`SearchIndex
 
 At a minimum, all of the clients require the service name or endpoint, and an API key. It's common to provide this information in a configuration file, similar to what you find in the `appsettings.json` file of the [DotNetHowTo sample application](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo). To read from the configuration file, add `using Microsoft.Extensions.Configuration;` to your program.
 
-The following statement creates the index client used to create, update, or delete indexes. It takes a search endpoint and admin API key.
+The following statement creates the index client used to create, update, or delete indexes. It takes a service endpoint and admin API key.
 
 ```csharp
 private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
@@ -450,7 +450,7 @@ UploadDocuments(searchClient);
 
 ## Run queries
 
-First, set up a `SearchClient` that reads the search endpoint and query API key from **appsettings.json**:
+First, set up a `SearchClient` that reads the service endpoint and query API key from **appsettings.json**:
 
 ```csharp
 private static SearchClient CreateSearchClientForQueries(string indexName, IConfigurationRoot configuration)
