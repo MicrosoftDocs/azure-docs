@@ -1,13 +1,13 @@
 ---
 title: 'How to generate text with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
-description: Learn how to generate or manipulate text, including code with Azure OpenAI
+description: Learn how to generate or manipulate text, including code with Azure OpenAI Service.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: how-to
-ms.date: 06/24/2022
+ms.date: 08/09/2023
 author: ChrisHMSFT
 ms.author: chrhoder
 recommendations: false
