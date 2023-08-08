@@ -104,7 +104,9 @@
   - name: Migrate MySQL
     items: 
     - name: to Azure Database for MySQL (offline)
-      href: tutorial-mysql-azure-mysql-offline-portal.md  
+      href: tutorial-mysql-azure-mysql-offline-portal.md
+    - name: to Azure Database for MySQL (online)
+      href: tutorial-mysql-azure-external-to-flex-online-portal.md 
   - name: Migrate Azure DB for MySQL - Single Server
     items:
     - name: to Azure DB for MySQL Flexible Server (online)
