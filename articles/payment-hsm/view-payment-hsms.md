@@ -1,13 +1,13 @@
 ---
-title: Create an Azure Payment HSM with Azure Payment HSM
-description: Create an Azure Payment HSM with Azure Payment HSM
+title: View your Azure Payment HSMs
+description: View your Azure Payment HSMs
 services: payment-hsm
 ms.service: payment-hsm
 author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.date: 05/25/2023
+ms.date: 08/09/2023
 ---
 
 # Tutorial: View your payment HSMs
@@ -55,11 +55,9 @@ To view your payment HSMs in the Azure portal:
 1. Select "Resource groups".
 1. Select your resource group (e.g., "myResourceGroup").
 1. You will see your network interfaces, but not your payment HSMs. Select the "Show hidden types" box.
-
-  :::image type="content" source="./media/portal-view-payment-hsms.png" alt-text="Viewing your payment HSMs through the Azure portal.":::
-
+  :::image type="content" source="./media/portal-view-payment-hsms.png" lightbox="./media/portal-view-payment-hsms.png" alt-text="Viewing your payment HSMs through the Azure portal.":::
 1. You can select one of your payment HSMs to see its properties.
-  :::image type="content" source="./media/portal-view-payment-hsm.png" alt-text="Viewing a specific payment HSM through the Azure portal.":::
+  :::image type="content" source="./media/portal-view-payment-hsm.png" lightbox="./media/portal-view-payment-hsm.png" alt-text="Viewing a specific payment HSM through the Azure portal.":::
 
 ---
 
