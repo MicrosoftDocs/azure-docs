@@ -19,15 +19,15 @@ Before performing the procedures in this article, make sure that you have:
 
 - An on-premises management console [installed](install-software-on-premises-management-console.md) and [activated](activate-deploy-management.md).
 
-- Access to the on-premises management console as an **Admin** user. Selected procedures and CLI access also requires a privileged user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+- Access to the on-premises management console as an **Admin** user. Selected procedures and CLI access also requires a privileged user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](../roles-on-premises.md).
 
-- An [SSL/TLS certificate prepared](ot-deploy/create-ssl-certificates.md) if you need to update your sensor's certificate.
+- An [SSL/TLS certificate prepared](../ot-deploy/create-ssl-certificates.md) if you need to update your sensor's certificate.
 
-- If you're adding a secondary NIC, you'll need access to the CLI as a [privileged user](roles-on-premises.md#default-privileged-on-premises-users).
+- If you're adding a secondary NIC, you'll need access to the CLI as a [privileged user](../roles-on-premises.md#default-privileged-on-premises-users).
 
 ## Download software for the on-premises management console
 
-You may need to download software for your on-premises management console if you're [installing Defender for IoT software](install-software-on-premises-management-console.md) on your own appliances, or [updating software versions](update-ot-software.md).
+You may need to download software for your on-premises management console if you're [installing Defender for IoT software](install-software-on-premises-management-console.md) on your own appliances, or [updating software versions](../update-ot-software.md).
 
 In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal, use one of the following options:
 

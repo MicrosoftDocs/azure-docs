@@ -15,9 +15,9 @@ This article describes how you can manage OT sensors from an on-premises managem
 
 To perform the procedures in this article, make sure you have:
 
-- An on-premises management console [installed](legacy-central-management/install-software-on-premises-management-console.md) and [activated](legacy-central-management/activate-deploy-management.md)
+- An on-premises management console [installed](install-software-on-premises-management-console.md) and [activated](activate-deploy-management.md)
 
-- One or more OT network sensors [installed](ot-deploy/install-software-ot-sensor.md), [activated](ot-deploy/activate-deploy-sensor.md), and [connected to your on-premises management console](legacy-central-management/connect-sensors-to-management.md)
+- One or more OT network sensors [installed](ot-deploy/install-software-ot-sensor.md), [activated](ot-deploy/activate-deploy-sensor.md), and [connected to your on-premises management console](connect-sensors-to-management.md)
 
 - Access to the on-premises management console as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -67,7 +67,7 @@ For example, you might see one of the following disconnection messages:
 > [!TIP]
 > You may want to send alerts about your OT sensor connection status on the on-premises management console to partner services.
 >
-> To do this, [create a forwarding alert rule](how-to-forward-alert-information-to-partners.md#create-forwarding-rules-on-an-on-premises-management-console) on your on-premises management console. In the **Create Forwarding Rule** dialog box, make sure to select **Report System Notifications**.
+> To do this, [create a forwarding alert rule](../how-to-forward-alert-information-to-partners.md#create-forwarding-rules-on-an-on-premises-management-console) on your on-premises management console. In the **Create Forwarding Rule** dialog box, make sure to select **Report System Notifications**.
 
 ## Retrieve forensics data stored on the sensor
 
@@ -79,11 +79,11 @@ Use Defender for IoT data mining reports on an OT network sensor to retrieve for
 - Event timeline data
 - Log files
 
-Each type of data has a different retention period and maximum capacity. For more information, see [Create data mining queries](how-to-create-data-mining-queries.md) and [Data retention across Microsoft Defender for IoT](references-data-retention.md).
+Each type of data has a different retention period and maximum capacity. For more information, see [Create data mining queries](../how-to-create-data-mining-queries.md) and [Data retention across Microsoft Defender for IoT](../references-data-retention.md).
 
 ### Turn off learning mode from your on-premises management console
 
-A Microsoft Defender for IoT OT network sensor starts monitoring your network automatically as soon as it's connected to your network and you've [signed in](ot-deploy/activate-deploy-sensor.md#sign-in-to-the-sensor-console-and-change-the-default-password). Network devices start appearing in your [device inventory](device-inventory.md), and [alerts](alerts.md) are triggered for any security or operational incidents that occur in your network.
+A Microsoft Defender for IoT OT network sensor starts monitoring your network automatically as soon as it's connected to your network and you've [signed in](../ot-deploy/activate-deploy-sensor.md#sign-in-to-the-sensor-console-and-change-the-default-password). Network devices start appearing in your [device inventory](../device-inventory.md), and [alerts](../alerts.md) are triggered for any security or operational incidents that occur in your network.
 
 Initially, this activity happens in *learning* mode, which instructs your OT sensor to learn your network's usual activity, including the devices and protocols in your network, and the regular file transfers that occur between specific devices. Any regularly detected activity becomes your network's [baseline traffic](ot-deploy/create-learned-baseline.md).
 
@@ -101,11 +101,11 @@ This procedure describes how to turn off learning mode manually for all connecte
 
 For more information, see:
 
-- [Manage individual sensors](how-to-manage-individual-sensors.md)
-- [Connect your OT sensors to the cloud](connect-sensors.md)
-- [Track sensor activity](how-to-track-sensor-activity.md)
-- [Update OT system software](update-ot-software.md)
-- [Troubleshoot on-premises management console](legacy-central-management/how-to-troubleshoot-on-premises-management-console.md)
-- [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
-- [Manage threat intelligence packages on OT sensors](how-to-work-with-threat-intelligence-packages.md)
-- [Control the OT traffic monitored by Microsoft Defender for IoT](how-to-control-what-traffic-is-monitored.md)
+- [Manage individual sensors](../how-to-manage-individual-sensors.md)
+- [Connect your OT sensors to the cloud](../connect-sensors.md)
+- [Track sensor activity](../how-to-track-sensor-activity.md)
+- [Update OT system software](../update-ot-software.md)
+- [Troubleshoot on-premises management console](how-to-troubleshoot-on-premises-management-console.md)
+- [Manage sensors with Defender for IoT in the Azure portal](../how-to-manage-sensors-on-the-cloud.md)
+- [Manage threat intelligence packages on OT sensors](../how-to-work-with-threat-intelligence-packages.md)
+- [Control the OT traffic monitored by Microsoft Defender for IoT](../how-to-control-what-traffic-is-monitored.md)

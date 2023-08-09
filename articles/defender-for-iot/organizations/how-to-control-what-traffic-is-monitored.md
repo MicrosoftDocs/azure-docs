@@ -145,7 +145,7 @@ VLANs are either discovered automatically by the OT network sensor or added manu
 VLAN's support is based on 802.1q (up to VLAN ID 4094).
 
 > [!NOTE]
-> VLAN names aren't synchronized between the OT network sensor and the on-premises management console. If you want to view customized VLAN names on the on-premises management console, [define the VLAN names](/legacy-central-management/how-to-manage-the-on-premises-management-console.md#define-vlan-names) there as well.
+> VLAN names aren't synchronized between the OT network sensor and the on-premises management console. If you want to view customized VLAN names on the on-premises management console, [define the VLAN names](legacy-central-management/how-to-manage-the-on-premises-management-console.md#define-vlan-names) there as well.
 
 **To configure VLAN names on an OT network sensor:**
 

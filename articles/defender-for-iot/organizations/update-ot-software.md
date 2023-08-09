@@ -1,15 +1,15 @@
 ---
 title: Update Defender for IoT OT monitoring software versions
-description: Learn how to update (upgrade) Defender for IoT software on OT sensors and on-premises management servers.
+description: Learn how to update (upgrade) Defender for IoT software on OT sensors and legacyon-premises management servers.
 ms.date: 02/14/2023
 ms.topic: upgrade-and-migration-article
 ---
 
 # Update Defender for IoT OT monitoring software
 
-This article describes how to update Defender for IoT software versions on OT sensor and on-premises management console appliances.
+This article describes how to update Defender for IoT software versions on OT sensor and legacy on-premises management console appliances.
 
-You can purchase pre-configured appliances for your sensors and on-premises management consoles, or install software on your own hardware machines. In either case, you'll need to update software versions to use new features for OT sensors and on-premises management consoles.
+You can purchase pre-configured appliances for your sensors and legacy on-premises management consoles, or install software on your own hardware machines. In either case, you'll need to update software versions to use new features for OT sensors and on-premises management consoles.
 
 For more information, see [Which appliances do I need?](ot-appliance-sizing.md), [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md), and [OT monitoring software release notes](release-notes.md).
 
@@ -58,7 +58,7 @@ This section describes how to update Defender for IoT OT sensors using any of th
 
 For example, you might want to first send the update to your sensor or download an update package, and then have an administrator run the update later on, during a planned maintenance window.
 
-If you're using an on-premises management console, make sure that you've [updated the on-premises management console](#update-the-on-premises-management-console) *before* updating any connected sensors.
+If you're using a legacy on-premises management console, make sure that you've [updated the on-premises management console](#update-the-on-premises-management-console) *before* updating any connected sensors.
 
 On-premises management software is backwards compatible, and can connect to sensors with earlier versions installed, but not later versions. If you update your sensor software before updating your on-premises management console, the updated sensor will be disconnected from the on-premises management console.
 
@@ -67,10 +67,6 @@ Select the update method you want to use:
 # [Azure portal (Public preview)](#tab/portal)
 
 This procedure describes how to send a software version update to one or more OT sensors, and then run the updates remotely from the Azure portal. Bulk updates are supported for up to 10 sensors at a time.
-
-> [!IMPORTANT]
-> If you're using an on-premises management console, make sure that you've [updated the on-premises management console](#update-the-on-premises-management-console) *before* updating any connected sensors.
->
 
 ### Send the software update to your OT sensor
 
@@ -114,9 +110,6 @@ If a sensor fails to update for any reason, the software reverts back to the pre
 
 This procedure describes how to manually download the new sensor software version and then run your update directly on the sensor console's UI.
 
-> [!IMPORTANT]
-> If your OT sensor is connected to an on-premises management console, make sure to update the on-premises management console before updating any connected sensors.
-
 ### Download the update package from the Azure portal
 
 1. In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Sites and sensors** > **Sensor update (Preview)**.
@@ -145,9 +138,11 @@ This procedure describes how to manually download the new sensor software versio
 
     The update process starts, and may take about 30 minutes and include one or two reboots. If your machine reboots, make sure to sign in again as prompted.
 
-# [On-premises management console](#tab/onprem)
+# [On-premises management console (legacy)](#tab/onprem)
 
-This procedure describes how to update several OT sensors simultaneously from an on-premises management console.
+<!--move this out?-->
+
+This procedure describes how to update several OT sensors simultaneously from a legacy on-premises management console.
 
 > [!IMPORTANT]
 > If you're updating multiple, locally-managed OT sensors, make sure to [update the on-premises management console](#update-an-on-premises-management-console) *before* you update any connected sensors.
@@ -204,7 +199,7 @@ The software version on your on-premises management console must be equal to tha
 
     Save your changes when you're finished selecting sensors to update. For example:
 
-   :::image type="content" source="media/legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console/automatic-updates.png" alt-text="Screenshot of on-premises management console with Automatic Version Updates selected." lightbox="media/legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console/automatic-updates.png":::
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/automatic-updates.png" alt-text="Screenshot of on-premises management console with Automatic Version Updates selected." lightbox="media/how-to-manage-sensors-from-the-on-premises-management-console/automatic-updates.png":::
 
     > [!IMPORTANT]
     > If your **Automatic Version Updates** option is red, you have an update conflict. An update conflict might occur if you have multiple sensors marked for automatic updates but the sensors currently have different software versions installed. Select the **Automatic Version Updates** option to resolve the conflict.

@@ -113,4 +113,4 @@ To restore your OT sensor from the latest backup file via CLI:
 
 ## Next steps
 
-[Maintain the on-premises management console](legacy-central-management/how-to-manage-the-on-premises-management-console.md)
+[Maintain the on-premises management console](how-to-manage-the-on-premises-management-console.md)

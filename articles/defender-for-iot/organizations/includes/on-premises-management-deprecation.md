@@ -8,5 +8,5 @@ ms.topic: include
 > [!IMPORTANT]
 > Defender for IoT now recommends using Microsoft cloud services or existing IT infrastructure for central monitoring and sensor management, and [plans to deprecate the on-premises management console](../whats-new.md#new-architecture-for-hybrid-and-air-gapped-support) on **September 1, 2023**.
 >
-> For more information, see [Recommended architecture for hybrid or air-gapped environments](../ot-deploy/air-gapped-architecture.md).
+> For more information, see [Deploy hybrid or air-gapped OT sensor management](../ot-deploy/air-gapped-deploy.md).
 >

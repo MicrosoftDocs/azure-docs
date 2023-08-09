@@ -33,9 +33,7 @@ To perform the tasks in this tutorial, you need:
 
 - A [Defender for IoT OT plan](how-to-manage-subscriptions.md) on your Azure subscription
 
-- Multiple cloud-connected, [OT sensors deployed](onboard-sensors.md), streaming traffic data to Defender for IoT. Each sensor should be assigned to a different site and zone, keeping each of your network segments separate and secure.
-
-    For more information, see [Onboard OT sensors to Defender for IoT](onboard-sensors.md) or [Create OT sites and zones on an on-premises management console](legacy-on-premises-management/sites-and-zones-on-premises.md).
+- Multiple cloud-connected, [OT sensors deployed](onboard-sensors.md), streaming traffic data to Defender for IoT. Each sensor should be assigned to a different site and zone, keeping each of your network segments separate and secure. For more information, see [Onboard OT sensors to Defender for IoT](onboard-sensors.md).
 
 - The following permissions:
 
@@ -182,6 +180,7 @@ In the Azure portal, view Defender for IoT data by site and zone from the follow
 
 - **Sites and sensors**: [Filter the sensors](how-to-manage-sensors-on-the-cloud.md#site-management-options-from-the-azure-portal) listed by site or zone.
 
+<!-- remove this?
 ### View data in air-gapped environments
 
 Use the following procedure to view more data for each site and zone on an on-premises management console. We recommend using an on-premises management console in air-gapped environments to centrally manage and monitor OT devices across your network.
@@ -199,6 +198,7 @@ Each site and zone lists operational details about the sensor, such as details a
 
 Select **View device inventory**, **View zone map**, the :::image type="icon" source="media/sites-and-zones/sensor-icon.png" border="false"::: sensor icon, or the :::image type="icon" source="media/legacy-central-management/how-to-work-with-alerts-on-premises-management-console/alerts-icon.png" border="false"::: alerts button to jump to more specific data.
 
+-->
 
 ## Sample alerts to watch for
 

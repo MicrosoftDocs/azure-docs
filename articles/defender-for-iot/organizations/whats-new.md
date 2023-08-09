@@ -45,8 +45,7 @@ We recommend that customers move any central management activities currently man
 
 For more information, see:
 
-- [New article on hybrid and air-gapped environments](tbd.md)
-- [Deploy air-gapped OT sensor management](ot-deploy/air-gapped-deploy.md)
+- [Deploy hybrid or air-gapped OT sensor management](ot-deploy/air-gapped-deploy.md)
 - [Versioning and support for on-premises software versions](release-notes.md#versioning-and-support-for-on-premises-software-versions)
 
 ## August 2023
