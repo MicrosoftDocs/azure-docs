@@ -168,7 +168,7 @@ Azure Front Door can now access this key vault and the certificates it contains.
 
 ## Validate the domain
 
-If you already have a custom domain in use that gets mapped to your custom endpoint with a CNAME record or you're using your own certificate, continue to [Custom domain is mapped to your Front Door](#custom-domain-is-mapped-to-your-front-door-by-a-cname-record). Otherwise, if the CNAME record entry for your domain no longer exists or it contains the afdverify subdomain, continue to [Custom domain isn't mapped to your Front Door](#custom-domain-is-not-mapped-to-your-front-door).
+If you already have a custom domain in use that gets mapped to your custom endpoint with a CNAME record or you're using your own certificate, continue to [Custom domain is mapped to your Front Door](#custom-domain-is-mapped-to-your-front-door-by-a-cname-record). Otherwise, if the CNAME record entry for your domain no longer exists or it contains the afdverify subdomain, continue to [Custom domain isn't mapped to your Front Door](#custom-domain-isnt-mapped-to-your-front-door).
 
 ### Custom domain is mapped to your Front Door by a CNAME record
 
