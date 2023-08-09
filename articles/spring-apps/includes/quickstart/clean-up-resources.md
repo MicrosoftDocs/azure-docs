@@ -31,7 +31,7 @@ You can delete the Azure resource group, which includes all the resources in the
 
 ### [Azure portal](#tab/Azure-portal)
 
-1. Locate your resource group in the Azure portal. On the navigation menu, select **Resource groups**. Then, select the name of your resource group, such as the example, **myresourcegroup**.
+1. Locate your resource group in the Azure portal. On the navigation menu, select **Resource groups**. Then, select the name of your resource group - for example, **myresourcegroup**.
 
 1. On your resource group page, select **Delete**. Enter the name of your resource group in the text box to confirm deletion - for example, **myresourcegroup** - then, select **Delete**.
 

@@ -14,7 +14,7 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 -->
 
-## 2. Prepare Spring project
+## 2. Prepare the Spring project
 
 ## [Azure CLI](#tab/Azure-CLI)
 
@@ -40,7 +40,7 @@ Use the following steps to create an Azure Spring Apps service instance.
 
 Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
 
-```azurecli-interactive
+```azurecli
 export LOCATION="<region>"
 export RESOURCE_GROUP="<resource-group-name>"
 export SERVICE_NAME="<Azure-Spring-Apps-instance-name>"
@@ -49,21 +49,21 @@ export APP_NAME="demo"
 
 ### 3.2. Create a new resource group
 
-Use the following steps to create a new resource group.
+Use the following steps to create a new resource group:
 
-1. Use the following command to sign in to the Azure CLI.
+1. Use the following command to sign in to the Azure CLI:
 
    ```azurecli
    az login
    ```
 
-1. Use the following command to set the default location.
+1. Use the following command to set the default location:
 
    ```azurecli
    az configure --defaults location=${LOCATION}
    ```
 
-1. Use the following command to list all available subscriptions to determine the subscription ID to use.
+1. Use the following command to list all available subscriptions to determine the subscription ID to use:
 
    ```azurecli
    az account list --output table
@@ -75,13 +75,13 @@ Use the following steps to create a new resource group.
    az account set --subscription <subscription-ID>
    ```
 
-1. Use the following command to create a resource group.
+1. Use the following command to create a resource group:
 
    ```azurecli
    az group create --resource-group ${RESOURCE_GROUP}
    ```
 
-1. Use the following command to set the newly created resource group as the default resource group.
+1. Use the following command to set the newly created resource group as the default resource group:
 
    ```azurecli
    az configure --defaults group=${RESOURCE_GROUP}
@@ -91,19 +91,19 @@ Use the following steps to create a new resource group.
 
 Use the following commands to install the Azure Spring Apps extension for the Azure CLI and register the namespace: `Microsoft.SaaS`:
 
-```azurecli-interactive
+```azurecli
 az extension add --name spring --upgrade
 az provider register --namespace Microsoft.SaaS
 ```
 
 ### 3.4. Create an Azure Spring Apps instance
 
-1. Accept the legal terms and privacy statements for the Enterprise tier.
+1. Use the following command to accept the legal terms and privacy statements for the Enterprise plan:
 
    > [!NOTE]
-   > This step is necessary only if your subscription has never been used to create an Enterprise tier instance of Azure Spring Apps.
+   > This step is necessary only if your subscription has never been used to create an Enterprise plan instance of Azure Spring Apps.
 
-   ```azurecli-interactive
+   ```azurecli
    az term accept \
       --publisher vmware-inc \
       --product azure-spring-cloud-vmware-tanzu-2 \
@@ -112,7 +112,7 @@ az provider register --namespace Microsoft.SaaS
 
 1. Use the following command to create an Azure Spring Apps service instance:
 
-   ```azurecli-interactive
+   ```azurecli
    az spring create \
        --name ${SERVICE_NAME} \
        --sku Enterprise
@@ -122,11 +122,11 @@ az provider register --namespace Microsoft.SaaS
 
 An *App* is an abstraction of one business app. For more information, see [App and deployment in Azure Spring Apps](../../concept-understand-app-and-deployment.md). Apps run in an Azure Spring Apps service instance, as shown in the following diagram.
 
-:::image type="content" source="../../media/spring-cloud-app-and-deployment/app-deployment-rev.png" alt-text="Diagram showing the relationship between apps and an Azure Spring Apps service instance." border="false":::
+:::image type="content" source="../../media/spring-cloud-app-and-deployment/app-deployment-rev.png" alt-text="Diagram that shows the relationship between apps and an Azure Spring Apps service instance." border="false":::
 
 Use the following command to create the app on Azure Spring Apps:
 
-```azurecli-interactive
+```azurecli
 az spring app create \
     --service ${SERVICE_NAME} \
     --name ${APP_NAME} \
@@ -137,7 +137,7 @@ az spring app create \
 
 ### 3.1. Sign in to the Azure portal
 
-Open your web browser and go to the [portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+Open your web browser and go to the [Azure 4portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ### 3.2. Create an Azure Spring Apps instance
 
@@ -145,7 +145,7 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 ## [Visual Studio Code](#tab/visual-studio-code)
 
-Follow the steps in [Create an app on Azure Spring Apps](https://code.visualstudio.com/docs/java/java-spring-apps#_create-an-app-on-azure-spring-apps) to create an Azure Spring Apps instance.
+To create an Azure Spring Apps instance, follow the steps in the [Create an app on Azure Spring Apps](https://code.visualstudio.com/docs/java/java-spring-apps#_create-an-app-on-azure-spring-apps) section of [Java on Azure Spring Apps](https://code.visualstudio.com/docs/java/java-spring-apps).
 
 ---
 
@@ -157,7 +157,7 @@ This section provides the steps to deploy your application to Azure Spring Apps.
 
 Use the following command to deploy the *.jar* file for the app:
 
-```azurecli-interactive
+```azurecli
 az spring app deploy \
     --service ${SERVICE_NAME} \
     --name ${APP_NAME} \
@@ -170,25 +170,25 @@ Deploying the application can take a few minutes.
 
 ### 4.1. Import the project
 
-Use the following steps to import the project.
+Use the following steps to import the project:
 
-1. Open IntelliJ IDEA, and then select **Open**.
+1. Open IntelliJ IDEA and then select **Open**.
 1. In the **Open File or Project** dialog box, select the *demo* folder.
 
-   :::image type="content" source="../../media/quickstart/intellij-new-project.png" alt-text="Screenshot of IntelliJ IDEA showing Open File or Project dialog box." lightbox="../../media/quickstart/intellij-new-project.png":::
+   :::image type="content" source="../../media/quickstart/intellij-new-project.png" alt-text="Screenshot of IntelliJ IDEA that shows the Open File or Project dialog box." lightbox="../../media/quickstart/intellij-new-project.png":::
 
 ### 4.2. Build and deploy your app
 
-Use the following steps to build and deploy your app.
+Use the following steps to build and deploy your app:
 
 1. If you haven't already installed the Azure Toolkit for IntelliJ, follow the steps in [Install the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/install-toolkit).
 
    > [!NOTE]
    > Azure Toolkit for IntelliJ provides four ways to log in to Azure, and the deployment can only start after logging in.
 
-1. Right-click your project in the IntelliJ Project window, and then select **Azure** -> **Deploy to Azure Spring Apps**.
+1. Right-click your project in the IntelliJ Project window and then select **Azure** -> **Deploy to Azure Spring Apps**.
 
-   :::image type="content" source="../../media/quickstart/intellij-deploy-azure.png" alt-text="Screenshot of IntelliJ IDEA menu showing Deploy to Azure Spring Apps option." lightbox="../../media/quickstart/intellij-deploy-azure.png":::
+   :::image type="content" source="../../media/quickstart/intellij-deploy-azure.png" alt-text="Screenshot of the IntelliJ IDEA menu that shows the Deploy to Azure Spring Apps option." lightbox="../../media/quickstart/intellij-deploy-azure.png":::
 
 1. Accept the name for the app in the **Name** field. **Name** refers to the configuration, not the app name. You don't usually need to change it.
 1. In the **Artifact** textbox, select **Maven:demo(Java 17)**.
@@ -196,9 +196,9 @@ Use the following steps to build and deploy your app.
 1. In the **Spring Apps** textbox, select the instance of Azure Spring Apps that you created in the [Create an Azure Spring Apps instance](#32-create-an-azure-spring-apps-instance) section.
 1. In the **App** textbox, select the plus sign (**+**) to create a new app.
 
-   :::image type="content" source="../../media/quickstart/intellij-create-new-app.png" alt-text="Screenshot of IntelliJ IDEA showing Deploy Azure Spring Apps dialog box." lightbox="../../media/quickstart/intellij-create-new-app.png":::
+   :::image type="content" source="../../media/quickstart/intellij-create-new-app.png" alt-text="Screenshot of the IntelliJ IDEA that shows the Deploy Azure Spring Apps dialog box." lightbox="../../media/quickstart/intellij-create-new-app.png":::
 
-1. In the **App name:** textbox under **App Basics**, enter *demo*, and then select the **More settings** check box.
+1. In the **App name:** textbox under **App Basics**, enter *demo*, and then select **More settings**.
 1. Select the **Enable** button next to **Public endpoint**. The button changes to **Disable \<to be enabled\>**.
 1. Select **OK**.
 
@@ -218,6 +218,6 @@ Deploying the application can take a few minutes.
 
 ## [Visual Studio Code](#tab/visual-studio-code)
 
-Follow the steps in [Build and deploy the app](https://code.visualstudio.com/docs/java/java-spring-apps#_build-and-deploy-the-app) to deploy app to Azure Spring Apps.
+To deploy the app to Azure Spring Apps, follow the steps in the [Build and deploy the app](https://code.visualstudio.com/docs/java/java-spring-apps#_build-and-deploy-the-app) section of [Java on Azure Spring Apps](https://code.visualstudio.com/docs/java/java-spring-apps).
 
 ---
