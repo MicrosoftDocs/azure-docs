@@ -64,7 +64,7 @@ The following snippet is a sample deployment that creates a cluster with KEDA en
             "location": "westcentralus",
             "name": "myAKSCluster",
             "properties": {
-                "kubernetesVersion": "1.23.5",
+                "kubernetesVersion": "1.27",
                 "enableRBAC": true,
                 "dnsPrefix": "myAKSCluster",
                 "agentPoolProfiles": [

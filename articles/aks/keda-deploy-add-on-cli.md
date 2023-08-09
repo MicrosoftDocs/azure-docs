@@ -73,9 +73,12 @@ The following example output shows that the KEDA operator and metrics API server
 ```output
 kubectl get pods -n kube-system
 
-keda-operator-********-k5rfv                    2/2     Running   0          43m 
-keda-operator-metrics-apiserver-*******-sj857   2/2     Running   0          43m 
-keda-admission-webhooks-********-k5rfv          2/2     Running   0          43m 
+keda-admission-webhooks-**********-2n9zl           1/1     Running   0            3d18h
+keda-admission-webhooks-**********-69dkg           1/1     Running   0            3d18h
+keda-operator-*********-4hb5n                      1/1     Running   0            3d18h
+keda-operator-*********-pckpx                      1/1     Running   0            3d18h
+keda-operator-metrics-apiserver-**********-gqg4s   1/1     Running   0            3d18h
+keda-operator-metrics-apiserver-**********-trfcb   1/1     Running   0            3d18h
 ```
 
 To verify the version of your KEDA, use `kubectl get crd/scaledobjects.keda.sh -o yaml `. For example:
