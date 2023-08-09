@@ -53,9 +53,9 @@ items:
   - name: Concepts
     expanded: false
     items:
-    - name: About identity log integrations
-      href: concept-activity-logs-azure-monitor.md
-    - name: Diagnostic settings options for log integrations
+    - name: Identity log integration options
+      href: concept-activity-log-integration-options-considerations.md
+    - name: Diagnostic settings for log integrations
       href: concept-diagnostic-settings-log-options.md
     - name: Plan a reporting and monitoring deployment
       href: plan-monitoring-and-reporting.md

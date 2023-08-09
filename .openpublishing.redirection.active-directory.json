@@ -5251,6 +5251,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/concept-activity-log-integration-options-considerations",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/tutorial-log-analytics-wizard.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/tutorial-configure-log-analytics-workspace",
       "redirect_document_id": true

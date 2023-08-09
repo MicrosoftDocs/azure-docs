@@ -1,7 +1,7 @@
 ---
 
-title: Azure AD Diagnostic settings log streaming options
-description: Learn about the Azure AD logs available for streaming to an endpoint for storage, analysis, or monitoring.
+title: Logs available for streaming to endpoints from Azure Active Directory
+description: Learn about the Azure Active Directory logs available for streaming to an endpoint for storage, analysis, or monitoring.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/08/2023
+ms.date: 08/09/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 
@@ -19,13 +19,13 @@ ms.reviewer: besiler
 
 Using Diagnostic settings in Azure Active Directory (Azure AD), you can route activity logs to several endpoints for long term retention and data insights. You select the logs you want to route, then select the endpoint.
 
-This article describes the options available to you in Diagnostic settings.
+This article describes the logs that you can route to an endpoint from Azure AD Diagnostic settings.
 
 ## Prerequisites
 
 Setting up an endpoint, such as an event hub or storage account, may require different roles and licenses. To create or edit a new Diagnostic setting, you need a user who's a **Security Administrator** or **Global Administrator** for the Azure AD tenant.
 
-To help decide which option is best for you, see [How to access activity logs](howto-access-activity-logs.md). The overall process and requirements for each endpoint type are covered in the following articles. 
+To help decide which log routing option is best for you, see [How to access activity logs](howto-access-activity-logs.md). The overall process and requirements for each endpoint type are covered in the following articles. 
 
 - [Send logs to a Log Analytics workspace to integrate with Azure Monitor logs](howto-integrate-activity-logs-with-azure-monitor-logs.md)
 - [Archive logs to a storage account](howto-archive-logs-to-storage-account.md)
