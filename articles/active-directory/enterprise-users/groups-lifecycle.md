@@ -94,6 +94,7 @@ For more information on permissions to restore a deleted group, see [Restore a d
 > - When a dynamic group is deleted and restored, it's seen as a new group and re-populated according to the rule. This process can take up to 24 hours.
 > - Expiration notices for groups used in Teams appear in the Teams Owners feed.
 > - When you enable expiration for selected groups, you can add up to 500 groups to the list. If you need to add more than 500 groups, you can enable expiration for all your groups. In that scenario, the 500-group limitation doesn't apply.
+>- Groups do not renew immediately when auto-renew activities occur. In the event of an activity, a flag is placed on the group to indicate it is ready for renewal when it's near expiry. If the group is near expiry, then renewal will occur within 24 hours. 
 
 ## Email notifications
 

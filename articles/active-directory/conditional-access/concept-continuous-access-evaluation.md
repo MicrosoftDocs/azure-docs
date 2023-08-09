@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/31/2023
+ms.date: 07/27/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -27,12 +27,10 @@ The initial implementation of continuous access evaluation focuses on Exchange, 
 
 To prepare your applications to use CAE, see [How to use Continuous Access Evaluation enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md).
 
-Continuous access evaluation is available in Azure Government tenants (GCC High and DOD) for Exchange Online.
-
 ### Key benefits
 
-- User termination or password change/reset: User session revocation will be enforced in near real time.
-- Network location change: Conditional Access location policies will be enforced in near real time.
+- User termination or password change/reset: User session revocation is enforced in near real time.
+- Network location change: Conditional Access location policies are enforced in near real time.
 - Token export to a machine outside of a trusted network can be prevented with Conditional Access location policies.
 
 ## Scenarios 
@@ -88,11 +86,13 @@ This process enables the scenario where users lose access to organizational file
 > [!NOTE]
 > Teams is made up of multiple services and among these the calls and chat services don't adhere to IP-based Conditional Access policies.
 
+Continuous access evaluation is also available in Azure Government tenants (GCC High and DOD) for Exchange Online.
+
 ## Client Capabilities
 
 ### Client-side claim challenge
 
-Before continuous access evaluation, clients would replay the access token from its cache as long as it hadn't expired. With CAE, we introduce a new case where a resource provider can reject a token when it isn't expired. To inform clients to bypass their cache even though the cached tokens haven't expired, we introduce a mechanism called **claim challenge** to indicate that the token was rejected and a new access token need to be issued by Azure AD. CAE requires a client update to understand claim challenge. The latest version of the following applications support claim challenge:
+Before continuous access evaluation, clients would replay the access token from its cache as long as it wasn't expired. With CAE, we introduce a new case where a resource provider can reject a token when it isn't expired. To inform clients to bypass their cache even though the cached tokens haven't expired, we introduce a mechanism called **claim challenge** to indicate that the token was rejected and a new access token need to be issued by Azure AD. CAE requires a client update to understand claim challenge. The latest versions of the following applications support claim challenge:
 
 | | Web | Win32 | iOS | Android | Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -105,9 +105,9 @@ Before continuous access evaluation, clients would replay the access token from 
 
 Because risk and policy are evaluated in real time, clients that negotiate continuous access evaluation aware sessions no longer rely on static access token lifetime policies. This change means that the configurable token lifetime policy isn't honored for clients negotiating CAE-aware sessions.
 
-Token lifetime is increased to long lived, up to 28 hours, in CAE sessions. Revocation is driven by critical events and policy evaluation, not just an arbitrary time period. This change increases the stability of applications without affecting security posture. 
+Token lifetime increases to long-lived, up to 28 hours, in CAE sessions. Critical events and policy evaluation drive revocation, not just an arbitrary time period. This change increases the stability of applications without affecting security posture. 
 
-If you aren't using CAE-capable clients, your default access token lifetime will remain 1 hour. The default only changes if you configured your access token lifetime with the [Configurable Token Lifetime (CTL)](../develop/configurable-token-lifetimes.md) preview feature.
+If you aren't using CAE-capable clients, your default access token lifetime remains 1 hour. The default only changes if you configured your access token lifetime with the [Configurable Token Lifetime (CTL)](../develop/configurable-token-lifetimes.md) preview feature.
 
 ## Example flow diagrams
 
@@ -117,10 +117,10 @@ If you aren't using CAE-capable clients, your default access token lifetime will
 
 1. A CAE-capable client presents credentials or a refresh token to Azure AD asking for an access token for some resource.
 1. An access token is returned along with other artifacts to the client.
-1. An Administrator explicitly [revokes all refresh tokens for the user](/powershell/module/microsoft.graph.users.actions/revoke-mgusersign). A revocation event will be sent to the resource provider from Azure AD.
+1. An Administrator explicitly [revokes all refresh tokens for the user](/powershell/module/microsoft.graph.users.actions/revoke-mgusersigninsession), then a revocation event is sent to the resource provider from Azure AD.
 1. An access token is presented to the resource provider. The resource provider evaluates the validity of the token and checks whether there's any revocation event for the user. The resource provider uses this information to decide to grant access to the resource or not.
 1. In this case, the resource provider denies access, and sends a 401+ claim challenge back to the client.
-1. The CAE-capable client understands the 401+ claim challenge. It bypasses the caches and goes back to step 1, sending its refresh token along with the claim challenge back to Azure AD. Azure AD will then reevaluate all the conditions and prompt the user to reauthenticate in this case.
+1. The CAE-capable client understands the 401+ claim challenge. It bypasses the caches and goes back to step 1, sending its refresh token along with the claim challenge back to Azure AD. Azure AD then reevaluates all the conditions and prompt the user to reauthenticate in this case.
 
 ### User condition change flow
 
@@ -135,7 +135,13 @@ In the following example, a Conditional Access Administrator has configured a lo
 1. The client presents an access token to the resource provider from outside of an allowed IP range.
 1. The resource provider evaluates the validity of the token and checks the location policy synced from Azure AD.
 1. In this case, the resource provider denies access, and sends a 401+ claim challenge back to the client. The client is challenged because it isn't coming from an allowed IP range.
-1. The CAE-capable client understands the 401+ claim challenge. It bypasses the caches and goes back to step 1, sending its refresh token along with the claim challenge back to Azure AD. Azure AD reevaluates all the conditions and will deny access in this case.
+1. The CAE-capable client understands the 401+ claim challenge. It bypasses the caches and goes back to step 1, sending its refresh token along with the claim challenge back to Azure AD. Azure AD reevaluates all the conditions and denies access in this case.
+
+## Exception for IP address variations and how to turn off the exception 
+
+In step 8 above, when Azure AD reevaluates the conditions, it denies access because the new location detected by Azure AD is outside the allowed IP range. This isn't always the case. Due to [some complex network topologies](concept-continuous-access-evaluation.md#ip-address-variation-and-networks-with-ip-address-shared-or-unknown-egress-ips), the authentication request can arrive from an allowed egress IP address even after the access request received by the resource provider arrived from an IP address that isn't allowed. Under these conditions, Azure AD interprets that the client continues to be in an allowed location and should be granted access.  Therefore, Azure AD issues a one-hour token that suspends IP address checks at the resource until token expiration. Azure AD continues to enforce IP address checks. 
+
+Standard vs. Strict mode. The granting of access under this exception (that is, an allowed location detected between Azure AD with a disallowed location detected by the resource provider) protects user productivity by maintaining access to critical resources. This is standard location enforcement. On the other hand, Administrators who operate under stable network topologies and wish remove this exception can use [Strict Location Enforcement (Public Preview)](concept-continuous-access-evaluation-strict-enforcement.md).
 
 ## Enable or disable CAE
 
@@ -148,18 +154,18 @@ Customers who have configured CAE settings under Security before have to migrate
 :::image type="content" source="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png" alt-text="Portal view showing the option to migrate continuous access evaluation to a Conditional Access policy." lightbox="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png":::
 
 1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator. 
-1.	Browse to **Azure Active Directory** > **Security** > **Continuous access evaluation**. 
-1.	You'll then see the option to **Migrate** your policy. This action is the only one that you’ll have access to at this point.
-1. Browse to **Conditional Access** and you'll find a new policy named **Conditional Access policy created from CAE settings** with your settings configured. Administrators can choose to customize this policy or create their own to replace it.
+1. Browse to **Azure Active Directory** > **Security** > **Continuous access evaluation**. 
+1. You have the option to **Migrate** your policy. This action is the only one that you have access to at this point.
+1. Browse to **Conditional Access** and you find a new policy named **Conditional Access policy created from CAE settings** with your settings configured. Administrators can choose to customize this policy or create their own to replace it.
 
 The following table describes the migration experience of each customer group based on previously configured CAE settings. 
 
 | Existing CAE Setting | Is Migration Needed | Auto Enabled for CAE | Expected Migration Experience |
 | --- | --- | --- | --- |
-| New tenants that didn't configure anything in the old experience. | No | Yes | Old CAE setting will be hidden given these customers likely didn't see the experience before general availability. |
-| Tenants that explicitly enabled for all users with the old experience. | No | Yes | Old CAE setting will be greyed out. Since these customers explicitly enabled this setting for all users, they don't need to migrate. |
-| Tenants that explicitly enabled some users in their tenants with the old experience.| Yes | No | Old CAE settings will be greyed out. Clicking **Migrate** launches the new Conditional Access policy wizard, which includes **All users**, while excluding users and groups copied from CAE. It also sets the new **Customize continuous access evaluation** Session control to **Disabled**. |
-| Tenants that explicitly disabled the preview. | Yes | No | Old CAE settings will be greyed out. Clicking **Migrate** launches the new Conditional Access policy wizard, which includes **All users**, and sets the new **Customize continuous access evaluation** Session control to **Disabled**. |
+| New tenants that didn't configure anything in the old experience. | No | Yes | Old CAE setting is hidden given these customers likely didn't see the experience before general availability. |
+| Tenants that explicitly enabled for all users with the old experience. | No | Yes | Old CAE setting is greyed out. Since these customers explicitly enabled this setting for all users, they don't need to migrate. |
+| Tenants that explicitly enabled some users in their tenants with the old experience.| Yes | No | Old CAE settings are greyed out. Clicking **Migrate** launches the new Conditional Access policy wizard, which includes **All users**, while excluding users and groups copied from CAE. It also sets the new **Customize continuous access evaluation** Session control to **Disabled**. |
+| Tenants that explicitly disabled the preview. | Yes | No | Old CAE settings are greyed out. Clicking **Migrate** launches the new Conditional Access policy wizard, which includes **All users**, and sets the new **Customize continuous access evaluation** Session control to **Disabled**. |
 
 More information about continuous access evaluation as a session control can be found in the section, [Customize continuous access evaluation](concept-conditional-access-session.md#customize-continuous-access-evaluation).
 
@@ -171,8 +177,8 @@ Changes made to Conditional Access policies and group membership made by adminis
 
 When Conditional Access policy or group membership changes need to be applied to certain users immediately, you have two options. 
 
-- Run the [revoke-mgusersign PowerShell command](/powershell/module/microsoft.graph.users.actions/revoke-mgusersign) to revoke all refresh tokens of a specified user.
-- Select "Revoke Session" on the user profile page in the Azure portal to revoke the user's session to ensure that the updated policies will be applied immediately.
+- Run the [revoke-mgusersign PowerShell command](/powershell/module/microsoft.graph.users.actions/revoke-mgusersigninsession) to revoke all refresh tokens of a specified user.
+- Select "Revoke Session" on the user profile page in the Azure portal to revoke the user's session to ensure that the updated policies are applied immediately.
 
 ### IP address variation and networks with IP address shared or unknown egress IPs 
 
@@ -191,29 +197,29 @@ In addition to IP variations, customers also may employ network solutions and se
 - Use IP addresses that may be shared with other customers. For example, cloud-based proxy services where egress IP addresses are shared between customers.
 - Use easily varied or undefinable IP addresses. For example, topologies where there are large, dynamic sets of egress IP addresses used, like large enterprise scenarios or [split VPN](/microsoft-365/enterprise/microsoft-365-vpn-implement-split-tunnel) and local egress network traffic.
 
-Networks where egress IP addresses may change frequently or are shared may affect Azure AD Conditional Access and Continues Access Evaluation (CAE). This variability can affect how these features work and their recommended configurations. Split Tunneling may also cause unexpected blocks when an environment is configured using [Split Tunneling VPN Best Practices](/microsoft-365/enterprise/microsoft-365-vpn-implement-split-tunnel). Routing [Optimized IPs](/microsoft-365/enterprise/microsoft-365-vpn-implement-split-tunnel#optimize-ip-address-ranges) through a Trusted IP/VPN may be required to prevent blocks related to "insufficient_claims" or "Instant IP Enforcement check failed".
+Networks where egress IP addresses may change frequently or are shared may affect Azure AD Conditional Access and Continues Access Evaluation (CAE). This variability can affect how these features work and their recommended configurations. Split Tunneling may also cause unexpected blocks when an environment is configured using [Split Tunneling VPN Best Practices](/microsoft-365/enterprise/microsoft-365-vpn-implement-split-tunnel). Routing [Optimized IPs](/microsoft-365/enterprise/microsoft-365-vpn-implement-split-tunnel#optimize-ip-address-ranges) through a Trusted IP/VPN may be required to prevent blocks related to *insufficient_claims* or *Instant IP Enforcement check failed*.
 
 
 The following table summarizes Conditional Access and CAE feature behaviors and recommendations for different types of network deployments: 
 
-| Network Type | Example | IPs seen by Azure AD | IPs seen by RP | Applicable CA Configuration (Trusted Named Location) | CAE enforcement | CAE access token | Recommendations |
+| Network Type | Example | IPs seen by Azure AD | IPs seen by RP | Applicable Conditional Access Configuration (Trusted Named Location) | CAE enforcement | CAE access token | Recommendations |
 |---|---|---|---|---|---|---|---|
-| 1. Egress IPs are dedicated and enumerable for both Azure AD and all RPs traffic | All to network traffic to Azure AD and RPs egresses through 1.1.1.1 and/or 2.2.2.2 | 1.1.1.1 | 2.2.2.2 | 1.1.1.1 <br> 2.2.2.2 | Critical Events <br> IP location Changes | Long lived – up to 28 hours | If CA Named Locations are defined, ensure that they contain all possible egress IPs (seen by Azure AD and all RPs) |
-| 2. Egress IPs are dedicated and enumerable for Azure AD, but not for RPs traffic | Network traffic to Azure AD egresses through 1.1.1.1. RP traffic egresses through x.x.x.x | 1.1.1.1 | x.x.x.x | 1.1.1.1 | Critical Events | Default access token lifetime – 1 hour | Do not add non dedicated or non-enumerable egress IPs (x.x.x.x) into Trusted Named Location Conditional Access rules as it can weaken security |
-| 3. Egress IPs are non-dedicated/shared or not enumerable for both Azure AD and RPs traffic | Network traffic to Azure AD egresses through y.y.y.y. RP traffic egresses through x.x.x.x | y.y.y.y | x.x.x.x | N/A -no IP CA policies/Trusted Locations configured | Critical Events | Long lived – up to 28 hours | Don't add non dedicated or non-enumerable egress IPs (x.x.x.x/y.y.y.y) into Trusted Named Location CA rules as it can weaken security |
+| 1. Egress IPs are dedicated and enumerable for both Azure AD and all RPs traffic | All to network traffic to Azure AD and RPs egresses through 1.1.1.1 and/or 2.2.2.2 | 1.1.1.1 | 2.2.2.2 | 1.1.1.1 <br> 2.2.2.2 | Critical Events <br> IP location Changes | Long lived – up to 28 hours | If Conditional Access Named Locations are defined, ensure that they contain all possible egress IPs (seen by Azure AD and all RPs) |
+| 2. Egress IPs are dedicated and enumerable for Azure AD, but not for RPs traffic | Network traffic to Azure AD egresses through 1.1.1.1. RP traffic egresses through x.x.x.x | 1.1.1.1 | x.x.x.x | 1.1.1.1 | Critical Events | Default access token lifetime – 1 hour | Don't add non dedicated or nonenumerable egress IPs (x.x.x.x) into Trusted Named Location Conditional Access rules as it can weaken security |
+| 3. Egress IPs are non-dedicated/shared or not enumerable for both Azure AD and RPs traffic | Network traffic to Azure AD egresses through y.y.y.y. RP traffic egresses through x.x.x.x | y.y.y.y | x.x.x.x | N/A -no IP Conditional Access policies/Trusted Locations configured | Critical Events | Long lived – up to 28 hours | Don't add non dedicated or nonenumerable egress IPs (x.x.x.x/y.y.y.y) into Trusted Named Location Conditional Access rules as it can weaken security |
 
 Networks and network services used by clients connecting to identity and resource providers continue to evolve and change in response to modern trends. These changes may affect Conditional Access and CAE configurations that rely on the underlying IP addresses. When deciding on these configurations, factor in future changes in technology and upkeep of the defined list of addresses in your plan.
 
 ### Supported location policies
 
-CAE only has insight into [IP-based named locations](../conditional-access/location-condition.md#ipv4-and-ipv6-address-ranges). CAE doesn't have insight into other location conditions like [MFA trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) or country/region-based locations. When a user comes from an MFA trusted IP, trusted location that includes MFA Trusted IPs, or country/region location, CAE won't be enforced after that user moves to a different location. In those cases, Azure AD will issue a one-hour access token without instant IP enforcement check. 
+CAE only has insight into [IP-based named locations](../conditional-access/location-condition.md#ipv4-and-ipv6-address-ranges). CAE doesn't have insight into other location conditions like [MFA trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) or country/region-based locations. When a user comes from an MFA trusted IP, trusted location that includes MFA Trusted IPs, or country/region location, CAE won't be enforced after that user moves to a different location. In those cases, Azure AD issues a one-hour access token without instant IP enforcement check. 
 
 > [!IMPORTANT]
 > If you want your location policies to be enforced in real time by continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md) and configure all IP addresses, **including both IPv4 and IPv6**, that can be seen by your identity provider and resources provider. Do not use country/region location conditions or the trusted ips feature that is available in Azure AD Multifactor Authentication's service settings page.
 
 ### Named location limitations
 
-When the sum of all IP ranges specified in location policies exceeds 5,000, user change location flow won't be enforced by CAE in real time. In this case, Azure AD will issue a one-hour CAE token. CAE will continue enforcing [all other events and policies](#critical-event-evaluation) besides client location change events. With this change, you still maintain stronger security posture compared to traditional one-hour tokens, since [other events](#critical-event-evaluation) will be evaluated in near real time.
+When the sum of all IP ranges specified in location policies exceeds 5,000, user change location flow isn't enforced by CAE in real time. In this case, Azure AD issues a one-hour CAE token. CAE continues enforcing [all other events and policies](#critical-event-evaluation) besides client location change events. With this change, you still maintain stronger security posture compared to traditional one-hour tokens, since [other events](#critical-event-evaluation) are still evaluated in near real time.
 
 ### Office and Web Account Manager settings
 
@@ -232,7 +238,7 @@ When multiple users are collaborating on a document at the same time, their acce
 - Closing the Office app
 - After 1 hour when a Conditional Access IP policy is set
 
-To further reduce this time, a SharePoint Administrator can reduce the maximum lifetime of coauthoring sessions for documents stored in SharePoint Online and OneDrive for Business, by [configuring a network location policy in SharePoint Online](/sharepoint/control-access-based-on-network-location). Once this configuration is changed, the maximum lifetime of coauthoring sessions will be reduced to 15 minutes, and can be adjusted further using the SharePoint Online PowerShell command "[Set-SPOTenant –IPAddressWACTokenLifetime](/powershell/module/sharepoint-online/set-spotenant)".
+To further reduce this time, a SharePoint Administrator can reduce the maximum lifetime of coauthoring sessions for documents stored in SharePoint Online and OneDrive for Business, by [configuring a network location policy in SharePoint Online](/sharepoint/control-access-based-on-network-location). Once this configuration is changed, the maximum lifetime of coauthoring sessions is reduced to 15 minutes, and can be adjusted further using the SharePoint Online PowerShell command [Set-SPOTenant –IPAddressWACTokenLifetime](/powershell/module/sharepoint-online/set-spotenant).
 
 ### Enable after a user is disabled
 
@@ -247,11 +253,11 @@ An IP address policy isn't evaluated before push notifications are released. Thi
 
 ### Guest users
 
-Guest user accounts aren't supported by CAE. CAE revocation events and IP based Conditional Access policies aren't enforced instantaneously.
+CAE doesn't support Guest user accounts. CAE revocation events and IP based Conditional Access policies aren't enforced instantaneously.
 
-### How will CAE work with Sign-in Frequency?
+### CAE and Sign-in Frequency
 
-Sign-in Frequency will be honored with or without CAE.
+Sign-in Frequency is honored with or without CAE.
 
 ## Next steps
 

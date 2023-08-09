@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 07/10/2023
-ms.custom: contperf-fy21q1, ignite-2022, build-2023, build-2023-dataai
+ms.custom: contperf-fy21q1, build-2023, build-2023-dataai
 ---
 # What's Azure Cognitive Search?
 

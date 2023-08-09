@@ -28,7 +28,7 @@ To understand how many private DNS zones you can create in a subscription and ho
 * You can't create zone delegations (NS records) in a private DNS zone. If you intend to use a child domain, you can directly create the domain as a private DNS zone. Then you can link it to the virtual network without setting up a nameserver delegation from the parent zone.
 * The following list of reserved zone names are blocked from creation to prevent disruption of services:
 
-    | Public | Azure Government | Azure China |
+    | Public | Azure Government | Microsoft Azure operated by 21Vianet |
     | --- | --- | --- |
     |azclient.ms	| azclient.us	| azclient.cn
     |azure.com |	azure.us	| azure.cn

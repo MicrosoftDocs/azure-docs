@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial
-ms.date: 07/24/2023
+ms.date: 07/27/2023
 ms.custom: devx-track-arm-template
 ms.author: jasteppe
 ---
@@ -174,7 +174,7 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
    > [!NOTE]
    > In this device-to-cloud (D2C) example, *cloud* is the IoT hub in the Azure IoT Hub that receives the device message. Azure IoT Hub supports two-way communications. To set up a cloud-to-device (C2D) scenario, select **Send C2D Message to Device Cloud**.
 
-   :::image type="content" source="media\device-messages-through-iot-hub\select-device-to-cloud-message.png" alt-text="Screenshot that shows Visual Studio Code with the Azure IoT Hub extension and the Send D2C Message to IoT Hub option selected." lightbox="media\device-messages-through-iot-hub\select-device-to-cloud-message.png":::
+   :::image type="content" source="media\device-messages-through-iot-hub\select-d2c-message.png" alt-text="Screenshot that shows Visual Studio Code with the Azure IoT Hub extension and the Send D2C Message to IoT Hub option selected." lightbox="media\device-messages-through-iot-hub\select-d2c-message.png":::
 
 7. In **Send D2C Messages**, select or enter the following values:
 
@@ -193,6 +193,7 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
 
      ```json
      {
+         "PatientId": "patient1",
          "HeartRate": 78,
          "RespiratoryRate": 12,
          "HeartRateVariability": 30,
@@ -206,18 +207,18 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
 
 8. To begin the process of sending a test message to your IoT hub, select **Send**.
 
-   :::image type="content" source="media\device-messages-through-iot-hub\select-device-to-cloud-message-options.png" alt-text="Screenshot that shows Visual Studio Code with the Azure IoT Hub extension with the device message options selected." lightbox="media\device-messages-through-iot-hub\select-device-to-cloud-message-options.png":::
+   :::image type="content" source="media\device-messages-through-iot-hub\select-d2c-message-options.png" alt-text="Screenshot that shows Visual Studio Code with the Azure IoT Hub extension with the device message options selected." lightbox="media\device-messages-through-iot-hub\select-d2c-message-options.png":::
 
    After you select **Send**, it might take up to five minutes for the FHIR resources to be available in the FHIR service.
 
    > [!IMPORTANT]
-   > To avoid device spoofing in device-to-cloud (D2C) messages, Azure IoT Hub enriches all device messages with additional properties before routing them to the event hub. For example: **Properties**: `iothub-creation-time-utc` and **SystemProperties**: `iothub-connection-device-id`. For more information, see [Anti-spoofing properties](../../iot-hub/iot-hub-devguide-messages-construct.md#anti-spoofing-properties) and [How to use IotJsonPathContent templates with the MedTech service device mapping](how-to-use-iotjsonpathcontent-templates.md). 
+   > To avoid device spoofing in device-to-cloud (D2C) messages, Azure IoT Hub enriches all device messages with additional properties before routing them to the event hub. For example: **SystemProperties**: `iothub-connection-device-id` and **Properties**: `iothub-creation-time-utc`. For more information, see [Anti-spoofing properties](../../iot-hub/iot-hub-devguide-messages-construct.md#anti-spoofing-properties) and [How to use IotJsonPathContent templates with the MedTech service device mapping](how-to-use-iotjsonpathcontent-templates.md). 
    >
    > You do not want to send this example device message to your IoT hub as the enrichments will be duplicated by the IoT hub and cause an error with your MedTech service. This is only an example of how your device messages are enriched by the IoT hub. 
    >
    > Example:
    >
-   > :::image type="content" source="media\device-messages-through-iot-hub\iot-hub-enriched-device-message.png" alt-text="Screenshot of an Azure IoT Hub enriched device message." lightbox="media\device-messages-through-iot-hub\iot-hub-enriched-device-message.png":::
+   > :::image type="content" source="media\device-messages-through-iot-hub\iot-hub-enriched-message.png" alt-text="Screenshot of an Azure IoT Hub enriched device message." lightbox="media\device-messages-through-iot-hub\iot-hub-enriched-message.png":::
    >
    > `patientIdExpression` is only required for MedTech services in the **Create** mode, however, if **Lookup** is being used, a Device resource with a matching Device Identifier must exist in the FHIR service. This example assumes your MedTech service is in a **Create** mode. The **Resolution type** for this tutorial set to **Create**. For more information on the **Destination properties**: **Create** and **Lookup**, see [Configure the Destination tab](deploy-manual-portal.md#configure-the-destination-tab). 
 

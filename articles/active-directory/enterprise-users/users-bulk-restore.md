@@ -81,7 +81,7 @@ Next, you can check to see that the users you restored exist in the Azure AD org
 Run the following command:
 
 ``` PowerShell
-Get-AzureADUser -Filter "UserType eq 'Member'"
+Get-MgUser -Filter "UserType eq 'Member'"
 ```
 
 You should see that the users that you restored are listed.

@@ -4,7 +4,7 @@ description: Recommendations for reducing costs in Azure Monitor.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/29/2023
+ms.date: 08/03/2023
 ms.reviewer: bwren
 ---
 
@@ -58,7 +58,7 @@ This article describes [Cost optimization](/azure/architecture/framework/cost/) 
 | Recommendation | Benefit |
 |:---|:---|
 | Configure agent collection to remove unneeded data. |  Analyze the data collected by Container insights as described in [Controlling ingestion to reduce cost](containers/container-insights-cost.md#control-ingestion-to-reduce-cost) and adjust your configuration to stop collection of data in ContainerLogs you don't need. |
-| Modify settings for collection of metric data. |  You can reduce your costs by modifying the default collection settings Container insights uses for the collection of metric data. See [Enable cost optimization settings (preview)](containers/container-insights-cost-config.md) for details on modifying both the frequency that metric data is collected and the namespaces that are collected. |
+| Modify settings for collection of metric data. |  You can reduce your costs by modifying the default collection settings Container insights uses for the collection of metric data. See [Enable cost optimization settings](containers/container-insights-cost-config.md) for details on modifying both the frequency that metric data is collected and the namespaces that are collected. |
 | Limit Prometheus metrics collected. | If you configured Prometheus metric scraping, then follow the recommendations at [Controlling ingestion to reduce cost](containers/container-insights-cost.md#prometheus-metrics-scraping) to optimize your data collection for cost. |
 | Configure Basic Logs. | [Convert your schema to ContainerLogV2](containers/container-insights-logging-v2.md) which is compatible with Basic logs and can provide significant cost savings as described in [Controlling ingestion to reduce cost](containers/container-insights-cost.md#configure-basic-logs). |
 
@@ -70,7 +70,7 @@ This article describes [Cost optimization](/azure/architecture/framework/cost/) 
 ### Design checklist
 
 > [!div class="checklist"]
-> - Use sampling to tune the amount of data collected.
+> - Change to Workspace-based Application Insights.
 > - Use sampling to tune the amount of data collected.
 > - Limit the number of Ajax calls.
 > - Disable unneeded modules.
@@ -82,7 +82,7 @@ This article describes [Cost optimization](/azure/architecture/framework/cost/) 
 
 | Recommendation | Benefit |
 |:---|:---|
-| Change to Workspace-based Application Insights | Ensure that your Application Insights resources are [Workspace-based](app/create-workspace-resource.md) so that they can leverage new cost savings tools such as [Basic Logs](logs/basic-logs-configure.md), [Commitment Tiers](logs/cost-logs.md#commitment-tiers), [Retention by data type and Data Archive](logs/data-retention-archive.md#set-retention-and-archive-policy-by-table). |
+| Change to Workspace-based Application Insights | Ensure that your Application Insights resources are [Workspace-based](app/create-workspace-resource.md) so that they can leverage new cost savings tools such as [Basic Logs](logs/basic-logs-configure.md), [Commitment Tiers](logs/cost-logs.md#commitment-tiers), [Retention by data type and Data Archive](logs/data-retention-archive.md#configure-retention-and-archive-at-the-table-level). |
 | Use sampling to tune the amount of data collected. | [Sampling](app/sampling.md) is the primary tool you can use to tune the amount of data collected by Application Insights. Use sampling to reduce the amount of telemetry that's sent from your applications with minimal distortion of metrics. |
 | Limit the number of Ajax calls. | [Limit the number of Ajax calls](app/javascript.md#configuration) that can be reported in every page view or disable Ajax reporting. If you disable Ajax calls, you'll be disabling [JavaScript correlation](app/javascript.md#enable-distributed-tracing) too. |
 | Disable unneeded modules. | [Edit ApplicationInsights.config](app/configuration-with-applicationinsights-config.md) to turn off collection modules that you don't need. For example, you might decide that performance counters or dependency data aren't required. |
@@ -95,3 +95,4 @@ This article describes [Cost optimization](/azure/architecture/framework/cost/) 
 ## Next step
 
 - [Get best practices for a complete deployment of Azure Monitor](best-practices.md).
+
