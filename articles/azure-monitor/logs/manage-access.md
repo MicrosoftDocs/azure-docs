@@ -370,7 +370,10 @@ To grant a user or group table-level read access to a specific table:
 
     1. From the **Log Analytics workspaces** menu, select **Tables**.  
     1. Select the ellipsis ( **...** ) to the right of your table and select **Access control (IAM)**.
-    1. Select **Add** > **Add role assignment** on the **Access control (IAM)** screen. 
+        
+       :::image type="content" source="media/manage-access/table-level-access-control.png" alt-text="Screenshot that shows the Log Analytics workspace table management screen with the table-level access control button higlighted." lightbox="media/manage-access/manage-access-create-custom-role-json.png":::      
+    
+    1. On the **Access control (IAM)** screen, select **Add** > **Add role assignment**. 
     1. Select the **Reader** role and select **Next**.    
     1. Click **+ Select members** to open the **Select members** screen.
     1. Search for and select the user and click **Select**.
@@ -445,7 +448,7 @@ Using the legacy method of table-level access, you can't grant access to individ
 
 ### Table-level access considerations and limitations
 
-- Azure applies table-level RBAC during query execution. It does not apply to metadata retrieval calls. Therefore, in the Log Analytics UI, users with table-level can see the list of all tables in the workspace, but can only retrieve data from tables to which they have access.
+- In the Log Analytics UI, users with table-level can see the list of all tables in the workspace, but can only retrieve data from tables to which they have access.
 - The standard Reader or Contributor roles, which include the _\*/read_ action, override table-level access control and give users access to all log data.
 - A user with table-level access but no workspace-level permissions can access log data from the API but not from the Azure portal. 
 - Administrators and owners of the subscription have access to all data types regardless of any other permission settings.
