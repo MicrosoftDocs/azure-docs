@@ -45,9 +45,10 @@ More details on eligible subscription types are as follows:
 ## Azure subscription billing locations where Netherlands phone numbers are available
 | Country |
 | :---------- |
-|France|
-|Italy|
+|Netherlands|
+|United States*|
 
+\*Alphanumeric Sender ID only
 
 **Use the drop-down menu to check phone number availability for other countries**
 > [!div class="op_single_selector"]
