@@ -43,7 +43,7 @@ Instance Readiness Testing (IRT) is a framework built to orchestrate real-world 
 
 ## Input configuration
 
-Build your input file. The IRT tarball provides `irt-input.example.yml` as an example, please follow the [instructions](#download-irt) to download the tarball. These values **will not work for your instances**, they need to be manually changed and the file should also be renamed to `irt-input.yml`. The example input file is provided as a stub to aid in configuring new input files. Overridable values and their usage are outlined in the example. The **[One Time Setup](#one-Time-setup) assists in setting input values by writing key/value pairs to the config file as they execute.**
+Build your input file. The IRT tarball provides `irt-input.example.yml` as an example, follow the [instructions](#download-irt) to download the tarball. These values **will not work for your instances**, they need to be manually changed and the file should also be renamed to `irt-input.yml`. The example input file is provided as a stub to aid in configuring new input files. Overridable values and their usage are outlined in the example. The **[One Time Setup](#one-Time-setup) assists in setting input values by writing key/value pairs to the config file as they execute.**
 
 The network information is provided in either a `networks-blueprint.yml` file, similar to the `networks-blueprint.example.yml` that is provided, or appended to the `irt-input.yml` file. The  schema for IRT is defined in the `networks-blueprint.example.yml`. The networks are created as part of the test, provide network details that aren't in use. Currently IRT has the following network requirements:
 
@@ -113,7 +113,7 @@ A service principal with the following role assignments. The supplemental script
    1. `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
    1. `Azure ARC Kubernetes Admin` - For ARC enrolling the NAKS cluster
 
-Additionally, the script creates the necessary security group, and add the service principal to the security group. If the security group exists, it adds the service principal to the existing security group.
+Additionally, the script creates the necessary security group, and adds the service principal to the security group. If the security group exists, it adds the service principal to the existing security group.
 
 Executing `create-service-principal` requires the following environment variables to be set;
     1. SERVICE_PRINCIPAL_NAME - The name of the service principal, created with the `az ad sp create-for-rbac` command.
@@ -128,7 +128,7 @@ SERVICE_PRINCIPAL_NAME="<your service principal name>" AAD_GROUP_NAME="<your sec
 
 
 #### Create isolation domains
-The testing framework doesn't create, destroye, or manipulate isolation domains. Therefore, existing Isolation Domains can be used. Each Isolation Domain requires at least one external network. The supplemental script, `create-l3-isolation-domains.sh`. Internal networks are created, manipulated, and destroy through the course of testing. They are created using the data provided in the networks blueprint.
+The testing framework doesn't create, destroy, or manipulate isolation domains. Therefore, existing Isolation Domains can be used. Each Isolation Domain requires at least one external network. The supplemental script, `create-l3-isolation-domains.sh`. Internal networks are created, manipulated, and destroy through the course of testing. They're created using the data provided in the networks blueprint.
 
 Executing `create-l3-isolation-domains.sh` requires one **parameter**, a path to your networks blueprint file;
   
