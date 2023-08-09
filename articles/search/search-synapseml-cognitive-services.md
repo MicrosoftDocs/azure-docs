@@ -269,7 +269,7 @@ You can find and manage resources in the portal, using the **All resources** or 
 
 ## Next steps
 
-In this tutorial, you learned about the [AzureSearchWriter](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#azuresearch) transformer in SynapseML, which is a new way of creating and loading search indexes in Azure Cognitive Search. The transformer takes structured JSON as an input. The FormOntologyLearner can provide the necessary structure for output produced by the Document Intelligence transformers in SynapseML.
+In this tutorial, you learned about the AzureSearchWriter transformer in SynapseML, which is a new way of creating and loading search indexes in Azure Cognitive Search. The transformer takes structured JSON as an input. The FormOntologyLearner can provide the necessary structure for output produced by the Document Intelligence transformers in SynapseML.
 
 As a next step, review the other SynapseML tutorials that produce transformed content you might want to explore through Azure Cognitive Search:
 
