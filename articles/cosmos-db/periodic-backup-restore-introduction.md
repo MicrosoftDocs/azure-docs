@@ -37,23 +37,23 @@ With the periodic backup mode, the backups are taken only in the write region of
 
 ## What is restored into new account? 
 
--You can choose to restore any combination of provisioned throughput containers, shared throughput database, or the entire account.
--The restore action restores all data and its index properties into a new account.
--The duration of restore will depend on the amount of data that needs to be restored.
--The newly restored database account’s consistency setting will be same as the source database account’s consistency settings. 
+- You can choose to restore any combination of provisioned throughput containers, shared throughput database, or the entire account.
+- The restore action restores all data and its index properties into a new account.
+- The duration of restore will depend on the amount of data that needs to be restored.
+- The newly restored database account’s consistency setting will be same as the source database account’s consistency settings. 
 
 ## What isn't restored? 
 
 The following configurations aren't restored after the point-in-time recovery.
--A subset of containers under a shared throughput database cannot be restored. The entire database can be restored as a whole.
--Database account keys. The restored account will be generated with new database account keys. 
--Firewall, VNET, Data plane RBAC or private endpoint settings. 
--Regions. The restored account will only be a single region account, which is the write region of the source account. 
--Stored procedures, triggers, UDFs. 
--Role-based access control assignments. These will need to be re-assigned. 
--Documents that were deleted because of expired TTL. 
--Analytical data when synapse link is enabled. 
--Materialized views 
+- A subset of containers under a shared throughput database cannot be restored. The entire database can be restored as a whole.
+- Database account keys. The restored account will be generated with new database account keys. 
+- Firewall, VNET, Data plane RBAC or private endpoint settings. 
+- Regions. The restored account will only be a single region account, which is the write region of the source account. 
+- Stored procedures, triggers, UDFs. 
+- Role-based access control assignments. These will need to be re-assigned. 
+- Documents that were deleted because of expired TTL. 
+- Analytical data when synapse link is enabled. 
+- Materialized views 
 
 Some of these configurations can be added to the restored account after the restore is completed. 
 
