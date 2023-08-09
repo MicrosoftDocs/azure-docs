@@ -45,7 +45,7 @@ conceptualContent:
             
             - url: ./authentication-authorization.md
               itemType: how-to-guide
-              text: Grant managed identity permissions
+              text: Grant permissions to a managed identity
          
         # Card
         - title: Health data and PHI
@@ -71,18 +71,16 @@ conceptualContent:
             - url: ./dicom/dicom-services-overview.md
               itemType: overview
               text: DICOM service overview
-            - url: ../dicom/deploy-dicom-services-in-azure.md
+            - url: ./dicom/deploy-dicom-services-in-azure.md
               itemType: how-to-guide
               text: Deploy the DICOM service
-            - url: ./file3.md OR /file3
+            - url: ./dicom/get-started-with-analytics-dicom
               itemType: how-to-guide
-              text: linktext3
-            - url: ./file4.md OR /file4
+              text: Use image data for analytics
+            - url: ./dicom/dicom-digital-pathology
               itemType: how-to-guide
-              text: linktext4  
-            - url: ./file5.md OR /file5
-              itemType: how-to-guide
-              text: linktext5  
+              text: Use image data for digital pathology  
+            
         # Card
         - title: Device data
           links:
@@ -108,60 +106,53 @@ conceptualContent:
             - url: ./events/events-overview.md
               itemType: overview
               text: Events overview
-            - url: ./file2.md OR /file2
+            - url: ./events/events-deploy-portal.md
               itemType: how-to-guide
-              text: linktext2
-            - url: ./file3.md OR /file3
+              text: Deploy events in Azure portal
+            - url: ./events/events-use-metrics.md
               itemType: how-to-guide
-              text: linktext3
-            - url: ./file4.md OR /file4
+              text: Use event metrics
+            - url: ./events/events-disable-delete-workspace.md
               itemType: how-to-guide
-              text: linktext4  
-            - url: ./file5.md OR /file5
+              text: Disable events 
+            - url: ./events/events-troubleshooting-guide.md
               itemType: how-to-guide
-              text: linktext5    
+              text: Troubleshoot events  
           
         # Card
         - title: Azure API for FHIR
           links:
             - url: ./azure-api-for-fhir/overview.md
               itemType: overview
-              text: Overview
-            - url: ./file2.md OR /file2
+              text: Azure API for FHIR overview
+            - url: ./azure-api-for-fhir/fhir-paas-portal-quickstart.md
               itemType: how-to-guide
-              text: linktext2
-            - url: ./file3.md OR /file3
+              text: Deploy Azure API for FHIR
+            - url: ./azure-api-for-fhir/configure-azure-rbac.md
               itemType: how-to-guide
-              text: linktext3
-            - url: ./file4.md OR /file4
-              itemType: how-to-guide
-              text: linktext4  
-            - url: ./file5.md OR /file5
-              itemType: how-to-guide
-              text: linktext5     
+              text: Configure settings   
           
 additionalContent:
   sections:
     - title: Tools & resources 
       items:
         # Card
-        - title: Sample code
-          summary: cardsummary1
-          url: ./github-projects.md
+        - title: Health data workflows
+          summary: Sample apps and code
+          url: https://github.com/Azure-Samples/azure-health-data-services-samples
         # Card
-        - title: Extensibility toolkit
-          summary: cardsummary2
-          url: https://github.com/microsoft/azure-health-data-services-toolkit
+        - title: MedTech service deployment 
+          summary: Sample code
+          url: https://learn.microsoft.com/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/
         # Card
-        - title: Some other tool
-          summary: cardsummary3
-          url: https://github.com/microsoft/fhir-server/
-    # Card
-        - title: Community & support
+        - title: Include Azure IoT Hub with the Medtech service
+          summary: Sample code
+          url: https://learn.microsoft.com/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/
+         # Card
+        - title: Configure FHIR service to enable $import
+          summary: Sample code
+          url: https://learn.microsoft.com/en-us/samples/azure/azure-quickstart-templates/fhir-import/ 
+        # Card
+        - title: Community blog
           summary: cardsummary4
-          url: ./cardsummary4.md 
-     # Card
-        - title: etc.
-          summary: cardsummary5
-          url: ./cardsummary5.md 
-  footer: "Found an issue with the docs? [Let us know](../use-docs.md#about-feedback)!"
+          url: https://techcommunity.microsoft.com/t5/healthcare-and-life-sciences/bg-p/HealthcareAndLifeSciencesBlog 
