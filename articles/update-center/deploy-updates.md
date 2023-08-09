@@ -154,7 +154,7 @@ After your scheduled deployment starts, you can see it's status on the **History
 :::image type="content" source="./media/deploy-updates/updates-history-inline.png" alt-text="Screenshot showing updates history." lightbox="./media/deploy-updates/updates-history-expanded.png":::
 
 > [!NOTE]
-> The **Windows update history** currently doesn't show the updates summary that are installed from the Azure portal. To view a summary of the updates applied on your machines, go to **Update management center (preview)** > **Manage** > **History**. 
+> The **Windows update history** currently doesn't show the updates summary that are installed from Azure Update Management. To view a summary of the updates applied on your machines, go to **Update management center (preview)** > **Manage** > **History**. 
  
 A list of the deployments created are shown in the update deployment grid and include relevant information about the deployment. Every update deployment has a unique GUID, represented as **Operation ID**, which is listed along with **Status**, **Updates Installed** and **Time** details. You can filter the results listed in the grid.
 
