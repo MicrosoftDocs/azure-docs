@@ -13,7 +13,7 @@ ms.date: 07/31/2023
 # Add vector fields to a search index
 
 > [!IMPORTANT]
-> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
+> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
 In Azure Cognitive Search, vector data is indexed as *vector fields* within a [search index](search-what-is-an-index.md), using a *vector configuration* to create the embedding space. 
 

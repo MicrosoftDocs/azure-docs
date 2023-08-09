@@ -146,7 +146,7 @@ From the Cloud Shell, run the following command to retrieve the public IP addres
 
 Paste the IP address into a Web browser. The default Internet Information Services (IIS) welcome page opens:
 
-![The Internet Information Services welcome page](./media/template-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
+:::image type="content" source="./media/template-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png" alt-text="Screenshot of the Internet Information Services welcome page.":::
 
 ## Clean up resources
 
