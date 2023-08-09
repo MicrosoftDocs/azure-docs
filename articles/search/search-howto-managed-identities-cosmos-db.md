@@ -27,7 +27,7 @@ You can use a system-assigned managed identity or a user-assigned managed identi
 * Data Plane Role assignment: Follow [Data plane Role assignment](../cosmos-db/how-to-setup-rbac.md)
 to know more.
 
-* Example to show a Read only data plane role assignement.
+* Example for a read-only data plane role assignment:
 ```azurepowershell
 $cosmosdb_acc_name = <cosmos db account name>
 $resource_group = <resource group name>
@@ -36,7 +36,7 @@ $system_assigned_principal = <principal id for system assigned identity>
 $readOnlyRoleDefinitionId = "00000000-0000-0000-0000-000000000001"
 $scope=$(az cosmosdb show --name $cosmosdbname --resource-group $resourcegroup --query id --output tsv)
 ``````
-Role assignment for system assigned identity
+    Role assignment for system-assigned identity:
 
 ```azurepowershell
 az cosmosdb sql role assignment create --account-name $cosmosdbname --resource-group $resourcegroup --role-definition-id $readOnlyRoleDefinitionId --principal-id $sys_principal --scope $scope
