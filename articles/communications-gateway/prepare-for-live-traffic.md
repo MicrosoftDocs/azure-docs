@@ -25,12 +25,14 @@ In this article, you learn about the steps you and your onboarding team must tak
 
 - You must have [deployed Azure Communications Gateway](deploy.md) using the Microsoft Azure portal.
 - You must have [chosen some test numbers](prepare-to-deploy.md#prerequisites).
-- You must have a tenant you can use for testing (representing an enterprise customer), and some users in that tenant to whom you can assign the test numbers. These users must be licensed for Teams Phone System and in Teams Only mode.
+- You must have a tenant you can use for testing (representing an enterprise customer), and some users in that tenant to whom you can assign the test numbers.
+    - If you do not already have a suitable test tenant, you can use the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program), which provides E5 licenses.
+    - The test users must be licensed for Teams Phone System and in Teams Only mode.
 - You must have access to the following configuration portals.
 
     |Configuration portal  |Required permissions |
     |---------|---------|
-    |[Operator Connect portal](https://operatorconnect.microsoft.com/) | Admin permissions or `PartnerSettings.Read` and `NumberManagement.Write` (configured on the Project Synergy enterprise application that you set up when [you prepared to deploy Azure Communications Gateway](prepare-to-deploy.md#1-add-the-project-synergy-application-to-your-azure-tenancy))|
+    |[Operator Connect portal](https://operatorconnect.microsoft.com/) | `Admin` role or `PartnerSettings.Read` and `NumberManagement.Write` roles (configured on the Project Synergy enterprise application that you set up when [you prepared to deploy Azure Communications Gateway](prepare-to-deploy.md#1-add-the-project-synergy-application-to-your-azure-tenancy))|
     |[Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant |User management|
 
 
