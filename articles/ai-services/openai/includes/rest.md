@@ -87,7 +87,7 @@ curl $AZURE_OPENAI_ENDPOINT/openai/deployments/text-davinci-003/completions?api-
   -d "{\"prompt\": \"Once upon a time\"}"
 ```
 
-The format of your first line of the command with an example endpoint would appear as follows `curl https://docs-test-001.openai.azure.com/openai/deployments/{YOUR-DEPLOYMENT_NAME_HERE}/completions?api-version=2023-05-15 \` If you encounter an error double check to make sure that you don't have a doubling of the `/` at the separation between your endpoint and `/openai/deployments`.
+The format of your first line of the command with an example endpoint would appear as follows `curl https://docs-test-001.openai.azure.com/openai/deployments/{YOUR-DEPLOYMENT_NAME_HERE}/completions?api-version=2023-05-15 \`. If you encounter an error double check to make sure that you don't have a doubling of the `/` at the separation between your endpoint and `/openai/deployments`.
 
 If you want to run this command in a normal Windows command prompt you would need to alter the text to remove the `\` and line breaks.
 
