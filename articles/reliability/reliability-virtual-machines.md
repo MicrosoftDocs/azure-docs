@@ -504,7 +504,7 @@ When setting up disaster recovery for virtual machines, understand what [Azure S
 
 ### Single-region geography disaster recovery
 
-With disaster recovery set up, Azure VMs continuously replicates to a different target region. If an outage occurs, you can fail over VMs to the secondary region, and access them from there.
+With disaster recovery set up, Azure VMs continuously replicate to a different target region. If an outage occurs, you can fail over VMs to the secondary region, and access them from there.
 
 When you replicate Azure VMs using [Site Recovery](../site-recovery/site-recovery-overview.md), all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes. This gives you a Recovery Point Objective (RPO) in the order of minutes. You can conduct disaster recovery drills as many times as you want, without affecting the production application or the ongoing replication. For more information, see [Run a disaster recovery drill to Azure](../site-recovery/tutorial-dr-drill-azure.md).
 
