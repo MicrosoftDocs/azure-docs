@@ -5,7 +5,7 @@ services: storage
 author: cawaMS
 manager: paulyuk
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
-ms.service: storage
+ms.service: azure-storage
 ms.topic: article
 ms.workload: na
 ms.date: 05/21/2019

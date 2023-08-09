@@ -6,18 +6,19 @@ ms.custom: build-2023
 ms.date: 12/02/2022
 ---
 
-# Azure Event Grid Namespace as an Event Grid source
+# Azure Event Grid Namespace (Preview) as an Event Grid source
 This article provides the properties and schema for Azure Event Grid namespace events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). 
 
 ## Available event types
 
-Azure Event Grid namespace emits the following event types:
+Azure Event Grid namespace (Preview) emits the following event types:
 
 | Event type | Description |
 | ---------- | ----------- |
 | Microsoft.EventGrid.MQTTClientSessionConnected | Published when an MQTT client’s session is connected to Event Grid. |
 | Microsoft.EventGrid.MQTTClientSessionDisconnected | Published when an MQTT client’s session is disconnected from Event Grid. | 
-
+| Microsoft.EventGrid.MQTTClientCreatedOrUpdated | Published when an MQTT client is created or updated in the Event Grid Namespace. |
+| Microsoft.EventGrid.MQTTClientDeleted | Published when an MQTT client is deleted from the Event Grid Namespace. |
 
 ## Example event
 
@@ -27,16 +28,16 @@ This sample event shows the schema of an event raised when an MQTT client’s se
 
 ```json
 [{
-  "id": "6f1b70b8-557a-4865-9a1c-94cc3def93db",
-  "eventTime": "2023-04-28T00:49:04.0211141Z",
+  "id": "5249c38a-a048-46dd-8f60-df34fcdab06c",
+  "eventTime": "2023-07-29T01:23:49.6454046Z",
   "eventType": "Microsoft.EventGrid.MQTTClientSessionConnected",
-  "topic": "/subscriptions/ 00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.EventGrid/namespaces/myns",
-  "subject": "/clients/device1/sessions/session1",
+  "topic": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.EventGrid/namespaces/myns",
+  "subject": "clients/client1/sessions/session1",
   "dataVersion": "1",
   "metadataVersion": "1",
   "data": {
     "namespaceName": "myns",
-    "clientAuthenticationName": "device1",
+    "clientAuthenticationName": "client1",
     "clientSessionName": "session1",
     "sequenceNumber": 1
   }
@@ -46,18 +47,61 @@ This sample event shows the schema of an event raised when an MQTT client’s se
 
 ```json
 [{
-  "id": "6f1b70b8-557a-4865-9a1c-94cc3def93db",
-  "eventTime": "2023-04-28T00:49:04.0211141Z",
-  "eventType": "Microsoft.EventGrid.MQTTClientSessionConnected",
-  "topic": "/subscriptions/ 00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.EventGrid/namespaces/myns",
-  "subject": "/clients/device1/sessions/session1",
+  "id": "e30e5174-787d-4e19-8812-580148bfcf7b",
+  "eventTime": "2023-07-29T01:27:40.2446871Z",
+  "eventType": "Microsoft.EventGrid.MQTTClientSessionDisconnected",
+  "topic": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.EventGrid/namespaces/myns",
+  "subject": "clients/client1/sessions/session1",
   "dataVersion": "1",
   "metadataVersion": "1",
   "data": {
     "namespaceName": "myns",
-    "clientAuthenticationName": "device1",
+    "clientAuthenticationName": "client1",
     "clientSessionName": "session1",
-    "sequenceNumber": 1
+    "sequenceNumber": 1,
+    "disconnectionReason": "ClientInitiatedDisconnect"
+  }
+}]
+```
+This sample event shows the schema of an event raised when an MQTT client is created or updated in the Event Grid Namespace:
+
+```json
+[{
+  "id": "383d1562-c95f-4095-936c-688e72c6b2bb",
+  "eventTime": "2023-07-29T01:14:35.8928724Z",
+  "eventType": "Microsoft.EventGrid.MQTTClientCreatedOrUpdated",
+  "topic": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.EventGrid/namespaces/myns",
+  "subject": "clients/client1",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "data": {
+    "createdOn": "2023-07-29T01:14:34.2048108Z",
+    "updatedOn": "2023-07-29T01:14:34.2048108Z",
+    "namespaceName": "myns",
+    "clientName": "client1",
+    "clientAuthenticationName": "client1",
+    "state": "Enabled",
+    "attributes": {
+      "attribute1": "value1"
+    }
+  }
+}]
+```
+This sample event shows the schema of an event raised when an MQTT client is deleted from the Event Grid Namespace:
+
+```json
+[{
+  "id": "2a93aaf9-66c2-4f8e-9ba3-8d899c10bf17",
+  "eventTime": "2023-07-29T01:30:52.5620566Z",
+  "eventType": "Microsoft.EventGrid.MQTTClientDeleted",
+  "topic": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.EventGrid/namespaces/myns",
+  "subject": "clients/client1",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "data": {
+    "clientName": "client1",
+    "clientAuthenticationName": "client1",
+    "namespaceName": "myns"
   }
 }]
 ```
@@ -68,15 +112,15 @@ This sample event shows the schema of an event raised when an MQTT client's sess
 
 ```json
 [{
-  "id": "6f1b70b8-557a-4865-9a1c-94cc3def93db",
-  "time": "2023-04-28T00:49:04.0211141Z",
+  "specversion": "1.0",
+  "id": "5249c38a-a048-46dd-8f60-df34fcdab06c",
+  "time": "2023-07-29T01:23:49.6454046Z",
   "type": "Microsoft.EventGrid.MQTTClientSessionConnected",
   "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.EventGrid/namespaces/myns",
-  "subject": "/clients/device1/sessions/session1",
-  "specversion": "1.0",
+  "subject": "clients/client1/sessions/session1",
   "data": {
     "namespaceName": "myns",
-    "clientAuthenticationName": "device1",
+    "clientAuthenticationName": "client1",
     "clientSessionName": "session1",
     "sequenceNumber": 1
   }
@@ -86,23 +130,63 @@ This sample event shows the schema of an event raised when an MQTT client’s se
 
 ```json
 [{
-  "id": "3b93123d-5427-4dec-88d5-3b6da87b0f64",
-  "time": "2023-04-28T00:51:28.6037385Z",
-  "type": "Microsoft.EventGrid.MQTTClientSessionDisconnected",
-  "source": "/subscriptions/ 00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.EventGrid/namespaces/myns",
-  "subject": "/clients/device1/sessions/session1",
   "specversion": "1.0",
+  "id": "e30e5174-787d-4e19-8812-580148bfcf7b",
+  "time": "2023-07-29T01:27:40.2446871Z",
+  "type": "Microsoft.EventGrid.MQTTClientSessionDisconnected",
+  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.EventGrid/namespaces/myns",
+  "subject": "clients/client1/sessions/session1",
   "data": {
     "namespaceName": "myns",
-    "clientAuthenticationName": "device1",
+    "clientAuthenticationName": "client1",
     "clientSessionName": "session1",
     "sequenceNumber": 1,
-    "disconnectionReason": "ClientError"
+    "disconnectionReason": "ClientInitiatedDisconnect"
   }
 }]
 ```
+This sample event shows the schema of an event raised when an MQTT client is created or updated in the Event Grid Namespace:
 
+```json
+[{
+  "specversion": "1.0",
+  "id": "383d1562-c95f-4095-936c-688e72c6b2bb",
+  "time": "2023-07-29T01:14:35.8928724Z",
+  "type": "Microsoft.EventGrid.MQTTClientCreatedOrUpdated",
+  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.EventGrid/namespaces/myns",
+  "subject": "clients/client1",
+  "data": {
+    "createdOn": "2023-07-29T01:14:34.2048108Z",
+    "updatedOn": "2023-07-29T01:14:34.2048108Z",
+    "namespaceName": "myns",
+    "clientName": "client1",
+    "clientAuthenticationName": "client1",
+    "state": "Enabled",
+    "attributes": {
+      "attribute1": "value1"
+    }
+  }
+}]
+```
+This sample event shows the schema of an event raised when an MQTT client is deleted from the Event Grid Namespace:
+
+```json
+[{
+  "specversion": "1.0",
+  "id": "2a93aaf9-66c2-4f8e-9ba3-8d899c10bf17",
+  "time": "2023-07-29T01:30:52.5620566Z",
+  "type": "Microsoft.EventGrid.MQTTClientDeleted",
+  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.EventGrid/namespaces/myns",
+  "subject": "clients/client1",
+  "data": {
+    "namespaceName": "myns",
+    "clientName": "client1",
+    "clientAuthenticationName": "client1"
+  }
+}]
+```
 ---
+
 
 
 ### Event properties
@@ -139,7 +223,7 @@ All events contain the same top-level data:
 
 ---
 
-For all Event Grid namespace events, the data object contains the following properties:
+The data object contains the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
@@ -147,12 +231,12 @@ For all Event Grid namespace events, the data object contains the following prop
 | `clientAuthenticationName` | string | Unique identifier for the MQTT client that the client presents to the service for authentication. This case-sensitive string can be up to 128 characters long, and supports UTF-8 characters.|
 | `clientSessionName` | string | Unique identifier for the MQTT client's session. This case-sensitive string can be up to 128 characters long, and supports UTF-8 characters.|
 | `sequenceNumber` | string | A number that helps indicate order of MQTT client session connected or disconnected events. Latest event will have a sequence number that is higher than the previous event. |
-
-For the **MQTT Client Session Disconnected** event, the data object also contains the following property:
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
 | `disconnectionReason` | string | Reason for the disconnection of the MQTT client's session. The value could be one of the values in the disconnection reasons table. |
+| `createdOn` | string | The time the client resource is created based on the provider's UTC time. |
+| `updatedOn` | string | The time the client resource is last updated based on the provider's UTC time. If the client resource was never updated, this value is identical to the value of the 'createdOn' property |
+| `clientName` | string | The time the client resource is last updated based on the provider's UTC time. If the client resource was never updated, this value is identical to the value of the 'createdOn' property. |
+| `state` | string | The configured state of the client. The value could be Enabled or Disabled.|
+| `attributes` | string | The array of key-value pair attributes that are assigned to the client resource.|
 
 ### Disconnection reasons:
 

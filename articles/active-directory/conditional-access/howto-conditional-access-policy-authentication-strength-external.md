@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 04/03/2023
+ms.date: 07/18/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -56,19 +56,16 @@ Determine if one of the built-in authentication strengths will work for your sce
 
 Use the following steps to create a Conditional Access policy that applies an authentication strength to external users.
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
-1. Select **New policy**.
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
 1. Under **Include**, choose **Select users and groups**, and then select **Guest or external users**.
-
-   <!---![Screenshot showing where to select guest and external user types.](media/howto-conditional-access-policy-authentication-strength-external/assignments-external-user-types.png)--->
-
 1. Select the types of [guest or external users](../external-identities/authentication-conditional-access.md#assigning-conditional-access-policies-to-external-user-types) you want to apply the policy to.
 
 1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts.
-1. Under **Cloud apps or actions**, under **Include** or **Exclude**, select any applications you want to include in or exclude from the authentication strength requirements.
+1. Under **Target resources** > **Cloud apps**, under **Include** or **Exclude**, select any applications you want to include in or exclude from the authentication strength requirements.
 1. Under **Access controls** > **Grant**:
    1. Choose **Grant access**.
    1. Select **Require authentication strength**, and then select the built-in or custom authentication strength from the list.
@@ -82,6 +79,6 @@ After you confirm your settings using [report-only mode](howto-conditional-acces
 
 ## Next steps
 
-[Conditional Access common policies](concept-conditional-access-policy-common.md)
+[Conditional Access templates](concept-conditional-access-policy-common.md)
 
-[Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
+[Use report-only mode for Conditional Access to determine the results of new policy decisions.](concept-conditional-access-report-only.md)

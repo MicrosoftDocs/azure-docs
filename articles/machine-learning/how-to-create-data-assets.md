@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.custom: data4ml, ignite-2022
+ms.custom: data4ml, ignite-2022, devx-track-azurecli
 ms.author: xunwan
 author: SturgeonMi
 ms.reviewer: franksolomon
-ms.date: 06/02/2023
+ms.date: 06/20/2023
 ---
 
 # Create and manage data assets
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 
 This article shows how to create and manage data assets in Azure Machine Learning.
@@ -95,7 +95,7 @@ Next, execute the following command in the CLI (update the `<filename>` placehol
 az ml data create -f <filename>.yml
 ```
 
-# [Python SDK](#tab/Python-SDK)
+# [Python SDK](#tab/python)
 
 To create a data asset that is a File type, use the following code and update the `<>` placeholders with your information.
 
@@ -136,7 +136,7 @@ my_data = Data(
 # Create the data asset in the workspace
 ml_client.data.create_or_update(my_data)
 ```
-# [Studio](#tab/Studio)
+# [Studio](#tab/azure-studio)
 
 These steps explain how to create a File typed data asset in the Azure Machine Learning studio:
 
@@ -184,7 +184,7 @@ Next, execute the following command in the CLI (update the `<filename>` placehol
 az ml data create -f <filename>.yml
 ```
 
-# [Python SDK](#tab/Python-SDK)
+# [Python SDK](#tab/python)
 
 To create a data asset that is a Folder type use the following code and update the `<>` placeholders with your information.
 
@@ -226,7 +226,7 @@ my_data = Data(
 ml_client.data.create_or_update(my_data)
 ```
 
-# [Studio](#tab/Studio)
+# [Studio](#tab/azure-studio)
 
 Use these steps to create a Folder typed data asset in the Azure Machine Learning studio:
 
@@ -304,7 +304,7 @@ az ml data create --path ./data --name <DATA ASSET NAME> --version <VERSION> --t
 > [!IMPORTANT]
 > The `path` should be a *folder* that contains a valid `MLTable` file.
 
-# [Python SDK](#tab/Python-SDK)
+# [Python SDK](#tab/python)
 
 Use the following code to create a data asset that is a Table (`mltable`) type, and update the `<>` placeholders with your information.
 
@@ -372,10 +372,152 @@ my_data = Data(
 ml_client.data.create_or_update(my_data)
 ```
 
-# [Studio](#tab/Studio)
+# [Studio](#tab/azure-studio)
 
 > [!IMPORTANT]
 > Currently, the Studio UI has limited functionality for the creation of Table (`MLTable`) typed assets. We recommend that you use the Python SDK to author and create Table (`MLTable`) typed data assets.
+
+---
+
+### Creating data assets from job outputs
+
+You can create a data asset from an Azure Machine Learning job by setting the `name` parameter in the output. In this example, you submit a job that copies data from a public blob store to your default Azure Machine Learning Datastore and creates a data asset called `job_output_titanic_asset`.
+
+# [Azure CLI](#tab/cli)
+
+Create a job specification YAML file (`<file-name>.yml`):
+
+```yaml
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+
+# path: Set the URI path for the data. Supported paths include
+# local: `./<path>
+# Blob: wasbs://<container_name>@<account_name>.blob.core.windows.net/<path>
+# ADLS: abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>
+# Datastore: azureml://datastores/<data_store_name>/paths/<path>
+# Data Asset: azureml:<my_data>:<version>
+
+# type: What type of data are you pointing to?
+# uri_file (a specific file)
+# uri_folder (a folder)
+# mltable (a table)
+
+# mode: Set INPUT mode:
+# ro_mount (read-only mount)
+# download (download from storage to node)
+# mode: Set the OUTPUT mode
+# rw_mount (read-write mount)
+# upload (upload data from node to storage)
+
+type: command
+command: cp ${{inputs.input_data}} ${{outputs.output_data}}
+compute: azureml:cpu-cluster
+environment: azureml://registries/azureml/environments/sklearn-1.1/versions/4
+inputs:
+  input_data:
+    mode: ro_mount
+    path: azureml:wasbs://data@azuremlexampledata.blob.core.windows.net/titanic.csv
+    type: uri_file
+outputs:
+  output_data:
+    mode: rw_mount
+    path: azureml://datastores/workspaceblobstore/paths/quickstart-output/titanic.csv
+    type: uri_file
+    name: job_output_titanic_asset
+    
+```
+
+Next, submit the job using the CLI:
+
+```azurecli
+az ml job create --file <file-name>.yml
+```
+
+# [Python SDK](#tab/python)
+
+```python
+from azure.ai.ml import command, Input, Output, MLClient
+from azure.ai.ml.constants import AssetTypes, InputOutputModes
+from azure.identity import DefaultAzureCredential
+
+# Set your subscription, resource group and workspace name:
+subscription_id = "<SUBSCRIPTION_ID>"
+resource_group = "<RESOURCE_GROUP>"
+workspace = "<AML_WORKSPACE_NAME>"
+
+# connect to the AzureML workspace
+ml_client = MLClient(
+    DefaultAzureCredential(), subscription_id, resource_group, workspace
+)
+
+# ==============================================================
+# Set the input and output URI paths for the data. Supported paths include:
+# local: `./<path>
+# Blob: wasbs://<container_name>@<account_name>.blob.core.windows.net/<path>
+# ADLS: abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>
+# Datastore: azureml://datastores/<data_store_name>/paths/<path>
+# Data Asset: azureml:<my_data>:<version>
+# As an example, we set the input path to a file on a public blob container
+# As an example, we set the output path to a folder in the default datastore
+# ==============================================================
+input_path = "wasbs://data@azuremlexampledata.blob.core.windows.net/titanic.csv"
+output_path = "azureml://datastores/workspaceblobstore/paths/quickstart-output/titanic.csv"
+
+# ==============================================================
+# What type of data are you pointing to?
+# AssetTypes.URI_FILE (a specific file)
+# AssetTypes.URI_FOLDER (a folder)
+# AssetTypes.MLTABLE (a table)
+# The path we set above is a specific file
+# ==============================================================
+data_type = AssetTypes.URI_FILE
+
+# ==============================================================
+# Set the input mode. The most commonly-used modes:
+# InputOutputModes.RO_MOUNT
+# InputOutputModes.DOWNLOAD
+# Set the mode to Read Only (RO) to mount the data
+# ==============================================================
+input_mode = InputOutputModes.RO_MOUNT
+
+# ==============================================================
+# Set the output mode. The most commonly-used modes:
+# InputOutputModes.RW_MOUNT
+# InputOutputModes.UPLOAD
+# Set the mode to Read Write (RW) to mount the data
+# ==============================================================
+output_mode = InputOutputModes.RW_MOUNT
+
+# ==============================================================
+# Set a data asset name for the output
+# ==============================================================
+data_asset_name = "job_output_titanic_asset"
+
+# Set the input and output for the job:
+inputs = {
+    "input_data": Input(type=data_type, path=input_path, mode=input_mode)
+}
+
+outputs = {
+    "output_data": Output(type=data_type, path=output_path, mode=output_mode, name = data_asset_name)
+}
+
+# This command job copies the data to your default Datastore
+job = command(
+    command="cp ${{inputs.input_data}} ${{outputs.output_data}}",
+    inputs=inputs,
+    outputs=outputs,
+    environment="azureml://registries/azureml/environments/sklearn-1.1/versions/4",
+    compute="cpu-cluster",
+)
+
+# Submit the command
+ml_client.jobs.create_or_update(job)
+```
+
+# [Studio](#tab/azure-studio)
+
+Not available.
 
 ---
 
@@ -424,7 +566,7 @@ Execute the following command (update the `<>` placeholder with the name of your
 az ml data archive --name <NAME OF DATA ASSET>
 ```
 
-# [Python SDK](#tab/Python-SDK)
+# [Python SDK](#tab/python)
 
 ```python
 from azure.ai.ml import MLClient
@@ -443,7 +585,7 @@ ml_client = MLClient(
 ml_client.data.archive(name="<DATA ASSET NAME>")
 ```
 
-# [Studio](#tab/Studio)
+# [Studio](#tab/azure-studio)
 
 1. In the Studio UI, select **Data** from the left-hand menu.
 1. On the **Data assets** tab, select the data asset you want to archive.
@@ -465,7 +607,7 @@ Execute the following command (update the `<>` placeholders with the name of you
 az ml data archive --name <NAME OF DATA ASSET> --version <VERSION TO ARCHIVE>
 ```
 
-# [Python SDK](#tab/Python-SDK)
+# [Python SDK](#tab/python)
 
 ```python
 from azure.ai.ml import MLClient
@@ -484,7 +626,7 @@ ml_client = MLClient(
 ml_client.data.archive(name="<DATA ASSET NAME>", version="<VERSION TO ARCHIVE>")
 ```
 
-# [Studio](#tab/Studio)
+# [Studio](#tab/azure-studio)
 
 > [!IMPORTANT]
 > Currently, archiving a specific data asset version is not supported in the Studio UI.
@@ -506,7 +648,7 @@ Execute the following command (update the `<>` placeholder with the name of your
 az ml data restore --name <NAME OF DATA ASSET>
 ```
 
-# [Python SDK](#tab/Python-SDK)
+# [Python SDK](#tab/python)
 
 ```python
 from azure.ai.ml import MLClient
@@ -525,7 +667,7 @@ ml_client = MLClient(
 ml_client.data.restore(name="<DATA ASSET NAME>")
 ```
 
-# [Studio](#tab/Studio)
+# [Studio](#tab/azure-studio)
 
 1. In the Studio UI, select **Data** from the left-hand menu.
 1. On the **Data assets** tab, enable **Include Archived**.
@@ -551,7 +693,7 @@ Execute the following command (update the `<>` placeholders with the name of you
 az ml data restore --name <NAME OF DATA ASSET> --version <VERSION TO ARCHIVE>
 ```
 
-# [Python SDK](#tab/Python-SDK)
+# [Python SDK](#tab/python)
 
 ```python
 from azure.ai.ml import MLClient
@@ -570,7 +712,7 @@ ml_client = MLClient(
 ml_client.data.restore(name="<DATA ASSET NAME>", version="<VERSION TO ARCHIVE>")
 ```
 
-# [Studio](#tab/Studio)
+# [Studio](#tab/azure-studio)
 
 > [!IMPORTANT]
 > Currently, restoring a specific data asset version is not supported in the Studio UI.
@@ -636,7 +778,7 @@ Next, execute the following command in the CLI (update the `<filename>` placehol
 az ml data create -f <filename>.yml
 ```
 
-# [Python SDK](#tab/Python-SDK)
+# [Python SDK](#tab/python)
 
 To create a File type data asset, use the following code and update the `<>` placeholders with your information.
 
@@ -688,7 +830,7 @@ my_data = Data(
 # Create the data asset in the workspace
 ml_client.data.create_or_update(my_data)
 ```
-# [Studio](#tab/Studio)
+# [Studio](#tab/azure-studio)
 
 > [!IMPORTANT]
 > Currently, the Studio UI does not support adding tags as part of the data asset creation flow. You may add tags in the Studio UI after the data asset creation.
@@ -705,7 +847,7 @@ Execute the following command in the Azure CLI, and update the `<>` placeholders
 az ml data update --name <DATA ASSET NAME> --version <VERSION> --set tags.<KEY>=<VALUE>
 ```
 
-# [Python SDK](#tab/Python-SDK)
+# [Python SDK](#tab/python)
 
 ```python
 from azure.ai.ml import MLClient
@@ -736,7 +878,7 @@ data.tags = tags
 ml_client.data.create_or_update(data)
 ```
 
-# [Studio](#tab/Studio)
+# [Studio](#tab/azure-studio)
 
 1. Select **Data** on the left-hand menu in the Studio UI.
 1. Select the **Data Assets** tab.

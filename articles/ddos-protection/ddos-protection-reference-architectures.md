@@ -39,9 +39,7 @@ Unsupported resources include:
 * PaaS services (multi-tenant) including Azure App Service Environment for Power Apps.
 * Protected resources that include public IPs created from public IP address prefix.
 
-
-> [!NOTE]
-> For web workloads, we highly recommend utilizing [**Azure DDoS protection**](../ddos-protection/ddos-protection-overview.md) and a [**web application firewall**](../web-application-firewall/overview.md) to safeguard against emerging DDoS attacks. Another option is to deploy [**Azure Front Door**](../frontdoor/web-application-firewall.md) along with a web application firewall. Azure Front Door offers platform-level [**protection against network-level DDoS attacks**](../frontdoor/front-door-ddos.md).
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 ## Virtual machine (Windows/Linux) workloads
 
@@ -82,7 +80,7 @@ There are many ways to implement an N-tier architecture. The following diagrams 
  In this architecture diagram DDoS IP Protection is enabled on the public IP address.
 
 > [!NOTE]
-> Scenarios in which a single VM is running behind a public IP are not supported. DDoS mitigation may not initiate instantaneously when a DDoS attack is detected. As a result a single VM deployment that can’t scale out will go down in such cases.
+> Scenarios in which a single VM is running behind a public IP is not recommended. DDoS mitigation may not initiate instantaneously when a DDoS attack is detected. As a result a single VM deployment that can’t scale out will go down in such cases.
 
 ### PaaS web application
 

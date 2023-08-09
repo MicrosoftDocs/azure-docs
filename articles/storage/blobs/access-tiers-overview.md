@@ -5,9 +5,8 @@ description: Azure storage offers different access tiers so that you can store y
 author: normesta
 
 ms.author: normesta
-ms.date: 05/02/2023
+ms.date: 07/13/2023
 ms.service: storage
-ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: fryu
 ---
@@ -21,6 +20,14 @@ Data stored in the cloud grows at an exponential pace. To manage costs for your 
 - **Cold tier** - An online tier optimized for storing data that is infrequently accessed or modified. Data in the cold tier should be stored for a minimum of **90** days. The cold tier has lower storage costs and higher access costs compared to the cool tier.
 - **Archive tier** - An offline tier optimized for storing data that is rarely accessed, and that has flexible latency requirements, on the order of hours. Data in the archive tier should be stored for a minimum of 180 days.
 
+<<<<<<< HEAD
+=======
+> [!IMPORTANT]
+> The cold tier is currently in PREVIEW and is available in all public regions.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> To enroll, see [Cold tier (preview)](#cold-tier-preview).
+
+>>>>>>> bc913e1309a6564550fe011a771c9414bf592bbb
 Azure storage capacity limits are set at the account level, rather than according to access tier. You can choose to maximize your capacity usage in one tier, or to distribute capacity across two or more tiers.
 
 > [!NOTE]
@@ -134,8 +141,8 @@ The following table summarizes the features of the hot, cool, cold, and archive 
 
 |  | **Hot tier** | **Cool tier** | **Cold tier** |**Archive tier** |
 |--|--|--|--|--|
-| **Availability** | 99.9% | 99% | 99% | Offline |
-| **Availability** <br> **(RA-GRS reads)** | 99.99% | 99.99% | 99.9% | Offline |
+| **Availability** | 99.9% | 99% | 99% | 99% |
+| **Availability** <br> **(RA-GRS reads)** | 99.99% | 99.9% | 99.9% | 99.9% |
 | **Usage charges** | Higher storage costs, but lower access and transaction costs | Lower storage costs, but higher access and transaction costs | Lower storage costs, but higher access and transaction costs | Lowest storage costs, but highest access, and transaction costs |
 | **Minimum recommended data retention period** | N/A | 30 days<sup>1</sup> | 90 days<sup>1</sup> | 180 days |
 | **Latency** <br> **(Time to first byte)** | Milliseconds | Milliseconds | Milliseconds | Hours<sup>2</sup> |
@@ -201,12 +208,11 @@ The cold tier is now generally available.
 ### Limitations and known issues
 
 - The [change feed](storage-blob-change-feed.md) is not yet compatible with the cold tier.
-- [Point in time restore](point-in-time-restore-overview.md) is not yet compatible with the cold tier. 
 - [Object replication](object-replication-overview.md) is not yet compatible with the cold tier.
 - The default access tier setting of the account can't be set to cold tier.
 - Setting the cold tier in a batch call is not yet supported (For example: using the [Blob Batch](/rest/api/storageservices/blob-batch) REST operation along with the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) subrequest).
 
-### Required versions of REST, SDKs, and command line tools
+### Required versions of REST, SDKs, and tools
 
 | Environment | Minimum version |
 |---|---|
@@ -215,9 +221,10 @@ The cold tier is now generally available.
 | [Java](/java/api/overview/azure/storage-blob-readme) | 12.21.0 |
 | [Python](/python/api/azure-storage-blob/) | 12.15.0 |
 | [JavaScript](/javascript/api/preview-docs/@azure/storage-blob/) | 12.13.0 |
-| [PowerShell (Az.Storage)](/powershell/azure/install-azure-powershell) | 5.4.2-preview |
-| [Azure CLI extension](/cli/azure/install-azure-cli) | storage-blob-preview 0.7.1 |
-| [AzCopy](../common/storage-use-azcopy-v10.md) | 10.18.1 or later|
+| [PowerShell (Az.Storage)](/powershell/azure/install-azure-powershell) | 5.8.0 |
+| [Azure CLI](/cli/azure/install-azure-cli) | 2.50.0 |
+| [AzCopy](../common/storage-use-azcopy-v10.md) | 10.18.1 |
+| [Azure Storage Explorer](quickstart-storage-explorer.md) | 1.29.0 |
 
 ## Feature support
 

@@ -34,7 +34,7 @@ Azure AD support for LAPS includes the following capabilities:
 - **Conditional Access policies for local administrator password recovery** - Configure Conditional Access policies on directory roles that have the authorization of password recovery.
 
 > [!NOTE]  
-> Windows LAPS with Azure AD is not supported for Windows devices that are [Azure AD registered](concept-azure-ad-register.md).
+> Windows LAPS with Azure AD is not supported for Windows devices that are [Azure AD registered](concept-device-registration.md).
 
 Local Administrator Password Solution isn't supported on non-Windows platforms.
 
@@ -53,7 +53,7 @@ This feature is now available in the following Azure clouds:
 
 - Azure Global
 - Azure Government
-- Azure China 21Vianet
+- Microsoft Azure operated by 21Vianetated by 21Vianet
 
 ### Operating system updates
 
@@ -134,11 +134,11 @@ Conditional Access policies can be scoped to the built-in roles like Cloud Devic
 
 ### Is Windows LAPS with Azure AD management configuration supported using Group Policy Objects (GPO)?
 
-Yes, for [hybrid Azure AD joined](concept-azure-ad-join-hybrid.md) devices only. See see [Windows LAPS Group Policy](/windows-server/identity/laps/laps-management-policy-settings#windows-laps-group-policy).
+Yes, for [hybrid Azure AD joined](concept-hybrid-join.md) devices only. See see [Windows LAPS Group Policy](/windows-server/identity/laps/laps-management-policy-settings#windows-laps-group-policy).
 
 ### Is Windows LAPS with Azure AD management configuration supported using MDM?
 
-Yes, for [Azure AD join](concept-azure-ad-join.md)/[hybrid Azure AD join](concept-azure-ad-join-hybrid.md) ([co-managed](/mem/configmgr/comanage/overview)) devices. Customers can use [Microsoft Intune](/mem/intune/protect/windows-laps-overview) or any other third party MDM of their choice.
+Yes, for [Azure AD join](concept-directory-join.md)/[hybrid Azure AD join](concept-hybrid-join.md) ([co-managed](/mem/configmgr/comanage/overview)) devices. Customers can use [Microsoft Intune](/mem/intune/protect/windows-laps-overview) or any other third party MDM of their choice.
 
 ### What happens when a device is deleted in Azure AD?
 

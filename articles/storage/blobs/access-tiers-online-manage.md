@@ -5,9 +5,8 @@ description: Learn how to specify a blob's access tier when you upload it, or ho
 author: normesta
 
 ms.author: normesta
-ms.date: 05/02/2023
+ms.date: 06/22/2023
 ms.service: storage
-ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: fryu
 ms.devlang: powershell, azurecli

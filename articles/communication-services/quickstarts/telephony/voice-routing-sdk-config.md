@@ -44,6 +44,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 For more information, see the following articles:
 
+- Learn about [call automation](../../concepts/call-automation/call-automation.md) to build workflows that [route and manage calls](../../how-tos/call-automation/actions-for-call-control.md) to Communication Services.  
 - Learn about [Calling SDK capabilities](../voice-video-calling/getting-started-with-calling.md).
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md).
 - Call to a telephone number by [following a quickstart](./pstn-call.md).

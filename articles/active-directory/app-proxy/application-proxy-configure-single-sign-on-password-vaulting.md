@@ -23,6 +23,8 @@ You should already have published and tested your app with Application Proxy. If
 
 ## Set up password vaulting for your application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 1. Select **Azure Active Directory** > **Enterprise applications** > **All applications**.
 1. From the list, select the app that you want to set up with SSO.  

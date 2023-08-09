@@ -3,7 +3,7 @@ title: About Microsoft Sentinel content and solutions | Microsoft Docs
 description: This article describes Microsoft Sentinel content and solutions, which customers can use to find data analysis tools packaged together with data connectors.
 author: cwatson-cat
 ms.topic: conceptual
-ms.date: 02/13/2023
+ms.date: 06/22/2023
 ms.author: cwatson
 ---
 
@@ -25,10 +25,6 @@ Content in Microsoft Sentinel includes any of the following types:
 Microsoft Sentinel offers these content types as *solutions* and *standalone* items. *Solutions* are packages of Microsoft Sentinel content or Microsoft Sentinel API integrations, which fulfill an end-to-end product, domain, or industry vertical scenario in Microsoft Sentinel. Both solutions and standalone items are discoverable and managed from the Content hub.
 
 You can either customize out-of-the-box (OOTB) content for your own needs, or you can create your own solution with content to share with others in the community. For more information, see the [Microsoft Sentinel Solutions Build Guide](https://aka.ms/sentinelsolutionsbuildguide) for solutions' authoring and publishing.
-
-> [!IMPORTANT]
->
-> The Microsoft Sentinel **Content hub** and solutions are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Discover and manage Microsoft Sentinel content
 
@@ -135,7 +131,7 @@ After you've learned about Microsoft Sentinel content, discover and install solu
 
 For more information, see:
 
-- [Centrally discover and deploy out-of-the-box content and solutions (Public preview)](sentinel-solutions-deploy.md)
+- [Centrally discover and deploy out-of-the-box content and solutions](sentinel-solutions-deploy.md)
 - Microsoft Sentinel solutions catalog in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=solution-templates&page=1&search=sentinel)
 - [Microsoft Sentinel catalog](sentinel-solutions-catalog.md)
 - [Microsoft Sentinel data connectors](connect-data-sources.md)
