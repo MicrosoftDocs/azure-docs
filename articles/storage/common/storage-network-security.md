@@ -15,6 +15,8 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engageme
 
 Azure Storage provides a layered security model. This model enables you to control the level of access to your storage accounts that your applications and enterprise environments demand. In this article, you will learn how to configure the Azure Storage firewall to protect the data in your storage account at the network layer.
 
+## Options for configuring network access to Azure Storage
+
 Applications access storage account data over network endpoints. There are two types of endpoints:
 
 - [Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)
@@ -23,8 +25,6 @@ Applications access storage account data over network endpoints. There are two t
 Virtual Network service endpoints for Azure Storage are public and accessible via the internet. The Azure Storage firewall provides the ability to control access via the public endpoints using network rules. When you configure network rules for your storage account, all incoming requests for data are blocked by default. Only applications that request data from the networks, services, and resources you configure in the Azure Storage firewall can access storage account data. You can also use the firewall to block all access through the public endpoint when you're using private endpoints. Requests that are blocked include those from other Azure services, from the Azure portal, and from logging and metrics services, unless you explicitly allow access in your configuration.
 
 A private endpoint uses a private IP address from your virtual network to access a storage account over the Microsoft backbone network. With a private endpoint, traffic between your virtual network and the storage account are secured over a private link. Azure Storage firewall access rules do not apply to private endpoints, but you can use [Network Policies](../../private-link/private-endpoint-overview.md#network-security-of-private-endpoints) to control traffic over them.
-
-## Options for configuring network access to Azure Storage
 
 With the Azure Storage firewall, you can configure network access to the data in your storage account using any combination of the following:
 
