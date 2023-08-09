@@ -12,7 +12,7 @@ This article describes how an established inner loop can enhance developer produ
 
 ## Inner dev loop frameworks
 
-Building and deploying containers can slow the inner dev experience and impact team productivity. Cloud-native development teams will benefit from a robust inner dev loop framework. Inner dev loop frameworks assist in the iterative process of writing code, building, and debugging.
+Building and deploying containers can slow the inner dev experience and impact team productivity. Cloud-native development teams benefit from a robust inner dev loop framework. Inner dev loop frameworks help with the iterative process of writing code, building, and debugging.
 
 Capabilities of inner dev loop frameworks include:
 
@@ -22,11 +22,11 @@ Capabilities of inner dev loop frameworks include:
 - Handling microservice dependencies.
 - Hot reloading, port forwarding, log, and terminal access.
 
-Depending on the maturity and complexity of the service, dev teams determine which cluster setup they will use to accelerate the inner dev loop:
+Depending on the maturity and complexity of the service, dev teams can choose their cluster setup to accelerate the inner dev loop:
 
-- Completely local
-- Completely remote
-- Hybrid, with some local and some remote 
+- All local
+- All remote
+- Hybrid
 
 Many frameworks  support these capabilities. Microsoft offers [Bridge to Kubernetes](/visualstudio/bridge/overview-bridge-to-kubernetes) for [local tunnel debugging](/visualstudio/bridge/bridge-to-kubernetes-vs-code#install-and-use-local-tunnel-debugging). Many other similar market offerings are available, such as DevSpace, Scaffold, and Tilt.
 
@@ -52,11 +52,11 @@ To illustrate the inner loop workflow, we can look at an example scenario. This 
 
 This diagram shows the workflow for the inner loop.
 
-:::image type="content" source="media/dev-inner-loop.png" alt-text="Diagram for inner loop flow with devspace." lightbox="media/dev-inner-loop.png":::
+:::image type="content" source="media/dev-inner-loop.png" alt-text="Diagram showing the inner loop flow." lightbox="media/dev-inner-loop.png":::
 
-This diagram shows the workflow for the inner loop to outer loop transiation.
+This diagram shows the workflow for the inner loop to outer loop transition.
 
-:::image type="content" source="media/inner-loop-to-outer-loop.png" alt-text="Diagram for inner loop to outer loop transition." lightbox="media/inner-loop-to-outer-loop.png":::
+:::image type="content" source="media/inner-loop-to-outer-loop.png" alt-text="Diagram showing inner loop to outer loop transition." lightbox="media/inner-loop-to-outer-loop.png":::
 
 In this example, as an application developer, Alice:
 
@@ -69,15 +69,15 @@ Suppose Alice wants to update, run, and debug the application either in local or
 1. Alice updates the local configuration for the development environment represented in .env file.
 1. Alice runs `devspace use context` and selects the Kubernetes cluster context.
 1. Alice selects a namespace to work with by running `devspace use namespace <namespace_name>`.
-1. Alice can iterates changes to the application code, and deploys and debugs the application onto the target cluster by running `devspace dev`.
-1. Running `devspace dev` generates low-level manifests based on Alice’s local configuration and deploys the application. These low-level manifests are configured with devspace hooks in devspace.yaml
-1. Alice doesn't need to rebuild the container every time she makes code changes, since DevSpace will enable hot reloading, using file sync to copy her latest changes inside the container.
-1. Running `devspace dev` will also deploy any dependencies configured in devspace.yaml, such as back-end dependencies to front-end.
+1. Alice can iterate changes to the application code, and deploys and debugs the application onto the target cluster by running `devspace dev`.
+1. Running `devspace dev` generates low-level manifests based on Alice’s local configuration and deploys the application. These low-level manifests are configured with DevSpace hooks in devspace.yaml.
+1. Alice doesn't need to rebuild the container every time she makes code changes, since DevSpace enables hot reloading, using file sync to copy her latest changes inside the container.
+1. Running `devspace dev` also deploys any dependencies configured in devspace.yaml, such as back-end dependencies to front-end.
 1. Alice tests her changes by accessing the application through the forwarding configured through devspace.yaml.
 1. Once Alice finalizes her changes, she can purge the deployment by running `devspace purge` and create a new pull request to merge her changes to the dev branch of the application repository.
 
 > [!NOTE]
-> Find the sample code for above workflow at this [GitHub repo](https://github.com/Azure/arc-cicd-demo-src).
+> Find the sample code for this workflow in our [GitHub repo](https://github.com/Azure/arc-cicd-demo-src).
 
 ## Next steps
 
