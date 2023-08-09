@@ -16,7 +16,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/defender-for-iot/organizations/connect-sensors-to-management.md",
+            "source_path_from_root": "/articles/defender-for-iot/organizations/ot-deploy/connect-sensors-to-management.md",
             "redirect_url": "/azure/defender-for-iot/organizations/legacy-central-management/connect-sensors-to-management",
             "redirect_document_id": false
         },
@@ -46,12 +46,12 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/defender-for-iot/organizations/install-software-on-premises-management-console.md",
+            "source_path_from_root": "/articles/defender-for-iot/organizations/ot-deploy/install-software-on-premises-management-console.md",
             "redirect_url": "/azure/defender-for-iot/organizations/legacy-central-management/install-software-on-premises-management-console",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/defender-for-iot/organizations/legacy-air-gapped-deploy.md",
+            "source_path_from_root": "/articles/defender-for-iot/organizations/ot-deploy/legacy-air-gapped-deploy.md",
             "redirect_url": "/azure/defender-for-iot/organizations/legacy-central-management/legacy-air-gapped-deploy",
             "redirect_document_id": false
         },
@@ -61,7 +61,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/defender-for-iot/organizations/prepare-management-appliance.md",
+            "source_path_from_root": "/articles/defender-for-iot/organizations/ot-deploy/prepare-management-appliance.md",
             "redirect_url": "/azure/defender-for-iot/organizations/legacy-central-management/prepare-management-appliance",
             "redirect_document_id": false
         },
