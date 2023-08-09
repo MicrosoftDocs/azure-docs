@@ -33,7 +33,9 @@ This section ties the other sections together. It defines the following properti
 - `transformKql` section, which is the [transformation](data-collection-transformations.md) applied to the data that was sent in the input shape described in the `streamDeclarations` section to the shape of the target table.
 - `outputStream` section, which describes which table in the workspace specified under the `destination` property the data will be ingested into. The value of `outputStream` has the `Microsoft-[tableName]` shape when data is being ingested into a standard Log Analytics table, or `Custom-[tableName]` when ingesting data into a custom-created table. Only one destination is allowed per stream.
 
-Note that you can only send logs from one specific data source to one workspace. To send data from a single data source to multiple workspaces, please create one DCR per workspace.
+> [!Note]
+> 
+> You can only send logs from one specific data source to one workspace. To send data from a single data source to multiple workspaces, please create one DCR per workspace.
 
 ## Azure Monitor Agent
  A DCR for [Azure Monitor Agent](../agents/data-collection-rule-azure-monitor-agent.md) contains the following sections. For a sample, see [Sample data collection rule - agent](../agents/data-collection-rule-sample-agent.md). For agent based custom logs, see [Sample Custom Log Rules - Agent](../agents/data-collection-text-log.md)
