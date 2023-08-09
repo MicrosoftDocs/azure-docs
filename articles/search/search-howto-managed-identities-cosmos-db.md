@@ -27,7 +27,7 @@ You can use a system-assigned managed identity or a user-assigned managed identi
 * Data Plane Role assignment: Follow [Data plane Role assignment](../cosmos-db/how-to-setup-rbac.md)
 to know more.
 
-* Example for show a Read only data plane role assignement.
+* Example to show a Read only data plane role assignement.
 ```azurepowershell
 $cosmosdb_acc_name = <cosmos db account name>
 $resource_group = <resource group name>
