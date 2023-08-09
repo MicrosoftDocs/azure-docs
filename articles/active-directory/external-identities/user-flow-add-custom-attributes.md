@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 # Define custom attributes for user flows
 
 > [!TIP]
-> This article applies to workforce tenants. For customer tenant information, see [Collect user attributes during sign-up](/customers/how-to-define-custom-attributes.md).
+> This article applies to workforce tenants. For customer tenant information, see [Collect user attributes during sign-up](customers/how-to-define-custom-attributes.md).
 
 For each application, you might have different requirements for the information you want to collect during sign-up. Azure AD comes with a built-in set of information stored in attributes, such as Given Name, Surname, City, and Postal Code. With Azure AD, you can extend the set of attributes stored on a guest account when the external user signs up through a user flow.
 
