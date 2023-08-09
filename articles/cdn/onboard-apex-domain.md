@@ -25,7 +25,7 @@ Mapping your apex or root domain to your CDN profile requires CNAME flattening o
 You can use the Azure portal to onboard an apex domain on your CDN and enable HTTPS on it by associating it with a certificate for TLS termination. Apex domains are also referred as root or naked domains.
 
 > [!IMPORTANT]
-> CDN-managed certificates are not available for root or apex domains. If your Azure CDN custom domain is a root or apex domain, you must use the Bring your own certificate feature.
+> CDN-managed certificates are not available for root or apex domains. If your Azure CDN custom domain is a root or apex domain, you must use the *Bring Your Own Certificate (BYOC)* feature.
 >
 
 ## Create an alias record for zone apex
