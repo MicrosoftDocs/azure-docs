@@ -53,10 +53,10 @@ conceptualContent:
             - url: ./fhir/overview.md
               itemType: overview
               text: FHIR service overview
-            - url: ./fhir/get-started-with-fhir
+            - url: ./fhir/get-started-with-fhir.md
               itemType: how-to-guide
               text: Create a workspace
-            - url: ./fhir/fhir-portal-quickstart
+            - url: ./fhir/fhir-portal-quickstart.md
               itemType: how-to-guide
               text: Deploy the FHIR service
             - url: ./fhir/use-postman.md
@@ -74,10 +74,10 @@ conceptualContent:
             - url: ./dicom/deploy-dicom-services-in-azure.md
               itemType: how-to-guide
               text: Deploy the DICOM service
-            - url: ./dicom/get-started-with-analytics-dicom
+            - url: ./dicom/get-started-with-analytics-dicom.md
               itemType: how-to-guide
               text: Use image data for analytics
-            - url: ./dicom/dicom-digital-pathology
+            - url: ./dicom/dicom-digital-pathology.md
               itemType: how-to-guide
               text: Use image data for digital pathology  
             
@@ -87,7 +87,7 @@ conceptualContent:
             - url: ./iot/overview.md
               itemType: overview
               text: MedTech service overview
-            - url: ./iot/          
+            - url: ./iot/deploy-choose-method.md          
               itemType: how-to-guide
               text: Choose a deployment method
             - url: ./iot/how-to-use-monitoring-and-health-checks-tabs.md
@@ -96,7 +96,7 @@ conceptualContent:
             - url: ./iot/how-to-use-mapping-debugger.md
               itemType: how-to-guide
               text: Troubleshoot with the Mapping debugger 
-            - url: ./iot/
+            - url: ./iot/troubleshoot-errors-logs.md
               itemType: how-to-guide
               text: Troubleshoot service log errors   
 
