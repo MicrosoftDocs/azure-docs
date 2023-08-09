@@ -206,6 +206,25 @@ The following table lists the fields in the schema and what they signify.
 | **DestSubnet** | <ResourceGroup_Name>/<VirtualNetwork_Name>/\<SubnetName> | Subnet associated with the destination IP in the flow.  |
 | **SrcApplicationGateway** |\<SubscriptionID>/\<ResourceGroupName>/\<ApplicationGatewayName> | Application gateway associated with the source IP in the flow. |
 | **DestApplicationGateway** |\<SubscriptionID>/\<ResourceGroupName>/\<ApplicationGatewayName> | Application gateway associated with the destination IP in the flow. |
+| **SrcLoadBalancer**  |\<SubscriptionID>/\<ResourceGroupName>/\<LoadBalancerName> | Load balancer associated with the source IP in the flow. |
+| **DestLoadBalancer** |\<SubscriptionID>/\<ResourceGroupName>/\<LoadBalancerName> | Load balancer associated with the destination IP in the flow. |
+| **SrcLocalNetworkGateway**  |\<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Local network gateway associated with the source IP in the flow. |
+| **DestLocalNetworkGateway** |\<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Local network gateway associated with the destination IP in the flow. |
+| **ConnectionType** | Possible values are VNetPeering, VpnGateway, and ExpressRoute | The connection type. |
+| **ConnectionName** | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | The connection name. For flow type P2S, it's formatted as \<GatewayName>_\<VPNClientIP> |
+| **ConnectingVNets** | Space separated list of virtual network names. | In hub and spoke topology, hub virtual networks are populated here. |
+| **Country** | Two-letter country code (ISO 3166-1 alpha-2) | Populated for flow type ExternalPublic. All IP addresses in PublicIPs field share the same country code. |
+| **AzureRegion** | Azure region locations | Populated for flow type AzurePublic. All IP addresses in PublicIPs field share the Azure region. |
+| **AllowedInFlows**| - | Count of inbound flows that were allowed, which represents the number of flows that shared the same four-tuple inbound to the network interface at which the flow was captured. |
+| **DeniedInFlows** | - | Count of inbound flows that were denied. (Inbound to the network interface at which the flow was captured). |
+| **AllowedOutFlows** | - | Count of outbound flows that were allowed (Outbound to the network interface at which the flow was captured). |
+| **DeniedOutFlows** | - | Count of outbound flows that were denied (Outbound to the network interface at which the flow was captured). |
+| **FlowCount** | Deprecated. Total flows that matched the same four-tuple. In flow types ExternalPublic and AzurePublic, count includes the flows from various PublicIP addresses as well. | - |
+| **PacketsDestToSrc** | Represents packets sent from the destination to the source of the flow | Populated only for the Version 2 of NSG flow log schema. |
+| **PacketsSrcToDest** | Represents packets sent from the source to the destination of the flow  | Populated only for the Version 2 of NSG flow log schema. |
+| **BytesDestToSrc** | Represents bytes sent from the destination to the source of the flow | Populated only for the Version 2 of NSG flow log schema. |
+| **BytesSrcToDest** | Represents bytes sent from the source to the destination of the flow | Populated only for the Version 2 of NSG flow log schema. |
+| **CompletedFlows** | - | Populated with nonzero value only for the Version 2 of NSG flow log schema. |
 
 > [!NOTE]
 > *NTANetAnalytics* in VNet flow logs replaces *AzureNetworkAnalytics_CL* used in NSG flow logs.
