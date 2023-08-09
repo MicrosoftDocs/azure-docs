@@ -48,7 +48,6 @@
     - name: Enable diagnostic logging
       href: logging.md
 - name: Resources
-  expanded: true
   items:
     - name: GitHub projects
       href: github-projects.md
