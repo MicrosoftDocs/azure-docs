@@ -47,7 +47,7 @@ If you're assigning new numbers to an enterprise customer:
 |Country | The country for the number. Only required if you're uploading a North American Toll-Free number, otherwise optional.|
 |Ticket number (optional) |The ID of any ticket or other request that you want to associate with this number. Up to 64 characters. |
 
-If you're assigning multiple numbers, prepare a `.csv` file with the heading `Numbers` and one number per line, as in the following example. You can use this file to upload multiple numbers at once with the same settings (for example, the same calling profile).
+If you're assigning multiple numbers, prepare a `.csv` file with the heading `Numbers` and one number per line (up to 10,000 numbers), as in the following example. You can use this file to upload multiple numbers at once with the same settings (for example, the same calling profile).
 
 ```
 Numbers
@@ -71,7 +71,7 @@ When an enterprise customer uses the Teams Admin Center to request service, the 
 
 The Number Management Portal allows you to update the status of these consents. Finding the consent for an enterprise is also the easiest way to manage numbers for an enterprise.
 
-1. From the overview page for your Communications Gateway resource, select **Consents** in the sidebar.
+1. From the overview page for your Communications Gateway resource, find the **Number Management** section in the sidebar. Select **Consents**.
 1. Find the enterprise that you want to manage.
 1. If you need to change the status of the relationship, select **Update Relationship Status** from the menu for the enterprise. Set the new status. For example, if you're agreeing to provide service to a customer, set the status to **Agreement signed**. If you set the status to **Consent Declined** or **Contract Terminated**, you must provide a reason.
 
@@ -81,11 +81,13 @@ Assigning numbers to an enterprise allows IT administrators at the enterprise to
 
 1. Go to the number management page for the enterprise.
     * If you followed [Select an enterprise customer to manage](#select-an-enterprise-customer-to-manage), select **Manage numbers** from the menu.
-    * Otherwise, select **Numbers** in the sidebar and search for the enterprise using the enterprise's Microsoft Entra tenant ID.
+    * Otherwise, find the **Number Management** section in the sidebar and select **Numbers**. Search for the enterprise using the enterprise's Microsoft Entra tenant ID.
 1. To add new numbers for an enterprise:
     1. Select **Upload numbers**.
     1. Fill in the fields based on the information you determined in [Prerequisites](#prerequisites). These settings apply to all the numbers you upload in the **Telephone numbers** section.
-    1. In **Telephone numbers**, add the numbers by uploading the `.csv` file that you created in [Prerequisites](#prerequisites) or by adding each number individually.
+    1. In **Telephone numbers**, add the numbers:
+        * If you created a `.csv` file with multiple numbers as described in [Prerequisites](#prerequisites), select **Upload CSV file** and upload the file when prompted.
+        * Otherwise, select **Manual input** and add each number individually.
     1. Select **Review + upload** and **Upload**. Uploading creates an order for uploading numbers over the Operator Connect API.
     1. Wait 30 seconds, then refresh the order status. When the order status is **Complete**, the numbers are available to the enterprise. You might need to refresh more than once.
 1. To remove numbers from an enterprise:
@@ -99,7 +101,7 @@ You can view civic addresses for an enterprise. The enterprise configures the de
 
 1. Go to the civic address page for the enterprise.
     * If you followed [Select an enterprise customer to manage](#select-an-enterprise-customer-to-manage), select **Civic addresses** from the menu.
-    * Otherwise, select **Civic addresses** in the sidebar and search for the enterprise using the enterprise's Microsoft Entra tenant ID.
+    * Otherwise, find the **Number Management** section in the sidebar and select **Civic addresses**. Search for the enterprise using the enterprise's Microsoft Entra tenant ID.
 1. View the civic addresses. You can see the address, the company name, the description and whether the address was validated when the enterprise configured the address.
 1. Optionally, select an individual address to view additional information provided by the enterprise (for example, the ELIN information).
 
