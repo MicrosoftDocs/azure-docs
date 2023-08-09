@@ -301,7 +301,7 @@ In addition to using the built-in roles for a Log Analytics workspace, you can c
 Table-level access settings let you grant specific users or groups read-only permission to data from certain tables. Users with table-level read access can read data from the specified tables in both the workspace and the resource context.  
 
 > [!NOTE]
-> We recommend using the method described here, which is currently in **preview**, for defining table-level access. Alternatively, you can use the [legacy method of setting table-level read access](#legacy-method-of-setting-table-level-read-access), which has some limitations related to custom log tables. The recommended method described here does not apply during preview to Microsoft Sentinel Detection Rules, which might have access to more tables than intended.
+> We recommend using the method described here, which is currently in **preview**, to define table-level access. Alternatively, you can use the [legacy method of setting table-level read access](#legacy-method-of-setting-table-level-read-access), which has some limitations related to custom log tables. During preview, the recommended method described here does not apply to Microsoft Sentinel Detection Rules, which might have access to more tables than intended.
 
 To grant a user table-level read access, you make two assignments:
 
