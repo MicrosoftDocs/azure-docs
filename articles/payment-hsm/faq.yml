@@ -64,9 +64,9 @@ sections:
           How to I use smart cards? How many and what kind of smart cards and readers are needed?
         answer: |
           Compatible smart cards and smart card readers can be ordered directly from Thales:
-              - **Item**:  971-000135-001-000 
-              - **Description**: PS10-RMGT-KIT2 - payShield Manager Starter Kit - for software V1.4A (1.8.3) and above    
-              - **Items Included**: 2 Thales Card Readers, 30 PayShield Manager Smartcards
+          - **Item**:  971-000135-001-000 
+          - **Description**: PS10-RMGT-KIT2 - payShield Manager Starter Kit - for software V1.4A (1.8.3) and above    
+          - **Items Included**: 2 Thales Card Readers, 30 PayShield Manager Smartcards
           Compatible smart cards have a blue band and are labeled "payShield Manager Card". These are the only smart cards compatible with the ciphers used to enable over-network use.
           
       - question: |
