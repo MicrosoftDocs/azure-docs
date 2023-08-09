@@ -5,7 +5,7 @@ description: Azure storage offers different access tiers so that you can store y
 author: normesta
 
 ms.author: normesta
-ms.date: 07/13/2023
+ms.date: 08/10/2023
 ms.service: storage
 ms.topic: conceptual
 ms.reviewer: fryu
@@ -20,14 +20,6 @@ Data stored in the cloud grows at an exponential pace. To manage costs for your 
 - **Cold tier** - An online tier optimized for storing data that is infrequently accessed or modified. Data in the cold tier should be stored for a minimum of **90** days. The cold tier has lower storage costs and higher access costs compared to the cool tier.
 - **Archive tier** - An offline tier optimized for storing data that is rarely accessed, and that has flexible latency requirements, on the order of hours. Data in the archive tier should be stored for a minimum of 180 days.
 
-<<<<<<< HEAD
-=======
-> [!IMPORTANT]
-> The cold tier is currently in PREVIEW and is available in all public regions.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> To enroll, see [Cold tier (preview)](#cold-tier-preview).
-
->>>>>>> bc913e1309a6564550fe011a771c9414bf592bbb
 Azure storage capacity limits are set at the account level, rather than according to access tier. You can choose to maximize your capacity usage in one tier, or to distribute capacity across two or more tiers.
 
 > [!NOTE]

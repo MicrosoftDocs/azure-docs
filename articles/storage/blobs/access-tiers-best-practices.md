@@ -5,7 +5,7 @@ description: Learn about best practice guidelines that help you use access tiers
 author: normesta
 
 ms.author: normesta
-ms.date: 05/30/2023
+ms.date: 08/10/2023
 ms.service: storage
 ms.topic: conceptual
 ---

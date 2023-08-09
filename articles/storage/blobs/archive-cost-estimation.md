@@ -5,7 +5,7 @@ description: Learn how to calculate the cost of storing and maintaining data in 
 author: normesta
 
 ms.author: normesta
-ms.date: 05/30/2023
+ms.date: 08/10/2023
 ms.service: storage
 ms.topic: conceptual
 ---

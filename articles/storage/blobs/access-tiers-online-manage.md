@@ -5,7 +5,7 @@ description: Learn how to specify a blob's access tier when you upload it, or ho
 author: normesta
 
 ms.author: normesta
-ms.date: 06/22/2023
+ms.date: 08/10/2023
 ms.service: storage
 ms.topic: how-to
 ms.reviewer: fryu

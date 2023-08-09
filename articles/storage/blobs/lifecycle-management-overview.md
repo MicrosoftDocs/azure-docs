@@ -5,7 +5,7 @@ description: Use Azure Storage lifecycle management policies to create automated
 author: normesta
 
 ms.author: normesta
-ms.date: 08/03/2023
+ms.date: 08/10/2023
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: conceptual
