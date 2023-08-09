@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/13/2020
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
@@ -59,6 +59,8 @@ When a user attempts to reset a password to something that's on the global or cu
 The custom banned password list is limited to a maximum of 1000 terms. It's not designed for blocking large lists of passwords. To maximize the benefits of the custom banned password list, review the [custom banned password list concepts](concept-password-ban-bad.md#custom-banned-password-list) and [password evaluation algorithm overview](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
 ## Configure custom banned passwords
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Let's enable the custom banned password list and add some entries. You can add additional entries to the custom banned password list at any time.
 

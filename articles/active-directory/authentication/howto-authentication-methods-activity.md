@@ -1,16 +1,16 @@
 ---
-title: Authentication Methods Activity - Azure Active Directory
+title: Authentication Methods Activity
 description: Overview of the authentication methods that users register to sign in and reset passwords. 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 05/25/2023
 
 ms.author: justinha
 author: sopand
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: dawoo
 
 ms.collection: M365-identity-device-management
@@ -33,6 +33,8 @@ The following roles have the required permissions:
 - Reports Reader
 - Security Reader
 - Global Reader
+- Application Administrator
+- Cloud Application Administrator
 - Security Operator
 - Security Administrator
 - Global Administrator
@@ -40,6 +42,8 @@ The following roles have the required permissions:
  An Azure AD Premium P1 or P2 license is required to access usage and insights. Azure AD Multi-Factor Authentication and self-service password reset (SSPR) licensing information can be found on the [Azure Active Directory pricing site](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## How it works
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 To access authentication method usage and insights:
 
@@ -51,7 +55,7 @@ To access authentication method usage and insights:
 
 ## Registration details
 
-You can access the [**Registration tab**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade) to show the number of users capable of multi-factor authentication, passowordless authentication, and self-service password reset. 
+You can access the [**Registration tab**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade) to show the number of users capable of multi-factor authentication, passwordless authentication, and self-service password reset. 
 
 Click any of the following options to pre-filter a list of user registration details:
 
@@ -101,6 +105,9 @@ The **Usage** report shows which authentication methods are used to sign-in and 
 
 Using the controls at the top of the list, you can search for a user and filter the list of users based on the columns shown.
 
+>[!NOTE]
+>User accounts that were recently deleted, also known as [soft-deleted users](../fundamentals/active-directory-users-restore.md), are not listed in user registration details.  
+
 The registration details report shows the following information for each user:
 
 - User principal name
@@ -110,7 +117,7 @@ The registration details report shows the following information for each user:
 - SSPR Registered (Registered, Not Registered)
 - SSPR Enabled (Enabled, Not Enabled)
 - SSPR Capable (Capable, Not Capable) 
-- Methods registered (Email, Mobile Phone, Alternative Mobile Phone, Office Phone, Microsoft Authenticator Push, Software One Time Passcode, FIDO2, Security Key, Security questions)
+- Methods registered (Alternate Mobile Phone, Certificate-based authentication, Email, FIDO2 security key, Hardware OATH token, Microsoft Authenticator app, Microsoft Passwordless phone sign-in, Mobile phone, Office phone, Security questions, Software OATH token, Temporary Access Pass, Windows Hello for Business)
 
   ![Screenshot of user registration details](media/how-to-authentication-methods-usage-insights/registration-details.png)
 
@@ -131,8 +138,7 @@ The registration details report shows the following information for each user:
 ## Limitations
 
 - The data in the report is not updated in real-time and may reflect a latency of up to a few hours.
-- Temporary Access Pass registrations are not reflected in the registration tab of the report because they are only valid for short period of time.
-- The **PhoneAppNotification** or **PhoneAppOTP** methods that a user might have configured are not displayed in the dashboard. 
+- The **PhoneAppNotification** or **PhoneAppOTP** methods that a user might have configured are not displayed in the dashboard on **Azure AD Authentication methods - Policies**. 
 
 ## Next steps
 

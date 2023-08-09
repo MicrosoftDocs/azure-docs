@@ -1,12 +1,12 @@
 ---
 title: Configure local role-based access control (local RBAC) for Azure API for FHIR
 description: This article describes how to configure the Azure API for FHIR to use a secondary Azure AD tenant for data plane
-author: matjazl
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/15/2022
-ms.author: zxue
+ms.date: 06/03/2022
+ms.author: kesheth
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -80,4 +80,6 @@ In this article, you learned how to assign FHIR data plane access using an exter
 
 >[!div class="nextstepaction"]
 >[Configure Private Link](configure-private-link.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
 

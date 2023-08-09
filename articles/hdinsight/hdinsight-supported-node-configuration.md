@@ -5,7 +5,7 @@ keywords: vm sizes, cluster sizes, cluster configuration
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 05/14/2020
+ms.date: 07/10/2023
 ---
 
 # What are the default and recommended node configurations for Azure HDInsight?
@@ -45,20 +45,18 @@ For more information on the specifications of each VM type, see the following do
 > [!Note]
 > To get the SKU identifier for use in powershell and other scripts, add `Standard_` to the beginning of all of the VM SKUs in the tables below. For example, `D12_v2` would become `Standard_D12_v2`.
 
-| Cluster type                            | Hadoop | HBase  | Interactive Query | Storm | Spark                | Kafka                                |
-|-----------------------------------------|--------|--------|-------------------|-------|----------------------|--------------------------------------|
-| Head: default VM size                   | E4_v3 | E4_v3 | D13_v2            | A4_v2 | E8_v3, <br/>D13_v2* | E4_v3                                |
-| Head: minimum recommended VM sizes      | D5_v2  | D3_v2  | D13_v2            | A4_v2 | D12_v2, <br/>D13_v2* | D3_v2                                |
-| Worker: default VM size                 | E8_v3  | E4_v3  | D14_v2            | D3_v2 | E8_v3               | 4 E4_v3 with 2 S30 disks per broker |
-| Worker: minimum recommended VM sizes    | D5_v2  | D3_v2  | D13_v2            | D3_v2 | D12_v2               | D3_v2                                |
-| ZooKeeper: default VM size              |        | A4_v2  | A4_v2             | A4_v2 |                      | A4_v2                                |
-| ZooKeeper: minimum recommended VM sizes |        | A4_v2  | A4_v2             | A2_v2 |                      | A4_v2                                |
+| Cluster type                            | Hadoop | HBase  | Interactive Query | Spark                | Kafka                                |
+|-----------------------------------------|--------|--------|-------------------|----------------------|----------------------|---------------|
+| Head: default VM size                   | E4_v3 | E4_v3 | D13_v2              |  E8_v3, <br/>D13_v2* | E4_v3                                |
+| Head: minimum recommended VM sizes      | D5_v2  | D3_v2  | D13_v2            |  D12_v2, <br/>D13_v2*| D3_v2                                |
+| Worker: default VM size                 | E8_v3  | E4_v3  | D14_v2            |  E8_v3               | 4 E4_v3 with 2 S30 disks per broker  | 
+| Worker: minimum recommended VM sizes    | D5_v2  | D3_v2  | D13_v2            |  D12_v2              | D3_v2                                |
+| ZooKeeper: default VM size              |        | A4_v2  | A4_v2             |                      | A4_v2                                |
+| ZooKeeper: minimum recommended VM sizes |        | A4_v2  | A4_v2             |                      | A4_v2                                |
 
 \* = VM Sizes for Spark Enterprise Security Package (ESP) clusters
 
 > [!NOTE]
-> - Head is known as *Nimbus* for the Storm cluster type.
-> - Worker is known as *Supervisor* for the Storm cluster type.
 > - Worker is known as *Region* for the HBase cluster type.
 
 ## Next steps

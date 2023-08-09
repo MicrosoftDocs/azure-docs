@@ -1,14 +1,13 @@
 ---
 title: Striim quick start 
 description: Get started quickly with Striim and Azure Synapse Analytics.
-author: mlee3gsd 
+author: WilliamDAssafMSFT  
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 10/12/2018
-ms.author: martinle
-ms.reviewer: igorstan
+ms.author: wiassaf
 ms.custom: seo-lt-2019
 ---
 
@@ -28,17 +27,17 @@ Once deployed, click on \<VM Name>-masternode in the Azure portal, click Connect
 
 ![Connect Striim to Azure Synapse Analytics][connect]
 
-Download the sqljdbc42.jar from <https://www.microsoft.com/en-us/download/details.aspx?id=54671> to your local machine. 
+Download the [Microsoft JDBC Driver 4.2 for SQL Server](https://www.microsoft.com/download/details.aspx?id=54671) file to your local machine. 
 
-Open a command-line window, and change directories to where you downloaded the JDBC jar. SCP the jar file to your Striim VM, getting the address and password from the Azure portal
+Open a command-line window, and change directories to where you downloaded the JDBC driver. SCP the driver file to your Striim VM, getting the address and password from the Azure portal.
 
-![Copy jar file to your VM][copy-jar]
+![Copy driver file to your VM][copy-jar]
 
-Open another command-line window, or use an ssh utility to ssh into the Striim cluster
+Open another command-line window, or use an ssh utility to ssh into the Striim cluster.
 
 ![SSH into the cluster][ssh]
 
-Execute the following commands to move the JDBC jar file into Striim’s lib directory, and start and stop the server.
+Execute the following commands to move the file into Striim's lib directory, and start and stop the server.
 
    1. sudo su
    2. cd /tmp

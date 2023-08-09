@@ -1,13 +1,11 @@
 ---
 title: 'Configure an Always-On VPN tunnel'
 titleSuffix: Azure VPN Gateway
-description: Learn how to use gateways with Windows 10 Always On to establish and configure persistent device tunnels to Azure.
-services: vpn-gateway
+description: Learn how to use gateways with Windows 10 or later Always On to establish and configure persistent device tunnels to Azure.
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 07/28/2023
 ms.author: cherylmc
 
 ---

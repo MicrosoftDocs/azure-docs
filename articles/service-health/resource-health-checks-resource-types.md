@@ -2,7 +2,7 @@
 title: Supported Resource Types through Azure Resource Health | Microsoft Docs
 description: Supported Resource Types through Azure Resource health
 ms.topic: conceptual
-ms.date: 12/07/2021
+ms.date: 01/23/2023
 ---
 
 # Resource types and health checks in Azure resource health
@@ -41,7 +41,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.classiccompute/virtualmachines
 |Executed Checks|
 |---|
-|<ul><li>Is the host server up and running?</li><li>Has the host OS booting completed?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Has the booting of the guest OS completed?</li><li>Is there ongoing planned maintenance?</li><li>Is the host hardware degraded and predicted to fail soon?</li></ul>|
+|<ul><li>Is the server hosting this virtual machine up and running?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Is there ongoing planned maintenance?</li><li>Is there heartbeats between Guest and host agent *(if Guest extension is installed)*?</li></ul>|
 
 ## Microsoft.classiccompute/domainnames
 |Executed Checks|
@@ -51,7 +51,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.cognitiveservices/accounts
 |Executed Checks|
 |---|
-|<ul><li>Can the account be reached from within the datacenter?</li><li>Is the Cognitive Services Resource Provider available?</li><li>Is the Cognitive Service available in the appropriate region?</li><li>Can read operations be performed on the storage account holding the resource metadata?</li><li>Has the API call quota been reached?</li><li>Has the API call read-limit been reached?</li></ul>|
+|<ul><li>Can the account be reached from within the datacenter?</li><li>Is the Azure AI services resource provider available?</li><li>Is the Cognitive Service available in the appropriate region?</li><li>Can read operations be performed on the storage account holding the resource metadata?</li><li>Has the API call quota been reached?</li><li>Has the API call read-limit been reached?</li></ul>|
 
 ## Microsoft.compute/hostgroups/hosts
 |Executed Checks|
@@ -61,7 +61,13 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.compute/virtualmachines
 |Executed Checks|
 |---|
-|<ul><li>Is the server hosting this virtual machine up and running?</li><li>Has the host OS booting completed?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Has the booting of the guest OS completed?</li><li>Is there ongoing planned maintenance?</li><li>Is the host hardware degraded and predicted to fail soon?</li></ul>|
+|<ul><li>Is the server hosting this virtual machine up and running?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Is there ongoing planned maintenance?</li><li>Is there heartbeats between Guest and host agent *(if Guest extension is installed)*?</li></ul>|
+
+## Microsoft.compute/virtualmachinescalesets
+|Executed Checks|
+|---|
+|<ul><li>Is the server hosting this virtual machine up and running?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Is there ongoing planned maintenance?</li><li>Is there heartbeats between Guest and host agent *(if Guest extension is installed)*?</li></ul>|
+
 
 ## Microsoft.ContainerService/managedClusters
 |Executed Checks|
@@ -134,6 +140,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Are core services available on the HDInsight cluster?</li><li>Can the HDInsight cluster access the key for BYOK encryption at rest?</li></ul>|
 
+## Microsoft.HybridCompute/machines
+|Executed Checks|
+|---|
+|<ul><li>Is the agent on your server connected to Azure and sending heartbeats?</li></ul>|
+
 ## Microsoft.IoTCentral/IoTApps
 |Executed Checks|
 |---|
@@ -164,6 +175,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is performance of the Application Gateway degraded?</li><li>Is the Application Gateway available?</li></ul>|
 
+## Microsoft.network/azureFirewalls
+|Executed Checks|
+|---|
+|<ul><li>Are there enough remaining available ports to perform Source NAT?</li><li>Are there enough remaining available connections?</li></ul>|
+
 ## Microsoft.network/bastionhosts
 |Executed Checks|
 |---|
@@ -188,6 +204,12 @@ Below is a complete list of all the checks executed through resource health by r
 |Executed Checks|
 |---|
 |<ul><li>Are the load balancing endpoints available?</li></ul>|
+
+
+## Microsoft.network/natGateways
+|Executed Checks|
+|---|
+|<ul><li>Are the NAT gateway endpoints available?</li></ul>|
 
 ## Microsoft.network/trafficmanagerprofiles
 |Executed Checks|
@@ -266,6 +288,6 @@ Below is a complete list of all the checks executed through resource health by r
 |<ul><li>Are any Backup operations on Backup Items configured in this vault failing due to causes beyond user control?</li><li>Are any Restore operations on Backup Items configured in this vault failing due to causes beyond user control?</li></ul> |
 
 ## Next Steps
--  See [Introduction to Azure Service Health dashboard](service-health-overview.md) and [Introduction to Azure Resource Health](resource-health-overview.md) to understand more about them. 
+-  See [Introduction to Azure Service Health dashboard](service-health-overview.md) and [Introduction to Azure Resource Health](resource-health-overview.md) to understand more about them.
 -  [Frequently asked questions about Azure Resource Health](resource-health-faq.yml)
 - Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for service health events](./alerts-activity-log-service-notifications-portal.md).

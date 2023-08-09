@@ -1,21 +1,21 @@
 ---
 title: NV series retirement
-description: NV series retirement starting September 1, 2021
+description: NV series retirement starting September 6, 2023
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 01/12/2020
+ms.date: 02/27/2023
 ms.author: vikancha
 ---
-# Migrate your NV and NV_Promo series virtual machines by August 31, 2023
-Based on feedback we’ve received from customers we’re happy to announce that we are extending the retirement date by 1 year to August 31, 2023, for the Azure NV-Series and NV_Promo Series virtual machine to give you more time to plan  your migration. 
+# Migrate your NV and NV_Promo series virtual machines by September 6, 2023
+We’re happy to announce that we're extending the retirement date by one year to September 6, 2023, for the Azure NV-Series and NV_Promo Series virtual machine to give you more time to plan  your migration. 
 
-We continue to bring modern and optimized virtual machine (VM) instances to Azure by using the latest innovations in datacenter technologies. As we innovate, we also thoughtfully plan how we retire aging hardware. With this context in mind, we're retiring our NV-series Azure VM sizes on August 31, 2023.
+We continue to bring modern and optimized virtual machine (VM) instances to Azure by using the latest innovations in datacenter technologies. As we innovate, we also thoughtfully plan how we retire aging hardware. With this context in mind, we're retiring our NV-series Azure VM sizes on September 6, 2023.
 
 ## How does the NV series migration affect me?
 
-After August 31, 2023, any remaining NV and NV_Promo-size VMs remaining in your subscription will be set to a deallocated state. These VMs will be stopped and removed from the host. These VMs will no longer be billed in the deallocated state. 
+After September 6, 2023, any remaining NV and NV_Promo-size VMs remaining in your subscription will be set to a deallocated state. These VMs will be stopped and removed from the host. These VMs will no longer be billed in the deallocated state.
 
 The current VM size retirement only affects the VM sizes in the [NV series](nv-series.md). This retirement doesn't affect the [NVv3](nvv3-series.md) and [NVv4](nvv4-series.md) series VMs. 
 

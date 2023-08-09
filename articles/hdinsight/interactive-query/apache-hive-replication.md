@@ -3,7 +3,7 @@ title: How to use Apache Hive replication in Azure HDInsight clusters
 description: Learn how to use Hive replication in HDInsight clusters to replicate the Hive metastore and the Azure Data Lake Storage Gen 2 data lake.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/08/2020
+ms.date: 06/23/2023
 ---
 
 # How to use Apache Hive replication in Azure HDInsight clusters

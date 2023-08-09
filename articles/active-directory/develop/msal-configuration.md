@@ -1,9 +1,8 @@
 ---
-title: Android MSAL configuration file | Azure
-titleSuffix: Microsoft identity platform
+title: Android MSAL configuration file
 description: An overview of the Android Microsoft Authentication Library (MSAL) configuration file, which represents an application's configuration in Azure Active Directory.
 services: active-directory
-author: shoatman
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,7 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.date: 09/12/2019
-ms.author: shoatman
+ms.author: cwerner
 ms.custom: aaddev
 ms.reviewer: shoatman
 ---
@@ -107,7 +106,7 @@ The list of authorities that are known and trusted by you. In addition to the au
 |-----------|-------------|-----------|--------|
 | `type` | String | Yes | Mirrors the audience or account type your app targets. Possible values: `AAD`, `B2C` |
 | `audience` | Object | No | Only applies when type=`AAD`. Specifies the identity your app targets. Use the value from your app registration |
-| `authority_url` | String | Yes | Required only when type=`B2C`. Specifies the authority URL or policy your app should use  |
+| `authority_url` | String | Yes | Required only when type=`B2C`. Optional for type=`AAD`. Specifies the authority URL or policy your app should use  |
 | `default` | boolean | Yes | A single `"default":true` is required when one or more authorities is specified. |
 
 #### Audience Properties
@@ -115,7 +114,7 @@ The list of authorities that are known and trusted by you. In addition to the au
 | Property | Data Type  | Required | Notes |
 |-----------|-------------|------------|-------|
 | `type` | String | Yes | Specifies the audience your app wants to target. Possible values: `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs`, `AzureADMyOrg` |
-| `tenant_id` | String | Yes | Required only when `"type":"AzureADMyOrg"`. Optional for other `type` values. This can be a tenant domain such as `contoso.com`, or a tenant ID such as `72f988bf-86f1-41af-91ab-2d7cd011db46`) |
+| `tenant_id` | String | Yes | Required only when `"type":"AzureADMyOrg"`. Optional for other `type` values. This can be a tenant domain such as `contoso.com`, or a tenant ID such as `72f988bf-86f1-41af-91ab-2d7cd011db46` |
 
 ### authorization_user_agent
 

@@ -2,11 +2,12 @@
 title: Troubleshoot Azure Route Server issues
 description: Learn how to troubleshoot issues for Azure Route Server.
 services: route-server
-author: duongau
+author: halkazwini
 ms.service: route-server
 ms.topic: how-to
 ms.date: 09/23/2021
-ms.author: duau
+ms.author: halkazwini
+ms.custom: template-how-to
 ---
 
 # Troubleshooting Azure Route Server issues

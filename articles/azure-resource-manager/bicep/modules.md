@@ -2,14 +2,15 @@
 title: Bicep modules
 description: Describes how to define a module in a Bicep file, and how to use module scopes.
 ms.topic: conceptual
-ms.date: 02/01/2022
+ms.custom: devx-track-bicep
+ms.date: 11/04/2022
 ---
 
 # Bicep modules
 
-Bicep enables you to organize deployments into modules. A module is just a Bicep file that is deployed from another Bicep file. With modules, you improve the readability of your Bicep files by encapsulating complex details of your deployment. You can also easily reuse modules for different deployments.
+Bicep enables you to organize deployments into modules. A module is a Bicep file (or an ARM JSON template) that is deployed from another Bicep file. With modules, you improve the readability of your Bicep files by encapsulating complex details of your deployment. You can also easily reuse modules for different deployments.
 
-To share modules with other people in your organization, create a [template spec](../templates/template-specs.md) or [private registry](private-module-registry.md). Template specs and modules in the registry are only available to users with the correct permissions.
+To share modules with other people in your organization, create a [template spec](../bicep/template-specs.md), [public registry](https://github.com/Azure/bicep-registry-modules), or [private registry](private-module-registry.md). Template specs and modules in the registry are only available to users with the correct permissions.
 
 > [!TIP]
 > The choice between module registry and template specs is mostly a matter of preference. There are a few things to consider when you choose between the two:
@@ -20,9 +21,9 @@ To share modules with other people in your organization, create a [template spec
 
 Bicep modules are converted into a single Azure Resource Manager template with [nested templates](../templates/linked-templates.md#nested-template).
 
-### Microsoft Learn
+### Training resources
 
-If you would rather learn about modules through step-by-step guidance, see [Create composable Bicep files by using modules](/learn/modules/create-composable-bicep-files-using-modules/) on **Microsoft Learn**.
+If you would rather learn about modules through step-by-step guidance, see [Create composable Bicep files by using modules](/training/modules/create-composable-bicep-files-using-modules/).
 
 ## Definition syntax
 
@@ -41,11 +42,26 @@ So, a simple, real-world example would look like:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/local-file-definition.bicep" :::
 
+You can also use an ARM JSON template as a module:
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/local-file-definition-json.bicep" :::
+
 Use the symbolic name to reference the module in another part of the Bicep file. For example, you can use the symbolic name to get the output from a module. The symbolic name may contain a-z, A-Z, 0-9, and underscore (`_`). The name can't start with a number. A module can't have the same name as a parameter, variable, or resource.
 
-The path can be either a local file or a file in a registry. For more information, see [Path to module](#path-to-module).
+The path can be either a local file or a file in a registry. The local file can be either a Bicep file or an ARM JSON template. For more information, see [Path to module](#path-to-module).
 
 The **name** property is required. It becomes the name of the nested deployment resource in the generated template.
+
+If a module with a static name is deployed concurrently to the same scope, there's the potential for one deployment to interfere with the output from the other deployment. For example, if two Bicep files use the same module with the same static name (`examplemodule`) and targeted to the same resource group, one deployment may show the wrong output. If you're concerned about concurrent deployments to the same scope, give your module a unique name.
+
+The following example concatenates the deployment name to the module name. If you provide a unique name for the deployment, the module name is also unique.
+
+```bicep
+module stgModule 'storageAccount.bicep' = {
+  name: '${deployment().name}-storageDeploy'
+  scope: resourceGroup('demoRG')
+}
+```
 
 If you need to **specify a scope** that is different than the scope for the main file, add the scope property. For more information, see [Set module scope](#set-module-scope).
 
@@ -77,13 +93,47 @@ For example, to deploy a file that is up one level in the directory from your ma
 
 ### File in registry
 
+#### Public module registry
+
+The public module registry is hosted in a Microsoft container registry (MCR). The source code and the modules are stored in [GitHub](https://github.com/azure/bicep-registry-modules). The [README file](https://github.com/azure/bicep-registry-modules#readme) in the GitHub repo lists the available modules and their latest versions:
+
+:::image type="content" source="./media/modules/bicep-public-module-registry-modules.png" alt-text="The screenshot of public module registry.":::
+
+Select the versions to see the available versions. You can also select **Code** to see the module source code, and open the Readme files.
+
+There are only a few published modules currently. More modules are coming. If you like to contribute to the registry, see the [contribution guide](https://github.com/Azure/bicep-registry-modules/blob/main/CONTRIBUTING.md).
+
+To link to a public registry module, specify the module path with the following syntax:
+
+```bicep
+module <symbolic-name> 'br/public:<file-path>:<tag>' = {}
+```
+
+- **br/public** is the alias for the public module registry. This alias is predefined in your configuration.
+- **file path** can contain segments that can be separated by the `/` character.
+- **tag** is used for specifying a version for the module.
+
+For example:
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/registry-definition-public.bicep" highlight="1" :::
+
+> [!NOTE]
+> **br/public** is the alias for the public registry. It can also be written as
+>
+> ```bicep
+> module <symbolic-name> 'br:mcr.microsoft.com/bicep/<file-path>:<tag>' = {}
+> ```
+>
+
+#### Private module registry
+
 If you've [published a module to a registry](bicep-cli.md#publish), you can link to that module. Provide the name for the Azure container registry and a path to the module. Specify the module path with the following syntax:
 
 ```bicep
 module <symbolic-name> 'br:<registry-name>.azurecr.io/<file-path>:<tag>' = {
 ```
 
-- **br** is the schema name for a Bicep registry.
+- **br** is the scheme name for a Bicep registry.
 - **file path** is called `repository` in Azure Container Registry. The **file path** can contain segments that are separated by the `/` character.
 - **tag** is used for specifying a version for the module.
 
@@ -97,15 +147,21 @@ The full path for a module in a registry can be long. Instead of providing the f
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/alias-definition.bicep" highlight="1" :::
 
+An alias for the public module registry has been predefined:
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/alias-definition-public.bicep" highlight="1" :::
+
+You can override the public alias in the bicepconfig.json file.
+
 ### File in template spec
 
-After creating a [template spec](../templates/template-specs.md), you can link to that template spec in a module. Specify the template spec in the following format:
+After creating a [template spec](../bicep/template-specs.md), you can link to that template spec in a module. Specify the template spec in the following format:
 
 ```bicep
 module <symbolic-name> 'ts:<sub-id>/<rg-name>/<template-spec-name>:<version>' = {
 ```
 
-However, you can simplify your Bicep file by [creating an alias](bicep-config-modules.md) for the resource group that contains your template specs. When using an alias, the syntax becomes:
+However, you can simplify your Bicep file by [creating an alias](bicep-config-modules.md) for the resource group that contains your template specs. When you use an alias, the syntax becomes:
 
 ```bicep
 module <symbolic-name> 'ts/<alias>:<template-spec-name>:<version>' = {
@@ -173,5 +229,5 @@ When used as module, you can get that output value.
 
 ## Next steps
 
-- For a tutorial, see [Deploy Azure resources by using Bicep templates](/learn/modules/deploy-azure-resources-by-using-bicep-templates/).
+- For a tutorial, see [Deploy Azure resources by using Bicep templates](/training/modules/deploy-azure-resources-by-using-bicep-templates/).
 - To pass a sensitive value to a module, use the [getSecret](bicep-functions-resource.md#getsecret) function.

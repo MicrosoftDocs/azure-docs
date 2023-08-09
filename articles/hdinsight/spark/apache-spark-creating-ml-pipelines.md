@@ -4,7 +4,7 @@ description: Use the Apache Spark machine learning library to create data pipeli
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 07/22/2019
+ms.date: 06/22/2023
 ---
 # Create an Apache Spark machine learning pipeline
 

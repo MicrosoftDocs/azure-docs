@@ -1,12 +1,11 @@
 ---
 title: Migrate data into Azure File Sync with Azure Data Box
 description: Migrate bulk data offline that's compatible with Azure File Sync. Avoid file conflicts, and catch up your file share with the latest changes on the server for a zero downtime cloud migration.
-author: fauhse
-ms.service: storage
+author: khdownie
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.author: fauhse
-ms.subservice: files
+ms.author: kendownie
 ---
 
 # Migrate data offline to Azure File Sync with Azure Data Box
@@ -163,4 +162,4 @@ There's more to discover about Azure file shares and Azure File Sync. The follow
 * [Migration overview](storage-files-migration-overview.md)
 * [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md)
 * [Create a file share](storage-how-to-create-file-share.md)
-* [Troubleshoot Azure File Sync](../file-sync/file-sync-troubleshoot.md)
+* [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json)

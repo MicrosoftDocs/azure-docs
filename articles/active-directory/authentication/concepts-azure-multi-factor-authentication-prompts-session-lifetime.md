@@ -6,11 +6,11 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/12/2021
+ms.date: 03/28/2023
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
 ---
@@ -62,13 +62,13 @@ Devices joined to Azure AD using Azure AD Join or Hybrid Azure AD Join receive a
 
 ### Show option to remain signed-in
 
-When a user selects **Yes** on the *Stay signed in?* option during sign-in, a persistent cookie is set on the browser. This persistent cookie remembers both first and second factor, and it applies only for authentication requests in the browser.
+When a user selects **Yes** on the *Stay signed in?* prompt option during sign-in, a persistent cookie is set on the browser. This persistent cookie remembers both first and second factor, and it applies only for authentication requests in the browser.
 
 ![Screenshot of example prompt to remain signed in](./media/concepts-azure-multi-factor-authentication-prompts-session-lifetime/stay-signed-in-prompt.png)
 
 If you have an Azure AD Premium 1 license, we recommend using Conditional Access policy for *Persistent browser session*. This policy overwrites the *Stay signed in?* setting and provides an improved user experience. If you don't have an Azure AD Premium 1 license, we recommend enabling the stay signed in setting for your users.
 
-For more information on configuring the option to let users remain signed-in, see [Customize your Azure AD sign-in page](../fundamentals/customize-branding.md#customize-your-azure-ad-sign-in-page).
+For more information on configuring the option to let users remain signed-in, see [How to manage the 'Stay signed in?' prompt](../fundamentals/how-to-manage-stay-signed-in-prompt.md).
 
 ### Remember Multi-Factor Authentication  
 
@@ -104,20 +104,20 @@ Under each sign-in log, go to the **Authentication Details** tab and explore **S
 
 To configure or review the *Remain signed-in* option, complete the following steps:
 
-1. In the Azure AD portal, search for and select *Azure Active Directory*.
+1. In the Azure portal, search for and select *Azure Active Directory*.
 1. Select **Company Branding**, then for each locale, choose **Show option to remain signed in**.
 1. Choose *Yes*, then select **Save**.
 
 To remember multifactor authentication settings on trusted devices, complete the following steps:
 
-1. In the Azure AD portal, search for and select *Azure Active Directory*.
+1. In the Azure portal, search for and select *Azure Active Directory*.
 1. Select **Security**, then **MFA**.
 1. Under **Configure**, select **Additional cloud-based MFA settings**.
 1. In the *Multi-factor authentication service settings* page, scroll to **remember multi-factor authentication settings**. Disable the setting by unchecking the checkbox.
 
 To configure Conditional Access policies for sign-in frequency and persistent browser session, complete the following steps:
 
-1. In the Azure AD portal, search for and select *Azure Active Directory*.
+1. In the Azure portal, search for and select *Azure Active Directory*.
 1. Select **Security**, then **Conditional Access**.
 1. Configure a policy using the recommended session management options detailed in this article.
 
@@ -131,7 +131,7 @@ The following table summarizes the recommendations based on licenses:
 
 |              | Azure AD Free and Microsoft 365 apps | Azure AD Premium |
 |------------------------------|-----------------------------------|------------------|
-| **SSO**                      | [Azure AD join](../devices/concept-azure-ad-join.md) or [Hybrid Azure AD join](../devices/concept-azure-ad-join-hybrid.md), or [Seamless SSO](../hybrid/how-to-connect-sso.md) for unmanaged devices. | Azure AD join<br />Hybrid Azure AD join |
+| **SSO**                      | [Azure AD join](../devices/concept-directory-join.md) or [Hybrid Azure AD join](../devices/concept-hybrid-join.md), or [Seamless SSO](../hybrid/how-to-connect-sso.md) for unmanaged devices. | Azure AD join<br />Hybrid Azure AD join |
 | **Reauthentication settings** | Remain signed-in                  | Use Conditional Access policies for sign-in frequency and persistent browser session |
 
 ## Next steps

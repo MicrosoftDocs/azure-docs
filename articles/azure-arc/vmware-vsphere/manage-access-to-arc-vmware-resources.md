@@ -9,36 +9,33 @@ ms.date: 11/08/2021
 
 # Manage access to VMware resources through Azure Role-Based Access Control
 
-Once your VMware vCenter resources have been enabled in Azure, the final step in setting up a self-service experience for your teams is to provide them access.  This article describes how to use built-in roles to manage granular access to VMware resources through Azure and allow your teams to deploy and manage VMs.
-
-> [!IMPORTANT]
-> In the interest of ensuring new features are documented no later than their release, this page may include documentation for features that may not yet be publicly available.
+Once your VMware vCenter resources have been enabled in Azure, the final step in setting up a self-service experience for your teams is to provide them access. This article describes how to use built-in roles to manage granular access to VMware resources through Azure and allow your teams to deploy and manage VMs.
 
 ## Arc-enabled VMware vSphere built-in roles
 
 There are three built-in roles to meet your access control requirements. You can apply these roles to a whole subscription, resource group, or a single resource.
 
-- **Azure Arc VMware Administrator** role - is used by administrators
+- **Azure Arc VMware Administrator** role - used by administrators
 
-- **Azure Arc VMware Private Cloud User** role - is used by anyone who needs to deploy and manage VMs
+- **Azure Arc VMware Private Cloud User** role - used by anyone who needs to deploy and manage VMs
 
-- **Azure Arc VMware VM Contributor** role - is used by anyone who needs to deploy and manage VMs
+- **Azure Arc VMware VM Contributor** role - used by anyone who needs to deploy and manage VMs
 
 ### Azure Arc VMware Administrator role
 
-The **Azure Arc VMware Administrator** role is a built-in role that provides permissions to perform all possible operations for the `Microsoft.ConnectedVMwarevSphere` resource provider. Assign this role to users or groups that are administrators managing Azure Arc enabled VMware vSphere deployment.
+The **Azure Arc VMware Administrator** role is a built-in role that provides permissions to perform all possible operations for the `Microsoft.ConnectedVMwarevSphere` resource provider. Assign this role to users or groups that are administrators managing Azure Arc-enabled VMware vSphere deployment.
 
 ### Azure Arc VMware Private Cloud User role
 
 The **Azure Arc VMware Private Cloud User** role is a built-in role that provides permissions to use the VMware vSphere resources made accessible through Azure. Assign this role to any users or groups that need to deploy, update, or delete VMs.
 
-We recommend assigning this role at the individual resource pool (or host or cluster), virtual network, or template that you want the user to deploy VMs using.
+We recommend assigning this role at the individual resource pool (or host or cluster), virtual network, or template with which you want the user to deploy VMs.
 
 ### Azure Arc VMware VM Contributor
 
 The **Azure Arc VMware VM Contributor** role is a built-in role that provides permissions to conduct all VMware virtual machine operations. Assign this role to any users or groups that need to deploy, update, or delete VMs.
 
-We recommend assigning this role at the subscription or resource group you want the user to deploy VMs using:
+We recommend assigning this role for the subscription or resource group to which you want the user to deploy VMs.
 
 ## Assigning the roles to users/groups
 
@@ -64,4 +61,4 @@ We recommend assigning this role at the subscription or resource group you want 
 
 ## Next steps
 
-[Create a VM using Azure Arc-enabled vSphere](quick-start-create-a-vm.md)
+- [Create a VM using Azure Arc-enabled vSphere](quick-start-create-a-vm.md).

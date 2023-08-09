@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 ---
 
 # Use Case - Customer Profiling
@@ -21,7 +21,7 @@ Contoso’s goal is to identify up-sell/cross-sell opportunities based on the ga
 In this solution, Contoso wants to evaluate the effectiveness of a marketing campaign it has recently launched. We start with the raw gaming logs, process and enrich them with geolocation data, join it with advertising reference data, and lastly copy them into an Azure SQL Database to analyze the campaign’s impact.
 
 ## Deploy Solution
-All you need to access and try out this simple use case is an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/), an [Azure Blob storage account](../../storage/common/storage-account-create.md), and an [Azure SQL Database](../../azure-sql/database/single-database-create-quickstart.md). You deploy the customer profiling pipeline from the **Sample pipelines** tile on the home page of your data factory.
+All you need to access and try out this simple use case is an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/), an [Azure Blob storage account](../../storage/common/storage-account-create.md), and an [Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart). You deploy the customer profiling pipeline from the **Sample pipelines** tile on the home page of your data factory.
 
 1. Create a data factory or open an existing data factory. See [Copy data from Blob Storage to SQL Database using Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for steps to create a data factory.
 2. In the **DATA FACTORY** blade for the data factory, click the **Sample pipelines** tile.

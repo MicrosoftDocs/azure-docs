@@ -1,4 +1,4 @@
-- name: Azure Storage validated partner solutions
+- name: Azure Storage partner solutions
   href: ./index.yml
 - name: Analytics and big data partners
   items:
@@ -15,6 +15,8 @@
     href: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
   - name: DobiProtect getting started guide
     href: .\validated-partners\backup-archive-disaster-recovery\datadobi\datadobi-solution-guide.md
+  - name: Tiger Bridge archiving with CDP and DR
+    href: .\validated-partners\backup-archive-disaster-recovery\tiger-bridge-cdp-guide.md
   expanded: false
 - name: Container solution partners
   items:
@@ -27,12 +29,14 @@
     href: .\validated-partners\data-management\partner-overview.md
   - name: Migration tools comparison
     href: ./validated-partners/data-management/migration-tools-comparison.md
-  - name: Azure File Migration Program Solutions
+  - name: Azure Storage Migration Program Solutions
     href: ./validated-partners/data-management/azure-file-migration-program-solutions.md
   - name: DobiMigrate getting started guide
     href: ./validated-partners/data-management/dobimigrate-quick-start-guide.md
   - name: Komprise getting started guide
     href: ./validated-partners/data-management/komprise-quick-start-guide.md
+  - name: Atempo getting started guide
+    href: ./validated-partners/data-management/atempo-quick-start-guide.md
   - name: StorageX getting started guide
     href: ./validated-partners/data-management/storagex-quick-start-guide.md
   - name: Cirrus Data getting started guide

@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure PaperCut Cloud Print Management for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure PaperCut Cloud Print Management for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to PaperCut Cloud Print Management.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 7e65d727-2951-4aec-a7a3-7bde49ed09e2
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/18/2020
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

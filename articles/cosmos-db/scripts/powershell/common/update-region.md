@@ -1,55 +1,54 @@
 ---
-title: PowerShell script to update an Azure Cosmos account's regions
-description: Azure PowerShell script sample - Update an Azure Cosmos account's regions
-author: markjbrown
+title: PowerShell script to update regions for an Azure Cosmos DB account
+description: Run this Azure PowerShell script to add regions or change region failover order for an Azure Cosmos DB account.
+author: seesharprun
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/01/2020
-ms.author: mjbrown 
-ms.custom: devx-track-azurepowershell
+ms.date: 05/02/2022
+ms.author: sidandrews
+ms.reviewer: mjbrown 
+ms.custom: devx-track-azurepowershell, ignite-2022
 ---
 
-# Update an Azure Cosmos account's regions using PowerShell
-[!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
+# Update regions for an Azure Cosmos DB account by using PowerShell
+
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](../../../includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
+
+This PowerShell script updates the Azure regions that an Azure Cosmos DB account uses. You can use this script to add an Azure region or change region failover order.
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
-This sample requires Azure PowerShell Az 5.4.0 or later. Run `Get-Module -ListAvailable Az` to see which versions are installed.
-If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+## Prerequisites
 
-Run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to Azure.
+- You need an existing Azure Cosmos DB account in an Azure resource group.
+
+- The script requires Azure PowerShell Az 5.4.0 or later. Run `Get-Module -ListAvailable Az` to list your installed versions. If you need to install PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
+
+- Run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to Azure.
 
 ## Sample script
 
-> [!NOTE]
-> You cannot modify regions and change other Cosmos account properties in the same operation. These must be done as two separate operations.
-> [!NOTE]
-> This sample demonstrates using a SQL (Core) API account. To use this sample for other APIs, copy the related properties and apply to your API specific script.
+The [Update-AzCosmosDBAccountRegion](/powershell/module/az.cosmosdb/update-azcosmosdbaccountregion) command updates Azure regions for an Azure Cosmos DB account. The command requires a resource group name, an Azure Cosmos DB account name, and a list of Azure regions in desired failover order.
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-update-region.ps1 "Update Azure Cosmos account regions")]
+In this script, the [Get-AzCosmosDBAccount](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) command gets the Azure Cosmos DB account you specify. [New-AzCosmosDBLocationObject](/powershell/module/az.cosmosdb/new-azcosmosdblocationobject) creates an object of type `PSLocation`. `Update-AzCosmosDBAccountRegion` uses the `PSLocation` parameter to update the account regions.
 
-## Clean up deployment
+- If you add a region, don't change the first failover region in the same operation. Change failover priority order in a separate operation.
+- You can't modify regions in the same operation as changing other Azure Cosmos DB account properties. Do these operations separately.
 
-After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
+This sample uses a API for NoSQL account. To use this sample for other APIs, copy the related properties and apply them to your API-specific script.
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-update-region.ps1 "Update Azure Cosmos DB account regions")]
+
+Although the script returns a result, the update operation might not be finished. Check the status of the operation in the Azure portal by using the Azure Cosmos DB account **Activity log**.
+
+## Delete Azure resource group
+
+If you want to delete your Azure Cosmos DB account, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) PowerShell command to remove its resource group. This command removes the Azure resource group and all the resources in it, including Azure Cosmos DB accounts and their containers and databases.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 ```
 
-## Script explanation
-
-This script uses the following commands. Each command in the table links to command specific documentation.
-
-| Command | Notes |
-|---|---|
-|**Azure Cosmos DB**| |
-| [Get-AzCosmosDBAccount](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Lists Cosmos DB Accounts, or gets a specified Cosmos DB Account. |
-| [New-AzCosmosDBLocationObject](/powershell/module/az.cosmosdb/new-azcosmosdblocationobject) | Creates an object of type PSLocation to be used as a parameter for Update-AzCosmosDBAccountRegion. |
-| [Update-AzCosmosDBAccountRegion](/powershell/module/az.cosmosdb/update-azcosmosdbaccountregion) | Update Regions of a Cosmos DB Account. |
-|**Azure Resource Groups**| |
-| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
-|||
-
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
+- [Azure PowerShell documentation](/powershell)

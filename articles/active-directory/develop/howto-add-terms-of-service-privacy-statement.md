@@ -1,5 +1,5 @@
 ---
-title: Terms of Service and privacy statement for apps | Azure
+title: Terms of Service and privacy statement for apps
 description: Learn how you can configure the terms of service and privacy statement for apps registered to use Azure AD.
 services: active-directory
 author: rwike77
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/27/2021
+ms.date: 03/07/2023
 ms.author: ryanwi
 ms.reviewer: sureshja
 ms.custom: aaddev
@@ -52,11 +52,14 @@ When the terms of service and privacy statement are ready, you can add links to 
 * [Using the Microsoft Graph API](#msgraph-rest-api)
 
 ### <a name="azure-portal"></a>Using the Azure portal
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Follow these steps in the Azure portal.
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> and select the correct Azure AD tenant(not B2C).
 2. Navigate to the **App registrations** section and select your app.
-3. Under **Manage**, select **Branding**.
+3. Under **Manage**, select **Branding & properties**.
 4. Fill out the **Terms of service URL** and **Privacy statement URL** fields.
 5. Select **Save**.
 
@@ -66,10 +69,10 @@ Follow these steps in the Azure portal.
 
 If you prefer to modify the app object JSON directly, you can use the manifest editor in the Azure portal or Application Registration Portal to include links to your app's terms of service and privacy statement.
 
-1. Navigating to the **App Registrations** section and select your app.
+1. Navigate to the **App Registrations** section and select your app.
 2. Open the **Manifest** pane.
 3. Ctrl+F, Search for "informationalUrls". Fill in the information.
-4. Save your changes.
+4. Save your changes by downloading the app manifest, modifying it, and uploading it.
 
 ```json
     "informationalUrls": { 
@@ -80,12 +83,12 @@ If you prefer to modify the app object JSON directly, you can use the manifest e
 
 ### <a name="msgraph-rest-api"></a>Using the Microsoft Graph API
 
-To programmatically update all your apps, you can use the Microsoft Graph API to update all your apps to include links to the terms of service and privacy statement documents.
+To programmatically [update your app](/graph/api/application-update), you can use the Microsoft Graph API to update all your apps to include links to the terms of service and privacy statement documents.
 
 ```
-PATCH https://graph.microsoft.com/v1.0/applications/{application id}
+PATCH https://graph.microsoft.com/v1.0/applications/{applicationObjectId}
 { 
-    "appId": "{your application id}", 
+    "appId": "{your application object id}", 
     "info": { 
         "termsOfServiceUrl": "<your_terms_of_service_url>", 
         "supportUrl": null, 

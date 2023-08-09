@@ -1,10 +1,10 @@
 ---
 title: Configure managed identities with Azure App Configuration
 description: Learn how managed identities work in Azure App Configuration and how to configure a managed identity
-author: maud-lv
+author: mcleanbyron
 ms.topic: article
 ms.date: 02/25/2020
-ms.author: malev
+ms.author: mcleans
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
 
@@ -12,7 +12,7 @@ ms.service: azure-app-configuration
 
 # How to use managed identities for Azure App Configuration
 
-This topic shows you how to create a managed identity for Azure App Configuration. A managed identity from Azure Active Directory (Azure AD) allows Azure App Configuration to easily access other Azure AD protected resources, such as Azure Key Vault. The identity is managed by the Azure platform. It does not require you to provision or rotate any secrets. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+This topic shows you how to create a managed identity for Azure App Configuration. A managed identity from Azure Active Directory (Azure AD) allows Azure App Configuration to easily access other Azure AD protected resources. The identity is managed by the Azure platform. It does not require you to provision or rotate any secrets. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 Your application can be granted two types of identities:
 

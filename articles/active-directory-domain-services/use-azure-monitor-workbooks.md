@@ -2,13 +2,13 @@
 title: Use Azure Monitor Workbooks with Azure AD Domain Services | Microsoft Docs
 description: Learn how to use Azure Monitor Workbooks to review security audits and understand issues in an Azure Active Directory Domain Services managed domain.
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/09/2020
+ms.date: 06/16/2022
 ms.author: justinha
 
 ---
@@ -54,7 +54,7 @@ To access the workbook template for the security overview report, complete the f
 1. Select your managed domain, such as *aaddscontoso.com*
 1. From the menu on the left-hand side, choose **Monitoring > Workbooks**
 
-    ![Screenshot that hightlights where to select the Security Overview Report and the Account Activity Report.](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
+    ![Screenshot that highlights where to select the Security Overview Report and the Account Activity Report.](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
 
 1. Choose the **Security Overview Report**.
 1. From the drop-down menus at the top of the workbook, select your Azure subscription and then an Azure Monitor workspace.

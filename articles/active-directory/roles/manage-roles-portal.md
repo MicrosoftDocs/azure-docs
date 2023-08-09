@@ -1,14 +1,14 @@
 ---
-title: Assign Azure AD roles to users - Azure Active Directory
+title: Assign Azure AD roles to users
 description: Learn how to grant access to users in Azure Active Directory by assigning Azure AD roles.
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 02/06/2023
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -34,21 +34,25 @@ Follow these steps to assign Azure AD roles using the Azure portal. Your experie
 
 ### Assign a role
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
 
-    ![Roles and administrators page in Azure Active Directory.](./media/manage-roles-portal/roles-and-administrators.png)
+    ![Screenshot of Roles and administrators page in Azure Active Directory.](./media/common/roles-and-administrators.png)
 
-1. Select a role to see its assignments.
+1. Find the role you need. You can use the search box or **Add filters** to filter the roles.
 
-    To help you find the role you need, use **Add filters** to filter the roles.
+1. Select the role name to open the role. Don't add a check mark next to the role.
+
+    ![Screenshot that shows selecting a role.](./media/common/role-select-mouse.png)
 
 1. Select **Add assignments** and then select the users you want to assign to this role.
 
     If you see something different from the following picture, you might have PIM enabled. See the next section.
 
-    ![Add assignments pane for selected role.](./media/manage-roles-portal/add-assignments.png)
+    ![Screenshot of Add assignments pane for selected role.](./media/manage-roles-portal/add-assignments.png)
 
 1. Select **Add** to assign the role.
 
@@ -58,21 +62,23 @@ If you have [Azure AD Privileged Identity Management (PIM)](../privileged-identi
 
 Follow these steps to assign roles using the [Roles and administrators](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) page. If you want to assign roles using the [Privileged Identity Management](https://portal.azure.com/#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) page, see [Assign Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
 
-    ![Roles and administrators page in Azure Active Directory when PIM enabled.](./media/manage-roles-portal/roles-and-administrators.png)
+    ![Screenshot of Roles and administrators page in Azure Active Directory when PIM enabled.](./media/common/roles-and-administrators.png)
 
-1. Select a role to see its eligible, active, and expired role assignments.
+1. Find the role you need. You can use the search box or **Add filters** to filter the roles.
 
-    To help you find the role you need, use **Add filters** to filter the roles.
+1. Select the role name to open the role and see its eligible, active, and expired role assignments. Don't add a check mark next to the role.
+
+    ![Screenshot that shows selecting a role.](./media/common/role-select-mouse.png)
 
 1. Select **Add assignments**.
 
 1. Select **No member selected** and then select the users you want to assign to this role.
 
-    ![Add assignments page and Select a member pane with PIM enabled.](./media/manage-roles-portal/add-assignments-pim.png)
+    ![Screenshot of Add assignments page and Select a member pane with PIM enabled.](./media/manage-roles-portal/add-assignments-pim.png)
 
 1. Select **Next**.
 
@@ -80,7 +86,7 @@ Follow these steps to assign roles using the [Roles and administrators](https://
 
     An eligible role assignment means that the user must perform one or more actions to use the role. An active role assignment means that the user doesn't have to perform any action to use the role. For more information about what these settings mean, see [PIM terminology](../privileged-identity-management/pim-configure.md#terminology).
 
-    ![Add assignments page and Setting tab with PIM enabled.](./media/manage-roles-portal/add-assignments-pim-setting.png)
+    ![Screenshot of Add assignments page and Setting tab with PIM enabled.](./media/manage-roles-portal/add-assignments-pim-setting.png)
 
 1. Use the remaining options to set the duration for the assignment.
 
@@ -158,16 +164,11 @@ If PIM is enabled, you have additional capabilities, such as making a user eligi
 
 ## Microsoft Graph API
 
-Follow these instructions to assign a role using the Microsoft Graph API in [Graph Explorer](https://aka.ms/ge).
+Follow these instructions to assign a role using the Microsoft Graph API.
 
 ### Assign a role
 
-In this example, a security principal with objectID `f8ca5a85-489a-49a0-b555-0a6d81e56f0d` is assigned the Billing Administrator role (role definition ID `b0f54661-2d74-4c50-afa3-1ec803f12efe`) at tenant scope. If you want to see the list of immutable role template IDs of all built-in roles, see [Azure AD built-in roles](permissions-reference.md).
-
-1. Sign in to the [Graph Explorer](https://aka.ms/ge).
-2. Select **POST** as the HTTP method from the dropdown. 
-3. Select the API version to **v1.0**.
-4. Use the [Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments) API to assign roles. Add following details to the URL and Request Body and select **Run query**.
+In this example, a security principal with objectID `f8ca5a85-489a-49a0-b555-0a6d81e56f0d` is assigned the Billing Administrator role (role definition ID `b0f54661-2d74-4c50-afa3-1ec803f12efe`) at tenant scope. To see the list of immutable role template IDs of all built-in roles, see [Azure AD built-in roles](permissions-reference.md).
 
 ```http
 POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments
@@ -183,19 +184,16 @@ Content-type: application/json
 
 ### Assign a role using PIM
 
+#### Assign a time-bound eligible role assignment
+
 In this example, a security principal with objectID `f8ca5a85-489a-49a0-b555-0a6d81e56f0d` is assigned a time-bound eligible role assignment to Billing Administrator (role definition ID `b0f54661-2d74-4c50-afa3-1ec803f12efe`) for 180 days.
 
-1. Sign in to the [Graph Explorer](https://aka.ms/ge).
-2. Select **POST** as the HTTP method from the dropdown. 
-3. Select the API version to **beta**.
-4. Use the [Create unifiedRoleEligibilityScheduleRequest](/graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests) API to assign roles using PIM. Add following details to the URL and Request Body and select **Run query**.
-
 ```http
-POST https://graph.microsoft.com/beta/rolemanagement/directory/roleEligibilityScheduleRequests
+POST https://graph.microsoft.com/v1.0/rolemanagement/directory/roleEligibilityScheduleRequests
 Content-type: application/json
 
 {
-    "action": "AdminAssign",
+    "action": "adminAssign",
     "justification": "for managing admin tasks",
     "directoryScopeId": "/",
     "principalId": "f8ca5a85-489a-49a0-b555-0a6d81e56f0d",
@@ -203,21 +201,23 @@ Content-type: application/json
     "scheduleInfo": {
         "startDateTime": "2021-07-15T19:15:08.941Z",
         "expiration": {
-            "type": "AfterDuration",
+            "type": "afterDuration",
             "duration": "PT180D"
         }
     }
 }
 ```
 
+#### Assign a permanent eligible role assignment
+
 In the following example, a security principal is assigned a permanent eligible role assignment to Billing Administrator.
 
 ```http
-POST https://graph.microsoft.com/beta/rolemanagement/directory/roleEligibilityScheduleRequests
+POST https://graph.microsoft.com/v1.0/rolemanagement/directory/roleEligibilityScheduleRequests
 Content-type: application/json
 
 {
-    "action": "AdminAssign",
+    "action": "adminAssign",
     "justification": "for managing admin tasks",
     "directoryScopeId": "/",
     "principalId": "f8ca5a85-489a-49a0-b555-0a6d81e56f0d",
@@ -225,26 +225,30 @@ Content-type: application/json
     "scheduleInfo": {
         "startDateTime": "2021-07-15T19:15:08.941Z",
         "expiration": {
-            "type": "NoExpiration"
+            "type": "noExpiration"
         }
     }
 }
 ```
 
-To activate the role assignment, use the [Create unifiedRoleAssignmentScheduleRequest](/graph/api/unifiedroleassignmentschedulerequest-post-unifiedroleassignmentschedulerequests) API.
+#### Activate a role assignment
+
+To activate the role assignment, use the [Create roleAssignmentScheduleRequests](/graph/api/rbacapplication-post-roleeligibilityschedulerequests) API.
 
 ```http
-POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentScheduleRequests
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignmentScheduleRequests
 Content-type: application/json
 
 {
-    "action": "SelfActivate",
+    "action": "selfActivate",
     "justification": "activating role assignment for admin privileges",
     "roleDefinitionId": "b0f54661-2d74-4c50-afa3-1ec803f12efe",
     "directoryScopeId": "/",
     "principalId": "f8ca5a85-489a-49a0-b555-0a6d81e56f0d"
 }
 ```
+
+For more information about managing Azure AD roles through the PIM API in Microsoft Graph, see [Overview of role management through the privileged identity management (PIM) API](/graph/api/resources/privilegedidentitymanagementv3-overview).
 
 ## Next steps
 

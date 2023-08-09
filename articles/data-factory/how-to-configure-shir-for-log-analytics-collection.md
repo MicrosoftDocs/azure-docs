@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: 
 ms.custom: synapse
 ms.topic: how-to
-ms.date: 02/22/2022
+ms.date: 07/17/2023
 ms.author: jburchel
 ---
 
@@ -42,7 +42,7 @@ It's important to note that when choosing the event logs using the interface, it
 
 The event journal name we must configure are:
 
-- Connectors – Integration Runtime
+- Connectors - Integration Runtime
 - Integration Runtime
 
 :::image type="content" source="media/how-to-configure-shir-for-log-analytics-collection/configure-journals-for-collection.png" alt-text="Screenshot of the selection of the SHIR relevant logs with errors and warnings checked.":::

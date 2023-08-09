@@ -2,7 +2,8 @@
 title: Bicep functions
 description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 10/15/2021
+ms.custom: devx-track-bicep
+ms.date: 06/05/2023
 ---
 
 # Bicep functions
@@ -19,7 +20,7 @@ All Bicep functions are contained within two namespaces - `az` and `sys`. Typica
 // Parameter contains the same name as a function
 param range int
 
-// Must use sys namespace to call the function. 
+// Must use sys namespace to call the function.
 // The second use of range refers to the parameter.
 output result array = sys.range(1, range)
 ```
@@ -38,10 +39,12 @@ The following functions are available for working with arrays. All of these func
 * [concat](./bicep-functions-array.md#concat)
 * [contains](./bicep-functions-array.md#contains)
 * [empty](./bicep-functions-array.md#empty)
+* [indexOf](./bicep-functions-array.md#indexof)
 * [first](./bicep-functions-array.md#first)
+* [flatten](./bicep-functions-array.md#flatten)
 * [intersection](./bicep-functions-array.md#intersection)
-* [items](./bicep-functions-array.md#items)
 * [last](./bicep-functions-array.md#last)
+* [lastIndexOf](./bicep-functions-array.md#lastindexof)
 * [length](./bicep-functions-array.md#length)
 * [min](./bicep-functions-array.md#min)
 * [max](./bicep-functions-array.md#max)
@@ -50,11 +53,21 @@ The following functions are available for working with arrays. All of these func
 * [take](./bicep-functions-array.md#take)
 * [union](./bicep-functions-array.md#union)
 
+## CIDR functions
+
+The following functions are available for working with CIDR. All of these functions are in the `sys` namespace.
+
+* [parseCidr](./bicep-functions-cidr.md#parsecidr)
+* [cidrSubnet](./bicep-functions-cidr.md#cidrsubnet)
+* [cidrHost](./bicep-functions-cidr.md#cidrhost)
+
 ## Date functions
 
 The following functions are available for working with dates. All of these functions are in the `sys` namespace.
 
 * [dateTimeAdd](./bicep-functions-date.md#datetimeadd)
+* [dateTimeFromEpoch](./bicep-functions-date.md#datetimefromepoch)
+* [dateTimeToEpoch](./bicep-functions-date.md#datetimetoepoch)
 * [utcNow](./bicep-functions-date.md#utcnow)
 
 ## Deployment value functions
@@ -69,7 +82,18 @@ The following functions are available for getting values related to the deployme
 The following functions are available for loading the content from external files into your Bicep file. All of these functions are in the `sys` namespace.
 
 * [loadFileAsBase64](bicep-functions-files.md#loadfileasbase64)
+* [loadJsonContent](bicep-functions-files.md#loadjsoncontent)
+* [loadYamlContent](bicep-functions-files.md#loadyamlcontent)
 * [loadTextContent](bicep-functions-files.md#loadtextcontent)
+
+## Lambda functions
+
+The following functions are available for working with lambda expressions. All of these functions are in the `sys` namespace.
+
+* [filter](bicep-functions-lambda.md#filter)
+* [map](bicep-functions-lambda.md#map)
+* [reduce](bicep-functions-lambda.md#reduce)
+* [sort](bicep-functions-lambda.md#sort)
 
 ## Logical functions
 
@@ -92,9 +116,14 @@ The following functions are available for working with objects. All of these fun
 * [contains](./bicep-functions-object.md#contains)
 * [empty](./bicep-functions-object.md#empty)
 * [intersection](./bicep-functions-object.md#intersection)
+* [items](./bicep-functions-object.md#items)
 * [json](./bicep-functions-object.md#json)
 * [length](./bicep-functions-object.md#length)
 * [union](./bicep-functions-object.md#union)
+
+## Parameters file functions
+
+The [readEnvironmentVariable function](./bicep-functions-parameters-file.md) is available in Bicep to read environment variable values. This function is in the `sys` namespace.
 
 ## Resource functions
 
@@ -139,6 +168,7 @@ Bicep provides the following functions for working with strings. All of these fu
 * [format](./bicep-functions-string.md#format)
 * [guid](./bicep-functions-string.md#guid)
 * [indexOf](./bicep-functions-string.md#indexof)
+* [join](./bicep-functions-string.md#join)
 * [last](./bicep-functions-string.md#last)
 * [lastIndexOf](./bicep-functions-string.md#lastindexof)
 * [length](./bicep-functions-string.md#length)

@@ -9,7 +9,7 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/30/2021
 ms.author: alkohli
-ms.custom: has-adal-ref, devx-track-azurecli 
+ms.custom: has-adal-ref, devx-track-azurecli, devx-track-python
 ms.devlang: azurecli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
@@ -114,7 +114,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
 7. Prepare your environment for the Azure CLI:
 
-   [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+   [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Step 1: Set up Azure CLI/Python on the client
 
@@ -292,7 +292,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     ```
     The following shows sample usage of the above command:
     
-    ```output
+    ```azurecli
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az cloud register -n az-new-env --endpoint-resource-manager "https://management.team3device.teatraining1.com"
     ```
     
@@ -304,7 +304,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     ```
     The following shows sample usage of the above command:
 
-    ```output
+    ```azurecli
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az cloud set -n az-new-env
     Switched active cloud to 'az-new-env'.
     Use 'az login' to log in to this cloud.

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deploy a background processing application with Azure Container Apps Preview'
+title: 'Tutorial: Deploy a background processing application with Azure Container Apps'
 description: Learn to create an application that continuously runs in the background with Azure Container Apps
 services: container-apps
 author: jorgearteiro
@@ -7,17 +7,16 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: joarteir
-ms.custom: ignite-fall-2021, devx-track-azurecli
+ms.custom: devx-track-azurecli, event-tier1-build-2022, devx-track-azurepowershell, build-2023, devx-track-linux
 ---
 
-# Tutorial: Deploy a background processing application with Azure Container Apps Preview
+# Tutorial: Deploy a background processing application with Azure Container Apps
 
-Using Azure Container Apps allows you to deploy applications without requiring the exposure of public endpoints. By using Container Apps scale rules, the application can scale up and down based on the Azure Storage queue length. When there are no messages on the queue, the container app scales down to zero.
+Using Azure Container Apps allows you to deploy applications without requiring the exposure of public endpoints. By using Container Apps scale rules, the application can scale out and in based on the Azure Storage queue length. When there are no messages on the queue, the container app scales in to zero.
 
 You learn how to:
 
 > [!div class="checklist"]
-
 > * Create a Container Apps environment to deploy your container apps
 > * Create an Azure Storage Queue to send messages to the container app
 > * Deploy your background processing application as a container app
@@ -38,31 +37,55 @@ az containerapp env create \
   --location "$LOCATION"
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```azurecli
-az containerapp env create `
-  --name $CONTAINERAPPS_ENVIRONMENT `
-  --resource-group $RESOURCE_GROUP `
-  --location $LOCATION
+A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
+
+
+```azurepowershell
+$WorkspaceArgs = @{
+    Name = 'myworkspace'
+    ResourceGroupName = $ResourceGroupName
+    Location = $Location
+    PublicNetworkAccessForIngestion = 'Enabled'
+    PublicNetworkAccessForQuery = 'Enabled'
+}
+New-AzOperationalInsightsWorkspace @WorkspaceArgs
+$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).CustomerId
+$WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).PrimarySharedKey
+```
+
+To create the environment, run the following command:
+
+```azurepowershell
+$EnvArgs = @{
+    EnvName = $ContainerAppsEnvironment
+    ResourceGroupName = $ResourceGroupName
+    Location = $Location
+    AppLogConfigurationDestination = 'log-analytics'
+    LogAnalyticConfigurationCustomerId = $WorkspaceId
+    LogAnalyticConfigurationSharedKey = $WorkspaceSharedKey
+}
+
+New-AzContainerAppManagedEnv @EnvArgs
 ```
 
 ---
 
 ## Set up a storage queue
 
-Choose a name for `STORAGE_ACCOUNT`. Storage account names must be *unique within Azure* and be from 3 to 24 characters in length containing numbers and lowercase letters only.
+Begin by defining a name for the storage account. Storage account names must be *unique within Azure* and be from 3 to 24 characters in length containing numbers and lowercase letters only.
 
 # [Bash](#tab/bash)
 
 ```bash
-STORAGE_ACCOUNT="<storage account name>"
+STORAGE_ACCOUNT_NAME="<STORAGE_ACCOUNT_NAME>"
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-$STORAGE_ACCOUNT="<storage account name>"
+```azurepowershell
+$StorageAcctName = "<StorageAccountName>"
 ```
 
 ---
@@ -73,22 +96,24 @@ Create an Azure Storage account.
 
 ```azurecli
 az storage account create \
-  --name $STORAGE_ACCOUNT \
+  --name $STORAGE_ACCOUNT_NAME \
   --resource-group $RESOURCE_GROUP \
   --location "$LOCATION" \
   --sku Standard_RAGRS \
   --kind StorageV2
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-$STORAGE_ACCOUNT = New-AzStorageAccount `
-  -Name $STORAGE_ACCOUNT_NAME `
-  -ResourceGroupName $RESOURCE_GROUP `
-  -Location $LOCATION `
-  -SkuName Standard_RAGRS `
-  -Kind StorageV2
+```azurepowershell
+$StorageAcctArgs = @{
+    Name = $StorageAcctName
+    ResourceGroupName = $ResourceGroupName
+    Location = $location
+    SkuName = 'Standard_RAGRS'
+    Kind = 'StorageV2'
+}
+$StorageAcct = New-AzStorageAccount @StorageAcctArgs
 ```
 
 ---
@@ -98,13 +123,13 @@ Next, get the connection string for the queue.
 # [Bash](#tab/bash)
 
 ```azurecli
-QUEUE_CONNECTION_STRING=`az storage account show-connection-string -g $RESOURCE_GROUP --name $STORAGE_ACCOUNT --query connectionString --out json | tr -d '"'`
+QUEUE_CONNECTION_STRING=`az storage account show-connection-string -g $RESOURCE_GROUP --name $STORAGE_ACCOUNT_NAME --query connectionString --out json | tr -d '"'`
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```azurecli
- $QUEUE_CONNECTION_STRING=(az storage account show-connection-string -g $RESOURCE_GROUP --name $STORAGE_ACCOUNT_NAME --query connectionString --out json)  -replace '"',''
+```azurepowershell
+ $QueueConnectionString = (Get-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAcctName).Context.ConnectionString
 ```
 
 ---
@@ -116,15 +141,14 @@ Now you can create the message queue.
 ```azurecli
 az storage queue create \
   --name "myqueue" \
-  --account-name $STORAGE_ACCOUNT \
+  --account-name $STORAGE_ACCOUNT_NAME \
   --connection-string $QUEUE_CONNECTION_STRING
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-$queue = New-AzStorageQueue –Name "myqueue" `
-  -Context $STORAGE_ACCOUNT.Context
+```azurepowershell
+$Queue = New-AzStorageQueue -Name 'myqueue' -Context $StorageAcct.Context
 ```
 
 ---
@@ -140,12 +164,14 @@ az storage message put \
   --connection-string $QUEUE_CONNECTION_STRING
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```azurecli
-$queueMessage = [Microsoft.Azure.Storage.Queue.CloudQueueMessage]::new("Hello Queue Reader App")
-$queue.CloudQueue.AddMessageAsync($QueueMessage)
+```azurepowershell
+$QueueMessage = [Microsoft.Azure.Storage.Queue.CloudQueueMessage]::new("Hello Queue Reader App")
+$Queue.CloudQueue.AddMessageAsync($QueueMessage).GetAwaiter().GetResult()
 ```
+
+A result of `Microsoft.Azure.Storage.Core.NullType` is returned when the message is added to the queue.
 
 ---
 
@@ -163,12 +189,10 @@ Create a file named *queue.json* and paste the following configuration code into
             "type": "String"
         },
         "environment_name": {
-            "defaultValue": "",
             "type": "String"
         },
         "queueconnection": {
-            "defaultValue": "",
-            "type": "String"
+            "type": "secureString"
         }
     },
     "variables": {},
@@ -176,7 +200,7 @@ Create a file named *queue.json* and paste the following configuration code into
     {
         "name": "queuereader",
         "type": "Microsoft.App/containerApps",
-        "apiVersion": "2022-01-01-preview",
+        "apiVersion": "2022-03-01",
         "kind": "containerapp",
         "location": "[parameters('location')]",
         "properties": {
@@ -201,7 +225,7 @@ Create a file named *queue.json* and paste the following configuration code into
                             },
                             {
                                 "name": "QueueConnectionString",
-                                "secretref": "queueconnection"
+                                "secretRef": "queueconnection"
                             }
                         ]
                     }
@@ -245,31 +269,33 @@ az deployment group create --resource-group "$RESOURCE_GROUP" \
     location="$LOCATION"
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-$params = @{
-  environment_name = $CONTAINERAPPS_ENVIRONMENT
-  location = $LOCATION
-  queueconnection=$QUEUE_CONNECTION_STRING 
+```azurepowershell
+$Params = @{
+    environment_name = $ContainerAppsEnvironment
+    location = $Location
+    queueconnection = $QueueConnectionString 
 }
 
-New-AzResourceGroupDeployment `
-  -ResourceGroupName $RESOURCE_GROUP `
-  -TemplateParameterObject $params `
-  -TemplateFile ./queue.json `
-  -SkipTemplateParameterPrompt 
+$DeploymentArgs = @{
+     ResourceGroupName = $ResourceGroupName
+     TemplateParameterObject = $Params
+     TemplateFile = './queue.json'
+     SkipTemplateParameterPrompt = $true
+}
+New-AzResourceGroupDeployment  @DeploymentArgs
 ```
 
 ---
 
 This command deploys the demo application from the public container image called `mcr.microsoft.com/azuredocs/containerapps-queuereader` and sets secrets and environments variables used by the application.
 
-The application scales up to 10 replicas based on the queue length as defined in the `scale` section of the ARM template.
+The application scales out to 10 replicas based on the queue length as defined in the `scale` section of the ARM template.
 
 ## Verify the result
 
-The container app runs as a background process. As messages arrive from the Azure Storage Queue, the application creates log entries in Log analytics. You must wait a few minutes for the analytics to arrive for the first time before you are able to query the logged data.
+The container app runs as a background process. As messages arrive from the Azure Storage Queue, the application creates log entries in Log analytics. You must wait a few minutes for the analytics to arrive for the first time before you're able to query the logged data.
 
 Run the following command to see logged messages. This command requires the Log analytics extension, so accept the prompt to install extension when requested.
 
@@ -280,16 +306,14 @@ LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az containerapp env show --name $CONTAINERAPP
 
 az monitor log-analytics query \
   --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
-  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'queuereader' and Log_s contains 'Message ID'" \
+  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'queuereader' and Log_s contains 'Message ID' | project Time=TimeGenerated, AppName=ContainerAppName_s, Revision=RevisionName_s, Container=ContainerName_s, Message=Log_s | take 5" \
   --out table
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv)
-
-$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $LOG_ANALYTICS_WORKSPACE_CLIENT_ID -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'queuereader' and Log_s contains 'Message ID'"
+```azurepowershell
+$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $WorkspaceId  -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'queuereader' and Log_s contains 'Message ID' | project Time=TimeGenerated, AppName=ContainerAppName_s, Revision=RevisionName_s, Container=ContainerName_s, Message=Log_s | take 5"
 $queryResults.Results
 ```
 
@@ -300,7 +324,10 @@ $queryResults.Results
 
 ## Clean up resources
 
-Once you are done, run the following command to delete the resource group that contains your Container Apps resources.
+Once you're done, run the following command to delete the resource group that contains your Container Apps resources.
+
+>[!CAUTION]
+> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they will also be deleted.
 
 # [Bash](#tab/bash)
 
@@ -309,12 +336,10 @@ az group delete \
   --resource-group $RESOURCE_GROUP
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
+```azurepowershell
+Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ---
-
-This command deletes the entire resource group including the Container Apps instance, storage account, Log Analytics workspace, and any other resources in the resource group.

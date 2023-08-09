@@ -2,7 +2,7 @@
 title: "Tutorial: Crop an image with the Bing Visual Search SDK"
 description: Use the Bing Visual Search SDK to get insights from specific ares on an image.
 services: cognitive-services
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
@@ -16,7 +16,7 @@ ms.custom: devx-track-csharp
 
 # Tutorial: Crop an image with the Bing Visual Search SDK for C#
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The Bing Visual Search SDK enables you to crop an image before finding similar online images. This application crops a single person from an image containing several people, and then returns search results containing similar images found online.
 
@@ -52,7 +52,7 @@ This image is cropped by creating an `ImageInfo` object from the crop area, and 
 
 ```csharp
 CropArea CropArea = new CropArea(top: (float)0.01, bottom: (float)0.30, left: (float)0.01, right: (float)0.20);
-string imageURL = "https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/media/ms_srleaders.jpg";
+string imageURL = "https://learn.microsoft.com/azure/cognitive-services/Bing-visual-search/media/ms_srleaders.jpg";
 ImageInfo imageInfo = new ImageInfo(cropArea: CropArea, url: imageURL);
 
 VisualSearchRequest visualSearchRequest = new VisualSearchRequest(imageInfo: imageInfo);

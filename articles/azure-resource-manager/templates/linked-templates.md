@@ -2,8 +2,8 @@
 title: Link templates for deployment
 description: Describes how to use linked templates in an Azure Resource Manager template (ARM template) to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs.
 ms.topic: conceptual
-ms.date: 01/06/2022
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.date: 04/26/2023
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # Using linked and nested templates when deploying Azure resources
@@ -17,7 +17,7 @@ For a tutorial, see [Tutorial: Deploy a linked template](./deployment-tutorial-l
 > [!NOTE]
 > For linked or nested templates, you can only set the deployment mode to [Incremental](deployment-modes.md). However, the main template can be deployed in complete mode. If you deploy the main template in the complete mode, and the linked or nested template targets the same resource group, the resources deployed in the linked or nested template are included in the evaluation for complete mode deployment. The combined collection of resources deployed in the main template and linked or nested templates is compared against the existing resources in the resource group. Any resources not included in this combined collection are deleted.
 >
-> If the linked or nested template targets a different resource group, that deployment uses incremental mode.
+> If the linked or nested template targets a different resource group, that deployment uses incremental mode. For more information, see [Deployment Scope](./deploy-to-resource-group.md#deployment-scopes).
 >
 
 > [!TIP]
@@ -442,7 +442,7 @@ You may reference templates using parameters that include HTTP or HTTPS. For exa
 
 If you're linking to a template in GitHub, use the raw URL. The link has the format: `https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-with-templates/quickstart-template/azuredeploy.json`. To get the raw link, select **Raw**.
 
-:::image type="content" source="./media/linked-templates/select-raw.png" alt-text="Select raw URL":::
+:::image type="content" source="./media/linked-templates/select-raw.png" alt-text="Screenshot of selecting raw URL in GitHub.":::
 
 [!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
 
@@ -506,7 +506,7 @@ The `relativePath` property of `Microsoft.Resources/deployments` makes it easier
 
 Assume a folder structure like this:
 
-![resource manager linked template relative path](./media/linked-templates/resource-manager-linked-templates-relative-path.png)
+:::image type="content" source="./media/linked-templates/resource-manager-linked-templates-relative-path.png" alt-text="Diagram showing folder structure for Resource Manager linked template relative path.":::
 
 The following template shows how *mainTemplate.json* deploys *nestedChild.json* illustrated in the preceding image.
 
@@ -707,7 +707,7 @@ To use the public IP address from the preceding template when deploying a load b
 
 Resource Manager processes each template as a separate deployment in the deployment history. A main template with three linked or nested templates appears in the deployment history as:
 
-![Deployment history](./media/linked-templates/deployment-history.png)
+:::image type="content" source="./media/linked-templates/deployment-history.png" alt-text="Screenshot of deployment history in Azure portal.":::
 
 You can use these separate entries in the history to retrieve output values after the deployment. The following template creates a public IP address and outputs the IP address:
 

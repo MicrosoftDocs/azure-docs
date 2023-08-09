@@ -1,17 +1,17 @@
 ---
 title: "Quickstart: ASP.NET web app that signs in users"
-titleSuffix: Microsoft identity platform
 description: Download and run a code sample that shows how an ASP.NET web app can sign in Azure AD users.
 services: active-directory
-author: jmprieur
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2021
 ROBOTS: NOINDEX
-ms.author: jmprieur
+ms.author: owenrichards
+ms.reviewer: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-started", "languages:ASP.NET", contperf-fy21q1, mode-other
 #Customer intent: As an application developer, I want to see a sample ASP.NET web app that can sign in Azure AD users.
 ---
@@ -21,7 +21,7 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 >
-> > [Quickstart: ASP.NET web app that signs in users](web-app-quickstart.md?pivots=devlang-aspnet)
+> > [Quickstart: Add sign-in with Microsoft to an ASP.NET web app](quickstart-web-app-aspnet-sign-in.md)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
@@ -43,7 +43,7 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 > > [!div class="sxs-lookup nextstepaction"]
 > > [Download the code sample](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 > 
-> [!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+> [!INCLUDE [active-directory-develop-path-length-tip](./includes/error-handling-and-tips/path-length-tip.md)]
 > 
 > 
 > #### Step 3: Your app is configured and ready to run
@@ -155,7 +155,7 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 > 
 > You can protect a controller or controller actions by using the `[Authorize]` attribute. This attribute restricts access to the controller or actions by allowing only authenticated users to access the actions in the controller. An authentication challenge will then happen automatically when an unauthenticated user tries to access one of the actions or controllers decorated by the `[Authorize]` attribute.
 > 
-> [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 > 
 > ## Next steps
 > 

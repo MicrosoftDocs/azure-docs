@@ -1,17 +1,17 @@
 ---
-title: "Tutorial: Create a Universal Windows Platform (UWP) app that uses the Microsoft identity platform for authentication | Azure"
-titleSuffix: Microsoft identity platform
+title: "Tutorial: Create a Universal Windows Platform (UWP) app that uses the Microsoft identity platform for authentication"
 description: In this tutorial, you build a UWP application that uses the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API on their behalf.
 services: active-directory
-author: jmprieur
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 12/13/2019
-ms.author: jmprieur
+ms.date: 03/03/2023
+ms.author: henrymbugua
+ms.reviewer: jmprieur
 ms.custom: "devx-track-csharp, aaddev, identityplatformtop40"
 ---
 
@@ -108,6 +108,7 @@ This section shows how to use the Microsoft Authentication Library to get a toke
     ```csharp
     using Microsoft.Identity.Client;
     using Microsoft.Graph;
+    using Microsoft.Graph.Models;
     using System.Diagnostics;
     using System.Threading.Tasks;
     using System.Net.Http.Headers;
@@ -152,7 +153,7 @@ This section shows how to use the Microsoft Authentication Library to get a toke
                 GraphServiceClient graphClient = await SignInAndInitializeGraphServiceClient(scopes);
 
                 // Call the /me endpoint of Graph
-                User graphUser = await graphClient.Me.Request().GetAsync();
+                User graphUser = await graphClient.Me.GetAsync();
 
                 // Go back to the UI thread to make changes to the UI
                 await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
@@ -236,6 +237,42 @@ Eventually, the `AcquireTokenSilent` method fails. Reasons for failure include a
 
 ### Instantiate the Microsoft Graph Service Client by obtaining the token from the SignInUserAndGetTokenUsingMSAL method
 
+In the project, create a new file named *TokenProvider.cs*: right-click on the project, select **Add** > **New Item** > **Blank Page**.
+
+Add to the newly created file the following code:
+
+```csharp
+using Microsoft.Kiota.Abstractions.Authentication;
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace UWP_app_MSGraph {
+    public class TokenProvider : IAccessTokenProvider {
+        private Func<string[], Task<string>> getTokenDelegate;
+        private string[] scopes;
+
+        public TokenProvider(Func<string[], Task<string>> getTokenDelegate, string[] scopes) {
+            this.getTokenDelegate = getTokenDelegate;
+            this.scopes = scopes;
+        }
+
+        public Task<string> GetAuthorizationTokenAsync(Uri uri, Dictionary<string, object> additionalAuthenticationContext = default,
+            CancellationToken cancellationToken = default) {
+            return getTokenDelegate(scopes);
+        }
+
+        public AllowedHostsValidator AllowedHostsValidator { get; }
+    }
+}
+```
+
+> [!TIP]
+> After pasting the code, make sure that the namespace in the *TokenProvider.cs* file matches the namespace of your project. This will allow you to more easily reference the `TokenProvider` class in your project.
+
+The `TokenProvider` class defines a custom access token provider that executes the specified delegate method to get and return an access token.
+
 Add the following new method to *MainPage.xaml.cs*:
 
 ```csharp
@@ -245,14 +282,20 @@ Add the following new method to *MainPage.xaml.cs*:
      /// <returns>GraphServiceClient</returns>
      private async static Task<GraphServiceClient> SignInAndInitializeGraphServiceClient(string[] scopes)
      {
-         GraphServiceClient graphClient = new GraphServiceClient(MSGraphURL,
-             new DelegateAuthenticationProvider(async (requestMessage) =>
-             {
-                 requestMessage.Headers.Authorization = new AuthenticationHeaderValue("bearer", await SignInUserAndGetTokenUsingMSAL(scopes));
-             }));
+         var tokenProvider = new TokenProvider(SignInUserAndGetTokenUsingMSAL, scopes);
+         var authProvider = new BaseBearerTokenAuthenticationProvider(tokenProvider);
+         var graphClient = new GraphServiceClient(authProvider, MSGraphURL);
 
          return await Task.FromResult(graphClient);
      }
+```
+
+In this method, you're using the custom access token provider `TokenProvider` to connect the `SignInUserAndGetTokenUsingMSAL` method to the Microsoft Graph .NET SDK and create an authenticated client.
+
+To use the `BaseBearerTokenAuthenticationProvider`, in the *MainPage.xaml.cs* file, add the following reference:
+
+```cs
+using Microsoft.Kiota.Abstractions.Authentication;
 ```
 
 #### More information on making a REST call against a protected API
@@ -340,6 +383,8 @@ private async Task DisplayMessageAsync(string message)
 
 ## Register your application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Now, register your application:
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
@@ -415,7 +460,7 @@ In the current sample, the `WithRedirectUri("https://login.microsoftonline.com/c
        .Build();
    ```
 
-2.	Find the callback URI for your app by adding the `redirectURI` field in *MainPage.xaml.cs* and setting a breakpoint on it:
+2. Find the callback URI for your app by adding the `redirectURI` field in *MainPage.xaml.cs* and setting a breakpoint on it:
 
     ```csharp
 
@@ -498,7 +543,7 @@ You enable [integrated authentication on federated domains](#enable-integrated-a
 
 **Workaround:** Select **Sign in with other options**. Then select **Sign in with a username and password**. Select **Provide your password**. Then go through the phone authentication process.
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 

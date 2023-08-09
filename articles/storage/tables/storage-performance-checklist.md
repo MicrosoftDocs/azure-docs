@@ -1,21 +1,22 @@
 ---
-title: Performance and scalability checklist for Table storage - Azure Storage
+title: Performance and scalability checklist for Table storage
+titleSuffix: Azure Storage
 description: A checklist of proven practices for use with Table storage in developing high-performance applications.
 services: storage
-author: tamram
-ms.author: tamram
-ms.service: storage
+author: pauljewellmsft
+ms.author: pauljewell
+ms.service: azure-table-storage
 ms.topic: overview
 ms.date: 10/10/2019
-ms.subservice: tables
-ms.custom: devx-track-csharp
+ms.devlang: csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Performance and scalability checklist for Table storage
 
 Microsoft has developed a number of proven practices for developing high-performance applications with Table storage. This checklist identifies key practices that developers can follow to optimize performance. Keep these practices in mind while you are designing your application and throughout the process.
 
-Azure Storage has scalability and performance targets for capacity, transaction rate, and bandwidth. For more information about Azure Storage scalability targets, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json) and [Scalability and performance targets for Table storage](scalability-targets.md).
+Azure Storage has scalability and performance targets for capacity, transaction rate, and bandwidth. For more information about Azure Storage scalability targets, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=/azure/storage/tables/toc.json) and [Scalability and performance targets for Table storage](scalability-targets.md).
 
 ## Checklist
 
@@ -61,7 +62,7 @@ For more information about scalability targets for the Table service, see [Scala
 
 ### Maximum number of storage accounts
 
-If you're approaching the maximum number of storage accounts permitted for a particular subscription/region combination, are you using multiple storage accounts to shard to increase ingress, egress, I/O operations per second (IOPS), or capacity? In this scenario, Microsoft recommends that you take advantage of increased limits for storage accounts to reduce the number of storage accounts required for your workload if possible. Contact [Azure Support](https://azure.microsoft.com/support/options/) to request increased limits for your storage account. For more information, see [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
+If you're approaching the maximum number of storage accounts permitted for a particular subscription/region combination, are you using multiple storage accounts to shard to increase ingress, egress, I/O operations per second (IOPS), or capacity? In this scenario, Microsoft recommends that you take advantage of increased limits for storage accounts to reduce the number of storage accounts required for your workload if possible. Contact [Azure Support](https://azure.microsoft.com/support/options/) to request increased limits for your storage account.
 
 ### Capacity and transaction targets
 
@@ -286,5 +287,5 @@ If you are performing batch inserts and then retrieving ranges of entities toget
 ## Next steps
 
 - [Scalability and performance targets for Table storage](scalability-targets.md)
-- [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)
+- [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=/azure/storage/tables/toc.json)
 - [Status and error codes](/rest/api/storageservices/Status-and-Error-Codes2)

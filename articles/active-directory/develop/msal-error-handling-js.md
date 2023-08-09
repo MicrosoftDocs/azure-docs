@@ -1,9 +1,8 @@
 ---
 title: Handle errors and exceptions in MSAL.js
-titleSuffix: Microsoft identity platform
 description: Learn how to handle errors and exceptions, Conditional Access claims challenges, and retries in MSAL.js applications.
 services: active-directory
-author: mmacy
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,13 +10,13 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/26/2020
-ms.author: marsma
+ms.author: dmwendia
 ms.reviewer: saeeda, hahamil
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-js
 ---
 # Handle errors and exceptions in MSAL.js
 
-[!INCLUDE [Active directory error handling introduction](../../../includes/active-directory-develop-error-handling-introduction.md)]
+[!INCLUDE [Active directory error handling introduction](./includes/error-handling-and-tips/error-handling-introduction.md)]
 
 ## Error handling in MSAL.js
 
@@ -55,17 +54,20 @@ The following error types are available:
 
 - `InteractionRequiredAuthError`: Error class, extends `ServerError` to represent server errors, which require an interactive call. This error is thrown by `acquireTokenSilent` if the user is required to interact with the server to provide credentials or consent for authentication/authorization. Error codes include `"interaction_required"`, `"login_required"`, and `"consent_required"`.
 
-For error handling in authentication flows with redirect methods (`loginRedirect`, `acquireTokenRedirect`), you'll need to register the callback, which is called with success or failure after the redirect using `handleRedirectCallback()` method as follows:
+For error handling in authentication flows with redirect methods (`loginRedirect`, `acquireTokenRedirect`), you'll need to handle the redirect promise, which is called with success or failure after the redirect using the `handleRedirectPromise()` method as follows:
 
 ```javascript
-function authCallback(error, response) {
-    //handle redirect response
-}
-
-var myMSALObj = new Msal.UserAgentApplication(msalConfig);
+const msal = require('@azure/msal-browser');
+const myMSALObj = new msal.PublicClientApplication(msalConfig);
 
 // Register Callbacks for redirect flow
-myMSALObj.handleRedirectCallback(authCallback);
+myMSALObj.handleRedirectPromise()
+    .then(function (response) {
+        //success response
+    })
+    .catch((error) => {
+        console.log(error);
+    })
 myMSALObj.acquireTokenRedirect(request);
 ```
 
@@ -98,10 +100,8 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
     // call API
 }).catch( function (error) {
     // call acquireTokenPopup in case of acquireTokenSilent failure
-    // due to consent or interaction required
-    if (error.errorCode === "consent_required"
-    || error.errorCode === "interaction_required"
-    || error.errorCode === "login_required") {
+    // due to interaction required
+    if (error instanceof InteractionRequiredAuthError) {
         myMSALObj.acquireTokenPopup(request).then(
             function (response) {
                 // call API
@@ -112,9 +112,9 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 });
 ```
 
-[!INCLUDE [Active directory error handling claims challenges](../../../includes/active-directory-develop-error-handling-claims-challenges.md)]
+[!INCLUDE [Active directory error handling claims challenges](./includes/error-handling-and-tips/error-handling-claims-challenges.md)]
 
-When getting tokens silently (using `acquireTokenSilent`) using MSAL.js, your application may receive errors when a [Conditional Access claims challenge](../azuread-dev/conditional-access-dev-guide.md) such as MFA policy is required by an API you're trying to access.
+When getting tokens silently (using `acquireTokenSilent`) using MSAL.js, your application may receive errors when a [Conditional Access claims challenge](v2-conditional-access-dev-guide.md) such as MFA policy is required by an API you're trying to access.
 
 The pattern to handle this error is to make an interactive call to acquire token in MSAL.js such as `acquireTokenPopup` or `acquireTokenRedirect` as in the following example:
 
@@ -124,10 +124,9 @@ myMSALObj.acquireTokenSilent(accessTokenRequest).then(function(accessTokenRespon
 }).catch(function(error) {
     if (error instanceof InteractionRequiredAuthError) {
     
-        // extract, if exists, claims from error message
-        if (error.ErrorMessage.claims) {
-            accessTokenRequest.claimsRequest = JSON.stringify(error.ErrorMessage.claims);
-        }
+        // extract, if exists, claims from the error object
+        if (error.claims) {
+            accessTokenRequest.claims = error.claims,
         
         // call acquireTokenPopup in case of InteractionRequiredAuthError failure
         myMSALObj.acquireTokenPopup(accessTokenRequest).then(function(accessTokenResponse) {
@@ -141,13 +140,12 @@ myMSALObj.acquireTokenSilent(accessTokenRequest).then(function(accessTokenRespon
 
 Interactively acquiring the token prompts the user and gives them the opportunity to satisfy the required Conditional Access policy.
 
-When calling an API requiring Conditional Access, you can receive a claims challenge in the error from the API. In this case, you can pass the claims returned in the error to the `claimsRequest` field of the `AuthenticationParameters.ts` class to satisfy the appropriate policy. 
+When calling an API requiring Conditional Access, you can receive a claims challenge in the error from the API. In this case, you can pass the claims returned in the error to the `claims` parameter in the [access token request object](msal-js-pass-custom-state-authentication-request.md) to satisfy the appropriate policy. 
 
-See [Requesting Additional Claims](active-directory-optional-claims.md) for more detail.
+See [How to use Continuous Access Evaluation enabled APIs in your applications](./app-resilience-continuous-access-evaluation.md) for more detail.
 
-
-[!INCLUDE [Active directory error handling retries](../../../includes/active-directory-develop-error-handling-retries.md)]
+[!INCLUDE [Active directory error handling retries](./includes/error-handling-and-tips/error-handling-retries.md)]
 
 ## Next steps
 
-Consider enabling [Logging in MSAL.js](msal-logging-js.md) to help you diagnose and debug issues.
+Consider enabling [Logging in MSAL.js](msal-logging-js.md) to help you diagnose and debug issues

@@ -3,6 +3,7 @@ title: Onboard an Azure Arc-enabled server to Azure Automanage with an ARM templ
 description: Learn how to onboard an Azure Arc-enabled server to Azure Automanage with an Azure Resource Manager template.
 ms.service: automanage
 ms.workload: infrastructure
+ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 02/25/2022
 ---
@@ -14,8 +15,8 @@ Follow the steps to onboard an Azure Arc-enabled server to Automanage Best Pract
 
 ## Prerequisites
 * You must have an Azure Arc-enabled server already registered in your subscription
-* You must have necessary [Role-based access control permissions](./automanage-virtual-machines.md#required-rbac-permissions)
-* You must use one of the [supported operating systems](./automanage-arc.md#supported-operating-systems)
+* You must have necessary [Role-based access control permissions](./overview-about.md#required-rbac-permissions)
+* You must use one of the [supported operating systems](./overview-about.md#prerequisites)
 
 ## ARM template overview
 The following ARM template will onboard your specified Azure Arc-enabled server onto Azure Automanage Best Practices. Details on the ARM template and steps on how to deploy are located in the ARM template deployment [section](#arm-template-deployment).
@@ -34,7 +35,7 @@ The following ARM template will onboard your specified Azure Arc-enabled server 
     "resources": [
         {
             "type": "Microsoft.HybridCompute/machines/providers/configurationProfileAssignments",
-            "apiVersion": "2021-04-30-preview",
+            "apiVersion": "2022-05-04",
             "name": "[concat(parameters('machineName'), '/Microsoft.Automanage/default')]",
             "properties": {
                 "configurationProfile": "[parameters('configurationProfile')]"
@@ -50,6 +51,7 @@ This ARM template will create a configuration profile assignment for your specif
 The `configurationProfile` value can be one of the following values:
 * "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesProduction"
 * "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesDevTest"
+* "/subscriptions/[sub ID]/resourceGroups/resourceGroupName/providers/Microsoft.Automanage/configurationProfiles/customProfileName (for custom profiles)
 
 Follow these steps to deploy the ARM template:
 1. Save this ARM template as `azuredeploy.json`.

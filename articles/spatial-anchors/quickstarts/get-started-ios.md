@@ -8,7 +8,7 @@ ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.custom: has-adal-ref, devx-track-azurecli, mode-other
+ms.custom: has-adal-ref, devx-track-azurecli, mode-other, devx-track-azurepowershell
 ---
 
 # Run the sample app: iOS - Xcode (Swift or Objective-C)
@@ -34,6 +34,8 @@ To complete this quickstart, make sure you have:
   1. Run `brew install git` and `brew install git-lfs`.
   1. Update your git config with `git lfs install` (for the current user) or `git lfs install --system` (for the entire system).
 - A developer enabled <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit compatible</a> iOS device.
+
+## Create a Spatial Anchors resource
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -64,6 +66,11 @@ cd ./iOS/Objective-C/
 ---
 
 Run `pod install --repo-update` to install the CocoaPods for the project.
+
+> [!NOTE]
+> Use the following command if you have macOS Monterey (12.2.1)
+
+Run `pod update` to install the CocoaPods for the project.
 
 Now open the `.xcworkspace` in Xcode.
 

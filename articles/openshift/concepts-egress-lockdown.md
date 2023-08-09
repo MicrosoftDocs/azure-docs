@@ -1,8 +1,8 @@
 ---
 title: Overview of Azure Red Hat OpenShift egress lockdown
 description: Overview of egress lockdown for Azure Red Hat OpenShift clusters
-author: rahulm23
-ms.author: rahulmehta
+author: johnmarco
+ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: egress lockdown, aro cluster, aro, networking, azure, openshift, red hat
 ms.topic: conceptual
@@ -30,7 +30,7 @@ A well-known subset of domains (that the Azure Red Hat OpenShift clusters need t
 
 ## Enable egress lockdown
 
-In order to function, egress lock down relies on the Server Name Indication (SNI) extension to the Transport Layer Security (TLS). All customer workloads that communicate with the well-known subset of domains must have SNI enabled. 
+In order to function, egress lockdown relies on the Server Name Indication (SNI) extension to the Transport Layer Security (TLS). All customer workloads that communicate with the well-known subset of domains must have SNI enabled. 
 
 Egress lockdown is enabled by default for new cluster creation. However, to enable egress lockdown on existing clusters, you must have SNI enabled on the customer workloads. To enable egress lockdown on your existing clusters, submit a support case to either [Microsoft Support](https://support.microsoft.com) or [Red Hat Support](https://www.redhat.com/en/services/support).
 
@@ -39,7 +39,7 @@ Egress lockdown is enabled by default for new cluster creation. However, to enab
 To verify whether egress lockdown is enabled on a cluster, sign in to your Azure cluster and run the following command:
 
   ```azurecli
-  $ oc get cluster.aro.openshift.io cluster -o go-template='{{ if .spec.gatewayDomains }}{{ "Egress Lockdown Feature Enabled" }}{{ else }}{{ "Egress Lockdown Feature Disabled" }}{{ end }}{{ "\n" }}
+  $ oc get cluster.aro.openshift.io cluster -o go-template='{{ if .spec.gatewayDomains }}{{ "Egress Lockdown Feature Enabled" }}{{ else }}{{ "Egress Lockdown Feature Disabled" }}{{ end }}{{ "\n" }}'
   ```
 Depending on whether egress lockdown is enabled or disabled, you'll see one of the following messages:
 

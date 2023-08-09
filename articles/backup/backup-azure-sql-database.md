@@ -2,7 +2,9 @@
 title: Back up SQL Server databases to Azure 
 description: This article explains how to back up SQL Server to Azure. The article also explains SQL Server recovery.
 ms.topic: conceptual
-ms.date: 08/20/2021
+ms.date: 08/11/2022
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # About SQL Server Backup in Azure VMs
 
@@ -16,7 +18,7 @@ ms.date: 08/20/2021
 >[!Note]
 >Snapshot-based backup for SQL databases in Azure VM is now in preview. This unique offering combines the goodness of snapshots, leading to a better RTO and low impact on the server along with the benefits of frequent log backups for low RPO. For any queries/access, write to us at  [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
 
-To view the backup and restore scenarios that we support today, refer to the [support matrix](sql-support-matrix.md#scenario-support).
+To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support).
 
 ## Backup process
 
@@ -36,7 +38,7 @@ This solution leverages the SQL native APIs to take backups of your SQL database
 
 Before you start, verify the following requirements:
 
-1. Make sure you have a SQL Server instance running in Azure. You can [quickly create a SQL Server instance](../azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart.md) in the marketplace.
+1. Make sure you have a SQL Server instance running in Azure. You can [quickly create a SQL Server instance](/azure/azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart) in the marketplace.
 2. Review the [feature considerations](sql-support-matrix.md#feature-considerations-and-limitations) and [scenario support](sql-support-matrix.md#scenario-support).
 3. [Review common questions](faq-backup-sql-server.yml) about this scenario.
 

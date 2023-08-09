@@ -1,19 +1,17 @@
 ---
 title: Design Considerations for Azure Virtual Machine Scale Sets
 description: Learn about the design considerations for your Azure Virtual Machine Scale Sets. Compare scale sets features with VM features.
-keywords: linux virtual machine,virtual machine scale sets
+keywords: linux virtual machine,Virtual Machine Scale Sets
 author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.date: 06/25/2020
+ms.date: 11/22/2022
 ms.reviewer: jushiman
 ms.custom: mimckitt
 
 ---
 # Design Considerations For Scale Sets
-
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
 This article discusses design considerations for Virtual Machine Scale Sets. For information about what Virtual Machine Scale Sets are, refer to [Virtual Machine Scale Sets Overview](./overview.md).
 
@@ -32,8 +30,8 @@ Generally, scale sets are useful for deploying highly available infrastructure w
 
 Some features are currently only available in VMs:
 
-- You can capture an image from an individual VM, but not from a VM in a scale set.
-- You can migrate an individual VM from native disks to managed disks, but you cannot migrate VM instances in a scale set.
+- You can capture an image from a VM in a flexible scale set, but not from a VM in a uniform scale set.
+- You can migrate an individual VM from classic disks to managed disks, but you cannot migrate VM instances in a uniform scale set.
 - You can assign IPv6 public IP addresses to individual VM virtual network interface cards (NICs), but cannot do so for VM instances in a scale set. You can assign IPv6 public IP addresses to load balancers in front of either individual VMs or scale set VMs.
 
 ## Storage
@@ -44,21 +42,19 @@ Scale sets can be created with [Azure Managed Disks](../virtual-machines/managed
 - You can define [attached data disks](virtual-machine-scale-sets-attached-disks.md) for the VMs in your scale set.
 - Scale sets can be configured to [support up to 1,000 VMs in a set](virtual-machine-scale-sets-placement-groups.md). 
 
-If you have an existing template, you can also [update the template to use Managed Disks](virtual-machine-scale-sets-convert-template-to-md.md).
-
 ### User-managed Storage
 A scale set that is not defined with Azure Managed Disks relies on user-created storage accounts to store the OS disks of the VMs in the set. A ratio of 20 VMs per storage account or less is recommended to achieve maximum IO and also take advantage of _overprovisioning_ (see below). It is also recommended that you spread the beginning characters of the storage account names across the alphabet. Doing so helps spread load across different internal systems. 
 
 
 ## Overprovisioning
-Scale sets currently default to "overprovisioning" VMs. With overprovisioning turned on, the scale set actually spins up more VMs than you asked for, then deletes the extra VMs once the requested number of VMs are successfully provisioned. Overprovisioning improves provisioning success rates and reduces deployment time. You are not billed for the extra VMs, and they do not count toward your quota limits.
+With overprovisioning turned on, the scale set actually spins up more VMs than you asked for, then deletes the extra VMs once the requested number of VMs are successfully provisioned. Overprovisioning improves provisioning success rates and reduces deployment time. You are not billed for the extra VMs, and they do not count toward your quota limits.
 
 While overprovisioning does improve provisioning success rates, it can cause confusing behavior for an application that is not designed to handle extra VMs appearing and then disappearing. To turn overprovisioning off, ensure you have the following string in your template: `"overprovision": "false"`. More details can be found in the [Scale Set REST API documentation](/rest/api/virtualmachinescalesets/create-or-update-a-set).
 
 If your scale set uses user-managed storage, and you turn off overprovisioning, you can have more than 20 VMs per storage account, but it is not recommended to go above 40 for IO performance reasons. 
 
 ## Limits
-A scale set built on a Marketplace image (also known as a platform image) and configured to use Azure Managed Disks supports a capacity of up to 1,000 VMs. If you configure your scale set to support more than 100 VMs, not all scenarios work the same (for example load balancing). For more information, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md). 
+A scale set built on a Marketplace image (also known as a platform image) and configured to use Azure Managed Disks supports a capacity of up to 1,000 VMs. If you configure your scale set to support more than 100 VMs, not all scenarios work the same (for example load balancing). For more information, see [Working with large Virtual Machine Scale Sets](virtual-machine-scale-sets-placement-groups.md). 
 
 A scale set configured with user-managed storage accounts is currently limited to 100 VMs (and 5 storage accounts are recommended for this scale).
 

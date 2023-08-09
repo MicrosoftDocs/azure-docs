@@ -1,13 +1,14 @@
 ---
 title: Azure Service Fabric reverse proxy 
 description: Use Service Fabric's reverse proxy for communication to microservices from inside and outside the cluster.
-author: BharatNarasimman
-
 ms.topic: conceptual
-ms.date: 11/03/2017
-ms.author: bharatn
-ms.custom: devx-track-csharp
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Reverse proxy in Azure Service Fabric
 Reverse proxy built into Azure Service Fabric helps microservices running in a Service Fabric cluster discover and communicate with other services that have http endpoints.
 

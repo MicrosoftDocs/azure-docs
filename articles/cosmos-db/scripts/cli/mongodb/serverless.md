@@ -1,23 +1,25 @@
 ---
-title: Create a serverless database and collection for MongoDB API for Azure Cosmos DB
-description: Create a serverless database and collection for MongoDB API for Azure Cosmos DB
-author: markjbrown
-ms.author: mjbrown
+title: Create a serverless database and collection for API for MongoDB for Azure Cosmos DB
+description: Create a serverless database and collection for API for MongoDB for Azure Cosmos DB
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
+ms.custom: ignite-2022, devx-track-azurecli
 ms.topic: sample
 ms.date: 02/21/2022
 ---
 
-# Create a serverless database and collection for MongoDB API for Azure Cosmos DB using Azure CLI
+# Create a serverless database and collection for API for MongoDB for Azure Cosmos DB using Azure CLI
 
-[!INCLUDE[appliesto-mongodb-api](../../../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../../../includes/appliesto-mongodb.md)]
 
-The script in this article demonstrates creating a MongoDB API serverless account database and collection.
+The script in this article demonstrates creating a API for MongoDB serverless account database and collection.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If using Azure Cloud Shell, the latest version is already installed.
 
@@ -45,8 +47,8 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Creates an Azure Cosmos DB account. |
-| [az cosmosdb mongodb database create](/cli/azure/cosmosdb/mongodb/database#az-cosmosdb-mongodb-database-create) | Creates an Azure Cosmos MongoDB API database. |
-| [az cosmosdb mongodb collection create](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-create) | Creates an Azure Cosmos MongoDB API collection. |
+| [az cosmosdb mongodb database create](/cli/azure/cosmosdb/mongodb/database#az-cosmosdb-mongodb-database-create) | Creates an Azure Cosmos DB MongoDB API database. |
+| [az cosmosdb mongodb collection create](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-create) | Creates an Azure Cosmos DB MongoDB API collection. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps

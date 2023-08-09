@@ -8,8 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 04/27/2018
 ms.author: wiassaf
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse
+ms.custom: seo-lt-2019, azure-synapse, devx-track-arm-template
 ---
 
 # Use Azure Functions to manage compute resources for your dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics

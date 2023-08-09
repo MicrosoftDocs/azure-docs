@@ -1,145 +1,157 @@
 ---
-title: Connect your non-Azure machines to Microsoft Defender for Cloud
-description: Learn how to connect your non-Azure machines to Microsoft Defender for Cloud
-ms.topic: quickstart
-ms.date: 02/27/2022
-zone_pivot_groups: non-azure-machines
+title: Connect on-premises machines
+description: Learn how to connect your non-Azure machines to Microsoft Defender for Cloud.
+ms.topic: install-set-up-deploy
+ms.date: 06/29/2023
 ms.custom: mode-other
 ---
+
 # Connect your non-Azure machines to Microsoft Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-Defender for Cloud can monitor the security posture of your non-Azure computers, but first you need to connect them to Azure.
+Microsoft Defender for Cloud can monitor the security posture of your non-Azure machines, but first you need to connect them to Azure.
 
 You can connect your non-Azure computers in any of the following ways:
 
-- Using Azure Arc-enabled servers (**recommended**)
-- From Defender for Cloud's pages in the Azure portal (**Getting started** and **Inventory**)
+- Onboarding with Azure Arc:
+  - By using Azure Arc-enabled servers (recommended)
+  - By using the Azure portal
+- [Onboarding directly with Microsoft Defender for Endpoint](onboard-machines-with-defender-for-endpoint.md)
 
-Each of these is described on this page.
+This article describes the methods for onboarding with Azure Arc.
 
-> [!TIP]
-> If you're connecting machines from other cloud providers, see [Connect your AWS accounts](quickstart-onboard-aws.md) or [Connect your GCP projects](quickstart-onboard-gcp.md).
+If you're connecting machines from other cloud providers, see [Connect your AWS account](quickstart-onboard-aws.md) or [Connect your GCP project](quickstart-onboard-gcp.md). The multicloud connectors for Amazon Web Services (AWS) and Google Cloud Platform (GCP) in Defender for Cloud transparently handle the Azure Arc deployment for you.
 
-::: zone pivot="azure-arc"
+## Prerequisites
 
-## Add non-Azure machines with Azure Arc
+To complete the procedures in this article, you need:
 
-The preferred way of adding your non-Azure machines to Microsoft Defender for Cloud is with [Azure Arc-enabled servers](../azure-arc/servers/overview.md).
+- A Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free one](https://azure.microsoft.com/pricing/free-trial/).
 
-A machine with Azure Arc-enabled servers becomes an Azure resource and - when you've installed the Log Analytics agent on it - appears in Defender for Cloud with recommendations like your other Azure resources.
+- [Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) set up on your Azure subscription.
 
-In addition, Azure Arc-enabled servers provides enhanced capabilities such as the option to enable guest configuration policies on the machine, simplify deployment with other Azure services, and more. For an overview of the benefits, see [Supported cloud operations](../azure-arc/servers/overview.md#supported-cloud-operations).
+- Access to an on-premises machine.
 
-> [!NOTE]
-> Defender for Cloud's auto-deploy tools for deploying the Log Analytics agent works with machines running Azure Arc however this capability is currently in preview . When you've connected your machines using Azure Arc, use the relevant Defender for Cloud recommendation to deploy the agent and benefit from the full range of protections offered by Defender for Cloud:
->
-> - [Log Analytics agent should be installed on your Linux-based Azure Arc machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/720a3e77-0b9a-4fa9-98b6-ddf0fd7e32c1)
-> - [Log Analytics agent should be installed on your Windows-based Azure Arc machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/27ac71b1-75c5-41c2-adc2-858f5db45b08)
+## Connect on-premises machines by using Azure Arc
 
-Learn more about [Azure Arc-enabled servers](../azure-arc/servers/overview.md).
+A machine that has [Azure Arc-enabled servers](../azure-arc/servers/overview.md) becomes an Azure resource. When you install the Log Analytics agent on it, it appears in Defender for Cloud with recommendations, like your other Azure resources.
 
-**To deploy Azure Arc:**
+Azure Arc-enabled servers provide enhanced capabilities, such as enabling guest configuration policies on the machine and simplifying deployment with other Azure services. For an overview of the benefits of Azure Arc-enabled servers, see [Supported cloud operations](../azure-arc/servers/overview.md#supported-cloud-operations).
 
-- For one machine, follow the instructions in [Quickstart: Connect hybrid machines with Azure Arc-enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
-- To connect multiple machines at scale to Azure Arc-enabled servers, see [Connect hybrid machines to Azure at scale](../azure-arc/servers/onboard-service-principal.md)
+To deploy Azure Arc on one machine, follow the instructions in [Quickstart: Connect hybrid machines with Azure Arc-enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 
-> [!TIP]
-> If you're onboarding machines running on Amazon Web Services (AWS), Defender for Cloud's connector for AWS transparently handles the Azure Arc deployment for you. Learn more in [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md).
+To deploy Azure Arc on multiple machines at scale, follow the instructions in [Connect hybrid machines to Azure at scale](../azure-arc/servers/onboard-service-principal.md).
 
-::: zone-end
+Defender for Cloud tools for automatically deploying the Log Analytics agent work with machines running Azure Arc. However, this capability is currently in preview. When you connect your machines by using Azure Arc, use the relevant Defender for Cloud recommendation to deploy the agent and benefit from the full range of protections that Defender for Cloud offers:
 
-::: zone pivot="azure-portal"
+- [Log Analytics agent should be installed on your Linux-based Azure Arc machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/720a3e77-0b9a-4fa9-98b6-ddf0fd7e32c1)
+- [Log Analytics agent should be installed on your Windows-based Azure Arc machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/27ac71b1-75c5-41c2-adc2-858f5db45b08)
 
-## Add non-Azure machines from the Azure portal
+## Connect on-premises machines by using the Azure portal
 
-1. From Defender for Cloud's menu, open the **Getting started** page.
+After you connect Defender for Cloud to your Azure subscription, you can start connecting your on-premises machines from the **Getting started** page in Defender for Cloud.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Search for and select **Microsoft Defender for Cloud**.
+
+1. On the Defender for Cloud menu, select **Getting started**.
+
 1. Select the **Get started** tab.
-1. Below **Add non-Azure servers**, select **Configure** .
 
-    :::image type="content" source="./media/quickstart-onboard-machines/onboarding-get-started-tab.png" alt-text="Get Started tab in the Getting started page." lightbox="./media/quickstart-onboard-machines/onboarding-get-started-tab.png":::
+1. Find **Add non-Azure servers** and select **Configure**.
 
-    > [!TIP]
-    > You can also open add machines from the **inventory** page's **Add non-Azure servers** button.
-    > 
-    > :::image type="content" source="./media/quickstart-onboard-machines/onboard-inventory.png" alt-text="Adding non-Azure machines from the asset inventory page.":::
+    :::image type="content" source="./media/quickstart-onboard-machines/onboarding-get-started-tab.png" alt-text="Screenshot of the tab for getting started with Defender for Cloud and adding an on-premises server." lightbox="./media/quickstart-onboard-machines/onboarding-get-started-tab.png":::
 
-    A list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Defender for Cloud when automatic provisioning was enabled. Select this workspace or another workspace you want to use.
+    A list of your Log Analytics workspaces appears.
 
-    You can add computers to an existing workspace or create a new workspace.
+1. (Optional) If you don't already have a Log Analytics workspace in which to store the data, select **Create new workspace** and follow the on-screen guidance.
 
-1. Optionally, to create a new workspace, select  **Create new workspace**.
+1. From the list of workspaces, select **Upgrade** for the relevant workspace to turn on Defender for Cloud paid plans for 30 free days.
 
 1. From the list of workspaces, select **Add Servers** for the relevant workspace.
 
-    The **Agents management** page appears.
+1. On the **Agents management** page, choose one of the following procedures, depending on the type of machines you're onboarding:
 
-    From here, choose the relevant procedure below depending on the type of machines you're onboarding:
+   - [Onboard your Windows server](#onboard-your-windows-server)
+   - [Onboard your Linux server](#onboard-your-linux-server)
 
-    - [Onboard your Azure Stack Hub VMs](#onboard-your-azure-stack-hub-vms)
-    - [Onboard your Linux machines](#onboard-your-linux-machines)
-    - [Onboard your Windows machines](#onboard-your-windows-machines)
+## Onboard your Windows server
 
-### Onboard your Azure Stack Hub VMs
+When you add a Windows server, you need to get the information on the **Agents management** page and download the appropriate agent file (32 bit or 64 bit).
 
-To add Azure Stack Hub VMs, you need the information on the **Agents management** page and to configure the **Azure Monitor, Update and Configuration Management** virtual machine extension on the virtual machines running on your Azure Stack Hub instance.
+To onboard a Windows server:
 
-1. From the **Agents management** page, copy the **Workspace ID** and **Primary Key** into Notepad.
-1. Log into your **Azure Stack Hub** portal and open the **Virtual machines** page.
-1. Select the virtual machine that you want to protect with Defender for Cloud.
-    >[!TIP]
-    > For information on how to create a virtual machine on Azure Stack Hub, see [this quickstart for Windows virtual machines](/azure-stack/user/azure-stack-quick-windows-portal) or [this quickstart for Linux virtual machines](/azure-stack/user/azure-stack-quick-linux-portal).
-1. Select **Extensions**. The list of virtual machine extensions installed on this virtual machine is shown.
-1. Select the **Add** tab. The **New Resource** menu shows the list of available virtual machine extensions.
-1. Select the **Azure Monitor, Update and Configuration Management** extension and select **Create**. The **Install extension** configuration page opens.
-    >[!NOTE]
-    > If you do not see the **Azure Monitor, Update and Configuration Management** extension listed in your marketplace, please reach out to your Azure Stack Hub operator to make it available.
-1. On the **Install extension** configuration page, paste the **Workspace ID** and **Workspace Key (Primary Key)** that you copied into Notepad in the previous step.
-1. When you complete the configuration, select **OK**. The extension's status will show as **Provisioning Succeeded**. It might take up to one hour for the virtual machine to appear in Defender for Cloud.
+1. Select **Windows servers**.
 
-### Onboard your Linux machines
+    :::image type="content" source="media/quickstart-onboard-machines/windows-servers.png" alt-text="Screenshot that shows the tab for Windows servers.":::
 
-To add Linux machines, you need the WGET command from the **Agents management** page.
+1. Select the **Download Windows Agent** link that's applicable to your computer processor type to download the setup file.
 
-1. From the **Agents management** page, copy the **WGET** command into Notepad. Save this file to a location that can be accessible from your Linux computer.
-1. On your Linux computer, open the file with the WGET command. Select the entire content and copy and paste it into a terminal console.
-1. When the installation completes, you can validate that the `omsagent` is installed by running the `pgrep` command. The command will return the `omsagent` PID.
+1. From the **Agents management** page, copy the **Workspace ID** and **Primary Key** values into Notepad.
 
-    The logs for the Agent can be found at: `/var/opt/microsoft/omsagent/\<workspace id>/log/`. It might take up to 30 minutes for the new Linux machine to appear in Defender for Cloud.
-
-### Onboard your Windows machines
-
-To add Windows machines, you need the information on the **Agents management** page and to download the appropriate agent file (32/64-bit).
-1. Select the **Download Windows Agent** link applicable to your computer processor type to download the setup file.
-1. From the **Agents management** page, copy the **Workspace ID** and **Primary Key** into Notepad.
 1. Copy the downloaded setup file to the target computer and run it.
-1. Follow the installation wizard (**Next**, **I Agree**, **Next**, **Next**).
-    1. On the **Azure Log Analytics** page, paste the **Workspace ID** and **Workspace Key (Primary Key)** that you copied into Notepad.
-    1. If the computer should report to a Log Analytics workspace in Azure Government cloud, select **Azure US Government** from the **Azure Cloud** dropdown list.
-    1. If the computer needs to communicate through a proxy server to the Log Analytics service, select **Advanced** and provide the URL and port number of the proxy server.
-    1. When you've entered all of the configuration settings, select **Next**.
-    1. From the **Ready to Install** page, review the settings to be applied and select **Install**.
-    1. On the **Configuration completed successfully** page, select **Finish**.
 
-When complete, the **Microsoft Monitoring agent** appears in **Control Panel**. You can review your configuration there and verify that the agent is connected.
+1. Follow the installation wizard (select **Next** > **I Agree** > **Next** > **Next**).
 
-For further information on installing and configuring the agent, see [Connect Windows machines](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard).
+1. On the **Azure Log Analytics** page, paste the **Workspace ID** and **Primary Key** values that you copied into Notepad.
 
-::: zone-end
+1. If the computer should report to a Log Analytics workspace in the Azure Government cloud, select **Azure US Government** from the **Azure Cloud** dropdown list.
 
-## Verifying
+1. If the computer needs to communicate through a proxy server to the Log Analytics service, select **Advanced**. Then provide the URL and port number of the proxy server.
 
-Congratulations! Now you can see your Azure and non-Azure machines together in one place. Open the [asset inventory page](asset-inventory.md) and filter to the relevant resource types. These icons distinguish the types:
+1. When you finish entering all of the configuration settings, select **Next**.
 
-  ![Defender for Cloud icon for non-Azure machine.](./media/quickstart-onboard-machines/security-center-monitoring-icon1.png) Non-Azure machine
+1. On the **Ready to Install** page, review the settings to be applied and select **Install**.
 
-  ![Defender for Cloud icon for Azure machine.](./media/quickstart-onboard-machines/security-center-monitoring-icon2.png) Azure VM
+1. On the **Configuration completed successfully** page, select **Finish**.
 
-  ![Defender for Cloud icon for Azure Arc server.](./media/quickstart-onboard-machines/arc-enabled-machine-icon.png) Azure Arc-enabled server
+When the process is complete, **Microsoft Monitoring agent** appears in **Control Panel**. You can review your configuration there and verify that the agent is connected.
+
+For more information on installing and configuring the agent, see [Connect Windows machines](../azure-monitor/agents/agent-windows.md#install-the-agent).
+
+### Onboard your Linux server
+
+To add Linux machines, you need the `wget` command from the **Agents management** page.
+
+To onboard your Linux server:
+
+1. Select **Linux servers**.
+
+    :::image type="content" source="media/quickstart-onboard-machines/linux-servers.png" alt-text="Screenshot that shows the tab for Linux servers.":::
+
+1. Copy the `wget` command into Notepad. Save this file to a location that you can access from your Linux computer.
+
+1. On your Linux computer, open the file that contains the `wget` command. Copy the entire contents and paste them into a terminal console.
+
+1. When the installation finishes, validate that the Operations Management Suite Agent is installed by running the `pgrep` command. The command returns the `omsagent` persistent ID.
+
+    You can find the logs for the agent at `/var/opt/microsoft/omsagent/<workspace id>/log/`. The new Linux machine might take up to 30 minutes to appear in Defender for Cloud.
+
+## Verify that your machines are connected
+
+Your Azure and on-premises machines are available to view in one location.
+
+To verify that your machines are connected:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Search for and select **Microsoft Defender for Cloud**.
+
+1. On the Defender for Cloud menu, select **Inventory** to show the [asset inventory](asset-inventory.md).
+
+1. Filter the page to view the relevant resource types. These icons distinguish the types:
+
+   ![Defender for Cloud icon for an on-premises machine.](./media/quickstart-onboard-machines/security-center-monitoring-icon1.png) Non-Azure machine
+
+   ![Defender for Cloud icon for an Azure machine.](./media/quickstart-onboard-machines/security-center-monitoring-icon2.png) Azure VM
+
+   ![Defender for Cloud icon for an Azure Arc-enabled server.](./media/quickstart-onboard-machines/arc-enabled-machine-icon.png) Azure Arc-enabled server
+
+## Clean up resources
+
+There's no need to clean up any resources for this article.
 
 ## Next steps
 
-This page showed you how to add your non-Azure machines to Microsoft Defender for Cloud. To monitor their status, use the inventory tools as explained in the following page:
-
-- [Explore and manage your resources with asset inventory](asset-inventory.md)
+- [Protect all of your resources with Defender for Cloud](enable-all-plans.md).
+- Set up your [AWS account](quickstart-onboard-aws.md) and [GCP projects](quickstart-onboard-gcp.md).

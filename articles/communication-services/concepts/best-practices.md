@@ -9,6 +9,7 @@ ms.author: srahaman
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.custom: devx-track-js
 ---
 
 # Best practices: Azure Communication Services calling SDKs
@@ -57,9 +58,19 @@ You can request device permissions using the SDK:
 
 #### Camera being used by another process
 - On Windows Chrome and Windows Edge, if you start/join/accept a call with video on and the camera device is being used by another process other than the browser that the web sdk is running on, then the call will be started with audio only and no video. A cameraStartFailed UFD will be raised because the camera failed to start since it was being used by another process. Same applies to turning video on mid-call. You can turn off the camera in the other process so that that process releases the camera device, and then start video again from the call and video will now turn on for the call and remote participants will start seeing your video. 
-- This is not an issue in MacOS Chrome nor MacOS Safari because the OS will let processes/threads share the camera device.
+- This is not an issue in macOS Chrome nor macOS Safari because the OS will let processes/threads share the camera device.
 - On mobile devices, if a ProcessA requests the camera device and it is being used by ProcessB, then ProcessA will overtake the camera device and ProcessB will stop using the camera device
 - On iOS safari, you cannot have the camera on for multiple call clients within the same tab nor across tabs. When any call client uses the camera, it will overtake the camera from any previous call client that was using it. Previous call client will get a cameraStoppedUnexpectedly UFD.
+
+### Screen sharing
+#### Closing out of application does not stop it from being shared
+For example, lets say that from Chromium, you screen share the Microsoft Teams application. You then click on the "X" button on the Teams application to close it. The Teams application will not be closed and it will still be running in the background. You will even still see the icon in the bottom right of your desktop bar. Since the Teams application is still running, that means that it is still being screen shared and the remote participant in the call can still see your Teams application being screen shared. In order to stop the application from being screen shared, you will have to right click its icon on the desktop bar and then click on quit. Or you will have to click on "Stop sharing" button on the browser. Or call the sdk's Call.stopScreenSharing() API.
+
+#### Safari can only do full screen sharing
+Safari only allows to screen share the entire screen. Unlike Chromium, which lets you screen share full screen, specific desktop app, or specific browser tab.
+
+#### Screen sharing permissions on macOS
+In order to do screen sharing in macOS Safari or macOs Chrome, screen recording permissions must be granted to the browsers in the OS menu: "Systems Preferences" -> "Security & Privacy" -> "Screen Recording".
 
 ## Next steps
 For more information, see the following articles:

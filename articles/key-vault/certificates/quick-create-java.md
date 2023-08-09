@@ -2,9 +2,9 @@
 title: Quickstart for Azure Key Vault Certificate client library - Java
 description: Learn about the the Azure Key Vault Certificate client library for Java with the steps in this quickstart.
 author: msmbaldwin
-ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api
+ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api, passwordless-java, devx-track-extended-java
 ms.author: mbaldwin
-ms.date: 12/18/2020
+ms.date: 11/14/2022
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
@@ -12,16 +12,21 @@ ms.devlang: java
 ---
 
 # Quickstart: Azure Key Vault Certificate client library for Java (Certificates)
+
 Get started with the Azure Key Vault Certificate client library for Java. Follow the steps below to install the package and try out example code for basic tasks.
+
+> [!TIP]
+> If you're working with Azure Key Vault Certificates resources in a Spring application, we recommend that you consider [Spring Cloud Azure](/azure/developer/java/spring-framework/) as an alternative. Spring Cloud Azure is an open-source project that provides seamless Spring integration with Azure services. To learn more about Spring Cloud Azure, and to see an example using Key Vault Certificates, see [Enable HTTPS in Spring Boot with Azure Key Vault certificates](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates).
 
 Additional resources:
 
-* [Source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-certificates)
-* [API reference documentation](https://azure.github.io/azure-sdk-for-java/keyvault.html)
-* [Product documentation](index.yml)
-* [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-certificates/src/samples/java/com/azure/security/keyvault/certificates)
+- [Source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-certificates)
+- [API reference documentation](https://azure.github.io/azure-sdk-for-java/keyvault.html)
+- [Product documentation](index.yml)
+- [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-certificates/src/samples/java/com/azure/security/keyvault/certificates)
 
 ## Prerequisites
+
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
 - [Apache Maven](https://maven.apache.org)
@@ -30,23 +35,26 @@ Additional resources:
 This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli) and [Apache Maven](https://maven.apache.org) in a Linux terminal window.
 
 ## Setting up
+
 This quickstart is using the Azure Identity library with Azure CLI to authenticate user to Azure Services. Developers can also use Visual Studio or Visual Studio Code to authenticate their calls, for more information, see [Authenticate the client with Azure Identity client library](/java/api/overview/azure/identity-readme).
 
 ### Sign in to Azure
+
 1. Run the `login` command.
 
-    ```azurecli-interactive
-    az login
-    ```
+   ```azurecli-interactive
+   az login
+   ```
 
    If the CLI can open your default browser, it will do so and load an Azure sign-in page.
 
    Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the
    authorization code displayed in your terminal.
 
-2. Sign in with your account credentials in the browser.
+1. Sign in with your account credentials in the browser.
 
 ### Create a new Java console app
+
 In a console window, use the `mvn` command to create a new Java console app with the name `akv-certificates-java`.
 
 ```console
@@ -88,6 +96,7 @@ cd akv-certificates-java
 ```
 
 ### Install the package
+
 Open the *pom.xml* file in your text editor. Add the following dependency elements to the group of dependencies.
 
 ```xml
@@ -105,39 +114,49 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 ```
 
 ### Create a resource group and key vault
+
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
 #### Grant access to your key vault
+
 Create an access policy for your key vault that grants certificate permissions to your user account.
 
-```console
+```azurecli
 az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --certificate-permissions delete get list create purge
 ```
 
 #### Set environment variables
+
 This application is using your key vault name as an environment variable called `KEY_VAULT_NAME`.
 
 Windows
+
 ```cmd
 set KEY_VAULT_NAME=<your-key-vault-name>
 ````
+
 Windows PowerShell
+
 ```powershell
 $Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS or Linux
+
 ```cmd
 export KEY_VAULT_NAME=<your-key-vault-name>
 ```
 
 ## Object model
+
 The Azure Key Vault Certificate client library for Java allows you to manage certificates. The [Code examples](#code-examples) section shows how to create a client, create a certificate, retrieve a certificate, and delete a certificate.
 
 The entire console app is [below](#sample-code).
 
 ## Code examples
+
 ### Add directives
+
 Add the following directives to the top of your code:
 
 ```java
@@ -154,9 +173,12 @@ import com.azure.security.keyvault.certificates.models.KeyVaultCertificateWithPo
 ```
 
 ### Authenticate and create a client
-In this quickstart, a logged in user is used to authenticate to Key Vault, which is preferred method for local development. For applications deployed to Azure, a Managed Identity should be assigned to an App Service or Virtual Machine. For more information, see [Managed Identity Overview](../../active-directory/managed-identities-azure-resources/overview.md).
 
-In the example below, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using the ['DefaultAzureCredential()'](/java/api/com.azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](/java/api/overview/azure/identity-readme).
+Application requests to most Azure services must be authorized. Using the [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential) is the recommended approach for implementing passwordless connections to Azure services in your code. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
+
+In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
+
+In this example, the name of your key vault is expanded to the key vault URI, in the format `https://<your-key-vault-name>.vault.azure.net`. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 ```java
 String keyVaultName = System.getenv("KEY_VAULT_NAME");
@@ -169,6 +191,7 @@ CertificateClient certificateClient = new CertificateClientBuilder()
 ```
 
 ### Save a secret
+
 Now that your application is authenticated, you can create a certificate in your key vault using the `certificateClient.beginCreateCertificate` method. This requires a name for the certificate and a certificate policy -- we've assigned the value "myCertificate" to the `certificateName` variable in this sample and use a default policy.
 
 Certificate creation is a long running operation, for which you can poll its progress or wait for it to complete.
@@ -186,6 +209,7 @@ KeyVaultCertificate createdCertificate = certificatePoller.getFinalResult();
 ```
 
 ### Retrieve a certificate
+
 You can now retrieve the previously created certificate with the `certificateClient.getCertificate` method.
 
 ```java
@@ -195,6 +219,7 @@ KeyVaultCertificate retrievedCertificate = certificateClient.getCertificate(cert
 You can now access the details of the retrieved certificate with operations like `retrievedCertificate.getName`, `retrievedCertificate.getProperties`, etc. As well as its contents `retrievedCertificate.getCer`.
 
 ### Delete a certificate
+
 Finally, let's delete the certificate from your key vault with the `certificateClient.beginDeleteCertificate` method, which is also a long running operation.
 
 ```java
@@ -203,6 +228,7 @@ deletionPoller.waitForCompletion();
 ```
 
 ## Clean up resources
+
 When no longer needed, you can use the Azure CLI or Azure PowerShell to remove your key vault and the corresponding resource group.
 
 ```azurecli
@@ -214,6 +240,7 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
 ## Sample code
+
 ```java
 package com.keyvault.certificates.quickstart;
 
@@ -236,16 +263,16 @@ public class App {
         System.out.printf("key vault name = %s and kv uri = %s \n", keyVaultName, keyVaultUri);
 
         CertificateClient certificateClient = new CertificateClientBuilder()
-                .vaultUrl(keyVaultUri)
-                .credential(new DefaultAzureCredentialBuilder().build())
-                .buildClient();
+            .vaultUrl(keyVaultUri)
+            .credential(new DefaultAzureCredentialBuilder().build())
+            .buildClient();
 
         String certificateName = "myCertificate";
 
         System.out.print("Creating a certificate in " + keyVaultName + " called '" + certificateName + " ... ");
 
         SyncPoller<CertificateOperation, KeyVaultCertificateWithPolicy> certificatePoller =
-                certificateClient.beginCreateCertificate(certificateName, CertificatePolicy.getDefault());
+            certificateClient.beginCreateCertificate(certificateName, CertificatePolicy.getDefault());
         certificatePoller.waitForCompletion();
 
         System.out.print("done.");
@@ -265,6 +292,7 @@ public class App {
 ```
 
 ## Next steps
+
 In this quickstart you created a key vault, created a certificate, retrieved it, and then deleted it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)

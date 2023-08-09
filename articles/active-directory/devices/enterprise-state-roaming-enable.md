@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 11/17/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: guovivian
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
@@ -19,20 +19,18 @@ ms.collection: M365-identity-device-management
 
 Enterprise State Roaming provides users with a unified experience across their Windows devices and reduces the time needed for configuring a new device. Enterprise State Roaming operates similar to the standard [consumer settings sync](https://go.microsoft.com/fwlink/?linkid=2015135) that was first introduced in Windows 8. Enterprise State Roaming is available to any organization with an Azure AD Premium or Enterprise Mobility + Security (EMS) license. For more information on how to get an Azure AD subscription, see the [Azure AD product page](https://azure.microsoft.com/services/active-directory). 
 
-When you enable Enterprise State Roaming, your organization is automatically granted a free, limited-use license for Azure Rights Management protection from Azure Information Protection. This free subscription is limited to encrypting and decrypting enterprise settings and application data synced by Enterprise State Roaming. You must have [a paid subscription](https://azure.microsoft.com/services/information-protection/) to use the full capabilities of the Azure Rights Management service.
-
 > [!NOTE]
 > This article applies to the Microsoft Edge Legacy HTML-based browser launched with Windows 10 in July 2015. The article does not apply to the new Microsoft Edge Chromium-based browser released on January 15, 2020. For more information on the Sync behavior for the new Microsoft Edge, see the article [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
 ## To enable Enterprise State Roaming
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Devices** > **Enterprise State Roaming**.
-1. Select **Users may sync settings and app data across devices**. For more information, see [how to configure device settings](./device-management-azure-portal.md).
-  
-   ![image of device setting labeled Users may sync settings and app data across devices](./media/enterprise-state-roaming-enable/device-settings.png)
-  
-For a Windows 10 or newer device to use the Enterprise State Roaming service, the device must authenticate using an Azure AD identity. For devices that are joined to Azure AD, the user’s primary sign-in identity is their Azure AD identity, so no other configuration is required. For devices that use on-premises Active Directory, the IT admin must [Configure hybrid Azure Active Directory joined devices](./hybrid-azuread-join-plan.md). 
+1. Select **Users may sync settings and app data across devices**. For more information, see [how to configure device settings](./manage-device-identities.md).
+
+For a Windows 10 or newer device to use the Enterprise State Roaming service, the device must authenticate using an Azure AD identity. For devices that are joined to Azure AD, the user’s primary sign-in identity is their Azure AD identity, so no other configuration is required. For devices that use on-premises Active Directory, the IT admin must [Configure hybrid Azure Active Directory joined devices](./hybrid-join-plan.md). 
 
 ## Data storage
 
@@ -51,8 +49,8 @@ The country/region value is set as part of the Azure AD directory creation proce
 
 Follow these steps to view a per-user device sync status report.
 
-1. Sign in to [Azure AD admin center](https://aad.portal.azure.com/).
-1. Select **Azure Active Directory** > **Users** > **All users**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Browse to **Azure Active Directory** > **Users** > **All users**.
 1. Select the user, and then select **Devices**.
 1. Select **View devices syncing settings and app data** to show sync status.
 1. Devices syncing for the user are shown and can be downloaded.

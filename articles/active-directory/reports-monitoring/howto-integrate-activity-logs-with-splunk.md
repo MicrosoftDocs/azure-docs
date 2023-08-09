@@ -1,20 +1,15 @@
 ---
-title: Integrate Splunk using Azure Monitor | Microsoft Docs
+title: Integrate Splunk using Azure Monitor
 description: Learn how to integrate Azure Active Directory logs with Splunk using Azure Monitor.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
-ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/05/2021
-ms.author: markvi
+ms.date: 10/31/2022
+ms.author: sarahlipsey
 ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
@@ -54,4 +49,3 @@ Append **body.records.category=AuditLogs** to the search. The Azure AD activity 
 
 * [Interpret audit logs schema in Azure Monitor](./overview-reports.md)
 * [Interpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
-* [Frequently asked questions and known issues](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

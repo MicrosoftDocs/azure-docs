@@ -1,13 +1,11 @@
 ---
 title: 'About Azure Bastion configuration settings'
 description: Learn about the available configuration settings for Azure Bastion.
-services: bastion
 author: cherylmc
+ms.author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 01/14/2022
-ms.author: cherylmc
-ms.custom: ignite-fall-2021
+ms.date: 06/02/2023
 ---
 
 # About Bastion configuration settings
@@ -19,19 +17,20 @@ The sections in this article discuss the resources and settings for Azure Bastio
 A SKU is also known as a Tier. Azure Bastion supports two SKU types: Basic and Standard. The SKU is configured in the Azure portal during the workflow when you configure Bastion. You can [upgrade a Basic SKU to a Standard SKU](#upgradesku).
 
 * The **Basic SKU** provides base functionality, enabling Azure Bastion to manage RDP/SSH connectivity to virtual machines (VMs) without exposing public IP addresses on the target application VMs.
-* The **Standard SKU** enables premium features that allow Azure Bastion to manage remote connectivity at a larger scale.
+* The **Standard SKU** enables premium features.
 
-The following table shows features and corresponding SKUs.
+The following table shows the availability of features per corresponding SKU.
 
 [!INCLUDE [Azure Bastion SKUs](../../includes/bastion-sku.md)]
 
-Currently, you must use the Azure portal if you want to specify the Standard SKU. If you use the Azure CLI or Azure PowerShell to configure Bastion, the SKU can't be specified and defaults to the Basic SKU.
+### Specify SKU
 
-| Method | Value | Links |
+| Method | SKU Value | Links |
 | --- | --- | --- |
-| Azure portal | Tier - Basic or <br>Standard | [Quickstart - Configure Bastion from VM settings](quickstart-host-portal.md)<br>[Tutorial - Configure Bastion](tutorial-create-host-portal.md) |
-| Azure PowerShell | Basic only - no settings |[Configure Bastion - PowerShell](bastion-create-host-powershell.md) |
-| Azure CLI |  Basic only - no settings | [Configure Bastion - CLI](create-host-cli.md) |
+| Azure portal | Tier - Basic or Standard | [Tutorial](tutorial-create-host-portal.md) |
+| Azure portal | Tier - Basic| [Quickstart](quickstart-host-portal.md) |
+| Azure PowerShell | Tier - Basic or Standard |[How-to](bastion-create-host-powershell.md) |
+| Azure CLI | Tier - Basic or Standard | [How-to](create-host-cli.md) |
 
 ### <a name="upgradesku"></a>Upgrade a SKU
 
@@ -45,7 +44,7 @@ You can configure this setting using the following method:
 
 | Method | Value | Links |
 | --- | --- | --- |
-| Azure portal |Tier  | [Upgrade a SKU](upgrade-sku.md)|
+| Azure portal |Tier  | [How-to](upgrade-sku.md)|
 
 ## <a name="subnet"></a>Azure Bastion subnet
 
@@ -59,13 +58,13 @@ Azure Bastion requires a dedicated subnet: **AzureBastionSubnet**. You must crea
 * Subnet size must be /26 or larger (/25, /24 etc.).
 * For host scaling, a /26 or larger subnet is recommended. Using a smaller subnet space limits the number of scale units. For more information, see the [Host scaling](#instance) section of this article.
 * The subnet must be in the same VNet and resource group as the bastion host.
-* The subnet cannot contain additional resources.
+* The subnet can't contain other resources.
 
 You can configure this setting using the following methods:
 
 | Method | Value | Links |
 | --- | --- |--- |
-| Azure portal | Subnet  |[Quickstart - Configure Bastion from VM settings](quickstart-host-portal.md)<br>[Tutorial - Configure Bastion](tutorial-create-host-portal.md)|
+| Azure portal | Subnet  |[Quickstart](quickstart-host-portal.md)<br>[Tutorial](tutorial-create-host-portal.md)|
 | Azure PowerShell | -subnetName|[cmdlet](/powershell/module/az.network/new-azbastion#parameters) |
 | Azure CLI |  --subnet-name | [command](/cli/azure/network/vnet#az-network-vnet-create) |
 
@@ -76,36 +75,46 @@ Azure Bastion requires a Public IP address. The Public IP must have the followin
 * The Public IP address SKU must be **Standard**.
 * The Public IP address assignment/allocation method must be **Static**.
 * The Public IP address name is the resource name by which you want to refer to this public IP address.
-* You can choose to use a public IP address that you already created, as long as it meets the criteria required by Azure Bastion and is not already in use.
+* You can choose to use a public IP address that you already created, as long as it meets the criteria required by Azure Bastion and isn't already in use.
 
 You can configure this setting using the following methods:
 
-| Method | Value | Links |
-| --- | --- |--- |
-| Azure portal | Public IP address |[Azure portal](https://portal.azure.com)|
-| Azure PowerShell | -PublicIpAddress| [cmdlet](/powershell/module/az.network/new-azbastion#parameters)  |
-| Azure CLI | --public-ip create |[command](/cli/azure/network/public-ip) |
+| Method | Value | Links | Requires Standard SKU|
+| --- | --- |--- | -- |
+| Azure portal | Public IP address |[Azure portal](https://portal.azure.com)| Yes |
+| Azure PowerShell | -PublicIpAddress| [cmdlet](/powershell/module/az.network/new-azbastion#parameters)  | Yes |
+| Azure CLI | --public-ip create |[command](/cli/azure/network/public-ip) | Yes |
 
 ## <a name="instance"></a>Instances and host scaling
 
 An instance is an optimized Azure VM that is created when you configure Azure Bastion. It's fully managed by Azure and runs all of the processes needed for Azure Bastion. An instance is also referred to as a scale unit. You connect to client VMs via an Azure Bastion instance. When you configure Azure Bastion using the Basic SKU, two instances are created. If you use the Standard SKU, you can specify the number of instances. This is called **host scaling**.
 
-Each instance can support 25 concurrent RDP connections and 50 concurrent SSH connections for medium workloads (see [Azure subscription limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md) for more information). The number of connections per instances depends on what actions you are taking when connected to the client VM. For example, if you are doing something data intensive, it creates a larger load for the instance to process. Once the concurrent sessions are exceeded, an additional scale unit (instance) is required.
+Each instance can support 20 concurrent RDP connections and 40 concurrent SSH connections for medium workloads (see [Azure subscription limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md) for more information). The number of connections per instances depends on what actions you're taking when connected to the client VM. For example, if you're doing something data intensive, it creates a larger load for the instance to process. Once the concurrent sessions are exceeded, another scale unit (instance) is required.
 
 Instances are created in the AzureBastionSubnet. To allow for host scaling, the AzureBastionSubnet should be /26 or larger. Using a smaller subnet limits the number of instances you can create. For more information about the AzureBastionSubnet, see the [subnets](#subnet) section in this article.
 
 You can configure this setting using the following methods:
 
-| Method | Value | Links |
-| --- | --- | --- |
-| Azure portal |Instance count  | [Azure portal steps](configure-host-scaling.md)|
-| Azure PowerShell | ScaleUnit | [PowerShell steps](configure-host-scaling-powershell.md) |
+| Method | Value | Links | Requires Standard SKU |
+| --- | --- | --- | ---|
+| Azure portal |Instance count  | [How-to](configure-host-scaling.md)| Yes
+| Azure PowerShell | ScaleUnit | [How-to](configure-host-scaling-powershell.md) | Yes |
 
 ## <a name="ports"></a>Custom ports
 
-You can specify the port that you want to use to connect to your VMs. By default, the inbound ports used to connect are 3389 for RDP and 22 for SSH. If you configure a custom port value, you need to specify that value when you connect to the VM.
+You can specify the port that you want to use to connect to your VMs. By default, the inbound ports used to connect are 3389 for RDP and 22 for SSH. If you configure a custom port value, specify that value when you connect to the VM.
 
-Custom port values are supported for the Standard SKU only. If your Bastion deployment uses the Basic SKU, you can easily [upgrade a Basic SKU to a Standard SKU](#upgradesku).
+Custom port values are supported for the Standard SKU only.
+
+## Shareable link (Preview)
+
+The Bastion **Shareable Link** feature lets users connect to a target resource using Azure Bastion without accessing the Azure portal.
+
+When a user without Azure credentials clicks a shareable link, a webpage opens that prompts the user to sign in to the target resource via RDP or SSH. Users authenticate using username and password or private key, depending on what you have configured in the Azure portal for that target resource. Users can connect to the same resources that you can currently connect to with Azure Bastion: VMs or virtual machine scale set.
+
+| Method | Value | Links | Requires Standard SKU |
+| --- | --- | --- | --- |
+| Azure portal |Shareable Link  | [Configure](shareable-link.md)| Yes |
 
 ## Next steps
 

@@ -4,7 +4,8 @@ description: Describes how to create virtual networks, network security groups, 
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 12/01/2021
+ms.custom: devx-track-bicep
+ms.date: 07/20/2022
 ---
 # Create virtual network resources by using Bicep
 
@@ -23,6 +24,8 @@ Virtual networks contain subnets, which are logical groups of IP addresses withi
 
 It's best to define your subnets within the virtual network definition, as in this example:
 
+> The following example is part of a larger example. For a Bicep file that you can deploy, [see the complete file](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/scenarios-virtual-networks/vnet.bicep).
+
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-virtual-networks/vnet.bicep" range="7-30, 39" :::
 
 Although both approaches enable you to define and create your subnets, there is an important difference. When you define subnets by using child resources, the first time your Bicep file is deployed, the virtual network is deployed. Then, after the virtual network deployment is complete, each subnet is deployed. This sequencing occurs because Azure Resource Manager deploys each individual resource separately.
@@ -32,6 +35,8 @@ When you redeploy the same Bicep file, the same deployment sequence occurs. Howe
 ### Access subnet resource IDs
 
 You often need to refer to a subnet's resource ID. When you use the `subnets` property to define your subnet, [you can use the `existing` keyword](existing-resource.md) to also obtain a strongly typed reference to the subnet, and then access the subnet's `id` property:
+
+> The following example is part of a larger example. For a Bicep file that you can deploy, [see the complete file](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/scenarios-virtual-networks/vnet.bicep).
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-virtual-networks/vnet.bicep" range="7-42" highlight="26-28, 30-32, 35-36" :::
 

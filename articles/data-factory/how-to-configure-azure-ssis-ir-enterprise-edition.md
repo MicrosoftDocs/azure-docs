@@ -4,13 +4,13 @@ description: "This article describes the features of Enterprise Edition for the 
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 02/15/2022
-author: swinarko
-ms.author: sawinark
+ms.date: 07/17/2023
+author: chugugrace
+ms.author: chugu
 ---
 # Provision Enterprise Edition for the Azure-SSIS Integration Runtime
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 The Enterprise Edition of the Azure-SSIS Integration Runtime lets you use the following advanced and premium features:
 -   Change Data Capture (CDC) components
@@ -37,7 +37,7 @@ Some of these features require you to install additional components to customize
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1.  Download and install [Azure PowerShell](/powershell/azure/install-az-ps).
+1.  Download and install [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 2.  When you provision or reconfigure the Azure-SSIS IR with PowerShell, run `Set-AzDataFactoryV2IntegrationRuntime` with **Enterprise** as the value for the **Edition** parameter before you start the Azure-SSIS IR. Here is a sample script:
 

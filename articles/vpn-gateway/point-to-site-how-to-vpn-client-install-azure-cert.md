@@ -2,12 +2,10 @@
 title: 'Install a Point-to-Site client certificate'
 titleSuffix: Azure VPN Gateway
 description: Learn how to install client certificates for P2S certificate authentication - Windows, Mac, Linux.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2021
+ms.date: 08/07/2023
 ms.author: cherylmc
 
 ---
@@ -19,25 +17,23 @@ If you want to generate a client certificate from a self-signed root certificate
 
 * [Generate certificates - PowerShell](vpn-gateway-certificates-point-to-site.md)
 * [Generate certificates - MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
-* [Generate certificates - Linux](vpn-gateway-certificates-point-to-site-linux.md) 
+* [Generate certificates - Linux](vpn-gateway-certificates-point-to-site-linux.md)
 
 ## <a name="installwin"></a>Windows
 
 [!INCLUDE [Install on Windows](../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
 
-## <a name="installmac"></a>Mac
+## <a name="installmac"></a>macOS
 
 >[!NOTE]
->Mac VPN clients are supported for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) only. They are not supported for the classic deployment model.
->
->
+>macOS VPN clients are supported for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) only. They are not supported for the classic deployment model.
 
 [!INCLUDE [Install on Mac](../../includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]
 
 ## <a name="installlinux"></a>Linux
 
-The Linux client certificate is installed on the client as part of the client configuration. See [Client configuration - Linux](point-to-site-vpn-client-configuration-azure-cert.md#linuxinstallcli) for instructions.
+The Linux client certificate is installed on the client as part of the client configuration. See [Client configuration - Linux](point-to-site-vpn-client-cert-linux.md) for instructions.
 
 ## Next steps
 
-Continue with the Point-to-Site configuration steps to [Create and install VPN client configuration files](point-to-site-vpn-client-configuration-azure-cert.md).
+Continue with the Point-to-Site configuration steps to Create and install VPN client configuration files for [Windows](point-to-site-vpn-client-cert-windows.md), [macOS](point-to-site-vpn-client-cert-windows.md), or [Linux](point-to-site-vpn-client-cert-linux.md)).

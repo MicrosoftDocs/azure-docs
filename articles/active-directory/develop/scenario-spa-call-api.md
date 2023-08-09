@@ -1,24 +1,23 @@
 ---
 title: Build single-page app calling a web API
-titleSuffix: Microsoft identity platform
 description: Learn how to build a single-page application that calls a web API
 services: active-directory
-author: rwike77
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/27/2021
-ms.author: ryanwi
-ms.custom: aaddev
+ms.date: 11/25/2022
+ms.author: owenrichards
+ms.custom: aaddev, engagement-fy23
 #Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
 ---
 
 # Single-page application: Call a web API
 
-We recommend that you call the `acquireTokenSilent` method to acquire or renew an access token before you call a web API. After you have a token, you can call a protected web API.
+We recommend that you call the `acquireTokenSilent` method to acquire or renew an access token before calling a web API. After you have a token, you can call a protected web API.
 
 ## Call a web API
 
@@ -39,7 +38,7 @@ Use the acquired access token as a bearer in an HTTP request to call any web API
     fetch(graphEndpoint, options)
         .then(function (response) {
              //do something with response
-        }
+        })
 ```
 
 # [Angular](#tab/angular)

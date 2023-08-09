@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Veracode | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Veracode'
 description: Learn how to configure single sign-on between Azure Active Directory and Veracode.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/22/2021
+ms.date: 05/23/2023
 ms.author: jeedes
 ---
 
@@ -43,6 +43,8 @@ To configure the integration of Veracode into Azure AD, add Veracode from the ga
 1. In the **Add from the gallery** section, type "Veracode" in the search box.
 1. Select **Veracode** from the results panel, and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Veracode
 
 Configure and test Azure AD SSO with Veracode by using a test user called **B.Simon**. For SSO to work, you must establish a link between an Azure AD user and the related user in Veracode.
@@ -60,21 +62,21 @@ To configure and test Azure AD SSO with Veracode, perform the following steps:
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the Azure portal, on the **Veracode** application integration page, find the **Manage** section. Select **single sign-on**.
-1. On the **Select a single sign-on method** page, select **SAML**.
+1. In the Azure AD navigate to the **Veracode** application page under **Enterprise Applications**, scroll down to the **Manage** section, and click on **single sign-on**.
+1. Again under the **Manage** tab, click on **Single sign-on**, then select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, the application is pre-configured and the necessary URLs are already pre-populated with Azure. Select **Save**.
+1. The Relay state field should be autopopulated with `https://web.analysiscenter.veracode.com/login/#/saml`. The rest of these fields will populate after setting up SAML within the Veracode Platform.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)**. Select **Download** to download the certificate and save it on your computer.
 
-	![Screenshot of SAML Signing Certificate section, with Download link highlighted](common/certificatebase64.png)
+	![Screenshot of SAML Signing Certificate section, with Download link highlighted.](common/certificatebase64.png)
 
 1. Veracode expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![Screenshot of User Attributes & Claims section](common/default-attributes.png)
+	![Screenshot of User Attributes & Claims section.](common/default-attributes.png)
 
 1. Veracode also expects a few more attributes to be passed back in the SAML response. These attributes are also pre-populated, but you can review them per your requirements.
 
@@ -84,9 +86,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| lastname |User.surname |
 	| email |User.mail |
 
-1. On the **Set up Veracode** section, copy the appropriate URL(s) based on your requirement.
+1. On the **Set up Veracode** section, copy and save the provided URLs to use later in your Veracode Platform SAML setup.
 
-	![Screenshot of Set up Veracode section, with configuration URLs highlighted](common/copy-configuration-urls.png)
+	![Screenshot of Set up Veracode section, with configuration URLs highlighted.](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -114,34 +116,53 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Veracode SSO
 
-1. In a different web browser window, sign in to your Veracode company site as an administrator.
+Notes:
+
+* These instructions assume you are using the new [Single Sign On/Just-in-Time Provisioning feature from Veracode](https://docs.veracode.com/r/about_saml). To activate this feature if it is not already active, please contact Veracode Support.  
+* These instructions are valid for all [Veracode regions](https://docs.veracode.com/r/Region_Domains_for_Veracode_APIs).
+
+1. In a different web browser window, sign in to your Veracode company site as an administrator. 
 
 1. From the menu on the top, select **Settings** > **Admin**.
    
-    ![Screenshot of Veracode Administration, with Settings icon and Admin highlighted](./media/veracode-tutorial/admin.png "Administration")
+    ![Screenshot of Veracode Administration, with Settings icon and Admin highlighted.](./media/veracode-tutorial/admin.png "Administration")
 
-1. Select the **SAML** tab.
+1. Select the **SAML Certificate** tab.
 
-1. In the **Organization SAML Settings** section, perform the following steps:
+1. In the **SAML Certificate** section, perform the following steps:
 
-    ![Screenshot of Organization SAML Settings section](./media/veracode-tutorial/saml.png "Administration")
+    ![Screenshot of Organization SAML Settings section.](./media/veracode-tutorial/saml.png "Administration")
 
     a.  For **Issuer**, paste the value of the **Azure AD Identifier** that you've copied from the Azure portal.
+    
+    b. For **IdP Server URL**, paste the value of the **Logout URL** that you've copied from the Azure portal.
 
-    b. For **Assertion Signing Certificate**, select **Choose File** to upload your downloaded certificate from the Azure portal.
+    c. For **Assertion Signing Certificate**, select **Choose File** to upload your downloaded certificate from the Azure portal.
 
-    c. For **Self Registration**, select **Enable Self Registration**.
+    d. Note the values of the three URLs (**SAML Assertion URL**, **SAML Audience URL**, **Relay state URL**).
 
-1. In the **Self Registration Settings** section, perform the following steps, and then select **Save**:
+    e. Click **Save**. 
+    
+1. Take the values of the **SAML Assertion URL**, **SAML Audience URL** and **Relay state URL** and update them in the Azure Active Directory settings for the Veracode integration (follow the table below for proper conversions) NOTE: **Relay State** is NOT optional.
 
-    ![Screenshot of Self Registration Settings section, with various options highlighted](./media/veracode-tutorial/save.png "Administration")
+	| Veracode URL | Azure AD Field|
+	| ---------------| --------------- |
+	| SAML Audience URL |Identifier (Entity ID) |
+	| SAML Assertion URL |Reply URL (Assertion Consumer Service URL) |
+	| Relay State URL |Relay State |
 
-    a. For **New User Activation**, select **No Activation Required**.
+1. Select the **JIT Provisioning** tab.
 
-    b. For **User Data Updates**, select **Preference Veracode User Data**.
+    ![Screenshot of JIT Provisioning tab, with various options highlighted.](./media/veracode-tutorial/just-in-time.png "JIT Provisioning")
 
-    c. For **SAML Attribute Details**, select the following:
-      * **User Roles**
+1. In the **Organization Settings** section, toggle the **Configure Default Settings for Just-in-Time user provisioning** setting to **On**. 
+
+1. In the **Basic Settings** section, for **User Data Updates**, select **Prefer Veracode User Data**. This will cause conflicts between data passed in the SAML assertion from Azure AD and user data in the Veracode platform to be resolved using the Veracode user data.
+
+1. In the **Access Settings** section, under **User Roles**, select from the following For more information about Veracode user roles, see the [Veracode Documentation](https://docs.veracode.com/r/c_role_permissions):
+
+    ![Screenshot of JIT Provisioning User Roles, with various options highlighted.](./media/veracode-tutorial/user-roles.png "JIT Provisioning")
+
       * **Policy Administrator**
       * **Reviewer**
       * **Security Lead**
@@ -149,8 +170,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
       * **Submitter**
       * **Creator**
       * **All Scan Types**
-      * **Team Memberships**
-      * **Default Team**
 
 ### Create Veracode test user
 

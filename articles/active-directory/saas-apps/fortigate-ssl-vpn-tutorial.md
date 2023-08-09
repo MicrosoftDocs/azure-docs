@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with FortiGate SSL VPN | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with FortiGate SSL VPN'
 description: Learn the steps you need to perform to integrate FortiGate SSL VPN with Azure Active Directory (Azure AD).
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/30/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with FortiGate SSL VPN
+# Tutorial: Azure AD SSO integration with FortiGate SSL VPN
 
 In this tutorial, you'll learn how to integrate FortiGate SSL VPN with Azure Active Directory (Azure AD). When you integrate FortiGate SSL VPN with Azure AD, you can:
 
@@ -26,7 +26,7 @@ In this tutorial, you'll learn how to integrate FortiGate SSL VPN with Azure Act
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* A FortiGate SSL VPN subscription with single sign-on (SSO) enabled.
+* A FortiGate SSL VPN with single sign-on (SSO) enabled.
 
 ## Tutorial description
 
@@ -46,9 +46,11 @@ To configure the integration of FortiGate SSL VPN into Azure AD, you need to add
 1. In the **Add from the gallery** section, enter **FortiGate SSL VPN** in the search box.
 1. Select **FortiGate SSL VPN** in the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for FortiGate SSL VPN
 
-You'll configure and test Azure AD SSO with FortiGate SSL VPN by using a test user named B.Simon. For SSO to work, you need to establish a link relationship between an Azure AD user and the corresponding user in FortiGate SSL VPN.
+You'll configure and test Azure AD SSO with FortiGate SSL VPN by using a test user named B.Simon. For SSO to work, you need to establish a link relationship between an Azure AD user and the corresponding SAML SSO user group in FortiGate SSL VPN.
 
 To configure and test Azure AD SSO with FortiGate SSL VPN, you'll complete these high-level steps:
 
@@ -56,7 +58,7 @@ To configure and test Azure AD SSO with FortiGate SSL VPN, you'll complete these
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
     1. **[Grant access to the test user](#grant-access-to-the-test-user)** to enable Azure AD single sign-on for that user.
 1. **[Configure FortiGate SSL VPN SSO](#configure-fortigate-ssl-vpn-sso)** on the application side.
-    1. **Create a FortiGate SSL VPN test user** as a counterpart to the Azure AD representation of the user.
+    1. **Create a FortiGate SAML SSO user group** as a counterpart to the Azure AD representation of the user.
 1. **[Test SSO](#test-sso)** to verify that the configuration works.
 
 ### Configure Azure AD SSO
@@ -65,32 +67,32 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 
 1. In the Azure portal, on the **FortiGate SSL VPN** application integration page, in the **Manage** section, select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, select the pencil button for **Basic SAML Configuration** to edit the settings:
+1. On the **Set up Single Sign-On with SAML** page, select the **Edit** button for **Basic SAML Configuration** to edit the settings:
 
-   ![Screenshot that shows the pencil button for editing the basic SAML configuration.](common/edit-urls.png)
+   ![Screenshot of showing Basic SAML configuration page.](./media/fortigate-ssl-vpn-tutorial/saml-configuration.png)
 
 1. On the **Set up Single Sign-On with SAML** page, enter the following values:
 
-    a. In the **Sign on URL** box, enter a URL in the pattern
-    `https://<FQDN>/remote/saml/login`.
+    a. In the **Identifier** box, enter a URL in the pattern
+    `https://<FortiGate IP or FQDN address>:<Custom SSL VPN port>/remote/saml/metadata`.
 
-    b. In the **Identifier** box, enter a URL in the pattern
-    `https://<FQDN>/remote/saml/metadata`.
+    b. In the **Reply URL** box, enter a URL in the pattern
+    `https://<FortiGate IP or FQDN address>:<Custom SSL VPN port>/remote/saml/login`.
 
-    c. In the **Reply URL** box, enter a URL in the pattern
-    `https://<FQDN>/remote/saml/login`.
+    c. In the **Sign on URL** box, enter a URL in the pattern
+    `https://<FortiGate IP or FQDN address>:<Custom SSL VPN port>/remote/saml/login`.
 
     d. In the **Logout URL** box, enter a URL in the pattern
-    `https://<FQDN>/remote/saml/logout`.
+    `https://<FortiGate IP or FQDN address>:<Custom SSL VPN port><FQDN>/remote/saml/logout`.
 
-	> [!NOTE]
-	> These values are just patterns. You need to use the actual **Sign on URL**, **Identifier**, **Reply URL**, and **Logout URL**. Contact [Fortinet support](https://support.fortinet.com) for guidance. You can also refer to the example patterns shown in the Fortinet documentation and the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    > These values are just patterns. You need to use the actual **Sign on URL**, **Identifier**, **Reply URL**, and **Logout URL** that is configured on the FortiGate.
 
 1. The FortiGate SSL VPN application expects SAML assertions in a specific format, which requires you to add custom attribute mappings to the configuration. The following screenshot shows the list of default attributes.
 
-	![Screenshot that shows the default attributes.](common/default-attributes.png)
+   ![Screenshot of showing Attributes and Claims section.](./media/fortigate-ssl-vpn-tutorial/claims.png)
 
-1. The two additional claims required by FortiGate SSL VPN are shown in the following table. The names of these claims must match the names used in the **Perform FortiGate command-line configuration** section of this tutorial. 
+1. The claims required by FortiGate SSL VPN are shown in the following table. The names of these claims must match the names used in the **Perform FortiGate command-line configuration** section of this tutorial. Names are case-sensitive.
 
    | Name |  Source attribute|
    | ------------ | --------- |
@@ -109,11 +111,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 
    e. Select **Save**.
 
+   > [!NOTE]
+   > **User Attributes & Claims** allow only one group claim. To add a group claim, delete the existing group claim **user.groups [SecurityGroup]** already present in the       claims to add the new claim or edit the existing one to **All groups**.
+
    f. Select **Add a group claim**.
 
    g. Select **All groups**.
 
-   h. Select the **Customize the name of the group claim** check box.
+   h. Under **Advanced options**, select the **Customize the name of the group claim** check box.
 
    i. For **Name**, enter **group**.
    
@@ -121,11 +126,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  select the **Download** link next to **Certificate (Base64)** to download the certificate and save it on your computer:
 
-	![Screenshot that shows the certificate download link.](common/certificatebase64.png)
+   ![Screenshot that shows the certificate download link.](common/certificatebase64.png)
 
 1. In the **Set up FortiGate SSL VPN** section, copy the appropriate URL or URLs, based on your requirements:
 
-	![Screenshot that shows the configuration URLs.](common/copy-configuration-urls.png)
+   ![Screenshot that shows the configuration URLs.](common/copy-configuration-urls.png)
 
 #### Create an Azure AD test user
 
@@ -184,44 +189,44 @@ After the certificate is uploaded, take note of its name under **System** > **Ce
 
 #### Complete FortiGate command-line configuration
 
-The following steps require that you configure the Azure Logout URL. This URL contains a question mark character (?). You need to take specific steps to successfully submit this character. You can't complete these steps from the FortiGate CLI Console. Instead, establish an SSH session to the FortiGate appliance by using a tool like PuTTY. If your FortiGate appliance is an Azure virtual machine, you can complete the following steps from the serial console for Azure virtual machines.
+Although you can configure SSO from the GUI since FortiOS 7.0, the CLI configurations apply to all versions and are therefore shown here.
 
 To complete these steps, you'll need the values you recorded earlier:
 
-- Entity ID
-- Reply URL
-- Logout URL
-- Azure Login URL
-- Azure AD Identifier
-- Azure Logout URL
-- Base64 SAML certificate name (REMOTE_Cert_*N*)
+| FortiGate SAML CLI setting | Equivalent Azure configuration |
+   | ------------ | --------- |
+   | SP entity ID (`entity-id`) | Identifier (Entity ID) |
+| SP Single Sign-On URL (`single-sign-on-url`) | Reply URL (Assertion Consumer Service URL) |
+| SP Single Logout URL (`single-logout-url`) | Logout URL |
+| IdP Entity ID (`idp-entity-id`) | Azure AD Identifier |
+| IdP Single Sign-On URL (`idp-single-sign-on-url`) | Azure Login URL |
+| IdP Single Logout URL (`idp-single-logout-url`) | Azure Logout URL |
+| IdP certificate (`idp-cert`) | Base64 SAML certificate name (REMOTE_Cert_N) |
+| Username attribute (`user-name`) | username |
+| Group name attribute (`group-name`) | group |
+
+> [!NOTE]
+   > The Sign on URL under Basic SAML Configuration is not used in the FortiGate configurations. It is used to trigger SP-initiated single sign on to redirect the user to the SSL VPN portal page.
 
 1. Establish an SSH session to your FortiGate appliance, and sign in with a FortiGate Administrator account.
-1. Run these commands:
+1. Run these commands and substitute the `<values>` with the information that you collected previously:
 
-   ```console
+    ```console
     config user saml
-    edit azure
-    set cert <FortiGate VPN Server Certificate Name>
-    set entity-id <Entity ID>
-    set single-sign-on-url <Reply URL>
-    set single-logout-url <Logout URL>
-    set idp-single-sign-on-url <Azure Login URL>
-    set idp-entity-id <Azure AD Identifier>
-    set idp-single-logout-url <Azure Logout URL>
-    set idp-cert <Base64 SAML Certificate Name>
-    set user-name username
-    set group-name group
+      edit azure
+        set cert <FortiGate VPN Server Certificate Name>
+        set entity-id < Identifier (Entity ID)Entity ID>
+        set single-sign-on-url < Reply URL Reply URL>
+        set single-logout-url <Logout URL>
+        set idp-entity-id <Azure AD Identifier>
+        set idp-single-sign-on-url <Azure Login URL>
+        set idp-single-logout-url <Azure Logout URL>
+        set idp-cert <Base64 SAML Certificate Name>
+        set user-name username
+        set group-name group
+      next
     end
-
-   ```
-
-   > [!NOTE]
-   > The Azure Logout URL contains a `?` character. You must enter a special key sequence to correctly provide this URL to the FortiGate serial console. The URL is usually `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`.
-   >
-   > To enter the Azure Logout URL in the serial console, enter `set idp-single-logout-url https://login.microsoftonline.com/common/wsfederation`.
-   > 
-   > Then select CTRL+V and paste the rest of the URL to complete the line: `set idp-single-logout-url https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`.
+    ```
 
 #### Configure FortiGate for group matching
 
@@ -230,33 +235,34 @@ In this section, you'll configure FortiGate to recognize the Object ID of the se
 To complete these steps, you'll need the Object ID of the FortiGateAccess security group that you created earlier in this tutorial.
 
 1. Establish an SSH session to your FortiGate appliance, and sign in with a FortiGate Administrator account.
+
 1. Run these commands:
 
-   ```
+    ```console
     config user group
-    edit FortiGateAccess
-    set member azure
-    config match
-    edit 1
-    set server-name azure
-    set group-name <Object Id>
-    next
+      edit FortiGateAccess
+        set member azure
+        config match
+          edit 1
+            set server-name azure
+            set group-name <Object Id>
+          next
+        end
+      next
     end
-    next
-    end
-   ```
+    ```
 
 #### Create a FortiGate VPN Portals and Firewall Policy
 
 In this section, you'll configure a FortiGate VPN Portals and Firewall Policy that grants access to the FortiGateAccess security group you created earlier in this tutorial.
 
-Work with the [FortiGate support team](mailto:tac_amer@fortinet.com) to add the VPN Portals and Firewall Policy to the FortiGate VPN platform. You need to complete this step before you use single sign-on.
+Refer to [Configuring SAML SSO login for SSL VPN with Azure AD acting as SAML IdP for instructions](https://docs.fortinet.com/document/fortigate-public-cloud/7.0.0/azure-administration-guide/584456/configuring-saml-sso-login-for-ssl-vpn-web-mode-with-azure-ad-acting-as-saml-idp).
 
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to FortiGate VPN Sign-on URL where you can initiate the login flow. 
+* In Step 5) of the Azure SSO configuration, **Test single sign-on with your App*, click the **Test** button in the Azure portal. This will redirect to FortiGate VPN Sign-on URL where you can initiate the login flow. 
 
 * Go to FortiGate VPN Sign-on URL directly and initiate the login flow from there.
 

@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 01/19/2021
+ms.date: 11/21/2022
 ms.author: chmutali
 ---
 # Tutorial: Configure SAP SuccessFactors to Active Directory user provisioning 
@@ -16,6 +16,9 @@ The objective of this tutorial is to show the steps you need to perform to provi
 >[!NOTE]
 >Use this tutorial if the users you want to provision from SuccessFactors need an on-premises AD account and optionally an Azure AD account. If the users from SuccessFactors only need Azure AD account (cloud-only users), then please refer to the tutorial on [configure SAP SuccessFactors to Azure AD](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) user provisioning. 
 
+The following video provides a quick overview of the steps involved when planning your provisioning integration with SAP SuccessFactors. 
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/66v2FR2-QrY]
 
 ## Overview
 
@@ -135,7 +138,7 @@ Work with your SuccessFactors admin team or implementation partner to create or 
 
 1. In SuccessFactors Admin Center, search for *Manage Permission Roles*, then select **Manage Permission Roles** from the search results.
 1. From the **Permission Role List**, select the role that you created for API usage permissions.
-1. Under **Grant this role to...**, click **Add...** button.
+1. Under **Grant this role to...**, click the **Add...** button.
 1. Select **Permission Group...** from the drop-down menu, then click **Select...** to open the Groups window to search and select the group created above. 
     > [!div class="mx-imgBorder"]
     > ![Add permission group](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
@@ -158,7 +161,7 @@ This section provides steps for user account provisioning from SuccessFactors to
 
 **To configure SuccessFactors to Active Directory provisioning:**
 
-1. Go to <https://portal.azure.com>
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the left navigation bar, select **Azure Active Directory**
 
@@ -248,8 +251,7 @@ In this section, you will configure how user data flows from SuccessFactors to A
      >[!NOTE]
      >For the complete list of SuccessFactors attribute supported by the application, please refer to [SuccessFactors Attribute Reference](../app-provisioning/sap-successfactors-attribute-reference.md)
 
-1. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new
-        mappings. An individual attribute mapping supports these properties:
+1. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new mappings. An individual attribute mapping supports these properties:
 
       * **Mapping Type**
 
@@ -266,11 +268,9 @@ In this section, you will configure how user data flows from SuccessFactors to A
 
       * **Target attribute** – The user attribute in Active  Directory.
 
-      * **Match objects using this attribute** – Whether or not this mapping should be used to uniquely identify users between
-            SuccessFactors and Active Directory. This value is typically set on the  Worker ID field for SuccessFactors, which is typically mapped to one of the Employee ID attributes in Active Directory.
+      * **Match objects using this attribute** – Whether or not this mapping should be used to uniquely identify users between SuccessFactors and Active Directory. This value is typically set on the  Worker ID field for SuccessFactors, which is typically mapped to one of the Employee ID attributes in Active Directory.
 
-      * **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they are evaluated in the
-            order defined by this field. As soon as a match is found, no  further matching attributes are evaluated.
+      * **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they are evaluated in the order defined by this field. As soon as a match is found, no  further matching attributes are evaluated.
 
       * **Apply this mapping**
 

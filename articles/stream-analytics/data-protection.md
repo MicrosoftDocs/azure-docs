@@ -1,11 +1,11 @@
 ---
 title: Data protection in Azure Stream Analytics
 description: This article explains how to encrypt your private data used by an Azure Stream Analytics job.
-author: sidramadoss
-ms.author: sidram
+author: ahartoon
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 07/07/2021
+ms.date: 03/13/2023
 ---
 
 # Data protection in Azure Stream Analytics 
@@ -40,7 +40,9 @@ If you want to use customer-managed keys to encrypt your data, you can use your 
 
 This setting must be configured at the time of Stream Analytics job creation, and it can't be modified throughout the job's life cycle. Modification or deletion of storage that is being used by your Stream Analytics is not recommended. If you delete your storage account, you will permanently delete all private data assets, which will cause your job to fail. 
 
-Updating or rotating keys to your storage account is not possible using the Stream Analytics portal. You can update the keys using the REST APIs.
+Updating or rotating keys to your storage account is not possible using the Stream Analytics portal. You can update the keys using the REST APIs. You can also connect to your job storage account using managed identity authentication with allow trusted services.
+
+If the storage account you want to use is in an Azure Virtual Network, you must use managed identity authentication mode with **Allow trusted services**. For more information, visit: [Connect Stream Analytics jobs to resources in an Azure Virtual Network (VNet)](connect-job-to-vnet.md).
 
 
 ### Configure storage account for private data 
@@ -67,7 +69,7 @@ Use the following steps to configure your storage account for private data asset
 
    ![Private data storage account settings](./media/data-protection/storage-account-create.png)
 
-1. To authenticate with Managed Identity (preview), select **Managed Identity** from the Authentication mode dropdown. If you choose Managed Identity, you need to add your Stream Analytics job to the storage account's access control list with the *Storage Blob Data Contributor* role. If you do not give your job access, the job will not be able to perform any operations. For more information on how to grant access, see [Use Azure RBAC to assign a managed identity access to another resource](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md#use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource).
+1. To authenticate with Managed Identity, select **Managed Identity** from the Authentication mode dropdown. If you choose Managed Identity, you need to add your Stream Analytics job to the storage account's access control list with the *Storage Blob Data Contributor* role. If you do not give your job access, the job will not be able to perform any operations. For more information on how to grant access, see [Use Azure RBAC to assign a managed identity access to another resource](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md#use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource).
 
    :::image type="content" source="media/data-protection/storage-account-create-msi.png" alt-text="Private data storage account settings with managed identity authentication":::
 

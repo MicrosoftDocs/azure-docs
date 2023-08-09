@@ -26,7 +26,7 @@ Integrated third-party Security as a service (SECaaS) partners are now available
 
 Skip this section if you are deploying a third-party provider into an existing hub.
 
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In **Search**, type **Firewall Manager** and select it under **Services**.
 3. Navigate to **Getting Started**. Select **View secured virtual hubs**.
 4. Select **Create new secured virtual hub**.
@@ -83,7 +83,7 @@ To set up tunnels to your virtual hub’s VPN Gateway, third-party providers nee
 1. Follow your partner provided instructions to complete the setup. This includes submitting AAD information to detect and connect to the hub, update the egress policies, and check connectivity status and logs.
 
    - [Zscaler: Configure Microsoft Azure Virtual WAN integration](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration).
-   - [Check Point: Configure Microsoft Azure Virtual WAN integration](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/CloudGuard-Connect-Azure-Virtual-WAN/Default.htm).
+   - [Check Point: Configure Microsoft Azure Virtual WAN integration](https://www.checkpoint.com/cloudguard/microsoft-azure-security/wan).
    - [iboss: Configure Microsoft Azure Virtual WAN integration](https://www.iboss.com/blog/securing-microsoft-azure-with-iboss-saas-network-security). 
    
 2. You can look at the tunnel creation status on the Azure Virtual WAN portal in Azure. Once the tunnels show **connected** on both Azure and the partner portal, continue with the next steps to set up routes to select which branches and VNets should send Internet traffic to the partner.
@@ -113,6 +113,14 @@ To set up tunnels to your virtual hub’s VPN Gateway, third-party providers nee
 Next, you can check if VNet virtual machines or the branch site can access the Internet and validate that the traffic is flowing to the third-party service.
 
 After finishing the route setting steps, the VNet virtual machines as well as the branch sites are sent a 0/0 to the third-party service route. You can't RDP or SSH into these virtual machines. To sign in, you can deploy the [Azure Bastion](../bastion/bastion-overview.md) service in a peered VNet.
+
+## Rule configuration
+
+Use the partner portal to configure firewall rules. Azure Firewall passes the traffic through.
+
+For example, you may observe allowed traffic through the Azure Firewall, even though there is no explicit rule to allow the traffic. This is because Azure Firewall passes the traffic to the next hop security partner provider (ZScalar, CheckPoint, or iBoss). Azure Firewall still has rules to allow outbound traffic, but the rule name is not logged.
+
+For more information, see the partner documentation.
 
 ## Next steps
 

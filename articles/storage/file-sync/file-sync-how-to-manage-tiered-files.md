@@ -1,17 +1,16 @@
 ---
-title: How to manage Azure File Sync tiered files | Microsoft Docs
+title: How to manage Azure File Sync tiered files
 description: Tips and PowerShell commandlets to help you manage tiered files
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 04/13/2021
+ms.date: 06/06/2022
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # How to manage tiered files
 
-This article provides guidance for users who have questions related to managing tiered files. For conceptual questions regarding cloud tiering, please see [Azure Files FAQ](../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
+This article provides guidance for users who have questions related to managing tiered files. For conceptual questions regarding cloud tiering, please see [Azure Files FAQ](../files/storage-files-faq.md?toc=/azure/storage/filesync/toc.json).
 
 ## How to check if your files are being tiered
 
@@ -57,17 +56,52 @@ There are several ways to check whether a file has been tiered to your Azure fil
         > [!WARNING]
         > The `fsutil reparsepoint` utility command also has the ability to delete a reparse point. Do not execute this command unless the Azure File Sync engineering team asks you to. Running this command might result in data loss.
 
+## How to exclude files or folders from being tiered
+
+If you want to exclude files or folders from being tiered and remain local on the Windows Server, you can configure the **GhostingExclusionList** registry setting under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync. You can exclude files by file name, file extension or path. 
+
+To exclude files or folders from cloud tiering, perform the following steps:
+1. Open an elevated command prompt.
+2. Run one of the following commands to configure exclusions:
+
+	To exclude certain file extensions from tiering (for example, .one, .lnk, .log), run the following command:  
+	**reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d .one|.lnk|.log /f**
+
+	To exclude a specific file name from tiering (for example, FileName.vhd), run the following command:  
+	**reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d FileName.vhd /f**
+
+	To exclude all files under a folder from tiering (for example, D:\ShareRoot\Folder\SubFolder), run the following command:   
+	**reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d D:\\\\ShareRoot\\\\Folder\\\\SubFolder /f**
+
+	To exclude a combination of file names, file extensions and folders from tiering (for example, D:\ShareRoot\Folder1\SubFolder1,FileName.log,.txt), run the following command:  
+	**reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d D:\\\\ShareRoot\\\\Folder1\\\\SubFolder1|FileName.log|.txt /f** 
+
+3. For the cloud tiering exclusions to take effect, you must restart the Storage Sync Agent service (FileSyncSvc) by running the following commands:  
+	**net stop filesyncsvc**  
+	**net start filesyncsvc**
+
+### More information
+-  If the Azure File Sync agent is installed on a Failover Cluster, the **GhostingExclusionList** registry setting must be created under HKEY_LOCAL_MACHINE\Cluster\StorageSync\SOFTWARE\Microsoft\Azure\StorageSync.
+	-  Example: **reg ADD "HKEY_LOCAL_MACHINE\Cluster\StorageSync\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList /t REG_SZ /d .one|.lnk|.log /f**
+-  Each exclusion in the registry should be separated by a pipe (|) character.
+-  Use double backslash (\\\\) when specifying a path to exclude.
+	-  Example: **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d D:\\\\ShareRoot\\\\Folder\\\\SubFolder /f**
+-  File name or file type exclusions apply to all server endpoints on the server.
+-  You cannot exclude file types from a particular folder only.
+-  Exclusions do not apply to files already tiered. Use the [Invoke-StorageSyncFileRecall](#how-to-recall-a-tiered-file-to-disk) cmdlet to recall files already tiered.
+-  Use Event ID 9001 in the Telemetry event log on the server to check the cloud tiering exclusions that are configured. The Telemetry event log is located in Event Viewer under Applications and Services\Microsoft\FileSync\Agent.
+
 ## How to exclude applications from cloud tiering last access time tracking
 
 When an application accesses a file, the last access time for the file is updated in the cloud tiering database. Applications that scan the file system like anti-virus cause all files to have the same last access time, which impacts when files are tiered.
 
-To exclude applications from last access time tracking, add the process name to the appropriate registry setting that is located under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync.
+To exclude applications from last access time tracking, add the process exclusions to the **HeatTrackingProcessNamesExclusionList** registry setting under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync.  
 
-For v11 and v12 release, add the process exclusions to the HeatTrackingProcessNameExclusionList registry setting.
-Example: reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNameExclusionList /t REG_MULTI_SZ /d "SampleApp.exe\0AnotherApp.exe" /f
+Example: **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNamesExclusionList /t REG_SZ /d "SampleApp.exe|AnotherApp.exe" /f**
 
-For v13 release and newer, add the process exclusions to the HeatTrackingProcessNamesExclusionList registry setting.
-Example: reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNamesExclusionList /t REG_SZ /d "SampleApp.exe|AnotherApp.exe" /f
+If the Azure File Sync agent is installed on a Failover Cluster, the **HeatTrackingProcessNamesExclusionList** registry setting must be created under HKEY_LOCAL_MACHINE\Cluster\StorageSync\SOFTWARE\Microsoft\Azure\StorageSync.
+
+Example: **reg ADD "HKEY_LOCAL_MACHINE\Cluster\StorageSync\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNamesExclusionList /t REG_SZ /d "SampleApp.exe|AnotherApp.exe" /f**
 
 > [!NOTE]
 > Data Deduplication and File Server Resource Manager (FSRM) processes are excluded by default. Changes to the process exclusion list are honored by the system every 5 minutes.
@@ -130,7 +164,7 @@ Optional parameters:
 - `-Order CloudTieringPolicy` will recall the most recently modified or accessed files first and is allowed by the current tiering policy. 
 	* If volume free space policy is configured, files will be recalled until the volume free space policy setting is reached. For example if the volume free policy setting is 20%, recall will stop once the volume free space reaches 20%.  
 	* If volume free space and date policy is configured, files will be recalled until the volume free space or date policy setting is reached. For example, if the volume free policy setting is 20% and the date policy is 7 days, recall will stop once the volume free space reaches 20% or all files accessed or modified within 7 days are local.
-- `-ThreadCount` determines how many files can be recalled in parallel.
+- `-ThreadCount` determines how many files can be recalled in parallel (thread count limit is 32).
 - `-PerFileRetryCount`determines how often a recall will be attempted of a file that is currently blocked.
 - `-PerFileRetryDelaySeconds`determines the time in seconds between retry to recall attempts and should always be used in combination with the previous parameter.
 
@@ -149,4 +183,4 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCoun
 
 ## Next steps
 
-- [Frequently asked questions (FAQ) about Azure Files](../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json)
+- [Frequently asked questions (FAQ) about Azure Files](../files/storage-files-faq.md?toc=/azure/storage/filesync/toc.json)

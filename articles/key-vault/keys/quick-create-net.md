@@ -1,17 +1,17 @@
 ---
-title: Quickstart - Azure Key Vault keys client library for .NET (version 4)
-description: Learn how to create, retrieve, and delete keys from an Azure key vault using the .NET client library (version 4)
+title: Quickstart - Azure Key Vault keys client library for .NET
+description: Learn how to create, retrieve, and delete keys from an Azure key vault using the .NET client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 09/23/2020
+ms.date: 01/04/2023
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurepowershell, mode-api
+ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet
 ---
 
-# Quickstart: Azure Key Vault key client library for .NET (SDK v4)
+# Quickstart: Azure Key Vault key client library for .NET
 
 Get started with the Azure Key Vault key client library for .NET. [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for cryptographic keys. You can securely store cryptographic keys, passwords, certificates, and other secrets. Azure key vaults may be created and managed through the Azure portal. In this quickstart, you learn how to create, retrieve, and delete keys from an Azure key vault using the .NET key client library
 
@@ -26,7 +26,7 @@ For more information about Key Vault and keys, see:
 ## Prerequisites
 
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
-* [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core)
+* [.NET 6 SDK or later](https://dotnet.microsoft.com/download)
 * [Azure CLI](/cli/azure/install-azure-cli)
 * A Key Vault - you can create one using [Azure portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md).
 
@@ -55,7 +55,7 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
 
 Create an access policy for your key vault that grants key permissions to your user account
 
-```console
+```azurecli
 az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --key-permissions delete get list create purge
 ```
 
@@ -89,7 +89,7 @@ From the command shell, install the Azure Key Vault key client library for .NET:
 dotnet add package Azure.Security.KeyVault.Keys
 ```
 
-For this quickstart, you'll also need to install the Azure SDK client library for Azure Identity:
+For this quickstart, you'll also need to install the Azure Identity client library:
 
 ```dotnetcli
 dotnet add package Azure.Identity
@@ -131,13 +131,15 @@ using Azure.Security.KeyVault.Keys;
 
 ### Authenticate and create a client
 
-In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
+Application requests to most Azure services must be authorized. Using the [DefaultAzureCredential](/dotnet/azure/sdk/authentication#defaultazurecredential) class provided by the [Azure Identity client library](/dotnet/api/overview/azure/identity-readme) is the recommended approach for implementing passwordless connections to Azure services in your code. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. 
 
-In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) class from [Azure Identity Library](/dotnet/api/overview/azure/identity-readme), which allows to use the same code across different environments with different options to provide identity. Fore more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
+
+In this example, the name of your key vault is expanded to the key vault URI, in the format `https://<your-key-vault-name>.vault.azure.net`. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 ```csharp
 var keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
-var kvUri = "https://" + keyVaultName + ".vault.azure.net";
+var kvUri = $"https://{keyVaultName}.vault.azure.net";
 
 var client = new KeyClient(new Uri(kvUri), new DefaultAzureCredential());
 ```
@@ -151,7 +153,7 @@ var key = await client.CreateKeyAsync("myKey", KeyType.Rsa);
 ```
 
 > [!NOTE]
-> If key name exists, above code will create new version of that key.
+> If key name exists, this code will create new version of that key.
 
 ### Retrieve a key
 
@@ -177,7 +179,7 @@ await client.PurgeDeletedKeyAsync("myKey");
 
 ## Sample code
 
-Modify the .NET Core console app to interact with the Key Vault by completing the following steps:
+Modify the .NET console app to interact with the Key Vault by completing the following steps:
 
 - Replace the code in *Program.cs* with the following code:
 

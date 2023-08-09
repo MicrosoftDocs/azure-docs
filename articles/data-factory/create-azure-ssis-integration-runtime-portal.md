@@ -4,20 +4,19 @@ description: Learn how to create an Azure-SSIS integration runtime in Azure Data
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 02/15/2022
-author: swinarko
-ms.author: sawinark 
-ms.custom: devx-track-azurepowershell
+ms.date: 04/12/2023
+author: chugugrace
+ms.author: chugu 
 ---
 
 # Create an Azure-SSIS integration runtime via Azure portal 
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article shows you how to create an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) in Azure Data Factory (ADF) or Synapse Pipelines via Azure portal.
 
 > [!NOTE] 
-> Azure-SSIS IR in Azure Synapse Analytics is in public preview, please check [limitations](https://aka.ms/AAfq9i3) for preview.
+> There are certain features that are not available for Azure-SSIS IR in Azure Synapse Analytics, please check the [limitations](https://aka.ms/AAfq9i3).
 
 ## Provision an Azure-SSIS integration runtime
 
@@ -116,7 +115,7 @@ If you select the check box, complete the following steps to bring your own data
 Select **Test connection** when applicable, and if it's successful, select **Continue**.
 
 > [!NOTE]
-> If you use Azure SQL Database server to host SSISDB, your data will be stored in geo-redundant storage for backups by default. If you don't want your data to be replicated in other regions, please follow the instructions to [Configure backup storage redundancy by using PowerShell](../azure-sql/database/automated-backups-overview.md?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell).
+> If you use Azure SQL Database server to host SSISDB, your data will be stored in geo-redundant storage for backups by default. If you don't want your data to be replicated in other regions, please follow the instructions to [Configure backup storage redundancy by using PowerShell](/azure/azure-sql/database/automated-backups-overview?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell).
    
 #### Creating Azure-SSIS IR package stores
 

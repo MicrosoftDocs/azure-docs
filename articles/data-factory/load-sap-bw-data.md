@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/09/2021
+ms.date: 07/20/2023
 ---
 
 # Copy data from SAP Business Warehouse with Azure Data Factory or Synapse Analytics

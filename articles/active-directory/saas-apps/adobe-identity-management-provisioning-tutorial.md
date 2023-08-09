@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Adobe Identity Management for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Adobe Identity Management for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Adobe Identity Management.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 6ae05dc7-1265-44b4-a20c-512b5218b9d1
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/30/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -40,7 +40,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * Review the [adobe documentation](https://helpx.adobe.com/enterprise/admin-guide.html/enterprise/using/add-azure-sync.ug.html) on user provisioning 
 
 > [!NOTE]
-> If your organization uses the User Sync Tool or a UMAPI integration, you must first pause the integration. Then, add Azure AD automatic provisioning to automate user management from the Azure Portal. Once Azure AD automatic provisioning is configured and running, you can completely remove the User Sync Tool or UMAPI integration.
+> If your organization uses the User Sync Tool or a UMAPI integration, you must first pause the integration. Then, add Azure AD automatic provisioning to automate user management from the Azure portal. Once Azure AD automatic provisioning is configured and running, you can completely remove the User Sync Tool or UMAPI integration.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -79,6 +79,9 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 ## Step 5. Configure automatic user provisioning to Adobe Identity Management 
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
+
+> [!VIDEO https://www.youtube.com/embed/k2_fk7BY8Ow]
+
 
 ### To configure automatic user provisioning for Adobe Identity Management in Azure AD:
 

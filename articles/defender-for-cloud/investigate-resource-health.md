@@ -1,18 +1,11 @@
 ---
-title: 'Tutorial: Investigate the health of your resources - Microsoft Defender for Cloud'
+title: Tutorial - Investigate the health of your resources
 description: 'Tutorial: Learn how to investigate the health of your resources using Microsoft Defender for Cloud.'
 ms.topic: tutorial
-ms.date: 11/09/2021
+ms.date: 01/24/2023
 ---
+
 # Tutorial: Investigate the health of your resources
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-> [!NOTE]
-> The resource health page described in this tutorial is a preview release.
-
-> [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)] |
-|Pricing:|**Microsoft Defender for DNS** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 The resource health page provides a snapshot view of the overall health of a single resource. You can review detailed information about the resource and all recommendations that apply to that resource. Also, if you're using any of the [advanced protection plans of Microsoft Defender for Cloud](defender-for-cloud-introduction.md), you can see outstanding security alerts for that specific resource too.
 
@@ -43,7 +36,7 @@ To step through the features covered in this tutorial:
 ## Access the health information for a resource
 
 > [!TIP]
-> In the screenshots below, we're opening a virtual machine, but the resource health page can show you the details for all resource types.
+> In the following screenshots, we're opening a virtual machine, but the resource health page can show you the details for all resource types.
 
 To open the resource health page for a resource:
 

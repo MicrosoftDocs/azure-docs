@@ -1,23 +1,23 @@
 ---
-title: Azure VM extensions and features for Linux 
+title: Azure VM extensions and features for Linux
 description: Learn what extensions are available for Azure virtual machines on Linux, grouped by what they provide or improve.
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
-author: MsGabsta
+author: GabstaMSFT
 ms.collection: linux
-ms.date: 03/30/2018
-
+ms.date: 05/24/2022
+ms.custom: GGAL-freshness822, devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
 ---
 
 # Virtual machine extensions and features for Linux
 
-Azure virtual machine (VM) extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, antivirus protection, or the ability to run a script inside it, you can use a VM extension. 
+Azure virtual machine (VM) extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, antivirus protection, or the ability to run a script inside it, you can use a VM extension.
 
 You can run Azure VM extensions by using the Azure CLI, PowerShell, Azure Resource Manager templates (ARM templates), and the Azure portal. You can bundle extensions with a new VM deployment or run them against any existing system.
 
-This article provides an overview of Azure VM extensions, prerequisites for using them, and guidance on how to detect, manage, and remove them. This article provides generalized information because many VM extensions are available. Each has a potentially unique configuration and its own documentation. 
+This article provides an overview of Azure VM extensions, prerequisites for using them, and guidance on how to detect, manage, and remove them. This article provides generalized information because many VM extensions are available. Each has a potentially unique configuration and its own documentation.
 
 ## Use cases and samples
 
@@ -25,9 +25,9 @@ Each Azure VM extension has a specific use case. Examples include:
 
 - Apply PowerShell desired state configurations (DSCs) to a VM by using the [DSC extension for Linux](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
 - Configure monitoring of a VM by using the [Microsoft Monitoring Agent VM extension](/previous-versions/azure/virtual-machines/linux/tutorial-monitor).
-- Configure monitoring of your Azure infrastructure by using the [Chef](https://docs.chef.io/) or [Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/) extension. 
+- Configure monitoring of your Azure infrastructure by using the [Chef](https://docs.chef.io/) or [Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/) extension.
 
-In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The [Custom Script extension for Linux](custom-script-linux.md) allows any Bash script to be run on a VM. Custom scripts are useful for designing Azure deployments that require configuration beyond what native Azure tooling can provide. 
+In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The [Custom Script extension for Linux](custom-script-linux.md) allows any Bash script to be run on a VM. Custom scripts are useful for designing Azure deployments that require configuration beyond what native Azure tooling can provide.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ In addition to process-specific extensions, a Custom Script extension is availab
 
 To handle the extension on the VM, you need the [Azure Linux Agent](agent-linux.md) installed. Some individual extensions have prerequisites, such as access to resources or dependencies.
 
-The Azure Linux Agent manages interactions between an Azure VM and the Azure fabric controller. The agent is responsible for many functional aspects of deploying and managing Azure VMs, including running VM extensions. 
+The Azure Linux Agent manages interactions between an Azure VM and the Azure fabric controller. The agent is responsible for many functional aspects of deploying and managing Azure VMs, including running VM extensions.
 
 The Azure Linux Agent is preinstalled on Azure Marketplace images. It can also be installed manually on supported operating systems.
 
@@ -43,7 +43,7 @@ The agent runs on multiple operating systems. However, the extensions framework 
 
 ### Network access
 
-Extension packages are downloaded from the Azure Storage extension repository. Extension status uploads are posted to Azure Storage. 
+Extension packages are downloaded from the Azure Storage extension repository. Extension status uploads are posted to Azure Storage.
 
 If you use a [supported version of the Azure Linux Agent](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support), you don't need to allow access to Azure Storage in the VM region. You can use the agent to redirect the communication to the Azure fabric controller for agent communications. If you're on an unsupported version of the agent, you need to allow outbound access to Azure Storage in that region from the VM.
 
@@ -56,11 +56,25 @@ To redirect agent traffic requests, the Azure Linux Agent has proxy server suppo
 
 ## Discover VM extensions
 
+### [Azure CLI](#tab/azure-cli)
+
 Many VM extensions are available for use with Azure VMs. To see a complete list, use [az vm extension image list](/cli/azure/vm/extension/image#az-vm-extension-image-list). The following example lists all available extensions in the *westus* location:
 
 ```azurecli
 az vm extension image list --location westus --output table
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+Many VM extensions are available for use with Azure VMs. To see a complete list, use [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). The following example lists all available extensions in the *westus* location:
+
+```azurepowershell
+Get-AzVmImagePublisher -Location "westus" |
+Get-AzVMExtensionImageType |
+Get-AzVMExtensionImage | Select-Object Type, PublisherName, Version
+```
+
+---
 
 ## Run VM extensions
 
@@ -70,7 +84,7 @@ You can use the following methods to run an extension against an existing VM.
 
 ### Azure CLI
 
-You can run Azure VM extensions against an existing VM by using the [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) command. The following example runs the Custom Script extension against a VM named *myVM* in a resource group named *myResourceGroup*. Replace the example resource group name, VM name, and script to run (https:\//raw.githubusercontent.com/me/project/hello.sh) with your own information. 
+You can run Azure VM extensions against an existing VM by using the [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) command. The following example runs the Custom Script extension against a VM named *myVM* in a resource group named *myResourceGroup*. Replace the example resource group name, VM name, and script to run (https:\//raw.githubusercontent.com/me/project/hello.sh) with your own information.
 
 ```azurecli
 az vm extension set \
@@ -83,11 +97,35 @@ az vm extension set \
 
 When the extension runs correctly, the output is similar to the following example:
 
-```bash
+```output
 info:    Executing command vm extension set
 + Looking up the VM "myVM"
 + Installing extension "CustomScript", VM: "mvVM"
 info:    vm extension set command OK
+```
+
+### Azure PowerShell
+
+You can run Azure VM extensions against an existing VM by using the [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) command. The following example runs the Custom Script extension against a VM named *myVM* in a resource group named *myResourceGroup*. Replace the example resource group name, VM name, and script to run (https:\//raw.githubusercontent.com/me/project/hello.sh) with your own information.
+
+```azurepowershell
+$Params = @{
+    ResourceGroupName  = 'myResourceGroup'
+    VMName             = 'myVM'
+    Name               = 'CustomScript'
+    Publisher          = 'Microsoft.Azure.Extensions'
+    ExtensionType      = 'CustomScript'
+    TypeHandlerVersion = '2.1'
+    Settings          = @{fileUris = @('https://raw.githubusercontent.com/me/project/hello.sh'); commandToExecute = './hello.sh'}
+}
+Set-AzVMExtension @Params
+```
+When the extension runs correctly, the output is similar to the following example:
+
+```Output
+RequestId IsSuccessStatusCode StatusCode ReasonPhrase
+--------- ------------------- ---------- ------------
+                         True         OK OK
 ```
 
 ### Azure portal
@@ -100,7 +138,7 @@ The following image shows the installation of the Custom Script extension for Li
 
 ### Azure Resource Manager templates
 
-You can add VM extensions to an ARM template and run them with the deployment of the template. When you deploy an extension with a template, you can create fully configured Azure deployments. 
+You can add VM extensions to an ARM template and run them with the deployment of the template. When you deploy an extension with a template, you can create fully configured Azure deployments.
 
 For example, the following JSON is taken from a [full ARM template](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux) that deploys a set of load-balanced VMs and an Azure SQL database, and then installs a .NET Core application on each VM. The VM extension takes care of the software installation.
 
@@ -119,7 +157,7 @@ For example, the following JSON is taken from a [full ARM template](https://gith
     "properties": {
     "publisher": "Microsoft.Azure.Extensions",
     "type": "CustomScript",
-    "typeHandlerVersion": "2.0",
+    "typeHandlerVersion": "2.1",
     "autoUpgradeMinorVersion": true,
     "settings": {
         "fileUris": [
@@ -156,7 +194,7 @@ The following example shows an instance of the Custom Script extension for Linux
   "properties": {
     "publisher": "Microsoft.Azure.Extensions",
     "type": "CustomScript",
-    "typeHandlerVersion": "2.0",
+    "typeHandlerVersion": "2.1",
     "autoUpgradeMinorVersion": true,
     "settings": {
       "fileUris": [
@@ -185,7 +223,7 @@ Moving the `commandToExecute` property to the `protected` configuration helps se
   "properties": {
     "publisher": "Microsoft.Azure.Extensions",
     "type": "CustomScript",
-    "typeHandlerVersion": "2.0",
+    "typeHandlerVersion": "2.1",
     "autoUpgradeMinorVersion": true,
     "settings": {
       "fileUris": [
@@ -207,6 +245,7 @@ When an update is available and automatic updates are enabled, the update is ins
 
 - Data disks
 - Extensions
+- Extension Tags
 - Boot diagnostics container
 - Guest OS secrets
 - VM size
@@ -219,7 +258,7 @@ Publishers make updates available to regions at various times, so it's possible 
 
 #### Agent updates
 
-The Linux VM Agent contains *Provisioning Agent code* and *extension-handling code* in one package. They can't be separated. 
+The Linux VM Agent contains *Provisioning Agent code* and *extension-handling code* in one package. They can't be separated.
 
 You can disable the Provisioning Agent when you want to [provision on Azure by using cloud-init](../linux/using-cloud-init.md).
 
@@ -242,13 +281,13 @@ waagent --version
 
 The output is similar to the following example:
 
-```bash
-WALinuxAgent-2.2.17 running on ubuntu 16.04
-Python: 3.6.0
-Goal state agent: 2.2.18
+```output
+WALinuxAgent-2.2.45 running on <Linux Distro>
+Python: 3.6.9
+Goal state agent: 2.7.1.0
 ```
 
-In the preceding example output, the parent (or package deployed version) is `WALinuxAgent-2.2.17`. The `Goal state agent` value is the auto-update version.
+In the preceding example output, the parent (or package deployed version) is `WALinuxAgent-2.2.45`. The `Goal state agent` value is the auto-update version.
 
 We highly recommend that you always enable automatic update for the agent: [AutoUpdate.Enabled=y](./update-linux-agent.md). If you don't enable automatic update, you'll need to keep manually updating the agent, and you won't get bug and security fixes.
 
@@ -261,7 +300,7 @@ Automatic extension updates are either *minor* or *hotfix*. You can opt in or op
 ```json
     "publisher": "Microsoft.Azure.Extensions",
     "type": "CustomScript",
-    "typeHandlerVersion": "2.0",
+    "typeHandlerVersion": "2.1",
     "autoUpgradeMinorVersion": true,
     "settings": {
         "fileUris": [
@@ -272,11 +311,13 @@ Automatic extension updates are either *minor* or *hotfix*. You can opt in or op
 
 To get the latest minor-release bug fixes, we highly recommend that you always select automatic update in your extension deployments. You can't opt out of hotfix updates that carry security or key bug fixes.
 
-If you disable automatic updates or you need to upgrade a major version, use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) and specify the target version.
+If you disable automatic updates or you need to upgrade a major version, use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) or [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) and specify the target version.
 
 ### How to identify extension updates
 
 #### Identify if the extension is set with autoUpgradeMinorVersion on a VM
+
+### [Azure CLI](#tab/azure-cli)
 
 You can see from the VM model if the extension was provisioned with `autoUpgradeMinorVersion`. To check, use [az vm show](/cli/azure/vm#az-vm-show) and provide the resource group and VM name as follows:
 
@@ -291,8 +332,30 @@ The following example output shows that `autoUpgradeMinorVersion` is set to `tru
     {
       "autoUpgradeMinorVersion": true,
       "forceUpdateTag": null,
-      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM/extensions/CustomScriptExtension",
+      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM/extensions/customScript",
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+You can see from the VM model if the extension was provisioned with `AutoUpgradeMinorVersion`. To check, use [Get-AzVM](/powershell/module/az.compute/get-azvm) and provide the resource group and VM name as follows:
+
+```azurepowershell
+Get-AzVM -ResourceGroupName myResourceGroup -Name myVM | Select-Object -ExpandProperty Extensions
+```
+
+The following example output shows that `AutoUpgradeMinorVersion` is set to `True`:
+
+```Output
+ForceUpdateTag                :
+Publisher                     : Microsoft.Azure.Extensions
+VirtualMachineExtensionType   : CustomScript
+TypeHandlerVersion            : 2.1
+AutoUpgradeMinorVersion       : True
+EnableAutomaticUpgrade        :
+...
+```
+
+---
 
 #### Identify when an autoUpgradeMinorVersion event occurred
 
@@ -325,7 +388,7 @@ To perform its tasks, the agent needs to run as *root*.
 
 ## Troubleshoot VM extensions
 
-Each VM extension might have specific troubleshooting steps. For example, when you use the Custom Script extension, you can find script execution details locally on the VM where the extension was run. 
+Each VM extension might have specific troubleshooting steps. For example, when you use the Custom Script extension, you can find script execution details locally on the VM where the extension was run.
 
 The following troubleshooting actions apply to all VM extensions:
 
@@ -347,11 +410,13 @@ The following troubleshooting actions apply to all VM extensions:
 
 ### View extension status
 
+### [Azure CLI](#tab/azure-cli)
+
 After a VM extension has been run against a VM, use [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view) to return extension status as follows:
 
 ```azurecli
 az vm get-instance-view \
-    --resource-group rgName \
+    --resource-group myResourceGroup \
     --name myVM \
     --query "instanceView.extensions"
 ```
@@ -371,16 +436,47 @@ The output is similar to the following example:
       }
     ],
     "substatuses": null,
-    "type": "Microsoft.Azure.Extensions.customScript",
-    "typeHandlerVersion": "2.0.6"
+    "type": "Microsoft.Azure.Extensions.CustomScript",
+    "typeHandlerVersion": "2.1.6"
   }
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+After a VM extension has been run against a VM, use [Get-AzVM](/powershell/module/az.compute/get-azvm) and specify the `-Status` switch parameter to return extension status as follows:
+
+```azurepowershell
+Get-AzVM -ResourceGroupName myResourceGroup -Name myVM -Status |
+Select-Object -ExpandProperty Extensions |
+Select-Object -ExpandProperty Statuses
+```
+
+The output is similar to the following example:
+
+```Output
+Code          : ProvisioningState/failed/0
+Level         : Error
+DisplayStatus : Provisioning failed
+Message       : Enable failed: failed to execute command: command terminated with exit status=127
+                [stdout]
+
+                [stderr]
+                /bin/sh: 1: ./hello.sh: not found
+
+Time          :
+```
+
+---
 
 You can also find extension execution status in the Azure portal. Select the VM, select **Extensions**, and then select the desired extension.
 
 ### Rerun a VM extension
 
-There might be cases in which a VM extension needs to be rerun. You can rerun an extension by removing it, and then rerunning the extension with an execution method of your choice. To remove an extension, use [az vm extension delete](/cli/azure/vm/extension#az-vm-extension-delete) as follows:
+There might be cases in which a VM extension needs to be rerun. You can rerun an extension by removing it, and then rerunning the extension with an execution method of your choice.
+
+### [Azure CLI](#tab/azure-cli)
+
+To remove an extension, use [az vm extension delete](/cli/azure/vm/extension#az-vm-extension-delete) as follows:
 
 ```azurecli
 az vm extension delete \
@@ -388,6 +484,18 @@ az vm extension delete \
     --vm-name myVM \
     --name customScript
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+To remove an extension, use [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension) as follows:
+
+```azurepowershell
+Remove-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name customScript
+```
+
+To force the command to run without asking for user confirmation specify the `-Force` switch parameter.
+
+---
 
 You can also remove an extension in the Azure portal:
 

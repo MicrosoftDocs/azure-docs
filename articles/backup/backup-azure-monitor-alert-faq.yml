@@ -6,8 +6,8 @@ metadata:
   ms.topic: faq
   ms.service: backup
   ms.date: 02/14/2022
-  author: v-amallick
-  ms.author: v-amallick
+  author: AbhishekMallick-MS
+  ms.author: v-abhmallick
 title: Azure Backup Monitoring Alert - FAQ
 summary: This article answers common questions about Azure Backup monitoring and reporting.
 
@@ -23,7 +23,7 @@ sections:
       - question: |
           Are there any costs to use built-in Azure Monitor alerts for Azure Backup?
         answer: |
-          With [built-in Azure Monitor alerts](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup-preview), _alerts_ for critical operations/failures generate by default (that you can view in the portal or via non-portal interfaces) at no additional cost. However, to route these alerts to a notification channel (such as email), it incurs a minor cost for notifications beyond the free tier (of 1000 emails per month). [Learn more about Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+          With [built-in Azure Monitor alerts](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup), *alerts* for critical operations/failures generate by default (that you can view in the portal or via non-portal interfaces) at no additional cost. However, to route these alerts to a notification channel (such as email), it incurs a minor cost for notifications beyond the free tier (of 1000 emails per month). [Learn more about Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
       - question: |
           Are there any costs for using metric alerts for Azure Backup?
@@ -35,7 +35,7 @@ sections:
         answer: |
           As per backup alerts:
 
-          - **Alert rule**: Refers to a user-created rule that specifies the condition on which an alert should be fired. [Learn more](../azure-monitor/alerts/alerts-overview.md#overview)
+          - **Alert rule**: Refers to a user-created rule that specifies the condition on which an alert should be fired. [Learn more](../azure-monitor/alerts/alerts-overview.md)
           - **Alert processing rule (earlier called Action rule)**: Refers to a user-created rule that specifies the notification channels a particular fired alert should be routed to. You can also use alert processing rules to suppress notifications for a period of time. [Learn more](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal)
           - **Action group**: Refers to the notification channel (such as email, ITSM endpoint, logic app, webhook, and so on) that a fired alert can be routed to. [Learn more](../azure-monitor/alerts/action-groups.md)
 

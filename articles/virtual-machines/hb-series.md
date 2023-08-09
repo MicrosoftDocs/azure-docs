@@ -2,9 +2,9 @@
 title: HB-series 
 description: Specifications for the HB-series VMs.
 ms.service: virtual-machines
-ms.subservice: vm-sizes-hpc
+ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 05/30/2023
 ms.reviewer: jushiman
 ---
 
@@ -30,13 +30,16 @@ HB-series VMs feature 100 Gb/sec Mellanox EDR InfiniBand. These VMs are connecte
 | Size | vCPU | Processor | Memory (GiB) | Memory bandwidth GB/s | Base CPU frequency (GHz) | All-cores frequency (GHz, peak) | Single-core frequency (GHz, peak) | RDMA performance (Gb/s) | MPI support | Temp storage (GiB) | Max data disks | Max Ethernet vNICs |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HB60rs | 60 | AMD EPYC 7551 | 228 | 263 | 2.0 | 2.55 | 2.55 | 100 | All | 700 | 4 | 8 |
+| Standard_HB60-45rs | 45 | AMD EPYC 7551 | 228 | 263 | 2.0 | 2.55 | 2.55 | 100 | All | 700 | 4 | 8 |
+| Standard_HB60-30rs | 30 | AMD EPYC 7551 | 228 | 263 | 2.0 | 2.55 | 2.55 | 100 | All | 700 | 4 | 8 |
+| Standard_HB60-15rs | 15 | AMD EPYC 7551 | 228 | 263 | 2.0 | 2.55 | 2.55 | 100 | All | 700 | 4 | 8 |
 
 Learn more about the:
-- [Architecture and VM topology](./workloads/hpc/hb-series-overview.md)
-- Supported [software stack](./workloads/hpc/hb-series-overview.md#software-specifications) including supported OS
-- Expected [performance](./workloads/hpc/hb-series-performance.md) of the HB-series VM
+- [Architecture and VM topology](hb-series-overview.md)
+- Supported [software stack](hb-series-overview.md#software-specifications) including supported OS
+- Expected [performance](hb-series-performance.md) of the HB-series VM
 
-[!INCLUDE [hpc-include.md](./workloads/hpc/includes/hpc-include.md)]
+[!INCLUDE [hpc-include.md](./includes/hpc-include.md)]
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

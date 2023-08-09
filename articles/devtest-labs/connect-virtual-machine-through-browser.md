@@ -2,7 +2,10 @@
 title: Connect to lab virtual machines through Browser connect
 description: Learn how to connect to lab virtual machines (VMs) through a browser if Browser connect is enabled for the lab.
 ms.topic: how-to
-ms.date: 03/14/2022
+ms.author: rosemalcolm
+author: RoseHJM
+ms.date: 06/14/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Connect to DevTest Labs VMs through a browser with Azure Bastion

@@ -27,7 +27,7 @@ You can integrate IoT Hub with other Azure services to build complete, end-to-en
 
 - [Azure Logic Apps](../logic-apps/index.yml) to automate business processes.
 
-- [Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md) to add machine learning and AI models to your solution.
+- [Azure Machine Learning](../machine-learning/index.yml) to add machine learning and AI models to your solution.
 
 - [Azure Stream Analytics](../stream-analytics/index.yml) to run real-time analytic computations on the data streaming from your devices.
 
@@ -90,6 +90,9 @@ An example of a command is rebooting a device. IoT Hub implements commands by al
 
 IoT Hub gives you the ability to unlock the value of your device data with other Azure services so you can shift to predictive problem-solving rather than reactive management. Connect your IoT hub with other Azure services to do machine learning, analytics, and AI to act on real-time data, optimize processing, and gain deeper insights.
 
+>[!NOTE]
+>Azure IoT Hub doesn't store or process customer data outside of the geography where you deploy the service instance. For more information, see [Cross-region replication in Azure](../availability-zones/cross-region-replication-azure.md).
+
 ### Built-in endpoint collects device data by default
 
 A built-in endpoint collects data from your device by default. The data is collected using a request-response pattern over dedicated IoT device endpoints, is available for a maximum duration of seven days, and can be used to take actions on a device. Here is the data accepted by the device endpoint:
@@ -107,6 +110,8 @@ iot-hub-devguide-endpoints.md#list-of-built-in-iot-hub-endpoints)
 
 Data can also be routed to different services for further processing. As the IoT solution scales out, the number of devices, volume of events, variety of events, and different services also varies. A flexible, scalable, consistent, and reliable method to route events is necessary to serve this pattern. Once a message route has been created, data stops flowing to the built-in-endpoint unless a fallback route has been configured. For a tutorial showing multiple uses of message routing, see the [Routing Tutorial](tutorial-routing.md).
 
+IoT Hub supports setting up custom endpoints for various existing Azure services like Storage containers, Event Hubs, Service Bus queues, Service Bus topics, and Cosmos DB. Once the endpoint has been set up, you can route your IoT data to any of these endpoints to perform downstream data operations.
+
 IoT Hub also integrates with Event Grid, which enables you to fan out data to multiple subscribers. Event Grid is a fully managed event service that enables you to easily manage events across many different Azure services and applications. Made for performance and scale, it simplifies building event-driven applications and serverless architectures. The differences between message routing and using Event Grid are explained in the [Message Routing and Event Grid Comparison](iot-hub-event-grid-routing-comparison.md)
 
 ## Next steps
@@ -115,9 +120,10 @@ To try out an end-to-end IoT solution, check out the IoT Hub quickstarts:
 
 - [Send telemetry from a device to IoT Hub](quickstart-send-telemetry-cli.md)
 - [Send telemetry from an IoT Plug and Play device to IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json)
-- [Control a device connected to an IoT hub](quickstart-control-device.md)
+- [Quickstart: Control a device connected to an IoT hub](quickstart-control-device.md)
 
 To learn more about the ways you can build and deploy IoT solutions with Azure IoT, visit:
 
 - [What is Azure IoT device and application development](../iot-develop/about-iot-develop.md)
-- [Fundamentals: Azure IoT technologies and solutions](../iot-fundamentals/iot-services-and-technologies.md)
+- [Fundamentals: Azure IoT technologies and solutions](../iot/iot-services-and-technologies.md)
+

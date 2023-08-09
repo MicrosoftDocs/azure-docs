@@ -1,18 +1,18 @@
 ---
-title: Change license plans for users and groups - Azure AD | Microsoft Docs
+title: Change license plans for users and groups
 description: How to migrate users within a group to different service plans using group licensing in Azure Active Directory
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/02/2020
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: barclayn
 ms.reviewer: sumitp
 ms.custom: "it-pro;seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 # Change license assignments for a user or group in Azure Active Directory
 
-This article describes how to move users and groups between service license plans in Azure Active Directory (Azure AD). The goal Azure AD's approach is to ensure that there's no loss of service or data during the license change. Users should switch between services seamlessly. The license plan assignment steps in this article describe changing a user or group on Office 365 E1 to Office 365 E3, but the steps apply to all license plans. When you update license assignments for a user or group, the license assignment removals and new assignments are made simultaneously so that users do not lose access to their services during license changes or see license conflicts between plans.
+This article describes how to move users and groups between service license plans in Azure Active Directory (Azure AD), part of Microsoft Entra. The goal Azure AD's approach is to ensure that there's no loss of service or data during the license change. Users should switch between services seamlessly. The license plan assignment steps in this article describe changing a user or group on Office 365 E1 to Office 365 E3, but the steps apply to all license plans. When you update license assignments for a user or group, the license assignment removals and new assignments are made simultaneously so that users do not lose access to their services during license changes or see license conflicts between plans.
 
 ## Before you begin
 
@@ -38,9 +38,11 @@ Before you update the license assignments, it's important to verify certain assu
 
 ## Change user license assignments
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 On the **Update license assignments** page, if you see that some checkboxes are unavailable, it indicates services that can't be changed because they're inherited from a group license.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a License administrator account in your Azure AD organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a License administrator account in your Azure AD organization.
 1. Select **Azure Active Directory** > **Users**, and then open the **Profile** page for a user.
 1. Select **Licenses**.
 1. Select **Assignments** to edit license assignment for the user or group. The **Assignments** page is where you can resolve license assignment conflicts.
@@ -55,7 +57,7 @@ Azure AD applies the new licenses and removes the old licenses simultaneously to
 
 ## Change group license assignments
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a License administrator account in your Azure AD organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a License administrator account in your Azure AD organization.
 1. Select **Azure Active Directory** > **Groups**, and then open the **Overview** page for a group.
 1. Select **Licenses**.
 1. Select the **Assignments** command to edit license assignment for the user or group.

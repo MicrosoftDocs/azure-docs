@@ -1,133 +1,258 @@
 ---
-title: Important changes coming to Microsoft Defender for Cloud
+title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 03/20/2022
+ms.date: 08/08/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 > [!IMPORTANT]
 > The information on this page relates to pre-release products or features, which may be substantially modified before they are commercially released, if ever. Microsoft makes no commitments or warranties, express or implied, with respect to the information provided here.
+[Defender for Servers](#defender-for-servers)
+On this page, you can learn about changes that are planned for Defender for Cloud. It describes planned modifications to the product that might affect things like your secure score or workflows.
 
-On this page, you'll learn about changes that are planned for Defender for Cloud. It describes planned modifications to the product that might impact things like your secure score or workflows.
+> [!TIP]
+> Get notified when this page is updated by copying and pasting the following URL into your feed reader:
+>
+> `https://aka.ms/mdc/upcoming-rss`
 
-If you're looking for the latest release notes, you'll find them in the [What's new in Microsoft Defender for Cloud](release-notes.md).
-
+If you're looking for the latest release notes, you can find them in the [What's new in Microsoft Defender for Cloud](release-notes.md).
 
 ## Planned changes
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | March 2022 |
-| [AWS and GCP recommendations to GA](#aws-and-gcp-recommendations-to-ga) | March 2022 |
-| [Relocation of custom recommendations](#relocation-of-custom-recommendations) | March 2022 |
-| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | May 2022 |
+| [Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"](#replacing-the-key-vaults-should-have-purge-protection-enabled-recommendation-with-combined-recommendation-key-vaults-should-have-deletion-protection-enabled) | June 2023|
+| [Changes to the Defender for DevOps recommendations environment source and resource ID](#changes-to-the-defender-for-devops-recommendations-environment-source-and-resource-id) | August 2023 |
+| [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | August 2023 |
+| [Business model and pricing updates for Defender for Cloud plans](#business-model-and-pricing-updates-for-defender-for-cloud-plans) | August 2023 |
+| [Update naming format of Azure Center for Internet Security standards in regulatory compliance](#update-naming-format-of-azure-center-for-internet-security-standards-in-regulatory-compliance) | August 2023 |
+| [Preview alerts for DNS servers to be deprecated](#preview-alerts-for-dns-servers-to-be-deprecated) | August 2023 |
+| [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) | September 2023 |
+| [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) | August 2024 |
 
-### Changes to recommendations for managing endpoint protection solutions
+### Defender for Cloud plan and strategy for the Log Analytics agent deprecation
 
-**Estimated date for change:** March 2022
+**Estimated date for change: August 2024**
 
-In August 2021, we added two new **preview** recommendations to deploy and maintain the endpoint protection solutions on your machines. For full details, [see the release note](release-notes-archive.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview).
+The Azure Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA) will be [retired in August 2024.](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/) As a result, features of the two Defender for Cloud plans that rely on the Log Analytics agent are impacted, and they have updated strategies: [Defender for Servers](#defender-for-servers) and [Defender for SQL Server on machines](#defender-for-sql-server-on-machines).
 
-When the recommendations are released to general availability, they will replace the following existing recommendations:
+#### Key strategy points
 
-- **Endpoint protection should be installed on your machines** will replace:
-    - [Install endpoint protection solution on virtual machines (key: 83f577bd-a1b6-b7e1-0891-12ca19d1e6df)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/83f577bd-a1b6-b7e1-0891-12ca19d1e6df)
-    - [Install endpoint protection solution on your machines (key: 383cf3bc-fdf9-4a02-120a-3e7e36c6bfee)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/383cf3bc-fdf9-4a02-120a-3e7e36c6bfee)
+- The Azure monitoring Agent (AMA) won’t be a requirement of the Defender for Servers offering, but will remain required as part of Defender for SQL.
+- Defender for Servers MMA-based features and capabilities will be deprecated in their Log Analytics version in August 2024, and delivered over alternative infrastructures, before the MMA deprecation date.
+- In addition, the currently shared autoprovisioning process that provides the installation and configuration of both agents (MMA/AMA), will be adjusted accordingly.
 
-- **Endpoint protection health issues should be resolved on your machines** will replace the existing recommendation that has the same name. The two recommendations have different assessment keys:
-    - Assessment key for the **preview** recommendation: 37a3689a-818e-4a0e-82ac-b1392b9bb000
-    - Assessment key for the **GA** recommendation: 3bcd234d-c9c7-c2a2-89e0-c01f419c1a8a
+#### Defender for Servers
 
-Learn more:
-- [Defender for Cloud's supported endpoint protection solutions](supported-machines-endpoint-solutions-clouds-servers.md#endpoint-supported)
-- [How these recommendations assess the status of your deployed solutions](endpoint-protection-recommendations-technical.md)
+The following table explains how each capability will be provided after the Log Analytics agent retirement:
 
-### AWS and GCP recommendations to GA
+| **Feature**                                                  | **Support**                                                  | **Alternative**                                              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Defender for Endpoint/Defender for Cloud integration  for down level machines (Windows Server  2012 R2, 2016) | Defender for Endpoint integration that uses the  legacy Defender for Endpoint sensor and the Log Analytics agent (for Windows Server 2016 and Windows  Server 2012 R2 machines) won’t be supported after August 2024. | Enable the GA [unified agent](/microsoft-365/security/defender-endpoint/configure-server-endpoints#new-windows-server-2012-r2-and-2016-functionality-in-the-modern-unified-solution) integration to  maintain support for machines, and receive the full extended feature set. For more information, see [Enable the Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md#windows). |
+| OS-level threat detection (agent-based)                      | OS-level threat detection based  on the Log Analytics agent won’t be available after August 2024.  A full list of deprecated detections will be provided soon. | OS-level detections are provided by Defender for Endpoint integration  and are already GA. |
+| Adaptive application controls                                | The [current GA version](adaptive-application-controls.md) based on the  Log Analytics agent will be deprecated in August 2024, along with the preview version based on the Azure monitoring agent. | The next generation of this feature is currently under evaluation, further information will be provided soon. |
+| Endpoint protection discovery recommendations                | The current [GA and preview recommendations](endpoint-protection-recommendations-technical.md) to install endpoint protection and fix health issues in the detected solutions will be deprecated in August 2024. | A new agentless version will be provided for discovery and configuration gaps by April 2024. As part of this upgrade, this feature will be provided as a component of Defender for Servers plan 2 and Defender for CSPM, and won’t cover on-premises or Arc-connected machines. |
+| Missing OS patches (system  updates)                         | Recommendations to apply system updates based on the Log Analytics agent won’t be available after August 2024. | [New recommendations](release-notes.md#two-recommendations-related-to-missing-operating-system-os-updates-were-released-to-ga), based on integration  with Update Management Center, are already in GA, with no agent dependencies. |
+| OS misconfigurations (Azure Security Benchmark  recommendations) | The [current GA version](apply-security-baseline.md) based on the Log Analytics agent won’t be  available after August 2024.   The current preview version that uses the Guest  Configuration agent will be deprecated as the Microsoft Defender  Vulnerability Management integration becomes available. | A new version, based on integration with Premium  Microsoft Defender Vulnerability Management, will be available early in 2024,  as part of Defender for Servers plan 2. |
+| File integrity monitoring                                    | The [current GA version](file-integrity-monitoring-enable-log-analytics.md) based on the Log  Analytics agent won’t be available after August 2024. | A new version of this feature, either agent-based or agentless, will be available by April 2024. |
+| The  [500-MB benefit](faq-defender-for-servers.yml#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-) for data  ingestion | The [500-MB benefit](faq-defender-for-servers.yml#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-)  for data ingestion over the defined tables will remain supported via the AMA agent for the machines  under subscriptions covered by Defender for Servers P2. Every machine is  eligible for the benefit only once, even if both Log Analytics agent and  Azure Monitor agent are installed on it. |                                                              |
 
-**Estimated date for change:** March 2022
+##### Log analytics and Azure Monitoring agents autoprovisioning experience
 
-There are currently AWS and GCP recommendations in the preview stage. These recommendations come from the AWS Foundational Security Best Practices and GCP default standards which are assigned by default. All of the recommendations will become Generally Available (GA) in March 2022.
+- The MMA autoprovisioning mechanism and its related policy initiative will remain optional until August 2024.
 
-When these recommendations go live, their impact will be included in the calculations of your secure score. Expect changes to your secure score.
+- In October 2023, the current shared Log Analytics agent/Azure Monitor agent autoprovisioning mechanism will be updated and applied to the Log Analytics agent only. The Azure Monitor agent related (Public Preview) policy initiatives will be deprecated.
 
-#### AWS recommendations
+- The AMA autoprovisioning mechanism will still serve current customers with the Public Preview policy initiative enabled, but they won't be eligible for support. To disable the Azure Monitor agent provisioning, manually remove the policy initiative.
 
-**To find these recommendations**:
+- If MMA autoprovisioning is enabled and AMA agents are already installed on the machines, MMA won’t be provisioned. However, AMA will remain functional.
 
-1. Navigate to **Environment settings** > **`AWS connector`** > **Standards (preview)**.
-1. Right click on **AWS Foundational Security Best Practices (preview)**, and select **view assessments**.
+To ensure the security of your servers and receive all the security updates from Defender for Servers, make sure to have [Defender for Endpoint integration](integration-defender-for-endpoint.md) and [agentless disk scanning](concept-agentless-data-collection.md) enabled on your subscriptions. This will also keep your servers up-to-date with the alternative deliverables.
 
-:::image type="content" source="media/release-notes/aws-foundational.png" alt-text="Screenshot showing the location of the AWS Foundational Security Best Practices (preview).":::
+> [!IMPORTANT]
+> For more information about how to plan for this change, see [Microsoft Defender for Cloud - strategy and plan towards Log Analytics Agent (MMA) deprecation](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341).
 
-#### GCP recommendations
+#### Defender for SQL Server on machines
 
-**To find these recommendations**:
+The Defender for SQL Server on machines plan relies on the Log Analytics agent (MMA) / Azure monitoring agent (AMA) to provide Vulnerability Assessment and Advanced Threat Protection to IaaS SQL Server instances. The plan supports Log Analytics agent autoprovisioning in GA, and Azure Monitoring agent autoprovisioning in Public Preview.
 
-1. Navigate to **Environment settings** > **`GCP connector`** > **Standards (preview)**.
-1. Right click on **GCP Default (preview)**, and select **view assessments**.
+The following section describes the planned introduction of a new and improved SQL Server-targeted Azure monitoring agent (AMA) autoprovisioning process and the deprecation procedure of the Log Analytics agent (MMA). On-premises SQL servers using MMA will require the Azure Arc agent when migrating to the new process due to AMA requirements. Customers who use the new autoprovisioning process will benefit from a simple and seamless agent configuration, reducing onboarding errors and providing broader protection coverage.
 
-:::image type="content" source="media/release-notes/gcp-foundational.png" alt-text="Screenshot showing the location of the GCP Default (preview).":::
+| Milestone                                                 | Date          | More information                                             |
+| --------------------------------------------------------- | ------------- | ------------------------------------------------------------ |
+| SQL-targeted AMA autoprovisioning Public Preview release | October 2023  | The new autoprovisioning process will only target Azure registered SQL servers (SQL Server on Azure VM/ Arc-enabled SQL Server). The current AMA autoprovisioning process and its related policy initiative will be deprecated. It can still be used customers, but they won't be eligible for support. |
+| SQL-targeted AMA autoprovisioning GA release             | December 2023 | GA release of a SQL-targeted AMA autoprovisioning process. Following the release, it will be defined as the default option for all new customers. |
+| MMA deprecation                                           | August 2024   | The current MMA autoprovisioning process and its related policy initiative will be deprecated. It can still be used customers, but they won't be eligible for support. |
 
-### Relocation of custom recommendations
+### Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"
 
-**Estimated date for change:** March 2022
+**Estimated date for change: June 2023**
 
-Custom recommendations are those created by a user, and have no impact on the secure score. Therefore, the custom recommendations are being relocated from the Secure score recommendations tab to the All recommendations tab.
+The `Key Vaults should have purge protection enabled` recommendation is deprecated from the (regulatory compliance dashboard/Azure security benchmark initiative) and replaced with a new combined recommendation `Key Vaults should have deletion protection enabled`.
 
-When the move occurs, the custom recommendations will be found via a new "recommendation type" filter.
+| Recommendation name | Description | Effect(s) | Version |
+|--|--|--|--|
+| [Key vaults should have deletion protection enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53)| A malicious insider in your organization can potentially delete and purge key vaults. Purge protection protects you from insider attacks by enforcing a mandatory retention period for soft deleted key vaults. No one inside your organization or Microsoft will be able to purge your key vaults during the soft delete retention period. | audit, deny, disabled | [2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
-Learn more in [Create custom security initiatives and policies](custom-security-policies.md).
+See the [full index of Azure Policy built-in policy definitions for Key Vault](../key-vault/policy-reference.md)
 
-### Multiple changes to identity recommendations
+### Changes to the Defender for DevOps recommendations environment source and resource ID
 
-**Estimated date for change:** May 2022
+**Estimated date for change: August 2023**
 
-Defender for Cloud includes multiple recommendations for improving the management of users and accounts. In December, we'll be making the changes outlined below.
+The Security DevOps recommendations will be updated to align with the overall Microsoft Defender for Cloud features and experience.  Affected recommendations will point to a new recommendation source environment and have an updated resource ID.
 
-- **Improved freshness interval** - Currently, the identity recommendations have a freshness interval of 24 hours. This update will reduce that interval to 12 hours.
+Security DevOps recommendations impacted:
 
-- **Account exemption capability** - Defender for Cloud has many features for customizing the experience and making sure your secure score reflects your organization's security priorities. The exempt option on security recommendations is one such feature. For a full overview and instructions, see [Exempting resources and recommendations from your secure score](exempt-resource.md). With this update, you'll be able to exempt specific accounts from evaluation by the eight recommendations listed in the following table.
+- Code repositories should have code scanning findings resolved (preview)
+- Code repositories should have secret scanning findings resolved (preview)
+- Code repositories should have dependency vulnerability scanning findings resolved (preview)
+- Code repositories should have infrastructure as code scanning findings resolved (preview)
+- GitHub repositories should have code scanning enabled (preview)
+- GitHub repositories should have Dependabot scanning enabled (preview)
+- GitHub repositories should have secret scanning enabled (preview)
 
-    Typically, you'd exempt emergency “break glass” accounts from MFA recommendations, because such accounts are often deliberately excluded from an organization's MFA requirements. Alternatively, you might have external accounts that you'd like to permit access to but which don't have MFA enabled.
+The recommendation environment source will be updated from `Azure` to `AzureDevOps` or `GitHub`.
 
-    > [!TIP]
-    > When you exempt an account, it won't be shown as unhealthy and also won't cause a subscription to appear  unhealthy.
+The format for resource IDs will be changed from:
 
-    |Recommendation| Assessment key|
-    |-|-|
-    |[MFA should be enabled on accounts with owner permissions on your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/94290b00-4d0c-d7b4-7cea-064a9554e681)|94290b00-4d0c-d7b4-7cea-064a9554e681|
-    |[MFA should be enabled on accounts with read permissions on your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/151e82c5-5341-a74b-1eb0-bc38d2c84bb5)|151e82c5-5341-a74b-1eb0-bc38d2c84bb5|
-    |[MFA should be enabled on accounts with write permissions on your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/57e98606-6b1e-6193-0e3d-fe621387c16b)|57e98606-6b1e-6193-0e3d-fe621387c16b|
-    |[External accounts with owner permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c3b6ae71-f1f0-31b4-e6c1-d5951285d03d)|c3b6ae71-f1f0-31b4-e6c1-d5951285d03d|
-    |[External accounts with read permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/a8c6a4ad-d51e-88fe-2979-d3ee3c864f8b)|a8c6a4ad-d51e-88fe-2979-d3ee3c864f8b|
-    |[External accounts with write permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/04e7147b-0deb-9796-2e5c-0336343ceb3d)|04e7147b-0deb-9796-2e5c-0336343ceb3d|
-    |[Deprecated accounts with owner permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e52064aa-6853-e252-a11e-dffc675689c2)|e52064aa-6853-e252-a11e-dffc675689c2|
-    |[Deprecated accounts should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00c6d40b-e990-6acf-d4f3-471e747a27c4)|00c6d40b-e990-6acf-d4f3-471e747a27c4|
+`Microsoft.SecurityDevOps/githubConnectors/owners/repos/`
 
- 
-- **Recommendations rename** - From this update, we're renaming two recommendations. We're also revising their descriptions. The assessment keys will remain unchanged. 
+To:
 
+`Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/projects/repos`
+`Microsoft.Security/securityConnectors/devops/gitHubOwners/repos`
 
-    |Property  |Current value  | From the update|
-    |---------|---------|---------|
-    |Assessment key     | e52064aa-6853-e252-a11e-dffc675689c2        | Unchanged|
-    |Name     |[Deprecated accounts with owner permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e52064aa-6853-e252-a11e-dffc675689c2)         |Subscriptions should be purged of accounts that are blocked in Active Directory and have owner permissions        |
-    |Description     |User accounts that have been blocked from signing in, should be removed from your subscriptions.<br>These accounts can be targets for attackers looking to find ways to access your data without being noticed.|User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions. These accounts can be targets for attackers looking to find ways to access your data without being noticed.<br>Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](../security/fundamentals/identity-management-best-practices.md).|
-    |Related policy     |[Deprecated accounts with owner permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2febb62a0c-3560-49e1-89ed-27e074e9f8ad)         |Subscriptions should be purged of accounts that are blocked in Active Directory and have owner permissions |
+As a part of the migration, source code management system specific recommendations will be created for security findings:
 
+- GitHub repositories should have code scanning findings resolved (preview)
+- GitHub repositories should have secret scanning findings resolved (preview)
+- GitHub repositories should have dependency vulnerability scanning findings resolved (preview)
+- GitHub repositories should have infrastructure as code scanning findings resolved (preview)
+- GitHub repositories should have code scanning enabled (preview)
+- GitHub repositories should have Dependabot scanning enabled (preview)
+- GitHub repositories should have secret scanning enabled (preview)
+- Azure DevOps repositories should have code scanning findings resolved (preview)
+- Azure DevOps repositories should have secret scanning findings resolved (preview)
+- Azure DevOps repositories should have infrastructure as code scanning findings resolved (preview)
 
-    |Property  |Current value  | From the update|
-    |---------|---------|---------|
-    |Assessment key     | 00c6d40b-e990-6acf-d4f3-471e747a27c4        | Unchanged|
-    |Name     |[Deprecated accounts should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00c6d40b-e990-6acf-d4f3-471e747a27c4)|Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions|
-    |Description     |User accounts that have been blocked from signing in, should be removed from your subscriptions.<br>These accounts can be targets for attackers looking to find ways to access your data without being noticed.|User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions. These accounts can be targets for attackers looking to find ways to access your data without being noticed.<br>Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](../security/fundamentals/identity-management-best-practices.md).|
-    |Related policy     |[Deprecated accounts should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6b1cbf55-e8b6-442f-ba4c-7246b6381474)|Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions|
+Customers that rely on the `resourceID` to query DevOps recommendation data will be affected. For example, Azure Resource Graph queries, workbooks queries, API calls to Microsoft Defender for Cloud.
 
+Queries will need to be updated to include both the old and new `resourceID` to show both, for example, total over time.
+
+Additionally, customers that have created custom queries using the DevOps workbook will need to update the assessment keys for the impacted DevOps security recommendations.
+
+The recommendations page's experience will have minimal impact and deprecated assessments may continue to show for a maximum of 14 days if new scan results aren't submitted.  
+
+### DevOps Resource Deduplication for Defender for DevOps
+
+**Estimated date for change: August 2023**
+
+To improve the Defender for DevOps user experience and enable further integration with Defender for Cloud's rich set of capabilities, Defender for DevOps will no longer support duplicate instances of a DevOps organization to be onboarded to an Azure tenant.
+
+If you don't have an instance of a DevOps organization onboarded more than once to your organization, no further action is required. If you do have more than one instance of a DevOps organization onboarded to your tenant, the subscription owner will be notified and will need to delete the DevOps Connector(s) they don't want to keep by navigating to Defender for Cloud Environment Settings.
+
+Customers will have until July 31, 2023 to resolve this issue. After this date, only the most recent DevOps Connector created where an instance of the DevOps organization exists will remain onboarded to Defender for DevOps. For example, if Organization Contoso exists in both connectorA and connectorB, and connectorB was created after connectorA, then connectorA will be removed from Defender for DevOps.
+
+### Business model and pricing updates for Defender for Cloud plans
+
+**Estimated date for change: August 2023**
+
+Microsoft Defender for Cloud has three plans that offer service layer protection:
+
+- Defender for Key Vault
+
+- Defender for Azure Resource Manager
+
+- Defender for DNS
+
+These plans are transitioning to a new business model with different pricing and packaging to address customer feedback regarding spending predictability and simplifying the overall cost structure.
+
+**Business model and pricing changes summary**:
+
+Existing customers of Defender for Key-Vault, Defender for Azure Resource Manager, and Defender for DNS will keep their current business model and pricing unless they actively choose to switch to the new business model and price.
+
+- **Defender for Azure Resource Manager**: This plan will have a fixed price per subscription per month. Customers will have the option to switch to the new business model by selecting the Defender for Azure Resource Manager new per-subscription model.
+
+Existing customers of Defender for Key-Vault, Defender for Azure Resource Manager, and Defender for DNS will keep their current business model and pricing unless they actively choose to switch to the new business model and price.
+
+- **Defender for Azure Resource Manager**: This plan will have a fixed price per subscription per month. Customers will have the option to switch to the new business model by selecting the Defender for Azure Resource Manager new per-subscription model.
+
+- **Defender for Key Vault**: This plan will have a fixed price per vault at per month with no overage charge. Customers will have the option to switch to the new business model by selecting the Defender for Key Vault new per-vault model
+
+- **Defender for DNS**: Defender for Servers Plan 2 customers will gain access to Defender for DNS value as part of Defender for Servers Plan 2 at no extra cost. Customers that have both Defender for Server Plan 2 and Defender for DNS will no longer be charged for Defender for DNS. Defender for DNS will no longer be available as a standalone plan.
+
+For more information on all of these plans, check out the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h)
+
+### Update naming format of Azure Center for Internet Security standards in regulatory compliance
+
+**Estimated date for change: August 2023**
+
+The naming format of Azure CIS (Center for Internet Security) foundations benchmarks in the compliance dashboard is set for change from `[Cloud] CIS [version number]` to `CIS [Cloud] Foundations v[version number]`. Refer to the following table:
+
+| Current Name | New Name |
+|--|--|
+| Azure CIS 1.1.0 | CIS Azure Foundations v1.1.0 |
+| Azure CIS 1.3.0 | CIS Azure Foundations v1.3.0 |
+| Azure CIS 1.4.0 | CIS Azure Foundations v1.4.0 |
+| AWS CIS 1.2.0 | CIS AWS Foundations v1.2.0 |
+| AWS CIS 1.5.0 | CIS AWS Foundations v1.5.0 |
+| GCP CIS 1.1.0 | CIS GCP Foundations v1.1.0 |
+| GCP CIS 1.2.0 | CIS GCP Foundations v1.2.0 |
+
+Learn how to [improve your regulatory compliance](regulatory-compliance-dashboard.md).
+
+### Preview alerts for DNS servers to be deprecated
+
+**Estimated date for change: August 2023**
+
+Following quality improvement process, security alerts for DNS servers are set to be deprecated in August. For cloud resources, use [Azure DNS](defender-for-dns-introduction.md) to receive the same security value.
+
+The following table lists the alerts to be deprecated:
+
+| AlertDisplayName | AlertType |
+|--|--|
+| Communication with suspicious random domain name (Preview) | DNS_RandomizedDomain
+| Communication with suspicious domain identified by threat intelligence (Preview) | DNS_ThreatIntelSuspectDomain |
+| Digital currency mining activity (Preview) | DNS_CurrencyMining |
+| Network intrusion detection signature activation (Preview) | DNS_SuspiciousDomain |
+| Attempted communication with suspicious sinkholed domain (Preview) | DNS_SinkholedDomain |
+| Communication with possible phishing domain (Preview) | DNS_PhishingDomain|
+| Possible data transfer via DNS tunnel (Preview) | DNS_DataObfuscation |
+| Possible data exfiltration via DNS tunnel (Preview) | DNS_DataExfiltration |
+| Communication with suspicious algorithmically generated domain (Preview) | DNS_DomainGenerationAlgorithm |
+| Possible data download via DNS tunnel (Preview) | DNS_DataInfiltration |
+| Anonymity network activity (Preview) | DNS_DarkWeb |
+| Anonymity network activity using web proxy (Preview) | DNS_DarkWebProxy |
+
+### Change to the Log Analytics daily cap
+
+Azure monitor offers the capability to [set a daily cap](../azure-monitor/logs/daily-cap.md) on the data that is ingested on your Log analytics workspaces. However, Defender for Cloud security events are currently not supported in those exclusions.
+
+Starting on September 18, 2023 the Log Analytics Daily Cap will no longer exclude the following set of data types:
+
+- WindowsEvent
+- SecurityAlert
+- SecurityBaseline
+- SecurityBaselineSummary
+- SecurityDetection
+- SecurityEvent
+- WindowsFirewall
+- MaliciousIPCommunication
+- LinuxAuditLog
+- SysmonEvent
+- ProtectionStatus
+- Update
+- UpdateSummary
+- CommonSecurityLog
+- Syslog
+
+At that time, all billable data types will be capped if the daily cap is met. This change improves your ability to fully contain costs from higher-than-expected data ingestion.
+
+Learn more about [workspaces with Microsoft Defender for Cloud](../azure-monitor/logs/daily-cap.md#workspaces-with-microsoft-defender-for-cloud).
 
 ## Next steps
 
-For all recent changes to Defender for Cloud, see [What's new in Microsoft Defender for Cloud?](release-notes.md)
+For all recent changes to Defender for Cloud, see [What's new in Microsoft Defender for Cloud?](release-notes.md).

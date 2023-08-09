@@ -1,20 +1,18 @@
 ---
-title: Azure Confidential virtual machine options on AMD processors (preview)
+title: Azure Confidential virtual machine options on AMD processors
 description: Azure Confidential Computing offers multiple options for confidential virtual machines that run on AMD processors backed by SEV-SNP technology.
-author: edendcohen
+author: mamccrea
+ms.author: mamccrea
+ms.reviewer: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 11/15/2021
-ms.author: edcohen
+ms.date: 3/29/2023
 ---
 
-# Azure Confidential VM options on AMD (preview)
-
-> [!IMPORTANT]
-> Confidential virtual machines (confidential VMs) in Azure Confidential Computing is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Azure Confidential VM options on AMD
 
 Azure Confidential Computing offers multiple options for confidential VMs that run on AMD processors backed by [AMD Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP)](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf) technology.
 
@@ -24,7 +22,7 @@ You can create confidential VMs that run on AMD processors in the following size
 
 | Size family          | Description                                                                         |
 | ------------------ | ----------------------------------------------------------------------------------- |
-| **DCasv5-series**  | Confidential VM with remote storage only. No local temporary desk.                  |
+| **DCasv5-series**  | Confidential VM with remote storage only. No local temporary disk.                  |
 | **DCadsv5-series** | Confidential VM with a local temporary disk.                                        |
 | **ECasv5-series**  | Memory-optimized confidential VM with remote storage only. No local temporary disk. |
 | **ECadsv5-series** | Memory-optimized confidential VM with a local temporary disk.                       |
@@ -39,19 +37,21 @@ You can use the [Azure CLI](/cli/azure/install-azure-cli) with your confidential
 To see a list of confidential VM sizes, run the following command. Replace `<vm-series>` with the series you want to use. For example, `DCASv5`, `ECASv5`, `DCADSv5`, or `ECADSv5`. The output shows information about available regions and availability zones.
 
 ```azurecli-interactive
-az vm list-skus `
-    --size dc `
-    --query "[?family=='standard<vm-series>Family'].{name:name,locations:locationInfo[0].location,AZ_a:locationInfo[0].zones[0],AZ_b:locationInfo[0].zones[1],AZ_c:locationInfo[0].zones[2]}" `
-    --all `
+vm_series='DCASv5'
+az vm list-skus \
+    --size dc \
+    --query "[?family=='standard${vm_series}Family'].{name:name,locations:locationInfo[0].location,AZ_a:locationInfo[0].zones[0],AZ_b:locationInfo[0].zones[1],AZ_c:locationInfo[0].zones[2]}" \
+    --all \
     --output table
 ```
 
 For a more detailed list, run the following command instead:
 
 ```azurecli-interactive
-az vm list-skus `
-    --size dc `
-    --query "[?family=='standard<vm-series>Family']" 
+vm_series='DCASv5'
+az vm list-skus \
+    --size dc \
+    --query "[?family=='standard${vm_series}Family']" 
 ```
 
 ## Deployment considerations
@@ -60,7 +60,7 @@ Consider the following settings and choices before deploying confidential VMs.
 
 ### Azure subscription
 
-To deploy a confidential VM instance, consider a pay-as-you-go subscription or other purchase option. If you're using an [Azure free account](https://azure.microsoft.com/free/), the quota doesn't allow the appropriate amount of Azure compute cores.
+To deploy a confidential VM instance, consider a [pay-as-you-go subscription](/azure/virtual-machines/linux/azure-hybrid-benefit-linux) or other purchase option. If you're using an [Azure free account](https://azure.microsoft.com/free/), the quota doesn't allow the appropriate number of Azure compute cores.
 
 You might need to increase the cores quota in your Azure subscription from the default value. Default limits vary depending on your subscription category. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the confidential VM sizes. 
 
@@ -84,17 +84,28 @@ It's not possible to resize a non-confidential VM to a confidential VM.
 
 ### Disk encryption
 
-OS images for confidential VMs have to meet certain security and compatibility requirements. Qualified images support the secure mounting, attestation, optional [full-disk encryption](confidential-vm-overview.md#full-disk-encryption), and isolation from underlying cloud infrastructure. These images include:
+OS images for confidential VMs have to meet certain security and compatibility requirements. Qualified images support the secure mounting, attestation, optional [confidential OS disk encryption](confidential-vm-overview.md#confidential-os-disk-encryption), and isolation from underlying cloud infrastructure. These images include:
 
-- Ubuntu 20.04 Gen 2
-- Windows Server 2019 Gen 2
-- Windows Server 2022 Gen 2
+- Ubuntu 20.04 LTS
+- Ubuntu 22.04 LTS
+- Windows Server 2019 Datacenter - x64 Gen 2
+- Windows Server 2019 Datacenter Server Core - x64 Gen 2
+- Windows Server 2022 Datacenter - x64 Gen 2
+- Windows Server 2022 Datacenter: Azure Edition Core - x64 Gen 2
+- Windows Server 2022 Datacenter: Azure Edition - x64 Gen 2
+- Windows Server 2022 Datacenter Server Core - x64 Gen 2
+- Windows 11 Enterprise N, version 22H2 -x64 Gen 2
+- Windows 11 Pro, version 22H2 ZH-CN -x64 Gen 2
+- Windows 11 Pro, version 22H2 -x64 Gen 2
+- Windows 11 Pro N, version 22H2 -x64 Gen 2
+- Windows 11 Enterprise, version 22H2 -x64 Gen 2
+- Windows 11 Enterprise multi-session, version 22H2 -x64 Gen 2
 
 For more information about supported and unsupported VM scenarios, see [support for generation 2 VMs on Azure](../virtual-machines/generation-2.md). 
 
 ### High availability and disaster recovery
 
-You're responsible for creating high availability and disaster recovery solutions for your confidential VMs. Planning for these scenarios helps minimize avoid prolonged downtime.
+You're responsible for creating high availability and disaster recovery solutions for your confidential VMs. Planning for these scenarios helps minimize and avoid prolonged downtime.
 
 ### Deployment with ARM templates
 

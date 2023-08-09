@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 03/22/2022
+ms.date: 04/05/2023
 ms.author: banders
 ms.custom: contperf-fy21q2
 ---
@@ -36,7 +36,7 @@ It must be more than 30 days from the day that you subscribed to Azure. Azure bi
 
 ## Sign in to Azure
 
-- Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+- Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Compare billed charges with your usage file
 
@@ -44,19 +44,19 @@ It must be more than 30 days from the day that you subscribed to Azure. Azure bi
 
 The first step to compare usage and costs is to download your invoice and usage files. The detailed usage CSV file shows your charges by billing period and daily usage. It doesn't include any tax information. In order to download the files, you must be an account administrator or have the Owner role.
 
-In the Azure portal, type *subscriptions* in the search box and then click **Subscriptions**.
+In the Azure portal, type *subscriptions* in the search box and then select **Subscriptions**.
 
 [![Navigate to subscriptions](./media/review-individual-bill/navigate-subscriptions.png)](./media/review-individual-bill/navigate-subscriptions.png#lightbox)
 
-In the list of subscriptions, click the subscription.
+In the list of subscriptions, select the subscription.
 
-Under **Billing**, click **Invoices**.
+Under **Billing**, select **Invoices**.
 
-In the list of invoices, look for the one that you want to download then click the download symbol. You might need to change the timespan to view older invoices. It might take a few minutes to generate the usage details file and invoice.
+In the list of invoices, look for the one that you want to download then select the download symbol. You might need to change the timespan to view older invoices. It might take a few minutes to generate the usage details file and invoice.
 
 ![Screenshot that shows billing periods, the download option, and total charges for each billing period](./media/review-individual-bill/download-invoice.png)
 
-In the Download Usage + Charges window, click **Download csv** and **Download invoice**.
+In the Download Usage + Charges window, select **Download csv** and **Download invoice**.
 
 ![Screenshot that shows Download invoice and usage page](./media/review-individual-bill/usageandinvoice.png)
 
@@ -88,7 +88,6 @@ Your usage charges are displayed at the meter level. The following terms mean th
 |Resource |MeterName |
 |Region |MeterRegion |
 |Consumed | Quantity |
-|Included |Included Quantity |
 |Billable |Overage Quantity |
 |Rate | EffectivePrice|
 | Value | Cost |
@@ -107,7 +106,7 @@ The summed *Cost* value should match precisely to the *usage charges* cost for t
 
 ## Compare billed charges and usage in cost analysis
 
-Cost analysis in the Azure portal can also help you verify your charges. To get a quick overview of your invoiced usage and charges, select your subscription from the Subscriptions page in the Azure portal. Next, click **Cost analysis** and then in the views list, click **Invoice details**.
+Cost analysis in the Azure portal can also help you verify your charges. To get a quick overview of your invoiced usage and charges, select your subscription from the Subscriptions page in the Azure portal. Next, select **Cost analysis** and then in the views list, select **Invoice details**.
 
 ![Example showing Invoice details selection](./media/review-individual-bill/cost-analysis-select-invoice-details.png)
 

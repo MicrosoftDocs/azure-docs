@@ -3,12 +3,12 @@ title: Single sign-on to apps with Azure Active Directory Application Proxy
 description: Turn on single sign-on for your published on-premises applications with Azure Active Directory Application Proxy in the Azure portal.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 11/17/2022
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -22,6 +22,8 @@ Application Proxy supports several [single sign-on modes](../manage-apps/sso-opt
 You should already have published and tested your app with Application Proxy. If not, follow the steps in [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md) then come back here.
 
 ## Set up password vaulting for your application
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 1. Select **Azure Active Directory** > **Enterprise applications** > **All applications**.

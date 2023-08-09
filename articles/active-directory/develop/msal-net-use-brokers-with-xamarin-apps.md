@@ -1,8 +1,7 @@
 ---
-title: Use brokers with Xamarin iOS & Android | Azure
-titleSuffix: Microsoft identity platform
+title: Use brokers with Xamarin iOS & Android
 description: Learn how to setup Xamarin iOS applications that can use the Microsoft Authenticator and the Microsoft Authentication Library for .NET (MSAL.NET). Also learn how to migrate from Azure AD Authentication Library for .NET (ADAL.NET) to the Microsoft Authentication Library for .NET (MSAL.NET).
-author: jmprieur
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,9 +9,9 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 09/08/2019
-ms.author: jmprieur
-ms.reviewer: saeeda
-ms.custom: "devx-track-csharp, aaddev, has-adal-ref"
+ms.author: dmwendia
+ms.reviewer: jmprieur, saeeda
+ms.custom: devx-track-csharp, aaddev, has-adal-ref, devx-track-dotnet
 #Customer intent: As an application developer, I want to learn how to use brokers with my Xamarin iOS or Android application and MSAL.NET.
 ---
 
@@ -161,6 +160,8 @@ Add `msauthv2` to the `LSApplicationQueriesSchemes` section of the *Info.plist* 
 ```
 
 ### Step 7: Add a redirect URI to your app registration
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 When you use the broker, your redirect URI has an extra requirement. The redirect URI _must_ have the following format:
 
@@ -335,7 +336,7 @@ As an alternative, you can configure MSAL to fall back to the embedded browser, 
 
 Here are a few tips on avoiding issues when you implement brokered authentication on Android:
 
-- **Redirect URI** - Add a redirect URI to your application registration in the [Azure portal](https://portal.azure.com/). A missing or incorrect redirect URI is a common issue encountered by developers.
+- **Redirect URI** - Add a redirect URI to your application registration in the [Azure portal](https://portal.azure.com). A missing or incorrect redirect URI is a common issue encountered by developers.
 - **Broker version** - Install the minimum required version of the broker apps. Either of these two apps can be used for brokered authentication on Android.
   - [Intune Company Portal](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) (version 5.0.4689.0 or greater)
   - [Microsoft Authenticator](https://play.google.com/store/apps/details?id=com.azure.authenticator) (version 6.2001.0140 or greater).

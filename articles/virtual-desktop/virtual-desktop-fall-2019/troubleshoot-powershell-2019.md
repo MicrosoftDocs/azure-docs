@@ -1,9 +1,9 @@
 ---
 title: Azure Virtual Desktop (classic) PowerShell - Azure
-description: How to troubleshoot issues with PowerShell when you set up a Azure Virtual Desktop (classic) tenant environment.
+description: How to troubleshoot issues with PowerShell when you set up an Azure Virtual Desktop (classic) tenant environment.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 03/30/2020
+ms.date: 04/05/2022
 ms.author: helohr
 manager: femila
 ---
@@ -29,9 +29,9 @@ This section lists PowerShell commands that are typically used while setting up 
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName 'Desktop Application Group' -UserPrincipalName <UserName>
 ```
 
-**Cause:** The username used has been already assigned to an app group of a different type. Users can't be assigned to both a remote desktop and remote app group under the same session host pool.
+**Cause:** The username used has been already assigned to an application group of a different type. Users can't be assigned to both a remote desktop and RemoteApp application group under the same session host pool.
 
-**Fix:** If user needs both remote apps and remote desktop, create different host pools or grant user access to the remote desktop, which will permit the use of any application on the session host VM.
+**Fix:** If user needs both a RemoteApp and desktop, create different host pools or only grant user access to the remote desktop, which will permit the use of any application on the session host VM.
 
 ### Error: Add-RdsAppGroupUser command -- The specified UserPrincipalName doesn't exist in the Azure Active Directory associated with the Remote Desktop tenant
 
@@ -78,15 +78,33 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 **Fix 2:** A user with Active Directory permissions needs to execute the role assignment.
 
 > [!NOTE]
-> New-RdsRoleAssignment cannot give permissions to a user that doesn't exist in the Azure Active Directory (AD).
+> New-RdsRoleAssignment cannot give permissions to a user that doesn't exist in the Azure Active Directory (Azure AD).
+
+## Error: SessionHostPool could not be deleted
+
+This error usually happens when you run the following command to try to remove a session host.
+
+```powershell
+Remove-RdsHostPool -TenantName <TenantName> -Name <HostPoolName>
+```
+
+**Cause:** If you run the command before deleting the host pool's leaf objects, it won't work.
+
+**Fix:** Run the following command to delete the session host. 
+
+```powershell
+Get-RdsSessionHost-TenantName <TenantName> -Hostpook <HostPoolName> | Remove-RdsSessionHost -Force
+```
+
+Using the force command will let you delete the session host even if it has assigned users.
 
 ## Next steps
 
 - For an overview on troubleshooting Azure Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview-2019.md).
-- To troubleshoot issues while creating a tenant and host pool in a Azure Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues-2019.md).
+- To troubleshoot issues while creating a tenant and host pool in an Azure Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues-2019.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration-2019.md).
 - To troubleshoot issues with Azure Virtual Desktop client connections, see [Azure Virtual Desktop service connections](troubleshoot-service-connection-2019.md).
-- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](../troubleshoot-client.md)
+- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](../troubleshoot-client-windows.md)
 - To learn more about the service, see [Azure Virtual Desktop environment](environment-setup-2019.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
 - To learn about auditing actions, see [Audit operations with Resource Manager](../../azure-monitor/essentials/activity-log.md).

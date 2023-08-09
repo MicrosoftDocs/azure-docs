@@ -1,17 +1,18 @@
 ---
 title: 'Properties of an enterprise application'
-titleSuffix: Azure AD
 description: Learn about the properties of an enterprise application in Azure Active Directory.
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/22/2021
-ms.author: davidmu
+ms.date: 09/06/2022
+ms.author: jomondi
 ms.reviewer: ergreenl
+ms.custom: enterprise-apps
+
 #Customer intent: As an administrator of an Azure AD tenant, I want to learn more about the properties of an enterprise application that I can configure.
 ---
 
@@ -41,7 +42,7 @@ The homepage URL can't be edited within enterprise applications. The homepage UR
 
 This is the application logo that users see on the My Apps portal and the Office 365 application launcher. Administrators also see the logo in the Azure AD gallery.
 
-Custom logos must be exactly 215x215 pixels in size and be in the PNG format. You should use a solid color background with no transparency in your application logo. The central image dimensions should be 94x94 pixels and the logo file size can't be over 100 KB.
+Custom logos must be exactly 215x215 pixels in size and be in the PNG format. You should use a solid color background with no transparency in your application logo. The logo file size can't be over 100 KB.
 
 ## Application ID 
 

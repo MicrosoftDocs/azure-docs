@@ -3,25 +3,28 @@ title: Deploy blob storage on module to your device - Azure IoT Edge
 description: Deploy an Azure Blob Storage module to your IoT Edge device to store data at the edge.
 author: PatAltimore
 ms.author: patricka
-ms.date: 3/10/2020
+ms.date: 06/06/2023
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
 ---
 # Deploy the Azure Blob Storage on IoT Edge module to your device
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 There are several ways to deploy modules to an IoT Edge device and all of them work for Azure Blob Storage on IoT Edge modules. The two simplest methods are to use the Azure portal or Visual Studio Code templates.
 
 ## Prerequisites
 
 - An [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription.
+
 - An IoT Edge device.
 
   If you don't have an IoT Edge device set up, you can create one in an Azure virtual machine. Follow the steps in one of the quickstart articles to [Create a virtual Linux device](quickstart-linux.md) or [Create a virtual Windows device](quickstart.md).
 
-- [Visual Studio Code](https://code.visualstudio.com/) and the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) if deploying from Visual Studio Code.
+- [Visual Studio Code](https://code.visualstudio.com/).
+
+- The [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension and the [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension if deploying from Visual Studio Code.
 
 ## Deploy from the Azure portal
 
@@ -30,8 +33,8 @@ The Azure portal guides you through creating a deployment manifest and pushing t
 ### Select your device
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
-1. Select **IoT Edge** from the menu.
-1. Click on the ID of the target device from the list of devices.
+1. Select **Devices** under the **Device management** menu.
+1. Select the target IoT Edge device from the list.
 1. Select **Set Modules**.
 
 ### Configure a deployment manifest
@@ -40,16 +43,16 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
 #### Add modules
 
-1. In the **IoT Edge Modules** section of the page, click the **Add** dropdown and select **IoT Edge Module** to display the **Add IoT Edge Module** page.
+1. In the **IoT Edge Modules** section of the page, select the **Add** dropdown and select **IoT Edge Module** to display the **Add IoT Edge Module** page.
 
-2. On the **Module Settings** tab, provide a name for the module and then specify the container image URI:
+2. On the **Settings** tab, provide a name for the module and then specify the container image URI:
 
    Examples:
   
    - **IoT Edge Module Name**: `azureblobstorageoniotedge`
    - **Image URI**: `mcr.microsoft.com/azure-blob-storage:latest`
 
-   ![Screenshot shows the Module Settings tab of the Add I o T Edge Module page.](./media/how-to-deploy-blob/addmodule-tab1.png)
+   :::image type="content" source="./media/how-to-deploy-blob/addmodule-tab1.png" alt-text="Screenshot showing the Module Settings tab of the Add IoT Edge Module page. .":::
 
    Don't select **Add** until you've specified values on the **Module Settings**, **Container Create Options**, and  **Module Twin Settings** tabs as described in this procedure.
 
@@ -58,19 +61,17 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
 3. Open the **Container Create Options** tab.
 
-   ![Screenshot shows the Container Create Options tab of the Add I o T Edge Module page.](./media/how-to-deploy-blob/addmodule-tab3.png)
-
-   Copy and paste the following JSON into the box, to provide storage account information and a mount for the storage on your device.
+1. Copy and paste the following JSON into the box, to provide storage account information and a mount for the storage on your device.
   
    ```json
    {
      "Env":[
-       "LOCAL_STORAGE_ACCOUNT_NAME=<your storage account name>",
-       "LOCAL_STORAGE_ACCOUNT_KEY=<your storage account key>"
+       "LOCAL_STORAGE_ACCOUNT_NAME=<local storage account name>",
+       "LOCAL_STORAGE_ACCOUNT_KEY=<local storage account key>"
      ],
      "HostConfig":{
        "Binds":[
-           "<storage mount>"
+           "<mount>"
        ],
        "PortBindings":{
          "11002/tcp":[{"HostPort":"11002"}]
@@ -79,13 +80,15 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    }
    ```
 
+   :::image type="content" source="./media/how-to-deploy-blob/addmodule-tab3.png" alt-text="Screenshot showing the Container Create Options tab of the Add IoT Edge Module page..":::
+
 4. Update the JSON that you copied into **Container Create Options** with the following information:
 
-   - Replace `<your storage account name>` with a name that you can remember. Account names should be 3 to 24 characters long, with lowercase letters and numbers. No spaces.
+   - Replace `<local storage account name>` with a name that you can remember. Account names should be 3 to 24 characters long, with lowercase letters and numbers. No spaces.
 
-   - Replace `<your storage account key>` with a 64-byte base64 key. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64). You'll use these credentials to access the blob storage from other modules.
+   - Replace `<local storage account key>` with a 64-byte base64 key. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64). You use these credentials to access the blob storage from other modules.
 
-   - Replace `<storage mount>` according to your container operating system. Provide the name of a [volume](https://docs.docker.com/storage/volumes/) or the absolute path to an existing directory on your IoT Edge device where the blob module will store its data. The storage mount maps a location on your device that you provide to a set location in the module.
+   - Replace `<mount>` according to your container operating system. Provide the name of a [volume](https://docs.docker.com/storage/volumes/) or the absolute path to an existing directory on your IoT Edge device where the blob module stores its data. The storage mount maps a location on your device that you provide to a set location in the module.
 
      - For Linux containers, the format is **\<your storage path or volume>:/blobroot**. For example:
          - use [volume mount](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
@@ -95,14 +98,13 @@ A deployment manifest is a JSON document that describes which modules to deploy,
          - use [bind mount](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot`.
          - Instead of using your local drive, you can map your SMB network location, for more information, see [using SMB share as your local storage](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
 
-     > [!IMPORTANT]
-     > Do not change the second half of the storage mount value, which points to a specific location in the Blob Storage on IoT Edge module. The storage mount must always end with **:/blobroot** for Linux containers and **:C:/BlobRoot** for Windows containers.
+    > [!IMPORTANT]
+    > * Do not change the second half of the storage mount value, which points to a specific location in the Blob Storage on IoT Edge module. The storage mount must always end with **:/blobroot** for Linux containers and **:C:/BlobRoot** for Windows containers.
+    >
+    > * IoT Edge does not remove volumes attached to module containers. This behavior is by design, as it allows persisting the data across container instances such as upgrade scenarios. However, if these volumes are left unused, then it may lead to disk space exhaustion and subsequent system errors. If you use docker volumes in your scenario, then we encourage you to use docker tools such as [docker volume prune](https://docs.docker.com/engine/reference/commandline/volume_prune/) and [docker volume rm](https://docs.docker.com/engine/reference/commandline/volume_rm/) to remove the unused volumes, especially for production scenarios.
+
 
 5. On the **Module Twin Settings** tab, copy the following JSON and paste it into the box.
-
-   ![Screenshot shows the Module Twin Settings tab of the Add I o T Edge Module page.](./media/how-to-deploy-blob/addmodule-tab4.png)
-
-   Configure each property with an appropriate value, as indicated by the placeholders. If you are using the IoT Edge simulator, set the values to the related environment variables for these properties as described by [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties).
 
    ```json
    {
@@ -117,13 +119,23 @@ A deployment manifest is a JSON document that describes which modules to deploy,
        "cloudStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>; EndpointSuffix=<your end point suffix>",
        "storageContainersForUpload": {
          "<source container name1>": {
-           "target": "<target container name1>"
+           "target": "<your-target-container-name>"
          }
        },
        "deleteAfterUpload": <true,false>
      }
    }
    ```
+
+1. Configure each property with an appropriate value, as indicated by the placeholders. If you're using the IoT Edge simulator, set the values to the related environment variables for these properties as described by [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties).
+
+   > [!TIP]
+   > The name for your `target` container has naming restrictions, for example using a `$` prefix is unsupported. To see all restrictions, view [Container Names](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names).
+
+   > [!NOTE]
+   > If your container target is unnamed or null within `storageContainersForUpload`, a default name will be assigned to the target. If you wanted to stop uploading to a container, it must be removed completely from `storageContainersForUpload`. For more information, see the `deviceToCloudUploadProperties` section of [Store data at the edge with Azure Blob Storage on IoT Edge](how-to-store-data-blob.md#devicetoclouduploadproperties).
+
+   :::image type="content" source="./media/how-to-deploy-blob/addmodule-tab4.png" alt-text="Screenshot showing the Module Twin Settings tab of the Add IoT Edge Module page.":::
 
    For information on configuring deviceToCloudUploadProperties and deviceAutoDeleteProperties after your module has been deployed, see [Edit the Module Twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). For more information about desired properties, see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
 
@@ -143,7 +155,7 @@ Review your deployment information, then select **Create**.
 
 ### Verify your deployment
 
-After you create the deployment, you return to the **IoT Edge** page of your IoT hub.
+After you create the deployment, you return to the **Devices** page of your IoT hub.
 
 1. Select the IoT Edge device that you targeted with the deployment to open its details.
 1. In the device details, verify that the blob storage module is listed as both **Specified in deployment** and **Reported by device**.
@@ -158,7 +170,7 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
 
 1. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**.
 
-   ![Run New IoT Edge Solution](./media/how-to-develop-csharp-module/new-solution.png)
+   :::image type="content" source="./media/how-to-develop-csharp-module/new-solution.png" alt-text="Screenshot showing how to run the New IoT Edge Solution.":::
 
    Follow the prompts in the command palette to create your solution.
 
@@ -174,30 +186,30 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
 
 1. Open *deployment.template.json* in your new solution workspace and find the **modules** section. Make the following configuration changes:
 
-   1. Delete the **SimulatedTemperatureSensor** module, as it's not necessary for this deployment.
+   1. Copy and paste the following code into the `createOptions` field for the blob storage module:
 
-   1. Copy and paste the following code into the `createOptions` field:
+      ```json
 
       ```json
       "Env":[
-       "LOCAL_STORAGE_ACCOUNT_NAME=<your storage account name>",
-       "LOCAL_STORAGE_ACCOUNT_KEY=<your storage account key>"
+       "LOCAL_STORAGE_ACCOUNT_NAME=<local storage account name>",
+       "LOCAL_STORAGE_ACCOUNT_KEY=<local storage account key>"
       ],
       "HostConfig":{
-        "Binds": ["<storage mount>"],
+        "Binds": ["<mount>"],
         "PortBindings":{
           "11002/tcp": [{"HostPort":"11002"}]
         }
       }
       ```
 
-      ![Update module createOptions - Visual Studio Code](./media/how-to-deploy-blob/create-options.png)
+      :::image type="content" source="./media/how-to-deploy-blob/create-options.png" alt-text="Screenshot showing how to update module createOptions in Visual Studio Code.":::
 
-1. Replace `<your storage account name>` with a name that you can remember. Account names should be 3 to 24 characters long, with lowercase letters and numbers. No spaces.
+1. Replace `<local storage account name>` with a name that you can remember. Account names should be 3 to 24 characters long, with lowercase letters and numbers. No spaces.
 
-1. Replace `<your storage account key>` with a 64-byte base64 key. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64). You'll use these credentials to access the blob storage from other modules.
+1. Replace `<local storage account key>` with a 64-byte base64 key. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64). You use these credentials to access the blob storage from other modules.
 
-1. Replace `<storage mount>` according to your container operating system. Provide the name of a [volume](https://docs.docker.com/storage/volumes/) or the absolute path to a directory on your IoT Edge device where you want the blob module to store its data. The storage mount maps a location on your device that you provide to a set location in the module.  
+1. Replace `<mount>` according to your container operating system. Provide the name of a [volume](https://docs.docker.com/storage/volumes/) or the absolute path to a directory on your IoT Edge device where you want the blob module to store its data. The storage mount maps a location on your device that you provide to a set location in the module.  
 
      - For Linux containers, the format is **\<your storage path or volume>:/blobroot**. For example:
          - use [volume mount](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
@@ -207,10 +219,12 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
          - Use [bind mount](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot`.
          - Instead of using your local drive, you can map your SMB network location. For more information, see [using SMB share as your local storage](how-to-store-data-blob.md#using-smb-share-as-your-local-storage).
 
-     > [!IMPORTANT]
-     > Do not change the second half of the storage mount value, which points to a specific location in the Blob Storage on IoT Edge module. The storage mount must always end with **:/blobroot** for Linux containers and **:C:/BlobRoot** for Windows containers.
+    > [!IMPORTANT]
+    > * Do not change the second half of the storage mount value, which points to a specific location in the Blob Storage on IoT Edge module. The storage mount must always end with **:/blobroot** for Linux containers and **:C:/BlobRoot** for Windows containers.
+    >
+    > * IoT Edge does not remove volumes attached to module containers. This behavior is by design, as it allows persisting the data across container instances such as upgrade scenarios. However, if these volumes are left unused, then it may lead to disk space exhaustion and subsequent system errors. If you use docker volumes in your scenario, then we encourage you to use docker tools such as [docker volume prune](https://docs.docker.com/engine/reference/commandline/volume_prune/) and [docker volume rm](https://docs.docker.com/engine/reference/commandline/volume_rm/) to remove the unused volumes, especially for production scenarios.
 
-1. Configure [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) for your module by adding the following JSON to the *deployment.template.json* file. Configure each property with an appropriate value and save the file. If you are using the IoT Edge simulator, set the values to the related environment variables for these properties, which you can find in the explanation section of [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties)
+1. Configure [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) for your module by adding the following JSON to the *deployment.template.json* file. Configure each property with an appropriate value and save the file. If you're using the IoT Edge simulator, set the values to the related environment variables for these properties, which you can find in the explanation section of [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties)
 
    ```json
    "<your azureblobstorageoniotedge module name>":{
@@ -235,7 +249,7 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
    }
    ```
 
-   ![set desired properties for azureblobstorageoniotedge - Visual Studio Code](./media/how-to-deploy-blob/devicetocloud-deviceautodelete.png)
+   :::image type="content" source="./media/how-to-deploy-blob/devicetocloud-deviceautodelete.png" alt-text="Screenshot showing how to set desired properties for azureblobstorageoniotedge in Visual Studio Code.":::
 
    For information on configuring deviceToCloudUploadProperties and deviceAutoDeleteProperties after your module has been deployed, see [Edit the Module Twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). For more information about container create options, restart policy, and desired status, see [EdgeAgent desired properties](module-edgeagent-edgehub.md#edgeagent-desired-properties).
 
@@ -261,7 +275,7 @@ When you connect to additional blob storage modules, change the endpoint to poin
 
 ## Configure proxy support
 
-If your organization is using a proxy server, you will need to configure proxy support for the edgeAgent and edgeHub runtime modules. This process involves two tasks:
+If your organization is using a proxy server, you need to configure proxy support for the edgeAgent and edgeHub runtime modules. This process involves two tasks:
 
 - Configure the runtime daemons and the IoT Edge agent on the device.
 - Set the HTTPS_PROXY environment variable for modules in the deployment manifest JSON file.
@@ -270,7 +284,7 @@ This process is described in [Configure an IoT Edge device to communicate throug
 
 In addition, a blob storage module also requires the HTTPS_PROXY setting in the manifest deployment file. You can directly edit the deployment manifest file, or use the Azure portal.
 
-1. Navigate to your Iot hub in the Azure portal and select **IoT Edge** from the left pane menu.
+1. Navigate to your IoT Hub in the Azure portal and select **Devices** under the **Device management** menu
 
 1. Select the device with the module to configure.
 
@@ -282,15 +296,15 @@ In addition, a blob storage module also requires the HTTPS_PROXY setting in the 
 
 1. Add `HTTPS_PROXY` for the **Name** and your proxy URL for the **Value**.
 
-      ![Screenshot shows the Update I o T Edge Module pane where you can enter the specified values.](./media/how-to-deploy-blob/https-proxy-config.png)
+   :::image type="content" source="./media/how-to-deploy-blob/https-proxy-config.png" alt-text="Screenshot showing the Update IoT Edge Module pane where you can enter the specified values.":::
 
-1. Click **Update**, then **Review + Create**.
+1. Select **Update**, then **Review + Create**.
 
 1. Note that the proxy is added to the module in deployment manifest and select **Create**.
 
 1. Verify the setting by selecting the module from the device details page, and on the lower part of the **IoT Edge Modules Details** page select the **Environment Variables** tab.
 
-      ![Screenshot shows Environment Variables tab.](./media/how-to-deploy-blob/verify-proxy-config.png)
+   :::image type="content" source="./media/how-to-deploy-blob/verify-proxy-config.png" alt-text="Screenshot showing the Environment Variables tab.":::
 
 ## Next steps
 

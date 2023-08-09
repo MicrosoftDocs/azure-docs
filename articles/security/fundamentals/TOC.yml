@@ -123,6 +123,8 @@
     href: antimalware-code-samples.md
   - name: Virtual machine security overview
     href: virtual-machines-overview.md
+  - name: Automatic VM guest patching
+    href: ../../virtual-machines/automatic-vm-guest-patching.md?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ffundamentals%2ftoc.json
   - name: Best practices - IaaS workloads
     href: iaas.md
   - name: Azure Marketplace images
@@ -134,12 +136,20 @@
     href: encryption-overview.md
   - name: Key management in Azure
     href: key-management.md
+  - name: Choosing a key management solution
+    href: key-management-choose.md
   - name: Double encryption
     href: double-encryption.md
-  - name: Sunset for SHA-1 OCSP signing
-    href: ocsp-sha-1-sunset.md
-  - name: TLS certificate changes
-    href: tls-certificate-changes.md
+  - name: Azure Certificate Authorities
+    items: 
+    - name: Azure Certificate Authority details
+      href: azure-ca-details.md
+    - name: Certificate Pinning
+      href: certificate-pinning.md
+    - name: Sunset for SHA-1 OCSP signing
+      href: ocsp-sha-1-sunset.md
+    - name: TLS certificate changes
+      href: tls-certificate-changes.md
   - name: Disk encryption
     items: 
     - name: Best practices
@@ -148,14 +158,14 @@
       href: encryption-atrest.md
     - name: Data encryption models
       href: encryption-models.md
-    - name: Azure Disk Encryption for virtual machines
-      href: azure-disk-encryption-vms-vmss.md
+    - name: Managed disk encryption
+      href: ../../virtual-machines/disk-encryption-overview.md
   - name: Database security
     items:
     - name: Overview
-      href: ../../azure-sql/database/security-overview.md
+      href: /azure/azure-sql/database/security-overview
     - name: Best practices
-      href: ../../azure-sql/database/security-best-practice.md
+      href: /azure/azure-sql/database/security-best-practice
     - name: Security checklist
       href: database-security-checklist.md
   - name: Storage security guide
@@ -164,6 +174,8 @@
     href: customer-lockbox-overview.md
   - name: Security baseline for Customer Lockbox
     href: /security/benchmark/azure/baselines/lockbox-security-baseline?toc=/azure/security/fundamentals/TOC.json
+  - name: Trusted Hardware Identity Management
+    href: trusted-hardware-identity-management.md
 
 - name: Application
   items:

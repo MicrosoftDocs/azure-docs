@@ -28,7 +28,7 @@ az webapp config appsettings list --name <app-name> --resource-group <resource-g
 To show all supported Node.js versions, navigate to `https://<sitename>.scm.azurewebsites.net/api/diagnostics/runtime` or run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp list-runtimes --os windows | grep node
+az webapp list-runtimes --os windows | grep NODE
 ```
 
 ::: zone-end
@@ -86,7 +86,7 @@ This setting specifies the Node.js version to use, both at runtime and during au
 
 ## Get port number
 
-You Node.js app needs to listen to the right port to receive incoming requests.
+Your Node.js app needs to listen to the right port to receive incoming requests.
 
 ::: zone pivot="platform-windows"  
 
@@ -174,7 +174,7 @@ You can also configure a custom start file with the following extensions:
 To add a custom start file, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filname-with-extension>"
+az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filename-with-extension>"
 ```
 
 ### Run custom command

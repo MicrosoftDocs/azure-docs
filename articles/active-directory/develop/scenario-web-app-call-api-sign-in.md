@@ -1,17 +1,17 @@
 ---
-title: Remove accounts from the token cache on sign-out | Azure
-titleSuffix: Microsoft identity platform
+title: Remove accounts from the token cache on sign-out
 description: Learn how to remove an account from the token cache on sign-out
 services: active-directory
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/14/2019
-ms.author: jmprieur
+ms.date: 05/08/2023
+ms.author: cwerner
+ms.reviewer: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform.
 ---
@@ -38,6 +38,10 @@ The ASP.NET sample doesn't remove accounts from the cache on global sign-out.
 
 The Java sample doesn't remove accounts from the cache on global sign-out.
 
+# [Node.js](#tab/nodejs)
+
+The Node sample doesn't remove accounts from the cache on global sign-out.
+
 # [Python](#tab/python)
 
 The Python sample doesn't remove accounts from the cache on global sign-out.
@@ -60,6 +64,11 @@ Move on to the next article in this scenario,
 
 Move on to the next article in this scenario,
 [Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=java).
+
+# [Node.js](#tab/nodejs)
+
+Move on to the next article in this scenario,
+[Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=nodejs).
 
 # [Python](#tab/python)
 

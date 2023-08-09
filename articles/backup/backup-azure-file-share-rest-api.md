@@ -3,6 +3,8 @@ title: Back up Azure file shares with REST API
 description: Learn how to use REST API to back up Azure file shares in the Recovery Services vault
 ms.topic: conceptual
 ms.date: 02/16/2020
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Backup Azure file share using Azure Backup via REST API

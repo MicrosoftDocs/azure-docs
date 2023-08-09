@@ -1,15 +1,15 @@
 ---
-title: Admin consent for LinkedIn account connections - Azure AD | Microsoft Docs
+title: Admin consent for LinkedIn account connections
 description: Explains how to enable or disable LinkedIn integration account connections in Microsoft apps in Azure Active Directory
 services: active-directory
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/02/2020
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: barclayn
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Integrate LinkedIn account connections in Azure Active Directory
 
-You can allow users in your organization to access their LinkedIn connections within some Microsoft apps. No data is shared until users consent to connect their accounts. You can integrate your organization in the Azure Active Directory (Azure AD) [admin center](https://aad.portal.azure.com).
+You can allow users in your organization to access their LinkedIn connections within some Microsoft apps. No data is shared until users consent to connect their accounts. You can integrate your organization with Azure Active Directory (Azure AD), part of Microsoft Entra.
 
 > [!IMPORTANT]
 > The LinkedIn account connections setting is currently being rolled out to Azure AD organizations. When it is rolled out to your organization, it is enabled by default.
@@ -32,10 +32,12 @@ You can allow users in your organization to access their LinkedIn connections wi
 
 ## Enable LinkedIn account connections in the Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You can enable LinkedIn account connections for only the users you want to have access, from your entire organization to only selected users in your organization.
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com/) with an account that's a global admin for the Azure AD organization.
-1. Select **Users**.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a Global Administrator for the Azure AD organization.
+1. Browse to **Azure Active Directory** > **Users**.
 1. On the **Users** page, select **User settings**.
 1. Under **LinkedIn account connections**, allow users to connect their accounts to access their LinkedIn connections within some Microsoft apps. No data is shared until users consent to connect their accounts.
 
@@ -56,7 +58,7 @@ We have replaced the 'Selected' option that specifies a list of users with the o
 
 1. Get the current list of individual users
 1. Move the currently enabled individual users to a group
-1. Use the group from the previous as the selected group in the LinkedIn account connections setting in the Azure AD admin center.
+1. Use the group from the previous as the selected group in the LinkedIn account connections setting in the Azure portal.
 
 > [!NOTE]
 > Even if you don't move your currently selected individual users to a group, they can still see LinkedIn information in Microsoft apps.
@@ -79,7 +81,7 @@ We have replaced the 'Selected' option that specifies a list of users with the o
   foreach($user in $users} { Add-AzureADGroupMember -ObjectId $groupId -RefObjectId $user ; Write-Host $i Added $user ; $i++ ; Start-Sleep -Milliseconds 10 }
   ```
 
-To use the group from step two as the selected group in the LinkedIn account connections setting in the Azure AD admin center, see [Enable LinkedIn account connections in the Azure portal](#enable-linkedin-account-connections-in-the-azure-portal).
+To use the group from step two as the selected group in the LinkedIn account connections setting in the Azure portal, see [Enable LinkedIn account connections in the Azure portal](#enable-linkedin-account-connections-in-the-azure-portal).
 
 ## Use Group Policy to enable LinkedIn account connections
 
@@ -104,4 +106,4 @@ This group policy affects only Office 2016 apps for a local computer. If users d
 
 * [LinkedIn help center](https://www.linkedin.com/help/linkedin)
 
-* [View your current LinkedIn integration setting in the Azure portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings)
+* [View your current LinkedIn integration setting in the Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings)

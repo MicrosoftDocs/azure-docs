@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Meta Networks Connector for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Meta Networks Connector for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Meta Networks Connector.
 services: active-directory
 author: twimmers
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -20,7 +20,6 @@ The objective of this tutorial is to demonstrate the steps to be performed in Me
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -149,10 +148,10 @@ This section guides you through the steps to configure the Azure AD provisioning
     |Attribute|Type|Supported for filtering|Required by Meta Networks Connector|
     |---|---|---|---|
     |userName|String|&check;|&check;
+	|active|Boolean||
+	|phonenumbers[type eq "work"].value|String||
     |name.givenName|String||&check;
     |name.familyName|String||&check;
-    |active|Boolean||
-    |phonenumbers[type eq "work"].value|String||
 
 	> [!NOTE]
 	> phonenumbers value should be in E164 format. For example +16175551212
@@ -189,8 +188,10 @@ Once you've configured provisioning, use the following resources to monitor your
 
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
-* If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+* If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
 
+## Change Log
+04/06/2022 - Added support for **phoneNumbers[type eq "work"].value**. Removed support for **emails[type eq "work"].value** and **manager** . **name.givenName** and **name.familyName** made required attributes.
 
 ## More resources
 

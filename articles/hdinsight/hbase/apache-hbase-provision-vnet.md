@@ -3,8 +3,8 @@ title: Create HBase clusters in a Virtual Network - Azure
 description: Get started using HBase in Azure HDInsight. Learn how to create HDInsight HBase clusters on Azure Virtual Network.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
-ms.date: 12/23/2019
+ms.custom: hdinsightactive, devx-track-extended-java
+ms.date: 09/15/2022
 ---
 
 # Create Apache HBase clusters on HDInsight in Azure Virtual Network

@@ -2,8 +2,9 @@
 title: Deploy and configure Azure VMware Solution
 description: Learn how to use the information gathered in the planning stage to deploy and configure the Azure VMware Solution private cloud.
 ms.topic: tutorial
-ms.custom: contperf-fy22q1, devx-track-azurecli
-ms.date: 07/28/2021
+ms.custom: "engagement-fy23, devx-track-azurecli"
+ms.service: azure-vmware
+ms.date: 7/13/2023
 
 ---
 
@@ -11,11 +12,7 @@ ms.date: 07/28/2021
 
 Once you've [planned your deployment](plan-private-cloud-deployment.md), you'll deploy and configure your Azure VMware Solution private cloud. 
 
-The diagram shows the deployment workflow of Azure VMware Solution. 
-
-:::image type="content" source="media/deploy-azure-vmware-solution-workflow.png" alt-text="Diagram showing the Azure VMware Solution deployment workflow." lightbox="media/deploy-azure-vmware-solution-workflow.png" border="false":::
-
-In this how-to, you'll':
+In this how-to, you'll:
 
 > [!div class="checklist"]
 > * Register the resource provider and create a private cloud
@@ -32,15 +29,9 @@ After you're finished, follow the recommended next steps at the end to continue 
 
 [!INCLUDE [create-private-cloud-azure-portal-steps](includes/create-private-cloud-azure-portal-steps.md)]
 
->[!NOTE]
->For an end-to-end overview of this step, view the [Azure VMware Solution: Deployment](https://www.youtube.com/embed/gng7JjxgayI) video.
-
-
 ## Connect to Azure Virtual Network with ExpressRoute
 
 In the planning phase, you defined whether to use an *existing* or *new* ExpressRoute virtual network gateway.  
-
-:::image type="content" source="media/connect-expressroute-vnet-workflow.png" alt-text="Diagram showing the workflow for connecting Azure Virtual Network to ExpressRoute in Azure VMware Solution." border="false":::
 
 >[!IMPORTANT]
 >[!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)] 
@@ -75,9 +66,9 @@ You should have connectivity between the Azure Virtual Network where the Express
 
    1. On the left, select **Effective routes**. You'll see a list of address prefixes that are contained within the `/22` CIDR block you entered during the deployment phase.
 
-1. If you want to log into both vCenter and NSX-T Manager, open a web browser and log into the same virtual machine used for network route validation.  
+1. If you want to log into both vCenter Server and NSX-T Manager, open a web browser and log into the same virtual machine used for network route validation.  
 
-   You can identify the vCenter and NSX-T Manager console's IP addresses and credentials in the Azure portal.  Select your private cloud and then **Manage** > **Identity**.
+   You can identify the vCenter Server and NSX-T Manager console's IP addresses and credentials in the Azure portal.  Select your private cloud and then **Manage** > **VMware credentials**.
 
    :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Screenshot showing the private cloud vCenter and NSX Manager URLs and credentials." border="true":::
 

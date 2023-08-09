@@ -1,8 +1,9 @@
-- name: Confluent Cloud Azure Integration Documentation
+items:
+- name: Apache Kafka on Confluent Cloud - Azure Native ISV Service Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Confluent Cloud on Azure?
+  - name: What is Apache Kafka on Confluent Cloud - Azure Native ISV Service?
     href: overview.md
 - name: Quickstarts
   expanded: true
@@ -16,7 +17,7 @@
     displayName: Azure CLI, az confluent organization create, az confluent organization wait, az confluent organization list, az confluent organization show
 - name: How to
   items:
-  - name: Add connectors
+  - name: Add services
     href: add-connectors.md
   - name: Manage
     href: manage.md

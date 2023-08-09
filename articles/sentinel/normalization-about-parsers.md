@@ -7,13 +7,9 @@ ms.date: 11/09/2021
 ms.author: ofshezaf
 --- 
 
-# Use Advanced Security Information Model (ASIM) parsers (Public preview)
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+# Using the Advanced Security Information Model (ASIM) (Public preview)
 
 Use Advanced Security Information Model (ASIM) parsers instead of table names in your Microsoft Sentinel queries to view data in a normalized format and to include all data relevant to the schema in your query. Refer to the table below to find the relevant parser for each schema.
-
-To understand how parsers fit within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
 
 > [!IMPORTANT]
 > ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -27,68 +23,68 @@ When using ASIM in your queries, use **unifying parsers** to combine all sources
 For example, the following query uses the built-in unifying DNS parser to query DNS events using the `ResponseCodeName`, `SrcIpAddr`, and `TimeGenerated` normalized fields:
 
 ```kusto
+_Im_Dns(starttime=ago(1d), responsecodename='NXDOMAIN')
+  | summarize count() by SrcIpAddr, bin(TimeGenerated,15m)
+```
+
+The example uses [filtering parameters](#optimizing-parsing-using-parameters), which improve ASIM performance. The same example without filtering parameters would look like this:  
+
+```kusto
 _Im_Dns
-  | where isnotempty(ResponseCodeName)
+  | where TimeGenerated > ago(1d)
   | where ResponseCodeName =~ "NXDOMAIN"
   | summarize count() by SrcIpAddr, bin(TimeGenerated,15m)
 ```
 
 > [!NOTE]
-> When using the ASIM unifying filtering parsers in the **Logs** page, the time range selector is set to `custom`. You can still set the time range yourself. Alternatively, specify the time range using parser parameters.
->
-> Alternately, use the parameter-less parsers, which start with `_ASim_` for built-in parsers and `ASim` for workspace deployed parsers. Those parsers do not set the time-range picker to `custom` by default.
+> When using the ASIM parsers in the **Logs** page, the time range selector is set to `custom`. You can still set the time range yourself. Alternatively, specify the time range using parser parameters.
 >
 
-The following table lists unifying parsers available:
+The following table lists the available unifying parsers:
 
-| Schema | Built-in filtering parser | Built-in parameter-less parser | workspace deployed filtering parser | workspace deployed parameter-less parser |
-| ------ | ------------------------- | ------------------------------ | ----------------------------------- | --------------------------- |
-| Authentication | | | imAuthentication | ASimAuthentication |
-| Dns | _Im_Dns | _ASim_Dns | imDns | ASimDns |
-| File Event | | |  | imFileEvent |
-| Network Session | _Im_NetworkSession | _ASim_NetworkSession | imNetworkSession | ASimNetworkSession |
-| Process Event | | | | - imProcess<br> - imProcessCreate<br> - imProcessTerminate |
-| Registry Event | | | | imRegistry |
-| Web Session | _Im_WebSession | _ASim_WebSession | imWebSession | ASimWebSession | 
+| Schema | Unifying parser | 
+| ------ | ------------------------- |
+| Audit Event | _Im_AuditEvent |
+| Authentication | imAuthentication | 
+| Dns | _Im_Dns |
+| File Event | imFileEvent |
+| Network Session | _Im_NetworkSession | 
+| Process Event | - imProcessCreate<br> - imProcessTerminate |
+| Registry Event |  imRegistry |
+| Web Session | _Im_WebSession |  
 
 
-
-## Source-specific parsers
-
-Unifying parsers use Source-specific parsers to handle the unique aspects of each source. However, source-specific parsers can also be used independently. For example, in an Infoblox-specific workbook, use the `vimDnsInfobloxNIOS` source-specific parser.
-
-## <a name="optimized-parsers"></a>Optimizing parsing using parameters
+## Optimizing parsing using parameters
 
 Using parsers may impact your query performance, primarily from filtering the results after parsing. For this reason, many parsers have optional filtering parameters, which enable you to filter before parsing and enhance query performance. With query optimization and pre-filtering efforts, ASIM parsers often provide better performance when compared to not using normalization at all.
 
-When invoking the parser, use filtering parameters by adding one or more named parameters. For example, the following query start ensures that only DNS queries for non-existent domains are returned:
-
-```kusto
-_Im_Dns(responsecodename='NXDOMAIN')
-```
-
-The previous example is similar to the following query but is much more efficient.
-
-```kusto
-_Im_Dns | where ResponseCodeName == 'NXDOMAIN'
-```
+When invoking the parser, always use available filtering parameters by adding one or more named parameters to ensure optimal performance of the ASIM parsers.
 
 Each schema has a standard set of filtering parameters documented in the relevant schema documentation. Filtering parameters are entirely optional. The following schemas support filtering parameters:
-- [Authentication](authentication-normalization-schema.md)
-- [DNS](dns-normalization-schema.md#filtering-parser-parameters)
-- [Network Session](network-normalization-schema.md#filtering-parser-parameters)
-- [Web Session](web-normalization-schema.md#filtering-parser-parameters)
+- [Audit Event](normalization-schema-audit.md)
+- [Authentication](normalization-schema-authentication.md)
+- [DNS](normalization-schema-dns.md#filtering-parser-parameters)
+- [Network Session](normalization-schema-network.md#filtering-parser-parameters)
+- [Web Session](normalization-schema-web.md#filtering-parser-parameters)
 
+Every schema that supports filtering parameters supports at least the `starttime` and `endtime` parameters and using them is often critical for optimizing performance.
 
-## <a name="next-steps"></a>Next steps
+For an example of using filtering parsers see [Unifying parsers](#unifying-parsers) above. 
 
-This article discusses the Advanced Security Information Model (ASIM) parsers. To learn how to develop your own parsers, see [Develop ASIM parsers](normalization-develop-parsers.md).
+## The pack parameter
+
+To ensure efficiency, parsers maintain only normalized fields. Fields which are not normalized have less value when combined with other sources. Some parsers support the *pack* parameter. When the *pack* parameter is set to `true`, the parser will pack additional data into the *AdditionalFields* dynamic field.
+
+The [parsers list](normalization-parsers-list.md) article notes parsers which support the *pack* parameter. 
+
+## Next steps
 
 Learn more about ASIM parsers:
 
 - [ASIM parsers overview](normalization-parsers-overview.md)
 - [Manage ASIM parsers](normalization-manage-parsers.md)
 - [Develop custom ASIM parsers](normalization-develop-parsers.md)
+- [The ASIM parsers list](normalization-parsers-list.md)
 
 Learn more about the ASIM in general: 
 

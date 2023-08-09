@@ -12,7 +12,7 @@ ms.subservice: data-movement
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: synapse, contperf-fy22q2
-ms.date: 09/09/2021
+ms.date: 10/25/2022
 ---
 # Copy activity performance and scalability guide
 
@@ -145,7 +145,7 @@ The service provides the following performance optimization features:
 * [Parallel copy](#parallel-copy)
 * [Staged copy](#staged-copy)
 
-### Data Integration Units
+### <a id="data-integration-units"></a>Data Integration Units
 
 A Data Integration Unit (DIU) is a measure that represents the power of a single unit in Azure Data Factory and Synapse pipelines. Power is a combination of CPU, memory, and network resource allocation. DIU only applies to [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime). DIU does not apply to [self-hosted integration runtime](concepts-integration-runtime.md#self-hosted-integration-runtime). [Learn more here](copy-activity-performance-features.md#data-integration-units).
 

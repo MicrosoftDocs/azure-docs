@@ -1,12 +1,12 @@
 ---
 title: Manage the configuration server for disaster recovery with Azure Site Recovery
 description: Learn about the common tasks to manage an on-premises configuration server for disaster recovery of VMware VMs and physical servers to Azure with Azure Site Recovery.
-author: Sharmistha-Rai
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: sharrai
-ms.date: 05/27/2021
+ms.author: ankitadutta
+ms.date: 08/03/2022
 ---
 
 # Manage the configuration server for VMware VM/physical server disaster recovery
@@ -111,7 +111,7 @@ The expiry date appears under **Configuration Server health**. For configuration
 ### If certificates have already expired
 
 1. Post expiry, certificates **cannot be renewed from Azure portal**. Before proceeding, ensure all components scale-out process servers, master target servers and mobility agents on all protected machines are on latest versions and are in connected state.
-2. **Follow this procedure only if certificates have already expired.** Login to configuration server, navigate to C drive > Program Data > Site Recovery > home > svsystems > bin and execute "RenewCerts" executor tool as administrator.
+2. **Follow this procedure only if certificates have already expired.** Login to configuration server, navigate to *C:\ProgramData\ASR\home\svsystems\bin* and execute **RenewCerts** executor tool as administrator.
 3. A PowerShell execution window pops-up and triggers renewal of certificates. This can take up to 15 minutes. Do not close the window until completion of renewal.
 
 :::image type="content" source="media/vmware-azure-manage-configuration-server/renew-certificates.png" alt-text="RenewCertificates":::
@@ -263,7 +263,7 @@ ProxyPassword="Password"
 
 You can optionally delete the configuration server by using PowerShell.
 
-1. [Install](/powershell/azure/install-Az-ps) the Azure PowerShell module.
+1. [Install](/powershell/azure/install-azure-powershell) the Azure PowerShell module.
 2. Sign in to your Azure account by using this command:
 
     `Connect-AzAccount`
@@ -274,17 +274,17 @@ You can optionally delete the configuration server by using PowerShell.
 
     ```
     $vault = Get-AzRecoveryServicesVault -Name <name of your vault>
-    Set-AzSiteRecoveryVaultSettings -ARSVault $vault
+    Set-AzRecoveryServicesAsrVaultContext -Vault $vault
     ```
 4. Retrieve the configuration server.
 
-    `$fabric = Get-AzSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+    `$fabric =  Get-AzRecoveryServicesAsrFabric -FriendlyName <name of your configuration server>`
 6. Delete the configuration server.
 
-    `Remove-AzSiteRecoveryFabric -Fabric $fabric [-Force]`
+    `Remove-AzRecoveryServicesAsrFabric -Fabric $fabric [-Force]`
 
 > [!NOTE]
-> You can use the **-Force** option in Remove-AzSiteRecoveryFabric for forced deletion of the configuration server.
+> You can use the **-Force** option in Remove-AzRecoveryServicesAsrFabric for forced deletion of the configuration server.
 
 ## Generate configuration server Passphrase
 

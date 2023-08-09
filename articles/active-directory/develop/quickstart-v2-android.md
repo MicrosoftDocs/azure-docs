@@ -1,17 +1,16 @@
 ---
-title: "Quickstart: Add sign in with Microsoft to an Android app | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Add sign in with Microsoft to an Android app"
 description: In this quickstart, learn how Android applications can call an API that requires access tokens issued by the Microsoft identity platform.
 services: active-directory
-author: mmacy
+author: henrymbuguakiarie
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/14/2022
 ROBOTS: NOINDEX
-ms.author: marsma
+ms.author: henrymbugua
 ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:Android", has-adal-ref, mode-api
 #Customer intent: As an application developer, I want to learn how Android native apps can call protected APIs that require login and access tokens using the Microsoft identity platform.
 ---
@@ -21,7 +20,7 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. We're currently working on a fix, but for now, please use the link below - it should take you to the right article:
 > 
-> > [Quickstart: Android app with user sign-in](mobile-app-quickstart.md?pivots=devlang-android)
+> > [Quickstart: Sign in users and call Microsoft Graph from an Android app](quickstart-mobile-app-android-sign-in.md)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
@@ -477,7 +476,7 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > }
 > ```
 > 
-> [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 > 
 > ## Next steps
 > 

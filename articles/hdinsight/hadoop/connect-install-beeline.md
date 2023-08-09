@@ -1,14 +1,14 @@
 ---
-title: Connect to or install Apache Beeline - Azure HDInsight 
+title: Connect to HiveServer2 using Beeline or install Beeline locally to connect from your local - Azure HDInsight 
 description: Learn how to connect to the Apache Beeline client to run Hive queries with Hadoop on HDInsight. Beeline is a utility for working with HiveServer2 over JDBC.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperf-fy21q1
-ms.date: 04/07/2021
+ms.date: 06/12/2023
 ---
-# Connect to Apache Beeline on HDInsight or install it locally
+# Connect to HiveServer2 using Beeline or install Beeline locally to connect from your local
 
-[Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) is a Hive client that is included on the head nodes of your HDInsight cluster. This article describes how to connect to the Beeline client installed on your HDInsight cluster across different types of connections. It also discusses how to [Install the Beeline client locally](#install-beeline-client). 
+[Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) is a Hive client that is included on the head nodes of your HDInsight cluster. This article describes how to connect to HiveServer2 using the Beeline client installed on your HDInsight cluster across different types of connections. It also discusses how to [Install the Beeline client locally](#install-beeline-client). 
 
 ## Types of connections
 
@@ -87,7 +87,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 Private endpoints point to a basic load balancer, which can only be accessed from the VNETs peered in the same region. See [constraints on global VNet peering and load balancers](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) for more info. You can use the `curl` command with `-v` option to troubleshoot any connectivity problems with public or private endpoints before using beeline.
 
-#### From cluster head or inside Azure Virtual Network with Apache Spark
+#### From cluster head node or inside Azure Virtual Network with Apache Spark
 
 When connecting directly from the cluster head node, or from a resource inside the same Azure Virtual Network as the HDInsight cluster, port `10002` should be used for Spark Thrift server instead of `10001`. The following example shows how to connect directly to the head node:
 

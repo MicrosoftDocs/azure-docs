@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/17/2021
+ms.date: 04/12/2023
 ms.author: jeedes
 ---
 
@@ -48,6 +48,8 @@ To configure the integration of Cobalt into Azure AD, you need to add Cobalt fro
 1. In the **Add from the gallery** section, type **Cobalt** in the search box.
 1. Select **Cobalt** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Cobalt
 
 Configure and test Azure AD SSO with Cobalt using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Cobalt.
@@ -77,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://brightside-prod-<INSTANCENAME>.cobaltdl.com`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [Cobalt Client support team](https://www.cobalt.net/support/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [Cobalt Client support team](https://cobaltio.zendesk.com/hc/requests/new) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. Cobalt application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -147,7 +149,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Cobalt test user
 
-In this section, you create a user called B.Simon in Cobalt. Work with [Cobalt support team](https://www.cobalt.net/support/) to add the users in the Cobalt platform. Users must be created and activated before you use single sign-on.
+1. Login to the Cobalt website as an administrator.
+1. Navigate to the **People -> Organization** and select Invite Users.
+1. In the overlay that appears, specify the email addresses of users that you want to invite. Enter the email, and then select **Add** or press **Enter**.
+1. Use commas to separate multiple email addresses.
+1. For each user, select a role: **Member** or **Owner**.
+1. Both members and owners have access to all assets and pentests of an organization.
+1. Select **Invite** to confirm.
 
 ## Test SSO
 

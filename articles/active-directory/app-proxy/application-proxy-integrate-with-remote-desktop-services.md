@@ -3,12 +3,12 @@ title: Publish Remote Desktop with Azure Active Directory Application Proxy
 description: Covers how to configure App Proxy with Remote Desktop Services (RDS)
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 05/19/2022
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -40,6 +40,7 @@ In an RDS deployment, the RD Web role and the RD Gateway role run on Internet-fa
 - You should already have [deployed RDS](/windows-server/remote/remote-desktop-services/rds-in-azure), and [enabled Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md). Ensure you have satisfied the pre-requisites to enable Application Proxy, such as installing the connector, opening required ports and URLs, and enabling TLS 1.2 on the server. To learn which ports need to be opened, and other details, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md).
 - Your end users must use a compatible browser to connect to RD Web or the RD Web client. For more details see [Support for client configurations](#support-for-other-client-configurations).
 - When publishing RD Web, it is recommended to use the same internal and external FQDN. If the internal and external FQDNs are different then you should disable Request Header Translation to avoid the client receiving invalid links.
+- If you are using the RD Web client, you *must* use the same internal and external FQDN. If the internal and external FQDNs are different, you will encounter websocket errors when making a RemoteApp connection through the RD Web client.
 - If you are using RD Web on Internet Explorer, you will need to enable the RDS ActiveX add-on.
 - If you are using the RD Web client, you will need to use the Application Proxy [connector version 1.5.1975 or later](./application-proxy-release-version-history.md).
 - For the Azure AD pre-authentication flow, users can only connect to resources published to them in the **RemoteApp and Desktops** pane. Users can't connect to a desktop using the **Connect to a remote PC** pane.
@@ -121,7 +122,7 @@ The configuration outlined in this article is for access to RDS via RD Web or th
 
 | Authentication method | Supported client configuration |
 | --------------------- | ------------------------------ |
-| Pre-authentication    | RD Web-  Windows 7/10 using Internet Explorer* or [Edge Chromium IE mode](/deployedge/edge-ie-mode) + RDS ActiveX add-on |
+| Pre-authentication    | RD Web-  Windows 7/10/11 using Internet Explorer* or [Edge Chromium IE mode](/deployedge/edge-ie-mode) + RDS ActiveX add-on |
 | Pre-authentication    | RD Web Client- HTML5-compatible web browser such as Microsoft Edge, Internet Explorer 11, Google Chrome, Safari, or Mozilla Firefox (v55.0 and later) |
 | Passthrough | Any other operating system that supports the Microsoft Remote Desktop application |
 

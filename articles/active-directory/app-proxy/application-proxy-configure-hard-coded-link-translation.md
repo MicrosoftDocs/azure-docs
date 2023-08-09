@@ -3,12 +3,12 @@ title: Translate links and URLs Azure Active Directory Application Proxy
 description: Learn how to redirect hard-coded links for apps published with Azure Active Directory Application Proxy.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 11/17/2022
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -126,6 +126,8 @@ To improve performance and security, some links aren't translated:
 If you need to support one of these two scenarios, use the same internal and external URLs instead of link translation.  
 
 ## Enable link translation
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Getting started with link translation is as easy as clicking a button:
 

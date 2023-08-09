@@ -1,11 +1,12 @@
 ---
-title: Server variables - Azure Front Door
+title: Server variables
+titleSuffix: Azure Front Door
 description: This article provides a list of the server variables available in Azure Front Door rule sets.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 12/05/2022
 ms.author: duau
 ---
 
@@ -18,7 +19,7 @@ When you use [Rule set match conditions](rules-match-conditions.md), server vari
 When you use [Rule set actions](front-door-rules-engine-actions.md), you can use server variables to dynamically change the request and response headers, and rewrite URLs, paths, and query strings, for example, when a new page load or when a form is posted.
 
 > [!NOTE]
-> Server variable is only available with Azure Front Door Standard and Premium tiers. 
+> Server variables are available with Azure Front Door Standard and Premium tiers.
 
 ## Supported variables
 
@@ -36,7 +37,7 @@ When you use [Rule set actions](front-door-rules-engine-actions.md), you can use
 | `request_uri`    | The full original request URI (with arguments).<br />For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `request_uri` value will be `/article.aspx?id=123&title=fabrikam`.<br/> To access this server variable in a match condition, use [Request URL](rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#request-url).|
 | `ssl_protocol`   | The protocol of an established TLS connection.<br/> To access this server variable in a match condition, use [SSL protocol](rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#ssl-protocol).|
 | `server_port`    | The port of the server that accepted a request.<br/> To access this server variable in a match condition, use [Server port](rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#server-port).|
-| `url_path`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments.<br />For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `uri_path` value will be `/article.aspx`.<br/> To access this server variable in a match condition, use [Request path](rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#request-path).|
+| `url_path`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments or leading slash.<br />For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `url_path` value will be `article.aspx`.<br/> To access this server variable in a match condition, use [Request path](rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#request-path).|
 
 ## Server variable format 
 

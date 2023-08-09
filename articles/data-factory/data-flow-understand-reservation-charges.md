@@ -5,7 +5,7 @@ author: kromerm
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 02/05/2021
+ms.date: 07/17/2023
 ms.author: makromer
 ---
 

@@ -4,10 +4,10 @@ description: Learn about deployment considerations and strategy for successful i
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/02/2022
-ms.author: mtillman
-author: mtillman
-manager: martinco
+ms.date: 03/06/2023
+ms.author: justinha
+author: justinha
+manager: amycolannino
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ---
@@ -60,10 +60,10 @@ You can control the authentication methods available in your tenant. For example
 
 | Authentication method | Manage from | Scoping |
 |-----------------------|-------------|---------|
-| Microsoft Authenticator (Push notification and passwordless phone sign in)    | MFA settings or Authentication methods policy | Authenticator passwordless phone sign in can be scoped to users and groups |
+| Microsoft Authenticator (Push notification and passwordless phone sign-in)    | MFA settings or Authentication methods policy | Authenticator passwordless phone sign-in can be scoped to users and groups |
 | FIDO2 security key | Authentication methods policy | Can be scoped to users and groups |
 | Software or Hardware OATH tokens | MFA settings |     |
-| SMS verification | MFA settings <br/>Manage SMS sign in for primary authentication in authentication policy | SMS sign in can be scoped to users and groups. |
+| SMS verification | MFA settings <br/>Manage SMS sign-in for primary authentication in authentication policy | SMS sign-in can be scoped to users and groups. |
 | Voice calls | Authentication methods policy |       |
 
 
@@ -94,17 +94,17 @@ Common use cases to require Azure AD Multi-Factor Authentication include:
 
 ### Named locations
 
-To manage your Conditional Access policies, the location condition of a Conditional Access policy enables you to tie access controls settings to the network locations of your users. We recommend to use [Named Locations](../conditional-access/location-condition.md) so that you can create logical groupings of IP address ranges or countries and regions. This creates a policy for all apps that blocks sign in from that named location. Be sure to exempt your administrators from this policy.
+To manage your Conditional Access policies, the location condition of a Conditional Access policy enables you to tie access controls settings to the network locations of your users. We recommend using [Named Locations](../conditional-access/location-condition.md) so that you can create logical groupings of IP address ranges or countries and regions. This creates a policy for all apps that blocks sign-in from that named location. Be sure to exempt your administrators from this policy.
 
 ### Risk-based policies
 
-If your organization uses [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) to detect risk signals, consider using [risk-based policies](../identity-protection/howto-identity-protection-configure-risk-policies.md) instead of named locations. Policies can be created to force password changes when there is a threat of compromised identity or require MFA when a sign in is deemed [risky by events](../identity-protection/overview-identity-protection.md#risk-detection-and-remediation) such as leaked credentials, sign ins from anonymous IP addresses, and more. 
+If your organization uses [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) to detect risk signals, consider using [risk-based policies](../identity-protection/howto-identity-protection-configure-risk-policies.md) instead of named locations. Policies can be created to force password changes when there is a threat of compromised identity or require MFA when a sign-in is deemed [at risk](../identity-protection/howto-identity-protection-configure-risk-policies.md) such as leaked credentials, sign-ins from anonymous IP addresses, and more. 
 
 Risk policies include:
 
 - [Require all users to register for Azure AD Multi-Factor Authentication](../identity-protection/howto-identity-protection-configure-mfa-policy.md)
-- [Require a password change for users that are high-risk](../identity-protection/howto-identity-protection-configure-risk-policies.md#enable-policies)
-- [Require MFA for users with medium or high sign in risk](../identity-protection/howto-identity-protection-configure-risk-policies.md#enable-policies)
+- [Require a password change for users that are high-risk](../identity-protection/howto-identity-protection-configure-risk-policies.md#user-risk-policy-in-conditional-access)
+- [Require MFA for users with medium or high sign in risk](../identity-protection/howto-identity-protection-configure-risk-policies.md#sign-in-risk-policy-in-conditional-access)
 
 ### Convert users from per-user MFA to Conditional Access based MFA
 
@@ -146,7 +146,7 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 When planning your multifactor authentication deployment, it's important to think about how frequently you would like to prompt your users. Asking users for credentials often seems like a sensible thing to do, but it can backfire. If users are trained to enter their credentials without thinking, they can unintentionally supply them to a malicious credential prompt. Azure AD has multiple settings that determine how often you need to reauthenticate. Understand the needs of your business and users and configure settings that provide the best balance for your environment.
 
-We recommend using devices with Primary Refresh Tokens (PRT) for improved end user experience and reduce the session lifetime with sign in frequency policy only on specific business use cases.
+We recommend using devices with Primary Refresh Tokens (PRT) for improved end user experience and reduce the session lifetime with sign-in frequency policy only on specific business use cases.
 
 For more information, see [Optimize reauthentication prompts and understand session lifetime for Azure AD Multi-Factor Authentication](concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
@@ -156,29 +156,25 @@ A major step in every multifactor authentication deployment is getting users reg
 
 ### Combined registration for SSPR and Azure AD MFA
 
-> [!NOTE]
-> Starting on August 15th 2020, all new Azure AD tenants will be automatically enabled for combined registration. Tenants created after this date will be unable to utilize the legacy registration workflows.
-> After Sept. 30th, 2022, all existing Azure AD tenants will be automatically enabled for combined registration. 
-
-We recommend that organizations use the [combined registration experience for Azure AD Multi-Factor Authentication and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md). SSPR allows users to reset their password in a secure way using the same methods they use for Azure AD Multi-Factor Authentication. Combined registration is a single step for end users. To make sure you understand the functionality and end-user experience, see the [Combined security information registration concepts](concept-registration-mfa-sspr-combined.md).
+[The combined registration experience for Azure AD Multi-Factor Authentication and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md) enables users to register for both MFA and SSPR in a unified experience. SSPR allows users to reset their password in a secure way using the same methods they use for Azure AD Multi-Factor Authentication. To make sure you understand the functionality and end-user experience, see the [Combined security information registration concepts](concept-registration-mfa-sspr-combined.md).
 
 It's critical to inform users about upcoming changes, registration requirements, and any necessary user actions. We provide [communication templates](https://aka.ms/mfatemplates) and [user documentation](https://support.microsoft.com/account-billing/set-up-security-info-from-a-sign-in-page-28180870-c256-4ebf-8bd7-5335571bf9a8) to prepare your users for the new experience and help to ensure a successful rollout. Send users to https://myprofile.microsoft.com to register by selecting the **Security Info** link on that page.
 
 ### Registration with Identity Protection
 
-Azure AD Identity Protection contributes both a registration policy for and automated risk detection and remediation policies to the Azure AD Multi-Factor Authentication story. Policies can be created to force password changes when there is a threat of compromised identity or require MFA when a sign in is deemed risky.
+Azure AD Identity Protection contributes both a registration policy for and automated risk detection and remediation policies to the Azure AD Multi-Factor Authentication story. Policies can be created to force password changes when there is a threat of compromised identity or require MFA when a sign-in is deemed risky.
 If you use Azure AD Identity Protection, [configure the Azure AD MFA registration policy](../identity-protection/howto-identity-protection-configure-mfa-policy.md) to prompt your users to register the next time they sign in interactively.
 
 ### Registration without Identity Protection
 
-If you don't have licenses that enable Azure AD Identity Protection, users are prompted to register the next time that MFA is required at sign in. 
+If you don't have licenses that enable Azure AD Identity Protection, users are prompted to register the next time that MFA is required at sign-in. 
 To require users to use MFA, you can use Conditional Access policies and target frequently used applications like HR systems. 
-If a user's password is compromised, it could be used to register for MFA, taking control of their account. We therefore recommend [securing the security registration process with conditional access policies](../conditional-access/howto-conditional-access-policy-registration.md) requiring trusted devices and locations. 
+If a user's password is compromised, it could be used to register for MFA, taking control of their account. We therefore recommend [securing the security registration process with Conditional Access policies](../conditional-access/howto-conditional-access-policy-registration.md) requiring trusted devices and locations. 
 You can further secure the process by also requiring a [Temporary Access Pass](howto-authentication-temporary-access-pass.md). A time-limited passcode issued by an admin that satisfies strong authentication requirements and can be used to onboard other authentication methods, including Passwordless ones.
 
 ### Increase the security of registered users
 
-If you have users registered for MFA using SMS or voice calls, you may want to move them to more secure methods such as the Microsoft Authenticator app. Microsoft now offers a public preview of functionality that allows you to prompt users to set up the Microsoft Authenticator app during sign in. You can set these prompts by group, controlling who is prompted, enabling targeted campaigns to move users to the more secure method. 
+If you have users registered for MFA using SMS or voice calls, you may want to move them to more secure methods such as the Microsoft Authenticator app. Microsoft now offers a public preview of functionality that allows you to prompt users to set up the Microsoft Authenticator app during sign-in. You can set these prompts by group, controlling who is prompted, enabling targeted campaigns to move users to the more secure method. 
 
 ### Plan recovery scenarios 
 
@@ -187,7 +183,7 @@ If the user does not have a backup method available, you can:
 
 - Provide them a Temporary Access Pass so that they can manage their own authentication methods. You can also provide a Temporary Access Pass to enable temporary access to resources. 
 - Update their methods as an administrator. To do so, select the user in the Azure portal, then select Authentication methods and update their methods.
-User communications
+
 
 ## Plan integration with on-premises systems
 
@@ -238,21 +234,25 @@ This section provides reporting and troubleshooting information for Azure AD Mul
 
 ### Reporting and Monitoring
 
-Azure AD has reports that provide technical and business insights, follow the progress of your deployment and check if your users are successful at sign in with MFA. Have your business and technical application owners assume ownership of and consume these reports based on your organization's requirements.
+Azure AD has reports that provide technical and business insights, follow the progress of your deployment and check if your users are successful at sign-in with MFA. Have your business and technical application owners assume ownership of and consume these reports based on your organization's requirements.
 
 You can monitor authentication method registration and usage across your organization using the [Authentication Methods Activity dashboard](howto-authentication-methods-activity.md). This helps you understand what methods are being registered and how they're being used.
 
-#### Sign in report to review MFA events
+#### Sign-in report to review MFA events
 
-The Azure AD sign in reports include authentication details for events when a user is prompted for MFA, and if any Conditional Access policies were in use. You can also use PowerShell for reporting on users registered for Azure AD Multi-Factor Authentication. 
+The Azure AD sign-in reports include authentication details for events when a user is prompted for MFA, and if any Conditional Access policies were in use. You can also use PowerShell for reporting on users registered for Azure AD Multi-Factor Authentication. 
 
-NPS extension and AD FS logs can be viewed from **Security** > **MFA** > **Activity report**.
+NPS extension and AD FS logs for cloud MFA activity are now included in the [Sign-in logs](../reports-monitoring/concept-sign-ins.md), and no longer published to **Security** > **MFA** > **Activity report**.
 
 For more information, and additional Azure AD Multi-Factor Authentication reports, see [Review Azure AD Multi-Factor Authentication events](howto-mfa-reporting.md#view-the-azure-ad-sign-ins-report).
 
 ### Troubleshoot Azure AD Multi-Factor Authentication
 See [Troubleshooting Azure AD Multi-Factor Authentication](https://support.microsoft.com/help/2937344/troubleshooting-azure-multi-factor-authentication-issues) for common issues.
 
+## Guided walkthrough
+
+For a guided walkthrough of many of the recommendations in this article, see the [Microsoft 365 Configure multifactor authentication guided walkthrough](https://go.microsoft.com/fwlink/?linkid=2221401).
+
 ## Next steps
 
-[Deploy other identity features](../fundamentals/active-directory-deployment-plans.md)
+[Deploy other identity features](../fundamentals/deployment-plans.md)

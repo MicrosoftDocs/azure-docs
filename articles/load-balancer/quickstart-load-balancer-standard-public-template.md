@@ -1,22 +1,20 @@
 ---
-title: "Quickstart: Create a public load balancer - Azure template"
+title: "Quickstart: Create a public load balancer - ARM template"
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a load balancer by using an Azure Resource Manager template.
 services: load-balancer
-documentationcenter: na
-author: asudbring
+author: mbender-ms
 manager: KumudD
 ms.service: load-balancer
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/09/2020
-ms.author: allensu
-ms.custom: mvc, subject-armqs, mode-arm
+ms.date: 12/13/2022
+ms.author: mbender
+ms.custom: mvc, subject-armqs, mode-arm, template-quickstart, engagement-fy23, devx-track-arm-template
 #Customer intent: I want to create a load balancer by using an Azure Resource Manager template so that I can load balance internet traffic to VMs.
 ---
 
-# Quickstart: Create a public load balancer to load balance VMs by using an ARM template
+# Quickstart: Create a public load balancer to load balance VMs using an ARM template
 
 Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines (VMs).
 
@@ -53,6 +51,12 @@ Multiple Azure resources have been defined in the template:
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) (3).
 - [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3): use to configure the Internet Information Server (IIS), and the web pages.
 
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+>
+
 To find more templates that are related to Azure Load Balancer, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
 ## Deploy the template
@@ -84,7 +88,7 @@ To find more templates that are related to Azure Load Balancer, see [Azure Quick
 
    The template deployment creates three availability zones. Availability zones are supported only in [certain regions](../availability-zones/az-overview.md). Use one of the supported regions. If you aren't sure, enter **centralus**.
 
-   The resource group name is the project name with **rg** appended. You need the resource group name in the next section.
+   The resource group name is the project name with **`rg`** appended. You need the resource group name in the next section.
 
 It takes about 10 minutes to deploy the template. When completed, the output is similar to:
 
@@ -98,7 +102,7 @@ Azure PowerShell is used to deploy the template. You can also use the Azure port
 
 1. Select **Resource groups** from the left pane.
 
-1. Select the resource group that you created in the previous section. The default resource group name is the project name with **rg** appended.
+1. Select the resource group that you created in the previous section. The default resource group name is the project name with **-rg** appended.
 
 1. Select the load balancer. Its default name is the project name with **-lb** appended.
 

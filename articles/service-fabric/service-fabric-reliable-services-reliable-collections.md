@@ -1,10 +1,14 @@
 ---
 title: Introduction to Reliable Collections
 description: Service Fabric stateful services provide reliable collections that enable you to write highly available, scalable, and low-latency cloud applications.
-
 ms.topic: conceptual
-ms.date: 3/10/2020
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Introduction to Reliable Collections in Azure Service Fabric stateful services
 
 Reliable Collections enable you to write highly available, scalable, and low-latency cloud applications as though you were writing single computer applications. The classes in the **Microsoft.ServiceFabric.Data.Collections** namespace provide a set of collections that automatically make your state highly available. Developers need to program only to the Reliable Collection APIs and let Reliable Collections manage the replicated and local state.
@@ -21,7 +25,7 @@ Reliable Collections can be thought of as the natural evolution of the **System.
 * Replicated: State changes are replicated for high availability.
 * Asynchronous: APIs are asynchronous to ensure that threads are not blocked when incurring IO.
 * Transactional: APIs utilize the abstraction of transactions so you can manage multiple Reliable Collections within a service easily.
-* Persisted or Volatile: Data can be persisted to disk for durability against large-scale outages (for example, a datacenter power outage). Some Reliable Collections also support a volatile mode (with [Caveats](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections)) where all data is kept in-memory, such as a replicated in-memory cache.
+* Persisted or Volatile: Data can be persisted to disk for durability against large-scale outages (for example, a datacenter power outage). Some Reliable Collections also support a volatile mode (with [Caveats](service-fabric-reliable-services-reliable-collections-guidelines.md#additional-guidelines-for-volatile-reliable-collections)) where all data is kept in-memory, such as a replicated in-memory cache.
 
 Reliable Collections provide strong consistency guarantees out of the box to make reasoning about application state easier.
 Strong consistency is achieved by ensuring transaction commits finish only after the entire transaction has been logged on a majority quorum of replicas, including the primary.

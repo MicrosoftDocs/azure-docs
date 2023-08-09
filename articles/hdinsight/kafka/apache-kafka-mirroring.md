@@ -4,7 +4,7 @@ description: Learn how to use Apache Kafka's mirroring feature to maintain a rep
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 11/29/2019
+ms.date: 05/24/2023
 ---
 
 # Use MirrorMaker to replicate Apache Kafka topics with Kafka on HDInsight

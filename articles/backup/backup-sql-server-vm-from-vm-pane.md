@@ -2,7 +2,9 @@
 title: Back up a SQL Server VM from the VM pane
 description: In this article, learn how to back up SQL Server databases on Azure virtual machines from the VM pane.
 ms.topic: conceptual
-ms.date: 08/13/2020
+ms.date: 08/11/2022
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Back up a SQL Server from the VM pane
 
@@ -16,6 +18,9 @@ This article explains how to back up SQL Server running in Azure VMs with the [A
 1. Verify your environment with the [support matrix](sql-support-matrix.md).
 2. Get an [overview](backup-azure-sql-database.md) of Azure Backup for SQL Server VM.
 3. Verify that the VM has [network connectivity](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
+
+>[!Note]
+>See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
 
 ## Configure backup on the SQL Server
 

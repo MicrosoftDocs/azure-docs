@@ -3,12 +3,12 @@ title: Access on-premises APIs with Azure Active Directory Application Proxy
 description: Azure Active Directory's Application Proxy lets native apps securely access APIs and business logic you host on-premises or on cloud VMs.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/06/2021
+ms.date: 11/17/2022
 ms.author: kenwith
 ms.reviewer: ashishj
 ms.custom: has-adal-ref
@@ -48,7 +48,9 @@ To publish the SecretAPI web API through Application Proxy:
 
 1. Build and publish the sample SecretAPI project as an ASP.NET web app on your local computer or intranet. Make sure you can access the web app locally.
 
-1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**. Then select **Enterprise applications**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Select **Azure Active Directory**, then select **Enterprise applications**.
 
 1. At the top of the **Enterprise applications - All applications** page, select **New application**.
 
@@ -134,7 +136,7 @@ You've now registered the AppProxyNativeAppSample app in Azure Active Directory.
 The last step is to configure the native app. The code snippet that's used in the following steps is based on [Add the Microsoft Authentication Library to your code (.NET C# sample)](application-proxy-configure-native-client-application.md#step-4-add-the-microsoft-authentication-library-to-your-code-net-c-sample). The code is customized for this example. The code must be added to the *Form1.cs* file in the NativeClient sample app where it will cause the [MSAL library](../develop/reference-v2-libraries.md) to acquire the token for requesting the API call and attach it as bearer to the header in the request.
 
 > [!NOTE]
-> The sample app uses [Azure Active Directory Authentication Library (ADAL)](../azuread-dev/active-directory-authentication-libraries.md). Read how to [add MSAL to your project](../develop/tutorial-v2-windows-desktop.md#add-msal-to-your-project). Remember to [add the reference to MSAL](../develop/tutorial-v2-windows-desktop.md#add-the-code-to-initialize-msal) to the class and remove the ADAL reference.
+> The sample app uses Azure Active Directory Authentication Library (ADAL). Read how to [add MSAL to your project](../develop/tutorial-v2-windows-desktop.md#add-msal-to-your-project). Remember to [add the reference to MSAL](../develop/tutorial-v2-windows-desktop.md#add-the-code-to-initialize-msal) to the class and remove the ADAL reference.
 
 To configure the native app code:
 

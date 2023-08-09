@@ -1,10 +1,13 @@
 ---
 title: Create an Azure Service Fabric reliable actors Java application on Linux 
 description: Learn how to create and deploy a Java Service Fabric reliable actors application in five minutes.
-
-ms.topic: conceptual
-ms.date: 06/18/2018
-ms.custom: devx-track-java
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-extended-java
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Create your first Java Service Fabric Reliable Actors application on Linux

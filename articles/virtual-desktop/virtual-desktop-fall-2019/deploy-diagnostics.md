@@ -33,7 +33,7 @@ You need to create an Azure Active Directory App Registration and a Log Analytic
 
 You also need to install these two PowerShell modules before you get started:
 
-- [Azure PowerShell module](/powershell/azure/install-az-ps)
+- [Azure PowerShell module](/powershell/azure/install-azure-powershell)
 - [Azure AD module](/powershell/azure/active-directory/install-adv2)
 
 Make sure you have your Subscription ID ready for when you sign in.
@@ -124,10 +124,11 @@ Before you continue deploying the diagnostics tool, we recommend that you verify
 
 To make sure your app registration has API permissions:
 
-1. Open a browser and connect to the [Azure portal](https://portal.azure.com/) with your administrative account.
+1. Open a browser and sign in to the [Azure portal](https://portal.azure.com/) with your administrative account.
 2. Go to **Azure Active Directory**.
 3. Go to **App registrations** and select **All Applications**.
 4. Look for your Azure AD app registration with the same app name you entered in step 5 of [Create an Azure Active Directory app registration](deploy-diagnostics.md#create-an-azure-active-directory-app-registration).
+5. On your Azure subscription, check that app registration has been assigned the *Contributor* role assignment.
 
 ### Review your Log Analytics workspace
 
@@ -186,7 +187,7 @@ To set the Redirect URI:
    > [!div class="mx-imgBorder"]
    > ![The redirect URI page](../media/redirect-uri-page.png)
 
-8. Now, go to your Azure resources, select the Azure App Services resource with the name you provided in the template and navigate to the URL associated with it. (For example, if the app name you used in the template was `contosoapp45`, then your associated URL is <http://contoso.azurewebsites.net>).
+8. Now, go to your Azure resources, select the Azure App Services resource with the name you provided in the template and navigate to the URL associated with it. (For example, if the app name you used in the template was `contosoapp45`, then your associated URL is `http://contoso.azurewebsites.net`).
 9. Sign in using the appropriate Azure Active Directory user account.
 10.   Select **Accept**.
 

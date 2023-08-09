@@ -24,6 +24,9 @@ A complete Encryption-at-Rest solution ensures the data is never persisted in un
 
 The first layer of encryption for Azure services is enabled with platform-managed keys. By default, Azure Disks, and data in Azure Storage accounts are automatically encrypted at rest. Learn more about how encryption is used in Microsoft Azure in the [Azure Encryption Overview](../../security/fundamentals/encryption-overview.md).
 
+> [!NOTE]
+> Some items considered customer content, such as table names, object names, and index names, may be transmitted in log files for support and troubleshooting by Microsoft.
+
 ## Azure Synapse encryption
 
 This section will help you better understand how customer-managed key encryption is enabled and enforced in Synapse workspaces. This encryption uses existing keys or new keys generated in Azure Key Vault. A single key is used to encrypt all the data in a workspace. Synapse workspaces support RSA 2048 and 3072 byte-sized keys, and RSA-HSM keys.
@@ -35,6 +38,7 @@ The data in the following Synapse components is encrypted with the customer-mana
 * SQL pools
  * Dedicated SQL pools
  * Serverless SQL pools
+* Data Explorer pools
 * Apache Spark pools
 * Azure Data Factory integration runtimes, pipelines, datasets.
 
@@ -89,11 +93,29 @@ You can change the customer-managed key used to encrypt data from the **Encrypti
 Azure Key Vaults policies for automatic, periodic rotation of keys, or actions on the keys can result in the creation of new key versions. You can choose to re-encrypt all the data in the workspace with the latest version of the active key. To-re-encrypt, change the key in the Azure portal to a temporary key and then switch back to the key you wish to use for encryption. As an example, to update data encryption using the latest version of active key Key1, change the workspace customer-managed key to temporary key, Key2. Wait for encryption with Key2 to finish. Then switch the workspace customer-managed key back to Key1-data in the workspace will be re-encrypted with the latest version of Key1.
 
 > [!NOTE]
-> Azure Synapse Analytics is actively working on adding functionality to automatically re-encrypt data when new key versions are created. Until this functionality is available, to ensure consistency in your workspace, force the re-encryption of data using the process detailed above.
+> Azure Synapse Analytics does not automatically re-encrypt data when new key versions are created. To ensure consistency in your workspace, force the re-encryption of data using the process detailed above.
 
 #### SQL Transparent Data Encryption with service-managed keys
 
 SQL Transparent Data Encryption (TDE) is available for dedicated SQL Pools in workspaces *not* enabled for double encryption. In this type of workspace, a service-managed key is used to provide double encryption for the data in the dedicated SQL pools. TDE with the service-managed key can be enabled or disabled for individual dedicated SQL pools.
+
+### Cmdlets for Azure SQL Database and Azure Synapse
+
+To configure TDE through PowerShell, you must be connected as the Azure Owner, Contributor, or SQL Security Manager.
+
+Use the following cmdlets for Azure Synapse workspace. 
+
+| Cmdlet | Description |
+| --- | --- |
+| [Set-AzSynapseSqlPoolTransparentDataEncryption](/powershell/module/az.synapse/set-azsynapsesqlpooltransparentdataencryption) |Enables or disables transparent data encryption for a SQL pool.|
+| [Get-AzSynapseSqlPoolTransparentDataEncryption](/powershell/module/az.synapse/get-azsynapsesqlpooltransparentdataencryption) |Gets the transparent data encryption state for a SQL pool. |
+| [New-AzSynapseWorkspaceKey](/powershell/module/az.synapse/new-azsynapseworkspacekey) |Adds a Key Vault key to a workspace. |
+| [Get-AzSynapseWorkspaceKey](/powershell/module/az.synapse/get-azsynapseworkspacekey) |Gets the Key Vault keys for a workspace  |
+| [Update-AzSynapseWorkspace](/powershell/module/az.synapse/update-azsynapseworkspace) |Sets the transparent data encryption protector for a workspace. |
+| [Get-AzSynapseWorkspace](/powershell/module/az.synapse/get-azsynapseworkspace) |Gets the transparent data encryption protector |
+| [Remove-AzSynapseWorkspaceKey](/powershell/module/az.synapse/remove-azsynapseworkspacekey) |Removes a Key Vault key from a workspace. |
+
+
 
 ## Next steps
 

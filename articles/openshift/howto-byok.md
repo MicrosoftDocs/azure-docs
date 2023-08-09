@@ -1,59 +1,49 @@
 ---
-title: Encrypt OS disks with a customer-managed key (CMK) on Azure Red Hat OpenShift (ARO)
-description: Encrypt OS disks with a customer-managed key (CMK) on Azure Red Hat OpenShift (ARO)
-author: sayjadha
-ms.author: suvetriv
+title: Encrypt OS disks with a customer-managed key (CMK) on Azure Red Hat OpenShift
+description: Encrypt OS disks with a customer-managed key (CMK) on Azure Red Hat OpenShift
+author: johnmarco
+ms.author: johnmarc
 ms.service: azure-redhat-openshift
-keywords: encryption, byok, aro, deploy, openshift, red hat
+keywords: encryption, byok, deploy, openshift, red hat, key
 ms.topic: how-to
-ms.date: 10/18/2021
+ms.date: 05/05/2023
 ms.custom: template-how-to, ignite-fall-2021, devx-track-azurecli 
 ms.devlang: azurecli
 ---
 
-# Encrypt OS disks with a customer-managed key (CMK) on Azure Red Hat OpenShift (ARO) (preview)
+# Encrypt OS disks with a customer-managed key on Azure Red Hat OpenShift
 
-By default, the OS disks of the virtual machines in an Azure Red Hat OpenShift cluster were encrypted with auto-generated keys managed by Microsoft Azure. For additional security, customers can encrypt the OS disks with self-managed keys when deploying an ARO cluster. This features allows for more control by encrypting confidential data with customer-managed keys.
+By default, the OS disks of the virtual machines in an Azure Red Hat OpenShift cluster were encrypted with auto-generated keys managed by Microsoft Azure. For additional security, customers can encrypt the OS disks with self-managed keys when deploying an Azure Red Hat OpenShift cluster. This feature allows for more control by encrypting confidential data with customer-managed keys (CMK).
 
-Clusters created with customer-managed keys have a default storage class enabled with their keys. Therefore, both OS disks and data disks are encrypted by these keys. The customer-managed keys are stored in Azure Key Vault. For more information about using Azure Key Vault to create and maintain keys, see [Server-side encryption of Azure Disk Storage](../key-vault/general/basic-concepts.md) in the Microsoft Azure documentation.
+Clusters created with customer-managed keys have a default storage class enabled with their keys. Therefore, both OS disks and data disks are encrypted by these keys. The customer-managed keys are stored in Azure Key Vault. 
 
-With host-based encryption, the data stored on the VM host of your ARO agent nodes' VMs is encrypted at rest and flows encrypted to the Storage service. This means the temp disks are encrypted at rest with platform-managed keys. The cache of OS and data disks is encrypted at rest with either platform-managed keys or customer-managed keys depending on the encryption type set on those disks. By default, when using ARO, OS and data disks are encrypted at rest with platform-managed keys, meaning that the caches for these disks are also by default encrypted at rest with platform-managed keys. You can specify your own managed keys following the encryption steps below. The cache for these disks will then also be encrypted using the key that you specify in this step.
+For more information about using Azure Key Vault to create and maintain keys, see [Server-side encryption of Azure Disk Storage](../key-vault/general/basic-concepts.md) in the Microsoft Azure documentation.
 
-> [!IMPORTANT]
-> ARO preview features are available on a self-service, opt-in basis. Preview features are provided "as is" and "as available," and they are excluded from the service-level agreements and limited warranty. Preview features are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use.
+With host-based encryption, the data stored on the VM host of your Azure Red Hat OpenShift agent nodes' VMs is encrypted at rest and flows encrypted to the Storage service. Host-base encryption means the temp disks are encrypted at rest with platform-managed keys. 
+
+The cache of OS and data disks is encrypted at rest with either platform-managed keys or customer-managed keys, depending on the encryption type set on those disks. By default, when using Azure Red Hat OpenShift, OS and data disks are encrypted at rest with platform-managed keys, meaning that the caches for these disks are also by default encrypted at rest with platform-managed keys. 
+
+You can specify your own managed keys following the encryption steps below. The cache for these disks also will be encrypted using the key that you specify in this step.
 
 ## Limitation
-It is the responsibility of the customers to maintain the Key Vault and Disk Encryption Set in Azure. Failure to maintain the keys will result in broken ARO clusters. The VMs stop working and therefore the entire ARO cluster stops functioning. The Azure Red Hat OpenShift Engineering team cannot access the keys; therefore, they cannot back up, replicate, or retrieve the keys. For details about using Disk Encryption Sets to manage your encryption keys, see [Server-side encryption of Azure Disk Storage](../virtual-machines/disk-encryption.md) in the Microsoft Azure documentation.
+It's the responsibility of customers to maintain the Key Vault and Disk Encryption Set in Azure. Failure to maintain the keys will result in broken Azure Red Hat OpenShift clusters. The VMs will stop working and, as a result, the entire Azure Red Hat OpenShift cluster will stop functioning. 
+
+The Azure Red Hat OpenShift Engineering team can't access the keys. Therefore, they can't back up, replicate, or retrieve the keys. 
+
+For details about using Disk Encryption Sets to manage your encryption keys, see [Server-side encryption of Azure Disk Storage](../virtual-machines/disk-encryption.md) in the Microsoft Azure documentation.
 
 ## Prerequisites
-* [Verify your permissions](tutorial-create-cluster.md#verify-your-permissions). You must have either Contributor and User Access Administrator permissions, or Owner permissions.
-* Register the resource providers if you have multiple Azure subscriptions. For registration details, see [Register the resource providers](tutorial-create-cluster.md#register-the-resource-providers).
+* [Verify your permissions](tutorial-create-cluster.md#verify-your-permissions). You must have either Contributor and User Access Administrator permissions or Owner permissions.
+* If you have multiple Azure subscriptions, register the resource providers. For registration details, see [Register the resource providers](tutorial-create-cluster.md#register-the-resource-providers).
+* You will need to have the EncryptionAtHost feature enabled on your subscription. You can enable it by running:
 
-## Install the preview Azure CLI extension
-Install and use the Azure CLI to create a Key Vault. The Azure CLI allows the execution of commands through a terminal using interactive command-line prompts or a script.
-
-> [!NOTE]
-> The CLI extension is required for the preview feature only.
-
-1. Click the following URL to download both the Python wheel and the CLI extension:
-    [https://aka.ms/az-aroext-latest.whl](https://aka.ms/az-aroext-latest.whl)
-1. Run the following command:
     ```azurecli-interactive
-    az extension add --upgrade -s <path to downloaded .whl file>
+    az feature register --namespace Microsoft.Compute --name EncryptionAtHost
     ```
-1. Verify that the CLI extension is being used:
+* You can check the current status of the feature by running:
+
     ```azurecli-interactive
-    az extension list
-    [
-      {
-        "experimental": false,
-        "extensionType": "whl",
-        "name": "aro",
-        "path": "<path may differ depending on system>",
-        "preview": true,
-        "version": "1.0.1"
-      }
-    ]
+    az feature show --namespace Microsoft.Compute --name EncryptionAtHost
     ```
 
 ## Create a virtual network containing two empty subnets
@@ -61,7 +51,8 @@ Create a virtual network containing two empty subnets. If you have an existing v
 
 ## Create an Azure Key Vault instance
 You must use an Azure Key Vault instance to store your keys. Create a new Key Vault with purge protection enabled. Then, create a new key within the Key Vault to store your own custom key.
-1. Set additional environment permissions:
+
+1. Set more environment permissions:
     ```
     export KEYVAULT_NAME=$USER-enckv
     export KEYVAULT_KEY_NAME=$USER-key
@@ -72,8 +63,7 @@ You must use an Azure Key Vault instance to store your keys. Create a new Key Va
     az keyvault create -n $KEYVAULT_NAME \
                    -g $RESOURCEGROUP \
                    -l $LOCATION \
-                   --enable-purge-protection true \
-                   --enable-soft-delete true
+                   --enable-purge-protection true
 
     az keyvault key create --vault-name $KEYVAULT_NAME \
                            -n $KEYVAULT_KEY_NAME \
@@ -87,7 +77,7 @@ You must use an Azure Key Vault instance to store your keys. Create a new Key Va
     ```
 
 ## Create an Azure Disk Encryption Set
-The Azure Disk Encryption Set is used as the reference point for disks in ARO clusters. It is connected to the Azure Key Vault that you created in the previous step, and pulls the customer-managed keys from that location.
+The Azure Disk Encryption Set is used as the reference point for disks in Azure Red Hat OpenShift clusters. It's connected to the Azure Key Vault that you created in the previous step, and pulls the customer-managed keys from that location.
 ```azurecli-interactive
 az disk-encryption-set create -n $DISK_ENCRYPTION_SET_NAME \
                               -l $LOCATION \
@@ -112,8 +102,8 @@ az keyvault set-policy -n $KEYVAULT_NAME \
                        --key-permissions wrapkey unwrapkey get
 ```
 
-## Create an ARO cluster
-Create an ARO cluster to use the customer-managed keys.
+## Create an Azure Red Hat OpenShift cluster
+Create an Azure Red Hat OpenShift cluster to use the customer-managed keys.
 ```azurecli-interactive
 az aro create --resource-group $RESOURCEGROUP \
               --name $CLUSTER  \
@@ -122,7 +112,7 @@ az aro create --resource-group $RESOURCEGROUP \
               --worker-subnet worker-subnet \
               --disk-encryption-set $DES_ID
 ```
-After creating the ARO cluster, all VMs are encrypted with the customer-managed encryption keys.
+After you create the Azure Red Hat OpenShift cluster, all VMs are encrypted with the customer-managed encryption keys.
 
 To verify that you configured the keys correctly, run the following commands:
 1. Get the name of the cluster Resource Group where the cluster VMs, disks, and so on are located:
@@ -133,4 +123,4 @@ To verify that you configured the keys correctly, run the following commands:
     ```azurecli-interactive
     az disk list -g $CLUSTERRESOURCEGROUP --query '[].encryption'
     ```
-    The field `diskEncryptionSetId` in the output must point to the Disk Encryption Set that you specified while creating the ARO cluster.
+    The field `diskEncryptionSetId` in the output must point to the Disk Encryption Set that you specified while creating the Azure Red Hat OpenShift cluster.

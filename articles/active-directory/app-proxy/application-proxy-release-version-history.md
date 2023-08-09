@@ -3,7 +3,7 @@ title: 'Azure Active Directory Application Proxy: Version release history'
 description: This article lists all releases of Azure Active Directory Application Proxy and describes new features and fixed issues.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
@@ -25,6 +25,22 @@ Here is a list of related resources:
 | How to enable Application Proxy                  | Pre-requisites for enabling Application Proxy and installing and registering a connector are described in this [tutorial](application-proxy-add-on-premises-application.md). |
 | Understand Azure AD Application Proxy connectors | Find out more about [connector management](application-proxy-connectors.md) and how connectors [auto-upgrade](application-proxy-connectors.md#automatic-updates). |
 | Azure AD Application Proxy Connector Download    | [Download the latest connector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download). |
+
+## 1.5.3437.0
+
+### Release status
+
+June 20, 2023: Released for download. This version is only available for install via the download page.
+
+### New features and improvements
+
+- Support for Microsoft Entra Private Access.
+- Updated “Third-Party Notices”.
+
+### Fixed issues
+- Silent registration of connector with credentials. See [Create an unattended installation script for the Azure Active Directory Application Proxy connector](application-proxy-register-connector-powershell.md) for more details.
+- Fixed dropping of “Secure” and “HttpOnly” attributes on the cookies passed by backend servers when there are trailing spaces in these attributes.
+- Fixed services crash when back-end server of an application sets "Set-Cookie" header with empty value.
 
 ## 1.5.2846.0
 

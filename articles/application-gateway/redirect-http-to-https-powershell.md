@@ -2,11 +2,11 @@
 title: HTTP to HTTPS redirection using PowerShell - Azure Application Gateway
 description: Learn how to create an application gateway with redirected traffic from HTTP to HTTPS using Azure PowerShell.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 09/28/2020
-ms.author: victorh 
+ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-This tutorial requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). To run the commands in this tutorial, you also need to run `Login-AzAccount` to create a connection with Azure.
+This tutorial requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). To run the commands in this tutorial, you also need to run `Login-AzAccount` to create a connection with Azure.
 
 ## Create a self-signed certificate
 

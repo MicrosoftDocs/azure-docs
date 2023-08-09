@@ -1,14 +1,12 @@
 ---
-title: Manage security incidents in Microsoft Defender for Cloud | Microsoft Docs
+title: Manage security incidents
 description: This document helps you to use Microsoft Defender for Cloud to manage security incidents.
 ms.topic: how-to
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ms.date: 11/09/2021
 ---
 # Manage security incidents in Microsoft Defender for Cloud
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Triaging and investigating security alerts can be time consuming for even the most skilled security analysts. For many, it's hard to know where to begin. 
 
@@ -22,13 +20,13 @@ In Defender for Cloud, a security incident is an aggregation of all alerts for a
 
 ## Managing security incidents
 
-1. On Defender for Cloud's alerts page, use the **Add filter** button to filter by alert name to the alert name **Security incident detected on multiple resources**. 
+1. On Defender for Cloud's security alerts page, use the **Add filter** button to filter by alert name to the alert name **Security incident detected on multiple resources**. 
 
-    :::image type="content" source="media/incidents/locating-incidents.png" alt-text="Locating the incidents on the alerts page in Microsoft Defender for Cloud.":::
+    :::image type="content" source="media/incidents/locating-incidents.png" alt-text="Locating the incidents on the security alerts page in Microsoft Defender for Cloud.":::
 
     The list is now filtered to show only incidents. Notice that security incidents have a different icon to security alerts.
 
-    :::image type="content" source="media/incidents/incidents-list.png" alt-text="List of incidents on the alerts page in Microsoft Defender for Cloud.":::
+    :::image type="content" source="media/incidents/incidents-list.png" alt-text="List of incidents on the security alerts page in Microsoft Defender for Cloud.":::
 
 1. To view details of an incident, select one from the list. A side pane appears with more details about the incident.
 

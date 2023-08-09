@@ -5,6 +5,8 @@ metadata:
   ms.topic: faq
   ms.service: backup
   ms.date: 05/27/2021
+  author: AbhishekMallick-MS
+  ms.author: v-abhmallick
 title: Frequently asked questions about Azure Disk Backup
 summary: |
   This article answers frequently asked questions about Azure Disk Backup. For more information on the [Azure Disk backup](disk-backup-overview.md) region availability, supported scenarios and limitations, see the [support matrix](disk-backup-support-matrix.md).

@@ -3,16 +3,14 @@ title: Deploy an Internet-facing load-balancer with IPv6 - Azure template
 titleSuffix: Azure Load Balancer
 description: Learn how to deploy IPv6 support for Azure Load Balancer and load-balanced VMs using an Azure template.
 services: load-balancer
-documentationcenter: na
-author: asudbring
+author: mbender-ms
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 ms.service: load-balancer
 ms.topic: how-to
-ms.custom: seodec18
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
-ms.author: allensu
+ms.date: 05/03/2023
+ms.author: mbender
+ms.custom: template-how-to, seodec18, engagement-fy23
 ---
 
 # Deploy an Internet-facing load-balancer solution with IPv6 using a template
@@ -35,7 +33,7 @@ The following diagram illustrates the load balancing solution being deployed usi
 
 ![Diagram shows an example scenario used in this article, including a workstation client connected to an Azure Load Balancer over the Internet, connected in turn to two virtual machines.](./media/load-balancer-ipv6-internet-template/lb-ipv6-scenario.png)
 
-In this scenario you will create the following Azure resources:
+In this scenario you create the following Azure resources:
 
 * a virtual network interface for each VM with both IPv4 and IPv6 addresses assigned
 * an Internet-facing Load Balancer with an IPv4 and an IPv6 Public IP address
@@ -48,43 +46,43 @@ In this scenario you will create the following Azure resources:
 This article references a template that is published in the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/load-balancer-ipv6-create/) gallery. You can download the template from the gallery or launch the deployment in Azure directly from the gallery. This article assumes you have downloaded the template to your local computer.
 
 1. Open the Azure portal and sign in with an account that has permissions to create VMs and networking resources within an Azure subscription. Also, unless you're using existing resources, the account needs permission to create a resource group and a storage account.
-2. Click "+New" from the menu then type "template" in the search box. Select "Template deployment" from the search results.
+2. Select "+New" from the menu then type "template" in the search box. Select "Template deployment" from the search results.
 
     ![Screenshot shows the Azure portal with New and Template deployment selected.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
 
-3. In the Everything blade, click "Template deployment."
+3. In the Everything blade, select "Template deployment."
 
     ![Screenshot shows Template deployment in the Marketplace.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
 
-4. Click "Create."
+4. Select "Create."
 
     ![Screenshot shows the description of Template deployment in the Marketplace.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step4.png)
 
-5. Click "Edit template." Delete the existing contents and copy/paste in the entire contents of the template file (to include the start and end { }), then click "Save."
+5. Select "Edit template." Delete the existing contents and copy/paste in the entire contents of the template file (to include the start and end { }), then select "Save."
 
     > [!NOTE]
     > If you are using Microsoft Internet Explorer, when you paste you receive a dialog box asking you to allow access to the Windows clipboard. Click "Allow access."
 
     ![Screenshot shows the firest step of a Custom deployment, which is Edit template.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
 
-6. Click "Edit parameters." In the Parameters blade, specify the values per the guidance in the Template parameters section, then click "Save" to close the Parameters blade. In the Custom Deployment blade, select your subscription, an existing resource group or create one. If you are creating a resource group, then select a location for the resource group. Next, click **Legal terms**, then click **Purchase** for the legal terms. Azure begins deploying the resources. It takes several minutes to deploy all the resources.
+6. Select "Edit parameters." In the Parameters blade, specify the values per the guidance in the Template parameters section, then select "Save" to close the Parameters blade. In the Custom Deployment blade, select your subscription, an existing resource group or create one. If you're creating a resource group, then select a location for the resource group. Next, select **Legal terms**, then select **Purchase** for the legal terms. Azure begins deploying the resources. It takes several minutes to deploy all the resources.
 
     ![Screenshot shows the steps involved in the Custom deployment, starting with entering template parameter values.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
 
     For more information about these parameters, see the [Template parameters and variables](#template-parameters-and-variables) section later in this article.
 
-7. To see the resources created by the template, click Browse, scroll down the list until you see "Resource groups," then click it.
+7. To see the resources created by the template, select Browse, scroll down the list until you see "Resource groups," then select it.
 
     ![Screenshot shows the Azure portal with Browse and Resource groups selected.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step7.png)
 
-8. On the Resource groups blade, click the name of the resource group you specified in step 6. You see a list of all the resources that were deployed. If all went well, it should say "Succeeded" under "Last deployment." If not, ensure that the account you're using has permissions to create the necessary resources.
+8. On the Resource groups blade, select the name of the resource group you specified in step 6. You see a list of all the resources that were deployed. If all went well, it should say "Succeeded" under "Last deployment." If not, ensure that the account you're using has permissions to create the necessary resources.
 
     ![Screenshot shows the status of the last deployment for a resource group, in this example, Succeeded.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
 
     > [!NOTE]
     > If you browse your Resource Groups immediately after completing step 6, "Last deployment" will display the status of "Deploying" while the resources are being deployed.
 
-9. Click "myIPv6PublicIP" in the list of resources. You see that it has an IPv6 address under IP address, and that its DNS name is the value you specified for the dnsNameforIPv6LbIP parameter in step 6. This resource is the public IPv6 address and host name that is accessible to Internet-clients.
+9. Select "myIPv6PublicIP" in the list of resources. You see that it has an IPv6 address under IP address, and that its DNS name is the value you specified for the dnsNameforIPv6LbIP parameter in step 6. This resource is the public IPv6 address and host name that is accessible to Internet-clients.
 
     ![Screenshot shows the IPv6 public address.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
 
@@ -98,11 +96,11 @@ When the template has deployed successfully, you can validate connectivity by co
 4. From each VM, initiate an outbound connection to an IPv6 or IPv4-connected Internet device. In both cases, the source IP seen by the destination device is the public IPv4 or IPv6 address of the load balancer.
 
 > [!NOTE]
-> ICMP for both IPv4 and IPv6 is blocked in the Azure network. As a result, ICMP tools like ping always fail. To test connectivity, use a TCP alternative such as TCPing or the PowerShell Test-NetConnection cmdlet. Note that the IP addresses shown in the diagram are examples of values that you might see. Since the IPv6 addresses are assigned dynamically, the addresses you receive will differ and can vary by region. Also, it is common for the public IPv6 address on the load balancer to start with a different prefix than the private IPv6 addresses in the back-end pool.
+> To test connectivity for both an IPv4 and an IPv6 frontend of a Load Balancer, an ICMP ping can be sent to the frontend of the Load Balancer. Note that the IP addresses shown in the diagram are examples of values that you might see. Since the IPv6 addresses are assigned dynamically, the addresses you receive will differ and can vary by region. Also, it is common for the public IPv6 address on the load balancer to start with a different prefix than the private IPv6 addresses in the back-end pool.
 
 ## Template parameters and variables
 
-An Azure Resource Manager template contains multiple variables and parameters that you can customize to your needs. Variables are used for fixed values that you do not want a user to change. Parameters are used for values that you want a user to provide when deploying the template. The example template is configured for the scenario described in this article. You can customize this to needs of your environment.
+An Azure Resource Manager template contains multiple variables and parameters that you can customize to your needs. Variables are used for fixed values that you don't want a user to change. Parameters are used for values that you want a user to provide when deploying the template. The example template is configured for the scenario described in this article. You can customize this to needs of your environment.
 
 The example template used in this article includes the following variables and parameters:
 
@@ -111,7 +109,7 @@ The example template used in this article includes the following variables and p
 | adminUsername |Specify the name of the admin account used to sign in to the virtual machines with. |
 | adminPassword |Specify the password for the admin account used to sign in to the virtual machines with. |
 | dnsNameforIPv4LbIP |Specify the DNS host name you want to assign as the public name of the load balancer. This name resolves to the load balancer's public IPv4 address. The name must be lowercase and match the regex: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$. |
-| dnsNameforIPv6LbIP |Specify the DNS host name you want to assign as the public name of the load balancer. This name resolves to the load balancer's public IPv6 address. The name must be lowercase and match the regex: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$. This can be the same name as the IPv4 address. When a client sends a DNS query for this name Azure will return both the A and AAAA records when the name is shared. |
+| dnsNameforIPv6LbIP |Specify the DNS host name you want to assign as the public name of the load balancer. This name resolves to the load balancer's public IPv6 address. The name must be lowercase and match the regex: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$. This can be the same name as the IPv4 address. When a client sends a DNS query for this name, Azure returns both the A and AAAA records when the name is shared. |
 | vmNamePrefix |Specify the VM name prefix. The template appends a number (0, 1, etc.) to the name when the VMs are created. |
 | nicNamePrefix |Specify the network interface name prefix. The template appends a number (0, 1, etc.) to the name when the network interfaces are created. |
 | storageAccountName |Enter the name of an existing storage account or specify the name of a new one to be created by the template. |
@@ -129,7 +127,7 @@ The example template used in this article includes the following variables and p
 | ipv6PublicIPAddressType |The allocation method used for the public IP address (Dynamic). IPv6 only supports Dynamic allocation. |
 | lbName |Specify the name of the load balancer. This name is displayed in the portal or used when referring to it with a CLI or PowerShell command. |
 
-The remaining variables in the template contain derived values that are assigned when Azure creates the resources. Do not change those variables.
+The remaining variables in the template contain derived values that are assigned when Azure creates the resources. Don't change those variables.
 
 ## Next steps
 

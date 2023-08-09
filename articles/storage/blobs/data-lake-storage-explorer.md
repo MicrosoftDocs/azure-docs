@@ -1,18 +1,18 @@
 ---
 title: Use Azure Storage Explorer with Azure Data Lake Storage Gen2
+titleSuffix: Azure Storage
 description: Use the Azure Storage Explorer to manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
-ms.subservice: data-lake-storage-gen2
-ms.service: storage
+
+ms.service: azure-data-lake-storage
 ms.topic: how-to
-ms.date: 10/28/2021
+ms.date: 03/09/2023
 ms.author: normesta
-ms.reviewer: stewu
 ---
 
 # Use Azure Storage Explorer to manage directories and files in Azure Data Lake Storage Gen2
 
-This article shows you how to use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to create and manage directories and files in storage accounts that has hierarchical namespace (HNS) enabled.
+This article shows you how to use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to create and manage directories and files in storage accounts that have hierarchical namespace (HNS) enabled.
 
 ## Prerequisites
 
@@ -37,13 +37,13 @@ In the **Select Azure Environment** panel, select an Azure environment to sign i
 
 :::image type="content" alt-text="Screenshot that shows Microsoft Azure Storage Explorer, and highlights the Select Azure Environment option." source="./media/data-lake-storage-explorer/storage-explorer-select-sml.png"  lightbox="./media/data-lake-storage-explorer-acl/storage-explorer-select-sml.png":::
 
-Storage Explorer will open a webpage for you to sign in.
+Storage Explorer opens a webpage for you to sign in.
 
 After you successfully sign in with an Azure account, the account and the Azure subscriptions associated with that account appear under **ACCOUNT MANAGEMENT**. Select the Azure subscriptions that you want to work with, and then select **Open Explorer**.
 
 :::image type="content" alt-text="Screenshot that shows Microsoft Azure Storage Explorer, and highlights the Account Management pane and Open Explorer button." source="./media/data-lake-storage-explorer/storage-explorer-account-panel-sml.png"  lightbox="./media/data-lake-storage-explorer-acl/storage-explorer-account-panel-sml.png":::
 
-When it completes connecting, Azure Storage Explorer loads with the **Explorer** tab shown. This view gives you insight to all of your Azure storage accounts as well as local storage configured through the [Azurite storage emulator](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) accounts, or [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) environments.
+When it completes connecting, Azure Storage Explorer loads with the **Explorer** tab shown. This view gives you insight to all of your Azure storage accounts as well as local storage configured through the [Azurite storage emulator](../common/storage-use-azurite.md?toc=/azure/storage/blobs/toc.json) or [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=/azure/storage/blobs/toc.json) environments.
 
 :::image type="content" alt-text="Microsoft Azure Storage Explorer - Connect window" source="./media/data-lake-storage-explorer/storage-explorer-main-page-sml.png" lightbox="./media/data-lake-storage-explorer-acl/storage-explorer-main-page-lrg.png":::
 
@@ -53,7 +53,7 @@ A container holds directories and files. To create one, expand the storage accou
 
 :::image type="content" alt-text="Microsoft Azure Storage Explorer - Create a container" source="./media/data-lake-storage-explorer/creating-a-filesystem-sml.png" lightbox="./media/data-lake-storage-explorer/creating-a-filesystem-lrg.png" :::
 
-Enter the name for your container. See the [Create a container](storage-quickstart-blobs-dotnet.md#create-a-container) section for a list of rules and restrictions on naming containers. When complete, press **Enter** to create the container. After the container has been successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
+Enter the name for your container. See the [Create a container](storage-quickstart-blobs-dotnet.md#create-a-container) section for a list of rules and restrictions on naming containers. When complete, press **Enter** to create the container. After the container has been successfully created, it's displayed under the **Blob Containers** folder for the selected storage account.
 
 :::image type="content" alt-text="Microsoft Azure Storage Explorer - Container created" source="./media/data-lake-storage-explorer/container-created-sml.png" lightbox="./media/data-lake-storage-explorer/container-created-lrg.png" :::
 
@@ -81,7 +81,7 @@ In the **Azure Storage Explorer** application, select a directory under a storag
 
 ## Download blobs
 
-To download files by using **Azure Storage Explorer**, with a file selected, select **Download** from the ribbon. A file dialog opens and provides you the ability to enter a file name. Select **Select Folder** to start the download of a file to the local location.
+To download files by using **Azure Storage Explorer**, with a file selected, select **Download** from the ribbon. A file dialog opens and provides you with the ability to enter a file name. Select **Select Folder** to start the download of a file to the local location.
 
 :::image type="content" alt-text="Microsoft Azure Storage Explorer - download blobs from a directory" source="media/data-lake-storage-explorer/storage-explorer-download-blob-sml.png" lightbox="media/data-lake-storage-explorer/storage-explorer-download-blob-sml.png" :::
 

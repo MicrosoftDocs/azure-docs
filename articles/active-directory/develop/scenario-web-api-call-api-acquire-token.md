@@ -1,17 +1,17 @@
 ---
-title: Get a token for a web API that calls web APIs | Azure
-titleSuffix: Microsoft identity platform
+title: Get a token for a web API that calls web APIs
 description: Learn how to build a web API that calls web APIs that require acquiring a token for the app.
 services: active-directory
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/15/2020
-ms.author: jmprieur
+ms.date: 05/08/2023
+ms.author: cwerner
+ms.reviewer: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web API that calls web APIs by using the Microsoft identity platform.
 ---
@@ -24,10 +24,11 @@ After you've built a client application object, use it to acquire a token that y
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
-*Microsoft.Identity.Web* adds extension methods that provide convenience services for calling Microsoft Graph or a downstream web API. These methods are explained in detail in [A web API that calls web APIs: Call an API](scenario-web-api-call-api-call-api.md). With these helper methods, you don't need to manually acquire a token.
+*Microsoft.Identity.Web* adds extension methods that provide convenience services for calling Microsoft Graph or a downstream web API. These methods are explained in detail in [A web app that calls web APIs: Call an API](scenario-web-app-call-api-call-api.md). With these helper methods, you don't need to manually acquire a token.
 
-If, however, you do want to manually acquire a token, the following code shows an example of using *Microsoft.Identity.Web* to do so in an API controller. It calls a downstream API named *todolist*.
-To get a token to call the downstream API, you inject the `ITokenAcquisition` service by dependency injection in your controller's constructor (or your page constructor if you use Blazor), and you use it in your controller actions, getting a token for the user (`GetAccessTokenForUserAsync`) or for the application itself (`GetAccessTokenForAppAsync`) in the case of a daemon scenario.
+If, however, you do want to manually acquire a token, the following code shows an example of using *Microsoft.Identity.Web* to do so in a home controller. It calls Microsoft Graph using the REST API (instead of the Microsoft Graph SDK). Usually, you don't need to get a token, you need to build an Authorization header that you add to your request. To get an authorization header, you inject the `IAuthorizationHeaderProvider` service by dependency injection in your controller's constructor (or your page constructor if you use Blazor), and you use it in your controller actions. This interface has methods that produce a string containing the protocol (Bearer, Pop, ...) and a token. To get an authorization header to call an API on behalf of the user, use (`CreateAuthorizationHeaderForUserAsync`). To get an authorization header to call a downstream API on behalf of the application itself, in a daemon scenario, use (`CreateAuthorizationHeaderForAppAsync`).
+
+The controller methods are protected by an `[Authorize]` attribute that ensures only authenticated calls can use the web API.
 
 ```csharp
 [Authorize]
@@ -41,24 +42,86 @@ public class MyApiController : Controller
 
      static readonly string[] scopesToAccessDownstreamApi = new string[] { "api://MyTodolistService/access_as_user" };
 
-    private readonly ITokenAcquisition _tokenAcquisition;
+     readonly IAuthorizationHeaderProvider authorizationHeaderProvider;
 
-    public MyApiController(ITokenAcquisition tokenAcquisition)
+    public MyApiController(IAuthorizationHeaderProvider authorizationHeaderProvider)
     {
-        _tokenAcquisition = tokenAcquisition;
+      this.authorizationHeaderProvider = authorizationHeaderProvider;
     }
 
+    [RequiredScopes(Scopes = scopesToAccessDownstreamApi)]
     public IActionResult Index()
     {
-        HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);
+        // Get an authorization header.
+        IAuthorizationHeaderProvider authorizationHeaderProvider = this.GetAuthorizationHeaderProvider();
+        string[] scopes = new string[]{"user.read"};
+        string authorizationHeader = await authorizationHeaderProvider.CreateAuthorizationHeaderForUserAsync(scopes);
 
-        string accessToken = _tokenAcquisition.GetAccessTokenForUserAsync(scopesToAccessDownstreamApi);
-        return await callTodoListService(accessToken);
+        return await callTodoListService(authorizationHeader);
     }
 }
 ```
 
 For details about the `callTodoListService` method, see  [A web API that calls web APIs: Call an API](scenario-web-api-call-api-call-api.md).
+
+### [ASP.NET](#tab/aspnet)
+
+The code for ASP.NET is similar to the code shown for ASP.NET Core:
+
+- A controller action, protected by an [Authorize] attribute, extracts the tenant ID and user ID of the `ClaimsPrincipal` member of the controller. (ASP.NET uses `HttpContext.User`.)
+*Microsoft.Identity.Web.OWIN* adds extension methods to the Controller that provide convenience services to call Microsoft Graph or a downstream web API, or to get an authorization header, or even a token. The methods used to call an API directly are explained in detail in [A web app that calls web APIs: Call an API](scenario-web-app-call-api-call-api.md). With these helper methods, you don't need to manually acquire a token.
+
+If, however, you do want to manually acquire a token or build an authorization header, the following code shows how to use *Microsoft.Identity.Web* to do so in a controller. It calls an API (Microsoft Graph) using the REST API instead of the Microsoft Graph SDK. 
+
+To get an authorization header, you get an `IAuthorizationHeaderProvider` service from the controller using an extension method `GetAuthorizationHeaderProvider`. To get an authorization header to call an API on behalf of the user, use (`CreateAuthorizationHeaderForUserAsync`). To get an authorization header to call a downstream API on behalf of the application itself, in a daemon scenario, use (`CreateAuthorizationHeaderForAppAsync`).
+
+The controller methods are protected by an `[Authorize]` attribute that ensures only authenticated users can use the web app.
+
+
+The following snippet shows the action of the `HomeController`, which gets an authorization header to call Microsoft Graph as a REST API:
+
+
+```csharp
+[Authorize]
+public class MyApiController : Controller
+{
+ [AuthorizeForScopes(Scopes = new[] { "user.read" })]
+ public async Task<IActionResult> Profile()
+ {
+  // Get an authorization header.
+  IAuthorizationHeaderProvider authorizationHeaderProvider = this.GetAuthorizationHeaderProvider();
+  string[] scopes = new string[]{"user.read"};
+  string authorizationHeader = await authorizationHeaderProvider.CreateAuthorizationHeaderForUserAsync(scopes);
+
+  // Use the access token to call a protected web API.
+  HttpClient client = new HttpClient();
+  client.DefaultRequestHeaders.Add("Authorization", authorizationHeader);
+  string json = await client.GetStringAsync(url);
+ }
+}
+```
+
+The following snippet shows the action of the `MyApiController`, which gets an access token to call Microsoft Graph as a REST API:
+
+```csharp
+[Authorize]
+public class HomeController : Controller
+{
+ [AuthorizeForScopes(Scopes = new[] { "user.read" })]
+ public async Task<IActionResult> Profile()
+ {
+  // Get an authorization header.
+  ITokenAcquirer tokenAcquirer = TokenAcquirerFactory.GetDefaultInstance().GetTokenAcquirer();
+  string[] scopes = new string[]{"user.read"};
+  string token = await await tokenAcquirer.GetTokenForUserAsync(scopes);
+
+  // Use the access token to call a protected web API.
+  HttpClient client = new HttpClient();
+  client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+  string json = await client.GetStringAsync(url);
+ }
+}
+```
 
 ### [Java](#tab/java)
 

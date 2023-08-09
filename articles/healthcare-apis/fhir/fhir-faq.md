@@ -2,12 +2,12 @@
 title: FAQs about FHIR service in Azure Health Data Services
 description: Get answers to frequently asked questions about FHIR service, such as the storage location of data behind FHIR APIs and version support.
 services: healthcare-apis
-author: caitlinv39
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/01/2022
-ms.author: cavoeg
+ms.date: 06/06/2022
+ms.author: kesheth
 ms.custom: references_regions
 ---
 
@@ -49,7 +49,7 @@ FHIR service is our implementation of the FHIR specification that sits in the Az
 
 * FHIR service has a limit of 4 TB, and Azure API for FHIR supports more than 4 TB.
 * FHIR service support [transaction bundles](https://www.hl7.org/fhir/http.html#transaction).
-* Azure API for FHIR has more platform features (such as private link, customer managed keys, and logging) that aren't yet available in FHIR service in Azure Health Data Services. More details will follow on these features by GA.
+* Azure API for FHIR has more platform features (such as customer managed keys, and cross region DR) that aren't yet available in FHIR service in Azure Health Data Services.
 
 ### What's the difference between the FHIR service in Azure Health Data Services and the open-source FHIR server?
 
@@ -93,7 +93,7 @@ We have a basic SMART on FHIR proxy as part of the managed service. If this does
 
 ### Can I create a custom FHIR resource?
 
-We don't allow custom FHIR resources. If you need a custom FHIR resource, you can build a custom resource on top of the [Basic resource](http://www.hl7.org/fhir/basic.html) with extensions. 
+We don't allow custom FHIR resources. If you need a custom FHIR resource, you can build a custom resource on top of the [Basic resource](https://www.hl7.org/fhir/basic.html) with extensions. 
 
 ### Are [extensions](https://www.hl7.org/fhir/extensibility.html) supported on the FHIR service?
 
@@ -134,9 +134,10 @@ There are two basic Delete types supported within the FHIR service. These are [D
 
 ## Using the FHIR service
 
-### Where can I see some examples of using the FHIR service within a workflow?
+### Can I perform health checks on FHIR service?
 
-We have a collection of reference architectures available on the [Health Architecture GitHub page](https://github.com/microsoft/health-architectures).
+To perform health check on FHIR service , enter `{{fhirurl}}/health/check` in the GET request. You should be able to see Status of FHIR service. HTTP Status code response with 200 and OverallStatus as "Healthy" in response, means your health check is succesful.
+In case of errors, you will recieve error response with HTTP status code 404 (Not Found) or status code 500 (Internal Server Error), and detailed information in response body in some scenarios.
 
 ## Next steps
 
@@ -144,3 +145,5 @@ In this article, you've learned the answers to frequently asked questions about 
  
 >[!div class="nextstepaction"]
 >[FAQs about Azure API for FHIR](../azure-api-for-fhir/fhir-faq.yml)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

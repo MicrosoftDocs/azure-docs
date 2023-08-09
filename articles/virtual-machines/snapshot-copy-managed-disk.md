@@ -3,11 +3,10 @@ title: Create an Azure snapshot of a virtual hard disk
 description: Learn how to create a copy of an Azure VM to use as a backup or for troubleshooting issues using the portal, PowerShell, or CLI.
 author: roygara
 ms.author: rogarana
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 04/22/2022
 ---
 
 # Create a snapshot of a virtual hard disk
@@ -37,7 +36,7 @@ To create a snapshot using the Azure portal, complete these steps.
 
 # [PowerShell](#tab/powershell)
 
-This example requires that you use [Cloud Shell](https://shell.azure.com/bash) or have the [Azure CLI](/cli/azure/) installed.
+This example requires that you use [Cloud Shell](https://shell.azure.com/bash) or install the [Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 Follow these steps to take a snapshot with the `New-AzSnapshotConfig` and `New-AzSnapshot` cmdlets. This example assumes that you have a VM called *myVM* in the *myResourceGroup* resource group. The code sample provided creates a snapshot in the same resource group and within the same region as your source VM.
 
@@ -119,14 +118,14 @@ Follow these steps to take a snapshot with the `az snapshot create` command and 
     ```azurecli-interactive
     az snapshot list \
        -g myResourceGroup \
-       - table
+       -o table
     ```
 
 ---
 
 ## Next steps
 
-Deploy a virtual machine from a snapshot. Create a managed disk from a snapshot and then attach the new managed disk as the OS disk.
+To recover using a snapshot, you must create a new disk from the snapshot, then either deploy a new VM, and use the managed disk as the OS disk, or attach the disk as a data disk to an existing VM.
 
 # [Portal](#tab/portal)
 

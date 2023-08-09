@@ -1,8 +1,8 @@
 ---
 title: Authorize access to Azure App Configuration using Azure Active Directory
 description: Enable Azure RBAC to authorize access to your Azure App Configuration instance
-author: AlexandraKemperMS
-ms.author: alkemper
+author: mcleanbyron
+ms.author: mcleans
 ms.date: 05/26/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
@@ -30,7 +30,7 @@ Azure provides the following Azure built-in roles for authorizing access to App 
 
 - **App Configuration Data Owner**: Use this role to give read/write/delete access to App Configuration data. This does not grant access to the App Configuration resource.
 - **App Configuration Data Reader**: Use this role to give read access to App Configuration data. This does not grant access to the App Configuration resource.
-- **Contributor** or **Owner**: Use this role to manage the App Configuration resource. It grants access to the resource's access keys. While the App Configuration data can be accessed using access keys, this role does not grant direct access to the data using Azure AD.
+- **Contributor** or **Owner**: Use this role to manage the App Configuration resource. It grants access to the resource's access keys. While the App Configuration data can be accessed using access keys, this role does not grant direct access to the data using Azure AD. This role is required if you access the App Configuration data via ARM template, Bicep, or Terraform during deployment. For more information, see [authorization](quickstart-resource-manager.md#authorization).
 - **Reader**: Use this role to give read access to the App Configuration resource. This does not grant access to the resource's access keys, nor to the data stored in App Configuration.
 
 > [!NOTE]

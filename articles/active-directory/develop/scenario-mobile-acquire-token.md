@@ -1,9 +1,8 @@
 ---
-title: Acquire a token to call a web API (mobile apps) | Azure
-titleSuffix: Microsoft identity platform
+title: Acquire a token to call a web API (mobile apps)
 description: Learn how to build a mobile app that calls web APIs. (Get a token for the app.)
 services: active-directory
-author: jmprieur
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,8 +10,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: jmprieur
-ms.reviewer: brandwe
+ms.author: henrymbugua
+ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform.
 ---
@@ -149,14 +148,14 @@ UIViewController *viewController = ...; // Pass a reference to the view controll
 MSALWebviewParameters *webParameters = [[MSALWebviewParameters alloc] initWithAuthPresentationViewController:viewController];
 MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopes webviewParameters:webParameters];
 [application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) {
-	if (!error)
-	{
-		// You'll want to get the account identifier to retrieve and reuse the account
-		// for later acquireToken calls
-		NSString *accountIdentifier = result.account.identifier;
+    if (!error)
+    {
+        // You'll want to get the account identifier to retrieve and reuse the account
+        // for later acquireToken calls
+        NSString *accountIdentifier = result.account.identifier;
 
-		NSString *accessToken = result.accessToken;
-	}
+        NSString *accessToken = result.accessToken;
+    }
 }];
 ```
 
@@ -166,13 +165,13 @@ let webviewParameters = MSALWebviewParameters(authPresentationViewController: vi
 let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopes, webviewParameters: webviewParameters)
 application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in
 
-	guard let authResult = result, error == nil else {
-		print(error!.localizedDescription)
-		return
-	}
+    guard let authResult = result, error == nil else {
+        print(error!.localizedDescription)
+        return
+    }
 
-	// Get access token from result
-	let accessToken = authResult.accessToken
+    // Get access token from result
+    let accessToken = authResult.accessToken
 })
 ```
 
@@ -256,7 +255,7 @@ To learn about the other optional parameters for `AcquireTokenInteractive`, see 
 
 ### Acquire tokens via the protocol
 
-We don't recommend directly using the protocol to get tokens. If you do, then the app won't support some scenarios that involve single sign-on (SSO), device management, and conditional access.
+We don't recommend directly using the protocol to get tokens. If you do, then the app won't support some scenarios that involve single sign-on (SSO), device management, and Conditional Access.
 
 When you use the protocol to get tokens for mobile apps, make two requests:
 

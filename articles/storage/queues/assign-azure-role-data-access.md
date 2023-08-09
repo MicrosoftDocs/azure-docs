@@ -5,12 +5,12 @@ description: Learn how to assign permissions for queue data to an Azure Active D
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 07/13/2021
 ms.author: tamram
 ms.reviewer: dineshm
-ms.subservice: common 
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -49,8 +49,6 @@ You can also assign an Azure Resource Manager role that provides additional perm
 
 > [!NOTE]
 > Prior to assigning yourself a role for data access, you will be able to access data in your storage account via the Azure portal because the Azure portal can also use the account key for data access. For more information, see [Choose how to authorize access to queue data in the Azure portal](../queues/authorize-data-operations-portal.md).
->
-> The preview version of Storage Explorer in the Azure portal does not support using Azure AD credentials to view and modify queue data. Storage Explorer in the Azure portal always uses the account keys to access data. To use Storage Explorer in the Azure portal, you must be assigned a role that includes **Microsoft.Storage/storageAccounts/listkeys/action**.
 
 # [PowerShell](#tab/powershell)
 

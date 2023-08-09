@@ -2,15 +2,15 @@
 title: 'Quickstart: Create a Node.js web app'
 description: Deploy your first Node.js Hello World to Azure App Service in minutes.
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
+author: msangapu-msft
+ms.author: msangapu
 ms.topic: quickstart
-ms.custom: mvc, devcenter, seodec18, devdivchpfy22
-#zone_pivot_groups: app-service-platform-windows-linux
-ms.date: 03/22/2022
+ms.custom: mvc, devcenter, seodec18, devdivchpfy22, ignite-2022, devx-track-js
+ms.date: 07/17/2023
 ms.devlang: javascript
-#zone_pivot_groups: app-service-ide-oss
 zone_pivot_groups: app-service-vscode-cli-portal
 ---
-# Create a Node.js web app in Azure
+# Deploy a Node.js web app in Azure
 
 In this quickstart, you'll learn how to create and deploy your first Node.js ([Express](https://www.expressjs.com)) web app to [Azure App Service](overview.md). App Service supports various versions of Node.js on both Linux and Windows. 
 
@@ -32,7 +32,7 @@ This quickstart configures an App Service app in the **Free** tier and incurs no
 
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
 - Install [Node.js LTS and npm](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
-- Install <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>, with which you run commands in any shell to provision and configure Azure resources.
+- Install <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>, with which you run commands in any shell to create and configure Azure resources.
 
 ::: zone-end
 
@@ -41,7 +41,7 @@ This quickstart configures an App Service app in the **Free** tier and incurs no
 
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
 - Install [Node.js LTS and npm](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
-- Have a FTP client (for example, [FileZilla](https://filezilla-project.org)), to connect to your app.
+- Have an FTP client (for example, [FileZilla](https://filezilla-project.org)), to connect to your app.
 
 ::: zone-end
 ## Create your Node.js application
@@ -109,37 +109,33 @@ Before you continue, ensure that you have all the prerequisites installed and co
 
 #### Configure the App Service app and deploy code
 
-1. In the **App Service** explorer, select the **Deploy to Web App** icon.
-
-    :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="Screenshot of the Azure App service in Visual Studio Code showing the blue arrow icon selected.":::
-        
 1. Select the *myExpressApp* folder.
 
 # [Deploy to Linux](#tab/linux)
 
-3. Select **Create new Web App**. A Linux container is used by default.
+2. Right-click on App Services and select **Create new Web App**. A Linux container is used by default. 
 1. Type a globally unique name for your web app and press **Enter**. The name must be unique across all of Azure and use only alphanumeric characters ('A-Z', 'a-z', and '0-9') and hyphens ('-').
 1. In Select a runtime stack, select the Node.js version you want. An **LTS** version is recommended.
-1. In Select a pricing tier, select **Free (F1)** and wait for the resources to be provisioned in Azure.
+1. In Select a pricing tier, select **Free (F1)** and wait for the resources to be created in Azure.
 1. In the popup **Always deploy the workspace "myExpressApp" to \<app-name>"**, select **Yes**. This way, as long as you're in the same workspace, Visual Studio Code deploys to the same App Service app each time.
 
-    While Visual Studio Code provisions the Azure resources and deploys the code, it shows [progress notifications](https://code.visualstudio.com/api/references/extension-guidelines#notifications).
+    While Visual Studio Code creates the Azure resources and deploys the code, it shows [progress notifications](https://code.visualstudio.com/api/references/extension-guidelines#notifications).
 
 1. Once deployment completes, select **Browse Website** in the notification popup. The browser should display the Express default page.
 
 # [Deploy to Windows](#tab/windows)
 
-3. Select **Create new Web App... Advanced**.
+2. Right-click on App Services and select **Create new Web App... Advanced**.
 1. Type a globally unique name for your web app and press **Enter**. The name must be unique across all of Azure and use only alphanumeric characters ('A-Z', 'a-z', and '0-9') and hyphens ('-').
 1. Select **Create a new resource group**, then enter a name for the resource group, such as *AppServiceQS-rg*.
 1. Select the Node.js version you want. An **LTS** version is recommended.
 1. Select **Windows** for the operating system.
 1. Select the location you want to serve your app from. For example, *West Europe*.
 1. Select **Create new App Service plan**, then enter a name for the plan (such as *AppServiceQS-plan*), then select **F1 Free** for the pricing tier.
-1. For **Select an Application Insights resource for your app**, select **Skip for now** and wait the resources to be provisioned in Azure.
+1. For **Select an Application Insights resource for your app**, select **Skip for now** and wait the resources to be created in Azure.
 1. In the popup **Always deploy the workspace "myExpressApp" to \<app-name>"**, select **Yes**. This way, as long as you're in the same workspace, Visual Studio Code deploys to the same App Service app each time.
 
-    While Visual Studio Code provisions the Azure resources and deploys the code, it shows [progress notifications](https://code.visualstudio.com/api/references/extension-guidelines#notifications).
+    While Visual Studio Code creates the Azure resources and deploys the code, it shows [progress notifications](https://code.visualstudio.com/api/references/extension-guidelines#notifications).
 
     > [!NOTE]
     > When deployment completes, your Azure app doesn't run yet because your project root doesn't have a *web.config*. Follow the remaining steps to generate it automatically. For more information, see [You do not have permission to view this directory or page](configure-language-nodejs.md#you-do-not-have-permission-to-view-this-directory-or-page).
@@ -223,20 +219,17 @@ You can launch the app at http://&lt;app-name>.azurewebsites.net
 :::zone target="docs" pivot="development-environment-azure-portal"
 ### Sign in to Azure portal
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Create Azure resources
 
-1. Type **app services** in the search. Under **Services**, select **App Services**.
+1. To start creating a Node.js app, browse to [https://portal.azure.com/#create/Microsoft.WebSite](https://portal.azure.com/#create/Microsoft.WebSite).
 
-     :::image type="content" source="./media/quickstart-nodejs/portal-search.png?text=Azure portal search details" alt-text="Screenshot of portal search":::
-
-1. In the **App Services** page, select **Create**.
 1. In the **Basics** tab, under **Project details**, ensure the correct subscription is selected and then select to **Create new** resource group. Type *myResourceGroup* for the name.
 
     :::image type="content" source="./media/quickstart-nodejs/project-details.png" alt-text="Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the web app":::
 
-1. Under **Instance details**, type a globally unique name for your web app and select **Code**. Select *Node 14 LTS* **Runtime stack**, an **Operating System**, and a **Region** you want to serve your app from.
+1. Under **Instance details**, type a globally unique name for your web app and select **Code**. Select *Node 18 LTS* **Runtime stack**, an **Operating System**, and a **Region** you want to serve your app from.
 
     :::image type="content" source="./media/quickstart-nodejs/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size":::
 
@@ -254,7 +247,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
     :::image type="content" source="./media/quickstart-nodejs/next-steps.png" alt-text="Screenshot showing the next step of going to the resource":::
 
-### Get FTP credentials
+### Get FTPS credentials
 
 Azure App Service supports [**two types of credentials**](deploy-configure-credentials.md) for FTP/S deployment. These credentials aren't the same as your Azure subscription credentials. In this section, you get the *application-scope credentials* to use with FileZilla.
 
@@ -264,13 +257,13 @@ Azure App Service supports [**two types of credentials**](deploy-configure-crede
 
 1. Open **FileZilla** and create a new site.
 
-1. From the **FTPS credentials** tab, copy **FTPS endpoint**, **Username**, and **Password** into FileZilla.
+1. From the **FTPS credentials** tab, under **Application scope**, copy **FTPS endpoint**, **FTPS Username**, and **Password** into FileZilla.
 
     :::image type="content" source="./media/quickstart-nodejs/filezilla-ftps-connection.png" alt-text="FTPS connection details":::
 
 1. Select **Connect** in FileZilla.
  
-### Deploy files with FTP
+### Deploy files with FTPS
 
 1. Copy all files and directories files to the [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure.
     
@@ -305,7 +298,7 @@ You can deploy changes to this app by making edits in Visual Studio Code, saving
 
 :::zone target="docs" pivot="development-environment-cli"
 
-2. Save your changes, then redeploy the app using the [az webapp up](/cli/azure/webapp#az-webapp-up) command again with no arguments:
+2. Save your changes, then redeploy the app using the [az webapp up](/cli/azure/webapp#az-webapp-up) command again with no arguments for Linux. Add `--os-type Windows` for Windows:
 
     ```azurecli
     az webapp up
@@ -319,7 +312,7 @@ You can deploy changes to this app by making edits in Visual Studio Code, saving
 
 :::zone target="docs" pivot="development-environment-azure-portal"
 
-2. Save your changes, then redeploy the app using your FTP client again.
+2. Save your changes, then redeploy the app using your FTP client.
     
 1. Once deployment is complete, refresh the webpage `http://<app-name>.azurewebsites.net`. You should see that the `Welcome to Express` message has been changed to `Welcome to Azure!`.
 
@@ -460,9 +453,12 @@ Congratulations, you've successfully completed this quickstart!
 > [!div class="nextstepaction"]
 > [Configure Node.js app](configure-language-nodejs.md)
 
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
+
 Check out the other Azure extensions.
 
-* [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
+* [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 * [Docker Tools](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 * [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)

@@ -1,20 +1,17 @@
 ---
-title: Acquire tokens to call a web API (daemon app) - The Microsoft identity platform | Azure
+title: Acquire tokens to call a web API (daemon app) - The Microsoft identity platform
 description: Learn how to build a daemon app that calls web APIs (acquiring tokens)
 services: active-directory
-author: jmprieur
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
-ms.workload: identity
-ms.date: 10/30/2019
-ms.author: jmprieur
-ms.custom: aaddev
-
+ms.date: 05/12/2022
+ms.author: dmwendia
+ms.reviewer: jmprieur
 #Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform.
-
 ---
 
 # Daemon app that calls web APIs - acquire a token
@@ -25,11 +22,23 @@ After you've constructed a confidential client application, you can acquire a to
 
 The scope to request for a client credential flow is the name of the resource followed by `/.default`. This notation tells Azure Active Directory (Azure AD) to use the *application-level permissions* declared statically during application registration. Also, these API permissions must be granted by a tenant administrator.
 
-# [.NET](#tab/dotnet)
+# [.NET](#tab/idweb)
 
-```csharp
-ResourceId = "someAppIDURI";
-var scopes = new [] {  ResourceId+"/.default"};
+Here's an example of defining the scopes for the web API as part of the configuration in an [*appsettings.json*](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/2-Call-OwnApi/daemon-console/appsettings.json) file. This example is taken from the [.NET Core console daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) code sample on GitHub.
+
+```json
+{
+    "AzureAd": {
+        // Same AzureAd section as before.
+    },
+
+    "MyWebApi": {
+        "BaseUrl": "https://localhost:44372/",
+        "RelativePath": "api/TodoList",
+        "RequestAppToken": true,
+        "Scopes": [ "[Enter here the scopes for your web API]" ]
+    }
+}
 ```
 
 # [Java](#tab/java)
@@ -42,7 +51,7 @@ final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default"
 
 ```JavaScript
 const tokenRequest = {
-	scopes: [process.env.GRAPH_ENDPOINT + '.default'], // e.g. 'https://graph.microsoft.com/.default'
+    scopes: [process.env.GRAPH_ENDPOINT + '.default'], // e.g. 'https://graph.microsoft.com/.default'
 };
 ```
 
@@ -54,6 +63,13 @@ In MSAL Python, the configuration file looks like this code snippet:
 {
     "scope": ["https://graph.microsoft.com/.default"],
 }
+```
+
+# [.NET (low level)](#tab/dotnet)
+
+```csharp
+ResourceId = "someAppIDURI";
+var scopes = new [] {  ResourceId+"/.default"};
 ```
 
 ---
@@ -68,45 +84,28 @@ The scope used for client credentials should always be the resource ID followed 
 
 ## AcquireTokenForClient API
 
-To acquire a token for the app, you'll use `AcquireTokenForClient` or its equivalent, depending on the platform.
+To acquire a token for the app, use `AcquireTokenForClient` or its equivalent, depending on the platform.
 
-# [.NET](#tab/dotnet)
+# [.NET](#tab/idweb)
+
+With Microsoft.Identity.Web, you don't need to acquire a token. You can use higher level APIs, as you see in [Calling a web API from a daemon application](scenario-daemon-call-api.md). If however you're using an SDK that requires a token, the following code snippet shows how to get this token.
 
 ```csharp
-using Microsoft.Identity.Client;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Identity.Abstractions;
+using Microsoft.Identity.Web;
 
-// With client credentials flows, the scope is always of the shape "resource/.default" because the
-// application permissions need to be set statically (in the portal or by PowerShell), and then granted by
-// a tenant administrator.
-string[] scopes = new string[] { "https://graph.microsoft.com/.default" };
+// In the Program.cs, acquire a token for your downstream API
 
-AuthenticationResult result = null;
-try
-{
- result = await app.AcquireTokenForClient(scopes)
-                  .ExecuteAsync();
-}
-catch (MsalUiRequiredException ex)
-{
-    // The application doesn't have sufficient permissions.
-    // - Did you declare enough app permissions during app creation?
-    // - Did the tenant admin grant permissions to the application?
-}
-catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
-{
-    // Invalid scope. The scope has to be in the form "https://resourceurl/.default"
-    // Mitigation: Change the scope to be as expected.
-}
+var tokenAcquirerFactory = TokenAcquirerFactory.GetDefaultInstance();
+ITokenAcquirer acquirer = tokenAcquirerFactory.GetTokenAcquirer();
+AcquireTokenResult tokenResult = await acquirer.GetTokenForUserAsync(new[] { "https://graph.microsoft.com/.default" });
+string accessToken = tokenResult.AccessToken;
 ```
-
-### AcquireTokenForClient uses the application token cache
-
-In MSAL.NET, `AcquireTokenForClient` uses the application token cache. (All the other AcquireToken*XX* methods use the user token cache.)
-Don't call `AcquireTokenSilent` before you call `AcquireTokenForClient`, because `AcquireTokenSilent` uses the *user* token cache. `AcquireTokenForClient` checks the *application* token cache itself and updates it.
 
 # [Java](#tab/java)
 
-This code is extracted from the [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/confidential-client/).
+This code is extracted from the [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/msal4j-sdk/src/samples/confidential-client/).
 
 ```Java
 private static IAuthenticationResult acquireToken() throws Exception {
@@ -155,7 +154,7 @@ private static IAuthenticationResult acquireToken() throws Exception {
 
 # [Node.js](#tab/nodejs)
 
-The code snippet below illustrates token acquisition in an MSAL Node confidential client application:
+The following code snippet illustrates token acquisition in an MSAL Node confidential client application:
 
 ```JavaScript
 try {
@@ -178,7 +177,7 @@ result = None
 result = app.acquire_token_silent(config["scope"], account=None)
 
 if not result:
-    logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
+    logging.info("No suitable token exists in cache. Let's get a new one from Azure AD.")
     result = app.acquire_token_for_client(scopes=config["scope"])
 
 if "access_token" in result:
@@ -189,6 +188,40 @@ else:
     print(result.get("error_description"))
     print(result.get("correlation_id"))  # You might need this when reporting a bug.
 ```
+
+# [.NET (low level)](#tab/dotnet)
+
+```csharp
+using Microsoft.Identity.Client;
+
+// With client credentials flows, the scope is always of the shape "resource/.default" because the
+// application permissions need to be set statically (in the portal or by PowerShell), and then granted by
+// a tenant administrator.
+string[] scopes = new string[] { "https://graph.microsoft.com/.default" };
+
+AuthenticationResult result = null;
+try
+{
+ result = await app.AcquireTokenForClient(scopes)
+                  .ExecuteAsync();
+}
+catch (MsalUiRequiredException ex)
+{
+    // The application doesn't have sufficient permissions.
+    // - Did you declare enough app permissions during app creation?
+    // - Did the tenant admin grant permissions to the application?
+}
+catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
+{
+    // Invalid scope. The scope has to be in the form "https://resourceurl/.default"
+    // Mitigation: Change the scope to be as expected.
+}
+```
+
+### AcquireTokenForClient uses the application token cache
+
+In MSAL.NET, `AcquireTokenForClient` uses the application token cache. (All the other AcquireToken*XX* methods use the user token cache.)
+Don't call `AcquireTokenSilent` before you call `AcquireTokenForClient`, because `AcquireTokenSilent` uses the *user* token cache. `AcquireTokenForClient` checks the *application* token cache itself and updates it.
 
 ---
 
@@ -252,16 +285,14 @@ Content: {
 
 ### Are you calling your own API?
 
-If you call your own web API and couldn't add an app permission to the app registration for your daemon app, did you expose an app role in your web API?
-
-For details, see [Exposing application permissions (app roles)](scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles) and, in particular, [Ensuring that Azure AD issues tokens for your web API to only allowed clients](scenario-protected-web-api-app-registration.md#ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients).
+If your daemon app calls your own web API and you weren't able to add an app permission to the daemon's app registration, you need to [Add app roles to the web API's app registration](howto-add-app-roles-in-azure-ad-apps.md).
 
 ## Next steps
 
-# [.NET](#tab/dotnet)
+# [.NET](#tab/idweb)
 
 Move on to the next article in this scenario,
-[Calling a web API](./scenario-daemon-call-api.md?tabs=dotnet).
+[Calling a web API](./scenario-daemon-call-api.md?tabs=idweb).
 
 # [Java](#tab/java)
 
@@ -278,4 +309,8 @@ Move on to the next article in this scenario,
 Move on to the next article in this scenario,
 [Calling a web API](./scenario-daemon-call-api.md?tabs=python).
 
+# [.NET low level](#tab/dotnet)
+
+Move on to the next article in this scenario,
+[Calling a web API](./scenario-daemon-call-api.md?tabs=dotnet).
 ---

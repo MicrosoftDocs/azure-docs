@@ -3,7 +3,7 @@ title: Apache Spark Streaming application stops after 24 days in Azure HDInsight
 description: An Apache Spark Streaming application stops after executing for 24 days and there are no errors in the log files. 
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 07/29/2019
+ms.date: 07/12/2023
 ---
 
 # Scenario: Apache Spark Streaming application stops after executing for 24 days in Azure HDInsight

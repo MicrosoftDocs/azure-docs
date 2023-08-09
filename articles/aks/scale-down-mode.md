@@ -2,7 +2,6 @@
 title: Use Scale-down Mode for your Azure Kubernetes Service (AKS) cluster
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use Scale-down Mode in Azure Kubernetes Service (AKS).
-services: container-service
 ms.topic: article
 ms.date: 09/01/2021
 ms.author: qpetraroia
@@ -19,8 +18,9 @@ When an Azure VM is in the `Stopped` (deallocated) state, you will not be charge
 
 > [!WARNING]
 > In order to preserve any deallocated VMs, you must set Scale-down Mode to Deallocate. That includes VMs that have been deallocated using IaaS APIs (Virtual Machine Scale Set APIs). Setting Scale-down Mode to Delete will remove any deallocate VMs.
+> Once applied the deallocated mode and scale down operation occured, those nodes keep registered in APIserver and appear as NotReady state.
 
-This article assumes that you have an existing AKS cluster and the latest version of the Azure CLI installed. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 ### Limitations
 
@@ -72,8 +72,9 @@ az aks nodepool add --enable-cluster-autoscaler --min-count 1 --max-count 10 --m
 - To learn more about the cluster autoscaler, see [Automatically scale a cluster to meet application demands on AKS][cluster-autoscaler]
 
 <!-- LINKS - Internal -->
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az_extension_add
@@ -84,6 +85,6 @@ az aks nodepool add --enable-cluster-autoscaler --min-count 1 --max-count 10 --m
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [aks-upgrade]: upgrade-cluster.md
 [cluster-autoscaler]: cluster-autoscaler.md
-[ephemeral-os]: cluster-configuration.md#ephemeral-os
+[ephemeral-os]: concepts-storage.md#ephemeral-os-disk
 [state-billing-azure-vm]: ../virtual-machines/states-billing.md
 [spot-node-pool]: spot-node-pool.md

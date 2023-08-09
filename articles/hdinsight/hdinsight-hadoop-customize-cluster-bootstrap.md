@@ -3,8 +3,8 @@ title: Customize Azure HDInsight cluster configurations using bootstrap
 description: Learn how to customize HDInsight cluster configuration programmatically using .NET, PowerShell, and Resource Manager templates.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, devx-track-azurepowershell
-ms.date: 04/01/2020
+ms.custom: hdinsightactive, devx-track-azurepowershell, devx-track-dotnet
+ms.date: 11/17/2022
 ---
 
 # Customize HDInsight clusters using Bootstrap
@@ -30,7 +30,6 @@ For example, using these programmatic methods, you can configure options in thes
 * mapred-site
 * oozie-site.xml
 * oozie-env.xml
-* storm-site.xml
 * tez-site.xml
 * webhcat-site.xml
 * yarn-site.xml
@@ -54,22 +53,22 @@ The following PowerShell code customizes an [Apache Hive](https://hive.apache.or
 $hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90s" }
 
 $config = New-AzHDInsightClusterConfig `
+         -ClusterType "Spark"  `
     | Set-AzHDInsightDefaultStorage `
-        -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
+        -StorageAccountResourceId "$storageAccountResourceId" `
         -StorageAccountKey $defaultStorageAccountKey `
     | Add-AzHDInsightConfigValue `
         -HiveSite $hiveConfigValues `
         -Spark2Defaults @{}
 
 New-AzHDInsightCluster `
-    -ResourceGroupName $existingResourceGroupName `
-    -ClusterName $clusterName `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $hdinsightClusterName `
     -Location $location `
-    -ClusterSizeInNodes $clusterSizeInNodes `
-    -ClusterType Hadoop `
-    -OSType Linux `
-    -Version "3.6" `
+    -ClusterSizeInNodes 2 `
+    -Version "4.0" `
     -HttpCredential $httpCredential `
+    -SshCredential $sshCredential `
     -Config $config
 ```
 
@@ -143,40 +142,22 @@ This PowerShell script creates an HDInsight cluster and customizes a Hive settin
 
 ```powershell
 ####################################
-# Set these variables
+# Service names and variables
 ####################################
-#region - used for creating Azure service names
+
 $nameToken = "<ENTER AN ALIAS>"
-#endregion
-
-#region - cluster user accounts
-$httpUserName = "admin"  #HDInsight cluster username
-$httpPassword = '<ENTER A PASSWORD>'
-
-$sshUserName = "sshuser" #HDInsight ssh user name
-$sshPassword = '<ENTER A PASSWORD>'
-#endregion
-
-####################################
-# Service names and varialbes
-####################################
-#region - service names
 $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
-
 $resourceGroupName = $namePrefix + "rg"
 $hdinsightClusterName = $namePrefix + "hdi"
 $defaultStorageAccountName = $namePrefix + "store"
 $defaultBlobContainerName = $hdinsightClusterName
-
 $location = "East US"
-#endregion
-
 
 ####################################
 # Connect to Azure
 ####################################
-#region - Connect to Azure subscription
-Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+
+Write-Host "Connecting to your Azure subscription ..." -ForegroundColor Green
 $sub = Get-AzSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
 {
@@ -184,19 +165,22 @@ if(-not($sub))
 }
 
 # If you have multiple subscriptions, set the one to use
-# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
+#$context = Get-AzSubscription -SubscriptionId "<subscriptionID>"
+#Set-AzContext $context
 
-#endregion
+####################################
+# Create a resource group
+####################################
 
-#region - Create an HDInsight cluster
-####################################
-# Create dependent components
-####################################
 Write-Host "Creating a resource group ..." -ForegroundColor Green
 New-AzResourceGroup `
     -Name  $resourceGroupName `
     -Location $location
 
+####################################
+# Create a storage account and container
+####################################
+	
 Write-Host "Creating the default storage account and default blob container ..."  -ForegroundColor Green
 New-AzStorageAccount `
     -ResourceGroupName $resourceGroupName `
@@ -205,9 +189,7 @@ New-AzStorageAccount `
     -SkuName Standard_LRS `
     -Kind StorageV2 `
     -EnableHttpsTrafficOnly 1
-
-# Note: Storage account kind BlobStorage cannot be used as primary storage.
-
+	
 $defaultStorageAccountKey = (Get-AzStorageAccountKey `
                                 -ResourceGroupName $resourceGroupName `
                                 -Name $defaultStorageAccountName)[0].Value
@@ -215,7 +197,7 @@ $defaultStorageAccountKey = (Get-AzStorageAccountKey `
 $defaultStorageContext = New-AzStorageContext `
                                 -StorageAccountName $defaultStorageAccountName `
                                 -StorageAccountKey $defaultStorageAccountKey
-
+								
 New-AzStorageContainer `
     -Name $defaultBlobContainerName `
     -Context $defaultStorageContext #use the cluster name as the container name
@@ -223,42 +205,58 @@ New-AzStorageContainer `
 ####################################
 # Create a configuration object
 ####################################
+
 $hiveConfigValues = @{"hive.metastore.client.socket.timeout"="90s"}
+$storageAccountResourceId = (Get-AzStorageAccount -ResourceGroupName $resourceGroupName ` -Name $defaultStorageAccountName).Id
 
 $config = New-AzHDInsightClusterConfig `
+          -ClusterType "Spark"  `
     | Set-AzHDInsightDefaultStorage `
-        -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
+        -StorageAccountResourceId "$storageAccountResourceId" `
         -StorageAccountKey $defaultStorageAccountKey `
     | Add-AzHDInsightConfigValue `
         -HiveSite $hiveConfigValues `
-        -Spark2Defaults @{}
+		-Spark2Defaults @{}
+		
+####################################
+# Set Ambari admin username/password
+####################################
+
+$httpUserName = "admin"  #HDInsight cluster username
+$httpPassword = '<ENTER A PASSWORD>'
+
+$httpPW = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
+$httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$httpPW)
+
+####################################
+# Set ssh username/password
+####################################
+
+$sshUserName = "sshuser" #HDInsight ssh user name
+$sshPassword = '<ENTER A PASSWORD>'
+
+$sshPW = ConvertTo-SecureString -String $sshPassword -AsPlainText -Force
+$sshCredential = New-Object System.Management.Automation.PSCredential($sshUserName,$sshPW)
 
 ####################################
 # Create an HDInsight cluster
 ####################################
-$httpPW = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
-$httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$httpPW)
-
-$sshPW = ConvertTo-SecureString -String $sshPassword -AsPlainText -Force
-$sshCredential = New-Object System.Management.Automation.PSCredential($sshUserName,$sshPW)
 
 New-AzHDInsightCluster `
     -ResourceGroupName $resourceGroupName `
     -ClusterName $hdinsightClusterName `
     -Location $location `
-    -ClusterSizeInNodes 1 `
-    -ClusterType Hadoop `
-    -OSType Linux `
-    -Version "3.6" `
+    -ClusterSizeInNodes 2 `
+    -Version "4.0" `
     -HttpCredential $httpCredential `
     -SshCredential $sshCredential `
     -Config $config
-
+	
 ####################################
 # Verify the cluster
 ####################################
+
 Get-AzHDInsightCluster `
     -ClusterName $hdinsightClusterName
-
-#endregion
+    
 ```

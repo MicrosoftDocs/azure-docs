@@ -9,8 +9,8 @@ manager: rkarlin
 editor: tomsh
 
 ms.assetid:
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -49,7 +49,7 @@ For more information, see the [Azure Backup components table](../../backup/backu
 
 ### Site Recovery
 
-[Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) provides business continuity by orchestrating the replication of on-premises virtual and physical machines to Azure, or to a secondary site. If your primary site is unavailable, you fail over to the secondary location so that users can keep working. You fail back when systems return to working order. Use Microsoft Defender for Cloud to perform more intelligent and effective threat detection.
+[Azure Site Recovery](../../site-recovery/index.yml) provides business continuity by orchestrating the replication of on-premises virtual and physical machines to Azure, or to a secondary site. If your primary site is unavailable, you fail over to the secondary location so that users can keep working. You fail back when systems return to working order. Use Microsoft Defender for Cloud to perform more intelligent and effective threat detection.
 
 ## Azure Active Directory
 
@@ -153,7 +153,7 @@ For more information, see [Configure Network Watcher](../../network-watcher/netw
 
 [Customer Lockbox for Microsoft Azure](customer-lockbox-overview.md) is a service integrated into Azure portal that gives you explicit control in the rare instance when a Microsoft Support Engineer may need access to your data to resolve an issue.
 There are very few instances, such as a debugging remote access issue, where a Microsoft Support Engineer requires elevated permissions to resolve this issue. In such cases, Microsoft engineers use just-in-time access service that provides limited, time-bound authorization with access limited to the service.  
-While Microsoft has always obtained customer consent for access, Customer Lockbox now gives you the ability to review and approve or deny such requests from the Azure Portal. Microsoft support engineers will not be granted access until you approve the request.
+While Microsoft has always obtained customer consent for access, Customer Lockbox now gives you the ability to review and approve or deny such requests from the Azure portal. Microsoft support engineers will not be granted access until you approve the request.
 
 ## Standardized and Compliant Deployments
 

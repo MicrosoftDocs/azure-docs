@@ -1,6 +1,5 @@
 ---
 title: Test environments, throttling, and service limits
-titleSuffix: Microsoft identity platform
 description: Learn about the throttling and service limits to consider while deploying an Azure Active Directory test environment and testing an app integrated with the Microsoft identity platform.
 services: active-directory
 author: rwike77
@@ -10,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/17/2021
+ms.date: 03/07/2023
 ms.author: ryanwi
 ms.reviewer: arcrowe
 #Customer intent: As a developer, I want to understand the throttling and service limits I might hit so that I can test my app without interruption.
@@ -19,7 +18,7 @@ ms.reviewer: arcrowe
 # Throttling and service limits to consider for testing
 As a developer, you want to test your application before releasing it to production. When testing applications protected by the Microsoft identity platform, you should set up an Azure Active Directory (Azure AD) environment and tenant to be used for testing.  
 
-Applications that integrate with Microsoft identity platform require directory objects (such as app registrations, service principals, groups, and users) to be created and managed in an Azure AD tenant.  Any production tenant settings that affect your app's behavior should be replicated in the test tenant. Populate your test tenant with the needed conditional access, permission grant, claims mapping, token lifetime, and token issuance policies. Your application may also use Azure resources such as compute or storage, which need to be added to the test environment. Your test environment may require a lot of resources, depending on the app to be tested.
+Applications that integrate with Microsoft identity platform require directory objects (such as app registrations, service principals, groups, and users) to be created and managed in an Azure AD tenant.  Any production tenant settings that affect your app's behavior should be replicated in the test tenant. Populate your test tenant with the needed Conditional Access, permission grant, claims mapping, token lifetime, and token issuance policies. Your application may also use Azure resources such as compute or storage, which need to be added to the test environment. Your test environment may require numerous resources, depending on the app to be tested.
 
 In order to ensure reliable usage of services by all customers, Azure AD and other services limit the number of resources that can be created per customer and per tenant. When setting up a test environment and deploying directory objects and Azure resources, you may hit some of these service limits and quotas.
 
@@ -33,7 +32,7 @@ The following table lists Azure AD service limits to consider when setting up a 
 | Category         | Limit   |
 |-------------------|----------------|
 | Tenants | A single user can create a maximum of 200 directories.|
-| Resources | <ul><li>A maximum of 50,000 Azure AD resources can be created in a single tenant by users of the Free edition of Azure Active Directory by default. If you have at least one verified domain, the default Azure AD service quota for your organization is extended to 300,000 Azure AD resources. Azure AD service quota for organizations created by self-service sign-up remains 50,000 Azure AD resources even after you performed an internal admin takeover and the organization is converted to a managed tenant with at least one verified domain. This service limit is unrelated to the pricing tier limit of 500,000 resources on the Azure AD pricing page. To go beyond the default quota, you must contact Microsoft Support.</li><li>A non-admin user can create no more than 250 Azure AD resources. Both active resources and deleted resources that are available to restore count toward this quota. Only deleted Azure AD resources that were deleted fewer than 30 days ago are available to restore. Deleted Azure AD resources that are no longer available to restore count toward this quota at a value of one-quarter for 30 days. If you have developers who are likely to repeatedly exceed this quota in the course of their regular duties, you can create and assign a custom role with permission to create a limitless number of app registrations.</li></ul>|
+| Resources | <ul><li>A maximum of 50,000 Azure AD resources can be created in a single tenant by users of the Free edition of Azure Active Directory by default. If you've at least one verified domain, the default Azure AD service quota for your organization is extended to 300,000 Azure AD resources. Azure AD service quota for organizations created by self-service sign-up remains 50,000 Azure AD resources even after you performed an internal admin takeover and the organization is converted to a managed tenant with at least one verified domain. This service limit is unrelated to the pricing tier limit of 500,000 resources on the Azure AD pricing page. To go beyond the default quota, you must contact Microsoft Support.</li><li>A non-admin user can create no more than 250 Azure AD resources. Both active resources and deleted resources that are available to restore count toward this quota. Only deleted Azure AD resources that were deleted fewer than 30 days ago are available to restore. Deleted Azure AD resources that are no longer available to restore count toward this quota at a value of one-quarter for 30 days. If you have developers who are likely to repeatedly exceed this quota in the course of their regular duties, you can create and assign a custom role with permission to create a limitless number of app registrations.</li></ul>|
 | Applications| <ul><li>A user, group, or service principal can have a maximum of 1,500 app role assignments.</li><li>A user can only have a maximum of 48 apps where they have username and password credentials configured.</li></ul>|
 | Application manifest| A maximum of 1200 entries can be added in the Application Manifest. |
 | Groups |  <ul><li>A non-admin user can create a maximum of 250 groups in an Azure AD organization. Any Azure AD admin who can manage groups in the organization can also create unlimited number of groups (up to the Azure AD object limit). If you assign a role to remove the limit for a user, assign them to a less privileged built-in role such as User Administrator or Groups Administrator.</li><li>An Azure AD organization can have a maximum of 5000 dynamic groups.</li><li>A maximum of 300 role-assignable groups can be created in a single Azure AD organization (tenant).</li><li>Any number of Azure AD resources can be members of a single group.</li><li>A user can be a member of any number of groups.</li></ul>|

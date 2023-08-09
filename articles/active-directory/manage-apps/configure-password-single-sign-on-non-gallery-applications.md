@@ -1,17 +1,17 @@
 ---
 title: Add password-based single sign-on to an application
 description: Add password-based single sign-on to an application in Azure Active Directory.
-titleSuffix: Azure AD
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/22/2021
-ms.author: davidmu
-ms.reviewer: ergreenl
+ms.date: 04/25/2023
+ms.author: jomondi
+ms.reviewer: alamaral
+ms.custom: enterprise-apps
 # Customer intent: As an IT admin, I need to know how to implement password-based single sign-on in Azure Active Directory.
 ---
 
@@ -27,21 +27,23 @@ Choose password-based SSO when:
 
 The configuration page for password-based SSO is simple. It includes only the URL of the sign-on page that the application uses. This string must be the page that includes the username input field.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 To configure password-based SSO in your Azure AD tenant, you need:
--	An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
--	One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+-	An Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+-	Global Administrator, or owner of the service principal.
 -	An application that supports password-based SSO.
 
 ## Configure password-based single sign-on
 
-1.	Sign in to the [Azure portal](https://portal.azure.com) with the appropriate role.
-1.	Select **Azure Active Directory** in Azure Services, and then select **Enterprise applications**.
-1.	Search for and select the application that you want to add password-based SSO.
-1.	Select **Single sign-on** and then select **Password-based**.
-1.	Enter the URL for the sign-in page of the application.
-1.	Select **Save**. 
+1. Sign in to the [Azure portal](https://portal.azure.com) with the appropriate role.
+1. Select **Azure Active Directory** in Azure Services, and then select **Enterprise applications**.
+1. Search for and select the application that you want to add password-based SSO.
+1. Select **Single sign-on** and then select **Password-based**.
+1. Enter the URL for the sign-in page of the application.
+1. Select **Save**. 
 
 Azure AD parses the HTML of the sign-in page for username and password input fields. If the attempt succeeds, you're done. Your next step is to [Assign users or groups](add-application-portal-assign-users.md) to the application. 
 

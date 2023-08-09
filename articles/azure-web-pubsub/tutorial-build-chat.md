@@ -4,6 +4,7 @@ description: A tutorial to walk through how to create a chat app with Azure Web 
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
+ms.custom: devx-track-azurecli
 ms.topic: tutorial 
 ms.date: 11/01/2021
 ---
@@ -21,7 +22,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This setup requires version 2.22.0 or higher of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -114,7 +115,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     dotnet add package Microsoft.Extensions.Azure
     ```
 
-2.  Add a `SampleChatHub` class to handle hub events. Add DI for the service middleware and service client. Don't forget to replace `<connection_string>` with the one of your services. 
+2.  Add a `Sample_ChatApp` class to handle hub events. Add DI for the service middleware and service client. Don't forget to replace `<connection_string>` with the one of your services. 
 
     ```csharp
     using Microsoft.Azure.WebPubSub.AspNetCore;
@@ -123,7 +124,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
 
     builder.Services.AddWebPubSub(
         o => o.ServiceEndpoint = new ServiceEndpoint("<connection_string>"))
-        .AddWebPubSubServiceClient<SampleChatHub>();
+        .AddWebPubSubServiceClient<Sample_ChatApp>();
 
     var app = builder.Build();
 
@@ -142,7 +143,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
 
     app.Run();
 
-    sealed class SampleChatHub : WebPubSubHub
+    sealed class Sample_ChatApp : WebPubSubHub
     {
     }
     ```
@@ -154,7 +155,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     ```csharp
     app.UseEndpoints(endpoints =>
     {    
-      endpoints.MapGet("/negotiate", async  (WebPubSubServiceClient<SampleChatHub> serviceClient, HttpContext context) =>
+      endpoints.MapGet("/negotiate", async  (WebPubSubServiceClient<Sample_ChatApp> serviceClient, HttpContext context) =>
       {
           var id = context.Request.Query["id"];
           if (id.Count != 1)
@@ -247,7 +248,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     const { WebPubSubServiceClient } = require('@azure/web-pubsub');
 
     const app = express();
-    const hubName = 'chat';
+    const hubName = 'Sample_ChatApp';
     const port = 8080;
 
     let serviceClient = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hubName);
@@ -418,7 +419,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
             // create the service client
             WebPubSubServiceClient service = new WebPubSubServiceClientBuilder()
                     .connectionString(args[0])
-                    .hub("chat")
+                    .hub("Sample_ChatApp")
                     .buildClient();
     
             // start a server
@@ -494,7 +495,7 @@ Here we're using Web PubSub middleware SDK, there is already an implementation t
     ```csharp
     app.UseEndpoints(endpoints =>
     {
-        endpoints.MapGet("/negotiate", async  (WebPubSubServiceClient<SampleChatHub> serviceClient, HttpContext context) =>
+        endpoints.MapGet("/negotiate", async  (WebPubSubServiceClient<Sample_ChatApp> serviceClient, HttpContext context) =>
         {
             var id = context.Request.Query["id"];
             if (id.Count != 1)
@@ -506,18 +507,18 @@ Here we're using Web PubSub middleware SDK, there is already an implementation t
             await context.Response.WriteAsync(serviceClient.GetClientAccessUri(userId: id).AbsoluteUri);
         });
 
-        endpoints.MapWebPubSubHub<SampleChatHub>("/eventhandler/{*path}");
+        endpoints.MapWebPubSubHub<Sample_ChatApp>("/eventhandler/{*path}");
     });
     ```
 
-2. Go the `SampleChatHub` we created in previous step. Add a constructor to work with `WebPubSubServiceClient<SampleChatHub>` so we can use to invoke service. And override `OnConnectedAsync()` method to respond when `connected` event is triggered.
+2. Go the `Sample_ChatApp` we created in previous step. Add a constructor to work with `WebPubSubServiceClient<Sample_ChatApp>` so we can use to invoke service. And override `OnConnectedAsync()` method to respond when `connected` event is triggered.
 
     ```csharp
-    sealed class SampleChatHub : WebPubSubHub
+    sealed class Sample_ChatApp : WebPubSubHub
     {
-        private readonly WebPubSubServiceClient<SampleChatHub> _serviceClient;
+        private readonly WebPubSubServiceClient<Sample_ChatApp> _serviceClient;
 
-        public SampleChatHub(WebPubSubServiceClient<SampleChatHub> serviceClient)
+        public Sample_ChatApp(WebPubSubServiceClient<Sample_ChatApp> serviceClient)
         {
             _serviceClient = serviceClient;
         }
@@ -619,7 +620,7 @@ Use the Azure CLI [az webpubsub hub create](/cli/azure/webpubsub/hub#az-webpubsu
   > Replace &lt;domain-name&gt; with the name ngrok printed.
 
 ```azurecli-interactive
-az webpubsub hub create -n "<your-unique-resource-name>" -g "myResourceGroup" --hub-name "SampleChatHub" --event-handler url-template="https://<domain-name>.ngrok.io/eventHandler" user-event-pattern="*" system-event="connected"
+az webpubsub hub create -n "<your-unique-resource-name>" -g "myResourceGroup" --hub-name "Sample_ChatApp" --event-handler url-template="https://<domain-name>.ngrok.io/eventHandler" user-event-pattern="*" system-event="connected"
 ```
 
 After the update is completed, open the home page http://localhost:8080/index.html, input your user name, you’ll see the connected message printed in the server console.
@@ -630,16 +631,16 @@ Besides system events like `connected` or `disconnected`, client can also send m
 
 # [C#](#tab/csharp)
 
-Implement the OnMessageReceivedAsync() method in SampleChatHub.
+Implement the OnMessageReceivedAsync() method in Sample_ChatApp.
 
 1. Handle message event.
 
     ```csharp
-    sealed class SampleChatHub : WebPubSubHub
+    sealed class Sample_ChatApp : WebPubSubHub
     {
-        private readonly WebPubSubServiceClient<SampleChatHub> _serviceClient;
+        private readonly WebPubSubServiceClient<Sample_ChatApp> _serviceClient;
 
-        public SampleChatHub(WebPubSubServiceClient<SampleChatHub> serviceClient)
+        public Sample_ChatApp(WebPubSubServiceClient<Sample_ChatApp> serviceClient)
         {
             _serviceClient = serviceClient;
         }

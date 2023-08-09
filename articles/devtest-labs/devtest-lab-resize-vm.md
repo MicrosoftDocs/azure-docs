@@ -2,7 +2,10 @@
 title: Stop and resize lab VMs
 description: Learn how to change the size of a virtual machine (VM) in Azure DevTest Labs based on changing needs for CPU, network, or disk performance.
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.author: rosemalcolm
+author: RoseHJM
+ms.custom: UpdateFrequency2
+ms.date: 06/30/2023
 ---
 
 # Resize a lab VM in Azure DevTest Labs

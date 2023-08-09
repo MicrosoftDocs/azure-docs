@@ -1,99 +1,118 @@
-### YamlMime:Hub
+### YamlMime:Landing
 
 title: Azure Load Testing documentation
-summary: Learn how to generate high-scale loads, identify app performance bottlenecks, and automate regression testing with Azure Load Testing service. Tutorials, code examples, GitHub actions, Azure Pipelines, and more. 
+summary: Learn how to generate high-scale loads, identify app performance bottlenecks, and automate regression testing with Azure Load Testing service. Tutorials, code examples, GitHub Actions, Azure Pipelines, and more. 
 
 metadata:
   title: Azure Load Testing documentation
-  description: Learn how to generate high-scale loads, identify app performance bottlenecks, and automate regression testing with Azure Load Testing service. Tutorials, code examples, GitHub actions, Azure Pipelines, and more. 
- 
+  description: Learn how to generate high-scale loads, identify app performance bottlenecks, and automate regression testing with Azure Load Testing service. Tutorials, code examples, GitHub Actions, Azure Pipelines, and more. 
   services: load-testing
   ms.service: load-testing
-  ms.topic: hub-page
+  ms.topic: landing-page
   ms.collection: collection
-  ms.author: jmartens
-  author: j-martens
-  ms.date: 11/30/2021
+  ms.author: nicktrog
+  author: ntrogh
+  ms.date: 03/24/2023
 
-# highlightedContent section 
-highlightedContent:
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
-  items:
-    # Card
-    - title: What is Azure Load Testing?
-      itemType: overview
-      url: overview-what-is-azure-load-testing.md
-    # Card
-    - title: 'Create & run a load test'
-      itemType: quickstart
-      url: quickstart-create-and-run-load-test.md
-    # Card
-    - title: 'Identify performance bottlenecks'
-      itemType: tutorial
-      url: tutorial-identify-bottlenecks-azure-portal.md
-    # Card
-    - title: 'Set up continuous regression testing'
-      itemType: tutorial
-      url: tutorial-cicd-azure-pipelines.md
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
-conceptualContent:
-# Supports up to 3 sections
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
-  items:
-    # Card
-    - title: Configure load tests
-      links:
-        - url: how-to-high-scale-load.md
-          itemType: how-to-guide
-          text: Configure for high scale
-        - url: how-to-parameterize-load-tests.md
-          itemType: how-to-guide
-          text: Parameterize load tests
-        - url: how-to-read-csv-data.md
-          itemType: how-to-guide
-          text: Read a CSV file in load tests
-        - url: how-to-monitor-server-side-metrics.md
-          itemType: how-to-guide
-          text: Configure server-side monitoring
-        - url: how-to-define-test-criteria.md
-          itemType: how-to-guide
-          text: 'Define pass/fail criteria'
-        - url: how-to-use-a-managed-identity.md
-          itemType: how-to-guide
-          text: Use a managed identity
-        - url: how-to-assign-roles.md
-          itemType: how-to-guide
-          text: Manage users and roles
-    
-    # Card
-    - title: Analyze test results
-      links:
-        - url: how-to-compare-multiple-test-runs.md
-          itemType: how-to-guide
-          text: Analyze performance by comparing runs
-        - url: how-to-find-download-logs.md
-          itemType: how-to-guide
-          text: Troubleshoot test execution errors
-        - url: how-to-appservice-insights.md
-          itemType: how-to-guide
-          text: Get insights from App Service Diagnostics
-        - url: how-to-export-test-results.md
-          itemType: how-to-guide
-          text: Export results 
+landingContent:
+  # Card
+  - title: About Azure Load Testing
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Load Testing?
+            url: overview-what-is-azure-load-testing.md
+          - text: Key concepts
+            url: concept-load-testing-concepts.md
 
-    # Card
-    - title: Automate load tests
-      links:
-        - url: tutorial-cicd-azure-pipelines.md
-          itemType: tutorial
-          text: CI/CD workflows in Azure Pipelines
-        - url: tutorial-cicd-github-actions.md
-          itemType: tutorial
-          text: CI/CD workflows in GitHub Actions
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: 'Create & run a load test'
+            url: quickstart-create-and-run-load-test.md
+          - text: 'Automate load tests with CI/CD'
+            url: quickstart-add-load-test-cicd.md
+      - linkListType: tutorial
+        links:
+          - text: Identify performance bottlenecks
+            url: tutorial-identify-bottlenecks-azure-portal.md
+          - text: Set up automated regression testing with CI/CD
+            url: tutorial-identify-performance-regression-with-cicd.md
 
-    # Card
-    - title: Reference
-      links:
-        - url: reference-test-config-yaml.md
-          itemType: reference
-          text: Test configuration YAML
+  # Card
+  - title: Scenarios
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Load test Azure App Service apps
+            url: concept-load-test-app-service.md
+  
+  # Card
+  - title: Configure load tests
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure for high scale loads
+            url: how-to-high-scale-load.md
+          - text: Parameterize load tests
+            url: how-to-parameterize-load-tests.md
+          - text: 'Define test fail criteria'
+            url: how-to-define-test-criteria.md
+          - text: Use JMeter user properties
+            url: how-to-configure-user-properties.md
+          - text: Customize tests with JMeter plugins
+            url: how-to-use-jmeter-plugins.md
+
+  # Card
+  - title: Run load tests
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create a load test with a JMeter script
+            url: how-to-create-and-run-load-test-with-jmeter-script.md
+          - text: Set up automated regression testing with CI/CD
+            url: tutorial-cicd-azure-pipelines.md
+          - text: Test applications with authentication
+            url: how-to-test-secured-endpoints.md
+          - text: Test a private endpoint with VNET injection
+            url: how-to-test-private-endpoint.md
+          - text: Read data from a CSV file
+            url: how-to-read-csv-data.md
+
+  # Card
+  - title: Analyze test results
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Identify performance regressions by comparing test runs
+            url: how-to-compare-multiple-test-runs.md
+          - text: Configure server-side monitoring
+            url: how-to-monitor-server-side-metrics.md
+          - text: Export test results for custom reporting
+            url: how-to-export-test-results.md
+
+  # Card
+  - title: Security
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manage users and roles
+            url: how-to-assign-roles.md
+          - text: Use a managed identity
+            url: how-to-use-a-managed-identity.md
+
+  # Card
+  - title: Manage resources
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create & manage tests
+            url: how-to-create-manage-test.md
+          - text: Move between regions
+            url: how-to-move-between-regions.md
+          - text: Monitor Azure Load Testing
+            url: monitor-load-testing.md

@@ -5,9 +5,8 @@ description: In this quickstart, you use the Azure portal in object (Blob) stora
 services: storage
 author: stevenmatthew
 ms.service: storage
-ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 10/25/2021
+ms.date: 01/13/2023
 ms.author: shaas
 ms.custom: mode-ui
 ---
@@ -41,7 +40,7 @@ To upload a block blob to your new container in the Azure portal, follow these s
 
 1. In the Azure portal, navigate to the container you created in the previous section.
 1. Select the container to show a list of blobs it contains. This container is new, so it won't yet contain any blobs.
-1. Select the **Upload** button to open the upload blade and browse your local file system to find a file to upload as a block blob. You can optionally expand the **Advanced** section to configure other settings for the upload operation.
+1. Select the **Upload** button to open the upload blade and browse your local file system to find a file to upload as a block blob. You can optionally expand the **Advanced** section to configure other settings for the upload operation. You can, for example, upload a blob into a new or existing virtual folder or by supplying a value in the **Upload to folder** field.
 
     :::image type="content" source="media/storage-quickstart-blobs-portal/upload-blob.png" alt-text="Screenshot showing how to upload a blob from your local drive via the Azure portal":::
 

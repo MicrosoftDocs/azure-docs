@@ -2,7 +2,10 @@
 title: Control costs with lab policies
 description: Learn how to define lab policies such as VM sizes, maximum VMs per user, and shutdown automation.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 02/14/2022
+ms.custom: UpdateFrequency2
 ---
 
 # Manage lab policies to control costs in Azure DevTest Labs

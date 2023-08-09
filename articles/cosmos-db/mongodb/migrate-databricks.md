@@ -1,15 +1,16 @@
 ---
-title: Migrate from MongoDB to Azure Cosmos DB API for MongoDB, using Databricks and Spark
+title: Migrate from MongoDB to Azure Cosmos DB for MongoDB, using Databricks and Spark
 description: Learn how to use Databricks Spark to migrate large datasets from MongoDB instances to Azure Cosmos DB.
-author: nayakshweta
-ms.author: shwetn
+author: seesharprun
+ms.author: sidandrews
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
+ms.custom: ignite-2022, devx-track-python
 ms.topic: how-to
 ms.date: 08/26/2021
 ---
-# Migrate data from MongoDB to an Azure Cosmos DB API for MongoDB account by using Azure Databricks
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+# Migrate data from MongoDB to an Azure Cosmos DB for MongoDB account by using Azure Databricks
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 This migration guide is part of series on migrating databases from MongoDB to Azure CosmosDB API for MongoDB. The critical migration steps are [pre-migration](pre-migration-steps.md), migration, and [post-migration](post-migration-optimization.md), as shown below.
 
@@ -18,7 +19,7 @@ This migration guide is part of series on migrating databases from MongoDB to Az
 
 ## Data migration using Azure Databricks
 
-[Azure Databricks](https://azure.microsoft.com/services/databricks/) is a platform as a service (PaaS) offering for [Apache Spark](https://spark.apache.org/). It offers a way to do offline migrations on a large-scale dataset. You can use Azure Databricks to do an offline migration of databases from MongoDB to Azure Cosmos DB API for MongoDB.
+[Azure Databricks](https://azure.microsoft.com/services/databricks/) is a platform as a service (PaaS) offering for [Apache Spark](https://spark.apache.org/). It offers a way to do offline migrations on a large-scale dataset. You can use Azure Databricks to do an offline migration of databases from MongoDB to Azure Cosmos DB for MongoDB.
 
 In this tutorial, you will learn how to:
 
@@ -37,7 +38,7 @@ In this tutorial, you will learn how to:
 To complete this tutorial, you need to:
 
 - [Complete the pre-migration](pre-migration-steps.md) steps such as estimating throughput and choosing a shard key.
-- [Create an Azure Cosmos DB API for MongoDB account](https://portal.azure.com/#create/Microsoft.DocumentDB).
+- [Create an Azure Cosmos DB for MongoDB account](https://portal.azure.com/#create/Microsoft.DocumentDB).
 
 ## Provision an Azure Databricks cluster
 
@@ -48,7 +49,7 @@ You can follow instructions to [provision an Azure Databricks cluster](/azure/da
 
 ## Add dependencies
 
-Add the MongoDB Connector for Spark library to your cluster to connect to both native MongoDB and Azure Cosmos DB API for MongoDB endpoints. In your cluster, select **Libraries** > **Install New** > **Maven**, and then add `org.mongodb.spark:mongo-spark-connector_2.12:3.0.1` Maven coordinates.
+Add the MongoDB Connector for Spark library to your cluster to connect to both native MongoDB and Azure Cosmos DB for MongoDB endpoints. In your cluster, select **Libraries** > **Install New** > **Maven**, and then add `org.mongodb.spark:mongo-spark-connector_2.12:3.0.1` Maven coordinates.
 
 :::image type="content" source="./media/migrate-databricks/databricks-cluster-dependencies.png" alt-text="Diagram of adding databricks cluster dependencies.":::
 
@@ -73,10 +74,10 @@ import org.apache.spark._
 import org.apache.spark.sql._
 
 var sourceConnectionString = "mongodb://<USERNAME>:<PASSWORD>@<HOST>:<PORT>/<AUTHDB>"
-var sourceDb = "<DBNAME>"
+var sourceDb = "<DB NAME>"
 var sourceCollection =  "<COLLECTIONNAME>"
 var targetConnectionString = "mongodb://<ACCOUNTNAME>:<PASSWORD>@<ACCOUNTNAME>.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@<ACCOUNTNAME>@"
-var targetDb = "<DBNAME>"
+var targetDb = "<DB NAME>"
 var targetCollection =  "<COLLECTIONNAME>"
 
 val readConfig = ReadConfig(Map(
@@ -111,10 +112,10 @@ Create a Python Notebook in Databricks. Make sure to enter the right values for 
 from pyspark.sql import SparkSession
 
 sourceConnectionString = "mongodb://<USERNAME>:<PASSWORD>@<HOST>:<PORT>/<AUTHDB>"
-sourceDb = "<DBNAME>"
+sourceDb = "<DB NAME>"
 sourceCollection =  "<COLLECTIONNAME>"
 targetConnectionString = "mongodb://<ACCOUNTNAME>:<PASSWORD>@<ACCOUNTNAME>.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@<ACCOUNTNAME>@"
-targetDb = "<DBNAME>"
+targetDb = "<DB NAME>"
 targetCollection =  "<COLLECTIONNAME>"
 
 my_spark = SparkSession \
@@ -150,14 +151,14 @@ The migration performance can be adjusted through these configurations:
 ## Troubleshoot
 
 ### Timeout Error (Error code 50)
-You might see a 50 error code for operations against the Cosmos DB API for MongoDB database. The following scenarios can cause timeout errors:
+You might see a 50 error code for operations against the Azure Cosmos DB for MongoDB database. The following scenarios can cause timeout errors:
 
 - **Throughput allocated to the database is low**: Ensure that the target collection has sufficient throughput assigned to it.
 - **Excessive data skew with large data volume**. If you have a large amount of data to migrate into a given table but have a significant skew in the data, you might still experience rate limiting even if you have several [request units](../request-units.md) provisioned in your table. Request units are divided equally among physical partitions, and heavy data skew can cause a bottleneck of requests to a single shard. Data skew means large number of records for the same shard key value.
 
 ### Rate limiting (Error code 16500)
 
-You might see a 16500 error code for operations against the Cosmos DB API for MongoDB database. These are rate limiting errors and may be observed on older accounts or accounts where server-side retry feature is disabled.
+You might see a 16500 error code for operations against the Azure Cosmos DB for MongoDB database. These are rate limiting errors and may be observed on older accounts or accounts where server-side retry feature is disabled.
 - **Enable Server-side retry**: Enable the Server Side Retry (SSR) feature and let the server retry the rate limited operations automatically.
 
 
@@ -174,5 +175,5 @@ After you migrate the data, you can connect to Azure Cosmos DB and manage the da
 
 ## Next steps
 
-* [Manage indexing in Azure Cosmos DB's API for MongoDB](mongodb-indexing.md)
-* [Find the request unit charge for operations](find-request-unit-charge-mongodb.md)
+* [Manage indexing in Azure Cosmos DB's API for MongoDB](indexing.md)
+* [Find the request unit charge for operations](find-request-unit-charge.md)

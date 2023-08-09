@@ -1,15 +1,15 @@
 ---
 title: Manage role permissions and security in Azure Automation
-description: This article describes how to use Azure role-based access control (Azure RBAC), which enables access management for Azure resources.
+description: This article describes how to use Azure role-based access control (Azure RBAC), which enables access management and role permissions for Azure resources.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/10/2021
+ms.date: 01/09/2023
 ms.topic: how-to 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, subject-rbac-steps
 #Customer intent: As an administrator, I want to understand permissions so that I use the least necessary set of permissions.
 ---
 
-# Manage role permissions and security in Automation
+# Manage role permissions and security in Azure Automation
 
 Azure role-based access control (Azure RBAC) enables access management for Azure resources. Using [Azure RBAC](../role-based-access-control/overview.md), you can segregate duties within your team and grant only the amount of access to users, groups, and applications that they need to perform their jobs. You can grant role-based access to users using the Azure portal, Azure Command-Line tools, or Azure Management APIs.
 
@@ -322,48 +322,35 @@ Update Management can be used to assess and schedule update deployments to machi
 |Create update schedule ([Software Update Configurations](/rest/api/automation/softwareupdateconfigurations)) |Microsoft.Compute/virtualMachines/write |For static VM list and resource groups |
 |Create update schedule ([Software Update Configurations](/rest/api/automation/softwareupdateconfigurations)) |Microsoft.OperationalInsights/workspaces/analytics/query/action |For workspace resource ID when using non-Azure dynamic list.|
 
+>[!NOTE]
+>When you use Update management, ensure that the execution policy for scripts is *RemoteSigned*.
+
 ## Configure Azure RBAC for your Automation account
 
 The following section shows you how to configure Azure RBAC on your Automation account through the [Azure portal](#configure-azure-rbac-using-the-azure-portal) and [PowerShell](#configure-azure-rbac-using-powershell).
 
 ### Configure Azure RBAC using the Azure portal
 
-1. Log in to the [Azure portal](https://portal.azure.com/) and open your Automation account from the Automation Accounts page.
-2. Click on **Access control (IAM)** to open the Access control (IAM) page. You can use this page to add new users, groups, and applications to manage your Automation account and view existing roles that are configurable for the Automation account.
-3. Click the **Role assignments** tab.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open your Automation account from the **Automation Accounts** page.
 
-   ![Access button](media/automation-role-based-access-control/automation-01-access-button.png)
+1. Select **Access control (IAM)** and select a role from the list of available roles. You can choose any of the available built-in roles that an Automation account supports or any custom role you might have defined. Assign the role to a user to which you want to give permissions.
 
-#### Add a new user and assign a role
-
-1. From the Access control (IAM) page, click **+ Add role assignment**. This action opens the Add role assignment page where you can add a user, group, or application, and assign a corresponding role.
-
-2. Select a role from the list of available roles. You can choose any of the available built-in roles that an Automation account supports or any custom role you may have defined.
-
-3. Type the name of the user that you want to give permissions to in the **Select** field. Choose the user from the list and click **Save**.
-
-   ![Add users](media/automation-role-based-access-control/automation-04-add-users.png)
-
-   Now you should see the user added to the Users page, with the selected role assigned.
-
-   ![List users](media/automation-role-based-access-control/automation-05-list-users.png)
-
-   You can also assign a role to the user from the Roles page.
-
-4. Click **Roles** from the Access control (IAM) page to open the Roles page. You can view the name of the role and the number of users and groups assigned to that role.
-
-    ![Assign role from users page](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
+   For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
    > [!NOTE]
    > You can only set role-based access control at the Automation account scope and not at any resource below the Automation account.
 
-#### Remove a user
+#### Remove role assignments from a user
 
-You can remove the access permission for a user who isn't managing the Automation account, or who no longer works for the organization. Following are the steps to remove a user:
+You can remove the access permission for a user who isn't managing the Automation account, or who no longer works for the organization. The following steps show how to remove the role assignments from a user. For detailed steps, see [Remove Azure role assignments](../../articles/role-based-access-control/role-assignments-remove.md):
 
-1. From the Access control (IAM) page, select the user to remove and click **Remove**.
-2. Click the **Remove** button in the assignment details pane.
-3. Click **Yes** to confirm removal.
+1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where you want to remove access.
+
+1. Select the **Role assignments** tab to view all the role assignments at this scope.
+
+1. In the list of role assignments, add a checkmark next to the user with the role assignment you want to remove.
+
+1. Select **Remove**.
 
    ![Remove users](media/automation-role-based-access-control/automation-08-remove-users.png)
 
@@ -473,7 +460,7 @@ New-AzRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Job Opera
 New-AzRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Runbook Operator" -Scope $rb.ResourceId
 ```
 
-Once the script has run, have the user log in to the Azure portal and select **All Resources**. In the list, the user can see the runbook for which he/she has been added as an Automation Runbook Operator.
+Once the script has run, have the user sign in to the Azure portal and select **All Resources**. In the list, the user can see the runbook for which he/she has been added as an Automation Runbook Operator.
 
 ![Runbook Azure RBAC in the portal](./media/automation-role-based-access-control/runbook-rbac.png)
 
@@ -485,6 +472,7 @@ When a user assigned to the Automation Operator role on the Runbook scope views 
 
 ## Next steps
 
+* To learn about security guidelines, see [Security best practices in Azure Automation](automation-security-guidelines.md).
 * To find out more about Azure RBAC using PowerShell, see [Add or remove Azure role assignments using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * For details of the types of runbooks, see [Azure Automation runbook types](automation-runbook-types.md).
 * To start a runbook, see [Start a runbook in Azure Automation](start-runbooks.md).

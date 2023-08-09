@@ -4,7 +4,7 @@ description: include file
 author: v-dalc
 services: storage
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: include
 ms.date: 12/22/2021
 ms.author: alkohli
@@ -23,7 +23,7 @@ ms.custom: include file
 
     A list of Import/Export jobs appears on the page. 
 
-    [ ![Screenshot of Data Box resources in the Azure portal filtered to Import Export jobs. The job name, transfer type, status, and model are highlighted.](./media/storage-import-export-view-jobs-and-drives/jobs-list.png) ](./media/storage-import-export-view-jobs-and-drives/jobs-list.png)
+    [ ![Screenshot of Data Box resources in the Azure portal filtered to Import Export jobs. The job name, transfer type, status, and model are highlighted.](./media/storage-import-export-view-jobs-and-drives/jobs-list.png) ](./media/storage-import-export-view-jobs-and-drives/jobs-list.png#lightbox)
 
 4. Select a job name to view job details.
 

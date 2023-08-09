@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Cloud for Customer | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory SSO integration with SAP Cloud for Customer'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP Cloud for Customer.
 services: active-directory
 author: jeevansd
@@ -9,18 +9,17 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 05/12/2023
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Cloud for Customer
+# Tutorial: Azure Active Directory SSO integration with SAP Cloud for Customer
 
-In this tutorial, you'll learn how to integrate SAP Cloud for Customer with Azure Active Directory (Azure AD). When you integrate SAP Cloud for Customer with Azure AD, you can:
+In this tutorial, you learn how to integrate SAP Cloud for Customer with Azure Active Directory (Azure AD). When you integrate SAP Cloud for Customer with Azure AD, you can:
 
 * Control in Azure AD who has access to SAP Cloud for Customer.
 * Enable your users to be automatically signed-in to SAP Cloud for Customer with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
-
 
 ## Prerequisites
 
@@ -33,9 +32,9 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* SAP Cloud for Customer supports **SP** initiated SSO
+* SAP Cloud for Customer supports **SP** initiated SSO.
 
-## Adding SAP Cloud for Customer from the gallery
+## Add SAP Cloud for Customer from the gallery
 
 To configure the integration of SAP Cloud for Customer into Azure AD, you need to add SAP Cloud for Customer from the gallery to your list of managed SaaS apps.
 
@@ -45,6 +44,8 @@ To configure the integration of SAP Cloud for Customer into Azure AD, you need t
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **SAP Cloud for Customer** in the search box.
 1. Select **SAP Cloud for Customer** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, and walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for SAP Cloud for Customer
 
@@ -111,7 +112,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you create a test user in the Azure portal called B.Simon.
 
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
@@ -123,7 +124,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to SAP Cloud for Customer.
+In this section, you enable B.Simon to use Azure single sign-on by granting access to SAP Cloud for Customer.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **SAP Cloud for Customer**.
@@ -137,9 +138,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Open a new web browser window and sign into your SAP Cloud for Customer company site as an administrator.
 
-2. From the left side of menu, click on **Identity Providers** > **Corporate Identity Providers** > **Add** and on the pop-up add the Identity provider name like **Azure AD**, click **Save** then click on **SAML 2.0 Configuration**.
+2. Go to **Applications & Resources** > **Tenant Settings** and select **SAML 2.0 Configuration**.
 
-	![Screenshot that shows the "Identity Providers" page with the "Add Identity Provider" dialog text box highlighted and the "Save" button selected.](./media/sap-customer-cloud-tutorial/configure01.png)
+	![Screenshot that shows the Identity Providers page selected.](./media/sap-customer-cloud-tutorial/configure.png)
 
 3. On the **SAML 2.0 Configuration** section, perform the following steps:
 
@@ -147,7 +148,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	a. Click **Browse** to upload the Federation Metadata XML file, which you have downloaded from Azure portal.
 
-	b. Once the XML file is successfully uploaded, the below values will get auto populated automatically then click **Save**.
+	b. Once the XML file is successfully uploaded, the below values get auto populated automatically then click **Save**.
 
 ### Create SAP Cloud for Customer test user
 
@@ -187,7 +188,6 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * You can use Microsoft My Apps. When you click the SAP Cloud for Customer tile in the My Apps, this will redirect to SAP Cloud for Customer Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-
 ## Next steps
 
-Once you configure the SAP Cloud for Customer you can enforce session controls, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
+Once you configure the SAP Cloud for Customer you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

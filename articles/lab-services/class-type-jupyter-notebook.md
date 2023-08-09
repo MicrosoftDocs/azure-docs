@@ -1,53 +1,77 @@
 ---
-title: Set up a lab to teach data science with Python and Jupyter Notebooks | Microsoft Docs
-description: Learn how to set up a lab to teach data science using Python and Jupyter Notebooks. 
-author: emaher
+title: Set up a data science lab with Python and Jupyter Notebooks
+titleSuffix: Azure Lab Services
+description: Learn how to set up a lab VM in Azure Lab Services to teach data science using Python and Jupyter Notebooks. 
+services: lab-services
+ms.service: lab-services
+ms.custom: devx-track-python
+author: ntrogh
+ms.author: nicktrog
 ms.topic: how-to
-ms.date: 09/29/2020
-ms.author: enewman
+ms.date: 02/17/2023
 ---
 
 # Set up a lab to teach data science with Python and Jupyter Notebooks
-This article outlines how to set up a template virtual machine (VM) in Lab Services with the tools that are needed to teach students how to use [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io/), and how students can connect to their notebooks on their virtual machines (VMs).
 
-Jupyter Notebooks is an open-source project that lets you easily combine rich text and executable Python source code on a single canvas called a notebook. Running a notebook results in a linear record of inputs and outputs. Those outputs can include text, tables of information, scatter plots, and more.
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
-## Set up the lab
+This article outlines how to set up a [template virtual machine (VM)](./classroom-labs-concepts.md#template-virtual-machine) in Azure Lab Services with the tools for teaching students to use Jupyter Notebooks. You also learn how to lab users can connect to notebooks on their virtual machines.
 
-### Lab configuration
-To set up this lab, you need access to an Azure subscription and a lab account. Discuss with your organization's admin to see if you can get access to an existing Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+[Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/) is an open-source project that enables you to easily combine rich text and executable Python source code on a single canvas, known as a notebook. Running a notebook results in a linear record of inputs and outputs. Those outputs can include text, tables of information, scatter plots, and more.
 
-Once you have an Azure subscription, create a new lab account in Azure Lab Services by following instructions in the tutorial: [Setup a lab account](tutorial-setup-lab-account.md). You can also use an existing lab account.
+## Lab configuration
 
-### Lab account settings
-Enable settings described in the table below for the lab account. For more information on enabling marketplace images, see [specify Marketplace images available to lab creators](specify-marketplace-images.md).
+[!INCLUDE [must have subscription](./includes/lab-services-class-type-subscription.md)]
 
-| Lab account setting | Instructions |
-| ------------------- | ------------ |
-| Marketplace image | Inside your lab account, enable one of the Azure Marketplace images based on your operating system needs: <br/><ul><li>Data Science Virtual Machine – Windows Server 2019</li><li>Data Science Virtual Machine – Ubuntu 18.04</li></ul> |
+### Lab plan settings
 
-> [!NOTE]
-> This article uses the Data Science virtual machine images available on the Azure marketplace because they are preconfigured with Jupyter Notebook. These images, however, also include many other development and modeling tools for data science. If you don't want those extra tools and want a lightweight setup with just Jupyter notebooks, create a custom VM image. For an example, [Installing JupyperHub on Azure](http://tljh.jupyter.org/en/latest/install/azure.html). Once the custom image is created, you can upload it to a shared image gallery to use the image inside Azure Lab Services. Learn more about [using Shared Image Gallery in Azure Lab Services](how-to-attach-detach-shared-image-gallery.md). 
+[!INCLUDE [must have lab plan](./includes/lab-services-class-type-lab-plan.md)]
+
+This lab uses one of the Data Science Virtual Machine Azure Marketplace images as the base VM image. You first need to enable these images in your lab plan. This lets lab creators then select the image as a base image for their lab.
+
+1. Follow these steps to [enable these Azure Marketplace images available to lab creators](specify-marketplace-images.md). Select one of the following Azure Marketplace images, depending on your OS requirements:
+
+    - **Data Science Virtual Machine – Windows Server 2019**
+    - **Data Science Virtual Machine – Ubuntu 18.04**
+    
+1. Alternately, create a custom VM image:
+
+    The Data Science VMs images in the Azure Marketplace are already configured with Jupyter Notebooks. These images, however, also include many other development and modeling tools for data science. If you don't want those extra tools and want a lightweight setup with only Jupyter notebooks, create a custom VM image. For an example, [Installing JupyterHub on Azure](http://tljh.jupyter.org/en/latest/install/azure.html). 
+
+    After you create the custom image, upload the image to a compute gallery to use it with Azure Lab Services. Learn more about [using compute gallery in Azure Lab Services](how-to-attach-detach-shared-image-gallery.md).
 
 ### Lab settings
-Configure **Virtual machine size** and **Virtual machine image** settings as shown in the following table when setting up a classroom lab. For instructions on creating a classroom lab, see [Set up a classroom lab](tutorial-setup-classroom-lab.md).
 
-| Lab settings | Value/instructions |
-| ------------ | ------------------ | 
-| Virtual machine size | <p>The size you pick here depends on the workload you want to run:</p><ul><li>Small or Medium – good for a basic setup of accessing Jupyter Notebooks</li><li>Small GPU (Compute) – best suited for compute-intensive and network-intensive applications like Artificial Intelligence and Deep Learning</li></ul> | 
-| Virtual machine image | <p>Choose one of the following images based on your operating system needs:</p><ul><li>[Data Science Virtual Machine – Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019)</li><li>[Data Science Virtual Machine – Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview)</li></ul> |
+1. Create a lab for your lab plan:
 
-When you create a lab with the **Small GPU (Compute)** size, you have the option to [Install GPU drivers](./how-to-setup-lab-gpu.md#ensure-that-the-appropriate-gpu-drivers-are-installed).  This option installs recent NVIDIA drivers and Compute Unified Device Architecture (CUDA) toolkit which are required to enable high-performance computing with the GPU.  For more information, see the article [Set up a lab with GPU virtual machines](./how-to-setup-lab-gpu.md).
+    [!INCLUDE [create lab](./includes/lab-services-class-type-lab.md)] Specify the following lab settings:
 
-### Template virtual machine
-Once you create a lab, a template VM will be created based on the virtual machine size and image you chose. You configure the template VM with everything you want to provide to your students for this class. To learn more, see [how to manage the template virtual machine](how-to-create-manage-template.md). 
+    | Lab settings | Value |
+    | ------------ | ------------------ |
+    | Virtual machine size | Select **Small** or **Medium** for a basic setup accessing Jupyter Notebooks. Select **Small GPU (Compute)** for compute-intensive and network-intensive applications used in Artificial Intelligence and Deep Learning classes. |
+    | Virtual machine image | Choose **[Data Science Virtual Machine – Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019)** or **[Data Science Virtual Machine – Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux)** depending on your OS needs. |
+    | Template virtual machine settings | Select **Use virtual machine without customization.**.
 
-The Data Science VM images by default come with many of data science frameworks and tools required for this type of class. For example, the images include:
+1. When you create a lab with the **Small GPU (Compute)** size, follow these steps to [install GPU drivers](./how-to-setup-lab-gpu.md#ensure-that-the-appropriate-gpu-drivers-are-installed).
 
-- [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io/): A web application that allows data scientists to take raw data, run computations, and see the results all in the same environment. It will run locally in the template VM.  
+    These process installs recent NVIDIA drivers and the Compute Unified Device Architecture (CUDA) toolkit, which you need to enable high-performance computing with the GPU. For more information, see [Set up a lab with GPU virtual machines](./how-to-setup-lab-gpu.md).
+
+## Template machine configuration
+
+[!INCLUDE [configure template vm](./includes/lab-services-class-type-template-vm.md)]
+
+The Data Science VM images come with many of data science frameworks and tools required for this type of class. For example, the images include:
+
+- [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io/): A web application that allows data scientists to take raw data, run computations, and see the results all in the same environment. It runs locally in the template VM.  
 - [Visual Studio Code](https://code.visualstudio.com/): An integrated development environment (IDE) that provides a rich interactive experience when writing and testing a notebook. For more information, see [Working with Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support).
 
-If you are using the **Small GPU (Compute)** size, we recommend that you verify that the Data Science frameworks and libraries are properly set up with the GPU.  To properly set up the frameworks and libraries, you may need to install a different version of the NVIDIA Drivers and CUDA toolkit.  For example, to validate that the GPU is configured for TensorFlow, you can connect to the template VM and run the following Python-TensorFlow code in Jupyter Notebooks:
+The **Data Science Virtual Machine – Ubuntu** image is already provisioned with X2GO server to enable lab users to use a graphical desktop experience.
+
+### Enabling tools to use GPUs
+
+If you're using the **Small GPU (Compute)** size, we recommend that you verify that the Data Science frameworks and libraries are properly set up to use GPUs. You might need to install a different version of the NVIDIA drivers and CUDA toolkit. To configure the GPUs, you should consult the framework's or library's documentation.
+
+For example, to validate that TensorFlow uses the GPU, connect to the template VM and run the following Python-TensorFlow code in Jupyter Notebooks:
 
 ```python
 import tensorflow as tf
@@ -56,7 +80,7 @@ from tensorflow.python.client import device_lib
 print(device_lib.list_local_devices())
 ```
 
-If the output from the above code looks like the following, this means that the GPU isn't configured for TensorFlow:
+If the output from the above code looks like the following, TensorFlow isn't using the GPU:
 
 ```python
 [name: "/device:CPU:0"
@@ -67,12 +91,14 @@ locality {
 incarnation: 15833696144144374634
 ]
 ```
-To properly configure the GPU, you should consult the framework's or library's documentation.  Continuing with the above example, TensorFlow provides the following guidance:
-- [TensorFlow GPU Support](https://www.tensorflow.org/install/gpu)
 
-Their guidance covers the required version of the [NVIDIA drivers](https://www.nvidia.com/drivers) and [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit-archive).  Their guidance also includes installing the [NVIDIA CUDA Deep Neural Network library (cudDNN)](https://developer.nvidia.com/cudnn).
+Continuing with the above example, see [TensorFlow GPU Support](https://www.tensorflow.org/install/gpu) for guidance.  TensorFlow guidance covers:
 
-After you've followed TensorFlow's steps to configure the GPU, when you rerun the above code, you should see output similar to the following:
+- Required version of the [NVIDIA drivers](https://www.nvidia.com/drivers)
+- Required version of the [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit-archive).
+- Instructions to install [NVIDIA CUDA Deep Neural Network library (cudDNN)](https://developer.nvidia.com/cudnn).
+
+After you've followed TensorFlow's steps to configure the GPU, when you rerun the test code, you should see output similar to the following output.
 
 ```python
 [name: "/device:CPU:0"
@@ -95,132 +121,88 @@ physical_device_desc: "device: 0, name: NVIDIA Tesla K80, pci bus id: 0001:00:00
 ```
 
 ### Provide notebooks for the class
-The next task is to provide students with notebooks that you want them to use. To provide your own notebooks, you can save notebooks locally on the template VM. 
 
-If you want to use sample notebooks from Azure Machine Learning, see [how to configure an environment with Jupyter Notebooks](../machine-learning/how-to-configure-environment.md#jupyter). 
+The next task is to provide lab users with notebooks that you want them to use. You can save notebooks locally on the template VM so each lab user has their own copy.
 
-### Optional: enable graphical desktop for Linux 
-The **Data Science Virtual Machine – Ubuntu** image is already provisioned with X2GO server and is ready to accept client connections. No further steps are required when setting up the template VM. 
+If you want to use sample notebooks from Azure Machine Learning, see [how to configure an environment with Jupyter Notebooks](/azure/machine-learning/how-to-configure-environment#jupyter-notebooks).
 
 ### Publish the template machine
-When you publish the template, each student registered to your lab will get a copy of the template VM with all the local tools and notebooks you’ve set up on it.
 
-## How students connect to Jupyter Notebooks?
-Once you publish the template, each student will have access to a VM that comes with everything you’ve preconfigured for the class, including the Jupyter Notebooks. The following sections show different ways for students to connect to Jupyter Notebooks. 
+You make the lab VM available for lab users, you have to [publish the template](how-to-create-manage-template.md#publish-the-template-vm). The lab VM has all the local tools and notebooks that you configured previously.
 
-### For Windows VMs
-If you’ve provided students with Windows VMs, they need to connect to their VMs and use Jupyter Notebooks that are available locally on them. 
+## Connect to Jupyter Notebooks
 
-To connect to a Windows VM, a student can use a remote desktop connection (RDP). For detailed steps, see [how to access a classroom lab](how-to-use-classroom-lab.md). 
+The following sections show different ways for lab users to connect to Jupyter Notebooks on the lab VM.
 
-A student using a Mac or Chromebook can follow instructions from following articles to connect to the Data Science Windows VM. 
+### Use Jupyter Notebooks on the lab VM
 
-- [Connect to a VM using RDP on a Mac](connect-virtual-machine-mac-remote-desktop.md)
-- [Connect to a VM using RDP on a Chromebook](connect-virtual-machine-chromebook-remote-desktop.md)
+Lab users can connect from their local machine to the lab VM and then use Jupyter Notebooks inside the lab VM.
 
-### For Linux VMs
-If you’ve provided students with Linux VMs, there are several options students can use to connect to their Jupyter Notebooks in the VMs:
+If you use a Windows-based lab VM, lab users can connect to their lab VMs through remote desktop (RDP). For more information, see how to [connect to a Windows lab VM](connect-virtual-machine.md#connect-to-a-windows-lab-vm).
 
-- Access Jupyter Notebooks locally after connecting to the VM
-    - SSH to the VM for terminal sessions
-	 - X2Go connection to the VM for graphical sessions
-- Use SSH tunneling to connect from the student’s local computer directly to the Jupyter Server on the VM. 
+If you use a Linux-based lab VM, lab users can connect to their lab VMs through SSH or by using X2Go. For more information, see how to [connect to a Linux lab VM](connect-virtual-machine.md#connect-to-a-linux-lab-vm).
 
-The following sections provide details about these ways to connect to Jupyter notebooks. 
+### SSH tunnel to Jupyter server on the VM
 
-#### SSH to virtual machine
-Students can connect via SSH to their Linux VMs from a terminal session. For detailed steps, see [how to access a classroom lab](how-to-use-classroom-lab.md). If they are using a Windows client machine, they will need to enable an SSH client by downloading [PuTTY](https://www.putty.org/) or enabling [OpenSSH in Windows](/windows-server/administration/openssh/openssh_install_firstuse) to SSH from the command prompt. 
+For Linux-based labs, you can also connect directly from your local computer to the Jupyter server inside the lab VM. The SSH protocol enables port forwarding between the local computer and a remote server (in our case, the user's lab VM). An application that is running on a certain port on the server is **tunneled** to the mapping port on the local computer. 
 
-1.	Start the VM.
-2.	Once the VM is running, click **Connect**, which will pop up a dialog box that provides the SSH command string, which will look like the following sample:
-    
-	 ```shell
+Follow these steps to configure an SSH tunnel between a user's local machine and the Jupyter server on the lab VM:
+
+1. Go to the [Azure Lab Services website](https://labs.azure.com)
+
+1. Verify that the Linux-based [lab VM is running](how-to-use-lab.md#start-or-stop-the-vm).
+
+1. Select the **Connect** icon > **Connect via SSH** to get the SSH connection command.
+
+    The SSH connection command looks like the following:
+
+    ```shell
     ssh -p 12345 student@ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com
-	 ```
-3.	Go to your command prompt or terminal, and paste in this command, and then press **ENTER**.
-4.	Enter the password to sign in to the VM. 
-
-Once students are connected to VMs, they can access and run Jupyter Notebooks locally.
-
-#### X2Go to virtual machine
-The **Data Science Virtual Machine – Ubuntu** image is already provisioned with X2GO Server and is ready to accept client connections. To connect to the graphical desktop of the Linux machine, students need to follow these one-time steps to set up X2Go on their client machines:
-
-1.	Download and install the [X2Go client](https://wiki.x2go.org/doku.php/doc:installation:x2goclient) for your client platform.
-2.	In the [Azure Lab Services portal](https://labs.azure.com), make sure that the Linux VM you want to connect to is started.
-3.	Once the VM is running, click **Connect**, which will pop a dialog box that provides the SSH command string, which will look like the following sample:
-
     ```
-	 ssh -p 12345 student@ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com
-	 ```	
-4. Once you have this info, open the X2Go client app and create a new session. 
-5.	Fill in the following values in the **Session Preferences** pane:
-    - **Session name**: It can be whatever you want, but we recommend using the name of your Lab VM.
-	 - **Host**: `ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com`
-	 - **Login**: student
-	 - **SSH port**: 12345
-	 - **Session type**: XFCE
-6. Select **OK**. 
+
+    Learn more about [how to connect to a Linux VM](connect-virtual-machine.md#connect-to-a-linux-lab-vm-using-ssh).
+
+1. On your local computer, launch a terminal or command prompt, and copy the SSH connection string to it. Then, add `-L 8888:localhost:8888` to the command string, which creates the **tunnel** between the ports. 
+
+    The final command should look as follows:
+
+    ```shell
+    ssh –L 8888:localhost:8888 -p 12345 student@ml-lab-00000000-0000-0000-0000-000000000000.eastus.cloudapp.azure.com
+     ```
+
+1. Press **ENTER** to run the command.
+1. When prompted, provide the lab VM password to connect to the lab VM.
+1. When you’re connected to the VM, start the Jupyter server using this command:
+
+    ```bash
+    jupyter notebook
+    ```
+
+    The command outputs a URL for the Jupyter server in the terminal. The URL should look like:
+
+    ```output
+    http://localhost:8888/?token=8c09ecfc93e6a8cbedf9c66dffdae19670a64acc1d37
+    ```
+
+1. Paste this URL into a browser on your local computer to connect and work on your Jupyter Notebook.
 
     > [!NOTE]
-	 > When creating a new X2Go session, make sure to use the SSH port, **not** the RDP port.
-
-Now, to connect to the VM, follow these steps:    
-
-1.	In the X2Go client, double-click on the VM you want to connect to. 
-
-    ![X2Go client](./media/class-type-jupyter-notebook/x2go-client.png)
-2. Enter the password to connect to the VM. (You may have to give X2Go permission to bypass your firewall to finish connecting.)
-3.	You should now see the graphical interface for your Ubuntu Data Science VM.
-
-#### SSH tunnel to Jupyter server on the VM
-Some students may want to connect directly from their local computer directly to the Jupyter server inside their VMs. The SSH protocol enables port forwarding between the local computer and a remote server (in our case, the student’s lab VM), so that an application running on a certain port on the server is **tunneled** to the mapping port on the local computer. Students should follow these steps to SSH tunnel to the Jupyter server on their lab VMs:
-
-1.	In the [Azure Lab Services portal](https://labs.azure.com), make sure that the Linux VM that you want to connect is started.
-2.	Once the VM is running, click **Connect**, which will pop a dialog box that provides the SSH command string, which will look like the following string:
-
-    ```bash
-	 ssh -p 12345 student@ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com
-	 ```
-3. On your local computer, launch a terminal or command prompt, and copy the SSH connection string to it. Then, add `-L 8888:localhost:8888` to the command string, which creates the **tunnel** between the ports. The final string should look like:
-
-    ```bash
-	 ssh –L 8888:localhost:8888 -p 12345 student@ml-lab-b720853e-570f-49ac-9cb2-bd0bd2aeec35.eastus.cloudapp.azure.com
-	 ```
-4. Press **ENTER** to run the command. 
-5.	When prompted, provide the password to connect to the lab VM. 
-6.	Once you’re connected to the VM, start the Jupyter server using this command: 
-
-    ```bash
-	 jupyter notebook
-	 ```
-7. Running the command will provide you with a URL in the terminal or command prompt. The URL should look like:
-
-    ```bash
-	 http://localhost:8888/?token=8c09ecfc93e6a8cbedf9c66dffdae19670a64acc1d37
-	 ```
-8. Paste this URL into a browser on your local computer to connect and work on your Jupyter Notebook. 
-
-    > [!NOTE]
-    > Visual Studio Code also enables a great [Jupyter Notebook editing experience](https://code.visualstudio.com/docs/python/jupyter-support). You can follow the instructions on [how to connect to a remote Jupyter server](https://code.visualstudio.com/docs/python/jupyter-support#_connect-to-a-remote-jupyter-server) and use the same URL from the previous step to connect from VS Code instead of from the browser. 
-
+    > Visual Studio Code also enables a great [Jupyter Notebook editing experience](https://code.visualstudio.com/docs/python/jupyter-support). You can follow the instructions on [how to connect to a remote Jupyter server](https://code.visualstudio.com/docs/python/jupyter-support#_connect-to-a-remote-jupyter-server) and use the same URL from the previous step to connect from VS Code instead of from the browser.
 
 ## Cost estimate
-Let's cover a possible cost estimate for this class. We'll use a class of 25 students. There are 20 hours of scheduled class time. Also, each student gets 10 hours quota for homework or assignments outside scheduled class time. The VM size we chose was small GPU (compute), which is 139 lab units. If you want to use the Small (20 lab units) or Medium size (42 lab units), you can replace the lab unit part in the equation below with the correct number.  
 
-Here is an example of a possible cost estimate for this class:
-25 students * (20 scheduled hours + 10 quota hours) * 139 lab units * 0.01 USD per hour = 1042.5 USD
+This section provides a cost estimate for running this class for 25 lab users. There are 20 hours of scheduled class time. Also, each user gets 10 hours quota for homework or assignments outside scheduled class time. The VM size we chose was small GPU (compute), which is 139 lab units. If you want to use the Small (20 lab units) or Medium size (42 lab units), you can replace the lab unit part in the equation below with the correct number.  
 
-Further more details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
+Here's an example of a possible cost estimate for this class:
+25 lab users \* (20 scheduled hours + 10 quota hours) \* 139 lab units \* 0.01 USD per hour = 1042.5 USD
+
+>[!IMPORTANT]
+>This cost estimate is for example purposes only. For current details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
 
 ## Conclusion
-In this article, we walked through the steps to create a lab for a Jupyter Notebooks class. You can use a similar setup for other machine learning classes.
+
+In this article, you learned how to create a lab for a Jupyter Notebooks class and how user can connect to their notebooks on the lab VM. You can use a similar setup for other machine learning classes.
 
 ## Next steps
 
-Next steps are common to setting up any lab.
-
-- [Create and manage a template](how-to-create-manage-template.md)
-- [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
-- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)
+[!INCLUDE [next steps for class types](./includes/lab-services-class-type-next-steps.md)]

@@ -3,9 +3,10 @@ title: 'Quickstart: Connect with C# - Azure Database for PostgreSQL - Flexible S
 description: "This quickstart provides a C# (.NET) code sample you can use to connect and query data from Azure Database for PostgreSQL - Flexible Server."
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.author: sumuth
-author: mksuni
-ms.custom: mvc, devcenter, devx-track-csharp, mode-other
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
+ms.custom: mvc, devcenter, devx-track-csharp, mode-other, devx-track-dotnet
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 11/30/2021
@@ -13,9 +14,12 @@ ms.date: 11/30/2021
 
 # Quickstart: Use .NET (C#) to connect and query data in Azure Database for PostgreSQL - Flexible Server
 
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 This quickstart demonstrates how to connect to an Azure Database for PostgreSQL using a C# application. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using C#, and that you are new to working with Azure Database for PostgreSQL.
 
 ## Prerequisites
+
 For this quickstart you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
@@ -26,6 +30,7 @@ For this quickstart you need:
 - Install [Npgsql](https://www.nuget.org/packages/Npgsql/) NuGet package in Visual Studio.
 
 ## Get connection information
+
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
@@ -35,6 +40,7 @@ Get the connection information needed to connect to the Azure Database for Postg
  :::image type="content" source="./media/connect-csharp/1-connection-string.png" alt-text="Azure Database for PostgreSQL server name":::
 
 ## Step 1: Connect and insert data
+
 Use the following code to connect and load the data using **CREATE TABLE** and  **INSERT INTO** SQL statements. The code uses NpgsqlCommand class with method:
 - [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to the PostgreSQL database.
 - [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) sets the CommandText property.
@@ -116,6 +122,7 @@ namespace Driver
 [Having any issues? Let us know.](https://github.com/MicrosoftDocs/azure-docs/issues)
 
 ## Step 2: Read data
+
 Use the following code to connect and read the data using a **SELECT** SQL statement. The code uses NpgsqlCommand class with method:
 - [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to PostgreSQL.
 - [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) and [ExecuteReader()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteReader) to run the database commands.
@@ -190,6 +197,7 @@ namespace Driver
 
 
 ## Step 3: Update data
+
 Use the following code to connect and update the data using an **UPDATE** SQL statement. The code uses NpgsqlCommand class with method:
 - [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to PostgreSQL.
 - [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), sets the CommandText property.
@@ -254,6 +262,7 @@ namespace Driver
 [Having any issues? Let us know.](https://github.com/MicrosoftDocs/azure-docs/issues)
 
 ## Step 4: Delete data
+
 Use the following code to connect and delete data using a **DELETE** SQL statement.
 
 The code uses NpgsqlCommand class with method [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to the PostgreSQL database. Then, the code uses the [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) method, sets the CommandText property, and calls the method [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) to run the database commands.
@@ -323,6 +332,7 @@ az group delete \
 ```
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Manage Azure Database for MySQL server using Portal](./how-to-manage-server-portal.md)<br/>
 

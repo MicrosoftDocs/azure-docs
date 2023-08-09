@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/09/2021
+ms.date: 07/20/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -116,4 +116,8 @@ The following screenshot illustrates a TOTP verification page.
 
 ## Next steps
 
+- Learn more about multifactor authentication in [Enable multifactor authentication in Azure Active Directory B2C](multi-factor-authentication.md?pivots=b2c-custom-policy)
+
 - Learn how to validate a TOTP code in [Define an Azure AD MFA technical profile](multi-factor-auth-technical-profile.md).
+
+- Explore a sample [Azure AD B2C MFA with TOTP using any Authenticator app custom policy in GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/totp).  

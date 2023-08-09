@@ -1,14 +1,14 @@
 ---
-title: Create custom roles in Azure AD role-based access control | Microsoft Docs
+title: Create custom roles in Azure AD role-based access control
 description: Create and assign custom Azure AD roles with resource scope on Azure Active Directory resources.
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 10/06/2021
+ms.date: 12/09/2022
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -33,7 +33,9 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ### Create a new custom role to grant access to manage app registrations
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Roles and administrators** > **New custom role**.
 
@@ -104,14 +106,10 @@ $roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $resourceScope -
 
 ## Create a role with the Microsoft Graph API
 
-1. Create the role definition.
-
-    HTTP request to create a custom role definition.
-
-    POST
+1. Use the [Create unifiedRoleDefinition](/graph/api/rbacapplication-post-roledefinitions) API to create a custom role.
 
     ``` HTTP
-    https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions
+    POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions
     ```
 
     Body
@@ -136,14 +134,10 @@ $roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $resourceScope -
     > [!Note]
     > The `"templateId": "GUID"` is an optional parameter that's sent in the body depending on the requirement. If you have a requirement to create multiple different custom roles with common parameters, it's best to create a template and define a `templateId` value. You can generate a `templateId` value beforehand by using the PowerShell cmdlet `(New-Guid).Guid`. 
 
-1. Create the role assignment.
-
-    HTTP request to create a custom role definition.
-
-    POST
+1. Use the [Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments) API to assign the custom role.
 
     ```http
-    https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments
+    POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments
     ```
 
     Body
@@ -160,7 +154,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $resourceScope -
 
 Like built-in roles, custom roles are assigned by default at the default organization-wide scope to grant access permissions over all app registrations in your organization. Additionally, custom roles and some relevant built-in roles (depending on the type of Azure AD resource) can also be assigned at the scope of a single Azure AD resource. This allows you to give the user the permission to update credentials and basic properties of a single app without having to create a second custom role.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) with Application Developer permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com)  with Application Developer permissions.
 
 1. Select **Azure Active Directory** > **App registrations**.
 

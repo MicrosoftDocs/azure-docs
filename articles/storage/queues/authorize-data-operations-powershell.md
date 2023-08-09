@@ -4,12 +4,12 @@ titleSuffix: Azure Storage
 description: PowerShell supports signing in with Azure AD credentials to run commands on Azure Queue Storage data. An access token is provided for the session and used to authorize calling operations. Permissions depend on the Azure role assigned to the Azure AD security principal.
 author: tamram
 services: storage
+
 ms.author: tamram
 ms.reviewer: ozgun
 ms.date: 02/10/2021
 ms.topic: how-to
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ---
 
 # Run PowerShell commands with Azure AD credentials to access queue data
@@ -81,4 +81,4 @@ The following example shows how to create a queue in a new storage account from 
 ## Next steps
 
 - [Assign an Azure role for access to queue data](assign-azure-role-data-access.md)
-- [Authorize access to blob data with managed identities for Azure resources](../blobs/authorize-managed-identity.md)
+- [Authorize access to data in Azure Storage](../common/authorize-data-access.md)

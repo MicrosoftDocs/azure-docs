@@ -3,11 +3,11 @@ title: Secure your Azure AD identity infrastructure
 titleSuffix: Azure Active Directory
 description: This document outlines a list of important actions administrators should implement to help them secure their organization using Azure AD capabilities
 
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/15/2021
+ms.date: 08/17/2022
 
 ms.author: martinco
 author: martincoetzer
@@ -18,7 +18,7 @@ tags: azuread
 ---
 # Five steps to securing your identity infrastructure
 
-If you're reading this document, you're aware of the significance of security. You likely already carry the responsibility for securing your organization. If you need to convince others of the importance of security, send them to read the latest [Microsoft Digital Defense Report](https://www.microsoft.com/security/business/microsoft-digital-defense-report).
+If you're reading this document, you're aware of the significance of security. You likely already carry the responsibility for securing your organization. If you need to convince others of the importance of security, send them to read the latest [Microsoft Digital Defense Report](https://www.microsoft.com/security/business/security-intelligence-report).
 
 This document will help you get a more secure posture using the capabilities of Azure Active Directory by using a five-step checklist to improve your organization's protection against cyber-attacks.
 
@@ -91,18 +91,20 @@ Apps using their own legacy methods to authenticate with Azure AD and access com
 
 We recommend the following actions:
 
-1.	Discover legacy authentication in your organization with Azure AD Sign-In logs and Log Analytic workbooks.
+1. Discover legacy authentication in your organization with Azure AD sign-in logs and Log Analytics workbooks.
 1. Setup SharePoint Online and Exchange Online to use modern  authentication.
-1.	If you have Azure AD Premium licenses, use Conditional Access policies to block legacy authentication. For Azure AD free tier, use Azure AD Security Defaults.
-1.	Block legacy authentication if you use AD FS.
-1.	Block Legacy Authentication with Exchange Server 2019.
-1.	Disable legacy authentication in Exchange Online.
+1. If you have Azure AD Premium licenses, use Conditional Access policies to block legacy authentication. For Azure AD free tier, use Azure AD Security Defaults.
+1. Block legacy authentication if you use AD FS.
+1. Block Legacy Authentication with Exchange Server 2019.
+1. Disable legacy authentication in Exchange Online.
 
-For more information, see the article [Blocking legacy authentication protocols in Azure AD](../../active-directory/fundamentals/concept-fundamentals-block-legacy-authentication.md).
+For more information, see the article [Blocking legacy authentication protocols in Azure AD](../../active-directory/conditional-access/block-legacy-authentication.md).
 
 ### Block invalid authentication entry points
 
 Using the verify explicitly principle, you should reduce the impact of compromised user credentials when they happen. For each app in your environment, consider the valid use cases: which groups, which networks, which devices and other elements are authorized – then block the rest. With Azure AD Conditional Access, you can control how authorized users access their apps and resources based on specific conditions you define.
+
+For more information on how to use Conditional Access for your Cloud Apps and user actions, see [Conditional Access Cloud apps, actions, and authentication context](../../active-directory/conditional-access/concept-conditional-access-cloud-apps.md). 
 
 ### Review and govern admin roles
 
@@ -130,7 +132,7 @@ Azure AD built-in and custom roles operate on concepts similar to roles found in
 
 Both systems contain similarly used role definitions and role assignments. However, Azure AD role permissions can't be used in Azure custom roles and vice versa. As part of deploying your privileged account process, follow the best practice to create at least two emergency accounts to make sure you still have access to Azure AD if you lock yourself out.
 
-For more information, see the article [Plan a Privileged Identity Management deployment](../../active-directory/privileged-identity-management/pim-deployment-plan.md).
+For more information, see the article [Plan a Privileged Identity Management deployment](../../active-directory/privileged-identity-management/pim-deployment-plan.md) and [securing privileged access](/security/compass/overview).
 
 ### Restrict user consent operations
 
@@ -140,7 +142,7 @@ Microsoft recommends restricting user consent to allow end-user consent only for
 
 Make sure users can request admin approval for new applications to reduce user friction, minimize support volume, and prevent users from signing up for applications using non-Azure AD credentials. Once you regulate your consent operations, administrators should audit app and consent permissions regularly.
 
-For more information, see the article [Azure Active Directory consent framework(../../active-directory/develop/consent-framework.md).
+For more information, see the article [Azure Active Directory consent framework](../../active-directory/develop/consent-framework.md).
 
 ## Step 3 - Automate threat response
 
@@ -248,6 +250,6 @@ We appreciate how seriously you take security and hope this document is a useful
 
 ## Next steps
 
-If you need assistance to plan and deploy the recommendations, refer to the [Azure AD project deployment plans](../../active-directory/fundamentals/active-directory-deployment-plans.md) for help.
+If you need assistance to plan and deploy the recommendations, refer to the [Azure AD project deployment plans](../../active-directory/fundamentals/deployment-plans.md) for help.
 
 If you're confident all these steps are complete, use Microsoft’s [Identity Secure Score](../../active-directory/fundamentals/identity-secure-score.md), which will keep you up to date with the [latest best practices](identity-management-best-practices.md) and security threats.

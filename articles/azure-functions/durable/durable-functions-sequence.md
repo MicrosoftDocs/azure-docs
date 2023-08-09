@@ -3,16 +3,19 @@ title: Function chaining in Durable Functions - Azure
 description: Learn how to run a Durable Functions sample that executes a sequence of functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 02/08/2022
+ms.date: 06/16/2022
 ms.author: azfuncdf
 ms.devlang: csharp, javascript, python
+ms.custom: devx-track-js
 ---
 
 # Function chaining in Durable Functions - Hello sequence sample
 
-Function chaining refers to the pattern of executing a sequence of functions in a particular order. Often the output of one function needs to be applied to the input of another function. This article describes the chaining sequence that you create when you complete the Durable Functions quickstart ([C#](durable-functions-create-first-csharp.md),  [JavaScript](quickstart-js-vscode.md), or [Python](quickstart-python-vscode.md)). For more information about Durable Functions, see [Durable Functions overview](durable-functions-overview.md).
+Function chaining refers to the pattern of executing a sequence of functions in a particular order. Often the output of one function needs to be applied to the input of another function. This article describes the chaining sequence that you create when you complete the Durable Functions quickstart ([C#](durable-functions-create-first-csharp.md),  [JavaScript](quickstart-js-vscode.md), [TypeScript](quickstart-ts-vscode.md), [Python](quickstart-python-vscode.md), [PowerShell](quickstart-powershell-vscode.md), or [Java](quickstart-java.md)). For more information about Durable Functions, see [Durable Functions overview](durable-functions-overview.md).
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
+
+[!INCLUDE [functions-nodejs-durable-model-description](../../../includes/functions-nodejs-durable-model-description.md)]
 
 ## The functions
 
@@ -32,16 +35,13 @@ All C# orchestration functions must have a parameter of type `DurableOrchestrati
 
 The code calls `E1_SayHello` three times in sequence with different parameter values. The return value of each call is added to the `outputs` list, which is returned at the end of the function.
 
-# [JavaScript](#tab/javascript)
-
-> [!NOTE]
-> JavaScript Durable Functions are available for the Functions 3.0 runtime only.
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 #### function.json
 
 If you use Visual Studio Code or the Azure portal for development, here's the content of the *function.json* file for the orchestrator function. Most orchestrator *function.json* files look almost exactly like this.
 
-[!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/function.json)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/E1_HelloSequence/function.json":::
 
 The important thing is the `orchestrationTrigger` binding type. All orchestrator functions must use this trigger type.
 
@@ -52,7 +52,7 @@ The important thing is the `orchestrationTrigger` binding type. All orchestrator
 
 Here is the orchestrator function:
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/E1_HelloSequence/index.js":::
 
 All JavaScript orchestration functions must include the [`durable-functions` module](https://www.npmjs.com/package/durable-functions). It's a library that enables you to write Durable Functions in JavaScript. There are three significant differences between an orchestrator function and other JavaScript functions:
 
@@ -61,6 +61,19 @@ All JavaScript orchestration functions must include the [`durable-functions` mod
 3. The function must be synchronous. Because the 'orchestrator' method handles the final call to 'context.done', the function should simply 'return'.
 
 The `context` object contains a `df` durable orchestration context object that lets you call other *activity* functions and pass input parameters using its `callActivity` method. The code calls `E1_SayHello` three times in sequence with different parameter values, using `yield` to indicate the execution should wait on the async activity function calls to be returned. The return value of each call is added to the `outputs` array, which is returned at the end of the function.
+
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+:::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/sayHello.js" range="1-14":::
+
+All JavaScript orchestration functions must include the [`durable-functions` module](https://www.npmjs.com/package/durable-functions). This module enables you to write Durable Functions in JavaScript. To use the V4 node programming model, you need to install the preview `v3.x` version of `durable-functions`. 
+
+There are two significant differences between an orchestrator function and other JavaScript functions:
+
+1. The orchestrator function is a [generator function](/scripting/javascript/advanced/iterators-and-generators-javascript).
+2. The function must be synchronous. The function should simply 'return'.
+
+The `context` object contains a `df` durable orchestration context object that lets you call other *activity* functions and pass input parameters using its `callActivity` method. The code calls `sayHello` three times in sequence with different parameter values, using `yield` to indicate the execution should wait on the async activity function calls to be returned. The return value of each call is added to the `outputs` array, which is returned at the end of the function.
 
 # [Python](#tab/python)
 
@@ -108,13 +121,13 @@ Instead of binding to an `IDurableActivityContext`, you can bind directly to the
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=34-38)]
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 #### E1_SayHello/function.json
 
 The *function.json* file for the activity function `E1_SayHello` is similar to that of `E1_HelloSequence` except that it uses an `activityTrigger` binding type instead of an `orchestrationTrigger` binding type.
 
-[!code-json[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/function.json)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/E1_SayHello/function.json":::
 
 > [!NOTE]
 > All activity functions called by an orchestration function must use the `activityTrigger` binding.
@@ -123,9 +136,18 @@ The implementation of `E1_SayHello` is a relatively trivial string formatting op
 
 #### E1_SayHello/index.js
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/E1_SayHello/index.js":::
 
 Unlike the orchestration function, an activity function needs no special setup. The input passed to it by the orchestrator function is located on the `context.bindings` object under the name of the `activityTrigger` binding - in this case, `context.bindings.name`. The binding name can be set as a parameter of the exported function and accessed directly, which is what the sample code does.
+
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+The implementation of `sayHello` is a relatively trivial string formatting operation.
+
+:::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/sayHello.js" range="1-4, 37-41":::
+
+Unlike the orchestration function, an activity function needs no special setup. The input passed to it by the orchestrator function is the first argument to the function. The second argument is the invocation context, which is not used in this example.
+
 
 # [Python](#tab/python)
 
@@ -158,19 +180,27 @@ You can start an instance of orchestrator function using a client function. You 
 
 To interact with orchestrators, the function must include a `DurableClient` input binding. You use the client to start an orchestration. It can also help you return an HTTP response containing URLs for checking the status of the new orchestration.
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 #### HttpStart/function.json
 
-[!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json?highlight=16-20)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/HttpStart/function.json?highlight=16-20":::
 
 To interact with orchestrators, the function must include a `durableClient` input binding.
 
 #### HttpStart/index.js
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/HttpStart/index.js":::
 
 Use `df.getClient` to obtain a `DurableOrchestrationClient` object. You use the client to start an orchestration. It can also help you return an HTTP response containing URLs for checking the status of the new orchestration.
+
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+:::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/httpStart.js":::
+
+To manage and interact with orchestrators, the function needs a `durableClient` input binding. This binding needs to be specified in the `extraInputs` argument when registering the function. A `durableClient` input can be obtained by calling `df.input.durableClient()`.
+
+Use `df.getClient` to obtain a `DurableClient` object. You use the client to start an orchestration. It can also help you return an HTTP response containing URLs for checking the status of the new orchestration.
 
 # [Python](#tab/python)
 

@@ -1,12 +1,13 @@
 ---
 title: Set up VMware disaster recovery to Azure in a multi-tenancy environment using Site Recovery and the Cloud Solution Provider (CSP) program | Microsoft Docs
 description: Describes how to set up VMware disaster recovery in a multi-tenant environment with Azure Site Recovery.
-author: mayurigupta13
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: mayg
+ms.date: 04/03/2022
+ms.custom: subject-rbac-steps, engagement-fy23
 ---
 
 # Set up VMware disaster recovery in a multi-tenancy environment with the Cloud Solution Provider (CSP) program
@@ -61,24 +62,38 @@ You can now perform and manage all Site Recovery operations for the tenant in th
 
 1. Ensure that the disaster recovery infrastructure is set up. Partners access tenant subscriptions through the CSP portal, regardless of whether disaster recovery is managed or self-service. Set up the vault and register infrastructure to the tenant subscriptions.
 1. Provide the tenant with the [account you created](#create-a-tenant-account).
-1. You can add a new user to the tenant subscription through the CSP portal as follows:
 
-    1. Go to the tenant’s CSP subscription page, and then select the **Users and licenses** option.
+You can add a new user to the tenant subscription through the CSP portal as follows:
 
-       ![The tenant's CSP subscription page](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
+1. Go to the tenant’s CSP subscription page, and then select the **Users and licenses** option.
 
-	1. Now create a new user by entering the relevant details and selecting permissions, or by uploading the list of users in a CSV file.
+    ![The tenant's CSP subscription page](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
 
-    1. After you've created a new user, go back to the Azure portal. In the **Subscription** page, select the relevant subscription.
+1. Create a new user by entering the relevant details and selecting permissions, or by uploading the list of users in a CSV file.
 
-    1. Select **Access control (IAM)**, and then click **Role assignments**.
+1. After you've created a new user, go back to the Azure portal. 
 
-    1. Click **Add role assignment** to add a user with the relevant access level. The users that were created through the CSP portal are displayed on the Role assignments tab.
+The following steps describe how to assign a role to a user. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-        ![Add a user](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
+1. In the **Subscription** page, select the relevant subscription.
 
-- For most management operations, the *Contributor* role is sufficient. Users with this access level can do everything on a subscription except change access levels (for which *Owner*-level access is required).
-- Site Recovery also has three [predefined user roles](site-recovery-role-based-linked-access-control.md), that can be used to further restrict access levels as required.
+1. In the navigation menu, select **Access control (IAM)**.
+
+1. Select **Add** > **Add role assignment**.
+
+   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+
+1. On the **Role** tab, select a role.
+
+    For most management operations, the *Contributor* role is sufficient. Users with this access level can do everything on a subscription except change access levels (for which *Owner*-level access is required).
+
+    Site Recovery also has three [predefined user roles](site-recovery-role-based-linked-access-control.md), that can be used to further restrict access levels as required.
+
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-role-generic.png" alt-text="Screenshot that shows Add role assignment page with the Role tab selected.":::
+
+1. On the **Members** tab, select **User, group, or service principal**, and then select a user with the relevant access level. The users that were created through the CSP portal are displayed here.
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 ## Multi-tenant environments
 

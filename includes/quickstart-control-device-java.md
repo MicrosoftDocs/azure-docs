@@ -6,7 +6,7 @@ services: iot-hub
 ms.devlang: java
 ms.topic: include
 ms.custom: [mvc, seo-java-august2019, seo-java-september2019, mqtt, devx-track-java, devx-track-azurecli]
-ms.date: 03/10/2022
+ms.date: 01/31/2023
 ---
 
 This quickstart uses two Java applications: 
@@ -36,47 +36,19 @@ This quickstart uses two Java applications:
 
 * Clone or download the [Azure IoT Java samples](https://github.com/Azure-Samples/azure-iot-samples-java/) from GitHub.
 
-* Make sure that port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../articles/iot-hub/iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Make sure that port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../articles/iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](iot-hub-cli-version-info.md)]
 
-[!INCLUDE [iot-hub-include-create-hub](iot-hub-include-create-hub-quickstart.md)]
+## Create an IoT hub
+
+[!INCLUDE [iot-hub-include-create-hub-cli](iot-hub-include-create-hub-cli.md)]
 
 ## Register a device
 
-A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure Cloud Shell to create a device identity.
-
-If you already have a device registered in your IoT hub, you can skip this section.
-
-1. Run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command in Azure Cloud Shell to create the device identity.
-
-   **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
-
-   **MyJavaDevice**: This is the name of the device you're registering. It's recommended to use **MyJavaDevice** as shown. If you choose a different name for your device, you also need to use that name throughout this article, and update the device name in the sample applications before you run them.
-
-    ```azurecli-interactive
-    az iot hub device-identity create \
-      --hub-name {YourIoTHubName} --device-id MyJavaDevice
-    ```
-
-2. Run the [az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az-iot-hub-device-identity-connection-string-show) command in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
-
-   **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
-
-    ```azurecli-interactive
-    az iot hub device-identity connection-string show\
-      --hub-name {YourIoTHubName} \
-      --device-id MyJavaDevice \
-      --output table
-    ```
-
-    Make a note of the device connection string, which looks like:
-
-   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
-
-    You use this value later in the quickstart.
+[!INCLUDE [iot-hub-include-create-device-cli](iot-hub-include-create-device-cli.md)]
 
 ## Retrieve the service connection string
 
@@ -85,7 +57,7 @@ You also need a _service connection string_ to enable the back-end application t
 **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
 ```azurecli-interactive
-az iot hub connection-string show --policy-name service --name {YourIoTHubName} --output table
+az iot hub connection-string show --policy-name service --hub-name {YourIoTHubName} --output table
 ```
 
 Make a note of the service connection string, which looks like:

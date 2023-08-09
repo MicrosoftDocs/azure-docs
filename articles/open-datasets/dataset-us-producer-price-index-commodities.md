@@ -1,11 +1,8 @@
 ---
 title: US Producer Price Index - Commodities
-titleSuffix: Azure Open Datasets
 description: Learn how to use the US Producer Price Index - Commodities dataset in Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: sample
-author: peterclu
-ms.author: peterlu
 ms.date: 04/16/2021
 ---
 

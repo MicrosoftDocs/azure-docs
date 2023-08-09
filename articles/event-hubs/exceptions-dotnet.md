@@ -10,10 +10,9 @@ ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-dotnet
 ms.date: 09/23/2021
 ms.author: spelluru
-
 ---
 
 # EventHubsException - .NET
@@ -39,7 +38,7 @@ try
 {
     // Read events using the consumer client
 }
-catch (EventHubsException ex) where 
+catch (EventHubsException ex) when 
     (ex.Reason == EventHubsException.FailureReason.ConsumerDisconnected)
 {
     // Take action based on a consumer being disconnected

@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: azure-import-export
 ms.topic: conceptual
-ms.date: 03/14/2022
+ms.date: 05/19/2022
 ms.author: alkohli
 ---
 # Azure Import/Export system requirements
@@ -31,6 +31,9 @@ To prepare the hard drives using the WAImportExport tool, the following **64-bit
 
 
 ## Supported storage accounts
+
+> [!Note]
+> Classic storage accounts will not be supported starting **August 1, 2023**.
 
 Azure Import/Export service supports the following types of storage accounts:
 
@@ -75,11 +78,28 @@ The following list of disks is supported for use with the Import/Export service.
 
 <sup>*</sup>An HDD must have 512-byte sectors; 4096-byte (4K) sectors are not supported.
 
+If you use Advanced Format (or 512e) drive and connect the drive to the system using USB to SATA Hard Drive adapter, make sure that the system sees the logical sector size as 512. If the drive reports 4096 logical sector size, choose one of these options:
+
+- Use direct SATA connection to prepare the drive.
+- Use USB to SATA hard drive adapter that reports logical sector size as 512 for advanced format drives.
+ 
+
+To check the logical sector size that the disk reports, run the following commands:
+1. Run PowerShell as Administrator.
+1. To identify the disk drive number, run `Get-disk` cmdlet. Make a note of the number of the USB connected drive.
+1. To see the logical sector size on this disk, run the following command:
+
+    `Get-Disk -number <Enter Disk Number> | fl *`
+
+### Unsupported disks
+
 The following disk types are not supported:
 
 - USBs.
 - External HDD with built-in USB adaptor.
 - Disks that are inside the casing of an external HDD.
+
+### Using multiple disks
 
 A single import/export job can have:
 

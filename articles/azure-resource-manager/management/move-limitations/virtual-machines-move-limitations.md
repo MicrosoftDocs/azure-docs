@@ -2,13 +2,15 @@
 title: Move Azure VMs to new subscription or resource group
 description: Use Azure Resource Manager to move virtual machines to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 02/28/2022 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.date: 03/31/2022 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 
-# Move guidance for virtual machines
+# Move virtual machines to resource group or subscription
 
-This article describes the scenarios that aren't currently supported and the steps to move virtual machines with backup.
+This article describes how to move a virtual machine to a new resource group or Azure subscription. 
+
+If you want to move a virtual machine to a new region, see [Tutorial: Move Azure VMs across regions](../../../resource-mover/tutorial-move-region-virtual-machines.md).
 
 ## Scenarios not supported
 
@@ -22,7 +24,9 @@ The following scenarios aren't yet supported:
 
 ## Azure disk encryption
 
-You can't move a virtual machine that is integrated with a key vault to implement [Azure Disk Encryption for Linux VMs](../../../virtual-machines/linux/disk-encryption-overview.md) or [Azure Disk Encryption for Windows VMs](../../../virtual-machines/windows/disk-encryption-overview.md). To move the VM, you must disable encryption.
+A virtual machine that is integrated with a key vault to implement [Azure Disk Encryption for Linux VMs](../../../virtual-machines/linux/disk-encryption-overview.md) or [Azure Disk Encryption for Windows VMs](../../../virtual-machines/windows/disk-encryption-overview.md) can be moved to another resource group when it is in deallocated state. 
+
+However, to move such virtual machine to another subscription, you must disable encryption.
 
 # [Azure CLI](#tab/azure-cli)
 

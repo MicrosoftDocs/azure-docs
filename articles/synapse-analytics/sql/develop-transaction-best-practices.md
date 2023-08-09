@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: emtehran   
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ---
 
 # Optimize transactions with dedicated SQL pool in Azure Synapse Analytics 

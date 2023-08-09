@@ -1,9 +1,9 @@
 ---
-title: Device implementation in Azure IoT Central | Microsoft Docs
+title: Device implementation
 description: This article introduces the key concepts and best practices for implementing a device that connects to your IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/04/2022
+ms.date: 06/06/2023
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -25,20 +25,23 @@ Devices that connect to IoT Central should follow the _IoT Plug and Play convent
 
 An IoT Central device template includes a _model_ that specifies the behaviors a device of that type should implement. Behaviors include telemetry, properties, and commands.
 
-Each model has a unique _device twin model identifier_ (DTMI), such as `dtmi:com:example:Thermostat;1`. When a device connects to IoT Central, it sends the DTMI of the model it implements. IoT Central can then assign the correct device template to the device.
+Each model has a unique _digital twin model identifier_ (DTMI), such as `dtmi:com:example:Thermostat;1`. When a device connects to IoT Central, it sends the DTMI of the model it implements. IoT Central can then assign the correct device template to the device.
 
-[IoT Plug and Play](../../iot-develop/overview-iot-plug-and-play.md) defines a set of [conventions](../../iot-develop/concepts-convention.md) that a device should follow when it implements a DTDL model.
+[IoT Plug and Play](../../iot-develop/overview-iot-plug-and-play.md) defines a set of [conventions](../../iot-develop/concepts-convention.md) that a device should follow when it implements a Digital Twin Definition Language (DTDL) model.
 
 The [Azure IoT device SDKs](#device-sdks) include support for the IoT Plug and Play conventions.
 
 ### Device model
 
-A device model is defined by using the [DTDL](https://github.com/Azure/opendigitaltwins-dtdl) modeling language. This language lets you define:
+A device model is defined by using the [DTDL V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) modeling language. This language lets you define:
 
 - The telemetry the device sends. The definition includes the name and data type of the telemetry. For example, a device sends temperature telemetry as a double.
 - The properties the device reports to IoT Central. A property definition includes its name and data type. For example, a device reports the state of a valve as a Boolean.
 - The properties the device can receive from IoT Central. Optionally, you can mark a property as writable. For example, IoT Central sends a target temperature as a double to a device.
 - The commands a device responds to. The definition includes the name of the command, and the names and data types of any parameters. For example, a device responds to a reboot command that specifies how many seconds to wait before rebooting.
+
+> [!NOTE]
+> IoT Central defines some extensions to the DTDL v2 language. To learn more, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
 
 A DTDL model can be a _no-component_ or a _multi-component_ model:
 
@@ -46,9 +49,9 @@ A DTDL model can be a _no-component_ or a _multi-component_ model:
 - Multi-component model. A more complex model that includes two or more components. These components include a single root component, and one or more nested components. For an example, see the [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) model.
 
 > [!TIP]
-> You can export the model from an IoT Central device template as a [Digital Twins Definition Language (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl) JSON file.
+> You can [import and export a complete device model or individual interface](howto-set-up-template.md#interfaces-and-components) from an IoT Central device template as a DTDL v2 file.
 
-To learn more, see [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md)
+To learn more about device models, see the [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md)
 
 ### Conventions
 
@@ -62,9 +65,9 @@ A device should follow the IoT Plug and Play conventions when it exchanges data 
 > [!NOTE]
 > Currently, IoT Central does not fully support the DTDL **Array** and **Geospatial** data types.
 
-To learn more about the format of the JSON messages that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
-
 To learn more about the IoT Plug and Play conventions, see [IoT Plug and Play conventions](../../iot-develop/concepts-convention.md).
+
+To learn more about the format of the JSON messages that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](../../iot-develop/concepts-message-payloads.md).
 
 ### Device SDKs
 
@@ -94,6 +97,16 @@ Communication protocols that a device can use to connect to IoT Central include 
 
 If your device can't use any of the supported protocols, use Azure IoT Edge to do protocol conversion. IoT Edge supports other intelligence-on-the-edge scenarios to offload processing from the Azure IoT Central application.
 
+## Telemetry timestamps
+
+By default, IoT Central uses the message enqueued time when it displays telemetry on dashboards and charts. Message enqueued time is set internally when IoT Central receives the message from the device.
+
+A device can set the `iothub-creation-time-utc` property when it creates a message to send to IoT Central. If this property is present, IoT Central uses it when it displays telemetry on dashboards and charts.
+
+You can export both the enqueued time and the `iothub-creation-time-utc` property when you export telemetry from your IoT Central application.
+
+To learn more about message properties, see [System Properties of device-to-cloud IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-d2c-iot-hub-messages).
+
 ## Best practices
 
 These recommendations show how to implement devices to take advantage of the [built-in high availability, disaster recovery, and automatic scaling](concepts-faq-scalability-availability.md) in IoT Central.
@@ -115,6 +128,8 @@ If the device gets any of the following errors when it connects, it should use a
 
 To learn more about device error codes, see [Troubleshooting device connections](troubleshoot-connection.md).
 
+To learn more about implementing automatic reconnections, see [Manage device reconnections to create resilient applications](../../iot-develop/concepts-manage-device-reconnections.md).
+
 ### Test failover capabilities
 
 The Azure CLI lets you test the failover capabilities of your device code. The CLI command works by temporarily switching a device registration to a different internal IoT hub. To verify the device failover worked, check that the device still sends telemetry and responds to commands.
@@ -131,7 +146,7 @@ az iot central device manual-failover \
 > [!TIP]
 > To find the **Application ID**, navigate to **Application > Management** in your IoT Central application.
 
-If the command succeeds, you see output that looks like the following:
+If the command succeeds, you see output that looks like the following example:
 
 ```output
 Command group 'iot central device' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus

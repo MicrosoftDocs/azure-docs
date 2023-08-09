@@ -1,19 +1,20 @@
 ---
 title: Azure Policy extension for Visual Studio Code
 description: Learn how to use the Azure Policy extension for Visual Studio Code to look up Azure Resource Manager aliases.
-ms.date: 09/01/2021
+ms.date: 04/12/2022
 ms.topic: how-to
+ms.custom: timwarner, devx-track-arm-template
 ---
 # Use Azure Policy extension for Visual Studio Code
 
 > Applies to Azure Policy extension version **0.1.2** and newer
 
-Learn how to use the Azure Policy extension for Visual Studio Code to look up
+Learn how to use the Azure Policy extension for Visual Studio Code (VS Code) to look up
 [aliases](../concepts/definition-structure.md#aliases), review resources and policy definitions,
 export objects, and evaluate policy definitions. First, we'll describe how to install the Azure
 Policy extension in Visual Studio Code. Then we'll walk through how to look up aliases.
 
-The Azure Policy extension for Visual Studio Code can be installed on Linux, Mac, and Windows.
+The Azure Policy extension for Visual Studio Code can be installed on Linux, macOS, and Windows.
 
 ## Prerequisites
 
@@ -25,7 +26,7 @@ The following items are required for completing the steps in this article:
 
 ## Install and configure the Azure Policy extension
 
-After you meet the prerequisites, you can install Azure Policy extension for Visual Studio Code by
+After you meet the prerequisites, you can install the [Azure Policy extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=AzurePolicy.azurepolicyextension) by
 following these steps:
 
 1. Open Visual Studio Code.
@@ -36,7 +37,7 @@ following these steps:
 
 For a national cloud user, follow these steps to set the Azure environment first:
 
-1. Select **File\Preferences\Settings**.
+1. Select **File** > **Preferences** > **Settings**.
 1. Search on the following string: _Azure: Cloud_
 1. Select the nation cloud from the list:
 
@@ -78,7 +79,7 @@ definitions, follow these steps:
 
 1. Start the subscription command from the Command Palette or the window footer.
 
-   - Command Palette:
+   - Command Palette
 
      From the menu bar, go to **View** > **Command Palette**, and enter **Azure: Select
      Subscriptions**.
@@ -95,7 +96,7 @@ definitions, follow these steps:
 ### Search for and view resources
 
 The Azure Policy extension lists resources in the selected subscriptions by Resource Provider and by
-resource group in the **Resources** pane. The treeview includes the following groupings of resources
+resource group in the **Resources** pane. The tree view includes the following groupings of resources
 within the selected subscription or at the subscription level:
 
 - **Resource Providers**
@@ -119,7 +120,7 @@ resource with the following steps:
      From the Azure Policy extension, hover over the **Resources** panel and select the ellipsis,
      then select **Search Resources**.
 
-   - Command Palette:
+   - Command Palette
 
      From the menu bar, go to **View** > **Command Palette**, and enter **Azure Policy: Search
      Resources**.
@@ -136,7 +137,7 @@ resource with the following steps:
 ### Discover aliases for resource properties
 
 When a resource is selected, whether through the search interface or by selecting it in the
-treeview, the Azure Policy extension opens the JSON file representing that resource and all its
+tree view, the Azure Policy extension opens the JavaScript Object Notation (JSON) file representing that resource and all its
 Azure Resource Manager property values.
 
 Once a resource is open, hovering over the Resource Manager property name or value displays the
@@ -153,7 +154,7 @@ matching aliases.
 
 ### Search for and view policy definitions and assignments
 
-The Azure Policy extension lists policy types and policy assignments as a treeview for the
+The Azure Policy extension lists policy types and policy assignments as a tree view for the
 subscriptions selected to be displayed in the **Policies** pane. Customers with hundreds or
 thousands of policy definitions or assignments in a single subscription may prefer a searchable way
 to locate their policy definitions or assignments. The Azure Policy extension makes it possible to
@@ -166,7 +167,7 @@ search for a specific policy or assignment with the following steps:
      From the Azure Policy extension, hover over the **Policies** panel and select the ellipsis,
      then select **Search Policies**.
 
-   - Command Palette:
+   - Command Palette
 
      From the menu bar, go to **View** > **Command Palette**, and enter **Azure Policy: Search
      Policies**.
@@ -181,7 +182,7 @@ search for a specific policy or assignment with the following steps:
    policy definition or policy assignment.
 
 When selecting a policy or assignment, whether through the search interface or by selecting it in
-the treeview, the Azure Policy extension opens the JSON that represents the policy or assignment and
+the tree view, the Azure Policy extension opens the JSON that represents the policy or assignment and
 all its Resource Manager property values. The extension can validate the opened Azure Policy JSON
 schema.
 
@@ -254,7 +255,7 @@ example:
 
 The VS Code extension can create a policy definition from an existing
 [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) GateKeeper v3
-[constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates). The YAML
+[constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates). The YAML Ain't Markup Language (YAML)
 file must be open in VS Code for the Command Palette to be an option.
 
 1. Open a valid OPA GateKeeper v3 constraint template YAML file.
@@ -278,8 +279,8 @@ From the menu bar, go to **View** > **Command Palette**, and then enter **Azure:
 ## Next steps
 
 - Review examples at [Azure Policy samples](../samples/index.md).
-- Review the [Azure Policy definition structure](../concepts/definition-structure.md).
-- Review [Understanding policy effects](../concepts/effects.md).
+- Study the [Azure Policy definition structure](../concepts/definition-structure.md).
+- Read [Understanding policy effects](../concepts/effects.md).
 - Understand how to [programmatically create policy definitions](programmatically-create.md).
 - Learn how to [remediate non-compliant resources](remediate-resources.md).
-- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).
+- Grasp what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

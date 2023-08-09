@@ -6,8 +6,8 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 10/27/2020
-ms.author: cynthn
+ms.date: 12/12/2022
+ms.author: mattmcinnes
 ms.reviewer: olayemio 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -18,12 +18,12 @@ ms.devlang: azurecli
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-You can export the OS or a single data disk from an image version as a managed disk from an image version stored in an Azure Compute Gallery (formerly known as Shared Image Gallery).
+You can export an image version's OS or data disk as a managed disk from an image version, which is stored in an Azure Compute Gallery (formerly known as Shared Image Gallery).
 
 
 ## CLI
 
-List the image versions in a gallery using [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list). In this example, we are looking for all of the image versions that are part of the *myImageDefinition* image definition in the *myGallery* gallery.
+List the image versions in a gallery using [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list). In this example, we're looking for all of the image versions that are part of the *myImageDefinition* image definition in the *myGallery* gallery.
 
 ```azurecli-interactive
 az sig image-version list \
@@ -45,7 +45,7 @@ az disk create --resource-group myResourceGroup --location EastUS --name myManag
 
 
 
-If you want to export a data disk from the image version, add `--gallery-image-reference-lun` to specify the LUN location of the data disk to export. 
+If you want to export a data disk from the image version, add `--gallery-image-reference-lun` to specify the LUN location of the data disk to be exported. 
 
 In this example, we export the data disk located at LUN 0 of the image version to create a managed disk named *myManagedDataDisk*, in the *EastUS* region, in a resource group named *myResourceGroup*. 
 
@@ -65,7 +65,7 @@ Get-AzResource `
    Format-Table -Property Name,ResourceId,ResourceGroupName
 ```
 
-Once you have all of the information you need, you can use [Get-AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion) to get the source image version you want to use and assign it to a variable. In this example, we are getting the `1.0.0` image version, of the `myImageDefinition` definition, in the `myGallery` source gallery, in the `myResourceGroup` resource group.
+Once you have all of the information you need, you can use [Get-AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion) to get the source image version you want to use and assign it to a variable. In this example, we're getting the `1.0.0` image version, of the `myImageDefinition` definition, in the `myGallery` source gallery, in the `myResourceGroup` resource group.
 
 ```azurepowershell-interactive
 $sourceImgVer = Get-AzGalleryImageVersion `
@@ -75,7 +75,7 @@ $sourceImgVer = Get-AzGalleryImageVersion `
    -Name 1.0.0
 ```
 
-After setting the `source` variable to the ID of the image version, use [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) to create a disk configuration and [New-AzDisk](/powershell/module/az.compute/new-azdisk) to create the disk. 
+After setting the `source` variable to the ID of the image version, use [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) to create a disk configuration, then [New-AzDisk](/powershell/module/az.compute/new-azdisk) to create the disk. 
 
 In this example, we export the OS disk of the image version to create a managed disk named *myManagedOSDisk*, in the *EastUS* region, in a resource group named *myResourceGroup*. 
 

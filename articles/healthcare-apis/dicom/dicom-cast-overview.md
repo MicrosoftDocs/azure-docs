@@ -1,15 +1,18 @@
 ---
 title:  DICOMcast overview - Azure Health Data Services
 description: In this article, you'll learn the concepts of DICOMcast.
-author: aersoy
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/22/2022
-ms.author: aersoy
+ms.date: 06/03/2022
+ms.author: mmitrik
 ---
 
 # DICOMcast overview
+
+> [!NOTE]
+> On **July 31, 2023** DICOMcast will be retired.  DICOMcast will continue to be available as an open-source component that can be self-hosted.  For more information about deploying the DICOMcast service, see the [migration guidance](https://aka.ms/dicomcast-migration).
 
 DICOMcast offers customers the ability to synchronize the data from a DICOM service to a [FHIR service](../../healthcare-apis/fhir/overview.md), which allows healthcare organizations to integrate clinical and imaging data. DICOMcast expands the use cases for health data by supporting both a streamlined view of longitudinal patient data and the ability to effectively create cohorts for medical studies, analytics, and machine learning.
 
@@ -87,7 +90,7 @@ DICOM has different date time VR types. Some tags (like Study and Series) have t
 
 ## Summary
 
-In this concept, we reviewed the architecture and mappings of DICOMcast. This feature is available on demand. To enable DICOMcast for your Azure subscription, please request access for DICOMcast by opening an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). For more information about requesting access to DICOMcast, see [DICOMcast request access](dicom-cast-access-request.md). 
+In this concept, we reviewed the architecture and mappings of DICOMcast. This feature is available as an open-source component that can be self-hosted.  For more information about deploying the DICOMcast service, see the [deployment instructions](https://github.com/microsoft/dicom-server/blob/main/docs/quickstarts/deploy-dicom-cast.md).
 
 > [!IMPORTANT]
 > Ensure that you include the **resource IDs** of your DICOM service and FHIR service when you submit a support ticket. 
@@ -102,3 +105,5 @@ To get started using the DICOM service, see
 
 >[!div class="nextstepaction"]
 >[Using DICOMweb&trade;Standard APIs with DICOM service](dicomweb-standard-apis-with-dicom-services.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

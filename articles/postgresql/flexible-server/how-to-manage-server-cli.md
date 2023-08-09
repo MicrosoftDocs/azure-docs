@@ -3,15 +3,17 @@ title: Manage server - Azure CLI - Azure Database for PostgreSQL - Flexible Serv
 description: Learn how to manage an Azure Database for PostgreSQL - Flexible Server from the Azure CLI.
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.author: sumuth
-author: mksuni
+ms.custom: devx-track-azurecli
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.topic: how-to
 ms.date: 11/30/2021
 ---
 
 # Manage an Azure Database for PostgreSQL - Flexible Server by using the Azure CLI
 
-
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This article shows you how to manage your flexible server deployed in Azure. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
 
@@ -37,6 +39,9 @@ az account set --subscription <subscription id>
 > If you haven't created a flexible server yet, you'll need to do so to follow this how-to guide.
 
 ## Scale compute and storage
+
+> [!IMPORTANT]
+> To scale the storage or compute, you must have at minimum READ permission on the owning resource group. 
 
 You can easily scale up your compute tier, vCores, and storage by using the following command. For a list of all the server operations you can run, see the [az postgres flexible-server](/cli/azure/postgres/flexible-server) overview.
 

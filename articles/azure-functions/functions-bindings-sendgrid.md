@@ -3,7 +3,7 @@ title: Azure Functions SendGrid bindings
 description: Azure Functions SendGrid bindings reference.
 ms.topic: reference
 ms.devlang: csharp, java, javascript, python
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 03/04/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -26,7 +26,7 @@ Functions execute in the same process as the Functions host. To learn more, see 
 
 # [Isolated process](#tab/isolated-process)
 
-Functions execute in an isolated C# worker process. To learn more, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
 # [C# script](#tab/csharp-script)
 
@@ -50,7 +50,7 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 # [Functions v1.x](#tab/functionsv1/isolated-process)
 
-Functions 1.x doesn't support running in an isolated process.
+Functions 1.x doesn't support running in an isolated worker process.
 
 # [Functions v2.x+](#tab/functionsv2/csharp-script)
 
@@ -84,7 +84,7 @@ You can add the extension to your project by explicitly installing the [NuGet pa
 ## Example
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+[!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
 # [In-process](#tab/in-process)    
 
@@ -103,13 +103,13 @@ public static void Run(
     [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
     [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] out SendGridMessage message)
 {
-var emailObject = JsonSerializer.Deserialize<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
+    var emailObject = JsonSerializer.Deserialize<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
 
-message = new SendGridMessage();
-message.AddTo(emailObject.To);
-message.AddContent("text/html", emailObject.Body);
-message.SetFrom(new EmailAddress(emailObject.From));
-message.SetSubject(emailObject.Subject);
+    message = new SendGridMessage();
+    message.AddTo(emailObject.To);
+    message.AddContent("text/html", emailObject.Body);
+    message.SetFrom(new EmailAddress(emailObject.From));
+    message.SetSubject(emailObject.Subject);
 }
 
 public class OutgoingEmail
@@ -135,23 +135,23 @@ public static async Task Run(
  [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
  [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] IAsyncCollector<SendGridMessage> messageCollector)
 {
- var emailObject = JsonSerializer.Deserialize<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
+    var emailObject = JsonSerializer.Deserialize<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
 
- var message = new SendGridMessage();
- message.AddTo(emailObject.To);
- message.AddContent("text/html", emailObject.Body);
- message.SetFrom(new EmailAddress(emailObject.From));
- message.SetSubject(emailObject.Subject);
+    var message = new SendGridMessage();
+    message.AddTo(emailObject.To);
+    message.AddContent("text/html", emailObject.Body);
+    message.SetFrom(new EmailAddress(emailObject.From));
+    message.SetSubject(emailObject.Subject);
  
- await messageCollector.AddAsync(message);
+    await messageCollector.AddAsync(message);
 }
 
 public class OutgoingEmail
 {
- public string To { get; set; }
- public string From { get; set; }
- public string Subject { get; set; }
- public string Body { get; set; }
+    public string To { get; set; }
+    public string From { get; set; }
+    public string Subject { get; set; }
+    public string Body { get; set; }
 }
 ```
 
@@ -159,7 +159,7 @@ You can omit setting the attribute's `ApiKey` property if you have your API key 
 
 # [Isolated process](#tab/isolated-process)
 
-We don't currently have an example for using the SendGrid binding in a function app running in an isolated process. 
+We don't currently have an example for using the SendGrid binding in a function app running in an isolated worker process. 
 
 # [C# Script](#tab/csharp-script)
 
@@ -381,7 +381,7 @@ public class HttpTriggerSendGrid {
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the output binding. C# script instead uses a function.json configuration file.  
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the output binding. C# script instead uses a function.json configuration file.  
 
 # [In-process](#tab/in-process)
 
@@ -397,7 +397,7 @@ In [in-process](functions-dotnet-class-library.md) function apps, use the [SendG
 
 # [Isolated process](#tab/isolated-process)
 
-In [isolated process](dotnet-isolated-process-guide.md) function apps, the `SendGridOutputAttribute` supports the following parameters:
+In [isolated worker process](dotnet-isolated-process-guide.md) function apps, the `SendGridOutputAttribute` supports the following parameters:
 
 | Attribute/annotation property | Description | 
 |-------------------------------|-------------|

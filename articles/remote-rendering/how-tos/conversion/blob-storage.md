@@ -45,7 +45,7 @@ Details about SAS can be found at the [SAS documentation](../../../storage/commo
 
 A SAS URI can be generated using one of:
 
-- az PowerShell module
+- Az PowerShell module
   - see the [example PowerShell scripts](../../samples/powershell-example-scripts.md)
 - [az command line](/cli/azure/install-azure-cli)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
@@ -58,16 +58,18 @@ An example of using Shared Access Signatures in asset conversion is shown in Con
 
 To start converting a model, you need to upload it, using one of the following options:
 
-- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) - a convenient UI to upload/download/manage files on azure blob storage
+- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) - a convenient UI to upload/download/manage files on Azure blob storage
 - [Azure command line](../../../storage/blobs/storage-quickstart-blobs-cli.md)
-- [Azure PowerShell module](/powershell/azure/install-az-ps)
+- [Azure PowerShell module](/powershell/azure/install-azure-powershell)
   - see the [Example PowerShell scripts](../../samples/powershell-example-scripts.md)
 - [Using a storage SDK (Python, C# ... )](../../../storage/index.yml)
 - [Using the Azure Storage REST APIs](/rest/api/storageservices/blob-service-rest-api)
+- [Using the Azure Remote Rendering Toolkit (ARRT)](../../samples/azure-remote-rendering-asset-tool.md)
 
 For an example of how to upload data for conversion refer to Conversion.ps1 of the [PowerShell Example Scripts](../../samples/powershell-example-scripts.md#script-conversionps1).
 
-> [!Note]
+> [!NOTE]
+>
 > When uploading an input model take care to avoid long file names and/or folder structures in order to avoid [Windows path length limit](/windows/win32/fileio/maximum-file-path-limitation) issues on the service. 
 
 ## Get a SAS URI for the converted model

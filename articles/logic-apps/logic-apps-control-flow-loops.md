@@ -5,15 +5,16 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/05/2019
+ms.date: 09/01/2022
 ---
 
 # Create loops that repeat workflow actions or process arrays in Azure Logic Apps
 
-To process an array in your logic app, you can create a ["Foreach" loop](#foreach-loop). This loop repeats one or more actions on each item in the array. 
-For the limit on the number of array items that a "Foreach" loop can process, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
-To repeat actions until a condition gets met or a state changes, you can create an ["Until" loop](#until-loop). Your logic app first runs all the actions inside the loop, and then checks the condition or state. If the condition is met, the loop stops. Otherwise, the loop repeats. For the default and maximum limits on the number of "Until" loops that a logic app run can have, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+To process an array in your logic app workflow, you can create a [For each loop](#foreach-loop). This loop repeats one or more actions on each item in the array. For the limit on the number of array items that a "For each" loop can process, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+
+To repeat actions until a condition gets met or a state changes, you can create an [Until loop](#until-loop). Your workflow first runs all the actions inside the loop, and then checks the condition or state. If the condition is met, the loop stops. Otherwise, the loop repeats. For the default and maximum limits on the number of "Until" loops that a workflow can have, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 > [!TIP]
 > If you have a trigger that receives an array and want to run a workflow for each array item, you can *debatch* that array 
@@ -23,51 +24,37 @@ To repeat actions until a condition gets met or a state changes, you can create 
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
-* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Basic knowledge about [logic app workflows](../logic-apps/logic-apps-overview.md)
 
 <a name="foreach-loop"></a>
 
-## "Foreach" loop
+## "For each" loop
 
-A "Foreach" loop repeats one or more actions on each array item and works only on arrays. Here are some considerations when you use "Foreach" loops:
+A "For each" loop repeats one or more actions on each array item and works only on arrays. Here are some considerations when you use "For each" loops:
 
-* The "Foreach" loop can process a limited number of array items. For this limit, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+* The "For each" loop can process a limited number of array items. For this limit, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-* By default, iterations in a "Foreach" loop run at the same time, or in parallel. This behavior differs from [Power Automate's **Apply to each** loop](/power-automate/apply-to-each) where iterations run one at a time, or sequentially. However, you can [set up sequential "Foreach" loop iterations](#sequential-foreach-loop). For example, if you want to pause the next iteration in a "Foreach" loop by using the [Delay action](../connectors/connectors-native-delay.md), you need to set the loop to run sequentially.
+* By default, iterations in a "For each" loop run at the same time, or in parallel. This behavior differs from [Power Automate's **Apply to each** loop](/power-automate/apply-to-each) where iterations run one at a time, or sequentially. However, you can [set up sequential "For each" loop iterations](#sequential-foreach-loop). For example, if you want to pause the next iteration in a "Foreach" loop by using the [Delay action](../connectors/connectors-native-delay.md), you need to set the loop to run sequentially.
 
-  The exception to the default behavior are nested loops where iterations always run sequentially, not in parallel. To run operations in parallel for items in a nested loop, create and [call a child logic app](../logic-apps/logic-apps-http-endpoint.md).
+  The exception to the default behavior are nested loops where iterations always run sequentially, not in parallel. To run operations in parallel for items in a nested loop, create and [call a child logic app workflow](../logic-apps/logic-apps-http-endpoint.md).
 
-* To get predictable results from operations on variables during each loop iteration, 
-run those loops sequentially. For example, when a concurrently running loop ends, 
-the increment, decrement, and append to variable operations return predictable results. 
-However, during each iteration in the concurrently running loop, these operations might 
-return unpredictable results. 
+* To get predictable results from operations on variables during each loop iteration, run those loops sequentially. For example, when a concurrently running loop ends, the increment, decrement, and append to variable operations return predictable results. However, during each iteration in the concurrently running loop, these operations might return unpredictable results. 
 
-* Actions in a "Foreach" loop use the 
-[`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
-expression to reference and process each item in the array. 
-If you specify data that's not in an array, 
-the logic app workflow fails. 
+* Actions in a "For each" loop use the [`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) expression to reference and process each item in the array. If you specify data that's not in an array, 
+the logic app workflow fails.
 
-This example logic app sends a daily summary for a website RSS feed. 
-The app uses a "Foreach" loop that sends an email for each new item.
+This example logic app workflow sends a daily summary for a website RSS feed. The workflow uses a "For each" loop that sends an email for each new item.
 
-1. [Create this sample logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
-with an Outlook.com account or a work or school account.
+1. [Create this example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md) with an Outlook.com account or a work or school account.
 
-2. Between the RSS trigger and send email action, 
-add a "Foreach" loop. 
+2. Between the RSS trigger and send email action, add a "For each" loop.
 
-   1. To add a loop between steps, move your 
-   pointer over the arrow between those steps. 
-   Choose the **plus sign** (**+**) that appears, 
-   then select **Add an action**.
+   1. To add a loop between steps, move your pointer over the arrow between those steps. Select the **plus sign** (**+**) that appears, then select **Add an action**.
 
       ![Select "Add an action"](media/logic-apps-control-flow-loops/add-for-each-loop.png)
 
-   1. Under the search box, choose **All**. In the search box, 
-   type "for each" as your filter. From the actions list, 
-   select this action: **For each - Control**
+   1. Under the search box, select **All**. In the search box, enter **for each**. From the actions list, 
+   select the Control action named **For each**.
 
       ![Add "For each" loop](media/logic-apps-control-flow-loops/select-for-each.png)
 
@@ -84,15 +71,13 @@ select the **Feed links** array, which is output from the RSS trigger.
 
    ![Select array](media/logic-apps-control-flow-loops/for-each-loop-select-array.png)
 
-4. To run an action on each array item, 
-drag the **Send an email** action into the loop. 
+4. To run an action on each array item, drag the **Send an email** action into the loop.
 
-   Your logic app might look something like this example:
+   Your workflow might look something like this example:
 
    ![Add steps to "Foreach" loop](media/logic-apps-control-flow-loops/for-each-loop-with-step.png)
 
-5. Save your logic app. To manually test your logic app, 
-on the designer toolbar, choose **Run**.
+5. Save your workflow. To manually test your logic app, on the designer toolbar, select **Run Trigger** > **Run**.
 
 <a name="for-each-json"></a>
 
@@ -293,7 +278,7 @@ The "Until" loop stops execution based on these properties, so make sure that yo
 
 * **Count**: This value is the highest number of loops that run before the loop exits. For the default and maximum limits on the number of "Until" loops that a logic app run can have, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-* **Timeout**: This value is the most amount of time that the loop runs before exiting and is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). For the default and maximum limits on the **Timeout** value, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+* **Timeout**: This value is the most amount of time that the "Until" action, including all the loops, runs before exiting and is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). For the default and maximum limits on the **Timeout** value, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
   The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop. However, the next cycle doesn't start because the limit condition isn't met.
 

@@ -1,18 +1,17 @@
 ### YamlMime:Landing
 
-title: Microsoft Defender for IoT for organizations documentation
-summary: 'Microsoft Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options including fully on-premises, cloud-connected, or hybrid. NOTE: Microsoft Defender for IoT is being renamed to Microsoft Defender for IoT. The documentation will be updated soon.'
-
-metadata: 
-   title: Microsoft Defender for IoT for organizations documentation
-   description: Microsoft Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options including fully on-premises, cloud-connected, or hybrid.
-   services: service
-   ms.service: defender-for-iot
-   ms.topic: landing-page
-   ms.collection: M365-security-compliance
-   author: batamig
-   manager: raynew
-   ms.date: 11/29/2021
+title: Microsoft Defender for IoT documentation for organizations
+summary: 'Microsoft Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options that include cloud-connected, fully on-premises, or hybrid.'
+metadata:
+  title: Microsoft Defender for IoT documentation for organizations
+  description: Microsoft Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options that include cloud-connected, fully on-premises, or hybrid.
+  services: service
+  ms.service: defender-for-iot
+  ms.topic: landing-page
+  ms.collection: M365-security-compliance
+  author: batamig
+  manager: raynew
+  ms.date: 07/10/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -21,29 +20,49 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Microsoft Defender for IoT for organizations?
+          - text: What is Microsoft Defender for IoT?
             url: overview.md
-          - text: Agentless solution for organizations architecture
+      - linkListType: whats-new
+        links:
+          - text: What's new in Defender for IoT?
+            url: whats-new.md
+          - text: OT monitoring software release notes
+            url: release-notes.md
+          - text: Microsoft Sentinel solution release notes
+            url: release-notes-sentinel.md
+      - linkListType: concept
+        links:
+          - text: Microsoft Defender for IoT components
             url: architecture.md
+
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Get started with Defender for IoT for organizations
-            url: concept-key-concepts.md
+          - text: Add an OT plan to your Azure subscription
+            url: getting-started.md
+      - linkListType: deploy
+        links:
+          - text: Deploy Defender for IoT for OT monitoring
+            url: ot-deploy/ot-deploy-path.md
+      - linkListType: tutorial
+        links:
+          - text: Investigate and respond to an OT network alert
+            url: respond-ot-alert.md
+
   - title: How-to
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: About Microsoft Defender for IoT network setup
-            url: how-to-set-up-your-network.md
-          - text: Activate and set up your on-premises management console
-            url: how-to-activate-and-set-up-your-on-premises-management-console.md
-          - text: Activate and set up your sensor
-            url: how-to-activate-and-set-up-your-sensor.md
-  - title: New in docs
-    linkLists:
-      - linkListType: whats-new
-        links:
-          - text: What's new for organizations?
-            url: release-notes.md
+          - text: Manage your device inventory
+            url: how-to-manage-device-inventory-for-organizations.md
+          - text: View and manage alerts
+            url: how-to-manage-cloud-alerts.md
+          - text: Visualize data with workbooks
+            url: workbooks.md
+          - text: Enhance security posture with security recommendations
+            url: recommendations.md
+          - text: Integrations with Microsoft and partner services
+            url: integrate-overview.md
+          - text: Manage OT plans on Azure subscriptions
+            url: how-to-manage-subscriptions.md

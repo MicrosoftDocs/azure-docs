@@ -11,8 +11,11 @@
     href: connect-baremetal-infrastructure.md
 - name: Workloads
   items: 
+  
   - name: SAP HANA on Azure (Large Instances)
     items:
+    - name: Overview
+      href: ../virtual-machines/workloads/sap/hana-overview-architecture.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
     - name: Certification
       href: ../virtual-machines/workloads/sap/hana-certification.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
     - name: Available SKUs for HLI
@@ -70,23 +73,23 @@
       - name: Monitoring and troubleshooting from HANA side
         href: ../virtual-machines/workloads/sap/hana-monitor-troubleshoot.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
       - name: Monitor SAP on Azure
-        href: ../virtual-machines/workloads/sap/monitor-sap-on-azure.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
-      - name: Azure Monitor for SAP Solutions providers
-        href: ../virtual-machines/workloads/sap/azure-monitor-providers.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
-      - name: Deploy Azure Monitor for SAP Solutions - Azure portal
-        href: ../virtual-machines/workloads/sap/azure-monitor-sap-quickstart.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
-      - name: Configure Alerts in Azure Monitor for SAP Solutions
-        href: ../virtual-machines/workloads/sap/azure-monitor-alerts-portal.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
-      - name: Deploy Azure Monitor for SAP Solutions - Azure PowerShell
-        href: ../virtual-machines/workloads/sap/azure-monitor-sap-quickstart-powershell.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        href: ../sap/monitor/about-azure-monitor-sap-solutions.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Azure Monitor for SAP solutions providers
+        href: ../sap/monitor/providers.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Deploy Azure Monitor for SAP solutions - Azure portal
+        href: ../sap/monitor/quickstart-portal.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Configure Alerts in Azure Monitor for SAP solutions
+        href: ../sap/monitor/get-alerts-portal.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Deploy Azure Monitor for SAP solutions - Azure PowerShell
+        href: ../sap/monitor/quickstart-powershell.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
       - name: Monitor data reference
-        href: ../virtual-machines/workloads/sap/monitor-sap-on-azure-reference.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
-      - name: Azure Monitor for SAP Solutions FAQ
-        href: ../virtual-machines/workloads/sap/azure-monitor-faq.yml?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        href: ../sap/monitor/data-reference.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: Azure Monitor for SAP solutions FAQ
+        href: ../sap/monitor/faq.yml?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
     - name: How to
       items:
       - name: HA Setup with STONITH
-        href: ../virtual-machines/workloads/sap/ha-setup-with-stonith.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+        href: ../virtual-machines/workloads/sap/ha-setup-with-fencing-device.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
       - name: OS Backup
         href: ../virtual-machines/workloads/sap/large-instance-os-backup.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
       - name: Enable Kdump for HANA Large Instances
@@ -97,5 +100,7 @@
         href: ../virtual-machines/workloads/sap/hana-setup-smt.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
       - name: Buy an SAP HANA Large Instances reservation
         href: ../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md
-  - name: Oracle
-    href: ./workloads/oracle/toc.yml
+  - name: Nutanix Cloud Clusters on Azure
+    items: 
+    href: ./workloads/nc2-on-azure/toc.yml
+  

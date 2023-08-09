@@ -26,9 +26,6 @@ In this article, you will learn how to perform various operations on the Azure A
 
 To perform guest OS operations on Arc-enabled VMs, you must enable guest management on the VMs. When you enable guest management, the Arc Connected Machine Agent is installed on the VM.
 
-> [!IMPORTANT]
-> In the interest of ensuring new features are documented no later than their release, this page may include documentation for features that may not yet be publicly available.
-
 ## Supported extensions and management services
 
 ### Windows extensions
@@ -37,6 +34,8 @@ To perform guest OS operations on Arc-enabled VMs, you must enable guest managem
 |----------|----------|-----|
 |Custom Script extension |Microsoft.Compute | CustomScriptExtension |
 |Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |MicrosoftMonitoringAgent |
+|Azure Automation Hybrid Runbook Worker extension (preview) |Microsoft.Compute | HybridWorkerForWindows| 
+
 
 ### Linux extensions
 
@@ -44,6 +43,7 @@ To perform guest OS operations on Arc-enabled VMs, you must enable guest managem
 |----------|----------|-----|
 |Custom Script extension |Microsoft.Azure.Extensions |CustomScript |
 |Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |OmsAgentForLinux |
+|Azure Automation Hybrid Runbook Worker extension (preview) | Microsoft.Compute | HybridWorkerForLinux|
 
 ## Enable guest management
 

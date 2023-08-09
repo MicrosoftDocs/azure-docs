@@ -3,12 +3,13 @@ title: Azure CLI scripts using the az search module
 titleSuffix: Azure Cognitive Search
 description: Create and configure an Azure Cognitive Search service with the Azure CLI. You can scale a service up or down, manage admin and query api-keys, and query for system information.
 
-author: DerekLegenzoff
-ms.author: delegenz
+author: mattmsft
+ms.author: magottei
 ms.service: cognitive-search
 ms.devlang: azurecli
-ms.topic: conceptual
-ms.date: 08/03/2021
+ms.custom: devx-track-azurecli
+ms.topic: how-to
+ms.date: 01/25/2023
 ---
 
 # Manage your Azure Cognitive Search service with the Azure CLI
@@ -16,7 +17,7 @@ ms.date: 08/03/2021
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
 > * [Azure CLI](search-manage-azure-cli.md)
-> * [REST API](/rest/api/searchmanagement/)
+> * [REST API](search-manage-rest.md)
 > * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)
 
@@ -32,11 +33,15 @@ You can run Azure CLI commands and scripts on Windows, macOS, Linux, or in [Azur
 > * [Scale up or down with replicas and partitions](#scale-replicas-and-partitions)
 > * [Create a shared private link resource](#create-a-shared-private-link-resource)
 
-Occasionally, questions are asked about tasks *not* on the above list. Currently, you cannot use either the **az search** module or the management REST API to change a server name, region, or tier. Dedicated resources are allocated when a service is created. As such, changing the underlying hardware (location or node type) requires a new service. Similarly, there are no tools or APIs for transferring content, such as an index, from one service to another.
+Occasionally, questions are asked about tasks *not* on the above list.
 
-Within a service, content creation and management are through [Search Service REST API](/rest/api/searchservice/) or [.NET SDK](/dotnet/api/overview/azure/search.documents-readme). While there are no dedicated PowerShell commands for content, you can write scripts that call REST or .NET APIs to create and load indexes.
+You cannot change a server name, region, or tier programmatically or in the portal. Dedicated resources are allocated when a service is created. As such, changing the underlying hardware (location or node type) requires a new service. 
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+You cannot use tools or APIs to transfer content, such as an index, from one service to another. Within a service, programmatic creation of content is through [Search Service REST API](/rest/api/searchservice/) or an SDK such as [Azure SDK for .NET](/dotnet/api/overview/azure/search.documents-readme). While there are no dedicated commands for content migration, you can write script that calls REST API or a client library to create and load indexes on a new service.
+
+Preview administration features are typically not available in the **az search** module. If you want to use a preview feature, [use the Management REST API](search-manage-rest.md) and a preview API version. 
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 <a name="list-search-services"></a>
 
@@ -145,6 +150,13 @@ Results should look similar to the following output:
   "tags": null,
   "type": "Microsoft.Search/searchServices"
 }
+```
+
+[**az search service delete**](/cli/azure/search/service#az-search-service-delete-required-parameters) removes the service and its data.
+
+```azurecli-interactive
+az search service delete --name <service-name> \
+                         --resource-group  <search-service-resource-group-name> \
 ```
 
 ### Create a service with IP rules
@@ -256,7 +268,7 @@ az network private-endpoint dns-zone-group create \
    --zone-name "searchServiceZone"
 ```
 
-For more information on creating private endpoints in PowerShell, see this [Private Link Quickstart](../private-link/create-private-endpoint-cli.md)
+For more information on creating private endpoints in Azure CLI, see this [Private Link Quickstart](../private-link/create-private-endpoint-cli.md)
 
 ### Manage private endpoint connections
 

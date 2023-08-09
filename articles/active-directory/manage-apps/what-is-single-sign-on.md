@@ -1,26 +1,25 @@
 ---
 title: What is single sign-on?
 description: Learn about single sign-on for enterprise applications in Azure Active Directory.
-titleSuffix: Azure AD
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: overview
-ms.date: 11/18/2021
-ms.author: davidmu
-ms.reviewer: ergreenl
-ms.custom: contperf-fy21q1, contperf-fy22q2, contperf-fy22q3
+ms.date: 12/07/2022
+ms.author: jomondi
+ms.reviewer: alamaral
+ms.custom: contperf-fy21q1, contperf-fy22q2, contperf-fy22q3, enterprise-apps-article
 # Customer intent: As an IT admin, I need to learn about single sign-on and my applications in Azure Active Directory.
 ---
 
 # What is single sign-on in Azure Active Directory?
 
-This article provides you with information about the single sign-on (SSO) options that are available to you, and an introduction to planning a single sign-on deployment when using Azure Active Directory (Azure AD). Single sign-on is an authentication method that allows users to sign in using one set of credentials to multiple independent software systems. Using SSO means a user doesn't have to sign in to every application they use. With SSO, users can access all needed applications without being required to authenticate using different credentials. For a brief introduction, see [Azure Active Directory single sign-on](https://azure.microsoft.com/services/active-directory/sso/#overview).
+This article provides you with information about the single sign-on (SSO) options that are available to you. It also outlines an introduction to planning a single sign-on deployment when using Azure Active Directory (Azure AD). Single sign-on is an authentication method that allows users to sign in using one set of credentials to multiple independent software systems. Using SSO means a user doesn't have to sign in to every application they use. With SSO, users can access all needed applications without being required to authenticate using different credentials. For a brief introduction, see [Azure Active Directory single sign-on](https://azure.microsoft.com/services/active-directory/sso/#overview).
 
-Many applications already exist in Azure AD that you can use with SSO. You have several options for SSO depending on the needs of the application and how it is implemented. Take time to plan your SSO deployment before you create applications in Azure AD. The management of applications can be made easier by using the My Apps portal.
+Many applications already exist in Azure AD that you can use with SSO. You have several options for SSO depending on the needs of the application and how it's implemented. Take time to plan your SSO deployment before you create applications in Azure AD. The management of applications can be made easier by using the My Apps portal.
 
 ## Single sign-on options
 
@@ -30,9 +29,9 @@ Choosing an SSO method depends on how the application is configured for authenti
 
     With federated single sign-on, Azure AD authenticates the user to the application by using their Azure AD account. This method is supported for [SAML 2.0](../develop/single-sign-on-saml-protocol.md), WS-Federation, or [OpenID Connect](../develop/v2-protocols-oidc.md) applications. Federated SSO is the richest mode of SSO. Use federated SSO with Azure AD when an application supports it, instead of password-based SSO and Active Directory Federation Services (AD FS).
 
-    There are some scenarios where the SSO option is not present for an enterprise application. If the application was registered using **App registrations** in the portal, then the single sign-on capability is configured to use OpenID Connect and OAuth by default. In this case, the single sign-on option won't appear in the navigation under enterprise applications.
+    There are some scenarios where the SSO option isn't present for an enterprise application. If the application was registered using **App registrations** in the portal, then the single sign-on capability is configured to use OpenID Connect and OAuth by default. In this case, the single sign-on option won't appear in the navigation under enterprise applications.
 
-    Single sign-on is not available when an application is hosted in another tenant. Single sign-on is also not available if your account doesn't have the required permissions (Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal). Permissions can also cause a scenario where you can open single sign-on but won't be able to save.
+    Single sign-on isn't available when an application is hosted in another tenant. Single sign-on is also not available if your account doesn't have the required permissions (Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal). Permissions can also cause a scenario where you can open single sign-on but won't be able to save.
 
     > [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8]
 
@@ -42,7 +41,7 @@ Choosing an SSO method depends on how the application is configured for authenti
 
 - **Linked** - Linked sign-on can provide a consistent user experience while you migrate applications over a period of time. If you're migrating applications to Azure AD, you can use linked-based SSO to quickly publish links to all the applications you intend to migrate. Users can find all the links in the My Apps or Microsoft 365 portals.
 
-    After a user has authenticated with a linked application, an account needs to be created before the user is provided single sign-on access. Provisioning this account can either occur automatically, or it can occur manually by an administrator. You cannot apply conditional access policies or multifactor authentication to a linked application because a linked application does not provide single sign-on capabilities through Azure AD. When you configure a linked application, you are simply adding a link that appears for launching the application. For more information, see [Add linked single sign-on to an application](configure-linked-sign-on.md).
+    After a user has authenticated with a linked application, an account needs to be created before the user is provided single sign-on access. Provisioning this account can either occur automatically, or it can occur manually by an administrator. You can't apply Conditional Access policies or multifactor authentication to a linked application because a linked application doesn't provide single sign-on capabilities through Azure AD. When you configure a linked application, you're simply adding a link that appears for launching the application. For more information, see [Add linked single sign-on to an application](configure-linked-sign-on.md).
 
 - **Disabled** - When SSO is disabled, it isn't available for the application. When single sign-on is disabled, users might need to authenticate twice. First, users authenticate to Azure AD, and then they sign in to the application.
 
@@ -52,7 +51,7 @@ Choosing an SSO method depends on how the application is configured for authenti
     - You're testing other aspects of the application
     - An on-premises application doesn't require users to authenticate, but you want them to. With SSO disabled, the user needs to authenticate.
 
-    If you configured the application for SP-initiated SAML-based SSO and you change the SSO mode to disabled, it won't stop users from signing in to the application outside the MyApps portal. To achieve this, you need to disable the ability for users to sign in.
+    If you configured the application for SP-initiated SAML-based SSO and you change the SSO mode to disabled, it won't stop users from signing in to the application outside the MyApps portal. To stop users from signing in from outside My apps portal, you need to disable the ability for users to sign in.
 
 ## Plan SSO deployment
 
@@ -68,4 +67,4 @@ If you're a user of an application, you likely don't care much about SSO details
 
 ## Next steps
 
-- [Quickstart: Enable single sign on](add-application-portal-setup-sso.md)
+- [Plan for single sign-on deployment](plan-sso-deployment.md)

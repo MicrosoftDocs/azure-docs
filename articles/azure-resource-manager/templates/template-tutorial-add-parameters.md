@@ -1,34 +1,32 @@
 ---
 title: Tutorial - add parameters to template
 description: Add parameters to your Azure Resource Manager template (ARM template) to make it reusable.
-author: mumian
-ms.date: 03/31/2020
+ms.date: 07/28/2023
 ms.topic: tutorial
-ms.author: jgao 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-arm-template
 ---
 
 # Tutorial: Add parameters to your ARM template
 
-In the [previous tutorial](template-tutorial-add-resource.md), you learned how to add a storage account to the template and deploy it. In this tutorial, you learn how to improve the Azure Resource Manager template (ARM template) by adding parameters. This tutorial takes about **14 minutes** to complete.
+In the [previous tutorial](template-tutorial-add-resource.md), you learned how to add an [Azure storage account](../../storage/common/storage-account-create.md) to the template and deploy it. In this tutorial, you learn how to improve the Azure Resource Manager template (ARM template) by adding parameters. This instruction takes **14 minutes** to complete.
 
 ## Prerequisites
 
 We recommend that you complete the [tutorial about resources](template-tutorial-add-resource.md), but it's not required.
 
-You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
+You need to have [Visual Studio Code](https://code.visualstudio.com/) installed and working with the Azure Resource Manager Tools extension, and either Azure PowerShell or Azure Command-Line Interface (CLI). For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
 ## Review template
 
-At the end of the previous tutorial, your template had the following JSON:
+At the end of the previous tutorial, your template has the following JSON file:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json":::
 
-You may have noticed that there's a problem with this template. The storage account name is hard-coded. You can only use this template to deploy the same storage account every time. To deploy a storage account with a different name, you would have to create a new template, which obviously isn't a practical way to automate your deployments.
+You may notice that there's a problem with this template. The storage account name is hard-coded. You can only use this template to deploy the same storage account every time. To deploy a storage account with a different name, you need to create a new template, which obviously isn't a practical way to automate your deployments.
 
 ## Make template reusable
 
-To make your template reusable, let's add a parameter that you can use to pass in a storage account name. The highlighted JSON in the following example shows what changed in your template. The `storageName` parameter is identified as a string. The maximum length is set to 24 characters to prevent any names that are too long.
+To make your template reusable, let's add a parameter that you can use to pass in a storage account name. The highlighted JSON file in the following example shows the changes in your template. The `storageName` parameter is identified as a string. The storage account name is all lowercase letters or numbers and has a limit of 24 characters.
 
 Copy the whole file and replace your template with its contents.
 
@@ -38,7 +36,7 @@ Copy the whole file and replace your template with its contents.
 
 Let's deploy the template. The following example deploys the template with Azure CLI or PowerShell. Notice that you provide the storage account name as one of the values in the deployment command. For the storage account name, provide the same name you used in the previous tutorial.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the `templateFile` variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you set the `templateFile` variable to the path of the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -52,7 +50,7 @@ New-AzResourceGroupDeployment `
 
 # [Azure CLI](#tab/azure-cli)
 
-To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+To run this deployment command, you need to have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
 
 ```azurecli
 az deployment group create \
@@ -66,25 +64,25 @@ az deployment group create \
 
 ## Understand resource updates
 
-In the previous section, you deployed a storage account with the same name that you had created earlier. You may be wondering how the resource is affected by the redeployment.
+After you deploy a storage account with the same name you used earlier, you may wonder how the redeployment affects the resource.
 
-If the resource already exists and no change is detected in the properties, no action is taken. If the resource already exists and a property has changed, the resource is updated. If the resource doesn't exist, it's created.
+If the resource already exists, and there's no change in the properties, there's no need for further action. If the resource exists and a property changes, it updates. If the resource doesn't exist, it's created.
 
-This way of handling updates means your template can include all of the resources you need for an Azure solution. You can safely redeploy the template and know that resources are changed or created only when needed. For example, if you have added files to your storage account, you can redeploy the storage account without losing those files.
+This way of handling updates means your template can include all of the resources you need for an Azure solution. You can safely redeploy the template and know that resources change or are created only when needed. If you add files to your storage account, for example, you can redeploy the storage account without losing the files.
 
 ## Customize by environment
 
-Parameters enable you to customize the deployment by providing values that are tailored for a particular environment. For example, you can pass different values based on whether you're deploying to an environment for development, test, and production.
+Parameters let you customize the deployment by providing values that are tailored for a particular environment. You can pass different values, for example, based on whether you're deploying to a development, testing, or production environment.
 
-The previous template always deployed a **Standard_LRS** storage account. You might want the flexibility to deploy different SKUs depending on the environment. The following example shows the changes to add a parameter for SKU. Copy the whole file and paste over your template.
+The previous template always deploys a standard locally redundant storage (LRS) **Standard_LRS** account. You might want the flexibility to deploy different stock keeping units (SKUs) depending on the environment. The following example shows the changes to add a parameter for SKU. Copy the whole file and paste it over your template.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json" range="1-40" highlight="10-23,32":::
 
-The `storageSKU` parameter has a default value. This value is used when a value isn't specified during the deployment. It also has a list of allowed values. These values match the values that are needed to create a storage account. You don't want users of your template to pass in SKUs that don't work.
+The `storageSKU` parameter has a default value. Use this value when the deployment doesn't specify it. It also has a list of allowed values. These values match the values that are needed to create a storage account. You want your template users to pass SKUs that work.
 
 ## Redeploy template
 
-You're ready to deploy again. Because the default SKU is set to **Standard_LRS**, you don't need to provide a value for that parameter.
+You're ready to deploy again. Because the default SKU is set to **Standard_LRS**, you've already provided a parameter value.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -109,9 +107,9 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> If the deployment failed, use the `verbose` switch to get information about the resources being created. Use the `debug` switch to get more information for debugging.
+> If the deployment fails, use the `verbose` switch to get information about the resources being created. Use the `debug` switch to get more information for debugging.
 
-To see the flexibility of your template, let's deploy again. This time set the SKU parameter to **Standard_GRS**. You can either pass in a new name to create a different storage account, or use the same name to update your existing storage account. Both options work.
+To see the flexibility of your template, let's deploy it again. This time set the SKU parameter to standard geo-redundant storage (GRS) **Standard_GRS**. You can either pass in a new name to create a different storage account or use the same name to update your existing storage account. Both options work.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -136,7 +134,7 @@ az deployment group create \
 
 ---
 
-Finally, let's run one more test and see what happens when you pass in a SKU that isn't one of the allowed values. In this case, we test the scenario where a user of your template thinks **basic** is one of the SKUs.
+Finally, let's run one more test and see what happens when you pass in an SKU that isn't one of the allowed values. In this case, we test the scenario where your template user thinks **basic** is one of the SKUs.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -161,22 +159,22 @@ az deployment group create \
 
 ---
 
-The command fails immediately with an error message that states which values are allowed. Resource Manager identifies the error before the deployment starts.
+The command fails at once with an error message that gives the allowed values. The ARM processor finds the error before the deployment starts.
 
 ## Clean up resources
 
 If you're moving on to the next tutorial, you don't need to delete the resource group.
 
-If you're stopping now, you might want to clean up the resources you deployed by deleting the resource group.
+If you're stopping now, you might want to clean up your deployed resources by deleting the resource group.
 
 1. From the Azure portal, select **Resource group** from the left menu.
-2. Enter the resource group name in the **Filter by name** field.
-3. Select the resource group name.
+2. Type the resource group name in the **Filter for any field ...** text field.
+3. Check the box next to myResourceGroup and select **myResourceGroup** or your resource group name.
 4. Select **Delete resource group** from the top menu.
 
 ## Next steps
 
-You improved the template created in the [first tutorial](template-tutorial-create-first-template.md) by adding parameters. In the next tutorial, you'll learn about template functions.
+You improved the template you created in the [first tutorial](template-tutorial-create-first-template.md) by adding parameters. In the next tutorial, you learn about template functions.
 
 > [!div class="nextstepaction"]
 > [Add template functions](template-tutorial-add-functions.md)

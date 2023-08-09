@@ -35,7 +35,7 @@ App Service Environment requires the following network connectivity settings to 
 
 * Outbound network connectivity to the Azure Files service on port 445.
 
-* Outbound network connectivity to Azure SQL Database endpoints that are located in the same region as App Service Environment. SQL Database endpoints resolve under the database.windows.net domain, which requires open access to ports 1433, 11000-11999, and 14000-14999. For details about SQL Database V12 port usage, see [Ports beyond 1433 for ADO.NET 4.5](../../azure-sql/database/adonet-v12-develop-direct-route-ports.md).
+* Outbound network connectivity to Azure SQL Database endpoints that are located in the same region as App Service Environment. SQL Database endpoints resolve under the database.windows.net domain, which requires open access to ports 1433, 11000-11999, and 14000-14999. For details about SQL Database V12 port usage, see [Ports beyond 1433 for ADO.NET 4.5](/azure/azure-sql/database/adonet-v12-develop-direct-route-ports).
 
 * Outbound network connectivity to the Azure management-plane endpoints (both Azure classic deployment model and Azure Resource Manager endpoints). Connectivity to these endpoints includes the management.core.windows.net and management.azure.com domains. 
 
@@ -51,7 +51,7 @@ App Service Environment requires the following network connectivity settings to 
 
 * Inbound network access to required ports for App Service Environment must be allowed. For details, see [How to control inbound traffic to App Service Environment][requiredports].
 
-To fulfill the DNS requirements, make sure a valid DNS infrastructure is configured and maintained for the virtual network. If the DNS configuration is changed after App Service Environment is created, developers can force App Service Environment to pick up the new DNS configuration. You can trigger a rolling environment reboot by using the **Restart** icon under App Service Environment management in the [Azure portal][NewPortal]. The reboot causes the environment to pick up the new DNS configuration.
+To fulfill the DNS requirements, make sure a valid DNS infrastructure is configured and maintained for the virtual network. If the DNS configuration is changed after App Service Environment is created, developers can force App Service Environment to pick up the new DNS configuration. You can trigger a rolling environment reboot by using the **Restart** icon under App Service Environment management in the [Azure portal](https://portal.azure.com). The reboot causes the environment to pick up the new DNS configuration.
 
 To fulfill the inbound network access requirements, configure a [network security group (NSG)][NetworkSecurityGroups] on the App Service Environment subnet. The NSG allows the required access [to control inbound traffic to App Service Environment][requiredports].
 
@@ -155,7 +155,5 @@ To get started with App Service Environment for Power Apps, see [Introduction to
 [DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653 
 [NetworkSecurityGroups]: ../../virtual-network/virtual-network-vnet-plan-design-arm.md
 [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md 
-[NewPortal]:  https://portal.azure.com 
-
 
 <!-- IMAGES -->

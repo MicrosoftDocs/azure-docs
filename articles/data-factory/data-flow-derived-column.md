@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/10/2021
+ms.date: 07/13/2023
 ---
 
 # Derived column transformation in mapping data flow

@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure GitHub Enterprise Managed User (OIDC) for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure GitHub Enterprise Managed User (OIDC) for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to GitHub Enterprise Managed User (OIDC).
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: e39cbad7-e23a-4986-9725-54a7aeb7b1ea
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 02/19/2022
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -21,7 +21,7 @@ ms.author: thwimmer
 This tutorial describes the steps you need to perform in both GitHub Enterprise Managed User (OIDC) and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to GitHub Enterprise Managed User (OIDC) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 > [!NOTE]
-> [GitHub Enterprise Managed User](https://docs.github.com/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users) is a feature of GitHub Enterprise Cloud which is different from GitHub Enterprise's standard OIDC SSO and user provisioning implementation. If you haven't specifically requested EMU instance, you have standard GitHub Enterprise Cloud plan. In that case, please refer to [the documentation](./github-provisioning-tutorial.md) to configure user provisioning in your non-EMU organisation. User provisioning is not supported for [GitHub Enteprise Accounts](https://docs.github.com/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)
+> [GitHub Enterprise Managed User (EMU)](https://docs.github.com/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users) is a different type of [GitHub Enteprise Account](https://docs.github.com/enterprise-cloud@latest/admin/overview/about-enterprise-accounts). If you haven't specifically requested EMU instance, you have a standard GitHub Enterprise Account. In that case, please refer to [the documentation](./github-provisioning-tutorial.md) to configure user provisioning in your non-EMU organisation. User provisioning is not supported for [standard GitHub Enteprise Accounts](https://docs.github.com/enterprise-cloud@latest/admin/overview/about-enterprise-accounts), but is supported for organisations under standard GitHub Enterprise Account.
 
 ## Capabilities Supported
 > [!div class="checklist"]
@@ -106,6 +106,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input your GitHub Enterprise Managed User (OIDC) Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to GitHub Enterprise Managed User (OIDC). If the connection fails, ensure your GitHub Enterprise Managed User (OIDC) account has created the secret token as an enterprise owner and try again.
 
+   For "Tenant URL", type `https://api.github.com/scim/v2/enterprises/YOUR_ENTERPRISE`, replacing YOUR_ENTERPRISE with the name of your enterprise account.
+   
+   For example, if your enterprise account's URL is https://github.com/enterprises/octo-corp, the name of the enterprise account is octo-corp.
+   
+   For "Secret token", paste the personal access token with the admin:enterprise scope that  you created earlier.
+   
      ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.

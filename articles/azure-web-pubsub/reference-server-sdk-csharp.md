@@ -4,6 +4,7 @@ description: This reference describes the .NET SDK for the Azure Web PubSub serv
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
+ms.custom: devx-track-dotnet
 ms.topic: conceptual 
 ms.date: 11/11/2021
 ---
@@ -26,7 +27,7 @@ Use this library to:
 
 [Source code](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/webpubsub/Azure.Messaging.WebPubSub/src) |
 [Package](https://www.nuget.org/packages/Azure.Messaging.WebPubSub) |
-[API reference documentation](/dotnet/api/overview/azure/messaging.webpubsub-readme-pre) |
+[API reference documentation](/dotnet/api/overview/azure/messaging.webpubsub-readme) |
 [Product documentation](./index.yml) |
 [Samples][samples_ref]
 

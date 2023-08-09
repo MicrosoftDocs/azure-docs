@@ -1,12 +1,14 @@
 ---
 title: Hyper-V VM disaster recovery using Azure Site Recovery and PowerShell
 description: Automate disaster recovery of Hyper-V VMs to Azure with the Azure Site Recovery service using PowerShell and Azure Resource Manager.
-author: sujayt
+author: ankitaduttaMSFT
+ms.service: site-recovery
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 manager: rochakm
 ms.topic: article
 ms.date: 01/10/2020
-ms.author: sutalasi 
-ms.custom: devx-track-azurepowershell
+ms.author: ankitadutta 
+ms.tool: azure-powershell
 ---
 
 # Set up disaster recovery to Azure for Hyper-V VMs using PowerShell and Azure Resource Manager
@@ -31,7 +33,7 @@ You don't need to be a PowerShell expert to use this article, but you do need to
 Make sure you have these prerequisites in place:
 
 - A [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). In addition, you can read about [Azure Site Recovery Manager pricing](https://azure.microsoft.com/pricing/details/site-recovery/).
-- Azure PowerShell. For information about this release and how to install it, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+- Azure PowerShell. For information about this release and how to install it, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 In addition, the specific example described in this article has the following prerequisites:
 

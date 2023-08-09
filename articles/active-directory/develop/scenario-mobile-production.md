@@ -1,9 +1,8 @@
 ---
-title: Prepare mobile app-calling web APIs for production | Azure
-titleSuffix: Microsoft identity platform
+title: Prepare mobile app-calling web APIs for production
 description: Learn how to build a mobile app that calls web APIs. (Prepare apps for production.)
 services: active-directory
-author: jmprieur
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: jmprieur
+ms.author: henrymbugua
 ms.reviewer: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform for developers.
@@ -32,7 +31,7 @@ For each Microsoft Authentication Library (MSAL) type, you can find sample code 
 - [MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki)
 
 
-[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](./includes/scenarios/scenarios-production.md)]
 
 ## Next steps
 

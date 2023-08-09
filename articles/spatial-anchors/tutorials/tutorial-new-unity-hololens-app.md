@@ -9,6 +9,7 @@ ms.author: pamistel
 ms.date: 2/3/2021
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Tutorial: Step-by-step instructions to create a new HoloLens Unity app using Azure Spatial Anchors
 
@@ -92,6 +93,8 @@ We'll now set some Unity project settings that help us target the Windows Hologr
 
 ## Try it out #1
 You should now have an empty scene that is ready to be deployed to your HoloLens device. To test out that everything is working, build your app in **Unity** and deploy it from **Visual Studio**. Follow [**Using Visual Studio to deploy and debug**](/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2) to do so. You should see the Unity start screen, and then a clear display.
+
+## Create a Spatial Anchors resource
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 

@@ -1,13 +1,13 @@
 ---
 title: Upgrade to the latest generation of dedicated SQL pool (formerly SQL DW)
 description: Upgrade Azure Synapse Analytics dedicated SQL pool (formerly SQL DW) to latest generation of Azure hardware and storage architecture.
-author: mlee3gsd
+author: WilliamDAssafMSFT 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 02/19/2019
-ms.author: martinle
+ms.author: wiassaf
 ms.reviewer: sngun
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ---
@@ -234,7 +234,7 @@ $GeoRestoredDatabase.status
 ```
 
 > [!NOTE]
-> To configure your database after the restore has completed, see [Configure your database after recovery](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
+> To configure your database after the restore has completed, see [Configure your database after recovery](/azure/azure-sql/database/disaster-recovery-guidance?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 The recovered database will be TDE-enabled if the source database is TDE-enabled.
 

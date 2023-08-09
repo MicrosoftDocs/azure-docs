@@ -1,20 +1,21 @@
 ---
-title: Microsoft Defender for Cloud's workload protection dashboard and its features
+title: Workload protection dashboard and its features
 description: Learn about the features of Microsoft Defender for Cloud's workload protection dashboard
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/09/2023
 ---
 
 # The workload protections dashboard
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This dashboard provides:
 
-- Visibility into your Microsoft Defender for Cloud coverage across your different resource types
-- Links to configure advanced threat protection capabilities
-- The onboarding state and agent installation
-- Threat detection alerts
+- Visibility into your Microsoft Defender for Cloud coverage across your different resource types.
+
+- Links to configure advanced threat protection capabilities.
+
+- The onboarding state and agent installation.
+
+- Threat detection alerts.
 
 To access the workload protections dashboard, select **Workload protections** from the Cloud Security section of Defender for Cloud's menu.
 
@@ -24,7 +25,7 @@ To access the workload protections dashboard, select **Workload protections** fr
 
 The dashboard includes the following sections:
 
-1. **Microsoft Defender for Cloud coverage** - Here you can see the resources types that are in your subscription and eligible for protection by Defender for Cloud. Wherever relevant, you'll have the option to upgrade too. If you want to upgrade all possible eligible resources, select **Upgrade all**.
+1. **Microsoft Defender for Cloud coverage** - Here you can see the resources types that's in your subscription and eligible for protection by Defender for Cloud. Wherever relevant, you can upgrade here as well. If you want to upgrade all possible eligible resources, select **Upgrade all**.
 
 2. **Security alerts** - When Defender for Cloud detects a threat in any area of your environment, it generates an alert. These alerts describe details of the affected resources, suggested remediation steps, and in some cases an option to trigger a logic app in response. Selecting anywhere in this graph opens the **Security alerts page**.
 
@@ -39,4 +40,4 @@ In this article, you learned about the workload protections dashboard.
 > [!div class="nextstepaction"]
 > [Enable enhanced protections](enable-enhanced-security.md)
 
-For more on the advanced protection plans of Microsoft Defender for Cloud, see [Introduction to Microsoft Defender for Cloud](defender-for-cloud-introduction.md)
+Learn more about the [advanced protections provided by the Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads).

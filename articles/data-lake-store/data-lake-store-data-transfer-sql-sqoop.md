@@ -26,15 +26,15 @@ Before you begin, you must have the following:
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **An Azure Data Lake Storage Gen1 account**. For instructions on how to create the account, see [Get started with Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Azure HDInsight cluster** with access to a Data Lake Storage Gen1 account. See [Create an HDInsight cluster with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). This article assumes you have an HDInsight Linux cluster with Data Lake Storage Gen1 access.
-* **Azure SQL Database**. For instructions on how to create a database in Azure SQL Database, see [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md)
+* **Azure SQL Database**. For instructions on how to create a database in Azure SQL Database, see [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart)
 
 ## Create sample tables in the database
 
-1. To start, create two sample tables in the database. Use [SQL Server Management Studio](../azure-sql/database/connect-query-ssms.md) or Visual Studio to connect to the database and then run the following queries.
+1. To start, create two sample tables in the database. Use [SQL Server Management Studio](/azure/azure-sql/database/connect-query-ssms) or Visual Studio to connect to the database and then run the following queries.
 
     **Create Table1**
 
-    ```tsql
+    ```sql
     CREATE TABLE [dbo].[Table1](
     [ID] [int] NOT NULL,
     [FName] [nvarchar](50) NOT NULL,
@@ -49,7 +49,7 @@ Before you begin, you must have the following:
 
     **Create Table2**
 
-    ```tsql
+    ```sql
     CREATE TABLE [dbo].[Table2](
     [ID] [int] NOT NULL,
     [FName] [nvarchar](50) NOT NULL,
@@ -64,7 +64,7 @@ Before you begin, you must have the following:
 
 1. Run the following command to add some sample data to **Table1**. Leave **Table2** empty. Later, you'll import data from **Table1** into Data Lake Storage Gen1. Then, you'll export data from Data Lake Storage Gen1 into **Table2**.
 
-    ```tsql
+    ```sql
     INSERT INTO [dbo].[Table1] VALUES (1,'Neal','Kell'), (2,'Lila','Fulton'), (3, 'Erna','Myers'), (4,'Annette','Simpson');
     ```
 
@@ -132,9 +132,9 @@ An HDInsight cluster already has the Sqoop packages available. If you've configu
     sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=user1@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
     ```
 
-1. Verify that the data was uploaded to the SQL Database table. Use [SQL Server Management Studio](../azure-sql/database/connect-query-ssms.md) or Visual Studio to connect to the Azure SQL Database and then run the following query.
+1. Verify that the data was uploaded to the SQL Database table. Use [SQL Server Management Studio](/azure/azure-sql/database/connect-query-ssms) or Visual Studio to connect to the Azure SQL Database and then run the following query.
 
-    ```tsql
+    ```sql
     SELECT * FROM TABLE2
     ```
 

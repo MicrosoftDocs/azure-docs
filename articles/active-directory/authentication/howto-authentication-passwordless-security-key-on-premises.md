@@ -1,16 +1,16 @@
 ---
-title: Passwordless security key sign-in to on-premises resources - Azure Active Directory
+title: Passwordless security key sign-in to on-premises resources
 description: Learn how to enable passwordless security key sign-in to on-premises resources by using Azure Active Directory
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/22/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: librown, aakapo
 
 ms.collection: M365-identity-device-management
@@ -33,7 +33,7 @@ An Azure AD Kerberos Server object is created in your on-premises Active Directo
    Azure AD generates a Kerberos TGT for the user's on-premises Active Directory domain. The TGT includes the user's SID only, and no authorization data.
 
 1. The TGT is returned to the client along with the user's Azure AD Primary Refresh Token (PRT).
-1. The client machine contacts an on-premises Azure AD DC and trades the partial TGT for a fully formed TGT.
+1. The client machine contacts an on-premises Active Directory Domain Controller and trades the partial TGT for a fully formed TGT.
 1. The client machine now has an Azure AD PRT and a full Active Directory TGT and can access both cloud and on-premises resources.
 
 ## Prerequisites
@@ -44,9 +44,11 @@ You must also meet the following system requirements:
 
 - Devices must be running Windows 10 version 2004 or later.
 
-- Your Windows Server domain controllers must have patches installed for the following servers:
+- Your Windows Server domain controllers must run Windows Server 2016 or later and have patches installed for the following servers:
     - [Windows Server 2016](https://support.microsoft.com/help/4534307/windows-10-update-kb4534307)
     - [Windows Server 2019](https://support.microsoft.com/help/4534321/windows-10-update-kb4534321)
+
+- AES256_HMAC_SHA1 must be enabled when **Network security: Configure encryption types allowed for Kerberos** policy is [configured](/windows/security/threat-protection/security-policy-settings/network-security-configure-encryption-types-allowed-for-kerberos) on domain controllers.
 
 - Have the credentials required to complete the steps in the scenario:
     - An Active Directory user who is a member of the Domain Admins group for a domain and a member of the Enterprise Admins group for a forest. Referred to as **$domainCred**.
@@ -99,13 +101,11 @@ Run the following steps in each domain and forest in your organization that cont
 1. Run the following PowerShell commands to create a new Azure AD Kerberos Server object both in your on-premises Active Directory domain and in your Azure Active Directory tenant.
 
 ### Example 1 prompt for all credentials
-   > [!NOTE]
-   > Replace `contoso.corp.com` in the following example with your on-premises Active Directory domain name.
 
    ```powershell
    # Specify the on-premises Active Directory domain. A new Azure AD
    # Kerberos Server object will be created in this Active Directory domain.
-   $domain = "contoso.corp.com"
+   $domain = $env:USERDNSDOMAIN
 
    # Enter an Azure Active Directory global administrator username and password.
    $cloudCred = Get-Credential -Message 'An Active Directory user who is a member of the Global Administrators group for Azure AD.'
@@ -125,7 +125,7 @@ Run the following steps in each domain and forest in your organization that cont
    ```powershell
    # Specify the on-premises Active Directory domain. A new Azure AD
    # Kerberos Server object will be created in this Active Directory domain.
-   $domain = "contoso.corp.com"
+   $domain = $env:USERDNSDOMAIN
 
    # Enter an Azure Active Directory global administrator username and password.
    $cloudCred = Get-Credential
@@ -145,7 +145,7 @@ Run the following steps in each domain and forest in your organization that cont
    ```powershell
    # Specify the on-premises Active Directory domain. A new Azure AD
    # Kerberos Server object will be created in this Active Directory domain.
-   $domain = "contoso.corp.com"
+   $domain = $env:USERDNSDOMAIN
 
    # Enter a UPN of an Azure Active Directory global administrator
    $userPrincipalName = "administrator@contoso.onmicrosoft.com"
@@ -162,13 +162,12 @@ Run the following steps in each domain and forest in your organization that cont
 ### Example 4 prompt for cloud credentials using modern authentication
    > [!NOTE]
    > If you are working on a domain-joined machine with an account that has domain administrator privileges and your organization protects password-based sign-in and enforces modern authentication methods such as multifactor authentication, FIDO2, or smart card technology, you must use the `-UserPrincipalName` parameter with the User Principal Name (UPN) of a global administrator. And you can skip the "-DomainCredential" parameter.
-   > - Replace `contoso.corp.com` in the following example with your on-premises Active Directory domain name.
-   > - Replace `administrator@contoso.onmicrosoft.com` in the following example with the UPN of a global administrator.
+      > - Replace `administrator@contoso.onmicrosoft.com` in the following example with the UPN of a global administrator.
 
    ```powershell
    # Specify the on-premises Active Directory domain. A new Azure AD
    # Kerberos Server object will be created in this Active Directory domain.
-   $domain = "contoso.corp.com"
+   $domain = $env:USERDNSDOMAIN
 
    # Enter a UPN of an Azure Active Directory global administrator
    $userPrincipalName = "administrator@contoso.onmicrosoft.com"
@@ -190,7 +189,7 @@ Get-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCre
 This command outputs the properties of the Azure AD Kerberos Server. You can review the properties to verify that everything is in good order.
 
 > [!NOTE]
-> Running against another domain by supplying the credential will connect over NTLM, and then it fails. If the users are in the Protected Users security group in Active Directory, complete these steps to resolve the issue: Sign in as another domain user in **ADConnect** and don’t supply "-domainCredential". The Kereberos ticket of the user that's currently signed in is used. You can confirm by executing `whoami /groups` to validate whether the user has the required permissions in Active Directory to execute the preceding command.
+> Running against another domain by supplying the credential will connect over NTLM, and then it fails. If the users are in the Protected Users security group in Active Directory, complete these steps to resolve the issue: Sign in as another domain user in **ADConnect** and don’t supply "-domainCredential". The Kerberos ticket of the user that's currently signed in is used. You can confirm by executing `whoami /groups` to validate whether the user has the required permissions in Active Directory to execute the preceding command.
  
 | Property | Description |
 | --- | --- |
@@ -250,6 +249,8 @@ If you encounter issues or want to share feedback about this passwordless securi
 
 ## Passwordless security key sign-in FAQ
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Here are some answers to commonly asked questions about passwordless sign-in:
 
 ### Does passwordless security key sign-in work in my on-premises environment?
@@ -270,7 +271,7 @@ For information about compliant security keys, see [FIDO2 security keys](concept
 
 ### What can I do if I lose my security key?
 
-To retrieve a security key, sign in to the Azure portal, and then go to the **Security info** page.
+To delete an enrolled security key, sign in to the [Azure portal](https://portal.azure.com), and then go to the **Security info** page.
 
 ### What can I do if I'm unable to use the FIDO security key immediately after I create a hybrid Azure AD-joined machine?
 
@@ -285,13 +286,6 @@ Make sure that enough DCs are patched to respond in time to service your resourc
 
 > [!NOTE]
 > The `/keylist` switch in the `nltest` command is available in client Windows 10 v2004 and later.
-
-### What if I have a CloudTGT but it never gets exchange for a OnPremTGT when I am using Windows Hello for Business Cloud Trust?
-
-Make sure that the user you are signed in as, is a member of the groups of users that can use FIDO2 as an authentication method, or enable it for all users.
-
-> [!NOTE]
-> Even if you are not explicitly using a security key to sign-in to your device, the underlying technology is dependent on the FIDO2 infrastructure requirements.
 
 ### Do FIDO2 security keys work in a Windows login with RODC present in the hybrid environment?
 

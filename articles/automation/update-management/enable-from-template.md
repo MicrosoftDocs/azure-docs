@@ -3,9 +3,9 @@ title: Enable Update Management using Azure Resource Manager template
 description: This article tells how to use an Azure Resource Manager template to enable Update Management.
 services:  automation
 ms.subservice: update-management
+ms.custom: devx-track-arm-template
 ms.topic: conceptual
-ms.date: 09/18/2020 
-ms.custom: devx-track-azurepowershell
+ms.date: 09/18/2020
 ---
 
 # Enable Update Management using Azure Resource Manager template
@@ -62,7 +62,7 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
 
 * Review [workspace mappings](../how-to/region-mappings.md) to specify the supported regions inline or in a parameter file. Only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription.
 
-* If you're new to Azure Monitor logs and have not deployed a workspace already, you should review the [workspace design guidance](../../azure-monitor/logs/design-logs-deployment.md). It will help you to learn about access control, and understand the design implementation strategies we recommend for your organization.
+* If you're new to Azure Monitor logs and have not deployed a workspace already, you should review the [workspace design guidance](../../azure-monitor/logs/workspace-design.md). It will help you to learn about access control, and understand the design implementation strategies we recommend for your organization.
 
 ## Deploy template
 
@@ -178,25 +178,25 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
             }
           }
         },
-    	{
-    		"apiVersion": "2015-11-01-preview",
-    		"location": "[parameters('location')]",
-    		"name": "[variables('Updates').name]",
-    		"type": "Microsoft.OperationsManagement/solutions",
-    		"id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationsManagement/solutions/', variables('Updates').name)]",
-    		"dependsOn": [
-    			"[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-    		],
-    		"properties": {
-    			"workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-    		},
-    		"plan": {
-    			"name": "[variables('Updates').name]",
-    			"publisher": "Microsoft",
-    			"promotionCode": "",
-    			"product": "[concat('OMSGallery/', variables('Updates').galleryName)]"
-    		}
-    	},
+      {
+        "apiVersion": "2015-11-01-preview",
+        "location": "[parameters('location')]",
+        "name": "[variables('Updates').name]",
+        "type": "Microsoft.OperationsManagement/solutions",
+        "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationsManagement/solutions/', variables('Updates').name)]",
+        "dependsOn": [
+          "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+        ],
+        "properties": {
+          "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+        },
+        "plan": {
+          "name": "[variables('Updates').name]",
+          "publisher": "Microsoft",
+          "promotionCode": "",
+          "product": "[concat('OMSGallery/', variables('Updates').galleryName)]"
+        }
+      },
         {
           "type": "Microsoft.Automation/automationAccounts",
           "apiVersion": "2020-01-13-preview",

@@ -1,16 +1,16 @@
 ---
-title: Add users to a dynamic group - tutorial - Azure AD | Microsoft Docs
+title: Add users to a dynamic group - tutorial
 description: In this tutorial, you use groups with user membership rules to add or remove users automatically
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/02/2021
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
 #Customer intent: As a new Azure AD identity administrator, I want to automatically add or remove users, so I don't have to manually do it."
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Add or remove group members automatically
 
-In Azure Active Directory (Azure AD), you can automatically add or remove users to security groups or Microsoft 365 groups, so you don't always have to do it manually. Whenever any properties of a user or device change, Azure AD evaluates all dynamic group rules in your Azure AD organization to see if the change should add or remove members.
+In Azure Active Directory (Azure AD), part of Microsoft Entra, you can automatically add or remove users to security groups or Microsoft 365 groups, so you don't always have to do it manually. Whenever any properties of a user or device change, Azure AD evaluates all dynamic group rules in your Azure AD organization to see if the change should add or remove members.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -37,9 +37,11 @@ You're not required to assign licenses to the users for them to be members in dy
 
 ## Create a group of guest users
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 First, you'll create a group for your guest users who all are from a single partner company. They need special licensing, so it's often more efficient to create a group for this purpose.
 
-1. Sign in to the Azure portal (https://portal.azure.com) with an account that is the global administrator for your organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is the global administrator for your organization.
 2. Select **Azure Active Directory** > **Groups** > **New group**.
    ![select command to start a new group](./media/groups-dynamic-tutorial/new-group.png)
 3. On the **Group** blade:
@@ -102,6 +104,3 @@ In this tutorial, you learned how to:
 Advance to the next article to learn more group-based licensing basics
 > [!div class="nextstepaction"]
 > [Group licensing basics](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-
-
-

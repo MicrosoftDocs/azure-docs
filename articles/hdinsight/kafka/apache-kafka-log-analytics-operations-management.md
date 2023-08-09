@@ -4,7 +4,7 @@ description: Learn how to use Azure Monitor logs to analyze logs from Apache Kaf
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 02/17/2020
+ms.date: 05/23/2023
 ---
 
 # Analyze logs for Apache Kafka on HDInsight

@@ -1,11 +1,11 @@
 ---
-title: Bulk restore deleted users in the Azure Active Directory portal | Microsoft Docs
-description: Restore deleted users in bulk in the Azure AD admin center in Azure Active Directory
+title: Bulk restore deleted users in the Azure portal
+description: Restore deleted users in bulk in the Azure portal in Azure Active Directory
 services: active-directory 
-author: curtand
-ms.author: curtand
-manager: karenhoran
-ms.date: 12/02/2020
+author: barclayn
+ms.author: barclayn
+manager: amycolannino
+ms.date: 06/24/2022
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Bulk restore deleted users in Azure Active Directory
 
-Azure Active Directory (Azure AD) supports bulk user restore operations and supports downloading lists of users, groups, and group members.
+Azure Active Directory (Azure AD), part of Microsoft Entra, supports bulk user restore operations and supports downloading lists of users, groups, and group members.
 
 ## Understand the CSV template
 
@@ -42,8 +42,10 @@ The rows in a downloaded CSV template are as follows:
 
 ## To bulk restore users
 
-1. [Sign in to your Azure AD organization](https://aad.portal.azure.com) with an account that is a User administrator in the Azure AD organization.
-1. In Azure AD, select **Users** > **Deleted**.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a User Administrator in the Azure AD organization.
+1. Browse to **Azure Active Directory** > **Users** > **Deleted**.
 1. On the **Deleted users** page, select **Bulk restore** to upload a valid CSV file of properties of the users to restore.
 
     ![Select the bulk restore command on the Deleted users page](./media/users-bulk-restore/bulk-restore.png)
@@ -69,7 +71,7 @@ Next, you can check to see that the users you restored exist in the Azure AD org
 
 ## View restored users in the Azure portal
 
-1. [Sign in to the Azure AD admin center](https://aad.portal.azure.com) with an account that is a User administrator in the organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a User Administrator in the organization.
 1. In the navigation pane, select **Azure Active Directory**.
 1. Under **Manage**, select **Users**.
 1. Under **Show**, select **All users** and verify that the users you restored are listed.
@@ -79,7 +81,7 @@ Next, you can check to see that the users you restored exist in the Azure AD org
 Run the following command:
 
 ``` PowerShell
-Get-AzureADUser -Filter "UserType eq 'Member'"
+Get-MgUser -Filter "UserType eq 'Member'"
 ```
 
 You should see that the users that you restored are listed.

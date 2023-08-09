@@ -28,17 +28,13 @@ items:
     href: quick-create-go.md
   - name: Java
     href: quick-create-java.md
+  - name: Spring
+    href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates
 - name: Samples
   items:
   - name: Key Vault Code Samples
     href: /samples/browse/?expanded=azure&products=azure-key-vault
 
-- name: Tutorials 
-  items:
-  - name: Import a certificate
-    href: tutorial-import-certificate.md
-  - name: Configure certificate rotation
-    href: tutorial-rotate-certificates.md
 - name: Concepts 
   items:
   - name: Get started with Key Vault certificates
@@ -47,22 +43,29 @@ items:
     href: create-certificate-scenarios.md
   - name: Certificate creation methods  
     href: create-certificate.md
-  - name: Creating certificate signing request
-    href: create-certificate-signing-request.md
   - name: Certificate access control
     href: certificate-access-control.md
     
 - name: How-to guides 
   items:
-  - name: Integrating Key Vault with DigiCert CA
+  - name: Import a certificate
+    href: tutorial-import-certificate.md
+  - name: Configure certificate rotation
+    href: tutorial-rotate-certificates.md
+  - name: Create certificate signing requests
+    href: create-certificate-signing-request.md
+  - name: Integrate Key Vault with DigiCert CA
     href: how-to-integrate-certificate-authority.md
-  - name: Troubleshooting - Import certificates
-    href: import-cert-faqs.yml
   - name: Export certificate from key vault
     href: how-to-export-certificate.md
-
 - name: Reference
   items:
+  - name: Frequently asked questions
+    href: faq.yml
+  - name: Multitenancy and Azure Key Vault
+    href: /azure/architecture/guide/multitenant/service/key-vault
+  - name: Key management in Azure
+    href: ../../security/fundamentals/key-management.md
   - name: Azure PowerShell
     href: /powershell/module/az.keyvault/#key_vault
   - name: Azure CLI
@@ -71,6 +74,8 @@ items:
     href: /dotnet/api/overview/azure/security.keyvault.certificates-readme
   - name: Java
     href: /java/api/overview/azure/keyvault
+  - name: Spring
+    href: /azure/developer/java/spring-framework/spring-cloud-azure-appendix#azure-key-vault-certificates-properties
   - name: Node.js
     href: /javascript/api/overview/azure/key-vault-index
   - name: Python
@@ -86,8 +91,8 @@ items:
 
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-key-vault
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-key-vault
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/key-vault/
   - name: Region availability

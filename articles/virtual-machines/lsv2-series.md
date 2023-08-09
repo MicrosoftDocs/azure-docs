@@ -3,15 +3,16 @@ title: Lsv2-series - Azure Virtual Machines
 description: Specifications for the Lsv2-series VMs.
 author: sasha-melamed
 ms.service: virtual-machines
-ms.subservice: vm-sizes-storage
+ms.subservice: sizes
+ms.custom: devx-track-linux
 ms.topic: conceptual
-ms.date: 02/03/2020
-ms.author: jushiman
+ms.date: 06/01/2022
+ms.author: sasham
 ---
 
 # Lsv2-series
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
 The Lsv2-series features high throughput, low latency, directly mapped local NVMe storage running on the [AMD EPYC<sup>TM</sup> 7551 processor](https://www.amd.com/en/products/epyc-7000-series) with an all core boost of 2.55GHz and a max boost of 3.0GHz. The Lsv2-series VMs come in sizes from 8 to 80 vCPU in a simultaneous multi-threading configuration.  There is 8 GiB of memory per vCPU, and one 1.92TB NVMe SSD M.2 device per 8 vCPUs, with up to 19.2TB (10x1.92TB) available on the L80s v2.
 
@@ -56,14 +57,12 @@ Bursting: Supported<br>
 <sup>6</sup> VMs with more than 64 vCPUs require one of these supported guest operating systems:
 
 - Windows Server 2016 or later
-- Ubuntu 16.04 LTS or later, with Azure tuned kernel (4.15 kernel or later)
-- SLES 12 SP2 or later
-- RHEL or CentOS version 6.7 through 6.10, with Microsoft-provided LIS package 4.3.1 (or later) installed
-- RHEL or CentOS version 7.3, with Microsoft-provided LIS package 4.2.1 (or later) installed
-- RHEL or CentOS version 7.6 or later
+- Ubuntu 18.04 LTS or later
+- SLES 12 SP5 or later
+- RHEL 6.10, with Microsoft-provided LIS package 4.3.1 (or later) installed
+- RHEL 7.9 or later
 - Oracle Linux with UEK4 or later
 - Debian 9 with the backports kernel, Debian 10 or later
-- CoreOS with a 4.14 kernel or later
 
 ## Size table definitions
 

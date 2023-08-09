@@ -1,15 +1,15 @@
 ---
-title: Manage users or devices for an administrative unit with dynamic membership rules (Preview) - Azure Active Directory
+title: Manage users or devices for an administrative unit with dynamic membership rules (Preview)
 description: Manage users or devices for an administrative unit with dynamic membership rules (Preview) in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 03/22/2022
+ms.date: 05/13/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -24,6 +24,9 @@ ms.collection: M365-identity-device-management
 
 You can add or remove users or devices for administrative units manually. With this preview, you can add or remove users or devices for administrative units dynamically using rules. This article describes how to create administrative units with dynamic membership rules using the Azure portal, PowerShell, or Microsoft Graph API.
 
+> [!NOTE]
+> Dynamic membership rules for administrative units can be created using the same attributes available for dynamic groups. For more information about the specific attributes available and examples on how to use them, see [Dynamic membership rules for groups in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md).
+
 Although administrative units with members assigned manually support multiple object types, such as user, group, and devices, it is currently not possible to create an administrative unit with dynamic membership rules that includes more than one object type. For example, you can create administrative units with dynamic membership rules for users or devices, but not both. Administrative units with dynamic membership rules for groups are currently not supported.
 
 ## Prerequisites
@@ -33,7 +36,7 @@ Although administrative units with members assigned manually support multiple ob
 - Privileged Role Administrator or Global Administrator
 - AzureADPreview module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
-- Global Azure cloud (not available in specialized clouds, such as Azure Government or Azure China)
+- Global Azure cloud (not available in specialized clouds, such as Azure Government or Microsoft Azure operated by 21Vianet)
 
 > [!NOTE]
 > Dynamic membership rules for administrative units requires an Azure AD Premium P1 license for each unique user that is a member of one or more dynamic administrative units. You don't have to assign licenses to users for them to be members of dynamic administrative units, but you must have the minimum number of licenses in the Azure AD organization to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic administrative units in your organization, you would need at least 1,000 licenses for Azure AD Premium P1 to meet the license requirement. No license is required for devices that are members of a dynamic device administrative unit.
@@ -46,7 +49,9 @@ Follow these steps to create administrative units with dynamic membership rules 
 
 ### Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.
 
@@ -119,7 +124,7 @@ For steps on how to edit your rule, see the following [Edit dynamic membership r
       "displayName": "Windows Devices",
       "description": "All Contoso devices running Windows",
       "membershipType": "Dynamic",
-      "membershipRule": "(device.deviceOSType -eq \"Windows\")",
+      "membershipRule": "(deviceOSType -eq 'Windows')",
       "membershipRuleProcessingState": "On"
     }
     ```
@@ -130,7 +135,7 @@ When an administrative unit has been configured for dynamic membership, the usua
 
 ### Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.
 
@@ -177,7 +182,7 @@ Follow these steps to change an administrative unit with dynamic membership rule
 
 ### Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.
 
@@ -231,4 +236,3 @@ Body
 - [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
 - [Add users or groups to an administrative unit](admin-units-members-add.md)
 - [Azure AD administrative units: Troubleshooting and FAQ](admin-units-faq-troubleshoot.yml)
-

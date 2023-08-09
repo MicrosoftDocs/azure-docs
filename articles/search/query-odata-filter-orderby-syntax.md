@@ -7,24 +7,24 @@ author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/06/2021
+ms.date: 08/08/2023
 
 ---
 
 # OData language overview for `$filter`, `$orderby`, and `$select` in Azure Cognitive Search
 
-Azure Cognitive Search supports a subset of the OData expression syntax for **$filter**, **$orderby**, and **$select** expressions. Filter expressions are evaluated during query parsing, constraining search to specific fields or adding match criteria used during index scans. Order-by expressions are applied as a post-processing step over a result set to sort the documents that are returned. Select expressions determine which document fields are included in the result set. The syntax of these expressions is distinct from the [simple](query-simple-syntax.md) or [full](query-lucene-syntax.md) query syntax that is used in the **search** parameter, although there's some overlap in the syntax for referencing fields.
+This article provides an overview of the OData expression language used in $filter, $order-by, and $select expressions in Azure Cognitive Search. The language is presented "bottom-up" starting with the most basic elements. The OData expressions that you can construct in a query request range from simple to highly complex, but they all share common elements. Shared elements include:
 
-This article provides an overview of the OData expression language used in filters, order-by, and select expressions. The language is presented "bottom-up", starting with the most basic elements and building on them. The top-level syntax for each parameter is described in a separate article:
++ **Field paths**, which refer to specific fields of your index.
++ **Constants**, which are literal values of a certain data type.
 
-- [$filter syntax](search-query-odata-filter.md)
-- [$orderby syntax](search-query-odata-orderby.md)
-- [$select syntax](search-query-odata-select.md)
+Once you understand these common concepts, you can continue with the top-level syntax for each expression:
 
-OData expressions range from simple to highly complex, but they all share common elements. The most basic parts of an OData expression in Azure Cognitive Search are:
++ [**$filter**](search-query-odata-filter.md) expressions are evaluated during query parsing, constraining search to specific fields or adding match criteria used during index scans. 
++ [**$orderby**](search-query-odata-orderby.md) expressions are applied as a post-processing step over a result set to sort the documents that are returned. 
++ [**$select**](search-query-odata-select.md) expressions determine which document fields are included in the result set. 
 
-- **Field paths**, which refer to specific fields of your index.
-- **Constants**, which are literal values of a certain data type.
+The syntax of these expressions is distinct from the [simple](query-simple-syntax.md) or [full](query-lucene-syntax.md) query syntax used in the **search** parameter, although there's some overlap in the syntax for referencing fields.
 
 > [!NOTE]
 > Terminology in Azure Cognitive Search differs from the [OData standard](https://www.odata.org/documentation/) in a few ways. What we call a **field** in Azure Cognitive Search is called a **property** in OData, and similarly for **field path** versus **property path**. An **index** containing **documents** in Azure Cognitive Search is referred to more generally in OData as an **entity set** containing **entities**. The Azure Cognitive Search terminology is used throughout this reference.
@@ -51,28 +51,28 @@ An interactive syntax diagram is also available:
 
 A field path is composed of one or more **identifiers** separated by slashes. Each identifier is a sequence of characters that must start with an ASCII letter or underscore, and contain only ASCII letters, digits, or underscores. The letters can be upper- or lower-case.
 
-An identifier can refer either to the name of a field, or to a **range variable** in the context of a [collection expression](search-query-odata-collection-operators.md) (`any` or `all`) in a filter. A range variable is like a loop variable that represents the current element of the collection. For complex collections, that variable represents an object, which is why you can use field paths to refer to sub-fields of the variable. This is analogous to dot notation in many programming languages.
+An identifier can refer either to the name of a field, or to a **range variable** in the context of a [collection expression](search-query-odata-collection-operators.md) (`any` or `all`) in a filter. A range variable is like a loop variable that represents the current element of the collection. For complex collections, that variable represents an object, which is why you can use field paths to refer to subfields of the variable. This is analogous to dot notation in many programming languages.
 
 Examples of field paths are shown in the following table:
 
 | Field path | Description |
 | --- | --- |
 | `HotelName` | Refers to a top-level field of the index |
-| `Address/City` | Refers to the `City` sub-field of a complex field in the index; `Address` is of type `Edm.ComplexType` in this example |
-| `Rooms/Type` | Refers to the `Type` sub-field of a complex collection field in the index; `Rooms` is of type `Collection(Edm.ComplexType)` in this example |
-| `Stores/Address/Country` | Refers to the `Country` sub-field of the `Address` sub-field of a complex collection field in the index; `Stores` is of type `Collection(Edm.ComplexType)` and `Address` is of type `Edm.ComplexType` in this example |
-| `room/Type` | Refers to the `Type` sub-field of the `room` range variable, for example in the filter expression `Rooms/any(room: room/Type eq 'deluxe')` |
-| `store/Address/Country` | Refers to the `Country` sub-field of the `Address` sub-field of the `store` range variable, for example in the filter expression `Stores/any(store: store/Address/Country eq 'Canada')` |
+| `Address/City` | Refers to the `City` subfield of a complex field in the index; `Address` is of type `Edm.ComplexType` in this example |
+| `Rooms/Type` | Refers to the `Type` subfield of a complex collection field in the index; `Rooms` is of type `Collection(Edm.ComplexType)` in this example |
+| `Stores/Address/Country` | Refers to the `Country` subfield of the `Address` subfield of a complex collection field in the index; `Stores` is of type `Collection(Edm.ComplexType)` and `Address` is of type `Edm.ComplexType` in this example |
+| `room/Type` | Refers to the `Type` subfield of the `room` range variable, for example in the filter expression `Rooms/any(room: room/Type eq 'deluxe')` |
+| `store/Address/Country` | Refers to the `Country` subfield of the `Address` subfield of the `store` range variable, for example in the filter expression `Stores/any(store: store/Address/Country eq 'Canada')` |
 
 The meaning of a field path differs depending on the context. In filters, a field path refers to the value of a *single instance* of a field in the current document. In other contexts, such as **$orderby**, **$select**, or in [fielded search in the full Lucene syntax](query-lucene-syntax.md#bkmk_fields), a field path refers to the field itself. This difference has some consequences for how you use field paths in filters.
 
-Consider the field path `Address/City`. In a filter, this refers to a single city for the current document, like "San Francisco". In contrast, `Rooms/Type` refers to the `Type` sub-field for many rooms (like "standard" for the first room, "deluxe" for the second room, and so on). Since `Rooms/Type` doesn't refer to a *single instance* of the sub-field `Type`, it can't be used directly in a filter. Instead, to filter on room type, you would use a [lambda expression](search-query-odata-collection-operators.md) with a range variable, like this:
+Consider the field path `Address/City`. In a filter, this refers to a single city for the current document, like "San Francisco". In contrast, `Rooms/Type` refers to the `Type` subfield for many rooms (like "standard" for the first room, "deluxe" for the second room, and so on). Since `Rooms/Type` doesn't refer to a *single instance* of the subfield `Type`, it can't be used directly in a filter. Instead, to filter on room type, you would use a [lambda expression](search-query-odata-collection-operators.md) with a range variable, like this:
 
 ```odata
 Rooms/any(room: room/Type eq 'deluxe')
 ```
 
-In this example, the range variable `room` appears in the `room/Type` field path. That way, `room/Type` refers to the type of the current room in the current document. This is a single instance of the `Type` sub-field, so it can be used directly in the filter.
+In this example, the range variable `room` appears in the `room/Type` field path. That way, `room/Type` refers to the type of the current room in the current document. This is a single instance of the `Type` subfield, so it can be used directly in the filter.
 
 ### Using field paths
 
@@ -216,18 +216,12 @@ An interactive syntax diagram is also available:
 > [!NOTE]
 > See [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md) for the complete EBNF.
 
-The **$orderby** and **$select** parameters are both comma-separated lists of simpler expressions. The **$filter** parameter is a Boolean expression that is composed of simpler sub-expressions. These sub-expressions are combined using logical operators such as [`and`, `or`, and `not`](search-query-odata-logical-operators.md), comparison operators such as [`eq`, `lt`, `gt`, and so on](search-query-odata-comparison-operators.md), and collection operators such as [`any` and `all`](search-query-odata-collection-operators.md).
+## Next steps
+
+The **$orderby** and **$select** parameters are both comma-separated lists of simpler expressions. The **$filter** parameter is a Boolean expression that is composed of simpler subexpressions. These subexpressions are combined using logical operators such as [`and`, `or`, and `not`](search-query-odata-logical-operators.md), comparison operators such as [`eq`, `lt`, `gt`, and so on](search-query-odata-comparison-operators.md), and collection operators such as [`any` and `all`](search-query-odata-collection-operators.md).
 
 The **$filter**, **$orderby**, and **$select** parameters are explored in more detail in the following articles:
 
-- [OData $filter syntax in Azure Cognitive Search](search-query-odata-filter.md)
-- [OData $orderby syntax in Azure Cognitive Search](search-query-odata-orderby.md)
-- [OData $select syntax in Azure Cognitive Search](search-query-odata-select.md)
-
-## See also  
-
-- [Faceted navigation in Azure Cognitive Search](search-faceted-navigation.md)
-- [Filters in Azure Cognitive Search](search-filters.md)
-- [Search Documents &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)
-- [Lucene query syntax](query-lucene-syntax.md)
-- [Simple query syntax in Azure Cognitive Search](query-simple-syntax.md)
++ [OData $filter syntax in Azure Cognitive Search](search-query-odata-filter.md)
++ [OData $orderby syntax in Azure Cognitive Search](search-query-odata-orderby.md)
++ [OData $select syntax in Azure Cognitive Search](search-query-odata-select.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Clebex | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Clebex'
 description: Learn how to configure single sign-on between Azure Active Directory and Clebex.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/27/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Clebex
+# Tutorial: Azure AD SSO integration with Clebex
 
 In this tutorial, you'll learn how to integrate Clebex with Azure Active Directory (Azure AD). When you integrate Clebex with Azure AD, you can:
 
@@ -50,6 +50,8 @@ To configure the integration of Clebex into Azure AD, you need to add Clebex fro
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Clebex** in the search box.
 1. Select **Clebex** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 
 ## Configure and test Azure AD SSO for Clebex
@@ -123,7 +125,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Clebex SSO
 
-1. Log in to your Clebex website as an administrator.
+
+
+
+1. In a different web browser window, sign in to your Clebex company site as an administrator
 
 1. Go to the COMPANY ADMIN -> **Connectors** -> **Single Sign On (SSO)** and click **select**.
 

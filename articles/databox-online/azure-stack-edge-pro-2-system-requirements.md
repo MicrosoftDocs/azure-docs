@@ -6,8 +6,9 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
+ms.custom: devx-track-arm-template
 ms.topic: conceptual
-ms.date: 02/09/2022
+ms.date: 03/17/2023
 ms.author: alkohli
 ---
 
@@ -88,7 +89,7 @@ For complete information, go to [Firewall and port configuration rules for IoT E
 |----------|-----------|------------|----------|----------|
 | TCP 31000 (HTTPS)| In       | LAN        | In some cases. <br> See notes.      |This port is required only if you are connecting to the Kubernetes dashboard to monitor your device. |
 | TCP 6443 (HTTPS)| In       | LAN        | In some cases. <br> See notes.       |This port is required by Kubernetes API server only if you are using `kubectl` to access your device. |
-
+| TCP 2379 (HTTPS)| In       | LAN        | In some cases. <br> See notes.       |This port is required by Kubernetes `etcd` on your device. |
 > [!IMPORTANT]
 > If your datacenter firewall is restricting or filtering traffic based on source IPs or MAC addresses, make sure that the compute IPs (Kubernetes node IPs) and MAC addresses are in the allowed list. The MAC addresses can be specified by running the `Set-HcsMacAddressPool` cmdlet on the PowerShell interface of the device.
 

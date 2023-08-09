@@ -1,10 +1,10 @@
 ---
-title: Data sources supported in Azure Analysis Services | Microsoft Docs
+title: Learn about data sources supported in Azure Analysis Services | Microsoft Docs
 description: Describes data sources and connectors supported for tabular 1200 and higher data models in Azure Analysis Services.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 02/02/2022
+ms.date: 01/27/2023
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -38,6 +38,8 @@ Data sources and connectors shown in Get Data or Table Import Wizard in Visual S
 
 ## Other data sources
 
+Connecting to on-premises data sources from an Azure Analysis Services server require an [On-premises gateway](analysis-services-gateway.md). When using a gateway, 64-bit providers are required.
+
 |Data source | In-memory | DirectQuery |Notes   |
 |  --- | --- | --- | --- |
 |Access Database     |  Yes | No |  |
@@ -45,14 +47,14 @@ Data sources and connectors shown in Get Data or Table Import Wizard in Visual S
 |Analysis Services     |  Yes | No |  |
 |Analytics Platform System     |  Yes | No |  |
 |CSV file  |Yes | No |  |
-|Dynamics 365     |  Yes | No | <sup>[6](#tab1400b)</sup> |
+|Dynamics 365     |  Yes | No | <sup>[6](#tab1400b)</sup>, <sup>[12](#tds)</sup> |
 |Excel workbook     |  Yes | No |  |
 |Exchange      |  Yes | No | <sup>[6](#tab1400b)</sup> |
 |Folder      |Yes | No | <sup>[6](#tab1400b)</sup> |
 |IBM Informix  |Yes | No |  |
 |JSON document      |  Yes | No | <sup>[6](#tab1400b)</sup> |
 |Lines from binary      | Yes | No | <sup>[6](#tab1400b)</sup> |
-|MySQL Database     | Yes | No |  |
+|MySQL Database     | Yes | No | <sup>[13](#mysql)</sup> |
 |OData Feed      |  Yes | No | <sup>[6](#tab1400b)</sup> |
 |ODBC query     | Yes | No |  |
 |OLE DB     |   Yes | No |  |
@@ -77,29 +79,29 @@ Data sources and connectors shown in Get Data or Table Import Wizard in Visual S
 <a name="instgw">8</a> - If specifying MSOLEDBSQL as the data provider, it may be necessary to download and install the [Microsoft OLE DB Driver for SQL Server](/sql/connect/oledb/oledb-driver-for-sql-server) on the same computer as the On-premises data gateway.  
 <a name="oracle">9</a> - For tabular 1200 models, or as a *provider* data source in tabular 1400+ models, specify Oracle Data Provider for .NET. If specified as a structured data source, be sure to [enable Oracle managed provider](#enable-oracle-managed-provider).   
 <a name="teradata">10</a> - For tabular 1200 models, or as a *provider* data source in tabular 1400+ models, specify Teradata Data Provider for .NET.  
-<a name="filesSP">11</a> - Files in on-premises SharePoint are not supported.
-
-Connecting to on-premises data sources from an Azure Analysis Services server require an [On-premises gateway](analysis-services-gateway.md). When using a gateway, 64-bit providers are required.
+<a name="filesSP">11</a> - Files in on-premises SharePoint aren't supported.  
+<a name="tds">12</a> - Azure Analysis Services doesn't support direct connections to the Dynamics 365 [Dataverse TDS endpoint](/power-apps/developer/data-platform/dataverse-sql-query). When connecting to this data source from Azure Analysis Services, you must use an On-premises Data Gateway and refresh the tokens manually.  
+<a name="mysql">13</a> - Azure Analysis Services doesn't support direct connections to MySQL databases. When connecting to this data source from Azure Analysis Services, you must use an On-premises Data Gateway and refresh the tokens manually.
 
 ## Understanding providers
 
-When creating tabular 1400 and higher model projects in Visual Studio, by default you do not specify a data provider when connecting to a data source by using **Get Data**. Tabular 1400 and higher models use [Power Query](/power-query/power-query-what-is-power-query) connectors to manage connections, data queries, and mashups between the data source and Analysis Services. These are sometimes referred to as *structured* data source connections in that connection property settings are set for you. You can, however, enable legacy data sources for a model project in Visual Studio. When enabled, you can use **Table Import Wizard** to connect to certain data sources traditionally supported in tabular 1200 and lower models as *legacy*, or *provider* data sources. When specified as a provider data source, you can specify a particular data provider and other advanced connection properties. For example, you can connect to a SQL Server Data Warehouse instance or even an Azure SQL Database as a legacy data source. You can then select the OLE DB Driver for SQL Server MSOLEDBSQL data provider. In this case, selecting an OLE DB data provider may provide improved performance over the Power Query connector. 
+When creating tabular 1400 and higher model projects in Visual Studio, by default you don't specify a data provider when connecting to a data source by using Get Data. Tabular 1400 and higher models use [Power Query](/power-query/power-query-what-is-power-query) connectors to manage connections, data queries, and mashups between the data source and Analysis Services. These are sometimes referred to as *structured* data source connections in that connection property settings are set for you. You can, however, enable legacy data sources for a model project in Visual Studio. When enabled, you can use Table Import Wizard to connect to certain data sources traditionally supported in tabular 1200 and lower models as *legacy*, or *provider* data sources. When specified as a provider data source, you can specify a particular data provider and other advanced connection properties. For example, you can connect to a SQL Server Data Warehouse instance or even an Azure SQL Database as a legacy data source. You can then select the OLE DB Driver for SQL Server MSOLEDBSQL data provider. In this case, selecting an OLE DB data provider may provide improved performance over the Power Query connector. 
 
-When using the Table Import Wizard in Visual Studio, connections to any data source require a data provider. A default data provider is selected for you. You can change the data provider if needed. The type of provider you choose can depend on performance, whether or not the model is using in-memory storage or DirectQuery, and which Analysis Services platform you deploy your model to.
+When using the Table Import Wizard in Visual Studio, connections to any data source require a data provider. A default data provider is selected for you. You can change the data provider if needed. The type of provider you choose might depend on performance, whether or not the model is using in-memory storage or DirectQuery, and which Analysis Services platform you deploy your model to.
 
 ### Specify provider data sources in tabular 1400 and higher model projects
 
 To enable provider data sources, in Visual Studio, click **Tools** > **Options** > **Analysis Services Tabular** > **Data Import**, select **Enable legacy data sources**.
 
-![Enable legacy data sources](media/analysis-services-datasource/aas-enable-legacy-datasources.png)
+![Screenshot of Enable legacy data sources.](media/analysis-services-datasource/aas-enable-legacy-datasources.png)
 
 With legacy data sources enabled, in **Tabular Model Explorer**, right-click **Data Sources** > **Import From Data Source (Legacy)**.
 
-![Legacy data sources in Tabular Model Explorer](media/analysis-services-datasource/aas-import-legacy-datasources.png)
+![Screenshot of Legacy data sources in Tabular Model Explorer.](media/analysis-services-datasource/aas-import-legacy-datasources.png)
 
 Just like with tabular 1200 model projects, use **Table Import Wizard** to connect to a data source. On the connect page, click **Advanced**. Specify data provider and other connection settings in **Set Advanced Properties**.
 
-![Legacy data sources Advanced properties](media/analysis-services-datasource/aas-import-legacy-advanced.png)
+![Screenshot of Legacy data sources Advanced properties.](media/analysis-services-datasource/aas-import-legacy-advanced.png)
 
 ## Impersonation
 In some cases, it may be necessary to specify a different impersonation account. Impersonation account can be specified in Visual Studio or SQL Server Management Studio (SSMS).
@@ -124,7 +126,7 @@ Direct Query mode is not supported with OAuth credentials.
 
 ## Enable Oracle managed provider
 
-In some cases, DAX queries to an Oracle data source may return unexpected results. This can be due to the provider being used for the data source connection.
+In some cases, DAX queries to an Oracle data source may return unexpected results. This might be due to the provider being used for the data source connection.
 
 As described in the [Understanding providers](#understanding-providers) section, tabular models connect to data sources as either a *structured* data source or a *provider* data source. For models with an Oracle data source specified as a provider data source, ensure the specified provider is Oracle Data Provider for .NET (Oracle.DataAccess.Client). 
 

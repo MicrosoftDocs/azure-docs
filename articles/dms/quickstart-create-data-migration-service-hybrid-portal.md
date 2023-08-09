@@ -2,16 +2,16 @@
 title: "Quickstart: Create a hybrid mode instance with Azure portal"
 titleSuffix: Azure Database Migration Service
 description: Use the Azure portal to create an instance of Azure Database Migration Service in hybrid mode.
-services: database-migration
-author: pochiraju
-ms.author: rajpo
-manager: craigg
+author: abhims14
+ms.author: abhishekum
 ms.reviewer: craigg
-ms.service: dms
-ms.workload: data-services
-ms.custom: seo-lt-2019, mode-ui
-ms.topic: quickstart
 ms.date: 03/13/2020
+ms.service: dms
+ms.topic: quickstart
+ms.custom:
+  - seo-lt-2019
+  - mode-ui
+  - subject-rbac-steps
 ---
 
 # Quickstart: Create a hybrid mode instance with Azure portal & Azure Database Migration Service
@@ -38,7 +38,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Sign in to the Azure portal
 
-Open your web browser, navigate to the [Microsoft Azure portal](https://portal.azure.com/), and then enter your credentials to sign in to the portal.
+From a browser, sign in to the [Azure portal](https://portal.azure.com).
 
 The default view is your service dashboard.
 
@@ -97,15 +97,23 @@ You need to create an Azure App registration ID that the on-premises hybrid work
 
 4. After App ID registration is completed, make a note of the **Application (client) ID**, which you'll use while installing the hybrid worker.
 
-5. In the Azure portal, navigate to Azure Database Migration Service, select **Access control (IAM)**, and then select **Add role assignment** to assign contributor access to the App ID.
+5. In the Azure portal, navigate to Azure Database Migration Service.
 
-    ![Azure Database Migration Service hybrid mode assign contributor role](media/quickstart-create-data-migration-service-hybrid-portal/dms-app-assign-contributor.png)
+6. In the navigation menu, select **Access control (IAM)**.
 
-6. Select **Contributor** as the role, assign access to **Azure AD user, or service principal**, and then select the App ID name.
+7. Select **Add** > **Add role assignment**.
 
-    ![Azure Database Migration Service hybrid mode assign contributor role details](media/quickstart-create-data-migration-service-hybrid-portal/dms-add-role-assignment.png)
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
 
-7. Select **Save** to save the role assignment for the App ID on the Azure Database Migration Service resource.
+8. On the **Role** tab, select the **Contributor** role.
+
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-role-generic.png" alt-text="Screenshot showing Add role assignment page with Role tab selected.":::
+
+9. On the **Members** tab, select **User, group, or service principal**, and then select the App ID name.
+
+10. On the **Review + assign** tab, select **Review + assign** to assign the role.
+
+    For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ## Download and install the hybrid worker
 

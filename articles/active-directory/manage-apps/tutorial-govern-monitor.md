@@ -1,6 +1,5 @@
 ---
 title: "Tutorial: Govern and monitor applications"
-titleSuffix: Azure AD
 description: In this tutorial, you learn how to govern and monitor an application in Azure Active Directory.
 author: omondiatieno
 manager: CelesteDG
@@ -8,7 +7,10 @@ ms.author: jomondi
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: tutorial
-ms.date: 02/24/2022
+ms.date: 07/19/2022
+ms.reviewer: saibandaru
+ms.custom: enterprise-apps
+
 # Customer intent: As an administrator of an Azure AD tenant, I want to govern and monitor my applications.
 ---
 
@@ -32,12 +34,14 @@ Using the information in this tutorial, an administrator of the application lear
 
 ## Create an access review
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 The administrator wants to make sure that users or guests have appropriate access. They decide to ask users of the application to participate in an access review and recertify or attest to their need for access. When the access review is finished, they can then make changes and remove access from users who no longer need it. For more information, see
 [Manage user and guest user access with access reviews](../governance/manage-access-review.md).
 
 To create an access review:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with one of the roles listed in the prerequisites.
+1. Sign in to the [Azure portal](https://portal.azure.com) with one of the roles listed in the prerequisites.
 1. Go to **Azure Active Directory**, and then select **Identity Governance**.
 1. On the left menu, select **Access reviews**.
 1. Select **New access review** to create a new access review.
@@ -61,11 +65,22 @@ To create an access review:
 
 ### Start the access review
 
-After you've specified the settings for an access review, select **Start**. The access review appears in your list with an indicator of its status.
+The access review starts in a few minutes and it appears in your list with an indicator of its status. 
 
 By default, Azure AD sends an email to reviewers shortly after the review starts. If you choose not to have Azure AD send the email, be sure to inform the reviewers that an access review is waiting for them to complete. You can show them the instructions for how to review access to groups or applications. If your review is for guests to review their own access, show them the instructions for how to review access for themselves to groups or applications.
 
 If you've assigned guests as reviewers and they haven't accepted their invitation to the tenant, they won't receive an email from access reviews. They must first accept the invitation before they can begin reviewing.
+
+### View the status of an access review
+
+You can track the progress of access reviews as they are completed.
+ 
+1. Go to **Azure Active Directory**, and then select **Identity Governance**.
+1. In the left menu, select **Access reviews**.
+1. In the list, select the access review you created.
+1. On the **Overview** page, check the progress of the access review. 
+
+The **Results** page provides information on each user under review in the instance, including the ability to Stop, Reset, and Download results. To learn more, check out the [Complete an access review of groups and applications in Azure AD access reviews](../governance/complete-access-review.md) article. 
 
 ## Access the audit logs report
 
@@ -99,8 +114,8 @@ To send logs to your logs analytics workspace:
 1. Select **Diagnostic settings**, and then select **Add diagnostic setting**. You can also select Export Settings from the Audit Logs or Sign-ins page to get to the diagnostic settings configuration page.
 1. In the Diagnostic settings menu, select **Send to Log Analytics workspace**, and then select Configure.
 1. Select the Log Analytics workspace you want to send the logs to, or create a new workspace in the provided dialog box.
-1.	Select the logs that you would like to send to the workspace.
-1.	Select **Save** to save the setting.
+1. Select the logs that you would like to send to the workspace.
+1. Select **Save** to save the setting.
 
 After about 15 minutes, verify that events are streamed to your Log Analytics workspace.
 

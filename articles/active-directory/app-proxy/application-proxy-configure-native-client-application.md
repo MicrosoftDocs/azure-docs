@@ -1,14 +1,15 @@
 ---
-title: Publish native client apps - Azure Active Directory
+title: Publish native client apps
 description: Covers how to enable native client apps to communicate with Azure Active Directory Application Proxy Connector to provide secure remote access to your on-premises apps.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
+ms.custom: devx-track-dotnet
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 11/17/2022
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -31,11 +32,12 @@ Publish your proxy application as you would any other application and assign use
 
 ## Step 2: Register your native application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You now need to register your application in Azure AD, as follows:
 
-1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/). The **Dashboard** for the **Azure Active Directory admin center** appears.
-1. In the sidebar, select **Azure Active Directory**. The **Azure Active Directory** overview page appears.
-1. In the Azure AD overview sidebar, select **App registrations**. The list of all app registrations appears.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Browse to **Azure Active Directory** > **App registrations**. The list of all app registrations appears.
 1. Select **New registration**. The **Register an application** page appears.
 
    ![Create a new app registration in the Azure portal](./media/application-proxy-configure-native-client-application/create.png)
@@ -99,9 +101,9 @@ if (authResult != null)
  }
 ```
 
-The required info in the sample code can be found in the Azure AD portal, as follows:
+The required info in the sample code can be found in the Azure portal, as follows:
 
-| Info required | How to find it in the Azure AD portal |
+| Info required | How to find it in the Azure portal |
 | --- | --- |
 | \<Tenant ID> | **Azure Active Directory** > **Properties** > **Directory ID** |
 | \<App ID of the Native app> | **Application registration** > *your native application* > **Overview** > **Application ID** |
@@ -112,6 +114,6 @@ After you edit the MSAL code with these parameters, your users can authenticate 
 
 ## Next steps
 
-For more information about the native application flow, see [Native apps in Azure Active Directory](../azuread-dev/native-app.md).
+For more information about the native application flow, see [mobile](../develop/authentication-flows-app-scenarios.md#mobile-app-that-calls-a-web-api-on-behalf-of-an-interactive-user) and [desktop](../develop/authentication-flows-app-scenarios.md#desktop-app-that-calls-a-web-api-on-behalf-of-a-signed-in-user) apps in Azure Active Directory.
 
 Learn about setting up [Single sign-on to applications in Azure Active Directory](../manage-apps/sso-options.md#choosing-a-single-sign-on-method).

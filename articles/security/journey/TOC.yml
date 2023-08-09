@@ -45,6 +45,8 @@
     items:
     - name: Firmware security
       href: ../fundamentals/firmware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Code integrity
+      href: ../fundamentals/code-integrity.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Secure Boot
       href: ../fundamentals/secure-boot.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Measured boot & host attestation
@@ -58,9 +60,9 @@
   - name: Isolation in the Azure cloud
     href: ../fundamentals/isolation-choices.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: AWS to Azure security services comparison
-    href: /azure/architecture/aws-professional/services#security-identity-and-access?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    href: /azure/architecture/aws-professional/services?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: GCP to Azure security services comparison
-    href: /azure/architecture/gcp-professional/services#security?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    href: /azure/architecture/gcp-professional/services?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
 - name: Plan for migration
   items:
@@ -84,13 +86,38 @@
   items:
   - name: Zero Trust
     href: ../fundamentals/zero-trust.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Design for zero trust model
+    href: /azure/architecture/framework/mission-critical/mission-critical-security?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+
+- name: Detect and mitigate threats
+  items:
+  - name: Protect against ransomware and extortion 
+    items:
+      - name: Ransomware protection in Azure
+        href: ../fundamentals/ransomware-protection.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      - name: Prepare for an attack
+        href: ../fundamentals/ransomware-prepare.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      - name: Detect and respond to an attack
+        href: ../fundamentals/ransomware-detect-respond.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      - name: Azure features & resources that help you protect, detect, and respond
+        href: ../fundamentals/ransomware-features-resources.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      - name: Back up and restore plan for ransomware
+        href: ../fundamentals/backup-plan-to-protect-against-ransomware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      - name: Ransomware protection with Azure Firewall Premium
+        href: ../fundamentals/ransomware-protection-with-azure-firewall.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      - name: Recovering from systemic identity compromise
+        href: ../fundamentals/recover-from-identity-compromise.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Threat protection
+    href: ../fundamentals/threat-detection.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Threat analysis 
+    href: /azure/architecture/framework/security/design-threat-model?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
 - name: Secure and protect
   items:
   - name: Security best practices
     href: ../fundamentals/best-practices-and-patterns.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Security controls and baselines
-    href: ../benchmarks/introduction.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    href: /security/benchmark/azure/introduction?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
   - name: Identity & and access management
     items:
@@ -120,7 +147,7 @@
       - name: DDoS Protection best practices
         href: ../../ddos-protection/fundamental-best-practices.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
       - name: DDoS Protection security baseline
-        href: /security/benchmark/azure/baselines/ddos-protection-security-baseline?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json?toc=/azure/security/journey/TOC.json?toc=/azure/security/journey/TOC.json
+        href: /security/benchmark/azure/baselines/azure-ddos-protection-security-baseline?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json?toc=/azure/security/journey/TOC.json?toc=/azure/security/journey/TOC.json
     - name: Dangling DNS and subdomain takeover
       href: ../fundamentals/subdomain-takeover.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Network segmentation
@@ -137,11 +164,15 @@
       href: /azure/architecture/framework/security/design-network?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
   - name: Data security, encryption, and storage
-    items: 
+    items:
+    - name: Azure Certificate Authority details
+      href: ../fundamentals/azure-CA-details.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Data security and encryption
       href: ../fundamentals/encryption-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Double encryption
       href: ../fundamentals/double-encryption.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Sunset for SHA-1 OCSP signing
+      href: ../fundamentals/ocsp-sha-1-sunset.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: TLS certificate changes
       href: ../fundamentals/tls-certificate-changes.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Disk encryption
@@ -152,18 +183,20 @@
         href: ../fundamentals/encryption-atrest.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
       - name: Data encryption models
         href: ../fundamentals/encryption-models.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-      - name: Azure Disk Encryption for virtual machines
-        href: ../fundamentals/azure-disk-encryption-vms-vmss.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      - name: Managed disk encryption
+        href: ../../virtual-machines/disk-encryption-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Database security
       items:
       - name: Overview
-        href: ../../azure-sql/database/security-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        href: /azure/azure-sql/database/security-overview?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
       - name: Best practices
-        href: ../../azure-sql/database/security-best-practice.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        href: /azure/azure-sql/database/security-best-practice?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
       - name: Security checklist
         href: ../fundamentals/database-security-checklist.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Storage security guide
       href: ../../storage/blobs/security-recommendations.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Key management in Azure
+      href: ../fundamentals/key-management.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Key and secret management 
       href: /azure/architecture/framework/security/design-storage-keys?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Customer Lockbox
@@ -172,6 +205,8 @@
         href: ../fundamentals/customer-lockbox-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
       - name: Security baseline for Customer Lockbox
         href: /security/benchmark/azure/baselines/lockbox-security-baseline?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json?toc=/azure/security/journey/TOC.json?toc=/azure/security/journey/TOC.json
+    - name: Trusted Hardware Identity Management
+      href: ../fundamentals/trusted-hardware-identity-management.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Checklist
       href: /azure/architecture/framework/security/design-storage?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
@@ -183,6 +218,8 @@
       href: ../fundamentals/antimalware-code-samples.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Virtual machine security overview
       href: ../fundamentals/virtual-machines-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Automatic VM guest patching
+      href: ../../virtual-machines/automatic-vm-guest-patching.md?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2fjourney%2ftoc.json
     - name: Best practices - IaaS workloads
       href: ../fundamentals/iaas.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Azure Marketplace images
@@ -225,15 +262,6 @@
         - name: Security checklist
           href: ../fundamentals/operational-checklist.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
-- name: Detect and mitigate threats
-  items:
-  - name: Backup and restore plan for ransomware
-    href: ../fundamentals/backup-plan-to-protect-against-ransomware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-  - name: Threat protection
-    href: ../fundamentals/threat-detection.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-  - name: Threat analysis 
-    href: /azure/architecture/framework/security/design-threat-model?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-
 - name: Investigate suspicious activity
   items:
   - name: Azure logging and auditing
@@ -254,6 +282,8 @@
 
 - name: Resources
   items:
+  - name: Feature availability for US Government clouds
+    href: ../fundamentals/feature-availability.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Security white papers
     href: https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource
   - name: Best practices
@@ -264,3 +294,5 @@
     href: ../fundamentals/event-support-ticket.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Pen testing
     href: ../fundamentals/pen-testing.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Azure domains
+    href: /azure/architecture/framework/mission-critical/mission-critical-security

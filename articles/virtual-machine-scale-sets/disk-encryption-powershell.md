@@ -1,22 +1,20 @@
 ---
 title: Encrypt disks for Azure scale sets with Azure PowerShell
-description: Learn how to use Azure PowerShell to encrypt VM instances and attached disks in a Windows virtual machine scale set
+description: Learn how to use Azure PowerShell to encrypt VM instances and attached disks in a Windows Virtual Machine Scale Set
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: disks
-ms.date: 10/15/2019
+ms.date: 11/22/2022
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 
-# Encrypt OS and attached data disks in a virtual machine scale set with Azure PowerShell
+# Encrypt OS and attached data disks in a Virtual Machine Scale Set with Azure PowerShell
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
-
-The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts.  This article shows you how to use Azure PowerShell to create and encrypt a virtual machine scale set. For more information on applying Azure Disk Encryption to a virtual machine scale set, see [Azure Disk Encryption for Virtual Machine Scale Sets](disk-encryption-overview.md).
+The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts.  This article shows you how to use Azure PowerShell to create and encrypt a Virtual Machine Scale Set. For more information on applying Azure Disk Encryption to a Virtual Machine Scale Set, see [Azure Disk Encryption for Virtual Machine Scale Sets](disk-encryption-overview.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -55,7 +53,7 @@ First, set an administrator username and password for the VM instances with [Get
 $cred = Get-Credential
 ```
 
-Now create a virtual machine scale set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985:
+Now create a Virtual Machine Scale Set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985:
 
 ```azurepowershell-interactive
 $vmssName="myScaleSet"
@@ -63,6 +61,7 @@ $vmssName="myScaleSet"
 New-AzVmss `
     -ResourceGroupName $rgName `
     -VMScaleSetName $vmssName `
+    -OrchestrationMode "flexible" `
     -Location $location `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `
@@ -89,7 +88,7 @@ When prompted, type *y* to continue the disk encryption process on the scale set
 
 ### Enable encryption using KEK to wrap the key
 
-You can also use a Key Encryption Key for added security when encrypting the virtual machine scale set.
+You can also use a Key Encryption Key for added security when encrypting the Virtual Machine Scale Set.
 
 ```azurepowershell-interactive
 $diskEncryptionKeyVaultUrl=(Get-AzKeyVault -ResourceGroupName $rgName -Name $vaultName).VaultUri
@@ -147,5 +146,5 @@ Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssNam
 
 ## Next steps
 
-- In this article, you used Azure PowerShell to encrypt a virtual machine scale set. You can also use the [Azure CLI](disk-encryption-cli.md) or [Azure Resource Manager templates](disk-encryption-azure-resource-manager.md).
+- In this article, you used Azure PowerShell to encrypt a Virtual Machine Scale Set. You can also use the [Azure CLI](disk-encryption-cli.md) or [Azure Resource Manager templates](disk-encryption-azure-resource-manager.md).
 - If you wish to have Azure Disk Encryption applied after another extension is provisioned, you can use [extension sequencing](virtual-machine-scale-sets-extension-sequencing.md).

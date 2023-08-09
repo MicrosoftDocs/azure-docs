@@ -1,8 +1,10 @@
 ---
 title: "Quickstart: New policy assignment with Terraform"
 description: In this quickstart, you use Terraform and HCL syntax to create a policy assignment to identify non-compliant resources.
-ms.date: 08/17/2021
+ms.date: 03/01/2023
 ms.topic: quickstart
+ms.custom: devx-track-terraform
+ms.tool: terraform
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources using Terraform
 
@@ -11,7 +13,7 @@ This quickstart steps you through the process of creating a policy assignment to
 machines that aren't using managed disks.
 
 At the end of this process, you'll successfully identify virtual machines that aren't using managed
-disks. They're _non-compliant_ with the policy assignment.
+disks across subscription. They're _non-compliant_ with the policy assignment.
 
 ## Prerequisites
 
@@ -36,54 +38,55 @@ for Azure Policy use the
 
 1. Create a new folder named `policy-assignment` and change directories into it.
 
-1. Create `main.tf` with the following code:
+2. Create `main.tf` with the following code:
 
-   ```hcl
-   provider "azurerm" {
-       features {}
-   }
-   
-  terraform {
-    required_providers {
-      azurerm = {
-        source  = "hashicorp/azurerm"
-        version = ">= 2.96.0"
+    > [!NOTE]
+    > To create a Policy Assignment at a Management Group use the [azurerm_management_group_policy_assignment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group_policy_assignment) resource, for a Resource Group use the [azurerm_resource_group_policy_assignment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group_policy_assignment) and for a Subscription use the [azurerm_subscription_policy_assignment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subscription_policy_assignment) resource.
+
+
+    ```terraform
+      provider "azurerm" {
+        features {}
       }
+
+      terraform {
+      required_providers {
+          azurerm = {
+              source = "hashicorp/azurerm"
+              version = ">= 2.96.0"
+          }
+      }
+      }
+
+      resource "azurerm_subscription_policy_assignment" "auditvms" {
+      name = "audit-vm-manageddisks"
+      subscription_id = var.cust_scope
+      policy_definition_id = "/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d"
+      description = "Shows all virtual machines not using managed disks"
+      display_name = "Audit VMs without managed disks assignment"
+      }
+    ```
+3. Create `variables.tf` with the following code:
+
+    ```terraform
+    variable "cust_scope" {
+        default = "{scope}"
     }
-  }
+    ```
 
-  resource "azurerm_resource_policy_assignment" "auditvms" {
-    name                 =  "audit-vm-manageddisks"
-    resource_id          =  var.cust_scope
-    policy_definition_id =  "/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d"
-    description          =  "Shows all virtual machines not using managed disks"
-    display_name         =  "Audit VMs without managed disks assignment"
-   }
-   ```
-
-1. Create `variables.tf` with the following code:
-
-   ```hcl
-   variable "cust_scope" {
-       default = "{scope}"
-   }
-   ```
-
-   A scope determines what resources or grouping of resources the policy assignment gets enforced
-   on. It could range from a management group to an individual resource. Be sure to replace
-   `{scope}` with one of the following patterns:
+   A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a management group to an individual  resource. Be sure to replace `{scope}` with one of the following patterns based on the declared resource:
 
    - Subscription: `/subscriptions/{subscriptionId}`
    - Resource group: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
    - Resource: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]`
 
-1. Create `output.tf` with the following code:
+4. Create `output.tf` with the following code:
 
-   ```hcl
-   output "assignment_id" {
-       value = azurerm_resource_policy_assignment.auditvms.id
-   }
-   ```
+    ```terraform
+    output "assignment_id" {
+        value = azurerm_subscription_policy_assignment.auditvms.id
+    }
+    ```
 
 ## Initialize Terraform and create plan
 
@@ -139,11 +142,11 @@ returned.
 ## Identify non-compliant resources
 
 To view the resources that aren't compliant under this new assignment, use the _assignment\_id_
-returned by `terraform apply`. With it, run the following command to get the resource IDs of the
+returned by ```terraform apply```. With it, run the following command to get the resource IDs of the
 non-compliant resources that are output into a JSON file:
 
 ```console
-armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
+armclient post "/subscriptions/<subscriptionID>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
 ```
 
 Your results resemble the following example:
@@ -189,7 +192,7 @@ To remove the assignment created, use Azure CLI or reverse the Terraform executi
 - Terraform
 
   ```bash
-  terraform destroy assignment.tfplan
+  terraform destroy
   ```
 
 ## Next steps

@@ -15,7 +15,7 @@ ms.date: 03/04/2020
 
 Follow this article to move a Maintenance Control configuration to a different Azure region. You might want to move a configuration for a number of reasons. For example, to take advantage of a new region, to deploy features or services available in a specific region, to meet internal policy and governance requirements, or in response to capacity planning.
 
-[Maintenance control](maintenance-control.md), with customized maintenance configurations, allows you to control how platform updates are applied to VMs, and to Azure Dedicated Hosts. There are a couple of scenarios for moving maintenance control across regions:
+[Maintenance control](maintenance-configurations.md), with customized maintenance configurations, allows you to control how platform updates are applied to VMs, and to Azure Dedicated Hosts. There are a couple of scenarios for moving maintenance control across regions:
 
 - To move your maintenance control configuration, but not the resources associated with the configuration, follow the instructions in this article.
 - To move the resources associated with a maintenance configuration, but not the configuration itself, follow [these instructions](move-region-maintenance-configuration-resources.md).
@@ -51,8 +51,8 @@ Before you begin moving a maintenance control configuration:
 
 3. Save your list for reference. As you move the configurations, it helps you to verify that everything's been moved.
 4. As a reference, map each configuration/resource group to the new resource group in the new region.
-5. Create new maintenance configurations in the new region using [PowerShell](../virtual-machines/maintenance-control-powershell.md#create-a-maintenance-configuration), or [CLI](../virtual-machines/maintenance-control-cli.md#create-a-maintenance-configuration).
-6. Associate the configurations with the resources in the new region, using [PowerShell](../virtual-machines/maintenance-control-powershell.md#assign-the-configuration), or [CLI](../virtual-machines/maintenance-control-cli.md#assign-the-configuration).
+5. Create new maintenance configurations in the new region using [PowerShell](../virtual-machines/maintenance-configurations-powershell.md#create-a-maintenance-configuration), or [CLI](../virtual-machines/maintenance-configurations-cli.md#create-a-maintenance-configuration).
+6. Associate the configurations with the resources in the new region, using [PowerShell](../virtual-machines/maintenance-configurations-powershell.md#assign-the-configuration), or [CLI](../virtual-machines/maintenance-configurations-cli.md#assign-the-configuration).
 
 
 ## Verify the move
@@ -62,7 +62,7 @@ After moving the configurations, compare configurations and resources in the new
 
 ## Clean up source resources
 
-After the move, consider deleting the moved maintenance configurations in the source region, [PowerShell](../virtual-machines/maintenance-control-powershell.md#remove-a-maintenance-configuration), or [CLI](../virtual-machines/maintenance-control-cli.md#delete-a-maintenance-configuration).
+After the move, consider deleting the moved maintenance configurations in the source region, [PowerShell](../virtual-machines/maintenance-configurations-powershell.md#delete-a-maintenance-configuration), or [CLI](../virtual-machines/maintenance-configurations-cli.md#delete-a-maintenance-configuration).
 
 
 ## Next steps

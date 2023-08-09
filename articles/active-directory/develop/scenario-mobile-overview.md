@@ -1,18 +1,17 @@
 ---
-title: Build a mobile app that calls web APIs | Azure
-titleSuffix: Microsoft identity platform | Azure
+title: Build a mobile app that calls web APIs
 description: Learn how to build a mobile app that calls web APIs (overview)
 services: active-directory
-author: jmprieur
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
-ms.author: jmprieur
-ms.reviewer: brandwe
+ms.date: 02/07/2023
+ms.author: henrymbugua
+ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform.
 ---
@@ -39,7 +38,7 @@ Considerations for mobile apps:
 
 - **User experience is key**: Allow users to see the value of your app before you ask for sign-in. Request only the required permissions.
 - **Support all user configurations**: Many mobile business users must adhere to conditional-access policies and device-compliance policies. Be sure to support these key scenarios.
-- **Implement single sign-on (SSO)**: By using MSAL and Microsoft identity platform, you can enable single sign-on through the device's browser or Microsoft Authenticator (and Intune Company Portal on Android).
+- **Implement single sign-on (SSO)**: By using MSAL and Microsoft identity platform, you can enable SSO through the device's browser or Microsoft Authenticator (and Intune Company Portal on Android).
 - **Implement shared device mode**: Enable your application to be used in shared-device scenarios, for example hospitals, manufacturing, retail, and finance. [Read more about supporting shared device mode](msal-shared-devices.md).
 
 ## Specifics
@@ -52,7 +51,7 @@ Keep in mind the following considerations when you build a mobile app on Microso
 
 ## Recommended reading
 
-[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+[!INCLUDE [recommended-topics](./includes/scenarios/scenarios-prerequisites.md)]
 
 ## Next steps
 

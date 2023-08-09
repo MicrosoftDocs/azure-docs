@@ -1,6 +1,6 @@
 ---
 title: Bing Autosuggest Go client library quickstart
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -14,7 +14,7 @@ Get started with the Bing Autosuggest client library for Go. Follow these steps 
 
 Use the Bing Autosuggest client library for Go to get search suggestions based on partial query strings.
 
-[Reference documentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics) | [Sample code](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/BingAutoSuggest/BingAutoSuggestQuickstart.go)
+[Reference documentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest) | [Sample code](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/BingAutoSuggest/BingAutoSuggestQuickstart.go)
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ Begin using the Bing Autosuggest client library by creating an Azure resource. C
 ## Create environment variables
 
 >[!NOTE]
-> The endpoints for resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../../../cognitive-services-custom-subdomains.md).
+> The endpoints for resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints, see [Custom subdomain names for Azure AI services](../../../cognitive-services-custom-subdomains.md).
 
 Using your key and endpoint from the resource you created, create two environment variables for authentication:
 <!-- replace the below variable names with the names expected in the code sample.-->
@@ -202,7 +202,7 @@ go run sample-app.go
 
 ## Clean up resources
 
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 * [Delete a resource group in the Azure portal](../../../cognitive-services-apis-create-account.md#clean-up-resources).
 * [Delete a resource group in the Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources).

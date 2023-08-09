@@ -1,58 +1,51 @@
 ---
 title: Specify marketplace images for a lab in Azure Lab Services
-description: This article shows you how to specify the Marketplace images that lab creator can use to create labs in a lab account in Azure Lab Services. 
+description: This article shows you how to specify which Marketplace images can be used during lab creation.
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 07/04/2022
+ms.custom: devdivchpfy22
 ---
 
 # Specify Marketplace images available to lab creators
-As a lab account owner, you can specify the Marketplace images that lab creators can use to create labs in the lab account. 
+
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+
+> [!NOTE]
+> If you're using a version of Azure Lab Services prior to the [August 2022 Update](lab-services-whats-new.md), see [Specify Marketplace images available to lab creators](specify-marketplace-images-1.md).
+
+As an admin, you can specify the Marketplace images that educators can use when creating labs.
 
 ## Select images available for labs
-Select **Marketplace images** on the menu to the left. By default, you see the full list of images (both enabled and disabled). You can filter the list to see only enabled/disabled images by selecting the **Enabled only**/**Disabled only** option from the drop-down list at the top. 
-    
-![Marketplace images page](./media/tutorial-setup-lab-account/marketplace-images-page.png)
+
+Select **Marketplace images** on the menu to the left. By default, you can see the full list of images (both enabled and disabled). You can filter for **Status** to be equal to **Enabled** or **Disabled**.
+
+:::image type="content" source="./media/specify-marketplace-images/marketplace-images-page.png" alt-text="Screenshot that shows the Marketplace images page for a lab plan. The Marketplace images menu and status filter are highlighted.":::
 
 The Marketplace images that are displayed in the list are only the ones that satisfy the following conditions:
-    
+
 - Creates a single VM.
-- Uses Azure Resource Manager to provision VMs
-- Doesn't require purchasing an extra licensing plan
+- Uses Azure Resource Manager to provision VMs.
+- Doesn't require purchasing an extra licensing plan.
 
-## Disable images for a lab 
-To disable a single image for a lab, select **... (ellipsis)** in the last column, and select **Disable image**. 
+## Enable and disable images
 
-![Disable one image](./media/tutorial-setup-lab-account/disable-one-image.png) 
+To enable one or more images:
 
-Alternatively, you select the checkbox before the image name, and select **Disable selected images** on the toolbar. 
+1. Check images you want to enable.
+1. Select **Enable image** button.
+1. Select **Apply**.
 
-To disable multiple images at the same time, select checkboxes before the image names, and select **Disable selected images** on the toolbar. 
+:::image type="content" source="./media/specify-marketplace-images/marketplace-images-page-enable-selected.png" alt-text="Screenshot of Marketplace images page for lab account. A disabled image is selected from the list of images.":::
 
-![Disable multiple images](./media/tutorial-setup-lab-account/disable-multiple-images.png) 
+To disable one or images:
 
-
-## Enable images for a lab
-To enable a disabled image, select **... (ellipsis)** in the last column, and select **Enable image**. Alternatively, you select the checkbox before the image name, and select **Enable selected images** on the toolbar. 
-
-To disable multiple images at the same time, select checkboxes before the image names, and select **Enable selected images** on the toolbar. 
-
-## Enable images at the time of lab creation
-You can enable more images at the time lab creation: 
-
-1. Sign in to the [Azure Lab Services website](https://labs.azure.com) using **lab account owner** credentials
-2. Select the default virtual machine image or the down arrow. 
-3. Select **Enable more image options**. 
-
-    ![Enable more image options](./media/specify-marketplace-images/enable-more-images-menu.png)
-4. Follow instructions from the previous section to enable the images you select. 
-5. You may need to close the **New lab** window and reopen it to see the images you selected in the previous step. 
-
-
+1. Check images you want to disable.
+1. Select **Disable image** button.
+1. Select **Apply**.
 
 ## Next steps
-See the following articles:
 
-- [As a lab owner, create and manage labs](how-to-manage-classroom-labs.md)
-- [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
-- [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
-- [As a lab user, access labs](how-to-use-classroom-lab.md)
+- As an educator, [create and manage labs](how-to-manage-classroom-labs.md).
+- As an educator, [configure and publish templates](how-to-create-manage-template.md).
+- As an educator, [configure and control usage of a lab](how-to-manage-lab-users.md).
+- As a student, [access labs](how-to-use-lab.md).

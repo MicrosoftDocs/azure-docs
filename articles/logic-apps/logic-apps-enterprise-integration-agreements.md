@@ -7,10 +7,12 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 08/23/2022
 ---
 
 # Add agreements between partners in integration accounts for workflows in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 After you add partners to your integration account, specify how partners exchange messages by defining [*agreements*](logic-apps-enterprise-integration-agreements.md) in your integration account. Agreements help organizations communicate seamlessly with each other by defining the specific industry-standard protocol for exchanging messages and by providing the following shared benefits:
 
@@ -36,9 +38,9 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
   * Exists in the same location or Azure region as your logic app resource.
 
-  * If you're using the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), your integration account requires a [link to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account) before you can use artifacts in your workflow.
+  * If you're using the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-environment-differences), your integration account requires a [link to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account) before you can use artifacts in your workflow.
 
-  * If you're using the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), your integration account doesn't need a link to your logic app resource but is still required to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
+  * If you're using the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-environment-differences), your integration account doesn't need a link to your logic app resource but is still required to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
 
   > [!NOTE]
   > Currently, only the **Logic App (Consumption)** resource type supports [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. 
@@ -48,7 +50,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
 * Optionally, the logic app resource and workflow where you want to use the agreement to exchange messages. The workflow requires any trigger that starts your logic app's workflow.
 
-If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md) and [Quickstart: Create your first logic app](quickstart-create-first-logic-app-workflow.md).
+If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md) and [Create an example Consumption logic app workflow](quickstart-create-example-consumption-workflow.md).
 
 ## Add an agreement
 

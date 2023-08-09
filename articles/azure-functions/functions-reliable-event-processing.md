@@ -1,10 +1,8 @@
 ---
 title: Azure Functions reliable event processing
 description: Avoid missing Event Hub messages in Azure Functions
-author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.author: cshoe
 ---
 
 # Azure Functions reliable event processing
@@ -45,7 +43,7 @@ Azure Functions consumes Event Hub events while cycling through the following st
 
 This behavior reveals a few important points:
 
-- *Unhandled exceptions may cause you to lose messages.* Executions that result in an exception will continue to progress the pointer.  Setting a [retry policy](./functions-bindings-error-pages.md#retry-policies-preview) will delay progressing the pointer until the entire retry policy has been evaluated.
+- *Unhandled exceptions may cause you to lose messages.* Executions that result in an exception will continue to progress the pointer.  Setting a [retry policy](./functions-bindings-error-pages.md#retry-policies) will delay progressing the pointer until the entire retry policy has been evaluated.
 - *Functions guarantees at-least-once delivery.* Your code and dependent systems may need to [account for the fact that the same message could be received twice](./functions-idempotent.md).
 
 ## Handling exceptions
@@ -54,7 +52,7 @@ As a general rule, every function should include a [try/catch block](./functions
 
 ### Retry mechanisms and policies
 
-Some exceptions are transient in nature and don't reappear when an operation is attempted again moments later. This is why the first step is always to retry the operation.  You can leverage the function app [retry policies](./functions-bindings-error-pages.md#retry-policies-preview) or author retry logic within the function execution.
+Some exceptions are transient in nature and don't reappear when an operation is attempted again moments later. This is why the first step is always to retry the operation.  You can leverage the function app [retry policies](./functions-bindings-error-pages.md#retry-policies) or author retry logic within the function execution.
 
 Introducing fault-handling behaviors to your functions allow you to define both basic and advanced retry policies. For instance, you could implement a policy that follows a workflow illustrated by the following rules:
 

@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
 title: Azure Monitor documentation
-summary: Monitoring Azure and on-premises services. Aggregate and analyze metrics, logs, and traces. Fire alerts and send notifications or call automated solutions. 
+summary: Learn about monitoring Azure and on-premises services. Understand how to aggregate and analyze metrics, logs, and traces. Respond to issues by firing alerts that can send notifications or by calling automated solutions.
 
 metadata:
   title: Azure Monitor documentation
   description:  Azure Monitor, which now includes Log Analytics and Application Insights, provides sophisticated tools for collecting and analyzing telemetry that allow you to maximize the performance and availability of your cloud and on-premises resources and applications.
   ms.topic: landing-page
   ms.service: azure-monitor
+  ms.custom: ignite-2022
   author: rboucher
   ms.author: robb
-  ms.date: 10/08/2019
-
+  ms.date: 03/14/2023
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -24,94 +24,129 @@ landingContent:
         links:
           - text: What is Azure Monitor?
             url: overview.md
-          - text: What can you Monitor?
-            url: monitor-reference.md  
-          - text: What is Azure Monitor Logs / Log Analytics?
+          - text: What can you monitor?
+            url: data-sources.md
+          - text: How do you collect data?
+            url: ./essentials/data-collection.md
+          - text: What is Azure Monitor Metrics?
+            url: ./essentials/data-platform-metrics.md
+          - text: What is Azure Monitor Logs?
             url: ./logs/data-platform-logs.md
-          - text: What is Application Insights?
-            url: app/app-insights-overview.md
-          - text: Application Insights content hub page
-            url: azure-monitor-app-hub.yml
 
   # Card 
-  - title: About monitoring data   
-    linkLists:     
-      - linkListType: concept
-        links:
-          - text: Data sources Overview
-            url: agents/data-sources.md
-          - text: Data platform Overview
-            url: ./data-platform.md
-
-  # Card 
-  - title: 10-minute quickstarts
+  - title: Common scenarios
     linkLists:
-      - linkListType: quickstart
+      - linkListType: how-to-guide
         links:
-          - text: Monitor and alert on metrics
-            url: alerts/alerts-metric.md
-          - text: Analyze logs
-            url: ./logs/log-analytics-tutorial.md
-          - text: Alert on Subscription events
-            url: ./alerts/alerts-activity-log.md
-
-  # Card 
-  - title: Monitor applications
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: .NET
-            url: app/asp-net.md
-          - text: .NET Core
-            url: app/asp-net-core.md
-          - text: Node.js
-            url: ./app/nodejs-quick-start.md
-          - text: Mobile
-            url: ./app/mobile-center-quickstart.md
-          - text: Website
-            url: app/website-monitoring.md
+          - text: Multi-cloud monitoring
+            url: best-practices-multicloud.md
+          - text: Monitor virtual machines
+            url: ./vm/monitor-virtual-machine.md
+          - text: Monitor containers
+            url: ./containers/container-insights-overview.md
+          - text: Migrate from SCOM
+            url:  azure-monitor-operations-manager.md
+          - text: Migrate from Splunk to Azure Monitor Logs
+            url: ./logs/migrate-splunk-to-azure-monitor-logs.md
 
   # Card
   - title: Training
     linkLists: 
       - linkListType: learn
         links:
-          - text: Microsoft Learn learning path
-            url: /learn/paths/monitor-usage-performance-availability-resources-azure-monitor/
+          - text: Azure Monitor fundamentals 
+            url: /training/paths/monitor-usage-performance-availability-resources-azure-monitor/
+          - text: Analyze monitoring data with Kusto Query Language
+            url: /training/paths/analyze-monitoring-data-with-kql/
+          - text: Monitor hybrid virtual machines, containers, and network resources
+            url: /training/paths/monitor-hybrid-virtual-machines-containers-network/
+
+# Card 
+  - title: Get started with Azure Monitor
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Plan your implementation
+            url: best-practices-plan.md
+          - text: Configure data collection
+            url: best-practices-data-collection.md
+          - text: Understand analysis and visualization tools
+            url: best-practices-analysis.md
+          - text: Configure alerts and automated actions
+            url: best-practices-alerts.md
+          - text: Optimize costs
+            url: best-practices-cost.md
+
+ # Card
+  - title: Get started with Azure Monitor Logs
+    linkLists: 
+      - linkListType: how-to-guide
+        links:
+          - text: Set up a Log Analytics workspace
+            url: logs/log-analytics-workspace-overview.md
+          - text: Design a Log Analytics workspace architecture
+            url: logs/workspace-design.md
+          - text: Manage tables in a Log Analytics workspace
+            url: logs/manage-logs-tables.md
+          - text: Monitor workspaces with Log Analytics Workspace Insights
+            url: logs/log-analytics-workspace-insights-overview.md
+          - text: Analyze data in Log Analytics
+            url: logs/log-analytics-tutorial.md
+          - text: Get started with KQL log queries
+            url: logs/log-analytics-tutorial.md               
+
+   # Card 
+  - title: Get started with Application Insights
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Application Insights overview
+            url: app/app-insights-overview.md
+          - text: Create a resource
+            url: app/create-workspace-resource.md
+          - text: Auto-instrumentation overview
+            url: app/codeless-overview.md
+          - text: Application Dashboard
+            url: app/overview-dashboard.md
+          - text: Availability tests
+            url: app/availability-overview.md
+          - text: Application map
+            url: app/app-map.md
+
+ # Card
+  - title: Visualize monitoring data
+    linkLists: 
+      - linkListType: how-to-guide
+        links:
+          - text: Insights and curated visualizations
+            url: insights/insights-overview.md
+          - text: Workbooks 
+            url: visualize/workbooks-overview.md
+          - text: Dashboards
+            url: visualize/tutorial-logs-dashboards.md
+          - text: Power BI
+            url: logs/log-powerbi.md
+          - text: Grafana
+            url: visualize/grafana-plugin.md
+
+ # Card
+  - title: Respond to issues
+    linkLists: 
+      - linkListType: how-to-guide
+        links:
+          - text: Alerts 
+            url: alerts/alerts-overview.md
+          - text: Autoscale
+            url: autoscale/autoscale-overview.md
 
   # Card
-  - title: Reference - CLI
+  - title: Reference
     linkLists:
       - linkListType: reference
         links:
-          - text: Action Groups, Activity Logs, Autoscale, Diagnostic Settings, Metrics, Private Link Scope
+          - text: CLI Reference
             url:  /cli/azure/azure-cli-reference-for-monitor
-          - text: Log Analytics
-            url:  /cli/azure/monitor
-          - text: Application Insights
-            url:  /cli/azure/monitor/app-insights
-
-  # Card
-  - title: Reference - PowerShell
-    linkLists: 
-      - linkListType: reference
-        links:
-          - text: Metrics, Autoscale, Diagnostic settings, Alerts
-            url: /powershell/module/az.monitor
-          - text: Log Analytics
-            url: /powershell/module/az.operationalinsights
-          - text: Application Insights
-            url: /powershell/module/az.applicationinsights/new-azapplicationinsights
-
-  - title: Reference - REST API
-    linkLists: 
-      - linkListType: reference
-        links:
-          - text: Metrics, Autoscale, Diagnostics settings, Alerts
-            url: /rest/api/monitor
-          - text: Log Analytics
-            url: /rest/api/loganalytics
-          - text: Application Insights
-            url: /rest/api/application-insights/  
-          - text: Application Insights REST API sandbox
-            url: https://dev.applicationinsights.io
+          - text: PowerShell Reference
+            url:  /powershell/module/az.monitor/?view=azps-9.5.0
+          - text: REST API Reference
+            url:  /rest/api/monitor/

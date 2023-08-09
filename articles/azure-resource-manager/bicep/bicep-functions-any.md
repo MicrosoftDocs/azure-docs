@@ -2,7 +2,8 @@
 title: Bicep functions - any
 description: Describes the any function that is available in Bicep to convert types.
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.custom: devx-track-bicep
+ms.date: 06/23/2023
 ---
 
 # Any function for Bicep
@@ -37,7 +38,7 @@ The value in a form that is compatible with any data type.
 The following example shows how to use the `any()` function to provide numeric values as strings.
 
 ```bicep
-resource wpAci 'microsoft.containerInstance/containerGroups@2019-12-01' = {
+resource wpAci 'Microsoft.ContainerInstance/containerGroups@2023-05-01' = {
   name: 'wordpress-containerinstance'
   location: location
   properties: {
@@ -72,5 +73,4 @@ publicIPAddress: any((pipId == '') ? null : {
 For more complex uses of the `any()` function, see the following examples:
 
 * [Child resources that require a specific names](https://github.com/Azure/bicep/blob/62eb8109ae51d4ee4a509d8697ef9c0848f36fe4/docs/examples/201/api-management-create-all-resources/main.bicep#L247)
-* [A resource property not defined in the resource's type, even though it exists](https://github.com/Azure/bicep/blob/main/docs/examples/201/log-analytics-with-solutions-and-diagnostics/main.bicep#L26)
-
+* [A resource property not defined in the resource's type, even though it exists](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.insights/log-analytics-with-solutions-and-diagnostics/main.bicep#L26)

@@ -2,7 +2,10 @@
 title: Save and distribute images
 description: This article gives you the steps to save custom images from the already created virtual machines (VMs) in Azure DevTest Labs.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 06/26/2020
+ms.custom: UpdateFrequency2
 ---
 
 # Save custom images and distribute to multiple labs

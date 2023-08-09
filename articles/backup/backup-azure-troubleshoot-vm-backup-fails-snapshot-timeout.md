@@ -2,11 +2,12 @@
 title: Troubleshoot Agent and extension issues
 description: Symptoms, causes, and resolutions of Azure Backup failures related to agent, extension, and disks.
 ms.topic: troubleshooting
-ms.date: 12/01/2021
+ms.date: 05/05/2022
 ms.service: backup
+ms.custom: devx-track-linux
 ms.reviewer: geg
-author: v-amallick
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot Azure Backup failure: Issues with the agent or extension
@@ -127,7 +128,7 @@ To resolve this issue, remove the lock on the resource group of the VM, and retr
 **Error code**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Error message**: Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs. <br>
 
-For a backup operation to succeed on encrypted VMs, it must have permissions to access the key vault. Permissions can be set through the [Azure portal](./backup-azure-vms-encryption.md) or through [PowerShell](./backup-azure-vms-automation.md#enable-protection).
+For a backup operation to succeed on encrypted VMs, it must have permissions to access the key vault. Permissions can be set through the [Azure portal](./backup-azure-vms-encryption.md)/ [PowerShell](./backup-azure-vms-automation.md#enable-protection)/ [CLI](./quick-backup-vm-cli.md#prerequisites-to-backup-encrypted-vms).
 
 >[!Note]
 >If the required permissions to access the key vault have already been set, retry the operation after a little while.
@@ -244,8 +245,15 @@ Most agent-related or extension-related failures for Linux VMs are caused by iss
 
    If the process isn't running, restart it by using the following commands:
 
-   - For Ubuntu: `service walinuxagent start`
-   - For other distributions: `service waagent start`
+   - For Ubuntu/Debian: 
+     ```bash
+        sudo systemctl restart walinuxagent
+     ```
+  
+   - For other distributions: 
+     ```bash
+        sudo systemctl restart waagent
+     ```
 
 3. [Configure the auto restart agent](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Run a new test backup. If the failure persists, collect the following logs from the VM:

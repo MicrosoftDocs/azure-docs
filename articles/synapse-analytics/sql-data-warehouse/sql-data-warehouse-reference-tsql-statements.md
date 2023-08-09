@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 05/01/2019
 ms.author: wiassaf
-ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
 

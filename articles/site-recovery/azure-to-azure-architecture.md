@@ -4,8 +4,9 @@ description: Overview of the architecture used when you set up disaster recovery
 services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/13/2020
-
+ms.date: 03/27/2023
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 
@@ -37,7 +38,7 @@ When you enable replication for a VM, Site Recovery gives you the option of crea
 **Target resource** | **Default setting**
 --- | ---
 **Target subscription** | Same as the source subscription.
-**Target resource group** | The resource group to which VMs belong after failover.<br/><br/> It can be in any Azure region except the source region.<br/><br/> Site Recovery creates a new resource group in the target region, with an "asr" suffix.<br/><br/>
+**Target resource group** | The resource group to which VMs belong after failover.<br/><br/> It can be in any Azure region except the source region.<br/><br/> Site Recovery creates a new resource group in the target region, with an "asr" suffix.
 **Target VNet** | The virtual network (VNet) in which replicated VMs are located after failover. A network mapping is created between source and target virtual networks, and vice versa.<br/><br/> Site Recovery creates a new VNet and subnet, with the "asr" suffix.
 **Target storage account** |  If the VM doesn't use a managed disk, this is the storage account to which data is replicated.<br/><br/> Site Recovery creates a new storage account in the target region, to mirror the source storage account.
 **Replica managed disks** | If the VM uses a managed disk, this is the managed disks to which data is replicated.<br/><br/> Site Recovery creates replica managed disks in the storage region to mirror the source.
@@ -49,20 +50,20 @@ When you enable replication for a VM, Site Recovery gives you the option of crea
 You can manage target resources as follows:
 
 - You can modify target settings as you enable replication. Please note that the default SKU for the target region VM is the same as the SKU of the source VM (or the next best available SKU in comparison to the source VM SKU). The dropdown list only shows relevant SKUs of the same family as the source VM (Gen 1 or Gen 2).
-- You can modify target settings after replication is already working. Similar to other resources such as the target resource group, target name, and others, the target region VM SKU can also be updated after replication is in progress. A resource which cannot be updated is the availability type (single instance, set or zone). To change this setting you need to disable replication, modify the setting, and then reenable. 
+- You can modify target settings after replication is already working. Similar to other resources such as the target resource group, target name, and others, the target region VM SKU can also be updated after replication is in progress. A resource which cannot be updated is the availability type (single instance, set or zone). To change this setting, you need to disable replication, modify the setting, and then reenable. 
 
 ## Replication policy 
 
-When you enable Azure VM replication, by default Site Recovery creates a new replication policy with the default settings summarized in the table.
+When you enable Azure VM replication, Site Recovery creates a new replication policy with the default settings summarized in the table, by default.
 
 **Policy setting** | **Details** | **Default**
 --- | --- | ---
-**Recovery point retention** | Specifies how long Site Recovery keeps recovery points | 1 day
+**Recovery point retention** | Specifies how long Site Recovery keeps recovery points. | 1 day
 **App-consistent snapshot frequency** | How often Site Recovery takes an app-consistent snapshot. | 0 hours (Disabled)
 
 ### Managing replication policies
 
-You can manage and modify the default replication policies settings as follows:
+You can manage and modify the settings of default replication policies as follows:
 - You can modify the settings as you enable replication.
 - You can create a replication policy at any time, and then apply it when you enable replication.
 
@@ -128,7 +129,7 @@ If outbound access for VMs is controlled with URLs, allow these URLs.
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Allows data to be written from the VM to the cache storage account in the source region. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
-| Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`	  | Allows the VM to communicate with the Site Recovery service. |
+| Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.us`	  | Allows the VM to communicate with the Site Recovery service. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Allows the VM to write Site Recovery monitoring and diagnostics data. |
 | Key Vault                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | Allows access to enable replication for ADE-enabled virtual machines via portal |
 | Azure Automation          | `*.automation.ext.azure.com`               | `*.azure-automation.us`                      | Allows enabling auto-upgrade of mobility agent for a replicated item via portal |

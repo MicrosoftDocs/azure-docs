@@ -2,29 +2,30 @@
 title: Custom Entity Lookup cognitive search skill
 titleSuffix: Azure Cognitive Search
 description: Extract different custom entities from text in an Azure Cognitive Search cognitive search pipeline.
-
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 03/22/2022
+ms.date: 09/07/2022
 
 ---
 
 # Custom Entity Lookup cognitive skill
 
-The **Custom Entity Lookup** skill looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not quite exact.  
+The **Custom Entity Lookup** skill is used to detect or recognize entities that you define. During skillset execution, the skill looks for text from a custom, user-defined list of words and phrases. The skill uses this list to label any matching entities found within source documents. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not exact.  
 
 > [!NOTE]
-> This skill is not bound to a Cognitive Services API but requires a Cognitive Services key to allow more than 20 transactions. This skill is [metered by Cognitive Search](https://azure.microsoft.com/pricing/details/search/#pricing).
+> This skill isn't bound to an Azure AI services API but requires an Azure AI services key to allow more than 20 transactions. This skill is [metered by Cognitive Search](https://azure.microsoft.com/pricing/details/search/#pricing).
 
 ## @odata.type  
+
 Microsoft.Skills.Text.CustomEntityLookupSkill 
 
 ## Data limits
-+ The maximum input record size supported is 256 MB. If you need to break up your data before sending it to the custom entity lookup skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
-+ The maximum entities definition table supported is 10 MB if it is provided using the *entitiesDefinitionUri* parameter. 
-+ If the entities are defined inline, using the *inlineEntitiesDefinition* parameter, the maximum supported size is 10 KB.
+
++ The maximum input record size supported is 256 MB. If you need to break up your data before sending it to the custom entity lookup skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md). If you do use a text split skill, set the page length to 5000 for the best performance.
++ The maximum size of the custom entity definition is 10 MB if it's provided as an external file, specified through the "entitiesDefinitionUri" parameter. 
++ If the entities are defined inline using the "inlineEntitiesDefinition" parameter, the maximum size is 10 KB.
 
 ## Skill parameters
 
@@ -32,12 +33,12 @@ Parameters are case-sensitive.
 
 | Parameter name     | Description |
 |--------------------|-------------|
-| `entitiesDefinitionUri`    | Path to a JSON or CSV file containing all the target text to match against. This entity definition is read at the beginning of an indexer run; any updates to this file mid-run won't be realized until subsequent runs. This config must be accessible over HTTPS. See [Custom Entity Definition](#custom-entity-definition-format) Format" below for expected CSV or JSON schema.|
+| `entitiesDefinitionUri` | Path to an external JSON or CSV file containing all the target text to match against. This entity definition is read at the beginning of an indexer run; any updates to this file mid-run won't be realized until subsequent runs. This file must be accessible over HTTPS. See [Custom Entity Definition Format](#custom-entity-definition-format) below for expected CSV or JSON schema.|
 |`inlineEntitiesDefinition` | Inline JSON entity definitions. This parameter supersedes the entitiesDefinitionUri parameter if present. No more than 10 KB of configuration may be provided inline. See [Custom Entity Definition](#custom-entity-definition-format) below for expected JSON schema. |
-|`defaultLanguageCode` |    (Optional) Language code of the input text used to tokenize and delineate input text. The following languages are supported: `da, de, en, es, fi, fr, it, ko, pt`. The default is English (`en`). If you pass a languagecode-countrycode format, only the languagecode part of the format is used.  |
-|`globalDefaultCaseSensitive` | (Optional) Default case sensitive value for the skill. If `defaultCaseSensitive` value of an entity is not specified, this value will become the `defaultCaseSensitive` value for that entity. |
-|`globalDefaultAccentSensitive` | (Optional) Default accent sensitive value for the skill. If `defaultAccentSensitive` value of an entity is not specified, this value will become the `defaultAccentSensitive` value for that entity. |
-|`globalDefaultFuzzyEditDistance` | (Optional) Default fuzzy edit distance value for the skill. If `defaultFuzzyEditDistance` value of an entity is not specified, this value will become the `defaultFuzzyEditDistance` value for that entity. |
+|`defaultLanguageCode` | (Optional) Language code of the input text used to tokenize and delineate input text. The following languages are supported: `da, de, en, es, fi, fr, it, pt`. The default is English (`en`). If you pass a `languagecode-countrycode` format, only the `languagecode` part of the format is used.  |
+|`globalDefaultCaseSensitive` | (Optional) Default case sensitive value for the skill. If `defaultCaseSensitive` value of an entity isn't specified, this value will become the `defaultCaseSensitive` value for that entity. |
+|`globalDefaultAccentSensitive` | (Optional) Default accent sensitive value for the skill. If `defaultAccentSensitive` value of an entity isn't specified, this value will become the `defaultAccentSensitive` value for that entity. |
+|`globalDefaultFuzzyEditDistance` | (Optional) Default fuzzy edit distance value for the skill. If `defaultFuzzyEditDistance` value of an entity isn't specified, this value will become the `defaultFuzzyEditDistance` value for that entity. |
 
 ## Skill inputs
 
@@ -46,26 +47,30 @@ Parameters are case-sensitive.
 | `text`          | The text to analyze.          |
 | `languageCode`    | Optional. Default is `"en"`.  |
 
-
 ## Skill outputs
 
-
-| Output name      | Description                   |
+| Output name   | Description                   |
 |---------------|-------------------------------|
-| `entities` | An array of objects that contain information about the matches that were found, and related metadata. Each of the entities identified may contain the following fields:  <ul> <li> *name*: The top-level entity identified. The entity represents the "normalized" form. </li> <li> *id*:  A unique identifier for the entity as defined by the user in the "Custom Entity Definition Format".</li> <li> *description*: Entity description as defined by the user in the "Custom Entity Definition Format". </li> <li> *type:* Entity type as defined by the user in the "Custom Entity Definition Format".</li> <li> *subtype:* Entity subtype as defined by the user in the "Custom Entity Definition Format".</li>  <li> *matches*: Collection that describes each of the matches for that entity on the source text. Each match will have the following members: </li> <ul> <li> *text*: The raw text match from the source document. </li> <li> *offset*: The location where the match was found in the text. </li> <li> *length*:  The length of the matched text. </li> <li> *matchDistance*: The number of characters different this match was from original entity name or alias.  </li> </ul> </ul>
-  |
+| `entities` | An array of complex types that contains the following fields: <ul><li>`"name"`: The top-level entity; it represents the "normalized" form. </li><li>`"id"`:  A unique identifier for the entity as defined in the "Custom Entity Definition". </li> <li>`"description"`: Entity description as defined by the user in the "Custom Entity Definition Format". </li> <li>`"type"`: Entity type as defined by the user in the "Custom Entity Definition Format".</li> <li> `"subtype"`: Entity subtype as defined by the user in the "Custom Entity Definition Format".</li> <li>`"matches"`: An array of complex types that contain: <ul><li>`"text"` from the source document </li><li>`"offset"` location where the match was found, </li><li>`"length"` of the text measured in characters <li>`"matchDistance"` or the number of characters that differ between the match and the entity `"name"`. </li></li></ul></ul> |
 
-## Custom Entity Definition Format
+## Custom entity definition format
 
-There are 3 different ways to provide the list of custom entities to the Custom Entity Lookup skill. You can provide the list in a .CSV file, a .JSON file or as an inline definition as part of the skill definition.  
+There are three approaches for providing the list of custom entities to the Custom Entity Lookup skill:
 
-If the definition file is a .CSV or .JSON file, the path of the file needs to be provided as part of the *entitiesDefinitionUri* parameter. In this case, the file is downloaded once at the beginning of each indexer run. The file must be accessible as long as the indexer is intended to run. Also, the file must be encoded UTF-8.
++ .CSV file (UTF-8 encoded)
++ .JSON file (UTF-8 encoded)
++ Inline within the skill definition
 
-If the definition is provided inline, it should be provided as inline as the content of the *inlineEntitiesDefinition* skill parameter. 
+If the definition file is in a .CSV or .JSON file, provide the full path in the "entitiesDefinitionUri" parameter. The file is downloaded at the start of each indexer run. It must remain accessible until the indexer stops.
+
+If you're using an inline definition, specify it under the "inlineEntitiesDefinition" skill parameter.
+
+> [!NOTE]
+> Indexers support specialized parsing modes for JSON and CSV files. When using the custom entity lookup skill, keep "parsingMode" set to "default". The skill expects JSON and CSV in an unparsed state.
 
 ### CSV format
 
-You can provide the definition of the custom entities to look for in a Comma-Separated Value (CSV) file by providing the path to the file and setting it in the *entitiesDefinitionUri*  skill parameter. The path should be at an https location. The definition file can be up to 10 MB in size.
+You can provide the definition of the custom entities to look for in a Comma-Separated Value (CSV) file by providing the path to the file and setting it in the "entitiesDefinitionUri"  skill parameter. The path should be at an https location. The definition file can be up to 10 MB in size.
 
 The CSV format is simple. Each line represents a unique entity, as shown below:
 
@@ -75,13 +80,13 @@ Microsoft, MSFT
 Satya Nadella 
 ```
 
-In this case, there are three entities that can be returned as entities found (Bill Gates, Satya Nadella, Microsoft), but they will be identified if any of the terms on the line (aliases) are matched on the text. For instance, if the string "William H. Gates" is found in a document, a match for the "Bill Gates" entity will be returned.
+In this case, there are three entities that can be returned (Bill Gates, Satya Nadella, Microsoft). Aliases follow after the main entity. A match on an alias is bundled under the primary entity. For example, if the string "William H. Gates" is found in a document, a match for the "Bill Gates" entity will be returned.
 
 ### JSON format
 
 You can provide the definition of the custom entities to look for in a JSON file as well. The JSON format gives you a bit more flexibility since it allows you to define matching rules per term. For instance, you can specify the fuzzy matching distance (Damerau-Levenshtein distance) for each term or whether the matching should be case-sensitive or not. 
 
- Just like with CSV files, you need to provide the path to the JSON file and set it in the *entitiesDefinitionUri* skill parameter. The path should be at an https location. The definition file can be up to 10 MB in size.
+ Just like with CSV files, you need to provide the path to the JSON file and set it in the "entitiesDefinitionUri" skill parameter. The path should be at an https location. The definition file can be up to 10 MB in size.
 
 The most basic JSON custom entity list definition can be a list of entities to match:
 
@@ -99,7 +104,7 @@ The most basic JSON custom entity list definition can be a list of entities to m
 ]
 ```
 
-A more complex example of a JSON definition can optionally provide the id, description, type and subtype of each entity -- as well as other *aliases*. If an alias term is matched, the entity will be returned as well:
+More complex definitions can provide a user-defined ID, description, type, subtype, and aliases. If an alias term is matched, the entity will be returned as well:
 
 ```json
 [ 
@@ -113,7 +118,7 @@ A more complex example of a JSON definition can optionally provide the id, descr
     }, 
     { 
         "name" : "Xbox One", 
-        "type": "Harware",
+        "type": "Hardware",
         "subtype" : "Gaming Device",
         "id" : "4e36bf9d-5550-4396-8647-8e43d7564a76",
         "description" : "The Xbox One product"
@@ -137,7 +142,7 @@ A more complex example of a JSON definition can optionally provide the id, descr
 ] 
 ```
 
-The tables below describe in more details the different configuration parameters you can set when defining the entities to match:
+The tables below describe the configuration parameters you can set when defining custom entities:
 
 |  Field name  |        Description  |
 |--------------|----------------------|
@@ -163,10 +168,9 @@ The tables below describe in more details the different configuration parameters
 
 ### Inline format
 
-In some cases, it may be more convenient to provide the list of custom entities to match inline directly into the skill definition. In that case you can use a similar  JSON format to the one described above, but it is inlined in the skill definition.
-Only configurations that are less than 10 KB in size (serialized size) can be defined inline. 
+In some cases, it may be more convenient to embed the custom entity definition so that its inline with the skill definition. You can use the same JSON format as the one described above, except that it's included within the skill definition. Only configurations that are less than 10 KB in size (serialized size) can be defined inline. 
 
-## Sample definition
+## Sample skill definition
 
 A sample skill definition using an inline format is shown below:
 
@@ -207,7 +211,7 @@ A sample skill definition using an inline format is shown below:
   }
 ```
 
-Alternatively, if you decide to provide a pointer to the entities definition file, a sample skill definition using the `entitiesDefinitionUri` format is shown below:
+Alternatively, you can point to an external entities definition file. A sample skill definition using the `entitiesDefinitionUri` format is shown below:
 
 ```json
   {
@@ -227,10 +231,106 @@ Alternatively, if you decide to provide a pointer to the entities definition fil
       }
     ]
   }
-
 ```
 
-## Sample input
+## Sample index definition
+
+This section provides a sample index definition. Both "entities" and "matches" are arrays of complex types. You can have multiple entities per document, and multiple matches for each entity.
+
+```json
+{
+  "name": "entities",
+  "type": "Collection(Edm.ComplexType)",
+  "fields": [
+    {
+      "name": "name",
+      "type": "Edm.String",
+      "facetable": false,
+      "filterable": false,
+      "retrievable": true,
+      "searchable": true,
+      "sortable": false,
+    },
+    {
+      "name": "id",
+      "type": "Edm.String",
+      "facetable": false,
+      "filterable": false,
+      "retrievable": true,
+      "searchable": false,
+      "sortable": false,
+    },
+    {
+      "name": "description",
+      "type": "Edm.String",
+      "facetable": false,
+      "filterable": false,
+      "retrievable": true,
+      "searchable": true,
+      "sortable": false,
+    },
+    {
+      "name": "type",
+      "type": "Edm.String",
+      "facetable": true,
+      "filterable": true,
+      "retrievable": true,
+      "searchable": false,
+      "sortable": false,
+    },
+    {
+      "name": "subtype",
+      "type": "Edm.String",
+      "facetable": true,
+      "filterable": true,
+      "retrievable": true,
+      "searchable": false,
+      "sortable": false,
+    },
+    {
+      "name": "matches",
+      "type": "Collection(Edm.ComplexType)",
+      "fields": [
+        {
+          "name": "text",
+          "type": "Edm.String",
+          "facetable": false,
+          "filterable": false,
+          "retrievable": true,
+          "searchable": true,
+          "sortable": false,
+        },
+        {
+          "name": "offset",
+          "type": "Edm.Int32",
+          "facetable": true,
+          "filterable": true,
+          "retrievable": true,
+          "sortable": false,
+        },
+        {
+          "name": "length",
+          "type": "Edm.Int32",
+          "facetable": true,
+          "filterable": true,
+          "retrievable": true,
+          "sortable": false,
+        },
+        {
+          "name": "matchDistance",
+          "type": "Edm.Double",
+          "facetable": true,
+          "filterable": true,
+          "retrievable": true,
+          "sortable": false,
+        }
+      ]
+    }
+  ]
+}
+```
+
+## Sample input data
 
 ```json
 {
@@ -295,14 +395,15 @@ Alternatively, if you decide to provide a pointer to the entities definition fil
   } 
 ```
 
-## Errors and warnings
+## Warnings
 
-### Warning: Reached maximum capacity for matches, skipping all further duplicate matches.
+`"Reached maximum capacity for matches, skipping all further duplicate matches."`
 
-This warning will be emitted if the number of matches detected is greater than the maximum allowed. In this case, we will stop including duplicate matches. If this is unacceptable to you, please file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) so we can assist you with your individual use case.
+This warning will be emitted if the number of matches detected is greater than the maximum allowed. No more duplicate matches will be returned. If you need a higher threshold, you can file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) for assistance with your individual use case.
 
 ## See also
 
++ [Custom Entity Lookup sample and readme](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/skill-examples/custom-entity-lookup-skill)
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Entity Recognition skill (to search for well known entities)](cognitive-search-skill-entity-recognition-v3.md)

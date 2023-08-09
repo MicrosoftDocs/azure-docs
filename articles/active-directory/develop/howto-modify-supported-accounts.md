@@ -1,6 +1,5 @@
 ---
-title: "How to: Change the account types supported by an application | Azure"
-titleSuffix: Microsoft identity platform
+title: "How to: Change the account types supported by an application"
 description: In this how-to, you configure an application registered with the Microsoft identity platform to change who, or what accounts, can access the application.
 services: active-directory
 author: rwike77
@@ -10,10 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/15/2020
+ms.date: 02/17/2023
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: marsma, aragra, lenalepa, sureshja
+ms.reviewer: aragra, sureshja
 # Customer intent: As an application developer, I need to know how to modify which account types can sign in to or access my application or API.
 ---
 
@@ -29,19 +28,24 @@ In the following sections, you learn how to modify your app's registration in th
 
 ## Change the application registration to support different accounts
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To specify a different setting for the account types supported by an existing app registration:
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which the app is registered.
 1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations**, then select your application.
-1. Now, specify who can use the application, sometimes referred to as the *sign-in audience*.
+1. Under **Manage**, select **App registrations**, select your application, and then select **Manifest** to use the manifest editor.
+1. Download the manifest JSON file locally.
+1. Now, specify who can use the application, sometimes referred to as the *sign-in audience*.  Find the *signInAudience* property in the manifest JSON file and set it to one of the following property values:
 
-    | Supported account types | Description |
-    |-------------------------|-------------|
-    | **Accounts in this organizational directory only** | Select this option if you're building an application for use only by users (or guests) in *your* tenant.<br><br>Often called a *line-of-business* (LOB) application, this is a **single-tenant** application in the Microsoft identity platform. |
-    | **Accounts in any organizational directory** | Select this option if you'd like users in *any* Azure AD tenant to be able to use your application. This option is appropriate if, for example, you're building a software-as-a-service (SaaS) application that you intend to provide to multiple organizations.<br><br>This is known as a **multi-tenant** application in the Microsoft identity platform. |
-1. Select **Save**.
+    | Property value | Supported account types | Description |
+    |----------------|-------------------------|-------------|
+    | **AzureADMyOrg** | Accounts in this organizational directory only (Microsoft only - Single tenant) |All user and guest accounts in your directory can use your application or API. Use this option if your target audience is internal to your organization. |
+    | **AzureADMultipleOrgs** | Accounts in any organizational directory (Any Azure AD directory - Multitenant) | All users with a work or school account from Microsoft can use your application or API. This includes schools and businesses that use Office 365. Use this option if your target audience is business or educational customers and to enable multitenancy. |
+    | **AzureADandPersonalMicrosoftAccount** | Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox) | All users with a work or school, or personal Microsoft account can use your application or API. It includes schools and businesses that use Office 365 as well as personal accounts that are used to sign in to services like Xbox and Skype. Use this option to target the widest set of Microsoft identities and to enable multitenancy.|
+    | **PersonalMicrosoftAccount** | Personal Microsoft accounts only | Personal accounts that are used to sign in to services like Xbox and Skype. Use this option to target the widest set of Microsoft identities.|
+1. Save your changes to the JSON file locally, then select **Upload** in the manifest editor to upload the updated manifest JSON file.
 
 ### Why changing to multi-tenant can fail
 

@@ -2,11 +2,9 @@
 title: Handle AKS node upgrades with GitHub Actions
 titleSuffix: Azure Kubernetes Service
 description: Learn how to update AKS nodes using GitHub Actions
-services: container-service
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 11/27/2020
-
-
 #Customer intent: As a cluster administrator, I want to know how to automatically apply Linux updates and reboot nodes in AKS for security and/or compliance
 ---
 
@@ -27,9 +25,11 @@ This process is better than updating Linux-based kernels manually because Linux 
 
 This article shows you how you can automate the update process of AKS nodes. You'll use GitHub Actions and Azure CLI to create an update task based on `cron` that runs automatically.
 
+Node image upgrades can also be performed automatically, and scheduled by using planned maintenance. For more details, see [Automatically upgrade node images][auto-upgrade-node-image].
+
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
@@ -40,9 +40,9 @@ This article also assumes you have a [GitHub][github] account to create your act
 `cron` is a utility that allows you to run a set of commands, or job, on an automated schedule. To create job to update your AKS nodes on an automated schedule, you'll need a repository to host your actions. Usually, GitHub actions are configured in the same repository as your application, but you can use any repository. For this article we'll be using your [profile repository][profile-repository]. If you don't have one, create a new repository with the same name as your GitHub username.
 
 1. Navigate to your repository on GitHub
-1. Click on the **Actions** tab at the top of the page.
-1. If you already set up a workflow in this repository, you'll be directed to the list of completed runs, in this case, click on the **New Workflow** button. If this is your first workflow in the repository, GitHub will present you with some project templates, click on the **Set up a workflow yourself** link below the description text.
-1. Change the workflow `name` and `on` tags similar to the below. GitHub Actions use the same [POSIX cron syntax][cron-syntax] as any Linux-based system. In this schedule, we're telling the workflow to run every 15 days at 3am.
+2. Select the **Actions** tab at the top of the page.
+3. If you already set up a workflow in this repository, you'll be directed to the list of completed runs, in this case, select the **New Workflow** button. If this is your first workflow in the repository, GitHub will present you with some project templates, select the **Set up a workflow yourself** link below the description text.
+4. Change the workflow `name` and `on` tags similar to the below. GitHub Actions use the same [POSIX cron syntax][cron-syntax] as any Linux-based system. In this schedule, we're telling the workflow to run every 15 days at 3am.
 
     ```yml
     name: Upgrade cluster node images
@@ -51,7 +51,7 @@ This article also assumes you have a [GitHub][github] account to create your act
         - cron: '0 3 */15 * *'
     ```
 
-1. Create a new job using the below. This job is named `upgrade-node`, runs on an Ubuntu agent, and will connect to your Azure CLI account to execute the needed steps to upgrade the nodes.
+5. Create a new job using the below. This job is named `upgrade-node`, runs on an Ubuntu agent, and will connect to your Azure CLI account to execute the needed steps to upgrade the nodes.
 
     ```yml
     name: Upgrade cluster node images
@@ -72,15 +72,15 @@ In the `steps` key, you'll define all the work the workflow will execute to upgr
 Download and sign in to the Azure CLI.
 
 1. On the right-hand side of the GitHub Actions screen, find the *marketplace search bar* and type **"Azure Login"**.
-1. You'll get as a result, an Action called **Azure Login** published **by Azure**:
+2. You'll get as a result, an Action called **Azure Login** published **by Azure**:
 
       :::image type="content" source="media/node-upgrade-github-actions/azure-login-search.png" alt-text="Search results showing two lines, the first action is called 'Azure Login' and the second 'Azure Container Registry Login'":::
 
-1. Click on **Azure Login**. On the next screen, click the **copy icon** in the top right of the code sample.
+3. Select **Azure Login**. On the next screen, select the **copy icon** in the top right of the code sample.
 
-    :::image type="content" source="media/node-upgrade-github-actions/azure-login.png" alt-text="Azure Login action result pane with code sample below, red square around a copy icon highlights the click spot":::
+    :::image type="content" source="media/node-upgrade-github-actions/azure-login.png" alt-text="Azure Login action result pane with code sample below, red square around a copy icon highlights the select spot":::
 
-1. Paste the following under the `steps` key:
+4. Paste the following under the `steps` key:
 
       ```yml
       name: Upgrade cluster node images
@@ -95,36 +95,44 @@ Download and sign in to the Azure CLI.
 
           steps:
             - name: Azure Login
-              uses: Azure/login@v1.1
+              uses: Azure/login@v1.4.3
               with:
                 creds: ${{ secrets.AZURE_CREDENTIALS }}
       ```
 
-1. From the Azure CLI, run the following command to generate a new username and password.
+5. From the Azure CLI, run the following command to generate a new username and password.
+
+    > [!NOTE]
+    > This example creates the `Contributor` role at the *Subscription* scope. You may provide the role and scope that meets your needs. For more information, see [Azure built-in roles][azure-built-in-roles] and [Azure RBAC scope levels][azure-rbac-scope-levels].
 
     ```azurecli-interactive
-    az ad sp create-for-rbac --role Contributor -o json
+    az ad sp create-for-rbac --role Contributor --scopes /subscriptions/{subscriptionID} -o json
     ```
 
     The output should be similar to the following json:
 
     ```output
     {
-      "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "displayName": "azure-cli-xxxx-xx-xx-xx-xx-xx",
-      "name": "http://azure-cli-xxxx-xx-xx-xx-xx-xx",
-      "password": "xXxXxXxXx",
-      "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+      "clientId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "clientSecret": "xXxXxXxXx",
+      "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+      "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"      
+      "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+      "resourceManagerEndpointUrl": "https://management.azure.com/",
+      "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+      "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+      "galleryEndpointUrl": "https://gallery.azure.com/",
+      "managementEndpointUrl": "https://management.core.windows.net/"
     }
     ```
 
-1. **In a new browser window** navigate to your GitHub repository and open the **Settings** tab of the repository. Click **Secrets** then, click on **New Repository Secret**.
-1. For *Name*, use `AZURE_CREDENTIALS`.
-1.  For *Value*, add the entire contents from the output of the previous step where you created a new username and password.
+6. **In a new browser window** navigate to your GitHub repository and open the **Settings** tab of the repository. Select **Secrets** then, select **New Repository Secret**.
+7. For *Name*, use `AZURE_CREDENTIALS`.
+8. For *Value*, add the entire contents from the output of the previous step where you created a new username and password.
 
     :::image type="content" source="media/node-upgrade-github-actions/azure-credential-secret.png" alt-text="Form showing AZURE_CREDENTIALS as secret title, and the output of the executed command pasted as JSON":::
 
-1. Click **Add Secret**.
+9. Select **Add Secret**.
 
 The CLI used by your action will be logged to your Azure account and ready to run commands.
 
@@ -134,7 +142,7 @@ To create the steps to execute Azure CLI commands.
 
     :::image type="content" source="media/node-upgrade-github-actions/azure-cli-action.png" alt-text="Search result for 'Azure CLI Action' with first result being shown as made by Azure":::
 
-1. Click the copy button on the *GitHub marketplace result* and paste the contents of the action in the main editor, below the *Azure Login* step, similar to the following:
+1. Select the copy button on the *GitHub marketplace result* and paste the contents of the action in the main editor, below the *Azure Login* step, similar to the following:
 
     ```yml
     name: Upgrade cluster node images
@@ -149,11 +157,11 @@ To create the steps to execute Azure CLI commands.
 
         steps:
           - name: Azure Login
-            uses: Azure/login@v1.1
+            uses: Azure/login@v1.4.3
             with:
               creds: ${{ secrets.AZURE_CREDENTIALS }}
           - name: Upgrade node images
-            uses: Azure/cli@v1.0.0
+            uses: Azure/cli@v1.0.6
             with:
               inlineScript: az aks upgrade -g {resourceGroupName} -n {aksClusterName} --node-image-only --yes
     ```
@@ -162,7 +170,7 @@ To create the steps to execute Azure CLI commands.
     > You can decouple the `-g` and `-n` parameters from the command by adding them to secrets similar to the previous steps. Replace the `{resourceGroupName}` and `{aksClusterName}` placeholders by their secret counterparts, for example `${{secrets.RESOURCE_GROUP_NAME}}` and `${{secrets.AKS_CLUSTER_NAME}}`
 
 1. Rename the file to `upgrade-node-images`.
-1. Click **Start Commit**, add a message title, and save the workflow.
+1. Select **Start Commit**, add a message title, and save the workflow.
 
 Once you create the commit, the workflow will be saved and ready for execution.
 
@@ -190,7 +198,7 @@ jobs:
 
     steps:
       - name: Azure Login
-        uses: Azure/login@v1.1
+        uses: Azure/login@v1.4.3
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
@@ -201,7 +209,7 @@ jobs:
 
 - See the [AKS release notes](https://github.com/Azure/AKS/releases) for information about the latest node images.
 - Learn how to upgrade the Kubernetes version with [Upgrade an AKS cluster][cluster-upgrades-article].
-- Learn more about multiple node pools and how to upgrade node pools with [Create and manage multiple node pools][use-multiple-node-pools].
+- Learn more about multiple node pools with [Create multiple node pools][use-multiple-node-pools].
 - Learn more about [system node pools][system-pools]
 - To learn how to save costs using Spot instances, see [add a spot node pool to AKS][spot-pools]
 
@@ -211,11 +219,15 @@ jobs:
 [cron-syntax]: https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07
 
 <!-- LINKS - internal -->
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [managed-node-upgrades-article]: node-image-upgrade.md
 [cluster-upgrades-article]: upgrade-cluster.md
 [system-pools]: use-system-pools.md
 [spot-pools]: spot-node-pool.md
-[use-multiple-node-pools]: use-multiple-node-pools.md
+[use-multiple-node-pools]: create-node-pools.md
+[auto-upgrade-node-image]: auto-upgrade-node-image.md
+[azure-built-in-roles]: ../role-based-access-control/built-in-roles.md
+[azure-rbac-scope-levels]: ../role-based-access-control/scope-overview.md#scope-format

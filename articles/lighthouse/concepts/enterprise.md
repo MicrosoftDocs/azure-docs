@@ -1,13 +1,13 @@
 ---
 title: Azure Lighthouse in enterprise scenarios
 description: The capabilities of Azure Lighthouse can be used to simplify cross-tenant management within an enterprise which uses multiple Azure AD tenants.
-ms.date: 02/18/2022
+ms.date: 05/10/2023
 ms.topic: conceptual
 ---
 
 # Azure Lighthouse in enterprise scenarios
 
-A common scenario for [Azure Lighthouse](../overview.md) is when a service provider manages resources in Azure Active Directory (Azure AD) tenants that belong to customers. The capabilities of Azure Lighthouse can also be used to simplify cross-tenant management within an enterprise that uses multiple Azure AD tenants.
+A common scenario for [Azure Lighthouse](../overview.md) involves a service provider that manages resources in in its customers' Azure Active Directory (Azure AD) tenants. The capabilities of Azure Lighthouse can also be used to simplify cross-tenant management within an enterprise that uses multiple Azure AD tenants.
 
 ## Single vs. multiple tenants
 

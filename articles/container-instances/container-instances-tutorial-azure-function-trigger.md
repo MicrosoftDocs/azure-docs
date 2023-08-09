@@ -1,9 +1,13 @@
 ---
 title: Tutorial - Trigger container group by Azure function
-description: Create an HTTP-triggered, serverless PowerShell function to automate creation of Azure container instances
+description: Create an HTTP-triggered, serverless PowerShell function to automate creation of Azure Container Instances
 ms.topic: tutorial
-ms.date: 06/10/2020
-ms.custom: devx-track-azurepowershell
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
+ms.custom: devx-track-azurepowershell, devx-track-linux
 ---
 
 # Tutorial: Use an HTTP-triggered Azure function to create a container group
@@ -38,7 +42,7 @@ The following commands enable a system-assigned [managed identity](../app-servic
 
 [Add an identity](../app-service/overview-managed-identity.md?tabs=ps%2Cdotnet) to the function app:
 
-```powershell
+```azurepowershell-interactive
 Update-AzFunctionApp -Name myfunctionapp `
     -ResourceGroupName myfunctionapp `
     -IdentityType SystemAssigned
@@ -46,7 +50,7 @@ Update-AzFunctionApp -Name myfunctionapp `
 
 Assign the identity the contributor role scoped to the resource group:
 
-```powershell
+```azurepowershell-interactive
 $SP=(Get-AzADServicePrincipal -DisplayName myfunctionapp).Id
 $RG=(Get-AzResourceGroup -Name myfunctionapp).ResourceId
 New-AzRoleAssignment -ObjectId $SP -RoleDefinitionName "Contributor" -Scope $RG
@@ -56,7 +60,7 @@ New-AzRoleAssignment -ObjectId $SP -RoleDefinitionName "Contributor" -Scope $RG
 
 Modify the PowerShell code for the **HttpTrigger** function to create a container group. In file `run.ps1` for the function, find the following code block. This code displays a name value, if one is passed as a query string in the function URL:
 
-```powershell
+```azurepowershell-interactive
 [...]
 if ($name) {
     $body = "Hello, $name. This HTTP triggered function executed successfully."
@@ -66,7 +70,7 @@ if ($name) {
 
 Replace this code with the following example block. Here, if a name value is passed in the query string, it's used to name and create a container group using the [New-AzContainerGroup][new-azcontainergroup] cmdlet. Make sure to replace the resource group name *myfunctionapp* with the name of the resource group for your function app:
 
-```powershell
+```azurepowershell-interactive
 [...]
 if ($name) {
     New-AzContainerGroup -ResourceGroupName myfunctionapp -Name $name `
@@ -104,7 +108,7 @@ After the deployment completes successfully, get the function URL. For example, 
 
 The function URL is of the form:
 
-```
+```config
 https://myfunctionapp.azurewebsites.net/api/HttpTrigger
 ```
 
@@ -165,14 +169,14 @@ This HTTP triggered function executed successfully. Started container group myco
 
 Verify that the container ran with the [Get-AzContainerInstanceLog][get-azcontainerinstancelog] command:
 
-```azurecli
+```azurecli-interactive
 Get-AzContainerInstanceLog -ResourceGroupName myfunctionapp `
   -ContainerGroupName mycontainergroup 
 ```
 
 Sample output:
 
-```console
+```output
 Hello from an Azure container instance triggered by an Azure function
 ```
 

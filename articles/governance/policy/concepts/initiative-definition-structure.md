@@ -153,7 +153,7 @@ A parameter has the following properties that are used in the policy initiative 
   **integer**, **float**, or **datetime**.
 - `metadata`: Defines subproperties primarily used by the Azure portal to display user-friendly
   information:
-  - `description`: The explanation of what the parameter is used for. Can be used to provide
+  - `description`: (Optional) The explanation of what the parameter is used for. Can be used to provide
     examples of acceptable values.
   - `displayName`: The friendly name shown in the portal for the parameter.
   - `strongType`: (Optional) Used when assigning the policy definition through the portal. Provides

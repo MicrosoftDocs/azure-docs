@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 06/06/2022
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator, I want to deploy and configure Azure Firewall DNAT so that I can control inbound Internet access to resources located in a subnet.
@@ -35,10 +35,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a resource group
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-2. On the Azure portal home page, select **Resource groups**, then select **Add**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the Azure portal home page, select **Resource groups**, then select **Create**.
 4. For **Subscription**, select your subscription.
-1. For **Resource group name**, type **RG-DNAT-Test**.
+1. For **Resource group**, type **RG-DNAT-Test**.
 5. For **Region**, select a region. All other resources that you create must be in the same region.
 6. Select **Review + create**.
 1. Select **Create**.
@@ -56,13 +56,13 @@ First, create the VNets and then peer them.
 
 1. From the Azure portal home page, select **All services**.
 2. Under **Networking**, select **Virtual networks**.
-3. Select **Add**.
+3. Select **Create**.
 7. For **Resource group**, select **RG-DNAT-Test**.
 1. For **Name**, type **VN-Hub**.
 1. For **Region**, select the same region that you used before.
 1. Select **Next: IP Addresses**.
 1. For **IPv4 Address space**, accept the default **10.0.0.0/16**.
-1. Under **Subnet name**, select default.
+1. Under **Subnet name**, select **default**.
 1. Edit the **Subnet name** and type **AzureFirewallSubnet**.
 
      The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
@@ -78,7 +78,7 @@ First, create the VNets and then peer them.
 
 1. From the Azure portal home page, select **All services**.
 2. Under **Networking**, select **Virtual networks**.
-3. Select **Add**.
+3. Select **Create**.
 1. For **Resource group**, select **RG-DNAT-Test**.
 1. For **Name**, type **VN-Spoke**.
 1. For **Region**, select the same region that you used before.
@@ -108,7 +108,7 @@ Now peer the two VNets.
 Create a workload virtual machine, and place it in the **SN-Workload** subnet.
 
 1. From the Azure portal menu, select **Create a resource**.
-2. Under **Popular**, select **Windows Server 2016 Datacenter**.
+2. Under **Popular**, select **Windows Server 2019 Datacenter**.
 
 **Basics**
 
@@ -156,6 +156,7 @@ After deployment finishes, note the private IP address for the virtual machine. 
    |Resource group     |Select **RG-DNAT-Test** |
    |Name     |**FW-DNAT-test**|
    |Region     |Select the same location that you used previously|
+   |Firewall tier|**Standard**|
    |Firewall management|**Use Firewall rules (classic) to manage this firewall**|
    |Choose a virtual network     |**Use existing**: VN-Hub|
    |Public IP address     |**Add new**, Name: **fw-pip**.|
@@ -171,9 +172,12 @@ After deployment finishes, note the private IP address for the virtual machine. 
 
 For the **SN-Workload** subnet, you configure the outbound default route to go through the firewall.
 
+> [!IMPORTANT]
+> You do not need to configure an explicit route back to the firewall at the destination subnet. Azure Firewall is a stateful service and handles the packets and sessions automatically. If you create this route, you'll create an asymmetrical routing environment that interrupts the stateful session logic and results in dropped packets and connections.
+
 1. From the Azure portal home page, select **All services**.
 2. Under **Networking**, select **Route tables**.
-3. Select **Add**.
+3. Select **Create**.
 5. For **Subscription**, select your subscription.
 1. For **Resource group**, select **RG-DNAT-Test**.
 1. For **Region**, select the same region that you used previously.
@@ -187,12 +191,13 @@ For the **SN-Workload** subnet, you configure the outbound default route to go t
 1. Select **OK**.
 1. Select **Routes**, and then select **Add**.
 1. For **Route name**, type **FW-DG**.
-1. For **Address prefix**, type **0.0.0.0/0**.
+1. For **Address prefix destination**, select **IP Addresses**.
+1. For **Destination IP addresses/CIDR ranges**, type **0.0.0.0/0**.
 1. For **Next hop type**, select **Virtual appliance**.
 
     Azure Firewall is actually a managed service, but virtual appliance works in this situation.
 18. For **Next hop address**, type the private IP address for the firewall that you noted previously.
-19. Select **OK**.
+19. Select **Add**.
 
 ## Configure a NAT rule
 

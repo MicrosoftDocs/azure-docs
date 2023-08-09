@@ -1,9 +1,9 @@
 ---
 title: Enable VM extension using Azure Resource Manager template
 description: This article describes how to deploy virtual machine extensions to Azure Arc-enabled servers running in hybrid cloud environments using an Azure Resource Manager template.
-ms.date: 07/16/2021
+ms.date: 06/02/2022
 ms.topic: conceptual
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-arm-template
 ---
 
 # Enable Azure VM extensions by using ARM template
@@ -47,10 +47,11 @@ To easily deploy the Log Analytics agent, the following sample is provided to in
             "name": "[concat(parameters('vmName'),'/OMSAgentForLinux')]",
             "type": "Microsoft.HybridCompute/machines/extensions",
             "location": "[parameters('location')]",
-            "apiVersion": "2019-08-02-preview",
+            "apiVersion": "2022-03-10",
             "properties": {
                 "publisher": "Microsoft.EnterpriseCloud.Monitoring",
                 "type": "OmsAgentForLinux",
+                "enableAutomaticUpgrade": true,
                 "settings": {
                     "workspaceId": "[parameters('workspaceId')]"
                 },
@@ -88,11 +89,12 @@ To easily deploy the Log Analytics agent, the following sample is provided to in
             "name": "[concat(parameters('vmName'),'/MicrosoftMonitoringAgent')]",
             "type": "Microsoft.HybridCompute/machines/extensions",
             "location": "[parameters('location')]",
-            "apiVersion": "2019-08-02-preview",
+            "apiVersion": "2022-03-10",
             "properties": {
                 "publisher": "Microsoft.EnterpriseCloud.Monitoring",
                 "type": "MicrosoftMonitoringAgent",
                 "autoUpgradeMinorVersion": true,
+                "enableAutomaticUpgrade": true,
                 "settings": {
                     "workspaceId": "[parameters('workspaceId')]"
                 },
@@ -171,7 +173,7 @@ The Custom Script extension configuration specifies things like script location 
       "name": "[concat(parameters('vmName'),'/CustomScript')]",
       "type": "Microsoft.HybridCompute/machines/extensions",
       "location": "[parameters('location')]",
-      "apiVersion": "2019-08-02-preview",
+      "apiVersion": "2022-03-10",
       "properties": {
         "publisher": "Microsoft.Azure.Extensions",
         "type": "CustomScript",
@@ -219,7 +221,7 @@ The Custom Script extension configuration specifies things like script location 
             "name": "[concat(parameters('vmName'),'/CustomScriptExtension')]",
             "type": "Microsoft.HybridCompute/machines/extensions",
             "location": "[parameters('location')]",
-            "apiVersion": "2019-08-02-preview",
+            "apiVersion": "2022-03-10",
             "properties": {
                 "publisher": "Microsoft.Compute",
                 "type": "CustomScriptExtension",
@@ -292,14 +294,14 @@ The Custom Script extension configuration specifies things like script location 
 
 ## Deploy the Dependency agent extension
 
-To use the Azure Monitor Dependency agent extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Dependency agent, see [Overview of Azure Monitor agents](../../azure-monitor/agents/agents-overview.md#dependency-agent).
+To use the Azure Monitor Dependency agent extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Dependency agent, see [Overview of Azure Monitor agents](../../azure-monitor/vm/vminsights-dependency-agent-maintenance.md).
 
 ### Template file for Linux
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {
       "type": "string",
@@ -308,26 +310,23 @@ To use the Azure Monitor Dependency agent extension, the following sample is pro
       }
     }
   },
-  "variables": {
-    "vmExtensionsApiVersion": "2017-03-30"
-  },
   "resources": [
     {
       "type": "Microsoft.HybridCompute/machines/extensions",
       "name": "[concat(parameters('vmName'),'/DAExtension')]",
-      "apiVersion": "[variables('vmExtensionsApiVersion')]",
+      "apiVersion": "2022-03-10",
       "location": "[resourceGroup().location]",
       "dependsOn": [
       ],
       "properties": {
         "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
         "type": "DependencyAgentLinux",
-        "autoUpgradeMinorVersion": true
+        "enableAutomaticUpgrade": true
       }
     }
   ],
-    "outputs": {
-    }
+  "outputs": {
+  }
 }
 ```
 
@@ -335,8 +334,8 @@ To use the Azure Monitor Dependency agent extension, the following sample is pro
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {
       "type": "string",
@@ -345,26 +344,23 @@ To use the Azure Monitor Dependency agent extension, the following sample is pro
       }
     }
   },
-  "variables": {
-    "vmExtensionsApiVersion": "2017-03-30"
-  },
   "resources": [
     {
       "type": "Microsoft.HybridCompute/machines/extensions",
       "name": "[concat(parameters('vmName'),'/DAExtension')]",
-      "apiVersion": "[variables('vmExtensionsApiVersion')]",
+      "apiVersion": "2022-03-10",
       "location": "[resourceGroup().location]",
       "dependsOn": [
       ],
       "properties": {
         "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
         "type": "DependencyAgentWindows",
-        "autoUpgradeMinorVersion": true
+        "enableAutomaticUpgrade": true
       }
     }
   ],
-    "outputs": {
-    }
+  "outputs": {
+  }
 }
 ```
 
@@ -419,12 +415,12 @@ The following JSON shows the schema for the Key Vault VM extension (preview). Th
    {
       "type": "Microsoft.HybridCompute/machines/extensions",
       "name": "[concat(parameters('vmName'),'/KVVMExtensionForLinux')]",
-      "apiVersion": "2019-12-12",
+      "apiVersion": "2022-03-10",
       "location": "[parameters('location')]",
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForLinux",
-      "autoUpgradeMinorVersion": true,
+      "enableAutomaticUpgrade": true,
       "settings": {
           "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
@@ -433,8 +429,7 @@ The following JSON shows the schema for the Key Vault VM extension (preview). Th
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
           },
           "authenticationSettings": {
-                "msiEndpoint":  <MSI endpoint e.g.: "http://localhost:40342/metadata/identity">,
-                "msiClientId":  <MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
+                "msiEndpoint":  "http://localhost:40342/metadata/identity"
         }
       }
     }
@@ -488,24 +483,23 @@ The following JSON shows the schema for the Key Vault VM extension (preview). Th
    {
       "type": "Microsoft.HybridCompute/machines/extensions",
       "name": "[concat(parameters('vmName'),'/KVVMExtensionForWindows')]",
-      "apiVersion": "2019-12-12",
+      "apiVersion": "2022-03-10",
       "location": "[parameters('location')]",
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForWindows",
-      "autoUpgradeMinorVersion": true,
+      "enableAutomaticUpgrade": true,
       "settings": {
         "secretsManagementSettings": {
           "pollingIntervalInS": "3600",
           "certificateStoreName": <certificate store name, e.g.: "MY">,
           "linkOnRenewal": <Only Windows. This feature ensures s-channel binding when certificate renews, without necessitating a re-deployment.  e.g.: false>,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
-          "requireInitialSync": <initial synchronization of certificates e..g: true>,
+          "requireInitialSync": <initial synchronization of certificates e.g.: true>,
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net"
         },
         "authenticationSettings": {
-                "msiEndpoint": <MSI endpoint e.g.: "http://localhost:40342/metadata/identity">,
-                "msiClientId": <MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
+                "msiEndpoint": "http://localhost:40342/metadata/identity"
         }
       }
     }
@@ -528,92 +522,6 @@ Save the template file to disk. You can then deploy the extension to the connect
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\KeyVaultExtension.json"
-```
-
-## Deploy the Microsoft Defender for Cloud integrated scanner
-
-To use the Microsoft Defender for Cloud integrated scanner extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the integrated scanner, see [Overview of Microsoft Defender for Cloud's vulnerability assessment solution](../../security-center/deploy-vulnerability-assessment-vm.md) for hybrid machines.
-
-### Template file for Windows
-
-```json
-{
-  "properties": {
-    "mode": "Incremental",
-    "template": {
-      "contentVersion": "1.0.0.0",
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "parameters": {
-        "vmName": {
-          "type": "string"
-        },
-        "apiVersionByEnv": {
-          "type": "string"
-        }
-      },
-      "resources": [
-        {
-          "type": "Microsoft.HybridCompute/machines/providers/serverVulnerabilityAssessments",
-          "name": "[concat(parameters('vmName'), '/Microsoft.Security/default')]",
-          "apiVersion": "[parameters('apiVersionByEnv')]"
-        }
-      ]
-    },
-    "parameters": {
-      "vmName": {
-        "value": "resourceName"
-      },
-      "apiVersionByEnv": {
-        "value": "2015-06-01-preview"
-      }
-    }
-  }
-}
-```
-
-### Template file for Linux
-
-```json
-{
-  "properties": {
-    "mode": "Incremental",
-    "template": {
-      "contentVersion": "1.0.0.0",
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "parameters": {
-        "vmName": {
-          "type": "string"
-        },
-        "apiVersionByEnv": {
-          "type": "string"
-        }
-      },
-      "resources": [
-        {
-          "type": "Microsoft.HybridCompute/machines/providers/serverVulnerabilityAssessments",
-          "name": "[concat(parameters('vmName'), '/Microsoft.Security/default')]",
-          "apiVersion": "[parameters('apiVersionByEnv')]"
-        }
-      ]
-    },
-    "parameters": {
-      "vmName": {
-        "value": "resourceName"
-      },
-      "apiVersionByEnv": {
-        "value": "2015-06-01-preview"
-      }
-    }
-  }
-}
-```
-
-### Template deployment
-
-Save the template file to disk. You can then deploy the extension to the connected machine with the following command.
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\AzureDefenderScanner.json"
 ```
 
 ## Next steps

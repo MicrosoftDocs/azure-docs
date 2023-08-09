@@ -1,5 +1,5 @@
 ---
-title: Azure AD Multi-Factor Authentication for your organization - Azure Active Directory
+title: Azure AD Multi-Factor Authentication for your organization
 description: Learn about the available features of Azure AD Multi-Factor Authentication for your organization based on your license model
 
 services: multi-factor-authentication
@@ -8,9 +8,9 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 03/18/2020
 
-ms.author: ajburnle
-author: ajburnle
-manager: karenhoran
+ms.author: barclayn
+author: barclayn
+manager: amycolannino
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
@@ -27,7 +27,7 @@ So how does your organization turn on MFA even for free, before becoming a stati
 
 ## Free option
 
-Customers who are utilizing the free benefits of Azure AD can use [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) to enable multi-factor authentication in their environment.
+Customers who are utilizing the free benefits of Azure AD can use [security defaults](../fundamentals/security-defaults.md) to enable multi-factor authentication in their environment.
 
 ## Microsoft 365 Business, E3, or E5
 

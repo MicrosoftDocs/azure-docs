@@ -2,7 +2,10 @@
 title: Create a custom image from a lab VM
 description: Learn how to create a custom image from a provisioned virtual machine in Azure DevTest Labs by using the Azure portal.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 02/15/2022
+ms.custom: UpdateFrequency2
 ---
 
 # Create a custom image from a VM
@@ -42,6 +45,6 @@ The custom image is created and stored in the lab's storage account. The image i
 ## Next steps
 
 - [Add a VM to your lab](devtest-lab-add-vm.md)
-- [Create a custom image from a VHD file](devtest-lab-create-template.md)
+- [Create a custom image from a VHD file for DevTest Labs](devtest-lab-create-template.md)
 - [Compare custom images and formulas in DevTest Labs](devtest-lab-comparing-vm-base-image-types.md)
 - [Create a custom image factory in Azure DevTest Labs](image-factory-create.md)

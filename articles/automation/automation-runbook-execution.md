@@ -3,9 +3,9 @@ title: Runbook execution in Azure Automation
 description: This article provides an overview of the processing of runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/15/2021
+ms.date: 12/28/2022
 ms.topic: conceptual
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Runbook execution in Azure Automation
@@ -30,14 +30,15 @@ The following diagram shows the lifecycle of a runbook job for [PowerShell runbo
 
 Runbooks in Azure Automation can run on either an Azure sandbox or a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). 
 
-When runbooks are designed to authenticate and run against resources in Azure, they run in an Azure sandbox. Azure Automation assigns a worker to run each job during runbook execution in the sandbox. While workers are shared by many Automation accounts, jobs from different Automation accounts are isolated from one another.  Jobs using the same sandbox are bound by the resource limitations of the sandbox. The Azure sandbox environment does not support interactive operations. It prevents access to all out-of-process COM servers, and it does not support making [WMI calls](/windows/win32/wmisdk/wmi-architecture) to the Win32 provider in your runbook.  These scenarios are only supported by running the runbook on a Windows Hybrid Runbook Worker.
+When runbooks are designed to authenticate and run against resources in Azure, they run in an Azure sandbox. Azure Automation assigns a worker to run each job during runbook execution in the sandbox. While workers are shared by many Automation accounts, jobs from different Automation accounts are isolated from one another.  Jobs using the same sandbox are bound by the resource limitations of the sandbox. The Azure sandbox environment doesn't support interactive operations. It prevents access to all out-of-process COM servers, and it doesn't support making [WMI calls](/windows/win32/wmisdk/wmi-architecture) to the Win32 provider in your runbook.  These scenarios are only supported by running the runbook on a Windows Hybrid Runbook Worker.
 
 You can also use a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) to run runbooks directly on the computer that hosts the role and against local resources in the environment. Azure Automation stores and manages runbooks and then delivers them to one or more assigned computers.
 
-Enabling the Azure Firewall on [Azure Storage](../storage/common/storage-network-security.md), [Azure Key Vault](../key-vault/general/network-security.md), or [Azure SQL](../azure-sql/database/firewall-configure.md) blocks access from Azure Automation runbooks for those services. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation is not a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md).
+Enabling the Azure Firewall on [Azure Storage](../storage/common/storage-network-security.md), [Azure Key Vault](../key-vault/general/network-security.md), or [Azure SQL](/azure/azure-sql/database/firewall-configure) blocks access from Azure Automation runbooks for those services. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation isn't a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 >[!NOTE]
->To run on a Linux Hybrid Runbook Worker, your scripts must be signed and the worker configured accordingly. Alternatively, [signature validation must be turned off](automation-linux-hrw-install.md#turn-off-signature-validation).
+>- To run on a Linux Hybrid Runbook Worker, your scripts must be signed and the worker configured accordingly. Alternatively, [signature validation must be turned off](automation-linux-hrw-install.md#turn-off-signature-validation).
+>- Runbook execution shouldn't depend on timezone of the sandbox.
 
 The following table lists some runbook execution tasks with the recommended execution environment listed for each.
 
@@ -45,7 +46,7 @@ The following table lists some runbook execution tasks with the recommended exec
 |---|---|---|
 |Integrate with Azure resources|Azure Sandbox|Hosted in Azure, authentication is simpler. If you're using a Hybrid Runbook Worker on an Azure VM, you can [use runbook authentication with managed identities](automation-hrw-run-runbooks.md#runbook-auth-managed-identities).|
 |Obtain optimal performance to manage Azure resources|Azure Sandbox|Script is run in the same environment, which has less latency.|
-|Minimize operational costs|Azure Sandbox|There is no compute overhead and no need for a VM.|
+|Minimize operational costs|Azure Sandbox|There's no compute overhead and no need for a VM.|
 |Execute long-running script|Hybrid Runbook Worker|Azure sandboxes have [resource limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
 |Interact with local services|Hybrid Runbook Worker|Directly access the host machine, or resources in other cloud environments or the on-premises environment. |
 |Require third-party software and executables|Hybrid Runbook Worker|You manage the operating system and can install software.|
@@ -53,15 +54,15 @@ The following table lists some runbook execution tasks with the recommended exec
 |Run a resource-intensive script|Hybrid Runbook Worker| Azure sandboxes have [resource limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
 |Use modules with specific requirements| Hybrid Runbook Worker|Some examples are:</br> WinSCP - dependency on winscp.exe </br> IIS administration - dependency on enabling or managing IIS|
 |Install a module with an installer|Hybrid Runbook Worker|Modules for sandbox must support copying.|
-|Use runbooks or modules that require .NET Framework version different from 4.7.2|Hybrid Runbook Worker|Azure sandboxes support .NET Framework 4.7.2, and upgrading to a different version is not supported.|
+|Use runbooks or modules that require .NET Framework version different from 4.7.2|Hybrid Runbook Worker|Azure sandboxes support .NET Framework 4.7.2, and upgrading to a different version isn't supported.|
 |Run scripts that require elevation|Hybrid Runbook Worker|Sandboxes don't allow elevation. With a Hybrid Runbook Worker, you can turn off UAC and use [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command) when running the command that requires elevation.|
 |Run scripts that require access to Windows Management Instrumentation (WMI)|Hybrid Runbook Worker|Jobs running in sandboxes in the cloud can't access WMI provider. |
 
 ## Temporary storage in a sandbox
 
-If you need to create temporary files as part of your runbook logic, you can use the Temp folder (that is, `$env:TEMP`) in the Azure sandbox for runbooks running in Azure. The only limitation is you cannot use more than 1 GB of disk space, which is the quota for each sandbox. When working with PowerShell workflows, this scenario can cause a problem because PowerShell workflows use checkpoints and the script could be retried in a different sandbox.
+If you need to create temporary files as part of your runbook logic, you can use the Temp folder (that is, `$env:TEMP`) in the Azure sandbox for runbooks running in Azure. The only limitation is you can't use more than 1 GB of disk space, which is the quota for each sandbox. When working with PowerShell workflows, this scenario can cause a problem because PowerShell workflows use checkpoints and the script could be retried in a different sandbox.
 
-With the hybrid sandbox, you can use `C:\temp` based on the availability of storage on a Hybrid Runbook Worker. However, per Azure VM recommendations, you should not use the [temporary disk](../virtual-machines/managed-disks-overview.md#temporary-disk) on Windows or Linux for data that needs to be persisted.
+With the hybrid sandbox, you can use `C:\temp` based on the availability of storage on a Hybrid Runbook Worker. However, per Azure VM recommendations, you shouldn't use the [temporary disk](../virtual-machines/managed-disks-overview.md#temporary-disk) on Windows or Linux for data that needs to be persisted.
 
 ## Resources
 
@@ -72,7 +73,7 @@ Your runbooks must include logic to deal with [resources](/rest/api/resources/re
 Azure Automation uses the [Microsoft Defender for Cloud](../defender-for-cloud/defender-for-cloud-introduction.md) to provide security for your resources and detect compromise in Linux systems. Security is provided across your workloads, whether resources are in Azure or not. See 
 [Introduction to authentication in Azure Automation](automation-security-overview.md).
 
-Defender for Cloud places constraints on users who can run any scripts, either signed or unsigned, on a VM. If you are a user with root access to a VM, you must explicitly configure the machine with a digital signature or turn it off. Otherwise, you can only run a script to apply operating system updates after creating an Automation account and enabling the appropriate feature.
+Defender for Cloud places constraints on users who can run any scripts, either signed or unsigned, on a VM. If you're a user with root access to a VM, you must explicitly configure the machine with a digital signature or turn it off. Otherwise, you can only run a script to apply operating system updates after creating an Automation account and enabling the appropriate feature.
 
 ## Subscriptions
 
@@ -121,7 +122,7 @@ Your runbooks can use self-signed certificates, which are not signed by a certif
 
 ## Jobs
 
-Azure Automation supports an environment to run jobs from the same Automation account. A single runbook can have many jobs running at one time. The more jobs you run at the same time, the more often they can be dispatched to the same sandbox. 
+Azure Automation supports an environment to run jobs from the same Automation account. A single runbook can have many jobs running at one time. The more jobs you run at the same time, the more often they can be dispatched to the same sandbox. A maximum of 10 jobs can run in a sandbox. A sandbox will be removed when no jobs are executing in it; hence, it shouldn't be used to save files.
 
 Jobs running in the same sandbox process can affect each other. One example is running the [Disconnect-AzAccount](/powershell/module/az.accounts/disconnect-azaccount) cmdlet. Execution of this cmdlet disconnects each runbook job in the shared sandbox process. For an example of working with this scenario, see [Prevent concurrent jobs](manage-runbooks.md#prevent-concurrent-jobs).
 
@@ -170,7 +171,7 @@ Write-Output "This message will not show"
 
 ### Try Catch Finally
 
-[Try Catch Finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) is used in PowerShell scripts to handle terminating errors. The script can use this mechanism to catch specific exceptions or general exceptions. The `catch` statement should be used to track or try to handle errors. The following example tries to download a file that does not exist. It catches the `System.Net.WebException` exception and returns the last value for any other exception.
+[Try Catch Finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) is used in PowerShell scripts to handle terminating errors. The script can use this mechanism to catch specific exceptions or general exceptions. The `catch` statement should be used to track or try to handle errors. The following example tries to download a file that doesn't exist. It catches the `System.Net.WebException` exception and returns the last value for any other exception.
 
 ```powershell-interactive
 try

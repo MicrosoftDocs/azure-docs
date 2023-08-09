@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/22/2021
+ms.date: 05/31/2023
 ms.author: banders
 ---
 
@@ -15,6 +15,9 @@ ms.author: banders
 
 You can manage your Enterprise Agreement (EA) enrollment in the [Azure Enterprise portal](https://ea.azure.com/). Direct Enterprise customer can now manage Enterprise Agreement(EA) enrollment in [Azure portal](https://portal.azure.com/).
 You can create different roles to manage your organization, view costs, and create subscriptions. This article helps you automate some of those tasks by using Azure PowerShell and REST APIs with Azure service principal names (SPNs).
+
+> [!NOTE]
+> If you have multiple EA billing accounts in your organization, you must grant the EA roles to Azure SPNs individually in each EA billing account.
 
 Before you begin, ensure that you're familiar with the following articles:
 
@@ -29,7 +32,7 @@ To automate EA actions by using an SPN, you need to create an Azure Active Direc
 Follow the steps in these articles to create and authenticate your service principal.
 
 - [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
-- [Get tenant and app ID values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)
+- [Get tenant and app ID values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application)
 
 Here's an example of the application registration page.
 
@@ -37,7 +40,11 @@ Here's an example of the application registration page.
 
 ### Find your SPN and tenant ID
 
-You also need the object ID of the SPN and the tenant ID of the app. You need this information for permission assignment operations later in this article.
+You also need the object ID of the SPN and the tenant ID of the app. You need this information for permission assignment operations later in this article. All applications are registered in Azure AD in the tenant. Two types of objects get created when the app registration is completed:
+
+- Application object - The application object ID is what you see under App Registrations in Azure AD. The object ID should *not* be used to grant any EA roles.
+
+- Service Principal object - The Service Principal object is what you see in the Enterprise Registration window in Azure AD. The object ID is used to grant EA roles to the SPN.
 
 1. Open Azure Active Directory, and then select **Enterprise applications**.
 1. Find your app in the list.
@@ -61,15 +68,19 @@ Later in this article, you'll give permission to the Azure AD app to act by usin
 
 | Role | Actions allowed | Role definition ID |
 | --- | --- | --- |
-| EnrollmentReader | Can view usage and charges across all accounts and subscriptions. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | 24f8edb6-1668-4659-b5e2-40bb5f3a7d7e |
-| EA purchaser | Purchase reservation orders and view reservation transactions. Can view usage and charges across all accounts and subscriptions. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | da6647fb-7651-49ee-be91-c43c4877f0c4  |
+| EnrollmentReader | Enrollment readers can view data at the enrollment, department, and account scopes. The data contains charges for all of the subscriptions under the scopes, including across tenants. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | 24f8edb6-1668-4659-b5e2-40bb5f3a7d7e |
+| EA purchaser | Purchase reservation orders and view reservation transactions. It has all the permissions of EnrollmentReader, which will in turn have all the permissions of DepartmentReader. It can view usage and charges across all accounts and subscriptions. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | da6647fb-7651-49ee-be91-c43c4877f0c4  |
 | DepartmentReader | Download the usage details for the department they administer. Can view the usage and charges associated with their department. | db609904-a47f-4794-9be8-9bd86fbffd8a |
 | SubscriptionCreator | Create new subscriptions in the given scope of Account. | a0bcee42-bf30-4d1b-926a-48d21664ef71 |
 
-- An EnrollmentReader role can be assigned to an SPN only by a user who has an enrollment writer role.
+- An EnrollmentReader role can be assigned to an SPN only by a user who has an enrollment writer role. The EnrollmentReader role assigned to an SPN isn't shown in the EA portal. It's created by programmatic means and is only for programmatic use.
 - A DepartmentReader role can be assigned to an SPN only by a user who has an enrollment writer or department writer role.
-- A SubscriptionCreator role can be assigned to an SPN only by a user who is the owner of the enrollment account. The role isn't shown in the EA portal. It's created by programmatic means and is only for programmatic use.
+- A SubscriptionCreator role can be assigned to an SPN only by a user who is the owner of the enrollment account (EA administrator). The role isn't shown in the EA portal. It's created by programmatic means and is only for programmatic use.
 - The EA purchaser role isn't shown in the EA portal. It's created by programmatic means and is only for programmatic use.
+
+When you grant an EA role to an SPN, you must use the `billingRoleAssignmentName` required property. The parameter is a unique GUID that you must provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell command. You can also use the [Online GUID / UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
+
+An SPN can have only one role.
 
 ## Assign enrollment account role permission to the SPN
 
@@ -189,7 +200,7 @@ Now you can use the SPN to automatically access EA APIs. The SPN has the Departm
       | --- | --- |
       | `properties.principalId` | It is the value of Object ID. See [Find your SPN and tenant ID](#find-your-spn-and-tenant-id). |
       | `properties.principalTenantId` | See [Find your SPN and tenant ID](#find-your-spn-and-tenant-id). |
-      | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountID}/enrollmentAccounts/196987/billingRoleDefinitions/a0bcee42-bf30-4d1b-926a-48d21664ef71` |
+      | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountID}/enrollmentAccounts/{enrollmentAccountID}/billingRoleDefinitions/a0bcee42-bf30-4d1b-926a-48d21664ef71` |
 
       The billing account name is the same parameter that you used in the API parameters. It's the enrollment ID that you see in the EA portal and the Azure portal.
 
@@ -203,9 +214,18 @@ Now you can use the SPN to automatically access EA APIs. The SPN has the Departm
 
 Now you can use the SPN to automatically access EA APIs. The SPN has the SubscriptionCreator role.
 
+## Verify SPN role assignments
+
+SPN role assignments are not visible in the Azure portal. You can view enrollment account role assignments, including the subscription creator role, with the [Billing Role Assignments - List By Enrollment Account - REST API (Azure Billing)](/rest/api/billing/2019-10-01-preview/billing-role-assignments/list-by-enrollment-account) API. Use the API to verify that the role assignment was successful.
+
 ## Troubleshoot
 
 You must identify and use the Enterprise application object ID where you granted the EA role. If you use the Object ID from some other application, API calls will fail. Verify that you’re using the correct Enterprise application object ID.
+
+If you receive the following error when making your API call, then you may be incorrectly using the SPN object ID value located in App Registrations. To resolve this error, ensure you're using the SPN object ID from Enterprise Applications, not App Registrations.
+
+`The provided principal Tenant Id = xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx and principal Object Id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx are not valid`
+
 
 ## Next steps
 

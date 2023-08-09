@@ -9,14 +9,12 @@ ms.author: ofshezaf
 
 # Normalization and the Advanced Security Information Model (ASIM) (Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Microsoft Sentinel ingests data from many sources. Working with various data types and tables together requires you to understand each of them, and write and use unique sets of data for analytics rules, workbooks, and hunting queries for each type or schema.
 
 
 Sometimes, you'll need separate rules, workbooks, and queries, even when data types share common elements, such as firewall devices. Correlating between different types of data during an investigation and hunting can also be challenging.
 
-The Advanced Security Information Model (ASIM) is a layer that is located between these diverse sources and the user. ASIM follows the [robustness principal](https://en.wikipedia.org/wiki/Robustness_principle): **"Be strict in what you send, be flexible in what you accept"**. Using the robustness principal as design pattern, ASIM transforms Microsoft Sentinel's inconsistent and hard to use source telemetry to  user friendly data. 
+The Advanced Security Information Model (ASIM) is a layer that is located between these diverse sources and the user. ASIM follows the [robustness principle](https://en.wikipedia.org/wiki/Robustness_principle): **"Be strict in what you send, be flexible in what you accept"**. Using the robustness principle as design pattern, ASIM transforms the proprietary source telemetry collected by Microsoft Sentinel to user friendly data to facilitate exchange and integration. 
 
 This article provides an overview of the Advanced Security Information Model (ASIM), its use cases and major components. Refer to the [next steps](#next-steps) section for more details.
 
@@ -56,29 +54,61 @@ The following image shows how non-normalized data can be translated into normali
 
 ASIM includes the following components:
 
-|Component  |Description  |
-|---------|---------|
-|**Normalized schemas**     |   Cover standard sets of predictable event types that you can use when building unified capabilities. <br><br>Each schema defines the fields that represent an event, a normalized column naming convention, and a standard format for the field values. <br><br> ASIM currently defines the following schemas:<br> - [Authentication Event](authentication-normalization-schema.md)<br> - [DHCP Activity](dhcp-normalization-schema.md)<br> - [DNS Activity](dns-normalization-schema.md)<br> - [File Activity](file-event-normalization-schema.md)  <br> - [Network Session](./network-normalization-schema.md)<br> - [Process Event](process-events-normalization-schema.md)<br> - [Registry Event](registry-event-normalization-schema.md)<br>- [User Management](user-management-normalization-schema.md)<br> - [Web Session](web-normalization-schema.md)<br><br>For more information, see [ASIM schemas](normalization-about-schemas.md).  |
-|**Parsers**     |  Map existing data to the normalized schemas using [KQL functions](/azure/data-explorer/kusto/query/functions/user-defined-functions). <br><br>Many ASIM parsers are available out of the box with Microsoft Sentinel. More parsers, and versions of the built-in parsers that can be modified can be deployed from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelASim). <br><br>For more information, see [ASIM parsers](normalization-about-parsers.md).     |
-|**Content for each normalized schema**     |    Includes analytics rules, workbooks, hunting queries, and more. Content for each normalized schema works on any normalized data without the need to create source-specific content. <br><br>For more information, see [ASIM content](normalization-content.md).   |
 
+### Normalized schemas     
 
-### ASIM terminology
+Normalized schemas cover standard sets of predictable event types that you can use when building unified capabilities. Each schema defines the fields that represent an event, a normalized column naming convention, and a standard format for the field values. 
 
-ASIM uses the following terms:
+ASIM currently defines the following schemas:
 
-|Term  |Description  |
-|---------|---------|
-|**Reporting device**     |   The system that sends the records to Microsoft Sentinel. This system may not be the subject system for the record that's being sent.      |
-|**Record**     |A unit of data sent from the reporting device. A record is often referred to as `log`, `event`, or `alert`, but can also be other types of data.         |
-|**Content**, or **Content Item**     |The different, customizable, or user-created artifacts than can be used with Microsoft Sentinel. Those artifacts include, for example, Analytics rules, Hunting queries and workbooks. A content item is one such artifact.|
+- [Audit Event](normalization-schema-audit.md)
+- [Authentication Event](normalization-schema-authentication.md)
+- [DHCP Activity](normalization-schema-dhcp.md)
+- [DNS Activity](normalization-schema-dns.md)
+- [File Activity](normalization-schema-file-event.md)
+- [Network Session](normalization-schema-network.md)
+- [Process Event](normalization-schema-process-event.md)
+- [Registry Event](normalization-schema-registry-event.md)
+- [User Management](normalization-schema-user-management.md)
+- [Web Session](normalization-schema-web.md)
 
+For more information, see [ASIM schemas](normalization-about-schemas.md).
 
-<br>
+### Query time parsers
+
+ASIM uses query time parsers to map existing data to the normalized schemas using [KQL functions](/azure/data-explorer/kusto/query/functions/user-defined-functions). Many ASIM parsers are available out of the box with Microsoft Sentinel. More parsers, and versions of the built-in parsers that can be modified can be deployed from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelASim).
+
+For more information, see [ASIM parsers](normalization-parsers-overview.md).
+
+### Ingest time normalization
+
+Query time parsers have many advantages:
+ 
+- They do not require the data to be modified, thus preserving the source format. 
+- Since they do not modify the data, but rather presents a view of the data, they are easy to develop. Developing, testing and fixing a parser can all be done on existing data. Moreover, parsers can be fixed when an issue is discovered and the fix will apply to existing data.
+
+On the other hand, while ASIM parsers are optimized, query time parsing can slow down queries, especially on large data sets. To resolve this, Microsoft Sentinel complements query time parsing with ingest time parsing. Using ingest transformation the events are normalized to normalized table, accelerating queries that use normalized data.
+
+Currently, ASIM supports the following native normalized tables as a destination for ingest time normalization:
+- [**ASimAuditEventLogs**](/azure/azure-monitor/reference/tables/asimauditeventlogs) for the [Audit Event](normalization-schema-audit.md) schema.
+- **ASimAuthenticationEventLogs** for the [Authentication](normalization-schema-authentication.md) schema.
+- [**ASimDnsActivityLogs**](/azure/azure-monitor/reference/tables/asimdnsactivitylogs) for the [DNS](normalization-schema-dns.md) schema.
+- [**ASimNetworkSessionLogs**](/azure/azure-monitor/reference/tables/asimnetworksessionlogs) for the [Network Session](normalization-schema-network.md) schema 
+- [**ASimWebSessionLogs**](/azure/azure-monitor/reference/tables/asimwebsessionlogs) for the [Web Session](normalization-schema-web.md) schema.
+ 
+For more information, see [Ingest Time Normalization](normalization-ingest-time.md).
+
+### Content for each normalized schema
+
+Content which uses ASIM includes solutions, analytics rules, workbooks, hunting queries, and more. Content for each normalized schema works on any normalized data without the need to create source-specific content. 
+
+For more information, see [ASIM content](normalization-content.md).
 
 ## Getting started with ASIM
 
 To start using ASIM:
+
+- Deploy an ASIM based domain solution such as the [Network Threat Protection Essentials](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-networkthreatdetection?tab=Overview) domain solution.
 
 - Activate analytics rule templates that use ASIM. For more information, see the [ASIM content list](normalization-content.md#builtin).
 

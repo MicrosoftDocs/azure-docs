@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/05/2022
+ms.date: 07/13/2023
 ---
 
 # Expression functions in mapping data flow
@@ -104,7 +104,6 @@ In Data Factory and Synapse pipelines, use the expression language of the mappin
 | [normalize](data-flow-expressions-usage.md#normalize) | Normalizes the string value to separate accented unicode characters.  |
 | [not](data-flow-expressions-usage.md#not) | Logical negation operator.  |
 | [notEquals](data-flow-expressions-usage.md#notEquals) | Comparison not equals operator. Same as != operator.  |
-| [notNull](data-flow-expressions-usage.md#notNull) | Checks if the value isn't NULL.  |
 | [null](data-flow-expressions-usage.md#null) | Returns a NULL value. Use the function `syntax(null())` if there's a column named 'null'. Any operation that uses will result in a NULL.  |
 | [or](data-flow-expressions-usage.md#or) | Logical OR operator. Same as \|\|.  |
 | [pMod](data-flow-expressions-usage.md#pMod) | Positive Modulus of pair of numbers.  |
@@ -112,9 +111,9 @@ In Data Factory and Synapse pipelines, use the expression language of the mappin
 | [power](data-flow-expressions-usage.md#power) | Raises one number to the power of another.  |
 | [radians](data-flow-expressions-usage.md#radians) | Converts degrees to radians|
 | [random](data-flow-expressions-usage.md#random) | Returns a random number given an optional seed within a partition. The seed should be a fixed value and is used with the partitionId to produce random values  |
-| [regexExtract](data-flow-expressions-usage.md#regexExtract) | Extract a matching substring for a given regex pattern. The last parameter identifies the match group and is defaulted to 1 if omitted. Use `<regex>`(back quote) to match a string without escaping.  |
-| [regexMatch](data-flow-expressions-usage.md#regexMatch) | Checks if the string matches the given regex pattern. Use `<regex>`(back quote) to match a string without escaping.  |
-| [regexReplace](data-flow-expressions-usage.md#regexReplace) | Replace all occurrences of a regex pattern with another substring in the given string Use `<regex>`(back quote) to match a string without escaping.  |
+| [regexExtract](data-flow-expressions-usage.md#regexExtract) | Extract a matching substring for a given regex pattern. The last parameter identifies the match group and is defaulted to 1 if omitted. Use `` `<regex>` `` (back quote) to match a string without escaping.  |
+| [regexMatch](data-flow-expressions-usage.md#regexMatch) | Checks if the string matches the given regex pattern. Use `` `<regex>` `` (back quote) to match a string without escaping.  |
+| [regexReplace](data-flow-expressions-usage.md#regexReplace) | Replace all occurrences of a regex pattern with another substring in the given string Use `` `<regex>` `` (back quote) to match a string without escaping.  |
 | [regexSplit](data-flow-expressions-usage.md#regexSplit) | Splits a string based on a delimiter based on regex and returns an array of strings.  |
 | [replace](data-flow-expressions-usage.md#replace) | Replace all occurrences of a substring with another substring in the given string. If the last parameter is omitted, it's default to empty string.  |
 | [reverse](data-flow-expressions-usage.md#reverse) | Reverses a string.  |
@@ -132,6 +131,7 @@ In Data Factory and Synapse pipelines, use the expression language of the mappin
 | [sqrt](data-flow-expressions-usage.md#sqrt) | Calculates the square root of a number.  |
 | [startsWith](data-flow-expressions-usage.md#startsWith) | Checks if the string starts with the supplied string.  |
 | [substring](data-flow-expressions-usage.md#substring) | Extracts a substring of a certain length from a position. Position is 1 based. If the length is omitted, it's defaulted to end of the string.  |
+| [substringIndex](data-flow-expressions-usage.md#substringIndex) | Extracts the substring before `count` occurrences of the delimiter. If `count` is positive, everything to the left of the final delimiter (counting from the left) is returned. If `count` is negative, everything to the right of the final delimiter (counting from the right) is returned.  |
 | [tan](data-flow-expressions-usage.md#tan) | Calculates a tangent value.  |
 | [tanh](data-flow-expressions-usage.md#tanh) | Calculates a hyperbolic tangent value.  |
 | [translate](data-flow-expressions-usage.md#translate) | Replace one set of characters by another set of characters in the string. Characters have 1 to 1 replacement.  |

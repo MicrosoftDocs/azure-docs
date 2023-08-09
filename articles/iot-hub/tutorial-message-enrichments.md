@@ -1,427 +1,374 @@
 ---
-title: Tutorial - Use Azure IoT Hub message enrichments
+title: Tutorial - Use message enrichments
+titleSuffix: Azure IoT Hub
 description: Tutorial showing how to use message enrichments for Azure IoT Hub messages
 author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 03/16/2022
+ms.date: 05/11/2023
 ms.author: kgremban
 ms.custom: "mqtt, devx-track-azurecli, devx-track-csharp"
 # Customer intent: As a customer using Azure IoT Hub, I want to add information to the messages that come through my IoT hub and are sent to another endpoint. For example, I'd like to pass the IoT hub name to the application that reads the messages from the final endpoint, such as Azure Storage.
 ---
 # Tutorial: Use Azure IoT Hub message enrichments
 
-*Message enrichments* describes the ability of Azure IoT Hub to *stamp* messages with additional information before the messages are sent to the designated endpoint. One reason to use message enrichments is to include data that can be used to simplify downstream processing. For example, enriching device telemetry messages with a device twin tag can reduce load on customers to make device twin API calls for this information. For more information, see [Overview of message enrichments](iot-hub-message-enrichments-overview.md).
+*Message enrichments* are the ability of Azure IoT Hub to stamp messages with additional information before the messages are sent to the designated endpoint. One reason to use message enrichments is to include data that can be used to simplify downstream processing. For example, enriching device messages with a device twin tag can reduce load on customers to make device twin API calls for this information. For more information, see [Overview of message enrichments](iot-hub-message-enrichments-overview.md).
 
-In this tutorial, you see two ways to create and configure the resources that are needed to test the message enrichments for an IoT hub. The resources include one storage account with two storage containers. One container holds the enriched messages, and another container holds the original messages. Also included is an IoT hub to receive the messages and route them to the appropriate storage container based on whether they're enriched or not.
+In the [first part of this tutorial](tutorial-routing.md), you saw how to create custom endpoints and route messages to other Azure services. In this tutorial, you see how to create and configure the extra resources needed to test message enrichments for an IoT hub. The resources include a second storage container for an existing storage account (created in the first part of the tutorial) to hold the enriched messages and a message route to send them there. After the configurations for the message routing and message enrichments are finished, you use an application to send messages to the IoT hub. The hub then routes them to both storage containers. Only the messages sent to the endpoint for the **enriched** storage container are enriched.
 
-* The first method is to use the Azure CLI to create the resources and configure the message routing. Then you define the enrichments manually by using the [Azure portal](https://portal.azure.com).
+In this tutorial, you perform the following tasks:
 
-* The second method is to use an Azure Resource Manager template to create both the resources *and* the configurations for the message routing and message enrichments.
-
-After the configurations for the message routing and message enrichments are finished, you use an application to send messages to the IoT hub. The hub then routes them to both storage containers. Only the messages sent to the endpoint for the **enriched** storage container are enriched.
-
-Here are the tasks you perform to complete this tutorial:
-
-**Use IoT Hub message enrichments**
 > [!div class="checklist"]
-> * First method: Create resources and configure message routing by using the Azure CLI. Configure the message enrichments manually by using the [Azure portal](https://portal.azure.com).
-> * Second method: Create resources and configure message routing and message enrichments by using a Resource Manager template. 
+>
+> * Create a second container in your storage account.
+> * Create another custom endpoint and route messages to it from the IoT hub.
+> * Configure message enrichments that are routed to the new endpoint.
 > * Run an app that simulates an IoT device sending messages to the hub.
-> * View the results, and verify that the message enrichments are working as expected.
+> * View the results and verify that the message enrichments are being applied to the targeted messages.
 
 ## Prerequisites
 
-- You must have an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* You must have an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- Install [Visual Studio](https://www.visualstudio.com/).
+* You must have completed [Tutorial: Send device data to Azure Storage using IoT Hub message routing](tutorial-routing.md) and maintained the resources you created for it.
 
-- Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+# [Azure portal](#tab/portal)
 
-## Retrieve the IoT C# samples repository
+There are no other prerequisites for the Azure portal.
 
-Download the [IoT C# samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip) from GitHub and unzip them. This repository has several applications, scripts, and Resource Manager templates in it. The ones to be used for this tutorial are as follows:
+# [Azure CLI](#tab/cli)
 
-* For the manual method, there's a CLI script that's used to create the resources. This script is in /azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli.azcli. This script creates the resources and configures the message routing. After you run this script, create the message enrichments manually by using the [Azure portal](https://portal.azure.com).
-* For the automated method, there's an Azure Resource Manager template. The template is in /azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/template_msgenrichments.json. This template creates the resources, configures the message routing, and then configures the message enrichments.
-* The third application you use is the Device Simulation app, which you use to send messages to the IoT hub and test the message enrichments.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-## Manually set up and configure by using the Azure CLI
+---
 
-In addition to creating the necessary resources, the Azure CLI script also configures the two routes to the endpoints that are separate storage containers. For more information on how to configure the message routing, see the [Routing tutorial](tutorial-routing.md). After the resources are set up, use the [Azure portal](https://portal.azure.com) to configure message enrichments for each endpoint. Then continue on to the testing step.
+## Create a second container in your storage account
 
-> [!NOTE]
-> All messages are routed to both endpoints, but only the messages going to the endpoint with configured message enrichments will be enriched.
->
+In [the first part](tutorial-routing.md#create-a-storage-account) of this tutorial, you created a storage account and container for routed messages. Now you should create a second container for enriched messages.
 
-You can use the script that follows, or you can open the script in the /resources folder of the downloaded repository. The script performs the following steps:
+# [Azure portal](#tab/portal)
 
-* Create an IoT hub.
-* Create a storage account.
-* Create two containers in the storage account. One container is for the enriched messages, and another container is for messages that aren't enriched.
-* Set up routing for the two different storage accounts:
-    * Create an endpoint for each storage account container.
-    * Create a route to each of the storage account container endpoints.
+1. In the Azure portal, search for **Storage accounts**.
 
-There are several resource names that must be globally unique, such as the IoT hub name and the storage account name. To make running the script easier, those resource names are appended with a random alphanumeric value called *randomValue*. The random value is generated once at the top of the script. It's appended to the resource names as needed throughout the script. If you don't want the value to be random, you can set it to an empty string or to a specific value.
+1. Select the account you created earlier.
 
-If you haven't already done so, open an Azure [Cloud Shell window](https://shell.azure.com) and ensure that it's set to Bash. Open the script in the unzipped repository, select Ctrl+A to select all of it, and then select Ctrl+C to copy it. Alternatively, you can copy the following CLI script or open it directly in Cloud Shell. Paste the script in the Cloud Shell window by right-clicking the command line and selecting **Paste**. The script runs one statement at a time. After the script stops running, select **Enter** to make sure it runs the last command. The following code block shows the script that's used, with comments that explain what it's doing.
+1. In the storage account menu, select **Containers** from the **Data storage** section.
 
-Here are the resources created by the script. *Enriched* means that the resource is for messages with enrichments. *Original* means that the resource is for messages that aren't enriched.
+1. Select **Container** to create the new container.
 
-| Name | Value |
-|-----|-----|
-| resourceGroup | ContosoResourcesMsgEn |
-| container name | original  |
-| container name | enriched  |
-| IoT device name | Contoso-Test-Device |
-| IoT Hub name | ContosoTestHubMsgEn |
-| storage Account Name | contosostorage |
-| endpoint Name 1 | ContosoStorageEndpointOriginal |
-| endpoint Name 2 | ContosoStorageEndpointEnriched|
-| route Name 1 | ContosoStorageRouteOriginal |
-| route Name 2 | ContosoStorageRouteEnriched |
+   :::image type="content" source="./media/tutorial-message-enrichments/create-storage-container.png" alt-text="Screenshot of creating a storage container.":::
 
-```azurecli-interactive
-# This command retrieves the subscription id of the current Azure account.
-# This field is used when setting up the routing queries.
-subscriptionID=$(az account show --query id -o tsv)
+1. Name the container `enriched`, and select **Create**.
 
-# Concatenate this number onto the resources that have to be globally unique.
-# You can set this to "" or to a specific value if you don't want it to be random.
-# This retrieves a random value.
-randomValue=$RANDOM
+# [Azure CLI](#tab/cli)
 
-# This command installs the IOT Extension for Azure CLI.
-# You only need to install this the first time.
-# You need it to create the device identity.
-az extension add --name azure-iot
+> [!TIP]
+> Many of the CLI commands used throughout this tutorial use the same parameters. For your convenience, we have you define local variables that can be called as needed. Be sure to run all the commands in the same session, or else you will have to redefine the variables.
 
-# Set the values for the resource names that
-#   don't have to be globally unique.
-location=westus2
-resourceGroup=ContosoResourcesMsgEn
-containerName1=original
-containerName2=enriched
-iotDeviceName=Contoso-Test-Device
+The values for these variables should be for the same resources you used in the first part of this tutorial.
 
-# Create the resource group to be used
-#   for all the resources for this tutorial.
-az group create --name $resourceGroup \
-    --location $location
+1. Define the variables for your IoT hub, storage account, and container.
 
-# The IoT hub name must be globally unique,
-#   so add a random value to the end.
-iotHubName=ContosoTestHubMsgEn$randomValue
-echo "IoT hub name = " $iotHubName
+   *GROUP_NAME*: Replace this placeholder with the name of the resource group that contains your IoT hub.
 
-# Create the IoT hub.
-az iot hub create --name $iotHubName \
-    --resource-group $resourceGroup \
-    --sku S1 --location $location
+   *IOTHUB_NAME*: Replace this placeholder with the name of your IoT hub.
 
-# You need a storage account that will have two containers
-#   -- one for the original messages and
-#   one for the enriched messages.
-# The storage account name must be globally unique,
-#   so add a random value to the end.
-storageAccountName=contosostorage$randomValue
-echo "Storage account name = " $storageAccountName
+   *DEVICE_ID*: Replace this placeholder with the ID of your device.
 
-# Create the storage account to be used as a routing destination.
-az storage account create --name $storageAccountName \
-    --resource-group $resourceGroup \
-    --location $location \
-    --sku Standard_LRS
+   *STORAGE_NAME*: Replace this placeholder with the name of your storage account.
 
-# Get the primary storage account key.
-#    You need this to create the containers.
-storageAccountKey=$(az storage account keys list \
-    --resource-group $resourceGroup \
-    --account-name $storageAccountName \
-    --query "[0].value" | tr -d '"')
+   For this tutorial, the value for the `containerName` variable should be *enriched*.
 
-# See the value of the storage account key.
-echo "storage account key = " $storageAccountKey
+   ```azurecli-interactive
+   resourceGroup=GROUP_NAME
+   hubName=IOTHUB_NAME
+   deviceId=DEVICE_ID
+   storageName=STORAGE_NAME
+   containerName=enriched
+   ```
 
-# Create the containers in the storage account.
-az storage container create --name $containerName1 \
-    --account-name $storageAccountName \
-    --account-key $storageAccountKey \
-    --public-access off
+1. Use the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command to add the container to your storage account.
 
-az storage container create --name $containerName2 \
-    --account-name $storageAccountName \
-    --account-key $storageAccountKey \
-    --public-access off
+   ```azurecli-interactive
+   az storage container create --auth-mode login --account-name $storageName --name $containerName
+   ```
 
-# Create the IoT device identity to be used for testing.
-az iot hub device-identity create --device-id $iotDeviceName \
-    --hub-name $iotHubName
+---
 
-# Retrieve the information about the device identity, then copy the primary key to
-#   Notepad. You need this to run the device simulation during the testing phase.
-# If you are using Cloud Shell, you can scroll the window back up to retrieve this value.
-az iot hub device-identity show --device-id $iotDeviceName \
-    --hub-name $iotHubName
+## Route messages to a second endpoint
 
-##### ROUTING FOR STORAGE #####
+Create a second endpoint and route for the enriched messages.
 
-# You're going to have two routes and two endpoints.
-# One route points to the first container ("original") in the storage account
-#   and includes the original messages.
-# The other points to the second container ("enriched") in the same storage account
-#   and includes the enriched versions of the messages.
+# [Azure portal](#tab/portal)
 
-endpointType="azurestoragecontainer"
-endpointName1="ContosoStorageEndpointOriginal"
-endpointName2="ContosoStorageEndpointEnriched"
-routeName1="ContosoStorageRouteOriginal"
-routeName2="ContosoStorageRouteEnriched"
+1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
 
-# for both endpoints, retrieve the messages going to storage
-condition='level="storage"'
+1. In the resource menu under **Hub settings**,  select **Message routing** then select **Add**.
 
-# Get the connection string for the storage account.
-# Adding the "-o tsv" makes it be returned without the default double quotes around it.
-storageConnectionString=$(az storage account show-connection-string \
-  --name $storageAccountName --query connectionString -o tsv)
+   :::image type="content" source="media/tutorial-routing/message-routing-add.png" alt-text="Screenshot that shows location of the Add button, to add a new route in your IoT hub.":::
 
-# Create the routing endpoints and routes.
-# Set the encoding format to either avro or json.
+1. On the **Endpoint** tab, create a Storage endpoint by providing the following information:
 
-# This is the endpoint for the first container, for endpoint messages that are not enriched.
-az iot hub routing-endpoint create \
-  --connection-string $storageConnectionString \
-  --endpoint-name $endpointName1 \
-  --endpoint-resource-group $resourceGroup \
-  --endpoint-subscription-id $subscriptionID \
-  --endpoint-type $endpointType \
-  --hub-name $iotHubName \
-  --container $containerName1 \
-  --resource-group $resourceGroup \
-  --encoding json
+   | Parameter | Value |
+   | --------- | ----- |
+   | **Endpoint type** | Select **Storage**. |
+   | **Endpoint name** | Enter `ContosoStorageEndpointEnriched`. |
+   | **Azure Storage container** | Select **Pick a container**. Follow the prompts to select the storage account and **enriched** container that you created in the previous section. |
+   | **Encoding** | Select **JSON**. If this field is greyed out, then your storage account region doesn't support JSON. In that case, continue with the default **AVRO**. |
 
-# This is the endpoint for the second container, for endpoint messages that are enriched.
-az iot hub routing-endpoint create \
-  --connection-string $storageConnectionString \
-  --endpoint-name $endpointName2 \
-  --endpoint-resource-group $resourceGroup \
-  --endpoint-subscription-id $subscriptionID \
-  --endpoint-type $endpointType \
-  --hub-name $iotHubName \
-  --container $containerName2 \
-  --resource-group $resourceGroup \
-  --encoding json
+   :::image type="content" source="./media/tutorial-message-enrichments/create-storage-endpoint.png" alt-text="Screenshot showing selecting a container for an endpoint.":::
 
-# This is the route for messages that are not enriched.
-# Create the route for the first storage endpoint.
-az iot hub route create \
-  --name $routeName1 \
-  --hub-name $iotHubName \
-  --source devicemessages \
-  --resource-group $resourceGroup \
-  --endpoint-name $endpointName1 \
-  --enabled \
-  --condition $condition
+1. Accept the default values for the rest of the parameters and select **Create + next**.
 
-# This is the route for messages that are enriched.
-# Create the route for the second storage endpoint.
-az iot hub route create \
-  --name $routeName2 \
-  --hub-name $iotHubName \
-  --source devicemessages \
-  --resource-group $resourceGroup \
-  --endpoint-name $endpointName2 \
-  --enabled \
-  --condition $condition
-```
+1. Continue creating the new route, now that you've added the storage endpoint. Provide the following information for the new route:
 
-At this point, the resources are all set up and the message routing is configured. You can view the message routing configuration in the portal and set up the message enrichments for messages going to the **enriched** storage container.
+   | Parameter | Value |
+   | -------- | ----- |
+   | **Name** | ContosoStorageRouteEnriched |
+   | **Data source** | Verify that **Device Telemetry Messages** is selected from the dropdown list. |
+   | **Enable route** | Verify that this field is set to `enabled`. |
+   | **Routing query** | Enter `level="storage"` as the query string. |
 
-### Manually configure the message enrichments by using the Azure portal
+   :::image type="content" source="./media/tutorial-message-enrichments/create-storage-route.png" alt-text="Screenshot showing saving routing query information.":::
 
-1. Go to your IoT hub by selecting **Resource groups**. Then select the resource group set up for this tutorial (**ContosoResourcesMsgEn**). Find the IoT hub in the list, and select it. Select **Message routing** for the IoT hub.
+1. Select **Create + add enrichments**.
 
-   :::image type="content" source="./media/tutorial-message-enrichments/select-iot-hub.png" alt-text="Screenshot that shows how to select message routing." border="true":::
+# [Azure CLI](#tab/cli)
 
-   The message routing pane has three tabs labeled **Routes**, **Custom endpoints**, and **Enrich messages**. Browse the first two tabs to see the configuration set up by the script. Use the third tab to add message enrichments. Let's enrich messages going to the endpoint for the storage container called **enriched**. Fill in the name and value, and then select the endpoint **ContosoStorageEndpointEnriched** from the drop-down list. Here's an example of how to set up an enrichment that adds the IoT hub name to the message:
+1. Configure the variables for the endpoint and route commands to use the values *ContosoStorageEndpointEnriched* and *ContosoStorageRouteEnriched*, respectively.
 
-   ![Add first enrichment](./media/tutorial-message-enrichments/add-message-enrichments.png)
+   ```azurecli-interactive
+   endpointName=ContosoStorageEndpointEnriched
+   routeName=ContosoStorageRouteEnriched
+   ```
 
-2. Add these values to the list for the ContosoStorageEndpointEnriched endpoint.
+1. Use the [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint#az-iot-hub-routing-endpoint-create) command to create a custom endpoint that points to the storage container you made in the previous section.
 
-   | Key | Value | Endpoint (drop-down list) |
-   | ---- | ----- | -------------------------|
-   | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
-   | DeviceLocation | $twin.tags.location (assumes that the device twin has a location tag) | AzureStorageContainers > ContosoStorageEndpointEnriched |
-   |customerID | 6ce345b8-1e4a-411e-9398-d34587459a3a | AzureStorageContainers > ContosoStorageEndpointEnriched |
+   ```azurecli-interactive
+   az iot hub routing-endpoint create \
+     --connection-string $(az storage account show-connection-string --name $storageName --query connectionString -o tsv) \
+     --endpoint-name $endpointName \
+     --endpoint-resource-group $resourceGroup \
+     --endpoint-subscription-id $(az account show --query id -o tsv) \
+     --endpoint-type azurestoragecontainer
+     --hub-name $hubName \
+     --container $containerName \
+     --resource-group $resourceGroup \
+     --encoding json
+   ```
 
-3. When you're finished, your pane should look similar to this image:
+1. Use the [az iot hub route create](/cli/azure/iot/hub/route#az-iot-hub-route-create) command to create a route that passes any message where `level=storage` to the storage container endpoint.
 
-   ![Table with all enrichments added](./media/tutorial-message-enrichments/all-message-enrichments.png)
+   ```azurecli-interactive
+   az iot hub route create \
+     --name $routeName \
+     --hub-name $hubName \
+     --resource-group $resourceGroup \
+     --source devicemessages \
+     --endpoint-name $endpointName \
+     --enabled true \
+     --condition 'level="storage"'
+   ```
 
-4. Select **Apply** to save the changes. Skip to the [Test message enrichments](#test-message-enrichments) section.
+---
 
-## Create and configure by using a Resource Manager template
+## Add message enrichment to the new endpoint
 
-You can use a Resource Manager template to create and configure the resources, message routing, and message enrichments.
+Create three message enrichments that will be routed to the **enriched** storage container.
 
-1. Sign in to the Azure portal. Select **+ Create a Resource** to bring up a search box. Enter *template deployment*, and search for it. In the results pane, select **Template deployment (deploy using custom template)**.
+# [Azure portal](#tab/portal)
 
-   ![Template deployment in the Azure portal](./media/tutorial-message-enrichments/template-select-deployment.png)
+1. On the **Enrichment** tab of the **Add a route** wizard, add three message enrichments for the messages going to the endpoint for the storage container called **enriched**.
 
-1. Select **Create** in the **Template deployment** pane.
-
-1. In the **Custom deployment** pane, select **Build your own template in the editor**.
-
-1. In the **Edit template** pane, select **Load file**. Windows Explorer appears. Locate the **template_messageenrichments.json** file in the unzipped repo file in **/iot-hub/Tutorials/Routing/SimulatedDevice/resources**. 
-
-   ![Select template from local machine](./media/tutorial-message-enrichments/template-select.png)
-
-1. Select **Open** to load the template file from the local machine. It loads and appears in the edit pane.
-
-   This template is set up to use a globally unique IoT hub name and storage account name by adding a random value to the end of the default names, so you can use the template without making any changes to it.
-
-   Here are the resources created by loading the template. **Enriched** means that the resource is for messages with enrichments. **Original** means that the resource is for messages that aren't enriched. These are the same values used in the Azure CLI script.
+   Add these values as message enrichments for the ContosoStorageEndpointEnriched endpoint:
 
    | Name | Value |
-   |-----|-----|
-   | resourceGroup | ContosoResourcesMsgEn |
-   | container name | original  |
-   | container name | enriched  |
-   | IoT device name | Contoso-Test-Device |
-   | IoT Hub name | ContosoTestHubMsgEn |
-   | storage Account Name | contosostorage |
-   | endpoint Name 1 | ContosoStorageEndpointOriginal |
-   | endpoint Name 2 | ContosoStorageEndpointEnriched|
-   | route Name 1 | ContosoStorageRouteOriginal |
-   | route Name 2 | ContosoStorageRouteEnriched |
+   | ---- | ----- |
+   | myIotHub | `$hubname` |
+   | DeviceLocation | `$twin.tags.location` (assumes that the device twin has a location tag) |
+   | customerID | `6ce345b8-1e4a-411e-9398-d34587459a3a` |
 
-1. Select **Save**. The **Custom deployment** pane appears and shows all of the parameters used by the template. The only field you need to set is **Resource group**. Either create a new one or select one from the drop-down list.
+   When you're finished, your enrichments should look similar to this image:
 
-   Here's the top half of the **Custom deployment** pane. You can see where you fill in the resource group.
+   :::image type="content" source="./media/tutorial-message-enrichments/all-message-enrichments.png" alt-text="Screenshot of table with all enrichments added.":::
 
-   ![Top half of Custom deployment pane](./media/tutorial-message-enrichments/template-deployment-top.png)
+1. Select **Add** to add the message enrichments.
 
-1. Here's the bottom half of the **Custom deployment** pane. You can see the rest of the parameters and the terms and conditions. 
+# [Azure CLI](#tab/cli)
 
-   ![Bottom half of Custom deployment pane](./media/tutorial-message-enrichments/template-deployment-bottom.png)
+Make three calls to the [az iot hub message-enrichment create](/cli/azure/iot/hub/message-enrichment#az-iot-hub-message-enrichment-create) command to add message enrichments to the route going to the endpoint created earlier.
 
-1. Select the check box to agree to the terms and conditions. Then select **Purchase** to continue with the template deployment.
+```azurecli-interactive
+az iot hub message-enrichment create \
+  --key myIotHub \
+  --value $hubName \
+  --endpoints ContosoStorageEndpointEnriched \
+  --name $hubName
 
-1. Wait for the template to be fully deployed. Select the bell icon at the top of the screen to check on the progress. When it's finished, continue to the [Test message enrichments](#test-message-enrichments) section.
+# This assumes that the device twin has a location tag.
+az iot hub message-enrichment create \
+  --key DeviceLocation \
+  --value '$twin.tags.location' \
+  --endpoints ContosoStorageEndpointEnriched \
+  --name $hubName
+
+az iot hub message-enrichment create \
+  --key customerID \
+  --value 6ce345b8-1e4a-411e-9398-d34587459a3a \
+  --endpoints ContosoStorageEndpointEnriched \
+  --name $hubName
+```
+
+---
+
+You now have message enrichments set up for all messages routed to the endpoint you created for enriched messages. If you don't want to add a location tag to the device twin, you can skip to the [Test message enrichments](#test-message-enrichments) section to continue the tutorial.
 
 ## Add location tag to the device twin
 
-One of the message enrichments configured on your IoT hub specifies a key of DeviceLocation with its value determined by the following device twin path: `$twin.tags.location`. If your device twin doesn't have a location tag, the twin path, `$twin.tags.location`, will be stamped as a string for the DeviceLocation value in the message enrichments.
+One of the message enrichments configured on your IoT hub specifies a key of **DeviceLocation** with its value determined by the following device twin path: `$twin.tags.location`. If your device twin doesn't have a location tag, the twin path, `$twin.tags.location`, will be stamped as a string for the **DeviceLocation** key in the message enrichments.
 
-Follow these steps to add a location tag to your device's twin with the portal.
+Follow these steps to add a location tag to your device's twin:
 
-1. Go to your IoT hub by selecting **Resource groups**. Then select the resource group set up for this tutorial (**ContosoResourcesMsgEn**). Find the IoT hub in the list, and select it. Select **Devices** on the left-pane of the IoT hub, then select your device (**Contoso-Test-Device**).
+# [Azure portal](#tab/portal)
+
+1. Navigate to your IoT hub in the Azure portal.
+
+1. Select **Devices** on the navigation menu of the IoT hub, then select your device.
 
 1. Select the **Device twin** tab at the top of the device page and add the following line just before the closing brace at the bottom of the device twin. Then select **Save**.
 
     ```json
-    		, "tags": {"location": "Plant 43"}
-
+      , "tags": {"location": "Plant 43"}
     ```
-  
-    :::image type="content" source="./media/tutorial-message-enrichments/add-location-tag-to-device-twin.png" alt-text="Screenshot of adding location tag to device twin in Azure portal":::
 
-1. Wait about five minutes before continuing to the next section. It can take up to that long for updates to the device twin to be reflected in message enrichment values.
+    :::image type="content" source="./media/tutorial-message-enrichments/add-location-tag-to-device-twin.png" alt-text="Screenshot of adding location tag to device twin in Azure portal.":::
+
+# [Azure CLI](#tab/cli)
+
+Use the [az iot hub device-twin update](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-update) command to update the device twin with a new tag key and value.
+
+```azurecli-interactive
+az iot hub device-twin update \
+  --hub-name $hubName \
+  --device-id $deviceId \
+  --tags '{"location": "Plant 43"}'
+```
+
+---
+
+> [!TIP]
+> Wait about five minutes before continuing to the next section. It can take up to that long for updates to the device twin to be reflected in message enrichment values.
 
 To learn more about how device twin paths are handled with message enrichments, see [Message enrichments limitations](iot-hub-message-enrichments-overview.md#limitations). To learn more about device twins, see [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md).
 
 ## Test message enrichments
 
-To view the message enrichments, select **Resource groups**. Then select the resource group you're using for this tutorial. Select the IoT hub from the list of resources, and go to **Messaging**. The message routing configuration and the configured enrichments appear.
+Now that the message enrichments are configured for the **ContosoStorageEndpointEnriched** endpoint, run the simulated device application to send messages to the IoT hub. At this point, message routing has been set up as follows:
 
-Now that the message enrichments are configured for the endpoint, run the Simulated Device application to send messages to the IoT hub. The hub was set up with settings that accomplish the following tasks:
+* Messages routed to the [storage endpoint you created](tutorial-routing.md#route-to-a-storage-account) in the first part of the tutorial won't be enriched and will be stored in the storage container you created then.
 
-* Messages routed to the storage endpoint ContosoStorageEndpointOriginal won't be enriched and will be stored in the storage container `original`.
+* Messages routed to the storage endpoint **ContosoStorageEndpointEnriched** will be enriched and stored in the storage container **enriched**.
 
-* Messages routed to the storage endpoint ContosoStorageEndpointEnriched will be enriched and stored in the storage container `enriched`.
+If you aren't still running the SimulatedDevice console application from the first part of this tutorial, run it again:
 
-The Simulated Device application is one of the applications in the unzipped download. The application sends messages for each of the different message routing methods in the [Routing tutorial](tutorial-routing.md), which includes Azure Storage.
+> [!TIP]
+> If you're following the Azure CLI steps for this tutorial, run the sample code in a separate session. That way, you can allow the sample code to continue running while you follow the rest of the CLI steps.
 
-Double-click the solution file **IoT_SimulatedDevice.sln** to open the code in Visual Studio, and then open **Program.cs**. Substitute the IoT hub name for the marker `{your hub name}`. The format of the IoT hub host name is **{your hub name}.azure-devices.net**. For this tutorial, the hub host name is ContosoTestHubMsgEn.azure-devices.net. Next, substitute the device key you saved earlier when you ran the script to create the resources for the marker `{your device key}`.
+1. In the sample folder, navigate to the `/iot-hub/Tutorials/Routing/SimulatedDevice/` folder.
 
-If you don't have the device key, you can retrieve it from the portal. After you sign in, go to **Resource groups**, select your resource group, and then select your IoT hub. Look under **IoT Devices** for your test device, and select your device. Select the copy icon next to **Primary key** to copy it to the clipboard.
+1. The variable definitions you updated before should still be valid but, if not, edit them in the `Program.cs` file:
 
-   ```csharp
-        private readonly static string s_myDeviceId = "Contoso-Test-Device";
-        private readonly static string s_iotHubUri = "ContosoTestHubMsgEn.azure-devices.net";
-        // This is the primary key for the device. This is in the portal.
-        // Find your IoT hub in the portal > IoT devices > select your device > copy the key.
-        private readonly static string s_deviceKey = "{your device key}";
+   1. Find the variable definitions at the top of the **Program** class. Update the following variables with your own information:
+
+      * **s_myDeviceId**: The device ID that you assigned when registering the device to your IoT hub.
+      * **s_iotHubUri**: The hostname of your IoT hub, which takes the format `IOTHUB_NAME.azure-devices.net`.
+      * **s_deviceKey**: The device primary key found in the device identity information.
+
+   1. Save and close the file.
+
+1. Run the sample code:
+
+   ```console
+   dotnet run
    ```
 
-### Run and test
+After leaving the console application to run for a few minutes, view the data:
 
-Run the console application for a few minutes. The messages that are being sent are displayed on the console screen of the application.
+1. In the [Azure portal](https://portal.azure.com), navigate to your storage account.
 
-The app sends a new device-to-cloud message to the IoT hub every second. The message contains a JSON-serialized object with the device ID, temperature, humidity, and message level, which defaults to `normal`. It randomly assigns a level of `critical` or `storage`, which causes the message to be routed to the storage account or to the default endpoint. The messages sent to the **enriched** container in the storage account will be enriched.
+1. Select **Storage browser** from the navigation menu. Select **Blob containers** to see the two containers that you created over the course of these tutorials.
 
-After several storage messages are sent, view the data.
+   :::image type="content" source="./media/tutorial-message-enrichments/show-blob-containers.png" alt-text="Screenshot showing the blob containers in the storage account.":::
 
-1. Select **Resource groups**. Find your resource group, **ContosoResourcesMsgEn**, and select it.
+The messages in the container called **enriched** have the message enrichments included in the messages. The messages in the container you created earlier have the raw messages with no enrichments. Drill down into the **enriched** container until you get to the bottom and then open the most recent message file. Then do the same for the other container to verify that one is enriched and one isn't.
 
-2. Select your storage account, which is **contosostorage**. Then select **Storage Explorer (preview)** in the left pane.
-
-   ![Select Storage Explorer](./media/tutorial-message-enrichments/select-storage-explorer.png)
-
-   Select **BLOB CONTAINERS** to see the two containers that can be used.
-
-   ![See the containers in the storage account](./media/tutorial-message-enrichments/show-blob-containers.png)
-
-The messages in the container called **enriched** have the message enrichments included in the messages. The messages in the container called **original** have the raw messages with no enrichments. Drill down into one of the containers until you get to the bottom, and open the most recent message file. Then do the same for the other container to verify that there are no enrichments added to messages in that container.
-
-When you look at messages that have been enriched, you should see "my IoT Hub" with the hub name and the location and the customer ID, like this:
+When you look at messages that have been enriched, you should see `"myIotHub"` with the hub name, the location, and the customer ID, like this:
 
 ```json
-{"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage","myIotHub":"contosotesthubmsgen3276","DeviceLocation":"Plant 43","customerID":"6ce345b8-1e4a-411e-9398-d34587459a3a"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
-```
-
-Here's an unenriched message. Notice that "my IoT Hub," "devicelocation," and "customerID" don't show up here because these fields are added by the enrichments. This endpoint has no enrichments.
-
-```json
-{"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
+{
+  "EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z",
+  "Properties":
+  {
+    "level":"storage",
+    "myIotHub":"{your hub name}",
+    "DeviceLocation":"Plant 43",
+    "customerID":"6ce345b8-1e4a-411e-9398-d34587459a3a"
+  },
+  "SystemProperties":
+  {
+    "connectionDeviceId":"Contoso-Test-Device",
+    "connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+    "connectionDeviceGenerationId":"636930642531278483",
+    "enqueuedTime":"2019-05-10T06:06:32.7220000Z"
+  },"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"
+}
 ```
 
 ## Clean up resources
 
-To remove all of the resources you created in this tutorial, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the storage account, and the resource group itself.
+To remove all of the resources you created in both parts of this tutorial, delete the resource group. This action deletes all resources contained within the group. If you don't want to delete the entire resource group, you can select individual resources within to delete.
 
-### Use the Azure CLI to clean up resources
+# [Azure portal](#tab/portal)
 
-To remove the resource group, use the [az group delete](/cli/azure/group#az-group-delete) command. Recall that `$resourceGroup` was set to **ContosoResourcesMsgEn** at the beginning of this tutorial.
+1. In the Azure portal, navigate to the resource group that contains the IoT hub and storage account for this tutorial.
+1. Review all the resources that are in the resource group to determine which ones you want to clean up.
+   * If you want to delete all the resource, select **Delete resource group**.
+   * If you only want to delete certain resource, use the check boxes next to each resource name to select the ones you want to delete. Then select **Delete**.
 
-```azurecli-interactive
-az group delete --name $resourceGroup
-```
+# [Azure CLI](#tab/cli)
+
+1. Use the [az resource list](/cli/azure/resource#az-resource-list) command to view all the resources in your resource group.
+
+   ```azurecli-interactive
+   az resource list --resource-group $resourceGroup --output table
+   ```
+
+1. Review all the resources that are in the resource group to determine which ones you want to clean up.
+
+   * If you want to delete all the resources, use the [az group delete](/cli/azure/group#az-group-delete) command.
+
+     ```azurecli-interactive
+     az group delete --name $resourceGroup
+     ```
+
+   * If you only want to delete certain resources, use the [az resource delete](/cli/azure/resource#az-resource-delete) command. For example:
+
+     ```azurecli-interactive
+     az resource delete --resource-group $resourceGroup --name $storageName
+     ```
+
+---
 
 ## Next steps
 
-In this tutorial, you configured and tested adding message enrichments to IoT Hub messages by using the following steps:
-
-**Use IoT Hub message enrichments**
-
-> [!div class="checklist"]
-> * First method: Create resources and configure message routing by using the Azure CLI. Configure the message enrichments manually by using the [Azure portal](https://portal.azure.com).
-> * Second method: Create resources and configure message routing and message enrichments by using an Azure Resource Manager template.
-> * Run an app that simulates an IoT device sending messages to the hub.
-> * View the results, and verify that the message enrichments are working as expected.
+In this tutorial, you configured and tested message enrichments for IoT Hub messages as they're routed to an endpoint.
 
 For more information about message enrichments, see [Overview of message enrichments](iot-hub-message-enrichments-overview.md).
 
-For more information about message routing, see these articles:
+To learn more about IoT Hub, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](iot-hub-devguide-messages-d2c.md)
-
-> [!div class="nextstepaction"]
-> [Tutorial: IoT Hub routing](tutorial-routing.md)
+> [Tutorial: Set up and use metrics and logs with an IoT hub](tutorial-use-metrics-and-diags.md)

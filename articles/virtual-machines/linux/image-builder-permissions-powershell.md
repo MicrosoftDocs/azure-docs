@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Image Builder Service permissions using PowerShell
-description: Configure requirements for Azure VM Image Builder Service including permissions and privileges using PowerShell
+title: Configure Azure VM Image Builder permissions by using PowerShell
+description: Configure requirements for Azure VM Image Builder, including permissions and privileges, by using PowerShell.
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
@@ -11,28 +11,28 @@ ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
 ---
 
-# Configure Azure Image Builder Service permissions using PowerShell
+# Configure Azure VM Image Builder permissions by using PowerShell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
-When you register for the (AIB), this grants the AIB Service permission to create, manage and delete a staging resource group (IT_*), and have rights to add resources to it, that are required for the image build. This is done by an AIB Service Principal Name (SPN) being made available in your subscription during a successful registration.
+When you register for Azure VM Image Builder, this grants the service permission to create, manage, and delete a staging resource group. The service also has rights to add resources to a resource group, required for the image build. During a successful registration, your subscription gets access to a VM Image Builder service principal name (SPN).
 
-To allow Azure VM Image Builder to distribute images to either the managed images or to an Azure Compute Gallery (formerly known as Shared Image Gallery), you will need to create an Azure user-assigned identity that has permissions to read and write images. If you are accessing Azure storage, then this will need permissions to read private or public containers.
+If you want VM Image Builder to distribute images, you need to create a user-assigned identity in Azure, with permissions to read and write images. For example, you might want to distribute images to managed images or to Azure Compute Gallery. If you're accessing Azure Storage, then the user-assigned identity you create needs permissions to read private or public containers.
 
-You must setup permissions and privileges prior to building an image. The following sections detail how to configure possible scenarios using PowerShell.
+You must set up permissions and privileges prior to building an image. The following sections detail how to configure possible scenarios by using PowerShell.
 
-## Create an Azure user-assigned managed identity
+## Create a user-assigned managed identity
 
-Azure Image Builder requires you to create an [Azure user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). The Azure Image Builder uses the user-assigned managed identity to read images, write images, and access Azure storage accounts. You grant the identity permission to do specific actions in your subscription.
+VM Image Builder requires you to create an [Azure user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). VM Image Builder uses this identity to read images, write images, and access Azure Storage accounts. You grant the identity permission to do specific actions in your subscription.
 
 > [!NOTE]
-> Previously, Azure Image Builder used the Azure Image Builder service principal name (SPN) to grant permissions to the image resource groups. Using the SPN will be deprecated. Use a user-assigned managed identity instead.
+> User-assigned managed identity is the correct way to grant permissions to the image resource groups. The SPN is deprecated for this purpose.
 
 The following example shows you how to create an Azure user-assigned managed identity. Replace the placeholder settings to set your variables.
 
 | Setting | Description |
 |---------|-------------|
-| \<Resource group\> | Resource group where to create the user-assigned managed identity. |
+| \<Resource group\> | The resource group where you want to create the user-assigned managed identity. |
 
 ```powershell-interactive
 ## Add AZ PS module to support AzUserAssignedIdentity
@@ -46,11 +46,11 @@ $parameters = @{
 New-AzUserAssignedIdentity @parameters
 ```
 
-For more information about Azure user-assigned identities, see the [Azure user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) documentation on how to create an identity.
+For more information, see [Azure user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md).
 
-## Allow Image Builder to distribute images
+## Allow VM Image Builder to distribute images
 
-For Azure Image Builder to distribute images (Managed Images / Azure Compute Gallery), the Azure Image Builder service must be allowed to inject the images into these resource groups. To grant the required permissions, you need to create a user-assigned managed identity and grant it rights on the resource group where the image is built. Azure Image Builder **does not** have permission to access resources in other resource groups in the subscription. You need to take explicit actions to allow access to avoid your builds from failing.
+For VM Image Builder to distribute images, the service must be allowed to inject the images into resource groups. To grant the required permissions, create a user-assigned managed identity, and grant it rights on the resource group where the image is built. VM Image Builder doesn't have permission to access resources in other resource groups in the subscription. You need to take explicit actions to allow access, to prevent your builds from failing.
 
 You don't need to grant the user-assigned managed identity contributor rights on the resource group to distribute images. However, the user-assigned managed identity needs the following Azure `Actions` permissions in the distribution resource group:
 
@@ -60,7 +60,7 @@ Microsoft.Compute/images/read
 Microsoft.Compute/images/delete
 ```
 
-If distributing to an Azure Compute Gallery, you also need:
+If you want to distribute to Azure Compute Gallery, you also need:
 
 ```Actions
 Microsoft.Compute/galleries/read
@@ -71,15 +71,15 @@ Microsoft.Compute/galleries/images/versions/write
 
 ## Permission to customize existing images
 
-For Azure Image Builder to build images from source custom images (Managed Images / Azure Compute Gallery), the Azure Image Builder service must be allowed to read the images into these resource groups. To grant the required permissions, you need to create a user-assigned managed identity and grant it rights on the resource group where the image is located.
+For VM Image Builder to build images from source custom images, the service must be allowed to read the images into these resource groups. To grant the required permissions, create a user-assigned managed identity, and grant it rights on the resource group where the image is located.
 
-Build from an existing custom image:
+Here's how you build from an existing custom image:
 
 ```Actions
-Microsoft.Compute/galleries/read
+Microsoft.Compute/images/read
 ```
 
-Build from an existing Azure Compute Gallery version:
+Here's how you build from an existing Azure Compute Gallery version:
 
 ```Actions
 Microsoft.Compute/galleries/read
@@ -87,11 +87,11 @@ Microsoft.Compute/galleries/images/read
 Microsoft.Compute/galleries/images/versions/read
 ```
 
-## Permission to customize images on your VNETs
+## Permission to customize images on your virtual networks
 
-Azure Image Builder has the capability to deploy and use an existing VNET in your subscription, thus allowing customizations access to connected resources.
+VM Image Builder has the capability to deploy and use an existing virtual network in your subscription, thus allowing customizations access to connected resources.
 
-You don't need to grant the user-assigned managed identity contributor rights on the resource group to deploy a VM to an existing VNET. However, the user-assigned managed identity needs the following Azure `Actions` permissions on the VNET resource group:
+You don't need to grant the user-assigned managed identity contributor rights on the resource group to deploy a VM to an existing virtual network. However, the user-assigned managed identity needs the following Azure `Actions` permissions on the virtual network resource group:
 
 ```Actions
 Microsoft.Network/virtualNetworks/read
@@ -100,20 +100,20 @@ Microsoft.Network/virtualNetworks/subnets/join/action
 
 ## Create an Azure role definition
 
-The following examples create an Azure role definition from the actions described in the previous sections. The examples are applied at the resource group level. Evaluate and test if the examples are granular enough for your requirements. For your scenario, you may need to refine it to a specific Azure Compute Gallery.
+The following examples create an Azure role definition from the actions described in the previous sections. The examples are applied at the resource group level. Evaluate and test if the examples are granular enough for your requirements.
 
-The image actions allow read and write. Decide what is appropriate for your environment. For example, create a role to allow Azure Image Builder to read images from resource group *example-rg-1* and write images to resource group *example-rg-2*.
+The image actions allow read and write. Decide what is appropriate for your environment. For example, create a role to allow VM Image Builder to read images from resource group *example-rg-1*, and write images to resource group *example-rg-2*.
 
 ### Custom image Azure role example
 
-The following example creates an Azure role to use and distribute a source custom image. You then grant the custom role to the user-assigned managed identity for Azure Image Builder.
+The following example creates an Azure role to use and distribute a source custom image. You then grant the custom role to the user-assigned managed identity for VM Image Builder.
 
 To simplify the replacement of values in the example, set the following variables first. Replace the placeholder settings to set your variables.
 
 | Setting | Description |
 |---------|-------------|
-| \<Subscription ID\> | Your Azure subscription ID |
-| \<Resource group\> | Resource group for custom image |
+| \<Subscription ID\> | Your Azure subscription ID. |
+| \<Resource group\> | Resource group for the custom image. |
 
 ```powershell-interactive
 $sub_id = "<Subscription ID>"
@@ -153,16 +153,16 @@ $parameters = @{
 New-AzRoleAssignment @parameters
 ```
 
-### Existing VNET Azure role example
+### Existing virtual network Azure role example
 
-The following example creates an Azure role to use and distribute an existing VNET image. You then grant the custom role to the user-assigned managed identity for Azure Image Builder.
+The following example creates an Azure role to use and distribute an existing virtual network image. You then grant the custom role to the user-assigned managed identity for VM Image Builder.
 
 To simplify the replacement of values in the example, set the following variables first. Replace the placeholder settings to set your variables.
 
 | Setting | Description |
 |---------|-------------|
-| \<Subscription ID\> | Your Azure subscription ID |
-| \<Resource group\> | VNET resource group |
+| \<Subscription ID\> | Your Azure subscription ID. |
+| \<Resource group\> | The virtual network resource group. |
 
 ```powershell-interactive
 $sub_id = "<Subscription ID>"
@@ -203,4 +203,4 @@ New-AzRoleAssignment @parameters
 
 ## Next steps
 
-For more information, see [Azure Image Builder overview](../image-builder-overview.md).
+[Azure VM Image Builder overview](../image-builder-overview.md)

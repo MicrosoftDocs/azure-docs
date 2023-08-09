@@ -1,10 +1,10 @@
 ---
-title: License requirements to use Privileged Identity Management - Azure Active Directory | Microsoft Docs
+title: License requirements to use Privileged Identity Management
 description: Describes the licensing requirements to use Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: billmath
+manager: amycolannino
 editor: ''
 ms.assetid: 34367721-8b42-4fab-a443-a2e55cdbf33d
 ms.service: active-directory
@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 10/07/2021
-ms.author: curtand
-ms.reviewer: shaunliu
+ms.date: 07/06/2022
+ms.author: billmath
+ms.reviewer: ilyal
 ms.custom: pim
 
 ms.collection: M365-identity-device-management
@@ -22,27 +22,18 @@ ms.collection: M365-identity-device-management
 
 # License requirements to use Privileged Identity Management
 
-To use Azure Active Directory (Azure AD) Privileged Identity Management (PIM), a directory must have a valid license. Furthermore, licenses must be assigned to the administrators and relevant users. This article describes the license requirements to use Privileged Identity Management.
+To use Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, a tenant must have a valid license. Licenses must also be assigned to the administrators and relevant users. This article describes the license requirements to use Privileged Identity Management.  To use Privileged Identity Management, you must have one of the following licenses:
+
+- [!INCLUDE [active-directory-p2-governance-either-license.md](../../../includes/active-directory-p2-governance-either-license.md)]
+
 
 ## Valid licenses
 
-You will need an Azure AD license to use PIM and all of it's settings. Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles (Preview) with an Azure Active Directory Premium P2 edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required. [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+You will need either Microsoft Entra ID Governance licenses or Azure AD Premium P2 licenses to use PIM and all of its settings. Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles with an Microsoft Entra Premuim P2 or Microsoft Entra ID Governance edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required. 
 
 ## Licenses you must have
+Ensure that your tenant has either Microsoft Entra ID Governance or Microsoft Azure AD Premium P2 licenses for all users whose identities or access is governed or who interact with an identity governance feature.
 
-Ensure that your directory has at least as many Azure AD Premium P2 licenses as you have employees that will be performing the following tasks:
-
-- Users assigned as eligible to Azure AD or Azure roles managed using PIM
-- Users who are assigned as eligible members or owners of privileged access groups
-- Users able to approve or reject activation requests in PIM
-- Users assigned to an access review
-- Users who perform access reviews
-
-Azure AD Premium P2 licenses are **not** required for the following tasks:
-
-- No licenses are required for users who set up PIM, configure policies, receive alerts, and set up access reviews.
-
-For more information about licenses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
 
 ## Example license scenarios
 
@@ -56,7 +47,7 @@ Here are some example license scenarios to help you determine the number of lice
 
 ## When a license expires
 
-If an Azure AD Premium P2, EMS E5, or trial license expires, Privileged Identity Management features will no longer be available in your directory:
+If a Microsoft Azure AD Premuim P2, Microsoft Entra ID Governance, or trial license expires, Privileged Identity Management features will no longer be available in your directory:
 
 - Permanent role assignments to Azure AD roles will be unaffected.
 - The Privileged Identity Management service in the Azure portal, as well as the Graph API cmdlets and PowerShell interfaces of Privileged Identity Management, will no longer be available for users to activate privileged roles, manage privileged access, or perform access reviews of privileged roles.
@@ -69,5 +60,4 @@ If an Azure AD Premium P2, EMS E5, or trial license expires, Privileged Identity
 - [Deploy Privileged Identity Management](pim-deployment-plan.md)
 - [Start using Privileged Identity Management](pim-getting-started.md)
 - [Roles you can't manage in Privileged Identity Management](pim-roles.md)
-- [Create an access review of Azure resource roles in PIM](./pim-create-azure-ad-roles-and-resource-roles-review.md)
-- [Create an access review of Azure AD roles in PIM](./pim-create-azure-ad-roles-and-resource-roles-review.md)
+

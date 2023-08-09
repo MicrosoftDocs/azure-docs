@@ -6,22 +6,19 @@ services: load-testing
 ms.service: load-testing
 ms.author: ninallam
 author: ninallam
-ms.date: 03/22/2022
+ms.date: 01/15/2023
 ms.topic: how-to
 ---
 
 # Create configurable load tests with secrets and environment variables
 
-Learn how to change the behavior of a load test without having to edit the Apache JMeter script. With Azure Load Testing Preview, you can use parameters to make a configurable test script. For example, turn the application endpoint into a parameter to reuse your test script across multiple environments.
+Learn how to change the behavior of a load test without having to edit the Apache JMeter script. With Azure Load Testing, you can use parameters to make a configurable test script. For example, turn the application endpoint into a parameter to reuse your test script across multiple environments.
 
 The Azure Load Testing service supports two types of parameters:
 
 - **Secrets**: Contain sensitive information and are passed securely to the load test engine. For example, secrets provide web service credentials instead of hard-coding them in the test script. For more information, see [Configure load tests with secrets](#secrets).
 
 - **Environment variables**: Contain non-sensitive information and are available as environment variables in the load test engine. For example, environment variables make the application endpoint URL configurable. For more information, see [Configure load tests with environment variables](#envvars).
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites  
 
@@ -265,7 +262,7 @@ To specify an environment variable to the load test by using the Azure portal, d
     
 If you run your load test in a CI/CD workflow, you can define environment variables in the YAML test configuration file. For more information about the syntax, see the [Test configuration YAML reference](./reference-test-config-yaml.md).
 
-Alternatively, you can directly specify environment variables in the CI/CD workflow definition. You use input parameters for the GitHub Action or Azure Pipelines task to pass environment variables to the Apache JMeter script.
+Alternatively, you can directly specify environment variables in the CI/CD workflow definition. You use input parameters for the Azure Load Testing action or Azure Pipelines task to pass environment variables to the Apache JMeter script.
 
 The following YAML snippet shows a GitHub Actions example:
 
@@ -311,7 +308,7 @@ No. The Azure Load Testing service doesn't store the values of secrets. When you
 
 ### What happens if I have parameters in both my YAML configuration file and the CI/CD workflow?  
 
-If a parameter exists in both the YAML configuration file and the Azure Pipelines task or GitHub Action, the Azure Pipelines task or GitHub Action value will be used for the test run.
+If a parameter exists in both the YAML configuration file and the Azure Load Testing action or Azure Pipelines task, the value from the CI/CD workflow will be used for the test run.
 
 ### I created and ran a test from my CI/CD workflow by passing parameters using the Azure Load Testing task or action. Can I run this test from the Azure portal with the same parameters?
 
@@ -323,4 +320,4 @@ The values of the parameters aren't stored when they're passed from the CI/CD wo
 
 - For information about high-scale load tests, see [Set up a high-scale load test](./how-to-high-scale-load.md).
 
-- To learn about performance test automation, see [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md).
+- To learn about performance test automation, see [Configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).

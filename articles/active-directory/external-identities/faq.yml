@@ -1,13 +1,13 @@
 ### YamlMime:FAQ
 metadata:
-  title: B2B collaboration FAQs - Azure Active Directory | Microsoft Docs
+  title: B2B collaboration FAQs
   description: Get answers to frequently asked questions about Azure Active Directory B2B collaboration.
   
   services: active-directory
   ms.service: active-directory
   ms.subservice: B2B
   ms.topic: faq
-  ms.date: 02/14/2022
+  ms.date: 11/10/2022
   ms.author: mimart
   author: msmimart
   manager: celestedg
@@ -18,9 +18,8 @@ summary: |
   These frequently asked questions (FAQs) about Azure Active Directory (Azure AD) business-to-business (B2B) collaboration are periodically updated to include new topics.
   
   > [!IMPORTANT]
-  > - **Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-web-view-sign-in-support).
-  > - **Starting July 2022**, we'll begin rolling out a change to turn on the email one-time passcode feature for all existing tenants and enable it by default for new tenants. As part of this change, Microsoft will stop creating new, unmanaged ("viral") Azure AD accounts and tenants during B2B collaboration invitation redemption. We're enabling the email one-time passcode feature because it provides a seamless fallback authentication method for your guest users. However, if you don't want to allow this feature to turn on automatically, you can [disable it](one-time-passcode.md#disable-email-one-time-passcode).
-  
+  > - **Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you're using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-web-view-sign-in-support).
+  > - The [email one-time passcode](one-time-passcode.md) feature is now turned on by default for all new tenants and for any existing tenants where you haven't explicitly turned it off. When this feature is turned off, the fallback authentication method is to prompt invitees to create a Microsoft account.
 
 sections:
   - name: General
@@ -34,6 +33,11 @@ sections:
           Can B2B collaboration users access SharePoint Online and OneDrive?
         answer: |
           Yes. However, the ability to search for existing guest users in SharePoint Online by using the people picker is **Off** by default. To turn on the option to search for existing guest users, set **ShowPeoplePickerSuggestionsForGuestUsers** to **On**. You can turn this setting on either at the tenant level or at the site collection level. You can change this setting by using the Set-SPOTenant and Set-SPOSite cmdlets. With these cmdlets, members can search all existing guest users in the directory. Changes in the tenant scope don't affect SharePoint Online sites that have already been provisioned.
+          
+      - question: |
+          Can B2B collaboration users access Power BI content?
+        answer: |
+          Yes, you can [distribute Power BI content to external guest users using B2B collaboration](/power-bi/guidance/whitepaper-azure-b2b-power-bi). To share Power BI content across Microsoft clouds, you can [use Microsoft cloud settings](cross-tenant-access-overview.md#microsoft-cloud-settings) to establish mutual B2B collaboration between your cloud and an external cloud.
 
       - question: |
           Is the CSV upload feature still supported?
@@ -56,9 +60,14 @@ sections:
           The inviting organization performs multifactor authentication. The inviting organization must make sure that the organization has enough licenses for their B2B users who are using multifactor authentication.
 
       - question: |
-          What if a partner organization already has multifactor authentication set up? Can we trust their multifactor authentication, and not use our own multifactor authentication?
+          What if a partner organization already has multifactor authentication set up? Can we trust their multifactor authentication?
         answer: |
-          This feature is currently not supported. If access to your organization's resources requires multifactor authentication, the partner organization will need to register for multifactor authentication in your (the inviting) organization.
+          [Cross-tenant access settings](cross-tenant-access-overview.md) let you trust multifactor authentication and device claims ([compliant claims and hybrid Azure AD joined claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Azure AD organizations.
+
+      - question: |
+          How many organizations can I add in cross-tenant access settings?
+        answer: |
+          Cross-tenant access settings are a policy in the directory that stores your settings for how you collaborate with other organizations. This policy file has a 25kb size limit and once it is maxed out, no additional organizations or changes can be made that would further increase the file size. Due to how we store the content in this policy, there is no defined limit of organizations you can add in cross-tenant access settings. If you need to apply settings to a large number of organizations, we recommend implementing those settings as your default settings. Follow the steps to [calculate the current size of your policy](troubleshoot.md#an-error-similar-to-failure-to-update-policy-due-to-object-limit-appears-while-configuring-cross-tenant-access-settings) and determine whether you are close to hitting the 25kb file size limit.
 
       - question: |
           How can I use delayed invitations?
@@ -85,7 +94,7 @@ sections:
         answer: |
           Yes, you can create a Conditional Access policy that blocks all guest and external users from accessing the Azure portal. When you configure this policy, be careful to avoid accidentally blocking access to members and admins.
           
-          1. Sign in to your [Azure portal](https://portal.azure.com/) as a security administrator or a Conditional Access administrator.
+          1. Sign in to the [Azure portal](https://portal.azure.com/) as a security administrator or a Conditional Access administrator.
           2. In the Azure portal, select **Azure Active Directory**. 
           3. Under **Manage**, select **Security**.
           4. Under **Protect**, select **Conditional Access**. Select **New policy**.
@@ -184,14 +193,29 @@ sections:
           For information about what licenses your organization needs to use Azure AD B2B, see [External Identities pricing](external-identities-pricing.md).
 
       - question: |
-          Can B2B collaboration users sign in with their non-UPN email address?
+          What happens if I invite a user whose email and UPN don’t match?
         answer: |
-          Yes. For more information about email as an alternate login ID for B2B collaboration, see [B2B guest user sign-in with an email address](../authentication/howto-authentication-use-email-signin.md#b2b-guest-user-sign-in-with-an-email-address).
+          It depends. By default, Azure AD only allows UPN for login ID. When UPN and email are the same, Azure AD B2B invitations and subsequent sign-ins work as expected. However, issues can arise when a user’s email and UPN don’t match, and the email is used instead of the UPN to sign in.
+          When a user is invited with a non-UPN email, they will be able to redeem the invitation if they redeem using the [email invitation link](redemption-experience.md#redemption-process-through-the-invitation-email), but redemptions via a [direct link](redemption-experience.md#redemption-process-through-a-direct-link) will fail. However, even if the user successfully redeems the invitation, subsequent sign-in attempts using the non-UPN email will fail unless the identity provider (either Azure AD or a federated identity provider) is configured to allow email as an alternative login ID. 
+          This issue can be mitigated by:
+          1. [Enabling email as an alternate login ID](../authentication/howto-authentication-use-email-signin.md) in the invited/home Azure AD tenant
+          2. Enabling the federated identity provider to support email as login ID (if Azure AD is federated to another identity provider) or
+          3. Instructing the user to redeem/sign-in using their UPN.
+
+          To avoid this issue entirely, administrators should ensure users’ UPN and email are the same value.
+
+          ![Screenshot shows the flow for guest redemption.](media/user-invitation-different-email-upn/guest-redemption.png)
+
+          ![Screenshot shows the flow for subsequent sign-ins.](media/user-invitation-different-email-upn/subsequent-sign-in.png)
+          
+          >[!NOTE]
+          >Invitations and redemptions being sent across Microsoft clouds must use UPN. Email is not supported at this time. For example, if a user from a US Government tenant is invited to a Commercial tenant, the user must be invited using their UPN.
+
 
       - question: |
           Instant-on: What can cause replication latency?
         answer: |
-          In the B2B collaboration flows, we add users to the directory and dynamically update them during invitation redemption, app assignment, and so on. The updates and writes ordinarily happen in one directory instance and must be replicated across all instances. Replication is completed once all instances are updated. Sometimes when the object is written or updated in one instance and the call to retrieve this object is to another instance, replication latencies can occur. If that happens, refresh or retry to help. If you are writing an app using our API, then retries with some back-off is a good, defensive practice to alleviate this issue.
+          In the B2B collaboration flows, we add users to the directory and dynamically update them during the invitation redemption process, app assignment, and so on. The updates and writes ordinarily happen in one directory instance and must be replicated across all instances. Replication is completed once all instances are updated. Sometimes when the object is written or updated in one instance and the call to retrieve this object is to another instance, replication latencies can occur. If that happens, refresh or retry to help. If you are writing an app using our API, then retries with some back-off is a good, defensive practice to alleviate this issue.
 
 additionalContent: |
 

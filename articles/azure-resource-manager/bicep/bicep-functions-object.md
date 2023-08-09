@@ -4,7 +4,8 @@ description: Describes the functions to use in a Bicep file for working with obj
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/30/2021
+ms.custom: devx-track-bicep
+ms.date: 03/19/2023
 ---
 
 # Object functions for Bicep
@@ -37,9 +38,9 @@ The following example shows how to use contains with different types:
 ```bicep
 param stringToTest string = 'OneTwoThree'
 param objectToTest object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
+  one: 'a'
+  two: 'b'
+  three: 'c'
 }
 param arrayToTest array = [
   'one'
@@ -132,14 +133,14 @@ The following example shows how to use intersection with arrays and objects:
 
 ```bicep
 param firstObject object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
+  one: 'a'
+  two: 'b'
+  three: 'c'
 }
 param secondObject object = {
-  'one': 'a'
-  'two': 'z'
-  'three': 'c'
+  one: 'a'
+  two: 'z'
+  three: 'c'
 }
 param firstArray array = [
   'one'
@@ -161,6 +162,120 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
+
+## items
+
+`items(object)`
+
+Converts a dictionary object to an array. See [toObject](bicep-functions-lambda.md#toobject) about converting an array to an object.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| object |Yes |object |The dictionary object to convert to an array. |
+
+### Return value
+
+An array of objects for the converted dictionary. Each object in the array has a `key` property that contains the key value for the dictionary. Each object also has a `value` property that contains the properties for the object.
+
+### Example
+
+The following example converts a dictionary object to an array. For each object in the array, it creates a new object with modified values.
+
+```bicep
+var entities = {
+  item002: {
+    enabled: false
+    displayName: 'Example item 2'
+    number: 200
+  }
+  item001: {
+    enabled: true
+    displayName: 'Example item 1'
+    number: 300
+  }
+}
+
+var modifiedListOfEntities = [for entity in items(entities): {
+  key: entity.key
+  fullName: entity.value.displayName
+  itemEnabled: entity.value.enabled
+}]
+
+output modifiedResult array = modifiedListOfEntities
+```
+
+The preceding example returns:
+
+```json
+"modifiedResult": {
+  "type": "Array",
+  "value": [
+    {
+      "fullName": "Example item 1",
+      "itemEnabled": true,
+      "key": "item001"
+    },
+    {
+      "fullName": "Example item 2",
+      "itemEnabled": false,
+      "key": "item002"
+    }
+  ]
+}
+```
+
+The following example shows the array that is returned from the items function.
+
+```bicep
+var entities = {
+  item002: {
+    enabled: false
+    displayName: 'Example item 2'
+    number: 200
+  }
+  item001: {
+    enabled: true
+    displayName: 'Example item 1'
+    number: 300
+  }
+}
+
+var entitiesArray = items(entities)
+
+output itemsResult array = entitiesArray
+```
+
+The example returns:
+
+```json
+"itemsResult": {
+  "type": "Array",
+  "value": [
+    {
+      "key": "item001",
+      "value": {
+        "displayName": "Example item 1",
+        "enabled": true,
+        "number": 300
+      }
+    },
+    {
+      "key": "item002",
+      "value": {
+        "displayName": "Example item 2",
+        "enabled": false,
+        "number": 200
+      }
+    }
+  ]
+}
+```
+
+[!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-bicep.md)]
 
 <a id="json"></a>
 
@@ -250,10 +365,10 @@ param arrayToTest array = [
 ]
 param stringToTest string = 'One Two Three'
 param objectToTest object = {
-  'propA': 'one'
-  'propB': 'two'
-  'propC': 'three'
-  'propD': {
+  propA: 'one'
+  propB: 'two'
+  propC: 'three'
+  propD: {
       'propD-1': 'sub'
       'propD-2': 'sub'
   }
@@ -306,15 +421,15 @@ The following example shows how to use union with arrays and objects:
 
 ```bicep
 param firstObject object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c1'
+  one: 'a'
+  two: 'b'
+  three: 'c1'
 }
 
 param secondObject object = {
-  'three': 'c2'
-  'four': 'd'
-  'five': 'e'
+  three: 'c2'
+  four: 'd'
+  five: 'e'
 }
 
 param firstArray array = [

@@ -1,13 +1,13 @@
 ---
 
-title: Secure access practices for administrators in Azure AD | Microsoft Docs
+title: Secure access practices for administrators in Azure AD
 description: Ensure that your organization's administrative access and administrator accounts are secure. For system architects and IT pros who configure Azure AD, Azure, and Microsoft Online Services. 
 services: active-directory 
 keywords: 
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.author: rolyon
-ms.date: 11/04/2021
+ms.date: 04/19/2022
 ms.topic: conceptual
 ms.service: active-directory
 ms.workload: identity
@@ -110,7 +110,7 @@ Evaluate the accounts that are assigned or eligible for the Global Administrator
 
 #### Turn on multi-factor authentication and register all other highly privileged single-user non-federated administrator accounts
 
-Require Azure AD Multi-Factor Authentication (MFA) at sign-in for all individual users who are permanently assigned to one or more of the Azure AD administrator roles: Global Administrator, Privileged Role Administrator, Exchange Administrator, and SharePoint Administrator. Use the guide to enable [Multi-factor Authentication (MFA) for your administrator accounts](../authentication/howto-mfa-userstates.md) and ensure that all those users have registered at [https://aka.ms/mfasetup](https://aka.ms/mfasetup). More information can be found under step 2 and step 3 of the guide [Protect access to data and services in Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Require Azure AD Multi-Factor Authentication (MFA) at sign-in for all individual users who are permanently assigned to one or more of the Azure AD administrator roles: Global Administrator, Privileged Role Administrator, Exchange Administrator, and SharePoint Administrator. Use the guidance at [Enforce multifactor authentication on your administrators](../authentication/how-to-authentication-find-coverage-gaps.md#enforce-multifactor-authentication-on-your-administrators) and ensure that all those users have registered at [https://aka.ms/mfasetup](https://aka.ms/mfasetup). More information can be found under step 2 and step 3 of the guide [Protect user and device access in Microsoft 365](/microsoft-365/compliance/protect-access-to-data-and-services). 
 
 ## Stage 2: Mitigate frequently used attacks
 
@@ -252,7 +252,7 @@ Attackers might try to target privileged accounts so that they can disrupt the i
 * Impersonation attacks
 * Credential theft attacks such as keystroke logging, Pass-the-Hash, and Pass-The-Ticket
 
-By deploying privileged access workstations, you can reduce the risk that administrators enter their credentials in a desktop environment that hasn't been hardened. For more information, see [Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/).
+By deploying privileged access workstations, you can reduce the risk that administrators enter their credentials in a desktop environment that hasn't been hardened. For more information, see [Privileged Access Workstations](/security/compass/overview).
 
 #### Review National Institute of Standards and Technology recommendations for handling incidents
 
@@ -293,7 +293,7 @@ If your Azure Active Directory is connected to on-premises Active Directory, the
 * Deploy Privileged Access Workstations for all administrators
 * Require MFA
 * Use Just Enough Admin for domain controller maintenance, lowering the attack surface of domains
-* Deploy Advanced Threat Assessment for attack detection
+* Deploy [Advanced Threat Analytics](/advanced-threat-analytics/) for attack detection
 
 ### Additional steps for organizations managing access to Azure
 
@@ -382,7 +382,7 @@ Determine if current built-in Azure AD administrator roles are still up to date 
 
 #### Review users who have administration of Azure AD joined devices
 
-For more information, see [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-azuread-join-plan.md).
+For more information, see [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-join-plan.md).
 
 #### Review members of [built-in Microsoft 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
 Skip this step if you're not using Microsoft 365.

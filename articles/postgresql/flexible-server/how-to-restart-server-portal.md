@@ -1,8 +1,8 @@
 ---
 title: Restart - Azure portal - Azure Database for PostgreSQL - Flexible Server
 description: This article describes how to perform restart operations in Azure Database for PostgreSQL through the Azure portal.
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.date: 11/30/2021
 
 # Restart Azure Database for PostgreSQL - Flexible Server
 
-
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This article provides step-by-step procedure to perform restart of the flexible server. This operation is useful to apply any static parameter changes that requires database server restart. The procedure is same for servers configured with zone redundant high availability. 
 
@@ -43,6 +43,8 @@ Follow these steps to restart your flexible server.
 6.  A notification will be shown that the restart operation has been
     initiated.
 
+> [!NOTE]
+> Using custom RBAC role to restart server please make sure that in addition to Microsoft.DBforPostgreSQL/flexibleServers/restart/action permission this role also has Microsoft.DBforPostgreSQL/flexibleServers/read permission granted to it. 
 ## Next steps
 
 -   Learn about [business continuity](./concepts-business-continuity.md)

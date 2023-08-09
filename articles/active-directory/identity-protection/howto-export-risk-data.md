@@ -6,18 +6,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 02/18/2022
+ms.date: 01/24/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
-ms.reviewer: sahandle, etbasser
+manager: amycolannino
+ms.reviewer: chuqiaoshi, etbasser
 
 ms.collection: M365-identity-device-management
 ---
 # How To: Export risk data
 
-Azure AD stores reports and security signals for a defined period of time. When it comes to risk information, that may not be long enough.
+Azure AD stores reports and security signals for a defined period of time. When it comes to risk information that period may not be long enough.
 
 | Report / Signal | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | --- | --- | --- | --- |
@@ -43,7 +43,7 @@ Once enabled you'll find access to Log Analytics in the **Azure portal** > **Azu
 
 [ ![Log Analytics view showing a query against the AADUserRiskEvents table showing the top 5 events](./media/howto-export-risk-data/log-analytics-view-query-user-risk-events.png) ](./media/howto-export-risk-data/log-analytics-view-query-user-risk-events.png#lightbox)
 
-In the image above, the following query was run to show the most recent five risk detections triggered. 
+In the previous image, the following query was run to show the most recent five risk detections triggered. 
 
 ```kusto
 AADUserRiskEvents
@@ -69,14 +69,14 @@ Azure Event Hubs can look at incoming data from sources like Azure AD Identity P
 
 ## Other options
 
-Organizations can choose to [connect Azure AD data to Microsoft Sentinel](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection) as well for further processing.
+Organizations can choose to [connect Azure AD data to Microsoft Sentinel](../../sentinel/data-connectors/azure-active-directory-identity-protection.md) as well for further processing.
 
-Organizations can use the [Microsoft Graph API to programatically interact with risk events](howto-identity-protection-graph-api.md).
+Organizations can use the [Microsoft Graph API to programmatically interact with risk events](howto-identity-protection-graph-api.md).
 
 ## Next steps
 
 - [What is Azure Active Directory monitoring?](../reports-monitoring/overview-monitoring.md)
 - [Install and use the log analytics views for Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
-- [Connect data from Azure Active Directory (Azure AD) Identity Protection](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection)
+- [Connect data from Azure Active Directory (Azure AD) Identity Protection](../../sentinel/data-connectors/azure-active-directory-identity-protection.md)
 - [Azure Active Directory Identity Protection and the Microsoft Graph PowerShell SDK](howto-identity-protection-graph-api.md)
 - [Tutorial: Stream Azure Active Directory logs to an Azure event hub](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)

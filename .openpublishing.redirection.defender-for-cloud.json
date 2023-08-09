@@ -16,6 +16,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/security-center/security-center-identity-access.md",
+            "redirect_url": "/azure/defender-for-cloud/multi-factor-authentication-enforcement",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/security-center/security-center-policy-definitions.md",
             "redirect_url": "/azure/defender-for-cloud/policy-reference",
             "redirect_document_id": false
@@ -378,7 +383,7 @@
         {
             "source_path_from_root": "/articles/security-center/defender-for-cloud-introduction.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-cloud-introduction",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/defender-for-container-registries-cicd.md",
@@ -408,7 +413,7 @@
         {
             "source_path_from_root": "/articles/security-center/defender-for-dns-introduction.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-dns-introduction",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/defender-for-key-vault-introduction.md",
@@ -468,12 +473,17 @@
         {
             "source_path_from_root": "/articles/security-center/enable-data-collection.md",
             "redirect_url": "/azure/defender-for-cloud/enable-data-collection",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/enable-enhanced-security.md",
             "redirect_url": "/azure/defender-for-cloud/enable-enhanced-security",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/enable-enhanced-security.md",
+            "redirect_url": "/azure/defender-for-cloud/connect-azure-subscription",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/enhanced-security-features-overview.md",
@@ -503,7 +513,7 @@
         {
             "source_path_from_root": "/articles/security-center/get-started.md",
             "redirect_url": "/azure/defender-for-cloud/get-started",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/harden-docker-hosts.md",
@@ -548,7 +558,7 @@
         {
             "source_path_from_root": "/articles/security-center/os-coverage.md",
             "redirect_url": "/azure/defender-for-cloud/os-coverage",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/other-threat-protections.md",
@@ -563,7 +573,7 @@
         {
             "source_path_from_root": "/articles/security-center/permissions.md",
             "redirect_url": "/azure/defender-for-cloud/permissions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/protect-network-resources.md",
@@ -578,6 +588,16 @@
         {
             "source_path_from_root": "/articles/security-center/quickstart-onboard-aws.md",
             "redirect_url": "/azure/defender-for-cloud/quickstart-onboard-aws",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-sql-enable-azure-sql-protections.md",
+            "redirect_url": "/azure/defender-for-cloud/quickstart-enable-database-protections",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/quickstart-enable-defender-for-cosmos.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-databases-enable-cosmos-protections",
             "redirect_document_id": true
         },
         {
@@ -627,8 +647,8 @@
         },
         {
             "source_path_from_root": "/articles/security-center/security-center-planning-and-operations-guide.md",
-            "redirect_url": "/azure/defender-for-cloud/security-center-planning-and-operations-guide",
-            "redirect_document_id": true
+            "redirect_url": "/azure/defender-for-cloud/defender-for-cloud-planning-and-operations-guide",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/sql-information-protection-policy.md",
@@ -638,7 +658,7 @@
         {
             "source_path_from_root": "/articles/security-center/supported-machines-endpoint-solutions-clouds.md",
             "redirect_url": "/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/tutorial-protect-resources.md",
@@ -684,6 +704,151 @@
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-kubernetes-azure-arc.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable?pivots=defender-for-container-arc#protect-arc-enabled-kubernetes-clusters",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-container-registries-cicd.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-cicd",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-container-registries-usage.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-usage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/enable-data-collection.md",
+            "redirect_url": "/azure/defender-for-cloud/monitoring-components",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-usage.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-va-acr",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/file-integrity-monitoring-usage.md",
+            "redirect_url": "/azure/defender-for-cloud/file-integrity-monitoring-enable-log-analytics",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/release-notes.md#auto-deployment-of-azure-monitor-agent-preview",
+            "redirect_url": "/azure/defender-for-cloud/release-notes#azure-monitor-agent-integration-now-in-preview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-cicd.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-devops-introduction",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/tutorial-enable-pull-request-annotations.md",
+            "redirect_url": "/azure/defender-for-cloud/enable-pull-request-annotations",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/devops-faq.md",
+            "redirect_url": "/azure/defender-for-cloud/faq-defender-for-devops",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/detect-credential-leaks.md",
+            "redirect_url": "/azure/defender-for-cloud/detect-exposed-secrets",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-va-ecr.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-elastic",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-va-acr.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/deploy-vulnerability-assessment-tvm.md",
+            "redirect_url": "/azure/defender-for-cloud/deploy-vulnerability-assessment-defender-vulnerability-management",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/plan-multicloud-security-other-resources.md",
+            "redirect_url": "/azure/defender-for-cloud/multicloud",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-servers-introduction.md",
+            "redirect_url": "/azure/defender-for-cloud/plan-defender-for-servers",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/security-center-readiness-roadmap.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-cloud-planning-and-operations-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/security-center-planning-and-operations-guide.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-cloud-planning-and-operations-guide",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/enhanced-security-features-overview.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-cloud-introduction",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/os-coverage.md",
+            "redirect_url": "/azure/defender-for-cloud/support-matrix-defender-for-cloud#supported-operating-systems",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/features-paas.md",
+            "redirect_url": "/azure/defender-for-cloud/support-matrix-defender-for-cloud",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers.md",
+            "redirect_url": "/azure/defender-for-cloud/support-matrix-defender-for-containers",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/supported-machines-endpoint-solutions-clouds-servers.md",
+            "redirect_url": "/azure/defender-for-cloud/support-matrix-defender-for-servers",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/faq-azure-monitor-logs.yml",
+            "redirect_url": "/azure/defender-for-cloud/faq-data-collection-agents",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/quickstart-enable-database-protections.md",
+            "redirect_url": "/azure/defender-for-cloud/tutorial-enable-databases-plan",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/enable-all-plans.md",
+            "redirect_url": "/azure/defender-for-cloud/connect-azure-subscription",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/get-started.md",
+            "redirect_url": "/azure/defender-for-cloud/connect-azure-subscription",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/enable-vulnerability-assessment-agentless.md",
+            "redirect_url": "/azure/defender-for-cloud/enable-agentless-scanning-vms",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/tutorial-enable-dns-plan.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-dns-introduction",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-storage-exclude.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-storage-classic-enable#exclude-a-storage-account-from-a-protected-subscription-in-the-per-transaction-plan",
+            "redirect_document_id": true
         }
-      ]
+    ]
 }

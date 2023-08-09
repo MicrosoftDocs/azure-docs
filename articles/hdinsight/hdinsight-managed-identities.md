@@ -4,7 +4,7 @@ description: Provides an overview of the implementation of managed identities in
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/15/2020
+ms.date: 05/24/2023
 ---
 
 # Managed identities in Azure HDInsight
@@ -40,7 +40,7 @@ Managed identities are used in Azure HDInsight in multiple scenarios. See the re
 * [Enterprise Security Package](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [Customer-managed key disk encryption](disk-encryption.md)
 
-HDInsight will automatically renew the certificates for the managed identities you use for these scenarios. However, there is a limitation when multiple different managed identities are used for long running clusters, the certificate renewal may not work as expected for all of the managed identities. Due to this limitation, if you are planning to use long running clusters (e.g. more than 60 days), we recommend to use the same managed identity for all of the above scenarios. 
+HDInsight will automatically renew the certificates for the managed identities you use for these scenarios. However, there is a limitation when multiple different managed identities are used for long running clusters, the certificate renewal may not work as expected for all of the managed identities. Due to this limitation, we recommend to use the same managed identity for all of the above scenarios. 
 
 If you have already created a long running cluster with multiple different managed identities and are running into one of these issues:
  * In ESP clusters, cluster services starts failing or scale up and other operations start failing with authentications errors.

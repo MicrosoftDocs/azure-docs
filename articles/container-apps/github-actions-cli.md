@@ -1,21 +1,24 @@
 ---
-title: Publish revisions with GitHub Actions in Azure Container Apps Preview
-description: Learn to automatically create new revisions using GitHub Actions in Azure Container Apps Preview
+title: Generate GitHub Actions workflow with Azure CLI in Azure Container Apps
+description: Learn to automatically create GitHub Actions workflow in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: event-tier1-build-2022, devx-track-azurecli
 ms.topic: how-to
-ms.date: 12/30/2021
+ms.date: 11/09/2022
 ms.author: cshoe
 ---
 
-# Publish revisions with GitHub Actions in Azure Container Apps Preview
+# Set up GitHub Actions with Azure CLI in Azure Container Apps
 
-Azure Container Apps allows you to use GitHub Actions to publish [revisions](revisions.md) to your container app. As commits are pushed to your GitHub repository, a GitHub Action is triggered which updates the [container](containers.md) image in the container registry. Once the container is updated in the registry, Azure Container Apps creates a new revision based on the updated container image.
+Azure Container Apps allows you to use GitHub Actions to publish [revisions](revisions.md) to your container app. As commits are pushed to your GitHub repository, a GitHub Actions workflow is triggered which updates the [container](containers.md) image in the container registry. Once the container is updated in the registry, Azure Container Apps creates a new revision based on the updated container image.
 
 :::image type="content" source="media/github-actions/azure-container-apps-github-actions.png" alt-text="Changes to a GitHub repo trigger an action to create a new revision.":::
 
-The GitHub action is triggered by commits to a specific branch in your repository. When creating the integration link, you decide which branch triggers the action.
+The GitHub Actions workflow is triggered by commits to a specific branch in your repository. When creating the workflow, you decide which branch triggers the action.
+
+This article shows you how to generate a starter GitHub Actions workflow with Azure CLI. To create your own workflow that you can fully customize, see [Deploy to Azure Container Apps with GitHub Actions](github-actions.md).
 
 ## Authentication
 
@@ -24,9 +27,15 @@ When adding or removing a GitHub Actions integration, you can authenticate by ei
 - To pass a personal access token, use the `--token` parameter and provide a token value.
 - If you choose to use interactive login, use the `--login-with-github` parameter with no value.
 
+> [!Note]
+> Your GitHub personal access token needs to have the `workflow` scope selected.
+
 ## Add
 
 The `containerapp github-action add` command creates a GitHub Actions integration with your container app.
+
+> [!Note]
+> Before you proceed with the example below, you must have your first container app already deployed.
 
 The first time you attach GitHub Actions to your container app, you need to provide a service principal context. The following command shows you how to create a service principal.
 
@@ -36,8 +45,7 @@ The first time you attach GitHub Actions to your container app, you need to prov
 az ad sp create-for-rbac \
   --name <SERVICE_PRINCIPAL_NAME> \
   --role "contributor" \
-  --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME> \
-  --sdk-auth
+  --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>
 ```
 
 # [PowerShell](#tab/powershell)
@@ -46,15 +54,14 @@ az ad sp create-for-rbac \
 az ad sp create-for-rbac `
   --name <SERVICE_PRINCIPAL_NAME> `
   --role "contributor" `
-  --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME> `
-  --sdk-auth
+  --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME> 
 ```
 
 ---
 
 As you interact with this example, replace the placeholders surrounded by `<>` with your values.
 
-The return value from this command is a JSON payload, which includes the service principal's `tenantId`, `clientId`, and `clientSecret`.
+The return values from this command  include the service principal's `appId`, `password`, and `tenant`. You need to pass these values to the `az containerapp github-action add` command.
 
 The following example shows you how to add an integration while using a personal access token.
 
@@ -63,16 +70,16 @@ The following example shows you how to add an integration while using a personal
 ```azurecli
 az containerapp github-action add \
   --repo-url "https://github.com/<OWNER>/<REPOSITORY_NAME>" \
-  --docker-file-path "./dockerfile" \
+  --context-path "./dockerfile" \
   --branch <BRANCH_NAME> \
   --name <CONTAINER_APP_NAME> \
   --resource-group <RESOURCE_GROUP> \
   --registry-url <URL_TO_CONTAINER_REGISTRY> \
   --registry-username <REGISTRY_USER_NAME> \
   --registry-password <REGISTRY_PASSWORD> \
-  --service-principal-client-id <CLIENT_ID> \
-  --service-principal-client-secret <CLIENT_SECRET> \
-  --service-principal-tenant-id <TENANT_ID> \
+  --service-principal-client-id <appId> \
+  --service-principal-client-secret <password> \
+  --service-principal-tenant-id <tenant> \
   --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
 ```
 
@@ -81,16 +88,16 @@ az containerapp github-action add \
 ```azurecli
 az containerapp github-action add `
   --repo-url "https://github.com/<OWNER>/<REPOSITORY_NAME>" `
-  --docker-file-path "./dockerfile" `
+  --context-path "./dockerfile" `
   --branch <BRANCH_NAME> `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP> `
   --registry-url <URL_TO_CONTAINER_REGISTRY> `
   --registry-username <REGISTRY_USER_NAME> `
   --registry-password <REGISTRY_PASSWORD> `
-  --service-principal-client-id <CLIENT_ID> `
-  --service-principal-client-secret <CLIENT_SECRET> `
-  --service-principal-tenant-id <TENANT_ID> `
+  --service-principal-client-id <appId> `
+  --service-principal-client-secret <password> `
+  --service-principal-tenant-id <tenant> `
   --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
 ```
 

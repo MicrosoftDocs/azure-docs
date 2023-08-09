@@ -6,7 +6,7 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 04/26/2023
 ms.author: banders
 ---
 
@@ -47,7 +47,7 @@ Each billing profile has its own payment methods that are used to pay its invoic
 | Type             | Definition  |
 |------------------|-------------|
 |Azure credits    |  Credits are automatically applied to the eligible charges on your invoice, reducing the amount that you need to pay. For more information, see [track Azure credit balance for your billing profile](../manage/mca-check-azure-credits-balance.md). |
-|Check/wire transfer | If your account is approved for payment through check/wire transfer. You can pay the amount due for your invoice through check/wire transfer. The instructions for payment are given on the invoice |
+|Wire transfer | If your account is approved for payment through wire transfer, you can pay the amount due for your invoice with a wire transfer. The instructions for payment are given on the invoice. |
 |Credit card | Customers who sign up for Azure through the Azure website can pay through a credit card. |
 
 ### Apply policies to control purchases
@@ -61,7 +61,7 @@ Azure plans determine the pricing and service level agreements for Azure subscri
 | Plan             | Definition  |
 |------------------|-------------|
 |Microsoft Azure Plan   | Allow users to create subscriptions that can run any workloads.  |
-|Microsoft Azure Plan for Dev/Test | Allow Visual Studio subscribers to create subscriptions that are restricted for development or testing workloads. These subscriptions get benefits such as lower rates and access to exclusive virtual machine images in the Azure portal. |
+|Microsoft Azure Plan for Dev/Test | Allow Visual Studio subscribers to create subscriptions that are restricted for development or testing workloads. These subscriptions get benefits such as lower rates and access to exclusive virtual machine images in the Azure portal. Azure Plan for DevTest is only available for Microsoft Customer Agreement customers who purchase through a Microsoft Sales representative. |
 
 ## Invoice sections
 

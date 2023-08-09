@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/23/2022
+ms.date: 11/21/2022
 ms.author: jeedes
 
 ---
@@ -52,6 +52,8 @@ To configure the integration of Informatica Platform into Azure AD, you need to 
 1. In the **Add from the gallery** section, type **Informatica Platform** in the search box.
 1. Select **Informatica Platform** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Informatica Platform
 
 Configure and test Azure AD SSO with Informatica Platform using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Informatica Platform.
@@ -77,17 +79,23 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier** text box, type the value:
-    `Informatica`
+    a. In the **Identifier** text box, type the following value or URL pattern:
+
+    | App | URL |
+    |--------|------|
+    | For EDC | `Informatica` |
+    | For Axon | `https://<host name: port number>/saml/metadata`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<host name: port number>/administrator/Login.do`
 
-    c. In the **Sign-on URL** text box, type a URL using the following pattern:
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+    
+    In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<host name: port number>/administrator/saml/login`
 
     > [!NOTE]
-	> These values are not real. Update these values with the actual Reply URL and Sign-on URL. Contact [Informatica Platform Client support team](mailto:support@informatica.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Informatica Platform Client support team](mailto:support@informatica.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Informatica Platform application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 

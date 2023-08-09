@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Visibly for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Visibly for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Visibly.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 9c658962-8a11-47ca-86ee-34872a39813a
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
 # Tutorial: Configure Visibly for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Visibly and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Visibly](https://www.visibly.io/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both Visibly and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Visibly](https://visibly.io/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Capabilities Supported
@@ -36,7 +36,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
-* A [Visibly](https://www.visibly.io/) tenant
+* A [Visibly](https://visibly.io/) tenant
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).

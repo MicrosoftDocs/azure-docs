@@ -694,7 +694,26 @@
             "source_path_from_root": "/articles/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu.md",
             "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu",
             "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/synapse-analytics/spark/apache-spark-manage-python-packages.md",
+            "redirect_url": "/azure/synapse-analytics/spark/apache-spark-azure-portal-add-libraries",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/synapse-analytics/spark/vscode-tool-synapse.md",
+            "redirect_url": "/azure/synapse-analytics/spark/apache-spark-overview",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/synapse-analytics/spark/apache-spark-manage-scala-packages.md",
+            "redirect_url": "/azure/synapse-analytics/spark/apache-spark-azure-portal-add-libraries",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/synapse-analytics/cognitive-services-with-synapseml-overview.md",
+            "redirect_url": "/azure/synapse-analytics/machine-learning/overview-cognitive-services",
+            "redirect_document_id": false
           }
     ]
 }
-

@@ -3,11 +3,11 @@ title: "Quickstart: Create a basic internal load balancer - Azure portal"
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a basic internal load balancer by using the Azure portal.
 services: load-balancer
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 03/21/2022
-ms.author: allensu
+ms.date: 04/10/2023
+ms.author: mbender
 ms.custom: mvc, mode-ui
 #Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.
 ---
@@ -25,7 +25,7 @@ Get started with Azure Load Balancer by using the Azure portal to create an inte
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create the virtual network
 
@@ -34,6 +34,12 @@ When you create an internal load balancer, a virtual network is configured as th
 A private IP address in the virtual network is configured as the frontend for the load balancer. The frontend IP address can be **Static** or **Dynamic**.
 
 An Azure Bastion host is created to securely manage the virtual machines and install IIS.
+
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
+
+>
 
 In this section, you'll create a virtual network, subnet, and Azure Bastion host.
 

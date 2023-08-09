@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 07/14/2021
 ms.author: helohr 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 manager: femila
 ---
 
@@ -39,22 +39,11 @@ You can protect workloads by using security features and controls from Microsoft
 
 When the user connects to the service over the internet, Azure Active Directory (Azure AD) authenticates the user's credentials, enabling protective features like [Conditional Access](../../active-directory/conditional-access/overview.md) and [multifactor authentication](../../active-directory/authentication/concept-mfa-howitworks.md). These features greatly reduce the risk of user identities being compromised.
 
-Azure Virtual Desktop has features like [Reverse Connect](../network-connectivity.md#reverse-connect-transport) that allow users to access the session host without having to open inbound ports. This feature is designed with scalability and service in mind, so it shouldn't limit your ability to expand session hosts, either. You can also use existing GPOs with this feature to apply additional security with support for Active Directory-joined VMs or, for Windows 10 session hosts that might involve Azure Active Directory Join scenarios, [Microsoft Endpoint Manager](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
+Azure Virtual Desktop has features like [Reverse Connect](../network-connectivity.md#reverse-connect-transport) that allow users to access the session host without having to open inbound ports. This feature is designed with scalability and service in mind, so it shouldn't limit your ability to expand session hosts, either. You can also use existing GPOs with this feature to apply additional security with support for Active Directory-joined VMs or, for Windows 10 session hosts that might involve Azure Active Directory Join scenarios, [Microsoft Intune](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
 
 ## Defense in depth
 
-Today's threat landscape requires designs with security approaches in mind. Ideally, you'll want to build a series of security mechanisms and controls layered throughout your computer network to protect your data and network from being compromised or attacked. This type of security design is what the United States Cybersecurity and Infrastructure Security Agency (CISA) calls "defense in depth." To learn more about defense in depth, go to [the CISA website](https://us-cert.cisa.gov/bsi/articles/knowledge/principles/defense-in-depth).
-
-## Session host operating systems
-
-Azure Virtual Desktop supports the following operating systems:
-
-- Windows 7
-- Windows 10 Enterprise
-- Windows Server 2012 R2, 2016, 2019, and 2022
-- Windows 10 Enterprise multi-session
-
-Windows 10 Enterprise multi-session is an Azure-exclusive OS that functions as a Remote Desktop session host (RDSH) that allows multiple concurrent interactive sessions, much like Windows Server. The Windows 10 environment gives users a familiar and consistent experience. The service's per-user Windows licensing also lowers costs for the organization as a whole because IT doesn't have to keep purchasing RDS Client Access Licenses (CALs). Because of these benefits, Windows 10 Enterprise multi-session is the most widely deployed OS for session hosts in Azure Virtual Desktop.
+Today's threat landscape requires designs with security approaches in mind. Ideally, you'll want to build a series of security mechanisms and controls layered throughout your computer network to protect your data and network from being compromised or attacked. This type of security design is what the United States Cybersecurity and Infrastructure Security Agency (CISA) calls "defense in depth".
 
 ## Security boundaries
 

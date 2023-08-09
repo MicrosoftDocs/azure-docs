@@ -1,20 +1,22 @@
 ---
 title: "Quickstart: Create an internal load balancer - Azure portal"
 titleSuffix: Azure Load Balancer
-description: This quickstart shows how to create an internal load balancer by using the Azure portal.
+description: This quickstart shows how to create an internal load balancer using the Azure portal.
 services: load-balancer
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 03/21/2022
-ms.author: allensu
-ms.custom: mvc, mode-ui
+ms.date: 07/18/2022
+ms.author: mbender
+ms.custom: mvc, mode-ui, template-quickstart, engagement-fy23
 #Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs using the Azure portal
 
-Get started with Azure Load Balancer by using the Azure portal to create an internal load balancer and two virtual machines.
+Get started with Azure Load Balancer by using the Azure portal to create an internal load balancer for a backend pool with two virtual machines. Additional resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
+
+:::image type="content" source="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png" alt-text="Diagram of resources deployed for internal load balancer.":::
 
 ## Prerequisites
 
@@ -22,7 +24,7 @@ Get started with Azure Load Balancer by using the Azure portal to create an inte
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create the virtual network
 
@@ -78,9 +80,16 @@ In this section, you'll create a virtual network, subnet, and Azure Bastion host
     | AzureBastionSubnet address space | Enter **10.1.1.0/27** |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
+    > [!IMPORTANT]
+
+    > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+    >
+
 11. Select the **Review + create** tab or select the **Review + create** button.
 
 12. Select **Create**.
+
 
     > [!NOTE]
     > The virtual network and subnet are created immediately. The Bastion host creation is submitted as a job and will complete within 10 minutes. You can proceed to the next steps while the Bastion host is created.

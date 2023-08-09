@@ -1,25 +1,26 @@
 ---
-title: "Quickstart: Sign in users and call Microsoft Graph in a Windows desktop app | Azure"
-description: In this quickstart, learn how a Windows Presentation Foundation (WPF) application can get an access token and call an API protected by the Microsoft identity platform.
+title: "Quickstart: Sign in users and call Microsoft Graph in a Windows desktop application"
+description: In this quickstart, learn how a Windows Presentation Foundation (WPF) app can get an access token and call an API protected by the Microsoft identity platform.
 services: active-directory
-author: jmprieur
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/14/2022
-ms.author: jmprieur
+ms.author: owenrichards
+ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, mode-api
 #Customer intent: As an application developer, I want to learn how my Windows Presentation Foundation (WPF) application can get an access token and call an API that's protected by the Microsoft identity platform.
 ---
 
-# Quickstart: Acquire a token and call Microsoft Graph API from a Windows desktop app
+# Quickstart: Acquire a token and call Microsoft Graph API from a Windows desktop application
 
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 >
-> > [Quickstart: Windows Presentation Foundation (WPF) desktop app that signs in users and calls a web API](desktop-app-quickstart.md?pivots=devlang-windows-desktop)
+> > [Quickstart: Sign in users and call Microsoft Graph in a Windows desktop app](quickstart-desktop-app-wpf-sign-in.md)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
@@ -43,7 +44,7 @@ ms.custom: aaddev, identityplatformtop40, mode-api
 > > [!div class="nextstepaction"]
 > > [Download the code sample](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 > 
-> [!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+> [!INCLUDE [active-directory-develop-path-length-tip](./includes/error-handling-and-tips/path-length-tip.md)]
 > 
 > #### Step 3: Your app is configured and ready to run
 > We have configured your project with values of your app's properties and it's ready to run.
@@ -123,7 +124,7 @@ ms.custom: aaddev, identityplatformtop40, mode-api
 > | `scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs. |
 > | `firstAccount` | Specifies the first user in the cache (MSAL support multiple users in a single app). |
 > 
-> [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 > 
 > ## Next steps
 > 

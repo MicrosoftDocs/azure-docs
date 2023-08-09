@@ -3,12 +3,12 @@ title: Work with existing on-premises proxy servers and Azure Active Directory
 description: Covers how to work with existing on-premises proxy servers with Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 04/04/2022
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -113,7 +113,7 @@ Allow access to the following URLs:
 | &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | Communication between the connector and the Application Proxy cloud service |
 | crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP | The connector uses these URLs to verify certificates. |
 | login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS | The connector uses these URLs during the registration process. |
-| ctldl.windowsupdate.com | 80/HTTP | The connector uses this URL during the registration process. |
+| ctldl.windowsupdate.com<br>www.microsoft.com/pkiops | 80/HTTP | The connector uses these URLs during the registration process. |
 
 If your firewall or proxy allows you to configure DNS allow lists, you can allow connections to \*.msappproxy.net and \*.servicebus.windows.net.
 
@@ -146,10 +146,10 @@ To enable this, please follow the next steps:
 `UseDefaultProxyForBackendRequests = 1` to the Connector configuration registry key located in "HKEY_LOCAL_MACHINE\Software\Microsoft\Microsoft AAD App Proxy Connector".
 
 ### Step 2: Configure the proxy server manually using netsh command
-1.	Enable the group policy Make proxy settings per-machine. This is found in: Computer Configuration\Policies\Administrative Templates\Windows Components\Internet Explorer. This needs to be set rather than having this policy set to per-user.
-2.	Run `gpupdate /force` on the server or reboot the server to ensure it uses the updated group policy settings.
-3.	Launch an elevated command prompt with admin rights and enter `control inetcpl.cpl`.
-4.	Configure the required proxy settings. 
+1. Enable the group policy Make proxy settings per-machine. This is found in: Computer Configuration\Policies\Administrative Templates\Windows Components\Internet Explorer. This needs to be set rather than having this policy set to per-user.
+2. Run `gpupdate /force` on the server or reboot the server to ensure it uses the updated group policy settings.
+3. Launch an elevated command prompt with admin rights and enter `control inetcpl.cpl`.
+4. Configure the required proxy settings. 
 
 These settings make the connector use the same forward proxy for the communication to Azure and to the backend application. If the connector to Azure communication requires no forward proxy or a different forward proxy, you can set this up with modifying the file ApplicationProxyConnectorService.exe.config as described in the sections Bypass outbound proxies or Use the outbound proxy server.
 

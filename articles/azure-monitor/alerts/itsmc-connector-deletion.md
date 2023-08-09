@@ -2,8 +2,9 @@
 title: Delete unused ITSM connectors
 description: This article provides an explanation of how to delete ITSM connectors and the action groups that are associated with it.
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 06/19/2023
 ms.custom: references_regions
+ms.reviewer: nolavime
 
 ---
 
@@ -13,39 +14,33 @@ The process of deleting unused IT service management (ITSM) connectors has two p
 
 ## Delete associated actions
 
-1. In the Azure portal, select **Monitor**.
-  
-    ![Screenshot of the Monitor selection.](media/itsmc-connector-deletion/itsmc-monitor-selection.png)
+1. In the Azure portal, select Monitor, then **Alerts** and **Action groups**.
 
-2. Select **Alerts**.
-   
-    ![Screenshot of the Alerts selection.](media/itsmc-connector-deletion/itsmc-alert-selection.png)
+    :::image type="content" source="media/itsmc-connector-deletion/monitor-alerts-page.png" lightbox="media/itsmc-connector-deletion/monitor-alerts-page.png" alt-text="Screenshot of the Alerts page in the Azure portal. Monitor in the portal menu, Alerts on the left pane, and Action groups button are highlighted.":::
 
-3. Select **Manage Actions**.
-   
-    ![Screenshot of the Manage Actions selection.](media/itsmc-connector-deletion/itsmc-actions-selection.png)
+1. Select the action group associated with the ITSM Connector you want to delete.
 
-4. Select an action group that's associated with the ITSM connector that you want to delete. This article uses the example of a Cherwell connector.
-   
-    ![Screenshot of actions that are associated with the Cherwell connector.](media/itsmc-connector-deletion/itsmc-actions-screen.png)
+    :::image type="content" source="media/itsmc-connector-deletion/select-action-group.png" lightbox="media/itsmc-connector-deletion/select-action-group.png" alt-text="Screenshot of the Action groups page in the Azure portal.":::
 
-5. Review the information, and then select **Delete action group**.
+1. In the action group window, review the information and make sure this is the action group you want to delete. Then, select **Delete**.
 
-    ![Screenshot of action group information and the button for deleting the group.](media/itsmc-connector-deletion/itsmc-action-deletion.png)
+    :::image type="content" source="media/itsmc-connector-deletion/delete-action-group.png" lightbox="media/itsmc-connector-deletion/delete-action-group.png" alt-text="Screenshot of the Action groups page in the Azure portal with an action group selected. The Delete button for deleting an action group is highlighted.":::
 
 ## Delete the connector
 
-1. On the search bar, search for **servicedesk**. Then select **ServiceDesk** in the list of resources.
+1. In the Azure portal, select **All resources**, then find and select your Service Desk.
 
-    ![Screenshot of search for and selecting ServiceDesk.](media/itsmc-connector-deletion/itsmc-connector-selection.png)
+    :::image type="content" source="media/itsmc-dashboard/select-service-desk.png" lightbox="media/itsmc-dashboard/select-service-desk.png" alt-text="Screenshot of the All resources page in the Azure portal. Only resources whose name includes the ServiceDes filter criteria are listed.":::
 
-2. Select **ITSM Connections**, and then select the Cherwell connector.
+1. In the Service Desk window, select **ITSM Connections** from the **Workspace Data Sources** section on the left pane.
 
-    ![Screenshot of the Cherwell I T S M connector.](media/itsmc-connector-deletion/itsmc-cherwell-connector.png)
+    :::image type="content" source="media/itsmc-resync-servicenow/select-itsm-connections.png" lightbox="media/itsmc-resync-servicenow/select-itsm-connections.png" alt-text="Screenshot of a Solution resource in the Azure portal. ITSM Connections on the left pane is highlighted.":::
 
-3. Select **Delete**.
+1. Select the connector you want to delete.
 
-    ![Screenshot of the delete button for the I T S M connector.](media/itsmc-connector-deletion/itsmc-connector-deletion.png)
+1. In the **Edit ITSM** window, select **Delete**.
+
+    :::image type="content" source="media/itsmc-connector-deletion/delete-itsm-connector.png" lightbox="media/itsmc-connector-deletion/delete-itsm-connector.png" alt-text="Screenshot of the Edit ITSM window in the Azure portal with the Delete button highlighted.":::
 
 ## Next steps
 

@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.devlang: csharp, javascript, python
+ms.custom: devx-track-js
 ---
 
 # Human interaction in Durable Functions - Phone verification sample
@@ -12,6 +13,8 @@ ms.devlang: csharp, javascript, python
 This sample demonstrates how to build a [Durable Functions](durable-functions-overview.md) orchestration that involves human interaction. Whenever a real person is involved in an automated process, the process must be able to send notifications to the person and receive responses asynchronously. It must also allow for the possibility that the person is unavailable. (This last part is where timeouts become important.)
 
 This sample implements an SMS-based phone verification system. These types of flows are often used when verifying a customer's phone number or for multi-factor authentication (MFA). It is a powerful example because the entire implementation is done using a couple small functions. No external data store, such as a database, is required.
+
+[!INCLUDE [functions-nodejs-durable-model-description](../../../includes/functions-nodejs-durable-model-description.md)]
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -46,18 +49,24 @@ This article walks through the following functions in the sample app:
 > [!NOTE]
 > It may not be obvious at first, but this orchestrator does not violate the [deterministic orchestration constraint](durable-functions-code-constraints.md). It is deterministic because the `CurrentUtcDateTime` property is used to calculate the timer expiration time, and it returns the same value on every replay at this point in the orchestrator code. This behavior is important to ensure that the same `winner` results from every repeated call to `Task.WhenAny`.
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 The **E4_SmsPhoneVerification** function uses the standard *function.json* for orchestrator functions.
 
-[!code-json[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/function.json)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/E4_SmsPhoneVerification/function.json":::
 
 Here is the code that implements the function:
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/E4_SmsPhoneVerification/index.js":::
 
 > [!NOTE]
 > It may not be obvious at first, but this orchestrator does not violate the [deterministic orchestration constraint](durable-functions-code-constraints.md). It is deterministic because the `currentUtcDateTime` property is used to calculate the timer expiration time, and it returns the same value on every replay at this point in the orchestrator code. This behavior is important to ensure that the same `winner` results from every repeated call to `context.df.Task.any`.
+
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+Here is the code that implements the `smsPhoneVerification` orchestration function:
+
+:::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/smsPhoneVerification.js" range="2-43":::
 
 # [Python](#tab/python)
 
@@ -95,17 +104,23 @@ The **E4_SendSmsChallenge** function uses the Twilio binding to send the SMS mes
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=72-89)]
 
 > [!NOTE]
-> You will need to install the `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget package to run the sample code.
+> You must first install the `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget package for Functions to run the sample code. Don't also install the main [Twilio nuget package](https://www.nuget.org/packages/Twilio/) because this can cause versioning problems that result in build errors. 
 
-# [JavaScript](#tab/javascript)
+# [JavaScript (PM3)](#tab/javascript-v3)
 
 The *function.json* is defined as follows:
 
-[!code-json[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/function.json)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/E4_SendSmsChallenge/function.json":::
 
 And here is the code that generates the four-digit challenge code and sends the SMS message:
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/E4_SendSmsChallenge/index.js":::
+
+# [JavaScript (PM4)](#tab/javascript-v4)
+
+Here is the code that generates the four-digit challenge code and sends the SMS message:
+
+:::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/smsPhoneVerification.js" range="1-2,4-6,45-67":::
 
 # [Python](#tab/python)
 
@@ -142,7 +157,7 @@ Location: http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea
 
 The orchestrator function receives the supplied phone number and immediately sends it an SMS message with a randomly generated 4-digit verification code &mdash; for example, *2168*. The function then waits 90 seconds for a response.
 
-To reply with the code, you can use [`RaiseEventAsync` (.NET) or `raiseEvent` (JavaScript)](durable-functions-instance-management.md) inside another function or invoke the **sendEventUrl** HTTP POST webhook referenced in the 202 response above, replacing `{eventName}` with the name of the event, `SmsChallengeResponse`:
+To reply with the code, you can use [`RaiseEventAsync` (.NET) or `raiseEvent` (JavaScript/TypeScript)](durable-functions-instance-management.md) inside another function or invoke the **sendEventPostUri** HTTP POST webhook referenced in the 202 response above, replacing `{eventName}` with the name of the event, `SmsChallengeResponse`:
 
 ```
 POST http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
@@ -178,7 +193,7 @@ Content-Length: 145
 
 ## Next steps
 
-This sample has demonstrated some of the advanced capabilities of Durable Functions, notably `WaitForExternalEvent` and `CreateTimer` APIs. You've seen how these can be combined with `Task.WaitAny` to implement a reliable timeout system, which is often useful for interacting with real people. You can learn more about how to use Durable Functions by reading a series of articles that offer in-depth coverage of specific topics.
+This sample has demonstrated some of the advanced capabilities of Durable Functions, notably `WaitForExternalEvent` and `CreateTimer` APIs. You've seen how these can be combined with `Task.WaitAny` (C#)/`context.df.Task.any` (JavaScript/TypeScript)/`context.task_any` (Python) to implement a reliable timeout system, which is often useful for interacting with real people. You can learn more about how to use Durable Functions by reading a series of articles that offer in-depth coverage of specific topics.
 
 > [!div class="nextstepaction"]
 > [Go to the first article in the series](durable-functions-bindings.md)

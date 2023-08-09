@@ -6,10 +6,12 @@ ms.author: ssen
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.date: 7/1/2023
 ---
 
 # Best practices for Query Store - Flexible Server
+
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 **Applies to:** Azure Database for PostgreSQL - Flex Server versions 11, 12
 

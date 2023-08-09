@@ -1,9 +1,8 @@
 ---
 title: Azure AD FS support (MSAL Python)
-titleSuffix: Microsoft identity platform
 description: Learn about Active Directory Federation Services (AD FS) support in the Microsoft Authentication Library for Python
 services: active-directory
-author: abhidnya13    
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,8 +10,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/23/2019
-ms.author: abpati
-ms.reviewer: nacanuma
+ms.author: dmwendia
+ms.reviewer: celested, nacanuma
 ms.custom: aaddev, devx-track-python, has-adal-ref
 #Customer intent: As an application developer, I want to learn about AD FS support in MSAL for Python so I can decide if this platform meets my application development needs and requirements.
 ---
@@ -52,10 +51,8 @@ When you acquire a token using `acquire_token_by_username_password`, MSAL Python
 
 When you connect directory to AD FS, the authority you'll want to use to build your application will be something like `https://somesite.contoso.com/adfs/`
 
-MSAL Python supports ADFS 2019.
-
-It does not support a direct connection to ADFS 2016 or ADFS v2. To support scenarios requiring a direct connection to ADFS 2016, use the latest version of ADAL Python. Once you have upgraded your on-premises system to ADFS 2019, you can use MSAL Python.
+MSAL Python supports ADFS 2019, but does not support a direct connection to ADFS 2016 or ADFS v2. Once you have upgraded your on-premises system to ADFS 2019, you can use MSAL Python.
 
 ## Next steps
 
-- For the federated case, see [Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy](../manage-apps/configure-authentication-for-federated-users-portal.md)
+- For the federated case, see [Configure Azure Active Directory sign-in behavior for an application by using a Home Realm Discovery policy](../manage-apps/configure-authentication-for-federated-users-portal.md)

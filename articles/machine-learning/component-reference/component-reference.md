@@ -13,13 +13,30 @@ ms.date: 11/09/2020
 ---
 # Algorithm & component reference for Azure Machine Learning designer
 
-This reference content provides the technical background on each of the machine learning algorithms and components available in Azure Machine Learning designer.
+[!INCLUDE [sdk v2](../includes/machine-learning-sdk-v2.md)]
+
+> [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning SDK you are using:"]
+> * [v1](./component-reference.md)
+> * [v2 (current version)](../component-reference-v2/component-reference-v2.md)
+
+>[!Note]
+> Designer supports two type of components, classic prebuilt components and custom components. These two types of components are not compatible. 
+>
+>Classic prebuilt components provides prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added. 
+>
+>
+>Custom components allow you to provide your own code as a component. It supports sharing across workspaces and seamless authoring across Studio, CLI, and SDK interfaces.
+>
+>This article applies to classic prebuilt components. 
+
+This reference content provides the technical background on each of the classic prebuilt components available in Azure Machine Learning designer.
+
 
 Each component represents a set of code that can run independently and perform a machine learning task, given the required inputs. A component might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis.
 
 For help with choosing algorithms, see 
-* [How to select algorithms](../how-to-select-algorithms.md)
-* [Azure Machine Learning Algorithm Cheat Sheet](../algorithm-cheat-sheet.md)
+* [How to select algorithms](../v1/how-to-select-algorithms.md)
+* [Azure Machine Learning Algorithm Cheat Sheet](../v1/algorithm-cheat-sheet.md)
 
 > [!TIP]
 > In any pipeline in the designer, you can get information about a specific component. Select the **Learn more** link in the component card when hovering on the component in the component list, or in the right pane of the component.
@@ -63,6 +80,28 @@ Learn about the [web service components](web-service-input-output.md), which are
 
 Learn about the [error messages and exception codes](designer-error-codes.md) that you might encounter using components in Azure Machine Learning designer.
 
+## Components environment
+
+All built-in components in the designer will be executed in a fixed environment provided by Microsoft. 
+
+Previously this environment was based on Python 3.6, and now has been upgraded to Python 3.8. This upgrade is transparent as in the components will automatically run in the Python 3.8 environment and requires no action from the user. The environment update may impact component outputs and deploying real-time endpoint from a real-time inference, see the following sections to learn more. 
+
+### Components outputs are different from previous results
+
+After the Python version is upgraded from 3.6 to 3.8, the dependencies of built-in components may be also upgraded accordingly. Hence, you may find some components outputs are different from previous results.
+
+If you are using the Execute Python Script component and have previously installed packages tied to Python 3.6, you may run into errors like:
+- "Could not find a version that satisfies the requirement." 
+- "No matching distribution found."
+Then you'll need to specify the package version adapted to Python 3.8, and run your pipeline again.
+
+### Deploy real-time endpoint from real-time inference pipeline issue
+
+If you directly deploy real-time endpoint from a previous completed real-time inference pipeline, it may run into errors. 
+
+**Recommendation**: clone the inference pipeline and submit it again, then deploy to real-time endpoint.
+
+
 ## Next steps
 
-* [Tutorial: Build a model in designer to predict auto prices](../tutorial-designer-automobile-price-train-score.md)
+* [Tutorial: Build a model in designer to predict auto prices](../v1/tutorial-designer-automobile-price-train-score.md)

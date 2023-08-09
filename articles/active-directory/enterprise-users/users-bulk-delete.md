@@ -1,11 +1,11 @@
 ---
-title: Bulk delete users in the Azure Active Directory portal | Microsoft Docs
+title: Bulk delete users in the Azure portal
 description: Delete users in bulk in the Azure admin center in Azure Active Directory 
 services: active-directory 
-author: curtand
-ms.author: curtand
-manager: karenhoran
-ms.date: 07/09/2021
+author: barclayn
+ms.author: barclayn
+manager: amycolannino
+ms.date: 06/24/2022
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -14,9 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
+
 # Bulk delete users in Azure Active Directory
 
-Using the Azure Active Directory (Azure AD) portal, you can remove a large number of members to a group by using a comma-separated values (CSV) file to bulk delete users.
+Using the admin center in Azure Active Directory (Azure AD), part of Microsoft Entra, you can remove a large number of members to a group by using a comma-separated values (CSV) file to bulk delete users.
 
 ## CSV template structure
 
@@ -37,8 +38,10 @@ The rows in a downloaded CSV template are as follows:
 
 ## To bulk delete users
 
-1. [Sign in to your Azure AD organization](https://aad.portal.azure.com) with an account that is a User administrator in the organization.
-1. In Azure AD, select **Users** > **Bulk operations** > **Bulk delete**.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a User Administrator in the organization.
+1. Browse to **Azure Active Directory** > **Users** > **Bulk operations** > **Bulk delete**.
 1. On the **Bulk delete user** page, select **Download** to download the latest version of the CSV template.
 1. Open the CSV file and add a line for each user you want to delete. The only required value is **User principal name**. Save the file.
 1. On the **Bulk delete user** page, under **Upload your csv file**, browse to the file. When you select the file and click submit, validation of the CSV file starts.
@@ -58,7 +61,7 @@ Next, you can check to see that the users you deleted exist in the Azure AD orga
 
 ## Verify deleted users in the Azure portal
 
-1. Sign in to the Azure portal with an account that is a User administrator in the organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a User administrator in the organization.
 1. In the navigation pane, select **Azure Active Directory**.
 1. Under **Manage**, select **Users**.
 1. Under **Show**, select **All users** only and verify that the users you deleted are no longer listed.
@@ -68,7 +71,7 @@ Next, you can check to see that the users you deleted exist in the Azure AD orga
 Run the following command:
 
 ``` PowerShell
-Get-AzureADUser -Filter "UserType eq 'Member'"
+Get-MgUser -Filter "UserType eq 'Member'"
 ```
 
 Verify that the users that you deleted are no longer listed.

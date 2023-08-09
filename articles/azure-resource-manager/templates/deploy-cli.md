@@ -2,8 +2,8 @@
 title: Azure deployment templates with Azure CLI – Azure Resource Manager | Microsoft Docs
 description: Use Azure Resource Manager and Azure CLI to create and deploy resource groups to Azure. The resources are defined in an Azure deployment template.
 ms.topic: conceptual
-ms.date: 09/17/2021
-ms.custom: devx-track-azurecli, seo-azure-cli
+ms.date: 05/22/2023
+ms.custom: devx-track-azurecli, seo-azure-cli, devx-track-arm-template
 keywords: azure cli deploy arm template, create resource group azure, azure deployment template, deployment resources, arm template, azure arm template
 ---
 
@@ -78,6 +78,8 @@ az deployment group create \
   --template-file <path-to-template> \
   --parameters storageAccountType=Standard_GRS
 ```
+
+The value of the `--template-file` parameter must be a Bicep file or a `.json` or `.jsonc` file. The `.jsonc` file extension indicates the file can contain `//` style comments. The ARM system accepts `//` comments in `.json` files. It does not care about the file extension. For more details about comments and metadata see [Understand the structure and syntax of ARM templates](./syntax.md#comments-and-metadata).
 
 The Azure deployment template can take a few minutes to complete. When it finishes, you see a message that includes the result:
 
@@ -268,9 +270,20 @@ az deployment group create \
   --parameters '@storage.parameters.json'
 ```
 
-## Handle extended JSON format
+## Comments and the extended JSON format
 
-To deploy a template with multi-line strings or comments using Azure CLI with version 2.3.0 or older, you must use the `--handle-extended-json-format` switch.  For example:
+You can include `//` style comments in your parameter file, but you must name the file with a `.jsonc` extension.
+
+```azurecli-interactive
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-file storage.json \
+  --parameters '@storage.parameters.jsonc'
+```
+For more details about comments and metadata see [Understand the structure and syntax of ARM templates](./syntax.md#comments-and-metadata).
+
+If you are using Azure CLI with version 2.3.0 or older, you can deploy a template with multi-line strings or comments using the `--handle-extended-json-format` switch.  For example:
 
 ```json
 {

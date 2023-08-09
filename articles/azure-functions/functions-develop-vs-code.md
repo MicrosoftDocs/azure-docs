@@ -3,8 +3,8 @@ title: Develop Azure Functions by using Visual Studio Code
 description: Learn how to develop and test Azure Functions by using the Azure Functions extension for Visual Studio Code.
 ms.topic: conceptual
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp
-ms.date: 02/21/2021
+ms.custom: devdivchpfy22, vscode-azure-extension-update-complete
+ms.date: 06/19/2022
 #Customer intent: As an Azure Functions developer, I want to understand how Visual Studio Code supports Azure Functions so that I can more efficiently create, publish, and maintain my Functions projects.
 ---
 
@@ -22,10 +22,11 @@ The extension can be used with the following languages, which are supported by t
 
 * [C# compiled](functions-dotnet-class-library.md)
 * [C# script](functions-reference-csharp.md)<sup>*</sup>
-* [JavaScript](functions-reference-node.md)
+* [JavaScript](functions-reference-node.md?tabs=javascript)
 * [Java](functions-reference-java.md)
 * [PowerShell](functions-reference-powershell.md)
 * [Python](functions-reference-python.md)
+* [TypeScript](functions-reference-node.md?tabs=typescript)
 
 <sup>*</sup>Requires that you [set C# script as your default project language](#c-script-projects).
 
@@ -38,15 +39,11 @@ This article provides details about how to use the Azure Functions extension to 
 
 ## Prerequisites
 
-Before you install and run the [Azure Functions extension][Azure Functions extension for Visual Studio Code], you must meet these requirements:
-
 * [Visual Studio Code](https://code.visualstudio.com/) installed on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
-* An active Azure subscription.
+* [Azure Functions extension][Azure Functions extension for Visual Studio Code]. You can also install the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), which is recommended for working with Azure resources. 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-Other resources that you need, like an Azure storage account, are created in your subscription when you [publish by using Visual Studio Code](#publish-to-azure). 
+* An active [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). If you don't yet have an account, you can create one from the extension in Visual Studio Code. 
 
 ### Run local requirements
 
@@ -54,71 +51,81 @@ These prerequisites are only required to [run and debug your functions locally](
 
 # [C\#](#tab/csharp)
 
-+ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
+* The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
 
-+ The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code. 
+* The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.
 
-+ [.NET Core CLI tools](/dotnet/core/tools/?tabs=netcore2x).  
+* [.NET Core CLI tools](/dotnet/core/tools/?tabs=netcore2x).  
 
 # [Java](#tab/java)
 
-+ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
+* The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
 
-+ [Debugger for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug).
+* [Debugger for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug).
 
-+ [Java 8](/azure/developer/java/fundamentals/java-support-on-azure) recommended. For other supported versions, see [Java versions](functions-reference-java.md#java-versions).
+* [Java](/azure/developer/java/fundamentals/java-support-on-azure), one of the [supported versions](functions-reference-java.md#java-versions).
 
-+ [Maven 3 or later](https://maven.apache.org/)
+* [Maven 3 or later](https://maven.apache.org/).
 
 # [JavaScript](#tab/nodejs)
 
-+ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
+* The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
 
-+ [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (10.14.1 recommended). Use the `node --version` command to check your version. 
+* [Node.js](https://nodejs.org/), one of the [supported versions](functions-reference-node.md#node-version). Use the `node --version` command to check your version.
 
 # [PowerShell](#tab/powershell)
 
-+ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
+* The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools include the entire Azure Functions runtime, so download and installation might take some time.
 
-+ [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows) recommended. For version information, see [PowerShell versions](functions-reference-powershell.md#powershell-versions).
+* [PowerShell 7.2](/powershell/scripting/install/installing-powershell-core-on-windows) recommended. For version information, see [PowerShell versions](functions-reference-powershell.md#powershell-versions).
 
-+ Both [.NET Core 3.1 runtime](https://dotnet.microsoft.com/download) and [.NET Core 2.1 runtime](https://dotnet.microsoft.com/download/dotnet/2.1)  
+* [.NET 6.0 runtime](https://dotnet.microsoft.com/download).
 
-+ The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
+* The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
 
 # [Python](#tab/python)
 
-+ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
+* The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools include the entire Azure Functions runtime, so download and installation might take some time.
 
-+ [Python 3.x](https://www.python.org/downloads/). For version information, see [Python versions](functions-reference-python.md#python-version) by the Azure Functions runtime.
+* [Python](https://www.python.org/downloads/), one of the [supported versions](functions-reference-python.md#python-version).
 
-+ [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
+* [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
+
+[!INCLUDE [functions-x86-emulation-on-arm64-note](../../includes/functions-x86-emulation-on-arm64-note.md)]
 
 ---
-
-[!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)]
 
 ## Create an Azure Functions project
 
 The Functions extension lets you create a function app project, along with your first function. The following steps show how to create an HTTP-triggered function in a new Functions project. [HTTP trigger](functions-bindings-http-webhook.md) is the simplest function trigger template to demonstrate.
 
-1. From **Azure: Functions**, select the **Create Function** icon:
+1. 1. Choose the Azure icon in the Activity bar, then in the **Workspace (local)** area, select the **+** button, choose **Create Function** in the dropdown. When prompted, choose **Create new project**.
 
-    ![Create a function](./media/functions-develop-vs-code/create-function.png)
+    :::image type="content" source="./media/functions-create-first-function-vs-code/create-new-project.png" alt-text="Screenshot of create a new project window.":::
 
-1. Select the folder for your function app project, and then **Select a language for your function project**.
+1. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
+
+1. When prompted, **Select a language** for your project, and if necessary choose a specific language version. 
 
 1. Select the **HTTP trigger** function template, or you can select **Skip for now** to create a project without a function. You can always [add a function to your project](#add-a-function-to-your-project) later.
 
-    ![Choose the HTTP trigger template](./media/functions-develop-vs-code/create-function-choose-template.png)
+    :::image type="content" source="./media/functions-develop-vs-code/select-http-trigger.png" alt-text="Screenshot for selecting H T T P trigger.":::
 
 1. Type **HttpExample** for the function name and select Enter, and then select **Function** authorization. This authorization level requires you to provide a [function key](functions-bindings-http-webhook-trigger.md#authorization-keys) when you call the function endpoint.
 
-    ![Select Function authorization](./media/functions-develop-vs-code/create-function-auth.png)
+    :::image type="content" source="./media/functions-develop-vs-code/create-function-auth.png" alt-text="Screenshot for creating function authorization.":::
 
-    A function is created in your chosen language and in the template for an HTTP-triggered function.
+1. From the dropdown list, select **Add to workspace**.
 
-    ![HTTP-triggered function template in Visual Studio Code](./media/functions-develop-vs-code/new-function-full.png)
+    :::image type="content" source="./media/functions-develop-vs-code/add-to-workplace.png" alt-text=" Screenshot for selectIng Add to workplace.":::
+
+1. In **Do you trust the authors of the files in this folder?** window, select **Yes**.
+
+    :::image type="content" source="./media/functions-develop-vs-code/select-author-file.png" alt-text="Screenshot to confirm trust in authors of the files.":::
+
+1. A function is created in your chosen language and in the template for an HTTP-triggered function.
+
+    :::image type="content" source="./media/functions-develop-vs-code/new-function-created.png" alt-text="Screenshot for H T T P-triggered function template in Visual Studio Code.":::
 
 ### Generated project files
 
@@ -139,9 +146,9 @@ Depending on your language, these other files are created:
 
 # [Java](#tab/java)
 
-+ A pom.xml file in the root folder that defines the project and deployment parameters, including project dependencies and the [Java version](functions-reference-java.md#java-versions). The pom.xml also contains information about the Azure resources that are created during a deployment.   
+* A pom.xml file in the root folder that defines the project and deployment parameters, including project dependencies and the [Java version](functions-reference-java.md#java-versions). The pom.xml also contains information about the Azure resources that are created during a deployment.
 
-+ A [Functions.java file](functions-reference-java.md#triggers-and-annotations) in your src path that implements the function.
+* A [Functions.java file](functions-reference-java.md#triggers-and-annotations) in your src path that implements the function.
 
 # [JavaScript](#tab/nodejs)
 
@@ -152,16 +159,16 @@ Depending on your language, these other files are created:
 # [PowerShell](#tab/powershell)
 
 * An HttpExample folder that contains the [function.json definition file](functions-reference-powershell.md#folder-structure) and the run.ps1 file, which contains the function code.
- 
+
 # [Python](#tab/python)
-    
+
 * A project-level requirements.txt file that lists packages required by Functions.
-    
+
 * An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#folder-structure) and the \_\_init\_\_.py file, which contains the function code.
 
 ---
 
-At this point, you can [add input and output bindings](#add-input-and-output-bindings) to your function. 
+At this point, you can [add input and output bindings](#add-input-and-output-bindings) to your function.
 You can also [add a new function to your project](#add-a-function-to-your-project).
 
 ## Install binding extensions
@@ -170,11 +177,21 @@ Except for HTTP and timer triggers, bindings are implemented in extension packag
 
 # [C\#](#tab/csharp)
 
-Run the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to install the extension packages that you need in your project. The following command installs the Azure Storage extension, which implements bindings for Blob, Queue, and Table storage.
+Run the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to install the extension packages that you need in your project. The following example demonstrates how you add a binding for an [in-process class library](functions-dotnet-class-library.md):
 
-```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
+```terminal
+dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>
 ```
+
+The following example demonstrates how you add a binding for an [isolated-process class library](dotnet-isolated-process-guide.md):
+
+```terminal
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>
+```
+
+In either case, replace `<BINDING_TYPE_NAME>` with the name of the package that contains the binding you need. You can find the desired binding reference article in the [list of supported bindings](./functions-triggers-bindings.md#supported-bindings).
+
+Replace `<TARGET_VERSION>` in the example with a specific version of the package, such as `3.0.0-beta5`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to Functions runtime 1.x or 2.x are specified in the reference article for the binding.
 
 # [Java](#tab/java)
 
@@ -218,7 +235,11 @@ A new folder is created in the project. The folder contains a new function.json 
 
 # [Python](#tab/python)
 
-A new folder is created in the project. The folder contains a new function.json file and the new Python code file.
+The results depend on the Python programming model. For more information, see the [Azure Functions Python developer guide](./functions-reference-python.md). 
+
+**Python v1**: A new folder is created in the project. The folder contains a new function.json file and the new Python code file.
+
+**Python v2**: New function code is added either to the default function_app.py file or to another Python file you selected. 
 
 ---
 
@@ -240,7 +261,7 @@ The `msg` parameter is an `ICollector<T>` type, which represents a collection of
 
  Messages are sent to the queue when the function completes.
 
-To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md?tabs=csharp) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=csharp). 
+To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md?tabs=csharp) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=csharp).
 
 # [Java](#tab/java)
 
@@ -248,13 +269,13 @@ Update the function method to add the following parameter to the `Run` method de
 
 :::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java" range="20-21":::
 
-The `msg` parameter is an `OutputBinding<T>` type, where is `T` is a string that is written to an output binding when the function completes. The following code sets the message in the output binding:
+The `msg` parameter is an `OutputBinding<T>` type, where `T` is a string that is written to an output binding when the function completes. The following code sets the message in the output binding:
 
 :::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java" range="33-34":::
 
 This message is sent to the queue when the function completes.
 
-To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md?tabs=java) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=java). 
+To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md?tabs=java) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=java).
 
 # [JavaScript](#tab/nodejs)
 
@@ -266,7 +287,7 @@ In your function code, the `msg` binding is accessed from the `context`, as in t
 
 This message is sent to the queue when the function completes.
 
-To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md?tabs=javascript) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=javascript). 
+To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md?tabs=javascript) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=javascript).
 
 # [PowerShell](#tab/powershell)
 
@@ -276,7 +297,7 @@ To learn more, see the [Queue storage output binding reference article](function
 
 This message is sent to the queue when the function completes.
 
-To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md?tabs=powershell) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=powershell). 
+To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md?tabs=powershell) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=powershell).
 
 # [Python](#tab/python)
 
@@ -292,47 +313,42 @@ The following code adds string data from the request to the output queue:
 
 This message is sent to the queue when the function completes.
 
-To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md?tabs=python) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=python). 
+To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md?tabs=python) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=python).
 
 ---
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
-## Publish to Azure
+## <a name="publish-to-azure"></a>Create Azure resources
 
-Visual Studio Code lets you publish your Functions project directly to Azure. In the process, you create a function app and related resources in your Azure subscription. The function app provides an execution context for your functions. The project is packaged and deployed to the new function app in your Azure subscription.
+Before you can publish your Functions project to Azure, you must have a function app and related resources in your Azure subscription to run your code. The function app provides an execution context for your functions. When you publish to a function app in Azure from Visual Studio Code, the project is packaged and deployed to the selected function app in your Azure subscription.
 
-When you publish from Visual Studio Code to a new function app in Azure, you can choose either a quick function app create path using defaults or an advanced path, where you have more control over the remote resources created. 
-
-When you publish from Visual Studio Code, you take advantage of the [Zip deploy](functions-deployment-technologies.md#zip-deploy) technology. 
+When you create a function app in Azure, you can choose either a quick function app create path using defaults or an advanced path. This way you'll have more control over the remote resources created.
 
 ### Quick function app create
 
-When you choose **+ Create new function app in Azure...**, the extension automatically generates values for the Azure resources needed by your function app. These values are based on the function app name that you choose. For an example of using defaults to publish your project to a new function app in Azure, see the [Visual Studio Code quickstart article](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure).
-
-If you want to provide explicit names for the created resources, you must choose the advanced create path.
+[!INCLUDE [functions-create-azure-resources-vs-code](../../includes/functions-create-azure-resources-vs-code.md)]
 
 ### <a name="enable-publishing-with-advanced-create-options"></a>Publish a project to a new function app in Azure by using advanced options
 
 The following steps publish your project to a new function app created with advanced create options:
 
-1. In the command pallet, enter **Azure Functions: Deploy to function app**.
+1. In the command pallet, enter **Azure Functions: Create function app in Azure...(Advanced)**.
 
 1. If you're not signed in, you're prompted to **Sign in to Azure**. You can also **Create a free Azure account**. After signing in from the browser, go back to Visual Studio Code.
 
-1. If you have multiple subscriptions, **Select a subscription** for the function app, and then select **+ Create New Function App in Azure... _Advanced_**. This _Advanced_ option gives you more control over the resources you create in Azure. 
-
 1. Following the prompts, provide this information:
 
-    | Prompt | Value | Description |
-    | ------ | ----- | ----------- |
-    | Select function app in Azure | Create New Function App in Azure | At the next prompt, type a globally unique name that identifies your new function app and then select Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`. |
-    | Select an OS | Windows | The function app runs on Windows. |
-    | Select a hosting plan | Consumption plan | A serverless [Consumption plan hosting](consumption-plan.md) is used. |
-    | Select a runtime for your new app | Your project language | The runtime must match the project that you're publishing. |
-    | Select a resource group for new resources | Create New Resource Group | At the next prompt, type a resource group name, like `myResourceGroup`, and then select enter. You can also select an existing resource group. |
-    | Select a storage account | Create new storage account | At the next prompt, type a globally unique name for the new storage account used by your function app and then select Enter. Storage account names must be between 3 and 24 characters long and can contain only numbers and lowercase letters. You can also select an existing account. |
-    | Select a location for new resources | region | Select a location in a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. |
+    | Prompt |  Selection |
+    | ------ |  ----------- |
+    | Enter a globally unique name for the new function app. | Type a globally unique name that identifies your new function app and then select Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`. |
+    | Select a runtime stack. | Choose the language version on which you've been running locally. |
+    | Select an OS. | Choose either Linux or Windows. Python apps must run on Linux. |
+    | Select a resource group for new resources. | Choose **Create new resource group** and type a resource group name, like `myResourceGroup`, and then select enter. You can also select an existing resource group. |
+    | Select a location for new resources. | Select a location in a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. |
+    | Select a hosting plan. | Choose **Consumption** for serverless [Consumption plan hosting](consumption-plan.md), where you're only charged when your functions run. |
+    | Select a storage account. | Choose **Create new storage account** and at the prompt, type a globally unique name for the new storage account used by your function app and then select Enter. Storage account names must be between 3 and 24 characters long and can contain only numbers and lowercase letters. You can also select an existing account. |
+    | Select an Application Insights resource for your app. | Choose **Create new Application Insights resource** and at the prompt, type a name for the instance used to store runtime data from your functions.| 
 
     A notification appears after your function app is created and the deployment package is applied. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created.
 
@@ -346,42 +362,41 @@ To call an HTTP-triggered function from a client, you need the URL of the functi
 
 The function URL is copied to the clipboard, along with any required keys passed by the `code` query parameter. Use an HTTP tool to submit POST requests, or a browser for GET requests to the remote function.  
 
-When getting the URL of functions in Azure, the extension uses your Azure account to automatically retrieve the keys it needs to start the function. [Learn more about function access keys](security-concepts.md#function-access-keys). Starting non-HTTP triggered functions requires using the admin key.
+When the extension gets the URL of functions in Azure, it uses your Azure account to automatically retrieve the keys it needs to start the function. [Learn more about function access keys](security-concepts.md#function-access-keys). Starting non-HTTP triggered functions requires using the admin key.
 
-## Republish project files
+## <a name="republish-project-files"></a>Deploy project files
 
-When you set up [continuous deployment](functions-continuous-deployment.md), your function app in Azure is updated when you update source files in the connected source location. We recommend continuous deployment, but you can also republish your project file updates from Visual Studio Code.
+We recommend setting-up [continuous deployment](functions-continuous-deployment.md) so that your function app in Azure is updated when you update source files in the connected source location. You can also deploy your project files from Visual Studio Code.
 
-> [!IMPORTANT]
-> Publishing to an existing function app overwrites the content of that app in Azure.
+When you publish from Visual Studio Code, you take advantage of the [Zip deploy](functions-deployment-technologies.md#zip-deploy) technology.
 
-[!INCLUDE [functions-republish-vscode](../../includes/functions-republish-vscode.md)]
+[!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
 
 ## Run functions
 
-The Azure Functions extension lets you run individual functions, either in your project on your local development computer or in your Azure subscription. 
+The Azure Functions extension lets you run individual functions. You can run functions either in your project on your local development computer or in your Azure subscription.
 
 For HTTP trigger functions, the extension calls the HTTP endpoint. For other kinds of triggers, it calls administrator APIs to start the function. The message body of the request sent to the function depends on the type of trigger. When a trigger requires test data, you're prompted to enter data in a specific JSON format.
 
-### Run functions in Azure
+### Run functions in Azure.
 
-To execute a function in Azure from Visual Studio Code. 
+To execute a function in Azure from Visual Studio Code.
 
-1. In the command pallet, enter **Azure Functions: Execute function now** and choose your Azure subscription. 
+1. In the command pallet, enter **Azure Functions: Execute function now** and choose your Azure subscription.
 
-1. Choose your function app in Azure from the list. If you don't see your function app, make sure you're signed in to the correct subscription. 
+1. Choose your function app in Azure from the list. If you don't see your function app, make sure you're signed in to the correct subscription.
 
-1. Choose the function you want to run from the list and type the message body of the request in **Enter request body**. Press Enter to send this request message to your function. The default text in **Enter request body** should indicate the format of the body. If your function app has no functions, a notification error is shown with this error. 
+1. Choose the function you want to run from the list and type the message body of the request in **Enter request body**. Press Enter to send this request message to your function. The default text in **Enter request body** should indicate the format of the body. If your function app has no functions, a notification error is shown with this error.
 
 1. When the function executes in Azure and returns a response, a notification is raised in Visual Studio Code.
- 
+
 You can also run your function from the **Azure: Functions** area by right-clicking (Ctrl-clicking on Mac) the function you want to run from your function app in your Azure subscription and choosing **Execute Function Now...**.
 
-When running functions in Azure, the extension uses your Azure account to automatically retrieve the keys it needs to start the function. [Learn more about function access keys](security-concepts.md#function-access-keys). Starting non-HTTP triggered functions requires using the admin key.
+When you run your functions in Azure from Visual Studio Code, the extension uses your Azure account to automatically retrieve the keys it needs to start the function. [Learn more about function access keys](security-concepts.md#function-access-keys). Starting non-HTTP triggered functions requires using the admin key.
 
 ### Run functions locally
 
-The local runtime is the same runtime that hosts your function app in Azure. Local settings are read from the [local.settings.json file](#local-settings). To run your Functions project locally, you must meet [additional requirements](#run-local-requirements).
+The local runtime is the same runtime that hosts your function app in Azure. Local settings are read from the [local.settings.json file](#local-settings). To run your Functions project locally, you must meet [more requirements](#run-local-requirements).
 
 #### Configure the project to run locally
 
@@ -401,17 +416,17 @@ For more information, see [Local settings file](#local-settings).
 
 #### <a name="debugging-functions-locally"></a>Debug functions locally  
 
-To debug your functions, select F5. If you haven't already downloaded [Core Tools][Azure Functions Core Tools], you're prompted to do so. When Core Tools is installed and running, output is shown in the Terminal. This is the same as running the `func host start` Core Tools command from the Terminal, but with extra build tasks and an attached debugger.  
+To debug your functions, select F5. If you haven't already downloaded [Core Tools][Azure Functions Core Tools], you're prompted to do so. When Core Tools is installed and running, output is shown in the Terminal. This step is the same as running the `func start` Core Tools command from the Terminal, but with extra build tasks and an attached debugger.  
 
-When the project is running, you can use the **Execute Function Now...** feature of the extension to trigger your functions as you would when the project is deployed to Azure. With the project running in debug mode, breakpoints are hit in Visual Studio Code as you would expect. 
+When the project is running, you can use the **Execute Function Now...** feature of the extension to trigger your functions as you would when the project is deployed to Azure. With the project running in debug mode, breakpoints are hit in Visual Studio Code as you would expect.
 
-1. In the command pallet, enter **Azure Functions: Execute function now** and choose **Local project**. 
+1. In the command pallet, enter **Azure Functions: Execute function now** and choose **Local project**.
 
-1. Choose the function you want to run in your project and type the message body of the request in **Enter request body**. Press Enter to send this request message to your function. The default text in **Enter request body** should indicate the format of the body. If your function app has no functions, a notification error is shown with this error. 
+1. Choose the function you want to run in your project and type the message body of the request in **Enter request body**. Press Enter to send this request message to your function. The default text in **Enter request body** should indicate the format of the body. If your function app has no functions, a notification error is shown with this error.
 
 1. When the function runs locally and after the response is received, a notification is raised in Visual Studio Code. Information about the function execution is shown in **Terminal** panel.
 
-Running functions locally doesn't require using keys. 
+Running functions locally doesn't require using keys.
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
@@ -436,7 +451,7 @@ The settings in the local.settings.json file in your project should be the same 
 
 The easiest way to publish the required settings to your function app in Azure is to use the **Upload settings** link that appears after you publish your project:
 
-![Upload application settings](./media/functions-develop-vs-code/upload-app-settings.png)
+:::image type="content" source="./media/functions-develop-vs-code/upload-app-settings.png" alt-text="Screenshot to upload application settings.":::
 
 You can also publish settings by using the **Azure Functions: Upload Local Setting** command in the command palette. You can add individual settings to application settings in Azure by using the **Azure Functions: Add New Setting** command.
 
@@ -447,7 +462,7 @@ If the local file is encrypted, it's decrypted, published, and encrypted again. 
 
 View existing app settings in the **Azure: Functions** area by expanding your subscription, your function app, and **Application Settings**.
 
-![View function app settings in Visual Studio Code](./media/functions-develop-vs-code/view-app-settings.png)
+:::image type="content" source="./media/functions-develop-vs-code/view-app-settings.png" alt-text=" Screenshot for viewing function app settings in Visual Studio Code.":::
 
 ### Download settings from Azure
 
@@ -457,13 +472,13 @@ As with uploading, if the local file is encrypted, it's decrypted, updated, and 
 
 ## Monitoring functions
 
-When you [run functions locally](#run-functions-locally), log data is streamed to the Terminal console. You can also get log data when your Functions project is running in a function app in Azure. You can either connect to streaming logs in Azure to see near-real-time log data, or you can enable Application Insights for a more complete understanding of how your function app is behaving.
+When you [run functions locally](#run-functions-locally), log data is streamed to the Terminal console. You can also get log data when your Functions project is running in a function app in Azure. You can connect to streaming logs in Azure to see near-real-time log data. You should enable Application Insights for a more complete understanding of how your function app is behaving.
 
 ### Streaming logs
 
 When you're developing an application, it's often useful to see logging information in near-real time. You can view a stream of log files being generated by your functions. This output is an example of streaming logs for a request to an HTTP-triggered function:
 
-![Streaming logs output for HTTP trigger](media/functions-develop-vs-code/streaming-logs-vscode-console.png)
+:::image type="content" source="media/functions-develop-vs-code/streaming-logs-vscode-console.png" alt-text="Screenshot for streaming logs output for H T T P trigger.":::
 
 To learn more, see [Streaming logs](functions-monitoring.md#streaming-logs).
 
@@ -477,6 +492,27 @@ To learn more, see [Streaming logs](functions-monitoring.md#streaming-logs).
 We recommend that you monitor the execution of your functions by integrating your function app with Application Insights. When you create a function app in the Azure portal, this integration occurs by default. When you create your function app during Visual Studio publishing, you need to integrate Application Insights yourself. To learn how, see [Enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration).
 
 To learn more about monitoring using Application Insights, see [Monitor Azure Functions](functions-monitoring.md).
+
+[!INCLUDE [functions-x86-emulation-on-arm64](../../includes/functions-x86-emulation-on-arm64.md)]
+
+### Enable emulation in Visual Studio Code
+
+Now that you've configured the Terminal with Rosetta to run x86 emulation for Python development, you can use the following steps to integrate this terminal emulation with Visual Studio Code:
+
+1.  Open the Command Palette by pressing Cmd+Shift+P, select **Preferences: Open Settings (JSON)**, and add the following JSON to your configuration:
+
+    ```json
+    "terminal.integrated.profiles.osx": {
+           "rosetta": {
+             "path": "arch",
+             "args": ["-x86_64", "zsh", "-l"],
+             "overrideName": true
+           }
+         }
+    ```
+1. Open a new Terminal and choose **rosetta**.
+
+    ![Screenshot of starting a new Rosetta terminal in Visual Studio Code.](./media/functions-develop-vs-code/vs-code-rosetta.png)
 
 ## C\# script projects
 
@@ -510,7 +546,7 @@ The Azure Functions extension provides a useful graphical interface in the area 
 | **Download Remote Settings** | Downloads settings from the chosen function app in Azure into your local.settings.json file. If the local file is encrypted, it's decrypted, updated, and encrypted again. If there are settings that have conflicting values in the two locations, you're prompted to choose how to proceed. Be sure to save changes to your local.settings.json file before you run this command. |
 | **Edit settings** | Changes the value of an existing function app setting in Azure. This command doesn't affect settings in your local.settings.json file.  |
 | **Encrypt settings** | Encrypts individual items in the `Values` array in the [local settings](#local-settings). In this file, `IsEncrypted` is also set to `true`, which specifies that the local runtime will decrypt settings before using them. Encrypt local settings to reduce the risk of leaking valuable information. In Azure, application settings are always stored encrypted. |
-| **Execute Function Now** | Manually starts a function using admin APIs. This command is used for testing, both locally during debugging and against functions running in Azure. When triggering a function in Azure, the extension first automatically obtains an admin key, which it uses to call the remote admin APIs that start functions in Azure. The body of the message sent to the API depends on the type of trigger. Timer triggers don't require you to pass any data. |
+| **Execute Function Now** | Manually starts a function using admin APIs. This command is used for testing, both locally during debugging and against functions running in Azure. When a function in Azure starts, the extension first automatically obtains an admin key, which it uses to call the remote admin APIs that start functions in Azure. The body of the message sent to the API depends on the type of trigger. Timer triggers don't require you to pass any data. |
 | **Initialize Project for Use with VS Code** | Adds the required Visual Studio Code project files to an existing Functions project. Use this command to work with a project that you created by using Core Tools. |
 | **Install or Update Azure Functions Core Tools** | Installs or updates [Azure Functions Core Tools], which is used to run functions locally. |
 | **Redeploy**  | Lets you redeploy project files from a connected Git repository to a specific deployment in Azure. To republish local updates from Visual Studio Code, [republish your project](#republish-project-files). |

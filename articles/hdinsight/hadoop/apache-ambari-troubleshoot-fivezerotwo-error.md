@@ -3,7 +3,7 @@ title: Apache Ambari UI 502 error in Azure HDInsight
 description: Apache Ambari UI 502 error when you try to access your Azure HDInsight cluster
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 08/05/2019
+ms.date: 05/10/2023
 ---
 
 # Scenario: Apache Ambari UI 502 error in Azure HDInsight

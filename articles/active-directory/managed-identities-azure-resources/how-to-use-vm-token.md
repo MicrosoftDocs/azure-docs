@@ -1,18 +1,19 @@
 ---
-title: Use managed identities on a virtual machine to acquire access token - Azure AD
+title: Use managed identities on a virtual machine to acquire access token
 description: Step-by-step instructions and examples for using managed identities for Azure resources on virtual machines to acquire an OAuth access token.
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: 
 
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: how-to
 ms.tgt_pltfrm: na
+ms.custom: devx-track-dotnet, devx-track-extended-java
 ms.workload: identity
-ms.date: 02/18/2022
+ms.date: 05/15/2023
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -29,14 +30,14 @@ This article provides various code and script examples for token acquisition. It
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-If you plan to use the Azure PowerShell examples in this article, be sure to install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps).
+If you plan to use the Azure PowerShell examples in this article, be sure to install the latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 
 > [!IMPORTANT]
 > - All sample code/script in this article assumes the client is running on a virtual machine with managed identities for Azure resources. Use the virtual machine "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling managed identities for Azure resources on a VM, see [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
 
 > [!IMPORTANT]
-> - The security boundary of managed identities for Azure resources, is the resource it's being used on. All code/scripts running on a virtual machine can request and retrieve tokens for any managed identities available on it. 
+> - The security boundary of managed identities for Azure resources, is the resource where the identity is used. All code/scripts running on a virtual machine can request and retrieve tokens for any managed identities available on it. 
 
 ## Overview
 
@@ -46,6 +47,7 @@ A client application can request a managed identity [app-only access token](../d
 | Link | Description |
 | -------------- | -------------------- |
 | [Get a token using HTTP](#get-a-token-using-http) | Protocol details for managed identities for Azure resources token endpoint |
+| [Get a token using Azure.Identity](#get-a-token-using-the-azure-identity-client-library) | Get a token using Azure.Identity library |
 | [Get a token using the Microsoft.Azure.Services.AppAuthentication library for .NET](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Example of using the Microsoft.Azure.Services.AppAuthentication library from a .NET client
 | [Get a token using C#](#get-a-token-using-c) | Example of using managed identities for Azure resources REST endpoint from a C# client |
 | [Get a token using Java](#get-a-token-using-java) | Example of using managed identities for Azure resources REST endpoint from a Java client |
@@ -75,7 +77,7 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `Metadata` | An HTTP request header field required by managed identities. This information is used as a mitigation against server side request forgery (SSRF) attacks. This value must be set to "true", in all lower case. |
 | `object_id` | (Optional) A query string parameter, indicating the object_id of the managed identity you would like the token for. Required, if your VM has multiple user-assigned managed identities.|
 | `client_id` | (Optional) A query string parameter, indicating the client_id of the managed identity you would like the token for. Required, if your VM has multiple user-assigned managed identities.|
-| `mi_res_id` | (Optional) A query string parameter, indicating the mi_res_id (Azure Resource ID) of the managed identity you would like the token for. Required, if your VM has multiple user-assigned managed identities. |
+| `msi_res_id` | (Optional) A query string parameter, indicating the msi_res_id (Azure Resource ID) of the managed identity you would like the token for. Required, if your VM has multiple user-assigned managed identities. |
 
 Sample response:
 
@@ -144,7 +146,9 @@ For .NET applications and functions, the simplest way to work with managed ident
     
 To learn more about Microsoft.Azure.Services.AppAuthentication and the operations it exposes, see the [Microsoft.Azure.Services.AppAuthentication reference](/dotnet/api/overview/azure/service-to-service-authentication) and the [App Service and KeyVault with managed identities for Azure resources .NET sample](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
+
 ## Get a token using C#
+
 
 ```csharp
 using System;
@@ -223,7 +227,7 @@ class GetMSIToken {
 
 ## Get a token using Go
 
-```
+```go
 package main
 
 import (
@@ -358,6 +362,7 @@ The managed identities endpoint signals errors via the status code field of the 
 | Status Code | Error Reason | How To Handle |
 | ----------- | ------------ | ------------- |
 | 404 Not found. | IMDS endpoint is updating. | Retry with Exponential Backoff. See guidance below. |
+| 410  | IMDS is going through updates |  IMDS will be available within 70 seconds |
 | 429 Too many requests. |  IMDS Throttle limit reached. | Retry with Exponential Backoff. See guidance below. |
 | 4xx Error in request. | One or more of the request parameters was incorrect. | Don't retry.  Examine the error details for more information.  4xx errors are design-time errors.|
 | 5xx Transient error from service. | The managed identities for Azure resources subsystem or Azure Active Directory returned a transient error. | It's safe to retry after waiting for at least 1 second.  If you retry too quickly or too often, IMDS and/or Azure AD may return a rate limit error (429).|
@@ -391,9 +396,9 @@ This section documents the possible error responses. A "200 OK" status is a succ
 
 ## Retry guidance 
 
-It's recommended to retry if you receive a 404, 429, or 5xx error code (see [Error handling](#error-handling) above).
+It's recommended to retry if you receive a 404, 429, or 5xx error code (see [Error handling](#error-handling) above). If you receive a 410 error, it indicates that IMDS is going through updates and will be available in a maximum of 70 seconds.  
 
-Throttling limits apply to the number of calls made to the IMDS endpoint. When the throttling threshold is exceeded, IMDS endpoint limits any further requests while the throttle is in effect. During this period, the IMDS endpoint will return the HTTP status code 429 ("Too many requests"), and the requests fail. 
+Throttling limits apply to the number of calls made to the IMDS endpoint. When the throttling threshold is exceeded, IMDS endpoint limits any further requests while the throttle is in effect. During this period, the IMDS endpoint returns the HTTP status code 429 ("Too many requests"), and the requests fail. 
 
 For retry, we recommend the following strategy: 
 

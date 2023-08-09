@@ -8,7 +8,7 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
-ms.date: 12/08/2020
+ms.date: 01/20/2023
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
@@ -18,13 +18,11 @@ Azure Key Vault is a cloud service that provides a secure store for [keys](../ke
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
 In this quickstart, you create a key vault with the [Azure portal](https://portal.azure.com). 
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a vault
 
@@ -38,12 +36,12 @@ Sign in to the Azure portal at https://portal.azure.com.
     - Under **Resource Group**, choose **Create new** and enter a resource group name.
     - In the **Location** pull-down menu, choose a location.
     - Leave the other options to their defaults.
-6. After providing the information above, select **Create**.
+6. Select **Create**.
 
-Take note of the two properties listed below:
+Take note of these two properties:
 
-* **Vault Name**: In the example, this is **Contoso-Vault2**. You will use this name for other steps.
-* **Vault URI**: In the example, this is `https://contoso-vault2.vault.azure.net/`. Applications that use your vault through its REST API must use this URI.
+* **Vault Name**: In the example, this is **Contoso-Vault2**. You'll use this name for other steps.
+* **Vault URI**: In the example, the Vault URI is `https://contoso-vault2.vault.azure.net/`. Applications that use your vault through its REST API must use this URI.
 
 At this point, your Azure account is the only one authorized to perform operations on this new vault.
 
@@ -61,7 +59,7 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 
 ## Next steps
 
-In this quickstart, you created a Key Vault using the Azure portal. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
+In this quickstart, you created a Key Vault using the Azure portal. To learn more about Key Vault and how to integrate it with your applications, continue on to these articles.
 
 - Read an [Overview of Azure Key Vault](overview.md)
 - Review the [Azure Key Vault security overview](security-features.md)

@@ -36,7 +36,7 @@ The following table lists the data formats supported:
 
 ## Prerequisites
 
-Your first step is to create a database where the tables will be created. Then create the following objects that are used in this sample:
+Your first step is to create a database where the tables will be created. Before creating a database scoped credential, the database must have a master key to protect the credential. For more information on this, see [CREATE MASTER KEY &#40;Transact-SQL&#41;](https://learn.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql). Then create the following objects that are used in this sample:
 - DATABASE SCOPED CREDENTIAL `sqlondemand` that enables access to SAS-protected `https://sqlondemandstorage.blob.core.windows.net` Azure storage account.
 
     ```sql
@@ -185,6 +185,13 @@ CREATE EXTERNAL TABLE Covid (
 ```
 
 External tables cannot be created on a partitioned folder. Review the other known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
+
+### Delta tables on partitioned folders
+
+External tables in serverless SQL pools do not support partitioning on Delta Lake format. Use [Delta partitioned views](create-use-views.md#delta-lake-partitioned-views) instead of tables if you have partitioned Delta Lake data sets. 
+ 
+> [!IMPORTANT]
+> Do not create external tables on partitioned Delta Lake folders even if you see that they might work in some cases. Using unsupported features like external tables on partitioned delta folders might cause issues or instability of the serverless pool. Azure support will not be able to resolve any issue if it is using tables on partitioned folders. You would be asked to transition to [Delta partitioned views](create-use-views.md#delta-lake-partitioned-views) and rewrite your code to use only the supported feature before proceeding with issue resolution.
 
 ## Use an external table
 

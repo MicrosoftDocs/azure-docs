@@ -1,8 +1,12 @@
 ---
 title: Set environment variables in container instance
 description: Learn how to set environment variables in the containers you run in Azure Container Instances
-ms.topic: article
-ms.date: 04/17/2019 
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -52,7 +56,7 @@ az container logs --resource-group myResourceGroup --name mycontainer1
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-The output of the containers show how you've modified the second container's script behavior by setting environment variables.
+The outputs of the containers show how you've modified the second container's script behavior by setting environment variables.
 
 **mycontainer1**
 ```output
@@ -93,13 +97,19 @@ New-AzContainerGroup `
 Now run the following [New-AzContainerGroup][new-Azcontainergroup] command. This one specifies the *NumWords* and *MinLength* environment variables after populating an array variable, `envVars`:
 
 ```azurepowershell-interactive
-$envVars = @{'NumWords'='5';'MinLength'='8'}
-New-AzContainerGroup `
-    -ResourceGroupName myResourceGroup `
-    -Name mycontainer2 `
-    -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest `
-    -RestartPolicy OnFailure `
-    -EnvironmentVariable $envVars
+$envVars = @(
+    New-AzContainerInstanceEnvironmentVariableObject -Name "NumWords" -Value "5"
+    New-AzContainerInstanceEnvironmentVariableObject -Name "MinLength" -Value "8"
+)
+
+$containerGroup = New-AzContainerGroup -ResourceGroupName "myResourceGroup" `
+    -Name "mycontainer2" `
+    -Image "mcr.microsoft.com/azuredocs/aci-wordcount:latest" `
+    -RestartPolicy "OnFailure" `
+    -Container @(
+        New-AzContainerGroupContainer -Name "mycontainer2" `
+            -EnvironmentVariable $envVars
+    )
 ```
 
 Once both containers' state is *Terminated* (use [Get-AzContainerInstanceLog][azure-instance-log] to check state), pull their logs with the [Get-AzContainerInstanceLog][azure-instance-log] command.
@@ -252,4 +262,3 @@ Task-based scenarios, such as batch processing a large dataset with several cont
 [azure-instance-log]: /powershell/module/az.containerinstance/get-azcontainerinstancelog
 [azure-powershell-install]: /powershell/azure/install-Az-ps
 [new-Azcontainergroup]: /powershell/module/az.containerinstance/new-azcontainergroup
-[portal]: https://portal.azure.com

@@ -3,11 +3,11 @@ title: Associate a virtual machine scale set with flexible orchestration to a Ca
 description: Learn how to associate a new virtual machine scale set with flexible orchestration mode to a Capacity Reservation group.
 author: bdeforeest
 ms.author: bidefore
-ms.service: virtual-machines #Required
+ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 03/28/2022
+ms.date: 11/22/2022
 ms.reviewer: cynthn, jushiman
-ms.custom: template-how-to, devx-track-azurecli
+ms.custom: template-how-to
 ---
 
 # Associate a virtual machine scale set with flexible orchestration to a Capacity Reservation group
@@ -21,7 +21,7 @@ Virtual Machine Scale Sets have two modes:
 
 To learn more about these modes, go to [Virtual Machine Scale Sets Orchestration Modes](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md). 
 
-This content applies to the flexible orchestration mode. For uniform orchestration mode, go to [Associate a virtual machine scale set with flexible orchestration to a Capacity Reservation group](capacity-reservation-associate-virtual-machine-scale-set.md)
+This content applies to the flexible orchestration mode. For uniform orchestration mode, go to [Associate a virtual machine scale set with uniform orchestration to a Capacity Reservation group](capacity-reservation-associate-virtual-machine-scale-set.md)
 
 
 > [!IMPORTANT]

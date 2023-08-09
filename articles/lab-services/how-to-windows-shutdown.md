@@ -1,59 +1,60 @@
 ---
-title: Guide to controlling Windows shutdown behavior in Azure Lab Services | Microsoft Docs
-description: Steps to automatically shutdown an idle Windows virtual machine and remove the Windows shutdown command.
+title: Control shutdown for Windows lab VMs
+description: Remove the shutdown command from the Windows Start menu in a lab virtual machine in Azure Lab Services.
+services: lab-services
+ms.service: lab-services
+ms.author: nicktrog
+author: ntrogh
 ms.topic: how-to
-ms.date: 09/29/2020
+ms.date: 06/02/2023
 ---
 
-# Guide to controlling Windows shutdown behavior
+# Control Windows shutdown behavior in lab virtual machines
 
-Azure Lab Services provides several cost controls to ensure that Windows virtual machines (VMs) are not running unexpectedly:
- - [Set a schedule](./tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
- - [Set quotas for users](./how-to-configure-student-usage.md#set-quotas-for-users)
- - [Enable automatic shutdown on disconnect](./how-to-enable-shutdown-disconnect.md)
+In this article, you learn how to remove the shutdown command from the Windows Start menu in lab virtual machines in Azure Lab Services. When a lab user performs a shutdown in the operating system instead of stopping the lab virtual machine, the shutdown might interfere with the Azure Lab Services cost control measures.
 
-Even with these cost controls, there are situations where a Windows VM may unexpectedly continue to run; and as a result, deduct from the student's quota:
+Azure Lab Services provides different cost control measures, such as [lab schedules](./how-to-create-schedules.md), [quota hours](./how-to-manage-lab-users.md#set-quotas-for-users), and [automatic shutdown policies](./how-to-enable-shutdown-disconnect.md).
 
-- **RDP window is left open**
-  
-    When a student connects to their VM using RDP, they may inadvertently leave the RDP window open.  As long as the RDP window remains open, the **automatic shutdown on disconnect** setting will never take effect since it is only triggered after the RDP session is disconnected.
+When the Windows shutdown command is used to turn off a lab virtual machine, the service considers the lab virtual machine to still be running and accumulating costs. Instead, lab users should use the [stop functionality of the lab virtual machine](./how-to-use-lab.md#start-or-stop-the-vm). To prevent inadvertently shutting down the lab virtual machine, you can remove the shutdown command from the Windows Start menu.
 
-- **Windows shutdown command is used to turn off the VM**
-  
-    A student may use Windows shutdown command, or other shutdown mechanisms provided within Windows, to turn off the VM instead of using [Azure Lab Services' stop button](./how-to-use-classroom-lab.md#start-or-stop-the-vm).  When this happens, from the perspective of Azure Lab Services, the VM is still being used.
-    
-To help you prevent these situations from happening, this guide provides steps to automatically shutdown an idle Windows VM and remove the Windows shutdown command from the **Start** menu.  
-
-> [!NOTE]
-> A VM may also unexpectedly deduct from the quota when the student starts their VM, but never actually connects to it using RDP.  This guide does *not* currently address this scenario.  Instead, students should be reminded to immediately connect to their VM using RDP after they start it; or, they should stop the VM.
+Lab users can still disconnect from the lab virtual machine. The Windows disconnect command triggers the lab policy (if enabled) that shuts down the lab virtual machine when users disconnect.
 
 ## Remove Windows shutdown command from Start menu
 
-Windows **Local Group Policy** settings also allow you to remove the shutdown command from the **Start** menu.
+You can use Windows local group policy settings to remove the shutdown command from the Windows Start menu. Modify this policy on the lab template virtual machine to ensure that the change applies to all lab virtual machines.
 
-To remove the shutdown command, you can connect to the template VM and execute the below PowerShell script.
+To configure a local group policy setting by using PowerShell:
 
-```powershell
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Name "HidePowerOptions" -Value 1 -Force
-```
+1. Connect to the lab template virtual machine by using RDP.
 
-Or, you can choose to follow these manual steps using the template VM:
+1. Run the following PowerShell command to disable the shutdown option in the Start menu:
+
+    ```powershell
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Name "HidePowerOptions" -Value 1 -Force
+    ```
+
+Alternately, you can manually change the local group policy setting:
+
+1. Connect to the lab template virtual machine by using RDP.
 
 1. Press the Windows key, type **gpedit**, then select **Edit group policy (Control panel)**.
 
 1. Go to **Computer Configuration > Administrative Templates > Start Menu and Taskbar**.  
 
-    ![Local group policy editor](./media/how-to-windows-shutdown/group-policy-shutdown.png)
+    :::image type="content" source="./media/how-to-windows-shutdown/group-policy-shutdown.png" alt-text="Screenshot of Group Policy Editor in Windows." lightbox="./media/how-to-windows-shutdown/group-policy-shutdown.png":::
 
-1. Right-click **Remove and prevent access to the Shut Down, Restart, Sleep, and Hibernate commands**, and click **Edit**.
+1. Right-select **Remove and prevent access to the Shut Down, Restart, Sleep, and Hibernate commands**, and then select **Edit**.
 
-1. Select the **Enabled** setting and then click **OK**:
+1. Select the **Enabled** setting, and then select **OK**.
  
-   ![Shutdown setting](./media/how-to-windows-shutdown/edit-shutdown.png)
+    :::image type="content" source="./media/how-to-windows-shutdown/edit-shutdown.png" alt-text="Screenshot of Remove and prevent access to the Shut Down, Restart, Sleep, and Hibernate commands dialog in Windows.":::
+ 
+1. Notice that the shutdown command no longer appears under Windows **Start** menu. Only the **Disconnect** command appears.
 
-1. Notice that the shutdown command no longer appears under Windows **Start** menu; only the **Disconnect** command appears.
+    :::image type="content" source="./media/how-to-windows-shutdown/start-menu.png" alt-text="Screenshot of the Start menu in Windows.  The power button and disconnect item are highlighted.":::
 
-    ![Shutdown command](./media/how-to-windows-shutdown/start-menu.png)
 
 ## Next steps
-See the article on how to prepare a Windows template VM: [Guide to setting up a Windows template machine in Azure Lab Services](how-to-prepare-windows-template.md)
+- As an educator, enable [automatic shutdown policies](./how-to-enable-shutdown-disconnect.md).
+- As an educator, [prepare Windows template VM](how-to-prepare-windows-template.md) for the lab.
+- As an educator, [publish the template VM](how-to-create-manage-template.md#publish-the-template-vm).

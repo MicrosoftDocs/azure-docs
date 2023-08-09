@@ -3,14 +3,10 @@ title: Send Defender for IoT device security messages
 description: Learn how to send your security messages using Defender for IoT.
 ms.topic: how-to
 ms.date: 03/28/2022
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Send security messages SDK
-
-> [!NOTE]
-> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Create custom alerts](quickstart-create-custom-alerts.md).
->
 
 This how-to guide explains the Defender for IoT service capabilities when you choose to collect and send your device security messages without using a Defender for IoT agent, and explains how to do so.
 

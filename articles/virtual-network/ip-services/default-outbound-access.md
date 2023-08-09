@@ -7,8 +7,9 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.date: 03/02/2022
+ms.date: 05/28/2023
 ms.author: allensu
+ms.custom: FY23 content-maintenance
 ---
 
 # Default outbound access in Azure
@@ -17,9 +18,12 @@ In Azure, virtual machines created in a virtual network without explicit outboun
 
 Examples of explicit outbound connectivity are virtual machines:
 
-* Created within a subnet associated to a NAT Gateway.
+* Created within a subnet associated to a NAT gateway.
+
 * In the backend pool of a standard load balancer with outbound rules defined.
-* In the backend pool of basic public load balancer.
+
+* In the backend pool of a basic public load balancer.
+
 * Virtual machines with public IP addresses explicitly associated to them.
 
 :::image type="content" source="./media/default-outbound-access/explicit-outbound-options.png" alt-text="Diagram of explicit outbound options.":::
@@ -46,23 +50,28 @@ If you deploy a virtual machine in Azure and it doesn't have explicit outbound c
 
 * Loss of IP address
 
-    * The default outbound access IP isn't owned by customers. This IP is subject to change.  Any dependency on this IP could cause issues in the future.
+    * Customers don't own the default outbound access IP. This IP may change, and any dependency on it could cause issues in the future.
 
 ## How can I disable default outbound access?
 
 There are multiple ways to turn off default outbound access:
 
-1.	Add an explicit outbound connectivity method
+*  Add an explicit outbound connectivity method.
 
     * Associate a NAT gateway to the subnet of your virtual machine.
 
-    * Associate a standard load balancer with outbound rules configured.
+    * Associate a standard load balancer configured with outbound rules.
 
-    * Associate a public IP to the virtual machine's network interface.
+    * Associate a Basic public IP to the virtual machine's network interface (if there's only one network interface).
+    
+    * Associate a Standard public IP to any of the virtual machine's network interfaces (if there are multiple network interfaces, having a single NIC with a standard public IP prevents default outbound access for the virtual machine).
 
-2.	Use Flexible orchestration mode for virtual machine scale sets.
+*  Use Flexible orchestration mode for Virtual Machine Scale Sets.
 
-    * Flexible scale sets are secure by default. Any instances created via Flexible scale sets won't have the default outbound access IP associated to it. For more information, see [Flexible orchestration mode for virtual machine scale sets](../../virtual-machines/flexible-virtual-machine-scale-sets.md)
+    * Flexible scale sets are secure by default. Any instances created via Flexible scale sets don't have the default outbound access IP associated with them. For more information, see [Flexible orchestration mode for Virtual Machine Scale Sets](../../virtual-machines/flexible-virtual-machine-scale-sets.md)
+
+>[!Important]
+> When a backend pool is configured by IP address, it will use default outbound access due to an ongoing known issue. For secure by default configuration and applications with demanding outbound needs, associate a NAT gateway to the VMs in your load balancer's backend pool to secure traffic. See more on existing [known issues](../../load-balancer/whats-new.md#known-issues).
 
 ## If I need outbound access, what is the recommended way?
 

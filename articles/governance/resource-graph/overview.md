@@ -1,12 +1,15 @@
 ---
 title: Overview of Azure Resource Graph
 description: Understand how the Azure Resource Graph service enables complex querying of resources at scale across subscriptions and tenants.
-ms.date: 08/17/2021
+ms.date: 06/15/2022
 ms.topic: overview
+ms.custom: devx-track-arm-template
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # What is Azure Resource Graph?
 
-Azure Resource Graph is a service in Azure that is designed to extend Azure Resource Management by
+Azure Resource Graph is an Azure service designed to extend Azure Resource Management by
 providing efficient and performant resource exploration with the ability to query at scale across a
 given set of subscriptions so that you can effectively govern your environment. These queries
 provide the following abilities:
@@ -26,9 +29,9 @@ In this documentation, you'll go over each feature in detail.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
-## How does Resource Graph complement Azure Resource Manager
+## How Resource Graph complements Azure Resource Manager
 
-Resource Manager currently supports queries over basic resource fields, specifically:
+Azure Resource Manager currently supports queries over basic resource fields, specifically:
 
 - Resource name
 - ID
@@ -37,7 +40,7 @@ Resource Manager currently supports queries over basic resource fields, specific
 - Subscription
 - Location
 
-Resource Manager also provides
+Azure Resource Manager also provides
 facilities for calling individual resource providers for detailed properties one resource at a time.
 
 With Azure Resource Graph, you can access these properties the resource providers return without
@@ -56,7 +59,7 @@ With Azure Resource Graph, you can:
 > [!NOTE]
 > As a _preview_ feature, some `type` objects have additional non-Resource Manager properties
 > available. For more information, see
-> [Extended properties (preview)](./concepts/query-language.md#extended-properties).
+> [Extended properties](./concepts/query-language.md#extended-properties).
 
 ## How Resource Graph is kept current
 
@@ -78,7 +81,7 @@ Now that you have a better understanding of what Azure Resource Graph is, let's 
 construct queries.
 
 It's important to understand that Azure Resource Graph's query language is based on the
-[Kusto query language](/azure/data-explorer/data-explorer-overview) used by Azure Data Explorer.
+[Kusto Query Language (KQL)](/azure/data-explorer/data-explorer-overview) used by Azure Data Explorer.
 
 First, for details on operations and functions that can be used with Azure Resource Graph, see
 [Resource Graph query language](./concepts/query-language.md). To browse resources, see

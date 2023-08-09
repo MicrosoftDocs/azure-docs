@@ -1,13 +1,14 @@
 ---
 # Mandatory fields.
-title: Azure Digital Twins query language reference - MATCH clause (preview)
+title: Azure Digital Twins query language reference - MATCH clause
 titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language MATCH clause
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/25/2022
+ms.date: 11/01/2022
 ms.topic: article
 ms.service: digital-twins
+ms.custom: engagement-fy23
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -15,9 +16,9 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Azure Digital Twins query language reference: MATCH clause (preview)
+# Azure Digital Twins query language reference: MATCH clause
 
-This document contains reference information on the *MATCH clause* for the [Azure Digital Twins query language](concepts-query-language.md). This clause is currently in preview.
+This document contains reference information on the *MATCH clause* for the [Azure Digital Twins query language](concepts-query-language.md).
 
 The `MATCH` clause is used in the Azure Digital Twins query language as part of the [FROM clause](reference-query-clause-from.md). `MATCH` allows you to specify which pattern should be followed while traversing relationships in the Azure Digital Twins graph (this is also known as a "variable hop" query pattern).
 
@@ -25,7 +26,7 @@ This clause is optional while querying.
 
 ## Core syntax: MATCH
 
-`MATCH` supports any query that finds a path between twins with an unpredictable number of hops, based on certain relationship conditions. 
+`MATCH` supports any query that finds a path between twins within a range of hops, based on certain relationship conditions. 
 
 The relationship condition can include one or more of the following details:
 * [Relationship direction](#specify-relationship-direction) (left-to-right, right-to-left, or non-directional)
@@ -42,11 +43,14 @@ A query with a `MATCH` clause must also use the [WHERE clause](reference-query-c
 
 Here's the basic `MATCH` syntax. 
 
-The placeholder values shown in the `MATCH` clause that should be replaced with your values are `twin_1`, `relationship_condition`, and `twin_2`. The placeholder values in the `WHERE` clause that should be replaced with your values are `twin_or_twin_collection` and `twin_ID`.
+It contains these placeholders:
+* `twin_or_twin_collection` (x2): The `MATCH` clause requires one operand to represent a single twin. The other operand can represent another single twin, or a collection of twins.
+* `relationship_condition`: In this space, define a condition that describes the relationship between the twins or twin collections. The condition can [specify relationship direction](#specify-relationship-direction), [specify relationship name](#specify-relationship-name), [specify number of hops](#specify-number-of-hops), [specify relationship properties](#assign-query-variable-to-relationship-and-specify-relationship-properties), or [any combination of these options](#combine-match-operations).
+* `twin_ID`: Here, specify a `$dtId` within one of the twin collections so that one of the operands represents a single twin.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchSyntax":::
 
-You can leave out the name of one of the twins in order to allow any twin name to work in that spot.
+You can leave one of the twin collections blank in order to allow any twin to work in that spot.
 
 You can also change the number of relationship conditions, to have multiple [chained](#combine-match-operations) relationship conditions or no relationship condition at all:
 
@@ -81,7 +85,7 @@ Use the relationship condition in the `MATCH` clause to specify a relationship d
 
 Directional relationship descriptions use a visual depiction of an arrow to indicate the direction of the relationship. The arrow includes a space set aside by square brackets (`[]`) for an optional [relationship name](#specify-number-of-hops). 
 
-This section shows the syntax for different directions of relationships. The placeholder values that should be replaced with your values are `source_twin` and `target_twin`.
+This section shows the syntax for different directions of relationships. The placeholder values that should be replaced with your values are `source_twin_or_twin_collection` and `target_twin_or_twin_collection`.
 
 For a *left-to-right* relationship, use the following syntax.
 
@@ -140,11 +144,11 @@ If you don't provide a relationship name, the query will include all relationshi
 
 Specify the name of a relationship to traverse in the `MATCH` clause within square brackets (`[]`). This section shows the syntax of specifying named relationships.
 
-For a single name, use the following syntax. The placeholder values that should be replaced with your values are `twin_1`, `relationship_name`, and `twin_2`.
+For a single name, use the following syntax. The placeholder values that should be replaced with your values are `twin_or_twin_collection_1`, `relationship_name`, and `twin_or_twin_collection_2`.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchNameSingleSyntax":::
 
-For multiple possible names use the following syntax. The placeholder values that should be replaced with your values are `twin_1`, `relationship_name_option_1`, `relationship_name_option_2`, `twin_2`, and the note to continue the pattern as needed for the number of relationship names you want to enter.
+For multiple possible names use the following syntax. The placeholder values that should be replaced with your values are `twin_or_twin_collection_1`, `relationship_name_option_1`, `relationship_name_option_2`, `twin_or_twin_collection_2`, and the note to continue the pattern as needed for the number of relationship names you want to enter.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchNameMultiSyntax":::
 
@@ -188,11 +192,11 @@ If you don't provide a number of hops, the query will default to one hop.
 
 Specify the number of hops to traverse in the `MATCH` clause within the square brackets (`[]`).
 
-To specify an exact number of hops, use the following syntax. The placeholder values that should be replaced with your values are `twin_1`, `number_of_hops`, and `twin_2`.
+To specify an exact number of hops, use the following syntax. The placeholder values that should be replaced with your values are `twin_or_twin_collection_1`, `number_of_hops`, and `twin_or_twin_collection_2`.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchHopsExactSyntax":::
 
-To specify a range of hops, use the following syntax. The placeholder values that should be replaced with your values are `twin_1`, `starting_limit`,  `ending_limit` and `twin_2`. The starting limit isn't included in the range, while the ending limit is included.
+To specify a range of hops, use the following syntax. The placeholder values that should be replaced with your values are `twin_or_twin_collection_1`, `starting_limit`,  `ending_limit` and `twin_or_twin_collection_2`. The starting limit isn't included in the range, while the ending limit is included.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchHopsRangeSyntax":::
 
@@ -236,7 +240,7 @@ A useful result of doing this is the ability to filter on relationship propertie
 >[!NOTE]
 >The examples in this section focus on a query variable for the relationship. They all show non-directional relationships without specifying names. For instructions on how to do more with these other conditions, see [Specify relationship direction](#specify-relationship-direction) and [Specify relationship name](#specify-relationship-name). For information about how to use several of these together in the same query, see [Combine MATCH operations](#combine-match-operations).
 
-To assign a query variable to the relationship, put the variable name in the square brackets (`[]`). The placeholder values shown below that should be replaced with your values are `twin_1`, `relationship_variable`, and `twin_2`.
+To assign a query variable to the relationship, put the variable name in the square brackets (`[]`). The placeholder values shown below that should be replaced with your values are `twin_or_twin_collection_1`, `relationship_variable`, and `twin_or_twin_collection_2`.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchVariableSyntax":::
 
@@ -256,24 +260,24 @@ In a single query, you can combine [relationship direction](#specify-relationshi
 
 The following syntax examples show how these attributes can be combined. You can also leave out any of the optional details shown in placeholders to omit that part of the condition.
 
-To specify relationship direction, relationship name, and number of hops within a single query, use the following syntax within the relationship condition. The placeholder values that should be replaced with your values are `twin_1` and `twin_2`, `optional_left_angle_bracket` and `optional_right_angle_bracket`, `relationship_name(s)`, and `number_of_hops`.
+To specify relationship direction, relationship name, and number of hops within a single query, use the following syntax within the relationship condition. The placeholder values that should be replaced with your values are `twin_or_twin_collection_1` and `twin_or_twin_collection_2`, `optional_left_angle_bracket` and `optional_right_angle_bracket`, `relationship_name(s)`, and `number_of_hops`.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchCombinedHopsSyntax":::
 
-To specify relationship direction, relationship name, and a query variable for the relationship within a single query, use the following syntax within the relationship condition. The placeholder values that should be replaced with your values are `twin_1` and `twin_2`, `optional_left_angle_bracket` and `optional_right_angle_bracket`, `relationship_variable`, and `relationship_name(s)`.
+To specify relationship direction, relationship name, and a query variable for the relationship within a single query, use the following syntax within the relationship condition. The placeholder values that should be replaced with your values are `twin_or_twin_collection_1` and `twin_or_twin_collection_2`, `optional_left_angle_bracket` and `optional_right_angle_bracket`, `relationship_variable`, and `relationship_name(s)`.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchCombinedVariableSyntax":::
 
 >[!NOTE]
 >As per the options for [specifying relationship direction](#specify-relationship-direction), you must pick between a left angle bracket for a left-to-right relationship or a right angle bracket for a right-to-left relationship. You can't include both on the same arrow, but can represent bi-directional relationships by chaining.
 
-You can chain multiple relationship conditions together, like this. The placeholder values that should be replaced with your values are `twin_1`, all instances of `relationship_condition`, and `twin_2`.
+You can chain multiple relationship conditions together, like this. The placeholder values that should be replaced with your values are `twin_or_twin_collection_1`, all instances of `relationship_condition`, and `twin_or_twin_collection_2`.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchChainSyntax":::
 
 ### Examples
 
-Here's an example that combines relationship direction, relationship name, and number of hops The following query finds twins Floor and Room where the relationship between Floor and Room meets these conditions:
+Here's an example that combines relationship direction, relationship name, and number of hops. The following query finds twins Floor and Room where the relationship between Floor and Room meets these conditions:
 * the relationship is left-to-right, with Floor as the source and Room as the target
 * the relationship has a name of either 'contains' or 'isAssociatedWith'
 * the relationship has either 4 or 5 hops

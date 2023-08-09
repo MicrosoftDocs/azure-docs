@@ -1,12 +1,14 @@
 ---
-title: 'Tutorial: Create a cross-region load balancer using Azure CLI'
+title: 'Tutorial: Create a cross-region load balancer - Azure CLI'
 titleSuffix: Azure Load Balancer
 description: Get started with this tutorial deploying a cross-region Azure Load Balancer using Azure CLI.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 03/04/2021
+ms.date: 06/27/2023
+ms.custom: template-tutorial, devx-track-azurecli, engagement-fy23
+ROBOTS: NOINDEX
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
 
@@ -41,7 +43,11 @@ Sign in to Azure CLI:
 ```azurecli-interactive
 az login
 ```
+## Set resource variables
 
+```azurecli-interactive
+
+``````
 ## Create cross-region load balancer
 
 In this section, you'll create a cross-region load balancer, public IP address, and load balancing rule.
