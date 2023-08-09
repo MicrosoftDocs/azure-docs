@@ -1,3 +1,17 @@
+---
+title: Azure Communication Services Media Stats (Native)
+titleSuffix: An Azure Communication Services concept document
+description: Provides usage samples of the Media Stats feature for Native.
+author: jsaurezle-msft
+ms.author: jsaurezlee
+
+services: azure-communication-services
+ms.date: 08/09/2023
+ms.topic: include
+ms.service: azure-communication-services
+ms.subservice: calling
+---
+
 ## Best practices
 If you want to collect this data for off-line inspection (after a call ends), it is recommended to collect this data and send it to your pipeline ingest after your call has ended. If you transmit this data during a call, it could use internet bandwidth that is needed to continue an Azure Communication Services call (especially when available bandwidth is low).
 
