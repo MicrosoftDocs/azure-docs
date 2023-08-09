@@ -61,6 +61,12 @@ The **Count of Flux Configurations by Compliance Status** chart shows the count 
 
 :::image type="content" source="media/monitor-gitops-flux2/flux-configurations-by-status.png" alt-text="Screenshot of the Flux Configuration by Compliance Status chart on the Application Deployments dashboard.":::
 
+### Filter dashboard data to track application deployments
+
+You can filter data in the **GitOps Flux - Application Deployments Dashboard** to change the information shown. For example, you can show data for only certain subscriptions or resource groups, or limit data to a particular cluster. To do so, select the filter option either from the top level dropdowns or from any column header in the tables.
+
+For example, in the **Flux Configuration Compliance Status** table, you can select a specific commit from the **SourceLastSyncCommit** column. By doing so, you can track the status of a configuration deployment to all of the clusters affected by that commit.
+
 ### Create alerts for extension and configuration failures
 
 After you've imported the dashboard as described in the previous section, you can set up alerts. These alerts notify you when Flux extensions or Flux configurations experience failures.
@@ -129,7 +135,7 @@ Follow these steps to import dashboards that let you monitor Flux resource consu
 1. [Link the Managed Prometheus workspace to the Managed Grafana instance](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#link-a-grafana-workspace). This takes a few minutes to complete.
 1. Follow the steps to [import these JSON dashboards to Grafana](/azure/managed-grafana/how-to-create-dashboard#import-a-json-dashboard).
 
-After you have imported the dashboards, they'll display information from the clusters that you're monitoring.
+After you have imported the dashboards, they'll display information from the clusters that you're monitoring. To show information only for a particular cluster or namespace, use the filters near the top of each dashboard.
 
 The **Flux Control Plane** dashboard shows details about status resource consumption, reconciliations at the cluster level, and Kubernetes API requests.
 
@@ -306,11 +312,6 @@ resource fluxRuleGroup 'Microsoft.AlertsManagement/prometheusRuleGroups@2023-03-
 
 ```
 
-## Filter dashboard data to track application deployments
-
-You can filter data in the **GitOps Flux - Application Deployments Dashboard** to change the information shown. For example, you can show data for only certain subscriptions or resource groups, or limit data to a particular cluster. To do so, select the filter option either from the top level dropdowns or from any column header in the tables.
-
-For example, in the **Flux Configuration Compliance Status** table, you can select a specific commit from the **SourceLastSyncCommit** column. By doing so, you can track the status of a configuration deployment to all of the clusters affected by that commit.
 
 ## Next steps
 
