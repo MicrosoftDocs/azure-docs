@@ -61,9 +61,9 @@ sections:
           Device licenses are required when applying custom firmware or returning to base firmware version. For license, contact Thales support with device serial number.
           
       - question: |
-          How to I use smart cards? How many and what kind of smart cards and readers are needed?
+          What kind of smart cards and readers are needed to access payShield manager?
         answer: |
-          Compatible smart cards and smart card readers can be ordered directly from Thales:
+          Azure payment HSM comes with payShield Manager for customer to remotely manage the HSM. Compatible smart cards and smart card readers are required to access payShield Manager, and can be ordered directly from Thales:
           - **Item**:  971-000135-001-000 
           - **Description**: PS10-RMGT-KIT2 - payShield Manager Starter Kit - for software V1.4A (1.8.3) and above    
           - **Items Included**: 2 Thales Card Readers, 30 PayShield Manager Smartcards
