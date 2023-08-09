@@ -156,6 +156,17 @@ Here, create a new key using Azure Key Vault and retrieve the unique identifier.
 
    :::image type="content" source="media/how-to-setup-customer-managed-keys/new-customer-managed-key.png" lightbox="media/how-to-setup-customer-managed-keys/new-customer-managed-key.png" alt-text="Screenshot of the dialog to create a new key.":::
 
+  > [!TIP]
+  > Alternatively, you can use the Azure CLI to generate a key with:
+  >
+  > ```azurecli
+  > az keyvault key create \
+  >     --vault-name <name-of-key-vault> \
+  >     --name <name-of-key>
+  > ```
+  >
+  > For more information on managing a key vault with the Azure CLI, see [manage Azure Key Vault with the Azure CLI](../key-vault/general/manage-with-cli2.md).
+
 1. After the key is created, select the newly created key and then its current version.
 
 1. Copy the key's **Key Identifier**, except the part after the last forward slash:
@@ -336,6 +347,7 @@ az cosmosdb show \
     --query "keyVaultKeyUri"
 ```
 
+
 ---
 
 ## Using a managed identity in the Azure Key Vault access policy
@@ -461,9 +473,6 @@ Currently, only user-assigned managed identity is supported for creating continu
 
 Once the account has been created, you can update the identity to system-assigned managed identity.
 
-> [!NOTE]
-> System-assigned identity and continuous backup mode is currently under Public Preview and may change in the future.
-
 Alternatively, user can also create a system identity with periodic backup mode first, then migrate the account to Continuous backup mode using these instructions [Migrate an Azure Cosmos DB account from periodic to continuous backup mode](./migrate-continuous-backup.md)
 
 ### [Azure CLI](#tab/azure-cli)
@@ -536,10 +545,6 @@ A user-assigned identity is required in the restore request because the source a
 
 Use the Azure CLI to restore a continuous account that is already configured using a system-assigned or user-assigned managed identity.
 
-> [!NOTE]
-> This feature is currently under Public Preview and requires Cosmos DB CLI Extension version 0.20.0 or higher.
-
-
 1. Create a new user-assigned identity (or use an existing one) for the restore process.
 
 1. Create the new access policy in your Azure Key Vault account as described previously, use the Object ID of the managed identity from step 1.
@@ -555,9 +560,6 @@ Use the Azure CLI to restore a continuous account that is already configured usi
     # Variable for location
     location="<azure-region>"
 
-    # Variable for key URI in the key vault
-    keyVaultKeyUri="https://<key-vault-name>.vault.azure.net/keys/<key-name>"
-    
     # Variables for identities
     identityId="<identity-resource-id>"
     
@@ -575,7 +577,6 @@ Use the Azure CLI to restore a continuous account that is already configured usi
     ```
 
 1. Once the restore has completed, the target (restored) account will have the user-assigned identity.  If desired, user can update the account to use System-Assigned managed identity.
-
 
 
 ### [PowerShell / Azure Resource Manager template / Azure portal](#tab/azure-powershell+arm-template+azure-portal)
@@ -741,3 +742,4 @@ Steps to assign a new managed-identity:
 ## Next steps
 
 - Learn more about [data encryption in Azure Cosmos DB](database-encryption-at-rest.md).
+

@@ -1,6 +1,6 @@
 ---
 title: Monitor GitOps (Flux v2) status and activity
-ms.date: 07/21/2023
+ms.date: 07/28/2023
 ms.topic: how-to
 description: Learn how to monitor status, compliance, resource consumption, and reconciliation activity for GitOps with Flux v2.
 ---
@@ -24,11 +24,8 @@ Follow these steps to import dashboards that let you monitor Flux extension depl
 > [!NOTE]
 > These steps describe the process for importing the dashboard to [Azure Managed Grafana](/azure/managed-grafana/overview). You can also [import this dashboard to any Grafana instance](https://grafana.com/docs/grafana/latest/dashboards/manage-dashboards/#import-a-dashboard). With this option, a service principal must be used; managed identity is not supported for data connection outside of Azure Managed Grafana.
 
-1. Create an Azure Managed Grafana instance by using the [Azure portal](/azure/managed-grafana/quickstart-managed-grafana-portal) or [Azure CLI](/azure/managed-grafana/quickstart-managed-grafana-cli). This connection lets the dashboard access Azure Resource Graph.
-1. [Create the Azure Monitor Data Source connection](https://grafana.com/docs/grafana/latest/datasources/azure-monitor/) in your Azure Managed Grafana instance.
-1. Ensure that the user account that will access the dashboard has the **Reader** role on the subscriptions and/or resource groups where the clusters are located.
-
-   If you're using a managed identity, follow these steps to enable this access:
+1. Create an Azure Managed Grafana instance by using the [Azure portal](/azure/managed-grafana/quickstart-managed-grafana-portal) or [Azure CLI](/azure/managed-grafana/quickstart-managed-grafana-cli). Ensure that you're able to access Grafana by selecting its endpoint on the Overview page. You need at least **Reader** level permissions. You can check your access by going to **Access control (IAM)** on the Grafana instance.  
+1. If you're using a managed identity for the Azure Managed Grafana instance, follow these steps to assign it a Reader role on the subscription(s):
 
    1. In the Azure portal, navigate to the subscription that you want to add.
    1. Select **Access control (IAM)**.
@@ -40,6 +37,7 @@ Follow these steps to import dashboards that let you monitor Flux extension depl
 
    If you're using a service principal, grant the **Reader** role to the service principal that you'll use for your data source connection. Follow these same steps, but select **User, group, or service principal** in the **Members** tab, then select your service principal. (If you aren't using Azure Managed Grafana, you must use a service principal for data connection access.)
 
+1. [Create the Azure Monitor Data Source connection](https://grafana.com/docs/grafana/latest/datasources/azure-monitor/) in your Azure Managed Grafana instance. This connection lets the dashboard access Azure Resource Graph data.
 1. Download the [GitOps Flux - Application Deployments Dashboard](https://github.com/Azure/fluxv2-grafana-dashboards/blob/main/dashboards/GitOps%20Flux%20-%20Application%20Deployments%20Dashboard.json).
 1. Follow the steps to [import the JSON dashboard to Grafana](/azure/managed-grafana/how-to-create-dashboard#import-a-json-dashboard).
 
@@ -69,7 +67,7 @@ Follow these steps to import dashboards that let you monitor Flux resource consu
 
 1. Follow the steps to [create an Azure Monitor Workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage).
 1. Create an Azure Managed Grafana instance by using the [Azure portal](/azure/managed-grafana/quickstart-managed-grafana-portal) or [Azure CLI](/azure/managed-grafana/quickstart-managed-grafana-cli).
-1. Enable Prometheus metrics collection on the [AKS clusters](/azure/azure-monitor/essentials/azure-monitor-workspace-manage) and/or [Arc-enabled Kubernetes clusters](/azure/azure-monitor/essentials/prometheus-metrics-from-arc-enabled-cluster) that you want to monitor.
+1. Enable Prometheus metrics collection on the [AKS clusters](/azure/azure-monitor/containers/prometheus-metrics-enable) and/or [Arc-enabled Kubernetes clusters](/azure/azure-monitor/essentials/prometheus-metrics-from-arc-enabled-cluster) that you want to monitor.
 1. Configure Azure Monitor Agent to scrape the Azure Managed Flux metrics by creating a [configmap](/azure/azure-monitor/essentials/prometheus-metrics-scrape-configuration):
 
    ```yaml
@@ -116,7 +114,8 @@ Follow these steps to import dashboards that let you monitor Flux resource consu
      namespace: kube-system
    ```
   
-1. Download the [Flux Control Plane](https://github.com/Azure/fluxv2-grafana-dashboards/blob/main/dashboards/Flux%20Control%20Plane.json) and [Flux Cluster Stats](https://github.com/Azure/fluxv2-grafana-dashboards/blob/main/dashboards/Flux%20Control%20Plane.json) dashboards.
+1. Download the [Flux Control Plane](https://github.com/Azure/fluxv2-grafana-dashboards/blob/main/dashboards/Flux%20Control%20Plane.json) and [Flux Cluster Stats](https://github.com/Azure/fluxv2-grafana-dashboards/blob/main/dashboards/Flux%20Cluster%20Stats.json) dashboards.
+1. [Link the Managed Prometheus workspace to the Managed Grafana instance](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#link-a-grafana-workspace). This takes a few minutes to complete.
 1. Follow the steps to [import these JSON dashboards to Grafana](/azure/managed-grafana/how-to-create-dashboard#import-a-json-dashboard).
 
 After you have imported the dashboards, they'll display information from the clusters that you're monitoring.
@@ -129,13 +128,11 @@ The **Flux Cluster Stats** dashboard shows details about the number of reconcile
 
 :::image type="content" source="media/monitor-gitops-flux2/flux-cluster-stats-dashboard.png" alt-text="Screenshot of the Flux Cluster Stats dashboard." lightbox="media/monitor-gitops-flux2/flux-cluster-stats-dashboard.png":::
 
-## Filter dashboard data
+## Filter dashboard data to track Application Deployments
 
-You can filter data in these dashboards to change the information shown. For example, you can show data for only certain subscriptions or resource groups, or limit data to a particular cluster. To do so, select the filter option from any column header.
+You can filter data in the **GitOps Flux - Application Deployments Dashboard** to change the information shown. For example, you can show data for only certain subscriptions or resource groups, or limit data to a particular cluster. To do so, select the filter option either from the top level dropdowns or from any column header in the tables.
 
-For example, in the **Flux Configuration Compliance Status** table on the **Application Deployments** dashboard, you can select a specific commit from the **SourceLastSyncCommit** column. By doing so, you can track the status of a configuration deployment for all of the clusters affected by that commit.
-
-In the **Application Deployments** dashboard, some fields in the **Flux Extension Deployment Status** and **Flux Configuration Compliance Status** panels are hidden by default (such as **SubscriptionID**, **ResourceGroupName**, and **ClusterType**). To show hidden fields, select the panel and then select **Edit**. On the **Overrides** tab, find the field you want to show, then unselect the **Hide in table** option.
+For example, in the **Flux Configuration Compliance Status** table, you can select a specific commit from the **SourceLastSyncCommit** column. By doing so, you can track the status of a configuration deployment to all of the clusters affected by that commit.
 
 ## Next steps
 
