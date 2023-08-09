@@ -28,7 +28,6 @@ To disable local authentication for a Log Analytics workspace, you need `microso
 
 ## Disable local authentication for Log Analytics workspaces
 
-After you've removed your reliance on the Log Analytics agent, you can disable local authentication for Log Analytics workspaces. Then you can ingest and query telemetry authenticated exclusively by Azure AD.
 
 Disabling local authentication might limit the availability of some functionality, specifically:
 
