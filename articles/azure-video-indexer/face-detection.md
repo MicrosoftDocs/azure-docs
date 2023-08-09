@@ -27,7 +27,7 @@ Review [transparency note overview](/legal/azure-video-indexer/transparency-note
 
 This article discusses faces detection and the key considerations for using this technology responsibly. There are many things you need to consider when you decide how to use and implement an AI-powered feature:
 
-- Will this feature perform well in my scenario? Before deploying face detection in your scenario, test how it performs by using real-life data. Make make sure that it can deliver the accuracy you need.
+- Will this feature perform well in my scenario? Before you deploy face detection in your scenario, test how it performs by using real-life data. Make make sure that it can deliver the accuracy you need.
 - Are you equipped to identify and respond to errors? AI-powered products and features won't be 100% accurate, so consider how you'll identify and respond to any errors that might occur.
 
 ## Key terms  
@@ -37,7 +37,7 @@ This article discusses faces detection and the key considerations for using this
 | Insight  | The information and knowledge that you derive from processing and analyzing video and audio files that generate different types of insights. The insight can include detected objects, people, faces, keyframes, and translations or transcriptions. |
 | Face recognition  | The analysis of images to identify the faces that appear in the images. This process is implemented via the Azure AI Face API. |
 | Template | Enrolled images of people are converted to templates, which are then used for facial recognition. Machine-interpretable features are extracted from one or more images of an individual to create that individual’s template. The enrollment or probe images aren't stored by the Face API, and the original images can't be reconstructed based on a template. Template quality is a key determinant on the accuracy of your results. |
-| Enrollment | The process of enrolling images of individuals for template creation so they can be recognized. When a person is enrolled to a verification system that's used for authentication, their template is also associated with a primary identifier2 that's used to determine which template to compare with the probe template. High-quality images and images that represent natural variations in how a person looks (for instance,wearing glasses and not wearing glasses) generate high-quality enrollment templates. |
+| Enrollment | The process of enrolling images of individuals for template creation so they can be recognized. When a person is enrolled to a verification system that's used for authentication, their template is also associated with a primary identifier2 that's used to determine which template to compare with the probe template. High-quality images and images that represent natural variations in how a person looks (for instance, wearing glasses and not wearing glasses) generate high-quality enrollment templates. |
 | Deep search  | The ability to retrieve only relevant video and audio files from a video library by searching for specific terms within the extracted insights.|
 
 ## View insights
