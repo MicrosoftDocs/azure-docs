@@ -126,6 +126,8 @@
         href: ot-deploy/update-device-inventory.md
       - name: Create a learned baseline of OT alerts
         href: ot-deploy/create-learned-baseline.md
+    - name: Deploy in hybrid or air-gapped environments
+      href: ot-deploy/air-gapped-deploy.md
   - name: Deploy Enterprise IoT monitoring
     items:
     - name: Enable Enterprise IoT security

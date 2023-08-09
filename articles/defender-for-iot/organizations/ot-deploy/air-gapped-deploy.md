@@ -7,13 +7,41 @@ ms.date: 08/07/2023
 
 # Deploy hybrid or air-gapped OT sensor management
 
-<!--THIS ARTICLE NEEDS TO BE REWORKED WITH NEW DEPLOYMENT GUIDANCE FOR NEW ARCHITECTURE-->
-
 > [!IMPORTANT]
 > The [legacy on-premises management console](../legacy-central-management/legacy-air-gapped-deploy.md) is planned for deprecation on September 1, 2023. Instead, we recommend using either Microsoft cloud services or existing IT infrastructure for central monitoring and maintenance in hybrid and air-gapped environments.
 >
 > For more information, see [Recommended architecture for hybrid or air-gapped environments](air-gapped-architecture.md).
 >
+
+Digital transformation across OT infrastructure has left many fully air-gapped organizations moving to some level of hybrid cloud connectivity. Rather than not using the cloud at all, many organizations focus on using cloud service securely. Attackers continue evolving in parallel, learning to travel laterally across silos and perimeters, creating an ever growing attack surface.
+
+This article describes how to deploy Microsoft Defender for IoT when working in an air-gapped or hybrid environment.  Rather than keeping all Defender for IoT's maintenance infrastructure contained in a closed architecture, we recommend that you use existing IT infrastructure and any cloud services, especially Microsoft cloud services, to keep your security operations running smoothly and efficiently.
+
+## Architecture recommendations
+
+The following image shows a high-level map of Defender for IoT's architecture guidance for air-gapped and hybrid networks.
+
+:::image type="content" source="../media/on-premises-architecture/on-premises-architecture.png" alt-text="Diagram of the new architecture for hybrid and air-gapped support.":::
+
+In this architecture, three sensors connect to four routers in different logical zones across the organization. The sensors sit behind a firewall, and support local, on-premises maintenance abilities, such as:
+
+- Proxy services for accessing non-local resources
+- Backup and restore. We recommend that after backing up your sensor, you further push your backup files to other local file systems.
+- Software updates. Download version updates from the Microsoft cloud and then run your updates locally on individual sensors. <!--what if you have many? link to cli?-->
+- Alert forwarding, such as to local security information and event management (SIEM) systems
+
+We also recommend that you connect each sensor to a SNMP MIB server for sensor health monitoring.
+
+> [!TIP]
+> Defender for IoT's OT sensors can communicate directly with your existing security stack via API. For more information, see [Defender for IoT API reference](../references-work-with-defender-for-iot-apis.md).
+>
+> Wherever possible, we recommend that you configure cloud-to-cloud integrations from Azure for reliability to your partner services and lower costs. For example, see [Stream Defender for IoT cloud alerts to a partner SIEM](../integrations/send-cloud-data-to-partners.md).
+
+
+## Deployment flow
+<!--THIS ARTICLE NEEDS TO BE REWORKED WITH NEW DEPLOYMENT GUIDANCE FOR NEW ARCHITECTURE-->
+
+
 
 When you're working with multiple, air-gapped OT sensors that can't be managed by the Azure portal, we recommend deploying an on-premises management console to manage your air-gapped OT sensors.
 
