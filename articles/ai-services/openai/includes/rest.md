@@ -103,7 +103,7 @@ The output from the completions API will look as follows.
     "id": "ID of your call",
     "object": "text_completion",
     "created": 1675444965,
-    "model": "gpt-35-turbo",
+    "model": "text-davinci-003",
     "choices": [
         {
             "text": " there lived in a little village a woman who was known as the meanest",
