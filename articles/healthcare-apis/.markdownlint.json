@@ -39,20 +39,7 @@
     "MD041": false,
     "MD042": false,
     "MD043": true,
-    "MD044": {
-        "code_blocks": false,
-        "names": [
-            ".NET",
-            "ASP.NET",
-            "Azure",
-            "JavaScript",
-            "NuGet",
-            "PowerShell",
-            "macOS",
-            "C#",
-            "CLI"
-        ]
-    },
+    "MD044": false,
     "MD045": false,
     "MD046": false,
     "MD047": false,

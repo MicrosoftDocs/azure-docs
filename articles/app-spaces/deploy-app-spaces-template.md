@@ -23,7 +23,7 @@ To use a sample app for Azure App Spaces, you must have the following items:
 
 Do the following steps to deploy a sample app to App Spaces.
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/#home).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Enter `App Spaces` in the search box, and then select **App Spaces**.
 3. Select a sample app. For this example, we selected the **Static Web App with Node.js API - Mongo DB** template.
 

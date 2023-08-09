@@ -1,6 +1,6 @@
 ---
 title: New Custom Recommendations for AWS and GCP | Defender for Cloud in the field 
-titleSuffix: Microsoft Defender for Cloud
+
 description: Learn about new custom recommendations for AWS and GCP in Defender for Cloud
 ms.topic: reference
 ms.date: 05/14/2023

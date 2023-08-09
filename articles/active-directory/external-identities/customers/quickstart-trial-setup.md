@@ -33,7 +33,7 @@ During the free trial period, you'll have access to all product features with fe
 | **MFA** (With email OTP.)  | :heavy_check_mark: |  :heavy_check_mark:  |  
 | **Custom token augmentation** (From external sources.) |  :heavy_check_mark: |  :heavy_check_mark:  |
 | **Social identity providers**   |  :heavy_check_mark: |  :heavy_check_mark:  |
-| **Identity Protection** (Conditional access for adaptive risk-based policies.)  | :x: |  :heavy_check_mark:  |
+| **Identity Protection** (Conditional Access for adaptive risk-based policies.)  | :x: |  :heavy_check_mark:  |
 | Default, least-access privileges for CIAM end-users. |  :heavy_check_mark: |  :heavy_check_mark:  |
 | **Rich authorization** (Including group and role management.)  |  :heavy_check_mark: |  :heavy_check_mark:  | 
 | **Customizable** (Sign-in/sign-up experiences - background, logo, strings.) |  :heavy_check_mark: |  :heavy_check_mark:  |

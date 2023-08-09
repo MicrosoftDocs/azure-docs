@@ -16,6 +16,13 @@ monikerRange: 'azureml-api-1 || azureml-api-2'
 
 # Troubleshooting environment issues
 
+:::moniker range="azureml-api-2"
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
+:::moniker-end
+:::moniker range="azureml-api-1"
+[!INCLUDE [dev v1](includes/machine-learning-dev-v1.md)]
+:::moniker-end
+
 In this article, learn how to troubleshoot common problems you may encounter with environment image builds and learn about AzureML environment vulnerabilities.
 
 We are actively seeking your feedback! If you navigated to this page via your Environment Definition or Build Failure Analysis logs, we'd like to know if the feature was helpful to you, or if you'd like to report a failure scenario that isn't yet covered by our analysis. You can also leave feedback on this documentation. Leave your thoughts [here](https://aka.ms/azureml/environment/log-analysis-feedback). 
@@ -182,8 +189,8 @@ This issue can happen when the name of your custom environment uses terms reserv
 ## *Docker issues*
 
 :::moniker range="azureml-api-1"
-[!INCLUDE [machine-learning-cli-v1](../../includes/machine-learning-cli-v1.md)]
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-cli-v1](includes/machine-learning-cli-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 To create a new environment, you must use one of the following approaches (see [DockerSection](https://aka.ms/azureml/environment/environment-docker-section)):
 * Base image
@@ -198,8 +205,8 @@ To create a new environment, you must use one of the following approaches (see [
 :::moniker-end
 
 :::moniker range="azureml-api-2"
-[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
-[!INCLUDE [machine-learning-sdk-v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [machine-learning-cli-v2](includes/machine-learning-cli-v2.md)]
+[!INCLUDE [machine-learning-sdk-v2](includes/machine-learning-sdk-v2.md)]
 
 To create a new environment, you must use one of the following approaches:
 * Docker image
@@ -217,7 +224,7 @@ To create a new environment, you must use one of the following approaches:
 
 :::moniker range="azureml-api-1"
 ### Missing Docker definition
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 <!--issueDescription-->
 This issue can happen when your environment definition is missing a `DockerSection`. This section configures settings related to the final Docker image built from your environment specification.
@@ -255,7 +262,7 @@ myenv.docker.base_dockerfile = dockerfile
 **Potential causes:**
 
 :::moniker range="azureml-api-1"
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 You have more than one of these Docker options specified in your environment definition
 * `base_image`
@@ -265,8 +272,8 @@ You have more than one of these Docker options specified in your environment def
 :::moniker-end
 
 :::moniker range="azureml-api-2"
-[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
-[!INCLUDE [machine-learning-sdk-v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [machine-learning-cli-v2](includes/machine-learning-cli-v2.md)]
+[!INCLUDE [machine-learning-sdk-v2](includes/machine-learning-sdk-v2.md)]
 
 You have more than one of these Docker options specified in your environment definition
 * `image`
@@ -283,7 +290,7 @@ You have more than one of these Docker options specified in your environment def
 Choose which Docker option you'd like to use to build your environment. Then set all other specified options to None.
 
 :::moniker range="azureml-api-1"
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Environment
@@ -314,8 +321,8 @@ You didn't specify one of the following options in your environment definition
 :::moniker-end
 
 :::moniker range="azureml-api-2"
-[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
-[!INCLUDE [machine-learning-sdk-v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [machine-learning-cli-v2](includes/machine-learning-cli-v2.md)]
+[!INCLUDE [machine-learning-sdk-v2](includes/machine-learning-sdk-v2.md)]
 
 You didn't specify one of the following options in your environment definition
 * `image`
@@ -332,7 +339,7 @@ You didn't specify one of the following options in your environment definition
 Choose which Docker option you'd like to use to build your environment, then populate that option in your environment definition.
 
 :::moniker range="azureml-api-1"
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Environment
@@ -342,7 +349,7 @@ myenv.docker.base_image = "pytorch/pytorch:latest"
 
 :::moniker-end
 :::moniker range="azureml-api-2"
-[!INCLUDE [machine-learning-sdk-v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [machine-learning-sdk-v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 env_docker_image = Environment(
@@ -376,7 +383,7 @@ ml_client.environments.create_or_update(env_docker_image)
 **Troubleshooting steps**
 
 :::moniker range="azureml-api-1"
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 Add the missing username or password to your environment definition to fix the issue
 
@@ -394,7 +401,7 @@ ws.set_connection("connection1", "ACR", "<URL>", "Basic", "{'Username': '<userna
 :::moniker-end
 
 :::moniker range="azureml-api-2"
-[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [machine-learning-cli-v2](includes/machine-learning-cli-v2.md)]
 
 Create a workspace connection from a YAML specification file
 
@@ -431,7 +438,7 @@ az ml connection create --file connection.yml --resource-group my-resource-group
 **Troubleshooting steps**
 
 :::moniker range="azureml-api-1"
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 If you're using workspace connections, view the connections you have set, and delete whichever one(s) you don't want to use
 
@@ -480,7 +487,7 @@ myEnv.docker.base_image_registry.registry_identity = None
 Specifying credentials in your environment definition is no longer supported. Delete credentials from your environment definition and use workspace connections instead.
 
 :::moniker range="azureml-api-1"
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 Set a workspace connection on your workspace
 
@@ -491,7 +498,7 @@ ws.set_connection("connection1", "ACR", "<URL>", "Basic", "{'Username': '<userna
 ```
 :::moniker-end
 :::moniker range="azureml-api-2"
-[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [machine-learning-cli-v2](includes/machine-learning-cli-v2.md)]
 
 Create a workspace connection from a YAML specification file
 
@@ -530,7 +537,7 @@ az ml connection create --file connection.yml --resource-group my-resource-group
 
 **Troubleshooting steps**
 
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 Instead of specifying these attributes in the `DockerSection` of your environment definition, use [DockerConfiguration](https://aka.ms/azureml/environment/docker-configuration-class)
  
@@ -567,14 +574,14 @@ Shorten your Dockerfile to get it under this limit
 **Troubleshooting steps**
 
 :::moniker range="azureml-api-1"
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 Include a path in the `build_context` of your [DockerSection](https://aka.ms/azureml/environment/docker-section-class)
 * See [DockerBuildContext Class](/python/api/azureml-core/azureml.core.environment.dockerbuildcontext)
 :::moniker-end
 :::moniker range="azureml-api-2"
-[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
-[!INCLUDE [machine-learning-sdk-v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [machine-learning-cli-v2](includes/machine-learning-cli-v2.md)]
+[!INCLUDE [machine-learning-sdk-v2](includes/machine-learning-sdk-v2.md)]
 
 Ensure that you include a path for your build context
 * See [BuildContext class](https://aka.ms/azureml/environment/build-context-class)
@@ -599,14 +606,14 @@ This issue can happen when Azure Machine Learning fails to find your Dockerfile.
 **Troubleshooting steps**
 
 :::moniker range="azureml-api-1"
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 In the `build_context` of your [DockerSection](https://aka.ms/azureml/environment/docker-section-class), include a `dockerfile_path`
 * See [DockerBuildContext Class](/python/api/azureml-core/azureml.core.environment.dockerbuildcontext)
 :::moniker-end
 :::moniker range="azureml-api-2"
-[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
-[!INCLUDE [machine-learning-sdk-v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [machine-learning-cli-v2](includes/machine-learning-cli-v2.md)]
+[!INCLUDE [machine-learning-sdk-v2](includes/machine-learning-sdk-v2.md)]
 
 Specify a Dockerfile path
 * [See BuildContext class](https://aka.ms/azureml/environment/build-context-class)
@@ -635,7 +642,7 @@ This issue can happen when you've specified properties in your environment defin
 
 **Troubleshooting steps**
 
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 If you specified any of the above-listed properties in your environment definition, remove them
 * If you're using a Docker build context and want to specify conda dependencies, your conda specification should reside in your build context directory
@@ -658,7 +665,7 @@ If you specified any of the above-listed properties in your environment definiti
 
 **Troubleshooting steps**
 
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 The following are accepted location types:
 * Git
@@ -685,7 +692,7 @@ The following are accepted location types:
 
 **Troubleshooting steps**
 
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 For scenarios in which you're storing your Docker build context in a storage account
 * You must specify the path of the build context as 
@@ -767,7 +774,7 @@ Include at least one of the following specifiers on your base image
 
 **Troubleshooting steps**
 
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 Use the `environment_variables` attribute on the [RunConfiguration object](https://aka.ms/azureml/environment/environment-variables-on-run-config) instead
 
@@ -788,7 +795,7 @@ Use the `environment_variables` attribute on the [RunConfiguration object](https
 
 **Troubleshooting steps**
 
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 Populate the Python section of your environment definition
 * See [PythonSection class](https://aka.ms/azureml/environment/environment-python-section)
@@ -808,7 +815,7 @@ Populate the Python section of your environment definition
 
 :::moniker range="azureml-api-1"
 
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 Add Python as a conda package and specify the version
 
@@ -854,7 +861,7 @@ channels:
 
 :::moniker range="azureml-api-1"
 
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 Choose which Python version you want to use, and remove all other versions 
 
@@ -912,7 +919,7 @@ Specify a [python version](https://aka.ms/azureml/environment/python-versions) t
 
 :::moniker range="azureml-api-1"
 
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 Use correct syntax to specify a Python version using the SDK
 
@@ -952,7 +959,7 @@ channels:
 
 :::moniker range="azureml-api-1"
 
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 If you don't want Azure Machine Learning to create a Python environment for you based on `conda_dependencies,` set `user_managed_dependencies` to `True`
 
@@ -975,8 +982,8 @@ env.python.conda_dependencies = conda_dep
 :::moniker-end
 :::moniker range="azureml-api-2"
 
-[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
-[!INCLUDE [machine-learning-sdk-v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [machine-learning-cli-v2](includes/machine-learning-cli-v2.md)]
+[!INCLUDE [machine-learning-sdk-v2](includes/machine-learning-sdk-v2.md)]
 
 You must specify a base Docker image for the environment, and Azure Machine Learning then builds the conda environment on top of that image
 * Provide the relative path to the conda file
@@ -1003,7 +1010,7 @@ You must specify a base Docker image for the environment, and Azure Machine Lear
 
 :::moniker range="azureml-api-1"
 
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 Ensure that `conda_dependencies` is a JSONified version of the conda dependencies YAML structure
 
@@ -1039,8 +1046,8 @@ env.python.conda_dependencies = conda_dep
 :::moniker-end
 :::moniker range="azureml-api-2"
 
-[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
-[!INCLUDE [machine-learning-sdk-v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [machine-learning-cli-v2](includes/machine-learning-cli-v2.md)]
+[!INCLUDE [machine-learning-sdk-v2](includes/machine-learning-sdk-v2.md)]
 
 You must specify a base Docker image for the environment, and Azure Machine Learning then builds the conda environment on top of that image
 * Provide the relative path to the conda file
@@ -1071,7 +1078,7 @@ For reproducibility of your environment, specify channels from which to pull dep
 
 :::moniker range="azureml-api-1"
 
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 Add a conda channel using the Python SDK
 
@@ -1127,7 +1134,7 @@ Partial environment updates can lead to dependency conflicts and/or unexpected r
 
 :::moniker range="azureml-api-1"
 
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 Remove your base conda environment, and specify all packages needed for your environment in the `conda_dependencies` section of your environment definition
 
@@ -1144,8 +1151,8 @@ env.python.conda_dependencies = conda_dep
 :::moniker-end
 :::moniker range="azureml-api-2"
 
-[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
-[!INCLUDE [machine-learning-sdk-v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [machine-learning-cli-v2](includes/machine-learning-cli-v2.md)]
+[!INCLUDE [machine-learning-sdk-v2](includes/machine-learning-sdk-v2.md)]
 
 Define an environment using a standard conda YAML configuration file
 * See [how to create an environment from a conda specification](https://aka.ms/azureml/environment/create-env-conda-spec-v2)
@@ -1178,7 +1185,7 @@ If you don't specify a dependency version, the conda package resolver may choose
 
 :::moniker range="azureml-api-1"
 
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 Include version numbers when adding packages to your conda specification
 
@@ -1223,7 +1230,7 @@ For reproducibility, you should specify and pin pip as a dependency in your cond
 
 :::moniker range="azureml-api-1"
 
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 Specify pip as a dependency, along with its version
 
@@ -1265,7 +1272,7 @@ If you don't specify a pip version, a different version may be used on subsequen
 
 :::moniker range="azureml-api-1"
 
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 Specify a pip version in your conda dependencies
 
@@ -1308,7 +1315,7 @@ The Azure Machine Learning SDK for R was deprecated at the end of 2021 to make w
 
 :::moniker range="azureml-api-1"
 
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 Remove the R section from your environment definition
 
@@ -1360,7 +1367,7 @@ This issue can happen when there's a failure in accessing a workspace's associat
 
 :::moniker range="azureml-api-1"
 
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 Update the workspace image build compute property using SDK:
 
@@ -1372,8 +1379,8 @@ ws.update(image_build_compute = 'mycomputecluster')
 
 :::moniker-end
 
-[!INCLUDE [machine-learning-cli-v1](../../includes/machine-learning-cli-v1.md)]
-[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [machine-learning-cli-v1](includes/machine-learning-cli-v1.md)]
+[!INCLUDE [machine-learning-cli-v2](includes/machine-learning-cli-v2.md)]
 
 Update the workspace image build compute property using Azure CLI:
 
@@ -1747,7 +1754,7 @@ Provide authentication via workspace connections
 
 :::moniker range="azureml-api-1"
 
-[!INCLUDE [machine-learning-sdk-v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Workspace
@@ -1759,7 +1766,7 @@ ws.set_connection("connection1", "PythonFeed", "<URL>", "Basic", "{'Username': '
 
 :::moniker range="azureml-api-2"
 
-[!INCLUDE [machine-learning-cli-v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [machine-learning-cli-v2](includes/machine-learning-cli-v2.md)]
 
 Create a workspace connection from a YAML specification file
 

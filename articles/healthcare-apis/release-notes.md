@@ -6,7 +6,7 @@ author: kgaddam10
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 07/05/2023
+ms.date: 08/03/2023
 ms.author: kavitagaddam 
 ms.custom: references_regions
 ---
@@ -19,12 +19,31 @@ ms.custom: references_regions
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. This document provides details about the features and enhancements made to Azure Health Data Services including the different service types (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
 
+## July 2023
+#### Azure Health Data Services
+
+#### FHIR Service
+**Bug Fix: Continous retry on Import operation**
+
+We observed an issue where $import kept on retrying when NDJSON file size is greater than 2GB. The issue is fixed, for details visit [3342](https://github.com/microsoft/fhir-server/pull/3342).
+
+**Bug Fix: Patient and Group level export job restart on interruption**
+
+Patient and Group level exports on interruption would restart from the beginning. Bug is fixed to restart the export jobs from the last sucessfully completed page of results. For more details visit [3205](https://github.com/microsoft/fhir-server/pull/3205).
+
+#### DICOM Service
+**API Version 2 is Generally Available (GA)**
+
+The DICOM service API v2 is now Generally Available (GA) and introduces [several changes and new features](dicom/dicom-service-v2-api-changes.md).  Most notable is the change to validation of DICOM attributes during store (STOW) operations - beginning with v2, the request fails only if **required attributes** fail validation.  See the [DICOM Conformance Statement v2](dicom/dicom-services-conformance-statement-v2.md) for full details.  
+
+
 ## June 2023
 #### Azure Health Data Services
 
 #### FHIR Service 
 
 **Feature Enhancement: Incremental Import**
+
 $Import operation now supports new capability of "Incremental Load" mode, which is optimized for periodically loading data into the FHIR service. 
 
 With Incremental Load mode, customers can:
@@ -35,7 +54,6 @@ With Incremental Load mode, customers can:
 > [!IMPORTANT]
 > Incremental import mode is currently in public preview
 > Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities.
-> 
 > For more information, review [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 For details on Incremental Import, visit [Import Documentation](./../healthcare-apis/fhir/configure-import-data.md).
@@ -67,7 +85,7 @@ The DICOM Change Feed API could previously return results that incorrectly skipp
 
 #### MedTech service 
 
-**Feature Enhancement: Encounter identifiers included in the device message**
+**Encounter identifiers included in the device message**
 
 Customers can now include encounter identifiers in the device message so that they can look up the corresponding FHIR encounter and link it to the observation created in the FHIR transformation. This look up feature is supported in OSS and was an ask from customers for the PaaS MedTech service.
 

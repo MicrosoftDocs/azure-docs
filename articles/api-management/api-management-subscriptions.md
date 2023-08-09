@@ -7,7 +7,7 @@ author: dlepow
  
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 04/19/2023
+ms.date: 08/02/2023
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -16,7 +16,7 @@ ms.custom: engagement-fy23
 In Azure API Management, *subscriptions* are the most common way for API consumers to access APIs published through an API Management instance. This article provides an overview of the concept.
 
 > [!NOTE]
-> An API Management subscription is used specifically to call APIs through API Management. It's not the same as an Azure subscription.
+> An API Management subscription is used specifically to call APIs through API Management using a subscription key. It's not the same as an Azure subscription.
 
 ## What are subscriptions?
 
@@ -69,7 +69,7 @@ In these cases, you don't need to create a product and add APIs to it first.
 
 ### All-access subscription
 
-Each API Management instance comes with an immutable, all-APIs subscription (also called an *all-access* subscription). This built-in subscription makes it straightforward to test and debug APIs within the test console.
+Each API Management instance comes with a built in all-access subscription that grants access to all APIs. This service-scoped subscription makes it straightforward for service owners to test and debug APIs within the test console.
 
 > [!WARNING]
 > The all-access subscription enables access to every API in the API Management instance and should only be used by authorized users. Never use this subscription for routine API access or embed the all-access subscription key in client apps.
@@ -89,7 +89,7 @@ Creating a subscription without assigning an owner makes it a standalone subscri
 
 API publishers can [create subscriptions](api-management-howto-create-subscriptions.md) directly in the Azure portal. 
 
-When created in the portal, a subscription is in the **Active** state, meaning a subscriber can call an associated API using a valid subscription key. You can change the state of the subscription as needed - for example, you can suspend, cancel, or delete the subscription to prevent API access.
+When created in the portal, a subscription is in the **Active** state, meaning a subscriber can call an associated API using a valid subscription key. You can change the state of the subscription as needed. For example, you can suspend, cancel, or delete any subscription (including the built-in all-access subscription) to prevent API access.
 
 ## Use a subscription key
 

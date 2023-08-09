@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli
-ms.date: 06/14/2023
+ms.date: 08/07/2023
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -90,9 +90,6 @@ Azure CNI offers two IP addressing options for pods: the traditional configurati
 Azure CNI Overlay has the following limitations:
 
 - You can't use Application Gateway as an Ingress Controller (AGIC) for an Overlay cluster.
-- Windows support is still in Preview.
-  - Windows Server 2019 node pools are **not** supported for Overlay
-  - Traffic from host network pods isn't able to reach Windows Overlay pods.
 - Virtual Machine Availability Sets (VMAS) aren't supported for Overlay.
 - Dual stack networking isn't supported in Overlay.
 - You can't use [DCsv2-series](/azure/virtual-machines/dcv2-series) virtual machines in node pools. To meet Confidential Computing requirements, consider using [DCasv5 or DCadsv5-series confidential VMs](/azure/virtual-machines/dcasv5-dcadsv5-series) instead.
@@ -121,6 +118,14 @@ az aks create -n $clusterName -g $resourceGroup --location $location --network-p
 > - Doesn't use the dynamic pod IP allocation feature.
 > - Doesn't have network policies enabled.
 > - Doesn't use any Windows node pools with docker as the container runtime.
+ 
+> [!WARNING]
+> Prior to Windows OS Build 20348.1668, there was a limitation around Windows Overlay pods incorrectly SNATing packets from host network pods, which had a more detrimental effect for clusters upgrading to Overlay. To avoid this issue, **use Windows OS Build greater than or equal to 20348.1668**.
+
+> [!WARNING]
+> If using a custom azure-ip-masq-agent config to include additional IP ranges that should not SNAT packets from pods, upgrading to Azure CNI Overlay may break connectivity to these ranges. Pod IPs from the overlay space will not be reachable by anything outside the cluster nodes.
+> Additionally, for sufficiently old clusters there may be a ConfigMap left over from a previous version of azure-ip-masq-agent. If this ConfigMap, named `azure-ip-masq-agent-config`, exists and is not intetionally in-place it should be deleted before running the update command.
+> If not using a custom ip-masq-agent config, only the `azure-ip-masq-agent-config-reconciled` ConfigMap should exist with respect to Azure ip-masq-agent ConfigMaps and this will be updated automatically during the upgrade process.
 
 The upgrade process triggers each node pool to be re-imaged simultaneously. Upgrading each node pool separately to Overlay isn't supported. Any disruptions to cluster networking are similar to a node image upgrade or Kubernetes version upgrade where each node in a node pool is re-imaged.
 
@@ -138,47 +143,6 @@ az aks update --name $clusterName \
 ```
 
 The `--pod-cidr` parameter is required when upgrading from legacy CNI because the pods need to get IPs from a new overlay space, which doesn't overlap with the existing node subnet. The pod CIDR also can't overlap with any VNet address of the node pools. For example, if your VNet address is *10.0.0.0/8*, and your nodes are in the subnet *10.240.0.0/16*, the `--pod-cidr` can't overlap with *10.0.0.0/8* or the existing service CIDR on the cluster.
-
-> [!WARNING]
-> Prior to Windows OS Build 20348.1668, there was a limitation around Windows Overlay pods incorrectly SNATing packets from host network pods, which had a more detrimental effect for clusters upgrading to Overlay. To avoid this issue, **use Windows OS Build 20348.1668**.
-
-## Install the aks-preview Azure CLI extension - Windows only
-
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
-
-Install the `aks-preview` extension using the [`az extension add`][az-extension-add] command.
-
-```azurecli
-az extension add --name aks-preview
-```
-
-Update to the latest version of the extension released using the [`az extension update`][az-extension-update] command.
-
-```azurecli
-az extension update --name aks-preview
-```
-
-## Register the 'AzureOverlayPreview' feature flag
-
-1. Register the `AzureOverlayPreview` feature flag using the [`az feature register`][az-feature-register] command.
-
-    ```azurecli-interactive
-    az feature register --namespace "Microsoft.ContainerService" --name "AzureOverlayPreview"
-    ```
-
-    It takes a few minutes for the status to show *Registered*.
-
-2. Verify the registration status using the [`az feature show`][az-feature-show] command.
-
-    ```azurecli-interactive
-    az feature show --namespace "Microsoft.ContainerService" --name "AzureOverlayPreview"
-    ```
-
-3. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command:
-
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.ContainerService
-    ```
 
 ## Next steps
 

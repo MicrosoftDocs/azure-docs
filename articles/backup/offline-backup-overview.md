@@ -4,8 +4,8 @@ description: Learn about the components of offline backup. They include offline 
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: references_regions 
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Overview of offline backup

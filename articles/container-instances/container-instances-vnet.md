@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 06/17/2022
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ---
 
 # Deploy container instances into an Azure virtual network
@@ -27,6 +27,9 @@ This article shows how to use the [az container create][az-container-create] com
 Examples in this article are formatted for the Bash shell. If you prefer another shell such as PowerShell or Command Prompt, adjust the line continuation characters accordingly.
 
 ## Deploy to new virtual network
+
+> [!NOTE]
+> If you are using  port 29 to have only 3 IP addresses, we recommend always to go one range above or below. For example, use port 28 so you can have at least 1 or more IP buffer per container group. By doing this, you can avoid containers in stuck, not able start or not able to stop states.
 
 To deploy to a new virtual network and have Azure create the network resources for you automatically, specify the following when you execute [az container create][az-container-create]:
 

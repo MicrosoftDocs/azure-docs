@@ -59,7 +59,7 @@ The Azure Linux container host has the following limitations:
 [azurelinux-doc]: https://microsoft.github.io/CBL-Mariner/docs/#cbl-mariner-linux
 [azurelinux-capabilities]: https://microsoft.github.io/CBL-Mariner/docs/#key-capabilities-of-cbl-mariner-linux
 [azurelinux-cluster-config]: cluster-configuration.md#azure-linux-container-host-for-aks
-[azurelinux-node-pool]: use-multiple-node-pools.md#add-an-azure-linux-node-pool
-[ubuntu-to-azurelinux]: use-multiple-node-pools.md#migrate-ubuntu-nodes-to-azure-linux
+[azurelinux-node-pool]: create-node-pools.md#add-an-azure-linux-node-pool
+[ubuntu-to-azurelinux]: create-node-pools.md#migrate-ubuntu-nodes-to-azure-linux-nodes
 [auto-upgrade-aks]: auto-upgrade-cluster.md
 [kured]: node-updates-kured.md

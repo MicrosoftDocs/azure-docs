@@ -1,17 +1,18 @@
 ---
-title: Network Insights topology
+title: Network Insights topology (preview)
 description: An overview of topology, which provides a pictorial representation of the resources.
-ms.topic: how-to
-ms.service: network-watcher
 author: halkazwini
 ms.author: halkazwini
-ms.date: 11/16/2022
-ms.custom: subject-monitoring, ignite-2022, engagement-fy23
+ms.reviewer: saggupta
+ms.service: network-watcher
+ms.topic: how-to
+ms.date: 08/08/2023
+ms.custom: subject-monitoring, ignite-2022
 ---
 
-# Topology (Preview)
+# Topology (preview)
 
-Topology provides a visualization of the entire network for understanding network configuration. It provides an interactive interface to view resources and their relationships in Azure spanning across multiple subscriptions, resource groups and locations. You can also drill down to a resource view for resources to view their component level visualization.
+Topology provides a visualization of the entire network for understanding network configuration. It provides an interactive interface to view resources and their relationships in Azure across multiple subscriptions, resource groups and locations. You can also drill down to a resource view for resources to view their component level visualization.
 
 ## Prerequisites
 
@@ -20,25 +21,27 @@ Topology provides a visualization of the entire network for understanding networ
 
 ## Supported resource types
 
-The following are the resource types supported by Topology:
+The following are the resource types supported by topology:
 
 - Application gateways
-- ExpressRoute Circuits
+- Azure Bastion hosts
+- Azure Front Door profiles
+- ExpressRoute circuits
 - Load balancers
-- Network Interfaces
-- Network Security Groups
-- PrivateLink Endpoints
-- PrivateLink Services
-- Public IP Addresses
-- Virtual Machines
-- Virtual Network Gateways
-- Virtual Networks
+- Network interfaces
+- Network security groups
+- Private endpoints
+- Private Link services
+- Public IP addresses
+- Virtual machines
+- Virtual network gateways
+- Virtual networks
 
 ## View Topology
 
 To view a topology, follow these steps:
 
-1. Log into the [Azure portal](https://portal.azure.com) with an account that has the necessary [permissions](required-rbac-permissions.md).
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that has the necessary [permissions](required-rbac-permissions.md).
 2. Select **More services**.
 3. In the **All services** screen, enter **Monitor** in the **Filter services** search box and select it from the search result. 
 4. Under **Insights**, select **Networks**. 

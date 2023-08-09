@@ -23,6 +23,12 @@
         href: network-attached-storage-concept.md 
       - name: Understand NAS protocols
         href: network-attached-storage-protocols.md
+      - name: Understand dual-protocol security style and permission behaviors
+        href: dual-protocol-permission-behaviors.md
+      - name: Understand the use of LDAP
+        href: lightweight-directory-access-protocol.md
+      - name: Understand NFS group memberships and supplemental groups
+        href: network-file-system-group-memberships.md
       - name: Understand file locking
         href: understand-file-locks.md  
   - name: Azure NetApp Files essentials 
@@ -101,6 +107,8 @@
           href: application-volume-group-considerations.md
   - name: Data protection and resiliency
     items:
+    - name: Understand data protection and disaster recovery options
+      href: data-protection-disaster-recovery-options.md
     - name: How Azure NetApp Files snapshots work
       href: snapshots-introduction.md
     - name: Azure NetApp Files backup
@@ -221,7 +229,7 @@
       items:
       - name: Create an NFS volume
         href: azure-netapp-files-create-volumes.md
-      - name: Configure NFSv4.1 domain
+      - name: Configure NFSv4.1 ID domain
         href: azure-netapp-files-configure-nfsv41-domain.md
       - name: Configure NFSv4.1 Kerberos encryption
         href: configure-kerberos-encryption.md
@@ -275,8 +283,6 @@
         href: dynamic-change-volume-service-level.md
       - name: Manage default and individual user and group quotas for a volume
         href: manage-default-individual-user-group-quotas.md
-    - name: Delete a volume
-      href: volume-delete.md
   - name: Manage application volume groups 
     items:
       - name: Manage application volume groups for SAP HANA
@@ -323,6 +329,8 @@
           href: backup-configure-policy-based.md
         - name: Configure manual backups 
           href: backup-configure-manual.md
+      - name: Manage a backup vault
+        href: backup-vault-manage.md
       - name: Manage backup policies
         href: backup-manage-policies.md 
       - name: Search backups
