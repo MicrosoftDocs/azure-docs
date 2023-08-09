@@ -71,12 +71,28 @@ For example, in the **Flux Configuration Compliance Status** table, you can sele
 
 After you've imported the dashboard as described in the previous section, you can set up alerts. These alerts notify you when Flux extensions or Flux configurations experience failures.
 
-1. In the left-side menu, select Alerts & IRM and then Alerting.
-1. Select Alert rules.
-1. Select + Create alert rule. The new alert rule page opens where the Grafana managed alerts option is selected by default.
-1. In Step 1, add the rule name.
+1. In the left navigation menu of the dashboard, select **Alerting**.
+1. Select **Alert rules**.
+1. Select **+ Create alert rule**. The new alert rule page opens, with the **Grafana managed alerts** option selected by default.
+1. In **Rule name**, add a descriptive name. This name is displayed in the alert rule list, and it will be the `alertname label for every alert instance that is created from this rule.
+1. Under **Set a query and alert condition**:
 
-In Rule name, add a descriptive name. This name is displayed in the alert rule list. It is also the alertname label for every alert instance that is created from this rule.
+   1. Select a data source. The same data source used for the dashboard may be used here.
+   1. For **Service**, select **Azure Resource Graph**.
+   1. Select the subscriptions from the dropdown list.
+   1. Enter this query:
+
+      ```kusto
+      kubernetesconfigurationresources
+      | where type == "microsoft.kubernetesconfiguration/extensions"
+      | extend provisioningState = tostring(properties.ProvisioningState)
+      | where provisioningState == "Failed"
+      | summarize count() by provisioningState
+      ```
+
+   1. For **Threshold box**, select **A** for input type and set the threshold to **0** to receive alerts even if just one extension fails on the cluster. Mark this as the **Alert condition**.
+
+      :::image type="content" source="media/monitor-gitops-flux2/application-dashboard-set-alerts.png" alt-text="Screenshot showing the alert creation process." lightbox="media/monitor-gitops-flux2/application-dashboard-set-alerts.png":::
 
 ## Monitor resource consumption and reconciliations
 
