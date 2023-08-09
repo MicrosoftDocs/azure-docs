@@ -6,6 +6,8 @@
     href: overview-managed-cluster.md
   - name: What is Service Fabric?
     href: service-fabric-overview.md
+  - name: What's new for Service Fabric?
+    href: whats-new.md
 - name: Quickstarts
   expanded: true
   items:
