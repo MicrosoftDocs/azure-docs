@@ -22,18 +22,31 @@ You can use a system-assigned managed identity or a user-assigned managed identi
 
 * [Create a managed identity](search-howto-managed-identities-data-sources.md) for your search service.
 
-* [Control plane role assignment](search-howto-managed-identities-data-sources.md#assign-a-role) in Azure Cosmos DB.
-  For data reader access, you'll need the **Cosmos DB Account Reader** role and the identity used to make the request. This role works for all Azure Cosmos DB APIs supported by Cognitive Search. This is a control plane RBAC role. 
+* Assign the **Cosmos DB Account Reader** role to the search service managed identity. This role grants the ability to read Azure Cosmos DB account data. For more information about role assignments in Cosmos DB, see [Configure role-based access control to data](search-howto-managed-identities-data-sources.md#assign-a-role).
 
 * Data Plane Role assignment: Follow [Data plane Role assignment](../cosmos-db/how-to-setup-rbac.md)
 to know more.
 
+* Example for show a Read only data plane role assignement.
+```azurepowershell
+$cosmosdb_acc_name = <cosmos db account name>
+$resource_group = <resource group name>
+$subsciption = <subscription id>
+$system_assigned_principal = <principal id for system assigned identity>
+$readOnlyRoleDefinitionId = "00000000-0000-0000-0000-000000000001"
+$scope=$(az cosmosdb show --name $cosmosdbname --resource-group $resourcegroup --query id --output tsv)
+``````
+Role assignment for system assigned identity
+
+```azurepowershell
+az cosmosdb sql role assignment create --account-name $cosmosdbname --resource-group $resourcegroup --role-definition-id $readOnlyRoleDefinitionId --principal-id $sys_principal --scope $scope
+``````
 * *Only applicable for Cosmos Sql ApiKind*:
   [Enforcing RBAC as the only authentication method in Azure Cosmos DB](../cosmos-db/how-to-setup-rbac.md#disable-local-auth)
 is supported for Sql Collections and follow above link to set the `disableLocalAuth` to `true` for your cosmos account.
 
 * *For Gremlin and MongoDB Collections*: 
-  At this time, Cognitive Search obtains keys with the identity and uses those keys to connect to the Azure Cosmos DB account. This means that [enforcing RBAC as the only authentication method in Azure Cosmos DB](../cosmos-db/how-to-setup-rbac.md#disable-local-auth) isn't supported when using Search with managed identities to connect to Azure Cosmos DB.
+   Indexer support is currently in preview. At this time, a preview limitation exists that requires Cognitive Search to connect using keys. You can still set up a managed identity and role assignment, but Cognitive Search will only use the role assignment to get keys for the connection. This limitation means that you can't configure an [RBAC-only approach](../cosmos-db/how-to-setup-rbac.md#disable-local-auth) if your indexers are connecting to Gremlin or MongoDB using Search with managed identities to connect to Azure Cosmos DB.
 
 * You should be familiar with [indexer concepts](search-indexer-overview.md) and [configuration](search-howto-index-cosmosdb.md).
 

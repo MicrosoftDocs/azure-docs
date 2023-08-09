@@ -86,7 +86,7 @@ Avoid port numbers in the endpoint URL. If you include the port number, the conn
 | Managed identity connection string |
 |------------------------------------|
 |`{ "connectionString" : "ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;(ApiKind=[api-kind];)/(IdentityAuthType=[identity-auth-type])" }`|
-|This connection string doesn't require an account key, but you must have previously configured a search service to [connect using a managed identity](search-howto-managed-identities-data-sources.md). For connections that target the [SQL API](../cosmos-db/sql-query-getting-started.md), you can omit `ApiKind` from the connection string. To know more about `ApiKind`, `IdentityAuthType` Follow instructions from [Setting up an indexer connection to an Azure Cosmos DB database using a managed identity](search-howto-managed-identities-cosmos-db.md).|
+|This connection string doesn't require an account key, but you must have previously configured a search service to [connect using a managed identity](search-howto-managed-identities-data-sources.md). For connections that target the [SQL API](../cosmos-db/sql-query-getting-started.md), you can omit `ApiKind` from the connection string. For more information about `ApiKind`, `IdentityAuthType` see [Setting up an indexer connection to an Azure Cosmos DB database using a managed identity](search-howto-managed-identities-cosmos-db.md).|
 
 <a name="flatten-structures"></a>
 
