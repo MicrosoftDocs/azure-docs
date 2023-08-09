@@ -5,7 +5,7 @@ description: Learn how to specify a blob's access tier when you upload it, or ho
 author: normesta
 
 ms.author: normesta
-ms.date: 06/22/2023
+ms.date: 08/10/2023
 ms.service: storage
 ms.topic: how-to
 ms.reviewer: fryu
@@ -25,11 +25,6 @@ You can set a blob's access tier in any of the following ways:
 This article describes how to manage a blob in an online access tier. For more information about how to move a blob to the archive tier, see [Archive a blob](archive-blob.md). For more information about how to rehydrate a blob from the archive tier, see [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md).
 
 For more information about access tiers for blobs, see [Access tiers for blob data](access-tiers-overview.md).
-
-> [!IMPORTANT]
-> The cold tier is currently in PREVIEW and is available in the all public regions.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> To enroll, see [Cold tier (preview)](access-tiers-overview.md#cold-tier-preview).
 
 ## Set the default access tier for a storage account
 
@@ -117,9 +112,6 @@ To upload a blob or set of blobs to a specific tier from the Azure portal, follo
 3. Select the file or files to upload.
 
 4. Expand the **Advanced** section, and set the **Access tier** to *Hot* or *Cool*.
-
-   > [!NOTE]
-   > The cold tier is in preview and appears as an option if the storage account is in a region that supports the preview.
 
 5. Select the **Upload** button.
 
@@ -329,7 +321,7 @@ az storage blob set-tier \
 
 #### [AzCopy](#tab/azcopy)
 
-To change a blob's tier to a cooler tier, use the [azcopy set-properties](..\common\storage-ref-azcopy-set-properties.md) command and set the `-block-blob-tier` parameter. 
+To change a blob's tier to a cooler tier, use the [azcopy set-properties](..\common\storage-ref-azcopy-set-properties.md) command and set the `-block-blob-tier` parameter.
 
 > [!IMPORTANT]
 > Using AzCopy to change a blob's access tier is currently in PREVIEW.
@@ -341,9 +333,6 @@ To change a blob's tier to a cooler tier, use the [azcopy set-properties](..\com
 ```azcopy
 azcopy set-properties 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier=<tier>
 ```
-
-> [!NOTE]
-> Setting the `--block-blob-tier` parameter to `cold` is not yet supported. If you want to change a blob's tier to the `cold` tier, [enroll](https://forms.office.com/r/788B1gr3Nq) in the cold tier preview, and then change the blob's tier to cold by using the Azure portal, PowerShell, or the Azure CLI.
 
 To change the access tier for all blobs in a virtual directory, refer to the virtual directory name instead of the blob name, and then append `--recursive=true` to the command.
 

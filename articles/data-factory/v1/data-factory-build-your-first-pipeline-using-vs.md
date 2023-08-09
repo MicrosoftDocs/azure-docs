@@ -273,7 +273,7 @@ You have created the Azure Storage linked service, and input and output datasets
 
     The **start** and **end** properties of the pipeline specifies the active period of the pipeline. You configured the dataset to be produced monthly, therefore, only once slice is produced by the pipeline (because the month is same in start and end dates).
 
-    In the activity JSON, you specify that the Hive script runs on the compute specified by the **linkedServiceName** – **HDInsightOnDemandLinkedService**.
+    In the activity JSON, you specify that the Hive script runs on the compute specified by the **linkedServiceName** - **HDInsightOnDemandLinkedService**.
 4. Save the **HiveActivity1.json** file.
 
 ### Add partitionweblogs.hql and input.log as a dependency
