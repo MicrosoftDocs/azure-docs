@@ -54,12 +54,7 @@ sections:
           When will this change take effect?
         answer: |
           This change will start gradual rollout starting September 1, 2023.  
-  - name: Section 2
-    questions:
-      - question: |
-          Question
-        answer: |
-          Answer
+
 additionalContent: |
 
   ## Next steps
@@ -68,4 +63,3 @@ additionalContent: |
 
   - [Introduction to Azure Storage](../common/storage-introduction.md)
   - [What is Azure Blob storage](storage-blobs-overview.md)
-  - [Event Hubs Auto-inflate](event-hubs-auto-inflate.md)
