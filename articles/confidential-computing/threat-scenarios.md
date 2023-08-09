@@ -30,7 +30,7 @@ Azure confidential computing is designed to help customers protect data in use, 
 
 Azure already encrypts data at rest and in transit, and confidential computing helps protect data in use, including cryptographic keys.  Azure confidential computing helps customers prevent unauthorized access to data in use, including from the cloud operator, by processing data in a hardware-based and attested Trusted Execution Environment (TEE).  When Azure confidential computing is enabled and properly configured, Microsoft is not able to access unencrypted customer data.  
 
-Microsoft will not attempt to defeat customer-controlled data protection of confidential computing with customer-managed keys and verification policies in order to view or extract data in use. If faced with a legal demand to do so, we would challenge such a demand on any lawful basis, consistent with our customer commitments as outlined in this blog.
+Microsoft will not attempt to defeat customer-controlled data protection of confidential computing with customer-managed keys and verification policies in order to view or extract data in use. If faced with a legal demand to do so, we would challenge such a demand on any lawful basis, consistent with our customer commitments as outlined in this [blog] (https://blogs.microsoft.com/on-the-issues/2020/11/19/defending-your-data-edpb-gdpr/).
 
 ### External Threat
 
