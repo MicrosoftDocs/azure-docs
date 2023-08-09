@@ -1,13 +1,28 @@
----
-title: "Azure Operator Nexus: How to run Instance Readiness Testing"
-description: Learn how to run instance readiness testing.
-author: DannyMassa
-ms.author: danielmassa
-ms.service: azure-operator-nexus
-ms.topic: how-to
-ms.date: 07/13/2023
-ms.custom: template-how-to
----
+<!---
+This file provides instructions on how to run Instance Readiness Testing (IRT) for the Azure Operator Nexus Platform. It includes information on environment requirements, one-time setup, dependencies, and creating credentialed resources. 
+
+Author: DannyMassa
+-->
+
+
+## Table of Contents
+
+- [Instance readiness testing](#instance-readiness-testing)
+  - [Environment requirements](#environment-requirements)
+  - [Input configuration](#input-configuration)
+  - [One Time Setup](#one-time-setup)
+    - [Download IRT](#download-irt)
+    - [Install dependencies](#install-dependencies)
+    - [All in one setup](#all-in-one-setup)
+    - [Step-by-Step setup](#step-by-step-setup)
+      - [Create credentialed resources](#create-credentialed-resources)
+      - [Create managed identity](#create-managed-identity)
+      - [Create service principal \& security group](#create-service-principal--security-group)
+      - [Create isolation domains](#create-isolation-domains)
+      - [Create archive storage](#create-archive-storage)
+  - [Execution](#execution)
+  - [Results](#results)
+
 
 # Instance readiness testing
 
@@ -22,6 +37,18 @@ Instance Readiness Testing (IRT) is a framework built to orchestrate real-world 
 - The User Access Admin & Contributor roles for the execution subscription
 - The ability to create security groups in your Active Directory tenant 
 
+## Input configuration
+
+Build your input file. The IRT tarball provides `irt-input.example.yml` as an example. These values **will not work for your instances**, they need to be manually changed and the file should also be renamed to `irt-input.yml`. The example input file is provided as a stub to aid in configuring new input files. Overridable values and their usage are outlined in the example. The [One Time Setup](#one-Time-setup) will aid in setting input values by writing key/value pairs to the config file as they execute. 
+
+The network information is provided in either a `networks-blueprint.yml` file, similar to the `networks-blueprint.example.yml` that is provided, or appended to the `irt-input.yml` file. The  schema for IRT is defined in the `networks-blueprint.example.yml`. The networks are created as part of the test, provide network details that aren't in use. Currently IRT has the following network requirements:
+
+1. Three (3) L3 Networks
+   * Two of them with MTU 1500
+   * One of them with MTU 9000 and shouldn't have a fabric_asn attribute
+1. One (1) Trunked Network
+1. All vlans should be greater than 500
+
 ## One Time Setup
 
 ### Download IRT 
@@ -31,7 +58,7 @@ IRT is distributed via tarball, download it, extract it, and navigate to the `ir
 1. Switch to the new directory `cd irt`
 
 
-### Install Dependencies
+### Install dependencies
 There are multiple dependencies expected to be available during execution. Review this list;
 
 * `jq` version 1.6 or greater
@@ -46,11 +73,18 @@ The `setup.sh` script is provided to aid with installing the listed dependencies
 
 **NOTE:** `setup.sh` assumes a nonroot user and attempts to use `sudo`
 
+### All in one setup
 
-### Create Credentialed Resources 
+`all-in-one-setup.sh` is provided to create all of the Azure resources required to run IRT. This includes creating a managed identity, a service principal, a security group, isolation domains, and a storage account to archive the test results. These resources can be created during the all in one script, or they can be created step by step per the instructions below. Each of the script, individually and via the all in one script, will write updates to your `irt-input.yml` file with the key value pairs needed to utilize the resources you created. Please review the `irt-input.example.yml` file for the required inputs needed for the script(s), regardless of the methodology you pursue. All of the scripts are idempotent, and also allow you to use existing resources if desired. 
+
+### Step-by-Step setup
+
+If your workflow is incompatible with `all-in-one.sh`, each resource needed for IRT can be created manually with each supllemental script. Like `all-in-one.sh`, running these scripts will write key/value pairs to your `irt-input.yml` for you to use during your run. These five scripts make up the `all-in-one.sh`. **Only utilize this section if you are NOT using `all-in-one.sh`**
+
+#### Create credentialed resources 
 IRT makes commands against your resources, and needs permission to do so. IRT requires a Managed Identity and a Service Principal to execute. It also requires that the service principal be member to an AAD Security Group that is also provided as input.
 
-#### Managed Identity
+#### Create managed identity
 A managed identity with the following role assignments is needed to execute tests. The supplemental script, `create-managed-identity.sh` creates a managed identity with these role assignments.
    1. `Contributor` - For creating and manipulating resources
    1. `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
@@ -70,7 +104,7 @@ MI_RESOURCE_GROUP="<your resource group>" MI_NAME="<your managed identity name>"
 **RESULT:** This script prints a value for `MANAGED_IDENTITY_ID`. This key/value pair should be recorded in the irt-input.yml for use. See [Input Configuration](#input-configuration).
 
 
-#### Service Principal & AAD Security Group
+#### Create service principal & security group
 A service principal with the following role assignments. The supplemental script, `create-service-principal.sh`  creates a service principal with these role assignments, or add role assignments to an existing service principal. 
    1. `Contributor` - For creating and manipulating resources
    1. `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
@@ -90,7 +124,7 @@ SERVICE_PRINCIPAL_NAME="<your service principal name>" AAD_GROUP_NAME="<your sec
 **RESULT:** This script prints values for `AAD_GROUP_ID`, `SP_ID`, `SP_PASSWORD`, and `SP_TENANT`. This key/value pair should be recorded in irt-input.yml for use. See [Input Configuration](#input-configuration).
 
 
-#### Create Isolation Domains
+#### Create isolation domains
 Isolation domains aren't created, destroyed, or manipulated by the testing framework. Therefore, existing Isolation Domains can be used. Each Isolation Domain requires at least one external network. The supplemental script, `create-l3-isolation-domains.sh`. Internal networks are created, manipulated, and destroy through the course of testing. They'll be created using the data provided in the networks blueprint.
 
 Executing `create-l3-isolation-domains.sh` requires one **parameter**, a path to your networks blueprint file;
@@ -100,7 +134,7 @@ Executing `create-l3-isolation-domains.sh` requires one **parameter**, a path to
 ./create-l3-isolation-domains.sh ./networks-blueprint.yml
 ```
 
-#### [Optional] Create Storage to Archive Results
+#### Create archive storage
 IRT creates an html test report after running a test scenario. These reports can optionally be uploaded to a blob storage container. the supplementary script `create-archive-storage.sh` to create a storage container, storage account, and resource group if they don't already exist.
 
 
@@ -118,23 +152,6 @@ RESOURCE_GROUP="<your resource group>" STORAGE_ACCOUNT_NAME="<your storage accou
 
 **RESULT:** This script prints a value for `PUBLISH_RESULTS_TO`. This key/value pair should be recorded in irt-input.yml for use. See [Input Configuration](#input-configuration).
 
-
-### Input configuration
-
-
-Build your input file. The IRT tarball provides `irt-input.example.yml` as an example. These values **will not work for your instances**, they need to be manually changed and the file should also be renamed to `irt-input.yml`. The example input file is provided as a stub to aid in configuring new input files. Overridable values and their usage are outlined in the example.
-Define the values of networks-blueprint input, an example of this file is given in networks-blueprint.example.yml.
-
-
-The network blueprint input schema for IRT is defined in the `networks-blueprint.example.yml`. Currently IRT has the following network requirements. The networks are created as part of the test, provide network details that aren't in use.
-
-1. Three (3) L3 Networks
-
-   * Two of them with MTU 1500
-   * One of them with MTU 9000 and shouldn't have a fabric_asn attribute
-
-1. One (1) Trunked Network
-1. All vlans should be greater than 500
 
 ## Execution
 
