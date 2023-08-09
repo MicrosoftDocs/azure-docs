@@ -172,6 +172,8 @@ For flexible servers configured with high availability, log data is replicated i
 2. If you want to restore an object, export it from the restored database server and import it to your production database server.
 3. If you want to clone your database server for testing and development purposes or to restore for any other purposes, you can perform the point-in-time restore.
 
+To learn how to do a point-in-time restore of a flexible server, see [Point-in-time restore of a flexible server](/azure/postgresql/flexible-server/how-to-restore-server-portal).
+
 ### Failover Support
 
 #### Planned failover
@@ -257,7 +259,7 @@ Application downtime is expected to start after step #1 and persists until step 
 
 ### Zone-down experience
 
-**Zonal**. To recover from a zone-level failure, you can [perform point-in-time restore](/azure/postgresql/flexible-server/how-to-restore-server-portal) using the backup. You can choose a custom restore point with the latest time to restore the latest data. A new flexible server is deployed in another non-impacted zone. The time taken to restore depends on the previous backup and the volume of transaction logs to recover.
+**Zonal**. To recover from a zone-level failure, you can [perform point-in-time restore](#point-in-time-restore-of-high-availability-servers) using the backup. You can choose a custom restore point with the latest time to restore the latest data. A new flexible server is deployed in another non-impacted zone. The time taken to restore depends on the previous backup and the volume of transaction logs to recover.
 
 For more information on point-in-time restore see [Backup and restore in Azure Database for PostgreSQL-Flexible Server]
 (/azure/postgresql/flexible-server/concepts-backup-restore).
