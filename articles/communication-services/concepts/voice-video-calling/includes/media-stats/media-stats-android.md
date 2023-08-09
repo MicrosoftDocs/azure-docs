@@ -1,3 +1,17 @@
+---
+title: Azure Communication Services Media Stats (Android)
+titleSuffix: An Azure Communication Services concept document
+description: Provides usage samples of the Media Stats feature Android Native.
+author: jsaurezle-msft
+ms.author: jsaurezlee
+
+services: azure-communication-services
+ms.date: 08/09/2023
+ms.topic: include
+ms.service: azure-communication-services
+ms.subservice: calling
+---
+
 ## Media quality statistics for ongoing call
 
 [!INCLUDE [public-preview-notes](../../../../includes/public-preview-include.md)]
