@@ -47,12 +47,12 @@ In this tutorial, you'll learn how to:
     | Setting | Possible Values | Comments |
     | --- | --- | --- |
     | Target Location | All locations supported by AKS | We generate the regional cost for AKS based on this setting |
-    | Environment Type | Production <br> Dev/Test | This setting allows you to toggle b/w Pay-As-You-Go and Pay-As-You-Go Dev/Test [offers](https://azure.microsoft.com/en-us/support/legal/offer-details/) |
-    | Offer/Licensing program | Pay-As-You-Go <br> Enterprise Agreement | This setting allows you to toggle b/w Pay-As-You-Go and Enterprise Agreement [offers](https://azure.microsoft.com/en-us/support/legal/offer-details/) |
+    | Environment Type | Production <br> Dev/Test | This setting allows you to toggle b/w Pay-As-You-Go and Pay-As-You-Go Dev/Test [offers](https://azure.microsoft.com/support/legal/offer-details/) |
+    | Offer/Licensing program | Pay-As-You-Go <br> Enterprise Agreement | This setting allows you to toggle b/w Pay-As-You-Go and Enterprise Agreement [offers](https://azure.microsoft.com/support/legal/offer-details/) |
     | Currency | All common currencies such as USD, INR, GBP, Euro | We generate the cost in the currency selected here |
     | Discount Percentage | Numeric decimal value | Use this setting to factor in any custom discount agreements with Microsoft. This setting is disabled if Savings options are selected |
     | EA subscription | Subscription Id | Select the subscription Id for which you have an Enterprise Agreement |
-    | Savings options | 1 year reserved <br> 3 years reserved <br> 1 year savings plan <br> 3 years savings plan <br> None | Select a savings option if you have opted for [Reserved Instances](../cost-management-billing/reservations/save-compute-costs-reservations.md) or [Savings Plan](https://azure.microsoft.com/en-in/pricing/offers/savings-plan-compute/) |
+    | Savings options | 1 year reserved <br> 3 years reserved <br> 1 year savings plan <br> 3 years savings plan <br> None | Select a savings option if you have opted for [Reserved Instances](../cost-management-billing/reservations/save-compute-costs-reservations.md) or [Savings Plan](https://azure.microsoft.com/pricing/offers/savings-plan-compute/) |
     | Category | All <br> Compute optimized <br> General purpose <br> GPU <br> High performance compute <br> Isolated <br> Memory optimized <br> Storage optimized | Selecting a particular SKU category will ensure we recommend the best AKS Node SKUs from that category |
     | AKS pricing tier | Standard | Pricing tier for AKS |
 
