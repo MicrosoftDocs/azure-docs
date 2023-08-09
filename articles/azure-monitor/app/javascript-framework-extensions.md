@@ -84,7 +84,6 @@ To add a plug-in, follow the steps in this section.
 ```bash
 
 npm install @microsoft/applicationinsights-react-js
-npm i --save @microsoft/applicationinsights-web
 
 ```
 
@@ -101,7 +100,6 @@ npm i --save @microsoft/applicationinsights-web
   npm install --save @microsoft/applicationinsights-react-native @microsoft/applicationinsights-web
   npm install --save react-native-device-info
   react-native link react-native-device-info
-  npm i --save @microsoft/applicationinsights-web
 
   ```
 
@@ -121,7 +119,6 @@ npm i --save @microsoft/applicationinsights-web
 
 ```bash
 npm install @microsoft/applicationinsights-angularplugin-js
-npm i --save @microsoft/applicationinsights-web
 ```
 
 ---
