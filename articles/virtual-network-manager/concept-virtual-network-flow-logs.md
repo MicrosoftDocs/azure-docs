@@ -95,4 +95,5 @@ Here's an example of a flow log
 
 ## Next steps
 > [!div class="nextstepaction"]
+> Learn more about [VNet Flow Logs](../network-watcher/vnet-flow-logs-overview.md) and how to use them.
 > Learn more about [Event log options for Azure Virtual Network Manager](concept-event-logs.md).
