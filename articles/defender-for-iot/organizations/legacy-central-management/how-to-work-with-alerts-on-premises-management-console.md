@@ -17,7 +17,7 @@ This article describes how to view Defender for IoT alerts on an on-premises man
 
 Before performing the procedures in this article, make sure that you have:
 
-- An on-premises management console [installed](legacy-central-management/install-software-on-premises-management-console.md), [activated, and configured](legacy-central-management/activate-deploy-management.md). To view alerts by location or zone, make sure that you've [configured sites and zones](ot-deploy/sites-and-zones-on-premises.md) on the on-premises management console.
+- An on-premises management console [installed](legacy-central-management/install-software-on-premises-management-console.md), [activated, and configured](legacy-central-management/activate-deploy-management.md). To view alerts by location or zone, make sure that you've [configured sites and zones](legacy-on-premises-management/sites-and-zones-on-premises.md) on the on-premises management console.
 
 - One or more OT sensors [installed](ot-deploy/install-software-ot-sensor.md), [configured, activated](ot-deploy/activate-deploy-sensor.md), and [connected to your on-premises management console](legacy-central-management/connect-sensors-to-management.md). To view alerts per zone, make sure that each sensor is assigned to a specific zone.
 
@@ -41,7 +41,7 @@ Before performing the procedures in this article, make sure that you have:
 
     - Select **OPEN SENSOR** to open the sensor that generated the alert and continue your investigation. For more information, see [View and manage alerts on your OT sensor](how-to-view-alerts.md).
 
-    - Select **SHOW DEVICES** to show the affected devices on a zone map. For more information, see [Create OT sites and zones on an on-premises management console](ot-deploy/sites-and-zones-on-premises.md).
+    - Select **SHOW DEVICES** to show the affected devices on a zone map. For more information, see [Create OT sites and zones on an on-premises management console](legacy-on-premises-management/sites-and-zones-on-premises.md).
 
 > [!NOTE]
 > On the on-premises management console, *New* alerts are called *Unacknowledged*, and *Closed* alerts are called *Acknowledged*. For more information, see [Alert statuses and triaging options](alerts.md#alert-statuses-and-triaging-options).

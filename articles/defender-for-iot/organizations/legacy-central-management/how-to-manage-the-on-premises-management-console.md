@@ -11,7 +11,7 @@ ms.topic: how-to
 
 This article describes extra on-premises management console activities that you might perform outside of a larger deployment process.
 
-[!INCLUDE [caution do not use manual configurations](includes/caution-manual-configurations.md)]
+[!INCLUDE [caution do not use manual configurations](../includes/caution-manual-configurations.md)]
 
 ## Prerequisites
 
@@ -83,7 +83,7 @@ You may need to reactivate your on-premises management console as part of mainte
 
    Save your downloaded file in a location that's accessible from the on-premises management console.
 
-   [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+   [!INCLUDE [root-of-trust](../includes/root-of-trust.md)]
 
 1. Sign into your on-premises management console and select **System Settings** > **Activation**.
 
@@ -137,7 +137,7 @@ To create a self-signed certificate, download the certificate file from your on-
 
 Go to the on-premises management console's IP address in a browser and then:
 
-[!INCLUDE [self-signed-certificate](includes/self-signed-certificate.md)]
+[!INCLUDE [self-signed-certificate](../includes/self-signed-certificate.md)]
 
 When you're done, use the following procedures to validate your certificate files:
 
@@ -163,7 +163,7 @@ When you're done, use the following procedures to validate your certificate file
 
 ### Troubleshoot certificate upload errors
 
-[!INCLUDE [troubleshoot-ssl](includes/troubleshoot-ssl.md)]
+[!INCLUDE [troubleshoot-ssl](../includes/troubleshoot-ssl.md)]
 
 ## Change the name of the on-premises management console
 
@@ -199,7 +199,7 @@ If you no longer have access to your on-premises management console as a [privil
 
     A `password_recovery.zip` file is downloaded from your browser.
 
-   [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+   [!INCLUDE [root-of-trust](../includes/root-of-trust.md)]
 
 1. In the **Password Recovery** dialog on the on-premises management console, select **Upload** and select the `password_recovery.zip` file you'd downloaded.
 

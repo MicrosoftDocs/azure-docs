@@ -34,7 +34,7 @@ To perform the tasks in this tutorial, you need:
 
 - Multiple cloud-connected, [OT sensors deployed](onboard-sensors.md), streaming traffic data to Defender for IoT. Each sensor should be assigned to a different site and zone, keeping each of your network segments separate and secure.
 
-    For more information, see [Onboard OT sensors to Defender for IoT](onboard-sensors.md) or [Create OT sites and zones on an on-premises management console](ot-deploy/sites-and-zones-on-premises.md).
+    For more information, see [Onboard OT sensors to Defender for IoT](onboard-sensors.md) or [Create OT sites and zones on an on-premises management console](legacy-on-premises-management/sites-and-zones-on-premises.md).
 
 - The following permissions:
 
@@ -191,8 +191,8 @@ Use the following procedure to view more data for each site and zone on an on-pr
 
     - **Connectivity**: Select to view only all OT sensors, or only connected / disconnected sensors only.
     - **Upgrade Status**: Select to view all OT sensors, or only those with a specific [software update status](update-ot-software.md#update-an-on-premises-management-console).
-    - **Business Unit**: Select to view all OT sensors, or only those from a [specific business unit](ot-deploy/sites-and-zones-on-premises.md#create-business-units).
-    - **Region**: Select to view all OT sensors, or only those from a [specific region](ot-deploy/sites-and-zones-on-premises.md#create-regions).
+    - **Business Unit**: Select to view all OT sensors, or only those from a [specific business unit](legacy-on-premises-management/sites-and-zones-on-premises.md#create-business-units).
+    - **Region**: Select to view all OT sensors, or only those from a [specific region](legacy-on-premises-management/sites-and-zones-on-premises.md#create-regions).
 
 Each site and zone lists operational details about the sensor, such as details about its last software update, as well as the number of devices, alerts, and sensors aggregated for each zone.
 
@@ -235,6 +235,6 @@ In addition to using the built-in Defender for IoT **Vulnerabilities** workbook,
 For more information, see:
 
 - [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
-- [Manage on-premises sites and zones](ot-deploy/sites-and-zones-on-premises.md#manage-sites-and-zones)
+- [Manage on-premises sites and zones](legacy-on-premises-management/sites-and-zones-on-premises.md#manage-sites-and-zones)
 - [Manage site-based access control (Public preview)](manage-users-portal.md#manage-site-based-access-control-public-preview)
 - [Visualize Microsoft Defender for IoT data with Azure Monitor workbooks](workbooks.md)
