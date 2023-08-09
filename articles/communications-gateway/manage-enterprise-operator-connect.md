@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 07/17/2023
+ms.date: 08/09/2023
 ms.custom: template-how-to-pattern
 ---
 
@@ -15,12 +15,17 @@ Azure Communications Gateway's Number Management Portal enables you to manage en
 
 The Operator Connect and Teams Phone Mobile programs don't allow you to use the Operator Connect portal for provisioning after you've launched your service in the Teams Admin Center. The Number Management Portal is a simple alternative that you can use until you've finished integrating with the Operator Connect APIs.
 
-> [!IMPORTANT]
-> You must have selected Azure Communications Gateway's API Bridge option to use the Number Management Portal.
-
 ## Prerequisites
 
-Confirm that you have [!INCLUDE [project-synergy-nmp-permissions](includes/communications-gateway-nmp-project-synergy-permissions.md)] permissions for the Project Synergy enterprise application and **Reader** access to your subscription. If you don't have these permissions, ask your administrator to set them up by following [Set up user roles for Azure Communications Gateway](provision-user-roles.md).
+Confirm that you have **Reader** access to your subscription and appropriate permissions for the Project Synergy enterprise application:
+
+<!-- Must be kept in sync with provision-user-roles.md - steps for understanding and configuring -->
+* To view existing configuration:
+**PartnerSettings.Read**, **NumberManagement.Read**, and **TrunkManagement.Read**
+* To configure the status of an enterprise (a "consent"): **NumberManagement.Write** and **PartnerSettings.Write**
+* To configure numbers: **NumberManagement.Write**
+
+If you don't have these permissions, ask your administrator to set them up by following [Set up user roles for Azure Communications Gateway](provision-user-roles.md).
 
 If you're assigning new numbers to an enterprise customer:
 
@@ -29,9 +34,9 @@ If you're assigning new numbers to an enterprise customer:
     * Include the country code.
     * Be up to 19 characters long. 
 * You must have completed any internal procedures for assigning numbers.
-* You need to know the following information for each range of numbers.
+* You must know the following information for each number.
 
-|Information for each range of numbers |Notes  |
+|Information for each number |Notes  |
 |---------|---------|
 |Calling profile |One of the Calling Profiles created by Microsoft for you.|
 |Intended usage | Individuals (calling users), applications or conference calls.|
@@ -40,7 +45,19 @@ If you're assigning new numbers to an enterprise customer:
 |Location | A description of the location for emergency calls. The enterprise must have configured this location in the Teams Admin Center. Only required for individuals (calling users) and only if you don't allow the enterprise to update the address.|
 |Whether the enterprise can update the civic address or location | If you don't allow the enterprise to update the civic address or location, you must specify a civic address or location. You can specify an address or location and also allow the enterprise to update it.|
 |Country | The country for the number. Only required if you're uploading a North American Toll-Free number, otherwise optional.|
-|Ticket number (optional) |The ID of any ticket or other request that you want to associate with this range of numbers. Up to 64 characters. |
+|Ticket number (optional) |The ID of any ticket or other request that you want to associate with this number. Up to 64 characters. |
+
+If you're assigning multiple numbers, prepare a `.csv` file with the heading `Numbers` and one number per line, as in the following example. You can use this file to upload multiple numbers at once with the same settings (for example, the same calling profile).
+
+```
+Numbers
++441632960000
++441632960001
++441632960002
++441632960003
++441632960004
+```
+
 
 ## Go to your Communications Gateway resource
 
@@ -68,13 +85,13 @@ Assigning numbers to an enterprise allows IT administrators at the enterprise to
 1. To add new numbers for an enterprise:
     1. Select **Upload numbers**.
     1. Fill in the fields based on the information you determined in [Prerequisites](#prerequisites). These settings apply to all the numbers you upload in the **Telephone numbers** section.
-    1. In **Telephone numbers**, upload the numbers, as a comma-separated list.
+    1. In **Telephone numbers**, add the numbers by uploading the `.csv` file that you created in [Prerequisites](#prerequisites) or by adding each number individually.
     1. Select **Review + upload** and **Upload**. Uploading creates an order for uploading numbers over the Operator Connect API.
     1. Wait 30 seconds, then refresh the order status. When the order status is **Complete**, the numbers are available to the enterprise. You might need to refresh more than once.
 1. To remove numbers from an enterprise:
     1. Select the numbers.
     1. Select **Release numbers**.
-    1. 1. Wait 30 seconds, then refresh the order status. When the order status is **Complete**, the numbers have been removed.
+    1. Wait 30 seconds, then refresh the order status. When the order status is **Complete**, the numbers have been removed.
 
 ## View civic addresses for an enterprise
 

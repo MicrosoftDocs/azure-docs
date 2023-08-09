@@ -62,8 +62,6 @@ Launching Operator Connect or Teams Phone Mobile requires you to use the Operato
 
 For more information, see [Number Management Portal for provisioning with Operator Connect APIs](interoperability-operator-connect.md#number-management-portal-for-provisioning-with-operator-connect-apis) and [Manage an enterprise with Azure Communications Gateway's Number Management Portal for Operator Connect and Teams Phone Mobile](manage-enterprise-operator-connect.md).
 
-The Number Management Portal is available as part of the optional API Bridge feature.
-
 > [!TIP]
 > The Number Management Portal does not allow your enterprise customers to manage Teams Calling. For example, it does not provide self-service portals.
 
