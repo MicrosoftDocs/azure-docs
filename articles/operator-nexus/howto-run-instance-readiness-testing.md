@@ -121,10 +121,12 @@ RESOURCE_GROUP="<your resource group>" STORAGE_ACCOUNT_NAME="<your storage accou
 
 ### Input configuration
 
-1. Build your input file. The IRT tarball provides `irt-input.example.yml` as an example. These values **will not work for your instances**, they need to be manually changed and the file should also be renamed to `irt-input.yml`. The example input file is provided as a stub to aid in configuring new input files. Overridable values and their usage are outlined in the example.
-1. define the values of networks-blueprint input, an example of this file is given in networks-blueprint.example.yml.
 
-The network blueprint input schema for IRT is defined in the networks-blueprint.example.yml. Currently IRT has the following network requirements. The networks are created as part of the test, provide network details that aren't in use.
+Build your input file. The IRT tarball provides `irt-input.example.yml` as an example. These values **will not work for your instances**, they need to be manually changed and the file should also be renamed to `irt-input.yml`. The example input file is provided as a stub to aid in configuring new input files. Overridable values and their usage are outlined in the example.
+Define the values of networks-blueprint input, an example of this file is given in networks-blueprint.example.yml.
+
+
+The network blueprint input schema for IRT is defined in the `networks-blueprint.example.yml`. Currently IRT has the following network requirements. The networks are created as part of the test, provide network details that aren't in use.
 
 1. Three (3) L3 Networks
 
