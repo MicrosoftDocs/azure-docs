@@ -66,7 +66,7 @@ The file includes all the parameters defined in the automation rule. Rules of an
 - **Custom details key doesn't exist:** If you export an automation rule with conditions that reference [custom details keys](create-manage-use-automation-rules.md#conditions-based-on-custom-details), and then import it to another workspace where no analytics rules [surface those custom details](surface-custom-details-in-alerts.md), the following things will happen:
     - The automation rule will successfully deploy in the second workspace.
     - The automation rule will be automatically disabled.
-    - In the automation rule conditions, the custom details key drop-down will display as "Unknown".
+    - In the automation rule conditions, the custom details key drop-down will display as "Unknown custom details key".
 
     To allow this automation rule to run in the second workspace:
     1. Import or create an analytics rule that will [surface the relevant custom details](surface-custom-details-in-alerts.md) in the second workspace.
