@@ -204,7 +204,8 @@ The following table lists the fields in the schema and what they signify.
 | **DestVM** |<resourcegroup_Name>/\<VirtualMachineName> | Virtual machine associated with the destination IP in the flow. |
 | **SrcSubnet**  | <ResourceGroup_Name>/<VirtualNetwork_Name>/\<SubnetName> | Subnet associated with the source IP in the flow. |
 | **DestSubnet** | <ResourceGroup_Name>/<VirtualNetwork_Name>/\<SubnetName> | Subnet associated with the destination IP in the flow.  |
-
+| **SrcApplicationGateway** |\<SubscriptionID>/\<ResourceGroupName>/\<ApplicationGatewayName> | Application gateway associated with the source IP in the flow. |
+| **DestApplicationGateway** |\<SubscriptionID>/\<ResourceGroupName>/\<ApplicationGatewayName> | Application gateway associated with the destination IP in the flow. |
 
 > [!NOTE]
 > *NTANetAnalytics* in VNet flow logs replaces *AzureNetworkAnalytics_CL* used in NSG flow logs.
