@@ -39,7 +39,7 @@ Once you've evaluated and chosen an inner loop dev framework, you can build a se
 
 As described in the example scenario covered in [CI/CD workflow using GitOps](conceptual-gitops-flux2-ci-cd.md), an application developer works on application code within an application repository. This application repository also holds high-level deployment Helm and/or Kustomize templates.
 
-The CI\CD pipelines:
+The CI/CD pipelines:
 
 - Generate the low-level manifests from the high-level templates, adding environment-specific values.
 - Create a pull request that merges the low-level manifests with the GitOps repo that holds desired state for the specific environment.
