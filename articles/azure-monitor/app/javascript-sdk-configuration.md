@@ -22,7 +22,7 @@ The Azure Application Insights JavaScript SDK provides configuration for trackin
 
 These configuration fields are optional and default to false unless otherwise stated.
 
-Add any Microsoft Azure Monitor Application Insights JavaScript SDK configuration directly under `connectionString`. For a code example if you're using the JavaScript (Web) SDK Loader Script, see [JavaScript (Web) SDK Loader Script](./javascript-sdk.md?tabs=javascriptwebsdkloaderscript#add-the-javascript-code) and refer to the HTML example code. For a code example if you're using the npm package, see [npm package](./javascript-sdk.md?tabs=npmpackage#add-the-javascript-code) and refer to the JavaScript example code. 
+For instructions on how to add SDK configuration, see [Add SDK configuration](./javascript-sdk.md#optional-add-sdk-configuration).
 
 | Name | Type | Default |
 |------|------|---------|
