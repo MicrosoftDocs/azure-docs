@@ -55,6 +55,10 @@ Azure Files geo-redundancy for large file shares preview is currently available 
 - Australia Central 2
 - Australia East
 - Australia Southeast
+- Brazil South
+- Brazil Southeast
+- Canada Central
+- Canada East
 - Central India
 - Central US
 - China East 2

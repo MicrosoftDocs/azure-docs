@@ -1,5 +1,5 @@
 ---
-title: Custom document models - Document Intelligence
+title: Custom document models - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Label and train customized models for your documents and compose multiple models into a single model identifier.
 author: laujan
