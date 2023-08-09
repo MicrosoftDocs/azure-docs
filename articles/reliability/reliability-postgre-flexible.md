@@ -112,8 +112,6 @@ Azure Database for PostgreSQL - Flexible Server supports both [zone-redundant an
 
 -  **Zonal** model offers uptime [SLA of 99.99%](https://azure.microsoft.com/support/legal/sla/postgresql).
 
- To see the SLAs offered with Flexible Server, go to [Azure Database for PostgreSQL SLAs](https://azure.microsoft.com/support/legal/sla/postgresql).
-
 ### Create an Azure Database for PostgreSQL - Flexible Server with availability zone enabled
 
 To learn how to create an Azure Database for PostgreSQL - Flexible Server for high availability with availability zones, see [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server in the Azure portal](/azure/postgresql/flexible-server/quickstart-create-server-portal).
