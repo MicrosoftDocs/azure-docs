@@ -225,7 +225,7 @@ The following table lists the fields in the schema and what they signify.
 | **BytesDestToSrc** | Represents bytes sent from the destination to the source of the flow | Populated only for the Version 2 of NSG flow log schema. |
 | **BytesSrcToDest** | Represents bytes sent from the source to the destination of the flow | Populated only for the Version 2 of NSG flow log schema. |
 | **CompletedFlows** | - | Populated with nonzero value only for the Version 2 of NSG flow log schema. |
-| **SrcPublicIPs** | <SOURCE_PUBLIC_IP>\|\<FLOW_STARTED_COUNT> \|\<FLOW_ENDED_COUNT> \|\<OUTBOUND_PACKETS> \|\<INBOUND_PACKETS> \|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
+| **SrcPublicIPs** | <SOURCE_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT> \|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
 | **DestPublicIPs** | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
 | **FlowEncryption** | - Encrypted <br>- Unencrypted <br>- Unsupported hardware <br>- Software not ready <br>- Drop due to no encryption <br>- Discovery not supported <br>- Destination on same host <br>- Fall back to no encryption. | Encryption level of flows.  |
 
