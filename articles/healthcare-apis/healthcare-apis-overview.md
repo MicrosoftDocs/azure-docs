@@ -2,7 +2,7 @@
 title: What is Azure Health Data Services?
 description: This article is an overview of Azure Health Data Services. 
 services: healthcare-apis
-author: mikaelweave
+author: shellyhaverkamp
 ms.service: healthcare-apis
 ms.topic: overview
 ms.date: 06/03/2022
@@ -45,12 +45,12 @@ Azure Health Data Services and Azure API for FHIR are two different offerings fr
 
 ## Next steps
 
-To work with Azure Health Data Services, first you need to deploy an [Azure workspace](workspace-overview.md). 
+To work with Azure Health Data Services, first you need to create an [Azure workspace](workspace-overview.md). 
 
 Follow the steps in this quickstart guide:
 
 > [!div class="nextstepaction"]
-> [Deploy a workspace](healthcare-apis-quickstart.md)
+> [Create a workspace](healthcare-apis-quickstart.md)
 
 
 

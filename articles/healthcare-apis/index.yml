@@ -35,16 +35,17 @@ conceptualContent:
               text: Create an Azure resource
             - url: ./healthcare-apis-quickstart.md 
               itemType: how-to-guide
-              text: Deploy your workspace
-            - url: ./authentication-authorization.md
-              itemType: how-to-guide
-              text: Set up access permissions
+              text: Deploy Azure Health Data Services
             - url: ./register-application.md
               itemType: how-to-guide
               text: Register your application
-            - url: ./register-application.md
+            - url: ./authentication-authorization.md
               itemType: how-to-guide
-              text: etc.
+              text: Set up user access and permissions 
+            
+            - url: ./authentication-authorization.md
+              itemType: how-to-guide
+              text: Grant managed identity permissions
          
         # Card
         - title: Health data and PHI
@@ -57,7 +58,7 @@ conceptualContent:
               text: Create a workspace
             - url: ./fhir/fhir-portal-quickstart
               itemType: how-to-guide
-              text: Deploy a FHIR service
+              text: Deploy the FHIR service
             - url: ./fhir/use-postman.md
               itemType: how-to-guide
               text: Configure settings
@@ -70,9 +71,9 @@ conceptualContent:
             - url: ./dicom/dicom-services-overview.md
               itemType: overview
               text: DICOM service overview
-            - url: ./file2.md OR /file2
+            - url: ../dicom/deploy-dicom-services-in-azure.md
               itemType: how-to-guide
-              text: linktext2
+              text: Deploy the DICOM service
             - url: ./file3.md OR /file3
               itemType: how-to-guide
               text: linktext3
@@ -88,18 +89,18 @@ conceptualContent:
             - url: ./iot/overview.md
               itemType: overview
               text: MedTech service overview
-            - url: ./file2.md OR /file2
+            - url: ./iot/          
               itemType: how-to-guide
-              text: linktext2
-            - url: ./file3.md OR /file3
+              text: Choose a deployment method
+            - url: ./iot/how-to-use-monitoring-and-health-checks-tabs.md
               itemType: how-to-guide
-              text: linktext3  
-            - url: ./file4.md OR /file4
+              text: Monitor service health in Azure portal 
+            - url: ./iot/how-to-use-mapping-debugger.md
               itemType: how-to-guide
-              text: linktext4  
-            - url: ./file5.md OR /file5
+              text: Troubleshoot with the mapping debugger 
+            - url: ./iot/
               itemType: how-to-guide
-              text: linktext5     
+              text: Troubleshoot service log errors   
 
         # Card
         - title: Automate and optimize FHIR data workflows
