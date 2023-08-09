@@ -1,17 +1,11 @@
 ---
 title: 'Tutorial: Restrict access to PaaS resources with service endpoints - Azure portal'
 description: In this tutorial, you learn how to limit and restrict network access to Azure resources, such as an Azure Storage, with virtual network service endpoints using the Azure portal.
-documentationcenter: virtual-network
 author: asudbring
 ms.author: allensu
-manager: kumudD
-tags: azure-resource-manager
-services: virtual-network
 ms.service: virtual-network
 ms.topic: tutorial
-ms.tgt_pltfrm: virtual-network
-ms.workload: infrastructure
-ms.date: 06/29/2022
+ms.date: 08/08/2023
 ms.custom: template-tutorial
 # Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ---
@@ -32,139 +26,112 @@ In this tutorial, you learn how to:
 
 This tutorial uses the Azure portal. You can also complete it using the [Azure CLI](tutorial-restrict-network-access-to-resources-cli.md) or [PowerShell](tutorial-restrict-network-access-to-resources-powershell.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 ## Prerequisites
 
-- An Azure subscription
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Create a virtual network
-
-1. From the Azure portal menu, select **+ Create a resource**.
-
-1. Search for *Virtual Network*, and then select **Create**.
-
-    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-resources.png" alt-text="Screenshot of search for virtual network in create a resource page.":::    
-
-1. On the **Basics** tab, enter the following information and then select **Next: IP Addresses >**. 
-
-   | Setting | Value |
-   |----|----|
-   | Subscription | Select your subscription. |
-   | Resource group | Select **Create new** and enter *myResourceGroup*.|
-   | Name | Enter *myVirtualNetwork*. |
-   | Region | Select **East US** |
-
-    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png" alt-text="Screenshot of basics tab for create a virtual network.":::  
-
-1. On the **IP Addresses** tab, select the following IP address settings and then select **Review + create**.
-   
-   | Setting | Value |
-   | --- | --- |
-   | IPv4 address space| Leave as default. |
-   | Subnet name | Select **default** and change the subnet name to "Public". |
-   | Subnet Address Range | Leave as default. |
-
-    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-virtual-network-ip-addresses.png" alt-text="Screenshot of IP addresses tab for create a virtual network.":::  
-
-1. If the validation checks pass, select **Create**.
-
-1. Wait for the deployment to finish, then select **Go to resource** or move on to the next section. 
+[!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
 
 ## Enable a service endpoint
 
-Service endpoints are enabled per service, per subnet. To create a subnet and enable a service endpoint for the subnet:
+Service endpoints are enabled per service, per subnet. 
 
-1. If you're not already on the virtual network resource page, you can search for the newly created virtual network in the box at the top of the portal. Enter *myVirtualNetwork*, and select it from the list.
+1. In the search box at the top of the portal page, search for **Virtual network**. Select **Virtual networks** in the search results.
 
-1. Select **Subnets** under **Settings**, and then select **+ Subnet**, as shown:
+1. In **Virtual networks**, select **vnet-1**.
 
-    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/add-subnet.png" alt-text="Screenshot of adding subnet to an existing virtual network.":::
+1. In the **Settings** section of **vnet-1**, select **Subnets**.
 
-1. On the **Add subnet** page, enter or select the following information, and then select **Save**:
+1. Select **+ Subnet**.
 
-    | Setting |Value |
+1. On the **Add subnet** page, enter or select the following information:
+
+    | Setting | Value |
     | --- | --- |
-    | Name | Private |
-    | Subnet address range | Leave as default|
-    | Service endpoints | Select **Microsoft.Storage**|
-    | Service endpoint policies | Leave default. *0 selected*. |
+    | Name | **subnet-private** |
+    | Subnet address range | Leave the default of **10.0.2.0/24**. |
+    | **SERVICE ENDPOINTS** |  |
+    | Services| Select **Microsoft.Storage**|
 
-    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/add-subnet-settings.png" alt-text="Screenshot of add a subnet page with service endpoints configured.":::  
+1. Select **Save**.
 
 > [!CAUTION]
 > Before enabling a service endpoint for an existing subnet that has resources in it, see [Change subnet settings](virtual-network-manage-subnet.md#change-subnet-settings).
 
 ## Restrict network access for a subnet
 
-By default, all virtual machine instances in a subnet can communicate with any resources. You can limit communication to and from all resources in a subnet by creating a network security group, and associating it to the subnet:
+By default, all virtual machine instances in a subnet can communicate with any resources. You can limit communication to and from all resources in a subnet by creating a network security group, and associating it to the subnet.
 
-1. In the search box at the top of the Azure portal, search for **Network security groups**.
+1. In the search box at the top of the portal page, search for **Network security group**. Select **Network security groups** in the search results.
 
-    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/search-network-security-groups.png" alt-text="Screenshot of searching for network security groups.":::  
+1. In **Network security groups**, select **+ Create**.
 
-1. On the *Network security groups* page, select **+ Create**.
+1. In the **Basics** tab of **Create network security group**, enter or select the following information:
 
-    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/network-security-groups-page.png" alt-text="Screenshot of network security groups landing page."::: 
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg**. |
+    | **Instance details** |  |
+    | Name | Enter **nsg-1**. |
+    | Region | Select **East US 2**. |
 
-1. Enter or select the following information:
+1. Select **Review + create**, then select **Create**.
 
-    |Setting|Value|
-    |----|----|
-    |Subscription| Select your subscription|
-    |Resource group | Select *myResourceGroup* from the list|
-    |Name| Enter **myNsgPrivate** |
-    |Location| Select **East US** |
+###  Create NSG rules
 
-1. Select **Review + create**, and when the validation check is passed, select **Create**.
+1. In the search box at the top of the portal page, search for **Network security group**. Select **Network security groups** in the search results.
 
-    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-nsg-page.png" alt-text="Screenshot of create a network security group page.":::
+1. Select **nsg-1**.
 
-1. After the network security group is created, select **Go to resource** or search for *myNsgPrivate* at the top of the Azure portal.
+1. Select **Outbound security rules** in ***Settings**.
 
-1. Select **Outbound security rules** under *Settings* and then select **+ Add**.
+1. Select **+ Add**.
 
-    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-outbound-rule.png" alt-text="Screenshot of adding outbound security rule." lightbox="./media/tutorial-restrict-network-access-to-resources/create-outbound-rule-expanded.png":::
+1. Create a rule that allows outbound communication to the Azure Storage service. Enter or select the following information in **Add outbound security rule**:
 
-1. Create a rule that allows outbound communication to the Azure Storage service. Enter, or select, the following information, and then select **Add**:
-
-    |Setting|Value|
-    |----|----|
-    |Source| Select **Service Tag** |
-    |Source service tag | Select **VirtualNetwork** |
-    |Source port ranges| * |
-    |Destination | Select **Service Tag**|
-    |Destination service tag | Select **Storage**|
-    |Service | Leave default as *Custom*. |
-    |Destination port ranges| Change to *445*. SMB protocol is used to connect to a file share created in a later step. |
-    |Protocol|Any|
-    |Action|Allow|
-    |Priority|100|
-    |Name|Rename to **Allow-Storage-All**|
+    | Setting | Value |
+    | ------- | ----- |
+    | Source | Select **Service Tag**. |
+    | Source service tag | Select **VirtualNetwork**. |
+    | Source port ranges | Leave the default of **\***. |
+    | Destination | Select **Service Tag**. |
+    | Destination service tag | Select **Storage**. |
+    | Service | Leave default of **Custom**. |
+    | Destination port ranges | Enter **445**. </br> SMB protocol is used to connect to a file share created in a later step. |
+    | Protocol | Select **Any**. |
+    | Action | Select **Allow**. |
+    | Priority | Leave the default of **100**. |
+    | Name | Enter **allow-storage-all**. |
 
     :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-outbound-storage-rule.png" alt-text="Screenshot of creating an outbound security to access storage.":::
 
-1. Create another outbound security rule that denies communication to the internet. This rule overrides a default rule in all network security groups that allows outbound internet communication. Complete steps 6-9 from above using the following values and then select **Add**:
+1. Select **Add**.
 
-    |Setting|Value|
-    |----|----|
-    |Source| Select **Service Tag** |
-    |Source service tag | Select **VirtualNetwork** |
-    |Source port ranges| * |
-    |Destination | Select **Service Tag**|
-    |Destination service tag| Select **Internet**|
-    |Service| Leave default as *Custom*. |
-    |Destination port ranges| * |
-    |Protocol|Any|
-    |Action| Change default to **Deny**. |
-    |Priority|110|
-    |Name|Change to **Deny-Internet-All**|
+1. Create another outbound security rule that denies communication to the internet. This rule overrides a default rule in all network security groups that allows outbound internet communication. Complete the previous steps with the following values in **Add outbound security rule**:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Source | Select **Service Tag**. |
+    | Source service tag | Select **VirtualNetwork**. |
+    | Source port ranges | Leave the default of **\***. |
+    | Destination | Select **Service Tag**. |
+    | Destination service tag | Select **Internet**. |
+    | Service | Leave default of **Custom**. |
+    | Destination port ranges | Enter **\***. |
+    | Protocol | Select **Any**. |
+    | Action | Select **Deny**. |
+    | Priority | Leave the default **110**. |
+    | Name | Enter **deny-internet-all**. |
 
     :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-outbound-internet-rule.png" alt-text="Screenshot of creating an outbound security to block internet access.":::
+
+1. Select **Add**.
 
 1. Create an *inbound security rule* that allows Remote Desktop Protocol (RDP) traffic to the subnet from anywhere. The rule overrides a default security rule that denies all inbound traffic from the internet. Remote desktop connections are allowed to the subnet so that connectivity can be tested in a later step. Select **Inbound security rules** under *Settings* and then select **+ Add**.
 

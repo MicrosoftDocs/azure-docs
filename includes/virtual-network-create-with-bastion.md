@@ -16,7 +16,7 @@ The following procedure creates a virtual network with a resource subnet, an Azu
 
 1. In the portal, search for and select **Virtual networks**.
 
-1. On the **Virtual networks** page, select **Create**.
+1. On the **Virtual networks** page, select **+ Create**.
 
 1. On the **Basics** tab of **Create virtual network**, enter or select the following information:
 
