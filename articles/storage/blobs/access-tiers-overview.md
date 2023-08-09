@@ -195,7 +195,7 @@ Changing the access tier for a blob when versioning is enabled, or if the blob h
 
 ## Cold tier
 
-The cold tier is now generally available.
+The cold tier is now generally available in all public and Azure Government regions except Poland Central and Qatar Central.
 
 ### Limitations and known issues
 
