@@ -58,7 +58,7 @@ Azure Database for PostgreSQL - Flexible Server supports both [zone-redundant an
 - The **zonal** deployment option is available in all [Azure regions](../postgresql/flexible-server/overview.md#azure-regions) where you can deploy Flexible Server. 
 
 
-### Features
+### High availability features
 
 * A standby replica is deployed in the same VM configuration - including vCores, storage, network settings - as the primary server.
 
@@ -80,7 +80,7 @@ Azure Database for PostgreSQL - Flexible Server supports both [zone-redundant an
   
 * Periodic maintenance activities such as minor version upgrades happen at the standby first and the service failed to reduce downtime.  
 
-### Limitations
+### High availability limitations
 
 * Due to synchronous replication to the standby server, especially with a zone-redundant configuration, applications can experience elevated write and commit latency.
 
