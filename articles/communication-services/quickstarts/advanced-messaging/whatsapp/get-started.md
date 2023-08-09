@@ -19,7 +19,7 @@ Azure Communication Services now enables you to send and receive WhatsApp messag
 ## Prerequisites
 
 - [Azure Communication Services resource](../../create-communication-resource.md)
-- [Connecting a WhatsApp Business Account](../../../quickstarts/advanced-messaging/whatsapp/connecting-whatsapp-business-account.md)
+- [Connecting a WhatsApp Business Account](../../../quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account.md)
 - Active WhatsApp Phone Number
 
 [!INCLUDE [Send WhatsApp Messages with .NET](./includes/get-started/messages-get-started-net.md)]
