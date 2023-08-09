@@ -319,7 +319,7 @@ To configure a certificate for an accelerator, open the **Accelerators** section
 Use the following command to configure a certificate for the accelerator:
 
 ```azurecli
-az spring application-accelerator customized-accelerator add \
+az spring application-accelerator customized-accelerator create \
     --resource-group <resource-group-name> \
     --service <service-instance-name> \
     --name <customized-accelerator-name> \
