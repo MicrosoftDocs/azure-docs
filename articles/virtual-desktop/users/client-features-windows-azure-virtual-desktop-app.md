@@ -208,9 +208,9 @@ You can view your remote desktops and apps as either a tile view (default) or li
 
 1. If you want to switch to Tile view, select **List**, then select **Tile view**.
 
-## Enable Windows Insider releases
+## Enable Insider releases
 
-If you want to help us test new builds before they're released, you should download our Insider releases. Organizations can use the Insider releases to validate new versions for their users before they're generally available.
+If you want to help us test new builds of the Azure Virtual Desktop app before they're released, you should download our Insider releases. Organizations can use the Insider releases to validate new versions for their users before they're generally available.
 
 > [!NOTE]
 > Insider releases shouldn't be used in production.
