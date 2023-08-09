@@ -192,7 +192,7 @@ items:
     - name: WhatsApp
       items:
         - name: Register WhatsApp Business Account
-          href: quickstarts/advanced-messaging/whatsapp/connecting-whatsapp-business-account.md
+          href: quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account.md
         - name: Send WhatsApp Messages
           href: quickstarts/advanced-messaging/whatsapp/get-started.md
         - name: Handle Advanced Messaging Events
@@ -997,7 +997,7 @@ items:
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-identity
   - name: Advanced Messaging
     items:
-    - name: Advanced Messaging (.Net)
+    - name: Advanced Messaging (.NET)
       href: https://azure.github.io/azure-sdk-for-net/communication.html#azure-communication-messages
   - name: Common 
     items:

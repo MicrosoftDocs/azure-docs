@@ -18,13 +18,13 @@ Getting started to enable Contoso developers to try out the Advanced Messaging f
 ## Prerequisites 
 
 - [Create an Azure Communication Services resource](../../create-communication-resource.md).
-- [WhatsApp enabled phone number]()
+- WhatsApp enabled phone number.
 
-## Setting up
+## Set up
 
 1. Go to the Azure Communication Service Resource in the Azure portal.
 
-:::image type="content" source="./media/whatsapp-sandbox/acs-resource.png" alt-text="Screenshot that shows Azure Communication Service Resource in Azure portal.":::
+:::image type="content" source="./media/whatsapp-sandbox/communication-resource.png" alt-text="Screenshot that shows Azure Communication Services Resource in Azure portal.":::
 
 2. Select **Try Advanced Messaging**.  
 

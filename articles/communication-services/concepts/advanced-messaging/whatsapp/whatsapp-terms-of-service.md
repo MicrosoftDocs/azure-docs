@@ -1,5 +1,5 @@
 ---
-title: Advanced Messaging for WhatsApp data transfer and independent terms of services
+title: Advanced Messaging for WhatsApp data transfer and independent terms of service
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Service WhatsApp terms of service concepts.
 author: darmour
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Advanced Messaging for WhatsApp Data Transfer and Independent Terms of Services
+# Advanced Messaging for WhatsApp data transfer and independent terms of service
 
 To enable the WhatsApp feature in Azure Communication Services, you need to create or connect a WhatsApp Business Account and agree to the Meta Cloud API and WhatsApp Terms of Service ("Meta Terms"). When you use the WhatsApp feature in Azure Communication Services, your data is transferred from one service to the other, and the respective terms govern the handling of that data. [Microsoft Product Terms](https://www.microsoft.com/licensing/terms) governs the Azure Communication Services. [Meta Terms](https://www.facebook.com/legal/Meta-Hosting-Terms-Cloud-API)  governs the WhatsApp Service. You should be aware of differences between the Meta Terms and Microsoft Terms in subject matters, including but not limited to privacy, compliance and data handling.
 
@@ -21,7 +21,7 @@ WhatsApp data follows the data handling policy defined in the Meta Terms, which 
 
 ## Service Level Agreement
 
-Azure Communication Services provides an SLA for its customers as outlined in the Azure Terms. Once data is transferred to WhatsApp, it follows the services levels detailed in the Meta Terms.
+Azure Communication Services provides an SLA for its customers as outlined in the Azure Terms. Once data is transferred to WhatsApp, it follows the service levels detailed in the Meta Terms.
 
 ## HIPAA
 

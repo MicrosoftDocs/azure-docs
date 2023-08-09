@@ -47,7 +47,7 @@ To get started, you connect a new or existing WhatsApp Business Account with you
 
 10. After signing in, you see the Getting Started screen.
 
-    :::image type="content" source="../../media/register-whatsapp-account/registering-whatsapp-account.png" alt-text="Screenshot that shows Getting started with registering WhatsApp Business account with Azure.":::
+    :::image type="content" source="../../media/register-whatsapp-account/register-whatsapp-account-wizard.png" alt-text="Screenshot that shows Getting started with registering WhatsApp Business account with Azure.":::
 
 11. Select the **Get Started** button. The next screen summarizes the permissions you'll be granting Azure Communication Services to manage your WhatsApp Business Account.
 

@@ -47,7 +47,7 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
 
 4.  After the deployment completes, select on the App Service resource to open it.
 
-    :::image type="content" source="./media/handle-advanced-messaging-events/event-viewer-webapp.png" alt-text="Screenshot that shows Events Viewer web app.":::
+    :::image type="content" source="./media/handle-advanced-messaging-events/event-viewer-web-app.png" alt-text="Screenshot that shows Events Viewer web app.":::
 
 5.  On the resource overview page, select on the copy button next to the "Default Domain" property.
 
@@ -64,19 +64,19 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
 
 2.  Fill in the details for the new event subscription:
 
-    1.  Subscription name.
+    -  Subscription name.
 
-    1.  System topic name - Enter a unique name, unless this name is already prefilled with a topic from your subscription.
+    -  System topic name - Enter a unique name, unless this name is already prefilled with a topic from your subscription.
 
-    1.  Event types - Select the two Advanced messaging events from the list.
+    -  Event types - Select the two Advanced messaging events from the list.
 
         :::image type="content" source="./media/handle-advanced-messaging-events/create-event-subscription.png" alt-text="Screenshot that shows create event subscription properties.":::
 
-    1.  For endpoint type, select **"Webhook"** and enter the URL for the Event Grid Viewer we created in the "Setup Event Grid Viewer" step with the path "/api/updates" appended. For example: https://{{site-name}}.azurewebsites.net/api/updates.
+    -  For endpoint type, select **"Webhook"** and enter the URL for the Event Grid Viewer we created in the "Setup Event Grid Viewer" step with the path "/api/updates" appended. For example: https://{{site-name}}.azurewebsites.net/api/updates.
 
-        :::image type="content" source="./media/handle-advanced-messaging-events/event-webhook-details.png" alt-text="Screenshot that shows to update webhook url of event subscription to receive events.":::
+        :::image type="content" source="./media/handle-advanced-messaging-events/event-webhook-details.png" alt-text="Screenshot that shows how to update webhook url of event subscription to receive events.":::
 
-    1.  select **Create**.
+    -  Select **Create**.
 
 3.  Now if you navigate back to the "Events" option in left panel of your ACS resource, you should be able to see the new event subscription with the Advanced Messaging events.
 

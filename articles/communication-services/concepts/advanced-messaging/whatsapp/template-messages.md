@@ -46,7 +46,7 @@ You can also view your templates by listing all templates for your channelID:
 
 [!INCLUDE [Template examples with .NET](./includes/template-messages-examples-net.md)]
 
-## Next Steps
+## Next steps
 
 -   [Get Started With Advanced Communication Messages SDK](../../../quickstarts/advanced-messaging/whatsapp/get-started.md)
 

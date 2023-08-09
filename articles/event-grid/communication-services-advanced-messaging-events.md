@@ -11,7 +11,7 @@ ms.author: shamkh
 
 This article provides the properties and schema for communication services advanced messaging events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
-## Events types
+## Event types
 
 Azure Communication Services emits the following Advanced Messaging event types:
 

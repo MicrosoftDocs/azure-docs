@@ -15,8 +15,8 @@ ms.service: azure-communication-services
 
 Get started with the Azure Communication Services Advanced Messaging, which extends messaging to users on WhatsApp. This feature allows your organization to send and receive messages with WhatsApp users using a WhatsApp Business Account. The Advanced Communication Messages SDK extends your communications to interact with the large global WhatsApp community for common scenarios:
 
--   Receiving inquiries from your customers for product feedback or support, price quotes, and rescheduling appointments.
--   Sending your customer's notifications like appointment reminders, product discounts, transaction receipts, and one-time passcodes.
+-   Receive inquiries from your customers for product feedback or support, price quotes, and reschedule appointments.
+-   Send your customer's notifications like appointment reminders, product discounts, transaction receipts, and one-time passcodes.
 
 ## Prerequisites
 
@@ -33,25 +33,25 @@ Get started with the Azure Communication Services Advanced Messaging, which exte
 ## WhatsApp business account sign-up
 [!INCLUDE [WhatsApp Signup](./includes/register-whatsapp-account/whatsapp-signup.md)]
 
-## Selecting Meta business account
+## Select Meta business account
 [!INCLUDE [Add WhatsApp Business Account](./includes/register-whatsapp-account/create-new-meta-business-account.md)]
 
-## Selecting WhatsApp business profile
+## Select WhatsApp business profile
 
 1. Now that you have selected Meta Business Account, you need to **create/select** a WhatsApp Business profile. Fill out the required information.
 
-:::image type="content" source="./media/register-whatsapp-account/whatsapp-business-account-details.png" alt-text="Screenshot that shows Providing WhatsApp Business account details.":::
+:::image type="content" source="./media/register-whatsapp-account/whatsapp-business-account-details.png" alt-text="Screenshot that shows WhatsApp Business account details.":::
 
 2. Once you have completed the form, click **Next** to continue.
 
 ## Verify your WhatsApp business number
 [!INCLUDE [Verify WhatsApp Business Phonenumber](./includes/register-whatsapp-account/verify-phone-number.md)]
 
-## Viewing your WhatsApp account in the Azure Communication Services Resource
+## View your WhatsApp account in the Azure Communication Services Resource
 
 You see the account and status listed in the Azure portal along with the other WhatsApp Business accounts that you have connected to Azure Communication Services. Once approved, you can use the WhatsApp Business account to send and receive messages. The status of your WhatsApp Business account is displayed in the Azure portal. Meta reviews your business’s display name. You can learn more about this review process and how to update your business account’s display name in the article this article: [About WhatsApp Business display name](https://www.facebook.com/business/help/338047025165344).
 
-:::image type="content" source="./media/register-whatsapp-account/list-whatsapp-accounts.png" alt-text="Screenshot that shows Listing your WhatsApp accounts in the Azure portal.":::
+:::image type="content" source="./media/register-whatsapp-account/list-whatsapp-accounts.png" alt-text="Screenshot that shows List your WhatsApp accounts in the Azure portal.":::
 
 When you no longer want to use the WhatsApp Business account with Azure Communication Services, you can select the account and click the **Disconnect** button. This option disconnects the account from Azure Communication Services but doesn't delete the account and the account can be reconnected later.
 
@@ -63,9 +63,9 @@ Provide the company details to be used in your Meta Business Account then click 
 -  Business Email: You can use the email associated with your Facebook login.
 -  Business Phone Number: The phone number that customers can use to contact you.
     
-:::image type="content" source="./media/register-whatsapp-account/creating-new-business-account.png" alt-text="Screenshot that shows Filling out the details of your Meta Business account.":::
+:::image type="content" source="./media/register-whatsapp-account/create-new-business-account.png" alt-text="Screenshot that shows Filling out the details of your Meta Business account.":::
 
-Once Business account is created, please continue with [**Setting up WhatsApp Profile**](#selecting-whatsapp-business-profile) step.
+Once Business account is created, please continue with [**Set up WhatsApp Profile**](#select-whatsapp-business-profile) step.
 
 > [!NOTE]
 > More details on how-to and required information on Meta Business Account can be found [Here](https://www.facebook.com/business/tools/meta-business-suite)
