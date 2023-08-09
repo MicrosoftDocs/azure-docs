@@ -66,5 +66,5 @@ The following examples compare **February 4, 2019 16:00 UTC** and **March 5, 201
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`DateTimeBin`](datetimebin.md)

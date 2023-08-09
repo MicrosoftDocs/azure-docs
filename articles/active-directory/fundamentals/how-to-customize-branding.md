@@ -9,16 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 07/13/2023
+ms.date: 08/09/2023
 ms.author: sarahlipsey
 ms.reviewer: almars
-ms.custom: "it-pro, seodec18, fasttrack-edit"
-ms.collection: M365-identity-device-management
 ---
 
 # Configure your company branding
 
-When users authenticate into your corporate intranet or web-based applications, Azure Active Directory (Azure AD) provides the identity and access management (IAM) service. You can add company branding that applies to all these sign-in experiences to create a consistent experience for your users.
+When users authenticate into your corporate intranet or web-based applications, Azure Active Directory (Azure AD) provides the identity and access management (IAM) service. You can add company branding that applies to all these experiences to create a consistent sign-in experience for your users.
 
 The default sign-in experience is the global look and feel that applies across all sign-ins to your tenant. Before you customize any settings, the default Microsoft branding appears in your sign-in pages. You can customize this default experience with a custom background image and/or color, favicon, layout, header, and footer. You can also upload a custom CSS.
 
@@ -42,7 +40,7 @@ The **Global Administrator** role is required to customize company branding.
 
 ## Before you begin
 
-**All branding elements are optional. Default settings will remain, if left unchanged.** For example, if you specify a banner logo but no background image, the sign-in page shows your logo with a default background image from the destination site such as Microsoft 365. Additionally, sign-in page branding doesn't carry over to personal Microsoft accounts. If your users or guests authenticate using a personal Microsoft account, the sign-in page won't reflect the branding of your organization.
+**All branding elements are optional. Default settings will remain, if left unchanged.** For example, if you specify a banner logo but no background image, the sign-in page shows your logo with a default background image from the destination site such as Microsoft 365. Additionally, sign-in page branding doesn't carry over to personal Microsoft accounts. If your users or guests authenticate using a personal Microsoft account, the sign-in page doesn't reflect the branding of your organization.
 
 **Images have different image and file size requirements.** Take note of the image requirements for each option. You may need to use a photo editor to create the right size images. The preferred image type for all images is PNG, but JPG is accepted. 
 
@@ -58,14 +56,14 @@ The branding elements are called out in the following example. Text descriptions
 1. **Page background color**: The entire space behind the sign-in box.
 1. **Banner logo**: The logo that appears in the upper-left corner of the sign-in box.
 1. **Username hint and text**: The text that appears before a user enters their information.
-1. **Sign-in page text**: Additional text you can add below the username field.
+1. **Sign-in page text**: Text you can add below the username field.
 1. **Self-service password reset**: A link you can add below the sign-in page text for password resets.
 1. **Template**: The layout of the page and sign-in boxes.
 1. **Footer**: Text in the lower-right corner of the page where you can add Terms of use or privacy information.
 
 ### User experience
 
-When customizing the sign-in pages that users see when accessing your organization's tenant-specific applications, there are some user experience scenarios you may need to consider.
+There are some scenarios you to consider when you customize the sign-in pages for your organization's tenant-specific applications.
 
 For Microsoft, Software as a Service (SaaS), and multi-tenant applications such as <https://myapps.microsoft.com>, or <https://outlook.com>, the customized sign-in page appears only after the user types their **Email** or **Phone number** and selects the **Next** button. 
 
@@ -73,7 +71,7 @@ Some Microsoft applications support [Home Realm Discovery](../manage-apps/home-r
 
 For customers who access applications from a custom URL, the `whr` query string parameter, or a domain variable, can be used to apply company branding at the initial sign-in screen, not just after adding the email or phone number. For example, `whr=contoso.com` would appear in the custom URL for the app. With the Home Realm Discover and domain parameter included, the company branding appears immediately in the first sign-in step. Other domain hints can be included.
 
-In the following examples replace the contoso.com with your own tenant name, or verified domain name:
+In the following examples, replace the contoso.com with your own tenant name, or verified domain name:
 
 - For Microsoft Outlook `https://outlook.com/contoso.com` 
 - For SharePoint online `https://contoso.sharepoint.com`
@@ -85,7 +83,9 @@ In the following examples replace the contoso.com with your own tenant name, or 
 
 ## How to navigate the company branding process
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global Administrator account for the directory.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global Administrator account for the directory.
 
 2. Go to **Azure Active Directory** > **Company branding** > **Customize**.
     - If you currently have a customized sign-in experience, the **Edit** button is available.
@@ -102,7 +102,7 @@ The sign-in experience process is grouped into sections. At the end of each sect
 
     ![Screenshot of sample favicons in a web browser.](media/how-to-customize-branding/favicon-example.png)
 
-- **Background image**: Select a PNG or JPG to display as the main image on your sign-in page. This image scales and crops according to the window size, but may be partially blocked by the sign-in prompt.
+- **Background image**: Select a PNG or JPG to display as the main image on your sign-in page. This image scales and crops according to the window size, but the sign-in prompt may partially block it.
 
 - **Page background color**: If the background image isn't able to load because of a slower connection, your selected background color appears instead.
 
@@ -181,9 +181,9 @@ Once your default sign-in experience is created, select the **Edit** button to m
 
 ## Customize the sign-in experience by browser language
 
-To create an inclusive experience for all of your users, you can customize the sign-in experience based on browser language.
+You can create a personalized sign-in experience for users who sign in using a specific browser language by customizing the branding elements for that browser language. This customization overrides any configurations made to the default branding. If you don't make any changes to the elements, the default elements are displayed.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global Administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global Administrator account for the directory.
 
 2. Go to **Azure Active Directory** > **Company branding** > **Add browser language**.
 
