@@ -1241,6 +1241,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-video-indexer/observed-people-tracing.md",
+            "redirect_url": "/azure/azure-video-indexer/observed-people-tracking",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cloudfoundry/index.yml",
             "redirect_url": "https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html",
             "redirect_document_id": false
