@@ -11,7 +11,7 @@ ms.date: 08/07/2023
 # External storage solutions (preview) 
 
 > [!NOTE] 
-> By using Pure Cloud Block Store, you agree to following [Microsoft’s supplemental Terms of Use](https://azure.microsoft.com /support/legal/preview-supplemental-terms/). It is advised NOT to run production workloads with preview features. 
+> By using Pure Cloud Block Store, you agree to the following [Microsoft supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It is advised NOT to run production workloads with preview features. 
 
 ## External storage solutions for Azure VMware Solution (preview) 
 
