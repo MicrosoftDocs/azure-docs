@@ -201,15 +201,15 @@ The following table lists the fields in the schema and what they signify.
 | **SecNIC** | <resourcegroup_Name>/\<NetworkInterfaceName> | NIC associated with the source IP in the flow. |
 | **DestNIC** | <resourcegroup_Name>/\<NetworkInterfaceName> | NIC associated with the destination IP in the flow. |
 | **SrcVM** | <resourcegroup_Name>/\<VirtualMachineName> | Virtual machine associated with the source IP in the flow.  |
-| **DestVM** |<resourcegroup_Name>/\<VirtualMachineName> | Virtual machine associated with the destination IP in the flow. |
+| **DestVM** | <resourcegroup_Name>/\<VirtualMachineName> | Virtual machine associated with the destination IP in the flow. |
 | **SrcSubnet**  | <ResourceGroup_Name>/<VirtualNetwork_Name>/\<SubnetName> | Subnet associated with the source IP in the flow. |
 | **DestSubnet** | <ResourceGroup_Name>/<VirtualNetwork_Name>/\<SubnetName> | Subnet associated with the destination IP in the flow.  |
-| **SrcApplicationGateway** |\<SubscriptionID>/\<ResourceGroupName>/\<ApplicationGatewayName> | Application gateway associated with the source IP in the flow. |
-| **DestApplicationGateway** |\<SubscriptionID>/\<ResourceGroupName>/\<ApplicationGatewayName> | Application gateway associated with the destination IP in the flow. |
-| **SrcLoadBalancer**  |\<SubscriptionID>/\<ResourceGroupName>/\<LoadBalancerName> | Load balancer associated with the source IP in the flow. |
-| **DestLoadBalancer** |\<SubscriptionID>/\<ResourceGroupName>/\<LoadBalancerName> | Load balancer associated with the destination IP in the flow. |
-| **SrcLocalNetworkGateway**  |\<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Local network gateway associated with the source IP in the flow. |
-| **DestLocalNetworkGateway** |\<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Local network gateway associated with the destination IP in the flow. |
+| **SrcApplicationGateway** | \<SubscriptionID>/\<ResourceGroupName>/\<ApplicationGatewayName> | Application gateway associated with the source IP in the flow. |
+| **DestApplicationGateway** | \<SubscriptionID>/\<ResourceGroupName>/\<ApplicationGatewayName> | Application gateway associated with the destination IP in the flow. |
+| **SrcLoadBalancer**  | \<SubscriptionID>/\<ResourceGroupName>/\<LoadBalancerName> | Load balancer associated with the source IP in the flow. |
+| **DestLoadBalancer** | \<SubscriptionID>/\<ResourceGroupName>/\<LoadBalancerName> | Load balancer associated with the destination IP in the flow. |
+| **SrcLocalNetworkGateway**  | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Local network gateway associated with the source IP in the flow. |
+| **DestLocalNetworkGateway** | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Local network gateway associated with the destination IP in the flow. |
 | **ConnectionType** | Possible values are VNetPeering, VpnGateway, and ExpressRoute | The connection type. |
 | **ConnectionName** | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | The connection name. For flow type P2S, it's formatted as \<GatewayName>_\<VPNClientIP> |
 | **ConnectingVNets** | Space separated list of virtual network names. | In hub and spoke topology, hub virtual networks are populated here. |
@@ -225,6 +225,9 @@ The following table lists the fields in the schema and what they signify.
 | **BytesDestToSrc** | Represents bytes sent from the destination to the source of the flow | Populated only for the Version 2 of NSG flow log schema. |
 | **BytesSrcToDest** | Represents bytes sent from the source to the destination of the flow | Populated only for the Version 2 of NSG flow log schema. |
 | **CompletedFlows** | - | Populated with nonzero value only for the Version 2 of NSG flow log schema. |
+| **SrcPublicIPs** | <SOURCE_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
+| **DestPublicIPs** | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
+| **FlowEncryption** | - Encrypted <br>- Unencrypted <br>- Unsupported hardware <br>- Software not ready <br>- Drop due to no encryption <br>- Discovery not supported <br>- Destination on same host <br>- Fall back to no encryption. | Encryption level of flows. |
 
 > [!NOTE]
 > *NTANetAnalytics* in VNet flow logs replaces *AzureNetworkAnalytics_CL* used in NSG flow logs.
