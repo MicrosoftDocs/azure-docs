@@ -71,7 +71,7 @@ Once you have setup a TURN server, you can test it using the WebRTC Trickle ICE 
 
 ## Proxy signaling traffic
 
-To provide the URL of a proxy server, you need to pass it in as part of `CallClientOptions` while initializing the `CallClient`. For more details how to setup a call see [Azure Communication Services Web SDK](../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-web)) for the Quickstart on how to setup Voice and Video.
+To provide the URL of a proxy server, you need to pass it in as part of `CallClientOptions` while initializing the `CallClient`. For more details how to setup a call see [Azure Communication Services Web SDK](../../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-web)) for the Quickstart on how to setup Voice and Video.
 
 ```js
 import { CallClient } from '@azure/communication-calling'; 
