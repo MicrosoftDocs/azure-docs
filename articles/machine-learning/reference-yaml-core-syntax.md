@@ -213,7 +213,7 @@ Similar to the `command` for a job, the `command` for a component can also be pa
 
 #### Define optional inputs in command line
 When the input is set as `optional = true`, you need use `$[[]]` to embrace the command line with inputs. For example `$[[--input1 ${{inputs.input1}}]`. The command line at runtime may have different inputs.
-- If you are using only specify the required `training_data` and `model_output` parameters, the command line will look like:
+- If you are using only the required `training_data` and `model_output` parameters, the command line will look like:
 
 ```cli
 python train.py --training_data some_input_path --learning_rate 0.01 --learning_rate_schedule time-based --model_output some_output_path
