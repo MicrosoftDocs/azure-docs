@@ -363,7 +363,7 @@ To create a [custom role](../../role-based-access-control/custom-roles.md) that 
 
     1. Select the **JSON** tab > **Edit**:
 
-        1. In the `"actions"` section, add these actions:
+        1. Update the `"actions"` section to include these actions only:
 
             ```json
             "Microsoft.OperationalInsights/workspaces/read",
