@@ -6,13 +6,13 @@ There is a widely-used principle of "the 5 W's", Who, What, When, Where and Why 
 
 For example, if you were modelling the potential threat of someone burgling your home whilst you were on holiday you could define it as follows;
 
-|Element    |Scope
-|:---       |:---
-|**Who**     |(..are you protecting against?): A person who is not specifically entitled or authorised to enter your property.
-|**What**    |(..are you protecting against happening to?): Theft or vandalism of personal property.
-|**When**    |(..are you worried this may happen?): Whilst property is unattended for >24hrs
-|**Where**   |(..could this happen?): At my home, 1 Acacia Avenue, Londontown, UK.
-|**Why**     |(..are you worried about this, what is the impact?): Financial loss as a result of theft or vandalism of property.
+|Element    |Definition    |Scope
+|:---       |:---            |:---
+|**Who**     |..are you protecting against?|A person who is not specifically entitled or authorised to enter your property.
+|**What**    |..are you protecting against happening to?| Theft or vandalism of personal property.
+|**When**    |..are you worried this may happen?| Whilst property is unattended for >24hrs
+|**Where**   |..could this happen?| At my home, 1 Acacia Avenue, Londontown, UK.
+|**Why**     |..are you worried about this, what is the impact?| Financial loss as a result of theft or vandalism of property.
 
 This helps you to unambiguously define a potential threat. You can use this definition to develop suitable preventative measures to stop it happening, or, where maybe you can't fully prevent something develop a suitable mitigation to reduce the impact if the threat scenario occurs.
 
