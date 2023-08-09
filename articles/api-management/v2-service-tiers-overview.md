@@ -34,6 +34,11 @@ Currently in preview, the following v2 tiers are available:
 
 * **More options for production workloads** - The v2 tiers are all supported with an SLA. You can easily scale out in each tier or scale up to a higher tier as your production workloads grow.
 
+* **Consumption-based pricing** - The v2 tiers use a consumption-based pricing model, based on the number of API calls made through your API Management instance.
+
+    > [!NOTE]
+    > Currently, pricing specifics for the v2 tiers haven't been announced.
+
 <!-- Do we want to provide specifics about change to compute architecture
 ## Architecture
 -->
@@ -91,9 +96,6 @@ During preview, the following API Management capabilities are currently not avai
 * Multiple custom domain names
 * Deployment in a VNet in internal mode
 * Upgrade to v2 tiers from v1 tiers 
-
-> [!NOTE]
-> Currently, pricing details for the v2 tiers aren't available.
 
 
 ## Next steps
