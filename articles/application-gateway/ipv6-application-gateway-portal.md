@@ -5,7 +5,7 @@ description: Learn how to configure Application Gateway with a frontend private 
 services: application-gateway
 author: greg-lindsay
 ms.topic: how-to
-ms.date: 08/07/2023
+ms.date: 08/10/2023
 ms.author: greglin
 ms.service: application-gateway
 ms.custom: mvc, mode-ui
@@ -305,10 +305,10 @@ Previously, we assigned the DNS name **myipv6appgw.westcentralus.cloudapp.azure.
 1. Paste the DNS name into the address bar of your browser or click the following link to connect to it: [http://myipv6appgw.westcentralus.cloudapp.azure.com](http://myipv6appgw.westcentralus.cloudapp.azure.com).
 2. Check the response. A valid response verifies that the application gateway was successfully created and can successfully connect with the backend.
 
-   ![Test application gateway](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
+   ![Test the IPv6 connection](./media/application-gateway-create-gateway-portal-ipv6/ipv6-test-connection.png)
 
 > [!IMPORTANT]
-> If the connection to the DNS name or IPv6 address fails, you might not be able to browse IPv6 addresses from your device. Also test the IPv4 address of the application gateway. If this connects successfully, then it's likely you don't have IPv6-only browsing enabled on your device. To test the IPv6 connection, you can use an Azure virtual machine that is assigned a public IPv6 address.
+> If the connection to the DNS name or IPv6 address fails, it might be because you can't browse IPv6 addresses from your device. To check if this is your problem, also test the IPv4 address of the application gateway. If the IPv4 address connects successfully, then it's likely you don't have a public IPv6 address assigned to your device. Another way of testing the connection is to add a virtual machine to your dual-stack VNet, assign a public IPv6 address, and use this dual-stack VM for browsing IPv6 sites.
 
 ## Clean up resources
 
@@ -316,10 +316,10 @@ When you no longer need the resources that you created with the application gate
 
 To delete the resource group:
 
-1. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups*.
+1. On the Azure portal menu, select **Resource groups** or search for and select **Resource groups**.
 2. On the **Resource groups** page, search for **myResourceGroupAG** in the list, then select it.
 3. On the **Resource group page**, select **Delete resource group**.
-4. Enter *myResourceGroupAG* under **TYPE THE RESOURCE GROUP NAME** and then select **Delete**
+4. Enter **myResourceGroupAG** under **TYPE THE RESOURCE GROUP NAME** and then select **Delete**
 
 ## Unregister from the preview
 
@@ -338,11 +338,11 @@ To opt out of the public preview for the enhanced Application Gateway network co
 
     :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-menu.png" alt-text="Azure preview features menu.":::
 
-5. You see a list of available preview features and your current registration status.
+5. A list of available preview features with your current registration status is displayed.
 
     :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-list.png" alt-text="Azure portal list of preview features.":::
 
-6. From **Preview features** type into the filter box **AllowApplicationGatewayIPv6**, check the feature, and click **Unregister**.
+6. From **Preview features** type **AllowApplicationGatewayIPv6** into the filter box, select the feature, and select **Unregister**.
 
     :::image type="content" source="../azure-resource-manager/management/media/preview-features/filter.png" alt-text="Azure portal filter preview features.":::
 
