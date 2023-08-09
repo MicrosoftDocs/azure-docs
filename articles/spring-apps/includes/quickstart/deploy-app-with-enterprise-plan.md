@@ -26,7 +26,7 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ## [Visual Studio Code](#tab/visual-studio-code)
 
-Follow the steps in [Before you begin](https://code.visualstudio.com/docs/java/java-spring-apps#_before-you-begin) to prepare the Spring project.
+To prepare the Spring project, follow the steps in the [Before you begin](https://code.visualstudio.com/docs/java/java-spring-apps#_before-you-begin) section of [Java on Azure Spring Apps](https://code.visualstudio.com/docs/java/java-spring-apps).
 
 ---
 

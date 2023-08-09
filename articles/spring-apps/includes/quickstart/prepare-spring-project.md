@@ -14,6 +14,8 @@ For clarity of structure, a separate markdown file is used to describe how to pr
 
 -->
 
+Use the following steps to prepare the project:
+
 1. Use the following command to clone the [Spring Boot sample project for Azure](https://github.com/spring-guides/gs-spring-boot-for-azure.git) from GitHub.
 
    ```azurecli-interactive
@@ -26,7 +28,7 @@ For clarity of structure, a separate markdown file is used to describe how to pr
    cd gs-spring-boot-for-azure/complete
    ```
 
-1. Use the following [Maven](https://maven.apache.org/what-is-maven.html) command to build the project.
+1. Use the following [Maven](https://maven.apache.org/what-is-maven.html) command to build the project:
 
    ```azurecli-interactive
    ./mvnw clean package

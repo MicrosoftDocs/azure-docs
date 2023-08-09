@@ -14,7 +14,7 @@ To reuse the Spring Apps instance creation steps in other articles, a separate m
 
 -->
 
-1. Select Create a resource (+) in the upper-left corner of the portal.
+1. Select **Create a resource** in the corner of the Azure portal.
 
 1. Select **Compute** > **Azure Spring Apps**.
 
